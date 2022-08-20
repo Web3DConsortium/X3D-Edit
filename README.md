@@ -7,8 +7,7 @@ This is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 
 ## [NetBeans Platform Plugin Quick Start](https://netbeans.apache.org/tutorials/nbm-google.html)
 
-"Welcome to Apache NetBeans plugin development!"
-Important starter tutorial.  Initial problems: missing images links, at first appears old but tests OK.
+"Welcome to Apache NetBeans plugin development!"  Important starter tutorial.  Initial problems: missing images links, at first appears old but tests OK.
 
 * [Netbeans website source in github](https://github.com/apache/netbeans-website)
 
@@ -25,7 +24,9 @@ Important starter tutorial.  Initial problems: missing images links, at first ap
 
 * [NetBeans Issues](https://github.com/apache/netbeans/issues)
 
+* [Netbeans API References](https://netbeans.apache.org/kb/docs/platform.html#API)
 
+* [Top 10 NetBeans APIs](https://www.youtube.com/watch?v=FF5fvHbZxpk) dated but some nuggets found
 
 ### XML Editor Extension Module
 
