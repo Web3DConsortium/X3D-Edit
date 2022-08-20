@@ -2,12 +2,15 @@
 
 This is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 
-* [Netbeans website source in github](https://github.com/apache/netbeans-website)
+* [README.md](https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.md)
+* [README.md source](https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.md)
 
 ## [NetBeans Platform Plugin Quick Start](https://netbeans.apache.org/tutorials/nbm-google.html)
 
 "Welcome to Apache NetBeans plugin development!"
 Important starter tutorial.  Initial problems: missing images links, at first appears old but tests OK.
+
+* [Netbeans website source in github](https://github.com/apache/netbeans-website)
 
 * [Tutorial source](https://github.com/apache/netbeans-website/blob/master/netbeans.apache.org/src/content/tutorials/nbm-google.asciidoc)
 
