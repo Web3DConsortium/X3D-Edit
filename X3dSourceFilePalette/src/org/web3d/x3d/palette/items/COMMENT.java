@@ -34,9 +34,22 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.SceneGraphStructureNodeType;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
+// TODO annotations correctly added to palette
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "X3D",
+    itemid = "COMMENT",
+    icon32 = "org/web3d/x3d/palette/items/resources/COMMENT32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/COMMENT16.png",
+    body = "<!-- enter new comment here -->",
+    name = "CommentXML",
+    tooltip = "Comment XML"
+)
 /**
  * COMMENT.java
  * Created on Mar 7, 2008
@@ -57,6 +70,7 @@ public class COMMENT extends SceneGraphStructureNodeType
 //  @Override
   public void initialize()
   {
+      System.out.println("*** COMMENT initialize() ...");
   }
 
 //  @Override
