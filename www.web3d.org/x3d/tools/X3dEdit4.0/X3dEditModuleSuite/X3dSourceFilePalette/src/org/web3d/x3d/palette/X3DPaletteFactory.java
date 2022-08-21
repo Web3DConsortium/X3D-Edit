@@ -16,7 +16,7 @@ import org.openide.util.Lookup;
 import org.openide.util.datatransfer.ExTransferable;
 //          TODO Issue 4521  import org.openide.util.Exceptions;
 
-public class X3DPaletteFactory2
+public class X3DPaletteFactory
 {
     public  static final String X3D_PALETTE_FOLDER = "X3DPalette"; 
     private static PaletteController palette = null;
