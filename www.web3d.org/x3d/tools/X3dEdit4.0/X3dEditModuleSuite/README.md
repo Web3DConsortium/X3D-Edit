@@ -19,6 +19,7 @@ This is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 X3dEditorModuleSuite Project Properties > Application: selecting Create "Standalone Application" enables splashscreen but triggers bizarre URL error
 * org.netbeans.ProxyURLStreamHandlerFactory register, SEVERE: No way to find original stream handler for jar protocol
 * java.lang.Error: factory already defined at java.base/java.net.URL.setURLStreamHandlerFactory(URL.java:1228)
+* possible cause of splash screen problem might be initial palette item isn't working yet...
 
 
 
