@@ -28,7 +28,7 @@ public class X3dPaletteFactory
             if (null == palette) {
                 return  PaletteFactory.createPalette(
                 //Folder:
-                X3D_PALETTE_FOLDER,
+                 X3D_PALETTE_FOLDER, // TODO resolve "items", //
                 //Palette Actions:
                 new  PaletteActions() {
                     @Override public Action[] getImportActions() {return null;}
