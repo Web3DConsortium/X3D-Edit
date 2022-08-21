@@ -12,6 +12,30 @@ This is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 * TODO attaching Javadoc for Netbeans IDE
 
 
+## Problems
+
+### Splash Screen causes launch exception
+
+X3dEditorModuleSuite Project Properties > Application: selecting Create "Standalone Application" enables splashscreen but triggers bizarre URL error
+* org.netbeans.ProxyURLStreamHandlerFactory register, SEVERE: No way to find original stream handler for jar protocol
+* java.lang.Error: factory already defined at java.base/java.net.URL.setURLStreamHandlerFactory(URL.java:1228)
+
+
+
+### XSLT transformations: FEATURE_SECURE_PROCESSING
+
+FEATURE_SECURE_PROCESSING
+* JAXP0801001: the compiler encountered an XPath expression containing '17' groups that exceeds the '10' limit set by 'FEATURE_SECURE_PROCESSING'.
+* Source-code workaround https://stackoverflow.com/questions/72401149/limit-set-by-feature-secure-processing
+* -Djdk.xml.xpathExprGrpLimit=0 -Djdk.xml.xpathExprOpLimit=0 -Djdk.xml.xpathTotalOpLimit=0
+Adapting and ading those settings to netbeans.conf file helped,
+* -J-Djdk.xml.xpathExprGrpLimit=0 -J-Djdk.xml.xpathExprOpLimit=0 -J-Djdk.xml.xpathTotalOpLimit=0
+but JAXP still has a problem with native XSLT handling:
+* Starting file:/C:/x3d-code/www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d by file:/C:/x3d-code/www.web3d.org/x3d/stylesheets/X3dToXhtml.xslt transformation...
+Error checking type of the expression 'funcall(ends-with, [funcall(local-name, [step("parent", -1)]), literal-expr(Material)])'.
+Transformation finished.
+
+
 ## [NetBeans Platform Plugin Quick Start](https://netbeans.apache.org/tutorials/nbm-google.html)
 
 "Welcome to Apache NetBeans plugin development!"  Important starter tutorial.  Initial problems: missing images links, at first appears old but tests OK.
