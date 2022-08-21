@@ -1,0 +1,1756 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" SYSTEM "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+    <head>
+        <link rel="shortcut icon" href="images/X3DtextIcon16.png" title="X3D" >
+        <title>X3D-Edit 4.0 Authoring Tool for Extensible&nbsp;3D (X3D) Graphics</title>
+        <meta name="author" content="Don Brutzman"/>
+        <meta name="description" content="X3D-Edit 4.0 home page"/>
+        <meta name="filename" content="X3D-Edit.html"/>
+        <meta name="identifier" content="https://savage.nps.edu/X3D-Edit/X3D-Edit.html"/>
+        <meta name="generator" content="HTML-Kit"/>
+    </head>
+
+    <body>
+        
+        <table border="0" cellspacing="0" cellpadding="0" summary="" align="center">
+            <tr align="center">
+                <td valign="middle"><a href="https://www.web3d.org/x3d/content/examples/X3dResources.html"><img src="images/x3d2-s.gif" width="154" height="97" border="0" title="to X3D home page" alt="to X3D home page"></a></td>
+                <td><pre>   </pre></td>
+                <td valign="middle"><h2>X3D-Edit&nbsp;4.0 Authoring Tool <br /> for Extensible&nbsp;3D (X3D) Graphics</h2></td>
+                <td><pre>    </pre></td>
+                <td valign="middle"><a href="https://www.web3d.org"><img src="images/web3d_logo2.png" width="120" height="60" border="0" title="to Web3D home page" alt="to Web3D home page"></a></td>
+            </tr>
+        </table>
+
+        <p align="center">
+            <a href="#Overview">Overview</a> |
+            <a href="#Acknowledgements">Acknowledgements</a> |
+            <a href="#Books">Books</a> |
+            <a href="XmppChatCollaborationModule.html">Chat</a> |
+            <a href="#Downloads">Downloads</a> |
+            <a href="#Features">Features</a> |
+            <a href="#IssueTracking">Issue Tracking</a> |
+            <a href="#Licenses">Licenses</a> |
+            <a href="#MailingLists">Mailing Lists</a> |
+            <a href="#New">New</a> |
+            <a href="#Plugins">Plugins</a> |
+            <a href="#Source">Source</a> |
+            <a href="#Support">Support</a> |
+            <a href="#TODO">TODO</a> |
+            <a href="#Visualization">Visualization</a> |
+            <a href="https://savage.nps.edu/Savage/developers.html" target="_blank">Savage&nbsp;Developers&nbsp;Guide</a> |
+            <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html">X3D&nbsp;Resources</a> |
+            <a href="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html" target="_blank">X3D&nbsp;Scene&nbsp;Authoring&nbsp;Hints</a>&nbsp;|&nbsp;<a href="https://savage.nps.edu/X3dValidator" target="_blank">X3D&nbsp;Validator</a>&nbsp;|&nbsp;<a href="https://savage.nps.edu/Savage/developers.html#Xj3D" target="_blank">Xj3D</a>&nbsp;|&nbsp;<a href="#Contact">Contact</a>
+        </p>
+        
+        <p style="text-align: center">
+            X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
+        </p>
+        
+        <p style="text-align: center">
+            <!-- width="1059" height="675" -->
+            <a href="images/X3D-EditSplash4.0.png"><img src="images/X3D-EditSplash4.0.png" alt="X3D-Edit 4.0 splash screen" border="0" width="400"/></a> 
+        </p>
+        
+        <div style="text-align: center; background-color: lightgreen">
+            <p>
+                <em>News:</em> X3D-Edit development version again works, now using 
+                <a href="https://savage.nps.edu/Savage/developers.html#Java" target="_blank">Java&nbsp;OpenJDK&nbsp;16</a>
+                and
+                <a href="https://savage.nps.edu/Savage/developers.html#NetBeans" target="_blank">NetBeans&nbsp;12.5</a> - hooray!!
+            </p>
+            <p style="background-color: yellow">
+                Updated for
+                <a href="https://web3d.siggraph.org" target="_blank">Web3D 2021 Conference</a>.
+                <br />
+                Note that
+                <a href="#Downloads">standalone application</a> is workable. However NetBeans plugin modules and installers still need work.
+            </p>
+            <p>
+            You are welcome to send issue reports (success, failure, suggestions) to
+            <a href="mailto:brutzman@nps.edu%20(Don%20Brutzman),tdnorbra@nps.edu%20(Terry%20Norbraten)?subject=X3D-Edit%204.0%20feedback%20"><i>brutzman&nbsp;at&nbsp;nps.edu</i> and <i>tdnorbra&nbsp;at&nbsp;nps.edu</i></a>
+            </p>
+        </div>
+        
+        <p style="text-align: center">
+            <!-- actual size 1600x986 -->
+            <a href="images/X3D-Edit4Welcome.png"><img src="images/X3D-Edit4Welcome.png" alt="X3D-Edit 4.0 welcome screen" border="0" width="1200"></a>
+        </p>
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="Overview">Overview</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+        
+        
+        <p>
+            The
+            <!-- replacement line used in plugin page and other blurbs
+                                                <a href="https://savage.nps.edu/X3D-Edit/X3D-Edit.html">X3D-Edit 4.0 Authoring Tool</a>
+            -->
+            X3D-Edit 4.0 Authoring Tool
+            for 
+            <a href="https://www.web3D.org/x3d" target="_blank">Extensible&nbsp;3D (X3D) Graphics</a>
+            supports the creation, checking, display and publication of X3D scenes.
+            It is written in open-source Java and XML using the 
+            <a href="https://www.netbeans.org" target="_blank">NetBeans</a>
+            platform, making it suitable both as
+            a standalone application and as a plugin module for the NetBeans integrated development environment (IDE).
+        </p>        
+        <p>
+            Motivation for X3D-Edit design has always been centered around
+            <i>authors</i> making great X3D content for Web users,
+            <i>precise implementation</i> of the X3D specifications, and
+            <i>quality assurance (QA)</i> for producing reliable results.
+        </p>
+        <p>
+            X3D-Edit 
+            <a href="#Features">features</a>
+            include direct editing of X3D scenes using the XML (.x3d) encoding,
+            embedded visualization of scenes using an 
+            <a href="https://savage.nps.edu/Savage/developers.html#Xj3D" target="_blank">enhanced version</a>
+            of the
+            <a href="https://www.xj3d.org" target="_blank">original Xj3D</a>
+            viewer, 
+            XML validation using X3D DTD grammars, X3D Schema grammars and
+            <a href="https://www.web3d.org/x3d/tools/schematron/X3dSchematron.html">X3D Schematron rules</a>,
+            drag-and-drop palette for X3D nodes,
+            popup panels for node editing, and
+            extensive help resources.
+            Menu selections provide import/export support for the VRML97 (.wrl), ClassicVRML (.x3dv) and X3D compressed binary (.x3db) encodings.
+            Further features include 
+            encryption and digital-signature authentication using XML Security standards,
+            and additional X3D scene authoring support.
+        </p>
+        <p>
+            X3D-Edit 3.3 is undergoing developmental testing.  <!-- stable and available for public use. -->
+            Tool capabilities are summarized in the
+            <a href="https://x3dgraphics.com/slidesets/X3dForWebAuthors/presentations/X3D-EditUpdateSiggraphAsiaDecember2009.pdf">X3D-Edit&nbsp;Update</a>
+            slideset presentation.
+        </p>
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="Acknowledgements">Acknowledgements</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+        
+        
+        <p>
+            X3D-Edit&nbsp;4.0 was created by Mike&nbsp;Bailey, Don&nbsp;Brutzman and Terry&nbsp;Norbraten.
+            Additional help and feedback was provided by
+            Don&nbsp;McGregor,
+            Terry&nbsp;Norbraten,
+            Jeff&nbsp;Weekley, plus the
+            <i>MV3204&nbsp;Introduction&nbsp;to&nbsp;X3D Graphics</i>
+            and the
+            <i>MV4205&nbsp;Advanced&nbsp;X3D Graphics</i> classes at NPS.
+        </p>
+        
+        <p>
+            We gratefully acknowledge further assistance by
+            Leonard Daly (<a href="https://www.realism.com" target="_blank">Daly&nbsp;Realism</a>),
+            Alan&nbsp;Hudson (Yumetech),
+            <!-- <a href="https://www.Yumetech.com" target="_blank">Yumetech</a> -->
+            Rick&nbsp;Goldberg (<a href="https://www.Aniviza.com" target="_blank">Aniviza</a>),
+            plus members of the
+            <a href="https://www.web3d.org" target="_blank">Web3D&nbsp;Consortium</a>
+            and the
+            <a href="https://www.web3d.org/x3d" target="_blank">X3D&nbsp;Graphics Working&nbsp;Group</a>.
+        </p>
+        
+        <p>
+            X3D-Edit was built as an externally funded research project performed
+            by the
+            <a href="https://MovesInstitute.nps.edu" target="_blank">Modeling, Virtual Environments and Simulation (MOVES) Institute</a>
+            at the
+            <a href="https://www.nps.edu" target="_blank">Naval Postgraduate School&nbsp;(NPS)</a>
+            in Monterey California&nbsp;USA.
+        </p>
+        
+        <p>
+            <a href="mailto:brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%20research%20and%20development%20inquiry%20">Research&nbsp;and&nbsp;development inquiries</a>
+            are welcome.
+            We are happy to discuss the possibility of embedding other open-source Java libraries and providing further X3D functionality within X3D-Edit.
+        </p>
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="Books">Books</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+        
+        <ul>
+            <li>
+                Among other things, X3D-Edit supports the book
+                <i><a href="https://X3dGraphics.com" target="_blank">X3D: Extensible 3D Graphics for Web Authors</a></i> 
+                by Don Brutzman and Leonard Daly,
+                Morgan Kaufmann Publishers, April 2007, 468 pages.
+
+                Related support includes
+                <a href="https://X3dGraphics.com/slidesets">chapter slidesets</a>,
+                <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#X3dForWebAuthors">example scenes</a>
+                (available via X3D-Edit menu <i>X3D</i> -> <i>Examples</i>),
+                <a href="#MailingLists">mailing lists</a>, and
+                <a href="https://www.movesinstitute.org/Video/Courses/X3dForWebAuthors/X3dForWebAuthorsVideo.html">videos</a>.
+            </li>
+
+            <li>
+                <i><a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#Books" target="_blank">X3D Resources: Books</a></i>
+                lists additional X3D and VRML books.
+            </li>
+
+            <li>
+                Helpful reference for NetBeans users:
+                <i>
+                        <a href="https://www.netbeans.org/kb/articles/netbeans-tips-and-tricks-book.html" target="_blank">100 NetBeans Tips and Tricks</a>
+                </i>
+                        by Ruth Kusterer,
+                        Prentice Hall 2008, 170 pages.
+                        (<a href="https://dzone.com/articles/sun-distributes-%E2%80%98100-netbeans-" target="_blank">online review</a>,
+                         <a href="https://pronetbeans.com/archives/122" target="_blank">list</a>)
+            </li>
+
+            <li>
+                Helpful reference for NetBeans developers:
+                <i>
+                        <a href="https://leanpub.com/nbp4beginners" target="_blank">NetBeans Platform for Beginners: Modular Application Development for the Java Desktop</a>
+				</i>
+                        by Jason Wexbridge and Walter Nyland,
+                        Leanpub 2014.
+						Also available as co-bundle:
+						<i>Exercises in Porting to the NetBeans Platform</i> by the same authors.
+            </li>
+
+            <li>
+                Helpful reference for Collada authors:
+                <i>
+                        <a href="https://www.crcpress.com/COLLADA-Sailing-the-Gulf-of-3D-Digital-Content-Creation/Arnaud-Barnes/9781568812878" target="_blank">COLLADA: Sailing the Gulf of 3D Digital Content Creation</a>
+                </i>
+                        by Remi <!-- Rémi -->Arnaud and Mark Barnes,
+                        A.K.&nbsp;Peters 2006, 250 pages.
+                        (<a href="https://collada.org/mediawiki/index.php/COLLADA_book" target="_blank">website</a>)
+            </li>
+
+            <li>
+                A helpful reference for KML authors is
+                <i>
+                        <a href="https://googlegeodevelopers.blogspot.com/2008/11/rtkm-read-kml-manual.html" target="_blank">The KML Handbook: Geographic Visualization for the Web</a>
+                </i>
+                        by Josie Wernecke,
+                        Addison-Wesley 2008, 368  pages.
+            </li>
+
+            <li>
+                A key reference for NetBeans application development is
+                <i>
+                        <a href="https://www.netbeans.org/books/rcp.html" target="_blank">Rich Client Programming: Plugging into the NetBeans Platform</a>
+                </i>
+                        by Tim Boudreau, Jaroslav Tulach, and Geertjan Wielenga,
+                        Prentice Hall April 2007, 640 pages.
+            </li>
+        </ul>
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="Downloads">Downloads</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+        
+        <span style="color: darkgreen; font-weight: bold">(Beta testing in progress)</span>
+        
+        <p>
+            See <a href="#TODO">TODO</a> section for known problems and current work.
+        </p>
+        <p>
+            You are welcome to send issue reports (success, failure, suggestions) to
+            <a href="mailto:brutzman@nps.edu%20(Don%20Brutzman),tdnorbra@nps.edu%20(Terry%20Norbraten)?subject=X3D-Edit%204.0%20feedback%20"><i>brutzman&nbsp;at&nbsp;nps.edu</i> and <i>tdnorbra&nbsp;at&nbsp;nps.edu</i></a>
+            so that we might continue to improve X3D-Edit.
+        </p>
+        
+        <ol>
+            <li value="0">
+                <b>Prerequisite:</b>
+                please install the latest version of Java on your system, the minimum level for X3D-Edit is Java&nsp;14.
+                To learn more:
+                <a href="https://savage.nps.edu/Savage/developers.html#Java">Savage Developers Guide:&nbsp;Java</a>.
+            </li>
+            <li>
+                <p>
+                    <a name="StandaloneZip"> </a><b>Standalone Application</b>
+                    <span style="color: darkgreen; font-weight: bold">(30 August 2021 version)</span>
+                </p>
+                <p>
+                    We have rebranded and relaunched X3D-Edit&nbsp;3.3 as <b></b>X3D-Edit&nbsp;4.0</b>.
+                </p>
+                <p>
+                    <b><i style="color: olivedrab">All operating systems:</i></b>
+                    download 
+                    <a href="https://savage.nps.edu/X3D-Edit/x3dedit40.zip">x3dedit40.zip</a>
+                    and extract it into a convenient directory.
+                </p>
+                <p>
+                    Once unzipped, navigate to the new <code>x3dedit40/bin</code> subdirectory.
+                    Then launch the standalone executable for your operating system
+                    (<code>x3dedit40</code> for MacOSX/Linux or <code>x3dedit40.exe</code>/<code>x3dedit4064.exe</code> for Windows).
+                </p>
+                <p>
+                    Once unzipped, navigate to the new <code>x3dedit40/bin</code> subdirectory.
+                </p>
+                <ol type="a">
+                    <li>
+                        Windows users may need to provide permission to run this executable.
+                        Right click <i>x3dedit4064</i> to select <i>Properties</i> then <i>General</i> tab then
+                        <a href="images/WindowsDownloadExecutableSecurityPermission.png"><i>Unblock</i> security restrictions</a>.
+                    </li>
+                    <li>
+                        For Windows high-resolution screens, the Xj3D "quarter screen" rendering bug is corrected by
+                        similarly setting executable properties for DPI override as shown in
+                        <a href="images/InterfaceWindowsOverrideDPI.png">Properties screenshot</a>
+                       (<a href="images/X3D-EditXj3dDpiScalingCorrection.png">example result</a>).
+                    </li>
+                    <li>
+                        You can now launch the standalone executable for your operating system
+                        (<code>x3dedit40</code> for MacOSX/Linux or <code>x3dedit40.exe</code>/<code>x3dedit4064.exe</code> for Windows).
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>
+                    <a name="InitialConfiguration"> </a><b>Initial Configuration</b>
+                    <span style="color: darkgreen; font-weight: bold">(Current version, manual steps following installation)</span>
+                </p>
+                <p>
+                    Once running,
+                    We are working to automatically configure the following steps which improve application layout.
+                </p>
+                <ol type="a">
+                    <li>
+                        <i>Windows</i> menu: add <i>Favorites</i> and <i>Navigator</i>
+                    </li>
+                    <li>
+                        <i>Favorites</i> menu: add directory location of your X3D example models, such as
+                        <br />
+                        <code>C:\x3d-code\www.web3d.org\x3d\content\examples</code>
+                    </li>
+                    <li>
+                        Can close adjacent <b>bin</b> tab showing executables (if present)
+                    </li>
+                    <li>
+                        Load an X3D model such as
+                        <br />
+                        <code>C:\x3d-code\www.web3d.org\x3d\content\examples\HelloWorld.x3d</code>
+                    </li>
+                    <li>
+                        Select <i>Xj3D</i> button.  Initial launch of Xj3D View is undocked, so right-click the tab to Dock it.
+                        Select and drag the pane to more usable location next to Navigator. Orange box outlines provide a guide.
+                    </li>
+                    <li>
+                        The full set of NetBeans plugins appears to be compatible.  For example, you can add support for version control by
+                        <ol type="1">
+                            <li>
+                                first selecting <i>Tools</i> &gt; <i>Plugins</i>
+                            </li>
+                            <li>
+                                then <i>Available Plugins</i> tab,
+                            </li>
+                            <li>
+                                then select checkboxes for 
+                                <a href="images/ToolsPluginsAddGitSubversion.png"><i>git</i> and <i>Subversion</i></a>,
+                            </li>
+                            <li>
+                                then press the <i>Install</i> button.
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+        <hr />
+        <ol start="3" style="background-color: lightgrey">
+            <li>
+                <p>
+                    <a name="StandaloneZip"> </a><b>Standalone Application Alternatives</b>
+                    <span style="color: darkorange; font-weight: bold">(Not working)</span>
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://savage.nps.edu/X3D-Edit/x3dedit40-linux.sh">x3dedit40-linux.sh</a>
+                    </li>
+                    <li>
+                        <a href="https://savage.nps.edu/X3D-Edit/x3dedit40-macosx.tgz">x3dedit40-macosx.tgz</a>
+                    </li>
+                    <li>
+                        <a href="https://savage.nps.edu/X3D-Edit/x3dedit40-windows.exe">x3dedit40-windows.exe</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    <a name="NetBeansPlugins"> </a><b>NetBeans Plugins</b>
+                    <span style="color: darkorange; font-weight: bold">(Not working)</span>
+                </p>
+                <p>
+                    Install the latest
+                    <a href="https://netbeans.apache.org" target="_NetBeans">Apache NetBeans</a>,
+                    which is a comprehensive Integrated Development Environment (IDE) with many features for project development.
+                </p>
+                <!--
+                <p>
+                    Download and extract 
+                    <a href="X3D-Edit4.0NetbeansModules.zip" target="_NetBeans">X3D-Edit4.0NetbeansModules.zip</a>
+                    to a convenient subdirectory.  This zip contains the necessary X3D-Edit plugin modules for NetBeans.
+                </p>
+                -->
+                <p>
+                    As shown in 
+                    <a href="images/X3D-Edit4.0NetbeansModulesInstallation.png" target="_blank">screenshot</a>,
+                    select and install the plugins via 
+                    <br />
+                    NetBeans menu
+                    <code>Tools &gt; Plugins &gt; Downloaded </code>(tab)<code> &gt; Add Plugins </code>(button)<code> &gt; </code> file selector.
+                </p>
+                <p>
+                    Once selected, press the <code>Install</code> button.  You are required to accept all terms of the associated open-source licenses.
+                    You will also need to accept all of these plugins as untrusted, since we have not yet implemented module signing.
+                    Restart the NetBeans IDE to complete the installation.
+                </p>
+            </li>
+        </ol>
+        
+        <hr />
+        
+        <span style="color: darkorange; font-weight: bold">(The following sections are not yet updated, documenting the 2018 version)</span>
+        
+        <div style="background-color: lightgrey">
+            
+        <ul>
+            <li>
+                <p>
+                    <b>Overview</b>
+                </p>
+                <p>
+                    X3D-Edit version&nbsp;3.3
+                    standalone application and NetBeans plugin are available and ready.
+                </p>
+                <p>
+                    X3D-Edit is written using 
+                    <a href="https://www.oracle.com/technetwork/java/javase/downloads" target="_blank">Java&nbsp;8</a> for
+                    <a href="https://www.netbeans.org" target="_blank">NetBeans&nbsp;8</a>
+                    platform.
+                    It has been tested satisfactorily for NetBeans&nbsp;11.1, Oracle&nbsp;JDK13 and Open&nbsp;JDK13 (preferred).
+                    X3D-Edit runs on desktop/laptop/tablet systems and is portable across major operating systems (Windows&nbsp;7-10, MacOSX, Linux).
+                </p>
+                <p>
+                    As with any application, users may need administrative permissions to fully install or uninstall X3D-Edit on their system.
+                </p>
+                <p>
+                    The X3D-Edit codebase builds and runs using either Java&nbsp;7 or (preferred) Java&nbsp;8.
+                    If needed, you can
+                    <a href="https://java.com/en/download/installed.jsp" target="_blank">verify your installed Java version</a>.
+                </p>
+            </li>
+        </ul>
+        
+        <ul>
+            <li>
+                <p>
+                    <a name="StandaloneZip"> </a><b>Standalone Application</b>
+                    <span style="color: darkorange; font-weight: bold">(2018 version)</span>
+                </p>
+                <p>
+                    <b><i style="color: olivedrab">Prerequisite:</i></b>
+
+                    please install the latest
+                    <a href="https://java.com" target="_blank">Java Run-Time Environment&nbsp;(JRE)</a>
+                    or
+                    <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java Development Kit&nbsp;(JDK)</a>
+                    on your local system.
+                </p>
+                <p>
+                    Next download 
+                    <a href="https://savage.nps.edu/X3D-Edit/X3D-Edit3.3.zip">X3D-Edit3.3.zip</a>
+                    and extract it into a new directory.
+                    Then launch the standalone executable:
+                    <ul>
+                        <li>
+                            <code>runX3dEditWin.bat</code>
+                            on a Windows machine.  
+                        </li>
+                        <li>
+                            <code>runX3dEditMac.sh.command</code> on a Mac.
+                        </li>
+                        <li>
+                            <code>runX3dEditUnix.sh</code> on a Linux/Unix system.
+                        </li>
+                    </ul>
+                    
+                </p>
+                <p>
+                    Depending on the preferences you set, the X3D-Edit application checks for 
+                    <a href="#Updates">automatic updates</a> 
+                    either weekly or each time it is launched.
+                </p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p>
+                    <a name="NetBeansUpdateCenter"> </a><b>NetBeans Plugin</b>
+                    <span style="color: darkorange; font-weight: bold">(2018 version)</span>
+                </p>
+                <p>
+                    <b><i style="color: olivedrab">Prerequisite:</i></b>
+
+                    please install the latest
+                    <!--
+                    <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java Development Kit (JDK)</a>
+                    and
+                    -->
+                    <a href="https://www.netbeans.org" target="_blank">NetBeans</a>
+                    on your local system.
+                </p>
+                <p>
+                    NetBeans users
+                    can connect to the NetBeans Update Center for automatic plugin download and installation
+                    <!-- 	earlier address might have been difficult due to https vice http:
+                    <a href="https://savage.nps.edu/X3D-Edit/netbeans_modules/updates.xml">updates.xml</a>, or else -->
+                    using the following procedure.
+                    The image links below provide screen snapshots corresponding to each installation step.
+                </p>
+                <p>
+                Install instructions for NetBeans plugin:
+                </p>
+                <ol type="a">
+                    
+                    <li>
+                        Select
+                        <code>Tools > Plugins > Settings > <a href="images/PluginsSettingsAdd.png">Choose "Every Startup" and Select "Add"</a></code>, 
+                    </li>
+                    <li>
+                        Now fill in the NetBeans
+                        <a href="images/NetBeansUpdateCenterCustomizer.png">Update Center Customizer</a>
+                        by entering the following grey-background text:
+                        <br />
+                        <code>Name: <a href="images/UpdateCenterCustomizer.png" style="background-color: lightgrey"><b>X3D-Edit Update Center</b></a>
+                        <br />
+                        URL:&nbsp;
+                        <a href="https://savage.nps.edu/X3D-Edit/netbeans_modules/updates.xml" style="background-color: lightgrey"><b>https://savage.nps.edu/X3D-Edit/netbeans_modules/updates.xml</b></a></code>
+                        <!--
+                        (formerly <a href="https://MovesInstitute.nps.edu/X3D-Edit/netbeans_modules/updates.xml" style="background-color: lightgrey"><b>https://MovesInstitute.nps.edu/X3D-Edit/netbeans_modules/updates.xml</b></a></code>)
+                        -->
+                        <br />
+                        Then click <code>OK</code>.
+                    </li>
+                    <li>
+                        While still in the Plugins Settings tab,
+                        look on left-hand side under <code>Configuration&nbsp;of&nbsp;Update&nbsp;Centers</code> area for the <code>X3D&nbsp;Edit&nbsp;Update&nbsp;Center</code> entry,
+                        and ensure the <a href="images/PluginsSettingsCheckboxActive.png">Active-column checkbox</a> in the lower left is checked.
+                    </li>
+                    <li>
+                        While on this panel, confirm that you have selected
+                        <a href="images/PluginsSettingsCheckEveryStartup.png">Check Interval: Every Startup</a>
+                        from the drop-down list.
+                    </li>
+                    <li>
+                        Switch to the <code>Available Plugins</code> tab, select the upper-left 
+                        <a href="images/AvailablePluginsX3d-EditInstall.png">Install box</a> for the X3D-Edit plugin,
+                        <br />
+                        and then select the lower-left <code>Install</code> button.
+                    </li>
+                    <li>
+                        You now see a
+                        <a href="images/WelcomeToNetBeansIdePluginInstaller.png">Welcome To NetBeans IDE Plugin Installer</a>
+                        panel.
+                        <br />
+                        Select the <code>Next</code> button.
+                    </li>
+                    <li>
+                        It is necessary to <a href="images/LicenseAccept.png">accept the open-source license</a> and again select the <code>Install</code> button.
+                    </li>
+                    <li>
+                        A <a href="images/PluginDownloadProgress.png">progress&nbsp;panel</a> should then appear.
+                    </li>
+                    <li>
+                        If any <a href="images/ValidationFailed.png">problems with certificates</a> are encountered, select <code>Continue</code>.
+                        Here is our
+                        <a href="ThawteCertificate.txt" target="_blank">current certificate information</a>.
+                        Current difficulties with NetBeans module signing are documented in
+                        <a href="https://www.movesinstitute.org/bugzilla/show_bug.cgi?id=1518" target="_blank">issue&nbsp;1518</a>.
+                    </li>
+                    <li>
+                        An <a href="images/InstallationComplete.png">installation complete</a> panel indicates when the process is done.
+                        Select the <code>Finish</code> button.
+                    </li>
+                    <li>
+                        For confirmation, X3D-Edit now appears on the Plugins panel <a href="images/InstalledPlugins.png">Installed tab</a>, and you may now close the <code>Plugins</code> panel.
+                    </li>
+                </ol>
+                <p>
+                    NetBeans is now ready to edit X3D scenes, also checking for weekly (or daily) updates.
+                </p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p>
+                    <a name="NetBeansManual"> </a><b>Manual download and install of NetBeans plugin modules</b>
+                </p>
+                <p>
+                    Download and save the
+                    <a href="https://savage.nps.edu/X3D-Edit/netbeans_modules">plugin modules</a>
+                    from
+                    <a href="https://savage.nps.edu/X3D-Edit/netbeans_modules">https://savage.nps.edu/X3D-Edit/netbeans_modules</a>
+                    directory to a temporary directory on local disk.
+                    <!--
+                        (formerly <a href="https://MovesInstitute.nps.edu/X3D-Edit/netbeans_modules/updates.xml" style="background-color: lightgrey"><b>https://MovesInstitute.nps.edu/X3D-Edit/netbeans_modules/updates.xml</b></a></code>)
+                    -->
+                </p>
+                <p>
+                    Then select 
+                    <code>Tools > Plugins > Downloaded</code> to 
+                    <a href="images/AddPluginsFromLocalDisk.png">load plugin modules from a local disk directory</a>
+                    to install those downloads.
+                </p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p>
+                    <a name="Updates"><a name="NetBeansUpdateAvailable"> </a> </a><b>Updates are Automatic</b>
+                </p>
+                <p>
+                    NetBeans indicates when
+                    <a href="images/NetBeansPluginRefreshDetected.png">plugin updates are available</a>
+                    for download and installation.
+                </p>
+                <p>
+                    Alternatively you check for an update yourself.  Select
+                    <code>Tools > Plugins > Updates</code>
+                    and then 
+                    <a href="images/NetBeansPluginsUpdateAvailable.png">click the update button</a> 
+                    to confirm whether a newer version of X3D-Edit is available.
+                    This works identically both for the X3D-Edit standalone application and for the NetBeans plugin.
+                </p>
+                <p>
+                    <a href="https://sourceforge.net/p/x3d/code/20251/log/?path=/www.web3d.org/x3d/tools/X3dEdit3.3/X3D/manifest.mf">Changelog summaries and date of latest revision</a>
+                    are found in the project
+                    <code>manifest.mf</code>
+                    file.
+                    (Also available:
+                    <a href="https://sourceforge.net/p/x3d/code/20251/log/?path=/www.web3d.org/x3d/tools/X3dEdit3.3/Xj3dWrapper/manifest.mf">Xj3dWrapper/&nbsp;manifest</a>)  
+                </p>
+                <p>
+                    TODO. X3D-Edit automatic updates were accepted by the
+                    <a href="https://plugins.netbeans.org/plugin/6191/?show=true" target="_blank">NetBeans Plugin Portal</a>
+                    <!--
+                   (originally
+                    <a href="https://plugins.netbeans.org/PluginPortal/faces/PluginDetailPage.jsp?pluginid=6191" target="_blank">plugin 6191</a>) 
+                    -->
+                    2008-2019.
+                </p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p>
+                    <b style="color: orangered"><a name="Troubleshooting">Troubleshooting</a></b>
+                </p>
+                <p>
+                    Users working with X3D-Edit versions prior to 1 May 2021 are advised to uninstall the tool completely.
+                    Simply deleting all files for the past version (or uninstalling the prior plugin from NetBeans) avoids any version conflicts.
+                    Manual updates will work properly for the foreseeable future.
+                </p>
+                <p>
+                    When cleaning up prior installations, please note that NetBeans (and thus X3D-Edit) 
+                    can also put personal preferences in a local directory such as
+                    <br />
+                    <code>C:\Users\*MyUserName*\AppData\Roaming\NetBeans\8.1\</code>
+                </p>
+                <p>
+                    <i>(No longer supported by NetBeans)</i>
+                    <a href="XmppChatCollaborationModule.html">Chat-based collaboration and file sharing</a>
+                    required an additional plugin installation once
+                    the X3D-Edit application is installed.
+                </p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a name="PastVersions"> </a><b>Past Versions</b>
+                <ol type="a">
+
+                    <li>
+                        <a href="https://savage.nps.edu/X3D-Edit/archive/?C=M;O=D" target="_blank">X3D-Edit.zip distributions</a>
+                        at
+                        <a href="https://savage.nps.edu/X3D-Edit/archive/?C=M;O=D" target="_blank">https://savage.nps.edu/X3D-Edit/archive</a>
+                    </li>
+                    <li>
+                        <a href="https://MovesInstitute.nps.edu/X3D-Edit/netbeans_modules/archive/?C=M;O=D" target="_blank">NetBeans plugin modules</a>
+                        &nbsp;&nbsp;at
+                        <a href="https://MovesInstitute.nps.edu/X3D-Edit/netbeans_modules/archive/?C=M;O=D" target="_blank">https://MovesInstitute.nps.edu/X3D-Edit/netbeans_modules/archive</a>
+                    </li>
+                </ol>
+            </li>
+
+        </ul>
+        <ul>
+            <li>
+                <a name="Source"> </a><b>Version-control source</b>
+                <ol type="a">
+                    <li>
+                        You can use
+                        <a href="https://www.netbeans.org" target="_blank">NetBeans</a>
+                        to check out the X3D-Edit version-control source and project information.
+                    </li>
+                    <li>
+                        First-time use of Subversion under Windows can yield a
+                        <a href="images/NetBeansSubversionClientWindowsChecked.png">warning dialog</a>,
+                        click to accept installation of plugin
+                    </li>
+                    <li>
+                        Otherwise
+                        <a href="https://www.collab.net" target="_blank">Collabnet</a>
+                        must first be
+                        <a href="images/NetBeansSvnCheckoutFailedLinkToCollabnet.png">installed on the local system</a>.
+                    </li>
+                    <li>
+                        Alternatively, get another good subversion client like
+                        <a href="https://www.tortoisesvn.net" target="_blank">TortoiseSVN</a>.
+                    </li>
+                    <li>
+                        Decide whether to use a
+                        <a href="https://www.sourceforge.net" target="_blank">sourceforge account</a>
+                        or simply
+                        <code>anonymous</code> access to check out the source.
+                    </li>
+                    <li>
+                        Check out
+                        <code>https://x3d.svn.sourceforge.net/svnroot/x3d/www.web3d.org/x3d/tools/<b>X3dEdit3.3</b></code>
+                        usually to a local directory such as
+                        <code>C:\www.web3d.org\x3d\tools</code>
+                        (NetBeans 
+                        <a href="images/NetBeansSubversionCheckoutX3D-Edit.1.png">screenshot&nbsp;1</a>,
+                        <a href="images/NetBeansSubversionCheckoutX3D-Edit.2.png">screenshot&nbsp;2</a>
+                    </li>
+                    <li>
+                        Also check out
+                        <code>https://x3d.svn.sourceforge.net/svnroot/x3d/www.web3d.org/x3d/tools/<b>KmlEditorModule</b></code>
+                    </li>
+                    <li>
+                        Open these projects in NetBeans. Select the <b>X3dEditorSuite</b> as the main X3D Edit 3.3 project.
+                        Build it and run - it should just work for you.
+                        Running in Debug mode is helpful for troubleshooting errors.
+                    </li>
+                    <li>
+                        Further links and information available via the
+                        <a href="https://sourceforge.net/projects/x3d" target="_blank">x3d sourceforge project</a>,
+                        which includes
+                        <a href="https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit3.3" target="_blank">inspectable subversion archive source and changes</a>.
+                    </li>
+                </ol>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a name="JavaWebstart"> </a><b>Java Webstart browser plugin</b>:
+                <a href="https://www.movesinstitute.org/bugzilla/show_bug.cgi?id=1516" target="_blank">future work</a>.
+            </li>
+        </ul>
+        </div>
+        
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="Features">Features</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+        
+        <p>
+                        X3D-Edit has grown in parallel to the X3D Specification, testing X3D functionality throughout years of development.
+                        Built-in features include:
+        </p>
+        <ul>
+            <li>	
+                        Open source, royalty free, cross-platform, manual updates
+            </li>
+            <li>
+                        Text editing or tree navigation, with color-coded syntax checking of XML source and 
+                        <a href="https://netbeans.org/kb/73/ide/javascript-editor.html">JavaScript editing</a>
+            </li>
+            <li>	Drag-and-drop palette for adding new nodes, such as
+                        <a href="images/ShapeCustomizer.png">Shape customizer</a>
+                        for quickly choosing and adding geometry
+            </li>
+            <li>	
+                        Customized editors for each node, along with
+                        <a href="images/X3D-EditDownloadExamplesArchives.png">download wizard</a>
+                        for the
+                        <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#Examples" target="_blank">X3D example archives</a>
+            </li>
+            <li>	X3D Validator <a href="images/CheckMark.png">checkmark button</a> 
+                        for quality assurance (QA) provides multiple validation, data checking and format-conversion capabilities (also available via
+                        <a href="https://savage.nps.edu/X3dValidator">X3D&nbsp;Validator&nbsp;online</a>)
+            </li>
+            <li>	Extensive help system includes multilingual
+                        <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#Tooltips">X3D Tooltips</a>
+                        and 
+                        <a href="https://www.web3d.org/standards">X3D Standards</a>
+            </li>
+            <li>	
+                        View changes 
+                        using embedded Xj3D viewer, external Web browser plugin, or 
+                        <a href="images/OptionsX3dViewersPanel.png">configurable set</a>
+                        of
+                        <a href="images/OptionsX3dViewersSelectFromScene.png">selectable X3D viewers</a>
+            </li>
+            <li>	
+                        Launch an X3D scene into another 
+                        <a href="images/X3D-EditPreferencesX3dAuthoringTools.png">configurable set</a>
+                        of
+                        <a href="images/OptionsX3dAuthoringToolsSelectFromScene.png">selectable X3D authoring tools</a>
+            </li>
+            <li>	Rich set of user-addable NetBeans
+                        <a href="#Plugins">plugins</a>
+                        including version control using Subversion (svn), Concurrent Versioning System (cvs) or Mercurial
+            </li>
+        </ul>
+        
+        <p>
+            <a name="Preferences"><b>X3D-Edit Preferences</b></a> panel exposes numerous settings for users.
+        </p>
+        <ul>
+            <li>
+                X3D-Edit is able to launch user-downloaded external tools for further editing of multimedia files.
+                User invocation of these cross-platform tools is provided as part of the
+                <a href="images/ExternalEditorLaunchEditUrlAnnotated.png">url&nbsp;editor</a>
+                or the
+                <a href="images/ExternalEditorLaunchEditMetaAnnotated.png">meta&nbsp;tag&nbsp;editor</a>.
+            </li>
+            <li>
+                <a href="images/X3D-EditPreferencesX3dPlayersAvailable.png" title="Preferences panel">X3D Players Available</a>
+                supports download, installation and launch of a variety of X3D players.
+                Testing all players at once is an excellent way to confirm consistent playability.
+                <ul>
+                  <li>
+                    See
+                    <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications" target="_blank">X3D&nbsp;Resources: Applications, Players and Plugins</a>
+                    for a complete list of available X3D&nbsp;players.
+                  </li>
+                </ul>
+            </li>
+            <li>
+                <a href="images/X3D-EditPreferencesX3dAuthoringTools.png">X3D-capable authoring tools</a> can be used to complement X3D-Edit functionality when creating X3D scenes.
+                <ul>
+                    <li>
+                        Launch and installation support is provided for
+                        <a href="https://www.blender.org" target="_blank">Blender</a>,
+                        <a href="https://www.bitmanagement.de/download/studio" target="_blank">BS Content Studio</a>,
+                        <a href="https://www.meshlab.org" target="_blank">MeshLab</a>,
+                        <a href="https://www.kitware.com/opensource/paraview.html" target="_blank">Paraview</a>,
+                        <a href="https://www.okino.com/nrs/nrs.htm" target="_blank">Okino&nbsp;NuGraph</a>,
+                        <a href="https://www.seamless3d.com" target="_blank">Seamless3d</a>,
+                        <a href="https://www.UltraEdit.com" target="_blank">UltraEdit</a>,
+                        <a href="https://wdune.ourproject.org/" target="_blank">White&nbsp;Dune</a>
+                        and
+                        <a href="https://www.wings3d.com/?page_id=84" target="_blank">Wings3d</a>
+                       (<a href="images/EditSavedSceneInExternalEditor.png">launch menu</a>)
+                    </li>
+                    <li>
+                      See
+                      <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#AuthoringSoftware" target="_blank">X3D&nbsp;Resources: Authoring Software</a>
+                      for a complete list of available X3D-capable authoring tools.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                User-chosen built-in support is provided for launching the following editing tools.
+                <ul>
+                  <li>
+                    <a href="images/X3D-EditPreferencesMultimediaTools.png">Audio tools</a>:
+                    <a href="https://www.audacityteam.org" target="_blank">Audacity</a>
+                    and
+                    <a href="https://musescore.org" target="_blank">MuseScore</a>
+                  </li>
+                  <li>
+                    <a href="images/X3D-EditPreferencesMultimediaTools.png">HTML/XML/text tools</a>:
+                    <a href="https://www.w3.org/Amaya" target="_blank">Amaya</a>,
+                    <a href="https://code.google.com/p/svg-edit/" target="_blank">svg-edit</a>
+                    and
+                    <a href="https://www.UltraEdit.com" target="_blank">UltraEdit</a>
+                  </li>
+                  <li>
+                    <a href="images/X3D-EditPreferencesMultimediaTools.png">Video tools</a>:
+                    <a href="https://www.videolan.org" target="_blank">vlc</a> video player
+                  </li>
+                  <li>
+                    <a href="images/X3D-EditPreferencesImageAndVolumeTools.png">Image tools</a>:
+                    <a href="https://www.gimp.org" target="_blank">GIMP</a>,
+                    <a href="https://fiji.sc" target="_blank">Fiji</a>,
+                    <a href="https://rsbweb.nih.gov/ij" target="_blank">ImageJ</a>,
+                    <a href="https://www.imagemagick.org" target="_blank">ImageMagick</a>
+                   (<a href="images/ImageMagickImageConverterExample.png">screenshot</a>)
+                  </li>
+                  <li>
+                    <a href="images/X3D-EditPreferencesImageAndVolumeTools.png">Volume authoring and image-slicing tools</a>:
+                    <a href="https://fiji.sc" target="_blank">Fiji</a>,
+                    <a href="https://rsbweb.nih.gov/ij" target="_blank">ImageJ</a>,
+                    <a href="https://www.itksnap.org/pmwiki/pmwiki.php" target="_blank">ITK-SNAP</a>,
+                    <a href="https://www.sci.utah.edu/cibc-software/seg3d.html" target="_blank">Seg3D</a>, and
+                    <a href="https://www.slicer.org/slicerWiki/index.php" target="_blank">3D&nbsp;Slicer</a>
+                  </li>
+                </ul>
+            </li>
+            <li>
+                <a href="images/X3D-EditPreferencesSceneEditingAndVisualization.png" title="Preferences panel">X3D-Edit Visualization Preferences</a>
+                exposes user preferences when adding 
+                <a href="#Visualization">X3D-Edit visualization widgets</a>
+                to X3D scenes.
+            </li>
+            <li>
+                <a href="images/X3D-EditPreferencesCadFilters.png" title="Preferences panel">CAD Filters</a>
+                provides parameters for CAD Distillation Filter (CDF) geometry reduction.
+            </li>
+            <li>
+                <a href="images/X3D-EditPreferencesXmlSecurity.png" title="Preferences panel">XML Security preferences panel</a>
+                provides links to the local keystore and instructions.
+            </li>
+        </ul>
+        
+        <p>
+            <a name="new"/><a name="New">New</a><a name="NewFeatures"> and additional features</a> include:
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </p>
+        <ul>
+            <!-- TODO test and document user-agent configuration in project.properties -->
+            <li>
+                Panel utilities: improved
+                <a href="images/X3D-EditToolbarButtons3.png">X3D-Edit author workflow</a>
+                includes
+                <a href="images/X3D-EditX3domCobwebLaunch.png">HTML5 DOM export</a>
+               using either
+                <a href="https://www.x3dom.org" target="_blank">X3DOM</a>
+                or 
+                <a href="https://create3000.de/x_ite" target="_blank">X_ITE</a> (formerly Cobweb),
+                <a href="images/RotationCalculator.png">Rotation Calculator</a>
+               (<a href="https://x3dgraphics.com/examples/X3dForAdvancedModeling/Animation/#RotationCalculatorExample" target="_blank">example scene</a>),
+                <a href="https://x3dgraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/AxisLinesRGB.x3d" target="_blank">Axis Lines RGB</a>
+               (<a href="https://x3dgraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/AxisLinesRGB.png">screenshot</a>)
+                as a scalable XYZ axis-display option on the  
+                <a href="https://x3dgraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/AxisLinesRgbInterface.png">Shape interface</a>,
+                plus an improved
+                <a href="images/geoSystemPanel.png">geoSystem Panel</a>.
+            </li>
+            <li>
+                Updated
+                <a href="images/X3D-EditToolbarButtons3.png">X3D-Edit Toolbar Buttons</a>
+                support X3D author workflow.  Includes quick-launch icons and hotkeys for
+                <i>Edit&nbsp;Element</i>&nbsp;(Ctrl+Shift+E),
+                 <i>Xj3D&nbsp;Validator</i>&nbsp;(Ctrl+Shift+F2) and
+                 <i>Xj3D&nbsp;Viewer</i>&nbsp;(Ctrl+Shift+X).
+            </li>
+            <li>
+                Support for
+                <a href="https://www.web3d.org/x3d/stylesheets/X3dToJson.html" target="_blank">X3D to JSON stylesheet converter</a>
+                includes
+                <!-- width="444" height="316" -->
+                <a href="images/X3dToJsonConversionPanel.png">stylesheet conversion options pane</a>.
+            </li>
+            <li>
+                <a href="images/EditSavedSceneInExternalEditor.png">External editor launch menu</a>
+                to enable further work on X3D scenes by other authoring tools.
+                Settings are adjusted on the <i></i>X3D-Edit Preferences</i> panel via the
+                <a href="images/X3D-EditPreferencesX3dAuthoringTools.png">X3D authoring tools</a>
+                tab.
+            </li>
+            <li>
+                Now bundled:
+                <a href="https://code.google.com/p/svg-edit">svg-edit</a>,
+                a complete open-source vector graphics editor in the browser (in JavaScript)
+            </li>
+            <li>
+                <a href="images/X3D-EditX3dTidyOptionsPanel.png" title="X3D Tidy conversions panel">X3D Tidy conversions panel</a>
+                can apply fixes for a variety of common authoring mistakes.
+                Supported also provided to remove Shape geometry while leaving HAnimHumanoid joint/segment/site/viewpoint intact,
+                and can also add visualization geometry to a skeleton.
+            </li>
+            <li>
+                <a href="images/ExternProtoDeclareFieldVerification.png" title="Preferences panel">ExternProtoDeclare field verification</a>
+                checks that field signatures match the original ProtoDeclare definitions, providing author with the option to apply updates.
+            </li>
+            <li>
+                Conversion support for
+                <a href="https://x3dom.org">X3DOM</a>
+                (pronounced "X-Freedom")
+                plugin-free embedding of X3D source in HTML5 scenes using the
+                <a href="https://www.web3d.org/pipermail/x3d-public_web3d.org/2012-March/001954.html">X3dToX3dom.xslt</a>
+                stylesheet.
+            </li>
+            <li>
+                Support for
+                <a href="images/X3D-EditMicrosoftSurfaceScreenshot.png" title="screenshot">Microsoft Surface tablet</a>
+                (also a <a href="images/X3D-EditMicrosoftSurfacePhotograph.jpg" title="photograph">photograph</a>)
+                along with other multimedia tools and X3D viewers.
+            </li>
+            <li>
+                <a href="https://www.web3d.org/x3d/stylesheets/X3dTidy.html" target="_blank">X3D Tidy</a>. 
+                is an XSLT stylesheet that checks for simple errors in X3D scenes and fixes them.
+                Available under menu item
+                <i>X3D</i>&nbsp;<b>&gt;</b>&nbsp;<i>Conversions</i>&nbsp;<b>&gt;</b>&nbsp;<i>X3D&nbsp;Tidy</i>
+            </li>
+            <li>
+                X3D-Edit now includes support for
+                <a href="https://www.web3d.org/specifications" target="_blank">X3D version&nbsp;4.0 validation</a>. 
+                The <code>unit</code> command is supported by a new
+                <a href="images/UnitsComponentPanel.png"><code>unit</code> editing panel</a> 
+                that provides easy reference to conversion factors for angle, length, mass and force.
+            </li>
+            <li>
+                <a href="images/TraceFeatureReportsRoutedEventValuesOnBrowserConsoleViaScriptOutput.png">Trace capabilities</a>
+                are available for ROUTE, sensors, interpolators and
+                other nodes that produce or consume events. 
+				<a href="https://x3dgraphics.com/examples/X3dForWebAuthors/Chapter07EventAnimationInterpolation/Chapter07EventAnimationInterpolation-EventTracing.pdf">Trace output results</a>
+				are logged on the browser console to show the timing and values passed events.  
+				When the <b>Trace</b> checkbox is selected by the author,
+                a Script node is inserted immediately after the node to accomplish this task.
+                This is a useful debugging technique.
+            </li>
+            <li>
+                <b><a name="SFImage">SFImage</a> support:</b>
+                X3D-Edit includes
+                <a href="images/PixelTextureImportImage.png">PixelTexture image-conversion import</a>
+                can embed an image directly inside an X3D scene by converting it into an 
+                <a href="https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/fieldsDef.html#SFImageAndMFImage" target="blank">SFImage</a> 
+                block within a
+                <a href="https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/texturing.html#PixelTexture" target="_blank">PixelTexture</a>
+                node.
+            </li>
+            <li>
+                A
+                <a href="images/TransformScaleUnitConversionsToMeters.png">unit-conversion scaling menu</a>
+                simplifies Transform scale settings to resize child content from a variety of length units into meters.
+            </li>
+            <li>
+                Easier entry of radian angles using degree values:  any values with magnitude greater than 2&pi; radians
+                prompt author to confirm whether
+                <a href="images/X3D-EditConversionDegreesToRadians.png">degree-to-radian conversion</a>
+                is desired.
+                <a href="images/X3D-EditTooltipRadiansDegrees.png">Tooltips showing both degrees and radians</a>
+                are also given when the mouse is over an angle field.
+                Normalization of SFRotation axis vectors is also provided to ensure that the x-y-z axis vector has magnitude equal to 1.
+                <i>Hint:</i> angle values within the range [-6..+6] degrees can be entered as [354..366] degrees.
+            </li>
+            <li>
+                <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#QualityAssurance" target="_blank">X3D quality assurance (QA)</a>
+               (<a href="images/X3dChecksXmlWellFormedDtdSchemaSchematronValidation.png">snapshot</a>):
+                XML well-formed checks, X3D DTD validation, X3D Schema validation, and X3D Schematron consistency rules
+            </li>
+            <li>
+                <a href="images/InlinePrototypeTemplatesPalette.png">Inline and Prototype templates</a>
+                as draggable palette icons, based on contributions found in various scene archives
+                including
+                <a href="https://x3dGraphics.com/examples/X3dForWebAuthors">X3D for Web Authors</a>,
+                <a href="https://www.web3d.org/x3d/content/examples/Basic">X3D Basic Examples</a>
+                and
+                <a href="https://savage.nps.edu/Savage">Savage Examples</a>.
+            </li>
+            <li>
+                Import/export for ClassicVRML, VRML97, X3D Compressed Binary and Canonical&nbsp;X3D encodings into .x3d (XML) encoding
+            </li>
+            <li>	
+                X3D Components support includes
+                <a href="https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/CADGeometry.html">CAD Geometry</a>,
+                <a href="https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/dis.html">Distributed Interactive Simulation (DIS)</a>,
+                <a href="https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/geodata.html">Geospatial (X3D&nbsp;Earth)</a>,
+                <a href="https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/hanim.html">Humanoid Animation</a>,
+                and
+                MultiTexture nodes in the
+                <a href="https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/texturing.html#MultiTexture">Texturing</a> component
+            </li>
+            <li>	
+                <a href="https://www.collada.org" target="_blank">Collada</a> .dae model 
+                <a href="images/ColladaDaeImportToX3d1.png">editing</a>, 
+                validation, code completion, and 
+                <a href="images/ColladaDaeImportToX3d2.png">conversion to .x3d (XML) encoding</a>
+            </li>
+            <li>	
+                <a name="DIS">Distributed Interactive Simulation (DIS)</a> utility panels for
+                <a href="images/DisEspduTestPanelDemo.png">packet generation</a>
+                <a name="Open-DIS">as well as</a>
+                <a href="images/DisPlayerRecorderPanel.png">recording and playing back</a>
+                network traffic, built using the
+                <a href="Open-DIS-flyer.pdf">Open-DIS software distribution</a>
+                (available at
+                <a href="https://sourceforge.net/projects/open-dis">Sourceforge</a>),
+                with additional &quot;DIS&nbsp;information&quot; available on the
+                <a href="https://savage.nps.edu/Savage/developers.html#DIS">Savage Developers Guide:&nbsp;DIS</a>
+            </li>
+            <li>	
+                Active
+                <a href="images/ImageTextureUrlEditor.png">url list</a>
+                editor checks for resource availability (<span style="color:green">green=found</span>, <b>black=retrieving</b>, <span style="color:red">red=unavailable</span>, <span style="color:darkorange"><b>orange=filename case mismatch</b></span>)
+            </li>
+            <li>	
+                Integrated display is provided by the enhanced
+                <a href="https://savage.nps.edu/Savage/developers.html#Xj3D">Xj3D player</a>,
+                which also provides
+                <a href="images/X3dConversionsXj3dCadFilter.png">Xj3D CAD filter</a>
+                for geometry simplification and profile reduction
+            </li>
+            <li>
+                <a href="https://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html" target="_blank">X3D Security</a>
+                using
+                <a href="https://www.w3.org/TR/xmldsig-core" target="_blank">XML Signature</a> (digital authentication)
+                and
+                <a href="https://www.w3.org/TR/xmlenc-core" target="_blank">XML Encryption</a>
+                Recommendations,
+                with additional support using
+                <a href="https://portecle.sourceforge.net" target="_blank">Portecle</a>
+                for keystore management.
+            </li>
+            <li>
+                Support for the X3D
+                <a href="https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/rigid_physics.html">Rigid Body Physics</a>
+                <a href="https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/followers.html">Followers (Chasers and Dampers)</a>, and
+                and
+                <a href="https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/shaders.html">Programmable Shaders</a>
+                components
+            </li>
+            <li>
+                <a href="https://www.netbeans.org/features/ide/editor.html" target="_blank">Source-editor support</a>
+                for Web development including
+                <a href="https://ant.apache.org/manual" target="_blank">Apache Ant build scripts</a>,
+                <a href="https://netbeans.org/kb/docs/webclient/html5-editing-css.html" target="_blank">Cascading Style Sheets (CSS)</a>,
+                <a href="https://netbeans.org/features/html5" target="_blank">HTML5</a>,
+                <a href="https://netbeans.org/kb/73/ide/javascript-editor.html" target="_blank">JavaScript</a>,
+                <a href="https://www.netbeans.org/features/php" target="_blank">PHP</a> programming,
+                <a href="https://xml.netbeans.org" target="_blank">XML</a> (documents, DTDs and schemas),
+                and
+                <a href="https://xml.netbeans.org/xsl" target="_blank">XML Stylesheet Language for Transformations (XSLT)</a> stylesheets
+            </li>
+            <li>
+                <a href="https://savage.nps.edu/Savage/developers.html#Xj3D" target="_blank">Latest developmental version of Xj3D player</a>
+                that includes recent tested source checkins
+            </li>
+            <!--
+            <li>	
+                <a href="https://www.web3d.org/x3d-earth">X3D Earth</a>
+                support, including text editing of GeoSpatial component scenes,
+                code completion, i.e. type "&lt;Geo" and a set of element/attribute choices are presented,
+                XML validation of Geospatial nodes, and 
+                Xj3D rendering of Geospatial nodes such as
+                <a href="https://www.web3d.org/x3d/content/examples/Basic/GeoSpatial/HelloEarth.x3d" target="_blank">HelloEarth.x3d</a>
+                (<a href="https://www.web3d.org/x3d/content/examples/Basic/GeoSpatial/HelloEarth.x3d" target="_blank">.html</a>).
+            </li>
+            -->
+            <li>	
+                Directions for 
+                <a href="BlenderExportToX3d.html" target="_blank">Blender model export to X3D</a>
+            </li>
+        </ul>
+        <!--
+        <p>Work in progress includes:</p>
+        <ul>
+            <li>
+            </li>
+        </ul>
+        -->
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="IssueTracking">Issue Tracking</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+        
+        <span style="color: darkorange; font-weight: bold">(Not yet updated, this section documents the 2018 version)</span>
+        
+        <div style="background-color: lightgrey">
+            
+        <ul>
+            <li>
+                X3D-Edit problems, improvements and issues are maintained separately on the
+                <a href="https://www.movesinstitute.org/bugzilla/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;component=X3D-Edit+3.2+authoring+tool+using+NetBeans&amp;long_desc_type=substring&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;status_whiteboard_type=allwordssubstr&amp;status_whiteboard=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailqa_contact2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=" target="_blank">X3D-Edit&nbsp;bug&nbsp;list</a>,
+                which is maintained as part of the
+                <a href="https://www.movesinstitute.org/bugzilla" target="_blank">XMSF&nbsp;Issue&nbsp;Tracker</a>
+                and online at
+                <a href="https://www.movesinstitute.org/bugzilla" target="_blank">https://www.movesinstitute.org/bugzilla</a>.
+            </li>
+            <li>
+                Xj3D bugs are maintained on the
+                <a href="https://bugzilla.xj3d.org" target="_blank">Xj3D Bugzilla</a>
+                site at
+                <a href="https://bugzilla.xj3d.org" target="_blank">https://bugzilla.xj3d.org</a>.
+                
+                Supported X3D features 
+                are listed on the
+                <a href="https://www.web3d.org/wiki/index.php/Xj3D_Evolution" target="_blank">Xj3D Evolution</a>
+                and
+                <a href="https://savage.nps.edu/Savage/developers.html#Xj3D" target="_blank">Savage Developers Guide: Xj3D NPS Build</a>
+                pages.
+                
+                There is also a
+                <a href="https://www.movesinstitute.org/bugzilla/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;component=Xj3D+application+codebase&amp;long_desc_type=substring&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;status_whiteboard_type=allwordssubstr&amp;status_whiteboard=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailqa_contact2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=" target="_blank">Xj3D bug list</a>
+                on the XMSF site.
+            </li>
+            <li>
+                The
+                <a href="https://www.netbeans.org/community/issues.html" target="_blank">NetBeans Bugs, Enhancements and Feature Requests</a>
+                page is online at
+                <a href="https://www.netbeans.org/community/issues.html" target="_blank">https://www.netbeans.org/community/issues.html</a>.
+            </li>
+        </ul>
+        </div>
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="Licenses">Licenses</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+        
+        <p>
+            X3D-Edit 4.0 is open source, written in Java and XML, based on the
+            <a href="https://www.NetBeans.org">NetBeans</a>
+            platform.  It may be used for any legitimate purpose.
+        </p>
+        
+        <ul>
+            <li>
+                The X3D-Edit application and module source code is issued under a 
+                non-viral BSD-style
+                <a href="license.html" target="_blank">open-source license</a>
+                (<a href="license.txt" target="_blank">.txt</a>)
+                by the
+                <a href="https://MovesInstitute.nps.edu" target="_blank">Modeling, Virtual Environments and Simulation (MOVES) Institute</a>
+                at the
+                <a href="https://www.nps.edu" target="_blank">Naval Postgraduate School&nbsp;(NPS)</a>.
+            </li>
+            <li>
+                Xj3D
+                is provided under the terms of the
+                <a href="https://www.xj3d.org/licenses/license.html" target="_blank">Xj3D open-source licenses</a>.
+            </li>
+            <li>
+                NetBeans 
+                is provided under the terms of the
+                <a href="https://www.netbeans.org/cddl.html" target="_blank">COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL)</a>.
+            </li>
+        </ul>
+        
+        <p>
+            Other ancillary supporting packages are provided under the terms of their own respective open-source licenses.
+        </p>
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="MailingLists">Mailing Lists</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+            
+        <ul>
+            <li>
+                Open <a href="mailto:x3d-public@web3d.org">x3d-public@web3d.org</a> mailing list
+                at
+                <a href="https://www.web3d.org/mailman/listinfo/x3d-public_web3d.org" target="_blank">https://www.web3d.org/mailman/listinfo/x3d-public_web3d.org</a>
+               (<a href="https://web3d.org/pipermail/x3d-public_web3d.org/" target="_blank">archives</a>)
+            </li>
+        </ul>
+        
+        <span style="color: darkorange; font-weight: bold">(Not yet updated, this section documents the 2018 version)</span>
+        
+        <div style="background-color: lightgrey">
+        <ul>
+            <li>
+                X3D working group <a href="mailto:x3d-public@web3d.org">x3d@web3d.org</a> mailing list
+                for Web3D Consortium members and invited experts at
+                <a href="https://web3d.org/mailman/listinfo/x3d_web3d.org" target="_blank">https://web3d.org/mailman/listinfo/x3d_web3d.org</a>
+               (<a href="https://web3d.org/mailman/private/x3d_web3d.org/" target="_blank">archives</a>)
+            </li>
+            <!--
+            <li>
+                <a href="mailto:announcements@x3dGraphics.com">announcements@x3dGraphics.com</a>
+                at
+                <a href="https://x3dGraphics.com/mailman/listinfo/announcements_x3dGraphics.com" target="_blank">https://x3dGraphics.com/mailman/listinfo/announcements_x3dGraphics.com</a>
+                (<a href="https://x3dGraphics.com/pipermail/announcements_x3dGraphics.com" target="_blank">archives</a>)
+            </li>
+            -->
+            <li>
+                <a href="mailto:educators@x3dGraphics.com">educators@x3dGraphics.com</a>
+                at
+                <a href="https://x3dGraphics.com/mailman/listinfo/educators_x3dGraphics.com" target="_blank">https://x3dGraphics.com/mailman/listinfo/educators_x3dGraphics.com</a>
+                (<a href="https://x3dGraphics.com/pipermail/educators_x3dGraphics.com" target="_blank">archives</a>)
+            </li>
+            <li>
+                <a name="BugReports">Bug reports:</a>
+                <a href="mailto:x3d-edit-developers@movesInstitute.org">x3d-edit-developers@movesInstitute.org</a>
+                at
+                <a href="https://www.movesinstitute.org/mailman/listinfo/x3d-edit-developers" target="_blank">https://www.movesinstitute.org/mailman/listinfo/x3d-edit-developers</a>
+               (<a href="https://www.movesinstitute.org/pipermail/x3d-edit-developers" target="_blank">archives</a>)
+            </li>
+            
+            <li>
+                <a href="https://sourceforge.net/mailarchive/forum.php?forum_name=x3d-commits">x3d-commits@sourceforge.net</a> mailing list at
+                at
+                <a href="https://sourceforge.net/mailarchive/forum.php?forum_name=x3d-commits" target="_blank">https://sourceforge.net/mailarchive/forum.php?forum_name=x3d-commits</a>
+            </li>
+        </ul>
+        </div>
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="Plugins">Plugins</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+        
+        <span style="color: darkorange; font-weight: bold">(Not yet updated, this section documents the 2018 version)</span>
+        
+        <div style="background-color: lightgrey">
+            
+        <p>
+                To ensure your X3D-Edit stays up to date,
+                select
+                <code>Tools > Plugins > Settings</code> then select
+                <a href="images/PluginsSettingsCheckEveryStartup.png">Check Interval: Every Startup</a>.
+        </p>
+        
+        <p>
+            X3D-Edit users can also install the following additional
+            <a href="https://plugins.netbeans.org">NetBeans plugins</a>.
+        </p>
+        
+        <ul>
+            <li>
+                <a href="https://plugins.netbeans.org/PluginPortal/faces/PluginDetailPage.jsp?pluginid=7672">DilbertViewer Plugin</a>
+                because it's funny!
+            </li>
+            <li>
+                <a href="https://plugins.netbeans.org/plugin/52568">NetBeansPDF Viewer Plugin</a>
+            </li>
+            <!--
+            <li>
+                <i>No longer supported by NetBeans.</i>
+                <a href="XmppChatCollaborationModule.html">Chat-based collaboration and file sharing</a>
+                for text messaging and simultaneous file sharing
+            </li>
+            <li>
+                <a href="https://plugins.netbeans.org/PluginPortal/faces/PluginListPage.jsp?search=startup+settings">Startup Settings</a>
+                to increase default available memory for run-time editing
+            </li>
+            -->
+            <li>
+                <a href="https://plugins.netbeans.org/PluginPortal/faces/PluginDetailPage.jsp?pluginid=4956">X3DV Module Suite</a>
+                for X3D ClassicVRML Encoding
+                by 
+                <a href="https://hiperia3d.blogspot.com">Jordi R. Cardona</a>
+            </li>
+        </ul>
+        </div>
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="Support">Support</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+        
+        <p>
+            X3D-Edit runs on desktop/laptop/tablet systems and is portable across major operating systems (Windows&nbsp;7-10, MacOSX, Linux).
+        </p>
+        
+        <ul>
+            
+            <li>
+                <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html" target="_blank">X3D Resources</a>
+                at
+                <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html" target="_blank">https://www.web3d.org/x3d/content/examples/X3dResources.html</a>
+            </li>
+            
+            <li>
+                <a href="https://www.web3d.org/x3d/specifications" target="_blank">X3D&nbsp;Specifications</a>
+                are provided
+                <a href="https://www.web3d.org/x3d/specifications" target="_blank">online</a>
+                and included in full as part of the X3D-Edit help system.
+            </li>
+            
+            <li>
+                X3D-Edit&nbsp;4.0 subversion master source at
+                <a href="https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit3.3" target="_blank">https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit3.3</a>
+            </li>
+            
+            <li>
+                Original
+                <a href="https://www.web3d.org/x3d/content/README.X3D-Edit.html" target="_blank">X3D-Edit 3.1</a>
+                (now&nbsp;superseded) at
+                <a href="https://www.web3d.org/x3d/content/README.X3D-Edit.html" target="_blank">https://www.web3d.org/x3d/content/README.X3D-Edit.html</a>
+            </li>
+            
+            <li>
+                <a href="https://savage.nps.edu/Savage/developers.html#Xj3D" target="_blank">Xj3D Viewer</a>
+                at
+                <a href="https://savage.nps.edu/Savage/developers.html#Xj3D" target="_blank">https://savage.nps.edu/Savage/developers.html#Xj3D</a>
+            </li>
+            
+            <li>
+                <a href="https://www.web3d.org" target="_blank">Web3D Consortium</a>
+                and
+                <a href="https://www.web3d.org/x3d" target="_blank">X3D Graphics Working&nbsp;Group</a> 
+            </li>
+            
+            <li>
+                <a href="https://wiki.netbeans.org/NetBeansUserFAQ" target="_blank">NetBeans User Frequently Asked Questions (FAQs)</a>
+                at
+                <a href="https://wiki.netbeans.org/NetBeansUserFAQ" target="_blank">https://wiki.netbeans.org/NetBeansUserFAQ</a>
+            </li>
+            
+        </ul>
+        
+        <!-- =================================================== -->
+        
+        <hr />
+        
+        <h3><a name="TODO">TODO</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+            <p>
+            You are welcome to send issue reports (success, failure, suggestions) to
+            <a href="mailto:brutzman@nps.edu%20(Don%20Brutzman),tdnorbra@nps.edu%20(Terry%20Norbraten)?subject=X3D-Edit%204.0%20feedback%20"><i>brutzman&nbsp;at&nbsp;nps.edu</i> and <i>tdnorbra&nbsp;at&nbsp;nps.edu</i></a>
+            </p>
+        
+        <p>
+            Current X3D-Edit development is using NetBeans 12.5 and OpenJDK 16.
+            Configuration information can be found in the 
+            <a href="https://savage.nps.edu/Savage/developers.html" target="_blank">Savage Developers Guide</a>.
+        </p>
+        
+        <h4> Confirmation Requests </h4>
+        
+        <ol>
+            <li>
+                <i>Java support.</i>
+                Is X3D-Edit runnable with just Java Runtime Environment (JRE), or is the full
+                Java Development Kit (JDK) needed?
+            </li>
+            <li>
+                <i>Linux support.</i>
+                Does X3D-Edit run on Linux?  Yes, we have two beta testers.
+            </li>
+        </ol>
+        
+        <h4> Current Issue List </h4>
+        
+        <ol>
+            <!-- TODO add selectable bookmarks to each section of this page -->
+            <li>
+                Fixed. Check <i>X3D</i> &gt; <i>X3D Examples</i> &gt; <i>Download Example Archives...</i> all working.
+                Added <a href="https://www.web3d.org/x3d/content/examples/HumanoidAnimation" target="_blank">Humanoid Animation (HAnim)</a> examples archive.
+            </li>
+            <li>
+                Mostly fixed. Check <i>X3D</i> &gt; <i>X3D-Edit Preferences</i> for correct url addresses and launching of all applications.
+                Add Protege.
+            </li>
+            <li>
+                Added. Add <i>X3D</i> &gt; <i>Export from .x3d</i> &gt; <i>Export Turtle .ttl</i> menu item and action button
+            </li>
+            <li>
+                In progress.
+                Add <i>X3D</i> &gt; <i><a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank">Cross-Origin Resource Sharing (CORS)</a></i> menu item and action button for launching local https server, 
+                supporting X_ITE operation on local files.  Attempt to automate such functionality as a user preference.
+            </li>
+            <li>
+                Needed?
+                Update 
+                <a href="https://github.com/create3000/x_ite/wiki" target="_blank">X_ITE</a> logo.
+            </li>
+            <li>
+                Add X3D JSON Schema validation when available.
+            </li>
+        </ol>
+
+        <h4> Xj3D Issue List </h4>
+        
+        <ol>
+            <li>
+                Most X3D version 4 capabilities not yet supported.
+            </li>
+            <li>
+                Fixed on Windows: Xj3D "quarter screen" rendering bug is corrected for standalone application
+                by setting executable properties for DPI override as shown in
+                <a href="images/Xj3dWindowsPropertiesOverrideDPI.png">Properties screenshot</a>
+               (<a href="images/X3D-EditXj3dDpiScalingCorrection.png">example result</a>).
+            </li>
+            <li>
+                Text node vertical justification remains broken, ouch...
+            </li>
+            <li>
+                Fixed: driver problems (jogamp, aviatrix) on all operating systems.
+            </li>
+            <li>
+                Fixed, tests are ongoing:
+                <a href="https://savage.nps.edu/Savage/developers.html#Xj3D" target="_blank">Xj3D</a>
+                did not handle https, refactoring performed.
+            </li>
+            <li>
+                Fixed:
+                <a href="https://savage.nps.edu/Savage/developers.html#Xj3D" target="_blank">Xj3D</a>
+                did not USE nodes properly in HelloWorld example.
+            </li>
+            <li>
+               Fixed: bump
+                <a href="https://savage.nps.edu/Savage/developers.html#Xj3D" target="_blank">Xj3D</a>
+                version to 2.3.
+            </li>
+        </ol>        
+
+
+        <h4> Deferred Issue List </h4>
+        
+        <ol>
+            <li>
+                JavaHelp not supported in NetBeans&nbsp;12, taking alternative approach to restoring functionality
+                by adding <i>X3D</i> &gt; <i>Help</i> menu items.
+                TODO if presentation quality improves someday, possibly restore JavaHelp as a launchable help window.
+            </li>
+            <li>
+                Issue tracking: once initial issues are handled, decide on how to best handle issue tracking 
+                (likely on <a href="https://sourceforge.net/p/x3d/discussion/" target="_blank">SourceForge X3D discussion</a>).
+            </li>
+            <li>
+                Once the updated X3D-Edit 4.0 suite is again fully stable, we need to renumber the existing directory trees in subversion.
+            </li>
+            <li>
+                Signing deliverables: once everything works satisfactorily, we will explore signing jar and module files for reliability.
+            </li>
+            <li>
+                Once fixed, share links for standalone applications (WIndows, Mac, Linux) in order to support beta testing.
+            </li>
+            <li>
+                Working on plugin deployment for NetBeans, direct installation locally works.
+                Likely problem is <i>layer.xml</i> choreography.
+            </li>
+            <li>
+                NetBeans plugin sharing: we are again experimenting with <code>savage.nps.edu</code>.
+                <!-- and have moved prior NetBeans 8 version untouched into a different directory. -->
+                Long term, we plan to move to a new Apache NetBeans plugin repository once available.
+            </li>
+        </ol>
+
+        <h4> Deferred Application Configuration </h4>
+        
+        <ol>
+            <li>
+                Favorites and Navigator enabled, Xj3D panel enabled and docked.
+            </li>
+            <li>
+                NetBeans git and subversion plugins automatically included in deployed application.
+            </li>
+        </ol>        
+
+        <!-- =================================================== -->
+
+        <hr />
+
+        <h3><a name="Visualization">Visualization Features</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+
+        <p>
+            Author-assist visualization graphics are provided for certain X3D nodes
+            in order to help show their effects.  
+        </p>
+        <ul>
+            <li>
+                <em>Visualize</em> checkbox selection on a node-editing pane
+                embeds additional X3D content immediately after the node
+            </li>
+            <li>
+                Placing a pointing device (mouse, cursor, wand, etc.) over the visualization geometry
+                uses a TouchSensor to display a description of the node visualization
+            </li>
+            <li>
+                <a href="images/CoordinateAxes.WhiteBackground.png">CoordinateAxes</a>
+                optionally shows node location in the local coordinate system
+            </li>
+            <li>
+                A single parent Switch node allows authors to easily display&nbsp;(<code>whichChoice=0</code>) or
+                hide&nbsp;(<code>whichChoice=-1</code>) the customized visualization graphics
+            </li>
+        </ul>
+        
+        <p>
+            Visualization graphics are available for the following X3D nodes:
+        </p>
+        <ul>
+            <li>
+                <b>Shape</b>,
+                grouping and bounded nodes
+                outline a
+                <a href="images/ShapeVisualizationBoundingBox.png">semitransparent bounding Box</a>
+                that shows bboxCenter and bboxSize location (if defined)
+            </li>
+            <li>
+                <b>Transform</b>
+                nodes also use the
+                <a href="https://x3dgraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d">CoordinateAxes</a>
+                prototype to show
+                <a href="images/TransformVisualizationRotation.png">center, axis of rotation</a>
+                and
+                <a href="images/TransformVisualizationScaling.png">scaling</a>
+                (if any)
+            </li>
+            <li>
+                <b>Extrusion</b>
+                editor provides a
+                <a href="images/ExtrusionCrossSectionPanel.png">2D plot of the defined crossSection array</a>
+                by using
+                <a href="https://www.jfree.org/jfreechart" target="_blank">JFreeChart</a>,
+                also indicating open/closed status for crossSection and spine as an optional contained comment.
+				Additional panes are provided for
+                <a href="images/ExtrusionAttributesPanel.png">attributes</a>,
+                <a href="images/ExtrusionSpineScalePanel.png">spine and scale</a>,
+				and
+                <a href="images/ExtrusionOrientationsPanel.png">orientations</a>
+				editing.
+            </li>
+            <li>
+                <b>Extrusion</b> visualization
+                hides the original
+                <code>&lt;--&nbsp;<span style="text-decoration: line-through;">&lt;Extrusion/&gt;</span>&nbsp;--&gt;</code> node
+                and appends a corresponding
+                <a href="images/ExtrusionCrossSectionVisualization.png">ExtrusionCrossSection</a>
+                prototype instance that shows the spine line along with
+                semitransparent outer hull and crossSection slices.
+            </li>
+            <li>
+                <a href="images/ProximitySensorVisualization.png">ProximitySensor</a>
+                outlines a semitransparent Box showing sensor boundaries
+            </li>
+            <li>
+                <a href="images/PointLightVisualization.png">PointLight</a>
+                adds a Sphere with matching radius and color
+            </li>
+            <li>
+                <a href="images/SpotLightVisualization.png">SpotLight</a>
+                adds a wireframe Cone for inner <i>beamWidth</i> and transparent Cone for outer <i>cutOffAngle</i>
+            </li>
+            <li>
+                <a href="images/SoundVisualization.png">Sound</a>
+                adds
+                <a href="images/CoordinateAxes.WhiteBackground.png">CoordinateAxes</a>
+                at the sound center
+                and draws semitransparent ellipses for inner (min) and outer (max) ranges
+            </li>
+            <li>
+                <a href="images/ViewFrustumObliqueView.png">Viewpoint</a>,
+                <em>OrthoViewpoint</em> and <em>GeoViewpoint</em>
+                visualization adds a
+                <a href="images/ViewFrustumOverheadView.png">ViewFrustum prototype</a>
+                to outline fieldOfView and visibilityLimit for near and far clipping planes
+            </li>
+            <li>
+                <a href="images/ViewpointCalculator.png">Viewpoint Rotation Calculator</a>
+               (<a href="images/ViewpointCalculatorComposed.png">composed with ViewFrustum</a>)
+                helps authors compute the correct Viewpoint orientation when looking from one position towards another.
+				Authors can optionally save lookat-point coordinates as a contained comment.
+            </li>
+        </ul>
+
+        <!-- =================================================== -->
+
+        <hr />
+
+        <h3><a name="Contact">Contact</a>
+            <a href="#top">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+
+        <p>
+            Questions, suggestions and comments about these resources are welcome.
+            Please send them to
+            <a href="https://faculty.nps.edu/brutzman" target="_blank">Don&nbsp;Brutzman</a>
+            (<a href="mailto:brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20feedback%20"><i>brutzman&nbsp;at&nbsp;nps.edu</i></a>)
+        </p>
+        
+        <!--
+        <b>
+            <a href="#BugReports">Bug reports</a>
+            can be sent to
+            <a href="mailto:x3d-edit-developers@movesInstitute.org">x3d-edit-developers@movesInstitute.org</a>
+        </b>
+        -->
+        
+        <p>
+            Uniform Resource Locator (URL) for this page is <a href="https://savage.nps.edu/X3D-Edit/X3D-Edit.html">https://savage.nps.edu/X3D-Edit/X3D-Edit.html</a>
+        </p>
+        <p>
+            Page revised <b>17 December 2021</b>.
+        </p>
+        
+        <p>(<a href="https://www.nps.navy.mil/disclaimer" target="disclaimer">official disclaimer</a>) </p>
+        <pre>
+&quot;Material contained herein is made available for the purpose of 
+peer review and discussion and does not necessarily reflect the 
+views of the Department of the Navy or the Department of Defense.&quot;
+        </pre>
+    </body>
+</html>
