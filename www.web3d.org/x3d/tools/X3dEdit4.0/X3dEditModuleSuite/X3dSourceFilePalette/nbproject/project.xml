@@ -155,6 +155,8 @@
             <public-packages/>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>classpath</word>
+            <word>customizer</word>
             <word>denormalization</word>
             <word>denormalized</word>
             <word>https</word>
