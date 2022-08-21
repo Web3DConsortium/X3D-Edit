@@ -8,8 +8,8 @@ This is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 * [Tutorial Contribution Guidelines](https://netbeans.apache.org/kb/docs/contributing.html)
 * [AsciiDoc](https://asciidoc.org) is a plain text markup language for writing technical content
 
-* [Apache NetBeans Development Version Documentation | APIs Overview](https://bits.netbeans.org/dev/javadoc/index.html)
-* 
+* Online Javadoc for Netbeans IDE: [Apache NetBeans Development Version Documentation | APIs Overview](https://bits.netbeans.org/dev/javadoc/index.html)
+* TODO attaching Javadoc for Netbeans IDE
 
 
 ## [NetBeans Platform Plugin Quick Start](https://netbeans.apache.org/tutorials/nbm-google.html)
@@ -69,6 +69,11 @@ Creating layer.xml file is optional if using annotations instead:
 * Issue 4521 [org.openide.util.Exceptions not found by import in tutorial](https://github.com/apache/netbeans/issues/4521)
 
 Implemented module as 'X3dSourceFilePalette'.
+
+
+### Netbeans Splash Screen
+
+* [How to make Splash Screen in Java using Netbeans with Source Code](https://www.youtube.com/watch?v=tR7nZ2gSNB4)
 
 
 ## Creating standalone installers
