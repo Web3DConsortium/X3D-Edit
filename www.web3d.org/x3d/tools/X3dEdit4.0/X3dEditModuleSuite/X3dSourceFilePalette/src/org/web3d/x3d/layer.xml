@@ -3,8 +3,17 @@
 <!-- Adapted from https://netbeans.apache.org/tutorials/nbm-palette-api1.html -->
 <!-- Inspect build/classes/META-INF/generated-layer.xml to see what is actually generated using layer.xml and annotations -->
 <filesystem>
+
+    <folder name="X3DPalette">
+       <folder name="X3D">
+          <file name="COMMENT.xml" url="org/web3d/x3d/palette/items/resources/COMMENT.xml">
+             <attr name="position" intvalue="150"/>
+          </file>
+       </folder>
+    </folder>
+
 <!--
-    <folder name="X3dPalette">
+    <folder name="X3DPalette">
         <folder name="X3D">
             <file name="COMMENT.xml">
                 <![CDATA[<!DOCTYPE editor_palette_item
