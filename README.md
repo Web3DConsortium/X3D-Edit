@@ -12,6 +12,12 @@ This is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 * TODO attaching Javadoc for Netbeans IDE
 
 
+## Work in Progress
+
+* Palette entry for COMMENT, getting patterns updated
+
+* MIME type registry within NetBeans for X3D
+
 ## Problems
 
 ### Splash Screen causes launch exception
