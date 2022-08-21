@@ -1,0 +1,1901 @@
+<?xml version="1.0"?>
+<!-- baseline layer.xml for both Netbeans plugin and application
+     www.web3d.org/x3d/tools/X3dEdit3.3/X3D/src/org/web3d/x3d/layer.xml -->
+<!--
+Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+ * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer
+      in the documentation and/or other materials provided with the
+      distribution.
+ * Neither the names of the Naval Postgraduate School (NPS)
+      Modeling Virtual Environments and Simulation (MOVES) Institute
+      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      nor the names of its contributors may be used to endorse or
+      promote products derived from this software without specific
+      prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+<!--http://platform.netbeans.org/tutorials/nbm-google.html-->
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<!-- Netbeans documentation at http://bits.netbeans.org/dev/javadoc/org-openide-filesystems/index.html?org/openide/filesystems/XMLFileSystem.html -->
+<filesystem>
+
+    <!-- define the actions for this application -->
+    <attr name="Menu\File\position" intvalue="100"/>
+    <attr name="Menu\File\org-netbeans-modules-openfile-RecentFileAction.shadow\position" intvalue="100"/>
+    <attr name="Menu\File\org-netbeans-modules-openfile-OpenFileAction.shadow\position" intvalue="200"/>
+    <!-- TODO need New File here -->
+    <attr name="Menu\File\org-netbeans-modules-openfile-RecentFileAction.instance\position" intvalue="300"/>
+    <attr name="Menu\File\SeparatorNew.instance\position" intvalue="400"/>
+    <attr name="Menu\File\org-web3d-x3d-NewX3dFileAction.instance\position" intvalue="410"/>
+    <attr name="Menu\File\org-web3d-x3d-NewHtmlWrapperAction.instance\position" intvalue="411"/>
+    <attr name="Menu\File\org-web3d-x3d-NewX3dEcmaScriptAction.instance\position" intvalue="412"/>
+    <attr name="Menu\File\org-web3d-x3d-NewX3dScriptJavaAction.instance\position" intvalue="413"/>
+    <attr name="Menu\File\org-web3d-x3d-NewXsltStylesheetAction.instance\position" intvalue="414"/>
+    <attr name="Menu\File\org-web3d-x3d-NewTextFileAction.instance\position" intvalue="415"/>
+    <attr name="Menu\File\org-web3d-x3d-NewX3dFileAction.shadow\position" intvalue="500"/>
+    <attr name="Menu\File\org-web3d-x3d-NewHtmlWrapperAction.shadow\position" intvalue="600"/>
+    <attr name="Menu\File\org-web3d-x3d-NewX3dEcmaScriptAction.shadow\position" intvalue="700"/>
+    <attr name="Menu\File\org-web3d-x3d-NewX3dScriptJavaAction.shadow\position" intvalue="800"/>
+    <attr name="Menu\File\org-web3d-x3d-NewXsltStylesheetAction.shadow\position" intvalue="900"/>
+    <attr name="Menu\File\org-web3d-x3d-NewTextFileAction.shadow\position" intvalue="1000"/>
+    <attr name="Menu\File\org-openide-actions-PageSetupAction.instance\position" intvalue="1010"/>
+    <attr name="Menu\File\org-openide-actions-PrintAction.instance\position" intvalue="1100"/>
+    <attr name="Menu\File\Separator2.instance\position" intvalue="1120"/>
+    <attr name="Menu\File\org-openide-actions-SaveAction.instance\position" intvalue="1200"/>
+    <attr name="Menu\File\org-openide-actions-SaveAsAction.shadow\position" intvalue="1300"/>
+    <attr name="Menu\File\org-openide-actions-SaveAllAction.instance\position" intvalue="1400"/>
+    <attr name="Menu\File\org-netbeans-modules-openfile-OpenFileAction.instance\position" intvalue="1500"/>
+    <attr name="Menu\File\Separator3.instance\position" intvalue="1600"/>
+    <attr name="Menu\File\SeparatorOpen.instance\position" intvalue="1700"/>
+    <attr name="Menu\File\org-netbeans-modules-editor-ExportHtmlAction.instance\position" intvalue="1800"/>
+    <attr name="Menu\File\Separator4.instance\position" intvalue="1900"/>
+    <attr name="Menu\File\org-netbeans-core-actions-SystemExit.instance\position" intvalue="2000"/>
+    <attr name="Menu\File\org-netbeans-modules-print-impl-action-PageSetupAction.shadow\position" intvalue="2100"/>
+    <attr name="Menu\File\org-netbeans-modules-print-impl-action-PrintPreviewMenu.shadow\position" intvalue="2200"/>
+    <attr name="Menu\Edit\position" intvalue="200"/>
+    <attr name="Menu\Help\position" intvalue="600"/>
+    <attr name="Menu\Window\ShowPaletteAction.shadow\position" intvalue="100"/>
+    <attr name="Menu\Window\SwitchToRecentDocumentAction.shadow\position" intvalue="300"/>
+    <attr name="Menu\Window\Separator3.instance\position" intvalue="511"/>
+    <attr name="Menu\Window\CloseWindowAction.shadow\position" intvalue="600"/>
+    <attr name="Menu\Window\MaximizeWindowAction.shadow\position" intvalue="700"/>
+    <attr name="Menu\Window\org-netbeans-core-windows-actions-UndockAction.shadow\position" intvalue="800"/>
+    <attr name="Menu\Window\Separator4.instance\position" intvalue="900"/>
+    <attr name="Menu\Window\CloneDocumentAction.shadow\position" intvalue="1000"/>
+    <attr name="Menu\Window\CloseAllDocumentsAction.shadow\position" intvalue="1100"/>
+    <attr name="Menu\Window\CloseAllButThisAction.shadow\position" intvalue="1200"/>
+    <attr name="Menu\Window\DocumentsAction.shadow\position" intvalue="1310"/>
+    <attr name="Menu\Window\Separator5.instance\position" intvalue="1400"/>
+    <attr name="Menu\Window\org-netbeans-core-windows-actions-ResetWindowsAction.instance\position" intvalue="1500"/>
+    <attr name="Services\MIMEResolver\Bat.xml\position" intvalue="500"/>
+    <attr name="Services\MIMEResolver\CSS.xml\position" intvalue="600"/>
+    <attr name="Services\MIMEResolver\CssResolver.xml\position" intvalue="700"/>
+    <attr name="Services\MIMEResolver\Diff.xml\position" intvalue="800"/>
+    <attr name="Services\MIMEResolver\JavaScript.xml\position" intvalue="900"/>
+    <attr name="Services\MIMEResolver\Languagesresolver.xml\position" intvalue="1000"/>
+    <attr name="Services\MIMEResolver\Manifest.xml\position" intvalue="300"/>
+    <attr name="Services\MIMEResolver\html.xml\position" intvalue="1100"/>
+    <attr name="Services\MIMEResolver\org-netbeans-modules-image-mime-resolver.xml\position" intvalue="150"/>
+    <attr name="Services\MIMEResolver\org-netbeans-modules-properties-mime-resolver.xml\position" intvalue="200"/>
+    <attr name="Services\MIMEResolver\plain-text-resolver.xml\position" intvalue="400"/>
+    <attr name="Services\MIMEResolver\org-netbeans-modules-editor-settings-storage-mime-resolver.xml\position" intvalue="1200"/>
+    <attr name="Services\MIMEResolver\org-netbeans-modules-url-mime-resolver.xml\position" intvalue="1300"/>
+    <attr name="Services\MIMEResolver\org-netbeans-modules-pdf-mime-resolver.xml\position" intvalue="1400"/>
+    <attr name="Services\MIMEResolver\org-netbeans-modules-xml-schema-services-SchemaMIMEResolver.xml\position" intvalue="1500"/>
+    <attr name="Services\MIMEResolver\org-netbeans-modules-xml-wsdl-ui-netbeans-module-resources-mime-resolver.xml\position" intvalue="1550"/>
+    <attr name="Services\MIMEResolver\xslt-mime-resolver.xml\position" intvalue="1800"/>
+    <folder name="Actions">
+        <folder name="Tools">
+            <file name="org-web3d-x3d-actions-conversions-GzipWrlAction.instance_hidden"/>
+            <file name="org-web3d-x3d-actions-qualityassurance-SMALmetadataValidationAction.instance_hidden"/>
+        </folder>
+        <folder name="View">
+            <file name="org-web3d-x3d-actions-ViewInXj3DExternalAction.instance"/>
+            <file name="org-web3d-x3d-actions-ViewInXj3DAction.instance_hidden"/>
+        </folder>
+        <folder name="Window"/>
+    </folder>
+    <folder name="OptionsDialog">
+        <folder name="Advanced">
+            <file name="org-web3d-x3d-options-X3dAdvancedOption.instance"/>
+        </folder>
+    </folder>
+    <folder name="Toolbars">
+        <folder name="New Documents">
+            <attr name="position" intvalue="184"/>
+            <!-- TODO hide by default? -->
+            <!--<file name="edu-nps-moves-kmleditor-actions-NewKmlFileAction.instance"/>-->
+        </folder>
+        <folder name="Author Workflow">
+            <attr name="position" intvalue="185"/>
+            <!-- test case to make buttons only active when X3D document selected
+            <file name="org-web3d-x3d-actions-qualityassurance-SomeAction.shadow">
+              <attr name="originalFile" stringvalue="Actions/Tools/org-web3d-x3d-actions-qualityassurance-SomeAction.instance"/>
+              <attr name="position" intvalue="150"/>
+            </file>
+            -->
+            <!-- TODO consider adding H-Anim LOA default scenes and other templates -->
+        </folder>
+    </folder>
+    <folder name="Editors">
+        <folder name="model">
+            <folder name="x3d+xml">
+                <folder name="Popup">
+                    <folder name="Author Workflow">
+                        <attr name="position" intvalue="20"/>
+                    </folder>
+                    <folder name="Edit Element XML">
+                        <attr name="position" intvalue="25"/>
+                    </folder>
+                    <folder name="Launch Saved Model in Tool">
+                        <attr name="position" intvalue="30"/>
+                    </folder>
+                    <folder name="New Documents">
+                        <attr name="position" intvalue="40"/>
+                    </folder>
+                    <folder name="View Saved Scene">
+                        <attr name="position" intvalue="50"/>
+                        <!--
+                        <file name="ViewInAllseparator.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="116"/>
+                        </file>
+                        <file name="org-web3d-x3d-actions-ViewInOtherAction.shadow_hidden"/>-->
+                    </folder>
+                    <file name="x3d-popup-separator2.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="55"/>
+                    </file>
+                    <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 798 -->
+                    <folder name="Compression">
+                        <attr name="position" intvalue="60"/>
+                        <!-- insertions go here -->
+                    </folder>
+                    <folder name="DIS Networking">
+                        <attr name="position" intvalue="70"/>
+                    </folder>
+                    <folder name="Examples">
+                        <attr name="position" intvalue="80"/>
+                        <!-- DownloadContentAction position 100 -->
+                        <folder name="View Local X3D Examples Archives">
+                            <attr name="position" intvalue="200"/>
+                        </folder>
+                        <folder name="View Online X3D Examples Archives">
+                            <attr name="position" intvalue="300"/>
+                        </folder>
+                        <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
+                        <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
+                    </folder>
+                    <folder name="Export Model to File">
+                        <attr name="position" intvalue="90"/>
+                        <!-- annotations used in Action source files to get inserted here
+                        <folder name="Export .x3d as X3D ClassicVRML (.x3dv) Encoding...">
+                            <attr name="position" intvalue="100"/>
+                        </folder> -->
+                        <!-- Export HTML Documentation         ExportHtmlDocumentationAction    position  50 -->
+                        <!-- Export X3D JSON                   X3dToJsonConversionAction        position  96 -->
+                        <!-- Export Turtle Triples             ExportTurtleTriplesAction        position 100 -->
+                        <!-- Export VRML97 xslt                ExportVRML97xsltAction           position 150 -->
+                        <!-- Export ClassicVRML Xj3D           ExportClassicVRMLxsltAction      position 200 -->
+                        <!-- Export ClassicVRML xslt           ExportClassicVRMLAction          position 250 -->
+                        <!-- Export X3D Binary  x3db           ExportX3dbAction                 position 300 -->
+                        <!-- Export X3D Extrusion crossSection ExportSvgExtrusionDiagramAction  position 700 -->
+                    </folder>
+                    <folder name="Import Model from File">
+                        <attr name="position" intvalue="100"/>
+                        <!-- annotations used in Action source files to get inserted here -->
+                        <!-- Castle Game Engine Convert to X3D LaunchCastleGameEngineCoverterAction position  25 -->
+                        <!-- Import .bvh  BioVision Hierarchy  BvhToX3dConversionAction         position  50 -->
+                        <!-- Import .dae  Collada digital ...  ImportColladaAction              position 100 -->
+                        <!-- Import .wrl  VRML97 model         ImportVrml97Action               position 150 -->
+                        <!-- Import .x3dv BioVision Hierarchy  ImportClassicVrmlAction          position 200 -->
+                        <!-- Import .x3db BioVision Hierarchy  ImportX3dbAction                 position 300 -->
+                    </folder>
+                    <!--
+                    <file name="x3dMenuSeparatorBeforeNewDocument.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="80"/>
+                    </file>
+                    -->
+                    <!--
+                    <file name="x3d-popup-separator3.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="125"/>
+                    </file>
+                    <file name="x3d-popup-separator4.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="790"/>
+                    </file>
+                    <file name="org-web3d-x3d-CheckX3DAction.shadow">
+                        <attr name="originalFile" stringvalue="Actions/Edit/org-web3d-x3d-CheckX3DAction.instance"/>
+                        <attr name="position" intvalue="850"/>
+                    </file>
+                    -->
+                    <folder name="Quality Assurance">
+                        <attr name="position" intvalue="125"/>
+                        <file name="org-web3d-x3d-actions-qualityassurance-separatorBetween.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="900"/>
+                        </file>
+                        <!-- insertions go here -->
+                        <!-- X3d Validator online server            X3dValidatorOnlineAction                 position 1000 -->
+                        <!-- X3D Quality Assurance (QA)             LaunchX3dResourcesQualityAssuranceAction position 1010 -->
+                        <!-- X3D Regular Expressions (regexes)      X3dValuesRegexCheckerAction              position 1020 -->
+                        <!-- X3D Unified Object Model (X3DUOM)      X3duomAction                             position 1030 -->
+                        <!-- X3D Validation: Schema DOCTYPE X3DUOM  LaunchX3dSchemaDoctypeValidationAction   position 1040 -->
+                        <file name="org-web3d-x3d-actions-qualityassurance-separatorBefore.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="1100"/>
+                        </file>
+                        <file name="org-netbeans-modules-xml-tools-actions-CheckAction.shadow">
+                            <attr name="originalFile" stringvalue="Actions/XML/org-netbeans-modules-xml-tools-actions-CheckAction.instance"/>
+                            <attr name="position" intvalue="1200"/>
+                        </file>
+                        <file name="org-netbeans-modules-xml-tools-actions-ValidateAction.shadow">
+                            <attr name="originalFile" stringvalue="Actions/XML/org-netbeans-modules-xml-tools-actions-ValidateAction.instance"/>
+                            <attr name="position" intvalue="1300"/>
+                        </file>
+                    </folder>
+                    <!-- duplicate of Security menu to support right-click context menu -->
+                    <folder name="Security">
+                        <attr name="position" intvalue="150"/>
+                        <folder name="Manage XML Security keystore...">
+                            <attr name="position" intvalue="100"/>
+                        </folder>
+                        <file name="org-web3d-popup-securityseparator1.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="200"/>
+                        </file>
+                        <file name="org-web3d-popup-securityseparator2.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="500"/>
+                        </file>
+                        <folder name="Format using XML Canonicalization (C14N)...">
+                            <attr name="position" intvalue="700"/>
+                            <attr name="iconBase" stringvalue="org/web3d/x3d/resources/c14n_blue.png"/>
+                            <!-- entries merged into single folder
+                            <folder name="Inclusive">
+                              <attr name="position" intvalue="100"/>
+                            </folder>
+                            <folder name="Exclusive">
+                              <attr name="position" intvalue="200"/>
+                            </folder> -->
+                        </folder> <!-- xml canonicalization -->
+                    </folder><!-- xml security -->
+                    <file name="org-web3d-popup-securityseparator4.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="700"/>
+                    </file>
+                    <folder name="Help">
+                        <attr name="position" intvalue="800"/>
+                        <!-- insertions go here -->
+                        <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 1100 -->
+                        <!-- X3D Resources: LaunchX3dResourcesAction position 401 -->
+                    </folder>
+                    <folder name="Outreach">
+                        <attr name="position" intvalue="900"/>
+                        <!-- Web3D Conference                     LaunchWeb3DConferenceAction                  position 100 -->
+                        <!-- Web3D Conference ACM Digital Library LaunchWeb3DConferenceAcmDigitalLibraryAction position 200 -->
+                        <!-- Web3D Conference YouTube             LaunchWeb3DConferenceYouTubeAction           position 300 -->
+                        <file name="org-web3d-x3d-actions-outreach2-separator.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="350"/>
+                        </file>
+                        <!-- Web3D Consortium                     LaunchWeb3DConsortiumHomeAction              position 400 -->
+                        <!-- Web3D Consortium Facebook            LaunchWeb3DConsortiumFacebookAction          position 500 -->
+                        <!-- Web3D Consortium Twitter             LaunchWeb3DConsortiumTwitterAction           position 600 -->
+                        <!-- Web3D Consortium YouTube             LaunchWeb3DConsortiumYouTubeAction           position 700 -->
+                    </folder>
+                    <folder name="Standards">
+                        <attr name="position" intvalue="1000"/>
+                        <!-- All Web3D Consortium Standards       LaunchWeb3dConsortiumStandardsAction       position 100 -->
+                        <!-- HAnim Humanoid Animation Standard    LaunchHumanoidAnimationStandardAction      position 200 -->
+                        <!-- X3D4 Architecture Standard           LaunchX3D4ArchitectureStandardAction       position 300 -->
+                        <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
+                        <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
+                    </folder>
+                    <folder name="X3D-Edit Home, Preferences">
+                        <attr name="position" intvalue="1010"/>
+                        <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 860 -->
+                        <!-- X3D-Edit Preferences OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 870 -->
+                    </folder>
+                    <!--
+                    <file name="x3d-popup-separator5.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="990"/>
+                    </file>
+                    -->
+                    <file name="x3d-popup-separator1.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="1200"/>
+                    </file>
+                    <!-- Format using C14N menu item should land right before to already-provided Format menu item -->
+                </folder> <!-- popup -->
+            </folder> <!-- x3d+xml -->
+        </folder> <!-- model -->
+    </folder>
+    <file name="PaletteSettings_hidden"/>
+    <folder name="X3dAntScripts">
+        <file name="examplesDownloaderAntScript.xml" url="nbresloc:/org/web3d/x3d/examplesDownloaderAntScript.xml"/>
+    </folder>
+    <folder name="X3dExamples">
+        <file name="MaterialExample.x3d" url="nbresloc:/org/web3d/x3d/templates/MaterialExample.x3d"/>
+        <file name="LauncherTestScene.x3d" url="nbresloc:/org/web3d/x3d/templates/LauncherTestScene.x3d"/>
+        <file name="Sample1.x3d" url="nbresloc:/org/web3d/x3d/templates/Sample1.x3d"/>
+        <file name="x3d.x3d" url="nbresloc:/org/web3d/x3d/templates/x3d.x3d"/>
+        <file name="HelloWorld.x3d" url="nbresloc:/org/web3d/x3d/templates/HelloWorld.x3d"/>
+    </folder>
+
+    <folder name="Schematron">
+        <file name="build.xml" url="nbresloc:/org/web3d/x3d/schematron/build.xml"/>
+        <file name="SvrlReportText.xslt" url="nbresloc:/org/web3d/x3d/schematron/SvrlReportText.xslt"/>
+        <file name="SvrlReportText.sxx" url="nbresloc:/org/web3d/x3d/schematron/SvrlReportText.sxx"/>
+        <file name="X3dSchematronValidityChecks.xslt" url="nbresloc:/org/web3d/x3d/schematron/X3dSchematronValidityChecks.xslt"/>
+        <file name="X3dSchematronValidityChecks.sxx" url="nbresloc:/org/web3d/x3d/schematron/X3dSchematronValidityChecks.sxx"/>
+        <file name="X3dSchematronValidityChecks.sch" url="nbresloc:/org/web3d/x3d/schematron/X3dSchematronValidityChecks.sch"/>
+        <file name="buildSchematronDevelopment.xml" url="nbresloc:/org/web3d/x3d/schematron/buildSchematronDevelopment.xml"/>
+        <file name="iso_abstract_expand.xsl" url="nbresloc:/org/web3d/x3d/schematron/iso_abstract_expand.xsl"/>
+        <file name="iso_dsdl_include.xsl" url="nbresloc:/org/web3d/x3d/schematron/iso_dsdl_include.xsl"/>
+        <file name="iso_schematron_skeleton_for_saxon.xsl" url="nbresloc:/org/web3d/x3d/schematron/iso_schematron_skeleton_for_saxon.xsl"/>
+        <file name="iso_schematron_skeleton_for_xslt1.xsl" url="nbresloc:/org/web3d/x3d/schematron/iso_schematron_skeleton_for_xslt1.xsl"/>
+        <file name="iso_svrl.xsl" url="nbresloc:/org/web3d/x3d/schematron/iso_svrl.xsl"/>
+        <file name="iso_svrl_for_xslt2.xsl" url="nbresloc:/org/web3d/x3d/schematron/iso_svrl_for_xslt2"/>
+        <!-- plus these -->
+        <file name="X3dToX3dvClassicVrmlEncoding.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToX3dvClassicVrmlEncoding.xslt"/>
+        <file name="X3dToVrml97.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToVrml97.xslt"/>
+    </folder>
+
+    <folder name="Schemas">
+        <!-- do not copy build.xml since it will overwrite the other build.xml -->
+        <file name="OasisXmlCatalogX3D.xml" url="nbresloc:/org/web3d/x3d/specifications/OasisXmlCatalogX3D.xml"/>
+        <file name="catalog.dtd" url="nbresloc:/org/web3d/x3d/specifications/catalog.dtd"/>
+        <file name="x3d-3.0-InputOutputFields.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0-InputOutputFields.dtd"/>
+        <file name="x3d-3.0-Web3dExtensions.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0-Web3dExtensions.dtd"/>
+        <file name="x3d-3.0-Web3dExtensionsAmendment1.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0-Web3dExtensionsAmendment1.dtd"/>
+        <file name="x3d-3.0-Web3dExtensionsAmendment1.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0-Web3dExtensionsAmendment1.xsd"/>
+        <file name="x3d-3.0-Web3dExtensionsPrivate.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0-Web3dExtensionsPrivate.dtd"/>
+        <file name="x3d-3.0-Web3dExtensionsPrivate.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0-Web3dExtensionsPrivate.xsd"/>
+        <file name="x3d-3.0-Web3dExtensionsPublic.Specification.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0-Web3dExtensionsPublic.Specification.dtd"/>
+        <file name="x3d-3.0-Web3dExtensionsPublic.Specification.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0-Web3dExtensionsPublic.Specification.xsd"/>
+        <file name="x3d-3.0-Web3dExtensionsPublic.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0-Web3dExtensionsPublic.dtd"/>
+        <file name="x3d-3.0-Web3dExtensionsPublic.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0-Web3dExtensionsPublic.xsd"/>
+        <file name="x3d-3.0.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0.dtd"/>
+        <file name="x3d-3.0.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.0.xsd"/>
+        <file name="x3d-3.1-Web3dExtensionsPrivate.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.1-Web3dExtensionsPrivate.dtd"/>
+        <file name="x3d-3.1-Web3dExtensionsPrivate.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.1-Web3dExtensionsPrivate.xsd"/>
+        <file name="x3d-3.1-Web3dExtensionsPublic.Specification.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.1-Web3dExtensionsPublic.Specification.dtd"/>
+        <file name="x3d-3.1-Web3dExtensionsPublic.Specification.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.1-Web3dExtensionsPublic.Specification.xsd"/>
+        <file name="x3d-3.1-Web3dExtensionsPublic.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.1-Web3dExtensionsPublic.dtd"/>
+        <file name="x3d-3.1-Web3dExtensionsPublic.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.1-Web3dExtensionsPublic.xsd"/>
+        <file name="x3d-3.1.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.1.dtd"/>
+        <file name="x3d-3.1.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.1.xsd"/>
+        <file name="x3d-3.2-InputOutputFields.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.2-InputOutputFields.dtd"/>
+        <file name="x3d-3.2-Web3dExtensionsPrivate.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.2-Web3dExtensionsPrivate.dtd"/>
+        <file name="x3d-3.2-Web3dExtensionsPrivate.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.2-Web3dExtensionsPrivate.xsd"/>
+        <file name="x3d-3.2-Web3dExtensionsPublic.Specification.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.2-Web3dExtensionsPublic.Specification.dtd"/>
+        <file name="x3d-3.2-Web3dExtensionsPublic.Specification.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.2-Web3dExtensionsPublic.Specification.xsd"/>
+        <file name="x3d-3.2-Web3dExtensionsPublic.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.2-Web3dExtensionsPublic.dtd"/>
+        <file name="x3d-3.2-Web3dExtensionsPublic.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.2-Web3dExtensionsPublic.xsd"/>
+        <file name="x3d-3.2.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.2.dtd"/>
+        <file name="x3d-3.2.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.2.xsd"/>
+        <file name="x3d-3.3-InputOutputFields.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3-InputOutputFields.dtd"/>
+        <file name="x3d-3.3-Web3dExtensionsPrivate.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3-Web3dExtensionsPrivate.dtd"/>
+        <file name="x3d-3.3-Web3dExtensionsPrivate.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3-Web3dExtensionsPrivate.xsd"/>
+        <file name="x3d-3.3-Web3dExtensionsPublic.Specification.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3-Web3dExtensionsPublic.Specification.dtd"/>
+        <file name="x3d-3.3-Web3dExtensionsPublic.Specification.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3-Web3dExtensionsPublic.Specification.xsd"/>
+        <file name="x3d-3.3-Web3dExtensionsPublic.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3-Web3dExtensionsPublic.dtd"/>
+        <file name="x3d-3.3-Web3dExtensionsPublic.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3-Web3dExtensionsPublic.xsd"/>
+        <file name="x3d-3.3.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3.dtd"/>
+        <file name="x3d-3.3.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3.xsd"/>
+        <file name="x3d-4.0-InputOutputFields.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-InputOutputFields.dtd"/>
+        <file name="x3d-4.0-Web3dExtensionsPrivate.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-Web3dExtensionsPrivate.dtd"/>
+        <file name="x3d-4.0-Web3dExtensionsPrivate.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-Web3dExtensionsPrivate.xsd"/>
+        <file name="x3d-4.0-Web3dExtensionsPublic.Specification.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-Web3dExtensionsPublic.Specification.dtd"/>
+        <file name="x3d-4.0-Web3dExtensionsPublic.Specification.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-Web3dExtensionsPublic.Specification.xsd"/>
+        <file name="x3d-4.0-Web3dExtensionsPublic.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-Web3dExtensionsPublic.dtd"/>
+        <file name="x3d-4.0-Web3dExtensionsPublic.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-Web3dExtensionsPublic.xsd"/>
+        <file name="x3d-4.0.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0.dtd"/>
+        <file name="x3d-4.0.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0.xsd"/>
+    </folder>
+
+    <folder name="X3dTransforms">
+        <file name="X3dExtrusionToSvgViaXslt2.0.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dExtrusionToSvgViaXslt2.0.xslt"/>
+        <file name="X3dTidy.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dTidy.xslt"/>
+        <file name="X3dToHtml.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToHtml.xslt"/>
+        <file name="X3dToTurtle.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToTurtle.xslt"/>
+        <file name="X3dToVrml97.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToVrml97.xslt"/>
+        <file name="X3dToX3dvClassicVrmlEncoding.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToX3dvClassicVrmlEncoding.xslt"/>
+        <file name="X3dToXhtml-1.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml-1.xslt"/>
+        <file name="X3dToXhtml-2.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml-2.xslt"/>
+        <file name="X3dToXhtml-3.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml-3.xslt"/>
+        <file name="X3dToXhtml-4.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml-4.xslt"/>
+        <file name="X3dToXhtml-5.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml-5.xslt"/>
+        <file name="X3dToXhtml.bat" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml.bat"/>
+        <file name="X3dToXhtml.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml.xslt"/>
+        <file name="X3dToX3dom.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToX3dom.xslt"/>
+        <file name="X3dToJson.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToJson.xslt"/>
+        <file name="X3dTooltipConversions.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dTooltipConversions.xslt"/>
+        <file name="X3dUnwrap.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dUnwrap.xslt"/>
+        <file name="X3dWrap.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dWrap.xslt"/>
+    </folder>
+    <folder name="Templates">
+        <folder name="Other">
+            <file name="newScene.x3d" url="nbresloc:/org/web3d/x3d/templates/newScene.x3d">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newScene.x3d"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
+                <attr name="templateCategory" stringvalue="simple-files"/>
+            </file>
+            <file name="newECMAscript.js" url="nbresloc:/org/web3d/x3d/templates/newECMAscript.js">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newECMAscript.js"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
+                <attr name="templateCategory" stringvalue="simple-files"/>
+            </file>
+            <file name="newHtmlPageWithX3dObject.html" url="nbresloc:/org/web3d/x3d/templates/newHtmlPageWithX3dObject.html">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newHtmlPageWithX3dObject.html"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
+                <attr name="templateCategory" stringvalue="simple-files"/>
+            </file>
+            <file name="newXhtmlWithEmbeddedX3dom.xhtml" url="nbresloc:/org/web3d/x3d/templates/newXhtmlWithEmbeddedX3dom.xhtml">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newXhtmlWithEmbeddedX3dom.xhtml"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
+                <attr name="templateCategory" stringvalue="simple-files"/>
+            </file>
+            <!-- TODO
+            <file name="newXhtmlWithEmbeddedX_ITE.xhtml" url="nbresloc:/org/web3d/x3d/templates/newXhtmlWithEmbeddedX_ITE.xhtml">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newXhtmlWithEmbeddedX_ITE.xhtml"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
+                <attr name="templateCategory" stringvalue="simple-files"/>
+            </file>
+-->
+            <file name="newX3dScript.java" url="nbresloc:/org/web3d/x3d/templates/newX3dScript.java.template">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newX3dScript.java"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
+                <attr name="templateCategory" stringvalue="simple-files"/>
+            </file>
+            <file name="newStylesheet.xslt" url="nbresloc:/org/web3d/x3d/templates/newStylesheet.xslt">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newStylesheet.xslt"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
+                <attr name="templateCategory" stringvalue="simple-files"/>
+            </file>
+            <file name="newTextFile.txt" url="nbresloc:/org/web3d/x3d/templates/newTextFile.txt">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newTextFile.txt"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
+                <attr name="templateCategory" stringvalue="simple-files"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Services">
+        <folder name="AutoupdateType">
+            <file name="org_web3d_x3d_update_center.instance">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Services/AutoupdateType/org_web3d_x3d_update_center.instance"/>
+                <attr name="enabled" boolvalue="true"/>
+                <attr name="instanceCreate" methodvalue="org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogFactory.createUpdateProvider"/>
+                <attr name="instanceOf" stringvalue="org.netbeans.spi.autoupdate.UpdateProvider"/>
+                <attr name="url" stringvalue="https://savage.nps.edu/X3D-Edit/netbeans_modules/updates.xml"/>
+            </file>
+        </folder>
+        <folder name="JavaHelp">
+            <file name="x3d-helpset.xml" url="x3d-helpset.xml">
+                <attr name="position" intvalue="150"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Loaders">
+        <folder name="model">
+            <folder name="x3d+xml">
+                <folder name="Actions">
+                    <file name="OpenAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.OpenAction"/>
+                        <attr name="position" intvalue="1"/><!-- non-zero? -->
+                    </file>
+                    <file name="ViewAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.ViewAction"/>
+                        <attr name="position" intvalue="100"/> 
+                    </file>
+                    <file name="x3d-project-separator-1.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="150"/>
+                    </file>
+                    <file name="FileSystemAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.FileSystemAction"/>
+                        <attr name="position" intvalue="400"/>
+                    </file>
+                    <file name="x3d-project-separator-3.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="500"/>
+                    </file>
+                    <file name="CutAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.CutAction"/>
+                        <attr name="position" intvalue="600"/>
+                    </file>
+                    <file name="CopyAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.CopyAction"/>
+                        <attr name="position" intvalue="700"/>
+                    </file>
+                    <file name="PasteAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.PasteAction"/>
+                        <attr name="position" intvalue="800"/>
+                    </file>
+                    <file name="x3d-project-separator-4.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="900"/>
+                    </file>
+                    <file name="DeleteAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.DeleteAction"/>
+                        <attr name="position" intvalue="1000"/>
+                    </file>
+                    <file name="RenameAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.RenameAction"/>
+                        <attr name="position" intvalue="1100"/>
+                    </file>
+                    <file name="x3d-project-separator-5.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="1200"/>
+                    </file>
+                    <file name="SaveAsTemplateAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.SaveAsTemplateAction"/>
+                        <attr name="position" intvalue="1300"/>
+                    </file>
+                    <file name="x3d-project-separator-6.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="1400"/>
+                    </file>
+                    <file name="ToolsAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.ToolsAction"/>
+                        <attr name="position" intvalue="1500"/>
+                    </file>
+                    <file name="PropertiesAction.instance">
+                        <attr name="instanceClass" stringvalue="org.openide.actions.PropertiesAction"/>
+                        <attr name="position" intvalue="1600"/>
+                    </file>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Tools">
+            <attr name="position" intvalue="400"/>
+        </folder>
+        <folder name="View">
+            <attr name="position" intvalue="425"/>
+            <file name="org-netbeans-core-multiview-EditorsAction.instance_hidden"/>
+        </folder>
+        <folder name="Window">
+            <attr name="position" intvalue="450"/>
+        <!-- TODO hide? 
+        -->
+            <folder name="Output">
+                <attr name="position" intvalue="510"/>
+                <file name="org-netbeans-modules-versioning-util-OpenVersioningOutputAction.shadow_hidden"/>
+            </folder>
+        </folder>
+        <folder name="X3D-Edit">
+            <attr name="position" intvalue="1200"/>
+            <folder name="Author Workflow">
+                <attr name="position" intvalue="20"/>
+            </folder>
+            <folder name="Edit Element XML">
+                <attr name="position" intvalue="25"/>
+            </folder>
+            <folder name="Launch Saved Model in Tool">
+                <attr name="position" intvalue="30"/>
+            </folder>
+            <folder name="New Documents">
+                <attr name="position" intvalue="40"/>
+            </folder>
+            <folder name="View Saved Scene">
+                <attr name="position" intvalue="50"/>
+                <!-- Xj3D internal pane    Xj3dViewerAction            position 20 -->
+                <!-- Xj3D launch           ViewInXj3DApplicationAction position 50 -->
+                <!-- Xj3D user-installed custom application launch ViewInXj3DExternalAction position 60 -->
+                <!-- ExportX3domAction    position 70 -->
+                <!-- ViewX3dInBrowser position 113 -->
+                <!-- ViewInAll position 116 -->
+                <!-- ViewInContactAction position 118 -->
+                <!-- ViewInContactActionGeo position 119 -->
+                <!-- ViewInfreeWrlAction  position 121 -->
+                <!-- ViewInH3dAction  position 124 -->
+                <!-- ViewInHeilanAction  position 125 -->
+                <!-- ViewInInstantRealityAction  position 127 -->
+                <!-- ViewInOctagaAction  position 130 -->
+                <!-- ViewInSwirlX3DAction  position 133 -->
+                <!-- ViewInView3dSceneAction  position 136 -->
+                <!-- ViewInVivatyPlayerAction  position 137 -->
+                <!-- ViewInAction  position  -->
+                <!-- ViewInOtherAction  position 200 -->
+            </folder>
+            <file name="x3dMenuSeparatorBetweenConversionsAndExamples.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="55"/>
+            </file>
+            <folder name="Compression">
+                <attr name="position" intvalue="60"/>
+                <!-- CDF using Xj3D CadFilterAction 50 -->
+                <!-- C14N CanonicalizeAction 100 -->
+                <!-- C14N ExportX3dCanonicalAction 150 -->
+                <!-- EXI compression, .exi file EXICompressAction 900 -->
+                <!-- gzip compression .x3d.gz file GzipX3dAction 1000 -->
+                <!-- gzip compression .x3dv file GzipX3dvAction  1100 -->
+                <!-- gzip compression .wrl file GzipWrlAction    1200 -->
+            <!--<file name="org-web3d-x3d-actions-conversions-GzipWrlAction.shadow_hidden"/>-->
+                <file name="org-web3d-x3d-actions-conversions-separatorAfter1.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="1500"/>
+                </file>
+                <file name="org-web3d-x3d-actions-security-DecryptXmlAction-separatorBefore.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="1625"/>
+                </file>
+                <!-- Decrypt XML file... DecryptXmlAction 1650-->
+                <!-- X3D Resources: Conversions -->
+                <!-- X3D Resources: Import/Export -->
+                <file name="org-web3d-x3d-actions-conversions-DecryptXmlAction-separatorAfter.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="1700"/>
+                </file>
+            </folder>
+            <folder name="DIS Networking">
+                <attr name="position" intvalue="70"/>
+            </folder>
+            <folder name="Examples">
+                <attr name="position" intvalue="80"/>
+                <!-- DownloadContentAction position 100 -->
+                <folder name="View Local X3D Examples Archives">
+                    <attr name="position" intvalue="200"/>
+                </folder>
+                <folder name="View Online X3D Examples Archives">
+                    <attr name="position" intvalue="300"/>
+                </folder>
+                <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
+                <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
+            </folder>
+            <folder name="Export Model to File">
+                <attr name="position" intvalue="90"/>
+                <!-- annotations used in Action source files to get inserted here
+                <folder name="Export .x3d as X3D ClassicVRML (.x3dv) Encoding...">
+                    <attr name="position" intvalue="100"/>
+                </folder> -->
+                <!-- Export HTML Documentation         ExportHtmlDocumentationAction    position  50 -->
+                <!-- Export X3D JSON                   X3dToJsonConversionAction        position  96 -->
+                <!-- Export Turtle Triples             ExportTurtleTriplesAction        position 100 -->
+                <!-- Export VRML97 xslt                ExportVRML97xsltAction           position 150 -->
+                <!-- Export ClassicVRML Xj3D           ExportClassicVRMLxsltAction      position 200 -->
+                <!-- Export ClassicVRML xslt           ExportClassicVRMLAction          position 250 -->
+                <!-- Export X3D Binary  x3db           ExportX3dbAction                 position 300 -->
+                <!-- Export X3D Extrusion crossSection ExportSvgExtrusionDiagramAction  position 700 -->
+            </folder>
+            <folder name="Import Model from File">
+                <attr name="position" intvalue="100"/>
+                <!-- annotations used in Action source files to get inserted here -->
+            </folder>
+            <!--
+            <file name="x3dMenuSeparatorBeforeNewDocument.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="80"/>
+            </file>
+        -->
+            <folder name="Quality Assurance">
+                <attr name="position" intvalue="125"/>
+                <!-- insertions go here -->
+                <file name="org-web3d-x3d-actions-qualityassurance-separatorBetween.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="900"/>
+                </file>
+                <!-- X3d Validator online server            X3dValidatorOnlineAction                 position 1000 -->
+                <!-- X3D Quality Assurance (QA)             LaunchX3dResourcesQualityAssuranceAction position 1010 -->
+                <!-- X3D Regular Expressions (regexes)      X3dValuesRegexCheckerAction              position 1020 -->
+                <!-- X3D Unified Object Model (X3DUOM)      X3duomAction                             position 1030 -->
+                <!-- X3D Validation: Schema DOCTYPE X3DUOM  LaunchX3dSchemaDoctypeValidationAction   position 1040 -->
+                <file name="org-web3d-x3d-actions-qualityassurance-separatorBefore.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="1100"/>
+                </file>
+                <file name="org-netbeans-modules-xml-tools-actions-CheckAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/XML/org-netbeans-modules-xml-tools-actions-CheckAction.instance"/>
+                    <attr name="position" intvalue="1200"/>
+                </file>
+                <file name="org-netbeans-modules-xml-tools-actions-ValidateAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/XML/org-netbeans-modules-xml-tools-actions-ValidateAction.instance"/>
+                    <attr name="position" intvalue="1300"/>
+                </file>
+            </folder>
+            <!-- duplicate of XML Security for top-level X3D menu -->
+            <folder name="Security">
+                <attr name="position" intvalue="150"/>
+                <folder name="Manage XML Security keystore...">
+                    <attr name="position" intvalue="100"/>
+                </folder>
+                <file name="org-web3d-popup-securityseparator1.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="200"/>
+                </file>
+                <file name="org-web3d-popup-securityseparator2.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="500"/>
+                </file>
+                <folder name="Format using XML Canonicalization (C14N)...">
+                    <attr name="position" intvalue="700"/>
+                    <attr name="iconBase" stringvalue="org/web3d/x3d/resources/c14n_blue.png"/>
+                </folder> <!-- xml canonicalization -->
+            </folder> <!-- Security -->
+            <file name="org-web3d-popup-securityseparator3.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="700"/>
+            </file>
+            <folder name="Help">
+                <attr name="position" intvalue="800"/>
+                <!-- insertions go here -->
+                <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 1100 -->
+                <!-- X3D Resources: LaunchX3dResourcesAction position 401 -->
+            </folder>
+            <folder name="Outreach">
+                <attr name="position" intvalue="900"/>
+                <!-- Web3D Conference                     LaunchWeb3DConferenceAction                  position 100 -->
+                <!-- Web3D Conference ACM Digital Library LaunchWeb3DConferenceAcmDigitalLibraryAction position 200 -->
+                <!-- Web3D Conference YouTube             LaunchWeb3DConferenceYouTubeAction           position 300 -->
+                <file name="org-web3d-x3d-actions-outreach-separator.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="350"/>
+                </file>
+                <!-- Web3D Consortium                     LaunchWeb3DConsortiumHomeAction              position 400 -->
+                <!-- Web3D Consortium Facebook            LaunchWeb3DConsortiumFacebookAction          position 500 -->
+                <!-- Web3D Consortium Twitter             LaunchWeb3DConsortiumTwitterAction           position 600 -->
+                <!-- Web3D Consortium YouTube             LaunchWeb3DConsortiumYouTubeAction           position 700 -->
+            </folder>
+            <folder name="Standards">
+                <attr name="position" intvalue="1000"/>
+                <!-- All Web3D Consortium Standards       LaunchWeb3dConsortiumStandardsAction       position 100 -->
+                <!-- HAnim Humanoid Animation Standard    LaunchHumanoidAnimationStandardAction      position 200 -->
+                <!-- X3D4 Architecture Standard           LaunchX3D4ArchitectureStandardAction       position 300 -->
+                <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
+                <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
+            </folder>
+            <folder name="X3D-Edit Home, Preferences">
+                <attr name="position" intvalue="1010"/>
+                <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 1004 -->
+                <!-- X3D-Edit Preferences OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 1008 -->
+            </folder>
+            <!--
+            <file name="org-web3d-x3d-actions-final-separator.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="1050"/>
+            </file>
+            -->
+        </folder>
+    </folder>
+    <folder name="Navigator">
+        <folder name="Panels">
+            <!-- TODO what's this doing here?
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="1000"/>
+            </file> -->
+            <folder name="model">
+                <folder name="x3d+xml">
+                    <file name="org-netbeans-modules-xml-text-navigator-XMLNavigatorPanel.instance"/>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Shortcuts">
+        <!-- hotkeys, D = Ctrl key -->
+        <file name="S-D-E.shadow">
+            <attr name="originalFile" stringvalue="Actions/Edit/org-web3d-x3d-EditElementAction.instance"/>
+        </file>
+        <file name="D-F2.shadow">
+            <attr name="originalFile" stringvalue="Actions/Tools/org-web3d-x3d-actions-qualityassurance-ComprehensiveValidationAction.instance"/>
+        </file>
+    </folder>
+    <folder name="Windows2">
+        <folder name="Components">
+            <file name="DisPlayerRecorderTopComponent.settings" url="DisPlayerRecorderTopComponentSettings.xml"/>
+            <file name="DisTesterTopComponent.settings" url="DisTesterTopComponentSettings.xml"/>
+            <file name="Xj3dTopComponent.settings" url="Xj3dTopComponentSettings.xml"/> <!-- renamed -->
+        </folder>
+        <folder name="Modes">
+            <folder name="properties">
+                <file name="DisTesterTopComponent.wstcref" url="DisTesterTopComponentWstcref.xml"/>
+            </folder>
+            <folder name="editor">
+                <file name="DisPlayerRecorderTopComponent.wstcref" url="DisPlayerRecorderTopComponentWstcref.xml"/>
+            </folder>
+            <!-- TODO added but is it needed? -->
+            <folder name="xj3d">
+                <file name="Xj3dTopComponent.wstcref" url="Xj3dTopComponentWstcref.xml"/>
+            </folder>
+            <folder name="navigator"/>
+            <file name="xj3dview.wsmode" url="xj3dviewWsmode.xml"/>
+        </folder>
+    </folder>
+    <folder name="Plugins">     <!-- Register X3D module catalog plugin which locally holds our DTDs and Schemas -->
+        <folder name="XML">
+            <folder name="UserCatalogs">
+                <file name="org-web3d-x3d-X3DCatalog.instance">
+                    <attr name="instanceCreate" newvalue="org.web3d.x3d.X3DCatalog"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.modules.xml.catalog.spi.CatalogReader"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+    
+    <folder name="X3DPalette">
+        <folder name="X3D_Metadata_and_Structure">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/X3D_Metadata_and_Structure"/>
+            <attr name="position" intvalue="1000"/>
+            <file name="COMMENT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COMMENT.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <!--<file name="XML.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/XML.xml"><attr name="position" intvalue="130"/></file>-->
+            <file name="DOCTYPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DOCTYPE.xml">
+                <attr name="position" intvalue="160"/>
+            </file>
+            <file name="X3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/X3D.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="HEAD.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HEAD.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="COMPONENT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COMPONENT.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="UNIT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/UNIT.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="META.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/META.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="SCENE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SCENE.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="METADATABOOLEAN.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/METADATABOOLEAN.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="METADATADOUBLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/METADATADOUBLE.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="METADATAFLOAT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/METADATAFLOAT.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="METADATAINTEGER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/METADATAINTEGER.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="METADATASTRING.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/METADATASTRING.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+            <file name="METADATASET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/METADATASET.xml">
+                <attr name="position" intvalue="1300"/>
+            </file>
+            <file name="WORLDINFO.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/WORLDINFO.xml">
+                <attr name="position" intvalue="1400"/>
+            </file>
+            <file name="SMAL_ObjectMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_ObjectMetadataTemplate.xml">
+                <attr name="position" intvalue="1700"/>
+            </file>
+            <file name="SMAL_TerrainMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_TerrainMetadataTemplate.xml">
+                <attr name="position" intvalue="1800"/>
+            </file>
+            <file name="SMAL_VehicleMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_VehicleMetadataTemplate.xml">
+                <attr name="position" intvalue="1900"/>
+            </file>
+        </folder>
+        <folder name="Geometry_Primitives">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Geometry_Primitives"/>
+            <attr name="position" intvalue="2000"/>
+            <file name="SHAPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHAPE.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="BOX.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BOX.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="CONE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CONE.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="CYLINDER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CYLINDER.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="SPHERE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SPHERE.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="TEXT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXT.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="FONTSTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FONTSTYLE.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+        </folder>
+        <folder name="Grouping">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Grouping"/>
+            <attr name="position" intvalue="3000"/>
+            <file name="ANCHOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ANCHOR.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="BILLBOARD.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BILLBOARD.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="COLLISION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLLISION.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="GROUP.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GROUP.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="INLINE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINE.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="LOD.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LOD.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="STATICGROUP.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/STATICGROUP.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="SWITCH.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SWITCH.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="TRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TRANSFORM.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="CLIPPLANE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CLIPPLANE.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="EXPORT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/EXPORT.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="IMPORT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IMPORT.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+        </folder>
+        <folder name="Viewing_and_Navigation">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Viewing_and_Navigation"/>
+            <attr name="position" intvalue="4000"/>
+            <file name="VIEWPOINT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/VIEWPOINT.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="NAVIGATIONINFO.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NAVIGATIONINFO.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="ANCHOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ANCHOR.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="BILLBOARD.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BILLBOARD.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="COLLISION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLLISION.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="ORTHOVIEWPOINT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ORTHOVIEWPOINT.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="VIEWPOINTGROUP.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/VIEWPOINTGROUP.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+        </folder>
+        <folder name="Appearance_Material_and_Textures">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Appearance_Material_and_Textures"/>
+            <attr name="position" intvalue="5000"/>
+            <file name="APPEARANCE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/APPEARANCE.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="MATERIAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MATERIAL.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="TWOSIDEDMATERIAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TWOSIDEDMATERIAL.xml">
+                <attr name="position" intvalue="250"/>
+            </file>
+            <file name="FILLPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FILLPROPERTIES.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="LINEPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LINEPROPERTIES.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="IMAGETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IMAGETEXTURE.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="MOVIETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MOVIETEXTURE.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="PIXELTEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PIXELTEXTURE.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="MULTITEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURE.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="TEXTUREPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTUREPROPERTIES.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="TEXTURETRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORM.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="MULTITEXTURETRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURETRANSFORM.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="ACOUSTICPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ACOUSTICPROPERTIES.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+        </folder>
+        <folder name="Geometry_Points_Lines_and_Polygons">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Geometry_Points_Lines_and_Polygons"/>
+            <attr name="position" intvalue="6000"/>
+            <file name="SHAPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHAPE.xml">
+                <attr name="position" intvalue="50"/>
+            </file>
+            <file name="POINTSET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POINTSET.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="INDEXEDLINESET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INDEXEDLINESET.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="LINESET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LINESET.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="INDEXEDFACESET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INDEXEDFACESET.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="ELEVATIONGRID.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ELEVATIONGRID.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="EXTRUSION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/EXTRUSION.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <!-- contained nodes follow these parent geometry nodes -->
+            <file name="COLOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLOR.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="COLORRGBA.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLORRGBA.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+            <!-- COORDINATE includes switch for COORDINATEDOUBLE -->
+            <file name="COORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COORDINATE.xml">
+                <attr name="position" intvalue="1300"/>
+            </file>
+            <file name="COORDINATEDOUBLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COORDINATEDOUBLE.xml">
+                <attr name="position" intvalue="1350"/>
+            </file>
+            <file name="NORMAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NORMAL.xml">
+                <attr name="position" intvalue="1400"/>
+            </file>
+            <file name="TEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE.xml">
+                <attr name="position" intvalue="1500"/>
+            </file>
+            <file name="TEXTURECOORDINATEGENERATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATEGENERATOR.xml">
+                <attr name="position" intvalue="1600"/>
+            </file>
+            <file name="MULTITEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURECOORDINATE.xml">
+                <attr name="position" intvalue="1700"/>
+            </file>
+        </folder>
+        <folder name="Event_Animation_and_Interpolation">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Event_Animation_and_Interpolation"/>
+            <attr name="position" intvalue="7000"/>
+            <file name="TIMESENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TIMESENSOR.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="SCALARINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SCALARINTERPOLATOR.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="COLORINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLORINTERPOLATOR.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="POSITIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POSITIONINTERPOLATOR.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="ORIENTATIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ORIENTATIONINTERPOLATOR.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="NORMALINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NORMALINTERPOLATOR.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="COORDINATEINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COORDINATEINTERPOLATOR.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="POSITIONINTERPOLATOR2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POSITIONINTERPOLATOR2D.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="COORDINATEINTERPOLATOR2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COORDINATEINTERPOLATOR2D.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+        </folder>
+        <folder name="User_Interactivity_and_Sensors">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/User_Interactivity_and_Sensors"/>
+            <attr name="position" intvalue="8000"/>
+            <file name="TOUCHSENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TOUCHSENSOR.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="PLANESENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PLANESENSOR.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="CYLINDERSENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CYLINDERSENSOR.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="SPHERESENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SPHERESENSOR.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="KEYSENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/KEYSENSOR.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="STRINGSENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/STRINGSENSOR.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+        </folder>
+        <folder name="Event_Utilities_and_Scripting">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Event_Utilities_and_Scripting"/>
+            <attr name="position" intvalue="9000"/>
+            <file name="TIMESENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TIMESENSOR.xml">
+                <attr name="position" intvalue="50"/>
+            </file>
+            <file name="BOOLEANFILTER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BOOLEANFILTER.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="BOOLEANSEQUENCER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BOOLEANSEQUENCER.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="BOOLEANTOGGLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BOOLEANTOGGLE.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="BOOLEANTRIGGER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BOOLEANTRIGGER.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="INTEGERSEQUENCER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INTEGERSEQUENCER.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="INTEGERTRIGGER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INTEGERTRIGGER.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="TIMETRIGGER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TIMETRIGGER.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="SCRIPT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SCRIPT.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="FIELD.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FIELD.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+        </folder>
+        <folder name="Geometry_2D">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Geometry_2D"/>
+            <attr name="position" intvalue="10000"/>
+            <file name="SHAPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHAPE.xml">
+                <attr name="position" intvalue="50"/>
+            </file>
+            <file name="ARC2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ARC2D.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="ARCCLOSE2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ARCCLOSE2D.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="CIRCLE2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CIRCLE2D.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="DISK2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DISK2D.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="POLYLINE2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POLYLINE2D.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="POLYPOINT2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POLYPOINT2D.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="RECTANGLE2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/RECTANGLE2D.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="TRIANGLESET2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TRIANGLESET2D.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+        </folder>
+        <folder name="Lighting_and_Environmental_Effects">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Lighting_and_Environmental_Effects"/>
+            <attr name="position" intvalue="11000"/>
+            <file name="BACKGROUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BACKGROUND.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="TEXTUREBACKGROUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTUREBACKGROUND.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="DIRECTIONALLIGHT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DIRECTIONALLIGHT.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="POINTLIGHT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POINTLIGHT.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="SPOTLIGHT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SPOTLIGHT.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="NAVIGATIONINFO.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NAVIGATIONINFO.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="FOG.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FOG.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="LOCALFOG.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LOCALFOG.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <!-- TODO FogCoordinate -->
+            <file name="IMAGETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IMAGETEXTURE.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+        </folder>
+        <folder name="Environment_Sensors">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Environment_Sensors"/>
+            <attr name="position" intvalue="12000"/>
+            <file name="LOADSENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LOADSENSOR.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="PROXIMITYSENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROXIMITYSENSOR.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="VISIBILITYSENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/VISIBILITYSENSOR.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+        </folder>
+        <folder name="Sound_and_Web_Audio">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Sound_and_Web_Audio"/>
+            <attr name="position" intvalue="12000"/>
+            <file name="ACOUSTICPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ACOUSTICPROPERTIES.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="AUDIOCLIP.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/AUDIOCLIP.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="MOVIETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MOVIETEXTURE.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="SOUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SOUND.xml">
+                <attr name="position" intvalue="2000"/>
+            </file>
+            <!--
+            <file name="SPATIALSOUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SPATIALSOUND.xml">
+                <attr name="position" intvalue="2100"/>
+            </file>
+            <file name="AUDIODESTINATION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/AUDIODESTINATION.xml">
+                <attr name="position" intvalue="2110"/>
+            </file>
+            <file name="BIQUADFILTER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BIQUADFILTER.xml">
+                <attr name="position" intvalue="2120"/>
+            </file>
+            <file name="BUFFERAUDIOSOURCE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BUFFERAUDIOSOURCE.xml">
+                <attr name="position" intvalue="2130"/>
+            </file>
+            <file name="CHANNELMERGER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CHANNELMERGER.xml">
+                <attr name="position" intvalue="2140"/>
+            </file>
+            <file name="CHANNELSELECTOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CHANNELSELECTOR.xml">
+                <attr name="position" intvalue="2150"/>
+            </file>
+            <file name="CHANNELSPLITTER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CHANNELSPLITTER.xml">
+                <attr name="position" intvalue="2160"/>
+            </file>
+            <file name="CONVOLVER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CONVOLVER.xml">
+                <attr name="position" intvalue="2170"/>
+            </file>
+            <file name="DELAY.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DELAY.xml">
+                <attr name="position" intvalue="2180"/>
+            </file>
+            <file name="DYNAMICSCOMPRESSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DYNAMICSCOMPRESSOR.xml">
+                <attr name="position" intvalue="2190"/>
+            </file>
+            <file name="GAIN.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GAIN.xml">
+                <attr name="position" intvalue="2200"/>
+            </file>
+            <file name="LISTENERPOINTSOURCE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LISTENERPOINTSOURCE.xml">
+                <attr name="position" intvalue="2210"/>
+            </file>
+            <file name="MICROPHONESOURCE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MICROPHONESOURCE.xml">
+                <attr name="position" intvalue="2220"/>
+            </file>
+            <file name="OSCILLATORSOURCE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/OSCILLATORSOURCE.xml">
+                <attr name="position" intvalue="2230"/>
+            </file>
+            <file name="PERIODICWAVE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PERIODICWAVE.xml">
+                <attr name="position" intvalue="2240"/>
+            </file>
+            <file name="STREAMAUDIODESTINATION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/STREAMAUDIODESTINATION.xml">
+                <attr name="position" intvalue="2250"/>
+            </file>
+            <file name="STREAMAUDIOSOURCE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/STREAMAUDIOSOURCE.xml">
+                <attr name="position" intvalue="2260"/>
+            </file>
+            <file name="WAVESHAPER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/WAVESHAPER.xml">
+                <attr name="position" intvalue="2270"/>
+            </file>
+            -->
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="2100"/>
+            </file>
+        </folder>
+        <folder name="Geometry_Triangles_and_Quadrilaterals">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Geometry_Triangles_and_Quadrilaterals"/>
+            <attr name="position" intvalue="13000"/>
+            <file name="SHAPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHAPE.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="TRIANGLESET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TRIANGLESET.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="TRIANGLEFANSET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TRIANGLEFANSET.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="TRIANGLESTRIPSET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TRIANGLESTRIPSET.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="QUADSET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/QUADSET.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="INDEXEDFACESET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INDEXEDFACESET.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="INDEXEDTRIANGLESET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INDEXEDTRIANGLESET.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="INDEXEDTRIANGLEFANSET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INDEXEDTRIANGLEFANSET.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="INDEXEDTRIANGLESTRIPSET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INDEXEDTRIANGLESTRIPSET.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="INDEXEDQUADSET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INDEXEDQUADSET.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <!-- contained nodes follow these parent geometry nodes -->
+            <file name="COLOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLOR.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="COLORRGBA.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLORRGBA.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+            <file name="COORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COORDINATE.xml">
+                <attr name="position" intvalue="1300"/>
+            </file>
+            <!-- COORDINATE includes switch for COORDINATEDOUBLE -->
+            <file name="NORMAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NORMAL.xml">
+                <attr name="position" intvalue="1400"/>
+            </file>
+            <file name="TEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE.xml">
+                <attr name="position" intvalue="1500"/>
+            </file>
+            <file name="TEXTURECOORDINATEGENERATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATEGENERATOR.xml">
+                <attr name="position" intvalue="1600"/>
+            </file>
+            <file name="MULTITEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURECOORDINATE.xml">
+                <attr name="position" intvalue="1700"/>
+            </file>
+        </folder>
+        <folder name="Prototypes">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Prototypes"/>
+            <attr name="position" intvalue="14000"/>
+            <file name="PROTODECLARE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTODECLARE.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="PROTOINTERFACE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOINTERFACE.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="FIELD.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FIELD.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="PROTOBODY.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOBODY.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="IS.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IS.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="CONNECT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CONNECT.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="EXTERNPROTODECLARE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/EXTERNPROTODECLARE.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="PROTOINSTANCE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOINSTANCE.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="FIELDVALUE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FIELDVALUE.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+        </folder>
+        <folder name="Computer_Aided_Design_CAD">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Computer_Aided_Design_CAD"/>
+            <attr name="position" intvalue="15000"/>
+            <file name="CADLayer.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CADLAYER.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="CADAssembly.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CADASSEMBLY.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="CADPart.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CADPART.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="CADFace.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CADFACE.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="CLIPPLANE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CLIPPLANE.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="OrthoViewpoint.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ORTHOVIEWPOINT.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="IndexedQuadSet.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INDEXEDQUADSET.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="QuadSet.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/QUADSET.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="INLINE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINE.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="LOD.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LOD.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="SHAPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHAPE.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="TRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TRANSFORM.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+        </folder>
+        <folder name="Distributed_Interactive_Simulation_DIS">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Distributed_Interactive_Simulation_DIS"/>
+            <attr name="position" intvalue="16000"/>
+            <file name="ESPDUTRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ESPDUTRANSFORM.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="DISENTITYMANAGER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DISENTITYMANAGER.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="DISENTITYTYPEMAPPING.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DISENTITYTYPEMAPPING.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="RECEIVERPDU.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/RECEIVERPDU.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="SIGNALPDU.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SIGNALPDU.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="TRANSMITTERPDU.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TRANSMITTERPDU.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+        </folder>
+        <folder name="Follower_nodes_Chasers_and_Dampers">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Follower_nodes_Chasers_and_Dampers"/>
+            <attr name="position" intvalue="17000"/>
+            <file name="COLORCHASER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLORCHASER.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="COLORDAMPER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLORDAMPER.xml">
+                <attr name="position" intvalue="150"/>
+            </file>
+            <file name="COORDINATECHASER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COORDINATECHASER.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="COORDINATEDAMPER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COORDINATEDAMPER.xml">
+                <attr name="position" intvalue="250"/>
+            </file>
+            <file name="ORIENTATIONCHASER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ORIENTATIONCHASER.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="ORIENTATIONDAMPER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ORIENTATIONDAMPER.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="POSITIONCHASER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POSITIONCHASER.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="POSITIONDAMPER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POSITIONDAMPER.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="POSITIONCHASER2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POSITIONCHASER2D.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="POSITIONDAMPER2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POSITIONDAMPER2D.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="SCALARCHASER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SCALARCHASER.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="SCALARDAMPER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SCALARDAMPER.xml">
+                <attr name="position" intvalue="950"/>
+            </file>
+            <file name="TEXCOORDCHASER2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXCOORDCHASER2D.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="TEXCOORDDAMPER2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXCOORDDAMPER2D.xml">
+                <attr name="position" intvalue="1050"/>
+            </file>
+        </folder>
+        <folder name="Geospatial_X3D_Earth">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Geospatial_X3D_Earth"/>
+            <attr name="position" intvalue="18000"/>
+            <file name="GEOCOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOCOORDINATE.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="GEOELEVATIONGRID.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOELEVATIONGRID.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="GEOLOCATION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOLOCATION.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="GEOLOD.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOLOD.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="GEOMETADATA.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOMETADATA.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="GEOORIGIN.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOORIGIN.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="GEOPOSITIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOPOSITIONINTERPOLATOR.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="GEOPROXIMITYSENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOPROXIMITYSENSOR.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="GEOTOUCHSENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOTOUCHSENSOR.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="GEOTRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOTRANSFORM.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="GEOVIEWPOINT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GEOVIEWPOINT.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="SHAPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHAPE.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="1300"/>
+            </file>
+        </folder>
+        <folder name="Humanoid_Animation">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Humanoid_Animation"/>
+            <attr name="position" intvalue="19000"/>
+            <file name="HANIMHUMANOID.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMHUMANOID.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="HANIMJOINT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMJOINT.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="HANIMSEGMENT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMSEGMENT.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="HANIMSITE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMSITE.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="HANIMDISPLACER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMDISPLACER.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="POSITIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POSITIONINTERPOLATOR.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="ORIENTATIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ORIENTATIONINTERPOLATOR.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+        </folder>
+        <folder name="NURBS Parametric Surfaces">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/NURBS_Parametric_Surfaces"/>
+            <attr name="position" intvalue="20000"/>
+            <file name="SHAPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHAPE.xml">
+                <attr name="position" intvalue="50"/>
+            </file>
+            <file name="CONTOUR2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CONTOUR2D.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="CONTOURPOLYLINE2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CONTOURPOLYLINE2D.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="COORDINATEDOUBLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COORDINATEDOUBLE.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="NURBSTEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSTEXTURECOORDINATE.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="NURBSCURVE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSCURVE.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="NURBSCURVE2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSCURVE2D.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="NURBSPOSITIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSPOSITIONINTERPOLATOR.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="NURBSORIENTATIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSORIENTATIONINTERPOLATOR.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="NURBSSURFACEINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSSURFACEINTERPOLATOR.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="NURBSSET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSSET.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="NURBSPATCHSURFACE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSPATCHSURFACE.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="NURBSSWEPTSURFACE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSSWEPTSURFACE.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+            <file name="NURBSSWUNGSURFACE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSSWUNGSURFACE.xml">
+                <attr name="position" intvalue="1300"/>
+            </file>
+            <file name="NURBSTRIMMEDSURFACE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NURBSTRIMMEDSURFACE.xml">
+                <attr name="position" intvalue="1400"/>
+            </file>
+        </folder>
+        <folder name="Rigid_Body_Physics">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Rigid_Body_Physics"/>
+            <attr name="position" intvalue="21000"/>
+            <file name="COLLIDABLEOFFSET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLLIDABLEOFFSET.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="COLLIDABLESHAPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLLIDABLESHAPE.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="COLLISIONCOLLECTION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLLISIONCOLLECTION.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="COLLISIONSENSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLLISIONSENSOR.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="COLLISIONSPACE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLLISIONSPACE.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="CONTACT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CONTACT.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="RIGIDBODY.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/RIGIDBODY.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="RIGIDBODYCOLLECTION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/RIGIDBODYCOLLECTION.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="BALLJOINT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BALLJOINT.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="MOTORJOINT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MOTORJOINT.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="SLIDERJOINT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SLIDERJOINT.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="SINGLEAXISHINGEJOINT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SINGLEAXISHINGEJOINT.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+            <file name="DOUBLEAXISHINGEJOINT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DOUBLEAXISHINGEJOINT.xml">
+                <attr name="position" intvalue="1300"/>
+            </file>
+            <file name="UNIVERSALJOINT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/UNIVERSALJOINT.xml">
+                <attr name="position" intvalue="1400"/>
+            </file>
+        </folder>
+        <folder name="Shaders_for_GPU_Programming">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Shaders_for_GPU_Programming"/>
+            <attr name="position" intvalue="22000"/>
+            <file name="COMPOSEDSHADER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COMPOSEDSHADER.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="FLOATVERTEXATTRIBUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FLOATVERTEXATTRIBUTE.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="MATRIX3VERTEXATTRIBUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MATRIX3VERTEXATTRIBUTE.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="MATRIX4VERTEXATTRIBUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MATRIX4VERTEXATTRIBUTE.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="PACKAGEDSHADER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PACKAGEDSHADER.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="PROGRAMSHADER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROGRAMSHADER.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="SHADERPART.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHADERPART.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="SHADERPROGRAM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHADERPROGRAM.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="FIELD.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FIELD.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+        </folder>
+        <folder name="Texturing3D_Volume_Rendering">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Texturing3D_Volume_Rendering"/>
+            <attr name="position" intvalue="23000"/>
+            <file name="VOLUMEDATA.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/VOLUMEDATA.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="ISOSURFACEVOLUMEDATA.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ISOSURFACEVOLUMEDATA.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="SEGMENTEDVOLUMEDATA.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SEGMENTEDVOLUMEDATA.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="BLENDEDVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BLENDEDVOLUMESTYLE.xml">
+                <attr name="position" intvalue="350"/>
+            </file>
+            <file name="BOUNDARYENHANCEMENTVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BOUNDARYENHANCEMENTVOLUMESTYLE.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="CARTOONVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/CARTOONVOLUMESTYLE.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="COMPOSEDVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COMPOSEDVOLUMESTYLE.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="EDGEENHANCEMENTVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/EDGEENHANCEMENTVOLUMESTYLE.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="OPACITYMAPVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/OPACITYMAPVOLUMESTYLE.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="PROJECTIONVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROJECTIONVOLUMESTYLE.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="SHADEDVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHADEDVOLUMESTYLE.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="SILHOUETTEENHANCEMENTVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SILHOUETTEENHANCEMENTVOLUMESTYLE.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="TONEMAPPEDVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TONEMAPPEDVOLUMESTYLE.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+            <file name="COMPOSEDTEXTURE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COMPOSEDTEXTURE3D.xml">
+                <attr name="position" intvalue="2100"/>
+            </file>
+            <file name="IMAGETEXTURE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IMAGETEXTURE3D.xml">
+                <attr name="position" intvalue="2200"/>
+            </file>
+            <file name="PIXELTEXTURE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PIXELTEXTURE3D.xml">
+                <attr name="position" intvalue="2300"/>
+            </file>
+            <file name="TEXTURECOORDINATE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE3D.xml">
+                <attr name="position" intvalue="2400"/>
+            </file>
+            <file name="TEXTURECOORDINATE4D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE4D.xml">
+                <attr name="position" intvalue="2500"/>
+            </file>
+            <file name="TEXTURETRANSFORM3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORM3D.xml">
+                <attr name="position" intvalue="2600"/>
+            </file>
+            <file name="TEXTURETRANSFORMMATRIX3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORMMATRIX3D.xml">
+                <attr name="position" intvalue="2700"/>
+            </file>
+        </folder>
+        <!-- Inlines and Prototypes.  TODO:  how to implement subdirectories in palette? -->
+        <folder name="Basic_X3D_Examples_Archive">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Basic_X3D_Examples_Archive"/>
+            <attr name="position" intvalue="30000"/>
+            <file name="PROTOTYPE_ExtrusionCrossSection.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_ExtrusionCrossSection.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+        </folder>
+        <folder name="Savage_X3D_Examples_Archive">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Savage_X3D_Examples_Archive"/>
+            <attr name="position" intvalue="31000"/>
+            <file name="INLINE_GridXZFixed.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINE_GridXZFixed.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="INLINE_GridXYFixed.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINE_GridXYFixed.xml">
+                <attr name="position" intvalue="210"/>
+            </file>
+            <file name="INLINE_GridYZFixed.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINE_GridYZFixed.xml">
+                <attr name="position" intvalue="220"/>
+            </file>
+            <file name="INLINE_GridsMovable.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINE_GridsMovable.xml">
+                <attr name="position" intvalue="230"/>
+            </file>
+            <file name="PROTOTYPE_AnimatedViewpointRecorder.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_AnimatedViewpointRecorder.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="PROTOTYPE_ArbitraryAxisCylinderSensor.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_ArbitraryAxisCylinderSensor.xml">
+                <attr name="position" intvalue="350"/>
+            </file>
+            <file name="PROTOTYPE_ColorSequencer.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_ColorSequencer.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="PROTOTYPE_CrossHair.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_CrossHair.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="PROTOTYPE_DoubleClickTouchSensor.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_DoubleClickTouchSensor.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="PROTOTYPE_HiddenViewpoint.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_HiddenViewpoint.xml">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="PROTOTYPE_MaterialChoice.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_MaterialChoice.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
+            <file name="PROTOTYPE_MaterialToggle.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_MaterialToggle.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="PROTOTYPE_RelativeProximitySensor.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_RelativeProximitySensor.xml">
+                <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="PROTOTYPE_TimeDelaySensor.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_TimeDelaySensor.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="PROTOTYPE_TimeSensorEaseInEaseOut.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_TimeSensorEaseInEaseOut.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+            <file name="PROTOTYPE_ViewpointSequencer.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_ViewpointSequencer.xml">
+                <attr name="position" intvalue="1300"/>
+            </file>
+            <file name="PROTOTYPE_ViewPositionOrientation.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_ViewPositionOrientation.xml">
+                <attr name="position" intvalue="1400"/>
+            </file>
+            <file name="PROTOTYPE_WaypointInterpolator.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_WaypointInterpolator.xml">
+                <attr name="position" intvalue="1500"/>
+            </file>
+        </folder>
+        <folder name="X3D_for_Web_Authors_Examples_Archive">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/X3D_for_Web_Authors_Examples_Archive"/>
+            <attr name="position" intvalue="32000"/>
+            <file name="SHAPE_AxisLines.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHAPE_AxisLines.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="INLINE_CoordinateAxes.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINE_CoordinateAxes.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="INLINE_CoordinateAxesNSEW.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINE_CoordinateAxesNSEW.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="PROTOTYPE_HeadsUpDisplay.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_HeadsUpDisplay.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="PROTOTYPE_ViewFrustum.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_ViewFrustum.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="PROTOTYPE_WhereAmI.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PROTOTYPE_WhereAmI.xml">
+                <attr name="position" intvalue="600"/>
+            </file>
+        </folder>
+        <!-- Visualization -->
+        <!--
+        Hemisphere, Beam Cone/Cylinder/Hemisphere
+        -->
+    </folder>
+</filesystem>

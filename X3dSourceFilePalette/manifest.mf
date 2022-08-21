@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+AutoUpdate-Show-In-Client: true
+OpenIDE-Module: org.web3d.x3d.palette
+OpenIDE-Module-Implementation-Version: 0
+OpenIDE-Module-Localizing-Bundle: org/web3d/x3d/palette/Bundle.properties
+
