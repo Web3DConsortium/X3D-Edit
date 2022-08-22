@@ -14,9 +14,10 @@ This is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 
 ## Work in Progress
 
-* Palette entry for COMMENT, getting patterns updated
+* Don: Palette entry for COMMENT, getting patterns updated
 
-* MIME type registry within NetBeans for X3D
+* Don: MIME type registry within NetBeans for X3D
+
 
 ## Problems
 
@@ -27,6 +28,7 @@ X3dEditorModuleSuite Project Properties > Application: selecting Create "Standal
 * java.lang.Error: factory already defined at java.base/java.net.URL.setURLStreamHandlerFactory(URL.java:1228)
 * possible cause of splash screen problem might be initial palette item isn't working yet...
 
+Terry reports possibility of setting a parameter exposing java.base in netbeans.conf file
 
 
 ### XSLT transformations: FEATURE_SECURE_PROCESSING
@@ -75,7 +77,9 @@ Tutorial section *Specifying the Module’s Dependencies*
 ** Issue 4492 [XML Editor Extension Module Tutorial erratum](https://github.com/apache/netbeans/issues/4492) 
    I/O APIs not found, (I/O APIs - Swing) worked, other is (I/O API and SPI)
 
-** Note that [multiple XML-related module dependencies](X3dEditModuleSuite/snapshots/XmlModuleDependencies.png) are provided by NetBeans 
+** Note that [multiple XML-related module dependencies](X3dEditModuleSuite/snapshots/XmlModuleDependencies.png) are provided by NetBeans
+
+Don used this to create initial code block for X3D-Edit Module Suite
 
 
 ### [NetBeans Code Snippet Module Tutorial](https://netbeans.apache.org/tutorials/nbm-palette-api1.html)
@@ -99,13 +103,14 @@ Creating layer.xml file is optional if using annotations instead:
 
 * Issue 4521 [org.openide.util.Exceptions not found by import in tutorial](https://github.com/apache/netbeans/issues/4521)
 
-Implemented module as 'X3dSourceFilePalette'.
+Implemented module as 'X3dSourceFilePalette'.  Not all names aligned, not all source applied, work ongoing.
 
 
 ### Netbeans Splash Screen
 
 * [How to make Splash Screen in Java using Netbeans with Source Code](https://www.youtube.com/watch?v=tR7nZ2gSNB4)
 
+Note problem failing when turned on by Project setting for X3D-Edit module suite.
 
 ## Creating standalone installers
 
