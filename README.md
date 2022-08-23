@@ -12,12 +12,17 @@ This file is the developers' documentation page for creation of X3D-Edit 4.0 sui
 * Online Javadoc for Netbeans IDE: [Apache NetBeans Development Version Documentation | APIs Overview](https://bits.netbeans.org/dev/javadoc/index.html)
 * TODO attaching Javadoc for Netbeans IDE
 
+* [List of NetBeans-based software](https://en.wikipedia.org/wiki/List_of_NetBeans-based_software)
+
 ----
 ## Work in Progress
 
-* Don: Palette entry for COMMENT, getting patterns updated
+* Don: engineering palette entry for COMMENT, getting patterns updated
 
 * Don: MIME type registry within NetBeans for X3D
+  [File Type Integration Tutorial](https://netbeans.apache.org/tutorials/nbm-filetype.html)
+
+TODO: Found NetBeans feature *Tools > DTDS and XML Schemas* which allows substitution of local DTDs/schemas for online versions.  Need to similarly add to X3D-Edit configuration.
 
 
 ----
@@ -52,12 +57,12 @@ Adapting and ading those settings to `netbeans.conf` file helped,
 
 * `-J-Djdk.xml.xpathExprGrpLimit=0 -J-Djdk.xml.xpathExprOpLimit=0 -J-Djdk.xml.xpathTotalOpLimit=0`
 
-but JAXP still has a problem with native XSLT handling:
+but (new exception) JAXP still has a problem with native XSLT handling:
 
     Starting file:/C:/x3d-code/www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d by file:/C:/x3d-code/www.web3d.org/x3d/stylesheets/X3dToXhtml.xslt transformation...
     
-    Error checking type of the expression `funcall(ends-with, [funcall(local-name, [step("parent", -1)]), literal-expr(Material)])`.
-    Transformation finished.
+    `Error checking type of the expression \`funcall(ends-with, [funcall(local-name, [step("parent", -1)]), literal-expr(Material)])\`.
+    Transformation finished.`
 
 
 ## [NetBeans Platform Plugin Quick Start](https://netbeans.apache.org/tutorials/nbm-google.html)
@@ -135,4 +140,5 @@ Once the X3D-Edit 4.0 module suite is working as a Netbeans plugin, this tutoria
 
 Tutorial [Native Packaging in NetBeans IDE](https://netbeans.apache.org/kb/docs/java/native_pkg.html)
 * [WiX Toolset](https://wixtoolset.org) to create Windows installation packages
+
 * [Inno Setup](https://jrsoftware.org)  free installer for Windows programs
