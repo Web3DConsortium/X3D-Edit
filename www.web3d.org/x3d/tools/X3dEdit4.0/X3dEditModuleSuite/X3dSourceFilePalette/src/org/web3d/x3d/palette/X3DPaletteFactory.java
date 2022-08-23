@@ -21,7 +21,7 @@ public class X3DPaletteFactory
     public  static final String X3D_PALETTE_FOLDER = "X3DPalette"; 
     private static PaletteController palette = null;
 
-    @MimeRegistration (mimeType = "text/xml", service = PaletteController.class) // TODO X3D MIME type registration
+    @MimeRegistration (mimeType = "text/xml", service = PaletteController.class) // TODO add X3D MIME type registration
     public static PaletteController createPalette()
     {
         try {
