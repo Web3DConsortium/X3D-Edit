@@ -84,18 +84,16 @@ but JAXP still has a problem with native XSLT handling:
 * [Top 10 NetBeans APIs](https://www.youtube.com/watch?v=FF5fvHbZxpk) dated but some nuggets found
 
 
-### XML Editor Extension Module
-
-* [XML Editor Extension Module Tutorial](https://netbeans.apache.org/tutorials/nbm-xmleditor.html)
+### [XML Editor Extension Module Tutorial](https://netbeans.apache.org/tutorials/nbm-xmleditor.html)
 
 Tutorial section *Specifying the Module’s Dependencies*
 
-** Issue 4492 [XML Editor Extension Module Tutorial erratum](https://github.com/apache/netbeans/issues/4492) 
-   I/O APIs not found, (I/O APIs - Swing) worked, other is (I/O API and SPI)
+* Issue 4492 [XML Editor Extension Module Tutorial erratum](https://github.com/apache/netbeans/issues/4492)
+I/O APIs not found, (I/O APIs - Swing) worked, other is (I/O API and SPI)
 
-** Note that [multiple XML-related module dependencies](X3dEditModuleSuite/snapshots/XmlModuleDependencies.png) are provided by NetBeans
+* Note that [multiple XML-related module dependencies](X3dEditModuleSuite/snapshots/XmlModuleDependencies.png) are provided by NetBeans
 
-Don used this to create initial code block for X3D-Edit Module Suite
+Don used this to create initial code block for X3D-Edit Module Suite.
 
 
 ### [NetBeans Code Snippet Module Tutorial](https://netbeans.apache.org/tutorials/nbm-palette-api1.html)
@@ -103,9 +101,11 @@ Don used this to create initial code block for X3D-Edit Module Suite
 Has better excerpt of `layer.xml` file.
 * Inspect build/classes/META-INF/generated-layer.xml to see what is actually generated using layer.xml and annotations
 
-Creating layer.xml file is optional if using annotations instead:
-* https://stackoverflow.com/questions/34825549/where-to-find-the-main-layer-xml-file-in-netbeans-rcp-maven-project
-* https://stackoverflow.com/questions/5840648/learning-netbeans-platform-annotations-vs-layer-xml-file
+Creating `layer.xml` file is optional if using annotations instead:
+
+* StackOverflow [Learning NetBeans platform: annotations vs layer.xml file](https://stackoverflow.com/questions/5840648/learning-netbeans-platform-annotations-vs-layer-xml-file)
+
+* StackOverflow [Where to find the main layer.xml file in Netbeans RCP maven project?](https://stackoverflow.com/questions/34825549/where-to-find-the-main-layer-xml-file-in-netbeans-rcp-maven-project)
 
 
 
@@ -133,6 +133,8 @@ Note problem failing when turned on by Project setting for X3D-Edit module suite
 
 Once the X3D-Edit 4.0 module suite is working as a Netbeans plugin, this tutorial shows how to create installer executables.
 
-* Tutorial [Native Packaging in NetBeans IDE](https://netbeans.apache.org/kb/docs/java/native_pkg.html)
-** [WiX Toolset](https://wixtoolset.org) to create Windows installation packages
-** [Inno Setup](https://jrsoftware.org)  free installer for Windows programs
+Tutorial [Native Packaging in NetBeans IDE](https://netbeans.apache.org/kb/docs/java/native_pkg.html)
+
+* [WiX Toolset](https://wixtoolset.org) to create Windows installation packages
+
+* [Inno Setup](https://jrsoftware.org)  free installer for Windows programs
