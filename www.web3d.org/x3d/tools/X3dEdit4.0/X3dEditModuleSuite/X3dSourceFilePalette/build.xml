@@ -5,4 +5,10 @@
 <project name="org.web3d.x3d.palette" default="netbeans" basedir=".">
     <description>Builds, tests, and runs the project org.web3d.x3d.palette.</description>
     <import file="nbproject/build-impl.xml"/>
+    
+    <target name="view.layers.local" description="view local layer files (Netbeans only)">
+        <nbbrowse file="build/classes/META-INF/generated-layer.xml" />
+        <nbbrowse file="src/org/web3d/x3d/layer.xml" />
+        <!-- TODO implementation-independent approach if possible, but note that other Ant approaches usually have to be customized for each OS. -->
+    </target>
 </project>
