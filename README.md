@@ -134,7 +134,5 @@ Note problem failing when turned on by Project setting for X3D-Edit module suite
 Once the X3D-Edit 4.0 module suite is working as a Netbeans plugin, this tutorial shows how to create installer executables.
 
 Tutorial [Native Packaging in NetBeans IDE](https://netbeans.apache.org/kb/docs/java/native_pkg.html)
-
 * [WiX Toolset](https://wixtoolset.org) to create Windows installation packages
-
 * [Inno Setup](https://jrsoftware.org)  free installer for Windows programs
