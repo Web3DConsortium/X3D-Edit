@@ -1,9 +1,10 @@
 # README for X3D-Edit 4.0 Development
 
-This is the developers' documentation page for creation of X3D-Edit 4.0 suite.
+This file is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 
 * [README.md](https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.md)
 * [README.md source](https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.md)
+* [SourceFOrge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 
 * [Tutorial Contribution Guidelines](https://netbeans.apache.org/kb/docs/contributing.html)
 * [AsciiDoc](https://asciidoc.org) is a plain text markup language for writing technical content
@@ -11,7 +12,7 @@ This is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 * Online Javadoc for Netbeans IDE: [Apache NetBeans Development Version Documentation | APIs Overview](https://bits.netbeans.org/dev/javadoc/index.html)
 * TODO attaching Javadoc for Netbeans IDE
 
-
+----
 ## Work in Progress
 
 * Don: Palette entry for COMMENT, getting patterns updated
@@ -19,6 +20,7 @@ This is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 * Don: MIME type registry within NetBeans for X3D
 
 
+----
 ## Problems
 
 ### Splash Screen causes launch exception
@@ -31,10 +33,9 @@ X3dEditorModuleSuite Project Properties > Application: selecting Create "Standal
 
 * possible cause of splash screen problem might be initial palette item isn't working yet...
 
-Terry reports possibility of setting a parameter exposing java.base in netbeans.conf file, this helped.
+Terry reports possibility of setting a parameter exposing `java.base` in `netbeans.conf` file, this helped.
 Enabling progress bar (in Branding panel) still throws exception however.
-
-* -J--add-opens=java.base/java.lang=ALL-UNNAMED
+* `-J--add-opens=java.base/java.lang=ALL-UNNAMED`
 
 
 ### XSLT transformations: FEATURE_SECURE_PROCESSING
@@ -45,18 +46,18 @@ FEATURE_SECURE_PROCESSING
 
 * Source-code workaround https://stackoverflow.com/questions/72401149/limit-set-by-feature-secure-processing
 
-* -Djdk.xml.xpathExprGrpLimit=0 -Djdk.xml.xpathExprOpLimit=0 -Djdk.xml.xpathTotalOpLimit=0
+* `-Djdk.xml.xpathExprGrpLimit=0 -Djdk.xml.xpathExprOpLimit=0 -Djdk.xml.xpathTotalOpLimit=0`
 
-Adapting and ading those settings to netbeans.conf file helped,
+Adapting and ading those settings to `netbeans.conf` file helped,
 
-* -J-Djdk.xml.xpathExprGrpLimit=0 -J-Djdk.xml.xpathExprOpLimit=0 -J-Djdk.xml.xpathTotalOpLimit=0
+* `-J-Djdk.xml.xpathExprGrpLimit=0 -J-Djdk.xml.xpathExprOpLimit=0 -J-Djdk.xml.xpathTotalOpLimit=0`
 
 but JAXP still has a problem with native XSLT handling:
 
-* Starting file:/C:/x3d-code/www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d by file:/C:/x3d-code/www.web3d.org/x3d/stylesheets/X3dToXhtml.xslt transformation...
-
-Error checking type of the expression 'funcall(ends-with, [funcall(local-name, [step("parent", -1)]), literal-expr(Material)])'.
-Transformation finished.
+    Starting file:/C:/x3d-code/www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d by file:/C:/x3d-code/www.web3d.org/x3d/stylesheets/X3dToXhtml.xslt transformation...
+    
+    Error checking type of the expression `funcall(ends-with, [funcall(local-name, [step("parent", -1)]), literal-expr(Material)])`.
+    Transformation finished.
 
 
 ## [NetBeans Platform Plugin Quick Start](https://netbeans.apache.org/tutorials/nbm-google.html)
@@ -82,6 +83,7 @@ Transformation finished.
 
 * [Top 10 NetBeans APIs](https://www.youtube.com/watch?v=FF5fvHbZxpk) dated but some nuggets found
 
+
 ### XML Editor Extension Module
 
 * [XML Editor Extension Module Tutorial](https://netbeans.apache.org/tutorials/nbm-xmleditor.html)
@@ -98,7 +100,7 @@ Don used this to create initial code block for X3D-Edit Module Suite
 
 ### [NetBeans Code Snippet Module Tutorial](https://netbeans.apache.org/tutorials/nbm-palette-api1.html)
 
-Has better excerpt of 'layer.xml' file.
+Has better excerpt of `layer.xml` file.
 * Inspect build/classes/META-INF/generated-layer.xml to see what is actually generated using layer.xml and annotations
 
 Creating layer.xml file is optional if using annotations instead:
@@ -117,7 +119,7 @@ Creating layer.xml file is optional if using annotations instead:
 
 * Issue 4521 [org.openide.util.Exceptions not found by import in tutorial](https://github.com/apache/netbeans/issues/4521)
 
-Implemented module as 'X3dSourceFilePalette'.  Not all names aligned, not all source applied, work ongoing.
+Implemented module as `X3dSourceFilePalette`.  Not all names aligned, not all source applied, work ongoing.
 
 
 ### Netbeans Splash Screen
@@ -126,6 +128,7 @@ Implemented module as 'X3dSourceFilePalette'.  Not all names aligned, not all so
 
 Note problem failing when turned on by Project setting for X3D-Edit module suite.
 
+----
 ## Creating standalone installers
 
 Once the X3D-Edit 4.0 module suite is working as a Netbeans plugin, this tutorial shows how to create installer executables.
