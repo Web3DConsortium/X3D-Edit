@@ -7,7 +7,9 @@
     <import file="nbproject/build-impl.xml"/>
     
     <target name="view.layers.local" description="view local layer files (Netbeans only)">
+        <echo  message="build/classes/META-INF/generated-layer.xml" />
         <nbbrowse file="build/classes/META-INF/generated-layer.xml" />
+        <echo  message="src/org/web3d/x3d/layer.xml" />
         <nbbrowse file="src/org/web3d/x3d/layer.xml" />
         <!-- TODO implementation-independent approach if possible, but note that other Ant approaches usually have to be customized for each OS. -->
     </target>
