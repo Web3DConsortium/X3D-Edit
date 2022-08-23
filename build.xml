@@ -2,7 +2,82 @@
 <!-- You may freely edit this file. See harness/README in the NetBeans platform -->
 <!-- for some information on what you could do (e.g. targets to override). -->
 <!-- If you delete this file and reopen the project it will be recreated. -->
-<project name="X3dEditModuleSuite" basedir=".">
+<project name="X3dEditModuleSuite" basedir="." default="quick.run">
     <description>Builds the module suite X3dEditModuleSuite.</description>
+    
     <import file="nbproject/build-impl.xml"/>
+        
+    <property file="nbproject/project.properties"/>
+    
+    <!--
+    ============
+    INIT SECTION
+    ============
+    -->
+
+    <target name="platformInitialize" depends="-init,platformType,initializeWindows,initializeUnix,initializeMac"/>
+    <target name="platformType">
+        <condition property="isWindows" >
+            <os family="windows"/>
+        </condition>
+        <condition property="isMac" >
+            <os family="mac"/>
+        </condition>
+
+        <!-- Based on Apache Ant user-manual example -->
+        <condition property="isUnixNotMac">
+            <and>
+                <os family="unix"/>
+
+                <not>
+                    <equals arg1="${os.name}" arg2="Mac OS X"/>
+                </not>
+            </and>
+        </condition>
+    </target>
+
+    <target name="initializeWindows" if="isWindows" depends="initializeXj3d">
+        <property name="os"        value="win"/>
+        <property name="run.xj3d.args"  value="${win_runarguments}"/>
+        <property name="run.args"  value="${common.args} ${win.run.args}"/>
+    </target>
+    <target name="initializeUnix" if="isUnixNotMac" depends="initializeXj3d">
+        <property name="os"        value="unix"/>
+        <property name="run.xj3d.args"  value="${unix_runarguments}"/>
+        <property name="run.args"  value="${common.args} ${unix.run.args}"/>
+    </target>
+    <target name="initializeMac" if="isMac" depends="initializeXj3d">
+        <property name="os"        value="mac"/>
+        <property name="run.xj3d.args"  value="${mac_runarguments}"/>
+        <property name="run.args"  value="${common.args} ${mac.run.args}"/>
+    </target>
+    <target name="initializeXj3d" >
+        <property name="win_runarguments"  value="${common.xj3d.args} ${xj3darg4}"/>
+        <property name="unix_runarguments" value="${common.xj3d.args} ${xj3darg6}"/>
+        <property name="mac_runarguments"  value="${common.xj3d.args} ${xj3darg8} ${xj3darg9} ${xj3darg10} ${xj3darg11} ${xj3darg14}"/>
+    </target>
+    
+    <!-- Override initializing the app before running -->
+    <target name="run" depends="platformInitialize,suite.run" description="Runs X3D-Edit"/>
+    
+    <!-- Override building the app before running -->
+    <target name="quick.run" depends="platformInitialize,branding,release,-hide-excluded-modules,-jdk-init"
+            description="Runs X3D-Edit without building">
+        <ant antfile="${harness.dir}/run.xml" target="run">
+            <reference refid="cluster.path.id"/>
+        </ant>
+    </target>
+    
+    <target name="view.X3D-Edit.home.local" description="view local copy of X3D-Edit. home page in web browser (Netbeans only)">
+        <echo message="websites/savage.nps.edu/X3D-Edit/X3D-Edit.html" />
+        <nbbrowse file="websites/savage.nps.edu/X3D-Edit/X3D-Edit.html" />
+        <!-- TODO implementation-independent approach if possible, but note that other Ant approaches usually have to be customized for each OS. -->
+    </target>
+
+    <target name="view.X3D-Edit.home.online" description="view online copy of X3D-Edit. home page in web browser (Netbeans only)">
+        <echo message="https://savage.nps.edu/X3D-Edit" />
+        <nbbrowse url="https://savage.nps.edu/X3D-Edit" />
+        <!-- TODO implementation-independent approach if possible, but note that other Ant approaches usually have to be customized for each OS. -->
+    </target>
+    
 </project>
