@@ -47,8 +47,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     icon32 = "org/web3d/x3d/palette/items/resources/COMMENT32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/COMMENT16.png",
     body = "<!-- enter new comment here -->",
-    name = "CommentXML",
-    tooltip = "Comment XML"
+    name = "Comment XML -->", // icon is <!--
+    tooltip = "Comments can appear between other XML elements"
 )
 /**
  * COMMENT.java
