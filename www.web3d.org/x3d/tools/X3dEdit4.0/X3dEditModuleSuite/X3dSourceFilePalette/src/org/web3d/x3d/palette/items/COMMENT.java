@@ -44,11 +44,11 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     paletteid = "X3DPalette",
     category = "X3D",
     itemid = "COMMENT",
-    icon32 = "org/web3d/x3d/palette/items/resources/COMMENT32.png",
+    icon32 = "org/web3d/x3d/palette/items/resources/COMMENT32.png", // icon is <!--
     icon16 = "org/web3d/x3d/palette/items/resources/COMMENT16.png",
     body = "<!-- enter new comment here -->",
-    name = "Comment XML -->", // icon is <!--
-    tooltip = "Comments are valid between XML elements"
+    name = "Comment XML -->",
+    tooltip = "Valid comments are found between XML elements"
 )
 /**
  * COMMENT.java
