@@ -29,7 +29,7 @@ TODO: Found NetBeans feature *Tools > DTDS and XML Schemas* which allows substit
 ----
 ## Problems
 
-### Splash Screen causes launch exception
+### Splash Screen caused launch exception - fixed
 
 X3dEditorModuleSuite Project Properties > Application: selecting Create "Standalone Application" enables splashscreen but triggers bizarre URL error
 
@@ -40,7 +40,7 @@ X3dEditorModuleSuite Project Properties > Application: selecting Create "Standal
 * possible cause of splash screen problem might be initial palette item isn't working yet...
 
 Terry reports possibility of setting a parameter exposing `java.base` in `netbeans.conf` file, this helped.
-Enabling progress bar (in Branding panel) still throws exception however.
+Startup messages and progress bar (in Branding panel) now work correctly.
 * `-J--add-opens=java.base/java.lang=ALL-UNNAMED`
 
 
