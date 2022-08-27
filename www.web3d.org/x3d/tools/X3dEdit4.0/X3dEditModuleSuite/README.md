@@ -132,7 +132,7 @@ Implemented module as `X3dSourceFilePalette`.  Not all names aligned, not all so
 
 * [How to make Splash Screen in Java using Netbeans with Source Code](https://www.youtube.com/watch?v=tR7nZ2gSNB4)
 
-Note problem failing when turned on by Project setting for X3D-Edit module suite.
+Note problem failing when turned on by Project setting for X3D-Edit module suite. <- FIXED (TDN)
 
 ----
 ## Creating standalone installers
