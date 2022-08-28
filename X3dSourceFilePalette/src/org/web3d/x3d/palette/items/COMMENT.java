@@ -30,7 +30,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
 LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
- */
+*/
 
 package org.web3d.x3d.palette.items;
 
@@ -68,8 +68,18 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class COMMENT /* TODO extends SceneGraphStructureNodeType */ implements ActiveEditorDrop
 {
+    private String commentText = "enter new comment here";
+    
     public COMMENT()
     {
+        // constructor
+        System.out.println("*** COMMENT constructor ...");
+    }
+
+    //  @Override
+    public String getElementName()
+    {
+        return COMMENT_ELNAME;
     }
 
     //  @Override
@@ -81,15 +91,19 @@ public class COMMENT /* TODO extends SceneGraphStructureNodeType */ implements A
     //  @Override
     public String createBody()
     {
-      return "\n    <!-- enter new comment here -->";
+      return "\n    <!-- " + getCommentText() + " -->";
     }
 
     @Override
-    public boolean  handleTransfer(JTextComponent targetComponent) {
+    public boolean  handleTransfer(JTextComponent targetComponent)
+    {
         String body = createBody();
-        try {
+        try
+        {
             X3DPaletteUtilities.insert(body, targetComponent);
-        } catch (BadLocationException ble) {
+        } 
+        catch (BadLocationException ble)
+        {
             return false;
         }
         return true;
@@ -120,9 +134,17 @@ public class COMMENT /* TODO extends SceneGraphStructureNodeType */ implements A
 //    return c;
 //  }
 
-//  @Override
-  public String getElementName()
-  {
-    return COMMENT_ELNAME;
-  }
+    /**
+     * @return the commentText
+     */
+    public String getCommentText() {
+        return commentText;
+    }
+
+    /**
+     * @param commentText the commentText to set
+     */
+    public void setCommentText(String commentText) {
+        this.commentText = commentText;
+    }
 }
