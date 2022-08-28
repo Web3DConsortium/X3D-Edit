@@ -34,11 +34,15 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
+import javax.swing.text.BadLocationException;
+import javax.swing.text.JTextComponent;
 import org.netbeans.spi.palette.PaletteItemRegistration;
-import org.web3d.x3d.types.SceneGraphStructureNodeType;
+import org.openide.text.ActiveEditorDrop;
+import org.web3d.x3d.palette.X3DPaletteUtilities;
 import static org.web3d.x3d.types.X3DSchemaData.*;
+// import org.web3d.x3d.types.SceneGraphStructureNodeType;
 
-// TODO annotations correctly added to palette
+// TODO verify annotations correctly added to palette
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
@@ -57,28 +61,39 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  * MOVES Institute
  * Naval Postgraduate School, Monterey, CA, USA
  * www.nps.edu
+ * https://netbeans.apache.org/tutorials/nbm-palette-api1.html
  *
- * @author Mike Bailey
+ * @author Mike Bailey and Don Brutzman
  * @version $Id$
  */
-public class COMMENT extends SceneGraphStructureNodeType
+public class COMMENT /* TODO extends SceneGraphStructureNodeType */ implements ActiveEditorDrop
 {
-  public COMMENT()
-  {
-  }
+    public COMMENT()
+    {
+    }
 
-//  @Override
-  public void initialize()
-  {
-      System.out.println("*** COMMENT initialize() ...");
-  }
+    //  @Override
+    public void initialize()
+    {
+        System.out.println("*** COMMENT initialize() ...");
+    }
 
-//  @Override
-  public String createBody()
-  {
-    return "\n    <!-- Enter any text between the end tags -->";
-  }
+    //  @Override
+    public String createBody()
+    {
+      return "\n    <!-- enter new comment here -->";
+    }
 
+    @Override
+    public boolean  handleTransfer(JTextComponent targetComponent) {
+        String body = createBody();
+        try {
+            X3DPaletteUtilities.insert(body, targetComponent);
+        } catch (BadLocationException ble) {
+            return false;
+        }
+        return true;
+    }
 //  @SuppressWarnings("unchecked")
 //  @Override
   /**

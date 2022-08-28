@@ -1,8 +1,9 @@
 package org.web3d.x3d.palette;
 
 /**
- *
- * @author brutzman
+ * X3D Palette for Netbeans
+ * https://netbeans.apache.org/tutorials/nbm-palette-api1.html
+ * @author brutzman@nps.edu
  */
 
 import java.io.IOException;
@@ -27,21 +28,21 @@ public class X3DPaletteFactory
         try {
             if (null == palette) {
                 return  PaletteFactory.createPalette(
-                //Folder:
-                 X3D_PALETTE_FOLDER, // TODO resolve "items", //
-                //Palette Actions:
-                new  PaletteActions() {
-                    @Override public Action[] getImportActions() {return null;}
-                    @Override public Action[] getCustomPaletteActions() {return null;}
-                    @Override public Action[] getCustomCategoryActions(Lookup lkp) {return null;}
-                    @Override public Action[] getCustomItemActions(Lookup lkp) {return null;}
-                    @Override public Action   getPreferredAction(Lookup lkp) {return null;}
-                },
-                //Palette Filter:
-                null,
-                //Drag and Drop Handler:
-                new  DragAndDropHandler(true) {
-                    @Override public void customize(ExTransferable et, Lookup lkp) {}
+                    //Folder:
+                     X3D_PALETTE_FOLDER, // TODO resolve "items", //
+                    //Palette Actions:
+                    new  PaletteActions() {
+                        @Override public Action[] getImportActions() {return null;}
+                        @Override public Action[] getCustomPaletteActions() {return null;}
+                        @Override public Action[] getCustomCategoryActions(Lookup lkp) {return null;}
+                        @Override public Action[] getCustomItemActions(Lookup lkp) {return null;}
+                        @Override public Action   getPreferredAction(Lookup lkp) {return null;}
+                    },
+                    //Palette Filter:
+                    null,
+                    //Drag and Drop Handler:
+                    new  DragAndDropHandler(true) {
+                        @Override public void customize(ExTransferable et, Lookup lkp) {}
                 });
             }
         } catch (IOException ex) {
