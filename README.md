@@ -29,7 +29,7 @@ TODO: Found NetBeans feature *Tools > DTDS and XML Schemas* which allows substit
 ----
 ## Problems
 
-### Splash Screen caused launch exception - fixed
+### Splash Screen caused launch exception - fixed, but exception occasionally occurring nevertheless:
 
 X3dEditorModuleSuite Project Properties > Application: selecting Create "Standalone Application" enables splashscreen but triggers bizarre URL error
 
@@ -37,11 +37,11 @@ X3dEditorModuleSuite Project Properties > Application: selecting Create "Standal
 
 * java.lang.Error: factory already defined at java.base/java.net.URL.setURLStreamHandlerFactory(URL.java:1228)
 
-* possible cause of splash screen problem might be initial palette item isn't working yet...
-
 Terry reports possibility of setting a parameter exposing `java.base` in `netbeans.conf` file, this helped.
 Startup messages and progress bar (in Branding panel) now work correctly.
 * `-J--add-opens=java.base/java.lang=ALL-UNNAMED`
+
+Cause: running the Module instead of the Module Suite.  Stick to Module Suite for run/debug.
 
 
 ### XSLT transformations: FEATURE_SECURE_PROCESSING
