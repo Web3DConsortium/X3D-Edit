@@ -10,5 +10,5 @@
         
 package org.web3d.x3d.palette;
 
-import org.netbeans.spi.palette.PaletteItemRegistration;
+// import org.netbeans.spi.palette.PaletteItemRegistration;
 
