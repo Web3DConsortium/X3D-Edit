@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.2//EN" "https://www.web3d.org/specifications/x3d-3.2.dtd">
+<X3D profile='Immersive' version='3.2' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.2.xsd'>
+  <head>
+    <meta content='MaterialExample.x3d' name='title'/>
+    <meta content='Material node example for X3D-Edit MaterialEditor, which uses Scene Access Interface (SAI) externally to select/deselect different shapes, axes and lights while modifying Material values.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='17 December 2006' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='X3D-Edit example' name='subject'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/Basic/development/MaterialExample.x3d' name='identifier'/>
+    <meta content='src/www.web3d.org/x3d/tools/X3dEdit3.3/X3D/src/org/web3d/x3d/templates/MaterialExample.x3d' name='reference'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='MaterialExample.x3d'/>
+    <Viewpoint DEF='ViewpointNode' description='default' position='0 0 4'/>
+    <NavigationInfo headlight='false' type='"EXAMINE"'/>
+    <Background DEF='BackgroundNode'/>
+    <DirectionalLight DEF='DirectionalLightNode' direction='-0.707 0 -0.707'/>
+    <Shape DEF='ShapeNode'>
+      <Sphere/>
+      <Appearance>
+        <Material DEF='MaterialNode'/>
+      </Appearance>
+    </Shape>
+    <Switch DEF='AxesSwitch' whichChoice='0'>
+      <Group>
+        <Group DEF='xAxis'>
+          <Shape>
+            <IndexedLineSet coordIndex='0 1'>
+              <Coordinate point='0 0 0 1.25 0 0'/>
+            </IndexedLineSet>
+            <Appearance DEF='AppearanceRed'>
+              <Material diffuseColor='0 0 0' emissiveColor='0.8 0 0'/>
+            </Appearance>
+          </Shape>
+          <Transform translation='1.4 0 0'>
+            <Billboard>
+              <Shape>
+                <Text string='"x"'>
+                  <FontStyle DEF='LabelStyle' justify='"MIDDLE" "MIDDLE"' size='0.3'/>
+                </Text>
+                <Appearance USE='AppearanceRed'/>
+              </Shape>
+            </Billboard>
+          </Transform>
+        </Group>
+        <Group DEF='yAxis'>
+          <Shape>
+            <IndexedLineSet coordIndex='0 1'>
+              <Coordinate point='0 0 0 0 1.25 0'/>
+            </IndexedLineSet>
+            <Appearance DEF='AppearanceGreen'>
+              <Material diffuseColor='0 0 0' emissiveColor='0 0.8 0'/>
+            </Appearance>
+          </Shape>
+          <Transform translation='0 1.4 0'>
+            <Billboard axisOfRotation='0 0 0'>
+              <Shape>
+                <Text string='"y"'>
+                  <FontStyle USE='LabelStyle'/>
+                </Text>
+                <Appearance USE='AppearanceGreen'/>
+              </Shape>
+            </Billboard>
+          </Transform>
+        </Group>
+        <Group DEF='zAxis'>
+          <Shape>
+            <IndexedLineSet coordIndex='0 1'>
+              <Coordinate point='0 0 0 0 0 1.25'/>
+            </IndexedLineSet>
+            <Appearance DEF='AppearanceBlue'>
+              <Material diffuseColor='0 0 0' emissiveColor='0 0 0.8'/>
+            </Appearance>
+          </Shape>
+          <Transform translation='0 0 1.4'>
+            <Billboard axisOfRotation='0 0 0'>
+              <Shape>
+                <Text string='"z"'>
+                  <FontStyle USE='LabelStyle'/>
+                </Text>
+                <Appearance USE='AppearanceBlue'/>
+              </Shape>
+            </Billboard>
+          </Transform>
+        </Group>
+      </Group>
+    </Switch>
+    <Switch DEF='LightDirectionVectorSwitch' whichChoice='0'>
+      <Transform scale='1.25 1.25 1.25'>
+        <Shape>
+          <IndexedLineSet coordIndex='0 1'>
+            <!-- negate direction-vector values so that line approaches from light direction towards origin -->
+            <Coordinate DEF='LightDirectionCoordinateNode' point='0.707 0 0.707 0 0 0'/>
+          </IndexedLineSet>
+          <Appearance>
+            <Material DEF='LightDirectionLineMaterial' diffuseColor='0 0 0' emissiveColor='1 1 1'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+    </Switch>
+  </Scene>
+</X3D>
