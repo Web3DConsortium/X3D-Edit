@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mode version="2.4">
+  <name unique="xj3dview"/>
+  <kind type="view"/>
+  <state type="separated"/>
+  <!-- TODO is this default size when undocked? -->
+  <bounds x="100" y="100" width="512" height="384"/>
+  <frame state="0"/>   
+  <empty-behavior permanent="true"/>
+</mode>
