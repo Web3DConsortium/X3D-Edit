@@ -52,7 +52,6 @@ import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
-import org.openide.util.Lookup;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 // no longer supported import org.netbeans.api.javahelp.Help;
@@ -64,6 +63,7 @@ import org.openide.util.actions.CallableSystemAction;
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Examples", position = 100)
 })
 
+@SuppressWarnings("serial")
 public final class DownloadContentAction extends CallableSystemAction
 {
   //private static Dialog dlg;
@@ -104,10 +104,11 @@ public final class DownloadContentAction extends CallableSystemAction
       ;
       buttonBar.closeButt.addActionListener(al);
       final ActionListener hl = (ActionEvent e) -> {
-          Help help = Lookup.getDefault().lookup(Help.class);
-          if (help != null) {
-              help.showHelp(getHelpCtx());
-          }
+// TODO convert from JavaHelp to help page
+//          Help help = Lookup.getDefault().lookup(Help.class);
+//          if (help != null) {
+//              help.showHelp(getHelpCtx());
+//          }
       };
       buttonBar.helpButt.addActionListener(hl);
 
