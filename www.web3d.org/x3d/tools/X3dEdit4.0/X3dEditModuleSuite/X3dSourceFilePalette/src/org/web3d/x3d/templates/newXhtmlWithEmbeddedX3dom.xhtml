@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/x3dom/example/x3dom.css" />
+    <script type="text/javascript" src="http://www.x3dom.org/x3dom/example/x3dom.js"/>
+    <!-- TODO html xmlns information appears to be necessary unless server is configured properly? -->
+    
+    <!-- TODO: * authors may replace the following example entries, but the preceding entries are required. * -->
+    <title>X3DOM example scene embedded in XHTML page</title>
+    <meta name="creator"     content="Don Brutzman and Fraunhofer Team"/>
+    <meta name="description" content="Example XHTML page with embedded X3DOM scene for authors to copy, edit and reuse."/>
+    <meta name="filename"    content="newXhtmlWithEmbeddedX3dom.html"/>
+    <meta name="identifier"  content="http://www.web3d.org/x3d/content/examples/newXhtmlWithEmbeddedX3dom.html"/>
+    <meta name="reference"   content="http://www.web3d.org/x3d/content/examples/newHtmlPageWithX3dObject.html"/>
+    <meta name="reference"   content="http://www.web3d.org/x3d/content/examples/HtmlObjectTagForX3d.html"/>
+    <meta name="reference"   content="http://www.x3dom.org"/>
+    <meta name="generator"   content="X3D-Edit, https://savage.nps.edu/X3D-Edit"/>
+    <meta name='license'     content='https://savage.nps.edu/license.html'/>
+    <meta name="created"     content="27 October 2012"/>
+    <meta name="revised"     content="27 October 2012"/>
+    <link rel="shortcut icon" href="http://www.web3d.org/x3d/content/examples/images/X3DtextIcon16.png" title="X3D"/>
+  </head>
+  <body>
+
+    <h2> X3DOM example scene embedded in XHTML page </h2>
+
+    <X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'
+         id="EmbeddedX3dScene" showStat="true" showLog="true" x="500px" y="100px" width="300px" height="400px" style="float:left;">
+        <!-- Note that style="float:left;" is currently necessary for X3DOM picking functions. -->
+        <Scene>
+            <!-- TODO: * authors need to replace the X3D or provide another filename (along with relative or online location) in the next line * -->
+            <!-- TODO: confirm single versus multiple urls working... 
+                 <Inline url='"http://www.web3d.org/x3d/content/examples/HelloWorld.x3d"'/>
+            -->
+            <Inline url='"HelloWorld.x3d" "http://www.web3d.org/x3d/content/examples/HelloWorld.x3d"'/>
+        </Scene>
+    </X3D>
+    
+    <!-- Clear CSS float property to resume expected layout behavior -->
+    <br style="clear:both;" />
+
+    <p>
+        Authors can edit this template example to create a new HTML page.
+    </p>
+
+ </body>
+</html>

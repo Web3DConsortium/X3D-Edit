@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html lang="en">
+<head>
+	<link rel="shortcut icon" href="images/X3DtextIcon16.png" title="X3D" >
+	<title>HTML Object Tag for X3D</title>
+	<meta name="author"      content="Don Brutzman">
+	<meta name="description" content="HTML Object Tag for X3D">
+	<meta name="filename"    content="HtmlObjectTagForX3d.html">
+	<meta name="identifier"  content="https://www.web3d.org/x3d/content/examples/HtmlObjectTagForX3d.html">
+	<meta name="reference"   content="https://www.web3d.org/x3d/content/examples/newHtmlPageWithX3dObject.html">
+	<meta name="generator"   content="X3D-Edit, https://savage.nps.edu/X3D-Edit">
+</head>
+<body>
+
+
+<h2>HTML Object Tag for X3D</h2>
+
+
+<p>
+	 The following examples show how to place an X3D object within an HTML page.
+</p>
+<ul>
+  	 <li>The left column shows what is displayed when an X3D plugin is installed (if one is installed).</li>
+  	 <li>The center column shows what is displayed if no X3D plugin is installed.</li>
+  	 <li>The right column shows the HTML source.</li>
+</ul>
+
+<table border="1" cellspacing="0" cellpadding="0" summary="HTML example" align="center">
+<tr align="center" style="background-color: #eeeeee;">
+		<th>
+				X3D plugin object (if installed)
+		</th>
+		<th style="background-color: #ffffff;"> &nbsp; </th>
+
+		<th>
+				No X3D plugin installed
+		</th>
+		<th style="background-color: #ffffff;"> &nbsp; </th>
+
+		<th>
+				HTML source
+		</th>
+
+</tr>
+
+<!-- ============================================= -->
+<tr align="center" style="background-color: #eeeeee;">
+
+		<td> Online example scene: </td>
+		<td style="background-color: #ffffff;"> &nbsp; </td>
+		<td> Anchor-link text backup: </td>
+		<td style="background-color: #ffffff;"> &nbsp; </td>
+		<td> &nbsp; </td>
+</tr>
+
+<tr align="center">
+
+		<td>
+    <object data="https://www.web3d.org/x3d/content/examples/HelloWorld.x3d" type="model/x3d+xml" height="360" width="300">
+         <param name="src" value="https://www.web3d.org/x3d/content/examples/HelloWorld.x3d"/>
+         <param name="DASHBOARD" value="FALSE"/>
+         <param name="SPLASHSCREEN" value="FALSE"/>
+         <!--the following anchor-link text is only displayed to user if no X3D plugin is already installed-->
+         <div class="noX3dPluginInstalled">
+            <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications" target="helpPage">Select an X3D plugin to see this example...</a>
+         </div>
+      </object>
+		</td>
+		<td> &nbsp; </td>
+		
+		<td align="center" style="background-color: #eeeeee;">
+            <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications" target="helpPage">Select an X3D plugin to see this example...</a>
+		</td>
+		<td> &nbsp; </td>
+		
+		<td align="left"><pre>
+		
+ &lt;html&gt;
+  &lt;body&gt;
+
+   &lt;object data="<a href="https://www.web3d.org/x3d/content/examples/HelloWorld.x3d">https://www.web3d.org/x3d/content/examples/HelloWorld.x3d</a>"
+     type="model/x3d+xml" height="360" width="300"&gt;
+		
+     &lt;param name="src" value="<a href="https://www.web3d.org/x3d/content/examples/HelloWorld.x3d">https://www.web3d.org/x3d/content/examples/HelloWorld.x3d</a>"/&gt;
+     &lt;param name="DASHBOARD" value="FALSE"/&gt;
+     &lt;param name="SPLASHSCREEN" value="FALSE"/&gt;
+		
+     &lt;!-- <b style="color: #ff0000;">the following anchor-link text is only displayed to user if no X3D plugin is already installed</b> --&gt;
+     &lt;div class="noX3dPluginInstalled"&gt;
+       &lt;a href="<a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications">https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications</a>" target="helpPage"&gt; 
+       Select an X3D plugin to see this example...&lt;/a&gt;
+     &lt;/div&gt;
+		 
+   &lt;/object&gt;
+
+  &lt;/body&gt;
+ &lt;/html&gt;</pre></td>
+</tr>
+
+<!-- ============================================= -->
+<tr align="center" style="background-color: #eeeeee;">
+
+		<td> Online example scene: </td>
+		<td style="background-color: #ffffff;"> &nbsp; </td>
+		<td> Anchor-link image backup: </td>
+		<td style="background-color: #ffffff;"> &nbsp; </td>
+		<td> &nbsp; </td>
+</tr>
+
+<tr align="center">
+		<td>
+    <object data="https://www.web3d.org/x3d/content/examples/HelloWorld.x3d" type="model/x3d+xml" height="360" width="300">
+         <param name="src" value="https://www.web3d.org/x3d/content/examples/HelloWorld.x3d"/>
+         <param name="DASHBOARD" value="FALSE"/>
+         <param name="SPLASHSCREEN" value="FALSE"/>
+         <!--the following anchor-link image is only displayed to user if no X3D plugin is already installed-->
+         <div class="noX3dPluginInstalled">
+            <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications" target="helpPage"><img src="HelloWorldTall.png" height="360" width="300" alt="Click image to select an X3D plugin" /></a>
+         </div>
+      </object>
+		</td>
+		<td> &nbsp; </td>
+		
+		<td align="center">
+            <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications" target="helpPage"><img src="HelloWorldTall.png" height="360" width="300" alt="Click image to select an X3D plugin" /></a>
+		</td>
+		<td> &nbsp; </td>
+		
+		<td align="left"><pre>
+		
+ &lt;html&gt;
+  &lt;body&gt;
+
+   &lt;object data="<a href="https://www.web3d.org/x3d/content/examples/HelloWorld.x3d">https://www.web3d.org/x3d/content/examples/HelloWorld.x3d</a>"
+     type="model/x3d+xml" height="360" width="300"&gt;
+		
+     &lt;param name="src" value="<a href="https://www.web3d.org/x3d/content/examples/HelloWorld.x3d">https://www.web3d.org/x3d/content/examples/HelloWorld.x3d</a>"/&gt;
+     &lt;param name="DASHBOARD" value="FALSE"/&gt;
+     &lt;param name="SPLASHSCREEN" value="FALSE"/&gt;
+		
+     &lt;!-- <b style="color: #ff0000;">the following anchor-link image is only displayed to user if no X3D plugin is already installed</b> --&gt;
+     &lt;div class="noX3dPluginInstalled"&gt;
+     &lt;a href="<a href="https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications">https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications</a>" target="helpPage"&gt;
+          &lt;img src="<a href="HelloWorldTall.png">HelloWorldTall.png</a>" height="360" width="300" alt="Click image to select an X3D plugin" /&gt;
+     &lt;/a&gt;
+     &lt;/div&gt;
+		 
+   &lt;/object&gt;
+
+  &lt;/body&gt;
+ &lt;/html&gt;</pre></td>
+</tr>
+<!-- ============================================= -->
+		
+</table>
+
+<h3><a name="Contact">Design notes</a></h3>
+
+<ul>
+		<li>
+	 				The X3D scene url may be absolute (as shown above) or relative.
+		</li>
+		<li>
+				 	The HTML template page
+					<a href="newHtmlPageWithX3dObject.html">newHtmlPageWithX3dObject.html</a>
+					is an example HTML scene with an X3D object tag included.
+					This is a good example for authors to copy, edit and reuse.
+		</li>
+		<li>	
+					Use of the <code>classid</code> attribute needs to be avoided, since it restricts display of the
+					X3D scene to only one specific browser, regardless of whatever X3D plugin might already be installed.
+		</li>
+		<li>	
+					Each browser plugin typically has additional <code>&lt;param&gt;</code> options which allow further customization,
+					and usually forces that particular plugin to be used.
+					Be careful to avoid breaking compatibility among multiple browswers when using such options.
+		</li>
+		<li>	
+					TODO for browser companies:  the 
+					<code>&lt;param name="src" value="...same url as <i>data</i> attribute..." /&gt;</code>
+					entry appears to be redundant and may be eliminated once X3D plugins get more consistent.  
+		</li>
+		<li>	
+					The relevant
+					<a href="http://www.w3.org/TR/html401/" target="_blank">HTML Specification</a>
+					references are
+					<a href="http://www.w3.org/TR/html401/struct/objects.html#h-13.3" target="_blank">13.3 Generic inclusion: the OBJECT element</a>
+					and
+					<a href="http://www.w3.org/TR/html401/struct/objects.html#object-init" target="_blank">13.3.2 Object initialization: the PARAM element</a>.
+		</li>
+		<li>
+				  <a href="https://www.web3d.org/x3d/learn/mimetypes" target="_blank">Extensible 3D (X3D) MIME Types</a> describes proper configuration of http servers,
+					online at
+					<a href="https://www.web3d.org/x3d/learn/mimetypes">https://www.web3d.org/x3d/learn/mimetypes</a>.
+		</li>
+		<li>	
+					Further information is available on the
+					<a href="X3dResources.html">X3D Examples Help</a>
+					and
+					<a href="X3dSceneAuthoringHints.html">X3D Scene Authoring Hints</a>
+					pages.  Note that all of the scene pages in the
+					<a href="X3dResources.html#Examples">X3D Examples</a>
+					use the design pattern described on this page.  
+		</li>
+		<li>	
+				 TODO:  examining whether browser-setup Scene Access Interface (SAI) parameters might be passed via <code>&lt;param&gt;</code> name-value pairs.
+		</li>
+</ul>
+
+<h3><a name="Contact">Acknowledgements</a></h3>
+
+<blockquote>
+Thanks to X3D/HTML experts Joe&nbsp;Williams
+(<a href="http://hypermultimedia.com" target="_blank">Hypermultimedia</a>)
+and Leonard Daly
+(<a href="http://realism.com" target="_blank">Daly&nbsp;Realism</a>)
+for their help troubleshooting this design pattern among multiple X3D browsers.
+</blockquote>
+
+<h3><a name="Contact">Contact</a></h3>
+
+<blockquote>
+	Questions, suggestions and comments about these resources are welcome.
+	Please send them to
+	<a href="http://faculty.nps.edu/brutzman" target="_blank">Don&nbsp;Brutzman</a>
+ (<a href="mailto:brutzman@nps.edu%20(Don%20Brutzman)?subject=feedback:%20HTML%20Object%20Tag%20for%20X3D"><i>brutzman&nbsp;at&nbsp;nps.edu</i></a>)
+</blockquote>
+
+<blockquote>
+Available online at
+<a href="https://www.web3d.org/x3d/content/examples/HtmlObjectTagForX3d.html">https://www.web3d.org/x3d/content/examples/HtmlObjectTagForX3d.html</a>
+</blockquote>
+<blockquote>
+            Updated:  15 May 2010
+</blockquote>
+
+</body>
+</html>
