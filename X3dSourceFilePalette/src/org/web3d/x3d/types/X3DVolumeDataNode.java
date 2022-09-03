@@ -34,7 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.types;
 
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
  * X3DVolumeDataNode.java
