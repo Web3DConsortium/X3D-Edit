@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -50,6 +50,7 @@ import org.openide.util.actions.CallableSystemAction;
  * @author Mike Bailey <jmbailey@nps.edu>
  * @version $Id$
  */
+@SuppressWarnings("serial")
 abstract public class BaseViewAction extends CallableSystemAction
 {
   public final static String X3DVALIDATORURL                      ="https://savage.nps.edu/X3dValidator";

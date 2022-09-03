@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,7 +35,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.actions;
 
 import org.openide.util.NbBundle;
-import org.web3d.x3d.InputOutputReporter;
+//import org.web3d.x3d.InputOutputReporter;
 
 /**
  * BaseLocalViewAction.java
@@ -48,6 +48,7 @@ import org.web3d.x3d.InputOutputReporter;
  * @author Mike Bailey <jmbailey@nps.edu>
  * @version $Id$
  */
+@SuppressWarnings("serial")
 abstract public class BaseLocalViewAction extends BaseViewAction
 {
   public BaseLocalViewAction()
@@ -80,10 +81,10 @@ abstract public class BaseLocalViewAction extends BaseViewAction
   
   protected void showOut(String msg)
   {
-    InputOutputReporter console = new InputOutputReporter("View Local Examples Archive");
+//    InputOutputReporter console = new InputOutputReporter("View Local Examples Archive");
     java.util.ResourceBundle bun = NbBundle.getBundle(getClass());
 
-    console.message(msg);
-    console.moveToFront(true);    
+//    console.message(msg);
+//    console.moveToFront(true);    
   }
 }
