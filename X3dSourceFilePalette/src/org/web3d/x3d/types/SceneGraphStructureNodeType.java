@@ -48,6 +48,6 @@ package org.web3d.x3d.types;
  * @author Mike Bailey
  * @version $Id$
  */
-public abstract class SceneGraphStructureNodeType // TODO extends BaseX3DElement
+public abstract class SceneGraphStructureNodeType extends BaseX3DElement
 {
 }
