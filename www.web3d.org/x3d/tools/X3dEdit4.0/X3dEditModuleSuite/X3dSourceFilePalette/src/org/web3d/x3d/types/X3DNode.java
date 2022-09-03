@@ -99,32 +99,32 @@ private static X3DComponent component;
     scene = browser.createScene(null, browser.getSupportedComponents());
   }
 
-//  private static String tmpName = "__tempNode_";                 //noi18n
+  private static String tmpName = "__tempNode_";                 //noi18n
 
-// TODO  public static X3DFieldDefinition[] getNodeFields(String x3dNodeName)
-// TODO  {
-// TODO    createEmptyScene();
-// TODO
-// TODO    X3DFieldDefinition[] defs = new X3DFieldDefinition[0];  // empty by default
-// TODO    synchronized (scene) {
-// TODO      try {
-// TODO        org.web3d.x3d.sai.X3DNode n = scene.createNode(x3dNodeName);
-// TODO        scene.updateNamedNode(tmpName, n);
-// TODO        defs = n.getFieldDefinitions();
-// TODO        scene.removeNamedNode(tmpName);
-// TODO      }
-// TODO      catch (InvalidNodeException ex) {
-// TODO          System.err.println(x3dNodeName + " not found by Xj3D");
-// TODO      } finally {
-// TODO        browser.dispose();
-// TODO        component.shutdown();
-// TODO
-// TODO        // Cleanup
-// TODO        browser = null;
-// TODO        component = null;
-// TODO        scene = null;
-// TODO      }
-// TODO    }
-// TODO    return defs;
-// TODO  }
+  public static X3DFieldDefinition[] getNodeFields(String x3dNodeName)
+  {
+    createEmptyScene();
+ 
+    X3DFieldDefinition[] defs = new X3DFieldDefinition[0];  // empty by default
+    synchronized (scene) {
+      try {
+        org.web3d.x3d.sai.X3DNode n = scene.createNode(x3dNodeName);
+        scene.updateNamedNode(tmpName, n);
+        defs = n.getFieldDefinitions();
+        scene.removeNamedNode(tmpName);
+      }
+      catch (InvalidNodeException ex) {
+          System.err.println(x3dNodeName + " not found by Xj3D");
+      } finally {
+        browser.dispose();
+        component.shutdown();
+ 
+        // Cleanup
+        browser = null;
+        component = null;
+        scene = null;
+      }
+    }
+    return defs;
+  }
 }
