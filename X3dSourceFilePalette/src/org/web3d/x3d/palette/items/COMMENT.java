@@ -34,13 +34,10 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
-import javax.swing.text.BadLocationException;
-import javax.swing.text.JTextComponent;
 import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.openide.text.ActiveEditorDrop;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
+import org.web3d.x3d.types.SceneGraphStructureNodeType;
 import static org.web3d.x3d.types.X3DSchemaData.*;
-// import org.web3d.x3d.types.SceneGraphStructureNodeType;
 
 // TODO verify annotations correctly added to palette
 @PaletteItemRegistration
@@ -66,7 +63,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  * @author Mike Bailey and Don Brutzman
  * @version $Id$
  */
-public class COMMENT /* TODO extends SceneGraphStructureNodeType */ implements ActiveEditorDrop
+public class COMMENT extends SceneGraphStructureNodeType implements ActiveEditorDrop
 {
     private String commentText = "enter new comment here";
     
@@ -76,38 +73,40 @@ public class COMMENT /* TODO extends SceneGraphStructureNodeType */ implements A
         System.out.println("*** COMMENT constructor ...");
     }
 
-    //  @Override
+    @Override
     public String getElementName()
     {
         return COMMENT_ELNAME;
     }
 
-    //  @Override
+    @Override
     public void initialize()
     {
         System.out.println("*** COMMENT initialize() ...");
     }
 
-    //  @Override
+    @Override
     public String createBody()
     {
       return "\n    <!-- " + getCommentText() + " -->";
     }
-
-    @Override
-    public boolean  handleTransfer(JTextComponent targetComponent)
-    {
-        String body = createBody();
-        try
-        {
-            X3DPaletteUtilities.insert(body, targetComponent);
-        } 
-        catch (BadLocationException ble)
-        {
-            return false;
-        }
-        return true;
-    }
+    
+// TODO confirm unnecessary
+//    @Override
+//    public boolean  handleTransfer(JTextComponent targetComponent)
+//    {
+//        String body = createBody();
+//        try
+//        {
+//            X3DPaletteUtilities.insert(body, targetComponent);
+//        } 
+//        catch (BadLocationException ble)
+//        {
+//            return false;
+//        }
+//        return true;
+//    }
+    
 //  @SuppressWarnings("unchecked")
 //  @Override
   /**
