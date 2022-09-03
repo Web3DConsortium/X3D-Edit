@@ -7,6 +7,39 @@
             <suite-component/>
             <module-dependencies>
                 <dependency>
+                    <code-name-base>org.apache.commons.httpclient</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>3.1.0</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.apache.commons.logging</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>1.2</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.apache.tools.ant.module</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <release-version>3</release-version>
+                        <specification-version>3.100.0.2</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.netbeans.api.io</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>1.19</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
                     <code-name-base>org.netbeans.api.xml</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
@@ -25,6 +58,32 @@
                     </run-dependency>
                 </dependency>
                 <dependency>
+                    <code-name-base>org.netbeans.libs.xerces</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <release-version>1</release-version>
+                        <specification-version>1.54.0.281</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.netbeans.modules.editor.document</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>1.25.0.3</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.netbeans.modules.editor.indent</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <release-version>2</release-version>
+                        <specification-version>1.59</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
                     <code-name-base>org.netbeans.modules.editor.lib</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
@@ -40,6 +99,33 @@
                     <run-dependency>
                         <release-version>1</release-version>
                         <specification-version>1.56</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.netbeans.modules.libs.gradle</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <release-version>7</release-version>
+                        <specification-version>7.4.1</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.netbeans.modules.options.api</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <release-version>1</release-version>
+                        <specification-version>1.61</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.netbeans.modules.settings</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <release-version>1</release-version>
+                        <specification-version>1.65</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -113,6 +199,14 @@
                     </run-dependency>
                 </dependency>
                 <dependency>
+                    <code-name-base>org.openide.actions</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>6.55</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
                     <code-name-base>org.openide.awt</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
@@ -126,6 +220,46 @@
                     <compile-dependency/>
                     <run-dependency>
                         <specification-version>7.61</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.openide.execution</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>9.19</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.openide.filesystems</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>9.28</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.openide.io</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>1.65</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.openide.loaders</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>7.86</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.openide.modules</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>7.64</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -168,6 +302,14 @@
                         <specification-version>9.24</specification-version>
                     </run-dependency>
                 </dependency>
+                <dependency>
+                    <code-name-base>org.openide.windows</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>6.93</specification-version>
+                    </run-dependency>
+                </dependency>
             </module-dependencies>
             <test-dependencies>
                 <test-type>
@@ -179,6 +321,130 @@
                 </test-type>
             </test-dependencies>
             <public-packages/>
+            <class-path-extension>
+                <runtime-relative-path>ext/bcprov.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/bcprov.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xj3d-2.3-3rdparty-nps.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xj3d-2.3-3rdparty-nps.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/saxon9B.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/saxon9B.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xsbc.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xsbc.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/svnClientAdapter.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/svnClientAdapter.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xalan.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xalan.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/ant-contrib-1.0b3.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/ant-contrib-1.0b3.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/ant.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/ant.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/commons-httpclient-3.1.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/commons-httpclient-3.1.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/htmlentities.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/htmlentities.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jfreechart-1.0.14.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jfreechart-1.0.14.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/AntX_tasks.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/AntX_tasks.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jakarta-regexp-1.3.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jakarta-regexp-1.3.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/aviatrix3d-all_3.1.1-nps.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/aviatrix3d-all_3.1.1-nps.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jcommon-1.0.17.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jcommon-1.0.17.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/slf4j-simple-1.7.30.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/slf4j-simple-1.7.30.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xj3d.browser_2.3.0-nps.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xj3d.browser_2.3.0-nps.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xmlsec-2.1.4.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xmlsec-2.1.4.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/Vrml97ToX3dNist.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/Vrml97ToX3dNist.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/slf4j-api-1.7.30.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/slf4j-api-1.7.30.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/svnant.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/svnant.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/commons-lang-2.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/commons-lang-2.0.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/X3dC14n.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/X3dC14n.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/portecle.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/portecle.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jogamp-fat.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jogamp-fat.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xj3d-2.3-nps.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xj3d-2.3-nps.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xj3d.cadfilter_2.3.0-nps.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xj3d.cadfilter_2.3.0-nps.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/log4j-1.2.17.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/log4j-1.2.17.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jakarta-oro-2.0.8.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jakarta-oro-2.0.8.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xj3d.replica_2.3.0-nps.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xj3d.replica_2.3.0-nps.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jdom.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jdom.jar</binary-origin>
+            </class-path-extension>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
             <word>classpath</word>

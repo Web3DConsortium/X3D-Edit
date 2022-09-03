@@ -34,8 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.types;
 
 import java.util.HashMap;
-//import org.web3d.x3d.palette.items.BaseX3DElement;
-//import org.web3d.x3d.sai.*;
+import org.web3d.x3d.palette.items.BaseX3DElement;
+import org.web3d.x3d.sai.*;
 
 /**
  * X3DNode.java
@@ -50,10 +50,11 @@ import java.util.HashMap;
  * @author Mike Bailey
  * @version $Id$
  */
-public abstract class X3DNode // TODO extends BaseX3DElement
+public abstract class X3DNode extends BaseX3DElement
 {
   abstract public String getDefaultContainerField();
   
+  @Override
   abstract public String getElementName();
 
   /*
@@ -87,15 +88,15 @@ public abstract class X3DNode // TODO extends BaseX3DElement
   Texturing               Texturing
   Time                    Time
   */
-// TODO private static X3DScene scene;
-// TODO private static ExternalBrowser browser;
-// TODO private static X3DComponent component;
+private static X3DScene scene;
+private static ExternalBrowser browser;
+private static X3DComponent component;
 
   /** Utility method to aid in return of field definitions */
   private static void createEmptyScene() {
-// TODO    component = BrowserFactory.createX3DComponent(new HashMap<String, Object>());
-// TODO    browser = component.getBrowser();
-// TODO    scene = browser.createScene(null, browser.getSupportedComponents());
+    component = BrowserFactory.createX3DComponent(new HashMap<String, Object>());
+    browser = component.getBrowser();
+    scene = browser.createScene(null, browser.getSupportedComponents());
   }
 
 //  private static String tmpName = "__tempNode_";                 //noi18n

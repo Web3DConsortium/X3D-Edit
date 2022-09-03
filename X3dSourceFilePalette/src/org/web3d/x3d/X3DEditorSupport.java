@@ -249,6 +249,7 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
         return new X3dEditor(this);
     }
 
+    @SuppressWarnings("serial")
     public static class X3dEditor extends CloneableEditor {
 
         public static final String PREFERRED_ID = "X3DEDITOR";

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+ * Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -54,6 +54,7 @@ import org.jdom.output.XMLOutputter;
 import org.openide.text.ActiveEditorDrop;
 import org.openide.util.Exceptions;
 import org.openide.windows.IOProvider;
+//import org.openide.util.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.options.X3dOptions;
@@ -101,8 +102,9 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
   public BaseX3DElement()
   {
-    if(this instanceof X3DNode)
-      containerField = ((X3DNode)this).getDefaultContainerField();
+// TODO illegal block from X3D-Edit 3.3
+//   if(this instanceof X3DNode)
+//      containerField = ((X3DNode)this).getDefaultContainerField();
 
     // avoid internalization (I18N) localization (L10N) of decimal separator (decimal point)
     DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
