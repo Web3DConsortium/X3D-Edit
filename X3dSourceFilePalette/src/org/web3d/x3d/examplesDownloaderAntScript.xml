@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<project name="download example archives (Ant utility functions for run-time use)" basedir=".">-->
+<!-- The project name gets written out as the Output tab name, so make it clear and concise -->
+
+<!-- build file examplesDownloaderAntScript.xml -->
+
+<project name="Download example archives" basedir=".">
+    <!-- When run from within X3dEdit app, "." == os tempfile directory, downloads is created there -->
+    <target name="all" depends="X3dForWebAuthors,X3dForAdvancedModeling,Vrml2.0Sourcebook,Basic,ConformanceNist,HumanoidAnimation,Savage,SavageDefense">
+        <!-- this task takes many moons to accomplish and likely should be avoided -->
+    </target>
+
+    <!-- TODO import directory from invoking menu task, default is /, testing is downloads -->
+    <property name="examplesRootDirectory" value="downloads"/>
+
+    <target name="clean.downloads">
+        <delete dir="downloads" quiet="true" includeemptydirs="true"/>
+    </target>
+
+    <target name="mkdir">
+        <mkdir dir="downloads"/>
+        <mkdir dir="${examplesRootDirectory}"/>
+    </target>
+
+    <!-- warning, if downloaded to local downloads directory, this archive includes some .java that will prevent X3D-Edit compilation -->
+    <!-- clarification: local downloads is temp dir, and so does not affect compilation -->
+    <target name="Basic" depends="mkdir">
+        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesBasic.zip"             dest="downloads/X3dExamplesBasic.zip"            verbose="true"/>
+        <unzip                               src="downloads/X3dExamplesBasic.zip"             dest="${examplesRootDirectory}"  overwrite="true"/>
+        <delete                             file="downloads/X3dExamplesBasic.zip" verbose="true"/>
+        <echo message="X3D scenes for Basic example archive are installed in local directory:"/>
+        <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/Basic"/>
+    </target>
+
+    <target name="ConformanceNist" depends="mkdir">
+        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesConformanceNist.zip"   dest="downloads/X3dExamplesConformanceNist.zip"  verbose="true"/>
+        <unzip                               src="downloads/X3dExamplesConformanceNist.zip"   dest="${examplesRootDirectory}"  overwrite="true"/>
+        <delete                             file="downloads/X3dExamplesConformanceNist.zip" verbose="true"/>
+        <echo message="X3D scenes for ConformanceNist example archive are installed in local directory:"/>
+        <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/ConformanceNist"/>
+    </target>
+
+    <target name="HumanoidAnimation" depends="mkdir">
+        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesHumanoidAnimation.zip"   dest="downloads/X3dExamplesHumanoidAnimation.zip"  verbose="true"/>
+        <unzip                               src="downloads/X3dExamplesHumanoidAnimation.zip"   dest="${examplesRootDirectory}"  overwrite="true"/>
+        <delete                             file="downloads/X3dExamplesHumanoidAnimation.zip" verbose="true"/>
+        <echo message="X3D scenes for HAnim HumanoidAnimation example archive are installed in local directory:"/>
+        <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/HumanoidAnimation"/>
+    </target>
+
+    <!-- TODO Ant get is not working with https:// need certificate setup-->
+    <target name="Savage" depends="mkdir">
+        <get src="https://savage.nps.edu/X3dExamplesSavage.zip"                               dest="downloads/X3dExamplesSavage.zip"           verbose="true"/>
+        <unzip            src="downloads/X3dExamplesSavage.zip"                               dest="${examplesRootDirectory}"  overwrite="true"/>
+        <delete          file="downloads/X3dExamplesSavage.zip" verbose="true"/>
+        <echo message="X3D scenes for Savage example archive are installed in local directory:"/>
+        <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/Savage"/>
+    </target>
+
+    <target name="SavageDefense" depends="mkdir">
+        <get src="https://savagedefense.nps.navy.mil/X3dExamplesSavageDefense.zip"            dest="downloads/X3dExamplesSavageDefense.zip"    verbose="true"/>
+        <unzip                        src="downloads/X3dExamplesSavageDefense.zip"            dest="${examplesRootDirectory}"  overwrite="true"/>
+        <delete                      file="downloads/X3dExamplesSavageDefense.zip" verbose="true"/>
+        <echo message="X3D scenes for SavageDefense example archive are installed in local directory:"/>
+        <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/SavageDefense"/>
+    </target>
+
+    <target name="Vrml2.0Sourcebook" depends="mkdir">
+        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesVrml2.0Sourcebook.zip" dest="downloads/X3dExamplesVrml2.0Sourcebook.zip" verbose="true"/>
+        <unzip                               src="downloads/X3dExamplesVrml2.0Sourcebook.zip" dest="${examplesRootDirectory}"  overwrite="true"/>
+        <delete                             file="downloads/X3dExamplesVrml2.0Sourcebook.zip" verbose="true"/>
+        <echo message="X3D scenes for Vrml2.0Sourcebook example archive are installed in local directory:"/>
+        <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook"/>
+    </target>
+
+    <target name="X3dForWebAuthors" depends="mkdir">
+        <get src="http://x3dgraphics.com/X3dExamplesX3dForWebAuthors.zip"                     dest="downloads/X3dExamplesX3dForWebAuthors.zip"  verbose="true"/>
+        <unzip            src="downloads/X3dExamplesX3dForWebAuthors.zip"                     dest="${examplesRootDirectory}"  overwrite="true"/>
+        <delete          file="downloads/X3dExamplesX3dForWebAuthors.zip" verbose="true"/>
+        <echo message="X3D scenes for X3dForWebAuthors example archive are installed in local directory:"/>
+        <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/X3dForWebAuthors"/>
+    </target>
+
+    <target name="X3dForAdvancedModeling" depends="mkdir">
+        <get src="http://x3dgraphics.com/X3dExamplesX3dForAdvancedModeling.zip"                     dest="downloads/X3dExamplesX3dForAdvancedModeling.zip"  verbose="true"/>
+        <unzip            src="downloads/X3dExamplesX3dForAdvancedModeling.zip"                     dest="${examplesRootDirectory}"  overwrite="true"/>
+        <delete          file="downloads/X3dExamplesX3dForAdvancedModeling.zip" verbose="true"/>
+        <echo message="X3D scenes for X3dForAdvancedModeling example archive are installed in local directory:"/>
+        <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/X3dForAdvancedModeling"/>
+    </target>
+
+    <target name="myTest">
+      <echo>Hello from testAntScript/myTest!</echo>
+      <echo>Downloads dir = ${examplesRootDirectory}</echo>
+    </target>
+
+</project>
