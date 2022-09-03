@@ -123,7 +123,7 @@ Creating `layer.xml` file is optional if using annotations instead:
 
 * Issue 4520 [NetBeans Editor Component Palette Module Tutorial, garbled source](https://github.com/apache/netbeans/issues/4520)
 
-* Issue 4521 [org.openide.util.Exceptions not found by import in tutorial](https://github.com/apache/netbeans/issues/4521)
+* Issue 4521 [org.openide.util.Exceptions not found by import in tutorial](https://github.com/apache/netbeans/issues/4521) fixed, closed.
 
 Implemented module as `X3dSourceFilePalette`.  Not all names aligned, not all source applied, work ongoing.
 
@@ -133,6 +133,12 @@ Implemented module as `X3dSourceFilePalette`.  Not all names aligned, not all so
 * [How to make Splash Screen in Java using Netbeans with Source Code](https://www.youtube.com/watch?v=tR7nZ2gSNB4)
 
 Note problem failing when turned on by Project setting for X3D-Edit module suite. <- FIXED (TDN)
+
+
+### [NetBeans Ant-Based Project Type Module Tutorial](https://netbeans.apache.org/tutorials/nbm-projecttypeant.html)
+
+TODO.  Consider if this will help create projects of interest - might be superfluous.
+
 
 ----
 ## Creating standalone installers
