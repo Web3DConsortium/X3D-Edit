@@ -35,51 +35,36 @@ package org.web3d.x3d;
 
 import java.io.IOException;
 import java.io.ObjectInput;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-
 import java.net.ContentHandlerFactory;
 import java.net.URLConnection;
-
 import java.util.Vector;
-
 import javax.swing.JEditorPane;
 import javax.swing.SwingUtilities;
 import javax.swing.text.JTextComponent;
-
 import org.netbeans.spi.palette.PaletteController;
-
 import org.openide.cookies.EditCookie;
 import org.openide.cookies.EditorCookie;
 import org.openide.cookies.OpenCookie;
 import org.openide.cookies.PrintCookie;
 import org.openide.cookies.SaveCookie;
-
 import org.openide.filesystems.FileLock;
 import org.openide.filesystems.FileObject;
-
 import org.openide.loaders.DataObject;
-
 import org.openide.nodes.Node;
 import org.openide.nodes.Node.Cookie;
-
 import org.openide.text.CloneableEditor;
 import org.openide.text.DataEditorSupport;
-
 import org.openide.util.Lookup;
 import org.openide.util.RequestProcessor;
 import org.openide.util.lookup.Lookups;
 import org.openide.util.lookup.ProxyLookup;
-
 import org.openide.windows.CloneableOpenSupport;
-
 import org.web3d.x3d.options.X3dOptions;
-
 import org.web3d.x3d.palette.X3DPaletteFactory;
 import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
 import org.web3d.x3d.palette.X3DPaletteUtilities.ValidateThread;
-
 import org.web3d.x3d.xj3d.viewer.Xj3dTopComponent;
 import org.web3d.x3d.xj3d.viewer.Xj3dViewerPanel;
 
@@ -293,18 +278,19 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
             }
             DataObject dataObject = (X3DDataObject) s.getDataObject();
             if (dataObject instanceof X3DDataObject) {
-                try {
+                // TODO cleanup
+//                try {
                     PaletteController pc = X3DPaletteFactory.getPalette();
                     Lookup pcl = Lookups.singleton(pc);
                     Lookup anl = getActivatedNodes()[0].getLookup();
                     Lookup actionMap = Lookups.singleton(getActionMap());
                     ProxyLookup l = new ProxyLookup(new Lookup[]{anl, actionMap, pcl});
                     associateLookup(l);
-                } catch (IOException ioe) {
-                    
-                    // TODO: exception handling
-                    ioe.printStackTrace(System.err);
-                }
+//                } catch (IOException ioe) {
+//                    
+//                    // TODO: exception handling
+//                    ioe.printStackTrace(System.err);
+//                }
             }
         }
 
