@@ -54,13 +54,13 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.options.X3dOptions;
 import org.web3d.x3d.palette.BetterJTextField;
+import org.web3d.x3d.palette.X3DPaletteUtilities;
 import org.web3d.x3d.types.X3DNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFColor;
-import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
 
 /**
  * In the IDE Log, opening any of the customizer forms in the gui builder dumps a stack trace saying it cannot open this
@@ -105,10 +105,11 @@ public abstract class BaseCustomizer extends JPanel
   {
     this.baseX3DElement = currentBaseX3DElement;
     
-//    SwingUtilities.invokeLater(() -> {
-//        // TODO adjust for resizable DEFUSEPanel
-////        getDEFUSEpanel().resetHtmlPaneVisibility(); // close HTML CSS section if not needed
-//    });
+//    TODO review
+    SwingUtilities.invokeLater(() -> {
+        // TODO adjust for resizable DEFUSEPanel
+        getDEFUSEpanel().resetHtmlPaneVisibility(); // close HTML CSS section if not needed
+    });
 
     decimalFormatSymbols.setDecimalSeparator('.');
   }
@@ -472,19 +473,19 @@ public abstract class BaseCustomizer extends JPanel
 //  }
 
   /*
+//  private class HelpAction extends AbstractAction
+//  {
+//    HelpAction(String s)
+//    {
+//      super(s);
+//    }
+//    public void actionPerformed(ActionEvent e)
+//    {
+//      System.out.println("*** TODO implement context-sensitive help");
+//    }
+//
+//  }
   */
-  private class HelpAction extends AbstractAction
-  {
-    HelpAction(String s)
-    {
-      super(s);
-    }
-    public void actionPerformed(ActionEvent e)
-    {
-      System.out.println("*** TODO implement context-sensitive help");
-    }
-
-  }
   abstract public String getNameKey();
 
   /**
