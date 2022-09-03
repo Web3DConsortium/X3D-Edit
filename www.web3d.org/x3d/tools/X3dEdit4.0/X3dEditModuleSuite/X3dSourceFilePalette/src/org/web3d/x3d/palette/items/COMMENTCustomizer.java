@@ -61,6 +61,7 @@ public class COMMENTCustomizer extends BaseCustomizer // tutorial: javax.swing.J
      */
     public COMMENTCustomizer(COMMENT comment, JTextComponent target) 
     {
+        super(comment);
         this.comment = comment;
         this.target  = target;
         initComponents();
@@ -118,10 +119,10 @@ public class COMMENTCustomizer extends BaseCustomizer // tutorial: javax.swing.J
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap()
                 .addComponent(commentLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
