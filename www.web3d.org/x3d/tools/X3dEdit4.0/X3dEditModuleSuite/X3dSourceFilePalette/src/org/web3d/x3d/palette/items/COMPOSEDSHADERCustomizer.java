@@ -1,0 +1,321 @@
+/*
+Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+ 
+ * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer
+      in the documentation and/or other materials provided with the
+      distribution.
+ * Neither the names of the Naval Postgraduate School (NPS)
+      Modeling Virtual Environments and Simulation (MOVES) Institute
+      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      nor the names of its contributors may be used to endorse or
+      promote products derived from this software without specific
+      prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+ */
+
+package org.web3d.x3d.palette.items;
+
+import java.awt.Component;
+import java.util.Vector;
+import javax.swing.DefaultCellEditor;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.text.JTextComponent;
+import org.openide.util.HelpCtx;
+import org.web3d.x3d.X3DDataObject;
+import static org.web3d.x3d.types.X3DSchemaData.*;
+
+/**
+ * COMPOSEDSHADERCustomizer.java
+ * Created on 16 January 2010
+ *
+ * MOVES Institute
+ * Naval Postgraduate School, Monterey, CA, USA
+ * www.nps.edu
+ *
+ * @author Mike Bailey, Don Brutzman
+ * @version $Id$
+ */
+public class COMPOSEDSHADERCustomizer extends BaseCustomizer implements TableModelListener
+{
+  private COMPOSEDSHADER composedShader;
+  private JTextComponent target;
+  private Vector<FIELD> fieldObjs = new Vector<FIELD>();
+  private X3DDataObject xObj;
+
+  /** Creates new form COMPOSEDSHADERCustomizer */
+  public COMPOSEDSHADERCustomizer(COMPOSEDSHADER composedShader, JTextComponent target, X3DDataObject xObj)
+  {
+    super(composedShader);
+    this.composedShader = composedShader;
+    this.target = target;
+    this.xObj = xObj;
+    
+    HelpCtx.setHelpIDString(this, "COMPOSEDSHADER_ELEM_HELPID");
+    
+    initComponents();
+    
+    super.getDEFUSEpanel().setContainerField("shaders");
+
+    languageComboBox.setSelectedItem(composedShader.getLanguage());
+    
+    fieldsList.setHeaderTooltip (FIELD_HEADER_TOOLTIP);
+    fieldsList.setColumnEditor(new DefaultCellEditor(new JComboBox<String>(FIELD_ATTR_TYPE_CHOICES)),1);
+    fieldsList.setColumnEditor(new DefaultCellEditor(new JComboBox<String>(FIELD_ATTR_ACCESSTYPE_CHOICES)), 2);
+
+    fieldsList.setColumnTitles(new String[]{"name","type","accessType","value","appinfo","documentation"});
+    // TODO tooltips similar to other field-definition panes
+    fieldsList.setNewRowData(new Object[]{"","","","","",""});
+
+    fieldObjs.clear();
+    fieldObjs.addAll(composedShader.getFields());
+    if( fieldObjs.isEmpty()){
+      FIELD f = new FIELD("","","","","",""); // something to start with
+      f.setParent(COMPOSEDSHADER_ELNAME);
+      fieldObjs.add(f);
+    }
+    String[][] data = new String[fieldObjs.size()][6];
+    int r = 0;
+    for(FIELD f : fieldObjs) {
+      data[r][0] = f.getName();
+      data[r][1] = f.getType();
+      data[r][2] = f.getAccessType();
+      data[r][3] = f.getValue();
+      data[r][4] = f.getAppinfo();
+      data[r][5] = f.getDocumentation();
+      r++;
+    }
+    // TODO also handle initializing children nodes
+
+    fieldsList.setData(data);
+    
+    fieldsList.getTable().setDefaultRenderer(String.class, new myDefaultStringRenderer());
+    fieldsList.getTable().setDefaultEditor(String.class, new myDefaultStringEditor());
+    fieldsList.getTable().getModel().addTableModelListener(this);
+   }
+   
+  /** This method is called from within the constructor to
+   * initialize the form.
+   * WARNING: Do NOT modify this code. The content of this method is
+   * always regenerated by the Form Editor.
+   */
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        dEFUSEpanel1 = getDEFUSEpanel();
+        languageLabel = new javax.swing.JLabel();
+        languageComboBox = new javax.swing.JComboBox<String>();
+        fieldsList = new org.web3d.x3d.palette.items.ExpandableList();
+        hintPanel = new javax.swing.JPanel();
+        contentModelLabel = new javax.swing.JLabel();
+
+        setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
+        add(dEFUSEpanel1, gridBagConstraints);
+
+        languageLabel.setText("language");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(languageLabel, gridBagConstraints);
+
+        languageComboBox.setModel(new DefaultComboBoxModel<String>(SHADER_ATTR_LANGUAGE_CHOICES));
+        languageComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                languageComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(languageComboBox, gridBagConstraints);
+
+        fieldsList.setBorder(null);
+        fieldsList.setPreferredSize(new java.awt.Dimension(100, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipady = 60;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(fieldsList, gridBagConstraints);
+
+        hintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintPanel.setLayout(new java.awt.GridBagLayout());
+
+        contentModelLabel.setText("<html><b>ComposedShader</b> connects via field definitions to contained <b>ShaderParts</b> nodes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        hintPanel.add(contentModelLabel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 12, 10, 12);
+        add(hintPanel, gridBagConstraints);
+    }// </editor-fold>//GEN-END:initComponents
+
+  private void languageComboBoxActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_languageComboBoxActionPerformed
+  {//GEN-HEADEREND:event_languageComboBoxActionPerformed
+      // TODO add your handling code here:
+  }//GEN-LAST:event_languageComboBoxActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel contentModelLabel;
+    private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
+    private org.web3d.x3d.palette.items.ExpandableList fieldsList;
+    private javax.swing.JPanel hintPanel;
+    private javax.swing.JComboBox<String> languageComboBox;
+    private javax.swing.JLabel languageLabel;
+    // End of variables declaration//GEN-END:variables
+
+  @Override
+  public String getNameKey()
+  {
+    return "NAME_X3D_COMPOSEDSHADER";
+  }
+
+  @Override
+  public void unloadInput()
+  {
+    unLoadDEFUSE();
+
+    composedShader.setLanguage((String)languageComboBox.getSelectedItem());
+    
+    String[][] data = fieldsList.getData();
+    if(data.length>0) {
+      Vector<FIELD> v = new Vector<FIELD>(data.length);
+      int r=0;
+      for(String[] sa : data) {
+        if(sa[0] != null && sa[0].length()>0) {
+          FIELD f = fieldObjs.elementAt(r); //new FIELD();
+          f.setName(sa[0]);
+          f.setType(sa[1]);
+          f.setAccessType(sa[2]);
+          f.setValue(sa[3]);
+          f.setAppinfo(sa[4]);
+          f.setDocumentation(sa[5]);
+          v.add(f);
+          r++;
+        }
+        // TODO also handle initializing children nodes
+      }
+     composedShader.setFields(v);
+    }
+  }
+
+  @Override
+  public void tableChanged(TableModelEvent e)
+  {
+    if(e.getType() == TableModelEvent.UPDATE){
+      int col = e.getColumn();
+      int row = e.getFirstRow();
+      
+      if(col == 2) { // access type 
+        //String access = (String)getTable().getValueAt(row, col);
+        //if(FIELD.canHaveValue(access))  fire it always
+        ((DefaultTableModel)e.getSource()).fireTableCellUpdated(row, 3); // value
+      }
+    }
+    else if(e.getType() == TableModelEvent.DELETE) {
+      int row = e.getFirstRow();
+      int lrow = e.getLastRow();
+      for(int r = row; r <= lrow; r++)
+      {
+          fieldObjs.remove(r);
+      }
+    }
+    else if(e.getType() == TableModelEvent.INSERT) {
+      int row = e.getFirstRow();
+      int lrow = e.getLastRow();
+      for(int r = row; r <= lrow; r++) {
+        FIELD f = new FIELD();
+        f.setParent(COMPOSEDSHADER_ELNAME);
+        fieldObjs.add(r, f);
+      }
+    }
+  }
+
+  class myDefaultStringRenderer extends DefaultTableCellRenderer
+  {
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+    {
+      Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+      boolean enabled = true;
+      if(column == 3) {
+        enabled = FIELD.canHaveValue((String)table.getValueAt(row, 1), (String)table.getValueAt(row, 2));
+      }
+      c.setEnabled(enabled);
+      return c;
+    }   
+  }
+  
+  class myDefaultStringEditor extends DefaultCellEditor
+  {
+    public myDefaultStringEditor()
+    {
+      super(new JTextField());
+    }
+
+    @Override
+    public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
+    {
+      Component c = super.getTableCellEditorComponent(table, value, isSelected, row, column);
+      c.setEnabled(true);
+      if(column == 3) {
+        if(!FIELD.canHaveValue((String)table.getValueAt(row, 1), (String)table.getValueAt(row, 2))) {
+         c.setEnabled(false);
+        }
+      }
+      return c;
+    }   
+  }
+}
