@@ -38,7 +38,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.prefs.Preferences;
 import org.openide.util.NbPreferences;
-import org.web3d.x3d.actions.security.BouncyCastleHelper;
+//import org.web3d.x3d.actions.security.BouncyCastleHelper;
 
 /**
  * X3dOptions.java
@@ -57,7 +57,7 @@ public class X3dOptions
   /* Security options */
   public static       String KEYSTORE_PATH_KEY = "KEYSTORE_PATH";
   public static       String KEYSTORE_PATH_DEFAULT; // set in static block
-  public static final String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeyStoreNameExtension()).toString();
+//  public static final String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeyStoreNameExtension()).toString();
   
   public static final String USER_NAME_TOKEN = "__USER-NAME__";
   public static final String userName, x3dEditPath;
@@ -67,8 +67,8 @@ public class X3dOptions
        x3dEditPath = System.getProperty("user.dir"); // _path_/X3DEdit3.3/X3dEditorSuite
     
     File dir = new File(new StringBuilder().append(homeDir).append("/X3D-Edit/security").toString());
-    File fil = new File(dir,KEYSTORE_FILENAME_DEFAULT);
-    KEYSTORE_PATH_DEFAULT = fil.getAbsolutePath();
+//    File fil = new File(dir,KEYSTORE_FILENAME_DEFAULT);
+//    KEYSTORE_PATH_DEFAULT = fil.getAbsolutePath();
   }
   
   /* Other preferences */

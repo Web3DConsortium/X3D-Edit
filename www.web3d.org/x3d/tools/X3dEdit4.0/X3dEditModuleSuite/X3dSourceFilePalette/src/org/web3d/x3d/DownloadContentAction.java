@@ -45,7 +45,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import org.netbeans.api.javahelp.Help;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
@@ -56,6 +55,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.Lookup;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+// no longer supported import org.netbeans.api.javahelp.Help;
 
 @ActionID(id = "org.web3d.x3d.DownloadContentAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_DownloadContentAction")

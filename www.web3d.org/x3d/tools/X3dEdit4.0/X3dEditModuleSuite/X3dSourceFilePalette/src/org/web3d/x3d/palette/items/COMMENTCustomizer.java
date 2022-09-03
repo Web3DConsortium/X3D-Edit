@@ -47,7 +47,8 @@ import org.openide.util.*;
  * https://netbeans.apache.org/tutorials/nbm-palette-api1.html
  * @author Don Brutzman brutzman@nps.edu
  */
-public class COMMENTCustomizer extends javax.swing.JPanel 
+@SuppressWarnings("serial")
+public class COMMENTCustomizer extends BaseCustomizer // tutorial: javax.swing.JPanel 
 {
     private Dialog           dialog = null;
     private DialogDescriptor descriptor = null;
@@ -58,7 +59,7 @@ public class COMMENTCustomizer extends javax.swing.JPanel
     /**
      * Creates new form COMMENTCustomizer
      */
-    public COMMENTCustomizer(COMMENT comment, JTextComponent target)
+    public COMMENTCustomizer(COMMENT comment, JTextComponent target) 
     {
         this.comment = comment;
         this.target  = target;
@@ -140,4 +141,16 @@ public class COMMENTCustomizer extends javax.swing.JPanel
     private javax.swing.JTextArea commentTextArea;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public String getNameKey()
+    {
+      return "NAME_X3D_COMMENT"; // TODO confirm
+    }
+
+    @Override
+    public void unloadInput() throws IllegalArgumentException
+    {
+        comment.setCommentText(commentTextArea.getText());
+    }  
 }
