@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -46,22 +46,24 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette;
 
-import java.io.IOException;
-import org.openide.ErrorManager;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+//import java.io.IOException;
+//import org.openide.ErrorManager;
 
+@SuppressWarnings("serial")
 public class X3DPaletteCustomizerAction extends CallableSystemAction
 {
-  
   private static String name;
   
   public X3DPaletteCustomizerAction()
   {
+      System.out.println ("*** created X3DPaletteCustomizerAction()");
     putValue("noIconInMenu", Boolean.TRUE); // NOI18N
   }
   
+  @Override
   protected boolean asynchronous()
   {
     return false;
@@ -71,6 +73,7 @@ public class X3DPaletteCustomizerAction extends CallableSystemAction
    * presented as an item in a menu.
    * @return the name of the action
    */
+  @Override
   public String getName()
   {
     if (name == null)
@@ -82,6 +85,7 @@ public class X3DPaletteCustomizerAction extends CallableSystemAction
   /** Help context where to find more about the action.
    * @return the help context for this action
    */
+  @Override
   public HelpCtx getHelpCtx()
   {
     return null;
@@ -90,16 +94,19 @@ public class X3DPaletteCustomizerAction extends CallableSystemAction
   /** This method is called by one of the "invokers" as a result of
    * some user's action that should lead to actual "performing" of the action.
    */
+  @Override
   public void performAction()
   {
-    try
-    {
       X3DPaletteFactory.getPalette().showCustomizer();
-    }
-    catch (IOException ioe)
-    {
-      ErrorManager.getDefault().notify(ErrorManager.EXCEPTION, ioe);
-    }
+      
+//    try
+//    {
+//      X3DPaletteFactory.getPalette().showCustomizer();
+//    }
+//    catch (IOException ioe)
+//    {
+//      ErrorManager.getDefault().notify(ErrorManager.EXCEPTION, ioe);
+//    }
   }
   
 }
