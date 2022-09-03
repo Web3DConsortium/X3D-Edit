@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -40,14 +40,13 @@ POSSIBILITY OF SUCH DAMAGE.
  * Naval Postgraduate School, Monterey, CA, USA
  * www.nps.edu
  *
- * @author Mike Bailey
+ * @author Mike Bailey and Don Brutzman
  * @version $Id$
  */
 
 package org.web3d.x3d.palette;
 
 import java.awt.event.ActionEvent;
-import java.io.IOException;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.text.JTextComponent;
@@ -59,6 +58,7 @@ import org.openide.NotifyDescriptor;
 import org.openide.text.ActiveEditorDrop;
 import org.openide.util.Lookup;
 import org.openide.util.NbBundle;
+//import java.io.IOException;
 
 public class X3DPaletteActions extends PaletteActions
 {
@@ -66,36 +66,42 @@ public class X3DPaletteActions extends PaletteActions
   /** Creates a new instance of FormPaletteProvider */
   public X3DPaletteActions()
   {
+      System.out.println ("*** created X3DPaletteActions()");
   }
   
+  @Override
   public Action[] getImportActions()
   {
     return new Action[0]; //TODO implement this
   }
   
+  @Override
   public Action[] getCustomCategoryActions(Lookup category)
   {
     return new Action[0]; //TODO implement this
   }
   
+  @Override
   public Action[] getCustomItemActions(Lookup item)
   {
     return new Action[0]; //TODO implement this
   }
   
+  @Override
   public Action[] getCustomPaletteActions()
   {
     return new Action[0]; //TODO implement this
   }
   
+  @Override
   public Action getPreferredAction( Lookup item )
   {
     return new X3DPaletteInsertAction(item);
   }
   
+  @SuppressWarnings("serial")
   private static class X3DPaletteInsertAction extends AbstractAction
   {
-    
     private Lookup item;
     
     X3DPaletteInsertAction(Lookup item)
@@ -103,10 +109,11 @@ public class X3DPaletteActions extends PaletteActions
       this.item = item;
     }
     
+    @Override
     public void actionPerformed(ActionEvent e)
     {
       
-      ActiveEditorDrop drop = (ActiveEditorDrop) item.lookup(ActiveEditorDrop.class);
+      ActiveEditorDrop drop = item.lookup(ActiveEditorDrop.class);
 //            if (drop == null) {
 //                String body = (String) item.lookup(String.class);
 //                drop = new X3DEditorDropDefault(body);
@@ -129,14 +136,16 @@ public class X3DPaletteActions extends PaletteActions
         Utilities.requestFocus(target);
       }
       
-      try
-      {
         PaletteController pc = X3DPaletteFactory.getPalette();
         pc.clearSelection();
-      }
-      catch (IOException ioe)
-      {
-      } //should not occur
+//      try
+//      {
+//        PaletteController pc = X3DPaletteFactory.getPalette();
+//        pc.clearSelection();
+//      }
+//      catch (IOException ioe)
+//      {
+//      } //should not occur
       
     }
   }
