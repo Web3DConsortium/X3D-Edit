@@ -36,6 +36,8 @@ package org.web3d.x3d.types;
 
 // TODO import org.web3d.x3d.palette.items.BaseX3DElement;
 
+import org.web3d.x3d.palette.items.BaseX3DElement;
+
 /**
  * SceneGraphStructureNodeType.java
  * "Marker" interface for field, connect, etc.
