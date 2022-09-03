@@ -63,18 +63,19 @@ public class X3DPaletteFactory
     public static PaletteController createPalette()
     {
         try {
-            if (null == palette) {
+            if (null == getPalette()) {
                 return  PaletteFactory.createPalette(
                     //Folder:
                      X3D_PALETTE_FOLDER, // TODO resolve "items", //
                     //Palette Actions:
-                    new  PaletteActions() {
-                        @Override public Action[] getImportActions() {return null;}
-                        @Override public Action[] getCustomPaletteActions() {return null;}
-                        @Override public Action[] getCustomCategoryActions(Lookup lkp) {return null;}
-                        @Override public Action[] getCustomItemActions(Lookup lkp) {return null;}
-                        @Override public Action   getPreferredAction(Lookup lkp) {return null;}
-                    },
+                    new X3DPaletteActions(),
+//                    new  PaletteActions() {
+//                        @Override public Action[] getImportActions() {return null;}
+//                        @Override public Action[] getCustomPaletteActions() {return null;}
+//                        @Override public Action[] getCustomCategoryActions(Lookup lkp) {return null;}
+//                        @Override public Action[] getCustomItemActions(Lookup lkp) {return null;}
+//                        @Override public Action   getPreferredAction(Lookup lkp) {return null;}
+//                    },
                     //Palette Filter:
                     null,
                     //Drag and Drop Handler:
@@ -90,6 +91,13 @@ public class X3DPaletteFactory
 //          TODO Issue 4521  ex.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * @return the palette
+     */
+    public static PaletteController getPalette() {
+        return palette;
     }
 
 }
