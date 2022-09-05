@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * METADATADOUBLE.xml
+ * Created on __DATE__, __TIME__
+ *
+ * MOVES Institute
+ * Naval Postgraduate School, Monterey, CA, USA
+ * www.nps.edu
+ * 
+ * @author Mike Bailey
+ * @version $Id$
+-->
+
+<!DOCTYPE editor_palette_item PUBLIC '-//NetBeans//Editor Palette Item 1.0//EN' 'http://www.netbeans.org/dtds/editor-palette-item-1_0.dtd'>
+<editor_palette_item version="1.0">
+  <class name="org.web3d.x3d.palette.items.METADATADOUBLE" />
+  
+  <icon16 urlvalue="org/web3d/x3d/palette/items/resources/METADATADOUBLE16.png" />
+  <icon32 urlvalue="org/web3d/x3d/palette/items/resources/METADATADOUBLE32.png" />
+  <description localizing-bundle="org.web3d.x3d.palette.items.resources.Bundle"
+                display-name-key="NAME_x3d-METADATADOUBLE"
+                     tooltip-key="HINT_x3d-METADATADOUBLE" />
+</editor_palette_item>

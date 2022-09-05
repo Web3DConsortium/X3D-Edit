@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *   Document   : FOG.xml
+ *   Created on : August 3, 2007, 2:44 PM
+ *
+ * MOVES Institute
+ * Naval Postgraduate School, Monterey, CA, USA
+ * www.nps.edu
+ * 
+ * @author Mike Bailey
+ * @version $Id$
+-->
+
+<!DOCTYPE editor_palette_item PUBLIC '-//NetBeans//Editor Palette Item 1.0//EN' 'http://www.netbeans.org/dtds/editor-palette-item-1_0.dtd'>
+<editor_palette_item version="1.0">
+  <class name="org.web3d.x3d.palette.items.FOG" />
+  
+  <icon16 urlvalue="org/web3d/x3d/palette/items/resources/FOG16.png" />
+  <icon32 urlvalue="org/web3d/x3d/palette/items/resources/FOG32.png" />
+  <description localizing-bundle="org.web3d.x3d.palette.items.resources.Bundle"
+               display-name-key="NAME_x3d-FOG"
+               tooltip-key="HINT_x3d-FOG" />
+</editor_palette_item>
