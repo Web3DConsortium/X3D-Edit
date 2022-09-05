@@ -212,18 +212,31 @@ public class Xj3dViewerPanel extends JPanel implements BrowserListener
         initialize();
     
     try {
+        // This path is setup to be resolved in the X3D layer.xml file.
+        FileObject jarredFile = FileUtil.getConfigRoot().getFileSystem().findResource(jarredScene);
+        if (jarredFile != null)
+        {
+          currentFileName = jarredFile.getNameExt();
 
-      // This path is setup to be resolved in the X3D layer.xml file.
-      FileObject jarredFile = FileUtil.getConfigRoot().getFileSystem().findResource(jarredScene);
-      currentFileName = jarredFile.getNameExt();
-      
-      String path = jarredFile.getParent().getPath();
-      
-      // TODO: The path is incorrect and will fail on relative paths for texture 
-      // image loading b/c it points to a virtual directory. Will work for any
-      // other non-texture mapping scene, i.e. Templates/MaterialExample.x3d
-      openXj3dScene(path, jarredFile.getInputStream());
-    } catch (IOException ex) {
+          String path = jarredFile.getParent().getPath();
+
+          // TODO: The path is incorrect and will fail on relative paths for texture 
+          // image loading b/c it points to a virtual directory. Will work for any
+          // other non-texture mapping scene, i.e. Templates/MaterialExample.x3d
+          openXj3dScene(path, jarredFile.getInputStream());
+        }
+        else
+        {
+            System.out.print ("*** Xj3dViewerPanel initialize() has no X3D jarredScene to load: ");
+            if (jarredScene == null)
+                System.out.println ("(null)");
+            else if (jarredScene.isBlank())
+                System.out.println ("(blank)");
+            else
+                System.out.println ("'" + jarredScene + "'");
+        }
+    } 
+    catch (IOException ex) {
       ErrorManager.getDefault().log(ErrorManager.ERROR, ex.getMessage());
     }
   }
