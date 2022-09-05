@@ -48,18 +48,18 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  * @author Mike Bailey, Don Brutzman
  * @version $Id$
  */
-public class DOCTYPECustomizer extends BaseCustomizer
+public class XMLCustomizer extends BaseCustomizer
 {
   private DOCTYPE doctype;
   private JTextComponent target;
 
-  public DOCTYPECustomizer(DOCTYPE doctype, JTextComponent target)
+  public XMLCustomizer(DOCTYPE doctype, JTextComponent target)
   {
     super(doctype);
     this.doctype = doctype;
     this.target = target;
 
-    HelpCtx.setHelpIDString(DOCTYPECustomizer.this, "DOCTYPE_HELPID"); // not in tooltips, TODO add it
+    HelpCtx.setHelpIDString(XMLCustomizer.this, "DOCTYPE_HELPID"); // not in tooltips, TODO add it
 
     initComponents();
 

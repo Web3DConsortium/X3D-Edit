@@ -41,11 +41,11 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "X3D Structure and Metadata",
-    itemid = "4HEAD",
+    category = "1. X3D Structure and Metadata",
+    itemid = "3_HEAD",
     icon32 = "org/web3d/x3d/palette/items/resources/HEAD32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/HEAD16.png",
-    body = "\n  <head>\n    <!-- add elements here: component unit meta -->\n  </head>",
+    body = "\n  <head>\n    <!-- add scene-information statements here: component unit meta, in that order -->\n  </head>",
     name = "head",
     tooltip = "head appears first within X3D root, followed by Scene element"
 )

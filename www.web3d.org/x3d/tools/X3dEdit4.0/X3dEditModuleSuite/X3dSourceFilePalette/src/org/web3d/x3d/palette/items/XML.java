@@ -43,18 +43,23 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 (
     paletteid = "X3DPalette",
     category = "1. X3D Structure and Metadata",
-    itemid = "2_X3D",
-    icon32 = "org/web3d/x3d/palette/items/resources/X3D32.png",
-    icon16 = "org/web3d/x3d/palette/items/resources/X3D16.png",
-    body = "<X3D profile='Immersive' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>\n  <head>\n    <!-- add scene-information statements here: component unit meta, in that order -->\n  </head>\n  <Scene>\n    <!-- enter X3D nodes and statements here -->\n  </Scene>\n</X3D>",
-    name = "X3D",
-    tooltip = "X3D statement is top-most XML element in an Extensible 3D (X3D) Graphics model"
+    itemid = "0_XML",
+    icon32 = "org/web3d/x3d/palette/items/resources/XML32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/XML16.png",
+    body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+    name = "XML",
+    tooltip = "XML header at top of Extensible Markup Language (XML) document"
 )
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
+// https://www.flaticon.com/free-icon/xml-file-format-symbol_29611
+// <a href="https://www.flaticon.com/free-icons/xml" title="xml icons">Xml icons created by Freepik - Flaticon</a>
+
+// TODO add X3D Tooltip
+
 /**
- * X3D.java
- * Created on March 10, 2008
+ * DOCTYPE.java
+ * Created on April 12, 2008
  *
  * MOVES Institute
  * Naval Postgraduate School, Monterey, CA, USA
@@ -63,53 +68,30 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  * @author Mike Bailey, Don Brutzman
  * @version $Id$
  */
-public class X3D extends SceneGraphStructureNodeType
+public class XML extends SceneGraphStructureNodeType
 {
-  private String profile;
   private String version;
-  private String xmlns_xsd;
-  private String xsd_noNamespaceSchemaLocation;
-
-  private final String defaultContent =
-      linesep   +
-      "<head>"  +
-      linesep   +
-      "<!-- meta nodes are added here -->"+
-      linesep   +
-     "</head>"  +
-      linesep   +
-      "<Scene>" +
-      linesep   +
-      "<!-- Scene graph nodes are added here -->"+
-      linesep   +
-      "</Scene>"+
-      linesep;
   
-  public X3D()
+  public XML()
   {
   }
 
   @Override
   public String getElementName()
   {
-    return X3D_ELNAME;
+    return DOCTYPE_ELNAME;
   }
 
   @Override
   public Class<? extends BaseCustomizer> getCustomizer()
   {
-    return X3DCustomizer.class;
+    return DOCTYPECustomizer.class;
   }
 
   @Override
   public void initialize()
   {
-    profile   = X3D_ATTR_PROFILE_DFLT;
-    version   = X3D_ATTR_VERSION_DFLT;
-    xmlns_xsd = X3D_ATTR_XMLNSXSD_DFLT;
-    xsd_noNamespaceSchemaLocation = X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_DFLT;
-
-    setContent(defaultContent);
+    version   = DOCTYPE_ATTR_VERSION_DFLT;
   }
 
   @Override
@@ -117,70 +99,38 @@ public class X3D extends SceneGraphStructureNodeType
   {
     super.initializeFromJdom(root, comp);
 
-    org.jdom.Attribute attr = root.getAttribute(X3D_ATTR_PROFILE_NAME);
-    if (attr != null)
-      profile = attr.getValue();
-    attr = root.getAttribute(X3D_ATTR_VERSION_NAME);
+    org.jdom.Attribute attr = root.getAttribute(DOCTYPE_ATTR_VERSION_NAME);
     if (attr != null)
       version = attr.getValue();
-    attr = root.getAttribute(X3D_ATTR_XMLNSXSD_NAME);
-    if (attr != null)
-      xmlns_xsd = attr.getValue();
-    attr = root.getAttribute(X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_NAME);
-    if (attr != null)
-      xsd_noNamespaceSchemaLocation = attr.getValue();
   }
 
   @Override
   public String createAttributes()
   {
     StringBuilder sb = new StringBuilder();
-    if (X3D_ATTR_PROFILE_REQD || (!profile.equals(X3D_ATTR_PROFILE_DFLT))) {
-      sb.append(" ");
-      sb.append(X3D_ATTR_PROFILE_NAME);
-      sb.append("='");
-      sb.append(profile);
-      sb.append("'");
-    }
-    if (X3D_ATTR_VERSION_REQD || (!version.equals(X3D_ATTR_VERSION_DFLT))) {
-      sb.append(" ");
-      sb.append(X3D_ATTR_VERSION_NAME);
-      sb.append("='");
-      sb.append(version);
-      sb.append("'");
-    }
-    if (X3D_ATTR_XMLNSXSD_REQD || (!xmlns_xsd.equals(X3D_ATTR_XMLNSXSD_DFLT))) {
-      sb.append(" ");
-      sb.append(X3D_ATTR_XMLNSXSD_NAME);
-      sb.append("='");
-      sb.append(xmlns_xsd);
-      sb.append("'");
-    }
-    if (X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_REQD || (!xsd_noNamespaceSchemaLocation.equals(X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_DFLT))) {
-      sb.append(" ");
-      sb.append(X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_NAME);
-      sb.append("='");
-      sb.append(xsd_noNamespaceSchemaLocation);
-      sb.append("'");
-    }
+    sb.append("<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D ");
+    sb.append(version);
+    sb.append("//EN\" \"https://www.web3d.org/specifications/x3d-");
+    sb.append(version);
+    sb.append(".dtd\">");
     return sb.toString();
   }
 
   private final String xmlHdrRegEx         = "<\\?xml version=\"1.0\" encoding=\"UTF-8\"\\?>";
   private final String xmlHdr              = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-  private final String dtdHeader              = "<!DOCTYPE X3D ";
+  private final String dtdHdr              = "<!DOCTYPE X3D ";
   private final String dtdHdr1             = "PUBLIC ";
-  private final String dtdFooter              = ">";
+  private final String dtdFtr              = ">";
   
   private final String dtdNameElement0     = "\"ISO//Web3D//DTD X3D "; //3.1
   private final String dtdNameElement1     = "//EN\"";
-  private final String dtdLocationElement0 = "\"https://www.web3d.org/specifications/x3d-"; //"3.1
+  private final String dtdLocationElement0 = "\"https://www.web3d.org/specifications/x3d-"; // version is inserted here
   private final String dtdLocationElement1 = ".dtd\"";
   
   private final String regexPattern =
       xmlHdrRegEx+
       "\\s*" + // whitespace including cr/lf, zero or more
-      dtdHeader+
+      dtdHdr+
       ".*"   + // any chars, 0 or more, PUBLIC/SYSTEM fits here
       "\""   + // quote
       ".*"   + // any chars, 0 or more
@@ -190,7 +140,7 @@ public class X3D extends SceneGraphStructureNodeType
       ".*"   + // any chars, 0 or more
       "\""   + // quote
       "\\s*" + // whitespace including cr/lf, zero or more
-      dtdFooter;
+      dtdFtr;
   
   /**
    * This gets called after a good insert when things have settled down.  Here we try to make sure the DTD spec is the same as our chosen version.
@@ -201,46 +151,43 @@ public class X3D extends SceneGraphStructureNodeType
   public void postInsert(JTextComponent jTextComponent)
   {
     String completeText = jTextComponent.getText();
+	
+	// special handling to remove duplicate DOCTYPE
+	if (completeText.indexOf("<!DOCTYPE") !=     completeText.lastIndexOf("<!DOCTYPE"))
+		completeText = completeText.substring(0, completeText.indexOf    ("<!DOCTYPE")) + // snip
+				       completeText.substring(   completeText.lastIndexOf("<!DOCTYPE"));
+
     String s = completeText;
     int size = completeText.length();
     
     if(size > 255) {
       // operate on a portion of the whole thing
       s = s.substring(0, 256);
-//      size = 255;
+      size = 255;
     }
     
-    String newHeader = xmlHdr+linesep+dtdHeader+dtdHdr1;  // first part of new header
+    String newHeader = xmlHdr+linesep+dtdHdr+dtdHdr1;  // first part of new header
     
     version = getVersion();
-    if(version.equals("3.0") || version.equals("3.1") || version.equals("3.2") || version.equals("3.3") || version.equals("4.0") || version.equals("4.1"))
-      ;
+    if (version.equals("3.0") || version.equals("3.1") || version.equals("3.2") || version.equals("3.3") ||
+	    version.equals("4.0") || version.equals("4.1"))
+      ; // nop
     else {
-      System.err.println("Bad X3D version='" + version + "' found by X3D.java: must be 3.0, 3.1, 3.2, 3.3, 4.0 or 4.1");
+      System.err.println("Bad X3D version='" + version + "' found by DOCTYPE.java: must be 3.0, 3.1, 3.2, 3.3, 4.0 or 4.1");
       return;
     }
 
-    newHeader = newHeader+dtdNameElement0+version+dtdNameElement1 + " " + dtdLocationElement0+version+dtdLocationElement1+dtdFooter;
+    newHeader = newHeader+dtdNameElement0+version+dtdNameElement1 + " " + dtdLocationElement0+version+dtdLocationElement1+dtdFtr;
     
     // Quickly find out if we matched; if not, oddball existing header maybe...leave it alone
     String[] sa = s.split(regexPattern);
     if(sa == null || sa.length<2) {
-      System.err.println("No DTD header match in X3D.java");
+      System.err.println("No DTD header match found by DOCTYPE.java");
       return;
     }
-     
+    
     // Do the replace
     jTextComponent.setText(completeText.replaceFirst(regexPattern, newHeader));
-  }
-
-  public String getProfile()
-  {
-    return profile;
-  }
-
-  public void setProfile(String newProfile)
-  {
-    profile = newProfile;
   }
 
   public String getVersion()
@@ -252,25 +199,4 @@ public class X3D extends SceneGraphStructureNodeType
   {
     version = newVersion;
   }
-
-  public String getXmlns_xsd()
-  {
-    return xmlns_xsd;
-  }
-
-  public void setXmlns_xsd(String newXmlns_xsd)
-  {
-    xmlns_xsd = newXmlns_xsd;
-  }
-
-  public String getXsd_noNamespaceSchemaLocation()
-  {
-    return xsd_noNamespaceSchemaLocation;
-  }
-
-  public void setXsd_noNamespaceSchemaLocation(String newXsd_noNamespaceSchemaLocation)
-  {
-    xsd_noNamespaceSchemaLocation = newXsd_noNamespaceSchemaLocation;
-  }
-
 }

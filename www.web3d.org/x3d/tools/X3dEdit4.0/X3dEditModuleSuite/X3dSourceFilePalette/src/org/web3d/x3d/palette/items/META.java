@@ -43,11 +43,11 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "X3D Structure and Metadata",
-    itemid = "7META",
+    category = "1. X3D Structure and Metadata",
+    itemid = "6_META",
     icon32 = "org/web3d/x3d/palette/items/resources/META32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/META16.png",
-    body = "<meta name=\"reference\" value=\"https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-DIS/Part01/Architecture.html\"/>",
+    body = "<meta name='reference' content='https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-DIS/Part01/Architecture.html'/>",
     name = "meta",
     tooltip = "Valid comments are found between XML elements"
 )

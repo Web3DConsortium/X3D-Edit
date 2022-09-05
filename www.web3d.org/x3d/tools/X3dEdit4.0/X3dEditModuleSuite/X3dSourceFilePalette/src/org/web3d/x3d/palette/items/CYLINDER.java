@@ -35,9 +35,23 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.X3DGeometryNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
+
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "2. Geometry Primitives",
+    itemid = "CYLINDER",
+    icon32 = "org/web3d/x3d/palette/items/resources/CYLINDER32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/CYLINDER16.png",
+    body = "<Cylinder bottom='true' height='2' radius='1' side='true' solid='true' top='true'/>",
+    name = "Cylinder",
+    tooltip = "Cylinder defines cylindrical 3D geometry"
+)
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**
  * CYLINDER.java

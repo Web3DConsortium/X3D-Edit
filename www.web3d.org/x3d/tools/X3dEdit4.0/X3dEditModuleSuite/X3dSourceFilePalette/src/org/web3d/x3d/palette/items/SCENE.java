@@ -41,8 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "X3D Structure and Metadata",
-    itemid = "5SCENE",
+    category = "1. X3D Structure and Metadata",
+    itemid = "7_SCENE",
     icon32 = "org/web3d/x3d/palette/items/resources/SCENE32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/SCENE16.png",
     body = "<Scene>\n    <!-- enter X3D nodes and statements here -->\n  </Scene>",

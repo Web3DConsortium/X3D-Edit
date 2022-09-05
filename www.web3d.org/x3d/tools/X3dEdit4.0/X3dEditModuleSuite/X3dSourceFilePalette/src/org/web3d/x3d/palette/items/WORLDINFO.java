@@ -36,10 +36,23 @@ package org.web3d.x3d.palette.items;
 
 import java.util.Arrays;
 import javax.swing.text.JTextComponent;
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.palette.X3DPaletteUtilities;
-
 import org.web3d.x3d.types.X3DChildNode;
 import static org.web3d.x3d.types.X3DSchemaData.*;
+
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "1. X3D Structure and Metadata",
+    itemid = "WORLDINFO",
+    icon32 = "org/web3d/x3d/palette/items/resources/WORLDINFO32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/WORLDINFO16.png",
+    body = "<WorldInfo title='My Beautiful X3D Model' info='\"information list\" \"values of interest\"'/>",
+    name = "WorldInfo",
+    tooltip = "WorldInfo contains title and simple information about an X3D model"
+)
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**
  * WORLDINFO.java
