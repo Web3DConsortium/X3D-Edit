@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * IMAGETEXTURE3D.xml
+ * Created on 15 November 2011
+ *
+ * MOVES Institute
+ * Naval Postgraduate School, Monterey, CA, USA
+ * www.nps.edu
+ * 
+ * @author Mike Bailey and Don Bruzman
+ * @version $Id$
+-->
+
+<!DOCTYPE editor_palette_item PUBLIC '-//NetBeans//Editor Palette Item 1.0//EN' 'http://www.netbeans.org/dtds/editor-palette-item-1_0.dtd'>
+<editor_palette_item version="1.0">
+  <class name="org.web3d.x3d.palette.items.IMAGETEXTURE3D" />
+  
+  <icon16 urlvalue="org/web3d/x3d/palette/items/resources/IMAGETEXTURE16.png" />
+  <icon32 urlvalue="org/web3d/x3d/palette/items/resources/IMAGETEXTURE32.png" />
+  <description localizing-bundle="org.web3d.x3d.palette.items.resources.Bundle"
+                display-name-key="NAME_x3d-IMAGETEXTURE3D"
+                     tooltip-key="HINT_x3d-IMAGETEXTURE3D" />
+</editor_palette_item>
