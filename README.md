@@ -11,6 +11,8 @@ This file is the developers' documentation page for creation of X3D-Edit 4.0 sui
 
 * Online Javadoc for Netbeans IDE: [Apache NetBeans Development Version Documentation | APIs Overview](https://bits.netbeans.org/dev/javadoc/index.html)
 * TODO attaching Javadoc for Netbeans IDE
+* [Apache NetBeans API Development](https://netbeans.apache.org/wiki/APIDevelopment.asciidoc)
+* [Apache NetBeans DevFaq wiki index](https://netbeans.apache.org/wiki/DevFaqIndex.asciidoc)
 
 * [List of NetBeans-based software](https://en.wikipedia.org/wiki/List_of_NetBeans-based_software) outdated?
 * StackOverflow: [How to debug multiple threads/runnables at the same time in netbeans](https://stackoverflow.com/questions/26952986/how-to-debug-multiple-threads-runnables-at-the-same-time-in-netbeans/26960526)
