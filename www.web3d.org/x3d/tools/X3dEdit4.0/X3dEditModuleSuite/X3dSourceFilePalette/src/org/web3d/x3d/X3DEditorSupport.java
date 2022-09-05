@@ -279,18 +279,19 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
             DataObject dataObject = (X3DDataObject) s.getDataObject();
             if (dataObject instanceof X3DDataObject) {
                 // TODO cleanup
-//                try {
+                try {
                     PaletteController pc = X3DPaletteFactory.getPalette();
                     Lookup pcl = Lookups.singleton(pc);
                     Lookup anl = getActivatedNodes()[0].getLookup();
                     Lookup actionMap = Lookups.singleton(getActionMap());
                     ProxyLookup l = new ProxyLookup(new Lookup[]{anl, actionMap, pcl});
                     associateLookup(l);
-//                } catch (IOException ioe) {
-//                    
-//                    // TODO: exception handling
-//                    ioe.printStackTrace(System.err);
-//                }
+                } 
+                catch (Exception ex)
+                {
+                    // TODO: exception handling
+                    ex.printStackTrace(System.err);
+                }
             }
         }
 
