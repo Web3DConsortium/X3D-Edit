@@ -44,11 +44,11 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "X3D Structure and Metadata",
+    category = "1. X3D Structure and Metadata",
     itemid = "METADATABOOLEAN",
     icon32 = "org/web3d/x3d/palette/items/resources/METADATABOOLEAN32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/METADATABOOLEAN16.png",
-    body = "<MetadataBoolean name=\"someValues\" value=\"true false\"/>",
+    body = "<MetadataBoolean name='someValues' value='true false'/>",
     name = "MetadataBoolean",
     tooltip = "MetadataBoolean provides a typed list of values providing metadata information about its parent node"
 )

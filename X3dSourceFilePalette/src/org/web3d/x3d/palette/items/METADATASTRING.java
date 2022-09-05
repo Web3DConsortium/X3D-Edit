@@ -43,11 +43,11 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "X3D Structure and Metadata",
+    category = "1. X3D Structure and Metadata",
     itemid = "METADATASTRING",
     icon32 = "org/web3d/x3d/palette/items/resources/METADATASTRING32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/METADATASTRING16.png",
-    body = "<MetadataString name=\"someValues\" value=\"true false\"/>",
+    body = "<MetadataString name='someValues' value='true false'/>",
     name = "MetadataString",
     tooltip = "MetadataString provides a typed list of values providing metadata information about its parent node"
 )

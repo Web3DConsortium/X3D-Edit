@@ -42,12 +42,12 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "X3D Structure and Metadata",
-    itemid = "COMMENT",
+    category = "1. X3D Structure and Metadata",
+    itemid = "4_COMMENT",
     icon32 = "org/web3d/x3d/palette/items/resources/COMMENT32.png", // icon is <!--
     icon16 = "org/web3d/x3d/palette/items/resources/COMMENT16.png",
-    body = "<!-- enter new comment here -->",
-    name = "Comment XML -->",
+    body = "<!-- enter new comment information here -->",
+    name = "COMMENT XML -->",
     tooltip = "Valid comments are found between XML elements"
 )
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html

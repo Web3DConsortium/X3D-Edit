@@ -43,11 +43,11 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "X3D Structure and Metadata",
-    itemid = "6UNIT",
+    category = "1. X3D Structure and Metadata",
+    itemid = "5_UNIT",
     icon32 = "org/web3d/x3d/palette/items/resources/UNIT32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/UNIT16.png",
-    body = "<unit name=\"FeetToMeters\" category=\"length\" conversionFactor=\"0.3048\"/>",
+    body = "<unit name='FeetToMeters' category='length' conversionFactor='0.3048'/>",
     name = "unit",
     tooltip = "A unit statement defines data-conversion factors for typed values in a scene"
 )

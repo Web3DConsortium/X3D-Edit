@@ -32,18 +32,32 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
  */
 
+// TODO add .jar to path, bug #1742 https://www.movesinstitute.org/bugzilla/show_bug.cgi?id=1742
+// import com.tecnick.htmlutils.htmlentities.HTMLEntities;
+
 package org.web3d.x3d.palette.items;
 
 import java.util.Arrays;
 import java.util.Vector;
 import javax.swing.text.JTextComponent;
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.X3DGeometryNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
 
-// TODO add .jar to path, bug #1742 https://www.movesinstitute.org/bugzilla/show_bug.cgi?id=1742
-// import com.tecnick.htmlutils.htmlentities.HTMLEntities;
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "2. Geometry Primitives",
+    itemid = "TEXT",
+    icon32 = "org/web3d/x3d/palette/items/resources/TEXT32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/TEXT16.png",
+    body = "<Text string='\"Multiline string segments\" \"are quoted MFString values\"' solid='false'><!-- optional Fontstyle goes here --></Text>",
+    name = "Text",
+    tooltip = "Text defines flat polygonal strings"
+)
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**
  * TEXT.java

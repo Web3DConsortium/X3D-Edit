@@ -45,11 +45,11 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "X3D Structure and Metadata",
+    category = "1. X3D Structure and Metadata",
     itemid = "METADATAINTEGER",
     icon32 = "org/web3d/x3d/palette/items/resources/METADATAINTEGER32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/METADATAINTEGER16.png",
-    body = "<MetadataInteger name=\"someValues\" value=\"1 2 3\"/>",
+    body = "<MetadataInteger name='someValues' value='1 2 3'/>",
     name = "MetadataInteger",
     tooltip = "MetadataInteger provides a typed list of values providing metadata information about its parent node"
 )

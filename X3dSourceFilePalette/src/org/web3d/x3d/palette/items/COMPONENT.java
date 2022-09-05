@@ -43,11 +43,11 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "X3D Structure and Metadata",
+    category = "1. X3D Structure and Metadata",
     itemid = "5_COMPONENT",
     icon32 = "org/web3d/x3d/palette/items/resources/COMPONENT32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/COMPONENT16.png",
-    body = "<component name=\"Core\" level=\"2\"/>",
+    body = "<component name='Core' level='2'/>",
     name = "COMPONENT",
     tooltip = "Each added component statement indicates needed scene functionality above the given X3D provile"
 )
