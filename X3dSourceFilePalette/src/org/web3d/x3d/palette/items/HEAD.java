@@ -34,9 +34,22 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.SceneGraphStructureNodeType;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 import static org.web3d.x3d.types.X3DSchemaData.*;
+
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "X3D Structure and Metadata",
+    itemid = "4HEAD",
+    icon32 = "org/web3d/x3d/palette/items/resources/HEAD32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/HEAD16.png",
+    body = "\n  <head>\n    <!-- add elements here: component unit meta -->\n  </head>",
+    name = "head",
+    tooltip = "head appears first within X3D root, followed by Scene element"
+)
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**
  * HEAD.java

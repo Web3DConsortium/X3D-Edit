@@ -39,11 +39,10 @@ import org.openide.text.ActiveEditorDrop;
 import org.web3d.x3d.types.SceneGraphStructureNodeType;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
-// TODO verify annotations correctly added to palette
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "X3D",
+    category = "X3D Structure and Metadata",
     itemid = "COMMENT",
     icon32 = "org/web3d/x3d/palette/items/resources/COMMENT32.png", // icon is <!--
     icon16 = "org/web3d/x3d/palette/items/resources/COMMENT16.png",
@@ -51,6 +50,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     name = "Comment XML -->",
     tooltip = "Valid comments are found between XML elements"
 )
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
+
 /**
  * COMMENT.java
  * Created on Mar 7, 2008

@@ -35,9 +35,27 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.SceneGraphStructureNodeType;
 import static org.web3d.x3d.types.X3DSchemaData.*;
+
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "X3D Structure and Metadata",
+    itemid = "1_DOCTYPE",
+    icon32 = "org/web3d/x3d/palette/items/resources/DOCTYPE32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/DOCTYPE16.png",
+    body = "\n<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D 4.0//EN\" \"https://www.web3d.org/specifications/x3d-4.0.dtd\">",
+    name = "DOCTYPE",
+    tooltip = "Document Type (DOCTYPE) header for string validation of elements and attributes"
+)
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
+
+// https://www.flaticon.com/free-icon/dtd-file-format-symbol_29051
+// <a href="https://www.flaticon.com/free-icons/dtd" title="dtd icons">Dtd icons created by Freepik - Flaticon</a>
+
+// TODO add X3D Tooltip
 
 /**
  * DOCTYPE.java
