@@ -35,10 +35,23 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
-
 import org.web3d.x3d.types.X3DMetadataObject;
 import static org.web3d.x3d.types.X3DSchemaData.*;
+
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "X3D Structure and Metadata",
+    itemid = "METADATASET",
+    icon32 = "org/web3d/x3d/palette/items/resources/METADATASET32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/METADATASET16.png",
+    body = "<MetadataSet name=\"moreMetadataNodes\"><!-- Additional Metadata* nodes go here --></MetadataSet>",
+    name = "MetadataSet",
+    tooltip = "MetadataSet provides a typed list of values providing metadata information about its parent node"
+)
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**
  * METADATASET.java

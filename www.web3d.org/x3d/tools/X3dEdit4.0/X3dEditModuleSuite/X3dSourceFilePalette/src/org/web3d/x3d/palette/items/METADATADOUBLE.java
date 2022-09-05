@@ -35,12 +35,25 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
-
 import org.web3d.x3d.types.X3DMetadataObject;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
+
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "X3D Structure and Metadata",
+    itemid = "METADATADOUBLE",
+    icon32 = "org/web3d/x3d/palette/items/resources/METADATADOUBLE32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/METADATADOUBLE16.png",
+    body = "<MetadataDouble name=\"someValues\" value=\"1.0 2.0 3.0\"/>",
+    name = "MetadataDouble",
+    tooltip = "MetadataDouble provides a typed list of values providing metadata information about its parent node"
+)
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**
  * METADATADOUBLE.java

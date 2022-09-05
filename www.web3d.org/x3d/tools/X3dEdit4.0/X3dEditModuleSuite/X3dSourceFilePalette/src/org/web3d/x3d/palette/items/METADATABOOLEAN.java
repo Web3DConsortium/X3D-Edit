@@ -35,11 +35,24 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
-
 import org.web3d.x3d.types.X3DMetadataObject;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
+
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "X3D Structure and Metadata",
+    itemid = "METADATABOOLEAN",
+    icon32 = "org/web3d/x3d/palette/items/resources/METADATABOOLEAN32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/METADATABOOLEAN16.png",
+    body = "<MetadataBoolean name=\"someValues\" value=\"true false\"/>",
+    name = "MetadataBoolean",
+    tooltip = "MetadataBoolean provides a typed list of values providing metadata information about its parent node"
+)
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**
  * METADATABOOLEAN.java
