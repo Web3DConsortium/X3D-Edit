@@ -69,6 +69,7 @@ public class X3DPaletteFactory
                      X3D_PALETTE_FOLDER, // TODO resolve "items", //
                     //Palette Actions:
                     new X3DPaletteActions(),
+//                  replaces:
 //                    new  PaletteActions() {
 //                        @Override public Action[] getImportActions() {return null;}
 //                        @Override public Action[] getCustomPaletteActions() {return null;}
@@ -94,9 +95,22 @@ public class X3DPaletteFactory
     }
 
     /**
+     * Create palette if needed, then return the palette
      * @return the palette
      */
-    public static PaletteController getPalette() {
+    public static PaletteController getPalette() 
+    {
+        try
+        {
+            if (palette == null)
+                palette = PaletteFactory.createPalette(X3D_PALETTE_FOLDER, new X3DPaletteActions());
+            if (palette == null)
+                System.err.println("*** X3DPaletteFactory.getPalette() failed to find " + X3D_PALETTE_FOLDER);
+        } 
+        catch (IOException ex)
+        {
+            Exceptions.printStackTrace(ex);
+        }
         return palette;
     }
 
