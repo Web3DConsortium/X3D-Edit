@@ -894,10 +894,11 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
             <file name="METADATASET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/METADATASET.xml">
                 <attr name="position" intvalue="1300"/>
-            </file> -->
+            </file>
             <file name="WORLDINFO.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/WORLDINFO.xml">
                 <attr name="position" intvalue="1400"/>
-            </file>
+            </file> -->
+            <!-- TODO
             <file name="SMAL_ObjectMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_ObjectMetadataTemplate.xml">
                 <attr name="position" intvalue="1700"/>
             </file>
@@ -907,10 +908,12 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="SMAL_VehicleMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_VehicleMetadataTemplate.xml">
                 <attr name="position" intvalue="1900"/>
             </file>
+            -->
         </folder>
         <folder name="Geometry_Primitives">
             <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Geometry_Primitives"/>
             <attr name="position" intvalue="2000"/>
+            <!-- 
             <file name="SHAPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SHAPE.xml">
                 <attr name="position" intvalue="100"/>
             </file>
@@ -932,6 +935,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="FONTSTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FONTSTYLE.xml">
                 <attr name="position" intvalue="700"/>
             </file>
+            -->
         </folder>
         <folder name="Grouping">
             <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Grouping"/>
