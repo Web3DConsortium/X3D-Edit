@@ -7,7 +7,8 @@
     <import file="nbproject/build-impl.xml"/>
     
     <target name="run" description="run parent X3D-Edit 4.0 Module Suite">
-        <ant antfile="../build.xml" target="run" useNativeBasedir="true" inheritAll="false"/>
+        <echo message="run parent X3D-Edit 4.0 Module Suite" />
+        <ant  antfile="../build.xml" target="run" useNativeBasedir="true" inheritAll="false"/>
     </target>
     
     <target name="view.layers.local" description="view local layer files (Netbeans only)">
