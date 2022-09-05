@@ -334,7 +334,7 @@ POSSIBILITY OF SUCH DAMAGE.
             </folder> <!-- x3d+xml -->
         </folder> <!-- model -->
     </folder>
-    <file name="PaletteSettings_hidden"/>
+<!--<file name="PaletteSettings_hidden"/>-->
     <folder name="X3dAntScripts">
         <file name="examplesDownloaderAntScript.xml" url="nbresloc:/org/web3d/x3d/examplesDownloaderAntScript.xml"/>
     </folder>
@@ -846,18 +846,21 @@ POSSIBILITY OF SUCH DAMAGE.
     </folder>
     
     <folder name="X3DPalette">
-        <folder name="X3D_Metadata_and_Structure">
-            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/X3D_Metadata_and_Structure"/>
+        <folder name="X3D Structure and Metadata">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/X3D_Structure_and_Metadata"/>
             <attr name="position" intvalue="1000"/>
-            <file name="COMMENT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COMMENT.xml">
-                <attr name="position" intvalue="100"/>
-            </file>
-            <!--<file name="XML.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/XML.xml"><attr name="position" intvalue="130"/></file>-->
-            <file name="DOCTYPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DOCTYPE.xml">
-                <attr name="position" intvalue="160"/>
+            <!--TODO XML X3D
+            <file name="XML.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/XML.xml">
+                 <attr name="position" intvalue="130"/>
             </file>
             <file name="X3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/X3D.xml">
                 <attr name="position" intvalue="200"/>
+            </file>
+            <file name="COMMENT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COMMENT.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="DOCTYPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DOCTYPE.xml">
+                <attr name="position" intvalue="160"/>
             </file>
             <file name="HEAD.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HEAD.xml">
                 <attr name="position" intvalue="300"/>
@@ -891,7 +894,7 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
             <file name="METADATASET.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/METADATASET.xml">
                 <attr name="position" intvalue="1300"/>
-            </file>
+            </file> -->
             <file name="WORLDINFO.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/WORLDINFO.xml">
                 <attr name="position" intvalue="1400"/>
             </file>
