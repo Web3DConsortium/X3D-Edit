@@ -6,6 +6,10 @@
     <description>Builds, tests, and runs the project org.web3d.x3d.palette.</description>
     <import file="nbproject/build-impl.xml"/>
     
+    <target name="run" description="run parent X3D-Edit 4.0 Module Suite">
+        <ant antfile="../build.xml" target="run" useNativeBasedir="true" inheritAll="false"/>
+    </target>
+    
     <target name="view.layers.local" description="view local layer files (Netbeans only)">
         <echo  message="build/classes/META-INF/generated-layer.xml" />
         <nbbrowse file="build/classes/META-INF/generated-layer.xml" />
