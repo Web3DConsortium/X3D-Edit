@@ -66,6 +66,7 @@ public class COMMENTCustomizer extends BaseCustomizer // tutorial: javax.swing.J
         this.target  = target;
         initComponents();
     }
+    // https://netbeans.apache.org/tutorials/nbm-palette-api1.html
     @NbBundle.Messages({
         "LBL_Customizer_InsertPrefix=Insert",
         "NAME_X3D-COMMENT=Comment"})

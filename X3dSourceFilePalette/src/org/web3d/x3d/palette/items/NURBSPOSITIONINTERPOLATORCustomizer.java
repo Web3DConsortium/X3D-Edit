@@ -39,7 +39,7 @@ import javax.swing.text.JTextComponent;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 
 /**
@@ -68,7 +68,7 @@ public class NURBSPOSITIONINTERPOLATORCustomizer extends BaseCustomizer
     this.nurbsPositionInterpolator=nurbsPositionInterpolator;
     this.target = target;
     
-    org.jdom.Document documentRoot = X3DPaletteUtilities.getJdom(target);
+    org.jdom.Document documentRoot = X3DPaletteUtilitiesJdom.getJdom(target);
     nurbsPositionInterpolator.setDocumentRootRecheckUSEpointValues (documentRoot); // recalculates controlPoint array if USE node involved
                            
     HelpCtx.setHelpIDString(NURBSPOSITIONINTERPOLATORCustomizer.this, "NURBSPOSITIONINTERPOLATOR_ELEM_HELPID");

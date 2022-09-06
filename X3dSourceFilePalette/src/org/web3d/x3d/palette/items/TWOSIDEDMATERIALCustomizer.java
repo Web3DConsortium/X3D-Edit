@@ -37,7 +37,7 @@ package org.web3d.x3d.palette.items;
 import javax.swing.JOptionPane;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
@@ -77,13 +77,13 @@ public class TWOSIDEDMATERIALCustomizer extends BaseCustomizer
 
     // Now that we've got a twoSidedMaterial component, set up the x3d element objects
     frontMaterial = twoSidedMaterial.getFrontMaterial();
-    frontMaterial.setUSEVector(X3DPaletteUtilities.getUSEvector(target,frontMaterial.getElementName()));
+    frontMaterial.setUSEVector(X3DPaletteUtilitiesJdom.getUSEvector(target,frontMaterial.getElementName()));
     frontCustomizer = new MATERIALCustomizer(frontMaterial,target);
 //    frontCustomizer.initializePanelContent();
     frontPanel.add(frontCustomizer.extractContent()); // get non-defuse content
 
     backMaterial = twoSidedMaterial.getBackMaterial();
-    backMaterial.setUSEVector(X3DPaletteUtilities.getUSEvector(target,backMaterial.getElementName())); // TODO unneeded?
+    backMaterial.setUSEVector(X3DPaletteUtilitiesJdom.getUSEvector(target,backMaterial.getElementName())); // TODO unneeded?
     backCustomizer = new MATERIALCustomizer(backMaterial,target);
 //    backCustomizer.initializePanelContent();
     backPanel.add(backCustomizer.extractContent()); // get non-defuse content
