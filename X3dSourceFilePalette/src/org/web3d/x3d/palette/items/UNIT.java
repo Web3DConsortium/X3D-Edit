@@ -51,6 +51,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     name = "unit",
     tooltip = "A unit statement defines data-conversion factors for typed values in a scene"
 )
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**

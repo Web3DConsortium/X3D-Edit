@@ -47,9 +47,9 @@ import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.openide.windows.OutputWriter;
 import org.web3d.x3d.options.X3dOptions;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ValidateThread;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
 
 @ActionID(id = "org.web3d.x3d.ExpandSelfClosedElementAction", category = "Edit")
 @ActionRegistration(displayName = "#CTL_ExpandSelfClosedElementAction", 
@@ -62,7 +62,7 @@ public final class ExpandSelfClosedElementAction extends BaseX3DEditAction //Coo
   protected void doWork(Node[] activatedNodes)
   {
     try {
-      ElementLocation selectedLocation = X3DPaletteUtilities.findSelectedElement(documentEditorPane); //findSelectedElement();
+      ElementLocation selectedLocation = X3DPaletteUtilitiesJdom.findSelectedElement(documentEditorPane); //findSelectedElement();
 
       if (!expandSelfClosedSelectedElement(selectedLocation)) {
         InputOutput io = IOProvider.getDefault().getIO("Messages", false); // Name matches existing tab
@@ -106,9 +106,9 @@ public final class ExpandSelfClosedElementAction extends BaseX3DEditAction //Coo
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[]{X3DDataObject.class};
+    return new Class<?>[]{X3DDataObject.class};
   }
 
   @Override

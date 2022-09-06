@@ -35,16 +35,28 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
-
 import org.web3d.x3d.types.X3DGeometryNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
-
 import static org.web3d.x3d.types.X3DPrimitiveTypes.radiansFormat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
+
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "6. Geometry: Points, Lines, and Polygons",
+    itemid = "ELEVATIONGRID",
+    icon32 = "org/web3d/x3d/palette/items/resources/ELEVATIONGRID32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/ELEVATIONGRID16.png",
+    body = "<ElevationGrid ccw='true' creaseAngle='0' height='0 0 0 0' solid='true' xDimension='2' xSpacing='1' zDimension='2' zSpacing='1'/>",
+    name = "ElevationGrid",
+    tooltip = "ElevationGrid defines a table of height values for a square grid"
+)
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**
  * ELEVATIONGRID.java

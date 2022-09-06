@@ -110,24 +110,33 @@ public abstract class BaseConversionsAction extends CallableSystemAction
       FileObject destFolderFO = FileUtil.createFolder(destFolderF);
 
       FileObject stylesheets = FileUtil.getConfigRoot().getFileSystem().findResource("X3dTransforms"); //Repository.getDefault().getDefaultFileSystem().findResource ("X3dTransforms");
-
-      FileObject[] children = stylesheets.getChildren();
-      for (FileObject fo : children) {
-        try {
-          File destFile = new File(destFolderF, fo.getNameExt());
-          if (destFile.exists())
-            destFile.delete();
-          FileObject dstFo = FileUtil.copyFile(fo, destFolderFO, fo.getName());
-          FileUtil.toFile(dstFo).deleteOnExit();
-        }
-        catch (IOException ee) {
-          System.err.println("Can't copy " + fo.getName() + " to tmp");
-        }
+      
+      if (stylesheets == null)
+      {
+          System.err.println("*** failure to find resource: BaseConversionAction FileUtil.getConfigRoot().getFileSystem().findResource(\"X3dTransforms\")");
       }
-      xsltFilesRoot = destFolderF;
+      else
+      {
+        FileObject[] children = stylesheets.getChildren();
+        for (FileObject fo : children) {
+          try {
+            File destFile = new File(destFolderF, fo.getNameExt());
+            if (destFile.exists())
+              destFile.delete();
+            FileObject dstFo = FileUtil.copyFile(fo, destFolderFO, fo.getName());
+            FileUtil.toFile(dstFo).deleteOnExit();
+          }
+          catch (IOException ee) {
+            System.err.println("Can't copy " + fo.getName() + " to tmp");
+          }
+        }
+        xsltFilesRoot = destFolderF;
+      }
     }
-    catch (IOException e) {
-      System.err.println("Error copying stylesheets to tmp");
+    catch (IOException e)
+    {
+      System.err.println("*** BaseConversionsAction: Error copying stylesheets to tmp. " + e.getMessage());
+      e.printStackTrace();
     }
   }
 

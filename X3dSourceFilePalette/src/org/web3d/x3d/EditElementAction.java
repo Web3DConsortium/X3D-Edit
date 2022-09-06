@@ -53,9 +53,9 @@ import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 import org.openide.util.RequestProcessor;
 import org.web3d.x3d.options.X3dOptions;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ValidateThread;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
 import org.web3d.x3d.palette.items.BaseCustomizer;
 import org.web3d.x3d.palette.items.BaseX3DElement;
 import org.web3d.x3d.palette.items.EXTRUSION;
@@ -84,7 +84,7 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
 
   protected org.jdom.Document getSelectedElementAsJdom(String elementString) throws Exception
   {
-    return X3DPaletteUtilities.buildJdomFromString(elementString);
+    return X3DPaletteUtilitiesJdom.buildJdomFromString(elementString);
   }
 
   @Override
@@ -98,7 +98,7 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
   {
     int selectedStringLength;
     try {
-      ElementLocation selectedLocation = X3DPaletteUtilities.findSelectedElement(documentEditorPane); //findSelectedElement();
+      ElementLocation selectedLocation = X3DPaletteUtilitiesJdom.findSelectedElement(documentEditorPane); //findSelectedElement();
       selectedLocation = changeIfSpecialCase(selectedLocation);       // special case edits
       highlightSelectedElement(selectedLocation);
 
@@ -192,7 +192,7 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
         int startOffset = startPos.getOffset();
         setCaretLocation(startOffset+2); // include +2 or else next edit goes to parent node!
       }
-      X3DPaletteUtilities.getTopComponent(documentEditorPane).requestActive();  // this shows the cursor
+      X3DPaletteUtilitiesJdom.getTopComponent(documentEditorPane).requestActive();  // this shows the cursor
     }
     catch (InvocationTargetException itex) {
       String message = "<html><h3>X3D-Edit program exception</h3>" + 
@@ -272,10 +272,10 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
 //      baseDocument.getFormatter().reformat(baseDocument, startPos.getOffset(), endPos.getOffset());
 //      baseDocument.getFormatter().reformatUnlock();
 
-     X3DPaletteUtilities.buildJdom(documentEditorPane);  // rebuild after format
+     X3DPaletteUtilitiesJdom.buildJdom(documentEditorPane);  // rebuild after format
 
      // don't bother selecting the new element.  We want our cursor to be in it, and that negates selection
-     // ElementLocation newSelectedLocation = X3DPaletteUtilities.findSelectedElement(documentEditorPane); //findSelectedElement();
+     // ElementLocation newSelectedLocation = X3DPaletteUtilitiesJdom.findSelectedElement(documentEditorPane); //findSelectedElement();
      // documentEditorPane.setSelectionStart(newSelectedLocation.docOffsetStart);
      // documentEditorPane.setSelectionEnd(newSelectedLocation.docOffsetEnd);
     }

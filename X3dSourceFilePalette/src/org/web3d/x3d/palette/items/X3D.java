@@ -50,6 +50,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     name = "X3D",
     tooltip = "X3D statement is top-most XML element in an Extensible 3D (X3D) Graphics model"
 )
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**

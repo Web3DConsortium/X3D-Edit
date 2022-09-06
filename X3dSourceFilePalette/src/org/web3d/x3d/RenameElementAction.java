@@ -14,9 +14,9 @@ import org.openide.nodes.Node;
 import org.openide.util.NbBundle;
 import org.openide.util.RequestProcessor;
 import org.web3d.x3d.options.X3dOptions;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ValidateThread;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
 import org.web3d.x3d.palette.items.NodeListPanel;
 import org.xml.sax.SAXException;
 
@@ -43,12 +43,12 @@ public final class RenameElementAction extends BaseX3DEditAction //CookieAction
   protected void doWork(Node[] activatedNodes)
   {
     try {
-      ElementLocation selectedLocation = X3DPaletteUtilities.findSelectedElement(documentEditorPane); //findSelectedElement();
+      ElementLocation selectedLocation = X3DPaletteUtilitiesJdom.findSelectedElement(documentEditorPane); //findSelectedElement();
       highlightSelectedElement(selectedLocation);
 
       int textBlockLength = selectedLocation.docOffsetEnd - selectedLocation.docOffsetStart;
       String selectedText = documentEditorPane.getText(selectedLocation.docOffsetStart,textBlockLength);
-      org.jdom.Document jdoc = X3DPaletteUtilities.buildJdomFromString(selectedText);
+      org.jdom.Document jdoc = X3DPaletteUtilitiesJdom.buildJdomFromString(selectedText);
 
       String returnValue = doDialog(jdoc,documentEditorPane);
       if(returnValue != null)

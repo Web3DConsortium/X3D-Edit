@@ -52,6 +52,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     name = "WorldInfo",
     tooltip = "WorldInfo contains title and simple information about an X3D model"
 )
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**

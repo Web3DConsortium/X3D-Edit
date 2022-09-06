@@ -186,7 +186,7 @@ public final class ViewInAllAction extends CookieAction
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
     return new Class<?>[]{X3DDataObject.class};
   }

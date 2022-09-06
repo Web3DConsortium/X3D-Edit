@@ -62,8 +62,8 @@ import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.web3d.x3d.BaseX3DEditAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 
 @ActionID(id = "org.web3d.x3d.actions.security.EncryptElementAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_EncryptElementAction", 
@@ -86,7 +86,7 @@ public final class EncryptElementAction extends BaseX3DEditAction
   protected void doWork(Node[] activatedNodes)
   {
     try {
-      ElementLocation selectedLocation = X3DPaletteUtilities.findSelectedElement(documentEditorPane); //findSelectedElement();
+      ElementLocation selectedLocation = X3DPaletteUtilitiesJdom.findSelectedElement(documentEditorPane); //findSelectedElement();
 
       DialogDescriptor descriptor;
       SelectKeyPanel keyPan;
@@ -183,9 +183,9 @@ public final class EncryptElementAction extends BaseX3DEditAction
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[]{DataObject.class};
+    return new Class<?>[]{DataObject.class};
   }
 
   @Override

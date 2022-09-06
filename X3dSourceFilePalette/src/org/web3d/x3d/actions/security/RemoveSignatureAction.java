@@ -58,8 +58,8 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
 import org.web3d.x3d.BaseX3DEditAction;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 
 @ActionID(id = "org.web3d.x3d.actions.security.RemoveSignatureAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_RemoveSignatureAction", 
@@ -74,7 +74,7 @@ public final class RemoveSignatureAction extends BaseX3DEditAction
   protected void doWork(Node[] activatedNodes)
   {
     try {     
-     ElementLocation signatureLoc = X3DPaletteUtilities.findNamedElement(
+     ElementLocation signatureLoc = X3DPaletteUtilitiesJdom.findNamedElement(
          documentEditorPane,
          org.apache.xml.security.utils.Constants._TAG_SIGNATURE,
          org.apache.xml.security.utils.Constants.SignatureSpecNS);
@@ -93,8 +93,8 @@ public final class RemoveSignatureAction extends BaseX3DEditAction
            
      deleteLocatedElement(signatureLoc);
      
-     X3DPaletteUtilities.buildJdom(documentEditorPane);
-     ElementLocation rootLoc = X3DPaletteUtilities.findNamedElement(documentEditorPane, "X3D","");
+     X3DPaletteUtilitiesJdom.buildJdom(documentEditorPane);
+     ElementLocation rootLoc = X3DPaletteUtilitiesJdom.findNamedElement(documentEditorPane, "X3D","");
      if(rootLoc != null) {
        org.jdom.Element elm    = rootLoc.element;
        org.jdom.Namespace nmsp = elm.getNamespace(org.apache.xml.security.utils.Constants.SignatureSpecNS);
@@ -122,9 +122,9 @@ public final class RemoveSignatureAction extends BaseX3DEditAction
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[]{DataObject.class};
+    return new Class<?>[]{DataObject.class};
   }
 
   @Override

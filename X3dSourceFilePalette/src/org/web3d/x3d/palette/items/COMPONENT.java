@@ -51,6 +51,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     name = "COMPONENT",
     tooltip = "Each added component statement indicates needed scene functionality above the given X3D provile"
 )
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**

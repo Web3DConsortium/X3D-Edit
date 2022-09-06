@@ -47,8 +47,8 @@ import org.openide.util.Lookup;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
 import org.openide.util.lookup.Lookups;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.items.NodeListPanel;
 
 @ActionID(id = "org.web3d.x3d.WrapElementAction", category = "Edit")
@@ -93,7 +93,7 @@ public final class WrapElementAction extends EditElementAction
       if (displayer.notify(dialogDescriptor) == DialogDescriptor.CANCEL_OPTION)
         cancelled = true;
       else {
-        ElementLocation selectedLocation = X3DPaletteUtilities.findSelectedElement(documentEditorPane);
+        ElementLocation selectedLocation = X3DPaletteUtilitiesJdom.findSelectedElement(documentEditorPane);
         // Not for wrapping i think...selectedLocation = changeIfSpecialCase(selectedLocation);       // special case edits
 
         int selectedStringLength = selectedLocation.docOffsetEnd - selectedLocation.docOffsetStart;
@@ -147,9 +147,9 @@ public final class WrapElementAction extends EditElementAction
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[]{DataObject.class};
+    return new Class<?>[]{DataObject.class};
   }
 
   @Override
