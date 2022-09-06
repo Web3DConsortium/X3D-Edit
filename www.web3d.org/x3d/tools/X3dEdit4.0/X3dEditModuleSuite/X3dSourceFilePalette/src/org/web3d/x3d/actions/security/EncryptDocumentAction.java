@@ -213,9 +213,9 @@ public final class EncryptDocumentAction extends BaseX3DEditAction
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[]{DataObject.class};
+    return new Class<?>[]{DataObject.class};
   }
 
   @Override

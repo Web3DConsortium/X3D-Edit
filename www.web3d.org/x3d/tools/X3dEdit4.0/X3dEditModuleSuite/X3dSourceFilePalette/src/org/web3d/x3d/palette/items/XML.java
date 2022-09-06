@@ -50,6 +50,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     name = "XML",
     tooltip = "XML header at top of Extensible Markup Language (XML) document"
 )
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 // https://www.flaticon.com/free-icon/xml-file-format-symbol_29611

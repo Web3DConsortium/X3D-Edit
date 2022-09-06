@@ -51,6 +51,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     name = "meta",
     tooltip = "Valid comments are found between XML elements"
 )
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 // TODO list example names in tooltipes, fix "type type"

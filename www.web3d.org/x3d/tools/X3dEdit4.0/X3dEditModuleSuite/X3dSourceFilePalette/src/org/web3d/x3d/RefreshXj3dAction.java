@@ -75,9 +75,9 @@ public final class RefreshXj3dAction extends CookieAction
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[] {
+    return new Class<?>[] {
       X3DDataObject.class
     };
   }

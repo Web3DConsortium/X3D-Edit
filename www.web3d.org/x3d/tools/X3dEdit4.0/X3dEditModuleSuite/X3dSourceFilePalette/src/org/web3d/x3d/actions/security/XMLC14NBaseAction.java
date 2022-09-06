@@ -103,9 +103,9 @@ public abstract class XMLC14NBaseAction extends BaseX3DEditAction
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[]{X3DDataObject.class};
+    return new Class<?>[]{X3DDataObject.class};
   }
 
   @Override

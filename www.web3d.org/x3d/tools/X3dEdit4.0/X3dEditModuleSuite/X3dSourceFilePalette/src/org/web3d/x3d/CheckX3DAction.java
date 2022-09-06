@@ -41,11 +41,12 @@ import org.openide.util.RequestProcessor;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.openide.windows.OutputWriter;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ValidateThread;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
 
 @ActionID(id = "org.web3d.x3d.CheckX3DAction", category = "Edit")
 @ActionRegistration(displayName = "#CTL_CheckX3DAction")
 
+@SuppressWarnings("serial")
 public final class CheckX3DAction extends BaseX3DEditAction //CookieAction
 {
   @Override

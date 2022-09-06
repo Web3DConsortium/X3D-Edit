@@ -9,8 +9,8 @@ import org.openide.nodes.Node;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 
 @ActionID(id = "org.web3d.x3d.SelectElementAction", category = "Edit")
 @ActionRegistration(displayName = "#CTL_SelectElementAction", 
@@ -26,7 +26,7 @@ public final class SelectElementAction extends BaseX3DEditAction //CookieAction
   protected void doWork(Node[] activatedNodes)
   {
     try {
-      ElementLocation selectedLocation = X3DPaletteUtilities.findSelectedElement(documentEditorPane); //findSelectedElement();
+      ElementLocation selectedLocation = X3DPaletteUtilitiesJdom.findSelectedElement(documentEditorPane); //findSelectedElement();
       highlightSelectedElement(selectedLocation);
     }
     catch (BadLocationException ex) {
@@ -47,9 +47,9 @@ public final class SelectElementAction extends BaseX3DEditAction //CookieAction
   }
   
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[] {
+    return new Class<?>[] {
       X3DDataObject.class
     };
   }

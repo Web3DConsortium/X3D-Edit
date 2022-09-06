@@ -63,8 +63,8 @@ import org.openide.util.lookup.ProxyLookup;
 import org.openide.windows.CloneableOpenSupport;
 import org.web3d.x3d.options.X3dOptions;
 import org.web3d.x3d.palette.X3DPaletteFactory;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ValidateThread;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
 import org.web3d.x3d.xj3d.viewer.Xj3dTopComponent;
 import org.web3d.x3d.xj3d.viewer.Xj3dViewerPanel;
 

@@ -51,6 +51,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     name = "FontStyle",
     tooltip = "FontStyle customizes presentation of polygonal Text strings"
 )
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**

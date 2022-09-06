@@ -59,8 +59,8 @@ import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSParser;
 
 import org.web3d.x3d.X3DEditorSupport.X3dEditor;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 
 import org.xml.sax.SAXException;
 
@@ -108,11 +108,11 @@ abstract public class BaseX3DEditAction extends CookieAction
     x3dDataObject = activatedNodes[0].getLookup().lookup(org.web3d.x3d.X3DDataObject.class);
     x3dEditorSupport  = x3dDataObject.getLookup().lookup(org.web3d.x3d.X3DEditorSupport.class);
     documentEditorPane = x3dEditorSupport.getOpenedPanes()[0];
-    X3DPaletteUtilities.buildJdom(documentEditorPane);  // rebuild jdom tree
+    X3DPaletteUtilitiesJdom.buildJdom(documentEditorPane);  // rebuild jdom tree
 
 //    locSupp = new SAXLocatorSupport(x3dEditorSupport.getInputStream());
     //saxLocations = locSupp.getLocations();
-    X3dEditor x3dEditor = (X3dEditor)X3DPaletteUtilities.getTopComponent(documentEditorPane);
+    X3dEditor x3dEditor = (X3dEditor)X3DPaletteUtilitiesJdom.getTopComponent(documentEditorPane);
     saxLocations = x3dEditor.getJdomSaxLocations();
 
     abstractDocument = (AbstractDocument) x3dEditorSupport.getDocument();
@@ -280,9 +280,9 @@ abstract public class BaseX3DEditAction extends CookieAction
   abstract public String getName();
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[] {
+    return new Class<?>[] {
       X3DDataObject.class
     };
   }

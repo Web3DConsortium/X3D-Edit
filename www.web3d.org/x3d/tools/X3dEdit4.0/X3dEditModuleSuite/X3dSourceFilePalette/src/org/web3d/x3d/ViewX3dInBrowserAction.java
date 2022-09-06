@@ -113,9 +113,9 @@ public final class ViewX3dInBrowserAction extends CookieAction
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[]{X3DDataObject.class};
+    return new Class<?>[]{X3DDataObject.class};
   }
 
   @Override

@@ -50,6 +50,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     name = "DOCTYPE",
     tooltip = "Document Type (DOCTYPE) header for string validation of elements and attributes"
 )
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 // https://www.flaticon.com/free-icon/dtd-file-format-symbol_29051

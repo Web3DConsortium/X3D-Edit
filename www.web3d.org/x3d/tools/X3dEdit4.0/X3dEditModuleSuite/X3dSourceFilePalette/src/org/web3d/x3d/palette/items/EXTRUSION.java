@@ -35,11 +35,26 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
+import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.X3DGeometryNode;
 
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
+
+@PaletteItemRegistration
+(
+    paletteid = "X3DPalette",
+    category = "6. Geometry: Points, Lines, and Polygons",
+    itemid = "EXTRUSION",
+    icon32 = "org/web3d/x3d/palette/items/resources/EXTRUSION32.png",
+    icon16 = "org/web3d/x3d/palette/items/resources/EXTRUSION16.png",
+    body = "<Extrusion beginCap='true' ccw='true' creaseAngle='0' crossSection='1 1 1 -1 -1 -1 -1 1 1 1' endCap='true' solid='true' spine='0 0 0 0 1 0'/>",
+    name = "Extrusion",
+    tooltip = "Extrusion defines geometric shaps based on 2D cross-section extruded along a 3D spine axis"
+)
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**
  * EXTRUSION.java

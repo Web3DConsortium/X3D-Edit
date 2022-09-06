@@ -52,6 +52,7 @@ import org.openide.util.actions.CookieAction;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.options.X3dOptions;
 
+@SuppressWarnings("serial")
 public abstract class ViewInBaseAction extends CookieAction
 {
   @Override
@@ -123,9 +124,9 @@ public abstract class ViewInBaseAction extends CookieAction
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[]{X3DDataObject.class};
+    return new Class<?>[]{X3DDataObject.class};
   }
 
   @Override

@@ -52,6 +52,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
     name = "MetadataBoolean",
     tooltip = "MetadataBoolean provides a typed list of values providing metadata information about its parent node"
 )
+// https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
 /**

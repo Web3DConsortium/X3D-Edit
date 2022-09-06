@@ -110,9 +110,9 @@ public final class CanonicalizeAction extends CookieAction
   }
 
   @Override
-  protected Class[] cookieClasses()
+  protected Class<?>[] cookieClasses()
   {
-    return new Class[]{EditCookie.class};
+    return new Class<?>[]{EditCookie.class};
   }
 
   @Override
