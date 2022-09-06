@@ -58,7 +58,7 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.options.X3dOptions;
 import org.web3d.x3d.palette.BetterJTextField;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.types.X3DNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFColor;
 
@@ -578,7 +578,7 @@ public abstract class BaseCustomizer extends JPanel
 //            System.err.println ("*** DEFUSEpanel initialization by setParentPanel() received null parentCustomizerPanel or BaseX3DElement");
 //        }
     
-    X3DPaletteUtilities x3dPaletteUtilities = new X3DPaletteUtilities();
+    X3DPaletteUtilitiesJdom x3dPaletteUtilities = new X3DPaletteUtilitiesJdom();
     
     if ( defUSEpanel.hasHtmlCssFields() && 
         !x3dPaletteUtilities.isCurrentDocumentX3dVersion4())

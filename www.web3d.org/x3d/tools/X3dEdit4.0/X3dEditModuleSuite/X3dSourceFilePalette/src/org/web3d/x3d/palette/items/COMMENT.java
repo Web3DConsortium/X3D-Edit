@@ -34,8 +34,11 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
+import javax.swing.text.BadLocationException;
+import javax.swing.text.JTextComponent;
 import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.openide.text.ActiveEditorDrop;
+import org.web3d.x3d.palette.X3DPaletteUtilities;
 import org.web3d.x3d.types.SceneGraphStructureNodeType;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
@@ -47,7 +50,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
     icon32 = "org/web3d/x3d/palette/items/resources/COMMENT32.png", // icon is <!--
     icon16 = "org/web3d/x3d/palette/items/resources/COMMENT16.png",
     body = "<!-- enter new comment information here -->",
-    name = "COMMENT XML -->",
+    name = "COMMENT XML -->",                                       // make icon sensible
     tooltip = "Valid comments are found between XML elements"
 )
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
@@ -92,21 +95,35 @@ public class COMMENT extends SceneGraphStructureNodeType implements ActiveEditor
       return "\n    <!-- " + getCommentText() + " -->";
     }
     
-// TODO confirm unnecessary
-//    @Override
-//    public boolean  handleTransfer(JTextComponent targetComponent)
-//    {
-//        String body = createBody();
-//        try
-//        {
-//            X3DPaletteUtilities.insert(body, targetComponent);
-//        } 
-//        catch (BadLocationException ble)
-//        {
-//            return false;
-//        }
-//        return true;
-//    }
+    /** TODO must reconcile (or refactor) much separate code in superclass BaseX3DElement handleTransfer()
+     * https://netbeans.apache.org/tutorials/nbm-palette-api1.html says
+     * "Hook your customizer into the ActiveEditorDrop implementation class as follows"
+     * @param targetComponent // TODO explain
+     * @return whether successful
+     */
+    @Override
+    public boolean  handleTransfer(JTextComponent targetComponent)
+    {
+        System.out.println("*** COMMENT handleTransfer() ...");
+        COMMENTCustomizer commentCustomizer = new COMMENTCustomizer (this, targetComponent);
+        
+        System.out.println("*** COMMENT commentCustomizer=" + commentCustomizer);
+        
+        boolean accept = commentCustomizer.showDialog();
+        if (accept)
+        {
+            String bodyText = createBody();
+            try
+            {
+                X3DPaletteUtilities.insert(bodyText, targetComponent);
+            } 
+            catch (BadLocationException ble)
+            {
+                return false;
+            }
+        }
+        return accept;
+    }
     
 //  @SuppressWarnings("unchecked")
 //  @Override

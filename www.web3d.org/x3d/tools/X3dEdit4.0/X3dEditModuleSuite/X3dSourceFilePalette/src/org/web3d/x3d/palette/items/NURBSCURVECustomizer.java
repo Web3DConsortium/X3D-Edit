@@ -39,7 +39,7 @@ import javax.swing.text.JTextComponent;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
@@ -72,7 +72,7 @@ public class NURBSCURVECustomizer extends BaseCustomizer
     this.nurbsCurve=nurbsCurve;
     this.target = target;
     
-    org.jdom.Document documentRoot = X3DPaletteUtilities.getJdom(target);
+    org.jdom.Document documentRoot = X3DPaletteUtilitiesJdom.getJdom(target);
     nurbsCurve.setDocumentRootRecheckUSEpointValues (documentRoot); // recalculates controlPoint array if USE node involved
                            
     HelpCtx.setHelpIDString(NURBSCURVECustomizer.this, "NURBSCURVE_ELEM_HELPID");

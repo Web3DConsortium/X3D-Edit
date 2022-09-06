@@ -74,7 +74,7 @@ import org.web3d.vrml.util.URLChecker;
 import org.web3d.x3d.UrlStatus;
 import org.web3d.x3d.actions.conversions.ConversionsHelper;
 import org.web3d.x3d.options.X3dOptions;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 
 /**
  * UrlExpandableList2.java
@@ -310,7 +310,7 @@ public class UrlExpandableList2 extends JPanel implements ListSelectionListener
         System.out.println ("UrlExpandableList2 did not receive target value from parent class, so getHeaderIdentifierPath() cannot check DOM tree for meta tag value");
         return "";
     }
-    Document doc = X3DPaletteUtilities.getJdom(target);
+    Document doc = X3DPaletteUtilitiesJdom.getJdom(target);
     Element headElement = doc.getRootElement().getChild("head");
 
     if(headElement != null)

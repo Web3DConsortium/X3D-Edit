@@ -58,8 +58,8 @@ import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.options.X3dOptions;
-import org.web3d.x3d.palette.X3DPaletteUtilities;
-import org.web3d.x3d.palette.X3DPaletteUtilities.ElementLocation;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DXMLOutputter;
 import org.web3d.x3d.sai.X3DFieldDefinition;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
@@ -117,8 +117,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     target = targetComponent;
 
     try {
-      X3DPaletteUtilities.buildJdom(targetComponent);  // rebuild JDOM tree
-      elementLocation = X3DPaletteUtilities.findSelectedElement(target); // find caret position
+      X3DPaletteUtilitiesJdom.buildJdom(targetComponent);  // rebuild JDOM tree
+      elementLocation = X3DPaletteUtilitiesJdom.findSelectedElement(target); // find caret position
     }
     catch(IOException | JDOMException | BadLocationException ex) {
       // semi-silently fail
@@ -127,7 +127,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
     initialize();
 
-    USEvector = X3DPaletteUtilities.getUSEvector(targetComponent,getElementName());
+    USEvector = X3DPaletteUtilitiesJdom.getUSEvector(targetComponent,getElementName());
     boolean accept = false;
 
     Class<? extends BaseCustomizer> bcust = getCustomizer();
@@ -139,7 +139,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
       // There is no customizer, just jam in the text
       try
       {
-        X3DPaletteUtilities.insert(createBody(),targetComponent, this);
+        X3DPaletteUtilitiesJdom.insert(createBody(),targetComponent, this);
         accept = true;
       }
       catch (BadLocationException ex)
@@ -160,7 +160,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
           }
           catch(NoSuchMethodException ex) {
             cons = bcust.getDeclaredConstructor(this.getClass(), JTextComponent.class, X3DDataObject.class);
-            cust = cons.newInstance(this,targetComponent,X3DPaletteUtilities.getX3dDataObject(target));
+            cust = cons.newInstance(this,targetComponent,X3DPaletteUtilitiesJdom.getX3dDataObject(target));
           }
         }
         catch (InvocationTargetException ite)
@@ -212,10 +212,10 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
           }
           
           String bodyText = lineFeedText + priorInsert() + createBody() + post;
-          int start = X3DPaletteUtilities.insert(bodyText, targetComponent, true, this); // format too
+          int start = X3DPaletteUtilitiesJdom.insert(bodyText, targetComponent, true, this); // format too
           //io.getOut().println("good insert");
           postInsert(targetComponent);
-          X3DPaletteUtilities.getTopComponent(target).requestActive();
+          X3DPaletteUtilitiesJdom.getTopComponent(target).requestActive();
 		  int newCaretLocation = start+4;
 		  if (newCaretLocation > target.getText().length()-1)
 			  newCaretLocation = target.getText().length()-1; // avoid overshoot exception
@@ -2892,7 +2892,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
    */
   protected Map<String,Vector<Element>> getNodeMap(JTextComponent targ, Vector<String> excludeList)
   {
-    org.jdom.Document doc = X3DPaletteUtilities.getJdom(targ); //getJdomDoc(targ);
+    org.jdom.Document doc = X3DPaletteUtilitiesJdom.getJdom(targ); //getJdomDoc(targ);
     Map<String,Vector<Element>> hashMap = new HashMap<>();
     addMappedElems(doc.getRootElement(),hashMap, false, excludeList);
     return hashMap;
@@ -3092,7 +3092,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
    */
   protected Vector<Element> getNodeList(JTextComponent targ, Vector<String> excludeList)
   {
-    org.jdom.Document doc = X3DPaletteUtilities.getJdom(targ); //getJdomDoc(targ);
+    org.jdom.Document doc = X3DPaletteUtilitiesJdom.getJdom(targ); //getJdomDoc(targ);
     Vector<Element> v = new Vector<>();
     addElems(doc.getRootElement(),v,false,excludeList);
     return v;
@@ -3169,7 +3169,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   {
     initialize();  //by default, set defaults
 
-    USEvector = X3DPaletteUtilities.getUSEvector(comp,getElementName());
+    USEvector = X3DPaletteUtilitiesJdom.getUSEvector(comp,getElementName());
 
     org.jdom.Attribute attr = root.getAttribute("USE");
     if(attr != null) {
