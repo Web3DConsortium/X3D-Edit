@@ -57,7 +57,8 @@ import org.openide.util.actions.CallableSystemAction;
 // no longer supported import org.netbeans.api.javahelp.Help;
 
 @ActionID(id = "org.web3d.x3d.DownloadContentAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_DownloadContentAction")
+@ActionRegistration(displayName = "#CTL_DownloadContentAction", 
+                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Examples", position = 100),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Examples", position = 100)

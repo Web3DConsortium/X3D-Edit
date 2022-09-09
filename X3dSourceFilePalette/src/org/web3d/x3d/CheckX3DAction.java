@@ -44,7 +44,8 @@ import org.openide.windows.OutputWriter;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
 
 @ActionID(id = "org.web3d.x3d.CheckX3DAction", category = "Edit")
-@ActionRegistration(displayName = "#CTL_CheckX3DAction")
+@ActionRegistration(displayName = "#CTL_CheckX3DAction", 
+                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 @SuppressWarnings("serial")
 public final class CheckX3DAction extends BaseX3DEditAction //CookieAction

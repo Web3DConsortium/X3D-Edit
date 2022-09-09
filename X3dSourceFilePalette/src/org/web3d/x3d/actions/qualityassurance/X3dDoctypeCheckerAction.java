@@ -51,7 +51,8 @@ import org.web3d.x3d.actions.conversions.BaseConversionsAction;
 import org.web3d.x3d.tools.X3dDoctypeChecker;
 
 @ActionID(id = "org.web3d.x3d.actions.qualityassurance.X3dDoctypeCheckerAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_X3dDoctypeCheckerAction")
+@ActionRegistration(displayName = "#CTL_X3dDoctypeCheckerAction", 
+                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 320),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 321995-20120),

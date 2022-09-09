@@ -58,7 +58,8 @@ import org.web3d.x3d.InputOutputReporter;
 import xj3d.filter.CDFFilter;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ImportColladaAction", category = "File")
-@ActionRegistration(displayName = "#CTL_ColladaImportAction")
+@ActionRegistration(displayName = "#CTL_ColladaImportAction", 
+                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Import Model from File", position = 100),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Import Model from File", position = 100)

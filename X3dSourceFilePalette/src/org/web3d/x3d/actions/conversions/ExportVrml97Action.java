@@ -44,7 +44,8 @@ import org.web3d.x3d.X3DEditorSupport;
 // This would be "Export as Vrml97 using xj3d, but not supported"
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ExportVrml97Action", category = "File")
-@ActionRegistration(displayName = "#CTL_Vrml97Action")
+@ActionRegistration(displayName = "#CTL_Vrml97Action", 
+                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 public final class ExportVrml97Action extends BaseConversionsAction
 {

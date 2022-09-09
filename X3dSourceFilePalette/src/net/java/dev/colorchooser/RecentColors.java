@@ -81,6 +81,7 @@ class RecentColors extends Palette {
         return palette;
     }
     
+    @Override
     public java.awt.Color getColorAt(int x, int y) {
         return getWrapped().getColorAt(x,y);
     }
@@ -112,7 +113,7 @@ class RecentColors extends Palette {
         return getWrapped().getNameAt(x,y);
     }
     
-    Stack stack = new Stack();
+   Stack stack = new Stack();
    @SuppressWarnings("unchecked")
    void add(Color c) {
         if (c instanceof RecentColor) {
@@ -141,11 +142,11 @@ class RecentColors extends Palette {
         if (prefs == null) return;
         int count = 0;
         StringBuilder sb = new StringBuilder();
-        Stack stack = new Stack();
-        stack.addAll(this.stack);
-        while (!stack.isEmpty() && count < 64) {
+        Stack tempStack = new Stack();
+        tempStack.addAll(this.stack);
+        while (!tempStack.isEmpty() && count < 64) {
             count++;
-            Color c = (Color) stack.pop();
+            Color c = (Color) tempStack.pop();
             if (c instanceof DummyColor) {
                 break;
             }
