@@ -68,6 +68,76 @@
         </ant>
     </target>
     
+    <target name="run.xj3d.browser"
+            depends="platformInitialize,-init,-jdk-init"
+            description="Run the 3D Simulation Viewer App">
+      
+        <!-- first look on command line, otherwise use ${scene} property from build.properties -->
+        <property name="args" value="${scene}"/>
+
+        <echo message="Xj3D launching ${args}"/>
+        <echo message="main.class=${main.class}"/>
+        <echo message="app.browser.args=${app.browser.args}"/>
+        <echo message="run.xj3d.args=${run.xj3d.args}"/>
+        
+        <ant antfile="${harness.dir}/run.xml" target="-prepare-as-platform">
+            <reference refid="cluster.path.id"/>
+        </ant>
+        
+        <!-- Working directory is apps/browser b/c that's where the javahelp helpset is -->
+        <java classname="${main.class}"
+              fork="true">
+
+            <!-- Comment out for native DIS handling -->
+            <!--sysproperty key="${dis.protocol.handler.prop}"
+                         value="${dis.xmpp.protocol.handler}"/-->
+            <jvmarg line="${run.xj3d.args}"/>
+
+            <!-- Enable the Smack debugger -->
+            <!--jvmarg value="-Dsmack.debugEnabled=true"/-->
+            <classpath>
+                <fileset dir="${cluster}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+            
+            <!-- ${args} should be the full path to an X3D file -->
+            <!-- commandline given/supplied arguments args=%1 etc -->
+            <arg line="${app.browser.args} ${args}"/>
+
+        </java>
+
+    </target>
+    
+    <!-- Override -->
+    <target name="debug" 
+            depends="platformInitialize,build,-jdk-init,-jdk-presetdef-nbjpdastart,do.debug" 
+            description="Debug after building the entire suite first"/>
+    
+    <target name="quick.debug" 
+            depends="platformInitialize,branding,release,-hide-excluded-modules,-jdk-init,-jdk-presetdef-nbjpdastart,do.debug" 
+            description="Debugs X3D-Edit in place without building"/>
+    
+    <target name="do.debug">
+        <fail unless="netbeans.home">This target only works when run from inside the NetBeans IDE.</fail>
+        <nbjpdastart name="NetBeans" addressproperty="debug.port" transport="dt_socket">
+            <classpath>
+                <pathfileset include="**/*.jar">
+                    <path refid="cluster.path.id"/>
+                </pathfileset>
+                <fileset dir="${cluster}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+        </nbjpdastart>
+        <property name="debug.pause" value="y"/>
+        <property name="debug.args" value="${run.args} -J-agentlib:jdwp=transport=dt_socket,suspend=${debug.pause},server=n,address=${debug.port}"/>
+        <ant antfile="${harness.dir}/run.xml" target="run">
+            <property name="run.args" value="${debug.args}"/>
+            <reference refid="cluster.path.id"/>
+        </ant>
+    </target>
+    
     <target name="view.X3D-Edit.home.local" description="view local copy of X3D-Edit. home page in web browser (Netbeans only)">
         <echo message="websites/savage.nps.edu/X3D-Edit/X3D-Edit.html" />
         <nbbrowse file="websites/savage.nps.edu/X3D-Edit/X3D-Edit.html" />
