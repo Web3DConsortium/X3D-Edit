@@ -13,7 +13,7 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 
 @ActionID(id = "org.web3d.x3d.DeleteElementAction", category = "Edit")
 @ActionRegistration(displayName = "#CTL_DeleteElementAction", 
-                    lazy=true) // don't do lazy=false since iconBase no longer gets registered)
+                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences( value = {
   @ActionReference(path = "Menu/X3D-Edit/Edit Element XML", position = 700),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Edit Element XML", position = 700)

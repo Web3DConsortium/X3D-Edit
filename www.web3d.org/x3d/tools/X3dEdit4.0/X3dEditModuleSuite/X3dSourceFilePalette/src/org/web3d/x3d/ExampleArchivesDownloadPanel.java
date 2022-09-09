@@ -82,7 +82,7 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
   public ExampleArchivesDownloadPanel()
   {
     initComponents();
-    HelpCtx.setHelpIDString(this, "helpExampleDownloads");
+    HelpCtx.setHelpIDString(ExampleArchivesDownloadPanel.this, "helpExampleDownloads");
     
     downloadDirectoryLabelUpdate (); // initialize
   }
@@ -594,7 +594,7 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
 
   private void downloadButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_downloadButtonActionPerformed
   {//GEN-HEADEREND:event_downloadButtonActionPerformed
-    Vector<String> targets = new Vector<String>();
+    Vector<String> targets = new Vector<>();
 
     if (x3d4waExamplesCB.isSelected())
         targets.add(X3D4WA_EXAMPLESTARGET);

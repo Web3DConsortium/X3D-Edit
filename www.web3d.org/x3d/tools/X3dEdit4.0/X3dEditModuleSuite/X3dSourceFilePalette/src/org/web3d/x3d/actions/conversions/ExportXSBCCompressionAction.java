@@ -46,7 +46,8 @@ import org.openide.util.actions.CallableSystemAction;
 import org.web3d.xmsf.xsbc.apps.comparison.ui.ComparisonPanel;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ExportXSBCCompressionAction", category = "File")
-@ActionRegistration(displayName = "#CTL_XSBCCompressionAction")
+@ActionRegistration(displayName = "#CTL_XSBCCompressionAction", 
+                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 public final class ExportXSBCCompressionAction extends CallableSystemAction
 {

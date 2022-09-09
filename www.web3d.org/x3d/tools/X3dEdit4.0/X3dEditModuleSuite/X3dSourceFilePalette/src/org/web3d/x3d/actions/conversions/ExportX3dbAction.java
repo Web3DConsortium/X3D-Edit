@@ -44,7 +44,8 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ExportX3dbAction", category = "File")
-@ActionRegistration(displayName = "#CTL_ExportX3dbAction")
+@ActionRegistration(displayName = "#CTL_ExportX3dbAction", 
+                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Export Model to File", position = 300),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Export Model to File", position = 300)

@@ -41,7 +41,8 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 
 @ActionID(id = "org.web3d.x3d.actions.qualityassurance.XmlWellFormedCheckAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_XmlWellFormedCheckAction")
+@ActionRegistration(displayName = "#CTL_XmlWellFormedCheckAction", 
+                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 330),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 330),

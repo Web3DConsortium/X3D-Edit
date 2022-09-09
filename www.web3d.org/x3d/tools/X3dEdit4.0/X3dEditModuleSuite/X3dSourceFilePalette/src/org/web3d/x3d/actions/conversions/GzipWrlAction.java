@@ -45,7 +45,8 @@ import org.openide.util.actions.CallableSystemAction;
 
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.GzipWrlAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_GzipWrlAction")
+@ActionRegistration(displayName = "#CTL_GzipWrlAction", 
+                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Compression", position = 1200),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Compression", position = 1200)
