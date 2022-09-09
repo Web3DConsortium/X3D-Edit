@@ -28,7 +28,7 @@
                     <compile-dependency/>
                     <run-dependency>
                         <release-version>3</release-version>
-                        <specification-version>3.100.0.2</specification-version>
+                        <specification-version>3.101.0.2</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -99,15 +99,6 @@
                     <run-dependency>
                         <release-version>1</release-version>
                         <specification-version>1.56</specification-version>
-                    </run-dependency>
-                </dependency>
-                <dependency>
-                    <code-name-base>org.netbeans.modules.libs.gradle</code-name-base>
-                    <build-prerequisite/>
-                    <compile-dependency/>
-                    <run-dependency>
-                        <release-version>7</release-version>
-                        <specification-version>7.4.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -338,24 +329,12 @@
                 <binary-origin>release/modules/ext/xsbc.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/svnClientAdapter.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/svnClientAdapter.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/xalan.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xalan.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/ant.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/ant.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/ant-contrib-1.0b3.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/ant-contrib-1.0b3.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/JWare_apis.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/JWare_apis.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/commons-httpclient-3.1.jar</runtime-relative-path>
@@ -366,24 +345,12 @@
                 <binary-origin>release/modules/ext/htmlentities.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/svnkit-cli.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/svnkit-cli.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/jfreechart-1.0.14.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/jfreechart-1.0.14.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/jaxen-1.1.2.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/jaxen-1.1.2.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/AntX_tasks.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/AntX_tasks.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/jakarta-regexp-1.3.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jakarta-regexp-1.3.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/aviatrix3d-all_3.1.1-nps.jar</runtime-relative-path>
@@ -414,10 +381,6 @@
                 <binary-origin>release/modules/ext/slf4j-api-1.7.30.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/svnant.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/svnant.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/commons-lang-2.0.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/commons-lang-2.0.jar</binary-origin>
             </class-path-extension>
@@ -428,10 +391,6 @@
             <class-path-extension>
                 <runtime-relative-path>ext/portecle.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/portecle.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/ganymed.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/ganymed.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/jogamp-fat.jar</runtime-relative-path>
@@ -446,32 +405,12 @@
                 <binary-origin>release/modules/ext/xj3d.cadfilter_2.3.0-nps.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/svn4ant.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/svn4ant.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/svnkit.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/svnkit.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/log4j-1.2.17.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/log4j-1.2.17.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/jakarta-oro-2.0.8.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/jakarta-oro-2.0.8.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/dom4j-1.6.1.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/dom4j-1.6.1.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/svnjavahl.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/svnjavahl.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/xj3d.replica_2.3.0-nps.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/xj3d.replica_2.3.0-nps.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/jdom.jar</runtime-relative-path>
