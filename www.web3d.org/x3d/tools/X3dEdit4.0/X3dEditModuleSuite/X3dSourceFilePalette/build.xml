@@ -8,7 +8,13 @@
     
     <target name="run" description="run parent X3D-Edit 4.0 Module Suite">
         <echo message="run parent X3D-Edit 4.0 Module Suite" />
-        <ant  antfile="../build.xml" target="run" useNativeBasedir="true" inheritAll="false"/>
+        <ant  antfile="${suite.dir}/build.xml" target="run" useNativeBasedir="true" inheritAll="false"/>
+    </target>
+    
+    <!-- Debug must be initiated from the ${suite.dir}/build.xml IOT avoid URLStreamHandler Error thrown -->
+    <target name="debug" description="debug parent X3D-Edit 4.0 Module Suite">
+        <echo message="debug parent X3D-Edit 4.0 Module Suite" />
+        <ant  antfile="${suite.dir}/build.xml" target="debug" useNativeBasedir="true" inheritAll="false"/>
     </target>
     
     <target name="view.layers.local" description="view local layer files (Netbeans only)">
