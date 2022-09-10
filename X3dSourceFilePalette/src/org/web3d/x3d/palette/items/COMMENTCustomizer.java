@@ -36,7 +36,6 @@ package org.web3d.x3d.palette.items;
 
 import java.awt.Dialog;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.text.JTextComponent;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
@@ -69,21 +68,16 @@ public class COMMENTCustomizer extends BaseCustomizer // tutorial: javax.swing.J
     // https://netbeans.apache.org/tutorials/nbm-palette-api1.html
     @NbBundle.Messages({
         "LBL_Customizer_InsertPrefix=Insert",
-        "NAME_X3D-COMMENT=Comment"})
+        "NAME_X3D-COMMENT=XML Comment"})
     public boolean showDialog() {
         dialogOK = false;
         descriptor = new DialogDescriptor(this, Bundle.LBL_Customizer_InsertPrefix(), true,
-                DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION,
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (descriptor.getValue().equals(DialogDescriptor.OK_OPTION))
-                        {
-                            evaluateInput();
-                            dialogOK = true;
-                        }
-                        dialog.dispose();
+                DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, (ActionEvent e) -> {
+                    if (descriptor.getValue().equals(DialogDescriptor.OK_OPTION)) {
+                        evaluateInput();
+                        dialogOK = true;
                     }
+                    dialog.dispose();
                 });
         dialog = DialogDisplayer.getDefault().createDialog(descriptor);
         dialog.setVisible(true);
