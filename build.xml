@@ -118,6 +118,10 @@
             depends="platformInitialize,branding,release,-hide-excluded-modules,-jdk-init,-jdk-presetdef-nbjpdastart,do.debug" 
             description="Debugs X3D-Edit in place without building"/>
     
+    <!-- Debug must be overridden here IOT avoid URLStreamHandler Error thrown.
+         Caused by vanilla ${harness.dir}/run.cml debug target not getting the 
+         proper -add-opens=java.base/java.net=ALL-UNNAMED start up directive from 
+         project.properties -->
     <target name="do.debug">
         <fail unless="netbeans.home">This target only works when run from inside the NetBeans IDE.</fail>
         <nbjpdastart name="NetBeans" addressproperty="debug.port" transport="dt_socket">
