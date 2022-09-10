@@ -66,7 +66,7 @@ import org.web3d.x3d.palette.items.PROTOTYPE_ExtrusionCrossSection;
  */
 @ActionID(id = "org.web3d.x3d.EditElementAction", category = "Edit")
 
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/edit.png",
+@ActionRegistration(iconBase = "org/web3d/x3d/resources/edit.png",
                     displayName = "#CTL_EditElementAction",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
@@ -350,16 +350,12 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
       String pre  = "";
       String post = "";
       switch (retrn) {
-        case ACCEPT_PREPEND_LINEFEED:
-          pre = linesep;
-          break;
-        case ACCEPT_APPEND_LINEFEED:
-          post = linesep;
-          break;
-        case ACCEPT_BOTH_LINEFEEDS:
-          pre  = linesep;
-          post = linesep;
-          break;
+        case ACCEPT_PREPEND_LINEFEED -> pre = linesep;
+        case ACCEPT_APPEND_LINEFEED -> post = linesep;
+        case ACCEPT_BOTH_LINEFEEDS -> {
+            pre  = linesep;
+            post = linesep;
+        }
       }
 
       if (retrn != BaseCustomizer.DialogReturnEnumeration.CANCEL)
@@ -370,6 +366,7 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
 
     return null;
   }
+  
   /* The array and 2 methods below are to support the idea of selecting an enclosing
    * element to edit when the cursor is on an inner one.  The first of these type supported here
    * is the "field" element, which when enclosed in a Script or ProtoDeclare element,
@@ -382,7 +379,6 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
    * it in foundSpecialElement().
    */
   private static final Map<String, String[][]> specialMap;
-
 
   static {
 //    String[][] fieldParents = new String[][]{
