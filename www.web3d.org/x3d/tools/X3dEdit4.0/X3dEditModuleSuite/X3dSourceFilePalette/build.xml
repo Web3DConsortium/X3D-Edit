@@ -6,6 +6,210 @@
     <description>Builds, tests, and runs the project org.web3d.x3d.palette.</description>
     <import file="nbproject/build-impl.xml"/>
     
+    <!-- override -->
+    <target name="clean" depends="projectized-common.clean,-post-clean"/>
+  
+    <!-- Ensure the latest Q/A materials -->
+    <target name="-post-clean">
+        <delete dir="${x3dDtdsSchemas.dir}"/>
+        <delete dir="${x3dSchematron.dir}"/>
+        <delete dir="${x3dStylesheets.dir}"/>
+      
+        <mkdir dir="${x3dDtdsSchemas.dir}"/>
+        <mkdir dir="${x3dSchematron.dir}"/>
+        <mkdir dir="${x3dStylesheets.dir}"/>
+        
+        <antcall target="get.latest"/>
+    </target>
+    
+    <target name="get.latest.DTDs" description="Download latest DTD files from version control">
+        
+        <get src="${x3d.sourceforge.site}/specifications/catalog.dtd"
+                             dest="${x3dDtdsSchemas.dir}/catalog.dtd"             usetimestamp="true" verbose="true"/>
+        
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-InputOutputFields.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0-InputOutputFields.dtd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-Web3dExtensions.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0-Web3dExtensions.dtd"               usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-Web3dExtensionsPrivate.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0-Web3dExtensionsPrivate.dtd"        usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-Web3dExtensionsAmendment1.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0-Web3dExtensionsAmendment1.dtd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-Web3dExtensionsPublic.Specification.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0-Web3dExtensionsPublic.Specification.dtd"               usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-Web3dExtensionsPublic.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0.dtd"               usetimestamp="true" verbose="true"/>
+
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.1-InputOutputFields.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.1-InputOutputFields.dtd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.1-Web3dExtensionsPrivate.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.1-Web3dExtensionsPrivate.dtd"        usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.1-Web3dExtensionsPublic.Specification.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.1-Web3dExtensionsPublic.Specification.dtd"               usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.1-Web3dExtensionsPublic.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.1-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.1.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.1.dtd"               usetimestamp="true" verbose="true"/>
+
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.2-InputOutputFields.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.2-InputOutputFields.dtd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.2-Web3dExtensionsPrivate.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.2-Web3dExtensionsPrivate.dtd"        usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.2-Web3dExtensionsPublic.Specification.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.2-Web3dExtensionsPublic.Specification.dtd"               usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.2-Web3dExtensionsPublic.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.2-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.2.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.2.dtd"               usetimestamp="true" verbose="true"/>
+
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.3-InputOutputFields.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.3-InputOutputFields.dtd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.3-Web3dExtensionsPrivate.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.3-Web3dExtensionsPrivate.dtd"        usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.3-Web3dExtensionsPublic.Specification.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.3-Web3dExtensionsPublic.Specification.dtd"               usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.3-Web3dExtensionsPublic.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.3-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.3.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.3.dtd"               usetimestamp="true" verbose="true"/>
+
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.0-InputOutputFields.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.0-InputOutputFields.dtd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.0-Web3dExtensionsPrivate.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.0-Web3dExtensionsPrivate.dtd"        usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.0-Web3dExtensionsPublic.Specification.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.0-Web3dExtensionsPublic.Specification.dtd"               usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.0-Web3dExtensionsPublic.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.0-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.0.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.0.dtd"               usetimestamp="true" verbose="true"/>
+    </target>
+    
+    <target name="get.latest.schemas" description="Download latest Schema files from version control">
+        
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.1.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.1.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.2.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.2.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.3.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.3.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.0.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.0.xsd"             usetimestamp="true" verbose="true"/>
+        
+        <get src="${x3d.sourceforge.site}/specifications/OasisXmlCatalogX3D.xml"
+                             dest="${x3dDtdsSchemas.dir}/OasisXmlCatalogX3D.xml"             usetimestamp="true" verbose="true"/>
+        
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-Web3dExtensionsAmendment1.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0-Web3dExtensionsAmendment1.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-Web3dExtensionsPrivate.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0-Web3dExtensionsPrivate.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-Web3dExtensionsPublic.Specification.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0-Web3dExtensionsPublic.Specification.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-Web3dExtensionsPublic.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0-Web3dExtensionsPublic.xsd"             usetimestamp="true" verbose="true"/>
+        
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.1-Web3dExtensionsPrivate.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.1-Web3dExtensionsPrivate.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.1-Web3dExtensionsPublic.Specification.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.1-Web3dExtensionsPublic.Specification.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.1-Web3dExtensionsPublic.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.1-Web3dExtensionsPublic.xsd"             usetimestamp="true" verbose="true"/>
+        
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.2-Web3dExtensionsPrivate.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.2-Web3dExtensionsPrivate.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.2-Web3dExtensionsPublic.Specification.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.2-Web3dExtensionsPublic.Specification.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.2-Web3dExtensionsPublic.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.2-Web3dExtensionsPublic.xsd"             usetimestamp="true" verbose="true"/>
+        
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.3-Web3dExtensionsPrivate.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.3-Web3dExtensionsPrivate.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.3-Web3dExtensionsPublic.Specification.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.3-Web3dExtensionsPublic.Specification.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-3.3-Web3dExtensionsPublic.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.3-Web3dExtensionsPublic.xsd"             usetimestamp="true" verbose="true"/>
+        
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.0-Web3dExtensionsPrivate.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.0-Web3dExtensionsPrivate.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.0-Web3dExtensionsPublic.Specification.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.0-Web3dExtensionsPublic.Specification.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.0-Web3dExtensionsPublic.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.0-Web3dExtensionsPublic.xsd"             usetimestamp="true" verbose="true"/>
+    </target>
+     
+    <target name="get.latest.schematrons" description="Download latest Schematron files from version control">
+        
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/build.xml"
+                             dest="${x3dSchematron.dir}/build.xml"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/buildSchematronDevelopment.xml"
+                             dest="${x3dSchematron.dir}/buildSchematronDevelopment.xml"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/SvrlReportText.xslt"
+                             dest="${x3dSchematron.dir}/SvrlReportText.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/X3dSchematronValidityChecks.xslt"
+                             dest="${x3dSchematron.dir}/X3dSchematronValidityChecks.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/X3dSchematronValidityChecks.xslt"
+                             dest="${x3dSchematron.dir}/X3dSchematronValidityChecks.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/iso_abstract_expand.xsl"
+                             dest="${x3dSchematron.dir}/iso_abstract_expand.xsl"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/iso_dsdl_include.xsl"
+                             dest="${x3dSchematron.dir}/iso_dsdl_include.xsl"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/iso_schematron_skeleton_for_saxon.xsl"
+                             dest="${x3dSchematron.dir}/iso_schematron_skeleton_for_saxon.xsl"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/iso_schematron_skeleton_for_xslt1.xsl"
+                             dest="${x3dSchematron.dir}/iso_schematron_skeleton_for_xslt1.xsl"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/iso_svrl.xsl"
+                             dest="${x3dSchematron.dir}/iso_svrl.xsl"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/tools/schematron/iso_svrl_for_xslt2.xsl"
+                             dest="${x3dSchematron.dir}/iso_svrl_for_xslt2.xsl"             usetimestamp="true" verbose="true"/>
+    </target>
+     
+    <target name="get.latest.stylesheets" description="Download latest stylesheet files from version control">
+        
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToX3dvClassicVrmlEncoding.xslt"
+             dest="${x3dStylesheets.dir}/X3dToX3dvClassicVrmlEncoding.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToVrml97.xslt"
+             dest="${x3dStylesheets.dir}/X3dToVrml97.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dExtrusionToSvgViaXslt2.0.xslt"
+             dest="${x3dStylesheets.dir}/X3dExtrusionToSvgViaXslt2.0.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dTidy.xslt"
+             dest="${x3dStylesheets.dir}/X3dTidy.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToHtml.xslt"
+             dest="${x3dStylesheets.dir}/X3dToHtml.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToXhtml-1.xslt"
+             dest="${x3dStylesheets.dir}/X3dToXhtml-1.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToXhtml-2.xslt"
+             dest="${x3dStylesheets.dir}/X3dToXhtml-2.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToXhtml-3.xslt"
+             dest="${x3dStylesheets.dir}/X3dToXhtml-3.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToXhtml-4.xslt"
+             dest="${x3dStylesheets.dir}/X3dToXhtml-4.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToXhtml-5.xslt"
+             dest="${x3dStylesheets.dir}/X3dToXhtml-5.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToXhtml.xslt"
+             dest="${x3dStylesheets.dir}/X3dToXhtml.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToX3dom.xslt"
+             dest="${x3dStylesheets.dir}/X3dToX3dom.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToJson.xslt"
+             dest="${x3dStylesheets.dir}/X3dToJson.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToTurtle.xslt"
+             dest="${x3dStylesheets.dir}/X3dToTurtle.xslt"           usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dTooltipConversions.xslt"
+             dest="${x3dStylesheets.dir}/X3dTooltipConversions.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dUnwrap.xslt"
+             dest="${x3dStylesheets.dir}/X3dUnwrap.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dWrap.xslt"
+             dest="${x3dStylesheets.dir}/X3dWrap.xslt"             usetimestamp="true" verbose="true"/>
+    </target>
+
+    <target name="get.latest" depends="get.latest.DTDs,get.latest.schemas,get.latest.schematrons,get.latest.stylesheets"/>
+
+    <!-- override -->
+    <target name="-pre-compile" depends="projectized-common.-pre-compile"/>
+    
     <target name="run" description="run parent X3D-Edit 4.0 Module Suite">
         <echo message="run parent X3D-Edit 4.0 Module Suite" />
         <ant  antfile="${suite.dir}/build.xml" target="run" useNativeBasedir="true" inheritAll="false"/>
