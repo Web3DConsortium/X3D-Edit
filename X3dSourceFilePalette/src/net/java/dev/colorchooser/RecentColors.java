@@ -193,6 +193,7 @@ class RecentColors extends Palette {
         namedMap.put (color.getRGB(), color);
     }
     
+    @SuppressWarnings("removal") // for AccessControlException
     private Preferences getPreferences() {
         try {
             Preferences base = Preferences.userNodeForPackage(getClass());
