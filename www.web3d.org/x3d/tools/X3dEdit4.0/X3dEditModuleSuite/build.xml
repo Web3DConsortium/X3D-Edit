@@ -52,8 +52,8 @@
         <property name="run.args"  value="${common.args} ${mac.run.args}"/>
     </target>
     <target name="initializeXj3d" >
-        <property name="win_runarguments"  value="${common.xj3d.args} ${xj3darg4}"/>
-        <property name="unix_runarguments" value="${common.xj3d.args} ${xj3darg6}"/>
+        <property name="win_runarguments"  value="${common.xj3d.args} ${xj3darg6}"/>
+        <property name="unix_runarguments" value="${common.xj3d.args} ${xj3darg7}"/>
         <property name="mac_runarguments"  value="${common.xj3d.args} ${xj3darg8} ${xj3darg9} ${xj3darg10} ${xj3darg11} ${xj3darg14}"/>
     </target>
     

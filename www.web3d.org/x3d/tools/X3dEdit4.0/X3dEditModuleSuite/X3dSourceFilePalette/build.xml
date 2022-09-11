@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- You may freely edit this file. See harness/README in the NetBeans platform -->
 <!-- for some information on what you could do (e.g. targets to override). -->
-<!-- If you delete this file and reopen the project it will be recreated. -->
-<project name="org.web3d.x3d.palette" default="netbeans" basedir=".">
+<project name="org.web3d.x3d.palette" default="run" basedir=".">
     <description>Builds, tests, and runs the project org.web3d.x3d.palette.</description>
     <import file="nbproject/build-impl.xml"/>
     
@@ -228,4 +227,14 @@
         <nbbrowse file="src/org/web3d/x3d/layer.xml" />
         <!-- TODO implementation-independent approach if possible, but note that other Ant approaches usually have to be customized for each OS. -->
     </target>
+  
+    <target name="run.xj3d.browser" description="Run Xj3D Externally from X3D-Edit">
+        <ant antfile="${suite.dir}/build.xml" useNativeBasedir="true" inheritAll="false" target="run.xj3d.browser"/>
+    </target>
+  
+    <!-- Just to confirm what our JVM test args are -->
+    <target name="test-preinit" depends="projectized-common.test-preinit">
+        <echo message="${test.run.args}"/>
+    </target>
+
 </project>
