@@ -37,17 +37,14 @@
     </target>
 
     <target name="initializeWindows" if="isWindows" depends="initializeXj3d">
-        <property name="os"        value="win"/>
         <property name="run.xj3d.args"  value="${win_runarguments}"/>
         <property name="run.args"  value="${common.args} ${win.run.args}"/>
     </target>
     <target name="initializeUnix" if="isUnixNotMac" depends="initializeXj3d">
-        <property name="os"        value="unix"/>
         <property name="run.xj3d.args"  value="${unix_runarguments}"/>
         <property name="run.args"  value="${common.args} ${unix.run.args}"/>
     </target>
     <target name="initializeMac" if="isMac" depends="initializeXj3d">
-        <property name="os"        value="mac"/>
         <property name="run.xj3d.args"  value="${mac_runarguments}"/>
         <property name="run.args"  value="${common.args} ${mac.run.args}"/>
     </target>
@@ -152,6 +149,16 @@
         <echo message="https://savage.nps.edu/X3D-Edit" />
         <nbbrowse url="https://savage.nps.edu/X3D-Edit" />
         <!-- TODO implementation-independent approach if possible, but note that other Ant approaches usually have to be customized for each OS. -->
+    </target>
+    
+    <target name="open.harness.readme" description="view the NetBeans harness README file" depends="open.harness.readme.mac,open.harness.readme.win">
+        <echo message="${message}"/>
+    </target>
+    <target name="open.harness.readme.mac">
+        <loadfile property="message" srcFile="../../../../../../../${harness.readme}"/>
+    </target>
+    <target name="open.harness.readme.win">
+        <loadfile property="message" srcFile="${harness.readme}"/>
     </target>
     
 </project>
