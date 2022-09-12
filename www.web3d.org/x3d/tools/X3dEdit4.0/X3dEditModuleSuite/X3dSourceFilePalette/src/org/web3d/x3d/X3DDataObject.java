@@ -123,7 +123,20 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     set.assign(SaveAsCapable.class, (SaveAsCapable) (FileObject folder, String fileName) -> {
         editorSupport.saveAs(folder, fileName);
     });
+    
+    // *** From: https://www.oracle.com/java/technologies/javase/8u331-relnotes.html
+    
+    // Avoid JAXP0801001 which states that expression groups are limited to 10
+    System.setProperty("jdk.xml.xpathExprGrpLimit", "0"); // A value less than or equal to 0 indicates no limit
+    
+    // Avoid JAXP0801002 which states that expression operators are limited to 100
+    System.setProperty("jdk.xml.xpathExprOpLimit", "0");  // A value less than or equal to 0 indicates no limit
+    
+    // Avoid JAXP0801002 which states that total operators are limited to 10000
+    System.setProperty("jdk.xml.xpathTotalOpLimit", "0"); // A value less than or equal to 0 indicates no limit
 
+    // ***
+    
     //This enables the validate and check and transform (xslt) xml buttons
     InputSource in = DataObjectAdapters.inputSource(X3DDataObject.this);
     validateCookie = new ValidateXMLSupport(in);
