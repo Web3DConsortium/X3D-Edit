@@ -70,7 +70,7 @@ import org.web3d.x3d.tools.X3dValuesRegexChecker;
 
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark.png",
                     displayName = "#CTL_ComprehensiveValidationAction",
-                    lazy = true) // don't do lazy=false since iconBase no longer gets registered
+                           lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 30),
   @ActionReference(path = "Toolbars/Author Workflow", position = 30),
