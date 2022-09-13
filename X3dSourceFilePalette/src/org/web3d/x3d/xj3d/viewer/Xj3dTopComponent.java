@@ -56,7 +56,7 @@ import org.openide.windows.WindowManager;
     persistenceType = TopComponent.PERSISTENCE_ALWAYS
 )
 @TopComponent.Registration(mode = "xj3dview", openAtStartup = false)
-@ActionID(category = "Window", id = "org.web3d.x3d.Xj3dTopComponent")
+@ActionID(category = "Window", id = "org.web3d.x3d.palette.Xj3dTopComponent")
 /* This window is opened by other actions...this not needed
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/View Saved Scene", position = 110),
