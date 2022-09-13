@@ -95,7 +95,7 @@ import org.xml.sax.XMLReader;
 public class X3DDataObject extends MultiDataObject implements CookieSet.Factory {
 
   private X3DEditorSupport editorSupport;
-  private final MultiFileLoader loader;
+//  private final MultiFileLoader loader;
   private final ValidateXMLSupport validateCookie;
   private final CheckXMLSupport checkXmlCookie;
   private final TransformableSupport transformXmlCookie;
@@ -111,7 +111,7 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
  public X3DDataObject(FileObject pf, MultiFileLoader loader) throws DataObjectExistsException
   {
     super(pf, loader);
-    this.loader = loader;
+//    this.loader = loader;
     CookieSet set = getCookieSet();
     set.add(X3DEditorSupport.class, X3DDataObject.this);
     set.add(ViewSupport.class, X3DDataObject.this);
@@ -182,7 +182,7 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     // write the new file to disk by copying the template
     FileObject newFo = FileUtil.copyFile(x3dTmplFo,directoryFo,newName);
 
-    return new X3DDataObject(newFo,loader);
+    return new X3DDataObject(newFo, getMultiFileLoader());
   }
 
   @SuppressWarnings("unchecked")
