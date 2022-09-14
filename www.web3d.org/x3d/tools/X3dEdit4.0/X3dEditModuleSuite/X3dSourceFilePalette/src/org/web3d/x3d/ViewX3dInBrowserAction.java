@@ -41,7 +41,6 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d;
 
-import java.io.InputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -61,7 +60,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
 
 @ActionID(id = "org.web3d.x3d.ViewX3dInBrowserAction", category = "View")
-@ActionRegistration(displayName = "#CTL_ViewX3dInBrowser", lazy=false)
+@ActionRegistration(displayName = "#CTL_ViewX3dInBrowser", lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/View Saved Scene", position = 113),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved Scene", position = 113)
@@ -73,11 +72,9 @@ public final class ViewX3dInBrowserAction extends CookieAction
   protected void performAction(Node[] activatedNodes)
   {
     X3DDataObject x3DDataObject = activatedNodes[0].getLookup().lookup(X3DDataObject.class);
-    X3DEditorSupport supp = x3DDataObject.getLookup().lookup(org.web3d.x3d.X3DEditorSupport.class);
 
     FileObject fo = x3DDataObject.getPrimaryFile();
     try {
-      InputStream is = supp.getInputStream();
 
       // Method 1: use temp file
       //File tempF = File.createTempFile(fo.getName(),"."+fo.getExt());
