@@ -514,7 +514,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <folder name="Actions">
                     <file name="OpenAction.instance">
                         <attr name="instanceClass" stringvalue="org.openide.actions.OpenAction"/>
-                        <attr name="position" intvalue="1"/><!-- non-zero? -->
+                        <attr name="position" intvalue="50"/><!-- non-zero? -->
                     </file>
                     <file name="ViewAction.instance">
                         <attr name="instanceClass" stringvalue="org.openide.actions.ViewAction"/>
@@ -598,7 +598,7 @@ POSSIBILITY OF SUCH DAMAGE.
             </folder>
         </folder>
         <folder name="X3D-Edit">
-            <attr name="position" intvalue="1200"/>
+            <attr name="position" intvalue="1150"/>
             <folder name="Author Workflow">
                 <attr name="position" intvalue="20"/>
             </folder>
