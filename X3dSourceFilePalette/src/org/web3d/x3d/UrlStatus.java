@@ -76,7 +76,7 @@ public class UrlStatus
   public static Object checkStatus(String url, File baseDir, UrlStatusListener listener)
   {
     Runner r = new Runner();
-    Thread thr = new Thread(r,"org.web3d.x3d.tools.UrlStatus");
+    Thread thr = new Thread(r,"org.web3d.x3d.UrlStatus");
     thr.setPriority(Thread.NORM_PRIORITY);
     ActionPacket packet = new ActionPacket(url, baseDir, listener, thr);
     r.setData(packet);

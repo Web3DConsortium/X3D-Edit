@@ -34,7 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 -->
 <!DOCTYPE tc-ref PUBLIC "-//NetBeans//DTD Top Component in Mode Properties 2.0//EN" "http://www.netbeans.org/dtds/tc-ref2_0.dtd">
 <tc-ref version="2.0" >
-  <module name="org.web3d.x3d" spec="0.986"/>
+  <module name="org.web3d.x3d.palette" spec="0.986"/>
   <tc-id id="DisPlayerRecorderTopComponent"/>
   <state opened="false"/>
 </tc-ref>
