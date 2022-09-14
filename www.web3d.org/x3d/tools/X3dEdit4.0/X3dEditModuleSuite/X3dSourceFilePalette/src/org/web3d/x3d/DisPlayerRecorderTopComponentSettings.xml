@@ -34,7 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 -->
 <!DOCTYPE settings PUBLIC "-//NetBeans//DTD Session settings 1.0//EN" "http://www.netbeans.org/dtds/sessionsettings-1_0.dtd">
 <settings version="1.0">
-  <module name="org.web3d.x3d" spec="0.986"/>
+  <module name="org.web3d.x3d.palette" spec="0.986"/>
   <instanceof class="org.openide.windows.TopComponent"/>
   <instanceof class="org.web3d.x3d.dis.DisPlayerRecorderTopComponent"/>
   <instance class="org.web3d.x3d.dis.DisPlayerRecorderTopComponent" method="getDefault"/>
