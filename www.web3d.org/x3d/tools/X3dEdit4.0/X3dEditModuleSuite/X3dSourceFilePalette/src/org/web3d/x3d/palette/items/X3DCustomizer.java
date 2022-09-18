@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -80,34 +80,32 @@ public class X3DCustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        attributesPanel = new javax.swing.JPanel();
         versionLabel = new javax.swing.JLabel();
         versionComboBox = new javax.swing.JComboBox<>();
         versionHintLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
         profileComboBox = new javax.swing.JComboBox<>();
-        nodeHintPanel1 = new javax.swing.JPanel();
         nodeHintLabel1 = new javax.swing.JLabel();
-        imagePanel = new javax.swing.JPanel();
         followerFigureLabel = new javax.swing.JLabel();
         followerFigureLabel1 = new javax.swing.JLabel();
-        nodeHintPanel2 = new javax.swing.JPanel();
         nodeHintLabel2 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(580, 600));
         setPreferredSize(new java.awt.Dimension(580, 600));
         setLayout(new java.awt.GridBagLayout());
 
-        versionLabel.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        versionLabel.setText("X3D version");
+        attributesPanel.setLayout(new java.awt.GridBagLayout());
+
+        versionLabel.setText("<html> <p>X3D&nbsp; <i>version</i> </p> </html>");
         versionLabel.setToolTipText("X3D Specification version for this scene, required");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(8, 40, 3, 3);
-        add(versionLabel, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        attributesPanel.add(versionLabel, gridBagConstraints);
 
         versionComboBox.setEditable(true);
         versionComboBox.setModel(new DefaultComboBoxModel<>(X3D_ATTR_VERSION_CHOICES));
@@ -121,37 +119,36 @@ public class X3DCustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(8, 3, 3, 3);
-        add(versionComboBox, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        attributesPanel.add(versionComboBox, gridBagConstraints);
 
-        versionHintLabel.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         versionHintLabel.setText("Recommended");
         versionHintLabel.setToolTipText("version hint");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(8, 3, 3, 3);
-        add(versionHintLabel, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        attributesPanel.add(versionHintLabel, gridBagConstraints);
 
+        profileLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         profileLabel.setText("profile");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(profileLabel, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(3, 13, 3, 3);
+        attributesPanel.add(profileLabel, gridBagConstraints);
 
         profileComboBox.setEditable(true);
         profileComboBox.setModel(new DefaultComboBoxModel<>(X3D_ATTR_PROFILE_CHOICES));
@@ -161,39 +158,32 @@ public class X3DCustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(profileComboBox, gridBagConstraints);
-
-        nodeHintPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nodeHintPanel1.setLayout(new java.awt.GridBagLayout());
-
-        nodeHintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        nodeHintLabel1.setText("<html>\n<p><b>X3D</b> is the root XML element for an X3D scene graph, containing <b>head</b> and <b>Scene</b> elements.</p>\n<p><i>version</i> is required.</p>\n<ul>\n<li><i>version</i> <b>3.3</b>: <i>Recommended</i></li>\n<li><i>version</i> <b>4.0</b>: <i>Experimental</i></li>\n</ul>\n<hr />\n<p><i>profile</i> tells an X3D application how large the node vocabulary might be for this scene. </p>\n<ul>\n<li><i>profile</i> <b>Core</b>: <i>Empty profile containing only Metadata nodes</i></li>\n<li><i>profile</i> <b>Interchange</b>: <i>Minimum subset of nodes needed to author lightweight compelling content</i></li>\n<li><i>profile</i> <b>Interactive</b>: <i>Interchange geometry plus simple user interaction</i></li>\n<li><i>profile</i> <b>Immersive</b>: <i>is common and approximately matches VRML97 with Script and Prototypes</i></li>\n<li><i>profile</i> <b>CADInterchange</b>: <i>Interchange geometry plus computer-aided design (CAD) model distillation</i></li>\n<li><i>profile</i> <b>MedicalInterchange</b>: <i>adds support for VolumeRendering component to Interchange profile</i></li>\n<li><i>profile</i> <b>Full</b>: <i>contains all nodes defined in X3D specification.</i></li>\n</ul>");
-        nodeHintLabel1.setToolTipText("close this panel to addor modify children nodes");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 6);
-        nodeHintPanel1.add(nodeHintLabel1, gridBagConstraints);
+        attributesPanel.add(profileComboBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(9, 3, 3, 3);
-        add(nodeHintPanel1, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        add(attributesPanel, gridBagConstraints);
 
-        imagePanel.setBackground(new java.awt.Color(255, 255, 255));
-        imagePanel.setMaximumSize(new java.awt.Dimension(350, 210));
-        imagePanel.setMinimumSize(new java.awt.Dimension(350, 210));
-        imagePanel.setPreferredSize(new java.awt.Dimension(350, 210));
-        imagePanel.setLayout(new java.awt.GridBagLayout());
+        nodeHintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        nodeHintLabel1.setText("<html> <hr /> <p><b>X3D</b> is the root XML element for an X3D scene graph, containing <b>head</b> and <b>Scene</b> elements.</p> <hr />  <p> <i>version</i> value is required, and <i>version</i> <b>4.0</b> is recommended</i></li> </ul> <hr /> <p><i>profile</i> tells an X3D application how large the node vocabulary might be for this scene. </p> <ul> <li><i>profile</i> <b>Core</b>: <i>Empty profile containing only Metadata nodes</i></li> <li><i>profile</i> <b>Interchange</b>: <i>Minimum subset of nodes needed to author lightweight compelling content</i></li> <li><i>profile</i> <b>Interactive</b>: <i>Interchange geometry plus simple user interaction</i></li> <li><i>profile</i> <b>Immersive</b>: <i>is common and approximately matches VRML97 with Script and Prototypes</i></li> <li><i>profile</i> <b>CADInterchange</b>: <i>Interchange geometry plus computer-aided design (CAD) model distillation</i></li> <li><i>profile</i> <b>MedicalInterchange</b>: <i>adds support for VolumeRendering component to Interchange profile</i></li> <li><i>profile</i> <b>Full</b>: <i>contains all nodes defined in X3D specification.</i></li> </ul> <hr /> </html>");
+        nodeHintLabel1.setToolTipText("close this panel to addor modify children nodes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 6);
+        add(nodeHintLabel1, gridBagConstraints);
 
         followerFigureLabel.setBackground(new java.awt.Color(255, 255, 255));
         followerFigureLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -205,11 +195,11 @@ public class X3DCustomizer extends BaseCustomizer
         followerFigureLabel.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        imagePanel.add(followerFigureLabel, gridBagConstraints);
+        add(followerFigureLabel, gridBagConstraints);
 
         followerFigureLabel1.setBackground(new java.awt.Color(255, 255, 255));
         followerFigureLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -218,40 +208,24 @@ public class X3DCustomizer extends BaseCustomizer
         followerFigureLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 6);
-        imagePanel.add(followerFigureLabel1, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.weightx = 2.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
-        add(imagePanel, gridBagConstraints);
-
-        nodeHintPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nodeHintPanel2.setLayout(new java.awt.GridBagLayout());
+        add(followerFigureLabel1, gridBagConstraints);
 
         nodeHintLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        nodeHintLabel2.setText("<html>\n\n<p>Add <b>head</b> and<b>component</b> elements to support additional nodes above this profile.</p>\n<p>Add <b>head</b> and<b>meta</b> elements to provide metadata about this document.</p>\n<p>Add <b>Scene</b> element to contain X3D shapes, animation and interaction.</p>\n<p>&nbsp;</p>\n<p> X3D Schematron checkmark button can confirm X3D version, profile and components for this scene.</p>");
+        nodeHintLabel2.setText("<html>  <p>Add <b>head</b> and <b>component</b> elements to support additional nodes above this profile.</p> <p>Add <b>head</b> and <b>meta</b> elements to provide metadata about this document.</p> <p>Add <b>Scene</b> element to contain X3D shapes, animation and interaction.</p> <p>&nbsp;</p> <p> X3D Schematron checkmark button can confirm X3D version, profile and components for this scene.</p>");
         nodeHintLabel2.setToolTipText("close this panel to addor modify children nodes");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 6);
-        nodeHintPanel2.add(nodeHintLabel2, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(9, 3, 3, 3);
-        add(nodeHintPanel2, gridBagConstraints);
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 7;
+        gridBagConstraints.ipady = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE;
+        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 6);
+        add(nodeHintLabel2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void versionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_versionComboBoxActionPerformed
@@ -285,13 +259,11 @@ public class X3DCustomizer extends BaseCustomizer
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel attributesPanel;
     private javax.swing.JLabel followerFigureLabel;
     private javax.swing.JLabel followerFigureLabel1;
-    private javax.swing.JPanel imagePanel;
     private javax.swing.JLabel nodeHintLabel1;
     private javax.swing.JLabel nodeHintLabel2;
-    private javax.swing.JPanel nodeHintPanel1;
-    private javax.swing.JPanel nodeHintPanel2;
     private javax.swing.JComboBox<String> profileComboBox;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JComboBox<String> versionComboBox;

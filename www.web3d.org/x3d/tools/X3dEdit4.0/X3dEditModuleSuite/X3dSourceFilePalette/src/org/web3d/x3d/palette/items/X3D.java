@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -42,8 +42,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "1. X3D Structure and Metadata",
-    itemid = "2_X3D",
+    category = "1. X3D Model Structure and Metadata",
+    itemid = "4_X3D",
     icon32 = "org/web3d/x3d/palette/items/resources/X3D32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/X3D16.png",
     body = "<X3D profile='Immersive' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>\n  <head>\n    <!-- add scene-information statements here: component unit meta, in that order -->\n  </head>\n  <Scene>\n    <!-- enter X3D nodes and statements here -->\n  </Scene>\n</X3D>",
@@ -73,17 +73,17 @@ public class X3D extends SceneGraphStructureNodeType
 
   private final String defaultContent =
       linesep   +
-      "<head>"  +
+      "  <head>"  +
       linesep   +
-      "<!-- meta nodes are added here -->"+
+      "    <!-- component, unit and meta statements are added here -->"+
       linesep   +
-     "</head>"  +
+     "  </head>"  +
       linesep   +
-      "<Scene>" +
+      "  <Scene>" +
       linesep   +
-      "<!-- Scene graph nodes are added here -->"+
+      "    <!-- Scene graph nodes and statements are added here -->"+
       linesep   +
-      "</Scene>"+
+      "  </Scene>"+
       linesep;
   
   public X3D()
