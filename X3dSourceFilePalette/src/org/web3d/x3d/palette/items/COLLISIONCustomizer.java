@@ -73,7 +73,6 @@ public class COLLISIONCustomizer extends BaseCustomizer
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     enabledCB.setSelected(collision.isEnabled());
-    collideTimeTF.setText(collision.getCollideTime());
     bboxCenterXTF.setText(collision.getBboxCenterX());
     bboxCenterYTF.setText(collision.getBboxCenterY());
     bboxCenterZTF.setText(collision.getBboxCenterZ());
@@ -109,8 +108,6 @@ public class COLLISIONCustomizer extends BaseCustomizer
         bboxSizeZTF = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
-        collideTimeTF = new javax.swing.JTextField();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
@@ -226,8 +223,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         jLabel2.setToolTipText("enables/disables collision detection for children and all descendants");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
         add(jLabel2, gridBagConstraints);
@@ -236,33 +232,13 @@ public class COLLISIONCustomizer extends BaseCustomizer
         enabledCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledCB, gridBagConstraints);
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel3.setText("collideTime");
-        jLabel3.setToolTipText("time of collision between camera (avatar) and geometry");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
-        add(jLabel3, gridBagConstraints);
-
-        collideTimeTF.setToolTipText("time of collision between camera (avatar) and geometry");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(collideTimeTF, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
@@ -308,11 +284,9 @@ public class COLLISIONCustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxSizeXTF;
     private javax.swing.JTextField bboxSizeYTF;
     private javax.swing.JTextField bboxSizeZTF;
-    private javax.swing.JTextField collideTimeTF;
     private javax.swing.JCheckBox enabledCB;
     private javax.swing.JLabel hintLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel nodeHintPanel;
@@ -330,7 +304,6 @@ public class COLLISIONCustomizer extends BaseCustomizer
     unLoadDEFUSE();
     
     collision.setEnabled(enabledCB.isSelected());
-    collision.setCollideTime(collideTimeTF.getText().trim());
     collision.setBboxCenterX(bboxCenterXTF.getText().trim());
     collision.setBboxCenterY(bboxCenterYTF.getText().trim());
     collision.setBboxCenterZ(bboxCenterZTF.getText().trim());
