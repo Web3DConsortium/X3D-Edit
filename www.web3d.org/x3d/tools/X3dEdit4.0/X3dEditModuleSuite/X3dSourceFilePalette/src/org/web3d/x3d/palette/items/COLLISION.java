@@ -55,7 +55,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
 public class COLLISION extends X3DGroupingNode
 {
   private boolean enabled;
-  private SFInt32 collideTime, collideTimeDefault;
+//  private SFInt32 collideTime, collideTimeDefault;// outputOnly
 
   public COLLISION()
   {
@@ -74,7 +74,7 @@ public class COLLISION extends X3DGroupingNode
   public void initialize()
   {
     enabled = Boolean.parseBoolean(COLLISION_ATTR_ENABLED_DFLT);
-    collideTime = collideTimeDefault = new SFInt32(COLLISION_ATTR_COLLIDETIME_DFLT);
+//    collideTime = collideTimeDefault = new SFInt32(COLLISION_ATTR_COLLIDETIME_DFLT); // outputOnly
 
     String[] fa = parse3(COLLISION_ATTR_BBOXCENTER_DFLT);
     bboxCenterX = bboxCenterXDefault = new SFFloat(fa[0], null, null);
@@ -97,9 +97,9 @@ public class COLLISION extends X3DGroupingNode
     org.jdom.Attribute attr = root.getAttribute(COLLISION_ATTR_ENABLED_NAME);
     if (attr != null)
       enabled = Boolean.parseBoolean(attr.getValue());
-    attr = root.getAttribute(COLLISION_ATTR_COLLIDETIME_NAME);
-    if (attr != null)
-      collideTime = new SFInt32(attr.getValue());
+//    attr = root.getAttribute(COLLISION_ATTR_COLLIDETIME_NAME); // outputOnly
+//    if (attr != null)
+//      collideTime = new SFInt32(attr.getValue());
 
     String[] fa;
     attr = root.getAttribute(COLLISION_ATTR_BBOXCENTER_NAME);
@@ -160,13 +160,13 @@ public class COLLISION extends X3DGroupingNode
       sb.append("'");
     }
 
-    if (COLLISION_ATTR_COLLIDETIME_REQD || !collideTime.equals(collideTimeDefault)) {
-      sb.append(" ");
-      sb.append(COLLISION_ATTR_COLLIDETIME_NAME);
-      sb.append("='");
-      sb.append(collideTime);
-      sb.append("'");
-    }
+//    if (COLLISION_ATTR_COLLIDETIME_REQD || !collideTime.equals(collideTimeDefault)) { // outputOnly
+//      sb.append(" ");
+//      sb.append(COLLISION_ATTR_COLLIDETIME_NAME);
+//      sb.append("='");
+//      sb.append(collideTime);
+//      sb.append("'");
+//    }
 
     if (COLLISION_ATTR_ENABLED_REQD || (enabled != Boolean.parseBoolean(COLLISION_ATTR_ENABLED_DFLT))) {
       sb.append(" ");
@@ -179,15 +179,15 @@ public class COLLISION extends X3DGroupingNode
     return sb.toString();
   }
 
-  public String getCollideTime()
-  {
-    return ""+collideTime;
-  }
-
-  public void setCollideTime(String ct)
-  {
-    collideTime = new SFInt32(ct);
-  }
+//  public String getCollideTime() // outputOnly
+//  {
+//    return ""+collideTime;
+//  }
+//
+//  public void setCollideTime(String ct)
+//  {
+//    collideTime = new SFInt32(ct);
+//  }
 
   public boolean isEnabled()
   {
