@@ -881,13 +881,15 @@ POSSIBILITY OF SUCH DAMAGE.
     </folder>
     
     <folder name="X3DPalette">
-        <folder name="X3D_Metadata_and_Structure">
-            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/X3D_Metadata_and_Structure"/>
+        <folder name="1_X3D_Model_Structure_and_Metadata">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/1_X3D_Model_Structure_and_Metadata"/>
             <attr name="position" intvalue="1000"/>
             <file name="COMMENT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COMMENT.xml">
                 <attr name="position" intvalue="100"/>
             </file>
-            <!--<file name="XML.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/XML.xml"><attr name="position" intvalue="130"/></file>-->
+            <file name="XML.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/XML.xml">
+                <attr name="position" intvalue="130"/>
+            </file>
             <file name="DOCTYPE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DOCTYPE.xml">
                 <attr name="position" intvalue="160"/>
             </file>
