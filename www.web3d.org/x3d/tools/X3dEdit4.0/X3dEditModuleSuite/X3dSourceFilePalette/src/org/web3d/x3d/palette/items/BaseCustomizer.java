@@ -104,14 +104,19 @@ public abstract class BaseCustomizer extends JPanel
   public BaseCustomizer(BaseX3DElement currentBaseX3DElement)
   {
     this.baseX3DElement = currentBaseX3DElement;
-    
-//    TODO review
-    SwingUtilities.invokeLater(() -> {
-        // TODO adjust for resizable DEFUSEPanel
-        getDEFUSEpanel().resetHtmlPaneVisibility(); // close HTML CSS section if not needed
-    });
-
     decimalFormatSymbols.setDecimalSeparator('.');
+    
+    //    TODO review
+
+    if (!currentBaseX3DElement.getElementName().equals("XML") &&
+        !currentBaseX3DElement.getElementName().equals("DOCTYPE")) // special cases
+        // TODO XML COMMENT
+    {
+        SwingUtilities.invokeLater(() -> {
+            // TODO adjust for resizable DEFUSEPanel
+            getDEFUSEpanel().resetHtmlPaneVisibility(); // close HTML CSS section if not needed
+        });
+    }
   }
 
   protected void enableTraceEventsCB (boolean enabler)
@@ -158,14 +163,15 @@ public abstract class BaseCustomizer extends JPanel
         if (saveModelCustomizerAccept || saveModelWindowCloseAccept)
         {
             try {
-                unloadInput(); // defined by each customizer, saves displayed values
+                unloadInput(); // defined by each customizer, saves displayed values found in interface
                 currentX3dElement.setTraceEventsSelectionAvailable  (  appendTraceEventsCB.isSelected());
                 currentX3dElement.setVisualizationSelectionAvailable(appendVisualizationCB.isSelected());
                 dropOK = true; // accept input
                 wantDialog = false;  // don't need to retry
                 // TODO finalize serialization in case window closes?
             }
-            catch (IllegalArgumentException ex) {
+            catch (IllegalArgumentException ex)
+            {
                 String   acceptString = NbBundle.getMessage(getClass(), "LBL_accept");
                 String tryAgainString = NbBundle.getMessage(getClass(), "LBL_tryagain");
                 String   cancelString = NbBundle.getMessage(getClass(), "LBL_cancel");
