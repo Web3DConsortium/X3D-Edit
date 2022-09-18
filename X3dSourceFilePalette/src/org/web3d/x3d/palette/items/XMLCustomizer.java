@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -33,12 +33,10 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 
 package org.web3d.x3d.palette.items;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
-import static org.web3d.x3d.types.X3DSchemaData.*;
 /**
- * X3DCustomizer.java
+ * XMLCustomizer.java
  * Created on March 7, 2008, 2:46 PM
  *
  * MOVES Institute
@@ -50,20 +48,16 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class XMLCustomizer extends BaseCustomizer
 {
-  private DOCTYPE doctype;
+  private XML xmlHeader;
   private JTextComponent target;
 
-  public XMLCustomizer(DOCTYPE doctype, JTextComponent target)
+  public XMLCustomizer(XML xmlHeader, JTextComponent target)
   {
-    super(doctype);
-    this.doctype = doctype;
-    this.target = target;
+    super(xmlHeader);
 
-    HelpCtx.setHelpIDString(XMLCustomizer.this, "DOCTYPE_HELPID"); // not in tooltips, TODO add it
+    HelpCtx.setHelpIDString(XMLCustomizer.this, "XML_HELPID"); // not in tooltips, TODO add it
 
     initComponents();
-
-    versionComboBox.setSelectedItem(doctype.getVersion());
   }
 
   /** This method is called from within the constructor to
@@ -74,51 +68,32 @@ public class XMLCustomizer extends BaseCustomizer
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        versionLabel = new javax.swing.JLabel();
-        versionComboBox = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        xmlStatementLabel = new javax.swing.JLabel();
 
-        versionLabel.setText("version");
-
-        versionComboBox.setModel(new DefaultComboBoxModel<String>(X3D_ATTR_VERSION_CHOICES));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("<html><p align='center'><b>DOCTYPE</b> follows the XML declaration and precedes the X3D element.</p> <p align='center'><b>DOCTYPE</b> provides string-based element-attribute validation of scene content.</p>");
+        xmlStatementLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        xmlStatementLabel.setText("<html><p align='center'><b>&lt;?xml</b> version=\"1.0\" encoding=\"UTF-8\"?&gt;</p>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(versionLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(versionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(xmlStatementLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(versionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(versionLabel))
-                .addContainerGap())
+                .addComponent(xmlStatementLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JComboBox<String> versionComboBox;
-    private javax.swing.JLabel versionLabel;
+    private javax.swing.JLabel xmlStatementLabel;
     // End of variables declaration//GEN-END:variables
 
   @Override
@@ -130,8 +105,6 @@ public class XMLCustomizer extends BaseCustomizer
   @Override
   public void unloadInput()
   {
-      doctype.setVersion (((String) versionComboBox.getSelectedItem()).trim());
-   
-	  int versionIndex = versionComboBox.getSelectedIndex();
+      // no modifications allowed
   }
 }
