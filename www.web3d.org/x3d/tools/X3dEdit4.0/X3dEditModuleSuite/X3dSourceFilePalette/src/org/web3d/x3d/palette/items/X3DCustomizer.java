@@ -174,7 +174,7 @@ public class X3DCustomizer extends BaseCustomizer
         add(attributesPanel, gridBagConstraints);
 
         nodeHintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        nodeHintLabel1.setText("<html> <hr /> <p><b>X3D</b> is the root XML element for an X3D scene graph, containing <b>head</b> and <b>Scene</b> elements.</p> <hr />  <p> <i>version</i> value is required, and <i>version</i> <b>4.0</b> is recommended</i></li> </ul> <hr /> <p><i>profile</i> tells an X3D application how large the node vocabulary might be for this scene. </p> <ul> <li><i>profile</i> <b>Core</b>: <i>Empty profile containing only Metadata nodes</i></li> <li><i>profile</i> <b>Interchange</b>: <i>Minimum subset of nodes needed to author lightweight compelling content</i></li> <li><i>profile</i> <b>Interactive</b>: <i>Interchange geometry plus simple user interaction</i></li> <li><i>profile</i> <b>Immersive</b>: <i>is common and approximately matches VRML97 with Script and Prototypes</i></li> <li><i>profile</i> <b>CADInterchange</b>: <i>Interchange geometry plus computer-aided design (CAD) model distillation</i></li> <li><i>profile</i> <b>MedicalInterchange</b>: <i>adds support for VolumeRendering component to Interchange profile</i></li> <li><i>profile</i> <b>Full</b>: <i>contains all nodes defined in X3D specification.</i></li> </ul> <hr /> </html>");
+        nodeHintLabel1.setText("<html> <hr /> <p><b>X3D</b> is the root XML element for an X3D scene graph, containing <b>head</b> and <b>Scene</b> elements.</p> <hr />  <p> &nbsp; &nbsp; <i>version</i> value is required, and <i>version</i> <b>4.0</b> is recommended</i></li> </ul> <hr /> <p> &nbsp; &nbsp; <i>profile</i> value tells an X3D application how large the node vocabulary might be for this scene. </p> <ul> <li><i>profile</i> <b>Core</b>: <i>Empty profile containing only Metadata nodes</i></li> <li><i>profile</i> <b>Interchange</b>: <i>Minimum set of nodes to author lightweight compelling content</i></li> <li><i>profile</i> <b>Interactive</b>: <i>Interchange geometry plus simple user interaction</i></li> <li><i>profile</i> <b>Immersive</b>: <i>is common and approximately matches VRML97 with Script and Prototypes</i></li> <li><i>profile</i> <b>CADInterchange</b>: <i>Basic models plus computer-aided design (CAD) model distillation</i></li> <li><i>profile</i> <b>MedicalInterchange</b>: <i>Interchange support plus VolumeRendering for medical records</i></li> <li><i>profile</i> <b>Full</b>: <i>contains all nodes defined in X3D specification.</i></li> </ul> <hr /> </html>");
         nodeHintLabel1.setToolTipText("close this panel to addor modify children nodes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -203,9 +203,12 @@ public class X3DCustomizer extends BaseCustomizer
 
         followerFigureLabel1.setBackground(new java.awt.Color(255, 255, 255));
         followerFigureLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        followerFigureLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/palette/items/resources/HelloSceneGraph.png"))); // NOI18N
+        followerFigureLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/palette/items/resources/HelloSceneGraphStructure.visio.png"))); // NOI18N
         followerFigureLabel1.setToolTipText("X3D scene graph structure");
         followerFigureLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        followerFigureLabel1.setMaximumSize(new java.awt.Dimension(302, 129));
+        followerFigureLabel1.setMinimumSize(new java.awt.Dimension(302, 129));
+        followerFigureLabel1.setPreferredSize(new java.awt.Dimension(302, 129));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -214,7 +217,7 @@ public class X3DCustomizer extends BaseCustomizer
         add(followerFigureLabel1, gridBagConstraints);
 
         nodeHintLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        nodeHintLabel2.setText("<html>  <p>Add <b>head</b> and <b>component</b> elements to support additional nodes above this profile.</p> <p>Add <b>head</b> and <b>meta</b> elements to provide metadata about this document.</p> <p>Add <b>Scene</b> element to contain X3D shapes, animation and interaction.</p> <p>&nbsp;</p> <p> X3D Schematron checkmark button can confirm X3D version, profile and components for this scene.</p>");
+        nodeHintLabel2.setText("<html>  <p>Add <b>head</b> with <b>component</b> elements to support additional nodes above a given profile.</p> <p>Add <b>head</b> with <b>unit</b> elements to provide unit conversions for numeric data.</p> <p>Add <b>head</b> with <b>meta</b> elements to provide metadata about this document.</p> <p>Add <b>Scene</b> element to contain X3D shapes, animation and interaction.</p> <p>&nbsp;</p> <p> Validation checkmark button confirms X3D version, profile, components for a scene.</p>");
         nodeHintLabel2.setToolTipText("close this panel to addor modify children nodes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -224,7 +227,7 @@ public class X3DCustomizer extends BaseCustomizer
         gridBagConstraints.ipadx = 7;
         gridBagConstraints.ipady = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 6);
+        gridBagConstraints.insets = new java.awt.Insets(3, 46, 3, 6);
         add(nodeHintLabel2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
