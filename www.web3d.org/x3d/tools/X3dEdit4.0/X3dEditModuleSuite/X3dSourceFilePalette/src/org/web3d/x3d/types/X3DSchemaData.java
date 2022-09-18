@@ -59,9 +59,10 @@ public interface X3DSchemaData
   String  DOCTYPE_ELNAME                = "DOCTYPE";
   String  DOCTYPE_ATTR_VERSION_NAME     = "version";
   boolean DOCTYPE_ATTR_VERSION_REQD     = true;
-  String  DOCTYPE_ATTR_VERSION_DFLT     = "3.3";
+  String  DOCTYPE_ATTR_VERSION_DFLT     = "4.0";
 
-  // XML comment
+  // XML, comment
+  String      XML_ELNAME   = "XML";
   String  COMMENT_ELNAME   = "COMMENT"; //XML comment"; this gets remapped
 
   // Root X3D element
@@ -71,7 +72,7 @@ public interface X3DSchemaData
   String  X3D_ATTR_PROFILE_DFLT     = "Immersive";
   String  X3D_ATTR_VERSION_NAME     = "version";
   boolean X3D_ATTR_VERSION_REQD     = true;
-  String  X3D_ATTR_VERSION_DFLT     = "3.3";
+  String  X3D_ATTR_VERSION_DFLT     = "4.0";
   String  X3D_ATTR_XMLNSXSD_NAME    = "xmlns:xsd";
   boolean X3D_ATTR_XMLNSXSD_REQD    = true;
   String  X3D_ATTR_XMLNSXSD_DFLT    = "http://www.w3.org/2001/XMLSchema-instance";
@@ -102,7 +103,7 @@ public interface X3DSchemaData
       "ISO Standard 2006",
       "ISO Standard 2008",
       "ISO Standard 2012",
-      "ISO Ballot 2021",
+      "ISO Draft Ballot 2022",
   };
 
   // head element
