@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -42,8 +42,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 @PaletteItemRegistration
 (
     paletteid = "X3DPalette",
-    category = "1. X3D Structure and Metadata",
-    itemid = "1_DOCTYPE",
+    category = "1. X3D Model Structure and Metadata",
+    itemid = "2_DOCTYPE",
     icon32 = "org/web3d/x3d/palette/items/resources/DOCTYPE32.png",
     icon16 = "org/web3d/x3d/palette/items/resources/DOCTYPE16.png",
     body = "\n<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D 4.0//EN\" \"https://www.web3d.org/specifications/x3d-4.0.dtd\">",
