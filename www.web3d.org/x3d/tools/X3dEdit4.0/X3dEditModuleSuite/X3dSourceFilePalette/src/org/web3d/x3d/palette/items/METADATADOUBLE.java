@@ -42,17 +42,19 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
 
-@PaletteItemRegistration
-(
-    paletteid = "X3DPalette",
-    category = "1. X3D Structure and Metadata",
-    itemid = "METADATADOUBLE",
-    icon32 = "org/web3d/x3d/palette/items/resources/METADATADOUBLE32.png",
-    icon16 = "org/web3d/x3d/palette/items/resources/METADATADOUBLE16.png",
-    body = "<MetadataDouble name='someValues' value='1.0 2.0 3.0'/>",
-    name = "MetadataDouble",
-    tooltip = "MetadataDouble provides a typed list of values providing metadata information about its parent node"
-)
+//import org.netbeans.spi.palette.PaletteItemRegistration;
+
+//@PaletteItemRegistration
+//(
+//    paletteid = "X3DPalette",
+//    category = "1. X3D Model Structure and Metadata",
+//    itemid = "METADATADOUBLE",
+//    icon32 = "org/web3d/x3d/palette/items/resources/METADATADOUBLE32.png",
+//    icon16 = "org/web3d/x3d/palette/items/resources/METADATADOUBLE16.png",
+//    body = "<MetadataDouble name='someValues' value='1.0 2.0 3.0'/>",
+//    name = "MetadataDouble",
+//    tooltip = "MetadataDouble provides a typed list of values providing metadata information about its parent node"
+//)
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 

@@ -35,23 +35,24 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
 import org.web3d.x3d.types.X3DShapeNode;
 
-@PaletteItemRegistration
-(
-    paletteid = "X3DPalette",
-    category = "2. Geometry Primitives",
-    itemid = "1_SHAPE",
-    icon32 = "org/web3d/x3d/palette/items/resources/SHAPE32.png",
-    icon16 = "org/web3d/x3d/palette/items/resources/SHAPE16.png",
-    body = "\n    <Shape>\n      <!-- Geometry node here -->\n      <Appearance><Material/></Appearance>\n    </Shape>",
-    name = "Shape",
-    tooltip = "Shape contains a single geometry node and corresponding Appearance"
-)
+//import org.netbeans.spi.palette.PaletteItemRegistration;
+
+//@PaletteItemRegistration
+//(
+//    paletteid = "X3DPalette",
+//    category = "2. Geometry Primitives (Annotations)",
+//    itemid = "1_SHAPE",
+//    icon32 = "org/web3d/x3d/palette/items/resources/SHAPE32.png",
+//    icon16 = "org/web3d/x3d/palette/items/resources/SHAPE16.png",
+//    body = "\n    <Shape>\n      <!-- Geometry node here -->\n      <Appearance><Material/></Appearance>\n    </Shape>",
+//    name = "Shape",
+//    tooltip = "Shape contains a single geometry node and corresponding Appearance"
+//)
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 

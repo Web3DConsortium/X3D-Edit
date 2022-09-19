@@ -34,21 +34,22 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
-import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.SceneGraphStructureNodeType;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
-@PaletteItemRegistration
-(
-    paletteid = "X3DPalette",
-    category = "1. X3D Structure and Metadata",
-    itemid = "7_SCENE",
-    icon32 = "org/web3d/x3d/palette/items/resources/SCENE32.png",
-    icon16 = "org/web3d/x3d/palette/items/resources/SCENE16.png",
-    body = "<Scene>\n    <!-- enter X3D nodes and statements here -->\n  </Scene>",
-    name = "Scene",
-    tooltip = "Valid comments are found between XML elements"
-)
+//import org.netbeans.spi.palette.PaletteItemRegistration;
+
+//@PaletteItemRegistration
+//(
+//    paletteid = "X3DPalette",
+//    category = "1. X3D Model Structure and Metadata",
+//    itemid = "7_SCENE",
+//    icon32 = "org/web3d/x3d/palette/items/resources/SCENE32.png",
+//    icon16 = "org/web3d/x3d/palette/items/resources/SCENE16.png",
+//    body = "<Scene>\n    <!-- enter X3D nodes and statements here -->\n  </Scene>",
+//    name = "Scene",
+//    tooltip = "Valid comments are found between XML elements"
+//)
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 

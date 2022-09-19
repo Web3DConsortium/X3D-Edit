@@ -35,22 +35,23 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.X3DGeometryNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
-@PaletteItemRegistration
-(
-    paletteid = "X3DPalette",
-    category = "2. Geometry Primitives",
-    itemid = "SPHERE",
-    icon32 = "org/web3d/x3d/palette/items/resources/SPHERE32.png",
-    icon16 = "org/web3d/x3d/palette/items/resources/SPHERE16.png",
-    body = "<Sphere radius='1' solid='true'/>",
-    name = "Sphere",
-    tooltip = "Sphere defines spherical 3D geometry"
-)
+//import org.netbeans.spi.palette.PaletteItemRegistration;
+
+//@PaletteItemRegistration
+//(
+//    paletteid = "X3DPalette",
+//    category = "2. Geometry Primitives (Annotations)",
+//    itemid = "SPHERE",
+//    icon32 = "org/web3d/x3d/palette/items/resources/SPHERE32.png",
+//    icon16 = "org/web3d/x3d/palette/items/resources/SPHERE16.png",
+//    body = "<Sphere radius='1' solid='true'/>",
+//    name = "Sphere",
+//    tooltip = "Sphere defines spherical 3D geometry"
+//)
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 

@@ -35,22 +35,23 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.X3DFontStyleNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
-@PaletteItemRegistration
-(
-    paletteid = "X3DPalette",
-    category = "2. Geometry Primitives",
-    itemid = "TEXT_FONTSTYLE", // follow Text node in palette
-    icon32 = "org/web3d/x3d/palette/items/resources/FONTSTYLE32.png",
-    icon16 = "org/web3d/x3d/palette/items/resources/FONTSTYLE16.png",
-    body = "<FontStyle family='\"SERIF\"' horizontal='true' justify='\"MIDDLE\" \"MIDDLE\"' language='en' leftToRight='true' size='1.0' spacing='1.0' style='PLAIN'/>",
-    name = "FontStyle",
-    tooltip = "FontStyle customizes presentation of polygonal Text strings"
-)
+//import org.netbeans.spi.palette.PaletteItemRegistration;
+
+//@PaletteItemRegistration
+//(
+//    paletteid = "X3DPalette",
+//    category = "2. Geometry Primitives (Annotations)",
+//    itemid = "TEXT_FONTSTYLE", // follow Text node in palette
+//    icon32 = "org/web3d/x3d/palette/items/resources/FONTSTYLE32.png",
+//    icon16 = "org/web3d/x3d/palette/items/resources/FONTSTYLE16.png",
+//    body = "<FontStyle family='\"SERIF\"' horizontal='true' justify='\"MIDDLE\" \"MIDDLE\"' language='en' leftToRight='true' size='1.0' spacing='1.0' style='PLAIN'/>",
+//    name = "FontStyle",
+//    tooltip = "FontStyle customizes presentation of polygonal Text strings"
+//)
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
