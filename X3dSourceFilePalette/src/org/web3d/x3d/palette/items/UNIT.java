@@ -35,22 +35,23 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-import org.netbeans.spi.palette.PaletteItemRegistration;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
 import org.web3d.x3d.types.SceneGraphStructureNodeType;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
-@PaletteItemRegistration
-(
-    paletteid = "X3DPalette",
-    category = "1. X3D Structure and Metadata",
-    itemid = "5_UNIT",
-    icon32 = "org/web3d/x3d/palette/items/resources/UNIT32.png",
-    icon16 = "org/web3d/x3d/palette/items/resources/UNIT16.png",
-    body = "<unit name='FeetToMeters' category='length' conversionFactor='0.3048'/>",
-    name = "unit",
-    tooltip = "A unit statement defines data-conversion factors for typed values in a scene"
-)
+//import org.netbeans.spi.palette.PaletteItemRegistration;
+
+//@PaletteItemRegistration
+//(
+//    paletteid = "X3DPalette",
+//    category = "1. X3D Model Structure and Metadata",
+//    itemid = "5_UNIT",
+//    icon32 = "org/web3d/x3d/palette/items/resources/UNIT32.png",
+//    icon16 = "org/web3d/x3d/palette/items/resources/UNIT16.png",
+//    body = "<unit name='FeetToMeters' category='length' conversionFactor='0.3048'/>",
+//    name = "unit",
+//    tooltip = "A unit statement defines data-conversion factors for typed values in a scene"
+//)
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 

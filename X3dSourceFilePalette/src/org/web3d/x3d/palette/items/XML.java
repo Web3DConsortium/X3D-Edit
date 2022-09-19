@@ -35,21 +35,22 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.SceneGraphStructureNodeType;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
-@PaletteItemRegistration
-(
-    paletteid = "X3DPalette",
-    category = "1. X3D Model Structure and Metadata",
-    itemid = "1_XML",
-    icon32 = "org/web3d/x3d/palette/items/resources/XML32.png",
-    icon16 = "org/web3d/x3d/palette/items/resources/XML16.png",
-    body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
-    name = "XML",
-    tooltip = "XML header at top of Extensible Markup Language (XML) document"
-)
+//import org.netbeans.spi.palette.PaletteItemRegistration;
+
+//@PaletteItemRegistration
+//(
+//    paletteid = "X3DPalette",
+//    category = "1. X3D Model Structure and Metadata",
+//    itemid = "1_XML",
+//    icon32 = "org/web3d/x3d/palette/items/resources/XML32.png",
+//    icon16 = "org/web3d/x3d/palette/items/resources/XML16.png",
+//    body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+//    name = "XML",
+//    tooltip = "XML header at top of Extensible Markup Language (XML) document"
+//)
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 
@@ -59,7 +60,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 // TODO add X3D Tooltip
 
 /**
- * DOCTYPE.java
+ * XML.java
  * Created on April 12, 2008
  *
  * MOVES Institute
@@ -73,6 +74,7 @@ public class XML extends SceneGraphStructureNodeType
 {
   public XML()
   {
+        // constructor
   }
 
   @Override
@@ -99,9 +101,9 @@ public class XML extends SceneGraphStructureNodeType
     super.initializeFromJdom(root, comp);
   }
 
-  @Override
-  public String createAttributes()
-  {
-      return ""; // nada
-  }
+//  @Override
+//  public String createAttributes()
+//  {
+//      return ""; // nada
+//  }
 }

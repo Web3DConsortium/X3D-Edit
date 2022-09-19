@@ -85,8 +85,21 @@ public class COMMENTCustomizer extends BaseCustomizer // tutorial: javax.swing.J
     }
     private void evaluateInput()
     {
-        String newComment = commentTextArea.getText();
-        comment.setCommentText(newComment);
+        String commentText = commentTextArea.getText();
+        
+        if (normalizeCheckBox.isSelected())
+        {
+            // TODO put in method for repeated use when loading comment text
+            commentText = commentText.trim();
+            if (commentText.startsWith("<!--"))
+                commentText = commentText.substring(4);
+            if (commentText.endsWith  ("-->"))
+                commentText = commentText.substring(1,commentText.length()-4);
+            while (commentText.contains("--"))
+                commentText = commentText.replace("--", "- -"); // -- not allowed within comment
+            // TODO dialog box if text changed
+        }
+        comment.setCommentText(commentText);
     }
 
     /**
@@ -97,45 +110,74 @@ public class COMMENTCustomizer extends BaseCustomizer // tutorial: javax.swing.J
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         commentLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         commentTextArea = new javax.swing.JTextArea();
+        normalizeCheckBox = new javax.swing.JCheckBox();
+
+        setLayout(new java.awt.GridBagLayout());
 
         org.openide.awt.Mnemonics.setLocalizedText(commentLabel, org.openide.util.NbBundle.getMessage(COMMENTCustomizer.class, "COMMENTCustomizer.commentLabel.text")); // NOI18N
+        commentLabel.setToolTipText(org.openide.util.NbBundle.getMessage(COMMENTCustomizer.class, "COMMENTCustomizer.commentLabel.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(commentLabel, gridBagConstraints);
+
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(80, 40));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(620, 90));
 
         commentTextArea.setColumns(20);
+        commentTextArea.setLineWrap(true);
         commentTextArea.setRows(5);
         commentTextArea.setText(org.openide.util.NbBundle.getMessage(COMMENTCustomizer.class, "COMMENTCustomizer.commentTextArea.text")); // NOI18N
+        commentTextArea.setToolTipText(org.openide.util.NbBundle.getMessage(COMMENTCustomizer.class, "COMMENTCustomizer.commentTextArea.toolTipText")); // NOI18N
+        commentTextArea.setWrapStyleWord(true);
+        commentTextArea.setMinimumSize(new java.awt.Dimension(80, 20));
+        commentTextArea.setPreferredSize(new java.awt.Dimension(600, 40));
         jScrollPane1.setViewportView(commentTextArea);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(commentLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(commentLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(jScrollPane1, gridBagConstraints);
+
+        normalizeCheckBox.setSelected(true);
+        org.openide.awt.Mnemonics.setLocalizedText(normalizeCheckBox, org.openide.util.NbBundle.getMessage(COMMENTCustomizer.class, "COMMENTCustomizer.normalizeCheckBox.text")); // NOI18N
+        normalizeCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(COMMENTCustomizer.class, "COMMENTCustomizer.normalizeCheckBox.toolTipText")); // NOI18N
+        normalizeCheckBox.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        normalizeCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                normalizeCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
+        add(normalizeCheckBox, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void normalizeCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalizeCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_normalizeCheckBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel commentLabel;
     private javax.swing.JTextArea commentTextArea;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JCheckBox normalizeCheckBox;
     // End of variables declaration//GEN-END:variables
 
     @Override

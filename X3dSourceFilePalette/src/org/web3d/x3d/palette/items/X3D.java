@@ -35,21 +35,22 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.SceneGraphStructureNodeType;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
-@PaletteItemRegistration
-(
-    paletteid = "X3DPalette",
-    category = "1. X3D Model Structure and Metadata",
-    itemid = "4_X3D",
-    icon32 = "org/web3d/x3d/palette/items/resources/X3D32.png",
-    icon16 = "org/web3d/x3d/palette/items/resources/X3D16.png",
-    body = "<X3D profile='Immersive' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>\n  <head>\n    <!-- add scene-information statements here: component unit meta, in that order -->\n  </head>\n  <Scene>\n    <!-- enter X3D nodes and statements here -->\n  </Scene>\n</X3D>",
-    name = "X3D",
-    tooltip = "X3D statement is top-most XML element in an Extensible 3D (X3D) Graphics model"
-)
+//import org.netbeans.spi.palette.PaletteItemRegistration;
+
+//@PaletteItemRegistration
+//(
+//    paletteid = "X3DPalette",
+//    category = "1. X3D Model Structure and Metadata",
+//    itemid = "4_X3D",
+//    icon32 = "org/web3d/x3d/palette/items/resources/X3D32.png",
+//    icon16 = "org/web3d/x3d/palette/items/resources/X3D16.png",
+//    body = "<X3D profile='Immersive' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>\n  <head>\n    <!-- add scene-information statements here: component unit meta, in that order -->\n  </head>\n  <Scene>\n    <!-- enter X3D nodes and statements here -->\n  </Scene>\n</X3D>",
+//    name = "X3D",
+//    tooltip = "X3D statement is top-most XML element in an Extensible 3D (X3D) Graphics model"
+//)
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 

@@ -40,23 +40,24 @@ package org.web3d.x3d.palette.items;
 import java.util.Arrays;
 import java.util.Vector;
 import javax.swing.text.JTextComponent;
-import org.netbeans.spi.palette.PaletteItemRegistration;
 import org.web3d.x3d.types.X3DGeometryNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
 
-@PaletteItemRegistration
-(
-    paletteid = "X3DPalette",
-    category = "2. Geometry Primitives",
-    itemid = "TEXT",
-    icon32 = "org/web3d/x3d/palette/items/resources/TEXT32.png",
-    icon16 = "org/web3d/x3d/palette/items/resources/TEXT16.png",
-    body = "<Text string='\"Multiline string segments\" \"are quoted MFString values\"' solid='false'><!-- optional Fontstyle goes here --></Text>",
-    name = "Text",
-    tooltip = "Text defines flat polygonal strings"
-)
+//import org.netbeans.spi.palette.PaletteItemRegistration;
+
+//@PaletteItemRegistration
+//(
+//    paletteid = "X3DPalette",
+//    category = "2. Geometry Primitives (Annotations)",
+//    itemid = "TEXT",
+//    icon32 = "org/web3d/x3d/palette/items/resources/TEXT32.png",
+//    icon16 = "org/web3d/x3d/palette/items/resources/TEXT16.png",
+//    body = "<Text string='\"Multiline string segments\" \"are quoted MFString values\"' solid='false'><!-- optional Fontstyle goes here --></Text>",
+//    name = "Text",
+//    tooltip = "Text defines flat polygonal strings"
+//)
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/architecture-summary.html
 // https://bits.netbeans.org/14/javadoc/org-netbeans-spi-palette/org/netbeans/spi/palette/PaletteItemRegistration.html
 

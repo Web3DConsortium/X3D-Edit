@@ -210,7 +210,11 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
               post = linesep;
               break;
           }
-          
+          // XML header is not within X3D, handle separately
+          if (getElementName().equals("XML") || getElementName().equals("X3D"))
+          {
+              lineFeedText = ""; // permit presence on first line of file
+          }
           String bodyText = lineFeedText + priorInsert() + createBody() + post;
           int start = X3DPaletteUtilitiesJdom.insert(bodyText, targetComponent, true, this); // format too
           //io.getOut().println("good insert");
@@ -295,14 +299,15 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   {
   }
 
-  private String createCommonX3dAttributes()
+  private String createElementNameCommonX3dAttributes()
   {
     StringBuilder sb = new StringBuilder();
-    if (!getElementName().equals("DOCTYPE"))
+    if (getElementName().equals("XML") || getElementName().equals("DOCTYPE"))
     {
-        sb.append("<");
-        sb.append(getElementName());
+        return ""; // special cases outside of X3D
     }
+    sb.append("<");
+    sb.append(getElementName());
 
     if(isDEF())
       sb.append(buildDEF());
@@ -405,44 +410,54 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 //////        document.getContent (protoFilter);
 //////    }
 
-      if (getElementName().equals("X3D"))
-      {
-			// ensure XML and DOCTYPE are correct
-			String prelude = sb.toString();
-			String xmlHead     = new String();  
-			String postDoctype = new String(); 
-			if (prelude.contains("<!DOCTYPE"))
-			{
-				xmlHead     = prelude.substring(0, sb.indexOf("<!DOCTYPE"));
-				postDoctype = prelude.substring(sb.indexOf("<!DOCTYPE"));
-				postDoctype = postDoctype.substring(sb.indexOf(">"));
-			}
-			sb = new StringBuilder();
+    if (getElementName().equals("XML")) // XML header is not within X3D, handle separately
+    {
+        sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+        return sb.toString();
+    }
+    // TODO XML comment handling?
+    else if (getElementName().equals("X3D"))
+    {
+        // ensure XML and DOCTYPE are correct
+        String prelude = sb.toString();
+        String xmlHead     = new String();  
+        String postDoctype = new String(); 
+        if (prelude.contains("<!DOCTYPE"))
+        {
+                xmlHead     = prelude.substring(0, sb.indexOf("<!DOCTYPE"));
+                postDoctype = prelude.substring(sb.indexOf("<!DOCTYPE"));
+                postDoctype = postDoctype.substring(sb.indexOf(">"));
+        }
+        sb = new StringBuilder();
 //			if (xmlHead.contains("XML"))
 //				 sb.append(xmlHead);
 //			else
-			sb.append (X3DSchemaData.XML_HEADER).append("\n"); // ensure correct
-			String x3dRootAttributes = createAttributes();
-			if      (x3dRootAttributes.contains("3.0"))
-				sb.append (X3DSchemaData.DOCTYPE_3_0).append("\n");
-			else if (x3dRootAttributes.contains("3.1"))
-				sb.append (X3DSchemaData.DOCTYPE_3_1).append("\n");
-			else if (x3dRootAttributes.contains("3.2"))
-				sb.append (X3DSchemaData.DOCTYPE_3_2).append("\n");
-			else if (x3dRootAttributes.contains("3.3"))
-				sb.append (X3DSchemaData.DOCTYPE_3_3).append("\n");
-			else if (x3dRootAttributes.contains("4.0"))
-				sb.append (X3DSchemaData.DOCTYPE_4_0).append("\n");
-			if (!postDoctype.isEmpty())
-			{
-				sb.append(postDoctype);
-			}
-      }
-    // DEF or USE (if any), containerField (if not default)
-    sb.append(createCommonX3dAttributes());
+        sb.append (X3DSchemaData.XML_HEADER).append("\n"); // ensure correct
+        String x3dRootAttributes = createAttributes();
+        if      (x3dRootAttributes.contains("3.0"))
+                sb.append (X3DSchemaData.DOCTYPE_3_0).append("\n");
+        else if (x3dRootAttributes.contains("3.1"))
+                sb.append (X3DSchemaData.DOCTYPE_3_1).append("\n");
+        else if (x3dRootAttributes.contains("3.2"))
+                sb.append (X3DSchemaData.DOCTYPE_3_2).append("\n");
+        else if (x3dRootAttributes.contains("3.3"))
+                sb.append (X3DSchemaData.DOCTYPE_3_3).append("\n");
+        else if (x3dRootAttributes.contains("4.0"))
+                sb.append (X3DSchemaData.DOCTYPE_4_0).append("\n");
+        if (!postDoctype.isEmpty())
+        {
+                sb.append(postDoctype);
+        }
+    }
+    
+    if (!getElementName().equals("DOCTYPE"))
+    {
+        // DEF or USE (if any), containerField (if not default)
+        sb.append(createElementNameCommonX3dAttributes());
+    }
     
     if (isDEF()) // equivalent to checking if X3D node (not statement)?
-	{
+    {
         String attrs = createAttributes().trim();
         if(attrs.length() > 0) {
           sb.append(" "); // follows element name
@@ -2880,7 +2895,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         System.err.println (sb.toString());
         ex.printStackTrace (System.err);
     }
-    // =============================================================================================================================
+    // =============================================================================================================================    
     return sb.toString();
   }
 
