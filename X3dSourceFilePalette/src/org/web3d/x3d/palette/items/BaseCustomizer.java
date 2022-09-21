@@ -92,8 +92,9 @@ public abstract class BaseCustomizer extends JPanel
 
   private JCheckBox prependNewLineCB;
   private JCheckBox appendNewLineCB;
-  private static boolean wantLeadingLineFeed = false; // by default for in-place edits
+  private static boolean wantLeadingLineFeed  = false; // by default for in-place edits
   private static boolean wantTrailingLineFeed = false;
+  private        boolean hasDEFUSEpanel;
 
   private final JCheckBox   appendTraceEventsCB = new JCheckBox("Trace", false);
   private final JCheckBox appendVisualizationCB = new JCheckBox("Visualize", false);
@@ -106,11 +107,14 @@ public abstract class BaseCustomizer extends JPanel
     this.baseX3DElement = currentBaseX3DElement;
     decimalFormatSymbols.setDecimalSeparator('.');
     
-    //    TODO review
-
-    if (!currentBaseX3DElement.getElementName().equals("XML") &&
-        !currentBaseX3DElement.getElementName().equals("DOCTYPE")) // special cases
+    //    TODO review,  selecting DOCTYPE should shift to X3D for editing
+    hasDEFUSEpanel = 
+        !currentBaseX3DElement.getElementName().equals("XML") &&
+        !currentBaseX3DElement.getElementName().equals("DOCTYPE") &&
+        !currentBaseX3DElement.getElementName().equals("COMMENT"); // special cases
         // TODO XML COMMENT
+
+    if (hasDEFUSEpanel)
     {
         SwingUtilities.invokeLater(() -> {
             // TODO adjust for resizable DEFUSEPanel
@@ -509,7 +513,10 @@ public abstract class BaseCustomizer extends JPanel
 
   protected DEFUSEpanel getDEFUSEpanel()
   {
-    if(defUSEpanel == null) {
+    if (hasDEFUSEpanel)
+          return null;
+    if(defUSEpanel == null)
+    {
       defUSEpanel = new DEFUSEpanel();
 
       initializeDEFUSEpanel();
