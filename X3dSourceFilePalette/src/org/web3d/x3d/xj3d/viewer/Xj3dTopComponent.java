@@ -47,7 +47,7 @@ import org.openide.windows.WindowManager;
  * Top component which displays something.
  */
 @ConvertAsProperties(
-    dtd = "-//org.web3d.x3d//Xj3dNew//EN", // TODO huh?  what is this?
+    dtd = "-//org.web3d.x3d.palette//Xj3dNew//EN", // TODO huh?  what is this?
     autostore = false
 )
 @TopComponent.Description(
@@ -56,7 +56,7 @@ import org.openide.windows.WindowManager;
     persistenceType = TopComponent.PERSISTENCE_ALWAYS
 )
 @TopComponent.Registration(mode = "xj3dview", openAtStartup = false)
-@ActionID(category = "Window", id = "org.web3d.x3d.palette.Xj3dTopComponent")
+@ActionID(category = "Window", id = "org.web3d.x3d.xj3d.viewer.Xj3dTopComponent")
 /* This window is opened by other actions...this not needed
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/View Saved Scene", position = 110),
@@ -98,6 +98,7 @@ public final class Xj3dTopComponent extends TopComponent
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 
+  // These two required by @ConvertAsProperties
   void writeProperties(java.util.Properties p)
   {
     // better to version settings since initial version as advocated at
@@ -108,10 +109,10 @@ public final class Xj3dTopComponent extends TopComponent
 
   void readProperties(java.util.Properties p)
   {
-    String version = p.getProperty("version");
+    p.getProperty("version");
     // TODO read your settings according to their version
   }
-
+    
   private static final String              PREFERRED_ID = "Xj3dTopComponent";
   private static       Xj3dTopComponent instance;
   private        final Xj3dViewerPanel     xj3dPanel;
@@ -119,6 +120,7 @@ public final class Xj3dTopComponent extends TopComponent
 
   /**
    * Gets or creates the Xj3dTopComponent.
+   * @return an Xj3dTopComponent
    */
   public static synchronized Xj3dTopComponent findInstance()
   {
@@ -127,10 +129,10 @@ public final class Xj3dTopComponent extends TopComponent
     {
       return getDefault(); // instance not found via PREFERRED_ID, so create it
     }
-    if (window instanceof Xj3dTopComponent) 
+    if (window instanceof Xj3dTopComponent xj3dTopComponent) 
     {
       window.setMinimumSize(XJ3D_PANEL_MINIMUM_DIMENSIONS); // pane for Xj3D Model View
-      return (Xj3dTopComponent) window;
+      return xj3dTopComponent;
     }
     ErrorManager.getDefault().log(ErrorManager.WARNING, "There seem to be multiple components with the \'" + PREFERRED_ID + "\' ID. That is a potential source of errors and unexpected behavior.");
     return getDefault();
