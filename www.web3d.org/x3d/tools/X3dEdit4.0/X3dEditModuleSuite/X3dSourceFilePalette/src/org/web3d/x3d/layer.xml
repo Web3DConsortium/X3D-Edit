@@ -109,10 +109,6 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="org-web3d-x3d-actions-conversions-GzipWrlAction.instance_hidden"/>
             <file name="org-web3d-x3d-actions-qualityassurance-SMALmetadataValidationAction.instance_hidden"/>
         </folder>
-        <folder name="View">
-            <file name="org-web3d-x3d-actions-ViewInXj3DAction.instance_hidden"/>
-            <file name="org-web3d-x3d-actions-ViewInXj3DExternalAction.instance_hidden"/>
-        </folder>
         <folder name="Window"/>
     </folder>
     <folder name="OptionsDialog">
@@ -161,13 +157,6 @@ POSSIBILITY OF SUCH DAMAGE.
                     </folder>
                     <folder name="View Saved Scene">
                         <attr name="position" intvalue="50"/>
-                        <!--
-                        <file name="ViewInAllseparator.instance">
-                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                            <attr name="position" intvalue="116"/>
-                        </file>
-                        <file name="org-web3d-x3d-actions-ViewInOtherAction.shadow_hidden"/>-->
-                        <file name="org-web3d-x3d-actions-ViewInXj3DExternalAction.shadow_hidden"/>
                     </folder>
                     <file name="x3d-popup-separator2.instance">
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
@@ -510,11 +499,6 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="url" stringvalue="https://savage.nps.edu/X3D-Edit/netbeans_modules/updates.xml"/>
             </file>
         </folder>
-<!--        <folder name="JavaHelp">
-            <file name="x3d-helpset.xml" url="x3d-helpset.xml">
-                <attr name="position" intvalue="150"/>
-            </file>
-        </folder>-->
     </folder>
     <folder name="Loaders">
         <folder name="model">
@@ -630,10 +614,6 @@ POSSIBILITY OF SUCH DAMAGE.
                 <file name="org-netbeans-modules-css-visual-api-CssStylesTC-OpenAction.shadow_hidden"/>
             </folder>
             <file name="org-netbeans-core-ide-ServicesTabAction.shadow_hidden"/>
-            <folder name="Output">
-                <attr name="position" intvalue="510"/>
-                <file name="org-netbeans-modules-versioning-util-OpenVersioningOutputAction.shadow_hidden"/>
-            </folder>
         </folder>
         <folder name="X3D-Edit">
             <attr name="position" intvalue="1150"/>
@@ -669,7 +649,6 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- ViewInVivatyPlayerAction  position 137 -->
                 <!-- ViewInAction  position  -->
                 <!-- ViewInOtherAction  position 200 -->
-                <file name="org-web3d-x3d-actions-ViewInXj3DExternalAction.shadow_hidden"/>
             </folder>
             <file name="x3dMenuSeparatorBetweenConversionsAndExamples.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
@@ -684,7 +663,6 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- gzip compression .x3d.gz file GzipX3dAction 1000 -->
                 <!-- gzip compression .x3dv file GzipX3dvAction  1100 -->
                 <!-- gzip compression .wrl file GzipWrlAction    1200 -->
-            <!--<file name="org-web3d-x3d-actions-conversions-GzipWrlAction.shadow_hidden"/>-->
                 <file name="org-web3d-x3d-actions-conversions-separatorAfter1.instance">
                     <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                     <attr name="position" intvalue="1500"/>
