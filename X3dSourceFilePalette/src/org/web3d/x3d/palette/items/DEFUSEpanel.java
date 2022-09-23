@@ -246,6 +246,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         htmlHelpButton = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        setMinimumSize(new java.awt.Dimension(580, 112));
         setLayout(new java.awt.GridBagLayout());
 
         x3dDefUsejPanel.setLayout(new java.awt.GridBagLayout());
@@ -273,9 +274,6 @@ public class DEFUSEpanel extends javax.swing.JPanel
         DEFnameModificationButton.setToolTipText("add new DEF name (must review/edit to ensure unique)");
         DEFnameModificationButton.setActionCommand("");
         DEFnameModificationButton.setMargin(new java.awt.Insets(1, 2, 1, 2));
-        DEFnameModificationButton.setMaximumSize(new java.awt.Dimension(17, 17));
-        DEFnameModificationButton.setMinimumSize(new java.awt.Dimension(17, 17));
-        DEFnameModificationButton.setPreferredSize(new java.awt.Dimension(17, 17));
         DEFnameModificationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DEFnameModificationButtonActionPerformed(evt);
