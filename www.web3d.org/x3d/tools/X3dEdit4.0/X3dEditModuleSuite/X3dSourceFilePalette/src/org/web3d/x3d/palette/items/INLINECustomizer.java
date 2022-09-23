@@ -175,8 +175,8 @@ public class INLINECustomizer extends BaseCustomizer
         expectedProfileComboBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(800, 400));
-        setPreferredSize(new java.awt.Dimension(800, 400));
+        setMinimumSize(new java.awt.Dimension(800, 490));
+        setPreferredSize(new java.awt.Dimension(800, 490));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(67, 67));
@@ -185,6 +185,8 @@ public class INLINECustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
