@@ -112,7 +112,6 @@ public abstract class BaseCustomizer extends JPanel
         !currentBaseX3DElement.getElementName().equals("XML") &&
         !currentBaseX3DElement.getElementName().equals("DOCTYPE") &&
         !currentBaseX3DElement.getElementName().equals("COMMENT"); // special cases
-        // TODO XML COMMENT
 
     if (hasDEFUSEpanel)
     {
@@ -513,7 +512,7 @@ public abstract class BaseCustomizer extends JPanel
 
   protected DEFUSEpanel getDEFUSEpanel()
   {
-    if (hasDEFUSEpanel)
+    if (!hasDEFUSEpanel) // XML, DOCTYPE, COMMENT
           return null;
     if(defUSEpanel == null)
     {
