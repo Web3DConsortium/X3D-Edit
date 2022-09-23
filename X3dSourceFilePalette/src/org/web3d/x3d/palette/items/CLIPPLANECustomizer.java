@@ -113,6 +113,7 @@ public class CLIPPLANECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -206,8 +207,9 @@ public class CLIPPLANECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(plane3TF, gridBagConstraints);
 
-        normalizePlaneVectorButton.setText("normalize plane vector");
+        normalizePlaneVectorButton.setText("normalize plane values to unit vector");
         normalizePlaneVectorButton.setToolTipText("scale (a,b,c) values to unit vector");
+        normalizePlaneVectorButton.setActionCommand("normalize plane vector values");
         normalizePlaneVectorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 normalizePlaneVectorButtonActionPerformed(evt);
@@ -221,7 +223,7 @@ public class CLIPPLANECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(normalizePlaneVectorButton, gridBagConstraints);
 
-        negatePlaneVectorButton.setText("negate");
+        negatePlaneVectorButton.setText("reverse/negate values");
         negatePlaneVectorButton.setToolTipText("negate all plane values (a,b,c,d) to reverse which side of plane has visibility clipped");
         negatePlaneVectorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,11 +241,13 @@ public class CLIPPLANECustomizer extends BaseCustomizer
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hintLabel.setText("<html>  <p align=\"center\"><b>ClipPlane</b> defines a single plane equation used to clip (meaning cull or hide) displayed peer/child geometry.</p>  <p align=\"center\">The single-sided half-plane is defined by an offset (a,b,c) vector with offset distance d from origin.</p>  <p align=\"center\">Hint: negate all plane values to reverse which side of the plane has visibility and which side is clipped.</p>");
         hintLabel.setToolTipText("ClipPlane has no child nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
