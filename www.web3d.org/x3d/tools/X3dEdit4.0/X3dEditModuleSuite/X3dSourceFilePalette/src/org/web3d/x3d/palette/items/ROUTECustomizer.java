@@ -233,70 +233,49 @@ public class ROUTECustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        hintPanel = new javax.swing.JPanel();
-        eventLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        fromNodeCB = new javax.swing.JComboBox<String>();
+        fromNodeCB = new javax.swing.JComboBox<>();
         fromNodeLabel = new javax.swing.JLabel();
         fromFieldLabel = new javax.swing.JLabel();
-        fromFieldCB = new javax.swing.JComboBox<String>();
+        fromFieldCB = new javax.swing.JComboBox<>();
         fromTypeLab = new javax.swing.JLabel();
         fromAccessLab = new javax.swing.JLabel();
         fromNodeWarningLabel = new javax.swing.JLabel();
         fromFieldWarningLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         toNodeLabel = new javax.swing.JLabel();
-        toNodeCB = new javax.swing.JComboBox<String>();
+        toNodeCB = new javax.swing.JComboBox<>();
         toFieldLabel = new javax.swing.JLabel();
-        toFieldCB = new javax.swing.JComboBox<String>();
+        toFieldCB = new javax.swing.JComboBox<>();
         toTypeLab = new javax.swing.JLabel();
         toAccessLab = new javax.swing.JLabel();
         toNodeWarningLabel = new javax.swing.JLabel();
         toFieldWarningLabel = new javax.swing.JLabel();
+        hintPanel = new javax.swing.JPanel();
+        eventLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(385, 400));
+        setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(new java.awt.GridBagLayout());
-
-        hintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        hintPanel.setLayout(new java.awt.GridBagLayout());
-
-        eventLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventLabel.setText("<html><b>ROUTE</b> enables event passing by connecting a source node's output field to a destination node's input field");
-        eventLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 11, 3, 11);
-        hintPanel.add(eventLabel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        add(hintPanel, gridBagConstraints);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Event Source", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanel1.setToolTipText("Source node provides a typed value for animation");
+        jPanel1.setPreferredSize(new java.awt.Dimension(600, 400));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         fromNodeCB.setEditable(true);
-        fromNodeCB.setToolTipText("DEF name of source node");
+        fromNodeCB.setToolTipText("select DEF name of source node");
         fromNodeCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fromNodeCBActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(6, 3, 3, 3);
         jPanel1.add(fromNodeCB, gridBagConstraints);
 
         fromNodeLabel.setText("fromNode");
@@ -304,26 +283,26 @@ public class ROUTECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(6, 9, 3, 3);
         jPanel1.add(fromNodeLabel, gridBagConstraints);
 
         fromFieldLabel.setText("fromField");
         fromFieldLabel.setToolTipText("fromField is part of fromNode");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(3, 9, 3, 3);
         jPanel1.add(fromFieldLabel, gridBagConstraints);
 
         fromFieldCB.setEditable(true);
-        fromFieldCB.setToolTipText("field producing events from source node");
+        fromFieldCB.setToolTipText("select name of field producing events from source node");
         fromFieldCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fromFieldCBActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -375,59 +354,57 @@ public class ROUTECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jPanel1, gridBagConstraints);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Event Destination", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
         jPanel2.setToolTipText("changes a value in the scene graph");
+        jPanel2.setPreferredSize(new java.awt.Dimension(500, 200));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         toNodeLabel.setText("toNode");
         toNodeLabel.setToolTipText("Destination toNode must have a DEF name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(6, 23, 3, 3);
         jPanel2.add(toNodeLabel, gridBagConstraints);
 
         toNodeCB.setEditable(true);
-        toNodeCB.setToolTipText("DEF name of destination node");
+        toNodeCB.setToolTipText("select DEF name of destination node");
         toNodeCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 toNodeCBActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(6, 3, 3, 3);
         jPanel2.add(toNodeCB, gridBagConstraints);
 
         toFieldLabel.setText("toField");
         toFieldLabel.setToolTipText("toField is part of toNode");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 23, 3, 3);
         jPanel2.add(toFieldLabel, gridBagConstraints);
 
         toFieldCB.setEditable(true);
-        toFieldCB.setToolTipText("field receiving events in destination node");
+        toFieldCB.setToolTipText("select name offield receiving events in destination node");
         toFieldCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 toFieldCBActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -477,12 +454,36 @@ public class ROUTECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(jPanel2, gridBagConstraints);
+
+        hintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintPanel.setPreferredSize(new java.awt.Dimension(500, 200));
+        hintPanel.setLayout(new java.awt.GridBagLayout());
+
+        eventLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eventLabel.setText("<html> <p align=\"center\"><b>ROUTE</b> enables event passing by connecting a source node's output field to a destination node's input field </p>\n<ul>\n    <li> Warning: each ROUTE must follow the DEF definition of both event-source and event-target nodes. </li>\n    <li> Warning: strongly typed event checking means that data type (SFInt32, MFVec3f, etc.) must match identically for both event-source and event-target fields. </li>\n    <li> Warning: event-source fields can have accessType outputOnly or inputOutput, while event-target nodes can have accessType inputOnly or inputOutput. </li>\n    <li> Hint: X3D-Edit addition of event tracing supports animation debugging. </li>\n</ul>\n\n\n");
+        eventLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        hintPanel.add(eventLabel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jPanel2, gridBagConstraints);
+        add(hintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
   private String lastFromNodeType = "";

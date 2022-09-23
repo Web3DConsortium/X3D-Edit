@@ -111,7 +111,17 @@ public abstract class BaseCustomizer extends JPanel
     hasDEFUSEpanel = 
         !currentBaseX3DElement.getElementName().equals("XML") &&
         !currentBaseX3DElement.getElementName().equals("DOCTYPE") &&
-        !currentBaseX3DElement.getElementName().equals("COMMENT"); // special cases
+        !currentBaseX3DElement.getElementName().equals("COMMENT") &&
+        !currentBaseX3DElement.getElementName().equals("ROUTE") &&
+        !currentBaseX3DElement.getElementName().equals("PROTODECLARE") &&
+        !currentBaseX3DElement.getElementName().equals("EXTERNPROTODECLARE") &&
+        !currentBaseX3DElement.getElementName().equals("field") &&
+        !currentBaseX3DElement.getElementName().equals("fieldValue") &&
+        !currentBaseX3DElement.getElementName().equals("IMPORT") &&
+        !currentBaseX3DElement.getElementName().equals("EXPORT") &&
+        !currentBaseX3DElement.getElementName().equals("AS") &&
+        !currentBaseX3DElement.getElementName().equals("IS") &&
+        !currentBaseX3DElement.getElementName().equals("connect"); // special cases
 
     if (hasDEFUSEpanel)
     {

@@ -221,9 +221,9 @@ public class VIEWPOINTCustomizer extends BaseCustomizer
         levelHeightButton = new javax.swing.JButton();
         spacerLabel = new javax.swing.JLabel();
         rotationCalculatorlButton = new javax.swing.JButton();
+        hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(null);
-        setPreferredSize(null);
+        setPreferredSize(new java.awt.Dimension(591, 602));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
@@ -235,6 +235,8 @@ public class VIEWPOINTCustomizer extends BaseCustomizer
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -1036,6 +1038,20 @@ public class VIEWPOINTCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rotationCalculatorlButton, gridBagConstraints);
+
+        hintLabel.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html>  <p align=\"center\"><b>Viewpoint</b> provides a specific location and direction where the user may view the scene. Viewpoints are <br />\n the primary way for a user to navigate within a scene, and for an author to show critical aspects of a model. \n<ul>\n  <li> Hint: a sequence of good Viewpoints with understandable descriptions can provide a guided tour of a model. </li>\n  <li> Hint: the currently bound NavigationInfo node has a major effect on how a user might change viewing position and orientation after reaching this Viewpoint. </li>\n</ul></p>");
+        hintLabel.setToolTipText("Viewpoint provides a specific location and direction where the user may view the scene.");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void normalizeRotationValuesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_normalizeRotationValuesButtonActionPerformed
@@ -1545,6 +1561,7 @@ private void resetDisplayViewpointCalculatorFields ()
     private javax.swing.JLabel goalAimPointLabel;
     private javax.swing.JRadioButton greatCircleRotationRadioButton;
     private javax.swing.JRadioButton headsUpRotationRadioButton;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel horizontalAngleLabel;
     private javax.swing.JTextField horizontalAngleTF;
     private javax.swing.JLabel horizontalRangeLabel;

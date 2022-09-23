@@ -129,6 +129,10 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -275,7 +279,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel1.setText("<html><b>Billboard</b> is a Grouping node that can contain most nodes");
+        hintLabel1.setText("<html> <p align=\"center\"><b>Billboard</b> is a Grouping node that can contain most nodes. Contained child geometry faces the user, rotating about the specified axis. </p>\n<ul>\n<li> Hint: set axisOfRotation=0 0 0 to fully face the user's camera. </li>\n<li> Hint: Put Billboard as close to the geometry as possible, nested inside Transform for local coordinate system.</li>\n<li> Warning: don't put Viewpoint nodes inside a Billboard. </li>\n</ul>\n\n\n");
         hintLabel1.setToolTipText("close this panel to add children nodes");
         hintLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -287,10 +291,12 @@ public class BILLBOARDCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents

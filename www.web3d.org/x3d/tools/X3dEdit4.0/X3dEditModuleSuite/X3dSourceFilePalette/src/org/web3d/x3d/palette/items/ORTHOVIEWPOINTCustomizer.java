@@ -230,14 +230,17 @@ public class ORTHOVIEWPOINTCustomizer extends BaseCustomizer
         levelHeightButton = new javax.swing.JButton();
         clearAimPointButton = new javax.swing.JButton();
         rotationCalculatorlButton = new javax.swing.JButton();
+        hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(640, 700));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -1090,6 +1093,22 @@ public class ORTHOVIEWPOINTCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rotationCalculatorlButton, gridBagConstraints);
+
+        hintLabel.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>OrthoViewpoint</b> provides an orthographic perspective-free view of a scene from a specific location and direction. </p>\n<ul>\n   <li>Hint: Background, Fog, GeoViewpoint, NavigationInfo, OrthoViewpoint, TextureBackground and Viewpoint are bindable nodes, meaning that no more than one of each node type can be active at a given time. </li>\n   <li> Hint: GeoViewpoint OrthoViewpoint and Viewpoint share the same binding stack, so no more than one of these nodes can be bound and active at a given time. </li>\n   <li> Warning: results are undefined if a bindable node (Background, Fog, NavigationInfo, OrthoViewpoint, TextureBackground, Viewpoint) is a contained descendant node of either LOD or Switch. Avoid this authoring pattern. </li>\n</ul>\n\n\n");
+        hintLabel.setToolTipText("close this panel to add children nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void normalizeRotationValuesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_normalizeRotationValuesButtonActionPerformed
@@ -1499,6 +1518,7 @@ private void resetDisplayViewpointCalculatorFields ()
     private javax.swing.JLabel goalAimPointLabel;
     private javax.swing.JRadioButton greatCircleRotationRadioButton;
     private javax.swing.JRadioButton headsUpRotationRadioButton;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel horizontalAngleLabel;
     private javax.swing.JTextField horizontalAngleTF;
     private javax.swing.JLabel horizontalRangeLabel;
