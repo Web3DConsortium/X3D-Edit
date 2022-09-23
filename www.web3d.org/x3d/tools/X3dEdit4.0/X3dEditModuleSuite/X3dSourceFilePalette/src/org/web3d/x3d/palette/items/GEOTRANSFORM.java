@@ -138,7 +138,7 @@ public class GEOTRANSFORM extends X3DGroupingNode
     
     geoSystem = GEOTRANSFORM_ATTR_GEOSYSTEM_DFLT;
 
-    setContent("\n\t\t<!--TODO add children nodes here-->\n\t");
+    setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
 
   @Override
