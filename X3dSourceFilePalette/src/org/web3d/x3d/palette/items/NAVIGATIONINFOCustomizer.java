@@ -138,9 +138,9 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
         typeLabel = new javax.swing.JLabel();
         transitionTypeLabel = new javax.swing.JLabel();
         typeScrollPane = new javax.swing.JScrollPane();
-        typeList = new javax.swing.JList<String>();
+        typeList = new javax.swing.JList<>();
         transitionTypeScrollPane = new javax.swing.JScrollPane();
-        transitionTypeList = new javax.swing.JList<String>();
+        transitionTypeList = new javax.swing.JList<>();
         speedLabel = new javax.swing.JLabel();
         speedTF = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -157,7 +157,9 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
         collisionDistanceLabel = new javax.swing.JLabel();
         viewerHeightLabel = new javax.swing.JLabel();
         WALKoverHeightLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(588, 460));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -165,8 +167,9 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -407,6 +410,20 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(WALKoverHeightLabel, gridBagConstraints);
+
+        hintLabel.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html>  <p align=\"center\"><b>NavigationInfo</b> describes the user's viewing model, user navigation-interaction modalities, <br /> and also dimensional characteristics of the user's (typically invisible) avatar.</p>  \n<ul>\n<li> Hint: or inspection of simple objects, usability often improves with type=\"EXAMINE\" \"ANY\".</li>\n<li> Hint: Background, Fog, GeoViewpoint, NavigationInfo, OrthoViewpoint, TextureBackground and Viewpoint <br />are bindable nodes, meaning that no more than one of each node type can be active at a given time. </li>\n<li> Hint: NavigationInfo types '\"WALK\" \"FLY\"' support camera-to-object collision detection. </li>\n</ul>");
+        hintLabel.setToolTipText("NavigationInfo defines modalities for how a user can navigate within a scene");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -418,6 +435,7 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
     private javax.swing.JLabel collisionDistanceLabel;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JCheckBox headlightChkB;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

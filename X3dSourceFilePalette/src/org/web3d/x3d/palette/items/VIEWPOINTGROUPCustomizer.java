@@ -104,9 +104,6 @@ public class VIEWPOINTGROUPCustomizer extends BaseCustomizer
         size2TF = new javax.swing.JTextField();
         hintLabel = new javax.swing.JLabel();
 
-        setMaximumSize(null);
-        setMinimumSize(null);
-        setPreferredSize(null);
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
@@ -116,6 +113,8 @@ public class VIEWPOINTGROUPCustomizer extends BaseCustomizer
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -169,15 +168,14 @@ public class VIEWPOINTGROUPCustomizer extends BaseCustomizer
         descriptionTA.setToolTipText("description displayed in viewpoint list");
         descriptionTA.setWrapStyleWord(true);
         descriptionTA.setMinimumSize(new java.awt.Dimension(4, 40));
+        descriptionTA.setPreferredSize(new java.awt.Dimension(113, 4));
         jScrollPane1.setViewportView(descriptionTA);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 10);
         add(jScrollPane1, gridBagConstraints);
 
@@ -253,15 +251,19 @@ public class VIEWPOINTGROUPCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 10);
         add(size2TF, gridBagConstraints);
 
-        hintLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        hintLabel.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("ViewpointGroup can contain Viewpoint, GeoViewpoint and ViewpointGroup nodes");
+        hintLabel.setText("<html> <p align=\"center\"><b>ViewpointGroup</b> can contain Viewpoint, GeoViewpoint and ViewpointGroup nodes. </p>\n<ul>\n   <li> ViewpointGroup can limit the listing of contained viewpoints to certain locales.</li>\n   <li> ViewpointGroup can help with contruction of very large worlds, </li>\n   <li> ViewpointGroup and OrthoViewpoint require Navigation component level 3, which is higher than CADInterchange profile,</li>\n   <li> Viewpoint and ViewpointGroup descriptions together build simple menu/submenu lists for easier user navigation. </li>\n</ul>");
         hintLabel.setToolTipText("close this panel to add children nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
