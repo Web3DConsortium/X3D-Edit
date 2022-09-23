@@ -130,7 +130,7 @@ public class GEOLOD extends X3DGroupingNode
 
     geoSystem = GEOLOD_ATTR_GEOSYSTEM_DFLT;
 
-    setContent("\n\t\t<!--TODO add children nodes here-->\n\t");
+    setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
 
   @Override

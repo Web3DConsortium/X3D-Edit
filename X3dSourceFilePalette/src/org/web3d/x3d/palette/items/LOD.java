@@ -99,7 +99,7 @@ public class LOD extends X3DGroupingNode
     forceTransitions = Boolean.parseBoolean(LOD_ATTR_FORCETRANSITIONS_DFLT);
     range = parseRange(LOD_ATTR_RANGE_DFLT);
 
-    setContent("\n\t\t<!--TODO add children nodes here-->\n\t");
+    setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
 
   @Override

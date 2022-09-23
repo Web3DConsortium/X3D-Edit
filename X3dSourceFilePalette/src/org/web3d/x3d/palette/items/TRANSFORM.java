@@ -110,7 +110,7 @@ public class TRANSFORM extends X3DTransformNode
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1], null, null);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2], null, null);
 
-    setContent("\n\t\t<!--TODO add children nodes here-->\n\t");
+    setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
 
   @Override

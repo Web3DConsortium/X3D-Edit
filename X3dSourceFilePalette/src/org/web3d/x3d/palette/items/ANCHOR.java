@@ -90,7 +90,7 @@ public class ANCHOR extends X3DGroupingNode
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1],0.0f,null,true);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2],0.0f,null,true);
 
-    setContent("\n\t\t<!--TODO add children nodes here-->\n\t");
+    setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
 
   @Override

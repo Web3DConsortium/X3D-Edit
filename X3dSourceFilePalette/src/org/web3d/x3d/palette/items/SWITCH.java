@@ -88,7 +88,7 @@ public class SWITCH extends X3DGroupingNode
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1], 0.0f, null, true);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2], 0.0f, null, true);
 
-    setContent("\n\t\t<!--TODO add children nodes here-->\n\t");
+    setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
 
   @Override
@@ -129,7 +129,7 @@ public class SWITCH extends X3DGroupingNode
 //        negativeOneWarning = "\n\t\t<!--" + SWITCHCustomizer.WHICHCHOICE_NEGATIVE_ONE_WARNING + "-->\n";
 //
 //    if (getContent().length() == 0) // lookout - do not overwrite children nodes!
-//        setContent(negativeOneWarning + "\t\t<!--TODO add children nodes here-->\n\t");
+//        setContent(negativeOneWarning + "\t\t<!-- TODO add children nodes and statements here -->\n\t");
     
     StringBuilder sb = new StringBuilder();
 

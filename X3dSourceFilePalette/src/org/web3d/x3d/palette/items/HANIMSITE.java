@@ -110,7 +110,7 @@ public class HANIMSITE extends X3DTransformNode
 
     if (getContent().trim().isEmpty()) // if there, don't clobber visualization
     {
-        setContent("\n\t\t<!--TODO add children nodes here-->\n\t");
+        setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
     }
   }
 
