@@ -191,7 +191,7 @@ public class SWITCHCustomizer extends BaseCustomizer
         bboxSizeZTF = new javax.swing.JTextField();
         dEFUSEpanel1 = getDEFUSEpanel();
         whichChoiceLayoutPanel = new javax.swing.JPanel();
-        whichChoiceComboBox = new javax.swing.JComboBox<String>();
+        whichChoiceComboBox = new javax.swing.JComboBox<>();
         whichChoiceWarningLabel = new javax.swing.JLabel();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
