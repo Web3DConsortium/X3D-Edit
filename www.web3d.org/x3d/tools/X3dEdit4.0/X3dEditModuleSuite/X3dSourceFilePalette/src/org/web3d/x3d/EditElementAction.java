@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -255,11 +255,11 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
 		setCaretLocation(startOffset + 2);   // place caret within the element bracket
 	}
 
-    // no need to modify contained content, confuses version control
+        // no need to modify contained content, confuses version control
 	if (true)
 		return; // do not reformat
 
-    // Reformat
+        // Reformat
 	else if (baseDocument != null) { // TODO fix
       //New 6.5 code
       Indent indent = Indent.get(baseDocument);
