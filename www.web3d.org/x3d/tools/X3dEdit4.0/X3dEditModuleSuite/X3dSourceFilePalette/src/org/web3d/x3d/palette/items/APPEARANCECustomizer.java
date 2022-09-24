@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -110,7 +110,6 @@ public class APPEARANCECustomizer extends BaseCustomizer
         multiTextureCheckBox = new javax.swing.JCheckBox();
         textureTransformCheckBox = new javax.swing.JCheckBox();
         multiTextureTransformCheckBox = new javax.swing.JCheckBox();
-        childNodeHintLabel4 = new javax.swing.JLabel();
         appearanceHintLabel = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
@@ -142,6 +141,7 @@ public class APPEARANCECustomizer extends BaseCustomizer
         contentSelectionPanel.add(contentSelectionLabel, gridBagConstraints);
 
         childContentButtonGroup.add(newContentRadioButton);
+        newContentRadioButton.setSelected(true);
         newContentRadioButton.setText("new nodes");
         newContentRadioButton.setToolTipText("Select new geometry from choices at right");
         newContentRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +171,7 @@ public class APPEARANCECustomizer extends BaseCustomizer
         contentSelectionPanel.add(priorContentRadioButton, gridBagConstraints);
 
         childContentButtonGroup.add(noContentRadioButton);
-        noContentRadioButton.setText("no Content");
+        noContentRadioButton.setText("no nodes");
         noContentRadioButton.setToolTipText("empty Shape");
         noContentRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,6 +212,11 @@ public class APPEARANCECustomizer extends BaseCustomizer
         materialRadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         materialRadioButton.setSelected(true);
         materialRadioButton.setText("Material");
+        materialRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                materialRadioButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -223,6 +228,11 @@ public class APPEARANCECustomizer extends BaseCustomizer
         materialButtonGroup.add(twoSidedMaterialRadioButton);
         twoSidedMaterialRadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         twoSidedMaterialRadioButton.setText("TwoSidedMaterial");
+        twoSidedMaterialRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twoSidedMaterialRadioButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -233,6 +243,11 @@ public class APPEARANCECustomizer extends BaseCustomizer
 
         linePropertiesCheckBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         linePropertiesCheckBox.setText("LineProperties");
+        linePropertiesCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linePropertiesCheckBoxActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
@@ -243,6 +258,11 @@ public class APPEARANCECustomizer extends BaseCustomizer
 
         fillPropertiesCheckBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         fillPropertiesCheckBox.setText("FillProperties");
+        fillPropertiesCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fillPropertiesCheckBoxActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
@@ -261,6 +281,11 @@ public class APPEARANCECustomizer extends BaseCustomizer
         textureButtonGroup.add(imageTextureRadioButton);
         imageTextureRadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         imageTextureRadioButton.setText("ImageTexture");
+        imageTextureRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imageTextureRadioButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
@@ -271,6 +296,11 @@ public class APPEARANCECustomizer extends BaseCustomizer
         textureButtonGroup.add(movieTextureRadioButton);
         movieTextureRadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         movieTextureRadioButton.setText("MovieTexture");
+        movieTextureRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                movieTextureRadioButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
@@ -281,6 +311,11 @@ public class APPEARANCECustomizer extends BaseCustomizer
         textureButtonGroup.add(pixelTextureRadioButton);
         pixelTextureRadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         pixelTextureRadioButton.setText("PixelTexture");
+        pixelTextureRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pixelTextureRadioButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
@@ -337,21 +372,9 @@ public class APPEARANCECustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         add(selectionPanel, gridBagConstraints);
 
-        childNodeHintLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        childNodeHintLabel4.setText("<html>Advanced uses of <b>Appearance</b> might also contain the following nodes:  <ul> <li> <b>AcousticProperties</b> </li> <li> <b>ComposedShader</b>, <b>PackagedShader</b>, <b>ProgramShader</b>, </li> <li> <b>ComposedTexture3D</b>, <b>ImageTexture3D</b>, <b>PixelTexture3D</b></li> <li> <b>ComposedCubeMapTexture</b>, <b>GeneratedCubeMapTexture</b>, <b>ImageCubeMapTexture</b> </li> <li> <b>TextureMatrixTransform</b>, <b>TextureTransform3D</b> </li>  </ul>");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(childNodeHintLabel4, gridBagConstraints);
-
         appearanceHintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        appearanceHintLabel.setText("<html><p align=\"center\"><b>Appearance</b> can contain multiple nodes whose rendering  properties are applied <br /> to the adjacent geometry node inside a shared parent <b>Shape</b> node.</p>\n<p align=\"center\">Hint: DEF/USE can provide a similar look + feel for related shapes in a scene. </p>");
-        appearanceHintLabel.setToolTipText("Appearance hint");
+        appearanceHintLabel.setText("<html><p align=\"center\"><b>Appearance</b> can contain multiple nodes whose rendering  properties are applied \n<br />\nto the adjacent geometry node found inside the shared parent <b>Shape</b> node.</p> \n<br />\n<p align=\"center\">Hint:  reuse of <b>Appearance</b> via DEF/USE  provides a similar look + feel for related shapes in a scene. </p>\n<br />\n<p align=\"left\"><b>Appearance</b> can also contain the following nodes:  </p>\n<ul>\n  <li> <b>AcousticProperties</b> </li>\n  <li> <b>ComposedShader</b>, <b>PackagedShader</b>, <b>ProgramShader</b> </li>\n  <li> <b>ComposedTexture3D</b>, <b>ImageTexture3D</b>, <b>PixelTexture3D</b></li>\n  <li> <b>ComposedCubeMapTexture</b>, <b>GeneratedCubeMapTexture</b>, <b>ImageCubeMapTexture</b> </li>\n  <li> <b>TextureMatrixTransform</b>, <b>TextureTransform3D</b> </li>\n</ul>");
+        appearanceHintLabel.setToolTipText("Appearance specifies the visual properties of geometry");
         appearanceHintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -460,8 +483,9 @@ public class APPEARANCECustomizer extends BaseCustomizer
     }//GEN-LAST:event_newContentRadioButtonActionPerformed
 
     private void clearAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllButtonActionPerformed
-             newContentRadioButton.setSelected(true);
-                     selectionPanel.setEnabled(true);
+             newContentRadioButton.setSelected(false);
+              noContentRadioButton.setSelected(true);
+                    selectionPanel.setEnabled(true);
                      
                 materialRadioButton.setEnabled(false);
         twoSidedMaterialRadioButton.setEnabled(false);
@@ -479,22 +503,49 @@ public class APPEARANCECustomizer extends BaseCustomizer
     }//GEN-LAST:event_clearAllButtonActionPerformed
 
     private void textureTransformCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textureTransformCheckBoxActionPerformed
-        // TODO add your handling code here:
+        newContentRadioButton.setSelected(true);
     }//GEN-LAST:event_textureTransformCheckBoxActionPerformed
 
     private void multiTextureCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiTextureCheckBoxActionPerformed
-        // TODO add your handling code here:
+        newContentRadioButton.setSelected(true);
     }//GEN-LAST:event_multiTextureCheckBoxActionPerformed
 
     private void multiTextureTransformCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiTextureTransformCheckBoxActionPerformed
-        // TODO add your handling code here:
+        newContentRadioButton.setSelected(true);
     }//GEN-LAST:event_multiTextureTransformCheckBoxActionPerformed
+
+    private void twoSidedMaterialRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoSidedMaterialRadioButtonActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_twoSidedMaterialRadioButtonActionPerformed
+
+    private void materialRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialRadioButtonActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_materialRadioButtonActionPerformed
+
+    private void imageTextureRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageTextureRadioButtonActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_imageTextureRadioButtonActionPerformed
+
+    private void movieTextureRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieTextureRadioButtonActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_movieTextureRadioButtonActionPerformed
+
+    private void pixelTextureRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pixelTextureRadioButtonActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_pixelTextureRadioButtonActionPerformed
+
+    private void fillPropertiesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fillPropertiesCheckBoxActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_fillPropertiesCheckBoxActionPerformed
+
+    private void linePropertiesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linePropertiesCheckBoxActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_linePropertiesCheckBoxActionPerformed
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel appearanceHintLabel;
     private javax.swing.ButtonGroup childContentButtonGroup;
-    private javax.swing.JLabel childNodeHintLabel4;
     private javax.swing.JButton clearAllButton;
     private javax.swing.JLabel contentSelectionLabel;
     private javax.swing.JPanel contentSelectionPanel;

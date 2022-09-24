@@ -34,7 +34,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-124,0,0,2,-123"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-64,0,0,2,78"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
@@ -94,6 +94,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="childContentButtonGroup"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="new nodes"/>
             <Property name="toolTipText" type="java.lang.String" value="Select new geometry from choices at right"/>
           </Properties>
@@ -127,7 +128,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="childContentButtonGroup"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="no Content"/>
+            <Property name="text" type="java.lang.String" value="no nodes"/>
             <Property name="toolTipText" type="java.lang.String" value="empty Shape"/>
           </Properties>
           <Events>
@@ -177,6 +178,9 @@
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Material"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="materialRadioButtonActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
               <GridBagConstraints gridX="2" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="6" insetsLeft="36" insetsBottom="2" insetsRight="2" anchor="21" weightX="0.5" weightY="0.0"/>
@@ -193,6 +197,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="TwoSidedMaterial"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="twoSidedMaterialRadioButtonActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
               <GridBagConstraints gridX="2" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="2" insetsLeft="36" insetsBottom="2" insetsRight="2" anchor="21" weightX="0.5" weightY="0.0"/>
@@ -206,6 +213,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="LineProperties"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="linePropertiesCheckBoxActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
               <GridBagConstraints gridX="3" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="2" insetsLeft="2" insetsBottom="2" insetsRight="2" anchor="21" weightX="0.5" weightY="0.0"/>
@@ -219,6 +229,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="FillProperties"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fillPropertiesCheckBoxActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
               <GridBagConstraints gridX="3" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="6" insetsLeft="2" insetsBottom="2" insetsRight="2" anchor="21" weightX="0.5" weightY="0.0"/>
@@ -242,6 +255,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ImageTexture"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imageTextureRadioButtonActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
               <GridBagConstraints gridX="2" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="2" insetsLeft="36" insetsBottom="2" insetsRight="2" anchor="23" weightX="0.0" weightY="0.0"/>
@@ -258,6 +274,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="MovieTexture"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="movieTextureRadioButtonActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
               <GridBagConstraints gridX="2" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="2" insetsLeft="36" insetsBottom="2" insetsRight="2" anchor="23" weightX="0.0" weightY="0.0"/>
@@ -274,6 +293,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="PixelTexture"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pixelTextureRadioButtonActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
               <GridBagConstraints gridX="2" gridY="9" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="2" insetsLeft="36" insetsBottom="2" insetsRight="2" anchor="23" weightX="0.0" weightY="0.0"/>
@@ -330,22 +352,11 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="childNodeHintLabel4">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;Advanced uses of &lt;b&gt;Appearance&lt;/b&gt; might also contain the following nodes:  &lt;ul&gt; &lt;li&gt; &lt;b&gt;AcousticProperties&lt;/b&gt; &lt;/li&gt; &lt;li&gt; &lt;b&gt;ComposedShader&lt;/b&gt;, &lt;b&gt;PackagedShader&lt;/b&gt;, &lt;b&gt;ProgramShader&lt;/b&gt;, &lt;/li&gt; &lt;li&gt; &lt;b&gt;ComposedTexture3D&lt;/b&gt;, &lt;b&gt;ImageTexture3D&lt;/b&gt;, &lt;b&gt;PixelTexture3D&lt;/b&gt;&lt;/li&gt; &lt;li&gt; &lt;b&gt;ComposedCubeMapTexture&lt;/b&gt;, &lt;b&gt;GeneratedCubeMapTexture&lt;/b&gt;, &lt;b&gt;ImageCubeMapTexture&lt;/b&gt; &lt;/li&gt; &lt;li&gt; &lt;b&gt;TextureMatrixTransform&lt;/b&gt;, &lt;b&gt;TextureTransform3D&lt;/b&gt; &lt;/li&gt;  &lt;/ul&gt;"/>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="0" gridY="3" gridWidth="2" gridHeight="1" fill="2" ipadX="6" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="23" weightX="0.0" weightY="0.0"/>
-        </Constraint>
-      </Constraints>
-    </Component>
     <Component class="javax.swing.JLabel" name="appearanceHintLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;Appearance&lt;/b&gt; can contain multiple nodes whose rendering  properties are applied &lt;br /&gt; to the adjacent geometry node inside a shared parent &lt;b&gt;Shape&lt;/b&gt; node.&lt;/p&gt;&#xa;&lt;p align=&quot;center&quot;&gt;Hint: DEF/USE can provide a similar look + feel for related shapes in a scene. &lt;/p&gt;"/>
-        <Property name="toolTipText" type="java.lang.String" value="Appearance hint"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;Appearance&lt;/b&gt; can contain multiple nodes whose rendering  properties are applied &#xa;&lt;br /&gt;&#xa;to the adjacent geometry node found inside the shared parent &lt;b&gt;Shape&lt;/b&gt; node.&lt;/p&gt; &#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt;Hint:  reuse of &lt;b&gt;Appearance&lt;/b&gt; via DEF/USE  provides a similar look + feel for related shapes in a scene. &lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;left&quot;&gt;&lt;b&gt;Appearance&lt;/b&gt; can also contain the following nodes:  &lt;/p&gt;&#xa;&lt;ul&gt;&#xa;  &lt;li&gt; &lt;b&gt;AcousticProperties&lt;/b&gt; &lt;/li&gt;&#xa;  &lt;li&gt; &lt;b&gt;ComposedShader&lt;/b&gt;, &lt;b&gt;PackagedShader&lt;/b&gt;, &lt;b&gt;ProgramShader&lt;/b&gt; &lt;/li&gt;&#xa;  &lt;li&gt; &lt;b&gt;ComposedTexture3D&lt;/b&gt;, &lt;b&gt;ImageTexture3D&lt;/b&gt;, &lt;b&gt;PixelTexture3D&lt;/b&gt;&lt;/li&gt;&#xa;  &lt;li&gt; &lt;b&gt;ComposedCubeMapTexture&lt;/b&gt;, &lt;b&gt;GeneratedCubeMapTexture&lt;/b&gt;, &lt;b&gt;ImageCubeMapTexture&lt;/b&gt; &lt;/li&gt;&#xa;  &lt;li&gt; &lt;b&gt;TextureMatrixTransform&lt;/b&gt;, &lt;b&gt;TextureTransform3D&lt;/b&gt; &lt;/li&gt;&#xa;&lt;/ul&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="Appearance specifies the visual properties of geometry"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
             <LineBorder/>

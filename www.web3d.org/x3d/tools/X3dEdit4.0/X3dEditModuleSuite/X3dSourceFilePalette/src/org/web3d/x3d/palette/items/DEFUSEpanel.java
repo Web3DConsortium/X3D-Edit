@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -248,6 +248,8 @@ public class DEFUSEpanel extends javax.swing.JPanel
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         setMinimumSize(new java.awt.Dimension(580, 112));
         setLayout(new java.awt.GridBagLayout());
+
+        x3dHtmlTabbedPane.setToolTipText("DEF, USE, id and style are common to all elements");
 
         x3dDefUsejPanel.setLayout(new java.awt.GridBagLayout());
 

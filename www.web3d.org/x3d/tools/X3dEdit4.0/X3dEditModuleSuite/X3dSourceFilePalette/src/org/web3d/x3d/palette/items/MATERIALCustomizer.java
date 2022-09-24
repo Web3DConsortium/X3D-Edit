@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -261,8 +261,8 @@ public class MATERIALCustomizer extends BaseCustomizer
     material.setContent(content);  // restore (gets hit by property change sys) for the following
     initializeUniversalMediaSelection();
 
-          viewPanel.setToolTipText("This view panel shows example Material effects");
-         lightPanel.setToolTipText("This light only affects the Material view panel above, not the X3D scene");
+          geometrySelectionPanel.setToolTipText("This view panel shows example Material effects");
+         directionalLightBackgroundPanel.setToolTipText("This light only affects the Material view panel above, not the X3D scene");
     backgroundLabel.setToolTipText("This background color only affects the Material view panel above, not the X3D scene");
   }
 
@@ -339,11 +339,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         xj3dViewerPanel = getXj3dViewerPanel();
         leftBottomPanel = new javax.swing.JPanel();
         panelsContainer = new javax.swing.JPanel();
-        viewPanel = new javax.swing.JPanel();
+        geometrySelectionPanel = new javax.swing.JPanel();
         geometryTypeCombo = new javax.swing.JComboBox<>();
         axesCB = new javax.swing.JCheckBox();
         lightVectorCB = new javax.swing.JCheckBox();
-        lightPanel = new javax.swing.JPanel();
+        directionalLightBackgroundPanel = new javax.swing.JPanel();
         directionalLightOnLabel = new javax.swing.JLabel();
         directionalLightOnCB = new javax.swing.JCheckBox();
         directionalLightColorLabel = new javax.swing.JLabel();
@@ -430,20 +430,21 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(dEFUSEpan, gridBagConstraints);
 
-        masterSplitPane.setBorder(null);
         masterSplitPane.setDividerLocation(400);
         masterSplitPane.setResizeWeight(1.0);
+        masterSplitPane.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        leftSplitPane.setBorder(null);
         leftSplitPane.setDividerLocation(280);
         leftSplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         leftSplitPane.setResizeWeight(1.0);
+        leftSplitPane.setMinimumSize(new java.awt.Dimension(391, 281));
 
         leftTopPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.leftTopPanel.border.title"))); // NOI18N
         leftTopPanel.setLayout(new java.awt.BorderLayout());
@@ -456,7 +457,7 @@ public class MATERIALCustomizer extends BaseCustomizer
 
         panelsContainer.setLayout(new java.awt.GridBagLayout());
 
-        viewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.viewPan.border.title"))); // NOI18N
+        geometrySelectionPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.viewPan.border.title"))); // NOI18N
 
         geometryTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Box", "Cone", "Cylinder", "Sphere", "Teapot" }));
         geometryTypeCombo.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.geometryTypeCombo.toolTipText")); // NOI18N
@@ -486,47 +487,51 @@ public class MATERIALCustomizer extends BaseCustomizer
             }
         });
 
-        javax.swing.GroupLayout viewPanelLayout = new javax.swing.GroupLayout(viewPanel);
-        viewPanel.setLayout(viewPanelLayout);
-        viewPanelLayout.setHorizontalGroup(
-            viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout geometrySelectionPanelLayout = new javax.swing.GroupLayout(geometrySelectionPanel);
+        geometrySelectionPanel.setLayout(geometrySelectionPanelLayout);
+        geometrySelectionPanelLayout.setHorizontalGroup(
+            geometrySelectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, geometrySelectionPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(geometryTypeCombo, 0, 210, Short.MAX_VALUE)
+                .addComponent(geometryTypeCombo, 0, 216, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(axesCB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lightVectorCB)
                 .addContainerGap())
         );
-        viewPanelLayout.setVerticalGroup(
-            viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(viewPanelLayout.createSequentialGroup()
-                .addGroup(viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(geometryTypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        geometrySelectionPanelLayout.setVerticalGroup(
+            geometrySelectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(geometrySelectionPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(geometrySelectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(geometryTypeCombo)
                     .addComponent(axesCB)
-                    .addComponent(lightVectorCB))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lightVectorCB)))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
-        panelsContainer.add(viewPanel, gridBagConstraints);
+        gridBagConstraints.weighty = 1.0;
+        panelsContainer.add(geometrySelectionPanel, gridBagConstraints);
 
-        lightPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.lightPan.border.border.title")))); // NOI18N
-        lightPanel.setMinimumSize(new java.awt.Dimension(381, 240));
-        lightPanel.setPreferredSize(new java.awt.Dimension(381, 240));
-        lightPanel.setLayout(new java.awt.GridBagLayout());
+        directionalLightBackgroundPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.lightPan.border.border.title")))); // NOI18N
+        directionalLightBackgroundPanel.setMinimumSize(new java.awt.Dimension(381, 240));
+        directionalLightBackgroundPanel.setPreferredSize(new java.awt.Dimension(381, 240));
+        directionalLightBackgroundPanel.setLayout(new java.awt.GridBagLayout());
 
         directionalLightOnLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         directionalLightOnLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.onLab.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightOnLabel, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightOnLabel, gridBagConstraints);
 
         directionalLightOnCB.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.jCheckBox1.text")); // NOI18N
         directionalLightOnCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -539,9 +544,12 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightOnCB, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightOnCB, gridBagConstraints);
 
         directionalLightColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         directionalLightColorLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.colorLab.text")); // NOI18N
@@ -549,9 +557,12 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightColorLabel, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightColorLabel, gridBagConstraints);
 
         directionalLightColorRedTF.setColumns(3);
         directionalLightColorRedTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.colorRedTF.text")); // NOI18N
@@ -561,10 +572,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightColorRedTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightColorRedTF, gridBagConstraints);
 
         directionalLightColorGreenTF.setColumns(1);
         directionalLightColorGreenTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.colorGrnTF.text")); // NOI18N
@@ -579,10 +591,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightColorGreenTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightColorGreenTF, gridBagConstraints);
 
         directionalLightColorBlueTF.setColumns(1);
         directionalLightColorBlueTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.colorBluTF.text")); // NOI18N
@@ -597,10 +610,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightColorBlueTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightColorBlueTF, gridBagConstraints);
 
         directionalLightColorChooser.setMinimumSize(new java.awt.Dimension(15, 15));
         directionalLightColorChooser.addActionListener(new java.awt.event.ActionListener() {
@@ -618,19 +632,21 @@ public class MATERIALCustomizer extends BaseCustomizer
         directionalLightColorChooser.setLayout(directionalLightColorChooserLayout);
         directionalLightColorChooserLayout.setHorizontalGroup(
             directionalLightColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 23, Short.MAX_VALUE)
         );
         directionalLightColorChooserLayout.setVerticalGroup(
             directionalLightColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 23, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightColorChooser, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightColorChooser, gridBagConstraints);
 
         directionalLightColorHexTextField.setEditable(false);
         directionalLightColorHexTextField.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.directionalLightColorHexTextField.text")); // NOI18N
@@ -641,9 +657,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightColorHexTextField, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightColorHexTextField, gridBagConstraints);
 
         directionalLightDirectionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         directionalLightDirectionLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.dirLab.text")); // NOI18N
@@ -651,9 +669,12 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightDirectionLabel, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightDirectionLabel, gridBagConstraints);
 
         directionalLightDirectionXTF.setColumns(1);
         directionalLightDirectionXTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.dir0TF.text")); // NOI18N
@@ -667,10 +688,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightDirectionXTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightDirectionXTF, gridBagConstraints);
 
         directionalLightDirectionYTF.setColumns(1);
         directionalLightDirectionYTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.dir1TF.text")); // NOI18N
@@ -684,10 +706,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightDirectionYTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightDirectionYTF, gridBagConstraints);
 
         directionalLightDirectionZTF.setColumns(1);
         directionalLightDirectionZTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.dir2TF.text")); // NOI18N
@@ -701,10 +724,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightDirectionZTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightDirectionZTF, gridBagConstraints);
 
         directionalLightDirectionNormalizeButton.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.directionalLightDirectionNormalizeButton.text")); // NOI18N
         directionalLightDirectionNormalizeButton.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.directionalLightDirectionNormalizeButton.toolTipText")); // NOI18N
@@ -717,7 +741,10 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
-        lightPanel.add(directionalLightDirectionNormalizeButton, gridBagConstraints);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        directionalLightBackgroundPanel.add(directionalLightDirectionNormalizeButton, gridBagConstraints);
 
         directionalLightIntensityLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         directionalLightIntensityLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.intensLab.text")); // NOI18N
@@ -725,9 +752,12 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightIntensityLabel, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightIntensityLabel, gridBagConstraints);
 
         directionalLightIntensityTF.setColumns(1);
         directionalLightIntensityTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.intensTF.text")); // NOI18N
@@ -746,10 +776,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightIntensityTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightIntensityTF, gridBagConstraints);
 
         directionalLightIntensitySlider.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.directionalLightIntensitySlider.toolTipText")); // NOI18N
         directionalLightIntensitySlider.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -761,11 +792,12 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.66;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightIntensitySlider, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightIntensitySlider, gridBagConstraints);
 
         directionalLightAmbientIntensityLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         directionalLightAmbientIntensityLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.ambLab.text")); // NOI18N
@@ -773,9 +805,12 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(directionalLightAmbientIntensityLabel, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightAmbientIntensityLabel, gridBagConstraints);
 
         directionalLightAmbientIntensityTF.setColumns(1);
         directionalLightAmbientIntensityTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.ambTF.text")); // NOI18N
@@ -794,10 +829,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 8, 3);
-        lightPanel.add(directionalLightAmbientIntensityTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightAmbientIntensityTF, gridBagConstraints);
 
         directionalLightAmbientIntensitySlider.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.directionalLightAmbientIntensitySlider.toolTipText")); // NOI18N
         directionalLightAmbientIntensitySlider.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -809,26 +845,32 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.66;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 8, 3);
-        lightPanel.add(directionalLightAmbientIntensitySlider, gridBagConstraints);
+        directionalLightBackgroundPanel.add(directionalLightAmbientIntensitySlider, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
-        lightPanel.add(BackgroundColorSeparator, gridBagConstraints);
+        directionalLightBackgroundPanel.add(BackgroundColorSeparator, gridBagConstraints);
 
         backgroundLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.backgroundLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(backgroundLabel, gridBagConstraints);
+        directionalLightBackgroundPanel.add(backgroundLabel, gridBagConstraints);
 
         skyColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         skyColorLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.skyLab.text")); // NOI18N
@@ -837,8 +879,10 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 8, 3);
-        lightPanel.add(skyColorLabel, gridBagConstraints);
+        directionalLightBackgroundPanel.add(skyColorLabel, gridBagConstraints);
 
         skyColorRedTF.setColumns(4);
         skyColorRedTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.skyTF0.text")); // NOI18N
@@ -853,9 +897,10 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 8, 3);
-        lightPanel.add(skyColorRedTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(skyColorRedTF, gridBagConstraints);
 
         skyColorGreenTF.setColumns(4);
         skyColorGreenTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.skyTF1.text")); // NOI18N
@@ -870,9 +915,10 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 8, 3);
-        lightPanel.add(skyColorGreenTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(skyColorGreenTF, gridBagConstraints);
 
         skyColorBlueTF.setColumns(4);
         skyColorBlueTF.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.skyTF2.text")); // NOI18N
@@ -887,9 +933,10 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 8, 3);
-        lightPanel.add(skyColorBlueTF, gridBagConstraints);
+        directionalLightBackgroundPanel.add(skyColorBlueTF, gridBagConstraints);
 
         skyColorChooser.setMaximumSize(new java.awt.Dimension(48, 24));
         skyColorChooser.setMinimumSize(new java.awt.Dimension(48, 24));
@@ -912,14 +959,17 @@ public class MATERIALCustomizer extends BaseCustomizer
         );
         skyColorChooserLayout.setVerticalGroup(
             skyColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 27, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-        lightPanel.add(skyColorChooser, gridBagConstraints);
+        directionalLightBackgroundPanel.add(skyColorChooser, gridBagConstraints);
 
         skyColorHexTextField.setEditable(false);
         skyColorHexTextField.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.skyColorHexTextField.text")); // NOI18N
@@ -930,22 +980,25 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        lightPanel.add(skyColorHexTextField, gridBagConstraints);
+        directionalLightBackgroundPanel.add(skyColorHexTextField, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
-        panelsContainer.add(lightPanel, gridBagConstraints);
+        gridBagConstraints.weighty = 1.0;
+        panelsContainer.add(directionalLightBackgroundPanel, gridBagConstraints);
 
         javax.swing.GroupLayout leftBottomPanelLayout = new javax.swing.GroupLayout(leftBottomPanel);
         leftBottomPanel.setLayout(leftBottomPanelLayout);
         leftBottomPanelLayout.setHorizontalGroup(
             leftBottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 391, Short.MAX_VALUE)
             .addGroup(leftBottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(leftBottomPanelLayout.createSequentialGroup()
                     .addGap(0, 0, 0)
@@ -954,7 +1007,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         );
         leftBottomPanelLayout.setVerticalGroup(
             leftBottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGap(0, 291, Short.MAX_VALUE)
             .addGroup(leftBottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(leftBottomPanelLayout.createSequentialGroup()
                     .addGap(0, 0, 0)
@@ -966,7 +1019,6 @@ public class MATERIALCustomizer extends BaseCustomizer
 
         masterSplitPane.setLeftComponent(leftSplitPane);
 
-        rightSplitPane.setBorder(null);
         rightSplitPane.setDividerLocation(300);
         rightSplitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
@@ -1444,6 +1496,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         jPanel2.add(materialFieldsPanel, gridBagConstraints);
 
         universalMediaSelectorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.universalMediaSelectorPanel.border.title"))); // NOI18N
@@ -1517,6 +1570,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         jPanel2.add(universalMediaSelectorPanel, gridBagConstraints);
         universalMediaSelectorPanel.getAccessibleContext().setAccessibleName(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.universalMediaSelectorPanel.AccessibleContext.accessibleName")); // NOI18N
 
@@ -1538,11 +1592,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         x3dSourcePane.setLayout(x3dSourcePaneLayout);
         x3dSourcePaneLayout.setHorizontalGroup(
             x3dSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x3dSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+            .addComponent(x3dSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
         );
         x3dSourcePaneLayout.setVerticalGroup(
             x3dSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x3dSourceScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+            .addComponent(x3dSourceScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
         );
 
         srcTabbedPane.addTab(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.x3dSourcePane.TabConstraints.tabTitle"), x3dSourcePane); // NOI18N
@@ -1559,11 +1613,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         x3dvSourcePane.setLayout(x3dvSourcePaneLayout);
         x3dvSourcePaneLayout.setHorizontalGroup(
             x3dvSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x3dvSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+            .addComponent(x3dvSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
         );
         x3dvSourcePaneLayout.setVerticalGroup(
             x3dvSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x3dvSourceScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+            .addComponent(x3dvSourceScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
         );
 
         srcTabbedPane.addTab(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.x3dvSrcPan.TabConstraints.tabTitle"), x3dvSourcePane); // NOI18N
@@ -1583,11 +1637,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         ecmaSourcePane.setLayout(ecmaSourcePaneLayout);
         ecmaSourcePaneLayout.setHorizontalGroup(
             ecmaSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ecmaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+            .addComponent(ecmaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
         );
         ecmaSourcePaneLayout.setVerticalGroup(
             ecmaSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ecmaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+            .addComponent(ecmaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
         );
 
         srcTabbedPane.addTab(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.ecmaSrcPan.TabConstraints.tabTitle"), ecmaSourcePane); // NOI18N
@@ -1607,11 +1661,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         javaSourcePane.setLayout(javaSourcePaneLayout);
         javaSourcePaneLayout.setHorizontalGroup(
             javaSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(javaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+            .addComponent(javaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
         );
         javaSourcePaneLayout.setVerticalGroup(
             javaSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(javaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+            .addComponent(javaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
         );
 
         srcTabbedPane.addTab(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.javaSrcPan.TabConstraints.tabTitle"), javaSourcePane); // NOI18N
@@ -1626,7 +1680,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(masterSplitPane, gridBagConstraints);
 
         materialHintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1636,8 +1690,10 @@ public class MATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(materialHintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
@@ -2611,6 +2667,7 @@ private void directionalLightIntensityTFActionPerformed(java.awt.event.ActionEve
     private javax.swing.JLabel directionalLightAmbientIntensityLabel;
     private javax.swing.JSlider directionalLightAmbientIntensitySlider;
     private javax.swing.JFormattedTextField directionalLightAmbientIntensityTF;
+    private javax.swing.JPanel directionalLightBackgroundPanel;
     private javax.swing.JFormattedTextField directionalLightColorBlueTF;
     private net.java.dev.colorchooser.ColorChooser directionalLightColorChooser;
     private javax.swing.JFormattedTextField directionalLightColorGreenTF;
@@ -2636,6 +2693,7 @@ private void directionalLightIntensityTFActionPerformed(java.awt.event.ActionEve
     private javax.swing.JTextField emissiveColorHexTextField;
     private javax.swing.JLabel emissiveColorLabel;
     private javax.swing.JFormattedTextField emissiveColorRedTF;
+    private javax.swing.JPanel geometrySelectionPanel;
     private javax.swing.JComboBox<String> geometryTypeCombo;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel javaSourcePane;
@@ -2644,7 +2702,6 @@ private void directionalLightIntensityTFActionPerformed(java.awt.event.ActionEve
     private javax.swing.JPanel leftBottomPanel;
     private javax.swing.JSplitPane leftSplitPane;
     private javax.swing.JPanel leftTopPanel;
-    private javax.swing.JPanel lightPanel;
     private javax.swing.JCheckBox lightVectorCB;
     private javax.swing.JSplitPane masterSplitPane;
     private javax.swing.JPanel materialFieldsPanel;
@@ -2676,7 +2733,6 @@ private void directionalLightIntensityTFActionPerformed(java.awt.event.ActionEve
     private javax.swing.JFormattedTextField universalMediaMaterialTF;
     private javax.swing.JPanel universalMediaSelectorPanel;
     private javax.swing.JLabel universalMediaThemeLabel;
-    private javax.swing.JPanel viewPanel;
     private javax.swing.JPanel x3dSourcePane;
     private javax.swing.JScrollPane x3dSourceScrollPane;
     private javax.swing.JTextArea x3dTextArea;
