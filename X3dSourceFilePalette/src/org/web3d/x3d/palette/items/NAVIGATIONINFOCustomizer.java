@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -163,15 +163,7 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(dEFUSEpanel1, gridBagConstraints);
+        add(dEFUSEpanel1, new java.awt.GridBagConstraints());
 
         leftPan.setLayout(new java.awt.GridBagLayout());
 
@@ -333,12 +325,11 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(8, 3, 8, 3);
         add(jSeparator1, gridBagConstraints);
 
-        avatarSizeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         avatarSizeLabel.setText("avatarSize ");
         avatarSizeLabel.setToolTipText("parameter values for camera collision distance, avatar height, and step-over height");
         avatarSizeLabel.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -378,7 +369,7 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(avatarZTF, gridBagConstraints);
 
-        collisionDistanceLabel.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
+        collisionDistanceLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         collisionDistanceLabel.setText("collision distance ");
         collisionDistanceLabel.setToolTipText("collision distance (in meters) between user and geometry");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -389,7 +380,7 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(collisionDistanceLabel, gridBagConstraints);
 
-        viewerHeightLabel.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
+        viewerHeightLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         viewerHeightLabel.setText("viewer height ");
         viewerHeightLabel.setToolTipText("viewer height (in meters) above terrain");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -400,7 +391,7 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(viewerHeightLabel, gridBagConstraints);
 
-        WALKoverHeightLabel.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
+        WALKoverHeightLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         WALKoverHeightLabel.setText("WALK over height ");
         WALKoverHeightLabel.setToolTipText("tallest height (in meters) that viewer can WALK over");
         gridBagConstraints = new java.awt.GridBagConstraints();
