@@ -142,7 +142,7 @@ public class TWOSIDEDMATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 400;
-        gridBagConstraints.ipady = 400;
+        gridBagConstraints.ipady = 700;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -157,7 +157,7 @@ public class TWOSIDEDMATERIALCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;

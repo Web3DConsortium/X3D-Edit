@@ -108,6 +108,7 @@ public class ACOUSTICPROPERTIESCustomizer extends BaseCustomizer {
         hintLabel = new javax.swing.JLabel();
 
         setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(480, 360));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
@@ -322,7 +323,7 @@ public class ACOUSTICPROPERTIESCustomizer extends BaseCustomizer {
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>AcousticProperties</b> specifies interaction of sound waves with geometric objects.</p> <br /> <p align=\"center\"><b>AcousticProperties</b> must have a parent Appearance node, <br /> only affects geometry within the same Shape, and does not contain any other audio nodes.</p>");
+        hintLabel.setText("<html><p align=\"center\"><b>AcousticProperties</b> specifies interaction of sound waves with geometric objects.</p> <br /> <p align=\"center\"><b>AcousticProperties</b> must have a parent Appearance node,  only affects <br />geometry within the same Shape, and does not contain any other audio nodes.</p>");
         hintLabel.setToolTipText("a parent Shape node can only contain one AcousticProperties node");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();

@@ -190,6 +190,7 @@ public class MULTITEXTURECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(600, 550));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -197,7 +198,8 @@ public class MULTITEXTURECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(2, 6, 10, 3);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
         colorPanel.setLayout(new java.awt.GridBagLayout());
@@ -295,10 +297,13 @@ public class MULTITEXTURECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 36, 3, 36);
         add(colorPanel, gridBagConstraints);
+
+        tabbedPane.setPreferredSize(new java.awt.Dimension(350, 200));
 
         modeList.setToolTipText("Single or multiple string values");
         modeList.setColumnTitles(new String[] {"string values"});
@@ -320,8 +325,9 @@ public class MULTITEXTURECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipady = 60;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(tabbedPane, gridBagConstraints);
@@ -342,9 +348,9 @@ public class MULTITEXTURECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
