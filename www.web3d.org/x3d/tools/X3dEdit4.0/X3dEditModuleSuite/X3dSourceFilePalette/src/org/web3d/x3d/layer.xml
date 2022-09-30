@@ -808,6 +808,7 @@ POSSIBILITY OF SUCH DAMAGE.
             -->
         </folder>
     </folder>
+    <!-- This entry allows x3d to be recognized as xml in the Navigator pane -->
     <folder name="Navigator">
         <folder name="Panels">
             <folder name="model">
