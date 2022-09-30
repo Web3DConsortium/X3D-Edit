@@ -65,7 +65,9 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
   private String  translationXoriginal, translationYoriginal, translationZoriginal;
   private String       centerXoriginal,      centerYoriginal,      centerZoriginal;
   
-  /** Creates new form ARC2DCustomizer */
+  /** Creates new form HANIMJOINTCustomizer
+     * @param hAnimJoint data of interest
+     * @param target Swing component of interest */
   public HANIMJOINTCustomizer(HANIMJOINT hAnimJoint, JTextComponent target)
   {
     super(hAnimJoint);
@@ -210,6 +212,8 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         centerModificationComboBox = new javax.swing.JComboBox<>();
         scaleSelectionComboBox = new javax.swing.JComboBox<>();
 
+        setMinimumSize(new java.awt.Dimension(600, 500));
+        setPreferredSize(new java.awt.Dimension(660, 555));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

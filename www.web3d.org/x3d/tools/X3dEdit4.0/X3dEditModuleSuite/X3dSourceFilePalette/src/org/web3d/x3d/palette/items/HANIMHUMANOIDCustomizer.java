@@ -71,7 +71,11 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
   private String  translationXoriginal, translationYoriginal, translationZoriginal;
   private String       centerXoriginal,      centerYoriginal,      centerZoriginal;
   
-  public HANIMHUMANOIDCustomizer(HANIMHUMANOID humanoid, JTextComponent target)
+    /**
+     * Creates new form HANIMHUMANOIDCustomizer
+     * @param humanoid data of interest
+     * @param target Swing component of interest */
+    public HANIMHUMANOIDCustomizer(HANIMHUMANOID humanoid, JTextComponent target)
   {
     super(humanoid);
     this.hAnimHumanoid = humanoid;
@@ -259,7 +263,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         nameLabel = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         versionLabel = new javax.swing.JLabel();
-        versionCombo = new javax.swing.JComboBox<String>();
+        versionCombo = new javax.swing.JComboBox<>();
         xLabel = new javax.swing.JLabel();
         yLabel = new javax.swing.JLabel();
         zLabel = new javax.swing.JLabel();
@@ -269,12 +273,12 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         translationXTF = new javax.swing.JTextField();
         translationYTF = new javax.swing.JTextField();
         translationZTF = new javax.swing.JTextField();
-        translationModificationComboBox = new javax.swing.JComboBox<String>();
+        translationModificationComboBox = new javax.swing.JComboBox<>();
         centerLabel = new javax.swing.JLabel();
         centerXTF = new javax.swing.JTextField();
         centerYTF = new javax.swing.JTextField();
         centerZTF = new javax.swing.JTextField();
-        centerModificationComboBox = new javax.swing.JComboBox<String>();
+        centerModificationComboBox = new javax.swing.JComboBox<>();
         rotationLabel = new javax.swing.JLabel();
         rotationXaxisTF = new javax.swing.JTextField();
         rotationYaxisTF = new javax.swing.JTextField();
@@ -285,7 +289,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         scaleXTF = new javax.swing.JTextField();
         scaleYTF = new javax.swing.JTextField();
         scaleZTF = new javax.swing.JTextField();
-        scaleSelectionComboBox = new javax.swing.JComboBox<String>();
+        scaleSelectionComboBox = new javax.swing.JComboBox<>();
         scaleOrientationLabel = new javax.swing.JLabel();
         scaleOrientationXaxisTF = new javax.swing.JTextField();
         scaleOrientationYaxisTF = new javax.swing.JTextField();
@@ -307,6 +311,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(600, 510));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel.setMinimumSize(new java.awt.Dimension(10, 10));
@@ -874,14 +879,14 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(infoTable, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                .addComponent(infoTable, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
                 .addContainerGap())
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(infoTable, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                .addComponent(infoTable, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
