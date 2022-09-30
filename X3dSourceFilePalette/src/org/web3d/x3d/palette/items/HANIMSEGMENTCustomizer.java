@@ -58,7 +58,12 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
   private JTextComponent target;
   private JTextField[] moiArray;
      
-  public HANIMSEGMENTCustomizer(HANIMSEGMENT segment, JTextComponent target)
+    /**
+     * Creates new form HANIMSEGMENTCustomizer
+     * @param segment data of interest
+     * @param target Swing component of interest
+     */
+    public HANIMSEGMENTCustomizer(HANIMSEGMENT segment, JTextComponent target)
   {
     super(segment);
     hAnimSegment = segment;
@@ -117,7 +122,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
-        nameComboBox = new javax.swing.JComboBox<String>();
+        nameComboBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         centerOfMassTFX = new javax.swing.JTextField();
         centerOfMassTFY = new javax.swing.JTextField();
@@ -146,6 +151,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(620, 420));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -365,25 +371,32 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         add(bboxSizeTFZ, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel.setPreferredSize(new java.awt.Dimension(700, 450));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><b>HAnimSegment</b> contains each body segment");
+        hintLabel.setText("<html> <p align=\"center\"><b>HAnimSegment</b> contains Shape geometry for each body segment. </p>  <br />\n<p align=\"center\"><b>HAnimSegment</b> contains <b>Coordinate</b> (or <b>CoordinateDouble</b>) with containerField='coord', \n<b>HAnimDisplacer</b> with containerField='displacers' and <b>Shape</b> or grouping nodes with containerField='children'. </p>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        hintLabel.setMaximumSize(new java.awt.Dimension(2147483647, 1666666));
+        hintLabel.setMinimumSize(new java.awt.Dimension(28, 16));
+        hintLabel.setPreferredSize(new java.awt.Dimension(600, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         nodeHintPanel.add(hintLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents

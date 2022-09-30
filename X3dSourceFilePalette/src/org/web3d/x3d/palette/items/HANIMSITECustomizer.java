@@ -43,6 +43,7 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
@@ -65,7 +66,12 @@ public class HANIMSITECustomizer extends BaseCustomizer
   private String  translationXoriginal, translationYoriginal, translationZoriginal;
   private String       centerXoriginal,      centerYoriginal,      centerZoriginal;
   
-  public HANIMSITECustomizer(HANIMSITE site, JTextComponent target)
+    /**
+     * Creates new form HANIMSITECustomizer
+     * @param site data of interest
+     * @param target Swing component of interest
+     */
+    public HANIMSITECustomizer(HANIMSITE site, JTextComponent target)
   {
     super(site);
     hAnimSite = site;
@@ -142,7 +148,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
 
         dEFUSEpanel = getDEFUSEpanel();
         nameLabel = new javax.swing.JLabel();
-        nameComboBox = new javax.swing.JComboBox<String>();
+        nameComboBox = new javax.swing.JComboBox<>();
         xLabel = new javax.swing.JLabel();
         yLabel = new javax.swing.JLabel();
         zLabel = new javax.swing.JLabel();
@@ -152,17 +158,17 @@ public class HANIMSITECustomizer extends BaseCustomizer
         translationXTF = new javax.swing.JTextField();
         translationYTF = new javax.swing.JTextField();
         translationZTF = new javax.swing.JTextField();
-        translationModificationComboBox = new javax.swing.JComboBox<String>();
+        translationModificationComboBox = new javax.swing.JComboBox<>();
         centerLabel = new javax.swing.JLabel();
         centerXTF = new javax.swing.JTextField();
         centerYTF = new javax.swing.JTextField();
         centerZTF = new javax.swing.JTextField();
-        centerModificationComboBox = new javax.swing.JComboBox<String>();
+        centerModificationComboBox = new javax.swing.JComboBox<>();
         scaleLabel = new javax.swing.JLabel();
         scaleXTF = new javax.swing.JTextField();
         scaleYTF = new javax.swing.JTextField();
         scaleZTF = new javax.swing.JTextField();
-        scaleSelectionComboBox = new javax.swing.JComboBox<String>();
+        scaleSelectionComboBox = new javax.swing.JComboBox<>();
         rotationLabel = new javax.swing.JLabel();
         rotationXaxisTF = new javax.swing.JTextField();
         rotationYaxisTF = new javax.swing.JTextField();
@@ -187,6 +193,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(600, 422));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -640,7 +647,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>HAnimSite</b> nodes define an end-effector location for inverse kinematics (IK), <br />an attachment point for accessories such as jewelry and clothing, or a location for a virtual camera.</p>");
+        hintLabel.setText("<html><p align=\"center\"><b>HAnimSite</b> defines an end-effector location for inverse kinematics (IK), \n<br />an attachment point for accessories such as jewelry and clothing, or a location for a virtual camera.</p>");
         hintLabel.setToolTipText("HAnimSite nodes aid humanoid animation");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();

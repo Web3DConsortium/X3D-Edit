@@ -56,7 +56,9 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
   private HANIMDISPLACER hAnimDisplacer;
   private JTextComponent target;
   
-  /** Creates new form ARC2DCustomizer */
+  /** Creates new form HANIMDISPLACERCustomizer
+     * @param displacer data of interest
+     * @param target Swing component of interest */
   public HANIMDISPLACERCustomizer(HANIMDISPLACER displacer, JTextComponent target)
   {
     super(displacer);
@@ -92,7 +94,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        nameComboBox = new javax.swing.JComboBox<String>();
+        nameComboBox = new javax.swing.JComboBox<>();
         coordIndexTF = new javax.swing.JTextField();
         displacementsTF = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -104,6 +106,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(630, 240));
         setLayout(new java.awt.GridBagLayout());
 
         nameComboBox.setEditable(true);
@@ -204,7 +207,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><b>HAnimDisplacer</b>  nodes alter the shape of individual HAnimSegment nodes");
+        hintLabel.setText("<html><b>HAnimDisplacer</b>  provides animation values to alter the shape of individual HAnimSegment nodes. ");
         hintLabel.setToolTipText("HAnimDisplacer can be used for a variety of animation techniques");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
