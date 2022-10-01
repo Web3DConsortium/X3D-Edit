@@ -258,7 +258,7 @@ public class ROUTECustomizer extends BaseCustomizer
         setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Event Source", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Event Source", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 12))); // NOI18N
         jPanel1.setToolTipText("Source node provides a typed value for animation");
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 400));
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -359,7 +359,7 @@ public class ROUTECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jPanel1, gridBagConstraints);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Event Destination", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 13))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Event Destination", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 12))); // NOI18N
         jPanel2.setToolTipText("changes a value in the scene graph");
         jPanel2.setPreferredSize(new java.awt.Dimension(500, 200));
         jPanel2.setLayout(new java.awt.GridBagLayout());
