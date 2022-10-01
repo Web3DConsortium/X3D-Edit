@@ -39,6 +39,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_CD;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 
 /**
@@ -232,9 +233,11 @@ public class DEFUSEpanel extends javax.swing.JPanel
         defRB = new javax.swing.JRadioButton();
         useRB = new javax.swing.JRadioButton();
         useCB = new javax.swing.JComboBox<>();
+        defUseHelpButton = new javax.swing.JButton();
         containerFieldLabel = new javax.swing.JLabel();
         containerFieldCombo = new javax.swing.JComboBox<>();
         containerFieldCheckBox = new javax.swing.JCheckBox();
+        containerFieldHelpButton = new javax.swing.JButton();
         htmlCssPanel = new javax.swing.JPanel();
         highlightComponentFont();
         htmlIdLabel = new javax.swing.JLabel();
@@ -246,11 +249,15 @@ public class DEFUSEpanel extends javax.swing.JPanel
         htmlHelpButton = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        setMinimumSize(new java.awt.Dimension(580, 112));
+        setMinimumSize(new java.awt.Dimension(604, 80));
+        setPreferredSize(new java.awt.Dimension(605, 100));
         setLayout(new java.awt.GridBagLayout());
 
         x3dHtmlTabbedPane.setToolTipText("DEF, USE, id and style are common to all elements");
+        x3dHtmlTabbedPane.setMinimumSize(new java.awt.Dimension(20, 20));
+        x3dHtmlTabbedPane.setPreferredSize(new java.awt.Dimension(580, 90));
 
+        x3dDefUsejPanel.setMinimumSize(new java.awt.Dimension(513, 56));
         x3dDefUsejPanel.setLayout(new java.awt.GridBagLayout());
 
         defTF.setToolTipText("DEF defines a unique ID name for this node, referencable by other nodes.  No embedded spaces, start with letter");
@@ -285,7 +292,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 1, 3, 3);
         x3dDefUsejPanel.add(DEFnameModificationButton, gridBagConstraints);
 
@@ -351,6 +358,27 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 1);
         x3dDefUsejPanel.add(useCB, gridBagConstraints);
 
+        defUseHelpButton.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        defUseHelpButton.setText("?");
+        defUseHelpButton.setToolTipText("Naming Conventions, X3D Scene Authoring Hints");
+        defUseHelpButton.setActionCommand("X3D4 HTML5 Guidelines");
+        defUseHelpButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        defUseHelpButton.setMinimumSize(new java.awt.Dimension(20, 20));
+        defUseHelpButton.setPreferredSize(new java.awt.Dimension(20, 20));
+        defUseHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                defUseHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 1, 3, 3);
+        x3dDefUsejPanel.add(defUseHelpButton, gridBagConstraints);
+
         containerFieldLabel.setText("containerField");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -392,9 +420,31 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 0);
         x3dDefUsejPanel.add(containerFieldCheckBox, gridBagConstraints);
 
+        containerFieldHelpButton.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        containerFieldHelpButton.setText("?");
+        containerFieldHelpButton.setToolTipText("containerField guidance, X3D Scene Authoring Hints");
+        containerFieldHelpButton.setActionCommand("X3D4 HTML5 Guidelines");
+        containerFieldHelpButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        containerFieldHelpButton.setMinimumSize(new java.awt.Dimension(20, 20));
+        containerFieldHelpButton.setPreferredSize(new java.awt.Dimension(20, 20));
+        containerFieldHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                containerFieldHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 1, 3, 3);
+        x3dDefUsejPanel.add(containerFieldHelpButton, gridBagConstraints);
+
         x3dHtmlTabbedPane.addTab("   X3D DEF USE containerField    ", null, x3dDefUsejPanel, "X3D common attributes");
 
         htmlCssPanel.setToolTipText("");
+        htmlCssPanel.setPreferredSize(new java.awt.Dimension(600, 56));
         htmlCssPanel.setLayout(new java.awt.GridBagLayout());
 
         htmlIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -403,8 +453,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
         htmlCssPanel.add(htmlIdLabel, gridBagConstraints);
 
@@ -419,9 +468,9 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 32;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         htmlCssPanel.add(htmlIdTextField, gridBagConstraints);
 
         cssClassLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -430,8 +479,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
         htmlCssPanel.add(cssClassLabel, gridBagConstraints);
 
@@ -441,9 +489,9 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 32;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         htmlCssPanel.add(cssClassTextField, gridBagConstraints);
 
         cssStyleLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -452,9 +500,8 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 16, 3, 0);
         htmlCssPanel.add(cssStyleLabel, gridBagConstraints);
 
         cssStyleTextField.setToolTipText("CSS style information for HTML5 page");
@@ -463,19 +510,20 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 60;
+        gridBagConstraints.ipadx = 80;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         htmlCssPanel.add(cssStyleTextField, gridBagConstraints);
 
+        htmlHelpButton.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         htmlHelpButton.setText("?");
         htmlHelpButton.setToolTipText("X3D4 HTML5 CSS Guidelines for X3D4 Architecture");
         htmlHelpButton.setActionCommand("X3D4 HTML5 Guidelines");
         htmlHelpButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        htmlHelpButton.setMaximumSize(null);
-        htmlHelpButton.setMinimumSize(new java.awt.Dimension(40, 20));
-        htmlHelpButton.setPreferredSize(new java.awt.Dimension(40, 20));
+        htmlHelpButton.setMinimumSize(new java.awt.Dimension(20, 20));
+        htmlHelpButton.setPreferredSize(new java.awt.Dimension(20, 20));
         htmlHelpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 htmlHelpButtonActionPerformed(evt);
@@ -484,7 +532,8 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         htmlCssPanel.add(htmlHelpButton, gridBagConstraints);
 
@@ -492,6 +541,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         add(x3dHtmlTabbedPane, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -585,6 +635,16 @@ public class DEFUSEpanel extends javax.swing.JPanel
     private void htmlIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_htmlIdTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_htmlIdTextFieldActionPerformed
+
+    private void defUseHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defUseHelpButtonActionPerformed
+        // launch appropriate X3D help
+        LaunchX3dExamplesAction.sendBrowserTo(X3D_SCENE_AUTHORING_HINTS + "#NamingConventions");
+    }//GEN-LAST:event_defUseHelpButtonActionPerformed
+
+    private void containerFieldHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_containerFieldHelpButtonActionPerformed
+        // launch appropriate X3D help
+        LaunchX3dExamplesAction.sendBrowserTo(X3D_SCENE_AUTHORING_HINTS + "#containerField");
+    }//GEN-LAST:event_containerFieldHelpButtonActionPerformed
     private void assignCorrectTooltip ()
     {
         int  index = containerFieldCombo.getSelectedIndex();
@@ -596,6 +656,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox containerFieldCheckBox;
     private javax.swing.JComboBox<String> containerFieldCombo;
+    private javax.swing.JButton containerFieldHelpButton;
     private javax.swing.JLabel containerFieldLabel;
     private javax.swing.JLabel cssClassLabel;
     private javax.swing.JTextField cssClassTextField;
@@ -603,6 +664,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
     private javax.swing.JTextField cssStyleTextField;
     private javax.swing.JRadioButton defRB;
     private javax.swing.JTextField defTF;
+    private javax.swing.JButton defUseHelpButton;
     private javax.swing.JPanel htmlCssPanel;
     private javax.swing.JButton htmlHelpButton;
     private javax.swing.JLabel htmlIdLabel;
