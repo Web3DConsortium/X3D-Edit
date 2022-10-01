@@ -196,8 +196,6 @@
              dest="${x3dStylesheets.dir}/X3dToJson.xslt"             usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToTurtle.xslt"
              dest="${x3dStylesheets.dir}/X3dToTurtle.xslt"           usetimestamp="true" verbose="true"/>
-        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dTooltipConversions.xslt"
-             dest="${x3dStylesheets.dir}/X3dTooltipConversions.xslt"             usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dUnwrap.xslt"
              dest="${x3dStylesheets.dir}/X3dUnwrap.xslt"             usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dWrap.xslt"
