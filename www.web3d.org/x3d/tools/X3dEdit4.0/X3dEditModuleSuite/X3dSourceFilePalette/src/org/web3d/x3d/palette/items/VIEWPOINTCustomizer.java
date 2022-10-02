@@ -223,7 +223,8 @@ public class VIEWPOINTCustomizer extends BaseCustomizer
         rotationCalculatorlButton = new javax.swing.JButton();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(591, 602));
+        setPreferredSize(new java.awt.Dimension(680, 700));
+        setRequestFocusEnabled(false);
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
@@ -1041,7 +1042,7 @@ public class VIEWPOINTCustomizer extends BaseCustomizer
 
         hintLabel.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html>  <p align=\"center\"><b>Viewpoint</b> provides a specific location and direction where the user may view the scene. Viewpoints are <br />\n the primary way for a user to navigate within a scene, and for an author to show critical aspects of a model. \n<ul>\n  <li> Hint: a sequence of good Viewpoints with understandable descriptions can provide a guided tour of a model. </li>\n  <li> Hint: the currently bound NavigationInfo node has a major effect on how a user might change viewing position and orientation after reaching this Viewpoint. </li>\n</ul></p>");
+        hintLabel.setText("<html>  <p align=\"center\"><b>Viewpoint</b> provides a specific location and direction where the user may view the scene. Viewpoints are <br />\n the primary way for a user to navigate within a scene, and for an author to show critical aspects of a model. \n<ul>\n  <li> Hint: a list of good Viewpoints with understandable descriptions can provide a guided tour of the model. </li>\n  <li> Hint: currently bound NavigationInfo node determines how users navigate after reaching this Viewpoint. </li>\n</ul></p>");
         hintLabel.setToolTipText("Viewpoint provides a specific location and direction where the user may view the scene.");
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
