@@ -108,6 +108,11 @@ public class LINESETCustomizer extends BaseCustomizer
         vertexCountTF.setToolTipText("array of integers describing size of each polyline taken from child Coordinate node");
         vertexCountTF.setMinimumSize(new java.awt.Dimension(80, 20));
         vertexCountTF.setPreferredSize(new java.awt.Dimension(80, 20));
+        vertexCountTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vertexCountTFActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -148,6 +153,10 @@ public class LINESETCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void vertexCountTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vertexCountTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vertexCountTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel centerPanel;
