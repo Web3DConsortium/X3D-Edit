@@ -159,11 +159,16 @@ public class NAVIGATIONINFOCustomizer extends BaseCustomizer
         WALKoverHeightLabel = new javax.swing.JLabel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(588, 460));
+        setPreferredSize(new java.awt.Dimension(620, 590));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
-        add(dEFUSEpanel1, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        add(dEFUSEpanel1, gridBagConstraints);
 
         leftPan.setLayout(new java.awt.GridBagLayout());
 
