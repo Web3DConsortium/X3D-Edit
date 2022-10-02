@@ -151,14 +151,13 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(620, 420));
+        setPreferredSize(new java.awt.Dimension(660, 450));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = -53;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
@@ -371,21 +370,22 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         add(bboxSizeTFZ, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nodeHintPanel.setPreferredSize(new java.awt.Dimension(700, 450));
+        nodeHintPanel.setPreferredSize(new java.awt.Dimension(625, 110));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html> <p align=\"center\"><b>HAnimSegment</b> contains Shape geometry for each body segment. </p>  <br />\n<p align=\"center\"><b>HAnimSegment</b> contains <b>Coordinate</b> (or <b>CoordinateDouble</b>) with containerField='coord', \n<b>HAnimDisplacer</b> with containerField='displacers' and <b>Shape</b> or grouping nodes with containerField='children'. </p>");
+        hintLabel.setText("<html> <p align=\"center\"><b>HAnimSegment</b> contains Shape geometry for each body segment, providing a visual representation of the skeleton segment.   Parent/child translation and rotation relationships are defined in ancestor/descendant <b>HAnimSegment</b> nodes. </p>   \n<br />  \n<p align=\"center\"><b>HAnimSegment</b> contains <b>Coordinate</b> (or <b>CoordinateDouble</b>) with containerField='coord',  <b>HAnimDisplacer</b> with containerField='displacers' and <b>Shape</b> or grouping nodes with containerField='children'. </p>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         hintLabel.setMaximumSize(new java.awt.Dimension(2147483647, 1666666));
         hintLabel.setMinimumSize(new java.awt.Dimension(28, 16));
-        hintLabel.setPreferredSize(new java.awt.Dimension(600, 60));
+        hintLabel.setPreferredSize(new java.awt.Dimension(600, 100));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         nodeHintPanel.add(hintLabel, gridBagConstraints);
 
@@ -395,8 +395,6 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents

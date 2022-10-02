@@ -38,7 +38,7 @@ import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_CD;
+import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_DIS;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 
@@ -631,7 +631,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
     private void htmlHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_htmlHelpButtonActionPerformed
 
         // launch appropriate X3D help
-        LaunchX3dExamplesAction.sendBrowserTo(X3D4_ARCHITECTURE_STANDARD_CD.replace("Architecture", "htmlGuidelines"));
+        LaunchX3dExamplesAction.sendBrowserTo(X3D4_ARCHITECTURE_STANDARD_DIS.replace("Architecture", "htmlGuidelines"));
     }//GEN-LAST:event_htmlHelpButtonActionPerformed
 
     private void htmlIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_htmlIdTextFieldActionPerformed
