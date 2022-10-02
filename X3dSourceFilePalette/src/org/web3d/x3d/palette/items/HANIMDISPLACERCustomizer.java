@@ -106,7 +106,8 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(630, 240));
+        setMinimumSize(new java.awt.Dimension(620, 258));
+        setPreferredSize(new java.awt.Dimension(660, 270));
         setLayout(new java.awt.GridBagLayout());
 
         nameComboBox.setEditable(true);

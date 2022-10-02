@@ -213,14 +213,16 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         scaleSelectionComboBox = new javax.swing.JComboBox<>();
 
         setMinimumSize(new java.awt.Dimension(600, 500));
-        setPreferredSize(new java.awt.Dimension(660, 555));
+        setPreferredSize(new java.awt.Dimension(680, 610));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel, gridBagConstraints);
 
@@ -1033,7 +1035,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html> <p align=\"center\"><b>HAnimJoint</b> is used to represent each joint in the body.</p>\n<p align=\"center\">Parent must be another <b>HAnimJoint</b> or else the HAnimHumanoid node (with containerfield='skeleton' or 'joints').</p>  \n<p align=\"center\"><b>HAnimJoint</b> can contain HAnimSegment, HAnimSite or HAnimJoint as children nodes, plus HanimDisplacer displacers.</p>");
+        hintLabel.setText("<html> <p align=\"center\"><b>HAnimJoint</b> is used to represent each joint in the body. <br /> The child <b>HAnimSegment</b> node provides a visual representation of the skeleton segment.</p> <br /> <p align=\"center\">Parent must be another <b>HAnimJoint</b> or else the HAnimHumanoid node (with containerfield='skeleton' or 'joints').</p>   <p align=\"center\"><b>HAnimJoint</b> can contain HAnimSegment, HAnimSite or HAnimJoint as children nodes, plus HanimDisplacer displacers.</p>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1047,8 +1049,10 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 21;
         gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
 
