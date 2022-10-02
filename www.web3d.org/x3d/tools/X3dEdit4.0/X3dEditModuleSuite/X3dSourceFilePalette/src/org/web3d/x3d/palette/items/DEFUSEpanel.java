@@ -250,7 +250,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         setMinimumSize(new java.awt.Dimension(604, 80));
-        setPreferredSize(new java.awt.Dimension(605, 100));
+        setPreferredSize(new java.awt.Dimension(600, 100));
         setLayout(new java.awt.GridBagLayout());
 
         x3dHtmlTabbedPane.setToolTipText("DEF, USE, id and style are common to all elements");
@@ -258,6 +258,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         x3dHtmlTabbedPane.setPreferredSize(new java.awt.Dimension(580, 90));
 
         x3dDefUsejPanel.setMinimumSize(new java.awt.Dimension(513, 56));
+        x3dDefUsejPanel.setPreferredSize(new java.awt.Dimension(400, 54));
         x3dDefUsejPanel.setLayout(new java.awt.GridBagLayout());
 
         defTF.setToolTipText("DEF defines a unique ID name for this node, referencable by other nodes.  No embedded spaces, start with letter");
@@ -291,6 +292,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.ipadx = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 1, 3, 3);
@@ -373,9 +375,9 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 1, 3, 3);
         x3dDefUsejPanel.add(defUseHelpButton, gridBagConstraints);
 
@@ -401,7 +403,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 60;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 1, 3, 3);
@@ -435,16 +437,16 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 1, 3, 3);
         x3dDefUsejPanel.add(containerFieldHelpButton, gridBagConstraints);
 
         x3dHtmlTabbedPane.addTab("   X3D DEF USE containerField    ", null, x3dDefUsejPanel, "X3D common attributes");
 
         htmlCssPanel.setToolTipText("");
-        htmlCssPanel.setPreferredSize(new java.awt.Dimension(600, 56));
+        htmlCssPanel.setPreferredSize(new java.awt.Dimension(400, 56));
         htmlCssPanel.setLayout(new java.awt.GridBagLayout());
 
         htmlIdLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
