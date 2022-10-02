@@ -41,7 +41,7 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_CD;
+import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_DIS;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3D4ArchitectureStandardAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_LaunchX3D4ArchitectureStandardAction", lazy=true)
@@ -59,7 +59,7 @@ public final class LaunchX3D4ArchitectureStandardAction extends CallableSystemAc
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D4_ARCHITECTURE_STANDARD_CD);
+    LaunchX3dExamplesAction.sendBrowserTo(X3D4_ARCHITECTURE_STANDARD_DIS);
   }
 
   @Override
