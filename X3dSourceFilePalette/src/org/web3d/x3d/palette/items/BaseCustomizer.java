@@ -64,6 +64,7 @@ import org.web3d.x3d.types.X3DNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFColor;
 import static org.web3d.x3d.types.X3DSchemaData.COMMENT_ELNAME;
 import static org.web3d.x3d.types.X3DSchemaData.DOCTYPE_ELNAME;
+import static org.web3d.x3d.types.X3DSchemaData.FONTSTYLE_ELNAME;
 import static org.web3d.x3d.types.X3DSchemaData.XML_ELNAME;
 
 /**
@@ -112,8 +113,7 @@ public abstract class BaseCustomizer extends JPanel
     decimalFormatSymbols.setDecimalSeparator('.');
     
     //    TODO review,  selecting DOCTYPE should shift to X3D for editing
-    if  ((currentBaseX3DElement.getElementName() == null) ||
-          (getName() == null) || getName().isEmpty()) // unhandled element or external text
+    if  (currentBaseX3DElement.getElementName() == null)
          hasDEFUSEpanel = false;
     else hasDEFUSEpanel = 
         !currentBaseX3DElement.getElementName().equals("XML") &&
@@ -553,8 +553,6 @@ public abstract class BaseCustomizer extends JPanel
 
   protected void initializeDEFUSEpanel()
   {
-    if (getName().isEmpty()) // unhandled element or external text
-        return;
     defUSEpanel.setParentPanel(this);
     defUSEpanel.getUseCB().setModel(new DefaultComboBoxModel<>(getBaseX3DElement().getUSEVector()));
 
@@ -619,7 +617,8 @@ public abstract class BaseCustomizer extends JPanel
     X3DPaletteUtilitiesJdom x3dPaletteUtilities = new X3DPaletteUtilitiesJdom();
     
     if ( defUSEpanel.hasHtmlCssFields() && 
-        !x3dPaletteUtilities.isCurrentDocumentX3dVersion4())
+        !x3dPaletteUtilities.isCurrentDocumentX3dVersion4() &&
+        !baseX3DElement.getElementName().equalsIgnoreCase(FONTSTYLE_ELNAME))
     {
         // post warning dialog if not X3D version 4
         NotifyDescriptor.Message warningDescriptor = new NotifyDescriptor.Message(
