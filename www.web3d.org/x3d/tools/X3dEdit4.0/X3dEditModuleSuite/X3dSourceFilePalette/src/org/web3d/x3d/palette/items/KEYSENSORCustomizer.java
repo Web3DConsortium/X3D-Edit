@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -77,13 +77,14 @@ public class KEYSENSORCustomizer extends BaseCustomizer
         eventHintPanel = new javax.swing.JPanel();
         eventsLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(664, 186));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 318;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
@@ -103,7 +104,7 @@ public class KEYSENSORCustomizer extends BaseCustomizer
         eventHintPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel.setText("<html>Output events include <b>isActive</b>, <b>keyPress</b>, <b>keyRelease</b>, <b>actionKeyPress</b>, <b>actionKeyRelease</b>, <b>altKey</b>, <b>controlKey</b>, <b>shiftKey</b>");
+        eventsLabel.setText("<html><p align=\"center\">Output events include <b>isActive</b>, <b>keyPress</b>, <b>keyRelease</b>, <b>actionKeyPress</b>, <b>actionKeyRelease</b>, <b>altKey</b>, <b>controlKey</b>, <b>shiftKey</b> </p>");
         eventsLabel.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
