@@ -263,7 +263,7 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
         hintLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(600, 500));
-        setPreferredSize(new java.awt.Dimension(1000, 500));
+        setPreferredSize(new java.awt.Dimension(1000, 640));
         setRequestFocusEnabled(false);
         setLayout(new java.awt.GridBagLayout());
 
