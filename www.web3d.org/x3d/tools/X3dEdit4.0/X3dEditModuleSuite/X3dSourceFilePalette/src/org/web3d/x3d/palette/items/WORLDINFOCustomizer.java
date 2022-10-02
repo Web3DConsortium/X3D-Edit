@@ -109,8 +109,10 @@ public class WORLDINFOCustomizer extends BaseCustomizer
         insertLineBreaksCheckBox = new javax.swing.JCheckBox();
         insertCommasCheckBox = new javax.swing.JCheckBox();
         spacerLabel = new javax.swing.JLabel();
+        nodeHintPanel = new javax.swing.JPanel();
+        hintLabel = new javax.swing.JLabel();
 
-        setMaximumSize(null);
+        setPreferredSize(new java.awt.Dimension(650, 500));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
@@ -199,6 +201,29 @@ public class WORLDINFOCustomizer extends BaseCustomizer
         gridBagConstraints.ipadx = 250;
         gridBagConstraints.weightx = 1.0;
         add(spacerLabel, gridBagConstraints);
+
+        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\"><b>WorldInfo</b> contains a browsesr-displayable title and persistent string information about an X3D scene.</p>\n<br />\n<p align=\"center\">For X3D4 models, <b>WorldInfo</b> can also contain a <b>MetadataSet</b> node with further metadata information about the scene.</p>");
+        hintLabel.setToolTipText("HAnimSite nodes aid humanoid animation");
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        nodeHintPanel.add(hintLabel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void insertLineBreaksCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_insertLineBreaksCheckBoxActionPerformed
@@ -208,9 +233,11 @@ public class WORLDINFOCustomizer extends BaseCustomizer
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel appendLabel;
+    private javax.swing.JLabel hintLabel;
     private org.web3d.x3d.palette.items.ExpandableList infoTable;
     private javax.swing.JCheckBox insertCommasCheckBox;
     private javax.swing.JCheckBox insertLineBreaksCheckBox;
+    private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JLabel spacerLabel;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JTextField titleTF;
