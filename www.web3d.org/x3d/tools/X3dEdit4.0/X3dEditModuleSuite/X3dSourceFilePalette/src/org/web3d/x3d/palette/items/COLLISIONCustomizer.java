@@ -111,7 +111,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(600, 310));
+        setPreferredSize(new java.awt.Dimension(600, 330));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
