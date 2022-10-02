@@ -41,6 +41,7 @@ import javax.swing.SwingUtilities;
 import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_DIS;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
+import org.web3d.x3d.types.X3DSchemaData;
 
 /**
  * DEFUSEpanel.java
@@ -211,9 +212,14 @@ public class DEFUSEpanel extends javax.swing.JPanel
   {
     return cssStyleTextField.getText().trim();
   }
-  protected void setCssStyle(String newDEF)
+  protected void setCssStyle(String newCssStyle)
   {
-    cssStyleTextField.setText(newDEF.trim());
+    if ((parentCustomizerPanel != null) && 
+        (parentCustomizerPanel.getBaseX3DElement().getElementName() != X3DSchemaData.FONTSTYLE_ELNAME))
+    {
+        cssStyleTextField.setText(newCssStyle.trim());
+    }
+    // TODO handle FontStyle cssStyle attribute
   }
   /** This method is called from within the constructor to
    * initialize the form.
