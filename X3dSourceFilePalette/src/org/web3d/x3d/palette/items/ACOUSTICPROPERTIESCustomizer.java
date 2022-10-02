@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -108,7 +108,7 @@ public class ACOUSTICPROPERTIESCustomizer extends BaseCustomizer {
         hintLabel = new javax.swing.JLabel();
 
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(480, 360));
+        setPreferredSize(new java.awt.Dimension(620, 360));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
