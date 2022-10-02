@@ -137,7 +137,10 @@ public class METADATASTRINGCustomizer extends BaseCustomizer
         referenceTextLabel = new javax.swing.JLabel();
         referenceTextField = new javax.swing.JTextField();
         valueTable = new org.web3d.x3d.palette.items.ExpandableList();
+        nodeHintPanel = new javax.swing.JPanel();
+        hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(611, 440));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -217,6 +220,29 @@ public class METADATASTRINGCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(valueTable, gridBagConstraints);
+
+        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\"><b>MetadataString</b> contains a named, typed list of values providing metadata information about its parent node. </p>");
+        hintLabel.setToolTipText("Metadata nodes provide typed information about model characteristics");
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        nodeHintPanel.add(hintLabel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void referenceTextFieldActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_referenceTextFieldActionPerformed
@@ -231,8 +257,10 @@ public class METADATASTRINGCustomizer extends BaseCustomizer
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
+    private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JTextField referenceTextField;
     private javax.swing.JLabel referenceTextLabel;
     private org.web3d.x3d.palette.items.ExpandableList valueTable;

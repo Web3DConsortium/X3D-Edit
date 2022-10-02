@@ -97,8 +97,11 @@ public class METADATASETCustomizer extends BaseCustomizer
         referenceLabel = new javax.swing.JLabel();
         referenceTextField = new javax.swing.JTextField();
         childrenLabel = new javax.swing.JLabel();
+        nodeHintPanel = new javax.swing.JPanel();
+        hintLabel = new javax.swing.JLabel();
 
         setToolTipText("metadata attribute name");
+        setPreferredSize(new java.awt.Dimension(616, 255));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -158,13 +161,36 @@ public class METADATASETCustomizer extends BaseCustomizer
 
         childrenLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         childrenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        childrenLabel.setText("MetadataSet contains other Metadata nodes");
+        childrenLabel.setText("MetadataSet only contains other Metadata nodes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(childrenLabel, gridBagConstraints);
+
+        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\"><b>MetadataSet</b> contains a list of additional Metadata nodes providing  information about its parent node. </p>\n<br />\n<p align=\"center\"><b>MetadataSet</b> collections can be used for sophisticated model search, referencing and reasoning. </p>");
+        hintLabel.setToolTipText("Metadata nodes provide typed information about model characteristics");
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        nodeHintPanel.add(hintLabel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void referenceTextFieldActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_referenceTextFieldActionPerformed
@@ -180,8 +206,10 @@ public class METADATASETCustomizer extends BaseCustomizer
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel childrenLabel;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
+    private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JLabel referenceLabel;
     private javax.swing.JTextField referenceTextField;
     // End of variables declaration//GEN-END:variables
