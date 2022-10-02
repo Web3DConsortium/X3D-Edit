@@ -90,7 +90,8 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String WEB3D_EXAMPLES                       ="https://web3d.org/example"; // mistakenly named website page
   public final static String WEB3D_STANDARDS                      ="https://web3d.org/standards";
   public final static String HANIM2_STANDARD                      ="https://www.web3d.org/documents/specifications/19774/V2.0/index.html";
-  public final static String X3D4_ARCHITECTURE_STANDARD_CD        ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-CD1/Part01/Architecture.html";
+  public final static String X3D4_ARCHITECTURE_STANDARD_CD1       ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-CD1/Part01/Architecture.html";
+  public final static String X3D4_ARCHITECTURE_STANDARD_DIS       ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-DIS/Part01/Architecture.html";
   public final static String X3D_XML_ENCODING_STANDARD            ="https://www.web3d.org/documents/specifications/19776-1/V3.3/Part01/X3D_XML.html";
   public final static String X3D_CLASSICVRML_ENCODING_STANDARD    ="https://www.web3d.org/documents/specifications/19776-2/V3.3/Part02/X3D_ClassicVRML.html";
   public final static String X3D_JSON_ENCODING_GUIDELINES         ="https://www.web3d.org/x3d/stylesheets/X3dToJson.html"; // TODO standard
