@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -184,14 +184,14 @@ public class FONTSTYLECustomizer extends BaseCustomizer
         dEFUSEpanel1 = getDEFUSEpanel();
         exampleLabel = new javax.swing.JLabel();
         majorJustifyLabel = new javax.swing.JLabel();
-        majorJustifyCombo = new javax.swing.JComboBox<String>();
+        majorJustifyCombo = new javax.swing.JComboBox<>();
         minorJustifyLabel = new javax.swing.JLabel();
-        minorJustifyCombo = new javax.swing.JComboBox<String>();
+        minorJustifyCombo = new javax.swing.JComboBox<>();
         familyLabel = new javax.swing.JLabel();
-        familyCombo = new javax.swing.JComboBox<String>();
+        familyCombo = new javax.swing.JComboBox<>();
         familyExampleLabel = new javax.swing.JLabel();
         styleLabel = new javax.swing.JLabel();
-        styleCB = new javax.swing.JComboBox<String>();
+        styleCB = new javax.swing.JComboBox<>();
         styleExampleLabel = new javax.swing.JLabel();
         sizelabel = new javax.swing.JLabel();
         sizeTF = new javax.swing.JTextField();
@@ -224,6 +224,7 @@ public class FONTSTYLECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(650, 495));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
