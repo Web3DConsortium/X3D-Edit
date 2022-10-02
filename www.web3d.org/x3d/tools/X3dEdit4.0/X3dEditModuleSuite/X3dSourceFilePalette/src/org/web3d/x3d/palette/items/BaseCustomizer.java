@@ -54,6 +54,7 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_SCHEMA_DOCTYPE_VALIDATION;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.options.X3dOptions;
@@ -61,6 +62,9 @@ import org.web3d.x3d.palette.BetterJTextField;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.types.X3DNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFColor;
+import static org.web3d.x3d.types.X3DSchemaData.COMMENT_ELNAME;
+import static org.web3d.x3d.types.X3DSchemaData.DOCTYPE_ELNAME;
+import static org.web3d.x3d.types.X3DSchemaData.XML_ELNAME;
 
 /**
  * In the IDE Log, opening any of the customizer forms in the gui builder dumps a stack trace saying it cannot open this
@@ -108,7 +112,10 @@ public abstract class BaseCustomizer extends JPanel
     decimalFormatSymbols.setDecimalSeparator('.');
     
     //    TODO review,  selecting DOCTYPE should shift to X3D for editing
-    hasDEFUSEpanel = 
+    if  ((currentBaseX3DElement.getElementName() == null) ||
+          (getName() == null) || getName().isEmpty()) // unhandled element or external text
+         hasDEFUSEpanel = false;
+    else hasDEFUSEpanel = 
         !currentBaseX3DElement.getElementName().equals("XML") &&
         !currentBaseX3DElement.getElementName().equals("DOCTYPE") &&
         !currentBaseX3DElement.getElementName().equals("COMMENT") &&
@@ -322,9 +329,16 @@ public abstract class BaseCustomizer extends JPanel
 //    continueButton.setToolTipText("Continue editing");
     
     final JButton helpButton = findButton(buttonsDialogDisplayer, "Help");
-    final ActionListener helpActionListener = (ActionEvent event) -> {
+    final ActionListener helpActionListener = (ActionEvent event) ->
+    {
+        if      (currentX3dElement.getElementName().equals(XML_ELNAME))
+             LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
+        else if (currentX3dElement.getElementName().equals(COMMENT_ELNAME))
+             LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
+        else if (currentX3dElement.getElementName().equals(DOCTYPE_ELNAME))
+             LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
         // launch appropriate X3D Tooltip
-        LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#" + currentX3dElement.getElementName());
+        else LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#" + currentX3dElement.getElementName());
     };
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
     if (helpButton != null)
@@ -522,9 +536,9 @@ public abstract class BaseCustomizer extends JPanel
 
   protected DEFUSEpanel getDEFUSEpanel()
   {
-    if (!hasDEFUSEpanel) // XML, DOCTYPE, COMMENT
+    if (!hasDEFUSEpanel) // XML, DOCTYPE, COMMENT, other
           return null;
-    if(defUSEpanel == null)
+    if (defUSEpanel == null)
     {
       defUSEpanel = new DEFUSEpanel();
 
@@ -539,6 +553,8 @@ public abstract class BaseCustomizer extends JPanel
 
   protected void initializeDEFUSEpanel()
   {
+    if (getName().isEmpty()) // unhandled element or external text
+        return;
     defUSEpanel.setParentPanel(this);
     defUSEpanel.getUseCB().setModel(new DefaultComboBoxModel<>(getBaseX3DElement().getUSEVector()));
 
