@@ -652,38 +652,61 @@ public class ROUTECustomizer extends BaseCustomizer
   @Override
   public void unloadInput() throws IllegalArgumentException
   {
-    Object fldObj = fromFieldCB.getSelectedItem();
-    String fromFldStr = "";
-    FieldPan fromFieldPan = null;
-    if(fldObj instanceof FieldPan) {
-      fromFieldPan = (FieldPan)fldObj;
-      fromFldStr = fromFieldPan.getFieldName();
-    }
-
-    fldObj = toFieldCB.getSelectedItem();
-    String toFldStr = "";
-    FieldPan toFieldPan = null;
-    if(fldObj instanceof FieldPan) {
-      toFieldPan = (FieldPan)fldObj;
-      toFldStr = toFieldPan.getFieldName();
-    }
-
-    Object nodeObj = fromNodeCB.getSelectedItem();
-
-    route.setFromNode (unMangleNodeString(nodeObj.toString()));
-    route.setFromField(fromFldStr);
-
-    nodeObj = toNodeCB.getSelectedItem();
-    route.setToNode (unMangleNodeString(nodeObj.toString()));
-    route.setToField(toFldStr);
-
-    if(fromFieldPan == null || toFieldPan == null)
-      return;
-
-    route.setEventType(fromFieldPan.getFieldType());
-
-    if(!fromFieldPan.getFieldType().equalsIgnoreCase(toFieldPan.getFieldType()))
-      throw new IllegalArgumentException("Field types ("+fromFieldPan.getFieldType()+", "+toFieldPan.getFieldType()+") do not match.");
+      if (fromNodeCB.getSelectedItem() != null)
+           route.setFromNode (unMangleNodeString(fromNodeCB.getSelectedItem().toString()));
+      else route.setFromNode ("");
+      
+      if (fromFieldCB.getSelectedItem() != null)
+           route.setFromField(fromFieldCB.getSelectedItem().toString());
+      else route.setFromNode ("");
+      
+      if (toNodeCB.getSelectedItem() != null)
+           route.setToNode   (  unMangleNodeString(toNodeCB.getSelectedItem().toString()));
+      else route.setToNode ("");
+      
+      if (toFieldCB.getSelectedItem() != null)
+           route.setToField  (  toFieldCB.getSelectedItem().toString());
+      else route.setToField ("");
+      
+      Object obj = toFieldCB.getSelectedItem();
+      if (obj instanceof FieldPan)
+          currentToFieldType = ((FieldPan) obj).getFieldType();
+      else
+          currentToFieldType = "";
+      route.setEventType(currentToFieldType);
+      
+//    Object fldObj = fromFieldCB.getSelectedItem();
+//    String fromFldStr = "";
+//    FieldPan fromFieldPan = null;
+//    if(fldObj instanceof FieldPan) {
+//      fromFieldPan = (FieldPan)fldObj;
+//      fromFldStr = fromFieldPan.getFieldName();
+//    }
+//
+//    fldObj = toFieldCB.getSelectedItem();
+//    String toFldStr = "";
+//    FieldPan toFieldPan = null;
+//    if(fldObj instanceof FieldPan) {
+//      toFieldPan = (FieldPan)fldObj;
+//      toFldStr = toFieldPan.getFieldName();
+//    }
+//
+//    Object nodeObj = fromNodeCB.getSelectedItem();
+//
+//    route.setFromNode (unMangleNodeString(nodeObj.toString()));
+//    route.setFromField(fromFldStr);
+//
+//    nodeObj = toNodeCB.getSelectedItem();
+//    route.setToNode (unMangleNodeString(nodeObj.toString()));
+//    route.setToField(toFldStr);
+//
+//    if(fromFieldPan == null || toFieldPan == null)
+//      return;
+//
+//    route.setEventType(fromFieldPan.getFieldType());
+//
+//    if(!fromFieldPan.getFieldType().equalsIgnoreCase(toFieldPan.getFieldType()))
+//      throw new IllegalArgumentException("Field types ("+fromFieldPan.getFieldType()+", "+toFieldPan.getFieldType()+") do not match.");
   }
 
   private String unMangleNodeString(Object o, int wh)
