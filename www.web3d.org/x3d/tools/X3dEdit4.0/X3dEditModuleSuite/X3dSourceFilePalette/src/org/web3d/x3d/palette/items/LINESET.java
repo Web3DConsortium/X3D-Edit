@@ -147,9 +147,12 @@ public class LINESET extends X3DGeometryNode
     return vertexCount;
   }
 
-  public void setVertexCount(String vertexCount)
+  public void setVertexCount(String newVertexCount)
   {
-    this.vertexCount = validatePositiveIntegersOrMinusOne(vertexCount);
+      if (newVertexCount.isBlank())
+           this.vertexCount = "";
+      // TODO should verify each integer is 2 or greater
+      else this.vertexCount = validatePositiveIntegersOrMinusOne(newVertexCount);
   }
 
 }
