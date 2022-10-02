@@ -138,7 +138,7 @@ public class COORDINATECustomizer extends BaseCustomizer
         hintLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(400, 250));
-        setPreferredSize(new java.awt.Dimension(700, 344));
+        setPreferredSize(new java.awt.Dimension(700, 640));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
