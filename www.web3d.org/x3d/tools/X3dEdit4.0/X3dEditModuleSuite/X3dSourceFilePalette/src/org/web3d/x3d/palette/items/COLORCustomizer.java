@@ -96,6 +96,7 @@ public class COLORCustomizer extends BaseCustomizer
         expandableListColors = new org.web3d.x3d.palette.items.ExpandableList();
         hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(700, 640));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));

@@ -35,6 +35,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -100,6 +101,8 @@ public class COLORRGBACustomizer extends BaseCustomizer
         expandableList1 = new ExpandableList();
         hintLabel = new JLabel();
 
+        setMinimumSize(new Dimension(640, 260));
+        setPreferredSize(new Dimension(700, 640));
         setLayout(new GridBagLayout());
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
