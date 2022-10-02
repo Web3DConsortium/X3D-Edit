@@ -320,11 +320,11 @@ POSSIBILITY OF SUCH DAMAGE.
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                         <attr name="position" intvalue="990"/>
                     </file>
-                    -->
                     <file name="x3d-popup-separator1.instance">
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                         <attr name="position" intvalue="1200"/>
                     </file>
+                    -->
                     <!-- Format using C14N menu item should land right before to already-provided Format menu item -->
                 </folder> <!-- popup -->
             </folder> <!-- x3d+xml -->
@@ -430,7 +430,6 @@ POSSIBILITY OF SUCH DAMAGE.
         <file name="X3dToXhtml.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml.xslt"/>
         <file name="X3dToX3dom.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToX3dom.xslt"/>
         <file name="X3dToJson.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToJson.xslt"/>
-        <file name="X3dTooltipConversions.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dTooltipConversions.xslt"/>
         <file name="X3dUnwrap.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dUnwrap.xslt"/>
         <file name="X3dWrap.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dWrap.xslt"/>
     </folder>
@@ -616,7 +615,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="org-netbeans-core-ide-ServicesTabAction.shadow_hidden"/>
         </folder>
         <folder name="X3D-Edit">
-            <attr name="position" intvalue="1150"/>
+            <attr name="position" intvalue="1250"/>
             <folder name="Author Workflow">
                 <attr name="position" intvalue="20"/>
             </folder>
