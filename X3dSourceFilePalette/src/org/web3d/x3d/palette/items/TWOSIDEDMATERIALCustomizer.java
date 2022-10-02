@@ -103,15 +103,18 @@ public class TWOSIDEDMATERIALCustomizer extends BaseCustomizer
         jTabbedPane1 = new javax.swing.JTabbedPane();
         frontPanel = new javax.swing.JPanel();
         backPanel = new javax.swing.JPanel();
+        hintPanel = new javax.swing.JPanel();
         twoSidedMaterialHintLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(300, 300));
-        setPreferredSize(new java.awt.Dimension(810, 900));
+        setPreferredSize(new java.awt.Dimension(820, 800));
         setLayout(new java.awt.GridBagLayout());
+
+        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(600, 100));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -136,6 +139,25 @@ public class TWOSIDEDMATERIALCustomizer extends BaseCustomizer
         backPanel.setLayout(new java.awt.BorderLayout());
         jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(TWOSIDEDMATERIALCustomizer.class, "TWOSIDEDMATERIALCustomizer.backPanel.TabConstraints.tabTitle"), backPanel); // NOI18N
 
+        hintPanel.setLayout(new java.awt.GridBagLayout());
+
+        twoSidedMaterialHintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        twoSidedMaterialHintLabel.setText(org.openide.util.NbBundle.getMessage(TWOSIDEDMATERIALCustomizer.class, "TWOSIDEDMATERIALCustomizer.twoSidedMaterialHintLabel.text")); // NOI18N
+        twoSidedMaterialHintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(TWOSIDEDMATERIALCustomizer.class, "TWOSIDEDMATERIALCustomizer.twoSidedMaterialHintLabel.toolTipText")); // NOI18N
+        twoSidedMaterialHintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        twoSidedMaterialHintLabel.setPreferredSize(new java.awt.Dimension(760, 98));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        hintPanel.add(twoSidedMaterialHintLabel, gridBagConstraints);
+
+        jTabbedPane1.addTab(org.openide.util.NbBundle.getMessage(TWOSIDEDMATERIALCustomizer.class, "TWOSIDEDMATERIALCustomizer.hintPanel.TabConstraints.tabTitle"), hintPanel); // NOI18N
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -148,21 +170,6 @@ public class TWOSIDEDMATERIALCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jTabbedPane1, gridBagConstraints);
-
-        twoSidedMaterialHintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        twoSidedMaterialHintLabel.setText(org.openide.util.NbBundle.getMessage(TWOSIDEDMATERIALCustomizer.class, "TWOSIDEDMATERIALCustomizer.twoSidedMaterialHintLabel.text")); // NOI18N
-        twoSidedMaterialHintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(TWOSIDEDMATERIALCustomizer.class, "TWOSIDEDMATERIALCustomizer.twoSidedMaterialHintLabel.toolTipText")); // NOI18N
-        twoSidedMaterialHintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        twoSidedMaterialHintLabel.setPreferredSize(new java.awt.Dimension(760, 98));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(twoSidedMaterialHintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -170,6 +177,7 @@ public class TWOSIDEDMATERIALCustomizer extends BaseCustomizer
     private javax.swing.JPanel backPanel;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JPanel frontPanel;
+    private javax.swing.JPanel hintPanel;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JCheckBox separateCB;
     private javax.swing.JLabel twoSidedMaterialHintLabel;
