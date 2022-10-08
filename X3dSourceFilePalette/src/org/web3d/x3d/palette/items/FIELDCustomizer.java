@@ -125,11 +125,12 @@ public class FIELDCustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        typeLab = new javax.swing.JLabel();
         nameLab = new javax.swing.JLabel();
         nameTF = new javax.swing.JTextField();
-        typeCB = new javax.swing.JComboBox<String>();
-        accessTypeCB = new javax.swing.JComboBox<String>();
+        typeLab = new javax.swing.JLabel();
+        typeCB = new javax.swing.JComboBox<>();
+        accessTypeLabel = new javax.swing.JLabel();
+        accessTypeCB = new javax.swing.JComboBox<>();
         appInfoLab = new javax.swing.JLabel();
         appinfoTF = new javax.swing.JTextField();
         appinfoInitializeButton = new javax.swing.JButton();
@@ -137,24 +138,11 @@ public class FIELDCustomizer extends BaseCustomizer
         documentationTF = new javax.swing.JTextField();
         openDocumentationButton = new javax.swing.JButton();
         valueLabel = new javax.swing.JLabel();
-        accessLab = new javax.swing.JLabel();
-        stackedPanel = new javax.swing.JPanel();
         warningLabel = new javax.swing.JLabel();
         valueTextAreaScrollPane = new javax.swing.JScrollPane();
         valueTextArea = new javax.swing.JTextArea();
 
         setLayout(new java.awt.GridBagLayout());
-
-        typeLab.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        typeLab.setText("type");
-        typeLab.setToolTipText("select data type");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 49;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(typeLab, gridBagConstraints);
 
         nameLab.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nameLab.setText("name");
@@ -171,11 +159,23 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 250;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameTF, gridBagConstraints);
+
+        typeLab.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        typeLab.setText("type");
+        typeLab.setToolTipText("select data type");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 49;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(typeLab, gridBagConstraints);
 
         typeCB.setEditable(true);
         typeCB.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -188,10 +188,22 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(typeCB, gridBagConstraints);
+
+        accessTypeLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        accessTypeLabel.setText("accessType");
+        accessTypeLabel.setToolTipText("accessType determines event input, event output, or persistent state");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(accessTypeLabel, gridBagConstraints);
 
         accessTypeCB.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         accessTypeCB.setToolTipText("select accessType");
@@ -203,6 +215,7 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -223,6 +236,7 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -235,7 +249,7 @@ public class FIELDCustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(appinfoInitializeButton, gridBagConstraints);
@@ -264,6 +278,7 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -279,7 +294,7 @@ public class FIELDCustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -298,24 +313,17 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(valueLabel, gridBagConstraints);
 
-        accessLab.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        accessLab.setText("accessType");
-        accessLab.setToolTipText("accessType determines event input, event output, or persistent state");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 15;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(accessLab, gridBagConstraints);
-
         warningLabel.setBackground(new Color(getBackground().getRed(),getBackground().getGreen(),getBackground().getBlue(),80));
         warningLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        warningLabel.setText("<html>No <i>value</i> attribute initialization is allowed for <ul>   <li>accessType inputOnly or outputOnly</li>   <li>contained SFNode or MFNode content</li>   <li>ExternProtoDeclare field definitions</li>   <li>field with IS-connect interface</li> </ul> <p align='center'>(see tooltip for specific details)</p> </html>");
+        warningLabel.setText("<html><p>No <i>value</i> attribute initialization is allowed for </p>\n<ul>   \n<li>accessType inputOnly or outputOnly</li>   \n<li>contained SFNode or MFNode content</li>   \n<li>ExternProtoDeclare field definitions</li>   \n<li>field with IS-connect interface</li> \n</ul> \n<p align='center'>(see tooltip for specific details)</p> </html>");
         warningLabel.setToolTipText("initialization value");
         warningLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         warningLabel.setOpaque(true);
-        stackedPanel.add(warningLabel);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
+        add(warningLabel, gridBagConstraints);
         warningLabel.getAccessibleContext().setAccessibleName("<html><center>No initial value for accessType inputOnly or outputOnly, or for child of ExternProtoDeclare node.");
 
         valueTextAreaScrollPane.setPreferredSize(new java.awt.Dimension(325, 120));
@@ -324,18 +332,14 @@ public class FIELDCustomizer extends BaseCustomizer
         valueTextArea.setLineWrap(true);
         valueTextArea.setRows(5);
         valueTextArea.setWrapStyleWord(true);
+        valueTextArea.setPreferredSize(new java.awt.Dimension(760, 290));
         valueTextAreaScrollPane.setViewportView(valueTextArea);
-
-        stackedPanel.add(valueTextAreaScrollPane);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 26;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(stackedPanel, gridBagConstraints);
+        add(valueTextAreaScrollPane, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
     private void typeCBActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_typeCBActionPerformed
     {//GEN-HEADEREND:event_typeCBActionPerformed
@@ -381,8 +385,8 @@ public class FIELDCustomizer extends BaseCustomizer
     }//GEN-LAST:event_appinfoInitializeButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel accessLab;
     private javax.swing.JComboBox<String> accessTypeCB;
+    private javax.swing.JLabel accessTypeLabel;
     private javax.swing.JLabel appInfoLab;
     private javax.swing.JButton appinfoInitializeButton;
     private javax.swing.JTextField appinfoTF;
@@ -391,7 +395,6 @@ public class FIELDCustomizer extends BaseCustomizer
     private javax.swing.JLabel nameLab;
     private javax.swing.JTextField nameTF;
     private javax.swing.JButton openDocumentationButton;
-    private javax.swing.JPanel stackedPanel;
     private javax.swing.JComboBox<String> typeCB;
     private javax.swing.JLabel typeLab;
     private javax.swing.JLabel valueLabel;
