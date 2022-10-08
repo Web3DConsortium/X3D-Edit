@@ -99,11 +99,16 @@ public class INTEGERSEQUENCERCustomizer extends BaseCustomizer
         eventHintPanel1 = new javax.swing.JPanel();
         eventLabel3 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(800, 620));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 60;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -113,6 +118,8 @@ public class INTEGERSEQUENCERCustomizer extends BaseCustomizer
         gridBagConstraints.ipadx = 198;
         gridBagConstraints.ipady = 121;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(expandableList1, gridBagConstraints);
 
@@ -125,6 +132,8 @@ public class INTEGERSEQUENCERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(fieldEventDiagramLabel, gridBagConstraints);
 
@@ -148,6 +157,8 @@ public class INTEGERSEQUENCERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(eventHintPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
