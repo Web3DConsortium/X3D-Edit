@@ -259,28 +259,51 @@ public class SCRIPTCustomizer extends BaseCustomizer implements TableModelListen
         appendFieldSetMethodsButton = new javax.swing.JButton();
         createScriptFileButton = new javax.swing.JButton();
         clearScriptButton = new javax.swing.JButton();
-        rightSpacer = new javax.swing.JLabel();
         leftSpacer = new javax.swing.JLabel();
         urlLabel = new javax.swing.JLabel();
+        appendPanel = new javax.swing.JPanel();
         appendLabel = new javax.swing.JLabel();
         insertCommasCheckBox = new javax.swing.JCheckBox();
         insertLineBreaksCheckBox = new javax.swing.JCheckBox();
 
+        setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(dEFUSEpanel1, gridBagConstraints);
+
         directOutputCB.setText("directOutput");
         directOutputCB.setToolTipText("set true if field of type SFNode/MFNode is modified by script");
         directOutputCB.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 18, 0, 0);
+        add(directOutputCB, gridBagConstraints);
 
         mustEvaluateCB.setText("mustEvaluate");
         mustEvaluateCB.setToolTipText("if false then player may delay sending input events until outputs are needed, otherwise process events immediately");
         mustEvaluateCB.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 18, 0, 0);
+        add(mustEvaluateCB, gridBagConstraints);
 
-        tablesScriptSplitter.setBorder(null);
         tablesScriptSplitter.setDividerLocation(320);
         tablesScriptSplitter.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         tablesScriptSplitter.setResizeWeight(0.5);
         tablesScriptSplitter.setLastDividerLocation(320);
 
-        urlFieldsSplitter.setBorder(null);
         urlFieldsSplitter.setDividerLocation(160);
         urlFieldsSplitter.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         urlFieldsSplitter.setResizeWeight(0.5);
@@ -444,14 +467,52 @@ public class SCRIPTCustomizer extends BaseCustomizer implements TableModelListen
 
         tablesScriptSplitter.setRightComponent(ecmascriptSourcePanel);
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.ipadx = 90;
+        gridBagConstraints.ipady = 93;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
+        add(tablesScriptSplitter, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 6, 0, 0);
+        add(leftSpacer, gridBagConstraints);
+
         urlLabel.setText("url array");
         urlLabel.setToolTipText("ordered list of alternate url addresses for script, if not embedded");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(4, 6, 0, 0);
+        add(urlLabel, gridBagConstraints);
+
+        appendPanel.setLayout(new java.awt.GridBagLayout());
 
         appendLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         appendLabel.setText("append:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 15, 0, 0);
+        appendPanel.add(appendLabel, gridBagConstraints);
 
         insertCommasCheckBox.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         insertCommasCheckBox.setText("commas,");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 1, 0, 0);
+        appendPanel.add(insertCommasCheckBox, gridBagConstraints);
 
         insertLineBreaksCheckBox.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         insertLineBreaksCheckBox.setText("line feeds");
@@ -460,62 +521,18 @@ public class SCRIPTCustomizer extends BaseCustomizer implements TableModelListen
                 insertLineBreaksCheckBoxActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        appendPanel.add(insertLineBreaksCheckBox, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tablesScriptSplitter, javax.swing.GroupLayout.DEFAULT_SIZE, 982, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(urlLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(directOutputCB)
-                        .addGap(18, 18, 18)
-                        .addComponent(mustEvaluateCB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(leftSpacer, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                        .addGap(263, 263, 263)
-                        .addComponent(rightSpacer, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                        .addGap(12, 12, 12)
-                        .addComponent(appendLabel)
-                        .addGap(0, 0, 0)
-                        .addComponent(insertCommasCheckBox)
-                        .addGap(0, 0, 0)
-                        .addComponent(insertLineBreaksCheckBox))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(dEFUSEpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dEFUSEpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rightSpacer)
-                            .addComponent(leftSpacer))
-                        .addGap(4, 4, 4)
-                        .addComponent(urlLabel))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(appendLabel))
-                            .addComponent(insertCommasCheckBox)
-                            .addComponent(insertLineBreaksCheckBox))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(directOutputCB)
-                            .addComponent(mustEvaluateCB))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tablesScriptSplitter, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(appendPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
   private void includeECMAScriptSourceCBActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_includeECMAScriptSourceCBActionPerformed
@@ -690,6 +707,7 @@ public class SCRIPTCustomizer extends BaseCustomizer implements TableModelListen
     private javax.swing.JTextArea ECMAScriptSourceTextArea;
     private javax.swing.JButton appendFieldSetMethodsButton;
     private javax.swing.JLabel appendLabel;
+    private javax.swing.JPanel appendPanel;
     private javax.swing.JButton clearScriptButton;
     private javax.swing.JButton createScriptFileButton;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
@@ -702,7 +720,6 @@ public class SCRIPTCustomizer extends BaseCustomizer implements TableModelListen
     private javax.swing.JCheckBox insertLineBreaksCheckBox;
     private javax.swing.JLabel leftSpacer;
     private javax.swing.JCheckBox mustEvaluateCB;
-    private javax.swing.JLabel rightSpacer;
     private javax.swing.JLabel scriptHeader1Label;
     private javax.swing.JLabel scriptHeader2Label;
     private javax.swing.JScrollPane scriptScrollPane;
