@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -72,12 +72,12 @@ public class PROTOINTERFACECustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ProtoInterface contains zero or more field definitions");
+        jLabel1.setText("<html> <p align=\"center\"><b>ProtoInterface</b> contains zero or more field definitions.</p>\n<br />\n<p align=\"center\">Edit the parent <b>ProtoDeclare</b> to view all fields at once.</p>");
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -86,30 +86,20 @@ public class PROTOINTERFACECustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 10, 10);
         add(jLabel1, gridBagConstraints);
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Edit the parent ProtoDeclare to view all fields at once");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(jLabel2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
+  @Override
   public String getNameKey()
   {
     return "NAME_X3D_PROTOINTERFACE";
   }
 
+  @Override
   public void unloadInput() throws IllegalArgumentException
   {
   }  
