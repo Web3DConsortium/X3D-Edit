@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -37,7 +37,8 @@ package org.web3d.x3d.palette.items;
 import java.awt.Color;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFColor;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 /**
  * COLORCHASERCustomizer.java
  * Created on 2 February 2010
@@ -116,12 +117,15 @@ public class COLORCHASERCustomizer extends BaseCustomizer
         initialDestination2TextField = new javax.swing.JTextField();
         initialDestinationColorChooser = new net.java.dev.colorchooser.ColorChooser();
         followerFigureLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(670, 520));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
@@ -228,7 +232,7 @@ public class COLORCHASERCustomizer extends BaseCustomizer
         initialValueColorChooser.setLayout(initialValueColorChooserLayout);
         initialValueColorChooserLayout.setHorizontalGroup(
             initialValueColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 13, Short.MAX_VALUE)
+            .addGap(0, 22, Short.MAX_VALUE)
         );
         initialValueColorChooserLayout.setVerticalGroup(
             initialValueColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +306,7 @@ public class COLORCHASERCustomizer extends BaseCustomizer
         initialDestinationColorChooser.setLayout(initialDestinationColorChooserLayout);
         initialDestinationColorChooserLayout.setHorizontalGroup(
             initialDestinationColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 13, Short.MAX_VALUE)
+            .addGap(0, 22, Short.MAX_VALUE)
         );
         initialDestinationColorChooserLayout.setVerticalGroup(
             initialDestinationColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,6 +330,20 @@ public class COLORCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(followerFigureLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>ColorChaser</b> generates a series of SFColor values that progressively change from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To change colors, <b>ROUTE</b> a new value to <b>set_destination</b>.  \n<br />Then  have a <b>ROUTE</b> for changing colors from the <b>value_changed</b> event to one of a <b>Material</b> node's color field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial color of a <b>ColorChaser</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void initialValue0TextFieldActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_initialValue0TextFieldActionPerformed
@@ -390,6 +408,7 @@ public class COLORCHASERCustomizer extends BaseCustomizer
     private javax.swing.JLabel durationLabel;
     private javax.swing.JTextField durationTF;
     private javax.swing.JLabel followerFigureLabel;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JTextField initialDestination0TextField;
     private javax.swing.JTextField initialDestination1TextField;
     private javax.swing.JTextField initialDestination2TextField;

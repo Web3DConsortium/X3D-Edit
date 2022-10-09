@@ -109,8 +109,10 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
         initialValueExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
         initialDestinationExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
+        hintLabel = new javax.swing.JLabel();
 
         setToolTipText("number of internal filters (larger means smoother response and longer delay)");
+        setPreferredSize(new java.awt.Dimension(1142, 650));
         setLayout(new java.awt.GridBagLayout());
 
         appendLineBreaksCommasPanel.setLayout(new java.awt.GridBagLayout());
@@ -187,6 +189,8 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
@@ -217,6 +221,20 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(initialDestinationExpandableList, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>CoordinateChaser</b> generates a series of coordinate arrays that progressively change from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing coordinate arrays, <b>ROUTE</b> a new value to <b>set_destination</b>.  \n<br />\nThen  have a <b>ROUTE</b> for changing coordinate arrays from the <b>value_changed</b> event to one of a <b>Coordinate</b> node's <b>coord</b> field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial coordinate array of a <b>CoordinateChaser</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n\n\n");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -225,6 +243,7 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
     private javax.swing.JLabel durationLabel;
     private javax.swing.JTextField durationTF;
     private javax.swing.JLabel followerFigureLabel;
+    private javax.swing.JLabel hintLabel;
     private org.web3d.x3d.palette.items.ExpandableList initialDestinationExpandableList;
     private org.web3d.x3d.palette.items.ExpandableList initialValueExpandableList;
     private javax.swing.JCheckBox insertCommasCheckBox;
