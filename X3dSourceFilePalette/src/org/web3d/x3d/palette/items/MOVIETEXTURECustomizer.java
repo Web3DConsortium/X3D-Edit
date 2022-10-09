@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -158,12 +158,14 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridheight = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(30, 60, 30, 60);
@@ -174,7 +176,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         jLabel1.setToolTipText("Horizontally repeat texture along S axis using child TextureTransform");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel1, gridBagConstraints);
@@ -183,7 +185,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         repeatSCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -194,7 +196,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         jLabel2.setToolTipText("Horizontally repeat texture along T axis using child TextureTransform");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel2, gridBagConstraints);
@@ -203,7 +205,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         repeatTCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -214,7 +216,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         jLabel4.setToolTipText("Repeat indefinitely (true) or once (false)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel4, gridBagConstraints);
@@ -223,7 +225,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         loopCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -235,7 +237,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         jLabel5.setToolTipText("time to resume playback");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel5, gridBagConstraints);
@@ -244,7 +246,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         resumeTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 40);
@@ -255,7 +257,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         jLabel6.setToolTipText("time to pause playback");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel6, gridBagConstraints);
@@ -264,7 +266,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         pauseTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 40);
@@ -275,7 +277,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         jLabel7.setToolTipText("Playback rate (negative goes in reverse)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel7, gridBagConstraints);
@@ -284,7 +286,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         speedTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 40);
@@ -295,7 +297,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         jLabel8.setToolTipText("time to start playback from beginning");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel8, gridBagConstraints);
@@ -304,7 +306,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         startTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 40);
@@ -315,7 +317,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         jLabel9.setToolTipText("time to stop playback");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel9, gridBagConstraints);
@@ -324,7 +326,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         stopTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 40);
@@ -355,7 +357,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         appendLabel.setText("append:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(appendLabel, gridBagConstraints);
 
@@ -363,7 +365,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         insertCommasCheckBox.setText("commas,");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(insertCommasCheckBox, gridBagConstraints);
 
@@ -376,7 +378,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(insertLineBreaksCheckBox, gridBagConstraints);
 
@@ -407,7 +409,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 8, 3, 3);
