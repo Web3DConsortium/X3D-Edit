@@ -1240,7 +1240,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="BACKGROUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/BACKGROUND.xml">
                 <attr name="position" intvalue="100"/>
             </file>
-            <file name="TEXTUREBACKGROUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTUREBACKGROUND.xml">
+            <file name="NAVIGATIONINFO.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NAVIGATIONINFO.xml">
                 <attr name="position" intvalue="200"/>
             </file>
             <file name="DIRECTIONALLIGHT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DIRECTIONALLIGHT.xml">
@@ -1252,16 +1252,16 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="SPOTLIGHT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SPOTLIGHT.xml">
                 <attr name="position" intvalue="500"/>
             </file>
-            <file name="NAVIGATIONINFO.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NAVIGATIONINFO.xml">
-                <attr name="position" intvalue="500"/>
-            </file>
             <file name="FOG.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FOG.xml">
-                <attr name="position" intvalue="700"/>
+                <attr name="position" intvalue="600"/>
             </file>
             <file name="LOCALFOG.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LOCALFOG.xml">
-                <attr name="position" intvalue="800"/>
+                <attr name="position" intvalue="700"/>
             </file>
             <!-- TODO FogCoordinate -->
+            <file name="TEXTUREBACKGROUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTUREBACKGROUND.xml">
+                <attr name="position" intvalue="800"/>
+            </file>
             <file name="IMAGETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IMAGETEXTURE.xml">
                 <attr name="position" intvalue="900"/>
             </file>
