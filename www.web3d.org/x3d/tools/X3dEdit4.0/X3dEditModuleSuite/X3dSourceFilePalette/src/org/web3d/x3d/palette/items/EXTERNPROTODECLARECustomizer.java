@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -549,9 +549,10 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
         statusLabel = new javax.swing.JLabel();
         appendProtoInstanceCheckBox = new javax.swing.JCheckBox();
         authorAssistLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(1200, 800));
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 630));
         setLayout(new java.awt.GridBagLayout());
 
         nameLab.setText("External prototype name");
@@ -657,7 +658,6 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 23);
         add(openDocumentationButton, gridBagConstraints);
 
-        urlFieldsSplitter.setBorder(null);
         urlFieldsSplitter.setDividerLocation(175);
         urlFieldsSplitter.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         urlFieldsSplitter.setMinimumSize(new java.awt.Dimension(31, 350));
@@ -750,6 +750,22 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 11, 0, 5);
         add(authorAssistLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\"><b>ExternProtoDeclare</b>refers to a <b>ProtoDeclare</b> node declaration provided in another file.</p>\n<br />\n<p align=\"center\"> <b>ExternProtoDeclare</b> interfaces are defined by <b>field</b> statements (without <b>IS</b>/<b>connect</b> statements). </p>");
+        hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(EXTERNPROTODECLARECustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintLabel.setPreferredSize(new java.awt.Dimension(770, 620));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void verifyFieldsButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_verifyFieldsButtonActionPerformed
@@ -833,6 +849,7 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
     private javax.swing.JLabel documentationLabel;
     private javax.swing.JTextField documentationTF;
     private org.web3d.x3d.palette.items.ExpandableList fieldsTableList;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel nameLab;
     private javax.swing.JTextField nameTF;
     private javax.swing.JButton openDocumentationButton;
