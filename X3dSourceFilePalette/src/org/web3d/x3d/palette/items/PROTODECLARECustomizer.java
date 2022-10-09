@@ -174,8 +174,9 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         insertScriptCheckBox = new javax.swing.JCheckBox();
         insertTraceParameterCodeCheckBox = new javax.swing.JCheckBox();
         spacerLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(800, 400));
+        setPreferredSize(new java.awt.Dimension(800, 500));
         setLayout(new java.awt.GridBagLayout());
 
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -278,7 +279,7 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 22);
         add(openDocumentationButton, gridBagConstraints);
 
-        fieldDefinitionsLabel.setFont(new java.awt.Font("Tahoma", 1, 13));
+        fieldDefinitionsLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         fieldDefinitionsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         fieldDefinitionsLabel.setText("ProtoInterface field definitions");
         fieldDefinitionsLabel.setToolTipText("expandable list holding ProtoInterface field definitions");
@@ -306,7 +307,7 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(fieldListScrollPane, gridBagConstraints);
 
-        authorAssistLabel.setFont(new java.awt.Font("Tahoma", 1, 13));
+        authorAssistLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         authorAssistLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         authorAssistLabel.setText("Author-assist editing features");
         authorAssistLabel.setToolTipText("Check boxes to append helpful additional content with this ProtoDeclare");
@@ -409,6 +410,21 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         add(spacerLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\"><b>ProtoDeclare</b>  is a Prototype Declaration, defining a new node made up of other node(s).</p>\n<br />\n<p align=\"center\"> <b>ProtoDeclare</b> contains <b>ProtoInterface</b> and <b>ProtoBody</b>  statements. </p>");
+        hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(PROTODECLARECustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void insertScriptCheckBoxActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_insertScriptCheckBoxActionPerformed
@@ -465,6 +481,7 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
     private javax.swing.JLabel fieldDefinitionsLabel;
     private javax.swing.JScrollPane fieldListScrollPane;
     private org.web3d.x3d.palette.items.ExpandableList fieldsList;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JCheckBox insertScriptCheckBox;
     private javax.swing.JCheckBox insertTraceParameterCodeCheckBox;
     private javax.swing.JLabel nameLabel;
