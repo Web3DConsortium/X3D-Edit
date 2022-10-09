@@ -415,7 +415,7 @@ public class INLINECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(expectedProfileComboBox, gridBagConstraints);
 
-        jLabel1.setText("(inserts MetadataString for expected profile)");
+        jLabel1.setText("(inserts MetadataString child for expected profile)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
