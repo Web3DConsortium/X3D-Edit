@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -140,7 +140,7 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         hintLabel1 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(1000, 360));
-        setPreferredSize(new java.awt.Dimension(1000, 360));
+        setPreferredSize(new java.awt.Dimension(700, 490));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(199, 79));
@@ -149,9 +149,10 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.ipadx = 847;
-        gridBagConstraints.ipady = -13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -336,8 +337,9 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipady = 33;
+        gridBagConstraints.ipady = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(urlList, gridBagConstraints);
@@ -361,7 +363,9 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
