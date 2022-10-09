@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -39,7 +39,8 @@ import javax.swing.text.JTextComponent;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFColor;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 /**
  * COLORDAMPERCustomizer.java
  * Created on 2 February 2010
@@ -112,7 +113,7 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         toleranceLabel = new javax.swing.JLabel();
         toleranceTF = new javax.swing.JTextField();
         orderLabel = new javax.swing.JLabel();
-        orderComboBox = new javax.swing.JComboBox<String>();
+        orderComboBox = new javax.swing.JComboBox<>();
         initialValueLabel = new javax.swing.JLabel();
         initialDestinationLabel = new javax.swing.JLabel();
         initialValue0TextField = new javax.swing.JTextField();
@@ -124,12 +125,16 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         initialDestination2TextField = new javax.swing.JTextField();
         initialDestinationColorChooser = new net.java.dev.colorchooser.ColorChooser();
         followerFigureLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(670, 565));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
@@ -376,6 +381,20 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(followerFigureLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>ColorDamper</b> generates a series of RGB color values that progressively change from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing colors, <b>ROUTE</b> a new value to <b>set_destination</b>.  \n<br />\nThen  have a <b>ROUTE</b> for changing colors from the <b>value_changed</b> event to one of a <b>Material</b> node's color field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial color of a <b>ColorDamper</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n\n\n");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void toleranceTFActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_toleranceTFActionPerformed
@@ -459,6 +478,7 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel followerFigureLabel;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JTextField initialDestination0TextField;
     private javax.swing.JTextField initialDestination1TextField;
     private javax.swing.JTextField initialDestination2TextField;
