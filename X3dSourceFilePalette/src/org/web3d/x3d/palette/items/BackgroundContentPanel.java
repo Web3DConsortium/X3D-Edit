@@ -147,6 +147,7 @@ public class BackgroundContentPanel extends javax.swing.JPanel
         topUrlExpandableList2 = new org.web3d.x3d.palette.items.UrlExpandableList2();
         bottomUrlExpandableList2 = new org.web3d.x3d.palette.items.UrlExpandableList2();
 
+        setPreferredSize(new java.awt.Dimension(900, 420));
         setLayout(new java.awt.GridBagLayout());
 
         backgroundEditorTabbedPane.setMinimumSize(new java.awt.Dimension(600, 400));
