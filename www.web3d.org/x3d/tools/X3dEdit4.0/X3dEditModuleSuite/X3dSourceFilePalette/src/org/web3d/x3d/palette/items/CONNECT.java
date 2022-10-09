@@ -103,7 +103,7 @@ public class CONNECT extends SceneGraphStructureNodeType
   @Override
   public String createAttributes()
   {
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder();
 
     if (CONNECT_ATTR_NODEFIELD_REQD || !nodeField.equals(CONNECT_ATTR_NODEFIELD_DFLT)) {
       sb.append(" ");
