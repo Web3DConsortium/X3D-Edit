@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -77,12 +77,12 @@ public class LOADSENSORCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
-        infoLabel = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
         timeOutLabel = new javax.swing.JLabel();
         timeOutTF = new javax.swing.JTextField();
         spacerLabel = new javax.swing.JLabel();
         spacerLabel2 = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -90,22 +90,13 @@ public class LOADSENSORCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
-
-        infoLabel.setText(org.openide.util.NbBundle.getMessage(LOADSENSORCustomizer.class, "TextureBackgroundContentPanel.infoLabel.text")); // NOI18N
-        infoLabel.setToolTipText(org.openide.util.NbBundle.getMessage(LOADSENSORCustomizer.class, "TextureBackgroundContentPanel.infoLabel.toolTipText")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 4, 6, 4);
-        add(infoLabel, gridBagConstraints);
 
         enabledCB.setText("enabled");
         enabledCB.setToolTipText("enables/disables node operation");
@@ -153,24 +144,41 @@ public class LOADSENSORCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(spacerLabel2, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\"><b>LoadSensor</b> generates events as watchList child nodes are either loaded or fail to load.\nChanging watchlist child nodes restarts the LoadSensor. </p>\n<br />\n<p align=\"center\"> Output events include <b>isActive</b>, <b>isLoaded</b>,<b>loadTime</b>, and <b>progress</b>. </p>");
+        hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(LOADSENSORCustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JCheckBox enabledCB;
-    private javax.swing.JLabel infoLabel;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel spacerLabel;
     private javax.swing.JLabel spacerLabel2;
     private javax.swing.JLabel timeOutLabel;
     private javax.swing.JTextField timeOutTF;
     // End of variables declaration//GEN-END:variables
 
+  @Override
   public String getNameKey()
   {
     return "NAME_X3D_LOADSENSOR";
   }
 
+  @Override
   public void unloadInput() throws IllegalArgumentException
   {
     unLoadDEFUSE();
