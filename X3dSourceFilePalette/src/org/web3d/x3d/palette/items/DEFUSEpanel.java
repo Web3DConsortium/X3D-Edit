@@ -255,7 +255,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         htmlHelpButton = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        setMinimumSize(new java.awt.Dimension(604, 80));
+        setMinimumSize(new java.awt.Dimension(600, 100));
         setPreferredSize(new java.awt.Dimension(600, 100));
         setLayout(new java.awt.GridBagLayout());
 
@@ -371,8 +371,6 @@ public class DEFUSEpanel extends javax.swing.JPanel
         defUseHelpButton.setToolTipText("Naming Conventions, X3D Scene Authoring Hints");
         defUseHelpButton.setActionCommand("X3D4 HTML5 Guidelines");
         defUseHelpButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        defUseHelpButton.setMinimumSize(new java.awt.Dimension(20, 20));
-        defUseHelpButton.setPreferredSize(new java.awt.Dimension(20, 20));
         defUseHelpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 defUseHelpButtonActionPerformed(evt);
@@ -433,8 +431,6 @@ public class DEFUSEpanel extends javax.swing.JPanel
         containerFieldHelpButton.setToolTipText("containerField guidance, X3D Scene Authoring Hints");
         containerFieldHelpButton.setActionCommand("X3D4 HTML5 Guidelines");
         containerFieldHelpButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        containerFieldHelpButton.setMinimumSize(new java.awt.Dimension(20, 20));
-        containerFieldHelpButton.setPreferredSize(new java.awt.Dimension(20, 20));
         containerFieldHelpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 containerFieldHelpButtonActionPerformed(evt);
@@ -530,8 +526,6 @@ public class DEFUSEpanel extends javax.swing.JPanel
         htmlHelpButton.setToolTipText("X3D4 HTML5 CSS Guidelines for X3D4 Architecture");
         htmlHelpButton.setActionCommand("X3D4 HTML5 Guidelines");
         htmlHelpButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        htmlHelpButton.setMinimumSize(new java.awt.Dimension(20, 20));
-        htmlHelpButton.setPreferredSize(new java.awt.Dimension(20, 20));
         htmlHelpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 htmlHelpButtonActionPerformed(evt);
