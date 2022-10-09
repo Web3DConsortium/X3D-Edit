@@ -399,7 +399,7 @@ public class PROTOINSTANCECustomizer extends BaseCustomizer implements IsCellEdi
         add(referencedPrototypeLabel, gridBagConstraints);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Note that ProtoInstance USE output does not include name");
+        jLabel1.setText("Note that a ProtoInstance USE element does not also include the prototype name.");
         jLabel1.setToolTipText("Note that ProtoInstance USE output does not include name");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -443,7 +443,7 @@ public class PROTOINSTANCECustomizer extends BaseCustomizer implements IsCellEdi
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         childrenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        childrenLabel.setText("<html><b>ProtoInstance</b> creates and initializes a new X3D node matching the prototype declaration");
+        childrenLabel.setText("<html><b>ProtoInstance</b> creates and initializes a new X3D node, with node type matching the prototype declaration.");
         childrenLabel.setToolTipText("ProtoInstance nodes can be treated like any other node of the same type");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
