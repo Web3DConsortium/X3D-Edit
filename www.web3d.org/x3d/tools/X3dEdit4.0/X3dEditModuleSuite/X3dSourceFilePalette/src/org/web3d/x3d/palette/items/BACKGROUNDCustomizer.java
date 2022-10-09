@@ -40,6 +40,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -512,62 +513,69 @@ public class BACKGROUNDCustomizer extends BaseCustomizer
   @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        GridBagConstraints gridBagConstraints;
+        java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
-        bcpHoldingPanel = new JPanel();
-        nodeHintPanel = new JPanel();
-        hintLabel = new JLabel();
+        bcpHoldingPanel = new javax.swing.JPanel();
+        nodeHintPanel = new javax.swing.JPanel();
+        hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(null);
-        setPreferredSize(null);
-        setLayout(new GridBagLayout());
+        setPreferredSize(new java.awt.Dimension(800, 900));
+        setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setName("dEFUSEpanel1"); // NOI18N
-        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = GridBagConstraints.PAGE_START;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         add(dEFUSEpanel1, gridBagConstraints);
 
         bcpHoldingPanel.setName("bcpHoldingPanel"); // NOI18N
-        bcpHoldingPanel.setLayout(new GridBagLayout());
-        gridBagConstraints = new GridBagConstraints();
+        bcpHoldingPanel.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new Insets(3, 3, 3, 3);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipady = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bcpHoldingPanel, gridBagConstraints);
 
-        nodeHintPanel.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
+        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setName("nodeHintPanel"); // NOI18N
-        nodeHintPanel.setLayout(new GridBagLayout());
+        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
-        hintLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        hintLabel.setText(NbBundle.getMessage(BACKGROUNDCustomizer.class, "BackgroundCustomizer.hintLabel.text")); // NOI18N
-        hintLabel.setToolTipText(NbBundle.getMessage(BACKGROUNDCustomizer.class, "BackgroundContentPanel.hintLabel1.toolTipText")); // NOI18N
-        hintLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText(org.openide.util.NbBundle.getMessage(BACKGROUNDCustomizer.class, "BackgroundCustomizer.hintLabel.text")); // NOI18N
+        hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(BACKGROUNDCustomizer.class, "BackgroundContentPanel.hintLabel1.toolTipText")); // NOI18N
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         hintLabel.setName("hintLabel"); // NOI18N
-        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         nodeHintPanel.add(hintLabel, gridBagConstraints);
 
-        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new Insets(3, 3, 3, 3);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private JPanel bcpHoldingPanel;
-    private DEFUSEpanel dEFUSEpanel1;
-    private JLabel hintLabel;
-    private JPanel nodeHintPanel;
+    private javax.swing.JPanel bcpHoldingPanel;
+    private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
+    private javax.swing.JLabel hintLabel;
+    private javax.swing.JPanel nodeHintPanel;
     // End of variables declaration//GEN-END:variables
 
   @Override
