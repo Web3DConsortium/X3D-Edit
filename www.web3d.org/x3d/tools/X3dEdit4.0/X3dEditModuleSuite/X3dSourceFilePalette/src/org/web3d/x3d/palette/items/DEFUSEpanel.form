@@ -14,7 +14,7 @@
       </Border>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[604, 80]"/>
+      <Dimension value="[600, 100]"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[600, 100]"/>
@@ -201,12 +201,6 @@
                 <Property name="toolTipText" type="java.lang.String" value="Naming Conventions, X3D Scene Authoring Hints"/>
                 <Property name="actionCommand" type="java.lang.String" value="X3D4 HTML5 Guidelines"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[20, 20]"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[20, 20]"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="defUseHelpButtonActionPerformed"/>
@@ -283,12 +277,6 @@
                 <Property name="toolTipText" type="java.lang.String" value="containerField guidance, X3D Scene Authoring Hints"/>
                 <Property name="actionCommand" type="java.lang.String" value="X3D4 HTML5 Guidelines"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[20, 20]"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[20, 20]"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="containerFieldHelpButtonActionPerformed"/>
@@ -400,12 +388,6 @@
                 <Property name="toolTipText" type="java.lang.String" value="X3D4 HTML5 CSS Guidelines for X3D4 Architecture"/>
                 <Property name="actionCommand" type="java.lang.String" value="X3D4 HTML5 Guidelines"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[20, 20]"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[20, 20]"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="htmlHelpButtonActionPerformed"/>
