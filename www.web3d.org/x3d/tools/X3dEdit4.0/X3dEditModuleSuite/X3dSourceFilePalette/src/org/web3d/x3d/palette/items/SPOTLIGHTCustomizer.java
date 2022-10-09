@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -104,7 +104,6 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
     checkRadius ();
 
     checkAngles (false);
-    return;
   }
   
   /** This method is called from within the constructor to
@@ -149,14 +148,19 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         normalizeButton = new javax.swing.JButton();
         cutOffAngleTF = new javax.swing.JTextField();
         beamWidthTF = new javax.swing.JTextField();
+        hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(640, 510));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
         ambientIntensityLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -562,6 +566,21 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(beamWidthTF, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\"><b>SpotLight</b> is a light source that illuminates geometry within a conical beam. \nLighting illuminates all geometry except lines and points. By default, light scope only illuminates peer geometry and children nodes within the scene graph hierarchy. </p>\n<br />\n<p align=\"center\">  Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.</p>");
+        hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(SPOTLIGHTCustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
   private void colorChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorChooser1ActionPerformed
@@ -673,6 +692,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
     private javax.swing.JTextField directionZTF;
     private javax.swing.JCheckBox globalCB;
     private javax.swing.JLabel globalLabel;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel intensityLabel;
     private javax.swing.JTextField intensityTF;
     private javax.swing.JTextField location0TF;
@@ -762,11 +782,13 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
       }
   }
 
-public String getNameKey()
+  @Override
+  public String getNameKey()
   {
     return "NAME_X3D_SPOTLIGHT";
   }
 
+  @Override
   public void unloadInput()
   {
     checkAngles(false);
