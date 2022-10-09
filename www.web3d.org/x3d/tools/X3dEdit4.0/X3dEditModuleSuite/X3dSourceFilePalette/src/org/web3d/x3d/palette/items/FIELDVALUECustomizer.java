@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -141,24 +141,42 @@ public class FIELDVALUECustomizer extends BaseCustomizer
    */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         nameLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
-        fieldNameComboBox = new javax.swing.JComboBox<String>();
+        fieldNameComboBox = new javax.swing.JComboBox<>();
         valueScrollPane = new javax.swing.JScrollPane();
         valueTextArea = new javax.swing.JTextArea();
         protoInstanceTypeLabel = new javax.swing.JLabel();
         protoInstanceHeaderNameLabel = new javax.swing.JLabel();
         protoInstanceNameLabel = new javax.swing.JLabel();
         protoInstanceFieldValueLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
+
+        setPreferredSize(new java.awt.Dimension(660, 300));
+        setLayout(new java.awt.GridBagLayout());
 
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nameLabel.setText("name");
         nameLabel.setToolTipText("name of mapped field in parent ProtoInterface");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(13, 6, 0, 0);
+        add(nameLabel, gridBagConstraints);
 
         valueLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         valueLabel.setText("value");
         valueLabel.setToolTipText("initialization value, must match type");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        add(valueLabel, gridBagConstraints);
 
         fieldNameComboBox.setEditable(true);
         fieldNameComboBox.setModel(new DefaultComboBoxModel<String>(fieldNames));
@@ -168,68 +186,85 @@ public class FIELDVALUECustomizer extends BaseCustomizer
                 fieldNameComboBoxActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.ipadx = 644;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(13, 6, 0, 0);
+        add(fieldNameComboBox, gridBagConstraints);
 
         valueTextArea.setColumns(20);
         valueTextArea.setRows(5);
         valueTextArea.setToolTipText("initialization value, must match type");
         valueScrollPane.setViewportView(valueTextArea);
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 700;
+        gridBagConstraints.ipady = 92;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 0);
+        add(valueScrollPane, gridBagConstraints);
+
         protoInstanceTypeLabel.setText("ProtoDeclare or ExternalProtoDeclare");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        add(protoInstanceTypeLabel, gridBagConstraints);
 
         protoInstanceHeaderNameLabel.setText("name: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        add(protoInstanceHeaderNameLabel, gridBagConstraints);
 
-        protoInstanceNameLabel.setText(null);
+        protoInstanceNameLabel.setText("null");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 488;
+        gridBagConstraints.ipady = -2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(7, 6, 0, 0);
+        add(protoInstanceNameLabel, gridBagConstraints);
 
         protoInstanceFieldValueLabel.setText("ProtoInstance fieldValue:");
         protoInstanceFieldValueLabel.setToolTipText("fieldValue initialization overrides default values");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 6, 0, 0);
+        add(protoInstanceFieldValueLabel, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(protoInstanceTypeLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(protoInstanceHeaderNameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(protoInstanceNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(valueLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(valueScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(nameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fieldNameComboBox, 0, 492, Short.MAX_VALUE))
-                    .addComponent(protoInstanceFieldValueLabel))
-                .addContainerGap())
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {nameLabel, valueLabel});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(protoInstanceTypeLabel)
-                    .addComponent(protoInstanceNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(protoInstanceHeaderNameLabel))
-                .addGap(18, 18, 18)
-                .addComponent(protoInstanceFieldValueLabel)
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabel)
-                    .addComponent(fieldNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valueLabel)
-                    .addComponent(valueScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\">A <b>fieldValue</b> statement re-initializes the default value of a field in a parent <b>ProtoInstance</b> node.</p>\n<br />\n<p align=\"center\">Note that a <b>field</b> statement with a matching name must be already defined by the \n<br /> corresponding <b>ProtoDeclare</b> or <b>ExternProtoDeclare</b> statement. </p>\n");
+        hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(FIELDVALUECustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintLabel.setPreferredSize(new java.awt.Dimension(770, 620));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
   private String  lastValue="";
@@ -268,6 +303,7 @@ public class FIELDVALUECustomizer extends BaseCustomizer
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> fieldNameComboBox;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel protoInstanceFieldValueLabel;
     private javax.swing.JLabel protoInstanceHeaderNameLabel;
