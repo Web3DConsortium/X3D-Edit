@@ -102,14 +102,17 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         jSeparator2 = new javax.swing.JSeparator();
         eventHelpPanel = new javax.swing.JPanel();
         eventsLabel1 = new javax.swing.JLabel();
-        eventsLabel2 = new javax.swing.JLabel();
-        eventsLabel3 = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
 
+        setPreferredSize(new java.awt.Dimension(800, 350));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -257,7 +260,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html>Primary output event is <b>fraction_changed</b>");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>TimeSensor</b> primary output event is <b>fraction_changed</b> \nwhich continuously sends values in range [0,1] showing time progress in the current cycle. </p>\n<br />\n<p align=\"center\"> Input events are <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b>.</p>\n<br />\n<p align=\"center\"> Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>cycleTime</b>, <b>elapsedTime</b>, <b>time</b>.</p>\n</html>");
         eventsLabel1.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -267,33 +270,14 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         eventHelpPanel.add(eventsLabel1, gridBagConstraints);
 
-        eventsLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel2.setText("<html>Input events are <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b>");
-        eventsLabel2.setToolTipText("Create a ROUTE to connect output events");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        eventHelpPanel.add(eventsLabel2, gridBagConstraints);
-
-        eventsLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel3.setText("<html>Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>cycleTime</b>, <b>elapsedTime</b>, <b>time</b>");
-        eventsLabel3.setToolTipText("Create a ROUTE to connect output events");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        eventHelpPanel.add(eventsLabel3, gridBagConstraints);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
         add(eventHelpPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
@@ -306,8 +290,6 @@ public class TIMESENSORCustomizer extends BaseCustomizer
     private javax.swing.JLabel enabledLabel;
     private javax.swing.JPanel eventHelpPanel;
     private javax.swing.JLabel eventsLabel1;
-    private javax.swing.JLabel eventsLabel2;
-    private javax.swing.JLabel eventsLabel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField2;
