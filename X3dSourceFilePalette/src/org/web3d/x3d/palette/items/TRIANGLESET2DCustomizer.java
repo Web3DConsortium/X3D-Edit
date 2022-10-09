@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,7 +36,6 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
-
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
@@ -93,24 +92,37 @@ public class TRIANGLESET2DCustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
-        solidCB = new javax.swing.JCheckBox();
         dEFUSEpanel1 = getDEFUSEpanel();
+        solidLabel = new javax.swing.JLabel();
+        solidCB = new javax.swing.JCheckBox();
         expandableListVertices = new org.web3d.x3d.palette.items.ExpandableList();
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(400, 400));
+        setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 289;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(dEFUSEpanel1, gridBagConstraints);
 
-        jLabel1.setText("solid");
-        jLabel1.setToolTipText("solid true means draw only one side of polygons (backface culling on), solid false means draw both sides of polygons (backface culling off)");
+        solidLabel.setText("solid");
+        solidLabel.setToolTipText("solid true means draw only one side of polygons (backface culling on), solid false means draw both sides of polygons (backface culling off)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipady = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 30, 3, 3);
-        add(jLabel1, gridBagConstraints);
+        add(solidLabel, gridBagConstraints);
 
         solidCB.setToolTipText("solid true means draw only one side of polygons (backface culling on), solid false means draw both sides of polygons (backface culling off)");
         solidCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -122,18 +134,14 @@ public class TRIANGLESET2DCustomizer extends BaseCustomizer
         add(solidCB, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 289;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(dEFUSEpanel1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 428;
-        gridBagConstraints.ipady = 290;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.ipady = 100;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(expandableListVertices, gridBagConstraints);
 
@@ -153,10 +161,12 @@ public class TRIANGLESET2DCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
@@ -180,9 +190,9 @@ public class TRIANGLESET2DCustomizer extends BaseCustomizer
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JLabel descriptionLabel;
     private org.web3d.x3d.palette.items.ExpandableList expandableListVertices;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JCheckBox solidCB;
+    private javax.swing.JLabel solidLabel;
     // End of variables declaration//GEN-END:variables
   
 }
