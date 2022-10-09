@@ -2958,11 +2958,11 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   {
     Vector<List> v = new Vector();
     Element el = this.elementLocation.element;
-    if (!el.getName().equals(IS_ELNAME)) {
+    if ((el != null) && !el.getName().equals(IS_ELNAME)) {
       el = el.getParentElement();
-      if (!el.getName().equals(IS_ELNAME)) {
+      if ((el != null) && !el.getName().equals(IS_ELNAME)) {
         el = el.getParentElement();
-        if (!el.getName().equals(IS_ELNAME)) {
+        if ((el != null) && !el.getName().equals(IS_ELNAME)) {
           el = null;
         }
       }
