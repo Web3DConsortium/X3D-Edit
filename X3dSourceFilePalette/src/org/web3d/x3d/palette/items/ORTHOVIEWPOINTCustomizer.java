@@ -232,7 +232,7 @@ public class ORTHOVIEWPOINTCustomizer extends BaseCustomizer
         rotationCalculatorlButton = new javax.swing.JButton();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(640, 700));
+        setPreferredSize(new java.awt.Dimension(715, 690));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
