@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -97,7 +97,7 @@ public class GEOORIGINCustomizer extends BaseCustomizer
         dEFUSEpanel1 = getDEFUSEpanel();
         geoSystemLabel = new javax.swing.JLabel();
         geoSystemPanelButton = new javax.swing.JButton();
-        geoSystemCB = new javax.swing.JComboBox<String>();
+        geoSystemCB = new javax.swing.JComboBox<>();
         geoCoordsTF0 = new javax.swing.JTextField();
         geoCoordsLab = new javax.swing.JLabel();
         geoCoordsTF1 = new javax.swing.JTextField();
@@ -107,11 +107,14 @@ public class GEOORIGINCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(620, 270));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -220,7 +223,7 @@ public class GEOORIGINCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>GeoOrigin</b> is a browser hint that is <font color=\"red\"><strike>deprecated</strike></font> in X3D version 3.3</p><p align=\"center\">This node is no longer valid and may be ignored by X3D browsers.</html>");
+        hintLabel.setText("<html><p align=\"center\"><b>GeoOrigin</b> specifies the local geospatial coordinate system for the parent node, \n<br />enabling increased geographic precision during scene rendering.  </p>\n<br />\n<p align=\"center\"><b>GeoOrigin</b> can mitigate potential floating-point roundoff errors in some devices. </p></html>");
         hintLabel.setToolTipText("GeoOrigin is no longer necessary");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -235,7 +238,7 @@ public class GEOORIGINCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
