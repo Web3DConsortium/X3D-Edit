@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -41,13 +41,15 @@ import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
+import javax.vecmath.*;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
-import javax.vecmath.*;
-import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
+import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
  * GEOVIEWPOINTCustomizer.java
@@ -192,7 +194,6 @@ public class GEOVIEWPOINTCustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        dEFUSEPanel = new javax.swing.JPanel();
         dEFUSEpanel1 = getDEFUSEpanel();
         geoSystemLabel = new javax.swing.JLabel();
         geoSystemCB = new javax.swing.JComboBox<>();
@@ -256,33 +257,19 @@ public class GEOVIEWPOINTCustomizer extends BaseCustomizer
         levelHeightButton = new javax.swing.JButton();
         clearAimPointButton = new javax.swing.JButton();
         rotationCalculatorlButton = new javax.swing.JButton();
+        hintLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(639, 371));
+        setPreferredSize(new java.awt.Dimension(688, 650));
         setLayout(new java.awt.GridBagLayout());
-
-        javax.swing.GroupLayout dEFUSEPanelLayout = new javax.swing.GroupLayout(dEFUSEPanel);
-        dEFUSEPanel.setLayout(dEFUSEPanelLayout);
-        dEFUSEPanelLayout.setHorizontalGroup(
-            dEFUSEPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dEFUSEPanelLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(dEFUSEpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        dEFUSEPanelLayout.setVerticalGroup(
-            dEFUSEPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dEFUSEPanelLayout.createSequentialGroup()
-                .addComponent(dEFUSEpanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(dEFUSEPanel, gridBagConstraints);
+        add(dEFUSEpanel1, gridBagConstraints);
 
         geoSystemLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         geoSystemLabel.setText("geoSystem");
@@ -539,6 +526,8 @@ public class GEOVIEWPOINTCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 8;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 45;
+        gridBagConstraints.ipady = 30;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1139,6 +1128,19 @@ public class GEOVIEWPOINTCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rotationCalculatorlButton, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>GeoViewpoint</b> specifies viewpoints using geographic coordinates. GeoViewpoint can contain a GeoOrigin node. </p>  <br />  <p align=\"center\">Since <b>GeoViewpoint</b> must navigate smoothly inside a curved geographic coordinate system,  <br /> it includes attributes common to both Viewpoint and NavigationInfo nodes.</p>   ");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void normalizeRotationValuesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_normalizeRotationValuesButtonActionPerformed
@@ -1557,7 +1559,6 @@ private void resetDisplayViewpointCalculatorFields ()
     private javax.swing.JTextField centerOfRotationYTF;
     private javax.swing.JTextField centerOfRotationZTF;
     private javax.swing.JButton clearAimPointButton;
-    private javax.swing.JPanel dEFUSEPanel;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JTextArea descriptionTA;
@@ -1571,6 +1572,7 @@ private void resetDisplayViewpointCalculatorFields ()
     private javax.swing.JCheckBox headlightCB;
     private javax.swing.JLabel headlightLabel;
     private javax.swing.JRadioButton headsUpRotationRadioButton;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel horizontalAngleLabel;
     private javax.swing.JTextField horizontalAngleTF;
     private javax.swing.JLabel horizontalRangeLabel;
