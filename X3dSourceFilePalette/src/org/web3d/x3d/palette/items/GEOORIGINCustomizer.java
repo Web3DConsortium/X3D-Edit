@@ -104,7 +104,6 @@ public class GEOORIGINCustomizer extends BaseCustomizer
         geoCoordsTF2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         rotateYUpCB = new javax.swing.JCheckBox();
-        nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(620, 270));
@@ -219,28 +218,19 @@ public class GEOORIGINCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
         add(rotateYUpCB, gridBagConstraints);
 
-        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
-
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hintLabel.setText("<html><p align=\"center\"><b>GeoOrigin</b> specifies the local geospatial coordinate system for the parent node, \n<br />enabling increased geographic precision during scene rendering.  </p>\n<br />\n<p align=\"center\"><b>GeoOrigin</b> can mitigate potential floating-point roundoff errors in some devices. </p></html>");
         hintLabel.setToolTipText("GeoOrigin is no longer necessary");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        nodeHintPanel.add(hintLabel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(nodeHintPanel, gridBagConstraints);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
   private void geoCoordsTF0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geoCoordsTF0ActionPerformed
@@ -273,7 +263,6 @@ public class GEOORIGINCustomizer extends BaseCustomizer
     private javax.swing.JButton geoSystemPanelButton;
     private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JCheckBox rotateYUpCB;
     // End of variables declaration//GEN-END:variables
 
