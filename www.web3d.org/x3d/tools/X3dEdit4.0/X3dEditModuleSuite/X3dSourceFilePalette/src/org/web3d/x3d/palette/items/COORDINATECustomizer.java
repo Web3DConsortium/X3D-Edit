@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -89,14 +89,14 @@ public class COORDINATECustomizer extends BaseCustomizer
         expandableListPoints.setToolTipText("point array of double-precision 3D coordinates");
         expandableListPoints.setHeaderTooltip("CoordinateDouble point (x y z) values");
         HelpCtx.setHelpIDString(this, "COORDINATEDOUBLE_ELEM_HELPID");
-        hintLabel.setText("<html><p align='center'><b>CoordinateDouble</b> contains point values for building geometry</p>");
+        hintLabel.setText("<html><p align='center'><b>CoordinateDouble</b> contains an array of point values for building geometry</p>");
     }
     else
     {
         expandableListPoints.setToolTipText("point array of single-precision 3D coordinates");
         expandableListPoints.setHeaderTooltip("Coordinate point (x y z) values");
         HelpCtx.setHelpIDString(this, "COORDINATE_ELEM_HELPID");
-        hintLabel.setText("<html><p align='center'><b>Coordinate</b> contains point values for building geometry</p>");
+        hintLabel.setText("<html><p align='center'><b>Coordinate</b> contains an array of point values for building geometry</p>");
     }
     
     String[][] saa = coordinate.getPoint(); // may be 0-length
@@ -167,8 +167,8 @@ public class COORDINATECustomizer extends BaseCustomizer
         add(expandableListPoints, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align='center'><b>Coordinate|CoordinateDouble</b> contains point values for building geometry</p>");
-        hintLabel.setToolTipText("Coordinate point values can be applied in many ways");
+        hintLabel.setText("<html><p align='center'><b>Coordinate|CoordinateDouble</b> contains an array of point values for building geometry</p>");
+        hintLabel.setToolTipText("Coordinate arrays of point values can be applied in many ways by various X3D nodes");
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
