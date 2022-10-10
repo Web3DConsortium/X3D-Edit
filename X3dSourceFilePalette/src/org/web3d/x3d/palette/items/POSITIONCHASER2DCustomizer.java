@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,10 +35,8 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-import org.openide.DialogDisplayer;
-import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 /**
  * POSITIONCHASER2DCustomizer.java
  * Created on 6 February 2010
@@ -86,6 +84,7 @@ public class POSITIONCHASER2DCustomizer extends BaseCustomizer
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
         durationLabel = new javax.swing.JLabel();
         durationTF = new javax.swing.JTextField();
+        durationUnitsLabel = new javax.swing.JLabel();
         initialValueLabel = new javax.swing.JLabel();
         initialDestinationLabel = new javax.swing.JLabel();
         initialValue0TextField = new javax.swing.JTextField();
@@ -93,7 +92,9 @@ public class POSITIONCHASER2DCustomizer extends BaseCustomizer
         initialDestination0TextField = new javax.swing.JTextField();
         initialDestination1TextField = new javax.swing.JTextField();
         followerFigureLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(630, 525));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -124,6 +125,14 @@ public class POSITIONCHASER2DCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(durationTF, gridBagConstraints);
+
+        durationUnitsLabel.setText("seconds");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(durationUnitsLabel, gridBagConstraints);
 
         initialValueLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         initialValueLabel.setText("initialValue");
@@ -198,12 +207,29 @@ public class POSITIONCHASER2DCustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(followerFigureLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>PositionChaser2D</b> generates a series of  2-tuple x-y SFVec2f values using a Finite-Impulse Response (FIR) algorithm\n<br> \nthat progressively changes from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing output SFVec2f values, <b>ROUTE</b> a new value to <b>set_destination</b>.  Also create a <b>ROUTE</b>\n<br /> for changing SFVec2f values from the <b>value_changed</b> event to a <b>Transform</b> node's <b>translation</b> field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial SFRotation of a <b>PositionChaser2D</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n\n\n");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel durationLabel;
     private javax.swing.JTextField durationTF;
+    private javax.swing.JLabel durationUnitsLabel;
     private javax.swing.JLabel followerFigureLabel;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JTextField initialDestination0TextField;
     private javax.swing.JTextField initialDestination1TextField;
     private javax.swing.JLabel initialDestinationLabel;

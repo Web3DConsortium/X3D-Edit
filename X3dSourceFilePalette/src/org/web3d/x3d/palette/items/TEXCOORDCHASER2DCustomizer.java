@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,11 +35,9 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-import org.openide.DialogDisplayer;
-import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
  * TEXCOORDCHASER2DCustomizer.java
@@ -107,6 +105,7 @@ public class TEXCOORDCHASER2DCustomizer extends BaseCustomizer
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
         durationLabel = new javax.swing.JLabel();
         durationTF = new javax.swing.JTextField();
+        durationUnitsLabel = new javax.swing.JLabel();
         appendLineBreaksCommasPanel = new javax.swing.JPanel();
         appendLabel = new javax.swing.JLabel();
         insertCommasCheckBox = new javax.swing.JCheckBox();
@@ -114,12 +113,15 @@ public class TEXCOORDCHASER2DCustomizer extends BaseCustomizer
         initialValueExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
         initialDestinationExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
         followerFigureLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 5.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
@@ -129,7 +131,7 @@ public class TEXCOORDCHASER2DCustomizer extends BaseCustomizer
         durationLabel.setToolTipText("time interval for filter response in seconds");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 3);
@@ -138,12 +140,20 @@ public class TEXCOORDCHASER2DCustomizer extends BaseCustomizer
         durationTF.setToolTipText("time interval for filter response in seconds");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 80;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(durationTF, gridBagConstraints);
+
+        durationUnitsLabel.setText("seconds");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(durationTF, gridBagConstraints);
+        add(durationUnitsLabel, gridBagConstraints);
 
         appendLineBreaksCommasPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -176,9 +186,8 @@ public class TEXCOORDCHASER2DCustomizer extends BaseCustomizer
         appendLineBreaksCommasPanel.add(insertLineBreaksCheckBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 20);
         add(appendLineBreaksCommasPanel, gridBagConstraints);
@@ -188,7 +197,7 @@ public class TEXCOORDCHASER2DCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 240;
         gridBagConstraints.ipady = 20;
@@ -200,7 +209,7 @@ public class TEXCOORDCHASER2DCustomizer extends BaseCustomizer
         initialDestinationExpandableList.setMinimumSize(new java.awt.Dimension(240, 160));
         initialDestinationExpandableList.setPreferredSize(new java.awt.Dimension(240, 160));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 240;
@@ -217,10 +226,25 @@ public class TEXCOORDCHASER2DCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(followerFigureLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>TexCoordChaser2D</b> generates a series of 2-tuple x-y MFVec2f arrays using a Finite-Impulse Response (FIR) algorithm\n<br> \nthat progressively changes from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing output MFVec2f values, <b>ROUTE</b> a new value to <b>set_destination</b>.  Also create a <b>ROUTE</b>\n<br /> for changing MFVec2f values from the <b>value_changed</b> event to a <b>Transform</b> node's <b>translation</b> field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial MFVec2f array of a <b>TexCoordChaser2D</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n\n\n");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -228,7 +252,9 @@ public class TEXCOORDCHASER2DCustomizer extends BaseCustomizer
     private javax.swing.JPanel appendLineBreaksCommasPanel;
     private javax.swing.JLabel durationLabel;
     private javax.swing.JTextField durationTF;
+    private javax.swing.JLabel durationUnitsLabel;
     private javax.swing.JLabel followerFigureLabel;
+    private javax.swing.JLabel hintLabel;
     private org.web3d.x3d.palette.items.ExpandableList initialDestinationExpandableList;
     private org.web3d.x3d.palette.items.ExpandableList initialValueExpandableList;
     private javax.swing.JCheckBox insertCommasCheckBox;
