@@ -10,8 +10,8 @@ Prerequisite for operation: Java JDK 17 LTS (or later).  Recommended: OpenJDK jd
 
 The following files are available for testing:
 
-File size | Date         | File | Description | Status
---------- | ------------ | ---- | ----------- | ------
+File size | Date         | File                                                                                                        | Description       | Status
+--------- | ------------ | ----------------------------------------------------------------------------------------------------------- | ----------------- | ------
 156827561 | Oct 10 14:31 | [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive       | Tested sat
 156775424 | Oct 10 14:32 | [x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer   | Untested
 156688279 | Oct 10 14:33 | [x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer     | Untested (prior version tested sat)
