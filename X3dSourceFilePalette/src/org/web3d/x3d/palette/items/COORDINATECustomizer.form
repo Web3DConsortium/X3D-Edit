@@ -59,8 +59,8 @@
     <Component class="javax.swing.JLabel" name="hintLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;Coordinate|CoordinateDouble&lt;/b&gt; contains point values for building geometry&lt;/p&gt;"/>
-        <Property name="toolTipText" type="java.lang.String" value="Coordinate point values can be applied in many ways"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;Coordinate|CoordinateDouble&lt;/b&gt; contains an array of point values for building geometry&lt;/p&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="Coordinate arrays of point values can be applied in many ways by various X3D nodes"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
             <LineBorder/>
