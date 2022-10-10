@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -91,34 +91,40 @@ public class GEOCOORDINATECustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
+        org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel = getDEFUSEpanel();
         expandableList1 = new org.web3d.x3d.palette.items.ExpandableList();
         geoSystemLabel = new javax.swing.JLabel();
-        geoSystemCB = new javax.swing.JComboBox<String>();
+        geoSystemCB = new javax.swing.JComboBox<>();
         geoSystemPanelButton = new javax.swing.JButton();
+        hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(500, 388));
+        setPreferredSize(new java.awt.Dimension(620, 400));
         setLayout(new java.awt.GridBagLayout());
 
-        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
+        dEFUSEpanel.setMinimumSize(new java.awt.Dimension(198, 77));
+        dEFUSEpanel.setPreferredSize(new java.awt.Dimension(610, 110));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 486;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(dEFUSEpanel1, gridBagConstraints);
+        add(dEFUSEpanel, gridBagConstraints);
 
         expandableList1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.ipady = 88;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 99;
+        gridBagConstraints.ipady = 30;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(expandableList1, gridBagConstraints);
 
@@ -127,8 +133,8 @@ public class GEOCOORDINATECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
         add(geoSystemLabel, gridBagConstraints);
 
         geoSystemCB.setEditable(true);
@@ -139,9 +145,10 @@ public class GEOCOORDINATECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(geoSystemCB, gridBagConstraints);
 
@@ -156,13 +163,28 @@ public class GEOCOORDINATECustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 70;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(geoSystemPanelButton, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\"><b>GeoCoordinate</b> builds geometry as a set of geographic 3D coordinates\n<br /> which are transformed into a geocentric, curved-earth representation. </p>\n<br />\n<p align=\"center\"><b>GeoCoordinate</b> can only be used by IndexedFaceSet, IndexedLineSet, LineSet and PointSet. </p></html>\n");
+        hintLabel.setToolTipText("GeoOrigin is no longer necessary");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void geoSystemPanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geoSystemPanelButtonActionPerformed
@@ -180,6 +202,7 @@ public class GEOCOORDINATECustomizer extends BaseCustomizer
     private javax.swing.JComboBox<String> geoSystemCB;
     private javax.swing.JLabel geoSystemLabel;
     private javax.swing.JButton geoSystemPanelButton;
+    private javax.swing.JLabel hintLabel;
     // End of variables declaration//GEN-END:variables
 
   @Override

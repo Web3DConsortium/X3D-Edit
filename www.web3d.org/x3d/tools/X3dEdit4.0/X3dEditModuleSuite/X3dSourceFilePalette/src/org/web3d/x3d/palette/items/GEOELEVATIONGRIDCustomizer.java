@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -170,23 +170,25 @@ public class GEOELEVATIONGRIDCustomizer extends BaseCustomizer
         geoGridOriginTF0 = new javax.swing.JTextField();
         geoGridOriginTF1 = new javax.swing.JTextField();
         geoGridOriginTF2 = new javax.swing.JTextField();
-        geoSystemCB = new javax.swing.JComboBox<String>();
+        geoSystemCB = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         insertLineBreaksCheckBox = new javax.swing.JCheckBox();
         insertCommasCheckBox = new javax.swing.JCheckBox();
         tablePanel = new org.web3d.x3d.palette.items.ExpandableElevationGridTable();
-        nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(700, 500));
+        setPreferredSize(new java.awt.Dimension(822, 515));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(542, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -520,6 +522,7 @@ public class GEOELEVATIONGRIDCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(topCenterPanel, gridBagConstraints);
 
@@ -528,33 +531,21 @@ public class GEOELEVATIONGRIDCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(tablePanel, gridBagConstraints);
 
-        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
-
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>GeoElevationGrid</b> can contain Color/ColorRGBA, Normal and TextureCoordinate nodes.</p>");
+        hintLabel.setText("<html>\n<p align=\"center\"><b>GeoElevationGrid</b> geometry defines a rectangular height field, with default values for a 1m by 1m square at height 0. </p>\n<br />\n<p align=\"center\"><b>GeoElevationGrid</b> height values define vertices corresponding to quadrilaterals, \n<br />which are placed above or below a curved geospatial surface using geographic coordinates. </p>\n<br />\n<p align=\"center\"><b>GeoElevationGrid</b> can contain Color/ColorRGBA, Normal and TextureCoordinate nodes.</p></html>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        nodeHintPanel.add(hintLabel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(nodeHintPanel, gridBagConstraints);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ccwCBActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_ccwCBActionPerformed
@@ -649,7 +640,6 @@ public class GEOELEVATIONGRIDCustomizer extends BaseCustomizer
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JCheckBox normalPerVertexCB;
     private javax.swing.JButton normalizeRotationValuesButton;
     private javax.swing.JPanel originPanel;
