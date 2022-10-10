@@ -35,12 +35,13 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
+import static org.web3d.x3d.palette.X3DPaletteUtilities.*;
 import org.web3d.x3d.types.X3DBindableNode;
-
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
-import static org.web3d.x3d.palette.X3DPaletteUtilities.*;
 
 /**
  * GEOVIEWPOINT.java
@@ -115,10 +116,15 @@ public class GEOVIEWPOINT extends X3DBindableNode
     positionZ = positionZDefault = new SFDouble(fa[2],null,null);
 
     fa = parse4(GEOVIEWPOINT_ATTR_ORIENTATION_DFLT);
-    orientationX     = orientationXDefault     = new SFFloat(fa[0],null,null);
-    orientationY     = orientationYDefault     = new SFFloat(fa[1],null,null);
-    orientationZ     = orientationZDefault     = new SFFloat(fa[2],null,null);
-    orientationAngle = orientationAngleDefault = new SFFloat(fa[3],null,null);
+    orientationX      = orientationXDefault      = new SFFloat(fa[0],null,null);
+    orientationY      = orientationYDefault      = new SFFloat(fa[1],null,null);
+    orientationZ      = orientationZDefault      = new SFFloat(fa[2],null,null);
+    orientationAngle  = orientationAngleDefault  = new SFFloat(fa[3],null,null);
+    
+    fa = parse3(GEOVIEWPOINT_ATTR_CENTEROFROTATION_DFLT);
+    centerOfRotationX = centerOfRotationXDefault = new SFFloat(fa[0],null,null);
+    centerOfRotationY = centerOfRotationYDefault = new SFFloat(fa[1],null,null);
+    centerOfRotationZ = centerOfRotationZDefault = new SFFloat(fa[2],null,null);
   }
 
   @Override
@@ -170,6 +176,14 @@ public class GEOVIEWPOINT extends X3DBindableNode
       orientationY = new SFFloat(fa[1],null,null);
       orientationZ = new SFFloat(fa[2],null,null);
       orientationAngle = new SFFloat(fa[3],null,null);
+    }
+      
+    attr = root.getAttribute(GEOVIEWPOINT_ATTR_CENTEROFROTATION_NAME);
+    if(attr != null) {
+        fa = parse3(attr.getValue());
+        centerOfRotationX = new SFFloat(fa[0],null,null);
+        centerOfRotationY = new SFFloat(fa[1],null,null);
+        centerOfRotationZ = new SFFloat(fa[2],null,null);
     }
 
     attr = root.getAttribute(GEOVIEWPOINT_ATTR_SPEEDFACTOR_NAME);
@@ -275,6 +289,18 @@ public class GEOVIEWPOINT extends X3DBindableNode
       sb.append(positionY);
       sb.append(" ");
       sb.append(positionZ);
+      sb.append("'");
+    }
+
+    if (GEOVIEWPOINT_ATTR_CENTEROFROTATION_REQD || (!centerOfRotationX.equals(centerOfRotationXDefault) || !centerOfRotationY.equals(centerOfRotationYDefault) || !centerOfRotationZ.equals(centerOfRotationZDefault))) {
+      sb.append(" ");
+      sb.append(GEOVIEWPOINT_ATTR_CENTEROFROTATION_NAME);
+      sb.append("='");
+      sb.append(centerOfRotationX);
+      sb.append(" ");
+      sb.append(centerOfRotationY);
+      sb.append(" ");
+      sb.append(centerOfRotationZ);
       sb.append("'");
     }
 
