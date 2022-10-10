@@ -95,6 +95,7 @@ public class ORIENTATIONCHASERCustomizer extends BaseCustomizer
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
         durationLabel = new javax.swing.JLabel();
         durationTF = new javax.swing.JTextField();
+        durationUnitsLabel = new javax.swing.JLabel();
         xLabel = new javax.swing.JLabel();
         yLabel = new javax.swing.JLabel();
         zLabel = new javax.swing.JLabel();
@@ -114,14 +115,18 @@ public class ORIENTATIONCHASERCustomizer extends BaseCustomizer
         normalizeDestinationValueButton = new javax.swing.JButton();
         initialDestinationCalculatorlButton = new javax.swing.JButton();
         followerFigureLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
         setToolTipText("orientation x axis");
+        setPreferredSize(new java.awt.Dimension(760, 550));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.weightx = 6.0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -144,6 +149,14 @@ public class ORIENTATIONCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(durationTF, gridBagConstraints);
+
+        durationUnitsLabel.setText("seconds");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(durationUnitsLabel, gridBagConstraints);
 
         xLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         xLabel.setText("x");
@@ -253,7 +266,7 @@ public class ORIENTATIONCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -270,6 +283,8 @@ public class ORIENTATIONCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(normalizeInitialValueButton, gridBagConstraints);
 
@@ -325,6 +340,8 @@ public class ORIENTATIONCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(normalizeDestinationValueButton, gridBagConstraints);
 
@@ -342,7 +359,7 @@ public class ORIENTATIONCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -359,6 +376,21 @@ public class ORIENTATIONCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(followerFigureLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>OrientationChaser</b> generates a series of  4-tuple axis-angle SFRotation values using a Finite-Impulse Response (FIR) algorithm\n<br> \nthat progressively changes from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing output SFRotation values, <b>ROUTE</b> a new value to <b>set_destination</b>.  Also create a <b>ROUTE</b>\n<br /> for changing SFRotation values from the <b>value_changed</b> event to a <b>Transform</b> node's <b>rotation</b> field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial SFRotation of a <b>OrientationChaser</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n\n\n");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void normalizeInitialValueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalizeInitialValueButtonActionPerformed
@@ -503,7 +535,9 @@ public class ORIENTATIONCHASERCustomizer extends BaseCustomizer
     private javax.swing.JLabel aLabel;
     private javax.swing.JLabel durationLabel;
     private javax.swing.JTextField durationTF;
+    private javax.swing.JLabel durationUnitsLabel;
     private javax.swing.JLabel followerFigureLabel;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JTextField initialDestinationAngleTF;
     private javax.swing.JButton initialDestinationCalculatorlButton;
     private javax.swing.JLabel initialDestinationLabel;
