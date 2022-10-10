@@ -1,6 +1,6 @@
 # X3D-Edit 4.0 Beta Distribution Testing
 
-X3D-Edit 4.0 Beta Distribution files are available at
+[X3D-Edit 4.0](https://savage.nps.edu/X3D-Edit) Beta Distribution files are available at
 
 * [https://sourceforge.net/projects/x3d/files](https://sourceforge.net/projects/x3d/files)
 
@@ -12,11 +12,11 @@ The following files are available for testing:
 
 File size | Date         | File | Description
 --------- | ------------ | ---- | -----------
-189065217 | Oct 10 11:30 | [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive
-188984320 | Oct 10 11:30 | [x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer
-188906342 | Oct 10 11:30 | [x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer
-189380973 | Oct 10 11:30 | [x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer
-189380973 | Oct 10 11:30 | [org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [Netbeans](https://netbeans.org) plugin module
+156827561 | Oct 10 14:31 | [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive
+156775424 | Oct 10 14:32 | [x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer
+156688279 | Oct 10 14:33 | [x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer
+157172202 | Oct 10 14:32 | [x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer
+ 67732688 | Oct 10 14:31 | [org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [Netbeans](https://netbeans.org) plugin module
 
 Following installation, a modification is needed to point to your locally installed Java JDK.
 For example, in file
@@ -30,5 +30,5 @@ For example, in file
 Test reports and feedback welcome.  Please send email to
 [Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20Beta%20Testing%20feedback).
 
-Have fun with [X3D-Edit](https://savage.nps.edu/X3D-Edit)!
+Have fun with [X3D-Edit 4.0](https://savage.nps.edu/X3D-Edit)!
 
