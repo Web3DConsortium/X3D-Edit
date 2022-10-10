@@ -118,8 +118,9 @@ public class COLORCHASERCustomizer extends BaseCustomizer
         initialDestinationColorChooser = new net.java.dev.colorchooser.ColorChooser();
         followerFigureLabel = new javax.swing.JLabel();
         hintLabel = new javax.swing.JLabel();
+        durationUnitsLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(670, 520));
+        setPreferredSize(new java.awt.Dimension(610, 530));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -332,7 +333,7 @@ public class COLORCHASERCustomizer extends BaseCustomizer
         add(followerFigureLabel, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html> <p align=\"center\"><b>ColorChaser</b> generates a series of SFColor values that progressively change from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To change colors, <b>ROUTE</b> a new value to <b>set_destination</b>.  \n<br />Then  have a <b>ROUTE</b> for changing colors from the <b>value_changed</b> event to one of a <b>Material</b> node's color field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial color of a <b>ColorChaser</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n");
+        hintLabel.setText("<html> <p align=\"center\"><b>ColorChaser</b> generates a series of SFColor values using a Finite-Impulse Response (FIR) algorithm\n<br> \nthat progressively changes from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing output SFColor values, <b>ROUTE</b> a new value to <b>set_destination</b>.  Also create a <b>ROUTE</b>\n<br /> for changing colors from the <b>value_changed</b> event to one of a <b>Material</b> node's color field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial SFColor of a <b>ColorChaser</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n");
         hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -344,6 +345,15 @@ public class COLORCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(hintLabel, gridBagConstraints);
+
+        durationUnitsLabel.setText("seconds");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 3.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(durationUnitsLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void initialValue0TextFieldActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_initialValue0TextFieldActionPerformed
@@ -407,6 +417,7 @@ public class COLORCHASERCustomizer extends BaseCustomizer
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel durationLabel;
     private javax.swing.JTextField durationTF;
+    private javax.swing.JLabel durationUnitsLabel;
     private javax.swing.JLabel followerFigureLabel;
     private javax.swing.JLabel hintLabel;
     private javax.swing.JTextField initialDestination0TextField;
