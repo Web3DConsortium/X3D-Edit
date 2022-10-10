@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -138,7 +138,7 @@ public class GEOLODCustomizer extends BaseCustomizer
 
         dEFUSEpanel1 = getDEFUSEpanel();
         geoSystemLabel = new javax.swing.JLabel();
-        geoSystemCB = new javax.swing.JComboBox<String>();
+        geoSystemCB = new javax.swing.JComboBox<>();
         geoSystemPanelButton = new javax.swing.JButton();
         rangeLabel = new javax.swing.JLabel();
         rangeTF = new javax.swing.JTextField();
@@ -154,6 +154,7 @@ public class GEOLODCustomizer extends BaseCustomizer
         bboxSizeXTF = new javax.swing.JTextField();
         bboxSizeYTF = new javax.swing.JTextField();
         bboxSizeZTF = new javax.swing.JTextField();
+        lineSeparator = new javax.swing.JSeparator();
         urlsLabel = new javax.swing.JLabel();
         urlTabbedPane = new javax.swing.JTabbedPane();
         diagramLabel = new javax.swing.JLabel();
@@ -166,6 +167,7 @@ public class GEOLODCustomizer extends BaseCustomizer
         hintLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(60, 18));
+        setPreferredSize(new java.awt.Dimension(750, 525));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -392,6 +394,15 @@ public class GEOLODCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeZTF, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(lineSeparator, gridBagConstraints);
 
         urlsLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         urlsLabel.setText("url lists");
@@ -460,7 +471,7 @@ public class GEOLODCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><b>GeoLOD</b> provides quadtree level-of-detail loading/unloading for multi-resolution terrains");
+        hintLabel.setText("<html> <p align=\"center\"> <b>GeoLOD</b> provides quadtree Level of Detail (LOD) loading and unloading for multi-resolution terrain geometry.</p> </html>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -472,7 +483,7 @@ public class GEOLODCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -534,6 +545,7 @@ public class GEOLODCustomizer extends BaseCustomizer
     private javax.swing.JLabel geoSystemLabel;
     private javax.swing.JButton geoSystemPanelButton;
     private javax.swing.JLabel hintLabel;
+    private javax.swing.JSeparator lineSeparator;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JLabel rangeLabel;
     private javax.swing.JTextField rangeTF;
