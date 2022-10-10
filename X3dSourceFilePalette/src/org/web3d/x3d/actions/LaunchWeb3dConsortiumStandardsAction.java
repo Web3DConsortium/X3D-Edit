@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -50,6 +50,7 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_STANDARDS;
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Standards", position = 100)
 })
 
+@SuppressWarnings("serial")
 public final class LaunchWeb3dConsortiumStandardsAction extends CallableSystemAction
 {
   @Override

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -41,16 +41,17 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D_COURSE_VIDEOS;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_GRAPHICS_STANDARDS_RELATIONSHIPS;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchX3dCourseVideosAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchX3dCourseVideosAction", lazy=true)
-@ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Help with X3D", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help with X3D", position = 200),
+@ActionID(id = "org.web3d.x3d.actions.LaunchX3dGraphicsStandardsRelationshipsAction", category = "Tools")
+@ActionRegistration(displayName = "#CTL_LaunchX3dGraphicsStandardsRelationshipsAction", lazy=true)
+@ActionReferences(value = {
+  @ActionReference(path = "Menu/X3D-Edit/Standards", position = 150),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Standards", position = 150)
 })
 
-public final class LaunchX3dCourseVideosAction extends CallableSystemAction
+@SuppressWarnings("serial")
+public final class LaunchX3dGraphicsStandardsRelationshipsAction extends CallableSystemAction
 {
   @Override
   public void performAction()
@@ -59,13 +60,13 @@ public final class LaunchX3dCourseVideosAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_COURSE_VIDEOS);
+    LaunchX3dExamplesAction.sendBrowserTo(X3D_GRAPHICS_STANDARDS_RELATIONSHIPS);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchX3dCourseVideosAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchX3dGraphicsStandardsRelationshipsAction");
   }
 
   @Override
@@ -79,7 +80,7 @@ public final class LaunchX3dCourseVideosAction extends CallableSystemAction
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("X3dResourcesExamples");
+    return new HelpCtx("X3dX3dGraphicsStandardsRelationshipsAction");
   }
 
   @Override

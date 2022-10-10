@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+ * Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -72,8 +72,10 @@ public abstract class Xj3DConverterBaseExportAction extends BaseConversionsActio
       io.setFocusTaken(true);
       ow = io.getOut();
 
-      String outputExt = "."+getOutputFileType();
-      ConversionsHelper.saveFilePack data = ConversionsHelper.getDestinationFile(mySrcF, mySrc.getName() + outputExt, false);
+      String outputExtension = "."+getOutputFileType();
+      
+      ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as " + outputExtension + " using Xj3D");
+      ConversionsHelper.saveFilePack data = ConversionsHelper.getDestinationFile(mySrcF, mySrc.getName() + outputExtension, false);
 
       if (data == null) {
         ow.println(getConversionCancelledMessage());

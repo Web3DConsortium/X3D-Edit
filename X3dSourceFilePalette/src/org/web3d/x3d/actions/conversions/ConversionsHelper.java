@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -71,6 +71,7 @@ public class ConversionsHelper
   static final OpenResultInEditorChooserAccessory pan;
   private static boolean openInBrowserSetting = true;
   private static boolean openInEditorSetting  = false;
+  private static String saveChooserDialogTitle = "Save X3D conversion";
   
   static {
     saveChooser =  new JFileChooser(); 
@@ -80,6 +81,10 @@ public class ConversionsHelper
     openInBrowser = pan.getOpenInBrowserCheckBox();
     openInBrowser.setSelected(true); // default
     saveChooser.setAccessory(pan);
+  }
+  public void initialize()
+  {
+    saveChooser.setDialogTitle(getSaveChooserDialogTitle());      
   }
 
     /**
@@ -232,4 +237,20 @@ public class ConversionsHelper
       converter = new Xj3DConv();
     return converter;
   }
+
+    /**
+     * @return the saveChooserDialogTitle
+     */
+    public static String getSaveChooserDialogTitle() {
+        return saveChooserDialogTitle;
+    }
+
+    /**
+     * @param newSaveChooserDialogTitle the saveChooserDialogTitle to set
+     */
+    public static void setSaveChooserDialogTitle(String newSaveChooserDialogTitle)
+    {
+        saveChooser.setDialogTitle(newSaveChooserDialogTitle);   
+        saveChooserDialogTitle = newSaveChooserDialogTitle;   
+    }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+ * Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  *  
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -111,6 +111,8 @@ public class XhtmlX3domAction extends BaseConversionsAction
   @Override
   protected String iconResource()
   {
+      ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as XHTML with X3DOM via XSLT");
+    
       if (getPlayer().equalsIgnoreCase("Cobweb"))
            return "org/web3d/x3d/resources/cobweb-logo32.png";
       else return "org/web3d/x3d/resources/x3dom-whiteOnblue24.png";

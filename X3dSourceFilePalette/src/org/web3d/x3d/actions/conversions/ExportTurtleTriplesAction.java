@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+ * Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  *  
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -66,6 +66,7 @@ public final class ExportTurtleTriplesAction extends BaseConversionsAction
   @Override
   public String transformSingleFile(X3DEditorSupport.X3dEditor ed)
   {
+    ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as Turtle Triples via XSLT");
     ConversionsHelper.saveFilePack fp;
   //  if (BaseConversionsAction.xsltFilesRoot == null)
       fp = xsltOneFile(ed, "X3dTransforms/" + X3dToTurtleXsltStylesheet, ".ttl", true, false, null);

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -43,7 +43,7 @@ import org.openide.awt.HtmlBrowser;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.WEB3D_HOME;
+import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_HOME;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumHomeAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_LaunchWeb3DConsortiumHomeAction", lazy=true)
@@ -52,12 +52,13 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_HOME;
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Outreach", position = 400)
 })
 
+@SuppressWarnings("serial")
 public final class LaunchWeb3DConsortiumHomeAction extends CallableSystemAction
 {
   @Override
   public void performAction()
   {
-    sendBrowserTo(WEB3D_HOME);
+    sendBrowserTo(WEB3D_CONSORTIUM_HOME);
   }
   
   protected static void sendBrowserTo(String urlString)

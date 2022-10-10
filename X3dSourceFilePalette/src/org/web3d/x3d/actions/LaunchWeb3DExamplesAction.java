@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_EXAMPLES;
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DExamplesAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_LaunchWeb3DExamplesAction", lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Examples", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Examples", position = 400)
+  @ActionReference(path = "Menu/X3D-Edit/Example X3D Model Archives", position = 400),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Example X3D Model Archives", position = 400)
 })
 
 public final class LaunchWeb3DExamplesAction extends CallableSystemAction

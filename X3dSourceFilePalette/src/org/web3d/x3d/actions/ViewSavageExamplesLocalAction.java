@@ -43,8 +43,8 @@ import org.openide.util.NbBundle;
 @ActionID(id = "org.web3d.x3d.actions.ViewSavageExamplesLocalAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_ViewSavageExamplesLocalAction", lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Examples/View Local X3D Examples Archives", position = 600),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Examples/View Local X3D Examples Archives", position = 600)
+  @ActionReference(path = "Menu/X3D-Edit/Example X3D Model Archives/View Local X3D Examples Archives", position = 600),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Example X3D Model Archives/View Local X3D Examples Archives", position = 600)
 })
 
 public final class ViewSavageExamplesLocalAction extends BaseLocalViewAction

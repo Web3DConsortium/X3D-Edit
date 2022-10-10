@@ -43,8 +43,8 @@ import org.openide.util.NbBundle;
 @ActionID(id = "org.web3d.x3d.actions.ViewConformanceNistExamplesLocalAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_ConformanceNistLocalExamplesAction", lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Examples/View Local X3D Examples Archives", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Examples/View Local X3D Examples Archives", position = 400)
+  @ActionReference(path = "Menu/X3D-Edit/Example X3D Model Archives/View Local X3D Examples Archives", position = 400),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Example X3D Model Archives/View Local X3D Examples Archives", position = 400)
 })
 
 public final class ViewConformanceNistExamplesLocalAction extends BaseLocalViewAction

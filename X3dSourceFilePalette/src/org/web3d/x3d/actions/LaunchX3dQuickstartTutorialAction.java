@@ -46,8 +46,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_QUICKSTART_TUTORIAL;
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dQuickstartTutorialAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_LaunchX3dQuickstartTutorialAction", lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Help", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help", position = 300),
+  @ActionReference(path = "Menu/X3D-Edit/Help with X3D", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help with X3D", position = 300),
 })
 
 public final class LaunchX3dQuickstartTutorialAction extends CallableSystemAction
