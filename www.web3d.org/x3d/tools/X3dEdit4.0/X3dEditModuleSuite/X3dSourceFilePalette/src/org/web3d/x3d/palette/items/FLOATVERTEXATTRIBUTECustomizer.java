@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -38,7 +38,7 @@ import java.util.Iterator;
 import java.util.Vector;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 /**
  * FLOATVERTEXATTRIBUTECustomizer.java
  * Created on 24 January 2010
@@ -157,7 +157,7 @@ public class FLOATVERTEXATTRIBUTECustomizer extends BaseCustomizer
         nameLabel = new javax.swing.JLabel();
         nameTF = new javax.swing.JTextField();
         numComponentsLabel = new javax.swing.JLabel();
-        numComponentsComboBox = new javax.swing.JComboBox<String>();
+        numComponentsComboBox = new javax.swing.JComboBox<>();
         expandableList = new org.web3d.x3d.palette.items.ExpandableList();
         eventHintPanel = new javax.swing.JPanel();
         contentModelLabel = new javax.swing.JLabel();
@@ -226,7 +226,7 @@ public class FLOATVERTEXATTRIBUTECustomizer extends BaseCustomizer
         eventHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         eventHintPanel.setLayout(new java.awt.GridBagLayout());
 
-        contentModelLabel.setText("<html><p align=\"center\"> <b>FloatVertexAttribute</b> is used for shader field initialization</p>");
+        contentModelLabel.setText("<html><p align=\"center\"> <b>FloatVertexAttribute</b> values are used for shader field initialization.</p>");
         contentModelLabel.setToolTipText("PackagedShader describes a single program having one or more shaders and effects");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -237,10 +237,10 @@ public class FLOATVERTEXATTRIBUTECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(eventHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
