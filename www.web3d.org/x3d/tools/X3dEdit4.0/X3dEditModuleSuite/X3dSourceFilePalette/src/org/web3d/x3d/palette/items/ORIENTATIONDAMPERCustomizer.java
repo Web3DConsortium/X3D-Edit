@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -41,6 +41,8 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
  * ORIENTATIONDAMPERCustomizer.java
@@ -95,16 +97,19 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
+        orderLabel = new javax.swing.JLabel();
+        orderComboBox = new javax.swing.JComboBox<>();
+        orderHintLabel = new javax.swing.JLabel();
         tauLabel = new javax.swing.JLabel();
         tauTF = new javax.swing.JTextField();
+        tauHintLabel = new javax.swing.JLabel();
         toleranceLabel = new javax.swing.JLabel();
         toleranceTF = new javax.swing.JTextField();
+        toleranceHintLabel = new javax.swing.JLabel();
         xLabel = new javax.swing.JLabel();
         yLabel = new javax.swing.JLabel();
         zLabel = new javax.swing.JLabel();
         aLabel = new javax.swing.JLabel();
-        orderLabel = new javax.swing.JLabel();
-        orderComboBox = new javax.swing.JComboBox<>();
         initialValueLabel = new javax.swing.JLabel();
         initialDestinationLabel = new javax.swing.JLabel();
         initialValueXaxisTF = new javax.swing.JTextField();
@@ -120,15 +125,49 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
         initialDestinationCalculatorlButton = new javax.swing.JButton();
         normalizeDestinationValueButton = new javax.swing.JButton();
         followerFigureLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(818, 616));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 5.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
+
+        orderLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        orderLabel.setText("order");
+        orderLabel.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 3);
+        add(orderLabel, gridBagConstraints);
+
+        orderComboBox.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "0", "1", "2", "3", "4", "5" }));
+        orderComboBox.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(orderComboBox, gridBagConstraints);
+
+        orderHintLabel.setText("higher order is smoother");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(orderHintLabel, gridBagConstraints);
 
         tauLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tauLabel.setText("tau");
@@ -149,6 +188,17 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(tauTF, gridBagConstraints);
+
+        tauHintLabel.setText("time constant of filter for speed of response");
+        tauHintLabel.setToolTipText("tau=0 is immediate");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(tauHintLabel, gridBagConstraints);
 
         toleranceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         toleranceLabel.setText("tolerance");
@@ -174,6 +224,17 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(toleranceTF, gridBagConstraints);
+
+        toleranceHintLabel.setText("determining when complete");
+        toleranceHintLabel.setToolTipText("tolerance=-1 lets browser decide");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(toleranceHintLabel, gridBagConstraints);
 
         xLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         xLabel.setText("x");
@@ -205,26 +266,6 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         add(aLabel, gridBagConstraints);
-
-        orderLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        orderLabel.setText("order");
-        orderLabel.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 3);
-        add(orderLabel, gridBagConstraints);
-
-        orderComboBox.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "0", "1", "2", "3", "4", "5" }));
-        orderComboBox.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(orderComboBox, gridBagConstraints);
 
         initialValueLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         initialValueLabel.setText("initialValue");
@@ -303,7 +344,7 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.ipadx = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -321,6 +362,7 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(normalizeInitialValueButton, gridBagConstraints);
 
@@ -379,7 +421,7 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.ipadx = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -397,6 +439,7 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(normalizeDestinationValueButton, gridBagConstraints);
 
@@ -411,6 +454,21 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(followerFigureLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>OrientationDamper</b> generates a series of  4-tuple axis-angle SFRotation values using an Infinite-Impulse Response (IIR) algorithm\n<br> \nthat progressively changes from initial value to destination value. </p> \n<br /> \n<p align=\"center\"> To start changing output SFRotation values, <b>ROUTE</b> a new value to <b>set_destination</b>.   Also create a <b>ROUTE</b>\n<br /> for changing SFRotation values from the <b>value_changed</b> event to a <b>Transform</b> node's <b>rotation</b> field, for example.</p> <br /> <p align=\"center\"> To completely reinitialize the initial SFRotation of a <b>OrientationDamper</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>   ");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void toleranceTFActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_toleranceTFActionPerformed
@@ -559,6 +617,7 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aLabel;
     private javax.swing.JLabel followerFigureLabel;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JTextField initialDestinationAngleTF;
     private javax.swing.JButton initialDestinationCalculatorlButton;
     private javax.swing.JLabel initialDestinationLabel;
@@ -574,9 +633,12 @@ public class ORIENTATIONDAMPERCustomizer extends BaseCustomizer
     private javax.swing.JButton normalizeDestinationValueButton;
     private javax.swing.JButton normalizeInitialValueButton;
     private javax.swing.JComboBox<String> orderComboBox;
+    private javax.swing.JLabel orderHintLabel;
     private javax.swing.JLabel orderLabel;
+    private javax.swing.JLabel tauHintLabel;
     private javax.swing.JLabel tauLabel;
     private javax.swing.JTextField tauTF;
+    private javax.swing.JLabel toleranceHintLabel;
     private javax.swing.JLabel toleranceLabel;
     private javax.swing.JTextField toleranceTF;
     private javax.swing.JLabel xLabel;
