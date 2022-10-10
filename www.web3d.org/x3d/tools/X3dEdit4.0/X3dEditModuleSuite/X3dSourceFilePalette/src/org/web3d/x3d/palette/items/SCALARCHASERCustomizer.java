@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,7 +36,7 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 /**
  * SCALARCHASERCustomizer.java
  * Created on 6 February 2010
@@ -82,17 +82,20 @@ public class SCALARCHASERCustomizer extends BaseCustomizer
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
         durationLabel = new javax.swing.JLabel();
         durationTF = new javax.swing.JTextField();
+        durationUnitsLabel = new javax.swing.JLabel();
         initialValueLabel = new javax.swing.JLabel();
         initialDestinationLabel = new javax.swing.JLabel();
         initialValue0TextField = new javax.swing.JTextField();
         initialDestination0TextField = new javax.swing.JTextField();
         followerFigureLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(653, 528));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -115,9 +118,17 @@ public class SCALARCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(durationTF, gridBagConstraints);
+
+        durationUnitsLabel.setText("seconds");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(durationUnitsLabel, gridBagConstraints);
 
         initialValueLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         initialValueLabel.setText("initialValue");
@@ -147,7 +158,6 @@ public class SCALARCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(initialValue0TextField, gridBagConstraints);
 
@@ -157,7 +167,6 @@ public class SCALARCHASERCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 3;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(initialDestination0TextField, gridBagConstraints);
 
@@ -168,16 +177,33 @@ public class SCALARCHASERCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(followerFigureLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>ScalarChaser</b> generates a series of single floating-point SFFloat values using a Finite-Impulse Response (FIR) algorithm\n<br> \nthat progressively changes from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing output SFFloat values, <b>ROUTE</b> a new value to <b>set_destination</b>.  Also create a <b>ROUTE</b>\n<br /> for changing SFFloat values from the <b>value_changed</b> event to a <b>Transform</b> node's <b>translation</b> field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial SFFloat value of a <b>ScalarChaser</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n\n\n");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel durationLabel;
     private javax.swing.JTextField durationTF;
+    private javax.swing.JLabel durationUnitsLabel;
     private javax.swing.JLabel followerFigureLabel;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JTextField initialDestination0TextField;
     private javax.swing.JLabel initialDestinationLabel;
     private javax.swing.JTextField initialValue0TextField;

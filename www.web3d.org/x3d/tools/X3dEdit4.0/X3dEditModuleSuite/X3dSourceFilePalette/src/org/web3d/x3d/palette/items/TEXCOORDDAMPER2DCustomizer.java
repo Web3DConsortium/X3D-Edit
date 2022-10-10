@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -39,7 +39,7 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
  * TEXCOORDDAMPER2DCustomizer.java
@@ -107,12 +107,15 @@ public class TEXCOORDDAMPER2DCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
-        tauLabel = new javax.swing.JLabel();
-        tauTF = new javax.swing.JTextField();
-        toleranceLabel = new javax.swing.JLabel();
-        toleranceTF = new javax.swing.JTextField();
         orderLabel = new javax.swing.JLabel();
         orderComboBox = new javax.swing.JComboBox<>();
+        orderHintLabel = new javax.swing.JLabel();
+        tauLabel = new javax.swing.JLabel();
+        tauTF = new javax.swing.JTextField();
+        tauHintLabel = new javax.swing.JLabel();
+        toleranceLabel = new javax.swing.JLabel();
+        toleranceTF = new javax.swing.JTextField();
+        toleranceHintLabel = new javax.swing.JLabel();
         appendLineBreaksCommasPanel = new javax.swing.JPanel();
         appendLabel = new javax.swing.JLabel();
         insertCommasCheckBox = new javax.swing.JCheckBox();
@@ -120,15 +123,47 @@ public class TEXCOORDDAMPER2DCustomizer extends BaseCustomizer
         initialValueExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
         initialDestinationExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
         followerFigureLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 5.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
+
+        orderLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        orderLabel.setText("order");
+        orderLabel.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 3);
+        add(orderLabel, gridBagConstraints);
+
+        orderComboBox.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "0", "1", "2", "3", "4", "5" }));
+        orderComboBox.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(orderComboBox, gridBagConstraints);
+
+        orderHintLabel.setText("higher order is smoother");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(orderHintLabel, gridBagConstraints);
 
         tauLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tauLabel.setText("tau");
@@ -148,9 +183,19 @@ public class TEXCOORDDAMPER2DCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(tauTF, gridBagConstraints);
+
+        tauHintLabel.setText("time constant of filter for speed of response");
+        tauHintLabel.setToolTipText("tau=0 is immediate");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(tauHintLabel, gridBagConstraints);
 
         toleranceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         toleranceLabel.setText("tolerance");
@@ -175,30 +220,19 @@ public class TEXCOORDDAMPER2DCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(toleranceTF, gridBagConstraints);
 
-        orderLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        orderLabel.setText("order");
-        orderLabel.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
+        toleranceHintLabel.setText("determining when complete");
+        toleranceHintLabel.setToolTipText("tolerance=-1 lets browser decide");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 3);
-        add(orderLabel, gridBagConstraints);
-
-        orderComboBox.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "0", "1", "2", "3", "4", "5" }));
-        orderComboBox.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(orderComboBox, gridBagConstraints);
+        add(toleranceHintLabel, gridBagConstraints);
 
         appendLineBreaksCommasPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -231,7 +265,7 @@ public class TEXCOORDDAMPER2DCustomizer extends BaseCustomizer
         appendLineBreaksCommasPanel.add(insertLineBreaksCheckBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_END;
@@ -243,7 +277,7 @@ public class TEXCOORDDAMPER2DCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 240;
         gridBagConstraints.ipady = 20;
@@ -255,7 +289,7 @@ public class TEXCOORDDAMPER2DCustomizer extends BaseCustomizer
         initialDestinationExpandableList.setMinimumSize(new java.awt.Dimension(240, 160));
         initialDestinationExpandableList.setPreferredSize(new java.awt.Dimension(240, 160));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 240;
@@ -272,10 +306,25 @@ public class TEXCOORDDAMPER2DCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(followerFigureLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>TexCoordDamper2D</b> generates a series of  2-tuple x-y MFVec2f arrays using an Infinite-Impulse Response (IIR) algorithm\n<br> \nthat progressively changes from initial value to destination value. </p> <br /> \n<p align=\"center\"> To start changing output MFVec2f values, <b>ROUTE</b> a new value to <b>set_destination</b>.   Also create a <b>ROUTE</b>\n<br /> for changing SFRotation values from the <b>value_changed</b> event to a <b>Transform</b> node's <b>translation</b> field, for example.</p> \n<br /> \n<p align=\"center\"> To completely reinitialize the initial MFVec2f array of a <b>TexCoordDamper2D</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>   ");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void toleranceTFActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_toleranceTFActionPerformed
@@ -303,14 +352,18 @@ public class TEXCOORDDAMPER2DCustomizer extends BaseCustomizer
     private javax.swing.JLabel appendLabel;
     private javax.swing.JPanel appendLineBreaksCommasPanel;
     private javax.swing.JLabel followerFigureLabel;
+    private javax.swing.JLabel hintLabel;
     private org.web3d.x3d.palette.items.ExpandableList initialDestinationExpandableList;
     private org.web3d.x3d.palette.items.ExpandableList initialValueExpandableList;
     private javax.swing.JCheckBox insertCommasCheckBox;
     private javax.swing.JCheckBox insertLineBreaksCheckBox;
     private javax.swing.JComboBox<String> orderComboBox;
+    private javax.swing.JLabel orderHintLabel;
     private javax.swing.JLabel orderLabel;
+    private javax.swing.JLabel tauHintLabel;
     private javax.swing.JLabel tauLabel;
     private javax.swing.JTextField tauTF;
+    private javax.swing.JLabel toleranceHintLabel;
     private javax.swing.JLabel toleranceLabel;
     private javax.swing.JTextField toleranceTF;
     // End of variables declaration//GEN-END:variables

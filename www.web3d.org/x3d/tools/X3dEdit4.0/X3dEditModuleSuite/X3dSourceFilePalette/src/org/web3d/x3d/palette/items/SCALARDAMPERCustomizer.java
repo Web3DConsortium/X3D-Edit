@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -38,7 +38,7 @@ import javax.swing.text.JTextComponent;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 /**
  * SCALARDAMPERCustomizer.java
  * Created on 6 February 2010
@@ -86,8 +86,10 @@ public class SCALARDAMPERCustomizer extends BaseCustomizer
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
         tauLabel = new javax.swing.JLabel();
         tauTF = new javax.swing.JTextField();
+        tauHintLabel = new javax.swing.JLabel();
         toleranceLabel = new javax.swing.JLabel();
         toleranceTF = new javax.swing.JTextField();
+        toleranceHintLabel = new javax.swing.JLabel();
         orderLabel = new javax.swing.JLabel();
         orderComboBox = new javax.swing.JComboBox<>();
         initialValueLabel = new javax.swing.JLabel();
@@ -95,14 +97,16 @@ public class SCALARDAMPERCustomizer extends BaseCustomizer
         initialValue0TextField = new javax.swing.JTextField();
         initialDestination0TextField = new javax.swing.JTextField();
         followerFigureLabel = new javax.swing.JLabel();
+        hintLabel = new javax.swing.JLabel();
+        orderHintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(668, 588));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -124,9 +128,19 @@ public class SCALARDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(tauTF, gridBagConstraints);
+
+        tauHintLabel.setText("time constant of filter for speed of response");
+        tauHintLabel.setToolTipText("tau=0 is immediate");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(tauHintLabel, gridBagConstraints);
 
         toleranceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         toleranceLabel.setText("tolerance");
@@ -151,9 +165,19 @@ public class SCALARDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(toleranceTF, gridBagConstraints);
+
+        toleranceHintLabel.setText("determining when complete");
+        toleranceHintLabel.setToolTipText("tolerance=-1 lets browser decide");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(toleranceHintLabel, gridBagConstraints);
 
         orderLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         orderLabel.setText("order");
@@ -202,6 +226,7 @@ public class SCALARDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -212,6 +237,7 @@ public class SCALARDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -225,10 +251,34 @@ public class SCALARDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(followerFigureLabel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>ScalarDamper</b> generates a series of  single floating-point SFFloat values using an Infinite-Impulse Response (IIR) algorithm\n<br> \nthat progressively changes from initial value to destination value. </p> <br /> \n<p align=\"center\"> To start changing output SFFloat values, <b>ROUTE</b> a new value to <b>set_destination</b>.   Also create a <b>ROUTE</b>\n<br /> for changing SFRotation values from the <b>value_changed</b> event to a <b>Transform</b> node's <b>translation</b> field, for example.</p> \n<br /> \n<p align=\"center\"> To completely reinitialize the initial SFFloat value of a <b>ScalarDamper</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>   ");
+        hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
+
+        orderHintLabel.setText("higher order is smoother");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(orderHintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void toleranceTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toleranceTFActionPerformed
@@ -253,14 +303,18 @@ public class SCALARDAMPERCustomizer extends BaseCustomizer
     }  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel followerFigureLabel;
+    private javax.swing.JLabel hintLabel;
     private javax.swing.JTextField initialDestination0TextField;
     private javax.swing.JLabel initialDestinationLabel;
     private javax.swing.JTextField initialValue0TextField;
     private javax.swing.JLabel initialValueLabel;
     private javax.swing.JComboBox<String> orderComboBox;
+    private javax.swing.JLabel orderHintLabel;
     private javax.swing.JLabel orderLabel;
+    private javax.swing.JLabel tauHintLabel;
     private javax.swing.JLabel tauLabel;
     private javax.swing.JTextField tauTF;
+    private javax.swing.JLabel toleranceHintLabel;
     private javax.swing.JLabel toleranceLabel;
     private javax.swing.JTextField toleranceTF;
     // End of variables declaration//GEN-END:variables
