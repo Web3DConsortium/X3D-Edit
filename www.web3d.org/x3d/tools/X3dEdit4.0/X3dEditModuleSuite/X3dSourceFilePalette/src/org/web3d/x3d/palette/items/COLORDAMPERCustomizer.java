@@ -108,12 +108,15 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
-        tauLabel = new javax.swing.JLabel();
-        tauTF = new javax.swing.JTextField();
-        toleranceLabel = new javax.swing.JLabel();
-        toleranceTF = new javax.swing.JTextField();
         orderLabel = new javax.swing.JLabel();
         orderComboBox = new javax.swing.JComboBox<>();
+        orderHintLabel = new javax.swing.JLabel();
+        tauLabel = new javax.swing.JLabel();
+        tauTF = new javax.swing.JTextField();
+        tauHintLabel = new javax.swing.JLabel();
+        toleranceLabel = new javax.swing.JLabel();
+        toleranceTF = new javax.swing.JTextField();
+        toleranceHintLabel = new javax.swing.JLabel();
         initialValueLabel = new javax.swing.JLabel();
         initialDestinationLabel = new javax.swing.JLabel();
         initialValue0TextField = new javax.swing.JTextField();
@@ -127,7 +130,7 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         followerFigureLabel = new javax.swing.JLabel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(670, 565));
+        setPreferredSize(new java.awt.Dimension(610, 592));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -138,6 +141,36 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
+
+        orderLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        orderLabel.setText("order");
+        orderLabel.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 3);
+        add(orderLabel, gridBagConstraints);
+
+        orderComboBox.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "0", "1", "2", "3", "4", "5" }));
+        orderComboBox.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(orderComboBox, gridBagConstraints);
+
+        orderHintLabel.setText("higher order is smoother");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(orderHintLabel, gridBagConstraints);
 
         tauLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tauLabel.setText("tau");
@@ -157,6 +190,17 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(tauTF, gridBagConstraints);
+
+        tauHintLabel.setText("time constant of filter for speed of response");
+        tauHintLabel.setToolTipText("tau=0 is immediate");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(tauHintLabel, gridBagConstraints);
 
         toleranceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         toleranceLabel.setText("tolerance");
@@ -182,25 +226,16 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(toleranceTF, gridBagConstraints);
 
-        orderLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        orderLabel.setText("order");
-        orderLabel.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
+        toleranceHintLabel.setText("determining when complete");
+        toleranceHintLabel.setToolTipText("tolerance=-1 lets browser decide");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 3);
-        add(orderLabel, gridBagConstraints);
-
-        orderComboBox.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "0", "1", "2", "3", "4", "5" }));
-        orderComboBox.setToolTipText("number of internal filters (larger means smoother response, longer delay)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(orderComboBox, gridBagConstraints);
+        add(toleranceHintLabel, gridBagConstraints);
 
         initialValueLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         initialValueLabel.setText("initialValue");
@@ -283,11 +318,11 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         initialValueColorChooser.setLayout(initialValueColorChooserLayout);
         initialValueColorChooserLayout.setHorizontalGroup(
             initialValueColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 13, Short.MAX_VALUE)
+            .addGap(0, 22, Short.MAX_VALUE)
         );
         initialValueColorChooserLayout.setVerticalGroup(
             initialValueColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 13, Short.MAX_VALUE)
+            .addGap(0, 22, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -357,11 +392,11 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         initialDestinationColorChooser.setLayout(initialDestinationColorChooserLayout);
         initialDestinationColorChooserLayout.setHorizontalGroup(
             initialDestinationColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 13, Short.MAX_VALUE)
+            .addGap(0, 22, Short.MAX_VALUE)
         );
         initialDestinationColorChooserLayout.setVerticalGroup(
             initialDestinationColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 13, Short.MAX_VALUE)
+            .addGap(0, 22, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -383,7 +418,7 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
         add(followerFigureLabel, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html> <p align=\"center\"><b>ColorDamper</b> generates a series of RGB color values that progressively change from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing colors, <b>ROUTE</b> a new value to <b>set_destination</b>.  \n<br />\nThen  have a <b>ROUTE</b> for changing colors from the <b>value_changed</b> event to one of a <b>Material</b> node's color field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial color of a <b>ColorDamper</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n\n\n");
+        hintLabel.setText("<html> <p align=\"center\"><b>ColorDamper</b> generates a series of RGB SFColor values using an Infinite-Impulse Response (IIR) algorithm\n<br> \nthat progressively changes from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing output SFColor values, <b>ROUTE</b> a new value to <b>set_destination</b>.  Also create a <b>ROUTE</b>\n<br /> for changing colors from the <b>value_changed</b> event to one of a <b>Material</b> node's color field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial SFColor of a <b>ColorDamper</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n\n\n");
         hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -490,9 +525,12 @@ public class COLORDAMPERCustomizer extends BaseCustomizer
     private net.java.dev.colorchooser.ColorChooser initialValueColorChooser;
     private javax.swing.JLabel initialValueLabel;
     private javax.swing.JComboBox<String> orderComboBox;
+    private javax.swing.JLabel orderHintLabel;
     private javax.swing.JLabel orderLabel;
+    private javax.swing.JLabel tauHintLabel;
     private javax.swing.JLabel tauLabel;
     private javax.swing.JTextField tauTF;
+    private javax.swing.JLabel toleranceHintLabel;
     private javax.swing.JLabel toleranceLabel;
     private javax.swing.JTextField toleranceTF;
     // End of variables declaration//GEN-END:variables

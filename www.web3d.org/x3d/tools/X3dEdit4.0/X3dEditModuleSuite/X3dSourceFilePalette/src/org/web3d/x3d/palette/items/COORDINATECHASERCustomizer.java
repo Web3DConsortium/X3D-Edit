@@ -105,6 +105,7 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         insertLineBreaksCheckBox = new javax.swing.JCheckBox();
         durationLabel = new javax.swing.JLabel();
         durationTF = new javax.swing.JTextField();
+        durationUnitsLabel = new javax.swing.JLabel();
         followerFigureLabel = new javax.swing.JLabel();
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
         initialValueExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
@@ -112,7 +113,7 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         hintLabel = new javax.swing.JLabel();
 
         setToolTipText("number of internal filters (larger means smoother response and longer delay)");
-        setPreferredSize(new java.awt.Dimension(1142, 650));
+        setPreferredSize(new java.awt.Dimension(1142, 660));
         setLayout(new java.awt.GridBagLayout());
 
         appendLineBreaksCommasPanel.setLayout(new java.awt.GridBagLayout());
@@ -146,7 +147,7 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         appendLineBreaksCommasPanel.add(insertLineBreaksCheckBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_END;
@@ -158,21 +159,30 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         durationLabel.setToolTipText("time interval for filter response in seconds");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 3);
         add(durationLabel, gridBagConstraints);
 
         durationTF.setToolTipText("time interval for filter response in seconds");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 80;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(durationTF, gridBagConstraints);
+
+        durationUnitsLabel.setText("seconds");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 3.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(durationUnitsLabel, gridBagConstraints);
 
         followerFigureLabel.setBackground(new java.awt.Color(255, 255, 255));
         followerFigureLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -181,14 +191,14 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(followerFigureLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -200,7 +210,7 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 240;
         gridBagConstraints.ipady = 20;
@@ -212,7 +222,7 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         initialDestinationExpandableList.setMinimumSize(new java.awt.Dimension(240, 160));
         initialDestinationExpandableList.setPreferredSize(new java.awt.Dimension(240, 160));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 240;
@@ -223,13 +233,13 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
         add(initialDestinationExpandableList, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html> <p align=\"center\"><b>CoordinateChaser</b> generates a series of coordinate arrays that progressively change from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing coordinate arrays, <b>ROUTE</b> a new value to <b>set_destination</b>.  \n<br />\nThen  have a <b>ROUTE</b> for changing coordinate arrays from the <b>value_changed</b> event to one of a <b>Coordinate</b> node's <b>coord</b> field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial coordinate array of a <b>CoordinateChaser</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n\n\n");
+        hintLabel.setText("<html> <p align=\"center\"><b>CoordinateChaser</b> generates a series of MFVec3f coordinate arrays using a Finite-Impulse Response (FIR) algorithm\n<br> \nthat progressively changes from initial value to destination value. </p>\n<br />\n<p align=\"center\"> To start changing output MFVec3f coordinate arrays, <b>ROUTE</b> a new value to <b>set_destination</b>.  Also create a <b>ROUTE</b>\n<br /> for changing coordinate arrays from the <b>value_changed</b> event to one of a <b>Coordinate</b> node's <b>coord</b> field, for example.</p>\n<br />\n<p align=\"center\"> To completely reinitialize the initial MFVec3f coordinate array of a <b>CoordinateChaser</b>, simply <b>ROUTE</b> a new <b>set_value</b> event.</p>\n\n\n");
         hintLabel.setToolTipText("ROUTE passes events by connecting fields between source and destination nodes");
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -242,6 +252,7 @@ public class COORDINATECHASERCustomizer extends BaseCustomizer
     private javax.swing.JPanel appendLineBreaksCommasPanel;
     private javax.swing.JLabel durationLabel;
     private javax.swing.JTextField durationTF;
+    private javax.swing.JLabel durationUnitsLabel;
     private javax.swing.JLabel followerFigureLabel;
     private javax.swing.JLabel hintLabel;
     private org.web3d.x3d.palette.items.ExpandableList initialDestinationExpandableList;
