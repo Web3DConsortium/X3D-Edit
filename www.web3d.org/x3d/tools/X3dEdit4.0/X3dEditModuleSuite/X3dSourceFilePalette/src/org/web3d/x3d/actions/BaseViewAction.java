@@ -80,15 +80,17 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_X3DUOM                           ="https://www.web3d.org/specifications/X3DUOM.html";
   public final static String SAVAGE_DEVELOPERS_GUIDE              ="https://savage.nps.edu/Savage/developers.html";
   
-  public final static String WEB3D_HOME                           ="https://web3d.org";
+  public final static String WEB3D_CONSORTIUM_HOME                ="https://web3D.org";
+  public final static String WEB3D_CONSORTIUM_JOIN                ="https://web3D.org/join";
   public final static String WEB3D_CONFERENCE                     ="https://web3d.siggraph.org";
   public final static String WEB3D_CONFERENCE_ACM_DIGITAL_LIBRARY ="https://dl.acm.org/conference/web3d";
   public final static String WEB3D_CONFERENCE_YOUTUBE             ="https://www.youtube.com/channel/UCxg1RdwicxPHgRT0QQbuGFQ";
   public final static String WEB3D_FACEBOOK                       ="https://www.facebook.com/people/Web3D-Consortium/100057066266099/";
   public final static String WEB3D_TWITTER                        ="https://twitter.com/Web3Dconsortium";
   public final static String WEB3D_YOUTUBE                        ="https://www.youtube.com/Web3DConsortium";
-  public final static String WEB3D_EXAMPLES                       ="https://web3d.org/example"; // mistakenly named website page
-  public final static String WEB3D_STANDARDS                      ="https://web3d.org/standards";
+  public final static String WEB3D_EXAMPLES                       ="https://web3D.org/example"; // mistakenly named website page
+  public final static String WEB3D_STANDARDS                      ="https://web3D.org/standards";
+  public final static String X3D_GRAPHICS_STANDARDS_RELATIONSHIPS ="https://web3D.org/specifications/X3dGraphicsStandardsRelationships.png";
   public final static String HANIM2_STANDARD                      ="https://www.web3d.org/documents/specifications/19774/V2.0/index.html";
   public final static String X3D4_ARCHITECTURE_STANDARD_CD1       ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-CD1/Part01/Architecture.html";
   public final static String X3D4_ARCHITECTURE_STANDARD_DIS       ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-DIS/Part01/Architecture.html";

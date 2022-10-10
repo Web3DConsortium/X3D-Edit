@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -34,38 +34,51 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.actions;
 
+import java.net.URL;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.awt.HtmlBrowser;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D_COURSE_VIDEOS;
+import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_JOIN;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchX3dCourseVideosAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchX3dCourseVideosAction", lazy=true)
-@ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Help with X3D", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help with X3D", position = 200),
+@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumJoinAction", category = "Tools")
+@ActionRegistration(displayName = "#CTL_LaunchWeb3DConsortiumJoinAction", lazy=true)
+@ActionReferences(value = {
+  @ActionReference(path = "Menu/X3D-Edit/Outreach", position = 450),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Outreach", position = 450)
 })
 
-public final class LaunchX3dCourseVideosAction extends CallableSystemAction
+@SuppressWarnings("serial")
+public final class LaunchWeb3DConsortiumJoinAction extends CallableSystemAction
 {
   @Override
   public void performAction()
   {
-    // looking for javahelp
-    // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
-    // hlp.showHelp(HelpCtx.findHelp(this));
-      
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_COURSE_VIDEOS);
+    sendBrowserTo(WEB3D_CONSORTIUM_JOIN);
+  }
+  
+  protected static void sendBrowserTo(String urlString)
+  {
+     try {
+       showInBrowser(urlString);
+     }
+     catch(Exception e) {
+       System.err.println("Trying to display "+urlString+" in HtmlBrowser: "+e.getLocalizedMessage());
+     }    
+  }
+  protected static void showInBrowser(String urlString) throws Exception
+  {
+    HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchX3dCourseVideosAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchWeb3DConsortiumJoinAction");
   }
 
   @Override

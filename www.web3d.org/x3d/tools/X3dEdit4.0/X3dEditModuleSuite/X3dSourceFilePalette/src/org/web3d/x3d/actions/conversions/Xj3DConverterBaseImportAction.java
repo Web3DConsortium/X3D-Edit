@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -95,6 +95,7 @@ public abstract class Xj3DConverterBaseImportAction extends CallableSystemAction
       File mySrcF = FileUtil.toFile(mySrc);
        // Use some code in this class:
       //BaseConversionsAction bca = new BCA();
+      ConversionsHelper.setSaveChooserDialogTitle("Save X3D Model, imported using Xj3D");
       ConversionsHelper.saveFilePack sfp = ConversionsHelper.getDestinationFile(mySrcF,mySrc.getName()+"."+getOutputFileType());
       if(sfp == null) {
         ow.println(this.getConversionCancelledMessage());

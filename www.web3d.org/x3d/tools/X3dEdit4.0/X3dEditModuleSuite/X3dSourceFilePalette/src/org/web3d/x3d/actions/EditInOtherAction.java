@@ -59,7 +59,8 @@ import org.web3d.x3d.options.X3dOptions;
  *
  * @author Mike Bailey and Don Brutzman
  * @version $Id$
- */public final class EditInOtherAction extends ViewInBaseAction
+ */
+public final class EditInOtherAction extends ViewInBaseAction
 {
   @Override
   protected String getExePath()

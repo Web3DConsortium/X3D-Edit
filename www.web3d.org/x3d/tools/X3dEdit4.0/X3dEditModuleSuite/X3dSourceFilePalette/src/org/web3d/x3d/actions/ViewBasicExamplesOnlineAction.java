@@ -43,8 +43,8 @@ import org.openide.util.NbBundle;
 @ActionID(id = "org.web3d.x3d.actions.ViewBasicExamplesOnlineAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_ViewBasicExamplesOnlineAction", lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Examples/View Online X3D Examples Archives", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Examples/View Online X3D Examples Archives", position = 300)
+  @ActionReference(path = "Menu/X3D-Edit/Example X3D Model Archives/View Online X3D Examples Archives", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Example X3D Model Archives/View Online X3D Examples Archives", position = 300)
 })
 
 public final class ViewBasicExamplesOnlineAction extends BaseViewAction

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -97,6 +97,7 @@ public final class ImportVrml97Action extends CallableSystemAction
       
     // Use some code in this class:
      // BaseConversionsAction bca = new Xj3DConverterBaseImportAction.BCA();
+      ConversionsHelper.setSaveChooserDialogTitle("Import VRML97 as X3D Model");
       ConversionsHelper.saveFilePack sfp = ConversionsHelper.getDestinationFile(inFile,inFobj.getName()+".x3d");
       
       if(sfp == null) {

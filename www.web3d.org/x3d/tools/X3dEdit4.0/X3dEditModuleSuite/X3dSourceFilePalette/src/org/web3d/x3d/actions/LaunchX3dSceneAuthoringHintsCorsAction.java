@@ -46,10 +46,11 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS_COR
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dSceneAuthoringHintsCorsAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_LaunchX3dSceneAuthoringHintsCorsAction", lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Help", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help", position = 100),
+  @ActionReference(path = "Menu/X3D-Edit/Help with X3D", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help with X3D", position = 100),
 })
 
+@SuppressWarnings("serial")
 public final class LaunchX3dSceneAuthoringHintsCorsAction extends CallableSystemAction
 {
   @Override
