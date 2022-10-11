@@ -21,7 +21,8 @@ File size | Date         | File                                                 
 Important: following installation, a modification is needed to point to your locally installed Java JDK.
 For example, under Windows the following file requires modification:
 
-*  <b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b>
+* Windows installer: <br /><b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b>
+* Zip installation:  <br /><b><code>C:\downloads\x3deditmodulesuite\etc\x3deditmodulesuite.conf</code></b>
 
 ... look for <code>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
 
