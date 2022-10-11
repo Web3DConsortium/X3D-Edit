@@ -27,6 +27,10 @@ For example, in file
 
 * <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19"</code>
 
+User expectations: note that this beta release is primarily focused on restoring lost X3D-Edit functionality.
+Once stability is demonstrated on multiple platforms, we expect that authoring support for 
+X3D4 nodes and features will be added steadily.
+
 Test reports and feedback welcome.  Please send email to
 [Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20Beta%20Testing%20feedback).
 
