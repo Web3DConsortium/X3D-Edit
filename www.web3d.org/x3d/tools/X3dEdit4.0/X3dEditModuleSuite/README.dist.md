@@ -19,7 +19,8 @@ File size | Date         | File                                                 
  67732688 | Oct 10 14:31 | [org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [Netbeans](https://netbeans.org) plugin module | Tested sat
 
 Important: following installation, a modification is needed to point to your locally installed Java JDK.
-For example, under Windows the following file requires modification:
+For example, under Windows the following file requires modification.  (If you use default installation directory, 
+then you may need administrator permissions to perform any such modifications.)
 
 * Windows installer: <br /><b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b>
 * Zip installation:  <br /><b><code>C:\downloads\x3deditmodulesuite\etc\x3deditmodulesuite.conf</code></b>
@@ -36,4 +37,3 @@ Test reports and feedback welcome.  Please send email to
 [Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20Beta%20Testing%20feedback).
 
 Have fun with [X3D-Edit 4.0](https://savage.nps.edu/X3D-Edit)!
-
