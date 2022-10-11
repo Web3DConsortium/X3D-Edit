@@ -1,6 +1,6 @@
 # X3D-Edit 4.0 Beta Distribution Testing
 
-[X3D-Edit 4.0](https://savage.nps.edu/X3D-Edit) Beta Distribution files are available at
+X3D-Edit 4.0 Beta Distribution files are available at
 
 * [https://sourceforge.net/projects/x3d/files](https://sourceforge.net/projects/x3d/files)
 
