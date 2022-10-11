@@ -24,7 +24,7 @@ For example, under Windows the following file requires modification:
 * Windows installer: <br /><b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b>
 * Zip installation:  <br /><b><code>C:\downloads\x3deditmodulesuite\etc\x3deditmodulesuite.conf</code></b>
 
-... look for <code>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
+... then look for <code>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
 
 * <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19"</code>
 
