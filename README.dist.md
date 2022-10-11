@@ -18,10 +18,10 @@ File size | Date         | File                                                 
 157172202 | Oct 10 14:32 | [x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer | Tested sat
  67732688 | Oct 10 14:31 | [org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [Netbeans](https://netbeans.org) plugin module | Tested sat
 
-Following installation, a modification is needed to point to your locally installed Java JDK.
-For example, in file
+Important: following installation, a modification is needed to point to your locally installed Java JDK.
+For example, under Windows the following file requires modification:
 
-*  <code>Desktop/temp/x3deditmodulesuite/x3deditmodulesuite.conf</code>
+*  <b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b>
 
 ... look for <code>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
 
