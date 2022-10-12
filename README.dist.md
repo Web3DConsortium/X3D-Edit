@@ -28,8 +28,8 @@ Important: following installation, a modification is needed to point to your loc
 For example, under Windows the following file requires modification.  (If you use default installation directory, 
 then you may need administrator permissions to perform any such modifications.)
 
-* Windows installer: <br /><b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b>
-* Zip installation:  <br /><b><code>C:\downloads\x3deditmodulesuite\etc\x3deditmodulesuite.conf</code></b>
+* Windows installer: <br /><b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b> (for example)
+* Zip installation:  <br /><b><code>C:\downloads\x3deditmodulesuite\etc\x3deditmodulesuite.conf</code></b> (for example)
 
 ... then look for <code>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
 
