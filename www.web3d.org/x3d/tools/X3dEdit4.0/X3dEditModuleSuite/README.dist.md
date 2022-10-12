@@ -1,4 +1,4 @@
-# X3D-Edit 4.0 Beta Distribution Testing
+# X3D-Edit 4.0 Beta Distribution
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
