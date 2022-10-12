@@ -25,8 +25,7 @@ X3D-Edit Install File                                                           
 ----
 
 Important: following installation, a modification is needed to point to your locally installed Java JDK.
-For example, under Windows the following file requires modification.  (If you use default installation directory, 
-then you may need administrator permissions to perform any such modifications.)
+For example, under Windows the following file requires modification.
 
 * Windows installer: <br /><b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b> (for example)
 * Zip installation:  <br /><b><code>C:\downloads\x3deditmodulesuite\etc\x3deditmodulesuite.conf</code></b> (for example)
@@ -35,6 +34,7 @@ then you may need administrator permissions to perform any such modifications.)
 
 * <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19"</code> (for example)
 
+(If you use default installation directory, then you may need administrator permissions to perform any such modifications.)
 ----
 
 *TODO*. A better solution is needed from NetBeans so that the OS installers arrive with either a bundled Java or else a properly configured JDK CLASSPATH.
