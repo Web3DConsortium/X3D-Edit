@@ -28,6 +28,7 @@ then you may need administrator permissions to perform any such modifications.)
 ... then look for <code>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
 
 * <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19"</code>
+* TODO. A better solution is needed from NetBeans so that the OS installers arrive with either a bundled Java or else a properly configured JDK CLASSPATH.
 
 User expectations: note that this beta release is primarily focused on restoring lost X3D-Edit functionality.
 Once stability is demonstrated on multiple platforms, we expect that authoring support for 
