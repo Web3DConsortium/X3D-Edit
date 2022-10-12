@@ -12,7 +12,7 @@ Once stability is demonstrated on multiple platforms, we expect that authoring s
 
 Prerequisite for operation: Java JDK 17 LTS (or later).  Recommended: OpenJDK jdk-19, latest versions available at [https://openjdk.org](https://openjdk.org)
 
-The following files are available for testing:
+The following files are available for X3D-Edit authoring:
 
 File size | Date         | File                                                                                                        | Description               | Status
 --------- | ------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------- | ------
