@@ -1,8 +1,14 @@
 # X3D-Edit 4.0 Beta Distribution Testing
 
+<!-- posted at https://sourceforge.net/projects/x3d/files -->
+
 X3D-Edit 4.0 Beta Distribution files are available at
 
 * [https://sourceforge.net/projects/x3d/files](https://sourceforge.net/projects/x3d/files)
+
+*User expectations.* Please note that this beta release is initially focused on restoring previous X3D-Edit 3.3 functionality.
+Once stability is demonstrated on multiple platforms, we expect that authoring support for 
+[X3D4](https://www.web3d.org/x3d4) nodes and features will be added steadily.
 
 Prerequisite for operation: Java JDK 17 LTS (or later).  Recommended: OpenJDK jdk-19
 
@@ -28,11 +34,7 @@ then you may need administrator permissions to perform any such modifications.)
 ... then look for <code>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
 
 * <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19"</code>
-* TODO. A better solution is needed from NetBeans so that the OS installers arrive with either a bundled Java or else a properly configured JDK CLASSPATH.
-
-User expectations: note that this beta release is primarily focused on restoring lost X3D-Edit functionality.
-Once stability is demonstrated on multiple platforms, we expect that authoring support for 
-X3D4 nodes and features will be added steadily.
+* *TODO*. A better solution is needed from NetBeans so that the OS installers arrive with either a bundled Java or else a properly configured JDK CLASSPATH.
 
 Test reports and feedback welcome.  Please send email to
 [Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20Beta%20Testing%20feedback).
