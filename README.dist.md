@@ -35,6 +35,7 @@ For example, under Windows the following file requires modification.
 * <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19"</code> (for example)
 
 (If you use default installation directory, then you may need administrator permissions to perform any such modifications.)
+
 ----
 
 *TODO*. A better solution is needed from NetBeans so that the OS installers arrive with either a bundled Java or else a properly configured JDK CLASSPATH.
