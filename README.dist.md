@@ -16,7 +16,7 @@ File size | Date         | File                                                 
 156775424 | Oct 10 14:32 | [x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer   | Tested unsat, troubleshooting
 156688279 | Oct 10 14:33 | [x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer     | Tested sat
 157172202 | Oct 10 14:32 | [x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer | Tested sat
- 67732688 | Oct 10 14:31 | [org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [Netbeans](https://netbeans.org) plugin module | Tested sat, operating system agnostic
+ 67732688 | Oct 10 14:31 | [org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module | Tested sat, operating system agnostic
 
 Important: following installation, a modification is needed to point to your locally installed Java JDK.
 For example, under Windows the following file requires modification.  (If you use default installation directory, 
