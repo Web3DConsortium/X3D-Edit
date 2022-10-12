@@ -34,7 +34,7 @@ For example, under Windows the following file requires modification.
 
 * <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19"</code> (for example)
 
-(If you use default installation directory, then you may need administrator permissions to perform any such modifications.)
+Note: if you use default installation directory, then you may need administrator permissions to perform any such modifications.
 
 ----
 
