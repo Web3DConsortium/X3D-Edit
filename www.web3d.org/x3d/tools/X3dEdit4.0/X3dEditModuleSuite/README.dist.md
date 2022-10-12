@@ -22,11 +22,11 @@ X3D-Edit File                                                                   
 [x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer             | Tested sat                                                    | 156688279 | Oct 10 14:33   
 [x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer         | Tested sat                                                    | 157172202 | Oct 10 14:32  
 
+----
+
 Important: following installation, a modification is needed to point to your locally installed Java JDK.
 For example, under Windows the following file requires modification.  (If you use default installation directory, 
 then you may need administrator permissions to perform any such modifications.)
-
-----
 
 * Windows installer: <br /><b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b>
 * Zip installation:  <br /><b><code>C:\downloads\x3deditmodulesuite\etc\x3deditmodulesuite.conf</code></b>
