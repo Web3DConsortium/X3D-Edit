@@ -32,7 +32,8 @@ then you may need administrator permissions to perform any such modifications.)
 ... then look for <code>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
 
 * <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19"</code> (for example)
-* *TODO*. A better solution is needed from NetBeans so that the OS installers arrive with either a bundled Java or else a properly configured JDK CLASSPATH.
+
+*TODO*. A better solution is needed from NetBeans so that the OS installers arrive with either a bundled Java or else a properly configured JDK CLASSPATH.
 
 Test reports and feedback welcome.  Please send email to
 [Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20Beta%20Testing%20feedback).
