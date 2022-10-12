@@ -12,8 +12,8 @@ The following files are available for testing:
 
 File size | Date         | File                                                                                                        | Description               | Status
 --------- | ------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------- | ------
- 67732688 | Oct 10 14:31 | [org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module | Tested sat, operating system agnostic
-156827561 | Oct 10 14:31 | [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for Java      | Tested sat, operating system agnostic
+ 67732688 | Oct 10 14:31 | [org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Tested sat, operating system agnostic
+156827561 | Oct 10 14:31 | [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Tested sat, operating system agnostic
 156775424 | Oct 10 14:32 | [x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer           | Tested unsat, troubleshooting
 156688279 | Oct 10 14:33 | [x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer             | Tested sat
 157172202 | Oct 10 14:32 | [x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer         | Tested sat
