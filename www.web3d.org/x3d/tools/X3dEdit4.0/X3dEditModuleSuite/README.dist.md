@@ -14,7 +14,7 @@ Prerequisite for operation: Java JDK 17 LTS (or later).  Recommended: OpenJDK jd
 
 The following files are available for X3D-Edit authoring:
 
-X3D-Edit File                                                                                                        | Description               | Status                                                        | File size | Date        
+X3D-Edit Install File                                                                                       | Description               | Status                                                        | File size | Date        
 ----------------------------------------------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------- | --------- | ------------  
 [org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Tested sat, operating system agnostic |  67732688 | Oct 10 14:31  
 [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Tested sat, operating system agnostic | 156827561 | Oct 10 14:31  
