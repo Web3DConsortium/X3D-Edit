@@ -6,13 +6,11 @@ X3D-Edit 4.0 Beta Distribution files are available at
 
 * [https://sourceforge.net/projects/x3d/files](https://sourceforge.net/projects/x3d/files)
 
-*User expectations.* Please note that this beta release is initially focused on restoring previous X3D-Edit 3.3 functionality.
+*User expectations.* Please note that this beta release is initially focused on restoring original X3D-Edit 3.3 functionality.
 Once stability is demonstrated on multiple platforms, we expect that authoring support for 
 [X3D4](https://www.web3d.org/x3d4) nodes and features will be added steadily.
 
-Prerequisite for operation: Java JDK 17 LTS (or later).  Recommended: OpenJDK jdk-19
-
-* [https://openjdk.org](https://openjdk.org)
+Prerequisite for operation: Java JDK 17 LTS (or later).  Recommended: OpenJDK jdk-19, latest versions available at [https://openjdk.org](https://openjdk.org)
 
 The following files are available for testing:
 
