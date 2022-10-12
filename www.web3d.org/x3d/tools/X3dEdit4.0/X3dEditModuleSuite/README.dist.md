@@ -2,6 +2,8 @@
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
+X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
+
 X3D-Edit 4.0 Beta Distribution files are available at
 
 * [https://sourceforge.net/projects/x3d/files](https://sourceforge.net/projects/x3d/files)
