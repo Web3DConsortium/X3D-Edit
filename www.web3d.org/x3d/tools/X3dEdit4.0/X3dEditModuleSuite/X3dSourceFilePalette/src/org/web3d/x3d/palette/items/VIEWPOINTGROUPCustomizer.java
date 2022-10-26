@@ -104,13 +104,16 @@ public class VIEWPOINTGROUPCustomizer extends BaseCustomizer
         size2TF = new javax.swing.JTextField();
         hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(622, 350));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
         dEFUSEpanel1.setMinimumSize(null);
         dEFUSEpanel1.setPreferredSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.weightx = 1.0;
@@ -158,7 +161,7 @@ public class VIEWPOINTGROUPCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
         add(descriptionLab, gridBagConstraints);
 
@@ -175,7 +178,9 @@ public class VIEWPOINTGROUPCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.8;
+        gridBagConstraints.weighty = 0.8;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 10);
         add(jScrollPane1, gridBagConstraints);
 
@@ -253,7 +258,7 @@ public class VIEWPOINTGROUPCustomizer extends BaseCustomizer
 
         hintLabel.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html> <p align=\"center\"><b>ViewpointGroup</b> can contain Viewpoint, GeoViewpoint and ViewpointGroup nodes. </p>\n<ul>\n   <li> ViewpointGroup can limit the listing of contained viewpoints to certain locales.</li>\n   <li> ViewpointGroup can help with contruction of very large worlds, </li>\n   <li> ViewpointGroup and OrthoViewpoint require Navigation component level 3, which is higher than CADInterchange profile,</li>\n   <li> Viewpoint and ViewpointGroup descriptions together build simple menu/submenu lists for easier user navigation. </li>\n</ul>");
+        hintLabel.setText("<html> <p align=\"center\"><b>ViewpointGroup</b> can contain <b>Viewpoint</b>, <b>OrthoViewpoint</b>, <b>GeoViewpoint</b>,  and other <b>ViewpointGroup</b> nodes. </p> \n<ul>\n    <li> <b>ViewpointGroup</b> can limit the listing of contained viewpoints to certain scoped locales.</li>\n    <li> <b>ViewpointGroup</b> can help with navigability when contructing of very large worlds.</li>\n    <li> <b>ViewpointGroup</b> and <b>OrthoViewpoint</b> require <i>Navigation</i> component level 3 (higher than <i>Immersive</i> profile).</li>\n    <li> <b>ViewpointGroup</b> and <b>Viewpoint</b> descriptions build simple menu/submenu lists for easier user navigation. </li> \n</ul>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -263,7 +268,7 @@ public class VIEWPOINTGROUPCustomizer extends BaseCustomizer
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.weighty = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents

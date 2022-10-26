@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,12 +35,12 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
+import static org.web3d.x3d.palette.X3DPaletteUtilities.*;
 import org.web3d.x3d.types.X3DBindableNode;
-
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
-import static org.web3d.x3d.palette.X3DPaletteUtilities.*;
 
 /**
  * ORTHOVIEWPOINT.java
@@ -230,7 +230,12 @@ public class ORTHOVIEWPOINT extends X3DBindableNode
       sb.append("'");
     }
     
-    if (VIEWPOINT_ATTR_ORIENTATION_REQD || (!orientationX.equals(orientationXDefault) || !orientationY.equals(orientationYDefault) || !orientationZ.equals(orientationAngle) || !orientationAngle.equals(orientationAngleDefault))) {
+    if (VIEWPOINT_ATTR_ORIENTATION_REQD || 
+            (!orientationX.equals(orientationXDefault) || 
+             !orientationY.equals(orientationYDefault) || 
+             !orientationZ.equals(orientationZDefault) || 
+             !orientationAngle.equals(orientationAngleDefault))) 
+    {
       sb.append(" ");
       sb.append(VIEWPOINT_ATTR_ORIENTATION_NAME);
       sb.append("='");
@@ -329,7 +334,7 @@ public class ORTHOVIEWPOINT extends X3DBindableNode
     return orientationX.toString();
   }
 
-  public void setOrienationtX(String orientX)
+  public void setOrientationtX(String orientX)
   {
     this.orientationX = new SFFloat(orientX, null, null);
   }

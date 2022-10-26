@@ -38,12 +38,14 @@ import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Font;
 import javax.swing.text.JTextComponent;
+import javax.vecmath.*;
+import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
-import javax.vecmath.*;
-import org.openide.DialogDescriptor;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
  * ORTHOVIEWPOINTCustomizer.java
@@ -101,12 +103,17 @@ public class ORTHOVIEWPOINTCustomizer extends BaseCustomizer
     orientationXaxisTF.setText(orthoViewpoint.getOrientationX());
     orientationYaxisTF.setText(orthoViewpoint.getOrientationY());
     orientationZaxisTF.setText(orthoViewpoint.getOrientationZ());
-    if (orthoViewpoint.getOrientationX().equals("0") && orthoViewpoint.getOrientationY().equals("0") && orthoViewpoint.getOrientationZ().equals("1") &&
+    if (orthoViewpoint.getOrientationX().equals("0") && 
+        orthoViewpoint.getOrientationY().equals("0") &&
+        orthoViewpoint.getOrientationZ().equals("1") &&
         orthoViewpoint.getOrientationAngle().equals("0"))
     {
         // use preferred default vice X3D default
         orientationYaxisTF.setText("1");
         orientationZaxisTF.setText("0");
+        orthoViewpoint.setOrientationY("1");
+        orthoViewpoint.setOrientationZ("0");
+        System.out.println("OrthoViewpoint customizer reset orientation from regular default (0 0 1 0) to preferred default (0 1 0 0)");
     }
     
     positionXTF.setText(orthoViewpoint.getPositionX());
@@ -1096,7 +1103,7 @@ public class ORTHOVIEWPOINTCustomizer extends BaseCustomizer
 
         hintLabel.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html> <p align=\"center\"><b>OrthoViewpoint</b> provides an orthographic perspective-free view of a scene from a specific location and direction. </p>\n<ul>\n   <li>Hint: Background, Fog, GeoViewpoint, NavigationInfo, OrthoViewpoint, TextureBackground and Viewpoint are bindable nodes, meaning that no more than one of each node type can be active at a given time. </li>\n   <li> Hint: GeoViewpoint OrthoViewpoint and Viewpoint share the same binding stack, so no more than one of these nodes can be bound and active at a given time. </li>\n   <li> Warning: results are undefined if a bindable node (Background, Fog, NavigationInfo, OrthoViewpoint, TextureBackground, Viewpoint) is a contained descendant node of either LOD or Switch. Avoid this authoring pattern. </li>\n</ul>\n\n\n");
+        hintLabel.setText("<html> <p align=\"center\"><b>OrthoViewpoint</b> provides an orthographic perspective-free view of a scene from a specific location and direction. </p>\n<ul>\n   <li>Hint: <b>OrthoViewpoint</b>, <b>Viewpoint</b>,<b>GeoViewpoint</b>, <b>Background</b>, <b>Fog</b>, <b>NavigationInfo</b>, and <b>TextureBackground</b>  are bindable nodes, meaning that no more than one of each node type can be active at a given time. </li>\n   <li> Hint: <b>GeoViewpoint</b>, <b>OrthoViewpoint</b> and <b>Viewpoint</b> share a common binding stack, so only one of these nodes can be bound and active at a given time. </li>\n   <li> Warning: results are undefined if a bindable node is a contained descendant node of either <b>LOD</b> or <b>Switch</b>. Avoid this authoring pattern. </li>\n</ul>\n\n\n");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1665,8 +1672,6 @@ private void resetDisplayViewpointCalculatorFields ()
           verticalAngleTF.setText       (radiansFormat.format(pAngle));
           verticalAngleTF.setToolTipText(radiansFormat.format(pAngle) + " radians = " +
                                          singleDigitFormat.format(pAngle * 180.0 / Math.PI) + " degrees");
-
-        return;
   }
 
   public final void checkAngles(boolean precedesNormalization)
@@ -1732,7 +1737,7 @@ private void resetDisplayViewpointCalculatorFields ()
 
     orthoViewpoint.setJump(jumpCB.isSelected());
     orthoViewpoint.setRetainUserOffsets(retainUserOffsetsCB.isSelected());
-    orthoViewpoint.setOrienationtX    (orientationXaxisTF.getText().trim());
+    orthoViewpoint.setOrientationtX   (orientationXaxisTF.getText().trim());
     orthoViewpoint.setOrientationY    (orientationYaxisTF.getText().trim());
     orthoViewpoint.setOrientationZ    (orientationZaxisTF.getText().trim());
     orthoViewpoint.setOrientationAngle(orientationAngleTF.getText().trim());

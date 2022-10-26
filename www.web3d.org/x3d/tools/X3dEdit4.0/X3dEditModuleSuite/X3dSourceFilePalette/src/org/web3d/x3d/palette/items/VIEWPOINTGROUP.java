@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -37,9 +37,9 @@ package org.web3d.x3d.palette.items;
 import javax.swing.text.JTextComponent;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
 import org.web3d.x3d.types.X3DChildNode;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 
 /**
  * VIEWPOINTGROUP.java
@@ -103,7 +103,7 @@ public class VIEWPOINTGROUP extends X3DChildNode
     size1 = size1Default = new SFFloat(fa[1], null, null);
     size2 = size2Default = new SFFloat(fa[2], null, null);
 
-    setContent("\n\t\t<!--TODO add Viewpoint, OrthoViewpoint or additional ViewpointGroup nodes here-->\n\t");
+    setContent("\n\t\t<!--TODO add Viewpoint, OrthoViewpoint, GeoViewpoint or additional ViewpointGroup nodes here-->\n\t");
   }
 
   @Override

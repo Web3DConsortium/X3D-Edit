@@ -38,13 +38,13 @@ import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Font;
 import javax.swing.text.JTextComponent;
+import javax.vecmath.*;
+import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
-import javax.vecmath.*;
-import org.openide.DialogDescriptor;
-
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
  * VIEWPOINTCustomizer.java
@@ -1042,7 +1042,7 @@ public class VIEWPOINTCustomizer extends BaseCustomizer
 
         hintLabel.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html>  <p align=\"center\"><b>Viewpoint</b> provides a specific location and direction where the user may view the scene. Viewpoints are <br />\n the primary way for a user to navigate within a scene, and for an author to show critical aspects of a model. \n<ul>\n  <li> Hint: a list of good Viewpoints with understandable descriptions can provide a guided tour of the model. </li>\n  <li> Hint: currently bound NavigationInfo node determines how users navigate after reaching this Viewpoint. </li>\n</ul></p>");
+        hintLabel.setText("<html>  <p align=\"center\"><b>Viewpoint</b> provides a specific location and direction where the user may view the scene. Viewpoints are <br />\n the primary way for a user to navigate within a scene, and for an author to show critical aspects of a model. \n<ul>\n  <li> Hint: a list of good <b>Viewpoint</b> nodes with clear descriptions can provide a guided tour of the model. </li>\n  <li> Hint: currently bound <b>NavigationInfo</b> node determines how users navigate after reaching this <b>Viewpoint</b>. </li>\n</ul></p>");
         hintLabel.setToolTipText("Viewpoint provides a specific location and direction where the user may view the scene.");
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
