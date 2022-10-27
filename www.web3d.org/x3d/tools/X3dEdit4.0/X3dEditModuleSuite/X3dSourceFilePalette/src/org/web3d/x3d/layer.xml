@@ -119,9 +119,14 @@ POSSIBILITY OF SUCH DAMAGE.
     <folder name="Toolbars">
         <file name="Build_hidden"/>
         <file name="Debug_hidden"/>
+        <file name="Debugging.xml_hidden"/>
         <folder name="File">
             <file name="org-netbeans-modules-project-ui-NewProject.shadow_hidden"/>
             <file name="org-netbeans-modules-project-ui-OpenProject.shadow_hidden"/>
+        </folder>
+        <folder name="Memory">
+            <file name="org-netbeans-modules-masterfs-ui-suspend-PauseAction.shadow_hidden"/>
+            <file name="org-netbeans-modules-profiler-actions-SelfSamplerAction.shadow_hidden"/>
         </folder>
         <folder name="New Documents">
             <attr name="position" intvalue="184"/>
@@ -138,6 +143,7 @@ POSSIBILITY OF SUCH DAMAGE.
             -->
             <!-- TODO consider adding H-Anim LOA default scenes and other templates -->
         </folder>
+        <file name="Standard.xml_hidden"/>
     </folder>
     <folder name="Editors">
         <folder name="model">
