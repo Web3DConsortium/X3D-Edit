@@ -602,8 +602,6 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="SeparatorAfterProjectsSearch.instance_hidden"/>
             <file name="org-netbeans-modules-editor-MainMenuAction$StartMacroRecordingAction.instance_hidden"/>
             <file name="org-netbeans-modules-editor-MainMenuAction$StopMacroRecordingAction.instance_hidden"/>
-            <file name="org-netbeans-modules-search-FindInFilesAction.shadow_hidden"/>
-            <file name="org-netbeans-modules-search-ReplaceInFilesAction.shadow_hidden"/>
         </folder>
         <folder name="Tools">
             <attr name="position" intvalue="400"/>
@@ -613,6 +611,7 @@ POSSIBILITY OF SUCH DAMAGE.
         <folder name="View">
             <attr name="position" intvalue="425"/>
             <file name="org-netbeans-core-multiview-EditorsAction.instance_hidden"/>
+            <file name="org-netbeans-core-windows-actions-ToolbarsListAction.shadow_hidden"/>
         </folder>
         <folder name="Window">
             <attr name="position" intvalue="450"/>
