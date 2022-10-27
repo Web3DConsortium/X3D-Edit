@@ -198,7 +198,7 @@ public class Hierarchy extends BvhSkeletonParameters
         outputX3DHead.append("<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D ").append(getVersion()).append("//EN\" \"https://www.web3d.org/specifications/x3d-").append(getVersion()).append(".dtd\">").append("\n");
         outputX3DHead.append("<X3D profile='Immersive' version='").append(getVersion()).append("' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-").append(getVersion()).append(".xsd'>").append("\n");
         outputX3DHead.append("  <head>").append("\n");
-        outputX3DHead.append("    <component level='1' name='H-Anim'/>").append("\n"); // TODO level 2 when mocap specification available
+        outputX3DHead.append("    <component level='1' name='HAnim'/>").append("\n"); // TODO level 2 when mocap specification available
         outputX3DHead.append("    <meta content='").append(getModelName()).append(".x3d' name='title'/>").append("\n");
         outputX3DHead.append("    <meta content='BVH file conversion: *enter description here, short-sentence summaries preferred*' name='description'/>").append("\n");
         outputX3DHead.append("    <meta content='*enter name of original author here*' name='creator'/>").append("\n");
@@ -223,6 +223,8 @@ public class Hierarchy extends BvhSkeletonParameters
         outputX3DHead.append("    <meta content='*insert any known warnings, bugs or errors here*' name='warning'/>").append("\n");
         outputX3DHead.append("    <!-- Additional authoring resources for meta-tags: http://www.dublincore.org/documents/dcmi-terms http://www.dublincore.org/documents/dces http://www.w3.org/TR/html4/struct/global.html#h-7.4.4 http://vancouver-webpages.com/META http://vancouver-webpages.com/META/about-mk-metas2.html Additional authoring resources for language codes: http://www.rfc-editor.org/rfc/bcp/bcp47.txt http://www.loc.gov/standards/iso639-2/langhome.html http://www.iana.org/numbers.html#L -->").append("\n");
         }
+        outputX3DHead.append("    <meta content='"             ).append(filename).append(".bvh' name='reference'/>").append("\n");
+        outputX3DHead.append("    <meta content='https://TODO/").append(filename).append(".bvh' name='reference'/>").append("\n");
         outputX3DHead.append("    <meta content='https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#MOCAP' name='reference'/>").append("\n");
         outputX3DHead.append("    <meta content='Java BVH to X3D Converter, org.web3d.x3d.hanim.bvh package' name='generator'/>").append("\n");
         outputX3DHead.append("    <meta content='X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit' name='generator'/>").append("\n");
