@@ -573,7 +573,8 @@ public abstract class BaseCustomizer extends JPanel
     defUSEpanel.getUseCB().setEnabled(!isDef);
     enableWidgets(isDef);
 
-    defUSEpanel.setContainerFieldChoices(new String[]{((X3DNode)getBaseX3DElement()).getDefaultContainerField()});
+    if (getBaseX3DElement() instanceof X3DNode) // avoid class-cast error for non-X3DNode statements
+        defUSEpanel.setContainerFieldChoices(new String[]{((X3DNode)getBaseX3DElement()).getDefaultContainerField()});
     initializeContainerField ();
 
     String name   = NbBundle.getMessage(getClass(),getNameKey()); // getNameKey comes from the implementing customizer subclass
