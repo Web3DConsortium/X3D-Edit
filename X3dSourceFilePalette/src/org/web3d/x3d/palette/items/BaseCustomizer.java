@@ -54,7 +54,6 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import static org.web3d.x3d.actions.BaseViewAction.X3D_SCHEMA_DOCTYPE_VALIDATION;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.options.X3dOptions;
@@ -237,7 +236,7 @@ public abstract class BaseCustomizer extends JPanel
         }
         else // cancelled
         {
-                dropOK = true;
+                dropOK = false;
             wantDialog = false;
         }
     }; // end actionListener
@@ -331,14 +330,13 @@ public abstract class BaseCustomizer extends JPanel
     final JButton helpButton = findButton(buttonsDialogDisplayer, "Help");
     final ActionListener helpActionListener = (ActionEvent event) ->
     {
-        if      (currentX3dElement.getElementName().equals(XML_ELNAME))
-             LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
-        else if (currentX3dElement.getElementName().equals(COMMENT_ELNAME))
-             LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
-        else if (currentX3dElement.getElementName().equals(DOCTYPE_ELNAME))
-             LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
-        // launch appropriate X3D Tooltip
-        else LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#" + currentX3dElement.getElementName());
+        switch (currentX3dElement.getElementName()) {
+            case XML_ELNAME -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
+            case COMMENT_ELNAME -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
+            case DOCTYPE_ELNAME -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
+            // launch appropriate X3D Tooltip
+            default -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#" + currentX3dElement.getElementName());
+        }
     };
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
     if (helpButton != null)
@@ -347,8 +345,8 @@ public abstract class BaseCustomizer extends JPanel
         helpButton.addActionListener(helpActionListener);
     }
 
-    if (buttonsDialogDisplayer instanceof JDialog) {
-      ((JDialog) buttonsDialogDisplayer).setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+    if (buttonsDialogDisplayer instanceof JDialog jDialog) {
+      jDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
       // The previous line rules:  the dialog will not be closed by the menubar button.  (We don't
       // want it to close since we want to check a prompt to save if needed.)  Luckily, the
       // windowClosing event still gets thrown, although the window can't be closed.  We can use
@@ -358,7 +356,6 @@ public abstract class BaseCustomizer extends JPanel
         @Override
         public void windowClosing(WindowEvent e)
         {
-          final BaseX3DElement currentElement = getBaseX3DElement(); // expose currentElement within inner class
           JLabel contentLabel = new JLabel("Accept or discard element changes?");
           contentLabel.setBorder(new EmptyBorder(15, 20, 0, 20));
 
@@ -386,8 +383,8 @@ public abstract class BaseCustomizer extends JPanel
 
           // Dialog dialog is an AWT component, which allows it to be searched for buttons which can then be modified
           exitDialog = DialogDisplayer.getDefault().createDialog(exitDescriptor);
-          if (exitDialog instanceof JDialog)
-            ((JDialog) exitDialog).setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+          if (exitDialog instanceof JDialog jDialog)
+            jDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
           JButton windowCloseYesButton = findButton(exitDialog, "yes");
           windowCloseYesButton.setText("Accept");
@@ -455,13 +452,13 @@ public abstract class BaseCustomizer extends JPanel
 
   private JButton findButton(Component thisComponent, String searchText)
   {
-    if (thisComponent instanceof JButton) {
+    if (thisComponent instanceof JButton jButton) {
       String buttonText = ((AbstractButton)thisComponent).getText();
       if (buttonText != null && buttonText.equalsIgnoreCase(searchText))
-        return (JButton) thisComponent;
+        return jButton;
     }
-    if (thisComponent instanceof Container) {
-      Component[] containerComponentArray = ((Container) thisComponent).getComponents();
+    if (thisComponent instanceof Container container) {
+      Component[] containerComponentArray = container.getComponents();
       for (Component nextComponent : containerComponentArray) {
         JButton foundbutton = findButton(nextComponent, searchText);
         if (foundbutton != null)
@@ -573,8 +570,9 @@ public abstract class BaseCustomizer extends JPanel
     defUSEpanel.getUseCB().setEnabled(!isDef);
     enableWidgets(isDef);
 
-    if (getBaseX3DElement() instanceof X3DNode) // avoid class-cast error for non-X3DNode statements
-        defUSEpanel.setContainerFieldChoices(new String[]{((X3DNode)getBaseX3DElement()).getDefaultContainerField()});
+    if (getBaseX3DElement() instanceof X3DNode x3DNode) 
+        defUSEpanel.setContainerFieldChoices(new String[]{x3DNode.getDefaultContainerField()});
+      // avoid class-cast error for non-X3DNode statements
     initializeContainerField ();
 
     String name   = NbBundle.getMessage(getClass(),getNameKey()); // getNameKey comes from the implementing customizer subclass
@@ -615,10 +613,8 @@ public abstract class BaseCustomizer extends JPanel
 //            System.err.println ("*** DEFUSEpanel initialization by setParentPanel() received null parentCustomizerPanel or BaseX3DElement");
 //        }
     
-    X3DPaletteUtilitiesJdom x3dPaletteUtilities = new X3DPaletteUtilitiesJdom();
-    
     if ( defUSEpanel.hasHtmlCssFields() && 
-        !x3dPaletteUtilities.isCurrentDocumentX3dVersion4() &&
+        !X3DPaletteUtilitiesJdom.isCurrentDocumentX3dVersion4() &&
         !baseX3DElement.getElementName().equalsIgnoreCase(FONTSTYLE_ELNAME))
     {
         // post warning dialog if not X3D version 4

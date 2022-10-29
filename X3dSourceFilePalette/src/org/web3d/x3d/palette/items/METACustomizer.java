@@ -892,12 +892,12 @@ public class METACustomizer extends BaseCustomizer
              urlString = "https://www.google.com/search?q=" + urlString.replace(" ", "+");
         try 
         {            
-            dummyUrlList.launchInBrowser(getUrlString(urlString));
+            UrlExpandableList2.launchInBrowser(getUrlString(urlString));
         }
         catch (Exception e)
         {
-            System.out.println ("MetaCustomizer: failed attempt to use UrlExpandableList launchInBrowser " + urlString);
-            System.out.println (e);
+            System.err.println ("MetaCustomizer: failed attempt to use UrlExpandableList launchInBrowser " + urlString);
+            System.err.println (e);
         }
     }//GEN-LAST:event_openContentButtonActionPerformed
 
@@ -933,14 +933,12 @@ public class METACustomizer extends BaseCustomizer
         }
         else if (!nameHelp.isEmpty())
         {
-             for (int index = 0; index < META_ATTR_NAME_CHOICES.length; index++)
-             {
-                if (nameComboBox.getSelectedItem().equals(META_ATTR_NAME_CHOICES[index])) 
-                {
+            for (String META_ATTR_NAME_CHOICES1 : META_ATTR_NAME_CHOICES) {
+                if (nameComboBox.getSelectedItem().equals(META_ATTR_NAME_CHOICES1)) {
                     nameHelp = "#terms-" + nameHelp; // default term
                     return META_ATTR_NAME_REFERENCE + nameHelp;
                 }
-             }
+            }
              // even if no name or no known name found, return some help
              return META_ATTR_NAME_REFERENCE;
         }
@@ -989,8 +987,8 @@ public class METACustomizer extends BaseCustomizer
         }
         catch (Exception e)
         {
-            System.out.println ("MetaCustomizer: failed attempt to use UrlExpandableList openInX3dEdit " + urlString);
-            System.out.println (e);
+            System.err.println ("MetaCustomizer: failed attempt to use UrlExpandableList openInX3dEdit " + urlString);
+            System.err.println (e);
         }
     }//GEN-LAST:event_loadContentButtonActionPerformed
 
@@ -1013,8 +1011,8 @@ public class METACustomizer extends BaseCustomizer
         }
         catch (Exception e)
         {
-            System.out.println ("MetaCustomizer: failed attempt to use UrlExpandableList chooser " + urlString);
-            System.out.println (e);
+            System.err.println ("MetaCustomizer: failed attempt to use UrlExpandableList chooser " + urlString);
+            System.err.println (e);
         }
         enableUrlButtons ();
     }//GEN-LAST:event_chooserButtonActionPerformed
@@ -1146,9 +1144,9 @@ public class METACustomizer extends BaseCustomizer
         {
             if (url.contains("https://") || url.contains("sftp://"))  // check https certificate
             {
-                urlExpandableList.launchInBrowser("http://www.digicert.com/help?host=" + host);
+                UrlExpandableList2.launchInBrowser("http://www.digicert.com/help?host=" + host);
             }
-            urlExpandableList.launchInBrowser("http://centralops.net/co/DomainDossier.aspx?addr=" + host +
+            UrlExpandableList2.launchInBrowser("http://centralops.net/co/DomainDossier.aspx?addr=" + host +
                     "&dom_whois=true&dom_dns=true&traceroute=true&net_whois=true&svc_scan=true");
         }
     }//GEN-LAST:event_domainButtonActionPerformed
@@ -1157,7 +1155,7 @@ public class METACustomizer extends BaseCustomizer
         // similarly implemented in UrlExpandableList2 and METACustomizer, keep these code blocks consistent
         String host = urlExpandableList.getHost(contentTA.getText().trim());
         if (host.length() > 4)
-        urlExpandableList.launchInBrowser("http://centralops.net/co/Ping.aspx?addr=" + host);
+        UrlExpandableList2.launchInBrowser("http://centralops.net/co/Ping.aspx?addr=" + host);
     }//GEN-LAST:event_pingButtonActionPerformed
 
   private void externalEditorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_externalEditorButtonActionPerformed
@@ -1184,7 +1182,6 @@ public class METACustomizer extends BaseCustomizer
 
     private void generatorSelectComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generatorSelectComboBoxActionPerformed
         int    selection      = generatorSelectComboBox.getSelectedIndex();
-        String selectionProse = generatorSelectComboBox.getSelectedItem().toString();
         
         if      (selection == 0) // no selection
         {
@@ -1265,15 +1262,15 @@ public class METACustomizer extends BaseCustomizer
                 prependHttpsButton.setEnabled(true);
             }
         }
-        if ((content.length() > 4)   && // don't offer to launch fragments until long enough to determine whether http:// (or a.txt etc.) is entered 
-            (content.contains("mailto:") || 
-             content.contains("://") ||
-             content.contains("../") ||
-             content.contains("./")  ||
-             content.endsWith("/")   ||
-             recognizedFileExtension || recognizedDomainExtension   || isContentCompressed ()))
-             return true;
-        else return false;
+      return (content.length() > 4)   && // don't offer to launch fragments until long enough to determine whether http:// (or a.txt etc.) is entered 
+              (content.contains("mailto:") ||
+              content.contains("://") ||
+              content.contains("../") ||
+              content.contains("./")  ||
+              content.endsWith("/")   ||
+              recognizedFileExtension || 
+              recognizedDomainExtension   || 
+              isContentCompressed ());
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton chooserButton;
