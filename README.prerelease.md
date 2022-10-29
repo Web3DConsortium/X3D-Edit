@@ -2,7 +2,7 @@
 
 <!-- posted at https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/ -->
 
-This is a directory to share pre-release test files, when available.
+This is a directory to share pre-release test files, when available prior to [X3D-Edit release](https://sourceforge.net/projects/x3d/files).
 
 Test reports and feedback welcome.  Please send email to
 [Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20Beta%20Testing%20feedback).
