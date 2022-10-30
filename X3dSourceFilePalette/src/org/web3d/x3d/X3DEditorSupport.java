@@ -265,7 +265,7 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
         public X3dEditor(X3DEditorSupport s) {
             super(s);
             this.supp = s;
-            initialize();
+            initialize(); // top-level debug point
         }
 
         public X3DEditorSupport getX3dEditorSupport() {
