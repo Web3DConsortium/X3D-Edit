@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -47,6 +47,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
     private final X3dTidyConversionAction x3dTidyConversionAction;
     /**
      * Creates new form X3dTidyConversionPanel
+     * @param x3dTidyConversionAction action class
      */
     public X3dTidyConversionPanel(X3dTidyConversionAction x3dTidyConversionAction) {
         
@@ -59,32 +60,34 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
     
     protected final void loadValuesInPanel ()
     {
-        conversionRequiredCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getConversionRequired()));
+        conversionRequiredCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getConversionRequired()));
 //        title;
-        modifyX3dVersionCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getModifyX3dVersion()));
+// TODO checkbox logic OK?
+        modifyX3dVersionCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getModifyX3dVersion()));
         revisedX3dVersionComboBox.setSelectedItem((x3dTidyConversionAction.getRevisedX3dVersion()));
-        fixDateFormatsCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getFixDateFormats()));
-        fixMFStringQuotesCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getFixMFStringQuotes()));
-        fixGeoSystemMetadataCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getFixGeoSystemMetadata()));
-        fixMetaNamesMatchDublinCoreCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getFixMetaNamesMatchDublinCore()));
-        replaceBlackEmissiveColorCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getReplaceBlackEmissiveColor()));
+        fixDateFormatsCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getFixDateFormats()));
+        fixMFStringQuotesCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getFixMFStringQuotes()));
+        fixGeoSystemMetadataCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getFixGeoSystemMetadata()));
+        // TODO fixHAnimHumanoidMetadataDefault
+        fixMetaNamesMatchDublinCoreCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getFixMetaNamesMatchDublinCore()));
+        replaceBlackEmissiveColorCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getReplaceBlackEmissiveColor()));
   
-        fixUrlAdditionHttpAddressesCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getFixUrlAdditionHttpAddresses()));
+        fixUrlAdditionHttpAddressesCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getFixUrlAdditionHttpAddresses()));
   
-        appendWrlAfterX3dAddressesCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getAppendWrlAfterX3dAddresses()));
-        prependX3dBeforeWrlAddressesCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getPrependX3dBeforeWrlAddresses()));
+        appendWrlAfterX3dAddressesCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getAppendWrlAfterX3dAddresses()));
+        prependX3dBeforeWrlAddressesCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getPrependX3dBeforeWrlAddresses()));
         defaultUrlAddressTextField.setText(x3dTidyConversionAction.getDefaultUrlAddress());
   
-        changeJavascriptEcmascriptCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getChangeJavascriptEcmascript()));
-        insertMissingEcmascriptCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getInsertMissingEcmascript()));
-        insertMissingMetaLicenseCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getInsertMissingEcmascript()));
+        changeJavascriptEcmascriptCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getChangeJavascriptEcmascript()));
+        insertMissingEcmascriptCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getInsertMissingEcmascript()));
+        insertMissingMetaLicenseCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getInsertMissingEcmascript()));
         licenseLinkTextField.setText(x3dTidyConversionAction.getLicenseLink());
           
-        HAnimGeometryRemoveCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getHAnimGeometryRemove()));
-        HAnimSkeletonIllustrateCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getHAnimSkeletonIllustrate()));
-        HAnimSiteIllustrateCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getHAnimSiteIllustrate()));
-        HAnimViewpointIllustrateCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getHAnimViewpointIllustrate()));
-        HAnimAddBoneSegmentsCheckBox.setSelected(Boolean.valueOf(x3dTidyConversionAction.getHAnimAddBoneSegments()));
+        HAnimGeometryRemoveCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getHAnimGeometryRemove()));
+        HAnimSkeletonIllustrateCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getHAnimSkeletonIllustrate()));
+        HAnimSiteIllustrateCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getHAnimSiteIllustrate()));
+        HAnimViewpointIllustrateCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getHAnimViewpointIllustrate()));
+        HAnimAddBoneSegmentsCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getHAnimAddBoneSegments()));
 
         jointColorTextField.setText(x3dTidyConversionAction.getJointColor().trim());
         segmentColorTextField.setText(x3dTidyConversionAction.getSegmentColor().trim());
@@ -96,9 +99,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         String colorField = jointColorTextField.getText(); // 3-tuple floats [0..1]
         int index1 = colorField.indexOf(" ");
         int index2 = colorField.substring(index1+1).indexOf(" ") + index1+1;
-        Color c = new Color (Float.valueOf(colorField.substring(0,index1)),
-                             Float.valueOf(colorField.substring(index1+1,index2)),
-                             Float.valueOf(colorField.substring(index2+1)));
+        Color c = new Color (Float.parseFloat(colorField.substring(0,index1)),
+                             Float.parseFloat(colorField.substring(index1+1,index2)),
+                             Float.parseFloat(colorField.substring(index2+1)));
         jointColorChooser.setColor(c);
         // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         jointColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
@@ -106,9 +109,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         colorField = segmentColorTextField.getText(); // 3-tuple floats [0..1]
         index1 = colorField.indexOf(" ");
         index2 = colorField.substring(index1+1).indexOf(" ") + index1+1;
-        c = new Color (Float.valueOf(colorField.substring(0,index1)),
-                       Float.valueOf(colorField.substring(index1+1,index2)),
-                       Float.valueOf(colorField.substring(index2+1)));
+        c = new Color (Float.parseFloat(colorField.substring(0,index1)),
+                       Float.parseFloat(colorField.substring(index1+1,index2)),
+                       Float.parseFloat(colorField.substring(index2+1)));
         segmentColorChooser.setColor(c);
         // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         segmentColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
@@ -116,9 +119,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         colorField = siteColorTextField.getText(); // 3-tuple floats [0..1]
         index1 = colorField.indexOf(" ");
         index2 = colorField.substring(index1+1).indexOf(" ") + index1+1;
-        c = new Color (Float.valueOf(colorField.substring(0,index1)),
-                       Float.valueOf(colorField.substring(index1+1,index2)),
-                       Float.valueOf(colorField.substring(index2+1)));
+        c = new Color (Float.parseFloat(colorField.substring(0,index1)),
+                       Float.parseFloat(colorField.substring(index1+1,index2)),
+                       Float.parseFloat(colorField.substring(index2+1)));
         siteColorChooser.setColor(c);
         // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         siteColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
@@ -126,9 +129,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         colorField = viewpointColorTextField.getText(); // 3-tuple floats [0..1]
         index1 = colorField.indexOf(" ");
         index2 = colorField.substring(index1+1).indexOf(" ") + index1+1;
-        c = new Color (Float.valueOf(colorField.substring(0,index1)),
-                       Float.valueOf(colorField.substring(index1+1,index2)),
-                       Float.valueOf(colorField.substring(index2+1)));
+        c = new Color (Float.parseFloat(colorField.substring(0,index1)),
+                       Float.parseFloat(colorField.substring(index1+1,index2)),
+                       Float.parseFloat(colorField.substring(index2+1)));
         viewpointColorChooser.setColor(c);
         // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         viewpointColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
@@ -227,6 +230,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         conversionPanel.add(modifyX3dVersionCheckBox, gridBagConstraints);
 
         revisedX3dVersionComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.0", "3.1", "3.2", "3.3", "4.0" }));
+        revisedX3dVersionComboBox.setSelectedIndex(4);
         revisedX3dVersionComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 revisedX3dVersionComboBoxActionPerformed(evt);
@@ -890,9 +894,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         x3dTidyConversionAction.setJointColor(colorField);
         int index1 = colorField.indexOf(" ");
         int index2 = colorField.substring(index1+1).indexOf(" ") + index1+1;
-        Color c = new Color (Float.valueOf(colorField.substring(0,index1)),
-                             Float.valueOf(colorField.substring(index1+1,index2)),
-                             Float.valueOf(colorField.substring(index2+1)));
+        Color c = new Color (Float.parseFloat(colorField.substring(0,index1)),
+                             Float.parseFloat(colorField.substring(index1+1,index2)),
+                             Float.parseFloat(colorField.substring(index2+1)));
         jointColorChooser.setColor(c);
         // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         jointColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));

@@ -74,10 +74,11 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
     private final String conversionRequiredDefault            = "true";
     private final String titleDefault                         = "";     // default title value for file name is empty
     private final String modifyX3dVersionDefault              = "true";
-    private final String revisedX3dVersionDefault             = "3.3";
+    private final String revisedX3dVersionDefault             = "4.0";
     private final String fixDateFormatsDefault                = "true";
     private final String fixMFStringQuotesDefault             = "true";
     private final String fixGeoSystemMetadataDefault          = "true";
+    private final String fixHAnimHumanoidMetadataDefault      = "true";
     private final String fixMetaNamesMatchDublinCoreDefault   = "true";
     private final String replaceBlackEmissiveColorDefault     = "true";
 
@@ -254,6 +255,8 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
         }
       
         ConversionsHelper.setSaveChooserDialogTitle("Cleanup X3D Model using X3dTidy via XSLT conversion");
+        ConversionsHelper.setOpenInBrowserSetting(false);
+        ConversionsHelper.setOpenInEditorSetting(true);
         ConversionsHelper.saveFilePack filePack;
         //  if(BaseConversionsAction.xsltFilesRoot == null)
           filePack = xsltOneFile(x3dEditor,"X3dTransforms/"+xsltFile,"Tidy.x3d",true,false,x3dTidyParametersHashMap);

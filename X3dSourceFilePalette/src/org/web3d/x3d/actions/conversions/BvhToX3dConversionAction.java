@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -72,8 +72,8 @@ import org.web3d.x3d.hanim.bvh.Motion;
                     displayName = "#CTL_BvhToX3dAction",
                            lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Import Model from File", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Import Model from File", position = 50)
+  @ActionReference(path = "Menu/X3D-Edit/Import X3D Model from File", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Import X3D Model from File", position = 50)
 })
 
 // TODO refactor to place BVH parser in a separate class in org.web3d.x3d.hanim.bvh package
@@ -233,12 +233,12 @@ public final class BvhToX3dConversionAction extends CallableSystemAction
                     if (value.contains("{"))
                     {
                         value = value.substring(0,value.indexOf("{")).trim();
-                        hierarchy.setHierarchyRootName(value);
+                        hierarchy.setHierarchyRootName("ROOT_" + value);
                         currentName     = value;
                     }
                     else
                     {
-                        hierarchy.setHierarchyRootName(value);
+                        hierarchy.setHierarchyRootName("ROOT_" + value);
                         currentName     = value;
                         // now check for follow-on { character
                         if (lines[i+1] == null)
@@ -689,6 +689,8 @@ public final class BvhToX3dConversionAction extends CallableSystemAction
  
   /**
    * Test if string is numeric
+   * @param value string of interest
+   * @return whether string is a numeric value or not
    * @see http://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
    */
   public static boolean isNumeric(String value)  

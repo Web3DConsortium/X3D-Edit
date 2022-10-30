@@ -59,8 +59,8 @@ import org.openide.windows.OutputWriter;
 @ActionRegistration(displayName = "#CTL_ImportVrml97Action", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Import Model from File", position = 150),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Import Model from File", position = 150)
+  @ActionReference(path = "Menu/X3D-Edit/Import X3D Model from File", position = 150),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Import X3D Model from File", position = 150)
 })
 
 public final class ImportVrml97Action extends CallableSystemAction
