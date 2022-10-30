@@ -195,7 +195,7 @@ public class Joint extends BvhSkeletonParameters {
             // <HAnimSite DEF='hanim_l_knee_crease' bvhName='l_knee_crease' translation='0.0993 0.4881 -0.0309'/>
             
             // End Site, OFFSET
-            setSiteName(getHAnimSegmentName() + "_tip");
+            setSiteName(getSegmentName() + "_tip");
 			setSiteDEF(modelName + "_" + getSiteName());
 			if (isSiteIncluded())
 			{
