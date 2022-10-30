@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -121,13 +121,13 @@ public class Hierarchy extends BvhSkeletonParameters
      * X3D version
 	 * @see <a href="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Validation">X3D Scene Authoring Hints: Validation of X3D Scenes using DTD and XML Schema</a>
      */
-    private String  version       = "3.3";
+    private String  version       = "4.0";
 	
-	private double minX, minY, minZ = Double.MAX_VALUE;
-	private double maxX, maxY, maxZ = Double.MIN_VALUE;
-	
-	/** Ensure feet are on the ground */
-	private double heightOffset = 0.0;
+    private double minX, minY, minZ = Double.MAX_VALUE;
+    private double maxX, maxY, maxZ = Double.MIN_VALUE;
+
+    /** Ensure feet are on the ground */
+    private double heightOffset = 0.0;
     
     /**
      * Estimated scale factor based on model height
@@ -154,7 +154,9 @@ public class Hierarchy extends BvhSkeletonParameters
         StringBuilder outputBVH = new StringBuilder();
         
         outputBVH.append("HIERARCHY").append("\n");
-        outputBVH.append("ROOT").append(" ").append(getHierarchyRootName()).append("\n");
+            if (!getHierarchyRootName().startsWith("ROOT"))
+                 outputBVH.append("ROOT");
+        outputBVH.append(" ").append(getHierarchyRootName()).append("\n");
         outputBVH.append("{").append("\n");
         outputBVH.append(indentSpacing(1));
         outputBVH.append("OFFSET ").append(getOffsetString()).append("\n");
@@ -181,10 +183,12 @@ public class Hierarchy extends BvhSkeletonParameters
     }
 
     /**
+     * create X3D model using XML encoding
+     * @param filename becomes model name
      * @return the serialized object in XML-based .x3d encoding
      */
     public String getHierarchyOutputX3D(String filename)
-	{
+    {
         StringBuilder outputX3DHead = new StringBuilder();
         StringBuilder outputX3DInfo = new StringBuilder();
         StringBuilder outputX3DBody = new StringBuilder();
@@ -198,13 +202,14 @@ public class Hierarchy extends BvhSkeletonParameters
         outputX3DHead.append("<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D ").append(getVersion()).append("//EN\" \"https://www.web3d.org/specifications/x3d-").append(getVersion()).append(".dtd\">").append("\n");
         outputX3DHead.append("<X3D profile='Immersive' version='").append(getVersion()).append("' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-").append(getVersion()).append(".xsd'>").append("\n");
         outputX3DHead.append("  <head>").append("\n");
-        outputX3DHead.append("    <component level='1' name='HAnim'/>").append("\n"); // TODO level 2 when mocap specification available
+        outputX3DHead.append("    <component level='3' name='HAnim'/>").append("\n"); // level 3 for HAnimMotion node, HAnim is proper value for X3D4 profile
         outputX3DHead.append("    <meta content='").append(getModelName()).append(".x3d' name='title'/>").append("\n");
         outputX3DHead.append("    <meta content='BVH file conversion: *enter description here, short-sentence summaries preferred*' name='description'/>").append("\n");
         outputX3DHead.append("    <meta content='*enter name of original author here*' name='creator'/>").append("\n");
         outputX3DHead.append("    <meta content='*enter date of initial version here*' name='created'/>").append("\n");
         Date date = new Date(System.currentTimeMillis());
         SimpleDateFormat dateFormat = new SimpleDateFormat("d MMMM yyyy");
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
         outputX3DHead.append("    <meta content='").append(dateFormat.format(date)).append("' name='translated'/>").append("\n");
         outputX3DHead.append("    <meta content='").append(dateFormat.format(date)).append("' name='modified'/>").append("\n");
         if (verbose)
@@ -223,8 +228,12 @@ public class Hierarchy extends BvhSkeletonParameters
         outputX3DHead.append("    <meta content='*insert any known warnings, bugs or errors here*' name='warning'/>").append("\n");
         outputX3DHead.append("    <!-- Additional authoring resources for meta-tags: http://www.dublincore.org/documents/dcmi-terms http://www.dublincore.org/documents/dces http://www.w3.org/TR/html4/struct/global.html#h-7.4.4 http://vancouver-webpages.com/META http://vancouver-webpages.com/META/about-mk-metas2.html Additional authoring resources for language codes: http://www.rfc-editor.org/rfc/bcp/bcp47.txt http://www.loc.gov/standards/iso639-2/langhome.html http://www.iana.org/numbers.html#L -->").append("\n");
         }
-        outputX3DHead.append("    <meta content='"             ).append(filename).append(".bvh' name='reference'/>").append("\n");
-        outputX3DHead.append("    <meta content='https://TODO/").append(filename).append(".bvh' name='reference'/>").append("\n");
+        outputX3DHead.append("    <meta content='"             ).append(filename.replace(".x3d","")).append(".bvh' name='reference'/>").append("\n");
+        outputX3DHead.append("    <meta content='https://TODO/");
+        if (filename.contains(".x3d"))
+             outputX3DHead.append(filename.replace(".x3d",""));
+        else outputX3DHead.append(filename);
+        outputX3DHead.append(".bvh' name='reference'/>").append("\n");
         outputX3DHead.append("    <meta content='https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#MOCAP' name='reference'/>").append("\n");
         outputX3DHead.append("    <meta content='Java BVH to X3D Converter, org.web3d.x3d.hanim.bvh package' name='generator'/>").append("\n");
         outputX3DHead.append("    <meta content='X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit' name='generator'/>").append("\n");
@@ -232,9 +241,10 @@ public class Hierarchy extends BvhSkeletonParameters
         outputX3DHead.append("    <meta content='../license.html' name='license'/>").append("\n");
         outputX3DHead.append("  </head>").append("\n");
         outputX3DHead.append("  <Scene>").append("\n");
-//		outputX3DHead.append(indentSpacing(2))append("<Background skyColor='1 1 1'/>").append("\n"); // TODO color default
-		outputX3DHead.append(indentSpacing(2));
-		outputX3DHead.append("<NavigationInfo type='\"EXAMINE\" \"ANY\"'/>\n"); // default value but needed by some players
+//	outputX3DHead.append(indentSpacing(2))append("<Background skyColor='1 1 1'/>").append("\n"); // TODO color default
+        outputX3DHead.append(indentSpacing(2)).append("<WorldInfo title='").append(getModelName()).append(".x3d'/>").append("\n");
+        outputX3DHead.append(indentSpacing(2));
+        outputX3DHead.append("<NavigationInfo type='\"EXAMINE\" \"ANY\"'/>\n"); // default value but needed by some players
         
         outputX3DInfo.append(indentSpacing(2));
         outputX3DInfo.append("<Group DEF='").append(getModelName()).append("_").append("BvhToX3dConversionImportInformation'>\n");
@@ -245,209 +255,223 @@ public class Hierarchy extends BvhSkeletonParameters
         outputX3DInfo.append(" minX=").append(getMinX()).append(", maxX=").append(getMaxX()).append(", width=" ).append(getWidth() ).append(";");
         outputX3DInfo.append(" minY=").append(getMinY()).append(", maxY=").append(getMaxY()).append(", height=").append(getHeight()).append(";");
         outputX3DInfo.append(" minZ=").append(getMinZ()).append(", maxZ=").append(getMaxZ()).append(", depth=" ).append(getDepth() ).append(" -->\n");
-		
-		if      (getHeight() > 250.0) // mm
-			 setScaleFactor(0.001);   // mm to m
-		else if (getHeight() > 100.0) // cm
-			 setScaleFactor(0.01);    // cm to m
-		else if (getHeight() > 24.0)  // Inches
-			 setScaleFactor(ONE_INCH_TO_METERS);  // Inches to Meters
-		else if (getHeight() > 2.5)   // perhaps a tall person? expected average height 1.8m, BVH file might only include upper or lower body
-			 setScaleFactor(0.1);
-		else if (getHeight() < 0.002)
-			 setScaleFactor(1000.0);
-		else if (getHeight() < 0.02)
-			 setScaleFactor(100.0);
-		else if (getHeight() < 0.2)
-			 setScaleFactor(10.0);
+	
+        // adjust likely height
+        if      (getHeight() > 250.0) // mm
+                 setScaleFactor(0.001);   // mm to m
+        else if (getHeight() > 100.0) // cm
+                 setScaleFactor(0.01);    // cm to m
+        else if (getHeight() > 24.0)  // Inches
+                 setScaleFactor(ONE_INCH_TO_METERS);  // Inches to Meters
+        else if (getHeight() > 2.5)   // perhaps a tall person? expected average height 1.8m, BVH file might only include upper or lower body
+                 setScaleFactor(0.1);
+        else if (getHeight() < 0.002)
+                 setScaleFactor(1000.0);
+        else if (getHeight() < 0.02)
+                 setScaleFactor(100.0);
+        else if (getHeight() < 0.2)
+                 setScaleFactor(10.0);
         if (getScaleFactor() != 1.0)
-		{
-			outputX3DInfo.append(indentSpacing(3));
-			outputX3DInfo.append("<!-- Estimated rescaling to meters based on height: scaleFactor=").append(getScaleFactor())
-					 .append(" for modified height of ").append(threeDigitFormat.format(getHeight() * getScaleFactor())).append("m -->\n");
-		}
-		if (Math.abs(getMinY() * getScaleFactor()) > 0.1)
-		{
-			setHeightOffset(-getMinY() * getScaleFactor());
-			outputX3DInfo.append(indentSpacing(3));
-			outputX3DInfo.append("<!-- Vertical offset to move bottom of BVH figure to ground plane (adjusted in HAnimJoint containerField='skeleton'): heightOffset=").append(getHeightOffset()).append("m -->\n");
-		}	
-		// set initial translation to match initial position, if MOTIONS data provided
-		String initialPositionOffset, initialPositionScaled;
-		String viewpointOffsetZ = "8";
-		
-		initialPositionOffset = threeDigitFormat.format(                 (maxX - minX)/2.0) + " " + 
-								threeDigitFormat.format(                ((maxY - minY)/2.0) + getHeightOffset()) + " " + 
-								threeDigitFormat.format(                 (maxZ - minZ)/2.0);
-		
-		initialPositionScaled = threeDigitFormat.format(getScaleFactor()* (maxX - minX)/2.0) + " " + 
-								threeDigitFormat.format(getScaleFactor()*((maxY - minY)/2.0) + getHeightOffset()) + " " + 
-								threeDigitFormat.format(getScaleFactor()* (maxZ - minZ)/2.0);
-		
-		String initialMotionViewPosition = "";
-		String   finalMotionViewPosition = "";
-		if ((getMotions().size() > 0) && (getMotions().get(0).getFrame(0).length > 0))
-		{
-			double[] frameValues = getMotions().get(0).getFrame(0);
-			if (frameValues.length >= 3)
-			    initialMotionViewPosition = threeDigitFormat.format(frameValues[0]*getScaleFactor()) + " " + 
-										    threeDigitFormat.format(frameValues[1]*getScaleFactor()) + " " + 
-										    threeDigitFormat.format(frameValues[2]*getScaleFactor()  + Double.parseDouble(viewpointOffsetZ));
-			frameValues = getMotions().get(0).getFrame(getMotions().get(0).getFrameCount()-1);
-			if (frameValues.length >= 3)
-			    finalMotionViewPosition   = threeDigitFormat.format(frameValues[0]*getScaleFactor()) + " " + 
-										    threeDigitFormat.format(frameValues[1]*getScaleFactor()) + " " + 
-										    threeDigitFormat.format(frameValues[2]*getScaleFactor()  + Double.parseDouble(viewpointOffsetZ));
-		}
-		int viewpointIndent = 2;
-		if (initialPositionScaled.length() > 0) // wrap scaling Transform if needed
-		{
-			outputX3DBody.append(indentSpacing(viewpointIndent));
-			outputX3DBody.append("<!-- initialPositionOffset computation: ").append(initialPositionOffset).append(", initialPositionScaled computation: ").append(initialPositionScaled).append(" -->\n");
-			outputX3DBody.append(indentSpacing(viewpointIndent));
-			outputX3DBody.append("<Transform DEF='InitialPositionScaled' translation='").append(initialPositionScaled).append("'>\n");
-			viewpointIndent++;
-		}
-		// these Viewpoint nodes are outside HAnimHumanoid and thus do not need USE entries
+        {
+            outputX3DInfo.append(indentSpacing(3));
+            outputX3DInfo.append("<!-- Estimated rescaling to meters based on height: scaleFactor=").append(getScaleFactor())
+                         .append(" for modified height of ").append(threeDigitFormat.format(getHeight() * getScaleFactor())).append("m -->\n");
+        }
+        if (Math.abs(getMinY() * getScaleFactor()) > 0.1)
+        {
+            setHeightOffset(-getMinY() * getScaleFactor());
+            outputX3DInfo.append(indentSpacing(3));
+            outputX3DInfo.append("<!-- Vertical offset to move bottom of BVH figure to ground plane (adjusted in HAnimJoint containerField='skeleton'): heightOffset=").append(getHeightOffset()).append("m -->\n");
+        }	
+        // set initial translation to match initial position, if MOTIONS data provided
+        String initialPositionOffset, initialPositionScaled;
+        String viewpointOffsetZ = "8";
+
+        initialPositionOffset = threeDigitFormat.format(                 (maxX - minX)/2.0) + " " + 
+                                threeDigitFormat.format(                ((maxY - minY)/2.0) + getHeightOffset()) + " " + 
+                                threeDigitFormat.format(                 (maxZ - minZ)/2.0);
+
+        initialPositionScaled = threeDigitFormat.format(getScaleFactor()* (maxX - minX)/2.0) + " " + 
+                                threeDigitFormat.format(getScaleFactor()*((maxY - minY)/2.0) + getHeightOffset()) + " " + 
+                                threeDigitFormat.format(getScaleFactor()* (maxZ - minZ)/2.0);
+
+        String initialMotionViewPosition = "";
+        String   finalMotionViewPosition = "";
+        if ((!getMotions().isEmpty()) && (getMotions().get(0).getFrame(0).length > 0))
+        {
+            double[] frameValues = getMotions().get(0).getFrame(0);
+            if (frameValues.length >= 3)
+                initialMotionViewPosition = threeDigitFormat.format(frameValues[0]*getScaleFactor()) + " " + 
+                                                                        threeDigitFormat.format(frameValues[1]*getScaleFactor()) + " " + 
+                                                                        threeDigitFormat.format(frameValues[2]*getScaleFactor()  + Double.parseDouble(viewpointOffsetZ));
+            frameValues = getMotions().get(0).getFrame(getMotions().get(0).getFrameCount()-1);
+            if (frameValues.length >= 3)
+                finalMotionViewPosition   = threeDigitFormat.format(frameValues[0]*getScaleFactor()) + " " + 
+                                                                        threeDigitFormat.format(frameValues[1]*getScaleFactor()) + " " + 
+                                                                        threeDigitFormat.format(frameValues[2]*getScaleFactor()  + Double.parseDouble(viewpointOffsetZ));
+        }
+        int viewpointIndent = 2;
+        if (initialPositionScaled.length() > 0) // wrap scaling Transform if needed
+        {
+            outputX3DBody.append(indentSpacing(viewpointIndent));
+            outputX3DBody.append("<!-- initialPositionOffset computation: ").append(initialPositionOffset).append(", initialPositionScaled computation: ").append(initialPositionScaled).append(" -->\n");
+            outputX3DBody.append(indentSpacing(viewpointIndent));
+            outputX3DBody.append("<Transform DEF='InitialPositionScaled' translation='").append(initialPositionScaled).append("'>\n");
+            viewpointIndent++;
+        }
+        // these Viewpoint nodes are outside HAnimHumanoid and thus do not need USE entries
         outputX3DBody.append(indentSpacing(viewpointIndent));
         outputX3DBody.append("<Viewpoint description='").append(getModelName()).append(" model BVH to X3D conversion, from ").append(viewpointOffsetZ).append("m' position='0 0 8'/>\n");
-		outputX3DBody.append(indentSpacing(viewpointIndent));
+        outputX3DBody.append(indentSpacing(viewpointIndent));
         outputX3DBody.append("<Viewpoint description='").append(getModelName()).append(" initial motion position' position='").append(initialMotionViewPosition).append("'/>\n");
-		outputX3DBody.append(indentSpacing(viewpointIndent));
+        outputX3DBody.append(indentSpacing(viewpointIndent));
         outputX3DBody.append("<Viewpoint description='").append(getModelName()).append(  " final motion position' position='").append(  finalMotionViewPosition).append("'/>\n");
-		if (initialPositionScaled.length() > 0) // finish wrap scaling Transform if needed
-		{
-	        outputX3DBody.append(indentSpacing(viewpointIndent-1));
-		    outputX3DBody.append("</Transform>\n");
-		}
+        if (initialPositionScaled.length() > 0) // finish wrap scaling Transform if needed
+        {
+        outputX3DBody.append(indentSpacing(viewpointIndent-1));
+            outputX3DBody.append("</Transform>\n");
+        }
 
-		// HIERARCHY
-	
-		// top-level naming
-		setBvhName (getHierarchyRootName());
-		setDEF     (getModelName() + "_" + getHierarchyRootName());
+        // HIERARCHY
+
+        // top-level naming
+        setBvhName (getHierarchyRootName());
+        setDEF     (getModelName() + "_" + getHierarchyRootName());
 //		setSkeletonJointName(              "HIERARCHY_" + getHierarchyRootName());   // pseudo joint to match HIERARCHY
 //		setJointDEF(getModelName() + "_" + getSkeletonJointName());                  // pseudo joint to match HIERARCHY
 //		String skeletonSegmentName       = "HIERARCHY_SEGMENT_" + getHierarchyRootName();
 //		String skeletonSegmentDEF        = getModelName() + "_" + 
 //										   "HIERARCHY_SEGMENT_" + getHierarchyRootName();
 //		setSegmentName(skeletonSegmentName);
-		assignHAnimNamesFromBvhModelName(getBvhName()); // potential to override if near-match is recognized
-		setJointDEF(modelName + "_" + getHAnimJointName());
-		String skeletonJointDEF = getJointDEF();
-		setSkeletonJointName(getHAnimJointName()); // do not incrementHierarchyJointList since not part of BVH
-		if (!getHAnimSegmentName().isEmpty())
-			setSegmentName(getHAnimSegmentName());
-		setSegmentDEF(modelName + "_" + getSegmentName());
+        assignHAnimNamesFromBvhModelName(getBvhName()); // potential to override if near-match is recognized
+        setJointDEF(modelName + "_" + getHAnimJointName());
+        String skeletonJointDEF = getJointDEF();
+        setSkeletonJointName(getHAnimJointName()); // do not incrementHierarchyJointList since not part of BVH
+        if (!getHAnimSegmentName().isEmpty())
+            setSegmentName(getHAnimSegmentName());
+        setSegmentDEF(modelName + "_" + getSegmentName());
 
-		// Begin HAnimHumanoid.  Note that precise naming conventions occur throughout.
-		outputX3DBody.append(indentSpacing(2));
+        // Begin HAnimHumanoid.  Note that precise naming conventions occur throughout.
+        outputX3DBody.append(indentSpacing(2));
         outputX3DBody.append("<HAnimHumanoid DEF='").append(getDEF()).append("'"); 
 		// h-anim metadata
-        outputX3DBody.append(" info='\"authorEmail=*TODO*\" \"authorName=*TODO*\" \"copyright=Copyright 2017\" \"humanoidVersion=*TODO*\" \"usageRestrictions=*TODO*\"'");
         outputX3DBody.append(" name='").append(getBvhName()).append("' version='2.0'");
-		outputX3DBody.append(">\n"); // finish opening HAnimHumanoid element
-		
-		// humanoidroot Site Viewpoint attached to top-level HAnimHumanoid
-		String initialSiteViewpointName = getHAnimJointName() + "_view";
-		String initialSiteViewpointDEF  = modelName + "_" + initialSiteViewpointName;
-		incrementHierarchySiteList         (initialSiteViewpointDEF); // add to list
-		incrementHierarchySiteViewpointList(initialSiteViewpointDEF); // add to list
-		outputX3DBody.append(indentSpacing(3)).append("<!-- Top-level HAnimSite/Viewpoint attached to HAnimHumanoid is unaffected by motion animation -->\n");
-		outputX3DBody.append(indentSpacing(3)).append("<HAnimSite DEF='").append(initialSiteViewpointDEF).append("' containerField='viewpoints' name='").append(initialSiteViewpointName).append("'>\n");
-		outputX3DBody.append(indentSpacing(4)).append("<Viewpoint DEF='").append(initialSiteViewpointDEF).append("point' description='").append(getModelName()).append(" front view towards HAnimHumanoid center' position='0 0 ").append(8.0 / getScaleFactor()).append("'/>\n");
-		outputX3DBody.append(indentSpacing(3)).append("</HAnimSite>\n");
+        outputX3DBody.append(">\n"); // finish opening HAnimHumanoid element
+        outputX3DBody.append(indentSpacing(3));
+        outputX3DBody.append("<!--")
+                     .append(" info='\"authorEmail=*TODO*\" \"authorName=*TODO*\" \"copyright=Copyright (c) 2022\" \"humanoidVersion=*TODO*\" \"usageRestrictions=*TODO*\"'")
+                     .append(" -->\n");
+        outputX3DBody.append(indentSpacing(3)).append("<MetadataSet containerField='metadata' name='HAnimHumanoid.info' reference='https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/ObjectInterfaces.html#Humanoid'>\n");  // open   MetadataSet with HAnimHumanoid info
+        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='authorEmail' value='*TODO*'/>\n");
+        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='authorName' value='*TODO*'/>\n");
+        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='copyright' value='Copyright (c) ").append(yearFormat.format(date)).append("'/>\n");
+        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='humanoidVersion' value='*TODO*'/>\n");
+        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='usageDescription' value='*TODO*'/>\n");
+        outputX3DBody.append(indentSpacing(3)).append("</MetadataSet>\n"); // finish MetadataSet with HAnimHumanoid info
+
+        // humanoid_root Site Viewpoint attached to top-level HAnimHumanoid
+        String initialSiteViewpointName = getHAnimJointName() + "_view";
+        String initialSiteViewpointDEF  = modelName + "_" + initialSiteViewpointName;
+        incrementHierarchySiteList         (initialSiteViewpointDEF); // add to list
+        incrementHierarchySiteViewpointList(initialSiteViewpointDEF); // add to list
+        outputX3DBody.append(indentSpacing(3)).append("<!-- Top-level HAnimSite/Viewpoint attached to HAnimHumanoid is unaffected by motion animation -->\n");
+        outputX3DBody.append(indentSpacing(3)).append("<HAnimSite DEF='").append(initialSiteViewpointDEF).append("' containerField='viewpoints' name='").append(initialSiteViewpointName).append("'>\n");
+        outputX3DBody.append(indentSpacing(4)).append("<Viewpoint DEF='").append(initialSiteViewpointDEF).append("point' description='").append(getModelName()).append(" front view towards HAnimHumanoid center' position='0 0 ").append(8.0 / getScaleFactor()).append("'/>\n");
+        outputX3DBody.append(indentSpacing(3)).append("</HAnimSite>\n");
 		
         // ROOT, OFFSET
 		
         outputX3DBody.append(indentSpacing(3));
-        outputX3DBody.append("<!-- insert pseudo Joint for humanoidroot skeleton (matching root HIERARCHY in original BVH mocap model, but appearing as skeleton field in X3D HAnimHumanoid) -->\n");		
+        outputX3DBody.append("<!-- insert pseudo Joint for humanoid_root skeleton (matching root HIERARCHY in original BVH mocap model, but appearing as skeleton field in X3D HAnimHumanoid) -->\n");		
         outputX3DBody.append(indentSpacing(3));
         outputX3DBody.append("<HAnimJoint DEF='").append(skeletonJointDEF).append("'");
-		if (!getOffsetString().equals("0.0 0.0 0.0") && !getOffsetString().equals("0 0 0"))
-			outputX3DBody.append(" center='").append(getOffsetString()).append("'");
-		outputX3DBody.append(" containerField='skeleton'").append(" name='").append(getSkeletonJointName()).append("'");
+        if (!getOffsetString().equals("0.0 0.0 0.0") && !getOffsetString().equals("0 0 0"))
+            outputX3DBody.append(" center='").append(getOffsetString()).append("'");
+        outputX3DBody.append(" containerField='skeleton'").append(" name='").append(getSkeletonJointName()).append("'");
         // place inside the HAnimHumanoid
-		if (getScaleFactor() != 1.0)
-		{
-			outputX3DBody.append(" scale='").append(getScaleFactor()).append(" ").append(getScaleFactor()).append(" ").append(getScaleFactor()).append("'"); 
-		}
-		if (initialPositionScaled.length() > 0)
-		{
-			outputX3DBody.append(" translation='").append(initialPositionScaled).append("'"); // note HAnimJoint uses center for initial position
-		}
-		outputX3DBody.append(">\n");
+        if (getScaleFactor() != 1.0)
+        {
+            outputX3DBody.append(" scale='").append(getScaleFactor()).append(" ").append(getScaleFactor()).append(" ").append(getScaleFactor()).append("'"); 
+        }
+        if (initialPositionScaled.length() > 0)
+        {
+            outputX3DBody.append(" translation='").append(initialPositionScaled).append("'"); // note HAnimJoint uses center for initial position
+        }
+        outputX3DBody.append(">\n");
 			
         // CHANNELS
-		if (isBvhChannelX3dCommentInsertion())
-		{
-			outputX3DBody.append(indentSpacing(4));
-        	outputX3DBody.append("<!-- BVH ROOT ").append(getHierarchyRootName()).append(", OFFSET ").append(getHierarchyRootJoint().getOffsetString()).append(", CHANNELS ").append(getChannelSize()).append(" ").append(getChannelNamesString()).append(" -->\n");
-		}
-		rootSegmentName = getSegmentDEF(); // do not incrementHierarchySegmentList since not part of BVH
-		outputX3DBody.append(indentSpacing(4)).append("<HAnimSegment DEF='").append(getSegmentDEF()).append("' name='").append(getHAnimSegmentName()).append("'>\n"); // TODO check bvhName
-		if (isX3dBallAndStickVisualizationIncluded())
-		{
-			outputX3DBody.append(indentSpacing(5));
-			outputX3DBody.append("<!-- humanoidroot child HAnimSegment with visualization root shape plus hidden DEF geometry for later use (radius 1 inch) -->\n");
-			outputX3DBody.append(indentSpacing(5)).append("<Switch whichChoice='0'>\n");
-			outputX3DBody.append(indentSpacing(6)).append("<Group>\n");
-			outputX3DBody.append(indentSpacing(7)).append("<TouchSensor description='HAnimHumanoid ROOT ").append(getBvhName()).append(", HAnimSegment ").append(getSegmentName()).append("'/>\n");
-			outputX3DBody.append(indentSpacing(7)).append("<Shape DEF='HAnimRootShape'>\n");
-			outputX3DBody.append(indentSpacing(8)).append("<Sphere DEF='HAnimJointSphere' radius='").append(ONE_INCH_TO_METERS / getScaleFactor()).append("'/>\n"); // 1 inch
-			outputX3DBody.append(indentSpacing(8)).append("<Appearance>\n");
-			outputX3DBody.append(indentSpacing(9)).append("<Material DEF='HAnimRootMaterial' diffuseColor='0.8 0 0' transparency='0.3'/>\n");
-			outputX3DBody.append(indentSpacing(8)).append("</Appearance>\n");
-			outputX3DBody.append(indentSpacing(7)).append("</Shape>\n");
-			outputX3DBody.append(indentSpacing(6)).append("</Group>\n");
-			outputX3DBody.append(indentSpacing(6)).append("<Shape DEF='HAnimJointShape'>\n");
-			outputX3DBody.append(indentSpacing(7)).append("<Sphere USE='HAnimJointSphere'/>\n");
-			outputX3DBody.append(indentSpacing(7)).append("<Appearance>\n");
-			outputX3DBody.append(indentSpacing(8)).append("<Material DEF='HAnimJointMaterial' diffuseColor='0 0 0.8' transparency='0.3'/>\n");
-			outputX3DBody.append(indentSpacing(7)).append("</Appearance>\n");
-			outputX3DBody.append(indentSpacing(6)).append("</Shape>\n");
-			outputX3DBody.append(indentSpacing(6)).append("<Shape>\n");
-			outputX3DBody.append(indentSpacing(7)).append("<LineSet vertexCount='2'>\n"); // containerField='geometry'
-			outputX3DBody.append(indentSpacing(8)).append("<Coordinate point='0 0 0 0 0 0'/>\n");
-			outputX3DBody.append(indentSpacing(8)).append("<ColorRGBA DEF='HAnimSegmentLineColorRGBA' color='1 1 0 1 1 1 0 0.1'/>\n");
-			outputX3DBody.append(indentSpacing(7)).append("</LineSet>\n");
-			outputX3DBody.append(indentSpacing(6)).append("</Shape>\n");
-			outputX3DBody.append(indentSpacing(6)).append("<Shape DEF='HAnimSiteShape'>\n");
-			outputX3DBody.append(indentSpacing(7)).append("<IndexedFaceSet DEF='DiamondIFS' coordIndex='0 1 2 -1 0 2 3 -1 0 3 4 -1 0 4 1 -1 5 2 1 -1 5 3 2 -1 5 4 3 -1 5 1 4 -1' creaseAngle='0.5' solid='false'>\n");
-			outputX3DBody.append(indentSpacing(8)).append("<Coordinate point='0 ").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" 0 -").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" 0 0 0 0 ").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" ").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" 0 0 0 0 -").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" 0 -").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" 0'/>\n");
-			outputX3DBody.append(indentSpacing(7)).append("</IndexedFaceSet>\n");
-			outputX3DBody.append(indentSpacing(7)).append("<Appearance>\n");
-			outputX3DBody.append(indentSpacing(8)).append("<Material diffuseColor='1 0.5 0' transparency='0.3'/>\n");
-			outputX3DBody.append(indentSpacing(7)).append("</Appearance>\n");
-			outputX3DBody.append(indentSpacing(6)).append("</Shape>\n");
-			outputX3DBody.append(indentSpacing(6)).append("<Shape>\n");
-			outputX3DBody.append(indentSpacing(7)).append("<LineSet vertexCount='2'>\n"); // containerField='geometry'
-			outputX3DBody.append(indentSpacing(8)).append("<Coordinate point='0 0 0 0 0 0'/>\n");
-			outputX3DBody.append(indentSpacing(8)).append("<ColorRGBA DEF='HAnimSiteLineColorRGBA' color='1 0.5 0 1 1 0.5 0 0.1'/>\n");
-			outputX3DBody.append(indentSpacing(7)).append("</LineSet>\n");
-			outputX3DBody.append(indentSpacing(6)).append("</Shape>\n");
-			outputX3DBody.append(indentSpacing(5)).append("</Switch>\n");
-				
-			// loop to draw line geometry from current Joint to its child Joints, if any
-			Iterator<Joint> jointsIterator = getJoints().iterator();
-			while   (jointsIterator.hasNext())
-			{
-				Joint nextChildJoint = jointsIterator.next();
-				outputX3DBody.append(indentSpacing(5)).append("<!-- HAnimSegment OFFSET visualization line from current <HAnimJoint name='").append(getHAnimJointName()).append("'/> to child <HAnimJoint name='").append(nextChildJoint.getHAnimJointName()).append("'/> -->\n");
-				outputX3DBody.append(indentSpacing(5)).append("<Shape>\n");
-				outputX3DBody.append(indentSpacing(6)).append("<LineSet vertexCount='2'>\n"); // containerField='geometry'
-				outputX3DBody.append(indentSpacing(7)).append("<Coordinate point='0 0 0 ").append(nextChildJoint.getOffsetString()).append("'/>\n"); // TODO confirm both points
-				outputX3DBody.append(indentSpacing(7)).append("<ColorRGBA USE='HAnimSegmentLineColorRGBA'/>\n");
-				outputX3DBody.append(indentSpacing(6)).append("</LineSet>\n");
-				outputX3DBody.append(indentSpacing(5)).append("</Shape>\n");
-			}
-		}
-		else
-		{
-			outputX3DBody.append(indentSpacing(5));
-			outputX3DBody.append("<!-- humanoidroot child HAnimSegment with no visualization root shape -->\n");
-		}
-		outputX3DBody.append(indentSpacing(4)).append("</HAnimSegment>\n");
+        if (isBvhChannelX3dCommentInsertion())
+        {
+            outputX3DBody.append(indentSpacing(4));
+            outputX3DBody.append("<!-- BVH ");
+            if (!getHierarchyRootName().startsWith("ROOT"))
+                 outputX3DBody.append("ROOT_");
+            outputX3DBody.append(getHierarchyRootName()).append(", OFFSET ").append(getHierarchyRootJoint().getOffsetString()).append(", CHANNELS ").append(getChannelSize()).append(" ").append(getChannelNamesString()).append(" -->\n");
+        }
+        rootSegmentName = getSegmentDEF(); // do not incrementHierarchySegmentList since not part of BVH
+        outputX3DBody.append(indentSpacing(4)).append("<HAnimSegment DEF='").append(getSegmentDEF()).append("' name='").append(getHAnimSegmentName()).append("'>\n"); // TODO check bvhName
+        if (isX3dBallAndStickVisualizationIncluded())
+        {
+            outputX3DBody.append(indentSpacing(5));
+            outputX3DBody.append("<!-- humanoid_root child HAnimSegment with visualization root shape plus hidden DEF geometry for later use (radius 1 inch) -->\n");
+            outputX3DBody.append(indentSpacing(5)).append("<Switch whichChoice='0'>\n");
+            outputX3DBody.append(indentSpacing(6)).append("<Group>\n");
+            outputX3DBody.append(indentSpacing(7)).append("<TouchSensor description='HAnimHumanoid ROOT ").append(getBvhName()).append(", HAnimSegment ").append(getSegmentName()).append("'/>\n");
+            outputX3DBody.append(indentSpacing(7)).append("<Shape DEF='HAnimRootShape'>\n");
+            outputX3DBody.append(indentSpacing(8)).append("<Sphere DEF='HAnimJointSphere' radius='").append(ONE_INCH_TO_METERS / getScaleFactor()).append("'/>\n"); // 1 inch
+            outputX3DBody.append(indentSpacing(8)).append("<Appearance>\n");
+            outputX3DBody.append(indentSpacing(9)).append("<Material DEF='HAnimRootMaterial' diffuseColor='0.8 0 0' transparency='0.3'/>\n");
+            outputX3DBody.append(indentSpacing(8)).append("</Appearance>\n");
+            outputX3DBody.append(indentSpacing(7)).append("</Shape>\n");
+            outputX3DBody.append(indentSpacing(6)).append("</Group>\n");
+            outputX3DBody.append(indentSpacing(6)).append("<Shape DEF='HAnimJointShape'>\n");
+            outputX3DBody.append(indentSpacing(7)).append("<Sphere USE='HAnimJointSphere'/>\n");
+            outputX3DBody.append(indentSpacing(7)).append("<Appearance>\n");
+            outputX3DBody.append(indentSpacing(8)).append("<Material DEF='HAnimJointMaterial' diffuseColor='0 0 0.8' transparency='0.3'/>\n");
+            outputX3DBody.append(indentSpacing(7)).append("</Appearance>\n");
+            outputX3DBody.append(indentSpacing(6)).append("</Shape>\n");
+            outputX3DBody.append(indentSpacing(6)).append("<Shape>\n");
+            outputX3DBody.append(indentSpacing(7)).append("<LineSet vertexCount='2'>\n"); // containerField='geometry'
+            outputX3DBody.append(indentSpacing(8)).append("<Coordinate point='0 0 0 0 0 0'/>\n");
+            outputX3DBody.append(indentSpacing(8)).append("<ColorRGBA DEF='HAnimSegmentLineColorRGBA' color='1 1 0 1 1 1 0 0.1'/>\n");
+            outputX3DBody.append(indentSpacing(7)).append("</LineSet>\n");
+            outputX3DBody.append(indentSpacing(6)).append("</Shape>\n");
+            outputX3DBody.append(indentSpacing(6)).append("<Shape DEF='HAnimSiteShape'>\n");
+            outputX3DBody.append(indentSpacing(7)).append("<IndexedFaceSet DEF='DiamondIFS' coordIndex='0 1 2 -1 0 2 3 -1 0 3 4 -1 0 4 1 -1 5 2 1 -1 5 3 2 -1 5 4 3 -1 5 1 4 -1' creaseAngle='0.5' solid='false'>\n");
+            outputX3DBody.append(indentSpacing(8)).append("<Coordinate point='0 ").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" 0 -").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" 0 0 0 0 ").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" ").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" 0 0 0 0 -").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" 0 -").append(ONE_INCH_TO_METERS / getScaleFactor()).append(" 0'/>\n");
+            outputX3DBody.append(indentSpacing(7)).append("</IndexedFaceSet>\n");
+            outputX3DBody.append(indentSpacing(7)).append("<Appearance>\n");
+            outputX3DBody.append(indentSpacing(8)).append("<Material diffuseColor='1 0.5 0' transparency='0.3'/>\n");
+            outputX3DBody.append(indentSpacing(7)).append("</Appearance>\n");
+            outputX3DBody.append(indentSpacing(6)).append("</Shape>\n");
+            outputX3DBody.append(indentSpacing(6)).append("<Shape>\n");
+            outputX3DBody.append(indentSpacing(7)).append("<LineSet vertexCount='2'>\n"); // containerField='geometry'
+            outputX3DBody.append(indentSpacing(8)).append("<Coordinate point='0 0 0 0 0 0'/>\n");
+            outputX3DBody.append(indentSpacing(8)).append("<ColorRGBA DEF='HAnimSiteLineColorRGBA' color='1 0.5 0 1 1 0.5 0 0.1'/>\n");
+            outputX3DBody.append(indentSpacing(7)).append("</LineSet>\n");
+            outputX3DBody.append(indentSpacing(6)).append("</Shape>\n");
+            outputX3DBody.append(indentSpacing(5)).append("</Switch>\n");
+
+            // loop to draw line geometry from current Joint to its child Joints, if any
+            Iterator<Joint> jointsIterator = getJoints().iterator();
+            while   (jointsIterator.hasNext())
+            {
+                    Joint nextChildJoint = jointsIterator.next();
+                    outputX3DBody.append(indentSpacing(5)).append("<!-- HAnimSegment OFFSET visualization line from current <HAnimJoint name='").append(getHAnimJointName()).append("'/> to child <HAnimJoint name='").append(nextChildJoint.getHAnimJointName()).append("'/> -->\n");
+                    outputX3DBody.append(indentSpacing(5)).append("<Shape>\n");
+                    outputX3DBody.append(indentSpacing(6)).append("<LineSet vertexCount='2'>\n"); // containerField='geometry'
+                    outputX3DBody.append(indentSpacing(7)).append("<Coordinate point='0 0 0 ").append(nextChildJoint.getOffsetString()).append("'/>\n"); // TODO confirm both points
+                    outputX3DBody.append(indentSpacing(7)).append("<ColorRGBA USE='HAnimSegmentLineColorRGBA'/>\n");
+                    outputX3DBody.append(indentSpacing(6)).append("</LineSet>\n");
+                    outputX3DBody.append(indentSpacing(5)).append("</Shape>\n");
+            }
+        }
+        else
+        {
+            outputX3DBody.append(indentSpacing(5));
+            outputX3DBody.append("<!-- humanoid_root child HAnimSegment with no visualization root shape -->\n");
+        }
+        outputX3DBody.append(indentSpacing(4)).append("</HAnimSegment>\n");
 		
 		// recursive exposure of each top-level JOINT (containing OFFSET CHANNELS JOINT)
         Iterator<Joint> jointsIterator = joints.iterator();
@@ -456,13 +480,13 @@ public class Hierarchy extends BvhSkeletonParameters
             Joint joint = jointsIterator.next();
             outputX3DBody.append(joint.getHierarchyOutputX3D(4, getModelName(), getSkeletonJointName()));
         }
-		// pseudo joint for ROOT
+	// pseudo joint for ROOT
         outputX3DBody.append(indentSpacing(3));
         outputX3DBody.append("</HAnimJoint>").append("\n");
 
         outputX3DBody.append(indentSpacing(3)).append("<!-- top-level USE nodes follow DEF declarations and can be employed by inverse-kinematics (IK) engines or other HAnim tools -->\n");
 
-		// first entry in joints list is pseudo joint for HAnimHumanoid skeleton root
+	// first entry in joints list is pseudo joint for HAnimHumanoid skeleton root
         outputX3DBody.append(indentSpacing(3)).append("<HAnimJoint USE='").append(skeletonJointDEF).append("' containerField='joints'/>\n"); // TODO check bvhName
         // now output remainder of joints list
         Iterator<Joint> jointsDefIterator = getHierarchyJointList().iterator();
@@ -471,10 +495,10 @@ public class Hierarchy extends BvhSkeletonParameters
             String jointDEF = jointsDefIterator.next().getJointDEF();
             outputX3DBody.append(indentSpacing(3)).append("<HAnimJoint USE='").append(jointDEF).append("' containerField='joints'/>\n"); // TODO check bvhName
         }
-		// first entry in segments list is visualizationSegmentName, if any
-		if (!rootSegmentName.isEmpty())
+	// first entry in segments list is visualizationSegmentName, if any
+	if (!rootSegmentName.isEmpty())
             outputX3DBody.append(indentSpacing(3)).append("<HAnimSegment USE='").append(rootSegmentName).append("' containerField='segments'/>\n"); // TODO check bvhName
-		// output segments list
+	// output segments list
         Iterator<String> segmentDefIterator = getHierarchySegmentList().iterator();
         while   (segmentDefIterator.hasNext())
         {
@@ -507,29 +531,32 @@ public class Hierarchy extends BvhSkeletonParameters
         outputX3DInfo.append(indentSpacing(3));
         outputX3DInfo.append("<MetadataSet name='BvhToHAnimConversionNameTable'>\n");
         outputX3DInfo.append(indentSpacing(4));
-        outputX3DInfo.append("<!-- <MetadataString name='bvhName' reference='bvhType' value='\"name\" \"segmentName\"'/> -->\n");
-		// initial pseudo HAnimJoint with containerField='skeleton' is not on BVH-based getHierarchyJointList()
-		outputX3DInfo.append(indentSpacing(4));
-		outputX3DInfo.append("<MetadataString containerField='value' name='").append(getHierarchyRootName()).append("' reference='ROOT' value='\"")
-					 .append(getHAnimJointName()).append("\" \"").append(getHAnimSegmentName()).append("\"'/>\n");
-		// expose each JOINT
-		int jointIndex = 1;
+        outputX3DInfo.append("<!-- key: MetadataString name='bvhName' reference='bvhType' value='\"name\" \"segmentName\"' (no segmentName for HAnimSite nodes) -->\n");
+        // initial pseudo HAnimJoint with containerField='skeleton' is not on BVH-based getHierarchyJointList()
+        outputX3DInfo.append(indentSpacing(4));
+        outputX3DInfo.append("<MetadataString containerField='value' name='");
+        if (!getHierarchyRootName().startsWith("ROOT"))
+             outputX3DInfo.append("ROOT_");
+        outputX3DInfo.append(getHierarchyRootName()).append("' reference='ROOT' value='\"")
+                     .append(getHAnimJointName()).append("\" \"").append(getHAnimSegmentName()).append("\"'/>\n");
+        // expose each JOINT
+        int jointIndex = 1;
         jointsIterator = getHierarchyJointList().iterator();
         while   (jointsIterator.hasNext())
         {
             Joint joint = jointsIterator.next();
-			outputX3DInfo.append(indentSpacing(4));
-			// value attribute has type MFString and must be "quoted" while other attributes are SFString
+            outputX3DInfo.append(indentSpacing(4));
+            // value attribute has type MFString and must be "quoted" while other attributes are SFString
             outputX3DInfo.append("<MetadataString containerField='value' name='").append(joint.getBvhName()).append("' reference='JOINT' value='\"")
 						 .append(joint.getHAnimJointName()).append("\" \"").append(joint.getSegmentName()).append("\"'/>\n");
-			if (joint.isSiteIncluded())
-			{
-				outputX3DInfo.append(indentSpacing(4));
-				// value is MFString and must be "quoted" while other attributes are SFString
-				outputX3DInfo.append("<MetadataString containerField='value' name='").append(joint.getBvhName()).append("Site")
-							 .append("' reference='Site' value='\"").append(joint.getHAnimJointName()).append("_tip").append("\"'/>\n");	
-			}
-			jointIndex++;
+                if (joint.isSiteIncluded())
+                {
+                        outputX3DInfo.append(indentSpacing(4));
+                        // value is MFString and must be "quoted" while other attributes are SFString
+                        outputX3DInfo.append("<MetadataString containerField='value' name='").append(joint.getBvhName()).append("Site")
+                                     .append("' reference='Site' value='\"").append(joint.getHAnimJointName()).append("_tip").append("\"'/>\n");	
+                }
+                jointIndex++;
         }
         outputX3DInfo.append(indentSpacing(3));
         outputX3DInfo.append("</MetadataSet>\n");
@@ -539,10 +566,10 @@ public class Hierarchy extends BvhSkeletonParameters
         outputX3DBody.append("  </Scene>").append("\n");
         outputX3DBody.append("</X3D>").append("\n");
         
-		StringBuilder outputX3D = new StringBuilder();
-		outputX3D.append(outputX3DHead);
-		outputX3D.append(outputX3DInfo);
-		outputX3D.append(outputX3DBody);
+        StringBuilder outputX3D = new StringBuilder();
+        outputX3D.append(outputX3DHead);
+        outputX3D.append(outputX3DInfo);
+        outputX3D.append(outputX3DBody);
 		
         return outputX3D.toString();
     }
@@ -581,6 +608,7 @@ public class Hierarchy extends BvhSkeletonParameters
     }
 
     /**
+     * get list of HAnimMotion nodes
      * @return the motions
      */
     public ArrayList<Motion> getMotions() {
@@ -588,6 +616,7 @@ public class Hierarchy extends BvhSkeletonParameters
     }
 
     /**
+     * set list of HAnimMotion nodes
      * @param newMotions the motions to set
      */
     public void setMotions(ArrayList<Motion> newMotions) {
@@ -595,6 +624,7 @@ public class Hierarchy extends BvhSkeletonParameters
     }
 
     /**
+     * add an HAnimMotion node
      * @param newMotion the new Motion to append
      */
     public void addMotion(Motion newMotion) {
@@ -602,13 +632,16 @@ public class Hierarchy extends BvhSkeletonParameters
     }
 
     /**
-     * @param newMotion the new Motion to insert
+     * removean HAnimMotion node
+     * @param index index in list for position to remove
      */
     public void removeMotion(int index) {
         motions.remove(index);
     }
 
     /**
+     * insert HAnimMotion node
+     * @param index index in list for position to add
      * @param newMotion the new Motion to insert
      */
     public void insertMotion(int index, Motion newMotion) {
@@ -661,6 +694,7 @@ public class Hierarchy extends BvhSkeletonParameters
 	
 	/**
 	 * Add a joint to hierarchyJointList, following order encountered in BVH file
+         * @param newJoint Joint node to add
 	 */
 	public void incrementHierarchyJointList (Joint newJoint)
 	{
@@ -695,6 +729,7 @@ public class Hierarchy extends BvhSkeletonParameters
 	
 	/**
 	 * Add a segment to hierarchySegmentList, following order encountered in BVH file
+         * @param newSegment segment to add
 	 */
 	public void incrementHierarchySegmentList (String newSegment)
 	{
@@ -729,6 +764,7 @@ public class Hierarchy extends BvhSkeletonParameters
 	
 	/**
 	 * Add a site to hierarchySiteList, following order encountered in BVH file
+         * @param newSite site to add
 	 */
 	public void incrementHierarchySiteList (String newSite)
 	{
@@ -763,6 +799,7 @@ public class Hierarchy extends BvhSkeletonParameters
 	
 	/**
 	 * Add a site to hierarchySiteViewpointList, following order encountered in BVH file
+         * @param newSiteViewpoint Site Viewpoint to add
 	 */
 	public void incrementHierarchySiteViewpointList (String newSiteViewpoint)
 	{
