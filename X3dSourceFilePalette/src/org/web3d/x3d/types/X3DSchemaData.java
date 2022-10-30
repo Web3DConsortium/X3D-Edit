@@ -3139,7 +3139,7 @@ public interface X3DSchemaData
 
   String[]HANIMJOINT_NAME_CHOICES   =
   {
-    "HumanoidRoot",
+    "humanoid_root",
     "l_acromioclavicular",
     "l_ankle",
     "l_elbow",
