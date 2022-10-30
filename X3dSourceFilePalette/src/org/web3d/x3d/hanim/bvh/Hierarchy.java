@@ -694,7 +694,7 @@ public class Hierarchy extends BvhSkeletonParameters
 	
 	/**
 	 * Add a joint to hierarchyJointList, following order encountered in BVH file
-         * @param newJoint Joint node to add
+         * @param newJoint Joint 
 	 */
 	public void incrementHierarchyJointList (Joint newJoint)
 	{
@@ -729,7 +729,6 @@ public class Hierarchy extends BvhSkeletonParameters
 	
 	/**
 	 * Add a segment to hierarchySegmentList, following order encountered in BVH file
-         * @param newSegment segment to add
 	 */
 	public void incrementHierarchySegmentList (String newSegment)
 	{
@@ -764,7 +763,6 @@ public class Hierarchy extends BvhSkeletonParameters
 	
 	/**
 	 * Add a site to hierarchySiteList, following order encountered in BVH file
-         * @param newSite site to add
 	 */
 	public void incrementHierarchySiteList (String newSite)
 	{
@@ -799,7 +797,6 @@ public class Hierarchy extends BvhSkeletonParameters
 	
 	/**
 	 * Add a site to hierarchySiteViewpointList, following order encountered in BVH file
-         * @param newSiteViewpoint Site Viewpoint to add
 	 */
 	public void incrementHierarchySiteViewpointList (String newSiteViewpoint)
 	{
