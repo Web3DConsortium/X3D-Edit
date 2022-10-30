@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -44,10 +44,12 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.CASTLE_GAME_ENGINE_CONVERTER;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchCastleGameEngineConverterAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchCastleGameEngineConverterAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/CastleGameEngine_header_icon.png",
+                    displayName = "#CTL_LaunchCastleGameEngineConverterAction", 
+                           lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Import Model from File", position = 25),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Import Model from File", position = 25)
+  @ActionReference(path = "Menu/X3D-Edit/Import X3D Model from File", position = 25),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Import X3D Model from File", position = 25)
 })
 
 public final class LaunchCastleGameEngineConverterAction extends CallableSystemAction
