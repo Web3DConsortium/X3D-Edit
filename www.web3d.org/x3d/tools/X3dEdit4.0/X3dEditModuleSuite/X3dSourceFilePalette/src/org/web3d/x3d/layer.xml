@@ -188,7 +188,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
                         <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
                     </folder>
-                    <folder name="Export Model to File">
+                    <folder name="Export X3D Model to File">
                         <attr name="position" intvalue="90"/>
                         <!-- annotations used in Action source files to get inserted here
                         <folder name="Export .x3d as X3D ClassicVRML (.x3dv) Encoding...">
@@ -203,7 +203,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- Export X3D Binary  x3db           ExportX3dbAction                 position 300 -->
                         <!-- Export X3D Extrusion crossSection ExportSvgExtrusionDiagramAction  position 700 -->
                     </folder>
-                    <folder name="Import Model from File">
+                    <folder name="Import X3D Model from File">
                         <attr name="position" intvalue="100"/>
                         <!-- annotations used in Action source files to get inserted here -->
                         <!-- Castle Game Engine Convert to X3D LaunchCastleGameEngineCoverterAction position  25 -->
@@ -700,7 +700,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
                 <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
             </folder>
-            <folder name="Export Model to File">
+            <folder name="Export X3D Model to File">
                 <attr name="position" intvalue="90"/>
                 <!-- annotations used in Action source files to get inserted here
                 <folder name="Export .x3d as X3D ClassicVRML (.x3dv) Encoding...">
@@ -715,7 +715,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- Export X3D Binary  x3db           ExportX3dbAction                 position 300 -->
                 <!-- Export X3D Extrusion crossSection ExportSvgExtrusionDiagramAction  position 700 -->
             </folder>
-            <folder name="Import Model from File">
+            <folder name="Import X3D Model from File">
                 <attr name="position" intvalue="100"/>
                 <!-- annotations used in Action source files to get inserted here -->
             </folder>
