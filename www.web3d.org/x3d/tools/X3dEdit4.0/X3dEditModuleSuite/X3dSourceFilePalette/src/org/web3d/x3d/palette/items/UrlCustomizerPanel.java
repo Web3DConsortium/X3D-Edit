@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -523,9 +523,9 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
   /** FileFilter subclass supporting all volume file extensions: nrrd vol */
   public final VolumeRenderingAllFilter   volumeRenderingAllFilter   = new VolumeRenderingAllFilter();
 
-  public void setChooserFileFilters()
+  public void setChooserFileFilters() // TODO set chooser titles
   {
-	  initializeFileChooser(); // if necessary
+      initializeFileChooser(); // if necessary
       fileChooser.resetChoosableFileFilters();
       if (formatChoice.equalsIgnoreCase("X3D"))
       {
@@ -537,6 +537,7 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(allX3dFilter);
+        fileChooser.setToolTipText("Open X3D file");
       }
       else if (formatChoice.equalsIgnoreCase("Image"))
       {
@@ -549,6 +550,7 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(allImagesFilter);
+        fileChooser.setToolTipText("Open image file");
       }
       else if (formatChoice.equalsIgnoreCase("Movie"))
       {
@@ -564,6 +566,7 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(movieAllFilter);
+        fileChooser.setToolTipText("Open movie file");
       }
       else if (formatChoice.equalsIgnoreCase("Sound"))
       {
@@ -586,6 +589,7 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(audioAllFilter);
+        fileChooser.setToolTipText("Open sound file");
       }
       else if (formatChoice.equalsIgnoreCase("Script"))
       {
@@ -597,6 +601,7 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(scriptAllFilter);
+        fileChooser.setToolTipText("Open Script file");
       }
       else if (formatChoice.equalsIgnoreCase("Volume"))
       {
@@ -606,12 +611,14 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(volumeRenderingAllFilter);
+        fileChooser.setToolTipText("Open volume rendering data file");
       }
       else if (formatChoice.equalsIgnoreCase("PDF")) // includes PDF/A https://en.wikipedia.org/?title=PDF/A
       {
         fileChooser.addChoosableFileFilter(pdfFilter);
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(pdfFilter);
+        fileChooser.setToolTipText("Open PDF file");
       }
       else if (formatChoice.equalsIgnoreCase("HTML"))
       {
@@ -620,6 +627,7 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         fileChooser.addChoosableFileFilter(pdfFilter);
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(htmlFilter);
+        fileChooser.setToolTipText("Open HTML file");
       }
       else if (formatChoice.equalsIgnoreCase("XML"))
       {
@@ -627,6 +635,7 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         fileChooser.addChoosableFileFilter(htmlFilter);
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(xmlFilter);
+        fileChooser.setToolTipText("Open XML file");
       }
       else if (formatChoice.equalsIgnoreCase("BVH"))
       {
@@ -634,12 +643,14 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         fileChooser.addChoosableFileFilter(textFilter);
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(bvhFilter);
+        fileChooser.setToolTipText("Open BVH file");
       }
       else if (formatChoice.equalsIgnoreCase("txt"))
       {
         fileChooser.addChoosableFileFilter(textFilter);
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(textFilter);
+        fileChooser.setToolTipText("Open text file");
       }
       else // shouldn't reach this default
       {
