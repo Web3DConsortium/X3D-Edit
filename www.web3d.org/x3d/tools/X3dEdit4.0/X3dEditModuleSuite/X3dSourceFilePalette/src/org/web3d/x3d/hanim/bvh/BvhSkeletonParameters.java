@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -181,7 +181,11 @@ public abstract class BvhSkeletonParameters
     }
     /** 
      * Compute local AxisAngle4d SFRotation from Euler-angle rotations
-	 * @see Joint#getAxisAngleRotation
+     * @param phi   rotation radians about X axis
+     * @param theta rotation radians about Y axis
+     * @param psi   rotation radians about Z axis
+     * @return consolidated data structure
+     * @see Joint#getAxisAngleRotation
      */
     public AxisAngle4d getAxisAngleRotation (double phi, double theta, double psi)
     {
@@ -216,9 +220,8 @@ public abstract class BvhSkeletonParameters
 	private boolean hAnimNameFound = false;
 	
     /**
-	 * Convert
+     * update name
      * @param newBvhName the BVH model bvhName to decipher
-     * @return the corresponding HAnim node bvhName (if found), otherwise original bvhName
      */
     public void assignHAnimNamesFromBvhModelName(String newBvhName) 
 	{
@@ -236,7 +239,7 @@ public abstract class BvhSkeletonParameters
 		/** first entry is hAnim name, remaining entries are aliases */
 		String[][] LOA1JointSegmentAliasTable = {
 			// Joint, segment, alias(es)
-			{"humanoidroot","sacrum","root","Hips"},
+			{"humanoid_root","sacrum","root","Hips"},
 			{"sacroiliac","pelvis", "Waist"},
 			{"hip", 	"thigh",	"Hip"},
 			{"knee",	"calf",		"Knee"},
@@ -253,7 +256,7 @@ public abstract class BvhSkeletonParameters
 		
 		if (newBvhName.equals("ROOT"))
 		{
-			  hAnimJointNameSB.append("humanoidroot");
+			  hAnimJointNameSB.append("humanoid_root");
 			hAnimSegmentNameSB.append("sacrum");
 			hAnimNameFound = true;
 		}
@@ -488,6 +491,8 @@ public abstract class BvhSkeletonParameters
     }
 
     /**
+     * insert a Joint
+     * @param index index for this new Joint
      * @param newJoint the new Joint to insert
      */
     public void insertJoint(int index, Joint newJoint) {
@@ -509,10 +514,10 @@ public abstract class BvhSkeletonParameters
 	}
 
 	/**
-	 * @param bvhChannelX3dCommentInsertion the bvhChannelCommentInsertion to set
+	 * @param newBvhChannelX3dCommentInsertion the bvhChannelCommentInsertion to set
 	 */
-	public void setBvhChannelX3dCommentInsertion(boolean newBvhChannelX3dCommentInsertionStatus) {
-		this.bvhChannelX3dCommentInsertion = newBvhChannelX3dCommentInsertionStatus;
+	public void setBvhChannelX3dCommentInsertion(boolean newBvhChannelX3dCommentInsertion) {
+		this.bvhChannelX3dCommentInsertion = newBvhChannelX3dCommentInsertion;
 	}
 
 	/**
