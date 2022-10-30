@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -47,8 +47,8 @@ import org.openide.util.NbBundle;
 @ActionRegistration(displayName = "#CTL_ExportX3dbAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Export Model to File", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Export Model to File", position = 300)
+  @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Export X3D Model to File", position = 300)
 })
 
 public final class ExportX3dbAction extends Xj3DConverterBaseExportAction
