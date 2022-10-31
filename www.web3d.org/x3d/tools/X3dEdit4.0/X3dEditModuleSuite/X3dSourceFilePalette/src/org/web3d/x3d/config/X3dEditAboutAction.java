@@ -111,7 +111,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
               "<p align='center'>X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Revised &nbsp;<b>" + 
-                    "30 August 2021" + // dateOutput + 
+                    "31 October 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION
                     "</b> with automatic updates not yet available.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Use the X3D menu to launch the X3D-Edit Home.</p>";
