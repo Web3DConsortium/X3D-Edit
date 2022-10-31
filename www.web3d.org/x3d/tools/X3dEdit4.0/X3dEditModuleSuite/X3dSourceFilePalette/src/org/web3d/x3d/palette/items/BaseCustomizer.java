@@ -55,6 +55,7 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
+import org.web3d.x3d.actions.LaunchEmailReportAction;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.options.X3dOptions;
 import org.web3d.x3d.palette.BetterJTextField;
@@ -163,6 +164,7 @@ public abstract class BaseCustomizer extends JPanel
   JButton windowCloserButton        = new JButton();
   JButton acceptChangesDialogButton = new JButton();
   JButton discardChangesButton      = new JButton();
+  JButton emailReportButton         = new JButton("Report");
 
   /**
    * entered directly if editing in place
@@ -241,10 +243,10 @@ public abstract class BaseCustomizer extends JPanel
         }
     }; // end actionListener
 
-      appendTraceEventsCB.setVisible(this.getBaseX3DElement().isTraceEventsSelectionAvailable());
-      appendTraceEventsCB.setSelected(false);
-      appendTraceEventsCB.setToolTipText(this.getBaseX3DElement().getTraceEventsTooltip());
-      appendTraceEventsCB.setHorizontalAlignment(SwingConstants.RIGHT);
+    appendTraceEventsCB.setVisible(this.getBaseX3DElement().isTraceEventsSelectionAvailable());
+    appendTraceEventsCB.setSelected(false);
+    appendTraceEventsCB.setToolTipText(this.getBaseX3DElement().getTraceEventsTooltip());
+    appendTraceEventsCB.setHorizontalAlignment(SwingConstants.RIGHT);
 
     appendVisualizationCB.setVisible(this.getBaseX3DElement().isVisualizationSelectionAvailable());
     appendVisualizationCB.setSelected(false);
@@ -275,7 +277,8 @@ public abstract class BaseCustomizer extends JPanel
           appendTraceEventsCB,
         appendVisualizationCB,
         DialogDescriptor.OK_OPTION,
-        DialogDescriptor.CANCEL_OPTION
+        DialogDescriptor.CANCEL_OPTION,
+        emailReportButton
       };
     else {
       optionalButtonsArray = new Object[]{
@@ -283,7 +286,8 @@ public abstract class BaseCustomizer extends JPanel
           appendTraceEventsCB,
         appendVisualizationCB,
         DialogDescriptor.OK_OPTION,
-        DialogDescriptor.CANCEL_OPTION
+        DialogDescriptor.CANCEL_OPTION,
+        emailReportButton
       };
       prependNewLineCB = new JCheckBox("before", false);  // don't show prepend, append checkboxes
        appendNewLineCB = new JCheckBox("after",  false);
@@ -343,6 +347,19 @@ public abstract class BaseCustomizer extends JPanel
     {
         helpButton.setToolTipText("Show X3D Tooltip or related help page");
         helpButton.addActionListener(helpActionListener);
+    }
+    
+    final JButton reportButton = findButton(buttonsDialogDisplayer, "Report");
+    final ActionListener emailReportActionListener = (ActionEvent event) ->
+    {
+       F.sendBrowserTo(LaunchEmailReportAction.MAILTO_REPORT_URL + currentX3dElement.getElementName());
+    };
+    // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
+    if (reportButton != null)
+    {
+        reportButton.setToolTipText("Send email issue report: please describe issue, give example .x3d excerpt or attach a snapshot");
+        reportButton.addActionListener(emailReportActionListener);
+        reportButton.setVisible(true);
     }
 
     if (buttonsDialogDisplayer instanceof JDialog jDialog) {
@@ -689,7 +706,7 @@ public abstract class BaseCustomizer extends JPanel
     return getBaseX3DElement();
   }
 
-  protected void initChooser(ColorChooser colorChooser, String rString, String gString, String bString)
+  protected void initializeColorChooser(ColorChooser colorChooser, String rString, String gString, String bString)
   {
     try
     {
