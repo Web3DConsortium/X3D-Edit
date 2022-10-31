@@ -80,8 +80,8 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_X3dEditAboutAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Help", position = 25), // see layer.xml
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help", position = 25), // see layer.xml
+  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit configuration", position = 100), // see layer.xml
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit configuration", position = 100),
 })
 
 public final class X3dEditAboutAction extends CallableSystemAction
@@ -114,7 +114,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
                     "30 August 2021" + // dateOutput + 
                     "</b> with automatic updates not yet available.</p>" +
               "<p align='center'>&nbsp;</p>" +
-              "<p align='center'>Use the X3D menu to launch the X3D-Edit home page.</p>";
+              "<p align='center'>Use the X3D menu to launch the X3D-Edit Home.</p>";
 
 //        TODO: link not working
 //              "<p align='center'>&nbsp;</p>" +
@@ -197,10 +197,11 @@ public final class X3dEditAboutAction extends CallableSystemAction
         today = new Date();
         dateOutput = formatter.format(today);
         
-        String data1 = "<html><center><h2>X3D-Edit 4.0</h2>" +
-                       "<p>Naval Postgraduate School (NPS), Monterey, California USA</p>" +
-                       "<p>Released " + dateOutput + 
-                       "<br>with automatic updates not yet available</p></center></html>";
+        String data1 = "<html><h2 align='center'>X3D-Edit 4.0</h2>" +
+                       "<p align='center'>Naval Postgraduate School (NPS), Monterey, California USA</p>" +
+                       "<p align='center'>Released " + dateOutput + 
+                       "</p></html>";
+        //<br>with automatic updates not yet available
         
       setBorder(new EmptyBorder(0,10,0,10));
       setLayout(new BorderLayout());
