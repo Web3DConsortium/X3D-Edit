@@ -62,8 +62,8 @@ import org.openide.util.actions.CookieAction;
 @ActionID(id = "org.web3d.x3d.ViewX3dInBrowserAction", category = "View")
 @ActionRegistration(displayName = "#CTL_ViewX3dInBrowser", lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Display Saved Scene", position = 113),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Scene", position = 113)
+  @ActionReference(path = "Menu/X3D-Edit/Display Saved Model", position = 113),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Model", position = 113)
 }) 
 
 public final class ViewX3dInBrowserAction extends CookieAction

@@ -64,8 +64,8 @@ import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 @ActionID(id = "org.web3d.x3d.actions.ViewInAllAction", category = "View")
 @ActionRegistration(displayName = "#CTL_ViewInAllAction", lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Scene", position = 116, separatorBefore = 115), // , separatorAfter = 117
-  @ActionReference(path = "Menu/X3D-Edit/Display Saved Scene", position = 116, separatorBefore = 115) //, separatorAfter = 117
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Model", position = 116, separatorBefore = 115), // , separatorAfter = 117
+  @ActionReference(path = "Menu/X3D-Edit/Display Saved Model", position = 116, separatorBefore = 115) //, separatorAfter = 117
 })
 
 public final class ViewInAllAction extends CookieAction

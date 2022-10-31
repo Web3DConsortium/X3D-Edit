@@ -152,7 +152,7 @@ POSSIBILITY OF SUCH DAMAGE.
                     <folder name="Author Workflow">
                         <attr name="position" intvalue="20"/>
                     </folder>
-                    <folder name="Display Saved Scene">
+                    <folder name="Display Saved Model">
                         <attr name="position" intvalue="30"/>
                     </folder>
                     <folder name="Edit Element XML">
@@ -626,7 +626,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <folder name="Author Workflow">
                 <attr name="position" intvalue="20"/>
             </folder>
-            <folder name="Display Saved Scene">
+            <folder name="Display Saved Model">
                 <attr name="position" intvalue="30"/>
                 <!-- Xj3D internal pane    Xj3dViewerAction            position 20 -->
                 <!-- Xj3D launch           ViewInXj3DApplicationAction position 50 -->
