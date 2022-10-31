@@ -62,9 +62,9 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_XsltNewStylesheetAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/New Documents", position = 370),
-  @ActionReference(path = "Menu/X3D-Edit/New Documents", position = 370),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/New Documents", position = 370),
+  @ActionReference(path = "Toolbars/Template Files", position = 370),
+  @ActionReference(path = "Menu/X3D-Edit/Template Files", position = 370),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Template Files", position = 370),
 })
 
 public final class NewXsltStylesheetAction extends CallableSystemAction

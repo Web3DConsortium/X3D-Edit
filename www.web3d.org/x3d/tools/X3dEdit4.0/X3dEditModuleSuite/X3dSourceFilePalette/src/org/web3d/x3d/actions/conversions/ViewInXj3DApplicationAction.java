@@ -70,8 +70,8 @@ import xj3d.browser.*;
                lazy = true) // don't do lazy=false since iconBase no longer gets registered
 
 @ActionReferences(value={
-  @ActionReference(path = "Menu/X3D-Edit/View Saved Scene", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved Scene", position = 50),
+  @ActionReference(path = "Menu/X3D-Edit/Display Saved Scene", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Scene", position = 50),
 })
 @NbBundle.Messages("CTL_Xj3dViewerAction=Xj3D application")
 

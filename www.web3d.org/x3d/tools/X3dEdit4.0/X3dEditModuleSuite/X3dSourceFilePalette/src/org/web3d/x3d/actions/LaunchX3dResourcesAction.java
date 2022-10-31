@@ -46,8 +46,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES;
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dResourcesAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_LaunchX3dResourcesAction", lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Help with X3D", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help with X3D", position = 400),
+  @ActionReference(path = "Menu/X3D-Edit/Help with X3D", position = 700),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help with X3D", position = 700),
 })
 
 public final class LaunchX3dResourcesAction extends CallableSystemAction

@@ -46,8 +46,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_GRAPHICS_STANDARDS_RELATI
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dGraphicsStandardsRelationshipsAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_LaunchX3dGraphicsStandardsRelationshipsAction", lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Standards", position = 150),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Standards", position = 150)
+  @ActionReference(path = "Menu/X3D-Edit/Standards", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Standards", position = 100)
 })
 
 @SuppressWarnings("serial")

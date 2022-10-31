@@ -95,6 +95,14 @@ public class ConversionsHelper
     }
 
     /**
+     * whether to open result in Browser
+     * @return whether to open or not
+     */
+    public static boolean getOpenInBrowserSetting( ) {
+       return openInBrowserSetting;
+    }
+
+    /**
      * @param aOpenInBrowserSetting the openInBrowserSetting to set
      */
     public static void setOpenInBrowserSetting(boolean aOpenInBrowserSetting) {
@@ -108,6 +116,13 @@ public class ConversionsHelper
         return openInEditorSetting;
     }
 
+    /**
+     * whether to open result in editor
+     * @return whether to open or not
+     */
+    public static boolean getOpenInEditorSetting( ) {
+       return openInEditorSetting;
+    }
     /**
      * @param aOpenInEditorSetting the openInEditorSetting to set
      */
