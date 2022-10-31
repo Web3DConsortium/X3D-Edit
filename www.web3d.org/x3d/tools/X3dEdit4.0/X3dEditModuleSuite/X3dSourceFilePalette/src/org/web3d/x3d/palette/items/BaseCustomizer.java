@@ -352,7 +352,7 @@ public abstract class BaseCustomizer extends JPanel
     final JButton reportButton = findButton(buttonsDialogDisplayer, "Report");
     final ActionListener emailReportActionListener = (ActionEvent event) ->
     {
-       F.sendBrowserTo(LaunchEmailReportAction.MAILTO_REPORT_URL + currentX3dElement.getElementName());
+       LaunchEmailReportAction.sendBrowserTo(LaunchEmailReportAction.MAILTO_REPORT_URL + currentX3dElement.getElementName());
     };
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
     if (reportButton != null)
