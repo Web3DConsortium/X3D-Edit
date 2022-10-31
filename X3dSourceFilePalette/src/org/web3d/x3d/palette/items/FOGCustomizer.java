@@ -71,7 +71,7 @@ public class FOGCustomizer extends BaseCustomizer
     color0TF.setText(rStr=fog.getColor0());
     color1TF.setText(gStr=fog.getColor1());
     color2TF.setText(bStr=fog.getColor2());
-    initChooser(colorChooser,rStr,gStr,bStr);
+    initializeColorChooser(colorChooser,rStr,gStr,bStr);
     
     fogTypeCombo.setSelectedItem(fog.getFogType());
     visibilityTF.setText(fog.getVisibilityRange());

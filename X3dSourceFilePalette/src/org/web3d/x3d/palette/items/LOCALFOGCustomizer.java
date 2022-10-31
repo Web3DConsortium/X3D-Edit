@@ -73,7 +73,7 @@ public class LOCALFOGCustomizer extends BaseCustomizer
     color0TF.setText(rStr=localFog.getColor0());
     color1TF.setText(gStr=localFog.getColor1());
     color2TF.setText(bStr=localFog.getColor2());
-    initChooser(colorChooser,rStr,gStr,bStr);
+    initializeColorChooser(colorChooser,rStr,gStr,bStr);
     
     fogTypeCombo.setSelectedItem(localFog.getFogType());
     visibilityTF.setText(localFog.getVisibilityRange());
