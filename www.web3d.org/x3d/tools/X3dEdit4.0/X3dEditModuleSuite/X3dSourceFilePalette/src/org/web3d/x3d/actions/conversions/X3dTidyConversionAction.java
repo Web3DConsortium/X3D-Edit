@@ -259,19 +259,19 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
         ConversionsHelper.setOpenInEditorSetting(true);
         ConversionsHelper.saveFilePack filePack;
         //  if(BaseConversionsAction.xsltFilesRoot == null)
-          filePack = xsltOneFile(x3dEditor,"X3dTransforms/"+xsltFile,"Tidy.x3d",true,false,x3dTidyParametersHashMap);
+        filePack = xsltOneFile(x3dEditor,"X3dTransforms/"+xsltFile,"Tidy.x3d",true,false,x3dTidyParametersHashMap);
         //  else {
         //    File target = new File(BaseConversionsAction.xsltFilesRoot,xsltFile);
         //    fp = xsltOneFile(ed,target.getAbsolutePath(),".wrl",false,true,null);
         //  }
 
         if(filePack != null) {
-          // If you pass true above, uncomment below
-          if(filePack.openInEditor)
-            ConversionsHelper.openInEditor(filePack.file.getAbsolutePath());
-          if(filePack.openInBrowser)
-            ConversionsHelper.openInBrowser(filePack.file.getAbsolutePath());
-          return filePack.file.getAbsolutePath();
+            // If you pass true above, uncomment below
+            if(ConversionsHelper.getOpenInEditorSetting())
+               ConversionsHelper.openInEditor(filePack.file.getAbsolutePath());
+            if(ConversionsHelper.getOpenInBrowserSetting())
+               ConversionsHelper.openInBrowser(filePack.file.getAbsolutePath());
+            return filePack.file.getAbsolutePath();
         }
         return null;
     }
