@@ -48,10 +48,10 @@ import org.openide.util.NbBundle;
 
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 92),
-  @ActionReference(path = "Menu/X3D-Edit/View Saved Scene", position = 152),
+  @ActionReference(path = "Menu/X3D-Edit/Display Saved Scene", position = 152),
   @ActionReference(path = "Toolbars/Author Workflow", position = 92),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 92),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved Scene", position = 152)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Scene", position = 152)
 })
 
 public final class XhtmlX_iteAction extends XhtmlX3domAction {

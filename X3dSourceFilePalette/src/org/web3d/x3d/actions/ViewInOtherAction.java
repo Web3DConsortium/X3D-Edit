@@ -44,8 +44,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.ViewInOtherAction", category = "View")
 @ActionRegistration(displayName = "#CTL_ViewInOtherAction",lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved Scene", position = 200),
-  @ActionReference(path = "Menu/X3D-Edit/View Saved Scene", position = 200)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Scene", position = 200),
+  @ActionReference(path = "Menu/X3D-Edit/Display Saved Scene", position = 200)
 })
 @NbBundle.Messages("CTL_ViewInOtherAction=Other player (see X3D-Edit Preferences, X3D Players tab)")
 

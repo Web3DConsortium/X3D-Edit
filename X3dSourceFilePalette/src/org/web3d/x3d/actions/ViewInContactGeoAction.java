@@ -52,8 +52,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.ViewInContactGeoAction", category = "View")
 @ActionRegistration(displayName = "#CTL_ViewInContactGeoAction", lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved Scene", position = 119),
-  @ActionReference(path = "Menu/X3D-Edit/View Saved Scene", position = 119)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Scene", position = 119),
+  @ActionReference(path = "Menu/X3D-Edit/Display Saved Scene", position = 119)
 })
 public final class ViewInContactGeoAction extends ViewInBaseAction
 {

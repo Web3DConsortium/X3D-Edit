@@ -147,6 +147,11 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         add(chooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(loadButton, org.openide.util.NbBundle.getMessage(BvhToX3dConversionPanel.class, "BvhToX3dConversionPanel.loadButton.text")); // NOI18N
+        loadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -327,20 +332,28 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         bvhToX3dConversionAction.setIncludeVisualizationShapes(includeVisualizationShapesCheckBox.isSelected());
     }//GEN-LAST:event_includeVisualizationShapesCheckBoxActionPerformed
 
+    private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loadButtonActionPerformed
+
   protected String showEditDialog(String urlString)
   {
     if  (!urlString.isEmpty())
          urlCustomizerPanel.setData(urlString);
 //    else urlCustomizerPanel.setMasterDocumentLocation(masterFo);
+
+    String SELECTION_TITLE = "Select BVH file for conversion";
     
     urlCustomizerPanel.setFormatChoice("bvh");
 
-    DialogDescriptor dialogDescriptor = new DialogDescriptor(urlCustomizerPanel, "Select BVH file for conversion");
+    DialogDescriptor dialogDescriptor = new DialogDescriptor(urlCustomizerPanel, SELECTION_TITLE);
+    dialogDescriptor.setTitle(SELECTION_TITLE);
 
     Dialog dialog = null;
     try 
-	{
+    {
       dialog = DialogDisplayer.getDefault().createDialog(dialogDescriptor);
+      dialog.setTitle(SELECTION_TITLE);
       dialog.setResizable(true);
 //      dlg.setMinimumSize(new Dimension(700,250));
 //      //dlg.setMaximumSize(new Dimension(300,200));
@@ -361,16 +374,16 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
       {
           bvhToX3dConversionAction.setBvhLocalFile(true);
           bvhToX3dConversionAction.setBvhLocalPath(resourcePath);
-		  return urlCustomizerPanel.getData(); // successful choice (or data entry) found
+	  return urlCustomizerPanel.getData(); // successful choice (or data entry) found
       }
-	  else if (resourcePath.length() > 0)
+      else if (resourcePath.length() > 0)
       {
           bvhToX3dConversionAction.setBvhLocalFile(false);
           bvhToX3dConversionAction.setBvhUrlAddress(resourcePath);
-		  return urlCustomizerPanel.getData(); // successful choice (or data entry) found
+	  return urlCustomizerPanel.getData(); // successful choice (or data entry) found
       }
 	  // continue until user cancels or chooses
-	}
+    }
     return ""; // no choice, not found
   }
   public void setBvhSource (String bvhSource)

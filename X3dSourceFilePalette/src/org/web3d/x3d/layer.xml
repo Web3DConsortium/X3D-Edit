@@ -128,7 +128,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="org-netbeans-modules-masterfs-ui-suspend-PauseAction.shadow_hidden"/>
             <file name="org-netbeans-modules-profiler-actions-SelfSamplerAction.shadow_hidden"/>
         </folder>
-        <folder name="New Documents">
+        <folder name="Template Files">
             <attr name="position" intvalue="184"/>
             <!-- TODO hide by default? -->
             <!--<file name="edu-nps-moves-kmleditor-actions-NewKmlFileAction.instance"/>-->
@@ -152,32 +152,32 @@ POSSIBILITY OF SUCH DAMAGE.
                     <folder name="Author Workflow">
                         <attr name="position" intvalue="20"/>
                     </folder>
-                    <folder name="Edit Element XML">
-                        <attr name="position" intvalue="25"/>
-                    </folder>
-                    <folder name="Launch Saved Model in Tool">
+                    <folder name="Display Saved Scene">
                         <attr name="position" intvalue="30"/>
                     </folder>
-                    <folder name="New Documents">
+                    <folder name="Edit Element XML">
                         <attr name="position" intvalue="40"/>
                     </folder>
-                    <folder name="View Saved Scene">
+                    <folder name="Launch Saved Model in Tool">
                         <attr name="position" intvalue="50"/>
+                    </folder>
+                    <folder name="Template Files">
+                        <attr name="position" intvalue="60"/>
                     </folder>
                     <file name="x3d-popup-separator2.instance">
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                        <attr name="position" intvalue="55"/>
+                        <attr name="position" intvalue="70"/>
                     </file>
                     <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 798 -->
                     <folder name="Compression">
-                        <attr name="position" intvalue="60"/>
+                        <attr name="position" intvalue="80"/>
                         <!-- insertions go here -->
                     </folder>
                     <folder name="DIS Networking">
-                        <attr name="position" intvalue="70"/>
+                        <attr name="position" intvalue="90"/>
                     </folder>
                     <folder name="Example X3D Model Archives">
-                        <attr name="position" intvalue="80"/>
+                        <attr name="position" intvalue="100"/>
                         <!-- DownloadContentAction position 100 -->
                         <folder name="View Local X3D Examples Archives">
                             <attr name="position" intvalue="200"/>
@@ -189,7 +189,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
                     </folder>
                     <folder name="Export X3D Model to File">
-                        <attr name="position" intvalue="90"/>
+                        <attr name="position" intvalue="110"/>
                         <!-- annotations used in Action source files to get inserted here
                         <folder name="Export .x3d as X3D ClassicVRML (.x3dv) Encoding...">
                             <attr name="position" intvalue="100"/>
@@ -204,7 +204,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- Export X3D Extrusion crossSection ExportSvgExtrusionDiagramAction  position 700 -->
                     </folder>
                     <folder name="Import X3D Model from File">
-                        <attr name="position" intvalue="100"/>
+                        <attr name="position" intvalue="140"/>
                         <!-- annotations used in Action source files to get inserted here -->
                         <!-- Castle Game Engine Convert to X3D LaunchCastleGameEngineCoverterAction position  25 -->
                         <!-- Import .bvh  BioVision Hierarchy  BvhToX3dConversionAction         position  50 -->
@@ -234,7 +234,7 @@ POSSIBILITY OF SUCH DAMAGE.
                     </file>
                     -->
                     <folder name="Quality Assurance">
-                        <attr name="position" intvalue="125"/>
+                        <attr name="position" intvalue="150"/>
                         <file name="org-web3d-x3d-actions-qualityassurance-separatorBetween.instance">
                             <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                             <attr name="position" intvalue="900"/>
@@ -260,7 +260,7 @@ POSSIBILITY OF SUCH DAMAGE.
                     </folder>
                     <!-- duplicate of Security menu to support right-click context menu -->
                     <folder name="Security">
-                        <attr name="position" intvalue="150"/>
+                        <attr name="position" intvalue="160"/>
                         <folder name="Manage XML Security keystore...">
                             <attr name="position" intvalue="100"/>
                         </folder>
@@ -318,7 +318,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                         <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
                     </folder>
-                    <folder name="X3D-Edit Home, Preferences">
+                    <folder name="X3D-Edit configuration">
                         <attr name="position" intvalue="1010"/>
                         <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 860 -->
                         <!-- X3D-Edit Preferences OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 870 -->
@@ -626,17 +626,8 @@ POSSIBILITY OF SUCH DAMAGE.
             <folder name="Author Workflow">
                 <attr name="position" intvalue="20"/>
             </folder>
-            <folder name="Edit Element XML">
-                <attr name="position" intvalue="25"/>
-            </folder>
-            <folder name="Launch Saved Model in Tool">
+            <folder name="Display Saved Scene">
                 <attr name="position" intvalue="30"/>
-            </folder>
-            <folder name="New Documents">
-                <attr name="position" intvalue="40"/>
-            </folder>
-            <folder name="View Saved Scene">
-                <attr name="position" intvalue="50"/>
                 <!-- Xj3D internal pane    Xj3dViewerAction            position 20 -->
                 <!-- Xj3D launch           ViewInXj3DApplicationAction position 50 -->
                 <!-- Xj3D user-installed custom application launch ViewInXj3DExternalAction position 60 -->
@@ -656,12 +647,21 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- ViewInAction  position  -->
                 <!-- ViewInOtherAction  position 200 -->
             </folder>
+            <folder name="Edit Element XML">
+                <attr name="position" intvalue="40"/>
+            </folder>
+            <folder name="Launch Saved Model in Tool">
+                <attr name="position" intvalue="50"/>
+            </folder>
+            <folder name="Template Files">
+                <attr name="position" intvalue="60"/>
+            </folder>
             <file name="x3dMenuSeparatorBetweenConversionsAndExamples.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                <attr name="position" intvalue="55"/>
+                <attr name="position" intvalue="70"/>
             </file>
             <folder name="Compression">
-                <attr name="position" intvalue="60"/>
+                <attr name="position" intvalue="80"/>
                 <!-- CDF using Xj3D CadFilterAction 50 -->
                 <!-- C14N CanonicalizeAction 100 -->
                 <!-- C14N ExportX3dCanonicalAction 150 -->
@@ -686,10 +686,10 @@ POSSIBILITY OF SUCH DAMAGE.
                 </file>
             </folder>
             <folder name="DIS Networking">
-                <attr name="position" intvalue="70"/>
+                <attr name="position" intvalue="80"/>
             </folder>
             <folder name="Example X3D Model Archives">
-                <attr name="position" intvalue="80"/>
+                <attr name="position" intvalue="90"/>
                 <!-- DownloadContentAction position 100 -->
                 <folder name="View Local X3D Examples Archives">
                     <attr name="position" intvalue="200"/>
@@ -701,7 +701,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
             </folder>
             <folder name="Export X3D Model to File">
-                <attr name="position" intvalue="90"/>
+                <attr name="position" intvalue="100"/>
                 <!-- annotations used in Action source files to get inserted here
                 <folder name="Export .x3d as X3D ClassicVRML (.x3dv) Encoding...">
                     <attr name="position" intvalue="100"/>
@@ -716,7 +716,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- Export X3D Extrusion crossSection ExportSvgExtrusionDiagramAction  position 700 -->
             </folder>
             <folder name="Import X3D Model from File">
-                <attr name="position" intvalue="100"/>
+                <attr name="position" intvalue="110"/>
                 <!-- annotations used in Action source files to get inserted here -->
             </folder>
             <!--
@@ -726,7 +726,7 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
         -->
             <folder name="Quality Assurance">
-                <attr name="position" intvalue="125"/>
+                <attr name="position" intvalue="120"/>
                 <!-- insertions go here -->
                 <file name="org-web3d-x3d-actions-qualityassurance-separatorBetween.instance">
                     <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
@@ -803,7 +803,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                 <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
             </folder>
-            <folder name="X3D-Edit Home, Preferences">
+            <folder name="X3D-Edit configuration">
                 <attr name="position" intvalue="1010"/>
                 <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 1004 -->
                 <!-- X3D-Edit Preferences OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 1008 -->

@@ -44,10 +44,12 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_EDIT_FEATURES;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dEditFeaturesAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchX3dEditFeaturesAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+                    displayName = "#CTL_LaunchX3dEditFeaturesAction", 
+                            lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Help with X3D", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help with X3D", position = 50),
+  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit configuration", position = 200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit configuration", position = 200),
 })
 
 public final class LaunchX3dEditFeaturesAction extends CallableSystemAction
