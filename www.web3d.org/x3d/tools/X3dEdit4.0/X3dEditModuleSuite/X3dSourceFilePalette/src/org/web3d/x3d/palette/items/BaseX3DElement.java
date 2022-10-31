@@ -3246,7 +3246,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
       setContent(contentText);
   }
 
-  /** The DEF/USE attributes are common to all node panels */
+  /** The DEF/USE attributes are common to all node panels (but not statements) */
   protected boolean hasDEF = true;  // default
   protected String DEFUSE = "";  // default
   private Vector<String> USEvector;
