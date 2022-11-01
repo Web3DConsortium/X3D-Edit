@@ -35,11 +35,15 @@ package org.web3d.x3d.config;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 import java.text.SimpleDateFormat;
@@ -61,6 +65,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 
 import org.openide.awt.HtmlBrowser;
+import org.openide.util.Exceptions;
 
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
@@ -111,7 +116,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
               "<p align='center'>X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Revised &nbsp;<b>" + 
-                    "31 October 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION
+                    "1 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION
                     "</b> with automatic updates not yet available.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Use the X3D menu to launch the X3D-Edit Home.</p>";
@@ -232,8 +237,16 @@ public final class X3dEditAboutAction extends CallableSystemAction
       });
       butt.addActionListener((ActionEvent ev) -> {
           try {
-              HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(link)); 
-          } catch(MalformedURLException e){}
+              HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(link));
+              
+              String urlString = link;
+              
+    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+        Desktop.getDesktop().browse(new URI(urlString));
+          } catch(IOException | URISyntaxException ex) {
+                Exceptions.printStackTrace(ex);
+            }
         });
     }
   }
