@@ -33,20 +33,24 @@
 */
 package org.web3d.x3d.actions.conversions;
 
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
-import org.openide.awt.HtmlBrowser;
 import org.openide.cookies.EditCookie;
 import org.openide.cookies.OpenCookie;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
 import org.openide.loaders.DataObject;
+import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 import org.openide.windows.IOProvider;
 import org.web3d.x3d.actions.conversions.BaseConversionsAction.TransformListener;
@@ -189,7 +193,8 @@ public class ConversionsHelper
     retData.file = selFile;
     retData.openInEditor = openInEditor.isSelected();
     retData.openInBrowser= openInBrowser.isSelected();
-    saveDirs.put(sourceFile.getAbsolutePath(),selFile.getParent());
+    if (selFile != null)
+        saveDirs.put(sourceFile.getAbsolutePath(),selFile.getParent());
     
     return retData;   
   }
@@ -241,8 +246,23 @@ public class ConversionsHelper
   
   static public void openInBrowser(URL url)
   {
-    HtmlBrowser.URLDisplayer.getDefault().showURL(url);
+    // HtmlBrowser.URLDisplayer.getDefault().showURL(url);
+    
+    String urlString = url.toString();
+    
+    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+        try {
+            Desktop.getDesktop().browse(new URI(urlString));
+    } catch (IOException | URISyntaxException ex) {
+        Exceptions.printStackTrace(ex);
+    }
+      
   }
+  
+//  static public void openInBrowser(String urlString)
+//  {
+//  }
   
   private static Xj3DConv converter;
   
