@@ -67,7 +67,7 @@ public final class LaunchEmailReportAction extends CallableSystemAction
       String mailtoReportUrl = MAILTO_REPORT_URL;
       // TODO add node/statement name
       if (!getElementName().isBlank())
-          mailtoReportUrl+= getElementName();
+          mailtoReportUrl+= getElementName() + "%20"; // append url-escaped blank character to facilitate user editing
       
       System.out.println ("LaunchEmailReportAction performAction() mailtoReportUrl=" + mailtoReportUrl);
       
@@ -91,7 +91,7 @@ public final class LaunchEmailReportAction extends CallableSystemAction
       
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString));    
+        Desktop.getDesktop().browse(new URI(urlString));
   }
 
   @Override

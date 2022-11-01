@@ -34,8 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.actions;
 
-import java.net.URL;
-import org.openide.awt.HtmlBrowser;
+import java.awt.Desktop;
+import java.net.URI;
 import org.openide.util.HelpCtx;
 import org.openide.util.actions.CallableSystemAction;
 
@@ -113,7 +113,12 @@ abstract public class BaseViewAction extends CallableSystemAction
   
   protected void showInBrowser(String urlString) throws Exception
   {
-    HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
+    // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
+      
+    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+        Desktop.getDesktop().browse(new URI(urlString));
+    
   }
   
   protected String getLocalExamplesPath()
