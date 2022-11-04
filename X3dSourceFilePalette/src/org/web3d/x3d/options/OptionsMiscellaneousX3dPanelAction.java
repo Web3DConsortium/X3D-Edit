@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -48,7 +48,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 
 @ActionID(id = "org.web3d.x3d.options.OptionsMiscellaneousX3dPanelAction", category = "Tools")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/x3dObject32.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_OptionsMiscellaneousX3dPanel",
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
