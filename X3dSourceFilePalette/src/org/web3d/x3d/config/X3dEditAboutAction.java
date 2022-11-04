@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -40,33 +40,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-
 import java.text.SimpleDateFormat;
-
 import java.util.Date;
 import java.util.Locale;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
-
 import org.openide.awt.HtmlBrowser;
 import org.openide.util.Exceptions;
-
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
@@ -81,7 +73,7 @@ import org.openide.util.actions.CallableSystemAction;
 ////})
 
 @ActionID(id = "org.web3d.x3d.x3dedit.config.X3dEditAboutAction", category = "Tools")
-@ActionRegistration(// iconBase = "org/web3d/x3d/resources/X3Dicon16.png", // TODO file path/name correct but not found
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_X3dEditAboutAction",
                             lazy=true)
 @ActionReferences(value = {
@@ -116,7 +108,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
               "<p align='center'>X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Revised &nbsp;<b>" + 
-                    "1 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION
+                    "4 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION
                     "</b> with automatic updates not yet available.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Use the X3D menu to launch the X3D-Edit Home.</p>";
