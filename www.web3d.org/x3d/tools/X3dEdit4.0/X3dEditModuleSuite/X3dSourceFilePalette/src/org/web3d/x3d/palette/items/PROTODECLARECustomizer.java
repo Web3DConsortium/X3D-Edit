@@ -34,11 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
-import org.openide.DialogDisplayer;
-import org.openide.NotifyDescriptor;
-import java.net.URL;
-import org.openide.awt.HtmlBrowser.URLDisplayer;
 import java.awt.Component;
+import java.net.URL;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultCellEditor;
@@ -50,6 +47,9 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.JTextComponent;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
+import org.openide.awt.HtmlBrowser.URLDisplayer;
 import org.openide.util.HelpCtx;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
 import static org.web3d.x3d.types.X3DSchemaData.*;

@@ -34,10 +34,13 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.options;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
@@ -46,6 +49,7 @@ import org.openide.NotifyDescriptor;
 import org.openide.awt.HtmlBrowser;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
+import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
@@ -8284,13 +8288,20 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   {
     try
     {
-      HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(pageUrl));
+      // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(pageUrl));
+      
+      String urlString = pageUrl;
+    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+        Desktop.getDesktop().browse(new URI(urlString));
     }
     catch (java.net.MalformedURLException ex) {
       InputOutput io = IOProvider.getDefault().getIO("Output", false);
       io.select();
       io.getOut().println(new StringBuilder().append("Error launching external editor for ").append(pageUrl).append(": ").append(ex.getLocalizedMessage()).toString());
-    }
+    } catch (URISyntaxException | IOException ex) {
+          Exceptions.printStackTrace(ex);
+      }
   }
   private void externalProcessLaunch(String applicationPath) {
     ProcessBuilder pb;
@@ -8649,15 +8660,21 @@ polyTransNuGrafAutoLaunchCheck ();
     return true;
   }
 
-  protected void openInBrowser(String downloadUrl)
+  protected void openInBrowser(String urlString)
   {
     try {
-      HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(downloadUrl));
+      // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
+      
+    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+        Desktop.getDesktop().browse(new URI(urlString));
     }
     catch (MalformedURLException e) {
-      System.err.println(NbBundle.getMessage(getClass(),"Trying_to_display_") + downloadUrl +
+      System.err.println(NbBundle.getMessage(getClass(),"Trying_to_display_") + urlString +
                          NbBundle.getMessage(getClass(),"_in_HtmlBrowser:_") + e.getLocalizedMessage());
-    }
+    } catch (IOException | URISyntaxException ex) {
+          Exceptions.printStackTrace(ex);
+      }
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
