@@ -34,8 +34,12 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.config;
 
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -63,7 +67,13 @@ public final class MyViewBrowserAction implements ActionListener
     StatusDisplayer.getDefault().setStatusText(NbBundle.getMessage(getClass(), "CTL_OpeningBrowser"));
     try {
       String myHomepage = NbBundle.getMessage(getClass(), "Browser_home_page");
-      HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(myHomepage)); //HtmlBrowser.getHomePage()));
+//      HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(myHomepage)); //HtmlBrowser.getHomePage()));
+      
+      String urlString = myHomepage;
+      
+    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+        Desktop.getDesktop().browse(new URI(urlString));
     }
     catch (java.net.MalformedURLException mfe) {
       String home = HtmlBrowser.getHomePage();
@@ -71,11 +81,21 @@ public final class MyViewBrowserAction implements ActionListener
         home = "https://" + home; // NOI18N
       }
       try {
-        HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(home));
+        // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(home));
+      
+    String urlString = home;
+      
+    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+        Desktop.getDesktop().browse(new URI(urlString));
       }
       catch (java.net.MalformedURLException e1) {
         Exceptions.printStackTrace(e1);
+      } catch (URISyntaxException | IOException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+    } catch (URISyntaxException | IOException ex) {
+          Exceptions.printStackTrace(ex);
       }
-    }
   }
 }

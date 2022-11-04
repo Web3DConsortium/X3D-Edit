@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -34,16 +34,18 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
+import java.awt.Desktop;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.net.URL;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
-import org.openide.awt.HtmlBrowser;
 import org.openide.util.NbBundle;
 
 /**
@@ -120,7 +122,7 @@ public class UrlExpandableList extends ExpandableList //implements ListSelection
     {
       super();
       if (this instanceof JLabel)
-        ((JLabel) this).setHorizontalAlignment(JLabel.CENTER);
+        this.setHorizontalAlignment(JLabel.CENTER);
     }
   }
 
@@ -137,13 +139,16 @@ public class UrlExpandableList extends ExpandableList //implements ListSelection
       if(col != TEST_COLUMN)
         return;
       int row = tab.rowAtPoint(e.getPoint());
-      String url = (String) tab.getModel().getValueAt(row, 1);
+      String urlString = (String) tab.getModel().getValueAt(row, 1);
 
       try {
-        HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(url));
-        return;
+        // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
+      
+    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+        Desktop.getDesktop().browse(new URI(urlString));
       }
-      catch (Exception ex) {
+      catch (IOException | URISyntaxException ex) {
         NotifyDescriptor.Message nd = new NotifyDescriptor.Message("<html>Url could not be displayed:<br>" + ex.getLocalizedMessage(),
                                                                    NotifyDescriptor.ERROR_MESSAGE);
       DialogDisplayer.getDefault().notify(nd);
