@@ -13,7 +13,9 @@ Once stability is demonstrated on multiple platforms, we expect that authoring s
 [X3D4](https://www.web3d.org/x3d4) nodes and features will be added steadily.
 
 Prerequisite for operation: Java JDK 17 LTS (or later).  Recommended:
+
 * OpenJDK jdk-19.0.1, latest versions available at [https://openjdk.org](https://openjdk.org)
+
 * Oracle  jdk-19.0.1, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
 
 The following files are available for X3D-Edit authoring:
@@ -34,6 +36,7 @@ Important: following installation, a modification is needed to point to your loc
 For example, under Windows the following file requires modification.
 
 * Zip installation:  <br /><b><code>C:\downloads\x3deditmodulesuite\etc\x3deditmodulesuite.conf</code></b> (for example)
+
 * Windows installer: <br /><b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b> (for example)
 
 ... then look for <code><b>#</b>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
