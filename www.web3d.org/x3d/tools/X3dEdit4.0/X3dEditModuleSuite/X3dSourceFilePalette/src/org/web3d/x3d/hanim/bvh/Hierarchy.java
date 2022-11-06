@@ -68,12 +68,12 @@ public class Hierarchy extends BvhSkeletonParameters
 		skeletonJointName = newSkeletonJointName;
 	}
     /**
-     * unique DEF bvhName for this HAnimHumanoid node, matching X3D H-Anim naming conventions; note that corresponding Joint has a different DEF bvhName
+     * unique DEF bvhName for this HAnimHumanoid node, matching X3D HAnim naming conventions; note that corresponding Joint has a different DEF bvhName
      */
     private String              DEF         = new String();
 	
     /**
-     * unique DEF-bvhName prefix for this HAnimHumanoid node, matching X3D H-Anim naming conventions; note that corresponding Joint has a different DEF bvhName
+     * unique DEF-bvhName prefix for this HAnimHumanoid node, matching X3D HAnim naming conventions; note that corresponding Joint has a different DEF bvhName
      */
     private String              modelName         = new String();
 	
@@ -354,7 +354,7 @@ public class Hierarchy extends BvhSkeletonParameters
         // Begin HAnimHumanoid.  Note that precise naming conventions occur throughout.
         outputX3DBody.append(indentSpacing(2));
         outputX3DBody.append("<HAnimHumanoid DEF='").append(getDEF()).append("'"); 
-		// h-anim metadata
+		// HAnim metadata
         outputX3DBody.append(" name='").append(getBvhName()).append("' version='2.0'");
         outputX3DBody.append(">\n"); // finish opening HAnimHumanoid element
         outputX3DBody.append(indentSpacing(3));
