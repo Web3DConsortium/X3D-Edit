@@ -57,36 +57,36 @@ public abstract class BvhSkeletonParameters
     protected String            bvhName         = new String();
 
     /**
-     * unique Joint name of this node, matching X3D H-Anim naming conventions
+     * unique Joint name of this node, matching X3D HAnim naming conventions
      */
     private String            hanimJointName         = new String();
 
     /**
-     * unique Segment name of this node, matching X3D H-Anim naming conventions
+     * unique Segment name of this node, matching X3D HAnim naming conventions
      */
     private String            hAnimSegmentName         = new String();
 
     /**
-     * unique jointDEF bvhName for this node set, matching X3D H-Anim naming conventions
+     * unique jointDEF bvhName for this node set, matching X3D HAnim naming conventions
      */
     private String              jointDEF         = new String();
 
     /**
-     * unique segmentDEF bvhName for this node set, matching X3D H-Anim naming conventions
+     * unique segmentDEF bvhName for this node set, matching X3D HAnim naming conventions
      */
     private String              segmentDEF         = new String();
     /**
-     * unique segmentName for this node set, matching X3D H-Anim naming conventions if found or an arbitrary name otherwise
+     * unique segmentName for this node set, matching X3D HAnim naming conventions if found or an arbitrary name otherwise
      */
     private String              segmentName         = new String();
 
     /**
-     * unique siteDEF bvhName for this node set, matching X3D H-Anim naming conventions
+     * unique siteDEF bvhName for this node set, matching X3D HAnim naming conventions
      */
     private String              siteDEF         = new String();
 
     /**
-     * unique site name for this node set, matching X3D H-Anim naming conventions by adding suffix to parent HAnimSegment name
+     * unique site name for this node set, matching X3D HAnim naming conventions by adding suffix to parent HAnimSegment name
      */
     private String              siteName         = new String();
 	
