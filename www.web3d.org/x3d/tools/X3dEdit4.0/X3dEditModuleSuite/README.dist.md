@@ -1,12 +1,13 @@
 # X3D-Edit 4.0 Beta Distribution
 
-<!-- posted at https://sourceforge.net/projects/x3d/files -->
-
-X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
+<!-- posted at https://sourceforge.net/projects/x3d/files 
 
 X3D-Edit 4.0 Beta Distribution files are available at
 
 * [https://sourceforge.net/projects/x3d/files](https://sourceforge.net/projects/x3d/files)
+-->
+
+X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
 
 *User expectations.* Please note that this beta release is initially focused on restoring original X3D-Edit 3.3 functionality.
 Once stability is demonstrated on multiple platforms, we expect that authoring support for 
@@ -15,7 +16,6 @@ Once stability is demonstrated on multiple platforms, we expect that authoring s
 Prerequisite for operation: Java JDK 17 LTS (or later).  Recommended:
 
 * OpenJDK jdk-19.0.1, latest versions available at [https://openjdk.org](https://openjdk.org)
-
 * Oracle  jdk-19.0.1, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
 
 The following files are available for X3D-Edit authoring:
