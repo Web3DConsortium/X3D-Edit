@@ -606,6 +606,7 @@ POSSIBILITY OF SUCH DAMAGE.
         <folder name="Tools">
             <attr name="position" intvalue="400"/>
             <file name="CloudManagerAction3.shadow_hidden"/>
+            <file name="PlatformShellAction.shadow_hidden"/>
             <file name="ServerManagerAction3.shadow_hidden"/>
         </folder>
         <folder name="View">
@@ -618,8 +619,10 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="Debug_hidden"/>
             <folder name="Web">
                 <file name="org-netbeans-modules-css-visual-api-CssStylesTC-OpenAction.shadow_hidden"/>
+                <file name="org-netbeans-modules-web-inspect-webkit-knockout-KnockoutTC.shadow_hidden"/>
             </folder>
             <file name="org-netbeans-core-ide-ServicesTabAction.shadow_hidden"/>
+            <file name="org-netbeans-modules-project-ui-logical-tab-action.shadow_hidden"/>
         </folder>
         <folder name="X3D-Edit">
             <attr name="position" intvalue="1250"/>
