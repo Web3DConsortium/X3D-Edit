@@ -5907,7 +5907,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         x3dEditVisualizationPreferencesPanel.add(verticalSpacerLabel4, gridBagConstraints);
 
-        hAnimVisualizationOptionsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Humanoid Animation (H-Anim) visualization default values", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        hAnimVisualizationOptionsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Humanoid Animation (HAnim) visualization default values", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         hAnimVisualizationOptionsPanel.setLayout(new java.awt.GridBagLayout());
 
         hAnimJointColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -6469,7 +6469,7 @@ private void commonLauncher(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c
       catch (IOException e) {
         DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("commonLauncher Exception:\n" + e.getMessage(),NotifyDescriptor.ERROR_MESSAGE));
       }
-      String targetName = FileUtil.findFreeFileName(tempDirFO, "Launched-from-X3D-Edit-3.3", "x3d");
+      String targetName = FileUtil.findFreeFileName(tempDirFO, "Launched-from-X3D-Edit-4.0", "x3d");
       FileUtil.copyFile(jarredFileFO, tempDirFO, targetName);
 
       launcherExampleSceneFile = new File(tempDir, new StringBuilder().append(targetName).append(".x3d").toString());
