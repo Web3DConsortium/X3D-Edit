@@ -44,7 +44,9 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.HANIM2_STANDARD;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchHumanoidAnimationStandardAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchHumanoidAnimationStandardAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+                    displayName = "#CTL_LaunchHumanoidAnimationStandardAction",
+                            lazy=true)
 @ActionReferences( value = {
   @ActionReference(path = "Menu/X3D-Edit/Standards", position = 200),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Standards", position = 200)

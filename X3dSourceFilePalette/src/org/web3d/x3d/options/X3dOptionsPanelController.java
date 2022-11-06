@@ -104,6 +104,7 @@ final class X3dOptionsPanelController extends OptionsPanelController
     pcs.removePropertyChangeListener(l);
   }
 
+ /** Singleton version of panel */  
   private OptionsMiscellaneousX3dPanel getPanel()
   {
     if (panel == null) {

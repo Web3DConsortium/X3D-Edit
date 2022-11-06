@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -41,7 +41,9 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewX3d4amExamplesOnlineAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_ViewX3d4amExamplesOnlineAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+                    displayName = "#CTL_ViewX3d4amExamplesOnlineAction",
+                            lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Example X3D Model Archives/View Online X3D Examples Archives", position = 200),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Example X3D Model Archives/View Online X3D Examples Archives", position = 200)

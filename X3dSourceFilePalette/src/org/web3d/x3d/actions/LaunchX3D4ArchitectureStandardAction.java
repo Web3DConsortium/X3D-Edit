@@ -44,7 +44,9 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_DIS;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3D4ArchitectureStandardAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchX3D4ArchitectureStandardAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+                    displayName = "#CTL_LaunchX3D4ArchitectureStandardAction",
+                            lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Standards", position = 300),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Standards", position = 300)

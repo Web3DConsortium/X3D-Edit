@@ -33,32 +33,15 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.web3d.x3d.config;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Desktop;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
-import org.openide.awt.HtmlBrowser;
-import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
@@ -77,8 +60,8 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_X3dEditAboutAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit configuration", position = 100), // see layer.xml
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit configuration", position = 100),
+  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Configuration", position = 100), // see layer.xml
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Configuration", position = 100),
 })
 
 public final class X3dEditAboutAction extends CallableSystemAction
@@ -102,32 +85,64 @@ public final class X3dEditAboutAction extends CallableSystemAction
         
         // TODO add splash screen image
         
-        String message = "<html>"
+        String aboutHtmlMessage = "<html>"
             + "<p>&nbsp;</p>" +
               "<h2 align='center'>X3D-Edit 4.0 &nbsp; &nbsp; </h2>" +
               "<p align='center'>X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Revised &nbsp;<b>" + 
-                    "4 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION
-                    "</b> with automatic updates not yet available.</p>" +
-              "<p align='center'>&nbsp;</p>" +
-              "<p align='center'>Use the X3D menu to launch the X3D-Edit Home.</p>";
-
+                    "5 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION 
+                    "</b>" +
+//                    " with issue reports welcome via <a href='" + LaunchEmailReportAction.MAILTO_REPORT_URL + "'>e-mail</a>." +
+              "</p>"
 //        TODO: link not working
-//              "<p align='center'>&nbsp;</p>" +
-//              "<p align='center'><a href='https://savage.nps.edu/X3D-Edit'>https://savage.nps.edu/X3D-Edit</a></p>";
+//             + "<p align='center'>&nbsp;</p>"
+//             + "<p align='center'>Use the X3D-Edit Configuration menu to launch X3D-Edit home page and issue reports.</p>"
+//             + "<p align='center'>&nbsp;</p>" 
+//             + "<p align='center'><a href='https://savage.nps.edu/X3D-Edit'>https://savage.nps.edu/X3D-Edit</a></p>";
+              ;
+
+//    final JButton reportButton = new JButton("Report");
+//    final ActionListener emailReportActionListener = (ActionEvent event) ->
+//    {
+//       LaunchEmailReportAction.sendBrowserTo(LaunchEmailReportAction.MAILTO_REPORT_URL);
+//    };
+//    // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
+//    if (reportButton != null)
+//    {
+//        reportButton.setToolTipText("Send email issue report: please describe issue, give example .x3d excerpt or attach a snapshot");
+//        reportButton.addActionListener(emailReportActionListener);
+//        reportButton.setVisible(true);
+//    }
+//
+//    Object[] optionalButtonsArray;
+//    optionalButtonsArray = new Object[]{
+//        aboutHtmlMessage,
+//        reportButton
+//    };
+//
+//    NotifyDescriptor notifyDescriptor = new DialogDescriptor(this,
+//            "About X3D-Edit",
+//            true,
+//            optionalButtonsArray,
+//            DialogDescriptor.OK_OPTION,     // default
+//            DialogDescriptor.RIGHT_ALIGN, // align
+//            HelpCtx.DEFAULT_HELP,
+//            emailReportActionListener);
+
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
+                aboutHtmlMessage, "About X3D-Edit", NotifyDescriptor.PLAIN_MESSAGE);
+
+        DialogDisplayer.getDefault().notify(notifyDescriptor);
         
-        NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-                message, "About X3D-Edit", NotifyDescriptor.PLAIN_MESSAGE);
-        DialogDisplayer.getDefault().notify(descriptor);
                   
-//    DialogDescriptor descriptor = new DialogDescriptor(new aboutContent(),
+//    DialogDescriptor descriptor = new DialogDescriptor(new aboutContentPanel(),
 //                                                       NbBundle.getMessage(X3dEditAboutAction.class, "X3D_About_Dialog_Title"));
 //    
 //    descriptor.setOptionType(DEFAULT_OPTION);
     
 ////    DialogDescriptor descriptor = new DialogDescriptor(
-////            new aboutContent(),
+////            new aboutContentPanel(),
 ////            NbBundle.getMessage(X3dEditAboutAction.class, "X3D_About_Dialog_Title"),
 ////            true, //model
 ////            new Object[0], //options
@@ -177,69 +192,69 @@ public final class X3dEditAboutAction extends CallableSystemAction
     return false;
   }
 
-  class aboutContent extends JPanel
-  {
-    String link = "https://savage.nps.edu/X3D-Edit";
-        
-    aboutContent()
-    {
-        // TODO add splash screen image
-        
-        // https://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html
-        Date today;
-        String dateOutput;
-        SimpleDateFormat formatter;
-
-        formatter = new SimpleDateFormat("dd MMMM YYYY", Locale.US);
-        today = new Date();
-        dateOutput = formatter.format(today);
-        
-        String data1 = "<html><h2 align='center'>X3D-Edit 4.0</h2>" +
-                       "<p align='center'>Naval Postgraduate School (NPS), Monterey, California USA</p>" +
-                       "<p align='center'>Released " + dateOutput + 
-                       "</p></html>";
-        //<br>with automatic updates not yet available
-        
-      setBorder(new EmptyBorder(0,10,0,10));
-      setLayout(new BorderLayout());
-      JLabel label1 = new JLabel(data1);
-      label1.setHorizontalAlignment(JLabel.CENTER);
-      label1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-      add(label1, BorderLayout.CENTER);
-      
-      final JButton butt = new JButton(link);
-      butt.setBorder(null);
-      butt.setFocusPainted(false);  // remove blue line
-      butt.setForeground(Color.blue);
-      add(butt,BorderLayout.SOUTH);
-      
-      butt.addMouseListener(new MouseAdapter()
-      {
-        @Override
-        public void mouseEntered(MouseEvent e)
-        {
-          butt.setForeground(Color.green.darker());
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e)
-        {
-          butt.setForeground(Color.blue);
-        }       
-      });
-      butt.addActionListener((ActionEvent ev) -> {
-          try {
-              HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(link));
-              
-              String urlString = link;
-              
-    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
-    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString));
-          } catch(IOException | URISyntaxException ex) {
-                Exceptions.printStackTrace(ex);
-            }
-        });
-    }
-  }
+//  class aboutContentPanel extends JPanel
+//  {
+//    String link = "https://savage.nps.edu/X3D-Edit";
+//        
+//    aboutContentPanel()
+//    {
+//        // TODO add splash screen image
+//        
+//        // https://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html
+//        Date today;
+//        String dateOutput;
+//        SimpleDateFormat formatter;
+//
+//        formatter = new SimpleDateFormat("dd MMMM YYYY", Locale.US);
+//        today = new Date();
+//        dateOutput = formatter.format(today);
+//        
+//        String data1 = "<html><h2 align='center'>X3D-Edit 4.0</h2>" +
+//                       "<p align='center'>Naval Postgraduate School (NPS), Monterey, California USA</p>" +
+//                       "<p align='center'>Released " + dateOutput + 
+//                       "</p></html>";
+//        //<br>with automatic updates not yet available
+//        
+//      setBorder(new EmptyBorder(0,10,0,10));
+//      setLayout(new BorderLayout());
+//      JLabel label1 = new JLabel(data1);
+//      label1.setHorizontalAlignment(JLabel.CENTER);
+//      label1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+//      add(label1, BorderLayout.CENTER);
+//      
+//      final JButton butt = new JButton(link);
+//      butt.setBorder(null);
+//      butt.setFocusPainted(false);  // remove blue line
+//      butt.setForeground(Color.blue);
+//      add(butt,BorderLayout.SOUTH);
+//      
+//      butt.addMouseListener(new MouseAdapter()
+//      {
+//        @Override
+//        public void mouseEntered(MouseEvent e)
+//        {
+//          butt.setForeground(Color.green.darker());
+//        }
+//
+//        @Override
+//        public void mouseExited(MouseEvent e)
+//        {
+//          butt.setForeground(Color.blue);
+//        }       
+//      });
+//      butt.addActionListener((ActionEvent ev) -> {
+//          try {
+//              HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(link));
+//              
+//              String urlString = link;
+//              
+//    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+//    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+//        Desktop.getDesktop().browse(new URI(urlString));
+//          } catch(IOException | URISyntaxException ex) {
+//                Exceptions.printStackTrace(ex);
+//            }
+//        });
+//    }
+//  }
 }

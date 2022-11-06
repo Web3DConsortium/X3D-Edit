@@ -54,6 +54,7 @@ import org.openide.windows.InputOutput;
 import org.web3d.x3d.actions.CommandExecutionScripts;
 import org.web3d.x3d.actions.ViewX3dSecurityExamplesOnlineAction;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFColor;
 
 final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
 {
