@@ -440,19 +440,6 @@
                 <package>org.xj3d.ui.construct.event</package>
                 <package>org.xj3d.ui.construct.ogl</package>
                 <package>org.xj3d.ui.newt.offscreen.browser.ogl</package>
-                <package>test.org</package>
-                <package>test.org.web3d</package>
-                <package>test.org.web3d.util</package>
-                <package>test.org.web3d.util.spatial</package>
-                <package>test.org.web3d.vrml.export</package>
-                <package>test.org.web3d.vrml.export.compressors</package>
-                <package>test.org.web3d.vrml.nodes.proto</package>
-                <package>test.org.web3d.vrml.parser</package>
-                <package>test.org.web3d.vrml.parser.vrml97</package>
-                <package>test.org.web3d.vrml.util</package>
-                <package>test.org.web3d.x3d.jaxp</package>
-                <package>test.org.xj3d.core.loading</package>
-                <package>test.xj3d.filter</package>
                 <package>vrml</package>
                 <package>vrml.eai</package>
                 <package>vrml.eai.event</package>
@@ -490,10 +477,6 @@
             <class-path-extension>
                 <runtime-relative-path>ext/xalan.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xalan.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/ant.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/ant.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/commons-httpclient-3.1.jar</runtime-relative-path>
