@@ -62,9 +62,9 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_X3DNewX3dEcmaScriptAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/Template Files", position = 340),
-  @ActionReference(path = "Menu/X3D-Edit/Template Files", position = 340),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Template Files", position = 340),
+  @ActionReference(path = "Toolbars/X3D Template Files", position = 340),
+  @ActionReference(path = "Menu/X3D-Edit/X3D Template Files", position = 340),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D Template Files", position = 340),
 })
 
 public final class NewX3dEcmaScriptAction extends CallableSystemAction

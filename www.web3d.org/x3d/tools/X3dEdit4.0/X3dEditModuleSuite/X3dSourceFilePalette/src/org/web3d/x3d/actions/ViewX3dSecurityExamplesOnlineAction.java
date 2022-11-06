@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -34,7 +34,20 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.actions;
 
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionReference;
+import org.openide.awt.ActionReferences;
+import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
+
+@ActionID(id = "org.web3d.x3d.actions.ViewX3dSecurityExamplesOnlineAction", category = "Tools")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+                    displayName = "#CTL_ViewX3dSecurityExamplesPage",
+                            lazy=true)
+@ActionReferences(value = {
+  @ActionReference(path = "Menu/X3D-Edit/Security", position = 2000),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Security", position = 2000)
+})
 
 public final class ViewX3dSecurityExamplesOnlineAction extends BaseViewAction
 {

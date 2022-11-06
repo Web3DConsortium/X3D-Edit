@@ -113,7 +113,7 @@ POSSIBILITY OF SUCH DAMAGE.
     </folder>
     <folder name="OptionsDialog">
         <folder name="Advanced">
-            <file name="org-web3d-x3d-options-X3dAdvancedOption.instance"/>
+            <file name="org-web3d-x3d-options-X3dAdvancedOptions.instance"/>
         </folder>
     </folder>
     <folder name="Toolbars">
@@ -128,7 +128,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="org-netbeans-modules-masterfs-ui-suspend-PauseAction.shadow_hidden"/>
             <file name="org-netbeans-modules-profiler-actions-SelfSamplerAction.shadow_hidden"/>
         </folder>
-        <folder name="Template Files">
+        <folder name="X3D Template Files">
             <attr name="position" intvalue="184"/>
             <!-- TODO hide by default? -->
             <!--<file name="edu-nps-moves-kmleditor-actions-NewKmlFileAction.instance"/>-->
@@ -161,7 +161,7 @@ POSSIBILITY OF SUCH DAMAGE.
                     <folder name="Launch Saved Model in Tool">
                         <attr name="position" intvalue="50"/>
                     </folder>
-                    <folder name="Template Files">
+                    <folder name="X3D Template Files">
                         <attr name="position" intvalue="60"/>
                     </folder>
                     <file name="x3d-popup-separator2.instance">
@@ -318,7 +318,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                         <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
                     </folder>
-                    <folder name="X3D-Edit configuration">
+                    <folder name="X3D-Edit Configuration">
                         <attr name="position" intvalue="1010"/>
                         <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 860 -->
                         <!-- X3D-Edit Preferences OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 870 -->
@@ -653,7 +653,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <folder name="Launch Saved Model in Tool">
                 <attr name="position" intvalue="50"/>
             </folder>
-            <folder name="Template Files">
+            <folder name="X3D Template Files">
                 <attr name="position" intvalue="60"/>
             </folder>
             <file name="x3dMenuSeparatorBetweenConversionsAndExamples.instance">
@@ -803,7 +803,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                 <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
             </folder>
-            <folder name="X3D-Edit configuration">
+            <folder name="X3D-Edit Configuration">
                 <attr name="position" intvalue="1010"/>
                 <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 1004 -->
                 <!-- X3D-Edit Preferences OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 1008 -->

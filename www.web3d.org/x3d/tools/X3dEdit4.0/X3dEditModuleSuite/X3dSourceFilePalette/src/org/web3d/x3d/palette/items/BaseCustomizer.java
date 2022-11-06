@@ -273,8 +273,7 @@ public abstract class BaseCustomizer extends JPanel
         showNewLineLabel,
         prependNewLineCB,
         appendNewLineCB,
-        //new JLabel("   "),
-          appendTraceEventsCB,
+        appendTraceEventsCB,
         appendVisualizationCB,
         DialogDescriptor.OK_OPTION,
         DialogDescriptor.CANCEL_OPTION,
@@ -282,8 +281,10 @@ public abstract class BaseCustomizer extends JPanel
       };
     else {
       optionalButtonsArray = new Object[]{
-        //new JLabel("       "),
-          appendTraceEventsCB,
+//        showNewLineLabel,
+//        prependNewLineCB,
+//        appendNewLineCB,
+        appendTraceEventsCB,
         appendVisualizationCB,
         DialogDescriptor.OK_OPTION,
         DialogDescriptor.CANCEL_OPTION,
