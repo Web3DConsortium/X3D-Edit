@@ -69,7 +69,7 @@ public abstract class X3DNode extends BaseX3DElement
   Geometry3D              Geometry3D
                           Geospatial
   Grouping                Grouping
-                          H-Anim
+                          HAnim
   Interpolation           Interpolation
   KeyDeviceSensor         KeyDeviceSensor
                           Layering
