@@ -141,7 +141,7 @@ POSSIBILITY OF SUCH DAMAGE.
               <attr name="position" intvalue="150"/>
             </file>
             -->
-            <!-- TODO consider adding H-Anim LOA default scenes and other templates -->
+            <!-- TODO consider adding HAnim LOA default scenes and other templates -->
         </folder>
         <file name="Standard.xml_hidden"/>
     </folder>
