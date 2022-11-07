@@ -3,5 +3,5 @@
 <tc-ref version="2.0" >
   <module name="org.web3d.x3d.palette" spec="1.0"/>
   <tc-id id="Xj3dTopComponent"/>
-  <state opened="false"/>
+  <state opened="true"/>
 </tc-ref>

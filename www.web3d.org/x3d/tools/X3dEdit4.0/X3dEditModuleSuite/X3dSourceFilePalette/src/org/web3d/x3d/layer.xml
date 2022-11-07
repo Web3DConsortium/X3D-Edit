@@ -503,7 +503,8 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="enabled" boolvalue="true"/>
                 <attr name="instanceCreate" methodvalue="org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogFactory.createUpdateProvider"/>
                 <attr name="instanceOf" stringvalue="org.netbeans.spi.autoupdate.UpdateProvider"/>
-                <attr name="url" stringvalue="https://savage.nps.edu/X3D-Edit/netbeans_modules/updates.xml"/>
+                <!-- Comment out until we get the update mechanism working on SourceForge. Certificate issues prevent savage.nps.edu from working properly -->
+                <!--<attr name="url" stringvalue="https://savage.nps.edu/X3D-Edit/netbeans_modules/updates.xml"/>-->
             </file>
         </folder>
     </folder>
@@ -842,20 +843,30 @@ POSSIBILITY OF SUCH DAMAGE.
         <folder name="Components">
             <file name="DisPlayerRecorderTopComponent.settings" url="DisPlayerRecorderTopComponentSettings.xml"/>
             <file name="DisTesterTopComponent.settings" url="DisTesterTopComponentSettings.xml"/>
+            <file name="JShellEditor.settings_hidden"/>
             <file name="Xj3dTopComponent.settings" url="Xj3dTopComponentSettings.xml"/> <!-- renamed -->
+            <file name="projectTabLogical_tc.settings_hidden"/>
+            <file name="projectTab_tc.settings_hidden"/>
+            <file name="services.settings_hidden"/>
         </folder>
         <folder name="Modes">
-            <folder name="properties">
-                <file name="DisTesterTopComponent.wstcref" url="DisTesterTopComponentWstcref.xml"/>
-            </folder>
             <folder name="editor">
                 <file name="DisPlayerRecorderTopComponent.wstcref" url="DisPlayerRecorderTopComponentWstcref.xml"/>
             </folder>
-            <!-- TODO added but is it needed? -->
-            <folder name="xj3d">
+            <folder name="explorer">
+                <file name="debuggingView.wstcref_hidden"/>
+                <file name="projectTabLogical_tc.wstcref_hidden"/>
+                <file name="projectTab_tc.wstcref_hidden"/>
+                <file name="services.wstcref_hidden"/>
+            </folder>
+            <folder name="navigator">
+                <file name="navigatorTC.wstcref" url="navigatorTC.wstcref"/>
                 <file name="Xj3dTopComponent.wstcref" url="Xj3dTopComponentWstcref.xml"/>
             </folder>
-            <folder name="navigator"/>
+            <folder name="properties">
+                <file name="DisTesterTopComponent.wstcref" url="DisTesterTopComponentWstcref.xml"/>
+            </folder>
+            <file name="navigator.wsmode" url="navigator.wsmode"/>
             <file name="xj3dview.wsmode" url="xj3dviewWsmode.xml"/>
         </folder>
     </folder>
