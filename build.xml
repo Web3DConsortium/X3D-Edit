@@ -54,11 +54,34 @@
         <property name="mac_runarguments"  value="${common.xj3d.args} ${xj3darg8} ${xj3darg9} ${xj3darg10} ${xj3darg11} ${xj3darg14}"/>
     </target>
     
+    <!-- override build to add update branding -->
+    <target name="build" depends="build-brand,suite.build"/>
+    <target name="build-brand" depends="-init">
+        
+        <tstamp>
+            <!--<format property="TODAY" pattern="MMMM dd, YYYY hh:mm aa"/>-->
+            <format property="TODAY" pattern="yyyyMMdd-HH:mm:ss.SSS" timezone="GMT" unit="hour" offset="-8"/>
+            <format property="BUILD" pattern="YYYYMMdd" />
+	</tstamp>
+        
+        <propertyfile file="${basedir}/branding/core/core.jar/org/netbeans/core/startup/Bundle.properties" 
+                      comment="Updated by build script">
+            <entry key="currentVersion" value="${app.title} - ${TODAY} ${TSTAMP}" />
+        </propertyfile>
+ 
+        <propertyfile file="${basedir}/branding/modules/org-netbeans-core-windows.jar/org/netbeans/core/windows/view/ui/Bundle.properties"
+                      comment="Updated by build script">
+            <entry key="CTL_MainWindow_Title" value="${app.title} - ${BUILD}" />
+            <entry key="CTL_MainWindow_Title_No_Project" value="${app.title} - ${BUILD}" />
+        </propertyfile>
+        
+    </target>
+    
     <!-- Override initializing the app before running -->
     <target name="run" depends="platformInitialize,suite.run" description="Runs X3D-Edit"/>
     
     <!-- Override building the app before running -->
-    <target name="quick.run" depends="platformInitialize,branding,release,-hide-excluded-modules,-jdk-init"
+    <target name="quick.run" depends="platformInitialize,branding,-jdk-init"
             description="Runs X3D-Edit without building">
         <ant antfile="${harness.dir}/run.xml" target="run">
             <reference refid="cluster.path.id"/>
