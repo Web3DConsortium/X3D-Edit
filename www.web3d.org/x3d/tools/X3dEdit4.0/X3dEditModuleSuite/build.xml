@@ -59,8 +59,8 @@
     <target name="build-brand" depends="-init">
         
         <tstamp>
-            <!--<format property="TODAY" pattern="MMMM dd, YYYY hh:mm aa"/>-->
-            <format property="TODAY" pattern="yyyyMMdd-HH:mm:ss.SSS" timezone="GMT" unit="hour" offset="-8"/>
+            <!-- Good format example here: http://comp-phil.blogspot.com/2010/10/how-to-format-date-and-time-in-ant.html -->
+            <format property="TODAY" pattern="EEE, MMM dd, yyyy hh:mm:ss a z"/>
             <format property="BUILD" pattern="YYYYMMdd" />
 	</tstamp>
         
@@ -71,8 +71,8 @@
  
         <propertyfile file="${basedir}/branding/modules/org-netbeans-core-windows.jar/org/netbeans/core/windows/view/ui/Bundle.properties"
                       comment="Updated by build script">
-            <entry key="CTL_MainWindow_Title" value="${app.title} - ${BUILD}" />
-            <entry key="CTL_MainWindow_Title_No_Project" value="${app.title} - ${BUILD}" />
+            <entry key="CTL_MainWindow_Title" value="${app.title} - Build ${BUILD}" />
+            <entry key="CTL_MainWindow_Title_No_Project" value="${app.title} - Build ${BUILD}" />
         </propertyfile>
         
     </target>
