@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -613,7 +613,7 @@ public abstract class BaseCustomizer extends JPanel
 //        // TODO test: initialize open so that initial panel sizing occurs correctly
 //        setHtmlPaneVisibility (true); 
 //             
-//        // http://stackoverflow.com/questions/10904639/how-to-refresh-the-jcombobox-data
+//        // https://stackoverflow.com/questions/10904639/how-to-refresh-the-jcombobox-data
 //        // https://stackoverflow.com/questions/15242692/java-swing-gridbaglayout-panel-resize-issues
 ////                       this.revalidate();
 ////                       this.repaint();

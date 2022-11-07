@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -124,7 +124,7 @@ public final class NewX3dScriptJavaAction extends CallableSystemAction
   protected String iconResource()
   {
       return "org/web3d/x3d/resources/JavaCup.png";
-    // alternate Java logo from http://www.java.com/en/about/brand/buttons/   org/web3d/x3d/resources/java_get_powered_sm.jpg
+    // alternate Java logo from https://www.java.com/en/about/brand/buttons/   org/web3d/x3d/resources/java_get_powered_sm.jpg
   }
   
   @Override

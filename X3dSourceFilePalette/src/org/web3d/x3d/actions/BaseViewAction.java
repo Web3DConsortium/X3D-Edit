@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -58,8 +58,8 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String CONFORMEXAMPLESURL                   ="https://www.web3d.org/x3d/content/examples/ConformanceNist";
   public final static String HANIMEXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/HumanoidAnimation";
   public final static String VRMLEXAMPLESURL                      ="https://www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook";
-  public final static String X3D4WA_EXAMPLESURL                   ="http://www.x3dGraphics.com/examples/X3dForWebAuthors";
-  public final static String X3D4AM_EXAMPLESURL                   ="http://www.x3dGraphics.com/examples/X3dForAdvancedModeling";
+  public final static String X3D4WA_EXAMPLESURL                   ="https://www.x3dGraphics.com/examples/X3dForWebAuthors";
+  public final static String X3D4AM_EXAMPLESURL                   ="https://www.x3dGraphics.com/examples/X3dForAdvancedModeling";
   public final static String SAVAGEEXAMPLESURL                    ="https://savage.nps.edu/Savage";
   public final static String SAVAGEDEFENSEEXAMPLESURL             ="https://SavageDefense.nps.navy.mil/SavageDefense";
   public final static String X3DSECURITYREADME                    ="https://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html";

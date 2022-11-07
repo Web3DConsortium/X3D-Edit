@@ -13,7 +13,7 @@
 *       distribution.
 *  * Neither the names of the Naval Postgraduate School (NPS)
 *       Modeling Virtual Environments and Simulation (MOVES) Institute
-*       (http://www.nps.edu and https://MovesInstitute.nps.edu)
+*       (https://www.nps.edu and https://MovesInstitute.nps.edu)
 *       nor the names of its contributors may be used to endorse or
 *       promote products derived from this software without specific
 *       prior written permission.
@@ -35,7 +35,7 @@ package org.web3d.x3d;
 
 /*
  * PixelTextureGenerator.java
- * http://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/PixelTextureGenerator.java
+ * https://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/PixelTextureGenerator.java
  *
  * Created on June 10, 2004, 12:24 AM
  * Modified on June 17, 2004, 1:46 AM
@@ -54,8 +54,8 @@ import java.io.*;
  * @author  Louis Gutierrez
  * @author  Don Brutzman
  * References:
- * http://java.sun.com/j2se/1.4.2/docs/api/java/awt/image/PixelGrabber.html
- * http://www.geocities.com/marcoschmidt.geo/java-image-file-code-examples.html
+ * https://java.sun.com/j2se/1.4.2/docs/api/java/awt/image/PixelGrabber.html
+ * https://www.geocities.com/marcoschmidt.geo/java-image-file-code-examples.html
  */
 
 public class PixelTextureGenerator extends Frame
@@ -278,7 +278,7 @@ public class PixelTextureGenerator extends Frame
             // final DOCTYPE
             out.write("<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D 3.3//EN\" \"https://www.web3d.org/specifications/x3d-3.3.dtd\">\n");
             out.write("<X3D version='3.3' profile='Interactive'\n");
-            out.write("  xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>\n");
+            out.write("  xmlns:xsd='https://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>\n");
             out.write("  <head>\n");
             out.write("    <meta content='" + outputFileName + "' name='title'/>\n");
             out.write("    <meta content='" + imageFilename + "' name='image'/>\n");
@@ -299,9 +299,9 @@ public class PixelTextureGenerator extends Frame
             out.write("    <meta content='*enter subject keywords here*' name='subject'/>\n");
             out.write("    <meta content='*enter permission statements or url here*' name='permissions'/>\n");
             out.write("    <meta content='*insert any known warnings, bugs or errors here*' name='warning'/>\n");
-            out.write("    <meta content='http://*enter online url address for this file here*/" + outputFileName + "' name='identifier'/>\n");
-            out.write("    <meta content='http://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/PixelTextureGenerator.java' name='generator'/>\n");
-            out.write("    <meta content='http://java.sun.com/j2se/1.4.2/docs/api/java/awt/image/PixelGrabber.html' name='reference'/>\n");
+            out.write("    <meta content='https://*enter online url address for this file here*/" + outputFileName + "' name='identifier'/>\n");
+            out.write("    <meta content='https://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/PixelTextureGenerator.java' name='generator'/>\n");
+            out.write("    <meta content='https://java.sun.com/j2se/1.4.2/docs/api/java/awt/image/PixelGrabber.html' name='reference'/>\n");
             out.write("    <meta content='https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/fieldsDef.html#SFImage' name='reference'/>\n");
             out.write("    <meta content='https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/texturing.html#Texturecoordinates' name='reference'/>\n");
             out.write("    <meta content='https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/texturing.html#PixelTexture' name='reference'/>\n");

@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -66,9 +66,9 @@ public class PROTOTYPE_HeadsUpDisplay extends SceneGraphStructureNodeType
             "    <ExternProtoDeclare name='HeadsUpDisplay'\n" +
             "        appinfo='Heads-up display (HUD) keeps child geometry aligned on screen in a consistent location'\n" +
             "        url='\"../../../X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay\"\n" +
-            "             \"http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay\"\n" +
+            "             \"https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay\"\n" +
             "             \"../../../X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay\"\n" +
-            "             \"http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay\"'>\n" +
+            "             \"https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay\"'>\n" +
             "      <field accessType='inputOutput' appinfo='X3D content positioned at HUD offset' name='children' type='MFNode'/>\n" +
             "      <field accessType='inputOutput' appinfo='offset position for HUD relative to current view location, default 0 0 -5' name='screenOffset' type='SFVec3f'/>\n" +
             "      <field accessType='outputOnly' appinfo='HUD position update (in world coordinates) relative to original location' name='position_changed' type='SFVec3f'/>\n" +

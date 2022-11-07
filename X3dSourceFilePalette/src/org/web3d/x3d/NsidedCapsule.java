@@ -13,7 +13,7 @@ in the documentation and/or other materials provided with the
 distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
 Modeling Virtual Environments and Simulation (MOVES) Institute
-(http://www.nps.edu and https://MovesInstitute.nps.edu)
+(https://www.nps.edu and https://MovesInstitute.nps.edu)
 nor the names of its contributors may be used to endorse or
 promote products derived from this software without specific
 prior written permission.
@@ -38,8 +38,8 @@ POSSIBILITY OF SUCH DAMAGE.
  * @author      Don Brutzman
  * Identifier:  NsidedCapsule.java
  * Created:     1 November 2014
- * Reference:   http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.x3d 
- * Reference:   http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.js
+ * Reference:   https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.x3d 
+ * Reference:   https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.js
  */
 
 package org.web3d.x3d;

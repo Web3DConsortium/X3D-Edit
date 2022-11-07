@@ -11,7 +11,7 @@ in the documentation and/or other materials provided with the
 distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
 Modeling Virtual Environments and Simulation (MOVES) Institute
-(http://www.nps.edu and https://MovesInstitute.nps.edu)
+(https://www.nps.edu and https://MovesInstitute.nps.edu)
 nor the names of its contributors may be used to endorse or
 promote products derived from this software without specific
 prior written permission.
@@ -109,7 +109,7 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
     setData(tupleSize, numTuples, numKeys, unparsedKeys, unparsedTuples);
     setSpecialRenderers();
 
-    // http://edroidx.blogspot.com/2010/12/jcombobox-text-alignment.html
+    // https://edroidx.blogspot.com/2010/12/jcombobox-text-alignment.html
     DefaultListCellRenderer dlcr = new DefaultListCellRenderer();
     dlcr.setHorizontalAlignment(DefaultListCellRenderer.RIGHT);
     operationComboBox.setRenderer(dlcr);

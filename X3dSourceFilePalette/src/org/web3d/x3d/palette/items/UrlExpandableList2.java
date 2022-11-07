@@ -13,7 +13,7 @@ in the documentation and/or other materials provided with the
 distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
 Modeling Virtual Environments and Simulation (MOVES) Institute
-(http://www.nps.edu and https://MovesInstitute.nps.edu)
+(https://www.nps.edu and https://MovesInstitute.nps.edu)
 nor the names of its contributors may be used to endorse or
 promote products derived from this software without specific
 prior written permission.
@@ -1342,49 +1342,49 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
          {
              if (isOnlineUrl(url))
              {
-                 launchInBrowser("http://validator.w3.org/unicorn/?ucn_uri=" + url); // #validate-by-uri
-                 launchInBrowser("http://validator.w3.org/nu/?doc=" + url);
+                 launchInBrowser("https://validator.w3.org/unicorn/?ucn_uri=" + url); // #validate-by-uri
+                 launchInBrowser("https://validator.w3.org/nu/?doc=" + url);
              }
              else 
              {
                  DialogDisplayer.getDefault().notify(descriptor);
-                 launchInBrowser("http://validator.w3.org/unicorn/#validate-by-upload+task_conformance"); // ?ucn_uri=" + url);
+                 launchInBrowser("https://validator.w3.org/unicorn/#validate-by-upload+task_conformance"); // ?ucn_uri=" + url);
                  // TODO consider embedding nu.jar for local service
                  // TODO improve invocation if possible.
-                 launchInBrowser("http://validator.w3.org/nu/?doc=" + url);
+                 launchInBrowser("https://validator.w3.org/nu/?doc=" + url);
              }
          }
          // ============================================================================================================
          else if  (url.endsWith(".svg") || url.endsWith(".xml")) // includes MathML which uses .xml file extension
          {
              if (isOnlineUrl(url))
-                 launchInBrowser("http://validator.w3.org/unicorn/?ucn_uri=" + url); // #validate-by-uri
+                 launchInBrowser("https://validator.w3.org/unicorn/?ucn_uri=" + url); // #validate-by-uri
              else 
              {
                  DialogDisplayer.getDefault().notify(descriptor);
-                 launchInBrowser("http://validator.w3.org/unicorn/#validate-by-upload+task_conformance"); // ?ucn_uri=" + url);
+                 launchInBrowser("https://validator.w3.org/unicorn/#validate-by-upload+task_conformance"); // ?ucn_uri=" + url);
              }
          }
          // ============================================================================================================
          else if  (url.endsWith(".mml")) // MathML
          {
              if (isOnlineUrl(url))
-                 launchInBrowser("http://validator.w3.org/#validate_by_uri=" + url); // #validate-by-uri
+                 launchInBrowser("https://validator.w3.org/#validate_by_uri=" + url); // #validate-by-uri
              else 
              {
                  DialogDisplayer.getDefault().notify(descriptor);
-                 launchInBrowser("http://validator.w3.org/#validate_by_upload"); // ?ucn_uri=" + url);
+                 launchInBrowser("https://validator.w3.org/#validate_by_upload"); // ?ucn_uri=" + url);
              }
          }
          // ============================================================================================================
          else if  (url.endsWith(".css")) // should also work in Unicorn
          {
              if (isOnlineUrl(url))
-                 launchInBrowser("http://jigsaw.w3.org/css-validator/?uri="    + url); //#validate_by_uri
+                 launchInBrowser("https://jigsaw.w3.org/css-validator/?uri="    + url); //#validate_by_uri
              else 
              {
                  DialogDisplayer.getDefault().notify(descriptor);
-                 launchInBrowser("http://jigsaw.w3.org/css-validator/#validate_by_upload"); // ?uri=" + url);
+                 launchInBrowser("https://jigsaw.w3.org/css-validator/#validate_by_upload"); // ?uri=" + url);
              }
          }
          // ============================================================================================================
@@ -1395,21 +1395,21 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
               "<html><p align='center'>Once connected to validator website, enter url address or use chooser to select your file.</p><p align='center'>(Browsers require user selection of files as a security precaution.)", NotifyDescriptor.INFORMATION_MESSAGE);
 
             DialogDisplayer.getDefault().notify(descriptor);
-            launchInBrowser("http://www.jslint.com");
+            launchInBrowser("https://www.jslint.com");
          }
          // ============================================================================================================
          else if  (isImageSupportedExtension(extension) || isImageAlternateExtension(extension))
          {
-            if (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("ftp://") || url.startsWith("sftp://"))
+            if (url.startsWith("https://") || url.startsWith("https://") || url.startsWith("ftp://") || url.startsWith("sftp://"))
             {
-                launchInBrowser("http://www.w3.org/services/imageinfo?uri=" + url);
+                launchInBrowser("https://www.w3.org/services/imageinfo?uri=" + url);
             }
             else 
             {
                 descriptor = new NotifyDescriptor.Message(
                         "<html><p align='center'>W3C Image Info service only works with online url addresses.</p>");
                 DialogDisplayer.getDefault().notify(descriptor);
-                launchInBrowser("http://www.w3.org/services/imageinfo");
+                launchInBrowser("https://www.w3.org/services/imageinfo");
                 return false; // no action taken
             }
          }
@@ -1427,7 +1427,7 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         
          // TODO pdf
         
-         // TODO mailto url validation using regex http://www.regular-expressions.info/index.html
+         // TODO mailto url validation using regex https://www.regular-expressions.info/index.html
          
          // ============================================================================================================
         
@@ -1436,14 +1436,14 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private void whoisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whoisButtonActionPerformed
         String host = getHost(urlJList.getSelectedValue());
         if (host.length() > 4)
-            launchInBrowser("http://www.networksolutions.com/whois/results.jsp?domain=" + host);
+            launchInBrowser("https://www.networksolutions.com/whois/results.jsp?domain=" + host);
     }//GEN-LAST:event_whoisButtonActionPerformed
 
     private void pingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pingButtonActionPerformed
         // similarly implemented in UrlExpandableList2 and METACustomizer, keep these code blocks consistent
         String host = getHost(urlJList.getSelectedValue());
         if (host.length() > 4)
-            launchInBrowser("http://centralops.net/co/Ping.aspx?addr=" + host);
+            launchInBrowser("https://centralops.net/co/Ping.aspx?addr=" + host);
     }//GEN-LAST:event_pingButtonActionPerformed
 
     private void domainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_domainButtonActionPerformed
@@ -1455,9 +1455,9 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             if (url.contains("https://") || url.contains("sftp://"))  // check https certificate
             {
                
-                launchInBrowser("http://www.digicert.com/help?host=" + host);
+                launchInBrowser("https://www.digicert.com/help?host=" + host);
             }
-            launchInBrowser("http://centralops.net/co/DomainDossier.aspx?addr=" + host +
+            launchInBrowser("https://centralops.net/co/DomainDossier.aspx?addr=" + host +
                             "&dom_whois=true&dom_dns=true&traceroute=true&net_whois=true&svc_scan=true");
         }
     }//GEN-LAST:event_domainButtonActionPerformed

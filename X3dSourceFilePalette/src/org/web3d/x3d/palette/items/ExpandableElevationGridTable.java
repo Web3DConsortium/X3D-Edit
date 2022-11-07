@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -111,7 +111,7 @@ public class ExpandableElevationGridTable extends javax.swing.JPanel implements 
     
     setData(numColumns, numRows, unparsednumbers);
 
-    // http://edroidx.blogspot.com/2010/12/jcombobox-text-alignment.html
+    // https://edroidx.blogspot.com/2010/12/jcombobox-text-alignment.html
     DefaultListCellRenderer dlcr = new DefaultListCellRenderer();
     dlcr.setHorizontalAlignment(DefaultListCellRenderer.RIGHT);
     operationComboBox.setRenderer(dlcr);
@@ -276,8 +276,8 @@ public class ExpandableElevationGridTable extends javax.swing.JPanel implements 
         dataTableScrollPane = new javax.swing.JScrollPane();
         jTable = new JTable(new javax.swing.table.DefaultTableModel())
         // custom JTable creation code for tooltip generation, adapted from
-        // http://download.oracle.com/javase/tutorial/uiswing/components/table.html#celltooltip
-        // http://download.oracle.com/javase/tutorial/uiswing/examples/components/TableToolTipsDemoProject/src/components/TableToolTipsDemo.java
+        // https://download.oracle.com/javase/tutorial/uiswing/components/table.html#celltooltip
+        // https://download.oracle.com/javase/tutorial/uiswing/examples/components/TableToolTipsDemoProject/src/components/TableToolTipsDemo.java
         {
             /**
             * Implement custom table cell tool tips

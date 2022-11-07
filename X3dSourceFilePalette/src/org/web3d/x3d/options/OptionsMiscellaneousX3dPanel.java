@@ -6295,7 +6295,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(10, 40, 3, 3);
         securityPanel.add(examplesLabel, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(X3dSecurityPageLaunchButton, "http://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html");
+        org.openide.awt.Mnemonics.setLocalizedText(X3dSecurityPageLaunchButton, "https://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html");
         X3dSecurityPageLaunchButton.setToolTipText("X3D Security Examples show how to apply XML Encryption and Authentication to X3D scenes");
         X3dSecurityPageLaunchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

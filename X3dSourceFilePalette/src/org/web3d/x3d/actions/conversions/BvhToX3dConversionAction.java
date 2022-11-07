@@ -13,7 +13,7 @@
 *       distribution.
 *  * Neither the names of the Naval Postgraduate School (NPS)
 *       Modeling Virtual Environments and Simulation (MOVES) Institute
-*       (http://www.nps.edu and https://MovesInstitute.nps.edu)
+*       (https://www.nps.edu and https://MovesInstitute.nps.edu)
 *       nor the names of its contributors may be used to endorse or
 *       promote products derived from this software without specific
 *       prior written permission.
@@ -691,7 +691,7 @@ public final class BvhToX3dConversionAction extends CallableSystemAction
    * Test if string is numeric
    * @param value string of interest
    * @return whether string is a numeric value or not
-   * @see http://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
+   * @see https://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
    */
   public static boolean isNumeric(String value)  
 {  

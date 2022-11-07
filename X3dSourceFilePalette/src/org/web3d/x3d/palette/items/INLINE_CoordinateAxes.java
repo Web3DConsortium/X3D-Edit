@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -67,11 +67,11 @@ public class INLINE_CoordinateAxes extends SceneGraphStructureNodeType
             "       <Inline DEF='CoordinateAxes' url='\n" +
             "          \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\"\n" +
             "          \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\"\n" +
-            "          \"http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\"\n" +
+            "          \"https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\"\n" +
             "          \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\"\n" +
             "          \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\"\n" +
             "          \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\"\n" +
-            "          \"http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\"\n" +
+            "          \"https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\"\n" +
             "          \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n" +
             "    </Transform>\n";
   }

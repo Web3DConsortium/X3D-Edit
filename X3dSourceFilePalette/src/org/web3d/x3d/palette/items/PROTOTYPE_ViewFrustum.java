@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -73,9 +73,9 @@ public class PROTOTYPE_ViewFrustum extends SceneGraphStructureNodeType
             "    <ExternProtoDeclare name='ViewFrustum'\n" +
             "        appinfo='Display view frustum associated with a given pair of Viewpoint NavigationInfo nodes'\n" +
             "        url='\"../../../X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.x3d#ViewFrustum\"\n" +
-            "             \"http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.x3d#ViewFrustum\"\n" +
+            "             \"https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.x3d#ViewFrustum\"\n" +
             "             \"../../../X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.wrl#ViewFrustum\"\n" +
-            "             \"http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.wrl#ViewFrustum\"'>\n" +
+            "             \"https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.wrl#ViewFrustum\"'>\n" +
             "      <field name='ViewpointNode' type='SFNode' accessType='initializeOnly' appinfo='required: insert Viewpoint DEF or USE node for view of interest'/>\n" +
             "      <field name='NavigationInfoNode' type='SFNode' accessType='initializeOnly' appinfo='required: insert NavigationInfo DEF or USE node of interest'/>\n" +
             "      <field name='visible' type='SFBool' accessType='inputOutput' appinfo='whether or not frustum geometry is rendered'/>\n" +

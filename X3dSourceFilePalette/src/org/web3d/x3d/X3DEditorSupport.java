@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -90,7 +90,7 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
         setMIMEType("model/x3d+xml"); // NOI18N
     }
 
-    // Taken from: http://bits.netbeans.org/7.4/javadoc/org-openide-text/apichanges.html#CloneableEditorSupport.asynchronousOpen
+    // Taken from: https://bits.netbeans.org/7.4/javadoc/org-openide-text/apichanges.html#CloneableEditorSupport.asynchronousOpen
     @Override
     protected boolean asynchronousOpen() {
         boolean retVal = super.asynchronousOpen(); // default false

@@ -16,7 +16,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -34,9 +34,9 @@ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 -->
-<!--http://platform.netbeans.org/tutorials/nbm-google.html-->
+<!--https://platform.netbeans.org/tutorials/nbm-google.html-->
 <!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
-<!-- Netbeans documentation at http://bits.netbeans.org/dev/javadoc/org-openide-filesystems/index.html?org/openide/filesystems/XMLFileSystem.html -->
+<!-- Netbeans documentation at https://bits.netbeans.org/dev/javadoc/org-openide-filesystems/index.html?org/openide/filesystems/XMLFileSystem.html -->
 <filesystem>
 
     <!-- define the actions for this application -->

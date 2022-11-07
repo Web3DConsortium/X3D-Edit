@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -47,7 +47,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 //    itemid = "4_X3D",
 //    icon32 = "org/web3d/x3d/palette/items/resources/X3D32.png",
 //    icon16 = "org/web3d/x3d/palette/items/resources/X3D16.png",
-//    body = "<X3D profile='Immersive' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>\n  <head>\n    <!-- add scene-information statements here: component unit meta, in that order -->\n  </head>\n  <Scene>\n    <!-- enter X3D nodes and statements here -->\n  </Scene>\n</X3D>",
+//    body = "<X3D profile='Immersive' version='4.0' xmlns:xsd='https://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>\n  <head>\n    <!-- add scene-information statements here: component unit meta, in that order -->\n  </head>\n  <Scene>\n    <!-- enter X3D nodes and statements here -->\n  </Scene>\n</X3D>",
 //    name = "X3D",
 //    tooltip = "X3D statement is top-most XML element in an Extensible 3D (X3D) Graphics model"
 //)

@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -103,7 +103,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
                              Float.parseFloat(colorField.substring(index1+1,index2)),
                              Float.parseFloat(colorField.substring(index2+1)));
         jointColorChooser.setColor(c);
-        // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
+        // https://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         jointColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
         
         colorField = segmentColorTextField.getText(); // 3-tuple floats [0..1]
@@ -113,7 +113,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
                        Float.parseFloat(colorField.substring(index1+1,index2)),
                        Float.parseFloat(colorField.substring(index2+1)));
         segmentColorChooser.setColor(c);
-        // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
+        // https://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         segmentColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
         
         colorField = siteColorTextField.getText(); // 3-tuple floats [0..1]
@@ -123,7 +123,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
                        Float.parseFloat(colorField.substring(index1+1,index2)),
                        Float.parseFloat(colorField.substring(index2+1)));
         siteColorChooser.setColor(c);
-        // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
+        // https://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         siteColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
         
         colorField = viewpointColorTextField.getText(); // 3-tuple floats [0..1]
@@ -133,7 +133,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
                        Float.parseFloat(colorField.substring(index1+1,index2)),
                        Float.parseFloat(colorField.substring(index2+1)));
         viewpointColorChooser.setColor(c);
-        // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
+        // https://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         viewpointColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
     }
 
@@ -898,7 +898,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
                              Float.parseFloat(colorField.substring(index1+1,index2)),
                              Float.parseFloat(colorField.substring(index2+1)));
         jointColorChooser.setColor(c);
-        // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
+        // https://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         jointColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
     }//GEN-LAST:event_jointColorTextFieldActionPerformed
 
@@ -960,7 +960,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         float green = (c.getGreen() / 255.0f);
         float blue  = (c.getBlue()  / 255.0f);
         jointColorTextField.setText(red + " " + green + " " + blue);
-        // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
+        // https://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         jointColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
     }//GEN-LAST:event_jointColorChooserActionPerformed
 
@@ -982,7 +982,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         float green = (c.getGreen() / 255.0f);
         float blue  = (c.getBlue()  / 255.0f);
         segmentColorTextField.setText(red + " " + green + " " + blue);
-        // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
+        // https://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         segmentColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
     }//GEN-LAST:event_segmentColorChooserActionPerformed
 
@@ -1004,7 +1004,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         float green = (c.getGreen() / 255.0f);
         float blue  = (c.getBlue()  / 255.0f);
         siteColorTextField.setText(red + " " + green + " " + blue);
-        // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
+        // https://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         siteColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
     }//GEN-LAST:event_siteColorChooserActionPerformed
 
@@ -1026,7 +1026,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         float green = (c.getGreen() / 255.0f);
         float blue  = (c.getBlue()  / 255.0f);
         viewpointColorTextField.setText(red + " " + green + " " + blue);
-        // http://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
+        // https://stackoverflow.com/questions/3607858/how-to-convert-a-rgb-color-value-to-an-hexadecimal-value-in-java
         viewpointColorHexTextField.setText(String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue()));
     }//GEN-LAST:event_viewpointColorChooserActionPerformed
 

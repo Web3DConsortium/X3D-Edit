@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -671,7 +671,7 @@ public class FONTSTYLECustomizer extends BaseCustomizer
     }//GEN-LAST:event_minorJustifyComboActionPerformed
 
     private void countryCodesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryCodesButtonActionPerformed
-        urlExpandableList.launchInBrowser("http://www.loc.gov/standards/iso639-2/php/code_list.php");
+        urlExpandableList.launchInBrowser("https://www.loc.gov/standards/iso639-2/php/code_list.php");
     }//GEN-LAST:event_countryCodesButtonActionPerformed
   
   

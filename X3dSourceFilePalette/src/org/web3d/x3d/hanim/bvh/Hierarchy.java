@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -200,7 +200,7 @@ public class Hierarchy extends BvhSkeletonParameters
         
         outputX3DHead.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>").append("\n");
         outputX3DHead.append("<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D ").append(getVersion()).append("//EN\" \"https://www.web3d.org/specifications/x3d-").append(getVersion()).append(".dtd\">").append("\n");
-        outputX3DHead.append("<X3D profile='Immersive' version='").append(getVersion()).append("' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-").append(getVersion()).append(".xsd'>").append("\n");
+        outputX3DHead.append("<X3D profile='Immersive' version='").append(getVersion()).append("' xmlns:xsd='https://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-").append(getVersion()).append(".xsd'>").append("\n");
         outputX3DHead.append("  <head>").append("\n");
         outputX3DHead.append("    <component level='3' name='HAnim'/>").append("\n"); // level 3 for HAnimMotion node, HAnim is proper value for X3D4 profile
         outputX3DHead.append("    <meta content='").append(getModelName()).append(".x3d' name='title'/>").append("\n");
@@ -226,7 +226,7 @@ public class Hierarchy extends BvhSkeletonParameters
         outputX3DHead.append("    <meta content='*enter subject keywords here*' name='subject'/>").append("\n");
         outputX3DHead.append("    <meta content='*enter permission statements or url here*' name='accessRights'/>").append("\n");
         outputX3DHead.append("    <meta content='*insert any known warnings, bugs or errors here*' name='warning'/>").append("\n");
-        outputX3DHead.append("    <!-- Additional authoring resources for meta-tags: http://www.dublincore.org/documents/dcmi-terms http://www.dublincore.org/documents/dces http://www.w3.org/TR/html4/struct/global.html#h-7.4.4 http://vancouver-webpages.com/META http://vancouver-webpages.com/META/about-mk-metas2.html Additional authoring resources for language codes: http://www.rfc-editor.org/rfc/bcp/bcp47.txt http://www.loc.gov/standards/iso639-2/langhome.html http://www.iana.org/numbers.html#L -->").append("\n");
+        outputX3DHead.append("    <!-- Additional authoring resources for meta-tags: https://www.dublincore.org/documents/dcmi-terms https://www.dublincore.org/documents/dces https://www.w3.org/TR/html4/struct/global.html#h-7.4.4 https://vancouver-webpages.com/META https://vancouver-webpages.com/META/about-mk-metas2.html Additional authoring resources for language codes: https://www.rfc-editor.org/rfc/bcp/bcp47.txt https://www.loc.gov/standards/iso639-2/langhome.html https://www.iana.org/numbers.html#L -->").append("\n");
         }
         outputX3DHead.append("    <meta content='"             ).append(filename.replace(".x3d","")).append(".bvh' name='reference'/>").append("\n");
         outputX3DHead.append("    <meta content='https://TODO/");
@@ -954,7 +954,7 @@ public class Hierarchy extends BvhSkeletonParameters
 	}
 	/**
 	 * Test getAxisAngleRotation (phi, theta, psi) with test values from RotationTests.x3d
-	 * @see http://X3dGraphics.com/examples/X3dForAdvancedModeling/HumanoidAnimation/RotationTestsIndex.html
+	 * @see https://X3dGraphics.com/examples/X3dForAdvancedModeling/HumanoidAnimation/RotationTestsIndex.html
 	 * @return String result suitable for output
 	 */
 	private String testAxisAngleRotation()
