@@ -52,7 +52,8 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.items.NodeListPanel;
 
 @ActionID(id = "org.web3d.x3d.WrapElementAction", category = "Edit")
-@ActionRegistration(displayName = "#CTL_WrapElementAction", 
+@ActionRegistration(iconBase = "org/web3d/x3d/palette/items/resources/XML16.png",
+                    displayName = "#CTL_WrapElementAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered)
 @ActionReferences( value = {
   @ActionReference(path = "Menu/X3D-Edit/Edit Element XML", position = 780),

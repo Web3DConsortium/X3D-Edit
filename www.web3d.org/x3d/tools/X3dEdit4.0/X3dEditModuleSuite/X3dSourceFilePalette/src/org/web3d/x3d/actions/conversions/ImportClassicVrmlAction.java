@@ -43,7 +43,8 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ImportClassicVrmlAction", category = "File")
-@ActionRegistration(displayName = "#CTL_ImportClassicVrmlAction", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xj3d.png",
+                    displayName = "#CTL_ImportClassicVrmlAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Import X3D Model from File", position = 200),

@@ -44,12 +44,14 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 
 @ActionID(id = "org.web3d.x3d.actions.qualityassurance.Xj3dErrorTestsAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_Xj3dErrorTestsAction", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xj3d.png",
+                    displayName = "#CTL_Xj3dErrorTestsAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 600),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 600),
 })
+@NbBundle.Messages("CTL_Xj3dErrorTestsAction=- Xj3D loader error tests")
 
 public final class Xj3dErrorTestsAction extends CallableSystemAction
 {

@@ -46,10 +46,12 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_TWITTER;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumTwitterAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchWeb3DConsortiumTwitterAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/twitter.2.16x16.png",
+                    displayName = "#CTL_LaunchWeb3DConsortiumTwitterAction", 
+                            lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Outreach", position = 600),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Outreach", position = 600)
+  @ActionReference(path = "Menu/X3D-Edit/Web3D Outreach", position = 600),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Outreach", position = 600)
 })
 
 public final class LaunchWeb3DConsortiumTwitterAction extends CallableSystemAction

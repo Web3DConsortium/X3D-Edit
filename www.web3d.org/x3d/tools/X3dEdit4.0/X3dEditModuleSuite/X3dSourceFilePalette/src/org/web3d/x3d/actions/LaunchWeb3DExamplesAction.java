@@ -46,7 +46,9 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_EXAMPLES;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DExamplesAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchWeb3DExamplesAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/web3d16.png",
+                    displayName = "#CTL_LaunchWeb3DExamplesAction", 
+                            lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Example X3D Model Archives", position = 400),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Example X3D Model Archives", position = 400)

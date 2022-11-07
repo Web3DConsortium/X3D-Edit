@@ -52,7 +52,8 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
 
 @ActionID(id = "org.web3d.x3d.ExpandSelfClosedElementAction", category = "Edit")
-@ActionRegistration(displayName = "#CTL_ExpandSelfClosedElementAction", 
+@ActionRegistration(iconBase = "org/web3d/x3d/palette/items/resources/XML16.png",
+                    displayName = "#CTL_ExpandSelfClosedElementAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered)
 @ActionReference(path = "Editors/model/x3d+xml/Popup/Edit Element XML", position = 775)
 

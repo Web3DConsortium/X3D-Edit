@@ -21,7 +21,8 @@ import org.web3d.x3d.palette.items.NodeListPanel;
 import org.xml.sax.SAXException;
 
 @ActionID(id = "org.web3d.x3d.RenameElementAction", category = "Edit")
-@ActionRegistration(displayName = "#CTL_RenameElementAction", 
+@ActionRegistration(iconBase = "org/web3d/x3d/palette/items/resources/XML16.png",
+                    displayName = "#CTL_RenameElementAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered)
 @ActionReferences( value = {
   @ActionReference(path = "Menu/X3D-Edit/Edit Element XML", position = 750),

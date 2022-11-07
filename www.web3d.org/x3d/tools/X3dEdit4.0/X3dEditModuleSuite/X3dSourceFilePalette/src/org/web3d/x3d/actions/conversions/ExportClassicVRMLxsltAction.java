@@ -57,7 +57,8 @@ import org.web3d.x3d.X3DEditorSupport;
 // is to jam our user catalog into the TransformerFactory every time.  Then we know how to resolve the imports.
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ExportClassicVRMLxsltAction", category = "File")
-@ActionRegistration(displayName = "#CTL_ClassicVRMLxsltAction", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xsl_transformation.png",
+                    displayName = "#CTL_ClassicVRMLxsltAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", position = 200),

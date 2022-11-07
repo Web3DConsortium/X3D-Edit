@@ -45,7 +45,8 @@ import org.web3d.x3d.X3DEditorSupport;
 
 // This is "Export as Vrml97 using XSLT"
 @ActionID(id = "org.web3d.x3d.actions.conversions.ExportVrml97xsltAction", category = "File")
-@ActionRegistration(displayName = "#CTL_Vrml97xsltAction", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xsl_transformation.png",
+                    displayName = "#CTL_Vrml97xsltAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", name = "org-web3d-x3d-actions-conversions-Vrml97xsltAction", position = 150),

@@ -44,7 +44,8 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DEditorSupport;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.SvgExtrusionDiagramAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_SvgExtrusionDiagram", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xsl_transformation.png",
+                    displayName = "#CTL_SvgExtrusionDiagram", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", name = "org-web3d-x3d-actions-conversions-SvgExtrusionDiagram", position = 700),

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -51,7 +51,9 @@ import org.web3d.x3d.actions.conversions.BaseConversionsAction;
 import org.web3d.x3d.tools.X3dValuesRegexChecker;
 
 @ActionID(id = "org.web3d.x3d.actions.qualityassurance.X3dValuesRegexCheckerAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_X3dValuesRegexCheckerAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark.png",
+                    displayName = "#CTL_X3dValuesRegexCheckerAction",
+                            lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 400),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 400),
