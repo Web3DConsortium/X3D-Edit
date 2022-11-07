@@ -36,7 +36,6 @@ package org.web3d.x3d.actions.conversions;
 import java.io.File;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
-import org.openide.filesystems.Repository;
 import org.openide.nodes.Node;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
@@ -89,7 +88,8 @@ public abstract class Xj3DConverterBaseExportAction extends BaseConversionsActio
       return myOutF.getAbsolutePath();
     }
     catch (Throwable t) {
-      ow.println(getConversionExceptionPrefixMessage() + t.getLocalizedMessage());
+        if (ow != null)
+            ow.println(getConversionExceptionPrefixMessage() + t.getLocalizedMessage());
       return null;
     }
   }
