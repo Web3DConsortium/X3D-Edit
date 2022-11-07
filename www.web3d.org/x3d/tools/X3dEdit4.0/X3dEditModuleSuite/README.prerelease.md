@@ -1,4 +1,4 @@
-# X3D-Edit 4.0 Pre-Release, 5 November 2022
+# X3D-Edit 4.0 Pre-Release, 6 November 2022
 
 <!-- posted at https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/ -->
 
