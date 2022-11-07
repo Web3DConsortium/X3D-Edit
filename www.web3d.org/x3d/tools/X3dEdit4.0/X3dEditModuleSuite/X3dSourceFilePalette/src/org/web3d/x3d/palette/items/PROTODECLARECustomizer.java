@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -575,7 +575,7 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
           if (protoDeclare.getAppinfo().length() > 0)
               externProtoDeclare.append(" appinfo='").append(escapeXmlCharacters(protoDeclare.getAppinfo())).append("'");
           // TODO get name of this file, also get http address if it appears in meta tags
-          externProtoDeclare.append(" url='\"Filename.x3d#").append(protoDeclare.getName()).append("\" \"http://some.address.org/Filename.x3d#").append(protoDeclare.getName()).append("\"'");
+          externProtoDeclare.append(" url='\"Filename.x3d#").append(protoDeclare.getName()).append("\" \"https://some.address.org/Filename.x3d#").append(protoDeclare.getName()).append("\"'");
           externProtoDeclare.append(">\n");
 
           for (String[] sa : data)

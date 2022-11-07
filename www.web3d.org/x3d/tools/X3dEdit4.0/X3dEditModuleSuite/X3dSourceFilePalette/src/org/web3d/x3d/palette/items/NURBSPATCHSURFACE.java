@@ -13,7 +13,7 @@ in the documentation and/or other materials provided with the
 distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
 Modeling Virtual Environments and Simulation (MOVES) Institute
-(http://www.nps.edu and https://MovesInstitute.nps.edu)
+(https://www.nps.edu and https://MovesInstitute.nps.edu)
 nor the names of its contributors may be used to endorse or
 promote products derived from this software without specific
 prior written permission.

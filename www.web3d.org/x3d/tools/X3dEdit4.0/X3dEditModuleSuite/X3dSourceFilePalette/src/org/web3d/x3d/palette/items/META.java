@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -74,17 +74,17 @@ public class META extends SceneGraphStructureNodeType
   /** content of value */
   private String contentAttribute;
   /** language code (X3D lang attribute superceding xml:lang, similar to HTML) 
-   * http://www.rfc-editor.org/rfc/bcp/bcp47.txt and described in 
-   * http://www.w3.org/International/articles/language-tags */
+   * https://www.rfc-editor.org/rfc/bcp/bcp47.txt and described in 
+   * https://www.w3.org/International/articles/language-tags */
   private String lang;
   /** direction (ltr or rtl) */
   private String dir;
   /** http-equiv example <meta http-equiv="Expires" content="Tue, 20 Aug 1996 14:25:27 GMT"> 
-   * see http://www.w3.org/TR/html4/struct/global.html#adef-http-equiv */
+   * see https://www.w3.org/TR/html4/struct/global.html#adef-http-equiv */
   private String httpEquivalent;
   /** scheme allows authors to provide user agents more context for the correct interpretation of meta data, 
    * example <META scheme="ISBN"  name="identifier" content="0-8230-2355-9">, 
-   * see http://www.w3.org/TR/html4/struct/global.html#idx-scheme */
+   * see https://www.w3.org/TR/html4/struct/global.html#idx-scheme */
   private String scheme;
 
   public META()

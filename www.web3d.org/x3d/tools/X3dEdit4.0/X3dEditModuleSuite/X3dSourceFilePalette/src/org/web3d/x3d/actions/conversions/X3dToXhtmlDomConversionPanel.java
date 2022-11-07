@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -1037,7 +1037,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             URI uri = new URI(modelRootDirectory);
             String modelPath = uri.getPath();
             
-            String localUrl = "http://localhost:" + portValue + "/" + modelPath;
+            String localUrl = "https://localhost:" + portValue + "/" + modelPath;
             localUrl = localUrl.replaceAll("\\\\","/"); // double escaping for Java character and regex literal
             
             if (pythonHttpProcess != null)
@@ -1175,7 +1175,7 @@ class LocalFileHandler implements HttpHandler {
             // TODO error handling, starting/ending slashes, etc. probably confirm by checking it is a valid URI instance
         }
             
-        String localUrl = "http://localhost:" + portValue + modelRootDirectory;
+        String localUrl = "https://localhost:" + portValue + modelRootDirectory;
         localUrl = localUrl.replaceAll("\\\\","/"); // double escaping for Java character and regex literal
         
         try
@@ -1206,7 +1206,7 @@ class LocalFileHandler implements HttpHandler {
             System.err.println ("*** javaHttpServerButtonActionPerformed() exception " + ioe);
 			ioe.printStackTrace();
         }
-        // http://localhost:8080
+        // https://localhost:8080
         // TODO what about restricting http server to specific directory tree?
         // TODO what about launching browser in initial directory
         // TODO what about ability to kill process?

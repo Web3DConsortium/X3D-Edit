@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -1231,11 +1231,11 @@ public class ORTHOVIEWPOINTCustomizer extends BaseCustomizer
 
     private void recomputeLookatRotationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recomputeLookatRotationButtonActionPerformed
         // axis
-        // reference:  http://en.wikipedia.org/wiki/Cross_product
+        // reference:  https://en.wikipedia.org/wiki/Cross_product
         // a × b = (a2b3 − a3b2) i + (a3b1 − a1b3) j + (a1b2 − a2b1) k = (a2b3 − a3b2, a3b1 − a1b3, a1b2 − a2b1).
 
         // angle
-        // reference:  http://en.wikipedia.org/wiki/Dot_product
+        // reference:  https://en.wikipedia.org/wiki/Dot_product
         // a • b = a1b1 + a2b2 + a3b3
         // a • b = |a| |b| cos(theta)
         // theta = arccos (a • b  / (|a| |b|))

@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -65,9 +65,9 @@ public class PROTOTYPE_WhereAmI extends SceneGraphStructureNodeType
             "    <!-- ==================== -->\n" +
             "    <ExternProtoDeclare name='WhereAmI'\n" +
             "       url='\"../Chapter14Prototypes/WhereAmIPrototype.x3d#WhereAmI\"\n" +
-            "            \"http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmIPrototype.x3d#WhereAmI\"\n" +
+            "            \"https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmIPrototype.x3d#WhereAmI\"\n" +
             "            \"../Chapter14Prototypes/WhereAmIPrototype.wrl#WhereAmI\"\n" +
-            "            \"http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmI.wrl#WhereAmI\"'/>\n" +
+            "            \"https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmI.wrl#WhereAmI\"'/>\n" +
             "    <ProtoInstance name='WhereAmI'/> \n" +
             "    <!-- Only one copy of a given ExternProtoDeclare is needed in a scene. Multiple ProtoInstance nodes can be created like the following: -->\n" +
             "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/WhereAmIExample.x3d -->\n" +

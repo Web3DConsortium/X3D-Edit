@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -329,15 +329,15 @@ public class TEXTCustomizer extends BaseCustomizer
     }//GEN-LAST:event_insertCommasCheckBoxActionPerformed
 
     private void translationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_translationButtonActionPerformed
-        urlExpandableList2.launchInBrowser("http://translate.google.com/#auto/en/" + getStringValue());
+        urlExpandableList2.launchInBrowser("https://translate.google.com/#auto/en/" + getStringValue());
     }//GEN-LAST:event_translationButtonActionPerformed
 
     private void wikipediaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wikipediaButtonActionPerformed
-        urlExpandableList2.launchInBrowser("http://en.wikipedia.org/wiki/" + getStringValue());
+        urlExpandableList2.launchInBrowser("https://en.wikipedia.org/wiki/" + getStringValue());
     }//GEN-LAST:event_wikipediaButtonActionPerformed
 
     private void wiktionaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiktionaryButtonActionPerformed
-        urlExpandableList2.launchInBrowser("http://en.wiktionary.org/wiki/" + getStringValue());
+        urlExpandableList2.launchInBrowser("https://en.wiktionary.org/wiki/" + getStringValue());
     }//GEN-LAST:event_wiktionaryButtonActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables

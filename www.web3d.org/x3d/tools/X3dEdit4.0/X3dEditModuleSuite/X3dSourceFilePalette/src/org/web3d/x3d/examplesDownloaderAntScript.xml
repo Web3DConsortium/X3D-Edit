@@ -74,7 +74,7 @@
     </target>
 
     <target name="X3dForWebAuthors" depends="mkdir">
-        <get src="http://x3dgraphics.com/X3dExamplesX3dForWebAuthors.zip"                     dest="downloads/X3dExamplesX3dForWebAuthors.zip"  verbose="true"/>
+        <get src="https://x3dgraphics.com/X3dExamplesX3dForWebAuthors.zip"                     dest="downloads/X3dExamplesX3dForWebAuthors.zip"  verbose="true"/>
         <unzip            src="downloads/X3dExamplesX3dForWebAuthors.zip"                     dest="${examplesRootDirectory}"  overwrite="true"/>
         <delete          file="downloads/X3dExamplesX3dForWebAuthors.zip" verbose="true"/>
         <echo message="X3D scenes for X3dForWebAuthors example archive are installed in local directory:"/>
@@ -82,7 +82,7 @@
     </target>
 
     <target name="X3dForAdvancedModeling" depends="mkdir">
-        <get src="http://x3dgraphics.com/X3dExamplesX3dForAdvancedModeling.zip"                     dest="downloads/X3dExamplesX3dForAdvancedModeling.zip"  verbose="true"/>
+        <get src="https://x3dgraphics.com/X3dExamplesX3dForAdvancedModeling.zip"                     dest="downloads/X3dExamplesX3dForAdvancedModeling.zip"  verbose="true"/>
         <unzip            src="downloads/X3dExamplesX3dForAdvancedModeling.zip"                     dest="${examplesRootDirectory}"  overwrite="true"/>
         <delete          file="downloads/X3dExamplesX3dForAdvancedModeling.zip" verbose="true"/>
         <echo message="X3D scenes for X3dForAdvancedModeling example archive are installed in local directory:"/>

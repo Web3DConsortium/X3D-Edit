@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -91,7 +91,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
               "<p align='center'>X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Revised &nbsp;<b>" + 
-                    "5 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION 
+                    "6 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION 
                     "</b>" +
 //                    " with issue reports welcome via <a href='" + LaunchEmailReportAction.MAILTO_REPORT_URL + "'>e-mail</a>." +
               "</p>"

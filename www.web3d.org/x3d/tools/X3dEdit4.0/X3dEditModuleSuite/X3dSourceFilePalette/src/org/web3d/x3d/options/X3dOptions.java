@@ -495,17 +495,17 @@ public class X3dOptions
   private static final String downloadSiteContactGeo               = "https://www.bitmanagement.com";
   private static final String downloadSiteFreeWrl                  = "https://sourceforge.net/projects/freewrl"; 
                                                          // versions: https://sourceforge.net/projects/freewrl/files/
-                                                         // formerly "http://www.crc.ca/FreeWRL"; 
+                                                         // formerly "https://www.crc.ca/FreeWRL"; 
                                                          //     also "https://sourceforge.net/projects/freewrl/files/freewrl-win32/3.0/"
   private static final String downloadSiteH3d                      = "https://www.h3dapi.org";
   private static final String downloadSiteHeilan                   = "https://www.niallmoody.com/heilan";
   private static final String downloadSiteInstantReality           = "https://instantreality.org";
   private static final String downloadSitePolyTransNuGraf          = "https://www.okino.com";
   private static final String downloadSiteOctaga                   = "https://www.octagavs.com";
-  private static final String downloadSiteSwirlX3DPlayer           = "http://www.pinecoast.com"; // defunct
+  private static final String downloadSiteSwirlX3DPlayer           = "https://www.pinecoast.com"; // defunct
   private static final String downloadSiteView3dScene              = "https://castle-engine.io/view3dscene.php"; // "https://castle-engine.sourceforge.net";
-  private static final String downloadSiteVivatyPlayer             = "https://www.web3d.org/projects/vivaty-studio"; // http://www.vivaty.com";
-  private static final String downloadSiteXj3D                     = "https://savage.nps.edu/Savage/developers.html#Xj3D"; // "https://sourceforge.net/projects/xj3d"; // "http://www.Xj3D.org";
+  private static final String downloadSiteVivatyPlayer             = "https://www.web3d.org/projects/vivaty-studio"; // https://www.vivaty.com";
+  private static final String downloadSiteXj3D                     = "https://savage.nps.edu/Savage/developers.html#Xj3D"; // "https://sourceforge.net/projects/xj3d"; // "https://www.Xj3D.org";
   private static final String downloadSiteOtherX3dPlayer           = "https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications";
   private static final String downloadSiteAmaya                    = "https://www.w3.org/Amaya";
   private static final String downloadSiteChrome                   = "https://www.google.com/chrome";
@@ -633,16 +633,16 @@ public class X3dOptions
   private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
   private static final String downloadSiteSeamless3d                     = "https://www.seamless3d.com";
-  private static final String downloadSiteItksnap                        = "http://www.itksnap.org"; // https://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
+  private static final String downloadSiteItksnap                        = "https://www.itksnap.org"; // https://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
   private static final String downloadSiteSeg3d                          = "https://www.sci.utah.edu/cibc-software/seg3d.html";
   private static final String downloadSiteSlicer3d                       = "https://www.slicer.org";
   private static final String downloadSiteSvgedit                        = "https://github.com/SVG-Edit"; // https://code.google.com/p/svg-edit";
   private static final String downloadSiteWhiteDune                      = "https://wdune.ourproject.org";
-  private static final String downloadSiteWings3d                        = "http://www.wings3d.com"; // https://www.wings3d.com/?page_id=84";
+  private static final String downloadSiteWings3d                        = "https://www.wings3d.com"; // https://www.wings3d.com/?page_id=84";
   private static final String downloadSiteUltraEdit                      = "https://www.UltraEdit.com";
   
   // no command line options found to hand off the import of an X3D file, TODO provide local help
-  // http://wiki.blender.org/index.php/Doc:2.4/Reference/Command_Line
+  // https://wiki.blender.org/index.php/Doc:2.4/Reference/Command_Line
 
   protected static final String helpSiteAmaya                            = "https://www.w3.org/Amaya/User/Overview.html";
   protected static final String helpSiteAudacity                         = "https://www.audacityteam.org/help/"; // https://audacity.sourceforge.net/help";
@@ -659,12 +659,12 @@ public class X3dOptions
   protected static final String helpSiteParaview                         = "https://www.paraview.org";
   protected static final String helpSitePolyTransNuGraf                  = "https://www.okino.com/nrs/nrs.htm";
   protected static final String helpSiteSeamless3d                       = "https://www.seamless3d.com/faq.html";
-  protected static final String helpSiteItksnap                          = "http://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.SNAP3"; // https://www.itksnap.org/pmwiki/pmwiki.php";
+  protected static final String helpSiteItksnap                          = "https://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.SNAP3"; // https://www.itksnap.org/pmwiki/pmwiki.php";
   protected static final String helpSiteSeg3d                            = "https://www.sci.utah.edu/cibc-software/seg3d.html";
   protected static final String helpSiteSlicer3d                         = "https://www.slicer.org/slicerWiki/index.php/Documentation/Release";
   protected static final String helpSiteSvgedit                          = "https://en.wikipedia.org/wiki/SVG-edit"; // https://code.google.com/p/svg-edit";
   protected static final String helpSiteWhiteDune                        = "https://wdune.ourproject.org/docs";
-  protected static final String helpSiteWings3d                          = "http://www.wings3d.com/?page_id=87";
+  protected static final String helpSiteWings3d                          = "https://www.wings3d.com/?page_id=87";
   protected static final String helpSiteUltraEdit                        = "https://www.ultraedit.com/wiki/Main_Page"; // https://www.UltraEdit.com/help/category/ultraedit-uestudio";
 
   public static String getDownloadSiteContact()        {return downloadSiteContact;}

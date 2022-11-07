@@ -13,7 +13,7 @@ in the documentation and/or other materials provided with the
 distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
 Modeling Virtual Environments and Simulation (MOVES) Institute
-(http://www.nps.edu and https://MovesInstitute.nps.edu)
+(https://www.nps.edu and https://MovesInstitute.nps.edu)
 nor the names of its contributors may be used to endorse or
 promote products derived from this software without specific
 prior written permission.
@@ -39,8 +39,8 @@ POSSIBILITY OF SUCH DAMAGE.
  * Identifier:  NsidedPolygon.java
  * Created:     1 January 2002
  * Revised:     14 January 2011
- * Identifier:  http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLines.java
- * Reference:   http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLinesExample.x3d
+ * Identifier:  https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLines.java
+ * Reference:   https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLinesExample.x3d
  * License:     ../license.html
  */
 

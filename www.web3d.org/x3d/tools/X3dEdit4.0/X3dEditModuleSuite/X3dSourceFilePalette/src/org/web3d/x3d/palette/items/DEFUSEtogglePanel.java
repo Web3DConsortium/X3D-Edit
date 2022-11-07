@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -134,7 +134,7 @@ public class DEFUSEtogglePanel extends javax.swing.JPanel
 		// TODO notifier?
         System.err.println ("Error, DEFUSEpanel.setContainerField(" + s + ") is unexpected value");
     }
-	// http://stackoverflow.com/questions/10904639/how-to-refresh-the-jcombobox-data
+	// https://stackoverflow.com/questions/10904639/how-to-refresh-the-jcombobox-data
 	this.revalidate();
 	this.repaint();
   }

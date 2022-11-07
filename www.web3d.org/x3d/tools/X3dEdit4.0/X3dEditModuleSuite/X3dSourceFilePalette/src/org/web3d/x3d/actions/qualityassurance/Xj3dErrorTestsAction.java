@@ -13,7 +13,7 @@
 *       distribution.
 *  * Neither the names of the Naval Postgraduate School (NPS)
 *       Modeling Virtual Environments and Simulation (MOVES) Institute
-*       (http://www.nps.edu and https://MovesInstitute.nps.edu)
+*       (https://www.nps.edu and https://MovesInstitute.nps.edu)
 *       nor the names of its contributors may be used to endorse or
 *       promote products derived from this software without specific
 *       prior written permission.
@@ -51,7 +51,6 @@ import org.openide.util.actions.CallableSystemAction;
   @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 600),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 600),
 })
-@NbBundle.Messages("CTL_Xj3dErrorTestsAction=- Xj3D loader error tests")
 
 public final class Xj3dErrorTestsAction extends CallableSystemAction
 {

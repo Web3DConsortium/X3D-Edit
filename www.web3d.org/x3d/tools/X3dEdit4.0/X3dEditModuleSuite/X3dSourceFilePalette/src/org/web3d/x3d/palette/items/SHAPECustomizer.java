@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -2446,7 +2446,7 @@ public class SHAPECustomizer extends BaseCustomizer
       }
       else if (dodecahedronRadioButton.isSelected())
       {
-          newContent.append("\n    <!-- Dodecahedron example: http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel5.x3d -->")
+          newContent.append("\n    <!-- Dodecahedron example: https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel5.x3d -->")
                     .append("\n    <").append(geometryNodeName);
           if (!pointsRadioButton.isSelected())
           {
@@ -2467,7 +2467,7 @@ public class SHAPECustomizer extends BaseCustomizer
       }
       else if (hemisphereRadioButton.isSelected())
       {
-          newContent.append("\n    <!-- Hemisphere example: http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/Hemisphere.x3d -->")
+          newContent.append("\n    <!-- Hemisphere example: https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/Hemisphere.x3d -->")
                     .append("\n    <").append(geometryNodeName);
           if (!pointsRadioButton.isSelected())
           {
@@ -2488,15 +2488,15 @@ public class SHAPECustomizer extends BaseCustomizer
       }
       else if (icosahedronRadioButton.isSelected() && (levelComboBox.getSelectedIndex() == 5))
       {
-          newContent.append("\n    <!-- Icosahedron level 5 example: http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel5.x3d -->");
+          newContent.append("\n    <!-- Icosahedron level 5 example: https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel5.x3d -->");
       }
       else if (icosahedronRadioButton.isSelected() && (levelComboBox.getSelectedIndex() == 4))
       {
-          newContent.append("\n    <!-- Icosahedron level 4 example: http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel4.x3d -->");
+          newContent.append("\n    <!-- Icosahedron level 4 example: https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel4.x3d -->");
       }
       else if (icosahedronRadioButton.isSelected() && (levelComboBox.getSelectedIndex() == 3))
       {
-          newContent.append("\n    <!-- Icosahedron level 3 example: http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel3.x3d -->")
+          newContent.append("\n    <!-- Icosahedron level 3 example: https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel3.x3d -->")
                     .append("\n    <").append(geometryNodeName);
           if (!pointsRadioButton.isSelected())
           {
@@ -2517,7 +2517,7 @@ public class SHAPECustomizer extends BaseCustomizer
       }
       else if (icosahedronRadioButton.isSelected() && (levelComboBox.getSelectedIndex() == 2))
       {
-          newContent.append("\n    <!-- Icosahedron level 2 example: http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel2.x3d -->")
+          newContent.append("\n    <!-- Icosahedron level 2 example: https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel2.x3d -->")
                     .append("\n    <").append(geometryNodeName);
           if (!pointsRadioButton.isSelected())
           {
@@ -2538,7 +2538,7 @@ public class SHAPECustomizer extends BaseCustomizer
       }
       else if (icosahedronRadioButton.isSelected() && (levelComboBox.getSelectedIndex() == 1))
       {
-          newContent.append("\n    <!-- Icosahedron level 1 example: http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel1.x3d -->")
+          newContent.append("\n    <!-- Icosahedron level 1 example: https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel1.x3d -->")
                     .append("\n    <").append(geometryNodeName);
           if (!pointsRadioButton.isSelected())
           {
@@ -2559,7 +2559,7 @@ public class SHAPECustomizer extends BaseCustomizer
       }
       else if (icosahedronRadioButton.isSelected()) // (levelComboBox.getSelectedIndex() == 0)
       {
-          newContent.append("\n    <!-- Icosahedron example: http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel0.x3d -->")
+          newContent.append("\n    <!-- Icosahedron example: https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/IcosahedronSubdivisionLevel0.x3d -->")
                     .append("\n    <").append(geometryNodeName);
           if (!pointsRadioButton.isSelected())
           {
@@ -2580,7 +2580,7 @@ public class SHAPECustomizer extends BaseCustomizer
       }
       else if (tetrahedronRadioButton.isSelected())
       {
-          newContent.append("\n    <!-- Tetrahedron example: http://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/Tetrahedron.x3d -->")
+          newContent.append("\n    <!-- Tetrahedron example: https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/Tetrahedron.x3d -->")
                     .append("\n    <").append(geometryNodeName);
           if (!pointsRadioButton.isSelected())
           {

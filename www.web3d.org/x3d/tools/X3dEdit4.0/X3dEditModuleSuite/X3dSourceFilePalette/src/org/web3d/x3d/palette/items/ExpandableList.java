@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -213,7 +213,7 @@ public class ExpandableList extends javax.swing.JPanel implements ListSelectionL
     TableColumnModel columnModel = jTable.getColumnModel();
     if (doIndex) columnModel.getColumn(0).setPreferredWidth(30); // index column
     
-    // http://www.techrepublic.com/article/how-to-justify-data-in-a-jtable-cell/5032692
+    // https://www.techrepublic.com/article/how-to-justify-data-in-a-jtable-cell/5032692
     DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
     renderer.setHorizontalAlignment(JLabel.RIGHT);
     for (int i=0; i < jTable.getColumnCount(); i++)
@@ -224,7 +224,7 @@ public class ExpandableList extends javax.swing.JPanel implements ListSelectionL
     jTable.setColumnSelectionAllowed(true);
     jTable.setRowSelectionAllowed(true);
 
-    // http://edroidx.blogspot.com/2010/12/jcombobox-text-alignment.html
+    // https://edroidx.blogspot.com/2010/12/jcombobox-text-alignment.html
     DefaultListCellRenderer dlcr = new DefaultListCellRenderer();
     dlcr.setHorizontalAlignment(DefaultListCellRenderer.RIGHT);
     operationComboBox.setRenderer(dlcr);
