@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -34,34 +34,28 @@
 package org.web3d.x3d.dis;
 
 import edu.nps.moves.dis7.pdus.EntityID;
-import edu.nps.moves.dis7.pdus.EntityStatePdu;
 import edu.nps.moves.dis7.pdus.EntityMarking;
+import edu.nps.moves.dis7.pdus.EntityStatePdu;
 import edu.nps.moves.dis7.pdus.EulerAngles;
 import edu.nps.moves.dis7.pdus.Vector3Double;
-
 import edu.nps.moves.dis7.utilities.DisThreadedNetworkInterface;
 import edu.nps.moves.dis7.utilities.PduFactory;
-
 import java.io.Serializable;
-
 import java.net.InetAddress;
 import java.net.MulticastSocket;
-
 import java.util.Hashtable;
 import java.util.logging.Logger;
-
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
 import org.openide.util.NbBundle;
-
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
-
 import org.web3d.x3d.options.X3dOptions;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 
 /**
  * Top component which displays something.
@@ -1179,7 +1173,7 @@ private void rollSliderChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:eve
 {//GEN-HEADEREND:event_rollSliderChanged
   if (isJoystickActive()) return; // do nothing
 
-  double rollChanged = (double) (rollSlider.getValue()) * Math.PI / 180.0;
+  double rollChanged = (rollSlider.getValue()) * Math.PI / 180.0;
   rollRadiansTextField.setText(radiansFormat.format(rollChanged));
   rollDegreesTextField.setText(degreesFormat.format(rollSlider.getValue()));
   sendOrientationUpdate ();
@@ -1256,9 +1250,9 @@ private void joystickCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//
   {
         EulerAngles orientation = espdu.getEntityOrientation();
 
-        double rollChanged  = (double) ( rollSlider.getValue()) * Math.PI / 180.0;
-        double pitchChanged = (double) (pitchSlider.getValue()) * Math.PI / 180.0;
-        double yawChanged   = (double) (  yawSlider.getValue()) * Math.PI / 180.0;
+        double rollChanged  = ( rollSlider.getValue()) * Math.PI / 180.0;
+        double pitchChanged = (pitchSlider.getValue()) * Math.PI / 180.0;
+        double yawChanged   = (  yawSlider.getValue()) * Math.PI / 180.0;
 
         // Coordinate system shift from X3D to DIS
         orientation.setPhi  ((float)  rollChanged);
@@ -1401,6 +1395,7 @@ private void joystickCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//
    * Gets default instance. Do not use directly: reserved for *.settings files only,
    * i.e. deserialization routines; otherwise you could get a non-deserialized instance.
    * To obtain the singleton instance, use {@link findInstance}.
+   * @return the new or previously created panel
    */
   public static synchronized DisEspduSenderControlPanel getDefault()
   {
@@ -1488,7 +1483,7 @@ private void joystickCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//
     }
 
     /**
-     * @param whether the joystick is installed and able to provide inputs; may be active or inactive
+     * @param joystickActive whether the joystick is installed and able to provide inputs; may be active or inactive
      */
     public void setJoystickActive(boolean joystickActive) {
         if  (joystickInstalled == false)
