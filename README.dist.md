@@ -13,7 +13,7 @@ X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for 
 Once stability is demonstrated on multiple platforms, we expect that authoring support for 
 [X3D4](https://www.web3d.org/x3d4) nodes and features will be added steadily.
 
-Prerequisite for operation: Java JDK 17 LTS (or later).  Recommended:
+Prerequisite for operation: Java JDK 17 LTS (or later).  Suggested:
 
 * OpenJDK jdk-19.0.1, latest versions available at [https://openjdk.org](https://openjdk.org)
 * Oracle  jdk-19.0.1, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
@@ -30,9 +30,9 @@ X3D-Edit Install File                                                           
 
 ----
 
-The Zip installation seems most reliable and popular.
+The Zip installation seems most reliable and popular, typically working without modifications.
 
-Important: following installation, a modification is needed to point to your locally installed Java JDK.
+Troubleshooting: following installation, a modification might be needed to point to your locally installed Java JDK.
 For example, under Windows the following file requires modification.
 
 * Zip installation:  <br /><b><code>C:\downloads\x3deditmodulesuite\etc\x3deditmodulesuite.conf</code></b> (for example)
