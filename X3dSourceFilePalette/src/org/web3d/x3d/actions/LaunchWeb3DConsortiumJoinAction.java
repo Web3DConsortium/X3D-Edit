@@ -46,10 +46,12 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_JOIN;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumJoinAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchWeb3DConsortiumJoinAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/web3d16.png",
+                    displayName = "#CTL_LaunchWeb3DConsortiumJoinAction", 
+                            lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Outreach", position = 450),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Outreach", position = 450)
+  @ActionReference(path = "Menu/X3D-Edit/Web3D Outreach", position = 450),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Outreach", position = 450)
 })
 
 @SuppressWarnings("serial")

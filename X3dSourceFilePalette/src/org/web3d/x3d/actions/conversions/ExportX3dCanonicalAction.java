@@ -48,7 +48,8 @@ import org.web3d.x3d.X3DEditorSupport;
 import org.web3d.x3d.tools.x3db.X3dCanonicalizer;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ExportX3dCanonicalAction", category = "File")
-@ActionRegistration(displayName = "#CTL_CanonicalizeAction", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/c14n.png",
+                    displayName = "#CTL_ExportCanonicalizeAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Compression", name = "org-web3d-x3d-actions-conversions-ExportX3dCanonicalAction", position = 150),
@@ -90,7 +91,7 @@ public final class ExportX3dCanonicalAction extends BaseConversionsAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_CanonicalizeAction");
+    return NbBundle.getMessage(getClass(), "CTL_ExportCanonicalizeAction");
   }
 
   @Override

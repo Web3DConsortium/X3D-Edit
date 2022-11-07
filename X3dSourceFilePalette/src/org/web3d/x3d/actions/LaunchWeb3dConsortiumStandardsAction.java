@@ -44,10 +44,12 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_STANDARDS;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3dConsortiumStandardsAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchWeb3dConsortiumStandardsAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/web3d16.png",
+                    displayName = "#CTL_LaunchWeb3dConsortiumStandardsAction", 
+                            lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Standards", position = 150),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Standards", position = 150)
+  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 150),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 150)
 })
 
 @SuppressWarnings("serial")

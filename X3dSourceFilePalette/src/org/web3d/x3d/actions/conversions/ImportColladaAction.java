@@ -58,7 +58,8 @@ import org.web3d.x3d.InputOutputReporter;
 import xj3d.filter.CDFFilter;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ImportColladaAction", category = "File")
-@ActionRegistration(displayName = "#CTL_ColladaImportAction", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/collada-16x16.png",
+                    displayName = "#CTL_ColladaImportAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Import X3D Model from File", position = 100),
@@ -91,7 +92,7 @@ public final class ImportColladaAction extends CallableSystemAction
       tmpOutFile = File.createTempFile("x3dEditTemporaryFile", ".x3d");
       tmpOutFile.deleteOnExit();
       
-      taskErrorStage = "Error processing collada file ";
+      taskErrorStage = "Error Xj3D processing collada file ";
       try {
         CDFFilter.main(new String[]{"Identity",
                        fChooser.getSelectedFile().getAbsolutePath(),

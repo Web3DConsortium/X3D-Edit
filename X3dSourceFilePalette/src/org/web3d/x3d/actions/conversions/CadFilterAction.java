@@ -54,9 +54,9 @@ import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.options.Xj3dCadFilterOptionsPanel;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.CadFilterAction", category = "Tools")
-@ActionRegistration(
-        displayName = "#CTL_CadFilterAction",
-        lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xj3d.png",
+                    displayName = "#CTL_CadFilterAction",
+                            lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Compression", position = 50),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Compression", position = 50)

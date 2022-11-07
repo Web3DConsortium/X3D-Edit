@@ -36,22 +36,22 @@ package org.web3d.x3d.actions;
 
 import java.awt.Desktop;
 import java.net.URI;
-import java.net.URL;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
-import org.openide.awt.HtmlBrowser;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONFERENCE_ACM_DIGITAL_LIBRARY;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConferenceAcmDigitalLibraryAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_LaunchWeb3DConferenceAcmDigitalLibraryAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/acmdl16.png",
+                    displayName = "#CTL_LaunchWeb3DConferenceAcmDigitalLibraryAction",
+                            lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Outreach", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Outreach", position = 200)
+  @ActionReference(path = "Menu/X3D-Edit/Web3D Outreach", position = 200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Outreach", position = 200)
 })
 
 public final class LaunchWeb3DConferenceAcmDigitalLibraryAction extends CallableSystemAction

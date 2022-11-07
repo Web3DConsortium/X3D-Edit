@@ -108,7 +108,7 @@ public class Xj3DConv {
     }
 
     /**
-     * Should old VRML PROTO's like h-anim, geovrml be upgraded to X3D native
+     * Should old VRML PROTO's like HAnim, geovrml be upgraded to X3D native
      * nodes.
      *
      * @param upgrade TRUE to upgrade content.

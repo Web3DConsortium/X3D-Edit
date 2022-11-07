@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+ * Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  *  
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -41,8 +41,9 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 
 @ActionID(id = "org.web3d.x3d.actions.qualityassurance.SchemaValidationAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_SchemaValidationAction", 
-                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark.png",
+                    displayName = "#CTL_SchemaValidationAction", 
+                            lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 350),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 350),
