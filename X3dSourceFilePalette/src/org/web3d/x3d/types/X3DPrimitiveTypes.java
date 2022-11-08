@@ -299,13 +299,13 @@ public class X3DPrimitiveTypes
       {
           try
           {
-              _i = Integer.parseInt(delocalizeNumericValue(s.trim()));
+              _i = Integer.valueOf(delocalizeNumericValue(s.trim()));
           }
           catch (NumberFormatException ex)
           {
               System.out.println ("SFInt32 constructor error: " + ex.getMessage());
               System.out.println ("   avoiding delocalization of value \"" + s.trim() + "\"");
-              _i = Integer.parseInt(s.trim());
+              _i = Integer.valueOf(s.trim());
           }
       }
       if(!skipTest)
@@ -480,13 +480,13 @@ public class X3DPrimitiveTypes
       {
           try
           {
-              _d = Double.parseDouble(delocalizeNumericValue(s.trim()));
+              _d = Double.valueOf(delocalizeNumericValue(s.trim()));
           }
           catch (NumberFormatException ex)
           {
               System.out.println ("SFDouble constructor error: " + ex.getMessage());
               System.out.println ("   avoiding delocalization of value \"" + s.trim() + "\"");
-              _d = Double.parseDouble(s.trim());
+              _d = Double.valueOf(s.trim());
           }
       }
       if(!skipTest)
