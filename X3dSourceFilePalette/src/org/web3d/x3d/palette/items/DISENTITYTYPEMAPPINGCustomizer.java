@@ -39,7 +39,7 @@ import javax.swing.text.JTextComponent;
 
 import org.openide.util.HelpCtx;
 import org.web3d.x3d.X3DDataObject;
-import org.web3d.x3d.dis.DisUtils;
+import org.web3d.x3d.dis.DisUtilities;
 
 /**
  * DISENTITYTYPEMAPPINGCustomizer.java
@@ -65,7 +65,7 @@ public class DISENTITYTYPEMAPPINGCustomizer extends BaseCustomizer
     this.target = target;
     this.xObj = xObj;
     
-    HelpCtx.setHelpIDString(this, "DISENTITYTYPEMAPPING_ELEM_HELPID");
+    HelpCtx.setHelpIDString(DISENTITYTYPEMAPPINGCustomizer.this, "DISENTITYTYPEMAPPING_ELEM_HELPID");
     
     initComponents();
 
@@ -81,13 +81,13 @@ public class DISENTITYTYPEMAPPINGCustomizer extends BaseCustomizer
     categoryTF.setText   (disEntityTypeMapping.getCategory());
 
     // alternatively AFGHANISTAN which is first in sorted list:
-    countryCombo.setSelectedItem(DisUtils.getDisEnum(Country.UNITED_STATES_OF_AMERICA_USA,disEntityTypeMapping.getCountry()));
+    countryCombo.setSelectedItem(DisUtilities.getDisEnum(Country.UNITED_STATES_OF_AMERICA_USA,disEntityTypeMapping.getCountry()));
 
-    domainCombo.setSelectedItem(DisUtils.getDisEnum(PlatformDomain.AIR,disEntityTypeMapping.getDomain()));
+    domainCombo.setSelectedItem(DisUtilities.getDisEnum(PlatformDomain.AIR,disEntityTypeMapping.getDomain()));
     extraTF.setText      (disEntityTypeMapping.getExtra());
-    kindCombo.setSelectedItem(DisUtils.getDisEnum(EntityKind.PLATFORM,disEntityTypeMapping.getKind()));
-    specificCombo.setSelectedItem(DisUtils.getDisEnum(AggregateStateSpecific.NO_HEADQUARTERS,disEntityTypeMapping.getSpecific()));
-    subcategoryCombo.setSelectedItem(DisUtils.getDisEnum(AggregateStateSubcategory.OTHER,disEntityTypeMapping.getSubcategory()));
+    kindCombo.setSelectedItem(DisUtilities.getDisEnum(EntityKind.PLATFORM,disEntityTypeMapping.getKind()));
+    specificCombo.setSelectedItem(DisUtilities.getDisEnum(AggregateStateSpecific.NO_HEADQUARTERS,disEntityTypeMapping.getSpecific()));
+    subcategoryCombo.setSelectedItem(DisUtilities.getDisEnum(AggregateStateSubcategory.OTHER,disEntityTypeMapping.getSubcategory()));
 
     setDefaultDEFname ();
   }
@@ -438,11 +438,11 @@ public class DISENTITYTYPEMAPPINGCustomizer extends BaseCustomizer
     
     disEntityTypeMapping.setUrls(urlList.getUrlData());
     disEntityTypeMapping.setCategory(categoryTF.getText().trim());
-    disEntityTypeMapping.setCountry(DisUtils.intStringFromDisEnum(countryCombo.getSelectedItem()));
-    disEntityTypeMapping.setDomain(DisUtils.intStringFromDisEnum(domainCombo.getSelectedItem()));
+    disEntityTypeMapping.setCountry(DisUtilities.intStringFromDisEnum(countryCombo.getSelectedItem()));
+    disEntityTypeMapping.setDomain(DisUtilities.intStringFromDisEnum(domainCombo.getSelectedItem()));
     disEntityTypeMapping.setExtra(extraTF.getText().trim());
-    disEntityTypeMapping.setKind(DisUtils.intStringFromDisEnum(kindCombo.getSelectedItem()));
-    disEntityTypeMapping.setSpecific(DisUtils.intStringFromDisEnum(specificCombo.getSelectedItem()));
-    disEntityTypeMapping.setSubcategory(DisUtils.intStringFromDisEnum(subcategoryCombo.getSelectedItem()));
+    disEntityTypeMapping.setKind(DisUtilities.intStringFromDisEnum(kindCombo.getSelectedItem()));
+    disEntityTypeMapping.setSpecific(DisUtilities.intStringFromDisEnum(specificCombo.getSelectedItem()));
+    disEntityTypeMapping.setSubcategory(DisUtilities.intStringFromDisEnum(subcategoryCombo.getSelectedItem()));
   }
 }
