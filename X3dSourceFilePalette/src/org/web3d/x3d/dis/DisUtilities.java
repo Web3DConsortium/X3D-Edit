@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,20 +36,20 @@ package org.web3d.x3d.dis;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 
 /**
- * DisUtils.java
- * Created on 9 Jan 2009
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
+ * DisUtilities.java
+ Created on 9 Jan 2009
+
+ MOVES Institute
+ Naval Postgraduate School, Monterey, CA, USA
+ www.nps.edu
  *
  * @author Mike Bailey
  * @version $Id$
  */
-public class DisUtils
+public class DisUtilities
 {
   /**
    * Based on the idxStr, typically stored in the XML, return the appropriate
