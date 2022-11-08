@@ -53,7 +53,7 @@ public class DisUtilities
 {
   /**
    * Based on the idxStr, typically stored in the XML, return the appropriate
-   * enum to go into the combobox.  Else, return an approprate string.
+   * enum to go into the combobox.  Else, return an appropriate string.
    * @param en enum--any instance will do
    * @param idxStr normally "1", "2", "47", etc.
    * @return enum or descriptive string
@@ -70,7 +70,7 @@ public class DisUtilities
       if(obj.getClass().isArray())
         return ((Object[])obj)[idx];
     }
-    catch(Exception ex) {
+    catch(IllegalAccessException | IllegalArgumentException | NoSuchFieldException | SecurityException ex) {
     }
     return ""+idx;
   }
