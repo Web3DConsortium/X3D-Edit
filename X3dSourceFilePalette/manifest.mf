@@ -3,7 +3,7 @@ AutoUpdate-Show-In-Client: true
 OpenIDE-Module: org.web3d.x3d.palette/1
 OpenIDE-Module-Layer: org/web3d/x3d/layer.xml
 OpenIDE-Module-Localizing-Bundle: org/web3d/x3d/palette/Bundle.properties
-OpenIDE-Module-Implementation-Version: 5
+OpenIDE-Module-Implementation-Version: 6
 
 Name: org/web3d/x3d/X3DLoader.class
 Install-Before: org.openide.loaders.XMLDataObject, org.netbeans.modules.xml.core.XMLDataObject, org.netbeans.modules.xml.XMLDataObject
