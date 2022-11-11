@@ -66,9 +66,9 @@
     </target>
 
     <target name="Vrml2.0Sourcebook" depends="mkdir">
-        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesVrml2.0Sourcebook.zip" dest="downloads/X3dExamplesVrml2.0Sourcebook.zip" verbose="true"/>
-        <unzip                               src="downloads/X3dExamplesVrml2.0Sourcebook.zip" dest="${examplesRootDirectory}"  overwrite="true"/>
-        <delete                             file="downloads/X3dExamplesVrml2.0Sourcebook.zip" verbose="true"/>
+        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesVrml2Sourcebook.zip" dest="downloads/X3dExamplesVrml2Sourcebook.zip" verbose="true"/>
+        <unzip                               src="downloads/X3dExamplesVrml2Sourcebook.zip" dest="${examplesRootDirectory}"  overwrite="true"/>
+        <delete                             file="downloads/X3dExamplesVrml2Sourcebook.zip" verbose="true"/>
         <echo message="X3D scenes for Vrml2.0Sourcebook example archive are installed in local directory:"/>
         <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook"/>
     </target>
