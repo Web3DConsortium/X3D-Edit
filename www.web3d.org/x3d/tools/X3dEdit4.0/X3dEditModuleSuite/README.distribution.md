@@ -1,11 +1,11 @@
-# X3D-Edit 4.0 Beta Distribution
-
-<!-- posted at https://sourceforge.net/projects/x3d/files 
-
-X3D-Edit 4.0 Beta Distribution files are available at
-
-* [https://sourceforge.net/projects/x3d/files](https://sourceforge.net/projects/x3d/files)
+<img align='right' width='200' src="https://www.web3d.org/x3d/content/examples/images//oss-rising-star-white.svg"/>
+<!--
+https://sourceforge.net/p/x3d/admin/files/badges/
 -->
+
+# X3D-Edit 4.0 Beta Distribution, 11 November 2022
+
+<!-- posted at https://sourceforge.net/projects/x3d/files -->
 
 X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
 
@@ -20,13 +20,13 @@ Prerequisite for operation: Java JDK 17 LTS (or later).  Suggested:
 
 The following files are available for X3D-Edit authoring:
 
-X3D-Edit Install File                                                                                       | Description               | Status                                                                     | File size | Date        
------------------------------------------------------------------------------------------------------------ | ------------------------- | -------------------------------------------------------------------------- | --------- | ------------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Tested satisfactorily, operating system agnostic, recommended | 156827561 | Oct 10 14:31  
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Tested satisfactorily, operating system agnostic              |  67732688 | Oct 10 14:31  
-[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer             | Tested satisfactorily                                                                 | 156688279 | Oct 10 14:33   
-[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer           | Tested unsatisfactorily, troubleshooting                                              | 156775424 | Oct 10 14:32 
-[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer         | Tested satisfactorily, but Java configuration seems difficult                         | 157172202 | Oct 10 14:32  
+X3D-Edit Install File                                                                                       | Description                                       | Status                                                        | File size | Date        
+----------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------- | --------- | ------------  
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Tested satisfactorily, any operating system, recommended      | 187.0 MB | NOV 11  
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Tested satisfactorily, any operating system                   |  65.7 MB | NOV 11  
+[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested satisfactorily                                         | 186.9 MB | NOV 11  
+[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, troubleshooting                      | 187.0 MB | NOV 11 
+[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | Tested sometimes fails, Java configuration seems difficult    | 187.4 MB | NOV 11  
 
 SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
 
@@ -60,3 +60,8 @@ Test reports and feedback welcome.  Please send email to
 [Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20Beta%20Testing%20feedback).
 
 Have fun with [X3D-Edit 4.0](https://savage.nps.edu/X3D-Edit)!
+
+[![Download x3d](https://img.shields.io/sourceforge/dt/x3d.svg)](https://sourceforge.net/projects/x3d/files/stats/timeline)
+<!--
+[![Download x3d](https://img.shields.io/sourceforge/dt/x3d.svg)](https://sourceforge.net/projects/x3d/files/latest/download)
+-->
