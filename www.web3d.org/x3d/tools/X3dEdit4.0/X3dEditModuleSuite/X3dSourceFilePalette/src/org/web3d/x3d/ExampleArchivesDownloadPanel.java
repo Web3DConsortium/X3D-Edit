@@ -40,14 +40,11 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d;
 
 import java.io.File;
-
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Properties;
-import java.util.Vector;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 import org.apache.tools.ant.module.api.support.ActionUtils;
 import org.openide.execution.ExecutorTask;
 import org.openide.filesystems.FileLock;
@@ -598,7 +595,7 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
 
   private void downloadButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_downloadButtonActionPerformed
   {//GEN-HEADEREND:event_downloadButtonActionPerformed
-    Vector<String> targets = new Vector<>();
+    ArrayList<String> targets = new ArrayList<>();
 
     if (x3d4waExamplesCB.isSelected())
         targets.add(X3D4WA_EXAMPLESTARGET);
@@ -645,6 +642,7 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
       downloadButton.setText("download started...");
       downloadButton.setEnabled(false);
         cancelButton.setEnabled(true);
+        cancelButton.requestFocus(true);
 
       // Save the locations for the View menu
       File interimParentDirectory = new File(targetDir,targetPath);
