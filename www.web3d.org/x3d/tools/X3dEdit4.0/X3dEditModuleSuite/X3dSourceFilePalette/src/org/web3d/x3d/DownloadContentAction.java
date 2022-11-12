@@ -35,12 +35,20 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d;
 
 import java.awt.BorderLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -51,7 +59,9 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
+import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 // no longer supported import org.netbeans.api.javahelp.Help;
@@ -78,9 +88,11 @@ public final class DownloadContentAction extends CallableSystemAction
   public void performAction()
   {
     if (frame == null) {
-      frame = new JFrame(NbBundle.getMessage(getClass(), "ExampleArchivesDownloadTitle"));
-      frame.getContentPane().setLayout(new BorderLayout());
-      panel = new ExampleArchivesDownloadPanel();
+        frame = new JFrame(NbBundle.getMessage(getClass(), "ExampleArchivesDownloadTitle"));
+        frame.getContentPane().setLayout(new BorderLayout());
+        BufferedImage bufferedImage;
+        frame.setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/X3Dicon16.png"));
+        panel = new ExampleArchivesDownloadPanel();
 
       frame.getContentPane().add(panel, BorderLayout.CENTER);
       buttonBar = new buttBar();
