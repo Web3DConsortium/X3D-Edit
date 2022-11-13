@@ -11,7 +11,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 This directory shares pre-release test files prior to [official X3D-Edit release](https://sourceforge.net/projects/x3d/files).
 Please see that page for installation instruction details.
 
-[Changelog](https://sourceforge.net/p/x3d/code/33811/log/?path=/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.prerelease.md) provides progress details.
+[Changelog](https://sourceforge.net/p/x3d/code/33812/log) provides progress details.
 Test reports and feedback welcome.  Please send email to
 [Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20pre-release%20testing%20feedback).
 
