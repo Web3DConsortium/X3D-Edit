@@ -75,7 +75,7 @@ public class NURBSPATCHSURFACECustomizer extends BaseCustomizer
 
   /** Creates new form NURBSPATCHSURFACECustomizer
    * @param nurbsPatchSurface NURBSPATCHSURFACE node holding data structures for scene graph
-   * * @param target Swing component of interest Swing component
+   * @param target Swing component of interest Swing component
    */
   public NURBSPATCHSURFACECustomizer(NURBSPATCHSURFACE nurbsPatchSurface, JTextComponent target)
   {

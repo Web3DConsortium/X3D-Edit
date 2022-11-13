@@ -61,7 +61,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
   
   /** Creates new form CARTOONVOLUMESTYLECustomizer
    * @param cartoonVolumeStyle
-   * * @param target Swing component of interest  
+   * @param target Swing component of interest  
    */
   public CARTOONVOLUMESTYLECustomizer(CARTOONVOLUMESTYLE cartoonVolumeStyle, JTextComponent target)
   {

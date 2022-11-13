@@ -55,7 +55,7 @@ public class VOLUMEDATACustomizer extends BaseCustomizer
   
   /** Creates new form VOLUMEDATACustomizer
    * @param volumeData
-   * * @param target Swing component of interest  
+   * @param target Swing component of interest  
    */
   public VOLUMEDATACustomizer(VOLUMEDATA volumeData, JTextComponent target)
   {

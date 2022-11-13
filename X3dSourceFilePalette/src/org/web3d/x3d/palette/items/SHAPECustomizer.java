@@ -73,7 +73,7 @@ public class SHAPECustomizer extends BaseCustomizer
 
   /** Creates new form SHAPECustomizer
    * @param shape the shape object to customize
-   * * @param target Swing component of interest a text component required by other customizers, but can be
+   * @param target Swing component of interest a text component required by other customizers, but can be
    * null here
    */
   public SHAPECustomizer(SHAPE shape, JTextComponent target)

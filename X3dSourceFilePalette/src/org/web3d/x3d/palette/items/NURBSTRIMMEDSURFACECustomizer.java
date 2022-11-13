@@ -75,7 +75,7 @@ public class NURBSTRIMMEDSURFACECustomizer extends BaseCustomizer
 
   /** Creates new form NURBSTRIMMEDSURFACECustomizer
    * @param nurbsTrimmedSurface NURBSTRIMMEDSURFACE node holding data structures for scene graph
-   * * @param target Swing component of interest Swing component
+   * @param target Swing component of interest Swing component
    */
   public NURBSTRIMMEDSURFACECustomizer(NURBSTRIMMEDSURFACE nurbsTrimmedSurface, JTextComponent target)
   {

@@ -105,7 +105,7 @@ public class COMMENT extends SceneGraphStructureNodeType
     /** TODO must reconcile (or refactor) much separate code in superclass BaseX3DElement handleTransfer()
      * https://netbeans.apache.org/tutorials/nbm-palette-api1.html says
      * "Hook your customizer into the ActiveEditorDrop implementation class as follows"
-     * * @param target Swing component of interestComponent // TODO explain
+     * @param target Swing component of interestComponent // TODO explain
      * @return whether successful
      */
     @Override

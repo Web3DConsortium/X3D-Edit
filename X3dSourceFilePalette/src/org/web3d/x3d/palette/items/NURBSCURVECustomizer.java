@@ -64,7 +64,7 @@ public class NURBSCURVECustomizer extends BaseCustomizer
   
   /** Creates new form NURBSCURVECustomizer
    * @param nurbsCurve NURBSCURVE node holding data structures for scene graph
-   * * @param target Swing component of interest Swing component
+   * @param target Swing component of interest Swing component
    */
   public NURBSCURVECustomizer(NURBSCURVE nurbsCurve, JTextComponent target)
   {

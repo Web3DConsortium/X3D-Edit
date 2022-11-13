@@ -88,7 +88,7 @@ public class BackgroundContentPanel extends javax.swing.JPanel
   }
 
     /**
-     * * @param target Swing component of interest target is passed from implementing node containing this UrlExpandableList2 component
+     * @param target Swing component of interest target is passed from implementing node containing this UrlExpandableList2 component
      */
     public void setTarget(JTextComponent target)
     {

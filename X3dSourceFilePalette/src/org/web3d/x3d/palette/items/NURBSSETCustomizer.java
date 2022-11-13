@@ -55,7 +55,7 @@ public class NURBSSETCustomizer extends BaseCustomizer
   
   /** Creates new form NURBSSETCustomizer
    * @param nurbsSet
-   * * @param target Swing component of interest  
+   * @param target Swing component of interest  
    */
   public NURBSSETCustomizer(NURBSSET nurbsSet, JTextComponent target)
   {

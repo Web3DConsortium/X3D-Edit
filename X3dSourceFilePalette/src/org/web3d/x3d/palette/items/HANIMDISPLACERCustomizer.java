@@ -58,7 +58,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
   
   /** Creates new form HANIMDISPLACERCustomizer
      * @param displacer data of interest
-     * * * @param target Swing component of interest */
+     * * @param target Swing component of interest */
   public HANIMDISPLACERCustomizer(HANIMDISPLACER displacer, JTextComponent target)
   {
     super(displacer);

@@ -75,7 +75,7 @@ public class NURBSTEXTURECOORDINATECustomizer extends BaseCustomizer
 
   /** Creates new form NURBSCURVECustomizer
    * @param nurbsTextureCoordinate NURBSCURVE node holding data structures for scene graph
-   * * @param target Swing component of interest Swing component
+   * @param target Swing component of interest Swing component
    */
   public NURBSTEXTURECOORDINATECustomizer(NURBSTEXTURECOORDINATE nurbsTextureCoordinate, JTextComponent target)
   {

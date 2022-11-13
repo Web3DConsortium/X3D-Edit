@@ -128,7 +128,7 @@ public class MATERIALCustomizer extends BaseCustomizer
   
   /** Constructor
    * @param material the material node to customize
-   * * @param target Swing component of interest required arg, but can be null
+   * @param target Swing component of interest required arg, but can be null
    */
   public MATERIALCustomizer(MATERIAL material, JTextComponent target)
   {
