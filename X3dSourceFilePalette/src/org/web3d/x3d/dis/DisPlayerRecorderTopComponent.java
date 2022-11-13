@@ -36,6 +36,7 @@ package org.web3d.x3d.dis;
 import java.awt.BorderLayout;
 import java.io.Serializable;
 import java.util.logging.Logger;
+import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -93,14 +94,15 @@ final class DisPlayerRecorderTopComponent extends TopComponent
    */
   public static synchronized DisPlayerRecorderTopComponent findInstance()
   {
-    TopComponent win = WindowManager.getDefault().findTopComponent(PREFERRED_ID);
-    if (win == null) {
+    TopComponent window = WindowManager.getDefault().findTopComponent(PREFERRED_ID);
+    if (window == null) {
       Logger.getLogger(DisPlayerRecorderTopComponent.class.getName()).warning(
           "Cannot find " + PREFERRED_ID + " component. It will not be located properly in the window system.");
       return getDefault();
     }
-    if (win instanceof DisPlayerRecorderTopComponent) {
-      return (DisPlayerRecorderTopComponent) win;
+    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png"));
+    if (window instanceof DisPlayerRecorderTopComponent) {
+      return (DisPlayerRecorderTopComponent) window;
     }
     Logger.getLogger(DisPlayerRecorderTopComponent.class.getName()).warning(
         "There seem to be multiple components with the '" + PREFERRED_ID +

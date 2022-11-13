@@ -36,10 +36,12 @@ package org.web3d.x3d.dis;
 
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 
@@ -57,14 +59,15 @@ public class DisEspduSenderAction extends AbstractAction
   public DisEspduSenderAction()
   {
     super(NbBundle.getMessage(DisEspduSenderAction.class, "CTL_DisTesterAction"));
-//        putValue(SMALL_ICON, new ImageIcon(Utilities.loadImage(DisEspduSenderControlPanel.ICON_PATH, true)));
+    putValue(SMALL_ICON, new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png", true)));
   }
 
   @Override
   public void actionPerformed(ActionEvent evt)
   {
-    TopComponent win = DisEspduSenderControlPanel.findInstance();
-    win.open();
-    win.requestActive();
+    TopComponent window = DisEspduSenderControlPanel.findInstance();
+    window.open();
+    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png"));
+    window.requestActive();
   }
 }

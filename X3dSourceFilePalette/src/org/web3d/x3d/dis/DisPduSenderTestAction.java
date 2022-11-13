@@ -33,13 +33,15 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d.dis;
 
-import edu.nps.moves.dis7.examples.*;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
+import static javax.swing.Action.SMALL_ICON;
+import javax.swing.ImageIcon;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
@@ -57,7 +59,7 @@ public class DisPduSenderTestAction extends AbstractAction
   public DisPduSenderTestAction()
   {
     super(NbBundle.getMessage(DisPduSenderTestAction.class, "CTL_DisPduSenderTestAction"));
-//        putValue(SMALL_ICON, new ImageIcon(Utilities.loadImage(DisPlayerRecorderTopComponent.ICON_PATH, true)));
+    putValue(SMALL_ICON, new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png", true)));
   }
 
   @Override
@@ -66,7 +68,12 @@ public class DisPduSenderTestAction extends AbstractAction
     String address = X3dOptions.getDISaddress("239.1.2.3");
     String port    = X3dOptions.getDISport("3000");
     
-    AlphabeticalPduSender.main(new String[]{address, port});
+    System.out.println("========================================================================================");
+    System.out.println("DIS PDU Alphabetical Sender Test");
+    System.out.println();
+    edu.nps.moves.dis7.examples.AlphabeticalPduSender.main(new String[]{address, port}); // output goes to console
+    System.out.println("========================================================================================");
+    // TODO also consider numerical order test
   }
 }
 
