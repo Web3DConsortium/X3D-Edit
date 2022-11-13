@@ -415,7 +415,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         return sb.toString();
     }
-    // TODO XML comment handling?
+    // TODO preceding XML comment handling?
     else if (getElementName().equals("X3D"))
     {
         // ensure XML and DOCTYPE are correct
