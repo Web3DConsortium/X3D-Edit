@@ -102,10 +102,9 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
       selectedLocation = changeIfSpecialCase(selectedLocation);       // special case edits
       highlightSelectedElement(selectedLocation);
 
-      selectedStringLength = selectedLocation.docOffsetEnd - selectedLocation.docOffsetStart + 1;
+      selectedStringLength = selectedLocation.docOffsetEnd - selectedLocation.docOffsetStart; // + 1;
       String selectedString = documentEditorPane.getText(selectedLocation.docOffsetStart, selectedStringLength);
-      if (!selectedString.trim().endsWith(">"))
-           selectedString = documentEditorPane.getText(selectedLocation.docOffsetStart, selectedStringLength + 1); // hack check
+
       org.jdom.Document jdoc = getSelectedElementAsJdom(selectedString);
       if (jdoc == null)
         return; // cancelled
@@ -119,7 +118,7 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
       {
         insertNewString(selectedLocation, newString, selectedStringLength);
 
-            // =============================================================================================================================
+        // =============================================================================================================================
         // handlers for special prototype insertions
         int documentLength = abstractDocument.getDefaultRootElement().getDocument().getLength();
         int remainingLength = documentLength - selectedLocation.docOffsetStart;
@@ -188,9 +187,11 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
           RequestProcessor.getDefault().post(new ValidateThread(documentEditorPane, "inserted text", true));
       }
       else { // cancelled
-        Position startPos = abstractDocument.createPosition(Math.max(0, selectedLocation.docOffsetStart - 1)); // see jdoc for createPosition()
-        int startOffset = startPos.getOffset();
-        setCaretLocation(startOffset+2); // include +2 or else next edit goes to parent node!
+        Position startPosition = abstractDocument.createPosition(Math.max(0, selectedLocation.docOffsetStart - 1)); // see jdoc for createPosition()
+        int startOffset = startPosition.getOffset();
+        if (!x3dElement.getElementName().equals("X3D"))
+            startOffset += 2; // include +2 or else next edit goes to parent node!
+        setCaretLocation(startOffset);
       }
       X3DPaletteUtilitiesJdom.getTopComponent(documentEditorPane).requestActive();  // this shows the cursor
     }
