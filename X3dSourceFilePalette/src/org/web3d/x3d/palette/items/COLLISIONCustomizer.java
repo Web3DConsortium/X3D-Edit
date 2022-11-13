@@ -54,7 +54,9 @@ public class COLLISIONCustomizer extends BaseCustomizer
   private COLLISION collision;
   private JTextComponent target;
   
-  /** Creates new form COLLISIONCustomizer */
+  /** Creates new form COLLISIONCustomizer
+     * @param collision node data structure
+     * @param target Swing component of interest */
   public COLLISIONCustomizer(COLLISION collision, JTextComponent target)
   {
     super(collision);
@@ -73,6 +75,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     enabledCB.setSelected(collision.isEnabled());
+    descriptionTF.setText(collision.getDescription());
     bboxCenterXTF.setText(collision.getBboxCenterX());
     bboxCenterYTF.setText(collision.getBboxCenterY());
     bboxCenterZTF.setText(collision.getBboxCenterZ());
@@ -98,6 +101,8 @@ public class COLLISIONCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
+        descriptionLabel = new javax.swing.JLabel();
+        descriptionTF = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         bboxCenterXTF = new javax.swing.JTextField();
         bboxCenterYTF = new javax.swing.JTextField();
@@ -111,7 +116,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(600, 330));
+        setPreferredSize(new java.awt.Dimension(610, 360));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -126,12 +131,41 @@ public class COLLISIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        descriptionLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionLabel.setText("description");
+        descriptionLabel.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
+        add(descriptionLabel, gridBagConstraints);
+
+        descriptionTF.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionTF.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
+        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
+        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
+        descriptionTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(descriptionTF, gridBagConstraints);
+
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel4.setText("bboxCenter");
         jLabel4.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
         add(jLabel4, gridBagConstraints);
@@ -139,7 +173,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         bboxCenterXTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -149,7 +183,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         bboxCenterYTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -159,7 +193,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         bboxCenterZTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -171,7 +205,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         jLabel5.setToolTipText("automatically calculated, can be specified as an optimization or constraint");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
         add(jLabel5, gridBagConstraints);
@@ -184,7 +218,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -199,7 +233,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -214,7 +248,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -247,7 +281,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel1.setText("<html> <p align=\"center\"><b>Collision</b> idetects camera-to-object contact using current view and NavigationInfo avatarSize. <br /> \nCollision is a Grouping node that reports collision detection for its children. </p>\n<ul>\n  <li> Hint: Collision can contain a single proxy child node for substitute collision-detection geometry. <br/> Improve run-time performance by using proxy with simpler contact-calculation geometry. </li>\n  <li> Hint: proxy shapes are not rendered and remain invisible. </li>\n  <li> Hint: apply containerField='proxy' to uniquely identify the proxy child Shape or grouping node.  </li>\n</ul>");
+        hintLabel1.setText("<html> <p align=\"center\"><b>Collision</b> idetects camera-to-object contact using current view and NavigationInfo avatarSize. <br /> \nCollision is a Grouping node that reports collision detection for its children. </p>\n<ul>\n  <li> Hint: Collision can contain a single proxy child node for substitute collision-detection geometry. <br/> Improve run-time performance by using proxy with simpler contact-calculation geometry. </li>\n  <li> Hint: proxy shapes are not rendered and remain invisible. </li>\n  <li> Hint: apply containerField='proxy' to uniquely identify the proxy child Shape or grouping node.  </li>\n  <li> <i>description</i> field requires X3D version='4.0' </li>\n</ul>");
         hintLabel1.setToolTipText("close this panel to add children nodes");
         hintLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -259,7 +293,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -280,6 +314,10 @@ public class COLLISIONCustomizer extends BaseCustomizer
     private void bboxSizeZTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bboxSizeZTFActionPerformed
         checkVisualizable ();
     }//GEN-LAST:event_bboxSizeZTFActionPerformed
+
+    private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
+        // if not X3D4
+    }//GEN-LAST:event_descriptionTFActionPerformed
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -289,6 +327,8 @@ public class COLLISIONCustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxSizeXTF;
     private javax.swing.JTextField bboxSizeYTF;
     private javax.swing.JTextField bboxSizeZTF;
+    private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JTextField descriptionTF;
     private javax.swing.JCheckBox enabledCB;
     private javax.swing.JLabel hintLabel1;
     private javax.swing.JLabel jLabel2;
@@ -308,6 +348,11 @@ public class COLLISIONCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
+    if (!descriptionTF.getText().isBlank())
+    {
+        checkX3D4FieldSupportDialog("Collision","description"); // X3D4 field
+        collision.setDescription(descriptionTF.getText().trim());
+    }
     collision.setEnabled(enabledCB.isSelected());
     collision.setBboxCenterX(bboxCenterXTF.getText().trim());
     collision.setBboxCenterY(bboxCenterYTF.getText().trim());
