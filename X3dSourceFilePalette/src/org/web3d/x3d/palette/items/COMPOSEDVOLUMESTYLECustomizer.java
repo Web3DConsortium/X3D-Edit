@@ -55,7 +55,7 @@ public class COMPOSEDVOLUMESTYLECustomizer extends BaseCustomizer
   
   /** Creates new form COMPOSEDVOLUMESTYLECustomizer
    * @param composedVolumeStyle
-   * @param target  
+   * * @param target Swing component of interest  
    */
   public COMPOSEDVOLUMESTYLECustomizer(COMPOSEDVOLUMESTYLE composedVolumeStyle, JTextComponent target)
   {

@@ -61,7 +61,7 @@ public class SWITCHCustomizer extends BaseCustomizer
   
   /** Creates new form SWITCHCustomizer
    * @param s_witch SWITCH node holding data structures for scene graph
-   * @param target Swing component
+   * * @param target Swing component of interest Swing component
    */
   public SWITCHCustomizer(SWITCH s_witch, JTextComponent target)
   {

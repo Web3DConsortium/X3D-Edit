@@ -74,7 +74,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     /**
      * Creates new form HANIMHUMANOIDCustomizer
      * @param humanoid data of interest
-     * @param target Swing component of interest */
+     * * * @param target Swing component of interest */
     public HANIMHUMANOIDCustomizer(HANIMHUMANOID humanoid, JTextComponent target)
   {
     super(humanoid);

@@ -69,7 +69,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
     /**
      * Creates new form HANIMSITECustomizer
      * @param site data of interest
-     * @param target Swing component of interest
+     * * * @param target Swing component of interest
      */
     public HANIMSITECustomizer(HANIMSITE site, JTextComponent target)
   {

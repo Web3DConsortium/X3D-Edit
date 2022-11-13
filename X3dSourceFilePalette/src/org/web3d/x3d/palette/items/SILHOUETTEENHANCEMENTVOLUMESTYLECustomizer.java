@@ -55,7 +55,7 @@ public class SILHOUETTEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
   
   /** Creates new form SILHOUETTEENHANCEMENTVOLUMESTYLECustomizer
    * @param silhouetteEnhancementVolumeStyle
-   * @param target  
+   * * @param target Swing component of interest  
    */
   public SILHOUETTEENHANCEMENTVOLUMESTYLECustomizer(SILHOUETTEENHANCEMENTVOLUMESTYLE silhouetteEnhancementVolumeStyle, JTextComponent target)
   {

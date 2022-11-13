@@ -57,7 +57,7 @@ public class SHADEDVOLUMESTYLECustomizer extends BaseCustomizer
   
   /** Creates new form SHADEDVOLUMESTYLECustomizer
    * @param shadedVolumeStyle
-   * @param target  
+   * * @param target Swing component of interest  
    */
   public SHADEDVOLUMESTYLECustomizer(SHADEDVOLUMESTYLE shadedVolumeStyle, JTextComponent target)
   {

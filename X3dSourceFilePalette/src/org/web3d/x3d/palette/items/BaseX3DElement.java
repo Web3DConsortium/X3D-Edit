@@ -3154,7 +3154,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
    * dropped location or existing element is within a protobody, use only those nodes.
    * Else use all nodes outside of all protobodies
    * enclosed, return
-   * @param target
+   * * @param target Swing component of interest
    * @param limits
    * @return
    */

@@ -55,7 +55,7 @@ public class BOUNDARYENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
   
   /** Creates new form BOUNDARYENHANCEMENTVOLUMESTYLECustomizer
    * @param boundaryEnhancementVolumeStyle
-   * @param target  
+   * * @param target Swing component of interest  
    */
   public BOUNDARYENHANCEMENTVOLUMESTYLECustomizer(BOUNDARYENHANCEMENTVOLUMESTYLE boundaryEnhancementVolumeStyle, JTextComponent target)
   {

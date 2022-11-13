@@ -60,7 +60,7 @@ public class NURBSORIENTATIONINTERPOLATORCustomizer extends BaseCustomizer
   
   /** Creates new form NURBSORIENTATIONINTERPOLATORCustomizer
    * @param nurbsOrientationInterpolator NURBSORIENTATIONINTERPOLATOR node holding data structures for scene graph
-   * @param target Swing component
+   * * @param target Swing component of interest Swing component
    */
   public NURBSORIENTATIONINTERPOLATORCustomizer(NURBSORIENTATIONINTERPOLATOR nurbsOrientationInterpolator, JTextComponent target)
   {

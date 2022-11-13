@@ -2058,7 +2058,7 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
     /**
      * Capture invoking node as a hook back to scene jdom model
-     * @param target target is passed from implementing node containing this UrlExpandableList2 component
+     * * @param target Swing component of interest target is passed from implementing node containing this UrlExpandableList2 component
      */
     public void setTarget(JTextComponent target)
     {
