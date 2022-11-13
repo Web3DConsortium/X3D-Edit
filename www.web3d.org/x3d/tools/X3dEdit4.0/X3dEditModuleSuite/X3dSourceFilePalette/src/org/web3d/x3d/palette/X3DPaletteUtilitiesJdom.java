@@ -195,7 +195,7 @@ public final class X3DPaletteUtilitiesJdom
   public static String getCurrentDocumentX3dVersion ()
   {
       String            x3dVersion = "not found by X3DPaletteUtilities";
-      if (x3dEditor != null)
+      if ((x3dEditor != null) && (x3dEditor.getJdomDoc() != null) && (x3dEditor.getJdomDoc().getRootElement() != null))
       {
         org.jdom.Document currentDocument = x3dEditor.getJdomDoc();
         org.jdom.Element  x3dRootElement  = currentDocument.getRootElement();
@@ -377,7 +377,7 @@ public final class X3DPaletteUtilitiesJdom
                     ;
                     break;
                 case REEDIT:
-                    int selStart = target.getSelectionStart();
+                    int selStart  = target.getSelectionStart();
                     String selStr = target.getSelectedText();
                     int i=0;
                     while(selStr.charAt(i) != '<' && i < selStr.length())
@@ -557,7 +557,9 @@ public final class X3DPaletteUtilitiesJdom
         "XML Validation Error",
         NotifyDescriptor.YES_NO_CANCEL_OPTION,
         NotifyDescriptor.WARNING_MESSAGE,
-        new Object[] { ValidationErrorResponse.ACCEPT.prettyName, ValidationErrorResponse.UNDO.prettyName, ValidationErrorResponse.REEDIT.prettyName},
+        new Object[] { ValidationErrorResponse.ACCEPT.prettyName, 
+                       ValidationErrorResponse.UNDO.prettyName, 
+                       ValidationErrorResponse.REEDIT.prettyName},
         ValidationErrorResponse.UNDO.prettyName);
 
     Object obj = DialogDisplayer.getDefault().notify(notd);
