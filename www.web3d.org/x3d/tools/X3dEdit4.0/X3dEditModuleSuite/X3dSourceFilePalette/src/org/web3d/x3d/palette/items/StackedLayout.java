@@ -213,7 +213,7 @@ public class StackedLayout implements LayoutManager2
   /**
    * Returns the maximum dimensions for this layout given the components
    * in the specified target container.
-   * @param target the component which needs to be laid out
+   * * @param target Swing component of interest the component which needs to be laid out
    * @see Container
    * @see #minimumLayoutSize
    * @see #preferredLayoutSize

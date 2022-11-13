@@ -75,7 +75,7 @@ public class NURBSSURFACEINTERPOLATORCustomizer extends BaseCustomizer
 
   /** Creates new form NURBSCURVECustomizer
    * @param nurbsTextureCoordinate NURBSCURVE node holding data structures for scene graph
-   * @param target Swing component
+   * * @param target Swing component of interest Swing component
    */
   public NURBSSURFACEINTERPOLATORCustomizer(NURBSSURFACEINTERPOLATOR nurbsTextureCoordinate, JTextComponent target)
   {

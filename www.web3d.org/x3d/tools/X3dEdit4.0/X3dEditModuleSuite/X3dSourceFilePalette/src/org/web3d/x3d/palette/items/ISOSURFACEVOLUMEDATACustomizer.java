@@ -55,7 +55,7 @@ public class ISOSURFACEVOLUMEDATACustomizer extends BaseCustomizer
   
   /** Creates new form VOLUMEDATACustomizer
    * @param isoSurfaceVolumeData
-   * @param target  
+   * * @param target Swing component of interest  
    */
   public ISOSURFACEVOLUMEDATACustomizer(ISOSURFACEVOLUMEDATA isoSurfaceVolumeData, JTextComponent target)
   {

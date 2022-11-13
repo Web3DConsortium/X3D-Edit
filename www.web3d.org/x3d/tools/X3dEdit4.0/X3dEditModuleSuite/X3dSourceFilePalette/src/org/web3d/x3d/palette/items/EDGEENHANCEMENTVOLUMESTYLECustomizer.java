@@ -59,7 +59,7 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
   
   /** Creates new form EDGEENHANCEMENTVOLUMESTYLECustomizer
    * @param edgeEnhancementVolumeStyle
-   * @param target  
+   * * @param target Swing component of interest  
    */
   public EDGEENHANCEMENTVOLUMESTYLECustomizer(EDGEENHANCEMENTVOLUMESTYLE edgeEnhancementVolumeStyle, JTextComponent target)
   {

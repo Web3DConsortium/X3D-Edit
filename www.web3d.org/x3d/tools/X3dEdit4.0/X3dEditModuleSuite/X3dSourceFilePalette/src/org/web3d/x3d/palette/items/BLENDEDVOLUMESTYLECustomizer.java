@@ -57,7 +57,7 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
   
   /** Creates new form BLENDEDVOLUMESTYLECustomizer
    * @param blendedVolumeStyle
-   * @param target  
+   * * @param target Swing component of interest  
    */
   public BLENDEDVOLUMESTYLECustomizer(BLENDEDVOLUMESTYLE blendedVolumeStyle, JTextComponent target)
   {

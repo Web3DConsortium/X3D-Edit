@@ -55,7 +55,7 @@ public class SEGMENTEDVOLUMEDATACustomizer extends BaseCustomizer
   
   /** Creates new form VOLUMEDATACustomizer
    * @param segmentedVolumeData
-   * @param target  
+   * * @param target Swing component of interest  
    */
   public SEGMENTEDVOLUMEDATACustomizer(SEGMENTEDVOLUMEDATA segmentedVolumeData, JTextComponent target)
   {

@@ -57,7 +57,7 @@ public class PROJECTIONVOLUMESTYLECustomizer extends BaseCustomizer
   
   /** Creates new form PROJECTIONVOLUMESTYLECustomizer
    * @param projectionVolumeStyle
-   * @param target  
+   * * @param target Swing component of interest  
    */
   public PROJECTIONVOLUMESTYLECustomizer(PROJECTIONVOLUMESTYLE projectionVolumeStyle, JTextComponent target)
   {

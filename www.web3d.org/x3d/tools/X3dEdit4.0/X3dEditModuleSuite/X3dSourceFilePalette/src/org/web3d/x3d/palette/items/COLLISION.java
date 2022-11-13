@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,8 +36,7 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import org.web3d.x3d.types.X3DGroupingNode;
-
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
 
@@ -55,6 +54,8 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
 public class COLLISION extends X3DGroupingNode
 {
   private boolean enabled;
+  private String  description, descriptionDefault; // X3D4.0
+
 //  private SFInt32 collideTime, collideTimeDefault;// outputOnly
 
   public COLLISION()
@@ -73,6 +74,8 @@ public class COLLISION extends X3DGroupingNode
   @SuppressWarnings("NestedAssignment")
   public void initialize()
   {
+    description = descriptionDefault = COLLISION_ATTR_DESCRIPTION_DFLT;
+    
     enabled = Boolean.parseBoolean(COLLISION_ATTR_ENABLED_DFLT);
 //    collideTime = collideTimeDefault = new SFInt32(COLLISION_ATTR_COLLIDETIME_DFLT); // outputOnly
 
@@ -93,8 +96,12 @@ public class COLLISION extends X3DGroupingNode
   public void initializeFromJdom(org.jdom.Element root, JTextComponent comp)
   {
     super.initializeFromJdom(root, comp);
+    
+    org.jdom.Attribute attr = root.getAttribute(COLLISION_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
 
-    org.jdom.Attribute attr = root.getAttribute(COLLISION_ATTR_ENABLED_NAME);
+    attr = root.getAttribute(COLLISION_ATTR_ENABLED_NAME);
     if (attr != null)
       enabled = Boolean.parseBoolean(attr.getValue());
 //    attr = root.getAttribute(COLLISION_ATTR_COLLIDETIME_NAME); // outputOnly
@@ -128,6 +135,15 @@ public class COLLISION extends X3DGroupingNode
   public String createAttributes()
   {
     StringBuilder sb = new StringBuilder();
+
+    // description value is only if parent scene is X3D4
+    if (COLLISION_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
+      sb.append(" ");
+      sb.append(COLLISION_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(description);
+      sb.append("'");  
+    }
 
     if(COLLISION_ATTR_BBOXCENTER_REQD ||
        (!bboxCenterX.equals(bboxCenterXDefault) ||
@@ -197,5 +213,15 @@ public class COLLISION extends X3DGroupingNode
   public void setEnabled(boolean wh)
   {
     enabled = wh;
+  }
+  
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
   }
 }

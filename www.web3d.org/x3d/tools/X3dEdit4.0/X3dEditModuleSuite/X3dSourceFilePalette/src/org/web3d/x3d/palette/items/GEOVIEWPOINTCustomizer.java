@@ -74,7 +74,7 @@ public class GEOVIEWPOINTCustomizer extends BaseCustomizer
   
   /** Creates new form GEOVIEWPOINTCustomizer
    * @param geoViewpoint
-   * @param target
+   * * @param target Swing component of interest
    */
   public GEOVIEWPOINTCustomizer(GEOVIEWPOINT geoViewpoint, JTextComponent target)
   {

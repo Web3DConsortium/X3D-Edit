@@ -67,7 +67,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
   
   /** Creates new form HANIMJOINTCustomizer
      * @param hAnimJoint data of interest
-     * @param target Swing component of interest */
+     * * * @param target Swing component of interest */
   public HANIMJOINTCustomizer(HANIMJOINT hAnimJoint, JTextComponent target)
   {
     super(hAnimJoint);

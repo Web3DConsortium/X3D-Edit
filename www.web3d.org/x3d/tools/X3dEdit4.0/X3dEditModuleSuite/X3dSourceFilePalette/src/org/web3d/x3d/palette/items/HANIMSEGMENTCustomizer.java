@@ -61,7 +61,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
     /**
      * Creates new form HANIMSEGMENTCustomizer
      * @param segment data of interest
-     * @param target Swing component of interest
+     * * * @param target Swing component of interest
      */
     public HANIMSEGMENTCustomizer(HANIMSEGMENT segment, JTextComponent target)
   {

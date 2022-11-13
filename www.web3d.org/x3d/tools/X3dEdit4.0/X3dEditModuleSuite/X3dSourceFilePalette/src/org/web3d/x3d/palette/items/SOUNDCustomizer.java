@@ -62,7 +62,7 @@ public class SOUNDCustomizer extends BaseCustomizer
   
   /** Creates new form SOUNDCustomizer
      * @param sound
-     * @param target */
+     * * @param target Swing component of interest */
   public SOUNDCustomizer(SOUND sound, JTextComponent target)
   {
     super(sound);

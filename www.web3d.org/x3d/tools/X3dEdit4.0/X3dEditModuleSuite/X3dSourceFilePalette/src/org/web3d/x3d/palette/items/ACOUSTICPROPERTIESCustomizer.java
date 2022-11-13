@@ -57,7 +57,7 @@ public class ACOUSTICPROPERTIESCustomizer extends BaseCustomizer {
   
   /** Creates new form ACOUSTICPROPERTIESCustomizer
      * @param acousticProperties node data structures
-     * @param target Swing component of interest */
+     * * * @param target Swing component of interest */
   public ACOUSTICPROPERTIESCustomizer(ACOUSTICPROPERTIES acousticProperties, JTextComponent target)
   {
     super(acousticProperties);
@@ -142,6 +142,7 @@ public class ACOUSTICPROPERTIESCustomizer extends BaseCustomizer {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledCheckBox, gridBagConstraints);
 
+        descriptionTF.setToolTipText("Author-provided prose that describes intended purpose of the node");
         descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
         descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -278,6 +279,7 @@ public class ACOUSTICPROPERTIESCustomizer extends BaseCustomizer {
         add(normalizeSpecularButton, gridBagConstraints);
 
         descriptionLabel.setText("description");
+        descriptionLabel.setToolTipText("Author-provided prose that describes intended purpose of the node");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
