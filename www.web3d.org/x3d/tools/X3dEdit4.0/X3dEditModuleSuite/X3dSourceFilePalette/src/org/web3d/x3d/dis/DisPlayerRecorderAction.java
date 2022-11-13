@@ -35,10 +35,13 @@ package org.web3d.x3d.dis;
 
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
+import static javax.swing.Action.SMALL_ICON;
+import javax.swing.ImageIcon;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 
@@ -57,14 +60,15 @@ public class DisPlayerRecorderAction extends AbstractAction
   public DisPlayerRecorderAction()
   {
     super(NbBundle.getMessage(DisPlayerRecorderAction.class, "CTL_DisPlayerRecorderAction"));
-//        putValue(SMALL_ICON, new ImageIcon(Utilities.loadImage(DisPlayerRecorderTopComponent.ICON_PATH, true)));
+    putValue(SMALL_ICON, new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png", true)));
   }
 
   @Override
   public void actionPerformed(ActionEvent evt)
   { 
-    TopComponent win = DisPlayerRecorderTopComponent.findInstance();
-    win.open();
-    win.requestActive();
+    TopComponent window = DisPlayerRecorderTopComponent.findInstance();
+    window.open();
+    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png"));
+    window.requestActive();
   }
 }

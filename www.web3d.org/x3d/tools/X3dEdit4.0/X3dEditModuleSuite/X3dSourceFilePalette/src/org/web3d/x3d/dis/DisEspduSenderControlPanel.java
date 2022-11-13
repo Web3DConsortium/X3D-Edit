@@ -1410,14 +1410,14 @@ private void joystickCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//
    */
   public static synchronized DisEspduSenderControlPanel findInstance()
   {
-    TopComponent win = WindowManager.getDefault().findTopComponent(PREFERRED_ID);
-    if (win == null) {
+    TopComponent window = WindowManager.getDefault().findTopComponent(PREFERRED_ID);
+    if (window == null) {
       Logger.getLogger(DisEspduSenderControlPanel.class.getName()).warning(
           "Cannot find " + PREFERRED_ID + " component. It will not be located properly in the window system.");
       return getDefault();
     }
-    if (win instanceof DisEspduSenderControlPanel) {
-      return (DisEspduSenderControlPanel) win;
+    if (window instanceof DisEspduSenderControlPanel) {
+      return (DisEspduSenderControlPanel) window;
     }
     Logger.getLogger(DisEspduSenderControlPanel.class.getName()).warning(
         "There seem to be multiple components with the '" + PREFERRED_ID +
