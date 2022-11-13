@@ -82,6 +82,8 @@ abstract public class BaseViewAction extends CallableSystemAction
   
   public final static String WEB3D_CONSORTIUM_HOME                ="https://web3D.org";
   public final static String WEB3D_CONSORTIUM_JOIN                ="https://web3D.org/join";
+  public final static String WEB3D_CONSORTIUM_MANTIS_ISSUES       ="https://www.web3d.org/member-only/mantis/my_view_page.php";
+//public final static String WEB3D_CONSORTIUM_MANTIS_ISSUES       ="https://www.web3d.org/member-only/mantis/login_page.php";
   public final static String WEB3D_CONFERENCE                     ="https://web3d.siggraph.org";
   public final static String WEB3D_CONFERENCE_ACM_DIGITAL_LIBRARY ="https://dl.acm.org/conference/web3d";
   public final static String WEB3D_CONFERENCE_YOUTUBE             ="https://www.youtube.com/channel/UCxg1RdwicxPHgRT0QQbuGFQ";
@@ -97,6 +99,8 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_XML_ENCODING_STANDARD            ="https://www.web3d.org/documents/specifications/19776-1/V3.3/Part01/X3D_XML.html";
   public final static String X3D_CLASSICVRML_ENCODING_STANDARD    ="https://www.web3d.org/documents/specifications/19776-2/V3.3/Part02/X3D_ClassicVRML.html";
   public final static String X3D_JSON_ENCODING_GUIDELINES         ="https://www.web3d.org/x3d/stylesheets/X3dToJson.html"; // TODO standard
+  public final static String VRML97_STANDARD                      ="https://www.web3d.org/documents/specifications/14772/V2.0/index.html";
+  public final static String VRML97_STANDARD_AMENDMENT_1          ="https://www.web3d.org/documents/specifications/14772-1/V2.1/index.html";
   public final static String CASTLE_GAME_ENGINE_CONVERTER         ="https://castle-engine.io/convert.php";
   
   private Boolean menuItemEnabled = Boolean.TRUE;
