@@ -203,7 +203,7 @@ public class X3DCustomizer extends BaseCustomizer
 
         followerFigureLabel1.setBackground(new java.awt.Color(255, 255, 255));
         followerFigureLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        followerFigureLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/palette/items/resources/HelloSceneGraphStructure.visio.png"))); // NOI18N
+        followerFigureLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/palette/items/resources/HelloSceneGraphStructure.300x128.png"))); // NOI18N
         followerFigureLabel1.setToolTipText("X3D scene graph structure");
         followerFigureLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
         followerFigureLabel1.setMaximumSize(new java.awt.Dimension(302, 129));
