@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -126,6 +126,8 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
   public DISPlayerRecorderPanel()
   {
     initComponents();
+    
+    // TODO place icon
     
     stateMachine = new DISPlayerRecorderStateMachine(this);
     // all three sizes of play and pause butts have been manually set in matisse to == the largest of the three, the rev play butt
@@ -296,13 +298,13 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
     Component currentPduDisplayPanel = displayPanelScroller.getViewport().getView();
     if (currentPduDisplayPanel == null)
         return;
-    if(currentPduDisplayPanel instanceof ByteArrayDisplayPanel)
+    if (currentPduDisplayPanel instanceof ByteArrayDisplayPanel)
     {
         ByteArrayDisplayPanel badp = (ByteArrayDisplayPanel)currentPduDisplayPanel;
         byte [] emptyByteArray = {  };
         badp.setData(emptyByteArray, 0);
     }
-    else if(currentPduDisplayPanel instanceof XmlDisplayPanel)
+    else if (currentPduDisplayPanel instanceof XmlDisplayPanel)
     {
         XmlDisplayPanel xmlDisplayPanel = (XmlDisplayPanel)currentPduDisplayPanel;
         xmlDisplayPanel.setString(""); // clear
