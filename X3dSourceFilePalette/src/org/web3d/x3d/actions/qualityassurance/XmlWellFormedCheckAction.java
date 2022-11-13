@@ -45,8 +45,8 @@ import org.openide.util.NbBundle;
                     displayName = "#CTL_XmlWellFormedCheckAction", 
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 330),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 330),
+  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 330),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 330),
 })
 
 public final class XmlWellFormedCheckAction extends XmlValidationAction

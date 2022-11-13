@@ -75,8 +75,8 @@ import org.web3d.x3d.tools.X3dValuesRegexChecker;
   @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 30),
   @ActionReference(path = "Toolbars/Author Workflow", position = 30),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 30),
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 300)
+  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 300)
 })
 
 public class ComprehensiveValidationAction extends BaseConversionsAction //XmlValidationAction
@@ -128,7 +128,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
         public void run() {
             
             // Display output to user
-            InputOutput io = IOProvider.getDefault().getIO("X3D Quality Assurance", false); // (QA)", false);
+            InputOutput io = IOProvider.getDefault().getIO("X3D Quality Assurance (QA)", false); // (QA)", false);
             io.select();  // Bring to the front
             try (OutputWriter outputWriterPlain = io.getOut()) {
                 try (OutputWriter outputWriterError = io.getErr()) {

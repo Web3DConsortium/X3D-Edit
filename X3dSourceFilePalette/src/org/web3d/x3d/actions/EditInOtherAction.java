@@ -44,10 +44,9 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.EditInOtherAction", category = "View")
 @ActionRegistration(displayName = "#CTL_EditInOtherAction",lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Launch Saved Model in Tool", position = 900),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Launch Saved Model in Tool", position = 900),
+  @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 900),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 900),
 })
-@NbBundle.Messages("CTL_EditInOtherAction=Other editor (see X3D-Edit Preferences, X3D Authoring Tools tab)")
 
 /**
  * EditInOtherAction.java
@@ -84,7 +83,7 @@ public final class EditInOtherAction extends ViewInBaseAction
   public String getName()
   {
     return X3dOptions.getOtherX3dEditorName();
-    // NbBundle.getMessage(getClass(), "CTL_ViewInOtherAction");
+    // NbBundle.getMessage(getClass(), "CTL_EditInOtherAction");
   }
 
   @Override

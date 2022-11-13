@@ -52,8 +52,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.ViewInVivatyPlayerAction", category = "View")
 @ActionRegistration(displayName = "#CTL_ViewInVivatyPlayerAction", lazy=true)
 @ActionReferences(value={
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Model", position = 137),
-  @ActionReference(path = "Menu/X3D-Edit/Display Saved Model", position = 137)})
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 137),
+  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 137)})
 public final class ViewInVivatyPlayerAction extends ViewInBaseAction
 {
   @Override

@@ -51,9 +51,9 @@ import org.web3d.x3d.X3DEditorSupport;
 
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", position = 50),
-  @ActionReference(path = "Menu/X3D-Edit/Display Saved Model", position = 150, separatorBefore = 149),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Model", position = 150),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Model", position = 150),
+  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 150, separatorBefore = 149),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 150),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 150),
   @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 50),
   @ActionReference(path = "Toolbars/Author Workflow", position = 50),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 50),

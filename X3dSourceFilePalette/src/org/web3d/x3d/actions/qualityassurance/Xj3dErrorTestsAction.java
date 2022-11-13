@@ -48,8 +48,8 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_Xj3dErrorTestsAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 600),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 600),
+  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 600),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 600),
 })
 
 public final class Xj3dErrorTestsAction extends CallableSystemAction

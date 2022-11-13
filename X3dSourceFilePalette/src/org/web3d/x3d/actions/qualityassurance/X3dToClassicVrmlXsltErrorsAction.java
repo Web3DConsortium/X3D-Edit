@@ -62,8 +62,8 @@ import org.web3d.x3d.actions.conversions.BaseConversionsAction;
                     displayName = "#CTL_X3dToClassicVrmlXsltErrorsAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 500),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 500),
+  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 500),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 500),
 })
 
 public final class X3dToClassicVrmlXsltErrorsAction extends BaseConversionsAction
