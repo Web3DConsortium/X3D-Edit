@@ -168,7 +168,8 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
     {
       Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
       if (c instanceof JLabel && value instanceof byte[]) {
-        String s = translateBytes((byte[]) value, index);
+        // note internal list index is zero-based but output string is one-based
+        String s = translateBytes((byte[]) value, index+1);
         ((JLabel) c).setText(s);
       }
       return c;
@@ -190,7 +191,7 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
       DisPduType pduTypeEnum = DisPduType.values()[pduType];
       rendererSB.setLength(0);
       rendererSB.append(index);
-      rendererSB.append(' ');
+      rendererSB.append(". ");
       rendererSB.append(pduTypeEnum.toString());
       //rendererSB.append(' ');
       //rendererSB.append(pduTypeEnum.getDescription());
