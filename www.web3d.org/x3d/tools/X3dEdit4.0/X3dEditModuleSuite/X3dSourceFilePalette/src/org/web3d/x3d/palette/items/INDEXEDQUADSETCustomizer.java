@@ -55,7 +55,7 @@ public class INDEXEDQUADSETCustomizer extends BaseCustomizer
   
   /** Creates new form INDEXEDQUADSETCustomizer
    * @param iqs
-   * * @param target Swing component of interest 
+   * @param target Swing component of interest 
    */
   public INDEXEDQUADSETCustomizer(INDEXEDQUADSET iqs, JTextComponent target)
   {

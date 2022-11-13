@@ -55,7 +55,7 @@ public class OPACITYMAPVOLUMESTYLECustomizer extends BaseCustomizer
   
   /** Creates new form OPACITYMAPVOLUMESTYLECustomizer
    * @param opacityMapVolumeStyle
-   * * @param target Swing component of interest  
+   * @param target Swing component of interest  
    */
   public OPACITYMAPVOLUMESTYLECustomizer(OPACITYMAPVOLUMESTYLE opacityMapVolumeStyle, JTextComponent target)
   {

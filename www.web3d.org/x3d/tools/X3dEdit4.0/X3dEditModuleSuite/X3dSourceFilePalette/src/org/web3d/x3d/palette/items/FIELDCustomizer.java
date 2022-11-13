@@ -66,7 +66,7 @@ public class FIELDCustomizer extends BaseCustomizer
 
   /** Creates new form FIELDCustomizer
    * @param field
-   * * @param target Swing component of interest  
+   * @param target Swing component of interest  
    */
   public FIELDCustomizer(FIELD field, JTextComponent target)
   {

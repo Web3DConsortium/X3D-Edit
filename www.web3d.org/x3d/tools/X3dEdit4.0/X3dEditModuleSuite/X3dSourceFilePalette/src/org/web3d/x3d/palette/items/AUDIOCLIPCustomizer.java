@@ -57,7 +57,7 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
   
   /** Creates new form LOADSENSORCustomizer
      * @param audioClip
-     * * @param target Swing component of interest
+     * @param target Swing component of interest
      * @param xObj */
   public AUDIOCLIPCustomizer(AUDIOCLIP audioClip, JTextComponent target, X3DDataObject xObj)
   {

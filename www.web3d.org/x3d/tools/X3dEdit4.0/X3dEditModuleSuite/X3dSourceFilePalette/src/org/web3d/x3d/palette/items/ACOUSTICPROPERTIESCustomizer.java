@@ -57,7 +57,7 @@ public class ACOUSTICPROPERTIESCustomizer extends BaseCustomizer {
   
   /** Creates new form ACOUSTICPROPERTIESCustomizer
      * @param acousticProperties node data structures
-     * * * @param target Swing component of interest */
+     * * @param target Swing component of interest */
   public ACOUSTICPROPERTIESCustomizer(ACOUSTICPROPERTIES acousticProperties, JTextComponent target)
   {
     super(acousticProperties);

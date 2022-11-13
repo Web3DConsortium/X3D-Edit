@@ -53,7 +53,7 @@ public class SPHERECustomizer extends BaseCustomizer
   
   /** Creates new form SPHERECustomizer
    * @param sphere
-   * * @param target Swing component of interest
+   * @param target Swing component of interest
    */
   public SPHERECustomizer(SPHERE sphere, JTextComponent target)
   {

@@ -58,7 +58,7 @@ public class NORMALCustomizer extends BaseCustomizer
   
   /** Creates new form SHAPECustomizer
    * @param normal
-   * * @param target Swing component of interest  
+   * @param target Swing component of interest  
    */
   public NORMALCustomizer(NORMAL normal, JTextComponent target)
   {

@@ -60,7 +60,7 @@ public class NURBSPOSITIONINTERPOLATORCustomizer extends BaseCustomizer
   
   /** Creates new form NURBSPOSITIONINTERPOLATORCustomizer
    * @param nurbsPositionInterpolator NURBSPOSITIONINTERPOLATOR node holding data structures for scene graph
-   * * @param target Swing component of interest Swing component
+   * @param target Swing component of interest Swing component
    */
   public NURBSPOSITIONINTERPOLATORCustomizer(NURBSPOSITIONINTERPOLATOR nurbsPositionInterpolator, JTextComponent target)
   {

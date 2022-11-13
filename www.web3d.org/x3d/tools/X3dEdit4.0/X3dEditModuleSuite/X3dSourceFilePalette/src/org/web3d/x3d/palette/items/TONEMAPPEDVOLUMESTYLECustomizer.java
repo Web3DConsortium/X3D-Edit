@@ -59,7 +59,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
   
   /** Creates new form TONEMAPPEDVOLUMESTYLECustomizer
    * @param toneMappedVolumeStyle
-   * * @param target Swing component of interest  
+   * @param target Swing component of interest  
    */
   public TONEMAPPEDVOLUMESTYLECustomizer(TONEMAPPEDVOLUMESTYLE toneMappedVolumeStyle, JTextComponent target)
   {

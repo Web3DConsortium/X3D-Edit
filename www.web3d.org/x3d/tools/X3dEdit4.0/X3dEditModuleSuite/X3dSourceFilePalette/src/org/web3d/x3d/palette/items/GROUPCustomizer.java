@@ -58,7 +58,7 @@ public class GROUPCustomizer extends BaseCustomizer
   
   /** Creates new form GROUPCustomizer
    * @param group
-   * * @param target Swing component of interest  
+   * @param target Swing component of interest  
    */
   public GROUPCustomizer(GROUP group, JTextComponent target)
   {

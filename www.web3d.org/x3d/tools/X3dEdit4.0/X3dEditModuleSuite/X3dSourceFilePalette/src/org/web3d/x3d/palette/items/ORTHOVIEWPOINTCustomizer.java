@@ -71,7 +71,7 @@ public class ORTHOVIEWPOINTCustomizer extends BaseCustomizer
   
   /** Creates new form ORTHOVIEWPOINTCustomizer
    * @param orthoViewpoint
-   * * @param target Swing component of interest
+   * @param target Swing component of interest
    */
   public ORTHOVIEWPOINTCustomizer(ORTHOVIEWPOINT orthoViewpoint, JTextComponent target)
   {

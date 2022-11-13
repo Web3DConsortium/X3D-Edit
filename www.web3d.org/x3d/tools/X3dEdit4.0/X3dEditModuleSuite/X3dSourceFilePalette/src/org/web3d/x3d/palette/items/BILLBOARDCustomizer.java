@@ -59,7 +59,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
   
   /** Creates new form BILLBOARDCustomizer
    * @param billboard
-   * * @param target Swing component of interest  
+   * @param target Swing component of interest  
    */
   public BILLBOARDCustomizer(BILLBOARD billboard, JTextComponent target)
   {

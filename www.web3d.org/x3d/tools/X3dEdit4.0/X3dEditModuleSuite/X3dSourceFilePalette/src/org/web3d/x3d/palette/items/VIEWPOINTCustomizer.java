@@ -71,7 +71,7 @@ public class VIEWPOINTCustomizer extends BaseCustomizer
   
   /** Creates new form VIEWPOINTCustomizer
    * @param viewpoint
-   * * @param target Swing component of interest
+   * @param target Swing component of interest
    */
   public VIEWPOINTCustomizer(VIEWPOINT viewpoint, JTextComponent target)
   {
