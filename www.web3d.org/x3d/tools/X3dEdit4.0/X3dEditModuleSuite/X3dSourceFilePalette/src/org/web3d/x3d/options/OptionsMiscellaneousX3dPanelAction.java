@@ -54,7 +54,7 @@ import org.openide.util.NbBundle;
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Configuration", position = 1008), // see layer.xml
   @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Configuration", position = 1008) // see layer.xml
-//  @ActionReference(path = "Menu/X3D-Edit/Display Saved Model", position = 990),
+//  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 990),
 //  @ActionReference(path = "Menu/X3D-Edit/Modify Saved Scene in Tool", position = 990),
 })
 

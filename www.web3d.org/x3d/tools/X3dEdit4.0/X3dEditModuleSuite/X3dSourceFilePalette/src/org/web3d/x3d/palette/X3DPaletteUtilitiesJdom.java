@@ -195,17 +195,40 @@ public final class X3DPaletteUtilitiesJdom
   public static String getCurrentDocumentX3dVersion ()
   {
       String            x3dVersion = "not found by X3DPaletteUtilities";
-      if ((x3dEditor != null) && (x3dEditor.getJdomDoc() != null) && (x3dEditor.getJdomDoc().getRootElement() != null))
+      if (x3dEditor != null) // proceed carefully
       {
-        org.jdom.Document currentDocument = x3dEditor.getJdomDoc();
-        org.jdom.Element  x3dRootElement  = currentDocument.getRootElement();
-                          x3dVersion      = x3dRootElement.getAttributeValue("version");
+            org.jdom.Document currentDocument = x3dEditor.getJdomDoc();
+            if  (currentDocument != null)
+            {
+                org.jdom.Element x3dRootElement;
+                x3dRootElement   = currentDocument.getRootElement();
+                if  (x3dRootElement != null)
+                     x3dVersion      = x3dRootElement.getAttributeValue("version");
+            }
       }
       else
       {
           System.err.println ("*** Application error, X3DPaletteUtilities.getCurrentDocumentX3dVersion() invoked before x3dEditor instantiated");
       }
       return x3dVersion;
+  }
+    
+    /**
+     * TODO utility method to change X3D version of current model
+     * @param newVersion to set
+     */
+    public static void setCurrentDocumentX3dVersion (String newVersion)
+  {
+//      if ((x3dEditor != null) && (x3dEditor.getJdomDoc() != null) && (x3dEditor.getJdomDoc().getRootElement() != null))
+//      {
+//        org.jdom.Document currentDocument = x3dEditor.getJdomDoc();
+//        org.jdom.Element  x3dRootElement  = currentDocument.getRootElement();
+////                          x3dVersion      = x3dRootElement.getAttributeValue("version");
+//      }
+//      else
+//      {
+//          System.err.println ("*** Application error, X3DPaletteUtilities.getCurrentDocumentX3dVersion() invoked before x3dEditor instantiated");
+//      }
   }
     
   public static boolean isCurrentDocumentX3dVersion4 ()

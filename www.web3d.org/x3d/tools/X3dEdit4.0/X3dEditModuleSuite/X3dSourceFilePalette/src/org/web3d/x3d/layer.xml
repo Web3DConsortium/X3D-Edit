@@ -152,13 +152,13 @@ POSSIBILITY OF SUCH DAMAGE.
                     <folder name="Author Workflow">
                         <attr name="position" intvalue="20"/>
                     </folder>
-                    <folder name="Display Saved Model">
+                    <folder name="Edit Element XML">
                         <attr name="position" intvalue="30"/>
                     </folder>
-                    <folder name="Edit Element XML">
+                    <folder name="Show Saved Model">
                         <attr name="position" intvalue="40"/>
                     </folder>
-                    <folder name="Launch Saved Model in Tool">
+                    <folder name="Tool Editing of Saved Model">
                         <attr name="position" intvalue="50"/>
                     </folder>
                     <folder name="X3D Template Files">
@@ -177,7 +177,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <attr name="position" intvalue="90"/>
                     </folder>
                     <folder name="Example X3D Model Archives">
-                        <attr name="position" intvalue="100"/>
+                        <attr name="position" intvalue="95"/>
                         <!-- DownloadContentAction position 100 -->
                         <folder name="View Local X3D Examples Archives">
                             <attr name="position" intvalue="200"/>
@@ -233,7 +233,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <attr name="position" intvalue="850"/>
                     </file>
                     -->
-                    <folder name="Quality Assurance">
+                    <folder name="Quality Assurance (QA)">
                         <attr name="position" intvalue="150"/>
                         <file name="org-web3d-x3d-actions-qualityassurance-separatorBetween.instance">
                             <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
@@ -630,8 +630,11 @@ POSSIBILITY OF SUCH DAMAGE.
             <folder name="Author Workflow">
                 <attr name="position" intvalue="20"/>
             </folder>
-            <folder name="Display Saved Model">
+            <folder name="Edit Element XML">
                 <attr name="position" intvalue="30"/>
+            </folder>
+            <folder name="Show Saved Model">
+                <attr name="position" intvalue="40"/>
                 <!-- Xj3D internal pane    Xj3dViewerAction            position 20 -->
                 <!-- Xj3D launch           ViewInXj3DApplicationAction position 50 -->
                 <!-- Xj3D user-installed custom application launch ViewInXj3DExternalAction position 60 -->
@@ -651,10 +654,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- ViewInAction  position  -->
                 <!-- ViewInOtherAction  position 200 -->
             </folder>
-            <folder name="Edit Element XML">
-                <attr name="position" intvalue="40"/>
-            </folder>
-            <folder name="Launch Saved Model in Tool">
+            <folder name="Tool Editing of Saved Model">
                 <attr name="position" intvalue="50"/>
             </folder>
             <folder name="X3D Template Files">
@@ -690,10 +690,10 @@ POSSIBILITY OF SUCH DAMAGE.
                 </file>
             </folder>
             <folder name="DIS Networking">
-                <attr name="position" intvalue="80"/>
+                <attr name="position" intvalue="90"/>
             </folder>
             <folder name="Example X3D Model Archives">
-                <attr name="position" intvalue="90"/>
+                <attr name="position" intvalue="95"/>
                 <!-- DownloadContentAction position 100 -->
                 <folder name="View Local X3D Examples Archives">
                     <attr name="position" intvalue="200"/>
@@ -729,7 +729,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="position" intvalue="80"/>
             </file>
         -->
-            <folder name="Quality Assurance">
+            <folder name="Quality Assurance (QA)">
                 <attr name="position" intvalue="120"/>
                 <!-- insertions go here -->
                 <file name="org-web3d-x3d-actions-qualityassurance-separatorBetween.instance">

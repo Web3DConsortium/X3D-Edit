@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -88,7 +88,7 @@ public interface X3DSchemaData
       "", "Core", "Interchange", "Interactive", "Immersive", "CADInterchange", "MedicalInterchange", "Full",
   };
   String[]X3D_ATTR_VERSION_CHOICES  = {
-      "3.0","3.1","3.2","3.3","4.0"
+      "3.0","3.1","3.2","3.3","4.0" // 4.1 is deferred
   };
   String[]X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_CHOICES  = {
       "https://www.web3d.org/specifications/x3d-3.0.xsd",
@@ -793,6 +793,9 @@ public interface X3DSchemaData
 
   // Collision element
   String  COLLISION_ELNAME                = "Collision";
+  String  COLLISION_ATTR_DESCRIPTION_NAME = "description";
+  boolean COLLISION_ATTR_DESCRIPTION_REQD = false;
+  String  COLLISION_ATTR_DESCRIPTION_DFLT = "";
   String  COLLISION_ATTR_ENABLED_NAME     = "enabled";
   boolean COLLISION_ATTR_ENABLED_REQD     = false;
   String  COLLISION_ATTR_ENABLED_DFLT     = "true";

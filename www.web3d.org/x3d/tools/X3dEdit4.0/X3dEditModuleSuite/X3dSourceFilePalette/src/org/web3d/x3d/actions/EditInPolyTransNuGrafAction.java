@@ -52,8 +52,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.EditInPolyTransNuGrafAction", category = "View")
 @ActionRegistration(displayName = "#CTL_EditInPolyTransNuGrafAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Launch Saved Model in Tool", position = 150),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Launch Saved Model in Tool", position = 150),
+    @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 150),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 150),
 })
 
 public final class EditInPolyTransNuGrafAction extends ViewInBaseAction

@@ -52,8 +52,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.ViewInContactAction", category = "View")
 @ActionRegistration(displayName = "#CTL_ViewInContactAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Display Saved Model", position = 118),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Model", position = 118)
+    @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 118),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 118)
 })
 
 public final class ViewInContactAction extends ViewInBaseAction

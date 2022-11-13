@@ -52,8 +52,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.EditInMeshLabAction", category = "View")
 @ActionRegistration(displayName = "#CTL_EditInMeshLabAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Launch Saved Model in Tool", position = 130),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Launch Saved Model in Tool", position = 130),
+    @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 130),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 130),
 })
 
 public final class EditInMeshLabAction extends ViewInBaseAction

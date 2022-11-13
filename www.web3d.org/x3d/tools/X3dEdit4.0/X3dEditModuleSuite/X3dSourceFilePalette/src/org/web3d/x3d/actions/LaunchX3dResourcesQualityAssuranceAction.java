@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_QUALITY_ASSURAN
                     displayName = "#CTL_LaunchX3dResourcesQualityAssuranceAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 1010),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 1010),
+  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 1010),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 1010),
 })
 
 public final class LaunchX3dResourcesQualityAssuranceAction extends CallableSystemAction

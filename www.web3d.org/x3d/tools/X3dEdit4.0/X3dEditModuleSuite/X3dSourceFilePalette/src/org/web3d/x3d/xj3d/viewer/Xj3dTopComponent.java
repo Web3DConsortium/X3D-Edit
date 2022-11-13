@@ -58,8 +58,8 @@ import org.openide.windows.WindowManager;
 @ActionID(category = "Window", id = "org.web3d.x3d.xj3d.viewer.Xj3dTopComponent")
 /* This window is opened by other actions...this not needed
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Display Saved Model", position = 110),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Display Saved Model", position = 110)})
+  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 110),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 110)})
 */
 @TopComponent.OpenActionRegistration(
     displayName = "#CTL_Xj3dNewAction",

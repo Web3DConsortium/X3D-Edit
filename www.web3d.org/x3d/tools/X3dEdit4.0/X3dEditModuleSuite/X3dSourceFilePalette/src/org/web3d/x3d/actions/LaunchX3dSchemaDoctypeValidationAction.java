@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_SCHEMA_DOCTYPE_VALIDATION
                     displayName = "#CTL_LaunchX3dSchemaDoctypeValidationAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 1040),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 1040),
+  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 1040),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 1040),
 })
 
 public final class LaunchX3dSchemaDoctypeValidationAction extends CallableSystemAction

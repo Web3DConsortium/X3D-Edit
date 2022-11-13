@@ -939,4 +939,26 @@ public abstract class BaseCustomizer extends JPanel
     public BaseX3DElement getBaseX3DElement() {
         return baseX3DElement;
     }
+    /**
+     * Check whether current document supports the given X3D4 element-field combination with X3D4
+     * @param elementName   name of X3D3 element to check
+     * @param fieldName name of X3D4 field to check
+     * @return 
+     */
+    public boolean checkX3D4FieldSupportDialog (String elementName, String fieldName)
+    {
+        if (!X3DPaletteUtilitiesJdom.isCurrentDocumentX3dVersion4() && !fieldName.isBlank())
+        {
+            String message1 = elementName + " " + fieldName + " field requires X3D version='4.0'";
+            String message2 = "Current document declares X3D version='" + X3DPaletteUtilitiesJdom.getCurrentDocumentX3dVersion() + "'";
+            System.out.println ("*** " + "Warning: " + message1 + "  " + message2); // ensure appearance on console
+            
+            NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message("<html><center><p>" + message1 + "</p> <br/> <p>" + message2 + "</p></html>");
+            notifyDescriptor.setTitle("Warning, need X3D4"); // or higher, when available
+            DialogDisplayer.getDefault().notify(notifyDescriptor);
+            
+            X3DPaletteUtilitiesJdom.setCurrentDocumentX3dVersion("4.0"); // TODO get working
+        }
+        return X3DPaletteUtilitiesJdom.isCurrentDocumentX3dVersion4(); // whether resulting document is X3D4
+    }
   }

@@ -48,8 +48,8 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_SMALmetadataValidationAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance", position = 800),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance", position = 800),
+  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 800),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 800),
 })
 
 public final class SMALmetadataValidationAction extends CallableSystemAction
