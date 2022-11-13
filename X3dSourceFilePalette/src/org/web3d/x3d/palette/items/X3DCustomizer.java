@@ -242,17 +242,17 @@ public class X3DCustomizer extends BaseCustomizer
         }
         
         versionHintLabel.setText(X3D_ATTR_VERSION_HINTS[versionIndex]);
-        if      (versionComboBox.getSelectedIndex() <= 2) // 3.0, 3.1, 3.2
+        if      (versionComboBox.getSelectedIndex() <= 3) // 3.0, 3.1, 3.2, 3.3
         {
                  versionHintLabel.setForeground(Color.BLACK);
         }
-        else if (versionComboBox.getSelectedIndex() == 3) // 3.3
+        else if (versionComboBox.getSelectedIndex() == 4) // 4.0
         {
-                 versionHintLabel.setForeground(new Color(0,128,0)); // dark green
+                 versionHintLabel.setForeground(new Color(0,128,0)); // dark green, preferred
         }
-        else if (versionComboBox.getSelectedIndex() > 3) // 4.0, 4.1
+        else if (versionComboBox.getSelectedIndex() > 4) // 4.1
         {
-                 versionHintLabel.setForeground(new Color(128, 64, 12)); // dark Orange
+                 versionHintLabel.setForeground(new Color(128, 64, 12)); // dark Orange, as yet unsupported
         }
     }//GEN-LAST:event_versionComboBoxActionPerformed
 
