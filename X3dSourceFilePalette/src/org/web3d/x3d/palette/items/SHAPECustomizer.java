@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -133,6 +133,46 @@ public class SHAPECustomizer extends BaseCustomizer
     levelComboBox.setSelectedIndex(saveLevelIndex);
     
     additionalGeometriesComboBox.setVisible(false); // TODO implement
+    
+    String content = shape.getContent();
+    if      (content.contains("<Box "))
+        boxRadioButton.setSelected(true);
+    else if (content.contains("<Cone "))
+        coneRadioButton.setSelected(true);
+    else if (content.contains("<Cylinder "))
+        cylinderRadioButton.setSelected(true);
+    else if (content.contains("<Sphere "))
+        sphereRadioButton.setSelected(true);
+    else if (content.contains("<Text "))
+        textRadioButton.setSelected(true);
+    else if (content.contains("<ElevationGrid "))
+        elevationGridRadioButton.setSelected(true);
+    else if (content.contains("<Extrusion "))
+        extrusionRadioButton.setSelected(true);
+    else if (content.contains("<IndexedFaceSet "))
+        indexedFaceSetRadioButton.setSelected(true);
+    else if (content.contains("<IndexedLineSet "))
+        indexedLineSetRadioButton.setSelected(true);
+    else if (content.contains("<LineSetp "))
+        lineSetRadioButton.setSelected(true);
+    else if (content.contains("<PointSet "))
+        pointSetRadioButton.setSelected(true);
+    else if (content.contains("<Arc2D "))
+        arc2dRadioButton.setSelected(true);
+    else if (content.contains("<ArcClose2D "))
+        arcClose2dRadioButton.setSelected(true);
+    else if (content.contains("<Circle2D "))
+        circle2dRadioButton.setSelected(true);
+    else if (content.contains("<Disk2D "))
+        disk2dRadioButton.setSelected(true);
+    else if (content.contains("<Polyline2D "))
+        polyline2dRadioButton.setSelected(true);
+    else if (content.contains("<Polypoint2D "))
+        polypoint2dRadioButton.setSelected(true);
+    else if (content.contains("<Rectangle2D "))
+        rectangle2dRadioButton.setSelected(true);
+    else if (content.contains("<TriangleSet2D "))
+        triangleSet2dRadioButton.setSelected(true);
 
     // TODO check parent, if CADFace then warn regarding containerField='shape'
  }
@@ -2089,7 +2129,7 @@ public class SHAPECustomizer extends BaseCustomizer
       {
           if (!(radiusTextField.getText().trim().contains(" ")))
           {
-              radius = Float.valueOf (radiusTextField.getText());
+              radius = Float.parseFloat (radiusTextField.getText());
               outerRadius = radius;
               if (innerRadius > outerRadius)
               {
@@ -2098,9 +2138,9 @@ public class SHAPECustomizer extends BaseCustomizer
           }
           else
           {
-              radius      = Float.valueOf (radiusTextField.getText().trim().substring(0,radiusTextField.getText().trim().indexOf(" ")));
+              radius      = Float.parseFloat (radiusTextField.getText().trim().substring(0,radiusTextField.getText().trim().indexOf(" ")));
               innerRadius = radius;
-              outerRadius = Float.valueOf (radiusTextField.getText().trim().substring(radiusTextField.getText().trim().indexOf(" ")));
+              outerRadius = Float.parseFloat (radiusTextField.getText().trim().substring(radiusTextField.getText().trim().indexOf(" ")));
               if (Math.abs(innerRadius) > Math.abs(outerRadius))
               {
                   float  temp = innerRadius;
@@ -2236,10 +2276,10 @@ public class SHAPECustomizer extends BaseCustomizer
       readInnerOuterRadiusValues ();
 
       if (heightTextField.isEnabled() && !(heightTextField.getText().isEmpty()))
-         height = Float.valueOf (heightTextField.getText());
+         height = Float.parseFloat (heightTextField.getText());
 
       if (numberOfPointsTextField.isEnabled() && !(numberOfPointsTextField.getText().isEmpty()))
-         numberOfPoints = Integer.valueOf (numberOfPointsTextField.getText());
+         numberOfPoints = Integer.parseInt (numberOfPointsTextField.getText());
 
       if      (boxRadioButton.isSelected())
       {
@@ -2279,9 +2319,10 @@ public class SHAPECustomizer extends BaseCustomizer
                     .append   ("\n      </Text>");
           newContent.append   ("\n"  ).append(APPEARANCE_CONTENT_TEXT2).append("  ");
           
-          shape.setPrependText(  "    <!-- Selectable Text design pattern has transparent Box and TouchSensor description as a tooltip -->" + 
-                               "\n    <Group>" + 
-                               "\n      ");
+          shape.setPrependText("""
+                                   <!-- Selectable Text design pattern has transparent Box and TouchSensor description as a tooltip -->
+                                   <Group>
+                                     """);
           // Shape goes here
           shape.setAppendText("\n      <Shape>" + 
                               "\n        <!-- Author TODO: to adjust transparent Box as text-selection assist, set width and height to match size, then set transparency='1' to make invisible.  -->" + 
