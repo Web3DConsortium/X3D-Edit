@@ -111,6 +111,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String W3C_WEB_AUDIO_API                      ="https://www.w3.org/TR/webaudio";
   public final static String W3C_SEMANTIC_WEB                       ="https://www.w3.org/standards/semanticweb";
   public final static String W3C_WHATWG_HTML5_STANDARD              ="https://html.spec.whatwg.org/multipage";
+  public final static String W3CX_FREE_ONLINE_COURSES               ="https://www.edx.org/school/w3cx";
   
   private Boolean menuItemEnabled = Boolean.TRUE;
   
