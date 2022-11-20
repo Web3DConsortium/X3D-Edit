@@ -103,6 +103,14 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String VRML97_STANDARD                        ="https://www.web3d.org/documents/specifications/14772/V2.0/index.html";
   public final static String VRML97_STANDARD_AMENDMENT_1            ="https://www.web3d.org/documents/specifications/14772-1/V2.1/index.html";
   public final static String CASTLE_GAME_ENGINE_CONVERTER           ="https://castle-engine.io/convert.php";
+
+  public final static String W3C_HOME                               ="https://www.w3.org";
+  public final static String W3C_STANDARDS_OPEN_WEB_PLATFORM        ="https://www.w3.org/standards";
+  public final static String W3C_DEVELOPERS                         ="https://www.w3.org/developers";
+  public final static String W3C_CASCADING_STYLESHEETS              ="https://www.w3.org/Style/CSS";
+  public final static String W3C_WEB_AUDIO_API                      ="https://www.w3.org/TR/webaudio";
+  public final static String W3C_SEMANTIC_WEB                       ="https://www.w3.org/standards/semanticweb";
+  public final static String W3C_WHATWG_HTML5_STANDARD              ="https://html.spec.whatwg.org/multipage";
   
   private Boolean menuItemEnabled = Boolean.TRUE;
   
