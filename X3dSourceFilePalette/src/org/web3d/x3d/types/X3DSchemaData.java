@@ -1041,6 +1041,9 @@ public interface X3DSchemaData
   String  INLINE_ATTR_BBOXSIZE_NAME   = "bboxSize";
   boolean INLINE_ATTR_BBOXSIZE_REQD   = false;
   String  INLINE_ATTR_BBOXSIZE_DFLT   = "-1 -1 -1";
+  String  INLINE_ATTR_DESCRIPTION_NAME = "description"; // X3D4.0
+  boolean INLINE_ATTR_DESCRIPTION_REQD = false;
+  String  INLINE_ATTR_DESCRIPTION_DFLT = "";
 
   // element LOD
   String  LOD_ELNAME                     = "LOD";
@@ -2076,6 +2079,9 @@ public interface X3DSchemaData
   String  KEYSENSOR_ATTR_ENABLED_NAME = "enabled";
   boolean KEYSENSOR_ATTR_ENABLED_REQD = false;
   String  KEYSENSOR_ATTR_ENABLED_DFLT = "true";
+  String  KEYSENSOR_ATTR_DESCRIPTION_NAME = "description"; // X3D4.0
+  boolean KEYSENSOR_ATTR_DESCRIPTION_REQD = false;
+  String  KEYSENSOR_ATTR_DESCRIPTION_DFLT = "";
 
   // Element StringSensor
   String  STRINGSENSOR_ELNAME                    = "StringSensor";
@@ -2085,6 +2091,9 @@ public interface X3DSchemaData
   String  STRINGSENSOR_ATTR_ENABLED_NAME         = "enabled";
   boolean STRINGSENSOR_ATTR_ENABLED_REQD         = false;
   String  STRINGSENSOR_ATTR_ENABLED_DFLT         = "true";
+  String  STRINGSENSOR_ATTR_DESCRIPTION_NAME = "description"; // X3D4.0
+  boolean STRINGSENSOR_ATTR_DESCRIPTION_REQD = false;
+  String  STRINGSENSOR_ATTR_DESCRIPTION_DFLT = "";
 
   // Event elements
   String  BOOLEANFILTER_ELNAME    = "BooleanFilter";
