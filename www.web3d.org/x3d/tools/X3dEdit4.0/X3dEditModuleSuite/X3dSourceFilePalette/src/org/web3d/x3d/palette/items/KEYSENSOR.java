@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -51,6 +51,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class KEYSENSOR extends X3DKeyDeviceSensorNode
 {
+  private String  description, descriptionDefault; // X3D4.0
+  
   public KEYSENSOR()
   {
       this.setTraceEventsSelectionAvailable(true);
@@ -67,7 +69,8 @@ public class KEYSENSOR extends X3DKeyDeviceSensorNode
   @SuppressWarnings("NestedAssignment")
   public void initialize()
   {
-    enabled = enabledDefault = Boolean.parseBoolean(KEYSENSOR_ATTR_ENABLED_DFLT);
+    description = descriptionDefault = STRINGSENSOR_ATTR_DESCRIPTION_DFLT; // X3D4.0
+    enabled     = enabledDefault     = Boolean.parseBoolean(KEYSENSOR_ATTR_ENABLED_DFLT);
   }
 
   @Override
@@ -75,6 +78,10 @@ public class KEYSENSOR extends X3DKeyDeviceSensorNode
   {
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
+    
+    attr = root.getAttribute(KEYSENSOR_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
 
     attr = root.getAttribute(KEYSENSOR_ATTR_ENABLED_NAME);
     if (attr != null)
@@ -90,8 +97,16 @@ public class KEYSENSOR extends X3DKeyDeviceSensorNode
   @Override
   public String createAttributes()
   {
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder();
 
+    // description value is only if parent scene is X3D4
+    if (KEYSENSOR_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
+      sb.append(" ");
+      sb.append(STRINGSENSOR_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(description);
+      sb.append("'");  
+    }
     if (KEYSENSOR_ATTR_ENABLED_REQD || enabled != enabledDefault) {
       sb.append(" ");
       sb.append(KEYSENSOR_ATTR_ENABLED_NAME);
@@ -100,5 +115,15 @@ public class KEYSENSOR extends X3DKeyDeviceSensorNode
       sb.append("'");
     }
     return sb.toString();
+  }
+  
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
   }
 }

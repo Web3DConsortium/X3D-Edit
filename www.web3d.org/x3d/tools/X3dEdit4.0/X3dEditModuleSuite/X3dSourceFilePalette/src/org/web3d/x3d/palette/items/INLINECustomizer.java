@@ -78,6 +78,11 @@ public class INLINECustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerFieldChoices(GROUP_CONTAINERFIELD_CHOICES, GROUP_CONTAINERFIELD_TOOLTIPS);
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
+    if (!inline.getDescription().isBlank())
+    {
+        checkX3D4FieldSupportDialog("Inline","description"); // X3D4 field
+        descriptionTF.setText(inline.getDescription());
+    }
     urlList.setMasterDocumentLocation(x3DDataObject.getPrimaryFile());
     urlList.setUrlData(inline.getUrls());
     urlList.setTarget(target); // enable urlList to reach back into jdom tree to getHeaderIdentifierPath()
@@ -154,6 +159,8 @@ public class INLINECustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
+        descriptionLabel1 = new javax.swing.JLabel();
+        descriptionTF = new javax.swing.JTextField();
         bboxCenterLabel = new javax.swing.JLabel();
         bboxCenterXTF = new javax.swing.JTextField();
         bboxCenterYTF = new javax.swing.JTextField();
@@ -162,7 +169,7 @@ public class INLINECustomizer extends BaseCustomizer
         bboxSizeXTF = new javax.swing.JTextField();
         bboxSizeYTF = new javax.swing.JTextField();
         bboxSizeZTF = new javax.swing.JTextField();
-        loadLab = new javax.swing.JLabel();
+        loadLabel = new javax.swing.JLabel();
         loadCB = new javax.swing.JCheckBox();
         urlLab = new javax.swing.JLabel();
         urlList = new org.web3d.x3d.palette.items.UrlExpandableList2();
@@ -176,60 +183,95 @@ public class INLINECustomizer extends BaseCustomizer
         jLabel1 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(800, 490));
-        setPreferredSize(new java.awt.Dimension(800, 490));
+        setPreferredSize(new java.awt.Dimension(700, 500));
         setLayout(new java.awt.GridBagLayout());
 
-        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(67, 67));
+        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(67, 100));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        descriptionLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        descriptionLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionLabel1.setText("description");
+        descriptionLabel1.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
+        add(descriptionLabel1, gridBagConstraints);
+
+        descriptionTF.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionTF.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
+        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
+        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
+        descriptionTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(descriptionTF, gridBagConstraints);
+
         bboxCenterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         bboxCenterLabel.setText("bboxCenter");
         bboxCenterLabel.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterLabel, gridBagConstraints);
 
         bboxCenterXTF.setToolTipText("position offset from origin of local coordinate system");
         bboxCenterXTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterXTF, gridBagConstraints);
 
         bboxCenterYTF.setToolTipText("position offset from origin of local coordinate system");
         bboxCenterYTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterYTF, gridBagConstraints);
 
         bboxCenterZTF.setToolTipText("position offset from origin of local coordinate system");
         bboxCenterZTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterZTF, gridBagConstraints);
 
@@ -237,9 +279,10 @@ public class INLINECustomizer extends BaseCustomizer
         bboxSizeLabel.setText("bboxSize");
         bboxSizeLabel.setToolTipText("automatically calculated, can be specified as an optimization or constraint");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeLabel, gridBagConstraints);
 
@@ -251,11 +294,12 @@ public class INLINECustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeXTF, gridBagConstraints);
 
@@ -267,11 +311,12 @@ public class INLINECustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeYTF, gridBagConstraints);
 
@@ -283,30 +328,31 @@ public class INLINECustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeZTF, gridBagConstraints);
 
-        loadLab.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        loadLab.setText("load");
-        loadLab.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained scene");
+        loadLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        loadLabel.setText("load");
+        loadLabel.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained scene");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(loadLab, gridBagConstraints);
+        add(loadLabel, gridBagConstraints);
 
         loadCB.setSelected(true);
         loadCB.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained scene");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loadCB, gridBagConstraints);
 
@@ -315,7 +361,7 @@ public class INLINECustomizer extends BaseCustomizer
         urlLab.setToolTipText("Address of X3D world to load into current scene");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(urlLab, gridBagConstraints);
@@ -334,11 +380,12 @@ public class INLINECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.weighty = 5.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(urlList, gridBagConstraints);
 
@@ -355,7 +402,7 @@ public class INLINECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(insertCommasCheckBox, gridBagConstraints);
 
         insertLineBreaksCheckBox.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
@@ -375,7 +422,7 @@ public class INLINECustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        descriptionLabel.setText("<html><p align='center'><b>Inline</b> can load content from another X3D scene via the url list of local and online file addresses, sorted by availability. </p> \n<p align='center'>Hint: multiple links usually provide alternate addresses or encodings for the same content.</p>\n<p align='center'>Hint: Schematron warnings for X3D profile are silenced by inserting a MetadataString node.</p>");
+        descriptionLabel.setText("<html><p align='center'><b>Inline</b> can load content from another X3D scene via the url list of local and online file addresses, sorted by availability. </p> \n<p align='center'>Hint: multiple links usually provide alternate addresses or encodings for the same content.</p>\n<p align='center'>Hint: Schematron warnings for X3D profile are silenced by inserting a MetadataString node.</p>\n<p align='center'>Hint: <i>description</i> field requires X3D version='4.0' </p>");
         descriptionLabel.setToolTipText("Inline can load other X3D scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -387,19 +434,22 @@ public class INLINECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
 
-        expectedProfileLabel.setText("expected X3D profile");
-        expectedProfileLabel.setToolTipText("Expected Inline scene profile ");
+        expectedProfileLabel.setText("Inline X3D profile");
+        expectedProfileLabel.setToolTipText("Expected Inline model profile ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(expectedProfileLabel, gridBagConstraints);
 
@@ -407,20 +457,20 @@ public class INLINECustomizer extends BaseCustomizer
         expectedProfileComboBox.setModel(new DefaultComboBoxModel<>(X3D_ATTR_PROFILE_OPTIONS));
         expectedProfileComboBox.setToolTipText("Expected Inline scene profile ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(expectedProfileComboBox, gridBagConstraints);
 
-        jLabel1.setText("(inserts MetadataString child for expected profile)");
+        jLabel1.setText("(inserts MetadataString child for expected profile of Inline model)");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
@@ -450,7 +500,10 @@ public class INLINECustomizer extends BaseCustomizer
     {//GEN-HEADEREND:event_urlListPropertyChange
         setDefaultDEFname ();
     }//GEN-LAST:event_urlListPropertyChange
-  
+
+    private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
+        // if not X3D4
+    }//GEN-LAST:event_descriptionTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel appendLabel;
@@ -464,13 +517,15 @@ public class INLINECustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxSizeZTF;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JLabel descriptionLabel1;
+    private javax.swing.JTextField descriptionTF;
     private javax.swing.JComboBox<String> expectedProfileComboBox;
     private javax.swing.JLabel expectedProfileLabel;
     private javax.swing.JCheckBox insertCommasCheckBox;
     private javax.swing.JCheckBox insertLineBreaksCheckBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JCheckBox loadCB;
-    private javax.swing.JLabel loadLab;
+    private javax.swing.JLabel loadLabel;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JLabel urlLab;
     private org.web3d.x3d.palette.items.UrlExpandableList2 urlList;
@@ -487,6 +542,12 @@ public class INLINECustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     urlList.checkUrlValues();
+    
+    if (!descriptionTF.getText().isBlank())
+    {
+        checkX3D4FieldSupportDialog("Inline","description"); // X3D4 field
+        inline.setDescription(descriptionTF.getText().trim());
+    }
     
     inline.setLoad(loadCB.isSelected());
     inline.setUrls(urlList.getUrlData());

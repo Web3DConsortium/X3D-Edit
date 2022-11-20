@@ -52,6 +52,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 public class STRINGSENSOR extends X3DKeyDeviceSensorNode
 {
   private boolean deletionAllowed, deletionAllowedDefault;
+  private String  description, descriptionDefault; // X3D4.0
 
   public STRINGSENSOR()
   {
@@ -71,6 +72,7 @@ public class STRINGSENSOR extends X3DKeyDeviceSensorNode
   {
     deletionAllowed = deletionAllowedDefault = Boolean.parseBoolean(STRINGSENSOR_ATTR_DELETIONALLOWED_DFLT);
     enabled         = enabledDefault         = Boolean.parseBoolean(STRINGSENSOR_ATTR_ENABLED_DFLT);
+    description     = descriptionDefault     = STRINGSENSOR_ATTR_DESCRIPTION_DFLT; // X3D4.0
   }
 
   @Override
@@ -78,6 +80,10 @@ public class STRINGSENSOR extends X3DKeyDeviceSensorNode
   {
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
+    
+    attr = root.getAttribute(STRINGSENSOR_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
 
     attr = root.getAttribute(STRINGSENSOR_ATTR_DELETIONALLOWED_NAME);
     if (attr != null)
@@ -98,18 +104,26 @@ public class STRINGSENSOR extends X3DKeyDeviceSensorNode
   {
     StringBuilder sb = new StringBuilder();
 
-    if (STRINGSENSOR_ATTR_ENABLED_REQD || enabled != enabledDefault) {
-      sb.append(" ");
-      sb.append(STRINGSENSOR_ATTR_ENABLED_NAME);
-      sb.append("='");
-      sb.append(enabled);
-      sb.append("'");
-    }
     if (STRINGSENSOR_ATTR_DELETIONALLOWED_REQD || deletionAllowed != deletionAllowedDefault) {
       sb.append(" ");    
       sb.append(STRINGSENSOR_ATTR_DELETIONALLOWED_NAME);
       sb.append("='");
       sb.append(deletionAllowed);
+      sb.append("'");
+    }
+    // description value is only if parent scene is X3D4
+    if (STRINGSENSOR_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
+      sb.append(" ");
+      sb.append(STRINGSENSOR_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(description);
+      sb.append("'");  
+    }
+    if (STRINGSENSOR_ATTR_ENABLED_REQD || enabled != enabledDefault) {
+      sb.append(" ");
+      sb.append(STRINGSENSOR_ATTR_ENABLED_NAME);
+      sb.append("='");
+      sb.append(enabled);
       sb.append("'");
     }
     return sb.toString();
@@ -123,5 +137,15 @@ public class STRINGSENSOR extends X3DKeyDeviceSensorNode
   public void setDeletionAllowed(boolean allowed)
   {
     this.deletionAllowed = allowed;
+  }
+  
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
   }
 }
