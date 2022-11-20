@@ -41,18 +41,18 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D_XML_ENCODING_STANDARD;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_COMPRESSED_BINARY_ENCODING_STANDARD;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchX3D4XmlEncodingStandardAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchX3DCompressedBinaryEncodingStandardAction", category = "Tools")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/web3d16.png",
-                    displayName = "#CTL_LaunchX3DXmlEncodingStandardAction",
+                    displayName = "#CTL_LaunchX3DCompressedBinaryEncodingStandardAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 700),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 700)
+  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 800),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 900)
 })
 
-public final class LaunchX3D4XmlEncodingStandardAction extends CallableSystemAction
+public final class LaunchX3DCompressedBinaryEncodingStandardAction extends CallableSystemAction
 {
   @Override
   public void performAction()
@@ -61,13 +61,13 @@ public final class LaunchX3D4XmlEncodingStandardAction extends CallableSystemAct
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_XML_ENCODING_STANDARD);
+    LaunchX3dExamplesAction.sendBrowserTo(X3D_COMPRESSED_BINARY_ENCODING_STANDARD);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchX3DXmlEncodingStandardAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchX3DCompressedBinaryEncodingStandardAction");
   }
 
   @Override
@@ -81,7 +81,7 @@ public final class LaunchX3D4XmlEncodingStandardAction extends CallableSystemAct
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("X3dLaunchX3D4XmlEncodingStandardAction");
+    return new HelpCtx("X3dLaunchX3DCompressedBinaryEncodingStandardAction");
   }
 
   @Override
