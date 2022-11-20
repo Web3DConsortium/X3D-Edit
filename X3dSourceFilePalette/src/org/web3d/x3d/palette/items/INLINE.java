@@ -59,6 +59,7 @@ public class INLINE extends X3DGroupingNode
   private String[] urls, urlsDefault;
   private boolean  insertCommas, insertLineBreaks = false;
   private String   expectedProfile = "";
+  private String  description, descriptionDefault; // X3D4.0
 
   public INLINE()
   {
@@ -79,6 +80,8 @@ public class INLINE extends X3DGroupingNode
   @Override
   public void initialize()
   {
+    description = descriptionDefault = INLINE_ATTR_DESCRIPTION_DFLT; // X3D4.0
+    
     load = loadDefault = Boolean.parseBoolean(INLINE_ATTR_LOAD_DFLT);
     if(INLINE_ATTR_URL_DFLT.length()>0)
       urls = urlsDefault = parseUrlsIntoStringArray(INLINE_ATTR_URL_DFLT);
@@ -102,6 +105,10 @@ public class INLINE extends X3DGroupingNode
   {
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
+    
+    attr = root.getAttribute(INLINE_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
 
     attr = root.getAttribute(INLINE_ATTR_LOAD_NAME);
     if(attr != null)
@@ -180,6 +187,14 @@ public class INLINE extends X3DGroupingNode
       sb.append(" ");
       sb.append(bboxSizeZ);
       sb.append("'");
+    }
+    // description value is only if parent scene is X3D4
+    if (INLINE_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
+      sb.append(" ");
+      sb.append(INLINE_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(description);
+      sb.append("'");  
     }
     if (INLINE_ATTR_LOAD_REQD || load != loadDefault) {
       sb.append(" ");
@@ -263,4 +278,14 @@ public class INLINE extends X3DGroupingNode
     public void setExpectedProfile(String expectedProfile) {
         this.expectedProfile = expectedProfile;
     }
+  
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
+  }
 }

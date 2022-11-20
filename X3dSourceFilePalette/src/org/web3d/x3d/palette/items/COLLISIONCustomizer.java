@@ -74,8 +74,12 @@ public class COLLISIONCustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerFieldChoices(GROUP_CONTAINERFIELD_CHOICES, GROUP_CONTAINERFIELD_TOOLTIPS);
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
+    if (!collision.getDescription().isBlank())
+    {
+        checkX3D4FieldSupportDialog("Collision","description"); // X3D4 field
+        descriptionTF.setText(collision.getDescription());
+    }
     enabledCB.setSelected(collision.isEnabled());
-    descriptionTF.setText(collision.getDescription());
     bboxCenterXTF.setText(collision.getBboxCenterX());
     bboxCenterYTF.setText(collision.getBboxCenterY());
     bboxCenterZTF.setText(collision.getBboxCenterZ());

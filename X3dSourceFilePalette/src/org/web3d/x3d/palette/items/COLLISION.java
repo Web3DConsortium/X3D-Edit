@@ -74,7 +74,7 @@ public class COLLISION extends X3DGroupingNode
   @SuppressWarnings("NestedAssignment")
   public void initialize()
   {
-    description = descriptionDefault = COLLISION_ATTR_DESCRIPTION_DFLT;
+    description = descriptionDefault = COLLISION_ATTR_DESCRIPTION_DFLT; // X3D4.0
     
     enabled = Boolean.parseBoolean(COLLISION_ATTR_ENABLED_DFLT);
 //    collideTime = collideTimeDefault = new SFInt32(COLLISION_ATTR_COLLIDETIME_DFLT); // outputOnly

@@ -63,6 +63,11 @@ public class STRINGSENSORCustomizer extends BaseCustomizer
     
     initComponents();
 
+    if (!stringSensor.getDescription().isBlank())
+    {
+        checkX3D4FieldSupportDialog("StringSensor","description"); // X3D4 field
+        descriptionTF.setText(stringSensor.getDescription());
+    }
     deletionCB.setSelected(stringSensor.isDeletionAllowed());
     enabledCB.setSelected(stringSensor.isEnabled());
  }
@@ -77,11 +82,16 @@ public class STRINGSENSORCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
-        deletionCB = new javax.swing.JCheckBox();
+        enabledLabel = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
+        deletionCB = new javax.swing.JCheckBox();
+        descriptionTF = new javax.swing.JTextField();
+        descriptionLabel1 = new javax.swing.JLabel();
         eventHintPanel = new javax.swing.JPanel();
         eventsLabel = new javax.swing.JLabel();
+        deletionLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(620, 230));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -91,30 +101,67 @@ public class STRINGSENSORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
-        deletionCB.setText("deletionAllowed");
-        deletionCB.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        deletionCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(deletionCB, gridBagConstraints);
-
-        enabledCB.setText("enabled");
-        enabledCB.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        enabledLabel.setText("enabled");
+        enabledLabel.setToolTipText("whether sensor is enabled");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        add(enabledLabel, gridBagConstraints);
+
+        enabledCB.setToolTipText("whether sensor is enabled");
+        enabledCB.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledCB, gridBagConstraints);
+
+        deletionCB.setToolTipText("whether character deletion is allowed");
+        deletionCB.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        deletionCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(deletionCB, gridBagConstraints);
+
+        descriptionTF.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionTF.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
+        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
+        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
+        descriptionTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(descriptionTF, gridBagConstraints);
+
+        descriptionLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        descriptionLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionLabel1.setText("description");
+        descriptionLabel1.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
+        add(descriptionLabel1, gridBagConstraints);
 
         eventHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         eventHintPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel.setText("<html>Output events include <b>isActive</b>, <b>finalText</b>, <b>enteredText</b>");
+        eventsLabel.setText("<html>\n<p align='center'>Output events include <b>isActive</b>, <b>finalText</b>, <b>enteredText</b></p>\n<p align='center'>Hint: <i>description</i> field requires X3D version='4.0' </p>");
         eventsLabel.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -125,18 +172,34 @@ public class STRINGSENSORCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
         add(eventHintPanel, gridBagConstraints);
+
+        deletionLabel.setText("deletionAllowed");
+        deletionLabel.setToolTipText("whether character deletion is allowed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        add(deletionLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
+        // if not X3D4
+    }//GEN-LAST:event_descriptionTFActionPerformed
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JCheckBox deletionCB;
+    private javax.swing.JLabel deletionLabel;
+    private javax.swing.JLabel descriptionLabel1;
+    private javax.swing.JTextField descriptionTF;
     private javax.swing.JCheckBox enabledCB;
+    private javax.swing.JLabel enabledLabel;
     private javax.swing.JPanel eventHintPanel;
     private javax.swing.JLabel eventsLabel;
     // End of variables declaration//GEN-END:variables
@@ -151,6 +214,12 @@ public class STRINGSENSORCustomizer extends BaseCustomizer
   public void unloadInput() throws IllegalArgumentException
   {
     unLoadDEFUSE();
+    
+    if (!descriptionTF.getText().isBlank())
+    {
+        checkX3D4FieldSupportDialog("StringSensor","description"); // X3D4 field
+        stringSensor.setDescription(descriptionTF.getText().trim());
+    }
          
     stringSensor.setDeletionAllowed(deletionCB.isSelected());
     stringSensor.setEnabled(enabledCB.isSelected());
