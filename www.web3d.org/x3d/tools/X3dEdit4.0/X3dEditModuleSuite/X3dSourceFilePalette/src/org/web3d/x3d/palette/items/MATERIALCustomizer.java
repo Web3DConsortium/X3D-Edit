@@ -143,7 +143,7 @@ public class MATERIALCustomizer extends BaseCustomizer
      rightSplitPane.setMinimumSize(new Dimension(10,10));
        leftTopPanel.setMinimumSize(new Dimension(10,10));
     leftBottomPanel.setMinimumSize(new Dimension(10,10));
-    rightTopPanel.setMinimumSize(new Dimension(10,10));
+      rightTopPanel.setMinimumSize(new Dimension(10,10));
 
     universalMediaMaterialFinder = new UniversalMediaMaterialFinder();
 
@@ -493,7 +493,7 @@ public class MATERIALCustomizer extends BaseCustomizer
             geometrySelectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, geometrySelectionPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(geometryTypeCombo, 0, 216, Short.MAX_VALUE)
+                .addComponent(geometryTypeCombo, 0, 259, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(axesCB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -632,7 +632,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         directionalLightColorChooser.setLayout(directionalLightColorChooserLayout);
         directionalLightColorChooserLayout.setHorizontalGroup(
             directionalLightColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 23, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
         directionalLightColorChooserLayout.setVerticalGroup(
             directionalLightColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -998,11 +998,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         leftBottomPanel.setLayout(leftBottomPanelLayout);
         leftBottomPanelLayout.setHorizontalGroup(
             leftBottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
+            .addGap(0, 434, Short.MAX_VALUE)
             .addGroup(leftBottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(leftBottomPanelLayout.createSequentialGroup()
                     .addGap(0, 0, 0)
-                    .addComponent(panelsContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelsContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
                     .addGap(0, 0, 0)))
         );
         leftBottomPanelLayout.setVerticalGroup(
@@ -1592,11 +1592,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         x3dSourcePane.setLayout(x3dSourcePaneLayout);
         x3dSourcePaneLayout.setHorizontalGroup(
             x3dSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x3dSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+            .addComponent(x3dSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
         x3dSourcePaneLayout.setVerticalGroup(
             x3dSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x3dSourceScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+            .addComponent(x3dSourceScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
 
         srcTabbedPane.addTab(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.x3dSourcePane.TabConstraints.tabTitle"), x3dSourcePane); // NOI18N
@@ -1613,11 +1613,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         x3dvSourcePane.setLayout(x3dvSourcePaneLayout);
         x3dvSourcePaneLayout.setHorizontalGroup(
             x3dvSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x3dvSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+            .addComponent(x3dvSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
         x3dvSourcePaneLayout.setVerticalGroup(
             x3dvSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x3dvSourceScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+            .addComponent(x3dvSourceScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
 
         srcTabbedPane.addTab(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.x3dvSrcPan.TabConstraints.tabTitle"), x3dvSourcePane); // NOI18N
@@ -1637,11 +1637,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         ecmaSourcePane.setLayout(ecmaSourcePaneLayout);
         ecmaSourcePaneLayout.setHorizontalGroup(
             ecmaSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ecmaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+            .addComponent(ecmaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
         ecmaSourcePaneLayout.setVerticalGroup(
             ecmaSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ecmaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+            .addComponent(ecmaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
 
         srcTabbedPane.addTab(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.ecmaSrcPan.TabConstraints.tabTitle"), ecmaSourcePane); // NOI18N
@@ -1661,11 +1661,11 @@ public class MATERIALCustomizer extends BaseCustomizer
         javaSourcePane.setLayout(javaSourcePaneLayout);
         javaSourcePaneLayout.setHorizontalGroup(
             javaSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(javaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+            .addComponent(javaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
         javaSourcePaneLayout.setVerticalGroup(
             javaSourcePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(javaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+            .addComponent(javaSourceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
 
         srcTabbedPane.addTab(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.javaSrcPan.TabConstraints.tabTitle"), javaSourcePane); // NOI18N
