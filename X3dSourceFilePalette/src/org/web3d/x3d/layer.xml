@@ -294,6 +294,10 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 1100 -->
                         <!-- X3D Resources: LaunchX3dResourcesAction position 401 -->
                     </folder>
+                    <folder name="W3C Standards">
+                        <attr name="position" intvalue="850"/>
+                        <!-- various pages of interest to Web developers -->
+                    </folder>
                     <folder name="Web3D Outreach">
                         <attr name="position" intvalue="900"/>
                         <!-- Web3D Conference                     LaunchWeb3DConferenceAction                  position 100 -->
@@ -782,6 +786,10 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- insertions go here -->
                 <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 1100 -->
                 <!-- X3D Resources: LaunchX3dResourcesAction position 401 -->
+            </folder>
+            <folder name="W3C Standards">
+                <attr name="position" intvalue="850"/>
+                <!-- various pages of interest to Web developers -->
             </folder>
             <folder name="Web3D Outreach">
                 <attr name="position" intvalue="900"/>
