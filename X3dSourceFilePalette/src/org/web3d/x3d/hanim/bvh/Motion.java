@@ -151,18 +151,18 @@ public class Motion extends BvhSkeletonParameters {
         Iterator<double[]> framesIterator;
         double[] values;
         
-		outputX3D.append(indentSpacing(indentLevel)).append("<Group DEF='").append(ancestorHierarchy.getModelName()).append("_MotionGroup'>\n");
+	outputX3D.append(indentSpacing(indentLevel)).append("<Group DEF='").append(ancestorHierarchy.getModelName()).append("_MotionGroup'>\n");
         outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- BVH MOTION").append(" -->\n");
         outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- BVH Frames: ").append(getFrameCount()).append(" -->\n");
         outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- BVH Frame Time: ").append(getFrameDuration()).append(" seconds (")
-				 .append(twoDigitFormat.format(getFrameRate())).append(" frames per second)").append(" -->\n");
+		 .append(twoDigitFormat.format(getFrameRate())).append(" frames per second)").append(" -->\n");
 		
-		animationTotalDuration = getFrameCount() * getFrameDuration();
+	animationTotalDuration = getFrameCount() * getFrameDuration();
         outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- Expected frame count: ").append(getExpectedFrameCount());
-		outputX3D.append(                                        ", actual frame count: ").append(getFrameCount()        );
-		outputX3D.append(                                        ", animation total duration: ").append(threeDigitFormat.format(getTotalDuration())).append(" seconds -->\n");
+	outputX3D.append(                                        ", actual frame count: ").append(getFrameCount()        );
+	outputX3D.append(                                        ", animation total duration: ").append(threeDigitFormat.format(getTotalDuration())).append(" seconds -->\n");
         outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- Frame width: ").append(getFrameWidth()/3).append(" triplet values").append(" -->\n");
-		outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- Total count: ").append(getFrameWidth()).append(" * ").append(getFrameCount()).append(" = ").append(getFrameWidth()*getFrameCount()).append(" recorded motion values").append(" -->\n");
+	outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- Total count: ").append(getFrameWidth()).append(" * ").append(getFrameCount()).append(" = ").append(getFrameWidth()*getFrameCount()).append(" recorded motion values").append(" -->\n");
 		
 		// error checks
 		if (getExpectedFrameCount() != getFrameCount()) // match check
@@ -205,28 +205,28 @@ public class Motion extends BvhSkeletonParameters {
 			String jointName, jointDEF, jointHAnimName, channelNames;
 			if  (channelIndex < 2) // HIERARCHY ROOT
 			{
-				  jointName = getAncestorHierarchy().getBvhName();
-				  jointDEF  = getAncestorHierarchy().getDEF();
-		     jointHAnimName = getAncestorHierarchy().getSkeletonJointName();
-			   channelNames = getAncestorHierarchy().getChannelNamesString();
+                            jointName      = getAncestorHierarchy().getBvhName();
+                            jointDEF       = getAncestorHierarchy().getDEF();
+                            jointHAnimName = getAncestorHierarchy().getSkeletonJointName();
+                            channelNames   = getAncestorHierarchy().getChannelNamesString();
 			}
 			else 
 			{
-				  jointName = getAncestorHierarchy().getHierarchyJointList().get(channelIndex - 2).getBvhName();
-				  jointDEF  = getAncestorHierarchy().getHierarchyJointList().get(channelIndex - 2).getJointDEF();
-		     jointHAnimName = getAncestorHierarchy().getHierarchyJointList().get(channelIndex - 2).getHAnimJointName();
-			   channelNames = getAncestorHierarchy().getHierarchyJointList().get(channelIndex - 2).getChannelNamesString();
+                            jointName      = getAncestorHierarchy().getHierarchyJointList().get(channelIndex - 2).getBvhName();
+                            jointDEF       = getAncestorHierarchy().getHierarchyJointList().get(channelIndex - 2).getJointDEF();
+                            jointHAnimName = getAncestorHierarchy().getHierarchyJointList().get(channelIndex - 2).getHAnimJointName();
+                            channelNames   = getAncestorHierarchy().getHierarchyJointList().get(channelIndex - 2).getChannelNamesString();
 			}
 			String interpolatorDEF = "Interpolator" + channelIndex;
 			if (!jointHAnimName.isEmpty())
-				 interpolatorDEF += "_" + jointHAnimName;
+			     interpolatorDEF += "_" + jointHAnimName;
 			outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- ").append(interpolatorDEF)
-					 .append(" channels [").append(3*channelIndex).append("..").append(3*channelIndex+2)
-					 .append("] sends animation values to BVH JOINT ").append(jointName).append(", DEF ").append(jointDEF)
-					 .append(", <HAnimJoint name=").append(jointHAnimName).append("/> -->\n");
+				 .append(" channels [").append(3*channelIndex).append("..").append(3*channelIndex+2)
+				 .append("] sends animation values to BVH JOINT ").append(jointName).append(" = <HAnimJoint DEF='").append(jointDEF)
+				 .append("' name='").append(jointHAnimName).append("'/> -->\n");
 			outputX3D.append(indentSpacing(indentLevel+1)).append("<");
 			if  (channelIndex == 0)
-				 outputX3D.append("PositionInterpolator");
+			     outputX3D.append("PositionInterpolator");
 			else outputX3D.append("OrientationInterpolator");
 			outputX3D.append(" DEF='").append(interpolatorDEF).append("'\n");
 			outputX3D.append(indentSpacing(indentLevel+2)).append("     key='").append(getKeyArray()).append("'\n");
@@ -254,8 +254,8 @@ public class Motion extends BvhSkeletonParameters {
 				{
 					// position values are scaled to match previous scaling
 					outputX3D.append(fourDigitFormat.format(values[3*channelIndex  ] * getAncestorHierarchy().getScaleFactor())).append(" ")
-							 .append(fourDigitFormat.format(values[3*channelIndex+1] * getAncestorHierarchy().getScaleFactor())).append(" ")
-							 .append(fourDigitFormat.format(values[3*channelIndex+2] * getAncestorHierarchy().getScaleFactor()));
+						 .append(fourDigitFormat.format(values[3*channelIndex+1] * getAncestorHierarchy().getScaleFactor())).append(" ")
+						 .append(fourDigitFormat.format(values[3*channelIndex+2] * getAncestorHierarchy().getScaleFactor()));
 				}
 				else // Orientation value, now convert from Euler-angles triplet to SFRotation 4-tuple
 				{
@@ -269,19 +269,30 @@ public class Motion extends BvhSkeletonParameters {
 						Joint thisJoint = ancestorHierarchy.getHierarchyJointList().get(channelIndex - 2); // skip first two channels
 						channelNamesString = thisJoint.getChannelNamesString();
 					}
+                                        // Now get three euler angles according to order specfied in BVH file
 					if (channelNamesString.equalsIgnoreCase("Zrotation Xrotation Yrotation") || // JOINT
-						channelNamesString.endsWith        ("Zrotation Xrotation Yrotation"))   // ROOT channels 0, 1
-//					           Xposition Yposition Zposition Zrotation Xrotation Yrotation      // ROOT channels 0, 1
+					    channelNamesString.endsWith        ("Zrotation Xrotation Yrotation"))   // ROOT channels 0, 1
+//					                   Xposition Yposition Zposition Zrotation Xrotation Yrotation    // ROOT channels 0, 1
 					{
-						phi = values[3*channelIndex+1]; // Euler angle about X axis,  second channel 
-					  theta = values[3*channelIndex+2]; // Euler angle about Y axis,   third channel
-						psi = values[3*channelIndex+0]; // Euler angle about Z axis, initial channel
+						phi = values[3*channelIndex+1]; // Euler angle about X axis:  second channel 
+					      theta = values[3*channelIndex+2]; // Euler angle about Y axis:   third channel
+						psi = values[3*channelIndex+0]; // Euler angle about Z axis: initial channel
+					}
+					else if (channelNamesString.equalsIgnoreCase("Zrotation Yrotation Xrotation") || // JOINT
+					    channelNamesString.endsWith        ("Zrotation Yrotation Xrotation"))   // ROOT channels 0, 1
+//					                   Xposition Yposition Zposition Zrotation Xrotation Yrotation    // ROOT channels 0, 1
+					{
+						phi = values[3*channelIndex+2]; // Euler angle about X axis:   third channel
+					      theta = values[3*channelIndex+1]; // Euler angle about Y axis:  second channel 
+						psi = values[3*channelIndex+0]; // Euler angle about Z axis: initial channel
 					}
 					else  // TODO: different order for theta, psi if different CHANNEL order found
 					{
-						phi = values[3*channelIndex+0]; // Euler angle about X axis
-					  theta = values[3*channelIndex+2]; // Euler angle about Y axis
-						psi = values[3*channelIndex+1]; // Euler angle about Z axis
+                                            System.out.println ("*** Error, BVH converter Motion.java encountered unfamiliar rotation order: " + channelNamesString +
+                                                                ", assuming Xrotation Zrotation Yrotation");
+						phi = values[3*channelIndex+0]; // Euler angle about X axis: initial channel
+					      theta = values[3*channelIndex+2]; // Euler angle about Y axis:   third channel 
+						psi = values[3*channelIndex+1]; // Euler angle about Z axis:  second channel
 					}
 					AxisAngle4d axisAngle = getAxisAngleRotation( // computation is also order dependent
 							  phi * Math.PI / 180.0, // degrees to radians
@@ -346,6 +357,7 @@ public class Motion extends BvhSkeletonParameters {
 					 .append(minAngle2).append(",").append(maxAngle2).append("] degrees");
 			outputX3D.append(" -->\n");
 			outputX3D.append(indentSpacing(indentLevel+2)).append("<!-- ");
+			outputX3D.append("Vertical channel slice of 3 Euler angles from BVH motion array: ");
 			framesIterator = frames.iterator(); // restart at beginning
 			while (framesIterator.hasNext())
 			{
@@ -367,7 +379,7 @@ public class Motion extends BvhSkeletonParameters {
 		outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- Overall angle min/max range [")
 				 .append(minAngle).append(",").append(maxAngle).append("] degrees -->\n");
 		if ((Math.abs(minAngle) <= 2.0 * Math.PI) &&
-			(Math.abs(maxAngle) <= 2.0 * Math.PI))
+		    (Math.abs(maxAngle) <= 2.0 * Math.PI))
 		{
 			outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- Warning: angles are likely radian values, not degrees -->\n");
 		}
@@ -376,15 +388,15 @@ public class Motion extends BvhSkeletonParameters {
 			outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- Warning: some angle values are greater than 360 degrees -->\n");
 		}
 		// now output ROUTE statements, note that initial PositionInterpolator and OrientationInterpolator both go to root Joint
-        outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- Corresponding ROUTE statements to send animation values -->\n");
+		outputX3D.append(indentSpacing(indentLevel+1)).append("<!-- Corresponding ROUTE statements to send animation values -->\n");
 		for (int index = 0; index < (getFrameWidth() / 3); index++)
 		{
 			Joint currentJoint;
 			String sourceDEF = "Interpolator" + index;
 			String targetDEF, targetField;
-			if  ((index == 0) || (index == 1)) // target the same initial root Joint for both first and second interpolators 
+			if  ((index == 0) || (index == 1)) // target the same initial root Joint for both first PositionInterpolator and second OrientationInterpolators
 			{
-				currentJoint = getAncestorHierarchy().getHierarchyJointList().get(0);
+//				currentJoint = getAncestorHierarchy().getHierarchyJointList().get(0); // unneeded
 				sourceDEF   += "_" + getAncestorHierarchy().getSkeletonJointName();
 				targetDEF = ancestorHierarchy.getJointDEF();
 			}
@@ -396,7 +408,7 @@ public class Motion extends BvhSkeletonParameters {
 				targetDEF    = currentJoint.getJointDEF(); // loop to match ancestorHierarchy
 			}
 			if  (index == 0)
-				 targetField = "set_translation";
+			     targetField = "set_translation";
 			else targetField = "set_rotation";
 			outputX3D.append(indentSpacing(indentLevel+1)).append("<ROUTE fromField='fraction_changed' fromNode='RealTimer' toField='set_fraction' toNode='").append(sourceDEF).append("'/>\n");
 			outputX3D.append(indentSpacing(indentLevel+1)).append("<ROUTE fromField='value_changed' fromNode='FrameStepper' toField='set_fraction' toNode='").append(sourceDEF).append("'/>\n");
@@ -404,9 +416,9 @@ public class Motion extends BvhSkeletonParameters {
 		}
 		outputX3D.append(indentSpacing(indentLevel)).append("</Group>\n");
 		
-		/* debug: output full array of original BVH MOTION values */
+        /* debug: output full array of original BVH MOTION values */
         outputX3D.append("<!-- All frame data:\n");
-		framesIterator = frames.iterator(); // restart at beginning
+        framesIterator = frames.iterator(); // restart at beginning
         while (framesIterator.hasNext())
         {
             values = framesIterator.next();
@@ -492,6 +504,7 @@ public class Motion extends BvhSkeletonParameters {
     }
 
     /**
+     * Append an array of frame values
      * @param newFrame the new frame to append
      */
     public void addFrame(double[] newFrame) {
@@ -499,21 +512,24 @@ public class Motion extends BvhSkeletonParameters {
     }
 
     /**
-     * @param newFrame the new frame to insert
+     * Remove array of frame values
+     * @param index of frame array to remove
      */
     public void removeFrame(int index) {
         frames.remove(index);
     }
 
     /**
-     * reinitialize frames array
+     * reinitialize frames array as empty
      */
     public void clearFrames() {
         frames = new ArrayList<>();
     }
 
     /**
-     * @param newFrame the new frame to insert
+     * Insert an array of frame values
+     * @param index of new frame to insert
+     * @param newFrame the new frames array to insert
      */
     public void insertFrame(int index, double[] newFrame) 
 	{
@@ -521,6 +537,8 @@ public class Motion extends BvhSkeletonParameters {
     }
 
     /**
+     * Get an array of frame values
+     * @param index of frame of interest
      * @return values for a single frame
      */
     public double[] getFrame(int index) {
@@ -528,16 +546,19 @@ public class Motion extends BvhSkeletonParameters {
     }
 
     /**
+     * How many values are in a frame array
      * @return values for a single frame
      */
     public int getFrameWidth() {
-		if  (frames.size() == 0)
-			 return 0; // not set yet
+		if  (frames.isEmpty())
+		     return 0; // not set yet
 		else return frames.get(0).length;
     }
 
     /**
-     * set values for a single frame
+     * Set values for a single frame
+     * @param index of frame of interest
+     * @param arrayValue array values for frame
      */
     public void setFrame(int index, double[] arrayValue) {
         frames.set(index, arrayValue);
