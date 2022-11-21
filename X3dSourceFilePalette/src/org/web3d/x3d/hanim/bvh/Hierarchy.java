@@ -362,11 +362,12 @@ public class Hierarchy extends BvhSkeletonParameters
                      .append(" info='\"authorEmail=*TODO*\" \"authorName=*TODO*\" \"copyright=Copyright (c) 2022\" \"humanoidVersion=*TODO*\" \"usageRestrictions=*TODO*\"'")
                      .append(" -->\n");
         outputX3DBody.append(indentSpacing(3)).append("<MetadataSet containerField='metadata' name='HAnimHumanoid.info' reference='https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/ObjectInterfaces.html#Humanoid'>\n");  // open   MetadataSet with HAnimHumanoid info
-        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='authorEmail' value='*TODO*'/>\n");
-        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='authorName' value='*TODO*'/>\n");
-        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='copyright' value='Copyright (c) ").append(yearFormat.format(date)).append("'/>\n");
-        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='humanoidVersion' value='*TODO*'/>\n");
-        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='usageDescription' value='*TODO*'/>\n");
+        // including quotes around singleton MFString values
+        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='authorEmail' value='\"*TODO*\"'/>\n");
+        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='authorName' value='\"*TODO*\"'/>\n");
+        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='copyright' value='\"Copyright (c) ").append(yearFormat.format(date)).append("\"'/>\n");
+        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='humanoidVersion' value='\"*TODO*\"'/>\n");
+        outputX3DBody.append(indentSpacing(4)).append("<MetadataString containerField='value' name='usageDescription' value='\"*TODO*\"'/>\n");
         outputX3DBody.append(indentSpacing(3)).append("</MetadataSet>\n"); // finish MetadataSet with HAnimHumanoid info
 
         // humanoid_root Site Viewpoint attached to top-level HAnimHumanoid
