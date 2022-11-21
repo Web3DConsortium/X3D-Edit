@@ -114,7 +114,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -124,6 +124,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 300;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -153,7 +154,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -163,7 +164,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         org.openide.awt.Mnemonics.setLocalizedText(saveBvhButton, org.openide.util.NbBundle.getMessage(BvhToX3dConversionPanel.class, "BvhToX3dConversionPanel.saveBvhButton.text")); // NOI18N
         saveBvhButton.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -177,7 +178,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 400;
@@ -198,7 +199,6 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stripCommentsCheckBox, gridBagConstraints);
 
@@ -215,7 +215,6 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stripDefaultAttributesCheckBox, gridBagConstraints);
 
@@ -232,7 +231,6 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(indentEnabledCheckBox, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -273,18 +271,24 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stripCommentsLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(stripDefaultAttributesLabel, org.openide.util.NbBundle.getMessage(BvhToX3dConversionPanel.class, "BvhToX3dConversionPanel.stripDefaultAttributesLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stripDefaultAttributesLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(indentEnabledLabel, org.openide.util.NbBundle.getMessage(BvhToX3dConversionPanel.class, "BvhToX3dConversionPanel.indentEnabledLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(indentEnabledLabel, gridBagConstraints);
 
         includeVisualizationShapesCheckBox.setSelected(true);
@@ -298,9 +302,10 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(includeVisualizationShapesCheckBox, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
