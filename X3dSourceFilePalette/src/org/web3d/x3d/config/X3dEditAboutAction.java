@@ -91,7 +91,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
               "<p align='center'>X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Revised &nbsp;<b>" + 
-                    "13 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION 
+                    "21 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION 
                     "</b>" +
 //                    " with issue reports welcome via <a href='" + LaunchEmailReportAction.MAILTO_REPORT_URL + "'>e-mail</a>." +
               "</p>"
