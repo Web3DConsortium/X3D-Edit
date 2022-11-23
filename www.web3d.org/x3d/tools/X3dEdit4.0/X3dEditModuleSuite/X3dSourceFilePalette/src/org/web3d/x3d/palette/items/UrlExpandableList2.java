@@ -1740,7 +1740,7 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
       if (!toolFound) // nothing installed or enabled/selected by user
       {
           descriptor = new NotifyDescriptor.Message(
-                  "<html><p align='center'>No external editors installed or enabled for (" + extension + ") files.</p><p>&nbsp;</p><p align='center'>See X3D-Edit Preferences, External Tools tab for setup.</p>");
+                  "<html><p align='center'>No external editors installed or enabled for (" + extension + ") files.</p><p>&nbsp;</p><p align='center'>See X3D-Edit Preferences Panels, External Tools tab for setup.</p>");
           DialogDisplayer.getDefault().notify(descriptor);
           // TODO dialog to confirm, launch
       }
