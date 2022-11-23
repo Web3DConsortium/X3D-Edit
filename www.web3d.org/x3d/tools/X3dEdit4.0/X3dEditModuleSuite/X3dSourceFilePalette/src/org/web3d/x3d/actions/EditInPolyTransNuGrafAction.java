@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -50,7 +50,8 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.EditInPolyTransNuGrafAction", category = "View")
-@ActionRegistration(displayName = "#CTL_EditInPolyTransNuGrafAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/okino-nugraf-apple-touch-icon-120x120-precomposed-32x32.png", // ico
+                    displayName = "#CTL_EditInPolyTransNuGrafAction", lazy=true)
 @ActionReferences( value = {
     @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 150),
     @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 150),

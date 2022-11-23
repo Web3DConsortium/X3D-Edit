@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -50,7 +50,8 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewInContactAction", category = "View")
-@ActionRegistration(displayName = "#CTL_ViewInContactAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/bitmanagement09_favicon_16x16.png",
+                    displayName = "#CTL_ViewInContactAction", lazy=true)
 @ActionReferences( value = {
     @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 118),
     @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 118)

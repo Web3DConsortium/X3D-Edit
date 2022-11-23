@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -50,7 +50,8 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewInH3dAction", category = "View")
-@ActionRegistration(displayName = "#CTL_ViewInH3dAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/H3D-cropped-512px-16x16.png", // 32x32.png",
+                    displayName = "#CTL_ViewInH3dAction", lazy=true)
 @ActionReferences( value = {
   @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 124),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 124)})
