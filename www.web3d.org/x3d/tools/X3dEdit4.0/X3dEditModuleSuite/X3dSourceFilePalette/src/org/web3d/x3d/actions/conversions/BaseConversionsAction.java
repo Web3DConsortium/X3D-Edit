@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -223,10 +223,13 @@ public abstract class BaseConversionsAction extends CallableSystemAction
       p.setBorder(new EmptyBorder(10, 10, 0, 10));
       p.add(new JLabel(Nb_Select_files_to_process), BorderLayout.NORTH);
       p.add(new JScrollPane(list), BorderLayout.CENTER);
-      DialogDescriptor dd = new DialogDescriptor(p, Nb_Select_X3D_Files);
-      Dialog dial = DialogDisplayer.getDefault().createDialog(dd);
-      dial.setVisible(true);
-      if (dd.getValue().equals(DialogDescriptor.CANCEL_OPTION))
+      DialogDescriptor dialogDescriptor = new DialogDescriptor(p, Nb_Select_X3D_Files);
+      Dialog dialog = DialogDisplayer.getDefault().createDialog(dialogDescriptor);
+      dialog.setSize(300, 200);
+      // TODO set single selection, i.e. setMultipSelectionEnables(false)
+      dialog.setAlwaysOnTop(true);
+      dialog.setVisible(true);
+      if (dialogDescriptor.getValue().equals(DialogDescriptor.CANCEL_OPTION))
           return;
       
       List<String>  selectedFns = list.getSelectedValuesList();
