@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -98,7 +98,7 @@ public class X3dOptions
   public static String  VISUALIZE_HANIMSITECOLOR_GREEN_KEY    = "VISUALIZE_HANIMSITECOLOR_GREEN";
   public static String  VISUALIZE_HANIMSITECOLOR_BLUE_KEY     = "VISUALIZE_HANIMSITECOLOR_BLUE";
   
-  // default preference, can be overridden by user choices in X3D-Edit Preferences (Tools > Options > Miscellaneous > X3D > Other Preferences panel)
+  // default preference, can be overridden by user choices in X3D-Edit Preferences Panels (Tools > Options > Miscellaneous > X3D > Other Preferences panel)
   public static boolean SHOW_NEWLINE_OPTION_DEFAULT = false;
   public static boolean PREPEND_NEWLINE_DEFAULT     = true;
   public static boolean APPEND_NEWLINE_DEFAULT      = false;
@@ -396,7 +396,7 @@ public class X3dOptions
                                                                    // C:\\Program Files\\Bitmanagement Software\\BS Contact\\BSContact.exe
   private static final String winxpContactPathDefault              = "C:\\Users\\"+USER_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
   private static final String winxpContactGeoPathDefault           = "C:\\Users\\"+USER_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
-  private static final String winxpFreeWrlPathDefault              = "C:\\Program Files\\freeWRL\\freeWRL.3\\freeWRL.exe";
+  private static final String winxpFreeWrlPathDefault              = "C:\\Program Files\\freewrl_inw_x64_470\\freeWRL.exe";
 //private static final String winxpFreeWrlPathDefault              = "C:\\Program Files\\freeWRL\\freeWRL.3\\launchdir\\freeWRL_Launcher.exe"; // alternative
   private static final String winxpH3dPathDefault                  = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin32\\H3DViewer.exe"; // TODO 32
   private static final String winxpHeilanPathDefault               = "C:\\Program Files\\HeilanBrowser-0.15\\HeilanBrowser.exe";
@@ -408,9 +408,9 @@ public class X3dOptions
   private static final String winxpVivatyPlayerPathDefault         = "C:\\Program Files\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
   private static final String winxpXj3DPathDefault                 = "C:\\Program Files\\Xj3D\\browser.bat";
   private static final String winxpOtherX3dPlayerPathDefault       = ""; // user configured
-  private static final String winxpOtherX3dPlayerNameDefault       = "(Add another player using X3D-Edit Preferences)"; // user configured
+  private static final String winxpOtherX3dPlayerNameDefault       = "(Add another player using X3D-Edit Preferences Panels)"; // user configured
   private static final String winxpOtherX3dEditorPathDefault       = ""; // user configured
-  private static final String winxpOtherX3dEditorNameDefault       = "(Add another authoring tool using X3D-Edit Preferences)"; // user configured
+  private static final String winxpOtherX3dEditorNameDefault       = "(Add another authoring tool using X3D-Edit Preferences Panels)"; // user configured
   private static final String winxpAmayaPathDefault                = "C:\\Program Files\\Amaya\\WindowsWX\\bin\\amaya.exe";
   private static final String winxpChromePathDefault               = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
   private static final String winxpFirefoxPathDefault              = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
@@ -421,7 +421,7 @@ public class X3dOptions
                                                                    // C:\\Program Files (x86)\\Bitmanagement Software\\BS Contact\\BSContact.exe
   private static final String windows64ContactPathDefault          = "C:\\Users\\"+USER_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
   private static final String windows64ContactGeoPathDefault       = "C:\\Users\\"+USER_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
-  private static final String windows64FreeWrlPathDefault          = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\freeWRL.exe";
+  private static final String windows64FreeWrlPathDefault          = "C:\\Program Files (x86)\\freewrl_inw_x64_470\\freeWRL.exe";
 //private static final String windows64FreeWrlPathDefault          = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\launchdir\\freeWRL_launcher.exe"; // alternative
   private static final String windows64H3dPathDefault              = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin64\\H3DViewer.exe";
   private static final String windows64HeilanPathDefault           = "C:\\Program Files (x86)\\HeilanBrowser-0.15\\HeilanBrowser.exe";
@@ -525,41 +525,41 @@ public class X3dOptions
   private static final String winxpGimpEditorPathDefault                 = "C:\\Program Files\\GIMP 2\\bin\\gimp-2.10.exe";
   private static final String winxpFijiEditorPathDefault                 = "C:\\Program Files\\Fiji.app\\ImageJ-win32.exe";
   private static final String winxpImageJEditorPathDefault               = "C:\\Program Files\\ImageJ\\ImageJ.exe";
-  private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.0.11-Q16-HDRI\\imdisplay.exe";
+  private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
   private static final String winxpVlcPlayerPathDefault                  = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
-  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 2.92\\blender.exe";
+  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 3.3\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
-  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 4.9.1\\Cura.exe";
+  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.2.1\\Ultimaker-Cura.exe";
   private static final String winxpMeshLabX3dEditorPathDefault           = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.9.1-Windows-Python3.8-msvc2017-64bit\\bin\\paraview.exe";
-  private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d (x86)\\seamless3d.exe";
+  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.11.0\\bin\\paraview.exe";
+  private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 3.8\\bin\\ITK-SNAP.exe";
   private static final String winxpSeg3dEditorPathDefault                = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String winxpSlicer3dEditorPathDefault             = "C:\\Program Files\\Slicer 4.3.1\\Slicer.exe";
-  private static final String winxpSvgeditEditorPathDefault              = x3dEditPath + "/externals/svg-edit-2.7/svg-editor.html"; // built in
-  private static final String winxpWhiteDuneX3dEditorPathDefault         = "C:\\installs\\WhiteDune\\wdune-0.99pl164.exe";
-  private static final String winxpWingsX3dEditorPathDefault             = "C:\\Program Files\\wings3d_2.2.6.1\\Wings3D.exe";
+  private static final String winxpSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
+  private static final String winxpWhiteDuneX3dEditorPathDefault         = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
+  private static final String winxpWingsX3dEditorPathDefault             = "C:\\Program Files\\wings3d_2.2.9\\Wings3D.exe";
   private static final String winxpUltraEditX3dEditorPathDefault         = "C:\\Program Files\\IDM Computer Solutions\\UltraEdit\\uedit32.exe";
 
-  private static final String windows64AudacityEditorPathDefault         = "C:\\Program Files (x86)\\Audacity\\audacity.exe";
+  private static final String windows64AudacityEditorPathDefault         = "C:\\Program Files\\Audacity\\audacity.exe";
   private static final String windows64MuseScoreEditorPathDefault        = "C:\\Program Files\\MuseScore 3\\bin\\MuseScore3.exe";
   private static final String windows64GimpEditorPathDefault             = "C:\\Program Files\\GIMP 2\\bin\\gimp-2.10.exe";
   private static final String windows64FijiEditorPathDefault             = "C:\\Program Files\\Fiji.app\\ImageJ-win64.exe";
   private static final String windows64ImageJEditorPathDefault           = "C:\\Program Files\\ImageJ\\ImageJ.exe";
-  private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.0.11-Q16-HDRI\\imdisplay.exe";
+  private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
   private static final String windows64VlcPlayerPathDefault              = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
-  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 2.92\\blender.exe";
+  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 3.3\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
-  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 4.9.1\\Cura.exe";
+  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.2.1\\Ultimaker-Cura.exe";
   private static final String windows64MeshLabX3dEditorPathDefault       = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.9.1-Windows-Python3.8-msvc2017-64bit\\bin\\paraview.exe";
-  private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files (x86)\\Seamless3d\\seamless3d.exe";
+  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.11.0\\bin\\paraview.exe";
+  private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 3.8\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
-  private static final String windows64Slicer3dEditorPathDefault         = "C:\\Program Files\\Slicer 4.3.1\\Slicer.exe";
-  private static final String windows64SvgeditEditorPathDefault          = x3dEditPath + "/externals/svg-edit-2.7/svg-editor.html"; // built in
-  private static final String windows64WhiteDuneX3dEditorPathDefault     = "C:\\installs\\WhiteDune\\wdune-0.99pl164.exe";
-  private static final String windows64WingsX3dEditorPathDefault         = "C:\\Program Files\\wings3d_2.2.6.1\\Wings3D.exe";
+  private static final String windows64Slicer3dEditorPathDefault         = "C:\\Program Files\\Slicer 5.0.3\\Slicer.exe";
+  private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app/editor/index.html"; // online editor
+  private static final String windows64WhiteDuneX3dEditorPathDefault     = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
+  private static final String windows64WingsX3dEditorPathDefault         = "C:\\Program Files\\wings3d_2.2.9\\Wings3D.exe";
   private static final String windows64UltraEditX3dEditorPathDefault     = "C:\\Program Files\\IDM Computer Solutions\\UltraEdit\\uedit64.exe";
   
   private static final String macosxAudacityEditorPathDefault            = "audacity";       // TODO insert correct value
@@ -578,7 +578,7 @@ public class X3dOptions
   private static final String macosxItksnapEditorPathDefault             = "Itksnap";        // TODO insert correct value
   private static final String macosxSeg3dEditorPathDefault               = "Seg3d";          // TODO insert correct value
   private static final String macosxSlicer3dEditorPathDefault            = "Slicer3d";       // TODO insert correct value
-  private static final String macosxSvgeditEditorPathDefault             = x3dEditPath + "/externals/svg-edit-2.7/svg-editor.html"; // built in
+  private static final String macosxSvgeditEditorPathDefault             = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String macosxWhiteDuneX3dEditorPathDefault        = "WhiteDune";      // TODO insert correct value
   private static final String macosxWingsX3dEditorPathDefault            = "Wings3d";        // TODO insert correct value
   private static final String macosxUltraEditX3dEditorPathDefault        = "UltraEdit";      // TODO insert correct value
@@ -599,7 +599,7 @@ public class X3dOptions
   private static final String otherItksnapEditorPathDefault              = "Itksnap";        // TODO insert correct value
   private static final String otherSeg3dEditorPathDefault                = "Seg3d";          // TODO insert correct value
   private static final String otherSlicer3dEditorPathDefault             = "Slicer3d";       // TODO insert correct value
-  private static final String otherSvgeditEditorPathDefault              = x3dEditPath + "/externals/svg-edit-2.7/svg-editor.html"; // built in
+  private static final String otherSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String otherWhiteDuneX3dEditorPathDefault         = "WhiteDune";      // TODO insert correct value
   private static final String otherWingsX3dEditorPathDefault             = "Wings3d";        // TODO insert correct value
   private static final String otherUltraEditX3dEditorPathDefault         = "UltraEdit";      // TODO insert correct value
@@ -633,12 +633,12 @@ public class X3dOptions
   private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
   private static final String downloadSiteSeamless3d                     = "https://www.seamless3d.com";
-  private static final String downloadSiteItksnap                        = "https://www.itksnap.org"; // https://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
+  private static final String downloadSiteItksnap                        = "http://www.itksnap.org"; // http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
   private static final String downloadSiteSeg3d                          = "https://www.sci.utah.edu/cibc-software/seg3d.html";
   private static final String downloadSiteSlicer3d                       = "https://www.slicer.org";
   private static final String downloadSiteSvgedit                        = "https://github.com/SVG-Edit"; // https://code.google.com/p/svg-edit";
   private static final String downloadSiteWhiteDune                      = "https://wdune.ourproject.org";
-  private static final String downloadSiteWings3d                        = "https://www.wings3d.com"; // https://www.wings3d.com/?page_id=84";
+  private static final String downloadSiteWings3d                        = "http://www.wings3d.com"; // http://www.wings3d.com/?page_id=84";
   private static final String downloadSiteUltraEdit                      = "https://www.UltraEdit.com";
   
   // no command line options found to hand off the import of an X3D file, TODO provide local help
@@ -654,17 +654,17 @@ public class X3dOptions
   protected static final String helpSiteVlc                              = "https://www.videolan.org/support/#documentation";
   protected static final String helpSiteBlender                          = "https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
   protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.com/download/studio";
-  protected static final String helpSiteCura                             = "https://ultimaker.com/software/ultimaker-cura"; 
+  protected static final String helpSiteCura                             = "https://ultimaker.com/learn"; 
   protected static final String helpSiteMeshLab                          = "https://www.meshlab.net"; // https://sourceforge.net/apps/mediawiki/meshlab";
   protected static final String helpSiteParaview                         = "https://www.paraview.org";
   protected static final String helpSitePolyTransNuGraf                  = "https://www.okino.com/nrs/nrs.htm";
   protected static final String helpSiteSeamless3d                       = "https://www.seamless3d.com/faq.html";
-  protected static final String helpSiteItksnap                          = "https://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.SNAP3"; // https://www.itksnap.org/pmwiki/pmwiki.php";
+  protected static final String helpSiteItksnap                          = "http://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.SNAP3"; // http://www.itksnap.org/pmwiki/pmwiki.php";
   protected static final String helpSiteSeg3d                            = "https://www.sci.utah.edu/cibc-software/seg3d.html";
   protected static final String helpSiteSlicer3d                         = "https://www.slicer.org/slicerWiki/index.php/Documentation/Release";
   protected static final String helpSiteSvgedit                          = "https://en.wikipedia.org/wiki/SVG-edit"; // https://code.google.com/p/svg-edit";
   protected static final String helpSiteWhiteDune                        = "https://wdune.ourproject.org/docs";
-  protected static final String helpSiteWings3d                          = "https://www.wings3d.com/?page_id=87";
+  protected static final String helpSiteWings3d                          = "http://www.wings3d.com/?page_id=87";
   protected static final String helpSiteUltraEdit                        = "https://www.ultraedit.com/wiki/Main_Page"; // https://www.UltraEdit.com/help/category/ultraedit-uestudio";
 
   public static String getDownloadSiteContact()        {return downloadSiteContact;}
