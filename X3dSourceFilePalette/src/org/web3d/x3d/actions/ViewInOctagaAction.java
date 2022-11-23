@@ -50,7 +50,8 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewInOctagaAction", category = "View")
-@ActionRegistration(displayName = "#CTL_ViewInOctagaAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/octaga_favicon.png",
+                    displayName = "#CTL_ViewInOctagaAction", lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 130),
   @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 130)

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -50,7 +50,8 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.EditInWhiteDuneAction", category = "View")
-@ActionRegistration(displayName = "#CTL_EditInWhiteDuneAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/whitedune_32x32.png", // ico
+                    displayName = "#CTL_EditInWhiteDuneAction", lazy=true)
 @ActionReferences( value = {
     @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 180),
     @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 180),

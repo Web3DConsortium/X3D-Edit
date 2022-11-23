@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -41,20 +41,22 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d.actions;
 
-import org.openide.awt.ActionID;
-import org.openide.awt.ActionReference;
-import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionRegistration;
+//import org.openide.awt.ActionID;
+//import org.openide.awt.ActionReference;
+//import org.openide.awt.ActionReferences;
+//import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.ViewInContactGeoAction", category = "View")
-@ActionRegistration(displayName = "#CTL_ViewInContactGeoAction", lazy=true)
-@ActionReferences( value = {
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 119),
-  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 119)
-})
+// do not show, duplicative
+//@ActionID(id = "org.web3d.x3d.actions.ViewInContactGeoAction", category = "View")
+//@ActionRegistration(   iconBase = "org/web3d/x3d/resources/bitmanagement09_favicon_16x16.png",
+//                    displayName = "#CTL_ViewInContactGeoAction", lazy=true)
+//@ActionReferences( value = {
+//  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 119),
+//  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 119)
+//})
 public final class ViewInContactGeoAction extends ViewInBaseAction
 {
   @Override
