@@ -1193,6 +1193,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(vivatyChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(xj3DChooserButton, "...");
@@ -5907,7 +5909,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         x3dEditVisualizationPreferencesPanel.add(verticalSpacerLabel4, gridBagConstraints);
 
-        hAnimVisualizationOptionsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Humanoid Animation (HAnim) visualization default values", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        hAnimVisualizationOptionsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Humanoid Animation (H-Anim) visualization default values", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         hAnimVisualizationOptionsPanel.setLayout(new java.awt.GridBagLayout());
 
         hAnimJointColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -6295,7 +6297,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(10, 40, 3, 3);
         securityPanel.add(examplesLabel, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(X3dSecurityPageLaunchButton, "https://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html");
+        org.openide.awt.Mnemonics.setLocalizedText(X3dSecurityPageLaunchButton, "http://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html");
         X3dSecurityPageLaunchButton.setToolTipText("X3D Security Examples show how to apply XML Encryption and Authentication to X3D scenes");
         X3dSecurityPageLaunchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -8276,11 +8278,14 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }
   private void svgeditEditorAutoLaunchCheck ()
   {
-    checkExistingFile = new File(svgeditEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dOptions.setSvgeditAutoLaunch(Boolean.toString(executableFile));
-    svgeditEditorCheckBox.setSelected(executableFile);
-    svgeditEditorLaunchButton.setEnabled(executableFile);
+    // SVG-Edit is an online tool
+//    checkExistingFile = new File(svgeditEditorPathTF.getText().trim());
+//    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dOptions.setSvgeditAutoLaunch("true"); // Boolean.toString(executableFile));
+      
+    svgeditEditorChooserButton.setEnabled(false); // local launch not supported
+    svgeditEditorCheckBox.setSelected   (true); // executableFile);
+    svgeditEditorLaunchButton.setEnabled(true); // executableFile);
   }
 
   private void browserLaunch(String pageUrl)
