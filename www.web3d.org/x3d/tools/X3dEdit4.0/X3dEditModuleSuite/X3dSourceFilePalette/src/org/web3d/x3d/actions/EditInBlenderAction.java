@@ -50,7 +50,7 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.EditInBlenderAction", category = "View")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Blender_favicon.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Blender_favicon32x32.png",
                     displayName = "#CTL_EditInBlenderAction", lazy=true)
 @ActionReferences( value = {
     @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 110),
