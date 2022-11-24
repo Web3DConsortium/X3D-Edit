@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -47,7 +47,7 @@ import org.openide.util.RequestProcessor;
 import org.web3d.x3d.X3DEditorSupport;
 import org.web3d.x3d.tools.x3db.X3dCanonicalizer;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.ExportX3dCanonicalAction", category = "File")
+@ActionID(id = "org.web3d.x3d.actions.conversions.ExportX3dCanonicalAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/c14n.png",
                     displayName = "#CTL_ExportCanonicalizeAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered

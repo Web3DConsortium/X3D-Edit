@@ -45,7 +45,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONFERENCE_ACM_DIGITAL_LIBRARY;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConferenceAcmDigitalLibraryAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConferenceAcmDigitalLibraryAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/acmdl16.png",
                     displayName = "#CTL_LaunchWeb3DConferenceAcmDigitalLibraryAction",
                             lazy=true)

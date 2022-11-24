@@ -55,7 +55,7 @@ import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.openide.windows.OutputWriter;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.ImportVrml97Action", category = "File")
+@ActionID(id = "org.web3d.x3d.actions.conversions.ImportVrml97Action", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_ImportVrml97Action", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {

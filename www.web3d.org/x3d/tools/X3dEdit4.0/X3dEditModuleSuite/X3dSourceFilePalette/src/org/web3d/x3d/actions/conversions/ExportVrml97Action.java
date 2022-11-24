@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -43,7 +43,7 @@ import org.web3d.x3d.X3DEditorSupport;
 
 // This would be "Export as Vrml97 using xj3d, but not supported"
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.ExportVrml97Action", category = "File")
+@ActionID(id = "org.web3d.x3d.actions.conversions.ExportVrml97Action", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_Vrml97Action", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 

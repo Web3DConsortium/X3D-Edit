@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+ * Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -50,7 +50,7 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DEditorSupport;
 import org.xml.sax.InputSource;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.EXICompressAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.conversions.EXICompressAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_ExiAction", 
                            popupText="TODO update, currently disabled", 
                             lazy=false) // don't do lazy=false since iconBase no longer gets registered)

@@ -40,7 +40,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 
-@ActionID(id = "org.web3d.x3d.actions.ViewX3d4waExamplesLocalAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.ViewX3d4waExamplesLocalAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_ViewX3d4waExamplesLocalAction",
                             lazy=true)

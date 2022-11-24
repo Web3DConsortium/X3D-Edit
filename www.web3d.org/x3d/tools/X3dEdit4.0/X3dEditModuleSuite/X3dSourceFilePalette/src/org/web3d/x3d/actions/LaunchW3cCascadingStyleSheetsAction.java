@@ -43,7 +43,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.W3C_CASCADING_STYLESHEETS;
 
-    @ActionID(id = "org.web3d.x3d.actions.W3cCascadingStyleSheetsAction", category = "Tools")
+    @ActionID(id = "org.web3d.x3d.actions.W3cCascadingStyleSheetsAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/w3c-favicon-16x16.png",
                     displayName = "#CTL_LaunchW3cCascadingStyleSheetsAction",
                             lazy=true)

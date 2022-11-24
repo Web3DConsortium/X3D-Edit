@@ -42,7 +42,7 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.actions.*;
 
-@ActionID(id = "org.web3d.x3d.actions.qualityassurance.X3dValidatorOnlineAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.qualityassurance.X3dValidatorOnlineAction", category = "X3D-Edit")
 
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark.png",
                     displayName = "#CTL_X3dValidatorOnlineAction",

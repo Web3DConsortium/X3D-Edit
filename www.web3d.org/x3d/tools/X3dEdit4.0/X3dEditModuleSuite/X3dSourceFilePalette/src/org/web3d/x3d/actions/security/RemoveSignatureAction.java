@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -61,7 +61,7 @@ import org.web3d.x3d.BaseX3DEditAction;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 
-@ActionID(id = "org.web3d.x3d.actions.security.RemoveSignatureAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.security.RemoveSignatureAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_RemoveSignatureAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {

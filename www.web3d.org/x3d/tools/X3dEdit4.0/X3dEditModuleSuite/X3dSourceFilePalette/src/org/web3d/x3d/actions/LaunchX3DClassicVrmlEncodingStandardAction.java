@@ -43,7 +43,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_CLASSICVRML_ENCODING_STANDARD;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchX3DClassicVrmlEncodingStandardAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchX3DClassicVrmlEncodingStandardAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/web3d16.png",
                     displayName = "#CTL_LaunchX3DClassicVrmlEncodingStandardAction",
                             lazy=true)

@@ -66,7 +66,7 @@ import org.web3d.x3d.hanim.bvh.Hierarchy;
 import org.web3d.x3d.hanim.bvh.Joint;
 import org.web3d.x3d.hanim.bvh.Motion;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.BvhToX3dConversionAction", category = "File")
+@ActionID(id = "org.web3d.x3d.actions.conversions.BvhToX3dConversionAction", category = "X3D-Edit")
 
 @ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/BvhMocap.png",
                     displayName = "#CTL_BvhToX3dAction",

@@ -42,7 +42,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DEditorSupport;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.ExportHtmlDocumentationAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.conversions.ExportHtmlDocumentationAction", category = "X3D-Edit")
 
 @ActionRegistration(
         iconBase = "org/web3d/x3d/resources/html24.png",

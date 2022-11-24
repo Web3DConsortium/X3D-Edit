@@ -43,7 +43,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_COURSE_VIDEOS;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchX3dCourseVideosAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchX3dCourseVideosAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_LaunchX3dCourseVideosAction", 
                             lazy=true)

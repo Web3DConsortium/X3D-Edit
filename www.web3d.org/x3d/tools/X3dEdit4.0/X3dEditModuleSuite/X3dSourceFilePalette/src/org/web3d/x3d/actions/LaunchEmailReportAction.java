@@ -44,7 +44,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchEmailReportAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchEmailReportAction", category = "X3D-Edit")
 // adapted email icon from https://creativecommons.org/website-icons
 @ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/envelope.png",
                     displayName = "#CTL_LaunchEmailReportAction", 

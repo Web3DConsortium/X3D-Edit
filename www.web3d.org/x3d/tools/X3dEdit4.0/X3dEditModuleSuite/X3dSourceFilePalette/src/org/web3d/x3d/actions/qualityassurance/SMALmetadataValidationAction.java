@@ -43,7 +43,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 
-@ActionID(id = "org.web3d.x3d.actions.qualityassurance.SMALmetadataValidationAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.qualityassurance.SMALmetadataValidationAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark.png",
                     displayName = "#CTL_SMALmetadataValidationAction",
                             lazy=true)

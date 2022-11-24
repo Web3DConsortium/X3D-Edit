@@ -50,7 +50,7 @@ import org.openide.awt.StatusDisplayer;
 import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 
-@ActionID(id = "org.web3d.x3d.x3dedit.config.MyViewBrowserAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.x3dedit.config.MyViewBrowserAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_MyViewBrowserAction", // "X3D-Edit Home"
                             lazy=true)
