@@ -55,25 +55,25 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.RequestProcessor;
 import org.openide.util.actions.CookieAction;
-import org.web3d.x3d.ExportX3domAction;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.actions.conversions.ViewInXj3DApplicationAction;
 import org.web3d.x3d.options.X3dOptions;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewInAllAction", category = "View")
-@ActionRegistration(displayName = "#CTL_ViewInAllAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+                    displayName = "#CTL_ViewInAllAction", lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 116, separatorBefore = 115), // , separatorAfter = 117
-  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 116, separatorBefore = 115) //, separatorAfter = 117
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 110, separatorBefore = 109), // , separatorAfter = 117
+  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 110, separatorBefore = 109) //, separatorAfter = 117
 })
 
-public final class ViewInAllAction extends CookieAction
+public final class ViewInAllAutolaunchAction extends CookieAction
 {
   private static String launchInterval;
   private final ViewInBaseAction[] allActions;
 
-  public ViewInAllAction()
+  public ViewInAllAutolaunchAction()
   {
     allActions = new ViewInBaseAction[]
     {
