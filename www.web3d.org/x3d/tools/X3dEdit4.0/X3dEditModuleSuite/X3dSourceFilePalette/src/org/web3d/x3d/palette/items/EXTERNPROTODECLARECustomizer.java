@@ -36,9 +36,13 @@ package org.web3d.x3d.palette.items;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,6 +62,7 @@ import javax.swing.text.JTextComponent;
 import org.jdom.Attribute;
 import org.jdom.Element;
 import org.openide.awt.HtmlBrowser.URLDisplayer;
+import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DDataObject;
@@ -814,16 +819,22 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
 
     private void openDocumentationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openDocumentationButtonActionPerformed
         if (documentationTF.getText().trim().isEmpty()) return;
-        URL url;
+        URI uri;
         try 
         {
-            url = new URL (documentationTF.getText().trim());
-            URLDisplayer.getDefault().showURL(url);
+            uri = new URI (documentationTF.getText().trim());
+//            URLDisplayer.getDefault().showURL(url);
+      
+        // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+            Desktop.getDesktop().browse(uri);
         }
         catch (MalformedURLException e)
         {
             System.out.println ("Failed attempt to launch documentation" + documentationTF.getText().trim());
-        }
+        } catch (IOException | URISyntaxException ex) {
+          Exceptions.printStackTrace(ex);
+      }
     }//GEN-LAST:event_openDocumentationButtonActionPerformed
 
     private void documentationTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentationTFActionPerformed
