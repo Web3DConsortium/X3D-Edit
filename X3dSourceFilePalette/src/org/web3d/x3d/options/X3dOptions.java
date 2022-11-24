@@ -421,7 +421,7 @@ public class X3dOptions
                                                                    // C:\\Program Files (x86)\\Bitmanagement Software\\BS Contact\\BSContact.exe
   private static final String windows64ContactPathDefault          = "C:\\Users\\"+USER_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
   private static final String windows64ContactGeoPathDefault       = "C:\\Users\\"+USER_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
-  private static final String windows64FreeWrlPathDefault          = "C:\\Program Files (x86)\\freewrl_inw_x64_470\\freeWRL.exe";
+  private static final String windows64FreeWrlPathDefault          = "C:\\Program Files\\freewrl_inw_x64_470\\freeWRL.exe";
 //private static final String windows64FreeWrlPathDefault          = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\launchdir\\freeWRL_launcher.exe"; // alternative
   private static final String windows64H3dPathDefault              = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin64\\H3DViewer.exe";
   private static final String windows64HeilanPathDefault           = "C:\\Program Files (x86)\\HeilanBrowser-0.15\\HeilanBrowser.exe";
