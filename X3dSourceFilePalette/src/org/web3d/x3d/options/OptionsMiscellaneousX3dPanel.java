@@ -219,6 +219,14 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dModelingToolsPanel = new javax.swing.JPanel();
         externalX3dEditorLabel = new javax.swing.JLabel();
         verticalSpacerLabel9 = new javax.swing.JLabel();
+        altovaXMLSpyLabel = new javax.swing.JLabel();
+        altovaXMLSpyCheckBox = new javax.swing.JCheckBox();
+        altovaXMLSpyTextField = new javax.swing.JTextField();
+        altovaXMLSpyChooserButton = new javax.swing.JButton();
+        altovaXMLSpyDefaultButton = new javax.swing.JButton();
+        altovaXMLSpyLaunchButton = new javax.swing.JButton();
+        altovaXMLSpyDownloadButton = new javax.swing.JButton();
+        altovaXMLSpyHelpButton = new javax.swing.JButton();
         blenderX3dEditorLabel = new javax.swing.JLabel();
         blenderX3dEditorCheckBox = new javax.swing.JCheckBox();
         blenderX3dEditorPathTF = new javax.swing.JTextField();
@@ -1968,12 +1976,131 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
         x3dModelingToolsPanel.add(verticalSpacerLabel9, gridBagConstraints);
 
+        altovaXMLSpyLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyLabel, "Altova XMLSpy");
+        altovaXMLSpyLabel.setToolTipText("Altova XMLSpy editor");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        x3dModelingToolsPanel.add(altovaXMLSpyLabel, gridBagConstraints);
+
+        altovaXMLSpyCheckBox.setSelected(true);
+        altovaXMLSpyCheckBox.setToolTipText("Include when autolaunching tools");
+        altovaXMLSpyCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        altovaXMLSpyCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyCheckBox, gridBagConstraints);
+
+        altovaXMLSpyTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyTextFieldActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyTextField, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyChooserButton, "...");
+        altovaXMLSpyChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyDefaultButton, "default");
+        altovaXMLSpyDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyLaunchButton, "launch");
+        altovaXMLSpyLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyDownloadButton, "get");
+        altovaXMLSpyDownloadButton.setToolTipText("Download tool from website");
+        altovaXMLSpyDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        altovaXMLSpyDownloadButton.setMaximumSize(new java.awt.Dimension(25, 22));
+        altovaXMLSpyDownloadButton.setMinimumSize(new java.awt.Dimension(25, 22));
+        altovaXMLSpyDownloadButton.setPreferredSize(new java.awt.Dimension(25, 22));
+        altovaXMLSpyDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyHelpButton, "help");
+        altovaXMLSpyHelpButton.setToolTipText("Display tool help page");
+        altovaXMLSpyHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        altovaXMLSpyHelpButton.setMaximumSize(new java.awt.Dimension(31, 22));
+        altovaXMLSpyHelpButton.setMinimumSize(new java.awt.Dimension(31, 22));
+        altovaXMLSpyHelpButton.setPreferredSize(new java.awt.Dimension(31, 22));
+        altovaXMLSpyHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyHelpButton, gridBagConstraints);
+
         blenderX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorLabel, "Blender");
         blenderX3dEditorLabel.setToolTipText("Blender 3D Graphics Tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1989,9 +2116,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(blenderX3dEditorCheckBox, gridBagConstraints);
 
@@ -2003,11 +2129,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(blenderX3dEditorPathTF, gridBagConstraints);
 
@@ -2020,7 +2145,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2035,7 +2160,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2051,7 +2176,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(blenderX3dEditorLaunchButton, gridBagConstraints);
@@ -2059,6 +2185,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorDownloadButton, "get");
         blenderX3dEditorDownloadButton.setToolTipText("Download tool from website");
         blenderX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        blenderX3dEditorDownloadButton.setMaximumSize(new java.awt.Dimension(25, 22));
+        blenderX3dEditorDownloadButton.setMinimumSize(new java.awt.Dimension(25, 22));
+        blenderX3dEditorDownloadButton.setPreferredSize(new java.awt.Dimension(25, 22));
         blenderX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 blenderX3dEditorDownloadButtonActionPerformed(evt);
@@ -2066,7 +2195,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2082,8 +2211,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(blenderX3dEditorHelpButton, gridBagConstraints);
 
@@ -2092,7 +2222,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         bsContentStudioX3dEditorLabel.setToolTipText("Blender 3D Graphics Tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2108,7 +2238,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2122,11 +2252,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(bsContentStudioX3dEditorPathTF, gridBagConstraints);
 
@@ -2139,7 +2268,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2154,7 +2283,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2170,7 +2299,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(bsContentStudioX3dEditorLaunchButton, gridBagConstraints);
@@ -2185,7 +2315,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2201,8 +2331,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(bsContentStudioX3dEditorHelpButton, gridBagConstraints);
 
@@ -2211,7 +2342,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         curaX3dEditorLabel.setToolTipText("Ultimaker Cura printing tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2227,7 +2358,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2241,11 +2372,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(curaX3dEditorPathTF, gridBagConstraints);
 
@@ -2258,7 +2388,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2273,7 +2403,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2289,7 +2419,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(curaX3dEditorLaunchButton, gridBagConstraints);
@@ -2304,7 +2435,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2320,8 +2451,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(curaX3dEditorHelpButton, gridBagConstraints);
 
@@ -2330,7 +2462,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         meshLabX3dEditorLabel.setToolTipText("MeshLab 3D graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2346,7 +2478,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2360,11 +2492,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(meshLabX3dEditorPathTF, gridBagConstraints);
 
@@ -2377,7 +2508,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2392,7 +2523,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2408,7 +2539,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(meshLabX3dEditorLaunchButton, gridBagConstraints);
@@ -2423,7 +2555,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2439,8 +2571,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(meshLabX3dEditorHelpButton, gridBagConstraints);
 
@@ -2449,7 +2582,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         paraviewX3dEditorLabel.setToolTipText("Paraview 3D graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2465,7 +2598,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2479,11 +2612,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(paraviewX3dEditorPathTF, gridBagConstraints);
 
@@ -2496,7 +2628,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2511,7 +2643,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2527,7 +2659,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(paraviewX3dEditorLaunchButton, gridBagConstraints);
@@ -2542,7 +2675,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2558,8 +2691,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(paraviewX3dEditorHelpButton, gridBagConstraints);
 
@@ -2568,7 +2702,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         polyTransNuGrafEditorLabel.setToolTipText("Okino PolyTrans NuGraf 3D authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2584,7 +2718,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2598,11 +2732,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(polyTransNuGrafEditorPathTF, gridBagConstraints);
 
@@ -2615,7 +2748,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2630,7 +2763,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2646,7 +2779,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(polyTransNuGrafEditorLaunchButton, gridBagConstraints);
@@ -2661,7 +2795,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2677,8 +2811,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(polyTransNuGrafEditorHelpButton, gridBagConstraints);
 
@@ -2687,7 +2822,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         seamless3dX3dEditorLabel.setToolTipText("Seamless3d graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2703,7 +2838,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2717,11 +2852,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(seamless3dX3dEditorPathTF, gridBagConstraints);
 
@@ -2734,7 +2868,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2749,7 +2883,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2765,7 +2899,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(seamless3dX3dEditorLaunchButton, gridBagConstraints);
@@ -2780,7 +2915,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2796,7 +2931,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(seamless3dX3dEditorHelpButton, gridBagConstraints);
@@ -2806,7 +2942,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         ultraEditX3dEditorLabel.setToolTipText("UltraEdit Text Editor");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2822,7 +2958,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2836,11 +2972,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(ultraEditX3dEditorPathTF, gridBagConstraints);
 
@@ -2853,7 +2988,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2868,7 +3003,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2884,7 +3019,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(ultraEditX3dEditorLaunchButton, gridBagConstraints);
@@ -2899,7 +3035,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2915,7 +3051,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(ultraEditHelpButton, gridBagConstraints);
@@ -2925,7 +3062,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         whiteDuneX3dEditorLabel.setToolTipText("White Dune graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2941,7 +3078,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2955,11 +3092,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(whiteDuneX3dEditorPathTF, gridBagConstraints);
 
@@ -2972,7 +3108,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2987,7 +3123,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3003,7 +3139,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(whiteDuneX3dEditorLaunchButton, gridBagConstraints);
@@ -3018,7 +3155,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3034,7 +3171,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(whiteDuneX3dEditorHelpButton, gridBagConstraints);
@@ -3044,7 +3182,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         wings3dX3dEditorLabel.setToolTipText("Wings 3D graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3060,7 +3198,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3074,11 +3212,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(wings3dX3dEditorPathTF, gridBagConstraints);
 
@@ -3091,7 +3228,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3106,7 +3243,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3122,7 +3259,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(wings3dX3dEditorLaunchButton, gridBagConstraints);
@@ -3137,7 +3275,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3153,7 +3291,8 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(wings3dX3dEditorHelpButton, gridBagConstraints);
@@ -3161,9 +3300,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel16, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(verticalSpacerLabel16, gridBagConstraints);
@@ -3172,7 +3311,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(otherEditorNameLabel, "Other authoring tool name:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3187,7 +3326,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3203,7 +3342,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3217,7 +3356,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3234,7 +3373,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3249,7 +3388,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherX3dEditorClearButton, gridBagConstraints);
@@ -3264,7 +3403,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherX3dEditorLaunchButton, gridBagConstraints);
@@ -3279,7 +3418,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -3289,7 +3428,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(leftMarginSpacerLabel1, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridheight = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 0.1;
@@ -8037,7 +8176,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_curaX3dEditorPathTFActionPerformed
 
     private void curaX3dEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_curaX3dEditorChooserButtonActionPerformed
-        commonChooser(curaX3dEditorPathTF, "Find White Dune 3D graphics authoring tool", evt);
+        commonChooser(curaX3dEditorPathTF, "Find Ultimaker Cura3D printing tool", evt);
         X3dOptions.setCuraX3dEditorPath(curaX3dEditorPathTF.getText().trim());
         curaAutoLaunchCheck ();
     }//GEN-LAST:event_curaX3dEditorChooserButtonActionPerformed
@@ -8059,6 +8198,46 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void curaX3dEditorHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_curaX3dEditorHelpButtonActionPerformed
         browserLaunch(X3dOptions.helpSiteCura);
     }//GEN-LAST:event_curaX3dEditorHelpButtonActionPerformed
+
+    private void altovaXMLSpyCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyCheckBoxActionPerformed
+        if (altovaXMLSpyCheckBox.isSelected())
+        {
+          X3dOptions.setAltovaXMLSpyAutoLaunch("true");
+        }
+        else
+        {
+          X3dOptions.setAltovaXMLSpyAutoLaunch("false");
+        }
+    }//GEN-LAST:event_altovaXMLSpyCheckBoxActionPerformed
+
+    private void altovaXMLSpyTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyTextFieldActionPerformed
+        X3dOptions.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTextField.getText().trim());
+        altovaXMLSpyAutoLaunchCheck ();
+    }//GEN-LAST:event_altovaXMLSpyTextFieldActionPerformed
+
+    private void altovaXMLSpyChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyChooserButtonActionPerformed
+        commonChooser(altovaXMLSpyTextField, "Find Altova XMLSpy authoring tool", evt);
+        X3dOptions.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTextField.getText().trim());
+        altovaXMLSpyAutoLaunchCheck ();
+    }//GEN-LAST:event_altovaXMLSpyChooserButtonActionPerformed
+
+    private void altovaXMLSpyDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyDefaultButtonActionPerformed
+        altovaXMLSpyTextField.setText(X3dOptions.getAltovaXMLSpyX3dEditorPathDefault());
+        X3dOptions.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTextField.getText().trim());
+        curaAutoLaunchCheck ();
+    }//GEN-LAST:event_altovaXMLSpyDefaultButtonActionPerformed
+
+    private void altovaXMLSpyLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyLaunchButtonActionPerformed
+        externalProcessLaunch(X3dOptions.getAltovaXMLSpyX3dEditorPath());
+    }//GEN-LAST:event_altovaXMLSpyLaunchButtonActionPerformed
+
+    private void altovaXMLSpyDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyDownloadButtonActionPerformed
+        browserLaunch(X3dOptions.getDownloadSiteAltovaXMLSpy());
+    }//GEN-LAST:event_altovaXMLSpyDownloadButtonActionPerformed
+
+    private void altovaXMLSpyHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyHelpButtonActionPerformed
+        browserLaunch(X3dOptions.helpSiteAltovaXMLSpy);
+    }//GEN-LAST:event_altovaXMLSpyHelpButtonActionPerformed
 
   private void amayaAutoLaunchCheck ()
   {
@@ -8123,6 +8302,14 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     X3dOptions.setVlcAutoLaunch(Boolean.toString(executableFile));
     vlcPlayerCheckBox.setSelected(executableFile);
     vlcPlayerLaunchButton.setEnabled(executableFile);
+  }
+  private void altovaXMLSpyAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(altovaXMLSpyTextField.getText().trim());
+    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dOptions.setAltovaXMLSpyAutoLaunch(Boolean.toString(executableFile));
+    altovaXMLSpyCheckBox.setSelected(executableFile);
+    altovaXMLSpyLaunchButton.setEnabled(executableFile);
   }
   private void blenderAutoLaunchCheck ()
   {
@@ -8385,6 +8572,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
              imageJEditorTF.setText(X3dOptions.getImageJEditorPath());
         imageMagickEditorTF.setText(X3dOptions.getImageMagickEditorPath());
             vlcPlayerPathTF.setText(X3dOptions.getVlcPlayerPath());
+      altovaXMLSpyTextField.setText(X3dOptions.getAltovaXMLSpyX3dEditorPath());
      blenderX3dEditorPathTF.setText(X3dOptions.getBlenderX3dEditorPath());
 bsContentStudioX3dEditorPathTF.setText(X3dOptions.getBsContentStudioX3dEditorPath());
      meshLabX3dEditorPathTF.setText(X3dOptions.getMeshLabX3dEditorPath());
@@ -8430,6 +8618,7 @@ polyTransNuGrafEditorPathTF.setText(X3dOptions.getPolyTransNuGrafEditorPath());
               imageJCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isImageJAutoLaunch()));
          imageMagickCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isImageMagickAutoLaunch()));
            vlcPlayerCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isVlcAutoLaunch()));
+        altovaXMLSpyCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isAltovaXMLSpyAutoLaunch()));
     blenderX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isBlenderAutoLaunch()));
 bsContentStudioX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isBsContentStudioAutoLaunch()));
     meshLabX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isMeshLabAutoLaunch()));
@@ -8456,6 +8645,7 @@ slicer3dVolumeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isSlice
          imageJAutoLaunchCheck ();
     imageMagickAutoLaunchCheck ();
             vlcAutoLaunchCheck ();
+   altovaXMLSpyAutoLaunchCheck ();
         blenderAutoLaunchCheck ();
 bsContentStudioAutoLaunchCheck ();
         meshLabAutoLaunchCheck ();
@@ -8702,6 +8892,14 @@ polyTransNuGrafAutoLaunchCheck ();
     private javax.swing.JLabel VivatyLabel;
     private javax.swing.JButton X3dSecurityPageLaunchButton;
     private javax.swing.JLabel Xj3DLabel;
+    private javax.swing.JCheckBox altovaXMLSpyCheckBox;
+    private javax.swing.JButton altovaXMLSpyChooserButton;
+    private javax.swing.JButton altovaXMLSpyDefaultButton;
+    private javax.swing.JButton altovaXMLSpyDownloadButton;
+    private javax.swing.JButton altovaXMLSpyHelpButton;
+    private javax.swing.JLabel altovaXMLSpyLabel;
+    private javax.swing.JButton altovaXMLSpyLaunchButton;
+    private javax.swing.JTextField altovaXMLSpyTextField;
     private javax.swing.JCheckBox amayaEditorCheckBox;
     private javax.swing.JButton amayaEditorChooserButton;
     private javax.swing.JButton amayaEditorDefaultButton;
