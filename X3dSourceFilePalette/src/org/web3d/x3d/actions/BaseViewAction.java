@@ -53,6 +53,7 @@ import org.openide.util.actions.CallableSystemAction;
 @SuppressWarnings("serial")
 abstract public class BaseViewAction extends CallableSystemAction
 {
+  public final static String X3D_TIDY_URL                         ="https://www.web3d.org/x3d/stylesheets/X3dTidy.html";
   public final static String X3DVALIDATORURL                      ="https://savage.nps.edu/X3dValidator";
   public final static String BASICEXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/Basic";
   public final static String CONFORMEXAMPLESURL                   ="https://www.web3d.org/x3d/content/examples/ConformanceNist";
