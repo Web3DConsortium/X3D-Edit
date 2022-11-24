@@ -41,7 +41,10 @@ public class FindPath extends SimpleFileVisitor<Path> {
     private void find(Path file) {
         Path name = file.getFileName();
         if (name != null && matcher.matches(name)) {
-            System.out.println("Success! found: " + file);
+            System.out.print("Success! found: " + file);
+            if (file.getFileName().endsWith(".jks"))
+                System.out.print(" keystore");
+            System.out.println();
             this.file = file;
         }
     }
