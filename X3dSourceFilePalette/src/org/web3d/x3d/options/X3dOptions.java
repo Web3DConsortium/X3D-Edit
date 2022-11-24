@@ -258,6 +258,8 @@ public class X3dOptions
   public static String             IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY =             "IMAGEJ_AUTOLAUNCH";
   public static String        IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY =        "IMAGEMAGICK_AUTOLAUNCH";
   public static String                VLC_EXECUTABLE_AUTOLAUNCH_KEY =                "VLC_AUTOLAUNCH";
+  
+  public static String      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY =       "ALTOVA_XMLSPY_AUTOLAUNCH";
   public static String            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY =            "BLENDER_AUTOLAUNCH";
   public static String    BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY =    "BSCONTENTSTUDIO_AUTOLAUNCH";
   public static String               CURA_EXECUTABLE_AUTOLAUNCH_KEY =               "CURA_AUTOLAUNCH";
@@ -293,6 +295,7 @@ public class X3dOptions
   public static String     IMAGEMAGICK_EDITOR_PATH_KEY          =    "IMAGEMAGICK_EDITOR_PATH";
   public static String            FIJI_EDITOR_PATH_KEY          =           "FIJI_EDITOR_PATH";
   public static String             VLC_PLAYER_PATH_KEY          =            "VLC_PLAYER_PATH";
+  public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY        = "ALTOVA_XMLSPY_X3D_EDITOR_PATH";
   public static String     BLENDER_X3D_EDITOR_PATH_KEY          =    "BLENDER_X3D_EDITOR_PATH";
   public static String BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY      = "BSCONTENTSTUDIO_X3D_EDITOR_PATH";
   public static String        CURA_X3D_EDITOR_PATH_KEY          =       "CURA_X3D_EDITOR_PATH";
@@ -358,6 +361,7 @@ public class X3dOptions
   public static String          IMAGEJ_EDITOR_PATH_DEFAULT;
   public static String     IMAGEMAGICK_EDITOR_PATH_DEFAULT;
   public static String             VLC_PLAYER_PATH_DEFAULT;
+  public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT;
   public static String     BLENDER_X3D_EDITOR_PATH_DEFAULT;
   public static String BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT;
   public static String        CURA_X3D_EDITOR_PATH_DEFAULT;
@@ -527,6 +531,8 @@ public class X3dOptions
   private static final String winxpImageJEditorPathDefault               = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
   private static final String winxpVlcPlayerPathDefault                  = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
+  
+  private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
   private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 3.3\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.2.1\\Ultimaker-Cura.exe";
@@ -548,6 +554,8 @@ public class X3dOptions
   private static final String windows64ImageJEditorPathDefault           = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
   private static final String windows64VlcPlayerPathDefault              = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
+  
+  private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
   private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 3.3\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.2.1\\Ultimaker-Cura.exe";
@@ -569,6 +577,8 @@ public class X3dOptions
   private static final String macosxImageJEditorPathDefault              = "ij.jar";         // TODO insert correct value
   private static final String macosxImageMagickEditorPathDefault         = "imageconverter"; // TODO insert correct value
   private static final String macosxVlcPlayerPathDefault                 = "vlc";            // TODO insert correct value
+  
+  private static final String macosxAltovaXMLSpyX3dEditorPathDefault     = "xmlspy";         // TODO insert correct value
   private static final String macosxBlenderX3dEditorPathDefault          = "blender";        // TODO insert correct value
   private static final String macosxBsContentStudioX3dEditorPathDefault  = "bscomposer";     // TODO insert correct value
   private static final String macosxCuraX3dEditorPathDefault             = "Cura";           // TODO insert correct value
@@ -627,6 +637,8 @@ public class X3dOptions
   private static final String downloadSiteImageJ                         = "https://imagej.nih.gov/ij/download.html"; // https://rsbweb.nih.gov/ij/download.html";
   private static final String downloadSiteImageMagick                    = "https://imagemagick.org/script/download.php";
   private static final String downloadSiteVlc                            = "https://www.videolan.org";
+ 
+  private static final String downloadSiteAltovaXMLSpy                   = "https://www.altova.com/download";
   private static final String downloadSiteBlender                        = "https://www.blender.org";
   private static final String downloadSiteBsContentStudio                = "https://www.bitmanagement.de/en/download/studio";
   private static final String downloadSiteCura                           = "https://ultimaker.com/software/ultimaker-cura";
@@ -652,6 +664,8 @@ public class X3dOptions
   protected static final String helpSiteImageJ                           = "https://rsbweb.nih.gov/ij/docs";
   protected static final String helpSiteImageMagick                      = "https://www.imagemagick.org";
   protected static final String helpSiteVlc                              = "https://www.videolan.org/support/#documentation";
+  
+  protected static final String helpSiteAltovaXMLSpy                     = "https://www.altova.com/library";
   protected static final String helpSiteBlender                          = "https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
   protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.de/en/download/studio";
   protected static final String helpSiteCura                             = "https://ultimaker.com/learn"; 
@@ -689,6 +703,8 @@ public class X3dOptions
   public static String getDownloadSiteImageJ()         {return downloadSiteImageJ;}
   public static String getDownloadSiteImageMagick()    {return downloadSiteImageMagick;}
   public static String getDownloadSiteVlc()            {return downloadSiteVlc;}
+  
+  public static String getDownloadSiteAltovaXMLSpy()   {return downloadSiteAltovaXMLSpy;}
   public static String getDownloadSiteBlender()        {return downloadSiteBlender;}
   public static String getDownloadSiteBsContentStudio(){return downloadSiteBsContentStudio;}
   public static String getDownloadSiteCura()           {return downloadSiteCura;}
@@ -792,6 +808,8 @@ public class X3dOptions
            IMAGEJ_EDITOR_PATH_DEFAULT        = toks(      windows64ImageJEditorPathDefault);
       IMAGEMAGICK_EDITOR_PATH_DEFAULT        = toks( windows64ImageMagickEditorPathDefault);
               VLC_PLAYER_PATH_DEFAULT        = toks(         windows64VlcPlayerPathDefault);
+              
+ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64AltovaXMLSpyX3dEditorPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64BlenderX3dEditorPathDefault);
 BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     windows64CuraX3dEditorPathDefault);
@@ -952,6 +970,8 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String       getImageJEditorPathDefault()   {return          IMAGEJ_EDITOR_PATH_DEFAULT;}
   public static String  getImageMagickEditorPathDefault()   {return     IMAGEMAGICK_EDITOR_PATH_DEFAULT;}
   public static String          getVlcPlayerPathDefault()   {return             VLC_PLAYER_PATH_DEFAULT;}
+  
+  public static String getAltovaXMLSpyX3dEditorPathDefault() {return ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getBlenderX3dEditorPathDefault()   {return     BLENDER_X3D_EDITOR_PATH_DEFAULT;}
   public static String getBsContentStudioX3dEditorPathDefault() {return BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT;}
   public static String      getCuraX3dEditorPathDefault()   {return        CURA_X3D_EDITOR_PATH_DEFAULT;}
@@ -1010,6 +1030,8 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void       setImageJEditorPath    (String path){commonSet(        IMAGEJ_EDITOR_PATH_KEY, path);}
   public static void  setImageMagickEditorPath    (String path){commonSet(   IMAGEMAGICK_EDITOR_PATH_KEY, path);}
   public static void          setVlcPlayerPath    (String path){commonSet(           VLC_PLAYER_PATH_KEY, path);}
+  
+  public static void setAltovaXMLSpyX3dEditorPath (String path){commonSet(  ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY, path);}
   public static void   setBlenderX3dEditorPath    (String path){commonSet(   BLENDER_X3D_EDITOR_PATH_KEY, path);}
   public static void setBsContentStudioX3dEditorPath(String path){commonSet(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY, path);}
   public static void      setCuraX3dEditorPath    (String path){commonSet(      CURA_X3D_EDITOR_PATH_KEY, path);}
@@ -1067,6 +1089,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void           setImageJAutoLaunch (String autoLaunch){commonSet(            IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void      setImageMagickAutoLaunch (String autoLaunch){commonSet(       IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void              setVlcAutoLaunch (String autoLaunch){commonSet(               VLC_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void     setAltovaXMLSpyAutoLaunch (String autoLaunch){commonSet(     ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setBlenderAutoLaunch (String autoLaunch){commonSet(           BLENDER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void  setBsContentStudioAutoLaunch (String autoLaunch){commonSet(   BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void             setCuraAutoLaunch (String autoLaunch){commonSet(              CURA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1116,6 +1139,8 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String       getImageJEditorPath()       {return commonGet(        IMAGEJ_EDITOR_PATH_KEY,        IMAGEJ_EDITOR_PATH_DEFAULT);}
   public static String  getImageMagickEditorPath()       {return commonGet(   IMAGEMAGICK_EDITOR_PATH_KEY,   IMAGEMAGICK_EDITOR_PATH_DEFAULT);}
   public static String          getVlcPlayerPath()       {return commonGet(           VLC_PLAYER_PATH_KEY,           VLC_PLAYER_PATH_DEFAULT);}
+  
+  public static String getAltovaXMLSpyX3dEditorPath()    {return commonGet(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY,ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT);}
   public static String   getBlenderX3dEditorPath()       {return commonGet(   BLENDER_X3D_EDITOR_PATH_KEY,   BLENDER_X3D_EDITOR_PATH_DEFAULT);}
   public static String getBsContentStudioX3dEditorPath() {return commonGet(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY,  BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT);}
   public static String      getCuraX3dEditorPath()       {return commonGet(      CURA_X3D_EDITOR_PATH_KEY,      CURA_X3D_EDITOR_PATH_DEFAULT);}
@@ -1163,6 +1188,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String            isImageJAutoLaunch() {return commonGet(             IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String       isImageMagickAutoLaunch() {return commonGet(        IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String               isVlcAutoLaunch() {return commonGet(                VLC_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String      isAltovaXMLSpyAutoLaunch() {return commonGet(      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isBlenderAutoLaunch() {return commonGet(            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String   isBsContentStudioAutoLaunch() {return commonGet(    BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String              isCuraAutoLaunch() {return commonGet(               CURA_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
@@ -1217,6 +1243,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void       resetImageJEditorPath() {commonReset(         IMAGEJ_EDITOR_PATH_KEY);}
   public static void  resetImageMagickEditorPath() {commonReset(    IMAGEMAGICK_EDITOR_PATH_KEY);}
   public static void          resetVlcPlayerPath() {commonReset(            VLC_PLAYER_PATH_KEY);}
+  public static void   resetAltovaXMLSpyX3dEditorPath() {commonReset(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY);}
   public static void   resetBlenderX3dEditorPath() {commonReset(    BLENDER_X3D_EDITOR_PATH_KEY);}
   public static void resetBsContentStudioX3dEditorPath() {commonReset(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY);}
   public static void      resetCuraX3dEditorPath() {commonReset(       CURA_X3D_EDITOR_PATH_KEY);}
