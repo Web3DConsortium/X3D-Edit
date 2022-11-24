@@ -491,8 +491,8 @@ public class X3dOptions
   private static final String otherOperaPathDefault                = "";
   private static final String otherSafariPathDefault               = "";
 
-  private static final String downloadSiteContact                  = "https://www.bitmanagement.com";
-  private static final String downloadSiteContactGeo               = "https://www.bitmanagement.com";
+  private static final String downloadSiteContact                  = "https://www.bitmanagement.de/en";
+  private static final String downloadSiteContactGeo               = "https://www.bitmanagement.de/en";
   private static final String downloadSiteFreeWrl                  = "https://sourceforge.net/projects/freewrl"; 
                                                          // versions: https://sourceforge.net/projects/freewrl/files/
                                                          // formerly "https://www.crc.ca/FreeWRL"; 
@@ -628,7 +628,7 @@ public class X3dOptions
   private static final String downloadSiteImageMagick                    = "https://imagemagick.org/script/download.php";
   private static final String downloadSiteVlc                            = "https://www.videolan.org";
   private static final String downloadSiteBlender                        = "https://www.blender.org";
-  private static final String downloadSiteBsContentStudio                = "https://www.bitmanagement.com/download/studio";
+  private static final String downloadSiteBsContentStudio                = "https://www.bitmanagement.de/en/download/studio";
   private static final String downloadSiteCura                           = "https://ultimaker.com/software/ultimaker-cura";
   private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
@@ -653,7 +653,7 @@ public class X3dOptions
   protected static final String helpSiteImageMagick                      = "https://www.imagemagick.org";
   protected static final String helpSiteVlc                              = "https://www.videolan.org/support/#documentation";
   protected static final String helpSiteBlender                          = "https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
-  protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.com/download/studio";
+  protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.de/en/download/studio";
   protected static final String helpSiteCura                             = "https://ultimaker.com/learn"; 
   protected static final String helpSiteMeshLab                          = "https://www.meshlab.net"; // https://sourceforge.net/apps/mediawiki/meshlab";
   protected static final String helpSiteParaview                         = "https://www.paraview.org";
@@ -1184,7 +1184,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String isOtherVolumeEditorAutoLaunch() {return commonGet(OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
 
   public static String getLaunchInterval()             {return commonGet(LAUNCH_INTERVAL_KEY,                  LAUNCH_INTERVAL_DEFAULT);}
-  public static Long   getLaunchIntervalMilliseconds() {return Long.valueOf(getLaunchInterval()) * 1000l;} // convert seconds to msec
+  public static Long   getLaunchIntervalMilliseconds() {return Long.parseLong(getLaunchInterval()) * 1000l;} // convert seconds to msec
 
   public static String getKeystorePath()      {return commonGet(KEYSTORE_PATH_KEY,                      KEYSTORE_PATH_DEFAULT);}
 
