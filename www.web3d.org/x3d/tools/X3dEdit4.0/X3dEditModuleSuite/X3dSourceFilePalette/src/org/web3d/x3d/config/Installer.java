@@ -26,7 +26,7 @@ import org.web3d.x3d.config.util.FindPath;
 public class Installer extends ModuleInstall implements Runnable
 {
   /** Name of our keystore file */
-  private static final String JKS_NAME = "java-dod-stat-cacerts.jks";
+  private static final String JKS_NAME = "server-cert-keystore.jks";
   private static final String JKS_PWORD = "changeit";
   
   /** Default constructor */
