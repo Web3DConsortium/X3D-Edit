@@ -41,8 +41,11 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.MissingResourceException;
 import org.openide.awt.ActionID;
@@ -60,10 +63,11 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
 
 @ActionID(id = "org.web3d.x3d.ViewX3dInBrowserAction", category = "View")
-@ActionRegistration(displayName = "#CTL_ViewX3dInBrowser", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+                    displayName = "#CTL_ViewX3dInBrowser", lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 113),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 113)
+  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 113, separatorAfter = 114),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 113, separatorAfter = 114)
 }) 
 
 public final class ViewX3dInBrowserAction extends CookieAction
@@ -86,13 +90,17 @@ public final class ViewX3dInBrowserAction extends CookieAction
 
       java.util.ResourceBundle bun = NbBundle.getBundle(ViewX3dInBrowserAction.class);
       String text = bun.getString("STATUSLINE_OpeningBrowser");
-      String url = "file://"+tempF.getAbsolutePath();
+      String urlString = "file://"+tempF.getAbsolutePath();
       // String warning = bun.getString("STATUSLINE_OpeningBrowser_warning");
-      StatusDisplayer.getDefault().setStatusText(text+url); //+warning);
+      StatusDisplayer.getDefault().setStatusText(text+urlString); //+warning);
 
-      HtmlBrowser.URLDisplayer.getDefault().showURLExternal(new URL(url));
+//      HtmlBrowser.URLDisplayer.getDefault().showURLExternal(new URL(urlString));
+      
+        // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+            Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/"))); // escaping to handle windows directories
     }
-    catch(IOException | MissingResourceException e) {
+    catch(IOException | MissingResourceException | URISyntaxException e) {
       Exceptions.printStackTrace(e);
     }
   }
