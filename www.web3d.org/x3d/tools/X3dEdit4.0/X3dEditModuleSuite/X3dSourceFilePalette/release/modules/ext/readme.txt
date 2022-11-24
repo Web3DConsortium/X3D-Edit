@@ -39,6 +39,9 @@ This will need to be accomplished for both savage.nps.edu and
 savagedefense.nps.navy.mil servers anytime there is a certificate change, or 
 change in server configuration, etc.
 
+Note: For the time being, we are intentionally not placing the SavageDefense 
+certificate into the key store.
+
 2. You need to import this into the key store. Java can use either the
 default keystore, typically in jre/lib/security/cacerts, or another
 certificate file that you specify. In X3D-Edit this will be 
@@ -82,6 +85,8 @@ element:
       <jvmarg value="${runarg2}"/>
       <classpath refid="run.classpath"/>
 </java>
+
+Note: This has already been done in the X3D-Edit module build file.
 
 5. Since the X3D-Edit modules/plugins are kept behind an https URL, this process 
 will allow the X3D-Edit Platform to appropriately "handshake" with the server
