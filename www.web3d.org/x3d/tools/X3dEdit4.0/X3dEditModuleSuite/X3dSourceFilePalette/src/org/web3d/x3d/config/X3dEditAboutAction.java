@@ -47,7 +47,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 
 //// TODO
-////@ActionID(id = "org.web3d.x3d.x3dedit.config.X3dEditAboutAction", category = "Tools")
+////@ActionID(id = "org.web3d.x3d.x3dedit.config.X3dEditAboutAction", category = "X3D-Edit")
 ////@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3D.png",
 ////                    displayName = "About X3D-Edit",
 ////                            lazy=true)
@@ -55,7 +55,7 @@ import org.openide.util.actions.CallableSystemAction;
 ////  @ActionReference(path = "Menu/X3D", position = 625), // see layer.xml
 ////})
 
-@ActionID(id = "org.web3d.x3d.x3dedit.config.X3dEditAboutAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.x3dedit.config.X3dEditAboutAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_X3dEditAboutAction",
                             lazy=true)
@@ -85,13 +85,15 @@ public final class X3dEditAboutAction extends CallableSystemAction
         
         // TODO add splash screen image
         
+        // TODO update the release date via top-level TSTAMP property and a regexexp task
+        
         String aboutHtmlMessage = "<html>"
             + "<p>&nbsp;</p>" +
               "<h2 align='center'>X3D-Edit 4.0 &nbsp; &nbsp; </h2>" +
               "<p align='center'>X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Revised &nbsp;<b>" + 
-                    "21 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION 
+                    "24 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION 
                     "</b>" +
 //                    " with issue reports welcome via <a href='" + LaunchEmailReportAction.MAILTO_REPORT_URL + "'>e-mail</a>." +
               "</p>"
