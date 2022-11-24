@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -34,6 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d;
 
+import java.util.MissingResourceException;
+import javax.swing.text.BadLocationException;
 import org.netbeans.modules.editor.indent.api.Indent;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -51,7 +53,7 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
 
-@ActionID(id = "org.web3d.x3d.ExpandSelfClosedElementAction", category = "Edit")
+@ActionID(id = "org.web3d.x3d.ExpandSelfClosedElementAction", category = "X3D-Edit")
 @ActionRegistration(iconBase = "org/web3d/x3d/palette/items/resources/XML16.png",
                     displayName = "#CTL_ExpandSelfClosedElementAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered)
@@ -89,7 +91,7 @@ public final class ExpandSelfClosedElementAction extends BaseX3DEditAction //Coo
             RequestProcessor.getDefault().post(new ValidateThread(documentEditorPane, "inserted text", true));
       }
     }
-    catch (Exception ex) {  //todo, specific msgs for spec exceptions
+    catch (MissingResourceException | BadLocationException ex) {  //todo, specific msgs for spec exceptions
       throw new RuntimeException(ex);
     }
   }

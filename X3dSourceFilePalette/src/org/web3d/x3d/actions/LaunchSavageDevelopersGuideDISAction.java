@@ -43,7 +43,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.SAVAGE_DEVELOPERS_GUIDE;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchSavageDevelopersGuideDISAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchSavageDevelopersGuideDISAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/SavageLogoIcon.13x16.png",
                     displayName = "#CTL_LaunchSavageDevelopersGuideDISAction",
                             lazy=true)

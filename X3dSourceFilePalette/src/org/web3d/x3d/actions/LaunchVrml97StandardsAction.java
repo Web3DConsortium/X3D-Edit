@@ -44,7 +44,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.VRML97_STANDARD;
 import static org.web3d.x3d.actions.BaseViewAction.VRML97_STANDARD_AMENDMENT_1;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchVrml97StandardsAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchVrml97StandardsAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/web3d16.png",
                     displayName = "#CTL_LaunchVrml97StandardsAction",
                             lazy=true)

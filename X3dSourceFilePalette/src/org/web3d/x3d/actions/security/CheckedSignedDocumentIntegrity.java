@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -57,7 +57,7 @@ import org.openide.util.actions.CookieAction;
 import org.w3c.dom.Document;
 import org.web3d.x3d.BaseX3DEditAction;
 
-@ActionID(id = "org.web3d.x3d.actions.security.CheckedSignedDocumentIntegrity", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.security.CheckedSignedDocumentIntegrity", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_CheckedSignedDocumentIntegrity", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {

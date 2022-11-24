@@ -41,7 +41,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 
-@ActionID(id = "org.web3d.x3d.actions.qualityassurance.DTDValidationAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.qualityassurance.DTDValidationAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark.png",
                     displayName = "#CTL_DTDValidationAction",
                             lazy=true)

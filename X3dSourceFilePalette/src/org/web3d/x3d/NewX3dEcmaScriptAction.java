@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -57,14 +57,14 @@ import org.openide.util.actions.CallableSystemAction;
 /**
  * Create new Ecmascript (javascript) source file for editing
  */
-@ActionID(id = "org.web3d.x3d.NewX3dEcmaScriptAction", category = "File")
+@ActionID(id = "org.web3d.x3d.NewX3dEcmaScriptAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/ecma.png",
                     displayName = "#CTL_X3DNewX3dEcmaScriptAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/X3D Template Files", position = 340),
-  @ActionReference(path = "Menu/X3D-Edit/X3D Template Files", position = 340),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D Template Files", position = 340),
+  @ActionReference(path = "Toolbars/New File Templates", position = 340),
+  @ActionReference(path = "Menu/X3D-Edit/New File Templates", position = 340),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/New File Templates", position = 340),
 })
 
 public final class NewX3dEcmaScriptAction extends CallableSystemAction

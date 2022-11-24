@@ -43,7 +43,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.CASTLE_GAME_ENGINE_CONVERTER;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchCastleGameEngineConverterAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchCastleGameEngineConverterAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/CastleGameEngine_header_icon.png",
                     displayName = "#CTL_LaunchCastleGameEngineConverterAction", 
                            lazy=true) // don't do lazy=false since iconBase no longer gets registered

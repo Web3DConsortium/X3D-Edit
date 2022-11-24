@@ -58,7 +58,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 // no longer supported import org.netbeans.api.javahelp.Help;
 
-@ActionID(id = "org.web3d.x3d.DownloadContentAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.DownloadContentAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_DownloadContentAction", 
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered

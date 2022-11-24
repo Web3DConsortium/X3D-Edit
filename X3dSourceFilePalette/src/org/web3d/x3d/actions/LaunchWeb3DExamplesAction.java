@@ -45,7 +45,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_EXAMPLES;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DExamplesAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DExamplesAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/web3d16.png",
                     displayName = "#CTL_LaunchWeb3DExamplesAction", 
                             lazy=true)

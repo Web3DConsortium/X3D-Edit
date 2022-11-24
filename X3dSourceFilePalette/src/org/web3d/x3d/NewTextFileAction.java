@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -57,14 +57,14 @@ import org.openide.util.actions.CallableSystemAction;
 /**
  * Create new text source file for editing
  */
-@ActionID(id = "org.web3d.x3d.NewTextFileAction", category = "File")
+@ActionID(id = "org.web3d.x3d.NewTextFileAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/AlignJustify24.gif",
                     displayName = "#CTL_NewTextFileAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/X3D Template Files", position = 380),
-  @ActionReference(path = "Menu/X3D-Edit/X3D Template Files", position = 380),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D Template Files", position = 380),
+  @ActionReference(path = "Toolbars/New File Templates", position = 380),
+  @ActionReference(path = "Menu/X3D-Edit/New File Templates", position = 380),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/New File Templates", position = 380),
 })
 
 public final class NewTextFileAction extends CallableSystemAction

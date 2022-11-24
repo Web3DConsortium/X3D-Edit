@@ -57,14 +57,14 @@ import org.openide.util.actions.CallableSystemAction;
 /**
  * Create new XSLT stylesheet source file for editing
  */
-@ActionID(id = "org.web3d.x3d.NewXsltStylesheetAction", category = "File")
+@ActionID(id = "org.web3d.x3d.NewXsltStylesheetAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/xsl_transformation.png",
                     displayName = "#CTL_XsltNewStylesheetAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/X3D Template Files", position = 370),
-  @ActionReference(path = "Menu/X3D-Edit/X3D Template Files", position = 370),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D Template Files", position = 370),
+  @ActionReference(path = "Toolbars/New File Templates", position = 370),
+  @ActionReference(path = "Menu/X3D-Edit/New File Templates", position = 370),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/New File Templates", position = 370),
 })
 
 public final class NewXsltStylesheetAction extends CallableSystemAction

@@ -47,7 +47,7 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 
-@ActionID(id = "org.web3d.x3d.options.OptionsMiscellaneousX3dPanelAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.options.OptionsMiscellaneousX3dPanelAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_OptionsMiscellaneousX3dPanel",
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered

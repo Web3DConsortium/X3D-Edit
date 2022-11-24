@@ -44,7 +44,7 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DEditorSupport;
 
 // This is "Export as Vrml97 using XSLT"
-@ActionID(id = "org.web3d.x3d.actions.conversions.ExportVrml97xsltAction", category = "File")
+@ActionID(id = "org.web3d.x3d.actions.conversions.ExportVrml97xsltAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/xsl_transformation.png",
                     displayName = "#CTL_Vrml97xsltAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered

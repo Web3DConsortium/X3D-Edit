@@ -48,7 +48,7 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX3domAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX3domAction", category = "X3D-Edit")
 
 @ActionRegistration(
         iconBase = "org/web3d/x3d/resources/x3dom-whiteOnblue24.png",

@@ -84,9 +84,10 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
   {
     this.controller = controller;
     initComponents();
-    hideHeilanComponents ();
 
     load ();  // restore saved defaults to panel
+    hideHeilanComponents ();
+    hideBSContactGeoComponents (); // duplicative product
   }
 
   private void hideHeilanComponents ()
@@ -98,6 +99,17 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         heilanLaunchButton.setVisible(false);
                heilanLabel.setVisible(false);
                   heilanTF.setVisible(false);
+  }
+
+  private void hideBSContactGeoComponents ()
+  {
+            contactGeoCheckBox.setVisible(false);
+       contactGeoChooserButton.setVisible(false);
+       contactGeoDefaultButton.setVisible(false);
+      contactGeoDownloadButton.setVisible(false);
+        contactGeoLaunchButton.setVisible(false);
+             BSContactGeoLabel.setVisible(false);
+                  contactGeoTF.setVisible(false);
   }
 
   /** This method is called from within the constructor to
@@ -1904,13 +1916,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dPlayerPathsPanel.add(secondsLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel1, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weighty = 1.0;
-        x3dPlayerPathsPanel.add(verticalSpacerLabel1, gridBagConstraints);
+        x3dPlayerPathsPanel.add(verticalSpacerLabel1, new java.awt.GridBagConstraints());
 
         externalX3dEditorLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         externalX3dEditorLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -8356,6 +8362,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   {
                  contactTF.setText(X3dOptions.getContactPath());
               contactGeoTF.setText(X3dOptions.getContactGeoPath());
+       curaX3dEditorPathTF.setText(X3dOptions.getCuraX3dEditorPath());
                  freeWrlTF.setText(X3dOptions.getFreeWrlPath());
                      h3dTF.setText(X3dOptions.getH3dPath());
                   heilanTF.setText(X3dOptions.getHeilanPath());

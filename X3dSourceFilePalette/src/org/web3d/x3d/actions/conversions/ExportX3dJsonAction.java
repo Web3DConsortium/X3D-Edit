@@ -40,7 +40,7 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DEditorSupport;
 
 /* *** Superceded by X3dToJsonConversionAction ***
-@ActionID(id = "org.web3d.x3d.actions.conversions.ExportX3dJsonAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.conversions.ExportX3dJsonAction", category = "X3D-Edit")
 
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/json24.png",
                     displayName = "#CTL_X3dJSONxsltAction",

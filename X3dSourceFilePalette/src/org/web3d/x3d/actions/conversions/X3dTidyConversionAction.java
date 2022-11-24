@@ -46,13 +46,15 @@ import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
+import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_TIDY_URL;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.X3dTidyConversionAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.conversions.X3dTidyConversionAction", category = "X3D-Edit")
 
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/bubble_mania24.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/BroomWikipedia_32x32.png",
                     displayName = "#CTL_X3dTidyXsltAction",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
@@ -163,20 +165,21 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
             continueButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
                resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
               cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Cancel"));
-            HelpCtx.setHelpIDString(x3dTidyConversionPanel, "X3dTidy.html");
+            HelpCtx.setHelpIDString(x3dTidyConversionPanel, X3D_TIDY_URL);
 
             descriptor = new DialogDescriptor(
-                x3dTidyConversionPanel, // inner pane
+                x3dTidyConversionPanel, // inner pane object
                 NbBundle.getMessage(getClass(),"X3dTidyConversionPanel.DialogTitle"),
                 true, // modal
                 new Object[]{continueButton, resetButton, cancelButton},  // buttons
                 continueButton,                            // default
                 DialogDescriptor.DEFAULT_ALIGN,
-                HelpCtx.DEFAULT_HELP, // TODO confirm linking
+                getHelpCtx(), // HelpCtx.DEFAULT_HELP, // TODO fix linking
                 null); // action listener
 
             dialog = DialogDisplayer.getDefault().createDialog(descriptor);
             dialog.setResizable(true);
+            dialog.setIconImage(ImageUtilities.loadImage(iconResource()));
             dialog.pack();
         }
     }
@@ -313,17 +316,20 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
     return NbBundle.getMessage(getClass(), "CTL_X3dTidyXsltAction");
   }
 
+  /**
+   * @see org.openide.util.actions.SystemAction.iconResource() Javadoc for more details
+   * @return string path to icon file
+   */
   @Override
   protected String iconResource()
   {
-    return "org/web3d/x3d/resources/bubble_mania24.png";
+    return "org/web3d/x3d/resources/BroomWikipedia_32x32.png";
   }
-  // see org.openide.util.actions.SystemAction.iconResource() Javadoc for more details
 
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("X3dTidy.html");
+    return new HelpCtx(iconResource());
   }
 
   @Override

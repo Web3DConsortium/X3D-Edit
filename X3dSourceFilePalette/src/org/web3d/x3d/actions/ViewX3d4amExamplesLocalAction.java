@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-202  held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022  held by the author(s) .  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -40,7 +40,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 
-@ActionID(id = "org.web3d.x3d.actions.ViewX3d4amExamplesLocalAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.ViewX3d4amExamplesLocalAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_ViewX3d4amExamplesLocalAction",
                             lazy=true)

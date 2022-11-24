@@ -43,7 +43,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_DIS;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchX3D4ArchitectureStandardAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchX3D4ArchitectureStandardAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/web3d16.png",
                     displayName = "#CTL_LaunchX3D4ArchitectureStandardAction",
                             lazy=true)

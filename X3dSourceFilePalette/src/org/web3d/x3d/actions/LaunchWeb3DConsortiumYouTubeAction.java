@@ -45,7 +45,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_YOUTUBE;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumYouTubeAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumYouTubeAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/YouTube_favicon.png",
                     displayName = "#CTL_LaunchWeb3DConsortiumYouTubeAction",
                             lazy=true)

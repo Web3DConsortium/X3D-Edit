@@ -48,7 +48,7 @@ import org.openide.windows.OutputWriter;
 import org.web3d.x3d.X3DEditorSupport;
 import org.web3d.x3d.actions.conversions.BaseConversionsAction;
 
-@ActionID(id = "org.web3d.x3d.actions.qualityassurance.SchematronValidationAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.qualityassurance.SchematronValidationAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark.png",
                     displayName = "#CTL_SchematronValidationAction", 
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered

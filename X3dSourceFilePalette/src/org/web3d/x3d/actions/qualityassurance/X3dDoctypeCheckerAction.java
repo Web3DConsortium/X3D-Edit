@@ -50,7 +50,7 @@ import org.web3d.x3d.X3DEditorSupport;
 import org.web3d.x3d.actions.conversions.BaseConversionsAction;
 import org.web3d.x3d.tools.X3dDoctypeChecker;
 
-@ActionID(id = "org.web3d.x3d.actions.qualityassurance.X3dDoctypeCheckerAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.qualityassurance.X3dDoctypeCheckerAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark.png",
                     displayName = "#CTL_X3dDoctypeCheckerAction", 
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s) .  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -44,7 +44,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.GzipWrlAction", category = "Tools")
+@ActionID(id = "org.web3d.x3d.actions.conversions.GzipWrlAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_GzipWrlAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
