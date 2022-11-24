@@ -64,7 +64,7 @@ import org.web3d.x3d.palette.items.PROTOTYPE_ExtrusionCrossSection;
 /**
  * @author jmbailey@nps.edu
  */
-@ActionID(id = "org.web3d.x3d.EditElementAction", category = "Edit")
+@ActionID(id = "org.web3d.x3d.EditElementAction", category = "X3D-Edit")
 
 @ActionRegistration(iconBase = "org/web3d/x3d/resources/edit.png",
                     displayName = "#CTL_EditElementAction",
@@ -351,12 +351,16 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
       String pre  = "";
       String post = "";
       switch (retrn) {
-        case ACCEPT_PREPEND_LINEFEED -> pre = linesep;
-        case ACCEPT_APPEND_LINEFEED -> post = linesep;
-        case ACCEPT_BOTH_LINEFEEDS -> {
-            pre  = linesep;
-            post = linesep;
-        }
+        case ACCEPT_PREPEND_LINEFEED:
+             pre = linesep;
+             break;
+        case ACCEPT_APPEND_LINEFEED:
+             post = linesep;
+             break;
+        case ACCEPT_BOTH_LINEFEEDS:
+             pre  = linesep;
+             post = linesep;
+             break;
       }
 
       if (retrn != BaseCustomizer.DialogReturnEnumeration.CANCEL)
