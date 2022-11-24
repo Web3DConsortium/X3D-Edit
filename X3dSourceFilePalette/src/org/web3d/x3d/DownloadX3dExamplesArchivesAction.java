@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s) .  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -68,7 +68,7 @@ import org.openide.util.actions.CallableSystemAction;
 })
 
 @SuppressWarnings("serial")
-public final class DownloadContentAction extends CallableSystemAction
+public final class DownloadX3dExamplesArchivesAction extends CallableSystemAction
 {
   //private static Dialog dlg;
   //private static DialogDescriptor descriptor;
@@ -206,7 +206,7 @@ public final class DownloadContentAction extends CallableSystemAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(DownloadContentAction.class, "CTL_DownloadContentAction");
+    return NbBundle.getMessage(DownloadX3dExamplesArchivesAction.class, "CTL_DownloadContentAction");
   }
 
   @Override
