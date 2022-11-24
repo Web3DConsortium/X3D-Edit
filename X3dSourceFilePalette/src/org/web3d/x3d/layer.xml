@@ -615,8 +615,8 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- Xj3D launch           ViewInXj3DApplicationAction position 50 -->
                 <!-- Xj3D user-installed custom application launch ViewInXj3DExternalAction position 60 -->
                 <!-- ExportX3domAction    position 70 -->
-                <!-- ViewX3dInBrowser position 113 -->
-                <!-- ViewInAll position 116 -->
+                <!-- ViewInAllAutolaunch position 110, separatorBefore -->
+                <!-- ViewX3dInBrowser    position 113, separatorAfter -->
                 <!-- ViewInContactAction position 118 -->
                 <!-- ViewInContactActionGeo position 119 -->
                 <!-- ViewInfreeWrlAction  position 121 -->
