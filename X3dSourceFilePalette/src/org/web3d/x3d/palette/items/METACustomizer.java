@@ -34,14 +34,19 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.HtmlBrowser.URLDisplayer;
+import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DDataObject;
@@ -946,18 +951,25 @@ public class METACustomizer extends BaseCustomizer
     }
     private void launchUrl (String urlAddress)
     {
-        URL url = null;
+//        URL url = null;
         try 
         {
-            url = new URL (urlAddress);
-            URLDisplayer.getDefault().showURL(url);
+//            url = new URL (urlAddress);
+//            URLDisplayer.getDefault().showURL(url);
+      
+        // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+            Desktop.getDesktop().browse(new URI(urlAddress));
         }
         catch (MalformedURLException e)
         {
-            if (url != null)
-                 System.out.println ("Failed attempt to launch url: " + url.toString());
+            if (urlAddress != null)
+                 System.out.println ("Failed attempt to launch url: " + urlAddress);
             else System.out.println ("Failed attempt to launch url: <null>");
-        }
+        } 
+        catch (URISyntaxException | IOException ex) {
+          Exceptions.printStackTrace(ex);
+      }
     }
     private void nameHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameHelpButtonActionPerformed
         launchUrl (nameHelpReference ());
