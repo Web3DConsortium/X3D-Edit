@@ -50,8 +50,8 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_LaunchEmailReportAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Configuration", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Configuration", position = 400)
+  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Information", position = 400),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Information", position = 400)
 })
 
 public final class LaunchEmailReportAction extends CallableSystemAction
