@@ -284,7 +284,8 @@ POSSIBILITY OF SUCH DAMAGE.
                               <attr name="position" intvalue="200"/>
                             </folder> -->
                         </folder> <!-- xml canonicalization -->
-                    </folder><!-- xml security -->
+                    </folder>
+                    <!-- xml security -->
                     <file name="org-web3d-popup-securityseparator4.instance">
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                         <attr name="position" intvalue="700"/>
@@ -323,21 +324,19 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                         <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
                     </folder>
-                    <folder name="X3D-Edit Configuration">
-                        <attr name="position" intvalue="1010"/>
+                    <file name="org-web3d-popup-5.instance">
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr name="position" intvalue="1099"/>
+                    </file>
+                    <folder name="X3D-Edit Information">
+                        <attr name="position" intvalue="1100"/>
                         <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 860 -->
-                        <!-- X3D-Edit Preferences Panels OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 870 -->
                     </folder>
-                    <!--
-                    <file name="x3d-popup-separator5.instance">
+                    <!-- OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 1150 -->
+                    <file name="org-web3d-x3d-popup-final-separator.instance">
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                        <attr name="position" intvalue="990"/>
+                        <attr name="position" intvalue="1151"/>
                     </file>
-                    <file name="x3d-popup-separator1.instance">
-                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                        <attr name="position" intvalue="1200"/>
-                    </file>
-                    -->
                     <!-- Format using C14N menu item should land right before to already-provided Format menu item -->
                 </folder> <!-- popup -->
             </folder> <!-- x3d+xml -->
@@ -791,17 +790,19 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                 <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
             </folder>
-            <folder name="X3D-Edit Configuration">
-                <attr name="position" intvalue="1010"/>
-                <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 1004 -->
-                <!-- X3D-Edit Preferences Panels OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 1008 -->
-            </folder>
-            <!--
-            <file name="org-web3d-x3d-actions-final-separator.instance">
+            <file name="org-web3d-menu-5.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                <attr name="position" intvalue="1050"/>
+                <attr name="position" intvalue="1099"/>
             </file>
-            -->
+            <folder name="X3D-Edit Information">
+                <attr name="position" intvalue="1100"/>
+                <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 1004 -->
+            </folder>
+            <!-- OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 1150 -->
+            <file name="org-web3d-x3d-menu-final-separator.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="1151"/>
+            </file>
         </folder>
     </folder>
     <!-- This entry allows x3d to be recognized as xml in the Navigator pane -->
