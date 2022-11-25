@@ -20,7 +20,8 @@
     <meta content='https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-CD1/Part01/htmlGuidelines.html' name='reference'/>
     <meta content='https://X3dGraphics.com/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d' name='reference'/>
     <meta content='https://X3dGraphics.com/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4Index.html' name='reference'/>
-    <meta content='TODO' name='identifier'/>
+    <meta content='https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/X3dSourceFilePalette/src/org/web3d/x3d/templates/HelloWorldX3D4.x3d' name='identifier'/>
+    <meta content='X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit' name='generator'/>
     <meta content='https://www.web3d.org/x3d/content/examples/license.html' name='license'/>
     <meta content='X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit' name='generator'/>
   </head>
@@ -38,7 +39,7 @@
           <Appearance>
             <!-- https://htmlcolorcodes.com/colors/off-white -->
             <Material DEF='MaterialOffWhite' diffuseColor='0.980392 0.976471 0.964706'/>
-            <ImageTexture DEF='ImageCloudlessEarth' url='"earth-topo.png" "earth-topo.jpg" "earth-topo-small.gif" "https://www.web3d.org/x3d/content/examples/Basic/earth-topo.png" "https://www.web3d.org/x3d/content/examples/Basic/earth-topo.jpg" "https://www.web3d.org/x3d/content/examples/Basic/earth-topo-small.gif"'/>
+            <ImageTexture DEF='ImageCloudlessEarth' url='"https://www.web3d.org/x3d/content/examples/earth-topo.png" "https://www.web3d.org/x3d/content/examples/earth-topo.jpg" "https://www.web3d.org/x3d/content/examples/earth-topo-small.gif"'/>
           </Appearance>
         </Shape>
       </Transform>
