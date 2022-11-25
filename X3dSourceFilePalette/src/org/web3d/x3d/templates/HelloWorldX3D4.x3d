@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 4.0//EN" "https://www.web3d.org/specifications/x3d-4.0.dtd">
+<X3D profile='Immersive' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>
+  <head>
+    <meta content='HelloWorldExample.x3d' name='title'/>
+    <meta content='Test X3D version 4 with simple X3D model example: Hello World!' name='description'/>
+    <meta content='10 June 2021' name='created'/>
+    <meta content='24 November 2022' name='modified'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/HelloWorld.tall.png' name='Image'/>
+    <meta content='https://en.wikipedia.org/wiki/Hello_world' name='reference'/>
+    <meta content='https://en.wikipedia.org/wiki/Hello#.22Hello.2C_World.22_computer_program' name='reference'/>
+    <meta content='https://en.wikipedia.org/wiki/"Hello,_World!"_program' name='reference'/>
+    <meta content='https://en.wikibooks.org/w/index.php?title=Computer_Programming/Hello_world' name='reference'/>
+    <meta content='https://www.HelloWorldExample.net' name='reference'/>
+    <meta content='https://www.web3d.org' name='reference'/>
+    <meta content='https://www.web3d.org/realtime-3d/news/internationalization-x3d' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/HelloWorld.x3d' name='reference'/>
+    <meta content='https://X3dGraphics.com/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorld.x3d' name='reference'/>
+    <meta content='https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-CD1/Part01/htmlGuidelines.html' name='reference'/>
+    <meta content='https://X3dGraphics.com/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d' name='reference'/>
+    <meta content='https://X3dGraphics.com/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4Index.html' name='reference'/>
+    <meta content='TODO' name='identifier'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/license.html' name='license'/>
+    <meta content='X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit' name='generator'/>
+  </head>
+  <Scene>
+    <!-- Example scene to illustrate X3D nodes and fields (XML elements and attributes) -->
+    <WorldInfo DEF='WorldInfoPrimary' info='"Example scene to illustrate a simple X3D4 model"' title='Hello World X3D4!'/>
+    <WorldInfo DEF='WorldInfoSecondary' class='TestClass' id='TestID' style='TestStyle' title='test HTML CSS fields'/>
+    <NavigationInfo type='"EXAMINE" "ANY"'/>
+    <Group>
+      <PointLight shadowIntensity='1' shadows='true'/>
+      <Viewpoint DEF='ViewUpClose' centerOfRotation='0 -1 0' description='Hello world!' position='0 -1 7'/>
+      <Transform rotation='0 1 0 3'>
+        <Shape>
+          <Sphere/>
+          <Appearance>
+            <!-- https://htmlcolorcodes.com/colors/off-white -->
+            <Material DEF='MaterialOffWhite' diffuseColor='0.980392 0.976471 0.964706'/>
+            <ImageTexture DEF='ImageCloudlessEarth' url='"earth-topo.png" "earth-topo.jpg" "earth-topo-small.gif" "https://www.web3d.org/x3d/content/examples/Basic/earth-topo.png" "https://www.web3d.org/x3d/content/examples/Basic/earth-topo.jpg" "https://www.web3d.org/x3d/content/examples/Basic/earth-topo-small.gif"'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Transform translation='0 -2 0'>
+        <Shape>
+          <Text DEF='TextMessage' string='"Hello" "X3D 4!"'>
+            <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+          </Text>
+          <Appearance>
+            <Material USE='MaterialOffWhite'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+    </Group>
+  </Scene>
+</X3D>
