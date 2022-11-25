@@ -38,6 +38,7 @@ import org.netbeans.spi.options.AdvancedOption;
 import org.netbeans.spi.options.OptionsPanelController;
 import org.openide.util.NbBundle;
 
+/** Adds Preferences Panels to Tools/Settings/Miscellaneous */
 @SuppressWarnings("deprecation")
 public final class X3dAdvancedOptions extends AdvancedOption
 {
