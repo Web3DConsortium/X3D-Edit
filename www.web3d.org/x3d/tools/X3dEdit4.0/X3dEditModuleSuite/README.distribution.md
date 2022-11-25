@@ -18,17 +18,17 @@ Once baseline stability is demonstrated on multiple platforms, we expect that fu
 Prerequisite for operation: Java JDK 17 LTS (or later).  Suggested:
 
 * Oracle  jdk-19.0.1, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
-* OpenJDK jdk-19.0.1, latest versions available at [https://openjdk.org](https://openjdk.org)
+* OpenJDK jdk-19.0.1, latest versions available at [https://openjdk.org](https://openjdk.org) (but likely have to setup PATH, CLASSPATH)
 
 The following files are available for X3D-Edit authoring:
 
 X3D-Edit Install File                                                                                       | Description                                       | Status                                                        | File size | Date        
 ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------- | --------- | ------------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Tested satisfactorily, any operating system, recommended      | 187.2 MB | NOV 24  
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Tested satisfactorily, any operating system                   |  65.9 MB | NOV 24  
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system      | 187.2 MB | NOV 24  
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans 15, tested satisfactorily, any operating system                   |  65.9 MB | NOV 24  
 [x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested satisfactorily                                         | 187.1 MB | NOV 24  
 [x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, troubleshooting                      | 187.1 MB | NOV 24 
-[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | Tested sometimes fails, Java configuration seems difficult    | 187.5 MB | NOV 24  
+[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | Tested unsatisfactorily, troubleshooting                      | 187.5 MB | NOV 24  
 
 SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
 
