@@ -73,8 +73,8 @@ public class ConversionsHelper
   static final JCheckBox openInEditor;
   static final JCheckBox openInBrowser;
   static final OpenResultInEditorChooserAccessory pan;
-  private static boolean openInBrowserSetting = true;
-  private static boolean openInEditorSetting  = false;
+  private static boolean openInBrowserSetting = true; // default viewable
+  private static boolean openInEditorSetting  = true; // default verbose
   private static String saveChooserDialogTitle = "Save X3D conversion";
   
   static {
