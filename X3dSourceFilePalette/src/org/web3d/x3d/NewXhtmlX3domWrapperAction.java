@@ -76,6 +76,11 @@ public final class NewXhtmlX3domWrapperAction extends CallableSystemAction
       // Look in the "filesystem" to find the registered template (through classpath)
       String path = "Templates/Other/newXhtmlWithEmbeddedX3dom.xhtml"; 
       FileObject x3dTmplFo = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
+      if (x3dTmplFo == null)
+      {
+          System.out.println("*** Error, template file " + path + " not found");
+          return;
+      }
       x3dTmplFo.setAttribute("template", Boolean.TRUE);
       
       DataObject templ = DataObject.find(x3dTmplFo);      // get a DataObject for the template

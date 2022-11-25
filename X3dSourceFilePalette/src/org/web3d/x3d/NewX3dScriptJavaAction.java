@@ -78,6 +78,11 @@ public final class NewX3dScriptJavaAction extends CallableSystemAction
       // this template file can't be end with .java or else it gets inadvertantly compiled (and then fails)
       String path = "Templates/Other/newX3dScript.java";
       FileObject x3dTmplFo = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
+      if (x3dTmplFo == null)
+      {
+          System.out.println("*** Error, template file " + path + " not found");
+          return;
+      }
       x3dTmplFo.setAttribute("template", Boolean.TRUE);
       
       DataObject templ = DataObject.find(x3dTmplFo);      // get a DataObject for the template
