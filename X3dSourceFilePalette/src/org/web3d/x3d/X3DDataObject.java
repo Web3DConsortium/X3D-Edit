@@ -175,14 +175,20 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
   protected DataObject handleCreateFromTemplate(DataFolder directoryDF, String newName)
       throws IOException
   {
-    // Make a FileObject for the template file
-    String path = "Templates/Other/newScene.x3d";
-    FileObject x3dTmplFo = FileUtil.getConfigRoot().getFileSystem().findResource(path);
-    FileObject directoryFo = directoryDF.getPrimaryFile();  // FO referring to target dir
-    // write the new file to disk by copying the template
-    FileObject newFo = FileUtil.copyFile(x3dTmplFo,directoryFo,newName);
+      // Make a FileObject for the template file
+      String path = "Templates/Other/newScene.x3d";
+      if (newName.contains("HelloWorld"))
+          path = "Templates/Other/HelloWorldX3D4.x3d";
+      FileObject x3dTmplFo = FileUtil.getConfigRoot().getFileSystem().findResource(path);
+      if (x3dTmplFo == null) 
+      {
+          System.out.println("*** Error, template file " + path + " not found");
+      }
+      FileObject directoryFo = directoryDF.getPrimaryFile();  // FO referring to target dir
+      // write the new file to disk by copying the template
+      FileObject newFo = FileUtil.copyFile(x3dTmplFo, directoryFo, newName);
 
-    return new X3DDataObject(newFo, getMultiFileLoader());
+      return new X3DDataObject(newFo, getMultiFileLoader());
   }
 
   @SuppressWarnings("unchecked")
