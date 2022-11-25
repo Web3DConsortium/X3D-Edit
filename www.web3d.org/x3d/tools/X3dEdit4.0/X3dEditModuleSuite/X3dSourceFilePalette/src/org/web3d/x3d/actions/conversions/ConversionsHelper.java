@@ -137,8 +137,8 @@ public class ConversionsHelper
   public static class saveFilePack
   {
     public File file;
-    public boolean openInEditor;
-    public boolean openInBrowser;
+    public boolean openInEditor  = true; // viewable
+    public boolean openInBrowser = true; // verbose
     public boolean initialized = false;
   }
   
