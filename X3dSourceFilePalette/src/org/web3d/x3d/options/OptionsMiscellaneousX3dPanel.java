@@ -215,7 +215,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         secondsLabel = new javax.swing.JLabel();
         verticalSpacerLabel1 = new javax.swing.JLabel();
         externalX3dEditorLabel1 = new javax.swing.JLabel();
-        verticalSpacerLabel15 = new javax.swing.JLabel();
+        verticalSpacerLabel8 = new javax.swing.JLabel();
         x3dModelingToolsPanel = new javax.swing.JPanel();
         externalX3dEditorLabel = new javax.swing.JLabel();
         verticalSpacerLabel9 = new javax.swing.JLabel();
@@ -394,7 +394,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         otherVolumeEditorLaunchButton = new javax.swing.JButton();
         otherVolumeEditorDownloadButton = new javax.swing.JButton();
         verticalSpacerLabel14 = new javax.swing.JLabel();
-        multimediaToolsPanel = new javax.swing.JPanel();
+        webMultimediaToolsPanel = new javax.swing.JPanel();
         verticalSpacerLabel7 = new javax.swing.JLabel();
         audioToolsLabel = new javax.swing.JLabel();
         audacityEditorLabel = new javax.swing.JLabel();
@@ -1891,7 +1891,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 100;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
         x3dPlayerPathsPanel.add(launchIntervalLabel, gridBagConstraints);
@@ -1908,7 +1908,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
         x3dPlayerPathsPanel.add(launchIntervalTF, gridBagConstraints);
 
@@ -1919,7 +1919,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
         x3dPlayerPathsPanel.add(secondsLabel, gridBagConstraints);
 
@@ -1935,18 +1935,20 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 6, 10, 3);
         x3dPlayerPathsPanel.add(externalX3dEditorLabel1, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel15, "   ");
+        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel8, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
-        x3dPlayerPathsPanel.add(verticalSpacerLabel15, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dPlayerPathsPanel.add(verticalSpacerLabel8, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab(org.openide.util.NbBundle.getMessage(OptionsMiscellaneousX3dPanel.class, "Paths_Tab_Title"), null, x3dPlayerPathsPanel, "Set directories for launching external browsers"); // NOI18N
 
@@ -4565,9 +4567,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
 
         x3dOptionsTabbedPane.addTab("Image and Volume Tools", imageVolumeToolsPanel);
 
-        multimediaToolsPanel.setMinimumSize(new java.awt.Dimension(825, 600));
-        multimediaToolsPanel.setPreferredSize(new java.awt.Dimension(825, 600));
-        multimediaToolsPanel.setLayout(new java.awt.GridBagLayout());
+        webMultimediaToolsPanel.setMinimumSize(new java.awt.Dimension(825, 600));
+        webMultimediaToolsPanel.setPreferredSize(new java.awt.Dimension(825, 600));
+        webMultimediaToolsPanel.setLayout(new java.awt.GridBagLayout());
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel7, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4576,7 +4578,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
-        multimediaToolsPanel.add(verticalSpacerLabel7, gridBagConstraints);
+        webMultimediaToolsPanel.add(verticalSpacerLabel7, gridBagConstraints);
 
         audioToolsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(audioToolsLabel, "Audio Tools");
@@ -4588,7 +4590,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 6, 3, 3);
-        multimediaToolsPanel.add(audioToolsLabel, gridBagConstraints);
+        webMultimediaToolsPanel.add(audioToolsLabel, gridBagConstraints);
 
         audacityEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(audacityEditorLabel, "Audacity");
@@ -4598,8 +4600,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(audacityEditorLabel, gridBagConstraints);
+        webMultimediaToolsPanel.add(audacityEditorLabel, gridBagConstraints);
 
         audacityEditorCheckBox.setSelected(true);
         audacityEditorCheckBox.setToolTipText("Include when autolaunching tools");
@@ -4615,7 +4618,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(audacityEditorCheckBox, gridBagConstraints);
+        webMultimediaToolsPanel.add(audacityEditorCheckBox, gridBagConstraints);
 
         audacityEditorPathTF.setToolTipText("File location for local application");
         audacityEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
@@ -4631,7 +4634,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(audacityEditorPathTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(audacityEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(audacityEditorChooserButton, "...");
         audacityEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
@@ -4646,7 +4649,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(audacityEditorChooserButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(audacityEditorChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(audacityEditorDefaultButton, "default");
         audacityEditorDefaultButton.setToolTipText("Reset default file location for local application");
@@ -4661,7 +4664,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(audacityEditorDefaultButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(audacityEditorDefaultButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(audacityEditorLaunchButton, "launch");
         audacityEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -4676,7 +4679,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(audacityEditorLaunchButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(audacityEditorLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(audacityEditorDownloadButton, "get");
         audacityEditorDownloadButton.setToolTipText("Download tool from website");
@@ -4692,7 +4695,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
-        multimediaToolsPanel.add(audacityEditorDownloadButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(audacityEditorDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(audacityEditorHelpButton, "help");
         audacityEditorHelpButton.setToolTipText("Display tool help page");
@@ -4707,7 +4710,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(audacityEditorHelpButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(audacityEditorHelpButton, gridBagConstraints);
 
         museScoreEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorLabel, "MuseScore");
@@ -4717,8 +4720,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(museScoreEditorLabel, gridBagConstraints);
+        webMultimediaToolsPanel.add(museScoreEditorLabel, gridBagConstraints);
 
         museScoreCheckBox.setSelected(true);
         museScoreCheckBox.setToolTipText("Include when autolaunching tools");
@@ -4734,7 +4738,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(museScoreCheckBox, gridBagConstraints);
+        webMultimediaToolsPanel.add(museScoreCheckBox, gridBagConstraints);
 
         museScoreEditorPathTF.setToolTipText("File location for local application");
         museScoreEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
@@ -4750,7 +4754,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(museScoreEditorPathTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(museScoreEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorChooserButton, "...");
         museScoreEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
@@ -4765,7 +4769,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(museScoreEditorChooserButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(museScoreEditorChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorDefaultButton, "default");
         museScoreEditorDefaultButton.setToolTipText("Reset default file location for local application");
@@ -4780,7 +4784,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(museScoreEditorDefaultButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(museScoreEditorDefaultButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorLaunchButton, "launch");
         museScoreEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -4795,7 +4799,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(museScoreEditorLaunchButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(museScoreEditorLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorDownloadButton, "get");
         museScoreEditorDownloadButton.setToolTipText("Download tool from website");
@@ -4811,7 +4815,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(museScoreEditorDownloadButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(museScoreEditorDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorHelpButton, "help");
         museScoreEditorHelpButton.setToolTipText("Display tool help page");
@@ -4826,7 +4830,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(museScoreEditorHelpButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(museScoreEditorHelpButton, gridBagConstraints);
 
         otherAudioEditorNameTF.setBackground(new java.awt.Color(192, 192, 192));
         otherAudioEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -4845,9 +4849,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 60;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherAudioEditorNameTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherAudioEditorNameTF, gridBagConstraints);
 
         otherAudioEditorCheckBox.setSelected(true);
         otherAudioEditorCheckBox.setToolTipText("Include when autolaunching tools");
@@ -4863,7 +4867,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherAudioEditorCheckBox, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherAudioEditorCheckBox, gridBagConstraints);
 
         otherAudioEditorPathTF.setToolTipText("Enter file location for local application");
         otherAudioEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
@@ -4879,7 +4883,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherAudioEditorPathTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherAudioEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorChooserButton, "...");
         otherAudioEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
@@ -4894,7 +4898,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherAudioEditorChooserButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherAudioEditorChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorClearButton, "clear");
         otherAudioEditorClearButton.setToolTipText("Reset default file location for local application");
@@ -4908,7 +4912,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherAudioEditorClearButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherAudioEditorClearButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorLaunchButton, "launch");
         otherAudioEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -4923,7 +4927,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherAudioEditorLaunchButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherAudioEditorLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorDownloadButton, "find");
         otherAudioEditorDownloadButton.setToolTipText("Find other audio tools using X3D Scene Authoring Hints");
@@ -4940,7 +4944,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherAudioEditorDownloadButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherAudioEditorDownloadButton, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -4948,7 +4952,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
-        multimediaToolsPanel.add(jSeparator4, gridBagConstraints);
+        webMultimediaToolsPanel.add(jSeparator4, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel13, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4957,7 +4961,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(verticalSpacerLabel13, gridBagConstraints);
+        webMultimediaToolsPanel.add(verticalSpacerLabel13, gridBagConstraints);
 
         htmlToolsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         htmlToolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -4970,7 +4974,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
-        multimediaToolsPanel.add(htmlToolsLabel, gridBagConstraints);
+        webMultimediaToolsPanel.add(htmlToolsLabel, gridBagConstraints);
 
         amayaEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(amayaEditorLabel, "Amaya");
@@ -4980,8 +4984,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(amayaEditorLabel, gridBagConstraints);
+        webMultimediaToolsPanel.add(amayaEditorLabel, gridBagConstraints);
 
         amayaEditorPathTF.setToolTipText("File location for local application");
         amayaEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
@@ -4997,7 +5002,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(amayaEditorPathTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(amayaEditorPathTF, gridBagConstraints);
 
         amayaEditorCheckBox.setSelected(true);
         amayaEditorCheckBox.setToolTipText("Include when autolaunching tools");
@@ -5013,7 +5018,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(amayaEditorCheckBox, gridBagConstraints);
+        webMultimediaToolsPanel.add(amayaEditorCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(amayaEditorChooserButton, "...");
         amayaEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
@@ -5028,7 +5033,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(amayaEditorChooserButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(amayaEditorChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(amayaEditorDefaultButton, "default");
         amayaEditorDefaultButton.setToolTipText("Reset default file location for local application");
@@ -5043,7 +5048,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(amayaEditorDefaultButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(amayaEditorDefaultButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(amayaEditorLaunchButton, "launch");
         amayaEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -5058,7 +5063,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(amayaEditorLaunchButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(amayaEditorLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(amayaEditorDownloadButton, "get");
         amayaEditorDownloadButton.setToolTipText("Download tool from website");
@@ -5074,7 +5079,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(amayaEditorDownloadButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(amayaEditorDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(amayaEditorHelpButton, "help");
         amayaEditorHelpButton.setToolTipText("Display tool help page");
@@ -5089,7 +5094,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(amayaEditorHelpButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(amayaEditorHelpButton, gridBagConstraints);
 
         svgeditEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorLabel, "svg-edit");
@@ -5099,8 +5104,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(svgeditEditorLabel, gridBagConstraints);
+        webMultimediaToolsPanel.add(svgeditEditorLabel, gridBagConstraints);
 
         svgeditEditorPathTF.setToolTipText("File location for local application");
         svgeditEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
@@ -5116,7 +5122,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(svgeditEditorPathTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(svgeditEditorPathTF, gridBagConstraints);
 
         svgeditEditorCheckBox.setSelected(true);
         svgeditEditorCheckBox.setToolTipText("Include when autolaunching tools");
@@ -5132,7 +5138,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(svgeditEditorCheckBox, gridBagConstraints);
+        webMultimediaToolsPanel.add(svgeditEditorCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorChooserButton, "...");
         svgeditEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
@@ -5147,7 +5153,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(svgeditEditorChooserButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(svgeditEditorChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorDefaultButton, "default");
         svgeditEditorDefaultButton.setToolTipText("Reset default file location for local application");
@@ -5162,7 +5168,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(svgeditEditorDefaultButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(svgeditEditorDefaultButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorLaunchButton, "launch");
         svgeditEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -5177,7 +5183,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(svgeditEditorLaunchButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(svgeditEditorLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorDownloadButton, "get");
         svgeditEditorDownloadButton.setToolTipText("Download tool from website");
@@ -5193,7 +5199,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(svgeditEditorDownloadButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(svgeditEditorDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorHelpButton, "help");
         svgeditEditorHelpButton.setToolTipText("Display tool help page");
@@ -5208,7 +5214,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(svgeditEditorHelpButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(svgeditEditorHelpButton, gridBagConstraints);
 
         otherHtml5EditorNameTF.setBackground(new java.awt.Color(192, 192, 192));
         otherHtml5EditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -5226,9 +5232,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherHtml5EditorNameTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherHtml5EditorNameTF, gridBagConstraints);
 
         otherHtml5EditorCheckBox.setSelected(true);
         otherHtml5EditorCheckBox.setToolTipText("Include when autolaunching tools");
@@ -5244,7 +5250,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherHtml5EditorCheckBox, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherHtml5EditorCheckBox, gridBagConstraints);
 
         otherHtml5EditorPathTF.setToolTipText("Enter file location for local application");
         otherHtml5EditorPathTF.addActionListener(new java.awt.event.ActionListener() {
@@ -5260,7 +5266,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherHtml5EditorPathTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherHtml5EditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorChooserButton, "...");
         otherHtml5EditorChooserButton.setToolTipText("Browse to select file location for local keystore");
@@ -5275,7 +5281,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherHtml5EditorChooserButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherHtml5EditorChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorClearButton, "clear");
         otherHtml5EditorClearButton.setToolTipText("Reset default file location for local application");
@@ -5289,7 +5295,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherHtml5EditorClearButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherHtml5EditorClearButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorLaunchButton, "launch");
         otherHtml5EditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -5304,7 +5310,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherHtml5EditorLaunchButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherHtml5EditorLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorDownloadButton, "find");
         otherHtml5EditorDownloadButton.setToolTipText("Find other image tools using X3D Scene Authoring Hints");
@@ -5321,7 +5327,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherHtml5EditorDownloadButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherHtml5EditorDownloadButton, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
@@ -5329,7 +5335,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
-        multimediaToolsPanel.add(jSeparator2, gridBagConstraints);
+        webMultimediaToolsPanel.add(jSeparator2, gridBagConstraints);
 
         externalVideoEditorLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         externalVideoEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -5342,7 +5348,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
-        multimediaToolsPanel.add(externalVideoEditorLabel, gridBagConstraints);
+        webMultimediaToolsPanel.add(externalVideoEditorLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel11, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -5351,7 +5357,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(verticalSpacerLabel11, gridBagConstraints);
+        webMultimediaToolsPanel.add(verticalSpacerLabel11, gridBagConstraints);
 
         vlcPlayerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerLabel, "vlc");
@@ -5361,8 +5367,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(vlcPlayerLabel, gridBagConstraints);
+        webMultimediaToolsPanel.add(vlcPlayerLabel, gridBagConstraints);
 
         vlcPlayerCheckBox.setSelected(true);
         vlcPlayerCheckBox.setToolTipText("Include when autolaunching tools");
@@ -5378,7 +5385,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(vlcPlayerCheckBox, gridBagConstraints);
+        webMultimediaToolsPanel.add(vlcPlayerCheckBox, gridBagConstraints);
 
         vlcPlayerPathTF.setToolTipText("File location for local application");
         vlcPlayerPathTF.addActionListener(new java.awt.event.ActionListener() {
@@ -5394,7 +5401,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(vlcPlayerPathTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(vlcPlayerPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerChooserButton, "...");
         vlcPlayerChooserButton.setToolTipText("Browse to select file location for local keystore");
@@ -5409,7 +5416,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(vlcPlayerChooserButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(vlcPlayerChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerDefaultButton, "default");
         vlcPlayerDefaultButton.setToolTipText("Reset default file location for local application");
@@ -5424,7 +5431,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(vlcPlayerDefaultButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(vlcPlayerDefaultButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerLaunchButton, "launch");
         vlcPlayerLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -5439,7 +5446,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 24;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(vlcPlayerLaunchButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(vlcPlayerLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerDownloadButton, "get");
         vlcPlayerDownloadButton.setToolTipText("Download tool from website");
@@ -5455,7 +5462,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(vlcPlayerDownloadButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(vlcPlayerDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerHelpButton, "help");
         vlcPlayerHelpButton.setToolTipText("Display tool help page");
@@ -5470,7 +5477,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 24;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(vlcPlayerHelpButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(vlcPlayerHelpButton, gridBagConstraints);
 
         otherVideoEditorNameTF.setBackground(new java.awt.Color(192, 192, 192));
         otherVideoEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -5487,11 +5494,11 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherVideoEditorNameTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherVideoEditorNameTF, gridBagConstraints);
 
         otherVideoEditorCheckBox.setSelected(true);
         otherVideoEditorCheckBox.setToolTipText("Include when autolaunching tools");
@@ -5507,7 +5514,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherVideoEditorCheckBox, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherVideoEditorCheckBox, gridBagConstraints);
 
         otherVideoEditorPathTF.setToolTipText("Enter file location for local application");
         otherVideoEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
@@ -5523,7 +5530,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherVideoEditorPathTF, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherVideoEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherVideoChooserButton, "...");
         otherVideoChooserButton.setToolTipText("Browse to select file location for local keystore");
@@ -5538,7 +5545,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherVideoChooserButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherVideoChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherVideoEditorClearButton, "clear");
         otherVideoEditorClearButton.setToolTipText("Reset default file location for local application");
@@ -5552,7 +5559,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherVideoEditorClearButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherVideoEditorClearButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherVideoEditorLaunchButton, "launch");
         otherVideoEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -5567,7 +5574,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 25;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherVideoEditorLaunchButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherVideoEditorLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherVideoEditorDownloadButton, "find");
         otherVideoEditorDownloadButton.setToolTipText("Find other video tools using X3D Scene Authoring Hints");
@@ -5584,7 +5591,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(otherVideoEditorDownloadButton, gridBagConstraints);
+        webMultimediaToolsPanel.add(otherVideoEditorDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(leftMarginSpacerLabel, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -5594,7 +5601,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weighty = 0.1;
-        multimediaToolsPanel.add(leftMarginSpacerLabel, gridBagConstraints);
+        webMultimediaToolsPanel.add(leftMarginSpacerLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel6, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -5605,9 +5612,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        multimediaToolsPanel.add(verticalSpacerLabel6, gridBagConstraints);
+        webMultimediaToolsPanel.add(verticalSpacerLabel6, gridBagConstraints);
 
-        x3dOptionsTabbedPane.addTab("Multimedia Tools", multimediaToolsPanel);
+        x3dOptionsTabbedPane.addTab("Web and Multimedia Tools", webMultimediaToolsPanel);
 
         x3dEditVisualizationPreferencesPanel.setToolTipText("Editing and visualization options");
         x3dEditVisualizationPreferencesPanel.setMinimumSize(new java.awt.Dimension(825, 600));
@@ -6472,6 +6479,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         add(x3dOptionsTabbedPane, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
     private void freeWrlChooserButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_freeWrlChooserButtonActionPerformed
@@ -9084,7 +9092,6 @@ polyTransNuGrafAutoLaunchCheck ();
     private javax.swing.JLabel meshLabX3dEditorLabel;
     private javax.swing.JButton meshLabX3dEditorLaunchButton;
     private javax.swing.JTextField meshLabX3dEditorPathTF;
-    private javax.swing.JPanel multimediaToolsPanel;
     private javax.swing.JCheckBox museScoreCheckBox;
     private javax.swing.JButton museScoreEditorChooserButton;
     private javax.swing.JButton museScoreEditorDefaultButton;
@@ -9229,7 +9236,6 @@ polyTransNuGrafAutoLaunchCheck ();
     private javax.swing.JLabel verticalSpacerLabel12;
     private javax.swing.JLabel verticalSpacerLabel13;
     private javax.swing.JLabel verticalSpacerLabel14;
-    private javax.swing.JLabel verticalSpacerLabel15;
     private javax.swing.JLabel verticalSpacerLabel16;
     private javax.swing.JLabel verticalSpacerLabel2;
     private javax.swing.JLabel verticalSpacerLabel3;
@@ -9237,6 +9243,7 @@ polyTransNuGrafAutoLaunchCheck ();
     private javax.swing.JLabel verticalSpacerLabel5;
     private javax.swing.JLabel verticalSpacerLabel6;
     private javax.swing.JLabel verticalSpacerLabel7;
+    private javax.swing.JLabel verticalSpacerLabel8;
     private javax.swing.JLabel verticalSpacerLabel9;
     private javax.swing.JCheckBox view3dSceneCheckBox;
     private javax.swing.JButton view3dSceneChooserButton;
@@ -9259,6 +9266,7 @@ polyTransNuGrafAutoLaunchCheck ();
     private javax.swing.JLabel vlcPlayerLabel;
     private javax.swing.JButton vlcPlayerLaunchButton;
     private javax.swing.JTextField vlcPlayerPathTF;
+    private javax.swing.JPanel webMultimediaToolsPanel;
     private javax.swing.JCheckBox whiteDuneX3dEditorCheckBox;
     private javax.swing.JButton whiteDuneX3dEditorChooserButton;
     private javax.swing.JButton whiteDuneX3dEditorDefaultButton;
