@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 4.0//EN" "https://www.web3d.org/specifications/x3d-4.0.dtd">
-<X3D profile='Immersive' version='4.0' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
   <head>
     <meta content='HelloWorldExample.x3d' name='title'/>
     <meta content='Test X3D version 4 with simple X3D model example: Hello World!' name='description'/>
@@ -28,10 +28,9 @@
   <Scene>
     <!-- Example scene to illustrate X3D nodes and fields (XML elements and attributes) -->
     <WorldInfo DEF='WorldInfoPrimary' info='"Example scene to illustrate a simple X3D4 model"' title='Hello World X3D4!'/>
-    <WorldInfo DEF='WorldInfoSecondary' class='TestClass' id='TestID' style='TestStyle' title='test HTML CSS fields'/>
+    <WorldInfo DEF='WorldInfoSecondary' title='test HTML CSS fields'/>
     <NavigationInfo type='"EXAMINE" "ANY"'/>
     <Group>
-      <PointLight shadowIntensity='1' shadows='true'/>
       <Viewpoint DEF='ViewUpClose' centerOfRotation='0 -1 0' description='Hello world!' position='0 -1 7'/>
       <Transform rotation='0 1 0 3'>
         <Shape>
