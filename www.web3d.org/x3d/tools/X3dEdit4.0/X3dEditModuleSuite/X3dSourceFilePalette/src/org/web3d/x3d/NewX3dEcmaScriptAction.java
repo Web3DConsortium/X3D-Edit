@@ -77,6 +77,11 @@ public final class NewX3dEcmaScriptAction extends CallableSystemAction
       // see X3D/build/javahelp/getDocs.xml for update sequence
       String path = "Templates/Other/newECMAscript.js";
       FileObject x3dTmplFo = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
+      if (x3dTmplFo == null)
+      {
+          System.out.println("*** Error, template file " + path + " not found");
+          return;
+      }
       x3dTmplFo.setAttribute("template", Boolean.TRUE);
       
       DataObject templ = DataObject.find(x3dTmplFo);      // get a DataObject for the template
