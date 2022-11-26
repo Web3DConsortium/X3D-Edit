@@ -246,16 +246,17 @@
     </target>
     
     <!-- As per the server-cert-keystore-readme.txt.txt in release/modules/ext -->
-    <!-- This process assumes you have already downloaded and stored the new
-         certificate savage.nps.edu.crt in release/modules/ext -->
+    <!-- This process assumes you have already downloaded and temporarily placed
+         the new certificate {savage.nps.edu.crt} in release/modules/ext. The
+         certificate can be deleted after this procedure. -->
     <target name="update.server.certificate" description="Accomplished anytime there is a certificate change, or change in server configuration">
         
-        <!-- First, delete the old certificate -->
+        <!-- First, delete the old certificate out of the keystore -->
         <exec executable="keytool" dir="release/modules/ext">
             <arg line="-delete -alias savage.nps.edu -storepass ${storepass} -keystore server-cert-keystore.jks"/>
         </exec>
         
-        <!-- Now, import the new one -->
+        <!-- Now, import the new one into the keystore -->
         <exec executable="keytool" dir="release/modules/ext">
             <arg line="-import -noprompt -alias savage.nps.edu -file savage.nps.edu.crt -storepass ${storepass} -keystore server-cert-keystore.jks"/>
         </exec>
@@ -267,11 +268,44 @@
         </exec>
     </target>
     
-    <target name="generate.self.signing.cert" description="Generate a 90 day self-signing certificate for signing NBMs">
+    <!-- Unfortunately, this procedure is an interactive one, therefore can not
+         be accomplished via this ant task, however, it's a good model for the
+         command line -->
+    <target name="generate.self.signing.cert" description="Generate a 90 day self-signing certificate for signing NBMs. *** Perform this via command line and not this target ***">
+        
+        <!-- First, delete the old certificate out of the keystore -->
         <exec executable="keytool">
-            <arg line="-genkey -keyalg RSA -alias savage.nps.edu -keystore ${keystore} -validity 90 -keysize 2048"/>
+            <arg line="-delete -alias savage.nps.edu -storepass ${storepass} -keystore ${keystore}"/>
+        </exec>
+        
+        <!-- Now generate a new 90 day signing key -->
+        <exec executable="keytool">
+            <arg line="-genkey -keyalg RSA -alias savage.nps.edu -storepass ${storepass} -keystore ${keystore} -validity 90 -keysize 2048"/>
         </exec>
     </target>
+    <!-- From: https://community.pivotal.io/s/article/Generating-a-self-signed-SSL-certificate-using-the-Java-keytool-command?language=en_US -->
+    <!--
+        (base) terry@hal-9008 private % keytool -delete -alias savage.nps.edu -storepass changeit -keystore movesJarSigningKeystore                                                                                                 
+        (base) terry@hal-9008 private % keytool -genkey -keyalg RSA -alias savage.nps.edu -storepass changeit -keystore movesJarSigningKeystore -validity 90 -keysize 2048                                                             
+        Enter the distinguished name. Provide a single dot (.) to leave a sub-component empty or press ENTER to use the default value in braces.
+        What is your first and last name?
+          [Unknown]:  savage.nps.edu
+        What is the name of your organizational unit?
+          [Unknown]:  MOVES Institute
+        What is the name of your organization?
+          [Unknown]:  Naval Postgraduate School
+        What is the name of your City or Locality?
+          [Unknown]:  Monterey
+        What is the name of your State or Province?
+          [Unknown]:  CA
+        What is the two-letter country code for this unit?
+          [Unknown]:  US
+        Is CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School, L=Monterey, ST=CA, C=US correct?
+          [no]:  yes
+
+        Generating 2,048 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 90 days
+                for: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School, L=Monterey, ST=CA, C=US
+    -->
     
     <target name="list.self.signing.cert" description="Lists the contents of the NBM self-signing cert">
         <exec executable="keytool">
