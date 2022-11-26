@@ -41,7 +41,8 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D_JAVA_LANGUAGE_BINDING;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_JAVA_LANGUAGE_BINDING_X3DJSAIL;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_X3DJSAIL_JAVADOC;
 
 /**
  * Launch HAnim2 standard
@@ -65,13 +66,15 @@ public final class LaunchJavaX3djsailLanguageBindingPageAction extends CallableS
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_JAVA_LANGUAGE_BINDING);
+    LaunchX3dExamplesAction.sendBrowserTo(X3D_X3DJSAIL_JAVADOC);
+    LaunchX3dExamplesAction.sendBrowserTo(X3D_JAVA_LANGUAGE_BINDING_X3DJSAIL);
+    
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchJsonEncodingAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchJavaX3djsailLanguageBindingPageAction");
   }
 
   @Override

@@ -41,7 +41,7 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D_JSON_ENCODING;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_JSON_CONVERTER;
 
 /**
  * Launch HAnim2 standard
@@ -65,13 +65,13 @@ public final class LaunchJsonEncodingPageAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_JSON_ENCODING);
+    LaunchX3dExamplesAction.sendBrowserTo(X3D_JSON_CONVERTER);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchJsonEncodingAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchJsonEncodingPageAction");
   }
 
   @Override

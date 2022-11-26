@@ -41,7 +41,8 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D_PYTHON_LANGUAGE_BINDING;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_PYPI;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_PYTHON_LANGUAGE_BINDING_X3DPSAIL;
 
 /**
  * Launch HAnim2 standard
@@ -65,7 +66,8 @@ public final class LaunchPythonX3dpsailLanguageBindingPageAction extends Callabl
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_PYTHON_LANGUAGE_BINDING);
+    LaunchX3dExamplesAction.sendBrowserTo(X3D_PYPI);
+    LaunchX3dExamplesAction.sendBrowserTo(X3D_PYTHON_LANGUAGE_BINDING_X3DPSAIL);
   }
 
   @Override

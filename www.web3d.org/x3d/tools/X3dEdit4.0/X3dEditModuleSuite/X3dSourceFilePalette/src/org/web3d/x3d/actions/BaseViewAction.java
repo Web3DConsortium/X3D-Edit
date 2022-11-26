@@ -63,6 +63,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D4AM_EXAMPLESURL                   ="https://www.x3dGraphics.com/examples/X3dForAdvancedModeling";
   public final static String SAVAGEEXAMPLESURL                    ="https://savage.nps.edu/Savage";
   public final static String SAVAGEDEFENSEEXAMPLESURL             ="https://SavageDefense.nps.navy.mil/SavageDefense";
+  public final static String X3DSECURITYEXAMPLES                  ="https://www.web3d.org/x3d/content/examples/Basic/Security";
   public final static String X3DSECURITYREADME                    ="https://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html";
   public final static String X3D_EDIT_HOME                        ="https://savage.nps.edu/X3D-Edit";
   public final static String X3D_EDIT_FEATURES                    = X3D_EDIT_HOME + "#Features";
@@ -105,11 +106,13 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String VRML97_STANDARD_AMENDMENT_1            ="https://www.web3d.org/documents/specifications/14772-1/V2.1/index.html";
 
   public final static String CASTLE_GAME_ENGINE_CONVERTER           ="https://castle-engine.io/convert.php";
-  public final static String X3D_JAVA_LANGUAGE_BINDING              ="https://www.web3d.org/specifications/java/X3DJSAIL.html";
-  public final static String X3D_JSON_ENCODING                      ="https://www.web3d.org/x3d/stylesheets/X3dToJson.html";
-  public final static String X3D_PYTHON_LANGUAGE_BINDING            ="https://www.web3d.org/x3d/stylesheets/python/python.html";
+  public final static String X3D_JAVA_LANGUAGE_BINDING_X3DJSAIL     ="https://www.web3d.org/specifications/java/X3DJSAIL.html";
+  public final static String X3D_X3DJSAIL_JAVADOC                   ="https://www.web3d.org/specifications/java/javadoc";
+  public final static String X3D_JSON_CONVERTER                     ="https://www.web3d.org/x3d/stylesheets/X3dToJson.html";
+  public final static String X3D_PYTHON_LANGUAGE_BINDING_X3DPSAIL   ="https://www.web3d.org/x3d/stylesheets/python/python.html";
+  public final static String X3D_PYPI                               ="https://pypi.org/project/x3d";
   public final static String X3D_ONTOLOGY                           ="https://www.web3d.org/x3d/content/semantics/semantics.html";
-
+  public final static String X3D_ONTOLOGY_DOCUMENTATION             ="https://www.web3d.org/x3d/content/semantics/documentation/owldoc/index.html";
   public final static String W3C_HOME                               ="https://www.w3.org";
   public final static String W3C_STANDARDS_OPEN_WEB_PLATFORM        ="https://www.w3.org/standards";
   public final static String W3C_DEVELOPERS                         ="https://www.w3.org/developers";
