@@ -1991,7 +1991,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dPlayerPathsPanel.add(defunctX3dEditorLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportPlayerButton, "Report");
-        reportPlayerButton.setToolTipText(BaseCustomizer.reportTooltip);
+        reportPlayerButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
         reportPlayerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportPlayerButtonActionPerformed(evt);
@@ -3507,7 +3507,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(verticalSpacerLabel12, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportModelingToolsButton, "Report");
-        reportModelingToolsButton.setToolTipText(BaseCustomizer.reportTooltip);
+        reportModelingToolsButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
         reportModelingToolsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportModelingToolsButtonActionPerformed(evt);
@@ -4654,7 +4654,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         imageVolumeToolsPanel.add(verticalSpacerLabel14, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportImageVolumeToolsButton, "Report");
-        reportImageVolumeToolsButton.setToolTipText(BaseCustomizer.reportTooltip);
+        reportImageVolumeToolsButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
         reportImageVolumeToolsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportImageVolumeToolsButtonActionPerformed(evt);
@@ -5987,7 +5987,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         webMultimediaToolsPanel.add(verticalSpacerLabel6, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportWebMultimediaToolsButton, "Report");
-        reportWebMultimediaToolsButton.setToolTipText(BaseCustomizer.reportTooltip);
+        reportWebMultimediaToolsButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
         reportWebMultimediaToolsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportWebMultimediaToolsButtonActionPerformed(evt);
@@ -6772,7 +6772,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dEditVisualizationPreferencesPanel.add(verticalSpacerLabel5, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportVisualizationPreferencesButton, "Report");
-        reportVisualizationPreferencesButton.setToolTipText(BaseCustomizer.reportTooltip);
+        reportVisualizationPreferencesButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
         reportVisualizationPreferencesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportVisualizationPreferencesButtonActionPerformed(evt);
@@ -6933,7 +6933,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dSecurityPanel.add(verticalSpacerLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportSecurityPanelButton, "Report");
-        reportSecurityPanelButton.setToolTipText(BaseCustomizer.reportTooltip);
+        reportSecurityPanelButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
         reportSecurityPanelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportSecurityPanelButtonActionPerformed(evt);
