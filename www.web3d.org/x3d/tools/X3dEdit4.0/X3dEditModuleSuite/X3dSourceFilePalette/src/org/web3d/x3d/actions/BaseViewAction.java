@@ -103,7 +103,12 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_JSON_ENCODING_GUIDELINES           ="https://www.web3d.org/x3d/stylesheets/X3dToJson.html"; // TODO standard
   public final static String VRML97_STANDARD                        ="https://www.web3d.org/documents/specifications/14772/V2.0/index.html";
   public final static String VRML97_STANDARD_AMENDMENT_1            ="https://www.web3d.org/documents/specifications/14772-1/V2.1/index.html";
+
   public final static String CASTLE_GAME_ENGINE_CONVERTER           ="https://castle-engine.io/convert.php";
+  public final static String X3D_JAVA_LANGUAGE_BINDING              ="https://www.web3d.org/specifications/java/X3DJSAIL.html";
+  public final static String X3D_JSON_ENCODING                      ="https://www.web3d.org/x3d/stylesheets/X3dToJson.html";
+  public final static String X3D_PYTHON_LANGUAGE_BINDING            ="https://www.web3d.org/x3d/stylesheets/python/python.html";
+  public final static String X3D_ONTOLOGY                           ="https://www.web3d.org/x3d/content/semantics/semantics.html";
 
   public final static String W3C_HOME                               ="https://www.w3.org";
   public final static String W3C_STANDARDS_OPEN_WEB_PLATFORM        ="https://www.w3.org/standards";
