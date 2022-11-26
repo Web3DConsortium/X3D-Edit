@@ -42,6 +42,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_ONTOLOGY;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_ONTOLOGY_DOCUMENTATION;
 
 /**
  * Launch HAnim2 standard
@@ -65,6 +66,7 @@ public final class LaunchX3dOntologyPageAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
+    LaunchX3dExamplesAction.sendBrowserTo(X3D_ONTOLOGY_DOCUMENTATION);
     LaunchX3dExamplesAction.sendBrowserTo(X3D_ONTOLOGY);
   }
 
