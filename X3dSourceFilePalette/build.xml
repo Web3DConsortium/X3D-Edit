@@ -234,5 +234,21 @@
     <target name="test-preinit" depends="projectized-common.test-preinit">
         <echo message="${test.run.args}"/>
     </target>
+    
+    <!-- As per the server-cert-keystore-readme.txt.txt in release/modules/ext -->
+    <!-- This process assumes you have already downloaded and stored the new
+         certificate savage.nps.edu.crt in release/modules/ext -->
+    <target name="update.server.certificate" description="Accomplished anytime there is a certificate change, or change in server configuration">
+        
+        <!-- First, delete the old certificate -->
+        <exec executable="keytool" dir="release/modules/ext">
+            <arg line="-delete -alias savage.nps.edu -storepass ${storepass} -keystore server-cert-keystore.jks"/>
+        </exec>
+        
+        <!-- Now, import the new one -->
+        <exec executable="keytool" dir="release/modules/ext">
+            <arg line="-import -noprompt -alias savage.nps.edu -file savage.nps.edu.crt -storepass ${storepass} -keystore server-cert-keystore.jks"/>
+        </exec>
+    </target>
 
 </project>
