@@ -51,6 +51,8 @@ import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_SECURITY;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_SECURITY_VULNERABILITIES;
 import org.web3d.x3d.actions.CommandExecutionScripts;
 import org.web3d.x3d.actions.ViewX3dSecurityExamplesOnlineAction;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
@@ -75,7 +77,9 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
   {
       controller = null;
       initComponents();
-      hideHeilanComponents ();
+
+//    hideHeilanComponents ();
+//    hideBSContactGeoComponents (); // duplicative product
 
       load();  // restore saved defaults to panel
   }
@@ -86,8 +90,6 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
     initComponents();
 
     load ();  // restore saved defaults to panel
-    hideHeilanComponents ();
-    hideBSContactGeoComponents (); // duplicative product
   }
 
   private void hideHeilanComponents ()
@@ -216,6 +218,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         verticalSpacerLabel1 = new javax.swing.JLabel();
         externalX3dEditorLabel1 = new javax.swing.JLabel();
         verticalSpacerLabel8 = new javax.swing.JLabel();
+        defunctX3dEditorLabel = new javax.swing.JLabel();
         x3dModelingToolsPanel = new javax.swing.JPanel();
         externalX3dEditorLabel = new javax.swing.JLabel();
         verticalSpacerLabel9 = new javax.swing.JLabel();
@@ -466,6 +469,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         otherVideoEditorDownloadButton = new javax.swing.JButton();
         leftMarginSpacerLabel = new javax.swing.JLabel();
         verticalSpacerLabel6 = new javax.swing.JLabel();
+        externalOntologyEditorLabel = new javax.swing.JLabel();
         x3dEditVisualizationPreferencesPanel = new javax.swing.JPanel();
         verticalSpacerLabel2 = new javax.swing.JLabel();
         horizontalSpacerLabel = new javax.swing.JLabel();
@@ -525,8 +529,11 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         keystoreTF = new javax.swing.JTextField();
         keyStoreButt = new javax.swing.JButton();
         keyStoreDefaultButt = new javax.swing.JButton();
-        examplesLabel = new javax.swing.JLabel();
-        X3dSecurityPageLaunchButton = new javax.swing.JButton();
+        securityExamplesLabel = new javax.swing.JLabel();
+        X3dSecurityExamplesPageLaunchButton = new javax.swing.JButton();
+        securityResourcesLabel = new javax.swing.JLabel();
+        X3dResourcesSecurityButton = new javax.swing.JButton();
+        X3dResourcesSecurityVulnerabilitiesButton = new javax.swing.JButton();
         verticalSpacerLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(850, 600));
@@ -584,12 +591,11 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         heilanLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         org.openide.awt.Mnemonics.setLocalizedText(heilanLabel, "Heilan");
         heilanLabel.setToolTipText("Heilan X3D audiosual player");
-        heilanLabel.setEnabled(false);
         heilanLabel.setMinimumSize(new java.awt.Dimension(120, 20));
         heilanLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -628,7 +634,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         swirlX3DLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -654,7 +660,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         VivatyLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -745,9 +751,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(freeWrlCheckBox, gridBagConstraints);
 
-        heilanCheckBox.setSelected(true);
         heilanCheckBox.setToolTipText("Include when autolaunching all browsers");
-        heilanCheckBox.setEnabled(false);
         heilanCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         heilanCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -756,7 +760,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(heilanCheckBox, gridBagConstraints);
@@ -806,7 +810,6 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(view3dSceneCheckBox, gridBagConstraints);
 
-        vivatyCheckBox.setSelected(true);
         vivatyCheckBox.setToolTipText("Include when autolaunching all browsers");
         vivatyCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vivatyCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -816,12 +819,11 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(vivatyCheckBox, gridBagConstraints);
 
-        swirlX3dCheckBox.setSelected(true);
         swirlX3dCheckBox.setToolTipText("Include when autolaunching all browsers");
         swirlX3dCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         swirlX3dCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -831,7 +833,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(swirlX3dCheckBox, gridBagConstraints);
@@ -921,7 +923,6 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dPlayerPathsPanel.add(freeWrlTF, gridBagConstraints);
 
         heilanTF.setToolTipText("Local file location");
-        heilanTF.setEnabled(false);
         heilanTF.setMinimumSize(new java.awt.Dimension(100, 20));
         heilanTF.setPreferredSize(new java.awt.Dimension(100, 20));
         heilanTF.addActionListener(new java.awt.event.ActionListener() {
@@ -931,7 +932,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
@@ -984,7 +985,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -1020,7 +1021,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -1129,7 +1130,6 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
 
         org.openide.awt.Mnemonics.setLocalizedText(heilanChooserButton, "...");
         heilanChooserButton.setToolTipText("Find local file location");
-        heilanChooserButton.setEnabled(false);
         heilanChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 heilanChooserButtonActionPerformed(evt);
@@ -1137,7 +1137,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1182,7 +1182,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1212,7 +1212,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(vivatyChooserButton, gridBagConstraints);
@@ -1298,7 +1298,6 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(heilanDefaultButton, "default");
         heilanDefaultButton.setToolTipText("Reset default file location");
         heilanDefaultButton.setActionCommand(X3dOptions.getInstantRealityPathDefault());
-        heilanDefaultButton.setEnabled(false);
         heilanDefaultButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 heilanDefaultButtonActionPerformed(evt);
@@ -1306,7 +1305,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1354,7 +1353,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1386,7 +1385,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1471,7 +1470,6 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
 
         org.openide.awt.Mnemonics.setLocalizedText(heilanDownloadButton, "get");
         heilanDownloadButton.setToolTipText("Download player from website");
-        heilanDownloadButton.setEnabled(false);
         heilanDownloadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 heilanDownloadButtonActionPerformed(evt);
@@ -1479,7 +1477,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1524,7 +1522,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1554,7 +1552,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 20;
         x3dPlayerPathsPanel.add(vivatyDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(xj3DDownloadButton, "get");
@@ -1636,7 +1634,6 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(heilanLaunchButton, "launch");
         heilanLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
         heilanLaunchButton.setActionCommand("heilanTF");
-        heilanLaunchButton.setEnabled(false);
         heilanLaunchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 commonLauncher(evt);
@@ -1644,7 +1641,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1692,7 +1689,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1724,7 +1721,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1929,7 +1926,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         externalX3dEditorLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         externalX3dEditorLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         org.openide.awt.Mnemonics.setLocalizedText(externalX3dEditorLabel1, "X3D Players and Viewers");
-        externalX3dEditorLabel1.setToolTipText("External tools for modifying X3D scenes");
+        externalX3dEditorLabel1.setToolTipText("External applications for viewing X3D scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -1942,13 +1939,26 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel8, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(verticalSpacerLabel8, gridBagConstraints);
+
+        defunctX3dEditorLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        defunctX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        org.openide.awt.Mnemonics.setLocalizedText(defunctX3dEditorLabel, "Historical and Defunct Players");
+        defunctX3dEditorLabel.setToolTipText("External tools for modifying X3D scenes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 6, 10, 3);
+        x3dPlayerPathsPanel.add(defunctX3dEditorLabel, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab(org.openide.util.NbBundle.getMessage(OptionsMiscellaneousX3dPanel.class, "Paths_Tab_Title"), null, x3dPlayerPathsPanel, "Set directories for launching external browsers"); // NOI18N
 
@@ -2062,9 +2072,6 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyDownloadButton, "get");
         altovaXMLSpyDownloadButton.setToolTipText("Download tool from website");
         altovaXMLSpyDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        altovaXMLSpyDownloadButton.setMaximumSize(new java.awt.Dimension(25, 22));
-        altovaXMLSpyDownloadButton.setMinimumSize(new java.awt.Dimension(25, 22));
-        altovaXMLSpyDownloadButton.setPreferredSize(new java.awt.Dimension(25, 22));
         altovaXMLSpyDownloadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 altovaXMLSpyDownloadButtonActionPerformed(evt);
@@ -2081,9 +2088,6 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyHelpButton, "help");
         altovaXMLSpyHelpButton.setToolTipText("Display tool help page");
         altovaXMLSpyHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        altovaXMLSpyHelpButton.setMaximumSize(new java.awt.Dimension(31, 22));
-        altovaXMLSpyHelpButton.setMinimumSize(new java.awt.Dimension(31, 22));
-        altovaXMLSpyHelpButton.setPreferredSize(new java.awt.Dimension(31, 22));
         altovaXMLSpyHelpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 altovaXMLSpyHelpButtonActionPerformed(evt);
@@ -2187,9 +2191,6 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorDownloadButton, "get");
         blenderX3dEditorDownloadButton.setToolTipText("Download tool from website");
         blenderX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        blenderX3dEditorDownloadButton.setMaximumSize(new java.awt.Dimension(25, 22));
-        blenderX3dEditorDownloadButton.setMinimumSize(new java.awt.Dimension(25, 22));
-        blenderX3dEditorDownloadButton.setPreferredSize(new java.awt.Dimension(25, 22));
         blenderX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 blenderX3dEditorDownloadButtonActionPerformed(evt);
@@ -4069,7 +4070,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 15;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
@@ -5343,7 +5344,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         externalVideoEditorLabel.setToolTipText("External tools for modifying X3D scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -5353,7 +5354,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel11, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -5364,7 +5365,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         vlcPlayerLabel.setToolTipText("vlc video player");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -5381,7 +5382,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -5395,7 +5396,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -5412,7 +5413,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -5427,7 +5428,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -5443,7 +5444,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(vlcPlayerLaunchButton, gridBagConstraints);
@@ -5458,7 +5459,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -5474,7 +5475,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(vlcPlayerHelpButton, gridBagConstraints);
@@ -5492,7 +5493,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -5510,7 +5511,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -5524,7 +5525,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -5541,7 +5542,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -5556,7 +5557,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(otherVideoEditorClearButton, gridBagConstraints);
@@ -5571,7 +5572,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(otherVideoEditorLaunchButton, gridBagConstraints);
@@ -5586,7 +5587,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -5596,7 +5597,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(leftMarginSpacerLabel, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -5613,6 +5614,19 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(verticalSpacerLabel6, gridBagConstraints);
+
+        externalOntologyEditorLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        externalOntologyEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        org.openide.awt.Mnemonics.setLocalizedText(externalOntologyEditorLabel, "Semantic Web Ontology Tools");
+        externalOntologyEditorLabel.setToolTipText("External tools for modifying X3D scenes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
+        webMultimediaToolsPanel.add(externalOntologyEditorLabel, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab("Web and Multimedia Tools", webMultimediaToolsPanel);
 
@@ -6389,19 +6403,24 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         securityPanel.setPreferredSize(new java.awt.Dimension(825, 600));
         securityPanel.setLayout(new java.awt.GridBagLayout());
 
+        keystoreLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         keystoreLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        org.openide.awt.Mnemonics.setLocalizedText(keystoreLabel, "X3D-Edit keystore");
+        org.openide.awt.Mnemonics.setLocalizedText(keystoreLabel, "X3D-Edit Keystore");
         keystoreLabel.setToolTipText("A keystore holds encryption passwords and authentication certificates");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 6, 3);
         securityPanel.add(keystoreLabel, gridBagConstraints);
 
         keystoreTF.setToolTipText("File location for local keystore");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -6416,7 +6435,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -6431,43 +6450,88 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 40);
         securityPanel.add(keyStoreDefaultButt, gridBagConstraints);
 
-        examplesLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        org.openide.awt.Mnemonics.setLocalizedText(examplesLabel, "X3D Security Examples");
-        examplesLabel.setToolTipText("X3D Security Examples show how to apply XML Encryption and Authentication to X3D scenes");
+        securityExamplesLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        securityExamplesLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        org.openide.awt.Mnemonics.setLocalizedText(securityExamplesLabel, "X3D Security Examples");
+        securityExamplesLabel.setToolTipText("X3D Security Examples show how to apply XML Encryption and Authentication to X3D scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 3, 3);
-        securityPanel.add(examplesLabel, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 6, 3);
+        securityPanel.add(securityExamplesLabel, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(X3dSecurityPageLaunchButton, "http://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html");
-        X3dSecurityPageLaunchButton.setToolTipText("X3D Security Examples show how to apply XML Encryption and Authentication to X3D scenes");
-        X3dSecurityPageLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(X3dSecurityExamplesPageLaunchButton, "X3D Security Examples and README");
+        X3dSecurityExamplesPageLaunchButton.setToolTipText("X3D Security Examples show how to apply XML Encryption and Authentication to X3D scenes");
+        X3dSecurityExamplesPageLaunchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                X3dSecurityPageLaunchButtonActionPerformed(evt);
+                X3dSecurityExamplesPageLaunchButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 40, 3, 3);
+        securityPanel.add(X3dSecurityExamplesPageLaunchButton, gridBagConstraints);
+
+        securityResourcesLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        securityResourcesLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        org.openide.awt.Mnemonics.setLocalizedText(securityResourcesLabel, "X3D Security Resources");
+        securityResourcesLabel.setToolTipText("X3D Security Examples show how to apply XML Encryption and Authentication to X3D scenes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 6, 3);
+        securityPanel.add(securityResourcesLabel, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(X3dResourcesSecurityButton, "X3D Resources: Security");
+        X3dResourcesSecurityButton.setToolTipText("X3D Resources: Security provides numerous references and requirements");
+        X3dResourcesSecurityButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                X3dResourcesSecurityButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 40, 3, 3);
-        securityPanel.add(X3dSecurityPageLaunchButton, gridBagConstraints);
+        securityPanel.add(X3dResourcesSecurityButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(X3dResourcesSecurityVulnerabilitiesButton, "X3D Resources: Vulnerabilities");
+        X3dResourcesSecurityVulnerabilitiesButton.setToolTipText("Vulnerabilities unique to X3D are relatively few but deserve attention");
+        X3dResourcesSecurityVulnerabilitiesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                X3dResourcesSecurityVulnerabilitiesButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 40, 3, 3);
+        securityPanel.add(X3dResourcesSecurityVulnerabilitiesButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 1.0;
@@ -6742,11 +6806,11 @@ private void otherX3dPlayerNameTFActionPerformed(java.awt.event.ActionEvent evt)
     X3dOptions.setOtherX3dPlayerName(otherX3dPlayerNameTF.getText().trim());
 }//GEN-LAST:event_otherX3dPlayerNameTFActionPerformed
 
-private void X3dSecurityPageLaunchButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_X3dSecurityPageLaunchButtonActionPerformed
-{//GEN-HEADEREND:event_X3dSecurityPageLaunchButtonActionPerformed
+private void X3dSecurityExamplesPageLaunchButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_X3dSecurityExamplesPageLaunchButtonActionPerformed
+{//GEN-HEADEREND:event_X3dSecurityExamplesPageLaunchButtonActionPerformed
      ViewX3dSecurityExamplesOnlineAction viewX3dSecurityExamplesOnlineAction = new ViewX3dSecurityExamplesOnlineAction();
      viewX3dSecurityExamplesOnlineAction.performAction();
-}//GEN-LAST:event_X3dSecurityPageLaunchButtonActionPerformed
+}//GEN-LAST:event_X3dSecurityExamplesPageLaunchButtonActionPerformed
 
 private void heilanChooserButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_heilanChooserButtonActionPerformed
 {//GEN-HEADEREND:event_heilanChooserButtonActionPerformed
@@ -8247,6 +8311,14 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         browserLaunch(X3dOptions.helpSiteAltovaXMLSpy);
     }//GEN-LAST:event_altovaXMLSpyHelpButtonActionPerformed
 
+    private void X3dResourcesSecurityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_X3dResourcesSecurityButtonActionPerformed
+       openInBrowser(X3D_RESOURCES_SECURITY);
+    }//GEN-LAST:event_X3dResourcesSecurityButtonActionPerformed
+
+    private void X3dResourcesSecurityVulnerabilitiesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_X3dResourcesSecurityVulnerabilitiesButtonActionPerformed
+        openInBrowser(X3D_RESOURCES_SECURITY_VULNERABILITIES);
+    }//GEN-LAST:event_X3dResourcesSecurityVulnerabilitiesButtonActionPerformed
+
   private void amayaAutoLaunchCheck ()
   {
     checkExistingFile = new File(amayaEditorPathTF.getText().trim());
@@ -8898,7 +8970,9 @@ polyTransNuGrafAutoLaunchCheck ();
     private javax.swing.JButton SwirlX3DLaunchButton;
     private javax.swing.JLabel View3dSceneLabel;
     private javax.swing.JLabel VivatyLabel;
-    private javax.swing.JButton X3dSecurityPageLaunchButton;
+    private javax.swing.JButton X3dResourcesSecurityButton;
+    private javax.swing.JButton X3dResourcesSecurityVulnerabilitiesButton;
+    private javax.swing.JButton X3dSecurityExamplesPageLaunchButton;
     private javax.swing.JLabel Xj3DLabel;
     private javax.swing.JCheckBox altovaXMLSpyCheckBox;
     private javax.swing.JButton altovaXMLSpyChooserButton;
@@ -8971,7 +9045,8 @@ polyTransNuGrafAutoLaunchCheck ();
     private javax.swing.JTextField curaX3dEditorPathTF;
     private javax.swing.JButton defaultEditorOptionsButton;
     private javax.swing.JButton defaultVisualizationSettingsButton;
-    private javax.swing.JLabel examplesLabel;
+    private javax.swing.JLabel defunctX3dEditorLabel;
+    private javax.swing.JLabel externalOntologyEditorLabel;
     private javax.swing.JLabel externalVideoEditorLabel;
     private javax.swing.JLabel externalVolumeEditorLabel;
     private javax.swing.JLabel externalX3dEditorLabel;
@@ -9185,7 +9260,9 @@ polyTransNuGrafAutoLaunchCheck ();
     private javax.swing.JButton seamless3dX3dEditorLaunchButton;
     private javax.swing.JTextField seamless3dX3dEditorPathTF;
     private javax.swing.JLabel secondsLabel;
+    private javax.swing.JLabel securityExamplesLabel;
     private javax.swing.JPanel securityPanel;
+    private javax.swing.JLabel securityResourcesLabel;
     private javax.swing.JCheckBox seg3dVolumeEditorCheckBox;
     private javax.swing.JButton seg3dVolumeEditorChooserButton;
     private javax.swing.JButton seg3dVolumeEditorDefaultButton;
