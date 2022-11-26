@@ -258,8 +258,9 @@ public class X3dOptions
   public static String             IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY =             "IMAGEJ_AUTOLAUNCH";
   public static String        IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY =        "IMAGEMAGICK_AUTOLAUNCH";
   public static String                VLC_EXECUTABLE_AUTOLAUNCH_KEY =                "VLC_AUTOLAUNCH";
+  public static String            PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY =            "PROTEGE_AUTOLAUNCH";
   
-  public static String      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY =       "ALTOVA_XMLSPY_AUTOLAUNCH";
+  public static String      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY =      "ALTOVA_XMLSPY_AUTOLAUNCH";
   public static String            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY =            "BLENDER_AUTOLAUNCH";
   public static String    BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY =    "BSCONTENTSTUDIO_AUTOLAUNCH";
   public static String               CURA_EXECUTABLE_AUTOLAUNCH_KEY =               "CURA_AUTOLAUNCH";
@@ -279,12 +280,14 @@ public class X3dOptions
   public static String OTHER_IMAGE_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY = "OTHER_IMAGE_EDITOR_AUTOLAUNCH";
   public static String OTHER_VIDEO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY = "OTHER_VIDEO_EDITOR_AUTOLAUNCH";
   public static String OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY="OTHER_VOLUME_EDITOR_AUTOLAUNCH";
+  public static String OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY="OTHER_SEMANTICWEB_EDITOR_AUTOLAUNCH";
   
   public static String OTHER_AUDIO_EDITOR_EXECUTABLE_NAME_KEY       = "OTHER_AUDIO_EDITOR_EXECUTABLE_NAME";
   public static String OTHER_HTML5_EDITOR_EXECUTABLE_NAME_KEY       = "OTHER_HTML5_EDITOR_EXECUTABLE_NAME";
   public static String OTHER_IMAGE_EDITOR_EXECUTABLE_NAME_KEY       = "OTHER_IMAGE_EDITOR_EXECUTABLE_NAME";
   public static String OTHER_VIDEO_EDITOR_EXECUTABLE_NAME_KEY       = "OTHER_VIDEO_EDITOR_EXECUTABLE_NAME";
   public static String OTHER_VOLUME_EDITOR_EXECUTABLE_NAME_KEY      ="OTHER_VOLUME_EDITOR_EXECUTABLE_NAME";
+  public static String OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_NAME_KEY ="OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_NAME";
   
   /* External viewers options */
   public static String           AMAYA_EDITOR_PATH_KEY          =          "AMAYA_EDITOR_PATH";
@@ -295,6 +298,7 @@ public class X3dOptions
   public static String     IMAGEMAGICK_EDITOR_PATH_KEY          =    "IMAGEMAGICK_EDITOR_PATH";
   public static String            FIJI_EDITOR_PATH_KEY          =           "FIJI_EDITOR_PATH";
   public static String             VLC_PLAYER_PATH_KEY          =            "VLC_PLAYER_PATH";
+  public static String         PROTEGE_PLAYER_PATH_KEY          =         "PROTEGE_PLAYER_PATH";
   public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY        = "ALTOVA_XMLSPY_X3D_EDITOR_PATH";
   public static String     BLENDER_X3D_EDITOR_PATH_KEY          =    "BLENDER_X3D_EDITOR_PATH";
   public static String BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY      = "BSCONTENTSTUDIO_X3D_EDITOR_PATH";
@@ -315,18 +319,21 @@ public class X3dOptions
   public static String   OTHER_IMAGE_EDITOR_NAME_KEY            =   "OTHER_IMAGE_EDITOR_NAME";
   public static String   OTHER_VIDEO_EDITOR_NAME_KEY            =   "OTHER_VIDEO_EDITOR_NAME";
   public static String  OTHER_VOLUME_EDITOR_NAME_KEY            =  "OTHER_VOLUME_EDITOR_NAME";
+  public static String  OTHER_SEMANTICWEB_EDITOR_NAME_KEY       =  "OTHER_SEMANTICWEB_EDITOR_NAME";
   public static String     OTHER_X3D_EDITOR_NAME_KEY            =     "OTHER_X3D_EDITOR_NAME";
   public static String   OTHER_AUDIO_EDITOR_PATH_KEY            =   "OTHER_AUDIO_EDITOR_PATH";
   public static String   OTHER_HTML5_EDITOR_PATH_KEY            =   "OTHER_HTML5_EDITOR_PATH";
   public static String   OTHER_IMAGE_EDITOR_PATH_KEY            =   "OTHER_IMAGE_EDITOR_PATH";
   public static String   OTHER_VIDEO_EDITOR_PATH_KEY            =   "OTHER_VIDEO_EDITOR_PATH";
   public static String  OTHER_VOLUME_EDITOR_PATH_KEY            =  "OTHER_VOLUME_EDITOR_PATH";
+  public static String  OTHER_SEMANTICWEB_EDITOR_PATH_KEY       =  "OTHER_SEMANTICWEB_EDITOR_PATH";
   public static String     OTHER_X3D_EDITOR_PATH_KEY            =     "OTHER_X3D_EDITOR_PATH";
   public static String   OTHER_AUDIO_EDITOR_SWITCH_KEY          =   "OTHER_AUDIO_EDITOR_SWITCH";
   public static String   OTHER_HTML5_EDITOR_SWITCH_KEY          =   "OTHER_HTML5_EDITOR_SWITCH";
   public static String   OTHER_IMAGE_EDITOR_SWITCH_KEY          =   "OTHER_IMAGE_EDITOR_SWITCH";
   public static String   OTHER_VIDEO_EDITOR_SWITCH_KEY          =   "OTHER_VIDEO_EDITOR_SWITCH";
   public static String  OTHER_VOLUME_EDITOR_SWITCH_KEY          =  "OTHER_VOLUME_EDITOR_SWITCH";
+  public static String  OTHER_SEMANTICWEB_EDITOR_SWITCH_KEY     =  "OTHER_SEMANTICWEB_EDITOR_SWITCH";
   public static String     OTHER_X3D_EDITOR_SWITCH_KEY          =     "OTHER_X3D_EDITOR_SWITCH";
        
   // set in static block below
@@ -361,6 +368,7 @@ public class X3dOptions
   public static String          IMAGEJ_EDITOR_PATH_DEFAULT;
   public static String     IMAGEMAGICK_EDITOR_PATH_DEFAULT;
   public static String             VLC_PLAYER_PATH_DEFAULT;
+  public static String         PROTEGE_PLAYER_PATH_DEFAULT;
   public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT;
   public static String     BLENDER_X3D_EDITOR_PATH_DEFAULT;
   public static String BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT;
@@ -381,18 +389,21 @@ public class X3dOptions
   public static String     OTHER_IMAGE_EDITOR_NAME_DEFAULT;
   public static String     OTHER_VIDEO_EDITOR_NAME_DEFAULT;
   public static String    OTHER_VOLUME_EDITOR_NAME_DEFAULT;
+  public static String OTHER_SEMANTICWEB_EDITOR_NAME_DEFAULT;
   public static String       OTHER_X3D_EDITOR_NAME_DEFAULT;
   public static String     OTHER_AUDIO_EDITOR_PATH_DEFAULT;
   public static String     OTHER_HTML5_EDITOR_PATH_DEFAULT;
   public static String     OTHER_IMAGE_EDITOR_PATH_DEFAULT;
   public static String     OTHER_VIDEO_EDITOR_PATH_DEFAULT;
   public static String    OTHER_VOLUME_EDITOR_PATH_DEFAULT;
+  public static String OTHER_SEMANTICWEB_EDITOR_PATH_DEFAULT;
   public static String       OTHER_X3D_EDITOR_PATH_DEFAULT;
   public static String   OTHER_AUDIO_EDITOR_SWITCH_DEFAULT;
   public static String   OTHER_HTML5_EDITOR_SWITCH_DEFAULT;
   public static String   OTHER_IMAGE_EDITOR_SWITCH_DEFAULT;
   public static String   OTHER_VIDEO_EDITOR_SWITCH_DEFAULT;
   public static String  OTHER_VOLUME_EDITOR_SWITCH_DEFAULT;
+  public static String OTHER_SEMANTICWEB_EDITOR_SWITCH_DEFAULT;
   public static String     OTHER_X3D_EDITOR_SWITCH_DEFAULT;
   
   // note that installation of 32-bit software on 64-bit machines goes to directory C:\\Program Files (x86)\\
@@ -414,7 +425,7 @@ public class X3dOptions
   private static final String winxpOtherX3dPlayerPathDefault       = ""; // user configured
   private static final String winxpOtherX3dPlayerNameDefault       = "(Add another player using X3D-Edit Preferences Panels)"; // user configured
   private static final String winxpOtherX3dEditorPathDefault       = ""; // user configured
-  private static final String winxpOtherX3dEditorNameDefault       = "(Add another authoring tool using X3D-Edit Preferences Panels)"; // user configured
+  private static final String winxpOtherX3dEditorNameDefault       = "(Add another modeling tool using X3D-Edit Preferences Panels)"; // user configured
   private static final String winxpAmayaPathDefault                = "C:\\Program Files\\Amaya\\WindowsWX\\bin\\amaya.exe";
   private static final String winxpChromePathDefault               = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
   private static final String winxpFirefoxPathDefault              = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
@@ -522,6 +533,7 @@ public class X3dOptions
   private static final String downloadSiteOtherImageEditor         = "https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Images";
   private static final String downloadSiteOtherVideoEditor         = "https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Images";
   private static final String downloadSiteOtherVolumeEditor        = "https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Volumes";
+  private static final String downloadSiteOtherSemanticWebEditor   = "https://www.web3d.org/x3d/content/semantics/semantics.html#Tools";
   private static final String downloadSiteOtherX3dEditor           = "https://www.web3d.org/x3d/content/examples/X3dResources.html#AuthoringSoftware";
   
   private static final String winxpAudacityEditorPathDefault             = "C:\\Program Files\\Audacity\\audacity.exe";
@@ -531,6 +543,7 @@ public class X3dOptions
   private static final String winxpImageJEditorPathDefault               = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
   private static final String winxpVlcPlayerPathDefault                  = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
+  private static final String winxpProtegePlayerPathDefault              = "C:\\Program Files\\Protege-5.5.0\\Protege.exe";
   
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
   private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 3.3\\blender.exe";
@@ -554,6 +567,7 @@ public class X3dOptions
   private static final String windows64ImageJEditorPathDefault           = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
   private static final String windows64VlcPlayerPathDefault              = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
+  private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege-5.5.0\\Protege.exe";
   
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
   private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 3.3\\blender.exe";
@@ -577,6 +591,7 @@ public class X3dOptions
   private static final String macosxImageJEditorPathDefault              = "ij.jar";         // TODO insert correct value
   private static final String macosxImageMagickEditorPathDefault         = "imageconverter"; // TODO insert correct value
   private static final String macosxVlcPlayerPathDefault                 = "vlc";            // TODO insert correct value
+  private static final String macosxProtegePlayerPathDefault             = "protege";        // TODO insert correct value
   
   private static final String macosxAltovaXMLSpyX3dEditorPathDefault     = "xmlspy";         // TODO insert correct value
   private static final String macosxBlenderX3dEditorPathDefault          = "blender";        // TODO insert correct value
@@ -600,6 +615,7 @@ public class X3dOptions
   private static final String otherImageJEditorPathDefault               = "ij.jar";         // TODO insert correct value
   private static final String otherImageMagickEditorPathDefault          = "imageconverter"; // TODO insert correct value
   private static final String otherVlcPlayerPathDefault                  = "vlc";            // TODO insert correct value
+  private static final String otherProtegePlayerPathDefault              = "protege";        // TODO insert correct value
   private static final String otherBlenderX3dEditorPathDefault           = "blender";        // TODO insert correct value
   private static final String otherBsContentStudioX3dEditorPathDefault   = "bscomposer";     // TODO insert correct value
   private static final String otherCuraX3dEditorPathDefault              = "Cura";           // TODO insert correct value
@@ -619,16 +635,19 @@ public class X3dOptions
   private static final String  otherImageEditorNameDefault                = "Other tool";
   private static final String  otherVideoEditorNameDefault                = "Other tool";
   private static final String otherVolumeEditorNameDefault                = "Other tool";
+  private static final String otherSemanticWebEditorNameDefault           = "Other tool";
   private static final String  otherAudioEditorPathDefault                = ""; // User defined
   private static final String  otherHtml5EditorPathDefault                = ""; // User defined
   private static final String  otherImageEditorPathDefault                = ""; // User defined
   private static final String  otherVideoEditorPathDefault                = ""; // User defined
+  private static final String otherSemanticWebEditorPathDefault           = ""; // User defined
   private static final String otherVolumeEditorPathDefault                = ""; // User defined
   private static final String  otherAudioEditorSwitchDefault              = ""; // User defined command-line launch switch
   private static final String  otherHtml5EditorSwitchDefault              = ""; // User defined command-line launch switch
   private static final String  otherImageEditorSwitchDefault              = ""; // User defined command-line launch switch
   private static final String  otherVideoEditorSwitchDefault              = ""; // User defined command-line launch switch
   private static final String otherVolumeEditorSwitchDefault              = ""; // User defined command-line launch switch
+  private static final String otherSemanticWebEditorSwitchDefault         = ""; // User defined command-line launch switch
   
   private static final String downloadSiteAudacity                       = "https://www.audacityteam.org/download"; // https://sourceforge.net/projects/audacity";
   private static final String downloadSiteMuseScore                      = "https://musescore.org";
@@ -637,6 +656,7 @@ public class X3dOptions
   private static final String downloadSiteImageJ                         = "https://imagej.nih.gov/ij/download.html"; // https://rsbweb.nih.gov/ij/download.html";
   private static final String downloadSiteImageMagick                    = "https://imagemagick.org/script/download.php";
   private static final String downloadSiteVlc                            = "https://www.videolan.org";
+  private static final String downloadSiteProtege                        = "https://protege.stanford.edu";
  
   private static final String downloadSiteAltovaXMLSpy                   = "https://www.altova.com/download";
   private static final String downloadSiteBlender                        = "https://www.blender.org";
@@ -664,6 +684,7 @@ public class X3dOptions
   protected static final String helpSiteImageJ                           = "https://rsbweb.nih.gov/ij/docs";
   protected static final String helpSiteImageMagick                      = "https://www.imagemagick.org";
   protected static final String helpSiteVlc                              = "https://www.videolan.org/support/#documentation";
+  protected static final String helpSiteProtege                          = "https://protege.stanford.edu/support.php#documentationSupport";
   
   protected static final String helpSiteAltovaXMLSpy                     = "https://www.altova.com/library";
   protected static final String helpSiteBlender                          = "https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
@@ -703,6 +724,7 @@ public class X3dOptions
   public static String getDownloadSiteImageJ()         {return downloadSiteImageJ;}
   public static String getDownloadSiteImageMagick()    {return downloadSiteImageMagick;}
   public static String getDownloadSiteVlc()            {return downloadSiteVlc;}
+  public static String getDownloadSiteProtege()        {return downloadSiteProtege;}
   
   public static String getDownloadSiteAltovaXMLSpy()   {return downloadSiteAltovaXMLSpy;}
   public static String getDownloadSiteBlender()        {return downloadSiteBlender;}
@@ -724,6 +746,7 @@ public class X3dOptions
   public static String getDownloadSiteOtherImageEditor() {return downloadSiteOtherImageEditor;}
   public static String getDownloadSiteOtherVideoEditor() {return downloadSiteOtherVideoEditor;}
   public static String getDownloadSiteOtherVolumeEditor(){return downloadSiteOtherVolumeEditor;}
+  public static String getDownloadSiteOtherSemanticWebEditor(){return downloadSiteOtherSemanticWebEditor;}
   public static String getDownloadSiteOtherX3dEditor()   {return downloadSiteOtherX3dEditor;}
     
   static {
@@ -761,6 +784,7 @@ public class X3dOptions
            IMAGEJ_EDITOR_PATH_DEFAULT        = toks(      macosxImageJEditorPathDefault);
       IMAGEMAGICK_EDITOR_PATH_DEFAULT        = toks( macosxImageMagickEditorPathDefault);
               VLC_PLAYER_PATH_DEFAULT        = toks(         macosxVlcPlayerPathDefault);
+          PROTEGE_PLAYER_PATH_DEFAULT        = toks(     macosxProtegePlayerPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxBlenderX3dEditorPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(macosxBsContentStudioX3dEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     macosxCuraX3dEditorPathDefault);
@@ -808,6 +832,7 @@ public class X3dOptions
            IMAGEJ_EDITOR_PATH_DEFAULT        = toks(      windows64ImageJEditorPathDefault);
       IMAGEMAGICK_EDITOR_PATH_DEFAULT        = toks( windows64ImageMagickEditorPathDefault);
               VLC_PLAYER_PATH_DEFAULT        = toks(         windows64VlcPlayerPathDefault);
+          PROTEGE_PLAYER_PATH_DEFAULT        = toks(     windows64ProtegePlayerPathDefault);
               
 ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64AltovaXMLSpyX3dEditorPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64BlenderX3dEditorPathDefault);
@@ -856,6 +881,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dE
            IMAGEJ_EDITOR_PATH_DEFAULT        = toks(      winxpImageJEditorPathDefault);
       IMAGEMAGICK_EDITOR_PATH_DEFAULT        = toks( winxpImageMagickEditorPathDefault);
               VLC_PLAYER_PATH_DEFAULT        = toks(         winxpVlcPlayerPathDefault);
+          PROTEGE_PLAYER_PATH_DEFAULT        = toks(     winxpProtegePlayerPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpBlenderX3dEditorPathDefault);
 BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     winxpCuraX3dEditorPathDefault);
@@ -902,6 +928,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEdito
            IMAGEJ_EDITOR_PATH_DEFAULT        = toks(      otherImageJEditorPathDefault);
       IMAGEMAGICK_EDITOR_PATH_DEFAULT        = toks( otherImageMagickEditorPathDefault);
               VLC_PLAYER_PATH_DEFAULT        = toks(         otherVlcPlayerPathDefault);
+          PROTEGE_PLAYER_PATH_DEFAULT        = toks(     otherProtegePlayerPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  otherBlenderX3dEditorPathDefault);
 BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     otherCuraX3dEditorPathDefault);
@@ -923,19 +950,22 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
     OTHER_IMAGE_EDITOR_NAME_DEFAULT          = toks(        otherImageEditorNameDefault);
     OTHER_VIDEO_EDITOR_NAME_DEFAULT          = toks(        otherVideoEditorNameDefault);
    OTHER_VOLUME_EDITOR_NAME_DEFAULT          = toks(       otherVolumeEditorNameDefault);
-    OTHER_X3D_EDITOR_NAME_DEFAULT          = toks(          otherX3dEditorNameDefault);
+   OTHER_SEMANTICWEB_EDITOR_NAME_DEFAULT     = toks(  otherSemanticWebEditorNameDefault);
+    OTHER_X3D_EDITOR_NAME_DEFAULT            = toks(          otherX3dEditorNameDefault);
     OTHER_AUDIO_EDITOR_PATH_DEFAULT          = toks(        otherAudioEditorPathDefault);
     OTHER_HTML5_EDITOR_PATH_DEFAULT          = toks(        otherHtml5EditorPathDefault);
     OTHER_IMAGE_EDITOR_PATH_DEFAULT          = toks(        otherImageEditorPathDefault);
     OTHER_VIDEO_EDITOR_PATH_DEFAULT          = toks(        otherVideoEditorPathDefault);
    OTHER_VOLUME_EDITOR_PATH_DEFAULT          = toks(       otherVolumeEditorPathDefault);
-    OTHER_X3D_EDITOR_PATH_DEFAULT          = toks(          otherX3dEditorPathDefault);
+   OTHER_SEMANTICWEB_EDITOR_PATH_DEFAULT     = toks(  otherSemanticWebEditorPathDefault);
+    OTHER_X3D_EDITOR_PATH_DEFAULT            = toks(          otherX3dEditorPathDefault);
   OTHER_AUDIO_EDITOR_SWITCH_DEFAULT          = toks(      otherAudioEditorSwitchDefault);
   OTHER_HTML5_EDITOR_SWITCH_DEFAULT          = toks(      otherHtml5EditorSwitchDefault);
   OTHER_IMAGE_EDITOR_SWITCH_DEFAULT          = toks(      otherImageEditorSwitchDefault);
   OTHER_VIDEO_EDITOR_SWITCH_DEFAULT          = toks(      otherVideoEditorSwitchDefault);
  OTHER_VOLUME_EDITOR_SWITCH_DEFAULT          = toks(     otherVolumeEditorSwitchDefault);
-  OTHER_X3D_EDITOR_SWITCH_DEFAULT          = toks(        otherX3dEditorSwitchDefault);
+ OTHER_SEMANTICWEB_EDITOR_SWITCH_DEFAULT     = toks(otherSemanticWebEditorSwitchDefault);
+  OTHER_X3D_EDITOR_SWITCH_DEFAULT            = toks(        otherX3dEditorSwitchDefault);
   }
   private static String toks(String s)
   {
@@ -970,6 +1000,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String       getImageJEditorPathDefault()   {return          IMAGEJ_EDITOR_PATH_DEFAULT;}
   public static String  getImageMagickEditorPathDefault()   {return     IMAGEMAGICK_EDITOR_PATH_DEFAULT;}
   public static String          getVlcPlayerPathDefault()   {return             VLC_PLAYER_PATH_DEFAULT;}
+  public static String      getProtegePlayerPathDefault()   {return         PROTEGE_PLAYER_PATH_DEFAULT;}
   
   public static String getAltovaXMLSpyX3dEditorPathDefault() {return ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getBlenderX3dEditorPathDefault()   {return     BLENDER_X3D_EDITOR_PATH_DEFAULT;}
@@ -990,19 +1021,22 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String   getOtherHtml5EditorNameDefault()   {return     OTHER_HTML5_EDITOR_NAME_DEFAULT;}
   public static String   getOtherImageEditorNameDefault()   {return     OTHER_IMAGE_EDITOR_NAME_DEFAULT;}
   public static String   getOtherVideoEditorNameDefault()   {return     OTHER_VIDEO_EDITOR_NAME_DEFAULT;}
-  public static String  getOtherVolumeEditorNameDefault()   {return    OTHER_VOLUME_EDITOR_NAME_DEFAULT;}
+  public static String  getOtherVolumeEditorNameDefault()   {return     OTHER_VOLUME_EDITOR_NAME_DEFAULT;}
+  public static String  getOtherSemanticWebEditorNameDefault() {return  OTHER_SEMANTICWEB_EDITOR_NAME_DEFAULT;}
   public static String   getOtherSceneEditorNameDefault()   {return     OTHER_X3D_EDITOR_NAME_DEFAULT;}
   public static String   getOtherAudioEditorPathDefault()   {return     OTHER_AUDIO_EDITOR_PATH_DEFAULT;}
   public static String   getOtherHtml5EditorPathDefault()   {return     OTHER_HTML5_EDITOR_PATH_DEFAULT;}
   public static String   getOtherImageEditorPathDefault()   {return     OTHER_IMAGE_EDITOR_PATH_DEFAULT;}
   public static String   getOtherVideoEditorPathDefault()   {return     OTHER_VIDEO_EDITOR_PATH_DEFAULT;}
-  public static String  getOtherVolumeEditorPathDefault()   {return    OTHER_VOLUME_EDITOR_PATH_DEFAULT;}
+  public static String  getOtherVolumeEditorPathDefault()   {return     OTHER_VOLUME_EDITOR_PATH_DEFAULT;}
+  public static String  getOtherSemanticWebEditorPathDefault() {return  OTHER_SEMANTICWEB_EDITOR_PATH_DEFAULT;}
   public static String   getOtherSceneEditorPathDefault()   {return     OTHER_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getOtherAudioEditorSwitchDefault() {return     OTHER_AUDIO_EDITOR_SWITCH_DEFAULT;}
   public static String   getOtherHtml5EditorSwitchDefault() {return     OTHER_HTML5_EDITOR_SWITCH_DEFAULT;}
   public static String   getOtherImageEditorSwitchDefault() {return     OTHER_IMAGE_EDITOR_SWITCH_DEFAULT;}
   public static String   getOtherVideoEditorSwitchDefault() {return     OTHER_VIDEO_EDITOR_SWITCH_DEFAULT;}
-  public static String  getOtherVolumeEditorSwitchDefault() {return    OTHER_VOLUME_EDITOR_SWITCH_DEFAULT;}
+  public static String  getOtherVolumeEditorSwitchDefault() {return     OTHER_VOLUME_EDITOR_SWITCH_DEFAULT;}
+  public static String  getOtherSemanticWebEditorSwitchDefault() {return OTHER_SEMANTICWEB_EDITOR_SWITCH_DEFAULT;}
   public static String   getOtherSceneEditorSwitchDefault() {return     OTHER_X3D_EDITOR_SWITCH_DEFAULT;}
 
   public static void setContactPath              (String path){commonSet(CONTACT_EXECUTABLE_PATH_KEY, path);}
@@ -1030,6 +1064,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void       setImageJEditorPath    (String path){commonSet(        IMAGEJ_EDITOR_PATH_KEY, path);}
   public static void  setImageMagickEditorPath    (String path){commonSet(   IMAGEMAGICK_EDITOR_PATH_KEY, path);}
   public static void          setVlcPlayerPath    (String path){commonSet(           VLC_PLAYER_PATH_KEY, path);}
+  public static void      setProtegePlayerPath    (String path){commonSet(       PROTEGE_PLAYER_PATH_KEY, path);}
   
   public static void setAltovaXMLSpyX3dEditorPath (String path){commonSet(  ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY, path);}
   public static void   setBlenderX3dEditorPath    (String path){commonSet(   BLENDER_X3D_EDITOR_PATH_KEY, path);}
@@ -1052,6 +1087,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void   setOtherImageEditorName    (String name){commonSet(   OTHER_IMAGE_EDITOR_NAME_KEY, name);}
   public static void   setOtherVideoEditorName    (String name){commonSet(   OTHER_VIDEO_EDITOR_NAME_KEY, name);}
   public static void  setOtherVolumeEditorName    (String name){commonSet(  OTHER_VOLUME_EDITOR_NAME_KEY, name);}
+  public static void  setOtherSemanticWebEditorName (String name){commonSet(  OTHER_SEMANTICWEB_EDITOR_NAME_KEY, name);}
   public static void   setOtherSceneEditorName    (String name){commonSet(OTHER_X3D_EDITOR_NAME_KEY, name);}
   
   public static void   setOtherAudioEditorPath    (String path){commonSet(   OTHER_AUDIO_EDITOR_PATH_KEY, path);}
@@ -1059,12 +1095,14 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void   setOtherImageEditorPath    (String path){commonSet(   OTHER_IMAGE_EDITOR_PATH_KEY, path);}
   public static void   setOtherVideoEditorPath    (String path){commonSet(   OTHER_VIDEO_EDITOR_PATH_KEY, path);}
   public static void  setOtherVolumeEditorPath    (String path){commonSet(  OTHER_VOLUME_EDITOR_PATH_KEY, path);}
+  public static void setOtherSemanticWebEditorPath (String path){commonSet(  OTHER_SEMANTICWEB_EDITOR_PATH_KEY, path);}
   public static void   setOtherSceneEditorPath    (String path){commonSet(OTHER_X3D_EDITOR_PATH_KEY, path);}
   public static void setOtherAudioEditorSwitch (String pswitch){commonSet(   OTHER_AUDIO_EDITOR_SWITCH_KEY, pswitch);}
   public static void setOtherHtml5EditorSwitch (String pswitch){commonSet(   OTHER_HTML5_EDITOR_SWITCH_KEY, pswitch);}
   public static void setOtherImageEditorSwitch (String pswitch){commonSet(   OTHER_IMAGE_EDITOR_SWITCH_KEY, pswitch);}
   public static void setOtherVideoEditorSwitch (String pswitch){commonSet(   OTHER_VIDEO_EDITOR_SWITCH_KEY, pswitch);}
   public static void setOtherVolumeEditorSwitch(String pswitch){commonSet(  OTHER_VOLUME_EDITOR_SWITCH_KEY, pswitch);}
+  public static void setOtherSemanticWebEditorSwitch(String pswitch){commonSet(  OTHER_SEMANTICWEB_EDITOR_SWITCH_KEY, pswitch);}
   public static void setOtherSceneEditorSwitch (String pswitch){commonSet(OTHER_X3D_EDITOR_SWITCH_KEY, pswitch);}
 
   public static void setContactAutoLaunch        (String autoLaunch){commonSet(CONTACT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1089,6 +1127,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void           setImageJAutoLaunch (String autoLaunch){commonSet(            IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void      setImageMagickAutoLaunch (String autoLaunch){commonSet(       IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void              setVlcAutoLaunch (String autoLaunch){commonSet(               VLC_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setProtegeAutoLaunch (String autoLaunch){commonSet(           PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void     setAltovaXMLSpyAutoLaunch (String autoLaunch){commonSet(     ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setBlenderAutoLaunch (String autoLaunch){commonSet(           BLENDER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void  setBsContentStudioAutoLaunch (String autoLaunch){commonSet(   BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1109,6 +1148,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void setOtherImageEditorAutoLaunch (String autoLaunch){commonSet(OTHER_IMAGE_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setOtherVideoEditorAutoLaunch (String autoLaunch){commonSet(OTHER_VIDEO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setOtherVolumeEditorAutoLaunch(String autoLaunch){commonSet(OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherSemanticWebEditorAutoLaunch(String autoLaunch){commonSet(OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
 
   public static void setLaunchInterval           (String path){commonSet(LAUNCH_INTERVAL_KEY,path);}
 
@@ -1139,6 +1179,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String       getImageJEditorPath()       {return commonGet(        IMAGEJ_EDITOR_PATH_KEY,        IMAGEJ_EDITOR_PATH_DEFAULT);}
   public static String  getImageMagickEditorPath()       {return commonGet(   IMAGEMAGICK_EDITOR_PATH_KEY,   IMAGEMAGICK_EDITOR_PATH_DEFAULT);}
   public static String          getVlcPlayerPath()       {return commonGet(           VLC_PLAYER_PATH_KEY,           VLC_PLAYER_PATH_DEFAULT);}
+  public static String      getProtegePlayerPath()       {return commonGet(       PROTEGE_PLAYER_PATH_KEY,       PROTEGE_PLAYER_PATH_DEFAULT);}
   
   public static String getAltovaXMLSpyX3dEditorPath()    {return commonGet(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY,ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT);}
   public static String   getBlenderX3dEditorPath()       {return commonGet(   BLENDER_X3D_EDITOR_PATH_KEY,   BLENDER_X3D_EDITOR_PATH_DEFAULT);}
@@ -1160,11 +1201,13 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String   getOtherImageEditorPath()       {return commonGet(   OTHER_IMAGE_EDITOR_PATH_KEY,   OTHER_IMAGE_EDITOR_PATH_DEFAULT);}
   public static String   getOtherVideoEditorPath()       {return commonGet(   OTHER_VIDEO_EDITOR_PATH_KEY,   OTHER_VIDEO_EDITOR_PATH_DEFAULT);}
   public static String   getOtherVolumeEditorPath()      {return commonGet(  OTHER_VOLUME_EDITOR_PATH_KEY,  OTHER_VOLUME_EDITOR_PATH_DEFAULT);}
+  public static String   getOtherSemanticWebEditorPath() {return commonGet(OTHER_SEMANTICWEB_EDITOR_PATH_KEY,  OTHER_SEMANTICWEB_EDITOR_PATH_DEFAULT);}
   public static String   getOtherAudioEditorName()       {return commonGet(   OTHER_AUDIO_EDITOR_NAME_KEY,   OTHER_AUDIO_EDITOR_NAME_DEFAULT);}
   public static String   getOtherHtml5EditorName()       {return commonGet(   OTHER_HTML5_EDITOR_NAME_KEY,   OTHER_HTML5_EDITOR_NAME_DEFAULT);}
   public static String   getOtherImageEditorName()       {return commonGet(   OTHER_IMAGE_EDITOR_NAME_KEY,   OTHER_IMAGE_EDITOR_NAME_DEFAULT);}
   public static String   getOtherVideoEditorName()       {return commonGet(   OTHER_VIDEO_EDITOR_NAME_KEY,   OTHER_VIDEO_EDITOR_NAME_DEFAULT);}
   public static String   getOtherVolumeEditorName()      {return commonGet(  OTHER_VOLUME_EDITOR_NAME_KEY,  OTHER_VOLUME_EDITOR_NAME_DEFAULT);}
+  public static String   getOtherSemanticWebEditorName() {return commonGet(OTHER_SEMANTICWEB_EDITOR_NAME_KEY,OTHER_SEMANTICWEB_EDITOR_NAME_DEFAULT);}
 
   public static String isContactAutoLaunch()        {return commonGet(CONTACT_EXECUTABLE_AUTOLAUNCH_KEY,               AUTOLAUNCH_DEFAULT);}
   public static String isContactGeoAutoLaunch()     {return commonGet(CONTACT_GEO_EXECUTABLE_AUTOLAUNCH_KEY,           AUTOLAUNCH_DEFAULT);}
@@ -1188,6 +1231,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String            isImageJAutoLaunch() {return commonGet(             IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String       isImageMagickAutoLaunch() {return commonGet(        IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String               isVlcAutoLaunch() {return commonGet(                VLC_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String           isProtegeAutoLaunch() {return commonGet(            PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String      isAltovaXMLSpyAutoLaunch() {return commonGet(      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isBlenderAutoLaunch() {return commonGet(            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String   isBsContentStudioAutoLaunch() {return commonGet(    BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
@@ -1208,6 +1252,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String  isOtherImageEditorAutoLaunch() {return commonGet( OTHER_IMAGE_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String  isOtherVideoEditorAutoLaunch() {return commonGet( OTHER_VIDEO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String isOtherVolumeEditorAutoLaunch() {return commonGet(OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String isOtherSemanticWebEditorAutoLaunch() {return commonGet(OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,AUTOLAUNCH_DEFAULT);}
 
   public static String getLaunchInterval()             {return commonGet(LAUNCH_INTERVAL_KEY,                  LAUNCH_INTERVAL_DEFAULT);}
   public static Long   getLaunchIntervalMilliseconds() {return Long.parseLong(getLaunchInterval()) * 1000l;} // convert seconds to msec
@@ -1243,6 +1288,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void       resetImageJEditorPath() {commonReset(         IMAGEJ_EDITOR_PATH_KEY);}
   public static void  resetImageMagickEditorPath() {commonReset(    IMAGEMAGICK_EDITOR_PATH_KEY);}
   public static void          resetVlcPlayerPath() {commonReset(            VLC_PLAYER_PATH_KEY);}
+  public static void      resetProtegePlayerPath() {commonReset(        PROTEGE_PLAYER_PATH_KEY);}
   public static void   resetAltovaXMLSpyX3dEditorPath() {commonReset(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY);}
   public static void   resetBlenderX3dEditorPath() {commonReset(    BLENDER_X3D_EDITOR_PATH_KEY);}
   public static void resetBsContentStudioX3dEditorPath() {commonReset(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY);}
@@ -1263,11 +1309,13 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void   resetOtherImageEditorPath() {commonReset(    OTHER_IMAGE_EDITOR_PATH_KEY);}
   public static void   resetOtherVideoEditorPath() {commonReset(    OTHER_VIDEO_EDITOR_PATH_KEY);}
   public static void  resetOtherVolumeEditorPath() {commonReset(   OTHER_VOLUME_EDITOR_PATH_KEY);}
+  public static void  resetOtherSemanticWebEditorPath() {commonReset(OTHER_SEMANTICWEB_EDITOR_PATH_KEY);}
   public static void   resetOtherAudioEditorName() {commonReset(    OTHER_AUDIO_EDITOR_NAME_KEY);}
   public static void   resetOtherHtml5EditorName() {commonReset(    OTHER_HTML5_EDITOR_NAME_KEY);}
   public static void   resetOtherImageEditorName() {commonReset(    OTHER_IMAGE_EDITOR_NAME_KEY);}
   public static void   resetOtherVideoEditorName() {commonReset(    OTHER_VIDEO_EDITOR_NAME_KEY);}
   public static void  resetOtherVolumeEditorName() {commonReset(   OTHER_VOLUME_EDITOR_NAME_KEY);}
+  public static void  resetOtherSemanticWebEditorName() {commonReset(   OTHER_SEMANTICWEB_EDITOR_NAME_KEY);}
  
   private static void commonSet(String key, String val)
   {
