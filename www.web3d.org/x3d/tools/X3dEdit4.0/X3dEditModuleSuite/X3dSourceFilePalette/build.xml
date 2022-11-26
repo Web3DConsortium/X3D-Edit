@@ -207,6 +207,16 @@
         <antcall target="get.latest"/>
     </target>
     
+    <!-- We don't need to deploy this file -->
+    <target name="-post-netbeans">
+        <delete>
+            <fileset dir="${suite.dir}/build/cluster/modules/ext">
+                <include name="server-cert-keystore-readme.txt"/>
+            </fileset>
+        </delete>
+    </target>
+    <target name="netbeans" depends="projectized-common.netbeans,-post-netbeans"/>
+    
     <target name="run" description="run parent X3D-Edit 4.0 Module Suite">
         <echo message="run parent X3D-Edit 4.0 Module Suite" />
         <ant  antfile="${suite.dir}/build.xml" target="run" useNativeBasedir="true" inheritAll="false"/>
@@ -248,6 +258,24 @@
         <!-- Now, import the new one -->
         <exec executable="keytool" dir="release/modules/ext">
             <arg line="-import -noprompt -alias savage.nps.edu -file savage.nps.edu.crt -storepass ${storepass} -keystore server-cert-keystore.jks"/>
+        </exec>
+    </target>
+    
+    <target name="list.savage.server.cert" description="Lists the contents of the savage.nps.edu cert">
+        <exec executable="keytool" dir="release/modules/ext">
+            <arg line="-list -v -keystore server-cert-keystore.jks -storepass ${storepass}"/>
+        </exec>
+    </target>
+    
+    <target name="generate.self.signing.cert" description="Generate a 90 day self-signing certificate for signing NBMs">
+        <exec executable="keytool">
+            <arg line="-genkey -keyalg RSA -alias savage.nps.edu -keystore ${keystore} -validity 90 -keysize 2048"/>
+        </exec>
+    </target>
+    
+    <target name="list.self.signing.cert" description="Lists the contents of the NBM self-signing cert">
+        <exec executable="keytool">
+            <arg line="-list -v -keystore ${keystore} -storepass ${storepass}"/>
         </exec>
     </target>
 
