@@ -204,7 +204,10 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         debugCheckBox = new javax.swing.JCheckBox();
         spacerLabel = new javax.swing.JLabel();
         verticalSpacerLabel = new javax.swing.JLabel();
+        reportXj3dCadFilterOptionsPanelButton = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(625, 460));
+        setPreferredSize(new java.awt.Dimension(709, 460));
         setLayout(new java.awt.GridBagLayout());
 
         sceneResultsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(getClass(), "Xj3dCadFilterOptionsPanel.sceneResultsPanel.border.title"))); // NOI18N
@@ -498,8 +501,8 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         flattenTextureTransformsCheckBox.setText(org.openide.util.NbBundle.getMessage(getClass(), "Xj3dCadFilterOptionsPanel.flattenTextureTransformsCheckBox.text")); // NOI18N
         flattenTextureTransformsCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.flattenTextureTransformsCheckBox.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -560,8 +563,8 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
 
         modifyViewpointCheckBox.setText(org.openide.util.NbBundle.getMessage(getClass(), "Xj3dCadFilterOptionsPanel.modifyViewpointCheckBox.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -570,8 +573,8 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         triangulationFilterCheckBox.setText(org.openide.util.NbBundle.getMessage(getClass(), "Xj3dCadFilterOptionsPanel.triangulationFilterCheckBox.text")); // NOI18N
         triangulationFilterCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.triangulationFilterCheckBox.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -636,6 +639,19 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(verticalSpacerLabel, gridBagConstraints);
+
+        reportXj3dCadFilterOptionsPanelButton.setText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.reportXj3dCadFilterOptionsPanelButton.text")); // NOI18N
+        reportXj3dCadFilterOptionsPanelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportXj3dCadFilterOptionsPanelButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(reportXj3dCadFilterOptionsPanelButton, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
   private void resetButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_resetButtonActionPerformed
@@ -681,6 +697,10 @@ private void indexFilterCheckBoxActionPerformed(java.awt.event.ActionEvent evt) 
         // TODO add your handling code here:
     }//GEN-LAST:event_logLevelCBActionPerformed
 
+    private void reportXj3dCadFilterOptionsPanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportXj3dCadFilterOptionsPanelButtonActionPerformed
+        (new OptionsMiscellaneousX3dPanel()).reportButtonSend ("Panel Preferences: Xj3D CAD Filter Options tab");
+    }//GEN-LAST:event_reportXj3dCadFilterOptionsPanelButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox IFStoITSCheckBox;
     private javax.swing.JCheckBox IFStoTSCheckBox;
@@ -715,6 +735,8 @@ private void indexFilterCheckBoxActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JCheckBox minimumProfileCheckBox;
     private javax.swing.JCheckBox modifyViewpointCheckBox;
     private javax.swing.JCheckBox reIndexCheckBox;
+    private javax.swing.JButton reportSecurityPanelButton;
+    private javax.swing.JButton reportXj3dCadFilterOptionsPanelButton;
     private javax.swing.JButton resetButton;
     private javax.swing.JPanel sceneResultsPanel;
     private javax.swing.JLabel spacerLabel;
