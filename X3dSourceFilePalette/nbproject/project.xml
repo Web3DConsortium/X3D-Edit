@@ -564,10 +564,15 @@
             <word>customizer</word>
             <word>denormalization</word>
             <word>denormalized</word>
+            <word>deserialization</word>
+            <word>deserialized</word>
             <word>DOCTYPE</word>
+            <word>htmlcolorcodes</word>
             <word>https</word>
+            <word>Redistributions</word>
             <word>stackoverflow</word>
             <word>strictfp</word>
+            <word>TODO</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
