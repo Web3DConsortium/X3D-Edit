@@ -453,7 +453,7 @@ POSSIBILITY OF SUCH DAMAGE.
         <file name="Classes_hidden"/>
         <folder name="Other">
             <file name="HelloWorldX3D4.x3d" url="nbresloc:/org/web3d/x3d/templates/HelloWorldX3D4.x3d">
-                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/HelloWorldX3D4"/>
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/HelloWorldX3D4.x3d"/>
                 <attr name="template" boolvalue="true"/>
                 <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
                 <attr name="templateCategory" stringvalue="simple-files"/>
