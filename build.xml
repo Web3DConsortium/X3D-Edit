@@ -54,8 +54,17 @@
         <property name="mac_runarguments"  value="${common.xj3d.args} ${xj3darg8} ${xj3darg9} ${xj3darg10} ${xj3darg11} ${xj3darg14}"/>
     </target>
     
+    <!-- We don't need to deploy this file -->
+    <target name="-post-build">
+        <delete>
+            <fileset dir="build/cluster/modules/ext">
+                <include name="server-cert-keystore-readme.txt"/>
+            </fileset>
+        </delete>
+    </target>
+    
     <!-- override build to add update branding -->
-    <target name="build" depends="build-brand,suite.build"/>
+    <target name="build" depends="build-brand,suite.build,-post-build"/>
     <target name="build-brand" depends="-init">
         
         <tstamp>
@@ -180,14 +189,9 @@
         <!-- TODO implementation-independent approach if possible, but note that other Ant approaches usually have to be customized for each OS. -->
     </target>
     
-    <target name="open.harness.readme" description="view the NetBeans harness README file" depends="open.harness.readme.mac,open.harness.readme.win">
-        <echo message="${message}"/>
-    </target>
-    <target name="open.harness.readme.mac">
-        <loadfile property="message" srcFile="../../../../../../../${harness.readme}"/>
-    </target>
-    <target name="open.harness.readme.win">
+    <target name="open.harness.readme" description="view the NetBeans harness README file">
         <loadfile property="message" srcFile="${harness.readme}"/>
+        <echo message="${message}"/>
     </target>
     
 </project>
