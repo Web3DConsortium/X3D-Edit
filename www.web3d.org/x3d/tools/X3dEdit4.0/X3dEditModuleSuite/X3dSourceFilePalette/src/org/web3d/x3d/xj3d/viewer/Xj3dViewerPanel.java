@@ -173,18 +173,18 @@ public class Xj3dViewerPanel extends JPanel implements BrowserListener
   @Override
   public void browserChanged(BrowserEvent ev)
   {
-    switch(ev.getID()) {
-      case BrowserEvent.INITIALIZED:
-        // If we don't get this after a replace scene, xj3d broken
-        //System.out.println("World Initialized");
-        break;
-      case BrowserEvent.URL_ERROR:
-        //System.out.println("Error loading world");
-        break;
-      default:
-    }
-    System.out.flush();
-
+      switch (ev.getID()) {
+          case BrowserEvent.INITIALIZED -> {
+              // If we don't get this after a replace scene, xj3d broken
+//              System.out.println("World Initialized");
+          }
+          case BrowserEvent.URL_ERROR -> {
+//              System.out.println("Error loading world");
+          }
+          default -> {
+                System.out.flush();
+          }
+      }
   }
 
   /** Creates a new Xj3DBrowser instance */
@@ -220,20 +220,22 @@ public class Xj3dViewerPanel extends JPanel implements BrowserListener
 
           String path = jarredFile.getParent().getPath();
 
-          // TODO: The path is incorrect and will fail on relative paths for texture 
-          // image loading b/c it points to a virtual directory. Will work for any
-          // other non-texture mapping scene, i.e. Templates/MaterialExample.x3d
+          // TODO: The path is incorrect and will fail on relative paths for 
+          // texture image loading offline b/c that path points to a virtual 
+          // directory (Templates/Other). Will work for any other non-texture 
+          // mapping scene, i.e. X3dExamples/MaterialExample.x3d
           openXj3dScene(path, jarredFile.getInputStream());
         }
         else
         {
-            System.out.print ("*** Xj3dViewerPanel initialize() has no X3D jarredScene to load: ");
+            System.err.print ("*** " + this.getClass().getName() + 
+                    " initialize() has no X3D jarredScene to load: ");
             if (jarredScene == null)
-                System.out.println ("(null)");
+                System.err.println ("(null)");
             else if (jarredScene.isBlank())
-                System.out.println ("(blank)");
+                System.err.println ("(blank)");
             else
-                System.out.println ("'" + jarredScene + "'");
+                System.err.println ("'" + jarredScene + "'");
         }
     } 
     catch (IOException ex) {
@@ -281,8 +283,14 @@ public class Xj3dViewerPanel extends JPanel implements BrowserListener
       currentX3dDataObject = xObj;
       try {
           currentFile = FileUtil.toFile(xObj.getPrimaryFile());
-          currentFileName = currentFile.getName();
-          String path = currentFile.getParentFile().toURI().toURL().toExternalForm();
+          String path;
+          if (currentFile != null) { // as can happen if we open a template file in the editor
+              currentFileName = currentFile.getName();
+              path = currentFile.getParentFile().toURI().toURL().toExternalForm();
+          } else {
+              path = xObj.getPrimaryFile().getPath();
+              currentFileName = xObj.getPrimaryFile().getNameExt();
+          }
           openXj3dScene(path, xObj.getPrimaryFile().getInputStream());
       } catch (IOException ex) {
           ErrorManager.getDefault().log(ErrorManager.EXCEPTION, ex.getMessage());
