@@ -324,6 +324,9 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                         <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
                     </folder>
+                    <folder name="X3D Work in Progress">
+                        <attr name="position" intvalue="1050"/>
+                    </folder>
                     <file name="org-web3d-popup-5.instance">
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                         <attr name="position" intvalue="1099"/>
@@ -789,6 +792,9 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- X3D4 Architecture Standard           LaunchX3D4ArchitectureStandardAction       position 300 -->
                 <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                 <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
+            </folder>
+            <folder name="X3D Work in Progress">
+                <attr name="position" intvalue="1050"/>
             </folder>
             <file name="org-web3d-menu-5.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
