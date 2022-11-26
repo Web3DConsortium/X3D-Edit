@@ -87,7 +87,10 @@ import static org.web3d.x3d.types.X3DSchemaData.XML_ELNAME;
 @SuppressWarnings("serial")
 public abstract class BaseCustomizer extends JPanel
 {
-  public  static final String reportTooltip = "Send email issue report: please describe issue, give example .x3d excerpt or attach a snapshot";
+    /**
+     * tooltip for mailto Report buttons
+     */
+    public  static final String MAILTO_MAILTO_TOOLTIP = "Send email issue report: please describe issue, give example .x3d excerpt or attach a snapshot";
   private DialogDescriptor buttonsDialogDescriptor, exitDescriptor = null;
   private Dialog buttonsDialogDisplayer, exitDialog = null;
   private boolean dropOK;
@@ -359,7 +362,7 @@ public abstract class BaseCustomizer extends JPanel
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
     if (reportButton != null)
     {
-        reportButton.setToolTipText(reportTooltip);
+        reportButton.setToolTipText(MAILTO_MAILTO_TOOLTIP);
         reportButton.addActionListener(emailReportActionListener);
         reportButton.setVisible(true);
     }

@@ -1592,7 +1592,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Report"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="BaseCustomizer.reportTooltip" type="code"/>
+                  <Connection code="BaseCustomizer.MAILTO_MAILTO_TOOLTIP" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -3111,7 +3111,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Report"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="BaseCustomizer.reportTooltip" type="code"/>
+                  <Connection code="BaseCustomizer.MAILTO_MAILTO_TOOLTIP" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -4269,7 +4269,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Report"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="BaseCustomizer.reportTooltip" type="code"/>
+                  <Connection code="BaseCustomizer.MAILTO_MAILTO_TOOLTIP" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -5603,7 +5603,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Report"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="BaseCustomizer.reportTooltip" type="code"/>
+                  <Connection code="BaseCustomizer.MAILTO_MAILTO_TOOLTIP" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -6523,7 +6523,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Report"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="BaseCustomizer.reportTooltip" type="code"/>
+                  <Connection code="BaseCustomizer.MAILTO_MAILTO_TOOLTIP" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -6718,7 +6718,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Report"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="BaseCustomizer.reportTooltip" type="code"/>
+                  <Connection code="BaseCustomizer.MAILTO_MAILTO_TOOLTIP" type="code"/>
                 </Property>
               </Properties>
               <Events>

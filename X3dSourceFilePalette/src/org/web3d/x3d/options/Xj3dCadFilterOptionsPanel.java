@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2008-2021 held by the author(s).  All rights reserved.
+Copyright (c) 2008-2022 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -41,7 +41,8 @@ package org.web3d.x3d.options;
 
 import javax.swing.JOptionPane;
 import org.openide.util.NbBundle;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.palette.items.BaseCustomizer;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
  *
@@ -641,6 +642,7 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         add(verticalSpacerLabel, gridBagConstraints);
 
         reportXj3dCadFilterOptionsPanelButton.setText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.reportXj3dCadFilterOptionsPanelButton.text")); // NOI18N
+        reportXj3dCadFilterOptionsPanelButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
         reportXj3dCadFilterOptionsPanelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportXj3dCadFilterOptionsPanelButtonActionPerformed(evt);
