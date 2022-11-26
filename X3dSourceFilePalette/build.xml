@@ -17,8 +17,6 @@
         <mkdir dir="${x3dDtdsSchemas.dir}"/>
         <mkdir dir="${x3dSchematron.dir}"/>
         <mkdir dir="${x3dStylesheets.dir}"/>
-        
-        <antcall target="get.latest"/>
     </target>
     
     <target name="get.latest.DTDs" description="Download latest DTD files from version control">
@@ -205,7 +203,9 @@
     <target name="get.latest" depends="get.latest.DTDs,get.latest.schemas,get.latest.schematrons,get.latest.stylesheets"/>
 
     <!-- override -->
-    <target name="-pre-compile" depends="projectized-common.-pre-compile"/>
+    <target name="-pre-compile" depends="projectized-common.-pre-compile">
+        <antcall target="get.latest"/>
+    </target>
     
     <target name="run" description="run parent X3D-Edit 4.0 Module Suite">
         <echo message="run parent X3D-Edit 4.0 Module Suite" />
