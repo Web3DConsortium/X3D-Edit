@@ -36,6 +36,7 @@ package org.web3d.x3d.config;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.ResourceBundle;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
@@ -45,15 +46,6 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-
-//// TODO
-////@ActionID(id = "org.web3d.x3d.x3dedit.config.X3dEditAboutAction", category = "X3D-Edit")
-////@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3D.png",
-////                    displayName = "About X3D-Edit",
-////                            lazy=true)
-////@ActionReferences(value = {
-////  @ActionReference(path = "Menu/X3D", position = 625), // see layer.xml
-////})
 
 @ActionID(id = "org.web3d.x3d.x3dedit.config.X3dEditAboutAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
@@ -74,35 +66,25 @@ public final class X3dEditAboutAction extends CallableSystemAction
   @Override
   public void performAction()
   {
-        // https://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html
-        Date today;
-        String dateOutput;
-        SimpleDateFormat formatter;
-
-        formatter = new SimpleDateFormat("dd MMMM YYYY", Locale.US);
-        today = new Date();
-        dateOutput = formatter.format(today); // TODO don't want today, want build date!
+      ResourceBundle bundle = NbBundle.getBundle("org.netbeans.core.windows.view.ui.Bundle_" + NbBundle.getBranding());
+      String dateOutput = bundle.getString("CTL_MainWindow_Title");
         
         // TODO add splash screen image
         
-        // TODO update the release date via top-level TSTAMP property and a regexexp task
-        
-        String aboutHtmlMessage = "<html>"
-            + "<p>&nbsp;</p>" +
-              "<h2 align='center'>X3D-Edit 4.0 &nbsp; &nbsp; </h2>" +
-              "<p align='center'>X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
-              "<p align='center'>&nbsp;</p>" +
-              "<p align='center'>Revised &nbsp;<b>" + 
-                    "26 November 2022" + // dateOutput + // TODO change to regex changeable BUILD_DATE_REVISION 
-                    "</b>" +
-//                    " with issue reports welcome via <a href='" + LaunchEmailReportAction.MAILTO_REPORT_URL + "'>e-mail</a>." +
-              "</p>"
+        String aboutHtmlMessage = "<html>" +
+                "<p>&nbsp;</p>" +
+                "<h2 align='center'>X3D-Edit 4.0 &nbsp; &nbsp; </h2>" +
+                "<p align='center'>X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
+                "<p align='center'>&nbsp;</p>" +
+                "<p align='center'>Revised &nbsp;<b>" + dateOutput + "</b>" +
+//                " with issue reports welcome via <a href='" + LaunchEmailReportAction.MAILTO_REPORT_URL + "'>e-mail</a>." +
+                "</p>" +
 //        TODO: link not working
 //             + "<p align='center'>&nbsp;</p>"
 //             + "<p align='center'>Use the X3D-Edit Information menu to launch X3D-Edit home page and issue reports.</p>"
 //             + "<p align='center'>&nbsp;</p>" 
 //             + "<p align='center'><a href='https://savage.nps.edu/X3D-Edit'>https://savage.nps.edu/X3D-Edit</a></p>";
-              ;
+               "</html>";
 
 //    final JButton reportButton = new JButton("Report");
 //    final ActionListener emailReportActionListener = (ActionEvent event) ->
@@ -136,36 +118,6 @@ public final class X3dEditAboutAction extends CallableSystemAction
                 aboutHtmlMessage, "About X3D-Edit", NotifyDescriptor.PLAIN_MESSAGE);
 
         DialogDisplayer.getDefault().notify(notifyDescriptor);
-        
-                  
-//    DialogDescriptor descriptor = new DialogDescriptor(new aboutContentPanel(),
-//                                                       NbBundle.getMessage(X3dEditAboutAction.class, "X3D_About_Dialog_Title"));
-//    
-//    descriptor.setOptionType(DEFAULT_OPTION);
-    
-////    DialogDescriptor descriptor = new DialogDescriptor(
-////            new aboutContentPanel(),
-////            NbBundle.getMessage(X3dEditAboutAction.class, "X3D_About_Dialog_Title"),
-////            true, //model
-////            new Object[0], //options
-////            null, //initialvalue
-////            DialogDescriptor.DEFAULT_ALIGN,
-////            null, // helpctx
-////            null);// actionlistener
-//
-//    Dialog dlg = null;
-//    try {
-//        dlg = DialogDisplayer.getDefault().createDialog(descriptor);
-//        dlg.setResizable(false);
-//        //dlg.setMinimumSize(new Dimension(300,200));
-//        //dlg.setMaximumSize(new Dimension(300,200));
-//        dlg.pack();
-//        dlg.setVisible(true);
-//    }
-//    finally {
-//      if(dlg != null)
-//        dlg.dispose();
-//    }
   }
 
   @Override
