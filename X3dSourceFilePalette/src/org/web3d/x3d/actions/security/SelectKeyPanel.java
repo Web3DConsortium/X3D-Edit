@@ -60,10 +60,7 @@ import org.web3d.x3d.options.X3dOptions;
 /**
  *
  * @author  mike
- * 
- * @deprecated use org.web3d.x3d.actions.security.BouncyCastleHelper
  */
-@Deprecated(since = "3.2", forRemoval = true)
 public class SelectKeyPanel extends javax.swing.JPanel
 {
   private final int ALIAS_TABLE_COLUMN = 0;
