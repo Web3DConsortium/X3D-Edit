@@ -560,19 +560,41 @@
             </class-path-extension>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>ClassicVRML</word>
             <word>classpath</word>
+            <word>ConformanceNist</word>
+            <word>CSS</word>
             <word>customizer</word>
             <word>denormalization</word>
             <word>denormalized</word>
             <word>deserialization</word>
             <word>deserialized</word>
             <word>DOCTYPE</word>
+            <word>DTD</word>
+            <word>HAnim</word>
             <word>htmlcolorcodes</word>
             <word>https</word>
+            <word>JSON</word>
+            <word>mailto</word>
+            <word>MeshLab</word>
+            <word>NuGraf</word>
+            <word>Okino</word>
+            <word>Paraview</word>
+            <word>PolyTrans</word>
+            <word>Quickstart</word>
+            <word>README</word>
             <word>Redistributions</word>
+            <word>SavageDefense</word>
             <word>stackoverflow</word>
             <word>strictfp</word>
             <word>TODO</word>
+            <word>tooltip</word>
+            <word>tooltips</word>
+            <word>UltraEdit</word>
+            <word>VRML</word>
+            <word>Xj3D</word>
+            <word>WHATWG</word>
+            <word>WhiteDune</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
