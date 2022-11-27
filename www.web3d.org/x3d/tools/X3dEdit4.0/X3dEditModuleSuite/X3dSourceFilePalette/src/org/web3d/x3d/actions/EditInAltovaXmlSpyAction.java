@@ -49,7 +49,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.EditInAltovaXMLSpyAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.EditInAltovaXMLSpyAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/altova-favicon-32x32.png",
                     displayName = "#CTL_EditInAltovaXMLSpyAction", lazy=true)
 @ActionReferences( value = {

@@ -41,7 +41,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.ViewInOtherAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.ViewInOtherAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_ViewInOtherAction",lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 200),

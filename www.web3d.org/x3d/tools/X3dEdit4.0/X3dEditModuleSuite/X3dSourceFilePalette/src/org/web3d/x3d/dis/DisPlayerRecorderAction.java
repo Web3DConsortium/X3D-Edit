@@ -48,7 +48,7 @@ import org.openide.windows.TopComponent;
 /**
  * Action which shows DisPlayerRecorder component.
  */
-@ActionID(id = "org.web3d.x3d.dis.DisPlayerRecorderAction", category = "Window")
+@ActionID(id = "org.web3d.x3d.dis.DisPlayerRecorderAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_DisPlayerRecorderAction", lazy = false)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/DIS Networking", name = "DisPlayerRecorderAction", position = 100),

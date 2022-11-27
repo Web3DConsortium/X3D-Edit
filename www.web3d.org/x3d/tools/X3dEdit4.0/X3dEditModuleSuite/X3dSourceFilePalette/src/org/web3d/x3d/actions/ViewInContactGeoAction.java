@@ -50,7 +50,7 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
 // do not show, duplicative
-//@ActionID(id = "org.web3d.x3d.actions.ViewInContactGeoAction", category = "View")
+//@ActionID(id = "org.web3d.x3d.actions.ViewInContactGeoAction", category = "X3D-Edit")
 //@ActionRegistration(   iconBase = "org/web3d/x3d/resources/bitmanagement09_favicon_16x16.png",
 //                    displayName = "#CTL_ViewInContactGeoAction", lazy=true)
 //@ActionReferences( value = {

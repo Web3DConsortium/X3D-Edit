@@ -47,7 +47,7 @@ import org.web3d.x3d.options.X3dOptions;
 
 // Hide, no longer active
 /*
-@ActionID(id = "org.web3d.x3d.actions.ViewInHeilanAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.ViewInHeilanAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_ViewInHeilanAction", lazy=true)
 @ActionReferences( value = {
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 125),

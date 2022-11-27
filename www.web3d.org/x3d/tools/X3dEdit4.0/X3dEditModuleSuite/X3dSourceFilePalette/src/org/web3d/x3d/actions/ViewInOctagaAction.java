@@ -49,7 +49,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.ViewInOctagaAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.ViewInOctagaAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/octaga_favicon.png",
                     displayName = "#CTL_ViewInOctagaAction", lazy=true)
 @ActionReferences(value = {

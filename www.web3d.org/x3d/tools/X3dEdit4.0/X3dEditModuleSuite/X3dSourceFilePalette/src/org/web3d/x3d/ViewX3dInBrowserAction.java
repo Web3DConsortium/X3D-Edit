@@ -60,7 +60,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
 
-@ActionID(id = "org.web3d.x3d.ViewX3dInBrowserAction", category = "View")
+@ActionID(id = "org.web3d.x3d.ViewX3dInBrowserAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_ViewX3dInBrowser", lazy=true)
 @ActionReferences(value = {

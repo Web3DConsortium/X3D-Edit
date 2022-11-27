@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_GRAPHICS_STANDARDS_RELATI
                     displayName = "#CTL_LaunchX3dGraphicsStandardsRelationshipsAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 100)
+  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 800, separatorBefore = 799),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 800, separatorBefore = 799)
 })
 
 @SuppressWarnings("serial")

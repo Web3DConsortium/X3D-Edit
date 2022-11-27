@@ -55,10 +55,11 @@ import org.openide.util.NbPreferences;
 public class X3dOptions
 {
   /* Security options */
-  public static       String KEYSTORE_PATH_KEY = "KEYSTORE_PATH";
-  public static       String KEYSTORE_PATH_DEFAULT; // set in static block
+  public static       String KEYSTORE_PATH_KEY         = "KEYSTORE_PATH";
+  public static       String KEYSTORE_PATH_DEFAULT     = "C:\\x3d-code\\x3d\\content\\examples\\Basic\\Security\\keystore"; // previously set in static block
+  public static       String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; 
 //  public static final String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeyStoreNameExtension()).toString();
-  
+
   public static final String USER_NAME_TOKEN = "__USER-NAME__";
   public static final String userName, x3dEditPath;
   static {

@@ -49,7 +49,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.EditInBlenderAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.EditInBlenderAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/Blender_favicon32x32.png",
                     displayName = "#CTL_EditInBlenderAction", lazy=true)
 @ActionReferences( value = {

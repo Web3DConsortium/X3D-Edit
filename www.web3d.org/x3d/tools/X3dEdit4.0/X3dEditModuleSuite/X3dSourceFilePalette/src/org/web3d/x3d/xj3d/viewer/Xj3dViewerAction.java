@@ -46,7 +46,7 @@ import org.openide.util.NbBundle;
 /**
  * Action which shows Xj3dTopComponent.
  */
-@ActionID(id = "org.web3d.x3d.xj3d.viewer.Xj3dViewerAction", category = "Window")
+@ActionID(id = "org.web3d.x3d.xj3d.viewer.Xj3dViewerAction", category = "X3D-Edit")
 
 @ActionRegistration(iconBase = "org/web3d/x3d/resources/xj3d.png",
         displayName = "#CTL_Xj3dViewerAction",
