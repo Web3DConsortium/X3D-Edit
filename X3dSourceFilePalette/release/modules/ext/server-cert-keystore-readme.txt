@@ -60,7 +60,7 @@ keytool -import -alias savage.nps.edu -file savage.nps.edu.cer -storepass change
 3. Will also have to import the JDK's keystore as server-cert-keystore.jks does 
 not yet contain these certs:
 
-keytool -importkeystore -v -srckeystore /Library/Java/JavaVirtualMachines/${jdk.version)/Contents/Home/lib/security/cacerts -destkeystore server-cert-keystore.jks
+keytool -importkeystore -v -srckeystore ${java.home)/lib/security/cacerts -storepass changeit -destkeystore server-cert-keystore.jks
 
 This import is so the regular NetBeans Platform can find it's own plugin updates
 
