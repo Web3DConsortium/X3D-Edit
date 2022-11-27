@@ -58,6 +58,14 @@ import org.openide.util.actions.CallableSystemAction;
   @ActionReference(path = "Menu/X3D-Edit/Security/Manage XML Security keystore...", position = 160),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Security/Manage XML Security keystore...", position = 160)})
 
+/**
+ * Class to use Portecle to manage public/private key pair via UI during run
+ * time.
+ * 
+ * @deprecated
+ * No longer acceptable due to the harshness of the Portecle UI frame behavior
+ */
+@Deprecated(since = "3.3", forRemoval = true)
 public final class ManageKeyStorePortecleAction extends CallableSystemAction
 {
   public static ManageKeyStorePortecleAction instance;
