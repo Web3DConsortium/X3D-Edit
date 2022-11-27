@@ -115,7 +115,6 @@ public class BouncyCastleHelper
   
   /**
    * @param msg to show in dialog
-   * @param flush true = disregard saved password
    * @return
    */
   public static char[] getAPassword(String msg)
@@ -272,8 +271,7 @@ public class BouncyCastleHelper
   {
     do {
       try {
-        SelectKeyPanel keyPan = new SelectKeyPanel(type);
-        return keyPan;
+        return new SelectKeyPanel(type);
       }
       catch (KeystorePasswordException pwEx) {  // other exceptions are caught up the stack
         flushPassword();
