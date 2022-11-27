@@ -93,8 +93,8 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
     // Taken from: https://bits.netbeans.org/7.4/javadoc/org-openide-text/apichanges.html#CloneableEditorSupport.asynchronousOpen
     @Override
     protected boolean asynchronousOpen() {
-        boolean retVal = super.asynchronousOpen(); // default false
-        return !retVal; // so, flip it to avoid blocking AWT thread
+        // default false
+        return !super.asynchronousOpen(); // so, flip it to avoid blocking AWT thread
     }
 
     /**
