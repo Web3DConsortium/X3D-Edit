@@ -91,6 +91,7 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
     }
 
     // Taken from: https://bits.netbeans.org/7.4/javadoc/org-openide-text/apichanges.html#CloneableEditorSupport.asynchronousOpen
+    // Even with this overridden here, org.openide.text.CloneableEditorSupport warns that we should override??
     @Override
     protected boolean asynchronousOpen() {
         // default false
