@@ -114,10 +114,12 @@ POSSIBILITY OF SUCH DAMAGE.
     -->
     <folder name="OptionsDialog">
         <folder name="Advanced">
+            <!-- add to Tools Options Miscellaneous -->
             <file name="org-web3d-x3d-options-X3dAdvancedOptions.instance"/>
         </folder>
     </folder>
     <folder name="Toolbars">
+        <!--
         <file name="Build_hidden"/>
         <file name="Debug_hidden"/>
         <file name="Debugging.xml_hidden"/>
@@ -125,6 +127,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="org-netbeans-modules-project-ui-NewProject.shadow_hidden"/>
             <file name="org-netbeans-modules-project-ui-OpenProject.shadow_hidden"/>
         </folder>
+        -->
         <folder name="Memory">
             <!-- intentionally hide Profile buttons -->
             <file name="org-netbeans-modules-masterfs-ui-suspend-PauseAction.shadow_hidden"/>
@@ -244,8 +247,6 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- X3d Validator online server            X3dValidatorOnlineAction                 position 1000 -->
                         <!-- X3D Quality Assurance (QA)             LaunchX3dResourcesQualityAssuranceAction position 1010 -->
                         <!-- X3D Regular Expressions (regexes)      X3dValuesRegexCheckerAction              position 1020 -->
-                        <!-- X3D Unified Object Model (X3DUOM)      X3duomAction                             position 1030 -->
-                        <!-- X3D Validation: Schema DOCTYPE X3DUOM  LaunchX3dSchemaDoctypeValidationAction   position 1040 -->
                         <file name="org-web3d-x3d-actions-qualityassurance-separatorBefore.instance">
                             <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                             <attr name="position" intvalue="1100"/>
@@ -326,6 +327,8 @@ POSSIBILITY OF SUCH DAMAGE.
                     </folder>
                     <folder name="X3D Work in Progress">
                         <attr name="position" intvalue="1050"/>
+                        <!-- X3D Unified Object Model (X3DUOM)      X3duomAction                             position 1030 -->
+                        <!-- X3D Validation: Schema DOCTYPE X3DUOM  LaunchX3dSchemaDoctypeValidationAction   position 1040 -->
                     </folder>
                     <file name="org-web3d-popup-5.instance">
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
@@ -517,7 +520,9 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="enabled" boolvalue="true"/>
                 <attr name="instanceCreate" methodvalue="org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogFactory.createUpdateProvider"/>
                 <attr name="instanceOf" stringvalue="org.netbeans.spi.autoupdate.UpdateProvider"/>
-                <!-- Update mechanism not working via SourceForge files. TODO confirm certificate issues prevent savage.nps.edu from working properly -->
+                <!-- Update mechanism did not work via SourceForge x3d Files directory, presumably due to url mangling. -->
+                <!-- Note dependency on certificate setups for savage.nps.edu -->
+                <!-- Note SSL Certificate Exception plugin https://plugins.netbeans.apache.org/catalogue/?id=20 -->
                 <attr name="url" stringvalue="https://savage.nps.edu/X3D-Edit/netbeans_modules/updates.xml"/>
             </file>
         </folder>
@@ -595,6 +600,7 @@ POSSIBILITY OF SUCH DAMAGE.
         </folder>
     </folder>
     <folder name="Menu">
+        <!-- 
         <folder name="File"/>
         <folder name="Edit"/>
         <folder name="Tools">
@@ -607,6 +613,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <attr name="position" intvalue="450"/>
             <folder name="Web"/>
         </folder>
+        -->
         <folder name="X3D-Edit">
             <attr name="position" intvalue="1250"/>
             <folder name="Author Workflow">
@@ -834,11 +841,11 @@ POSSIBILITY OF SUCH DAMAGE.
         <folder name="Components">
             <file name="DisPlayerRecorderTopComponent.settings" url="DisPlayerRecorderTopComponentSettings.xml"/>
             <file name="DisTesterTopComponent.settings" url="DisTesterTopComponentSettings.xml"/>
-            <file name="JShellEditor.settings_hidden"/>
+        <!--<file name="JShellEditor.settings_hidden"/> -->
             <file name="Xj3dTopComponent.settings" url="Xj3dTopComponentSettings.xml"/> <!-- renamed -->
-            <file name="projectTabLogical_tc.settings_hidden"/>
+        <!--<file name="projectTabLogical_tc.settings_hidden"/>
             <file name="projectTab_tc.settings_hidden"/>
-            <file name="services.settings_hidden"/>
+            <file name="services.settings_hidden"/> -->
         </folder>
         <folder name="Modes">
             <folder name="editor">

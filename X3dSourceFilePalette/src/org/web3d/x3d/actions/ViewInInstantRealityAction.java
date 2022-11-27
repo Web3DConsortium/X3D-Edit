@@ -49,7 +49,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.ViewInInstantRealityAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.ViewInInstantRealityAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/instantreality_16x16.png",
                     displayName = "#CTL_ViewInInstantRealityAction", lazy=true)
 @ActionReferences( value = {

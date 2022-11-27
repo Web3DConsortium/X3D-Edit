@@ -49,7 +49,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.ViewInView3dSceneAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.ViewInView3dSceneAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/CastleGameEngine_header_icon.png",
                     displayName = "#CTL_ViewInView3dSceneAction",
                             lazy=true)

@@ -63,7 +63,7 @@ import xj3d.browser.*;
 /*
   This one views the scene in the Application version of the XJ3d installed player.
 */
-@ActionID(id = "org.web3d.x3d.actions.conversions.ViewInXj3DApplicationAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.conversions.ViewInXj3DApplicationAction", category = "X3D-Edit")
 @ActionRegistration(
            iconBase = "org/web3d/x3d/resources/xj3d.png",
         displayName = "#CTL_ViewInXj3DApplicationAction",

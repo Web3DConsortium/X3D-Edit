@@ -49,7 +49,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.EditInUltraEditAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.EditInUltraEditAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/ultraedit_favicon_32x32.png", // ico
                     displayName = "#CTL_EditInUltraEditAction", lazy=true)
 @ActionReferences( value = {

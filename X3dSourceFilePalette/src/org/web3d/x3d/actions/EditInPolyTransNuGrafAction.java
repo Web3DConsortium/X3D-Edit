@@ -49,7 +49,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.EditInPolyTransNuGrafAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.EditInPolyTransNuGrafAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/okino-nugraf-apple-touch-icon-120x120-precomposed-32x32.png", // ico
                     displayName = "#CTL_EditInPolyTransNuGrafAction", lazy=true)
 @ActionReferences( value = {

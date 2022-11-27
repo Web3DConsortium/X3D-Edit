@@ -43,7 +43,7 @@ import org.web3d.x3d.options.X3dOptions;
 /*
   This one views the scene in the EXTERNAL user-installed version of the XJ3d installed player.
 */
-@ActionID(id = "org.web3d.x3d.actions.ViewInXj3DExternalAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.ViewInXj3DExternalAction", category = "X3D-Edit")
 @ActionRegistration(
            iconBase = "org/web3d/x3d/resources/xj3d.png",
         displayName = "#CTL_ViewInXj3DExternalAction",

@@ -49,7 +49,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.EditInParaviewAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.EditInParaviewAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/paraview-cropped-favicon-32x32.png", 
                     displayName = "#CTL_EditInParaviewAction", lazy=true)
 @ActionReferences( value = {

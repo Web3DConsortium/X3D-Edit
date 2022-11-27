@@ -60,7 +60,7 @@ import org.web3d.x3d.actions.conversions.ViewInXj3DApplicationAction;
 import org.web3d.x3d.options.X3dOptions;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
-@ActionID(id = "org.web3d.x3d.actions.ViewInAllAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.ViewInAllAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_ViewInAllAction", lazy=true)
 @ActionReferences( value = {

@@ -48,7 +48,7 @@ import org.openide.windows.TopComponent;
 /**
  * Action which shows DisTester component.
  */
-@ActionID(id = "org.web3d.x3d.dis.DisEspduSenderAction", category = "Window")
+@ActionID(id = "org.web3d.x3d.dis.DisEspduSenderAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_DisEspduSenderAction", lazy = false)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/DIS Networking", name = "org-web3d-x3d-dis-DisTesterAction", position = 200),

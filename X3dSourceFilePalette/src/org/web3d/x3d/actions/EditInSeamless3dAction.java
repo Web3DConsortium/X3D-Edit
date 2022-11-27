@@ -49,7 +49,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.EditInSeamless3dAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.EditInSeamless3dAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/seamless3d_favicon.png", // ico
                     displayName = "#CTL_EditInSeamless3dAction", lazy=true)
 @ActionReferences( value = {

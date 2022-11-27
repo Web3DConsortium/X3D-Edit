@@ -49,7 +49,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.EditInWings3dAction", category = "View")
+@ActionID(id = "org.web3d.x3d.actions.EditInWings3dAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/wings3d_32x32.png",
                     displayName = "#CTL_EditInWings3dAction", lazy=true)
 @ActionReferences( value = {
