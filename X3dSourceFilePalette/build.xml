@@ -245,69 +245,60 @@
         <echo message="${test.run.args}"/>
     </target>
     
-    <!-- As per the server-cert-keystore-readme.txt.txt in release/modules/ext -->
+    <!-- As per the server-cert-keystore-readme.txt in release/modules/ext -->
     <!-- This process assumes you have already downloaded and temporarily placed
-         the new certificate {savage.nps.edu.crt} in release/modules/ext. The
+         the new certificate 'savage.nps.edu.cer' in release/modules/ext. The
          certificate can be deleted after this procedure. -->
-    <target name="update.server.certificate" description="Accomplished anytime there is a certificate change, or change in server configuration">
+    <target name="update.server.cert" description="Accomplished anytime there is a certificate change, or change in server configuration">
         
-        <!-- First, delete the old certificate out of the keystore -->
+        <!-- Start fresh -->
+        <delete>
+            <fileset dir="release/modules/ext">
+                <filename name="server-cert-keystore.jks"/>
+            </fileset>
+        </delete>
+        
+        <!-- First import the JDK's keystore -->
         <exec executable="keytool" dir="release/modules/ext">
-            <arg line="-delete -alias savage.nps.edu -storepass ${storepass} -keystore server-cert-keystore.jks"/>
+            <arg line="-importkeystore -v -srckeystore ${java.home}/lib/security/cacerts -storepass ${storepass} -destkeystore server-cert-keystore.jks"/>
         </exec>
         
-        <!-- Now, import the new one into the keystore -->
+        <!-- Now, import the new server cert into the keystore -->
         <exec executable="keytool" dir="release/modules/ext">
-            <arg line="-import -noprompt -alias savage.nps.edu -file savage.nps.edu.crt -storepass ${storepass} -keystore server-cert-keystore.jks"/>
+            <arg line="-import -noprompt -alias ${cert.alias} -file ${cert.alias}.cer -storepass ${storepass} -keystore server-cert-keystore.jks"/>
         </exec>
+        
+        <!-- Delete the new certificate as it's now imported into the JKS -->
+        <delete>
+            <fileset dir="release/modules/ext">
+                <filename name="savage.nps.edu.c*"/>
+            </fileset>
+        </delete>
     </target>
     
-    <target name="list.savage.server.cert" description="Lists the contents of the savage.nps.edu cert">
+    <target name="list.server.cert" description="Lists the contents of the savage.nps.edu cert">
         <exec executable="keytool" dir="release/modules/ext">
             <arg line="-list -v -keystore server-cert-keystore.jks -storepass ${storepass}"/>
         </exec>
     </target>
     
-    <!-- Unfortunately, this procedure is an interactive one, therefore can not
-         be accomplished via this ant task, however, it's a good model for the
-         command line -->
-    <target name="generate.self.signing.cert" description="Generate a 90 day self-signing certificate for signing NBMs. *** Perform this via command line and not this target ***">
+    <!-- From: https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html -->
+    <target name="generate.nbm.self.signing.cert" description="Generate a 90 day self-signing certificate for signing NBMs">
         
-        <!-- First, delete the old certificate out of the keystore -->
-        <exec executable="keytool">
-            <arg line="-delete -alias savage.nps.edu -storepass ${storepass} -keystore ${keystore}"/>
-        </exec>
+        <!-- Start fresh -->
+        <delete file="${keystore}"/>
         
         <!-- Now generate a new 90 day signing key -->
         <exec executable="keytool">
-            <arg line="-genkey -keyalg RSA -alias savage.nps.edu -storepass ${storepass} -keystore ${keystore} -validity 90 -keysize 2048"/>
+            <arg line="-genkey -noprompt -trustcacerts -keyalg RSA -alias ${cert.alias} -dname ${dn.name} -keypass ${storepass} -storepass ${storepass} -keystore ${keystore} -validity 90 -keysize 2048"/>
         </exec>
     </target>
-    <!-- From: https://community.pivotal.io/s/article/Generating-a-self-signed-SSL-certificate-using-the-Java-keytool-command?language=en_US -->
     <!--
-        (base) terry@hal-9008 private % keytool -delete -alias savage.nps.edu -storepass changeit -keystore movesJarSigningKeystore                                                                                                 
-        (base) terry@hal-9008 private % keytool -genkey -keyalg RSA -alias savage.nps.edu -storepass changeit -keystore movesJarSigningKeystore -validity 90 -keysize 2048                                                             
-        Enter the distinguished name. Provide a single dot (.) to leave a sub-component empty or press ENTER to use the default value in braces.
-        What is your first and last name?
-          [Unknown]:  savage.nps.edu
-        What is the name of your organizational unit?
-          [Unknown]:  MOVES Institute
-        What is the name of your organization?
-          [Unknown]:  Naval Postgraduate School (NPS)
-        What is the name of your City or Locality?
-          [Unknown]:  Monterey
-        What is the name of your State or Province?
-          [Unknown]:  CA
-        What is the two-letter country code for this unit?
-          [Unknown]:  US
-        Is CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School, L=Monterey, ST=CA, C=US correct?
-          [no]:  yes
-
         Generating 2,048 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 90 days
-                for: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School, L=Monterey, ST=CA, C=US
+                for: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
     -->
     
-    <target name="list.self.signing.cert" description="Lists the contents of the NBM self-signing cert">
+    <target name="list.nbm.self.signing.cert" description="Lists the contents of the NBM self-signing cert">
         <exec executable="keytool">
             <arg line="-list -v -keystore ${keystore} -storepass ${storepass}"/>
         </exec>
