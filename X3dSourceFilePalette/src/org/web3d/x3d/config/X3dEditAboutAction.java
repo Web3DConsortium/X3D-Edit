@@ -33,9 +33,6 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.web3d.x3d.config;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
