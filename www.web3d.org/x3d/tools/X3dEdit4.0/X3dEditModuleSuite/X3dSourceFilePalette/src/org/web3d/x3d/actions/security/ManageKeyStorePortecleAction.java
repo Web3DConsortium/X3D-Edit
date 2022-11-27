@@ -43,24 +43,23 @@ package org.web3d.x3d.actions.security;
 
 import javax.swing.JMenuItem;
 import net.sf.portecle.FPortecle;
-import org.openide.awt.ActionID;
-import org.openide.awt.ActionReference;
-import org.openide.awt.ActionReferences;
-import org.openide.awt.ActionRegistration;
+//import org.openide.awt.ActionID;
+//import org.openide.awt.ActionReference;
+//import org.openide.awt.ActionReferences;
+//import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 
-@ActionID(id = "org.web3d.x3d.actions.security.ManageKeyStorePortecleAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_ManageKeyStorePortecleAction", 
-                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
-@ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Security/Manage XML Security keystore...", position = 160),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Security/Manage XML Security keystore...", position = 160)})
+//@ActionID(id = "org.web3d.x3d.actions.security.ManageKeyStorePortecleAction", category = "X3D-Edit")
+//@ActionRegistration(displayName = "#CTL_ManageKeyStorePortecleAction", 
+//                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
+//@ActionReferences(value = {
+//  @ActionReference(path = "Menu/X3D-Edit/Security/Manage XML Security keystore...", position = 160),
+//  @ActionReference(path = "Editors/model/x3d+xml/Popup/Security/Manage XML Security keystore...", position = 160)})
 
 /**
- * Class to use Portecle to manage public/private key pair via UI during run
- * time.
+ * Use Portecle UI to manage public/private key pair during runtime
  * 
  * @deprecated
  * No longer acceptable due to the harshness of the Portecle UI frame behavior
