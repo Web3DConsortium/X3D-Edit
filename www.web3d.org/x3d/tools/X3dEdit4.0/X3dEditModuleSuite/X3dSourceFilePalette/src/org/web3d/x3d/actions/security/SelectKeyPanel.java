@@ -60,7 +60,10 @@ import org.web3d.x3d.options.X3dOptions;
 /**
  *
  * @author  mike
+ * 
+ * @deprecated use org.web3d.x3d.actions.security.BouncyCastleHelper
  */
+@Deprecated(since = "3.2", forRemoval = true)
 public class SelectKeyPanel extends javax.swing.JPanel
 {
   private final int ALIAS_TABLE_COLUMN = 0;
@@ -79,7 +82,9 @@ public class SelectKeyPanel extends javax.swing.JPanel
   public static int SIGNING_KEY_TYPE = 1;
   private Integer beSelective = null;
 
-  /** Creates new form ManageKeyStorePanel */
+  /** Creates new form SelectKeyPanel
+   * @throws java.lang.Exception
+   */
   public SelectKeyPanel() throws Exception
   {
     this(null);
@@ -178,7 +183,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
     Collections.sort(rows, dateSorter);
     ((DefaultTableModel) keyTable.getModel()).setDataVector(rows, titles);
     
-    if(rows.size()>0) {
+    if(!rows.isEmpty()) {
       if(initialSelection == null)
         keyTable.setRowSelectionInterval(0,0);
       else {
@@ -196,6 +201,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
 
   private class ByDateSorter implements Comparator<Vector<String>>
   {
+    @Override
     public int compare(Vector<String> v1, Vector<String> v2)
     {
       return v1.elementAt(DATE_TABLE_COLUMN).compareTo(
