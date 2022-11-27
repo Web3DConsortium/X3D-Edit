@@ -39,14 +39,14 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
 import org.web3d.x3d.xj3d.viewer.Xj3dTopComponent;
 
-/* No longer needed in menus since ReloadXj3dAction is fast
+/* No longer needed in menus since Xj3dViewerAction is fast
 @ActionID(id = "org.web3d.x3d.RefreshXj3dAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_RefreshXj3dAction",lazy = true)
 @ActionReference(path = "Editors/model/x3d+xml/Popup", position = 1010)
 */
 
 /** @deprecated use org.web3d.x3d.xj3d.viewer.Xj3dViewerAction */
-@Deprecated
+@Deprecated(since = "3.2", forRemoval = true)
 public final class RefreshXj3dAction extends CookieAction
 {
   @Override
