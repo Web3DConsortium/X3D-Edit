@@ -57,8 +57,8 @@ this command to import the new cert:
 
 keytool -import -alias savage.nps.edu -file savage.nps.edu.cer -storepass changeit -keystore server-cert-keystore.jks
 
-Will also have to import the JDK's keystore as server-cert-keystore.jks does 
-not yet contain those certs:
+3. Will also have to import the JDK's keystore as server-cert-keystore.jks does 
+not yet contain these certs:
 
 keytool -importkeystore -v -srckeystore /Library/Java/JavaVirtualMachines/${jdk.version)/Contents/Home/lib/security/cacerts -destkeystore server-cert-keystore.jks
 
