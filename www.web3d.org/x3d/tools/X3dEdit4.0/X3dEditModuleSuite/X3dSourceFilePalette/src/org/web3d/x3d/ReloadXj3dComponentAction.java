@@ -57,7 +57,7 @@ import org.web3d.x3d.xj3d.viewer.Xj3dTopComponent;
 */
 
 /** @deprecated use org.web3d.x3d.xj3d.viewer.Xj3dViewerAction */
-@Deprecated
+@Deprecated(since = "3.2", forRemoval = true)
 public final class ReloadXj3dComponentAction extends CookieAction
 {
   @Override
