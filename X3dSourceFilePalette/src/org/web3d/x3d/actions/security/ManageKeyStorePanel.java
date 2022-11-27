@@ -97,7 +97,7 @@ import org.web3d.x3d.actions.security.BouncyCastleHelper.KeystorePasswordExcepti
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
 import org.web3d.x3d.options.X3dOptions;
 
-/**
+/** Custom panel to manage keystore files (XML Security)
  *
  * @author  mike
  */
@@ -119,7 +119,10 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
   private static JFileChooser saveChooser,openChooser;
   private static File lastChooserDir = new File(System.getProperty("user.home")+"/X3D-Edit/security");
   
-  /** Creates new form ManageKeyStorePanel */
+  /** Creates new form ManageKeyStorePanel
+   * @param password plain text?
+   * @throws java.lang.Exception 
+   */
   public ManageKeyStorePanel(char[] password) throws Exception
   {
     initComponents();
@@ -142,13 +145,6 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
   private char[] getAPassword(String msg)
   {
     return BouncyCastleHelper.getAPassword(msg);
-//    if (msg == null)
-//      msg = org.openide.util.NbBundle.getMessage(getClass(), "MSG_EnterPassword"); //"Enter password:"
-//    JPasswordField pwF = new JPasswordField(10);
-//    int ret = JOptionPane.showConfirmDialog(this, pwF, msg, JOptionPane.OK_CANCEL_OPTION);
-//    if (ret == JOptionPane.CANCEL_OPTION)
-//      return null;
-//    return pwF.getPassword();
   }
 
   private String getNewAlias(String typ) throws Exception
@@ -238,7 +234,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
     Collections.sort(rows, dateSorter);
     ((DefaultTableModel) keyTable.getModel()).setDataVector(rows, titles);
      
-    if(rows.size()>0)
+    if(!rows.isEmpty())
       keyTable.setRowSelectionInterval(0,0);
   }
   
