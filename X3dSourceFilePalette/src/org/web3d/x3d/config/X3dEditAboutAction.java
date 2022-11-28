@@ -117,6 +117,9 @@ public final class X3dEditAboutAction extends CallableSystemAction
 //            HelpCtx.DEFAULT_HELP,
 //            emailReportActionListener);
 
+
+// TODO panel X3D-Edit icon working on mac, set it for windows...
+
         NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
                 aboutHtmlMessage, "About X3D-Edit", NotifyDescriptor.PLAIN_MESSAGE);
 
