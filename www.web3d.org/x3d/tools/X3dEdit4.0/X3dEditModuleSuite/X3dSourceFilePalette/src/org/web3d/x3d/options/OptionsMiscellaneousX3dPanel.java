@@ -77,13 +77,7 @@ final class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
 
   OptionsMiscellaneousX3dPanel()
   {
-      controller = null;
-      initComponents();
-
-//    hideHeilanComponents ();
-//    hideBSContactGeoComponents (); // duplicative product
-
-      load();  // restore saved defaults to panel
+      this(null);
   }
 
   OptionsMiscellaneousX3dPanel(X3dOptionsPanelController controller)
@@ -7068,7 +7062,7 @@ private void keyStoreButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 }//GEN-LAST:event_keyStoreButtActionPerformed
 
 private void keyStoreDefaultButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keyStoreDefaultButtActionPerformed
-  keystoreTF.setText(X3dOptions.getKeystorePathDefault());
+//  keystoreTF.setText(X3dOptions.getKeystorePathDefault()); // there is no current default path as a user could store examples anywhere on their local machine
 }//GEN-LAST:event_keyStoreDefaultButtActionPerformed
 
 private void SwirlX3DChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SwirlX3DChooserButtonActionPerformed

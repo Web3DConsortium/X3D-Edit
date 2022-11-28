@@ -77,7 +77,7 @@ public final class ManageKeyStoreAction extends CallableSystemAction
     DialogDescriptor descriptor;
     try {
       ManageKeyStorePanel mPan = BouncyCastleHelper.buildManageKeyPanel(pw);
-      if(mPan == null)
+      if(mPan == null || mPan.getKeystore() == null) // check for proper initialization
         return;
       // Want only close button and help button
       JButton closeButt = new JButton(NbBundle.getMessage(getClass(), "MSG_Close")); //"Close");
@@ -95,8 +95,8 @@ public final class ManageKeyStoreAction extends CallableSystemAction
       return;
     }
     catch(Exception ex) {
-      String msg = NbBundle.getMessage(getClass(), "MSG_KeystoreError")+ex.getLocalizedMessage(); //"Keystore error: "
-      NotifyDescriptor d =new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
+      String msg = NbBundle.getMessage(getClass(), "MSG_KeystoreError") + ex.getLocalizedMessage(); //"Keystore error: "
+      NotifyDescriptor d = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
       DialogDisplayer.getDefault().notify(d);
       return;
     }

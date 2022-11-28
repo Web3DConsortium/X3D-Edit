@@ -95,6 +95,7 @@ import org.openide.windows.InputOutput;
 import org.web3d.x3d.actions.conversions.ProcessRunner;
 import org.web3d.x3d.actions.security.BouncyCastleHelper.KeystorePasswordException;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
+import org.web3d.x3d.options.OptionsMiscellaneousX3dPanelAction;
 import org.web3d.x3d.options.X3dOptions;
 
 /** Custom panel to manage keystore files (XML Security)
@@ -113,7 +114,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
   private Vector<String> titles;
   private KeyStore ks;
   private File ksFile;
-  private FileInputStream ksInpStr;
+  private InputStream ksInpStr;
   private char[] pw;
 
   private static JFileChooser saveChooser,openChooser;
@@ -125,6 +126,10 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
    */
   public ManageKeyStorePanel(char[] password) throws Exception
   {
+    // Will warn user to set a path to a keystore if not yet accomplished
+    initKeyStore(); // also gets called from reloadTable()
+    if (ks == null) return;
+    
     initComponents();
     HelpCtx.setHelpIDString(ManageKeyStorePanel.this, "MANAGE_KEYSTORE_HELPID");
 
@@ -134,12 +139,18 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
     titles.add(ALIAS_TITLE);
     titles.add(TYPE_TITLE);
     titles.add(DATE_TITLE);
-
-    initKeyStore();  // also gets called from reloadTable()
+    
     initKeyTable();
     reloadTable();
-    
     customizeColumnWidths();
+  }
+  
+  /**
+   * Used by the caller to see if initialization went okay
+   * @return the Keystore
+   */
+  public KeyStore getKeystore() {
+      return ks;
   }
 
   private char[] getAPassword(String msg)
@@ -175,8 +186,27 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
 
   private void initKeyStore() throws Exception
   {
-    ks = BouncyCastleHelper.getKeyStore();
     String path = X3dOptions.getKeystorePath();
+    if (path == null) {
+      String msg = "<html>" +
+              "<p>&nbsp;</p>" +
+              "<h2 align='center'>First, Set a Path to a Keystore</h2>" +
+              "<p align='center'>" + 
+                "<b>X3D-Edit -> X3D-Edit Preferences Panel -> X3D Security -> X3D-Edit Keystore</b>" + 
+              "</p>" +
+              "<p>&nbsp;</p>" +
+              "<p align='center'>" +
+              "This path will be remembered in the future" +
+              "</p>" + 
+            "</html>";
+      NotifyDescriptor d = new NotifyDescriptor.Message(msg, NotifyDescriptor.INFORMATION_MESSAGE);
+      DialogDisplayer.getDefault().notify(d);
+      OptionsMiscellaneousX3dPanelAction pa = new OptionsMiscellaneousX3dPanelAction();
+      pa.actionPerformed(null);
+      path = X3dOptions.getKeystorePath();  
+      if (path == null) return;   
+    }
+    ks = BouncyCastleHelper.getKeyStore();
     ksFile = new File(path);
     if (ksFile.exists())
       ksInpStr = new FileInputStream(ksFile);
