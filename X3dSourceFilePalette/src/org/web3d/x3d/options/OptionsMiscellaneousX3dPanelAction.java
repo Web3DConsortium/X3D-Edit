@@ -31,7 +31,6 @@ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
  */
-
 package org.web3d.x3d.options;
 
 import java.awt.Dialog;
@@ -58,6 +57,11 @@ import org.openide.util.NbBundle;
 //  @ActionReference(path = "Menu/X3D-Edit/Modify Saved Scene in Tool", position = 990),
 })
 
+/** Instantiates the X3D-Edit Options panel that can be invoked from an 
+ * abstract caller 
+ *
+ * @since 3.2
+ */
 public final class OptionsMiscellaneousX3dPanelAction implements ActionListener
 {
   @Override
@@ -87,4 +91,3 @@ public final class OptionsMiscellaneousX3dPanelAction implements ActionListener
     if(descriptor.getValue() == acceptButton) optionsPanel.store();
   }
 }
-
