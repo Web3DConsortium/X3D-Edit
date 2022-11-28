@@ -60,7 +60,7 @@ public class X3dOptions
   // default path as a user could store examples anywhere on their local machine
   // property persistence will allow a path to be remembered
   public static       String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; 
-//  public static final String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeyStoreNameExtension()).toString();
+//  public static final String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeystoreNameExtension()).toString();
 
   public static final String USER_NAME_TOKEN = "__USER-NAME__";
   public static final String USER_NAME, X3D_EDIT_PATH;
@@ -262,6 +262,8 @@ public class X3dOptions
   public static String        IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY =        "IMAGEMAGICK_AUTOLAUNCH";
   public static String                VLC_EXECUTABLE_AUTOLAUNCH_KEY =                "VLC_AUTOLAUNCH";
   public static String            PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY =            "PROTEGE_AUTOLAUNCH";
+  public static String           PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY =           "PORTECLE_AUTOLAUNCH";
+  public static String   KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY =   "KEYSTOREEXPLORER_AUTOLAUNCH";
   
   public static String      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY =      "ALTOVA_XMLSPY_AUTOLAUNCH";
   public static String            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY =            "BLENDER_AUTOLAUNCH";
@@ -301,7 +303,10 @@ public class X3dOptions
   public static String     IMAGEMAGICK_EDITOR_PATH_KEY          =    "IMAGEMAGICK_EDITOR_PATH";
   public static String            FIJI_EDITOR_PATH_KEY          =           "FIJI_EDITOR_PATH";
   public static String             VLC_PLAYER_PATH_KEY          =            "VLC_PLAYER_PATH";
-  public static String         PROTEGE_PLAYER_PATH_KEY          =         "PROTEGE_PLAYER_PATH";
+  public static String         PROTEGE_PLAYER_PATH_KEY          =        "PROTEGE_PLAYER_PATH";
+  public static String        PORTECLE_PLAYER_PATH_KEY          =       "PORTECLE_PLAYER_PATH";
+  public static String KEYSTOREEXPLORER_PLAYER_PATH_KEY         = "KEYSTOREEXPLORER_PLAYER_PATH";
+  
   public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY        = "ALTOVA_XMLSPY_X3D_EDITOR_PATH";
   public static String     BLENDER_X3D_EDITOR_PATH_KEY          =    "BLENDER_X3D_EDITOR_PATH";
   public static String BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY      = "BSCONTENTSTUDIO_X3D_EDITOR_PATH";
@@ -372,6 +377,9 @@ public class X3dOptions
   public static String     IMAGEMAGICK_EDITOR_PATH_DEFAULT;
   public static String             VLC_PLAYER_PATH_DEFAULT;
   public static String         PROTEGE_PLAYER_PATH_DEFAULT;
+  public static String        PORTECLE_PLAYER_PATH_DEFAULT;
+  public static String KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT;
+  
   public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT;
   public static String     BLENDER_X3D_EDITOR_PATH_DEFAULT;
   public static String BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT;
@@ -547,6 +555,8 @@ public class X3dOptions
   private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
   private static final String winxpVlcPlayerPathDefault                  = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
   private static final String winxpProtegePlayerPathDefault              = "C:\\Program Files\\Protege-5.5.0\\Protege.exe";
+  private static final String winxpPorteclePlayerPathDefault             = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
+  private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
   private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 3.3\\blender.exe";
@@ -571,6 +581,8 @@ public class X3dOptions
   private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
   private static final String windows64VlcPlayerPathDefault              = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
   private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege-5.5.0\\Protege.exe";
+  private static final String windows64PorteclePlayerPathDefault         = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
+  private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
   private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 3.3\\blender.exe";
@@ -595,6 +607,8 @@ public class X3dOptions
   private static final String macosxImageMagickEditorPathDefault         = "imageconverter"; // TODO insert correct value
   private static final String macosxVlcPlayerPathDefault                 = "vlc";            // TODO insert correct value
   private static final String macosxProtegePlayerPathDefault             = "protege";        // TODO insert correct value
+  private static final String macosxPorteclePlayerPathDefault            = "portecle";       // TODO insert correct value
+  private static final String macosxKeystoreExplorerPlayerPathDefault    = "keystoreexplorer";// TODO insert correct value
   
   private static final String macosxAltovaXMLSpyX3dEditorPathDefault     = "xmlspy";         // TODO insert correct value
   private static final String macosxBlenderX3dEditorPathDefault          = "blender";        // TODO insert correct value
@@ -619,6 +633,9 @@ public class X3dOptions
   private static final String otherImageMagickEditorPathDefault          = "imageconverter"; // TODO insert correct value
   private static final String otherVlcPlayerPathDefault                  = "vlc";            // TODO insert correct value
   private static final String otherProtegePlayerPathDefault              = "protege";        // TODO insert correct value
+  private static final String otherPorteclePlayerPathDefault             = "portecle";       // TODO insert correct value
+  private static final String otherKeystoreExplorerPlayerPathDefault     = "keystoreexplorer";// TODO insert correct value
+  
   private static final String otherBlenderX3dEditorPathDefault           = "blender";        // TODO insert correct value
   private static final String otherBsContentStudioX3dEditorPathDefault   = "bscomposer";     // TODO insert correct value
   private static final String otherCuraX3dEditorPathDefault              = "Cura";           // TODO insert correct value
@@ -660,6 +677,8 @@ public class X3dOptions
   private static final String downloadSiteImageMagick                    = "https://imagemagick.org/script/download.php";
   private static final String downloadSiteVlc                            = "https://www.videolan.org";
   private static final String downloadSiteProtege                        = "https://protege.stanford.edu";
+  private static final String downloadSitePortecle                       = "https://portecle.sourceforge.net";
+  private static final String downloadSiteKeystoreExplorer               = "https://keystore-explorer.org";
  
   private static final String downloadSiteAltovaXMLSpy                   = "https://www.altova.com/download";
   private static final String downloadSiteBlender                        = "https://www.blender.org";
@@ -688,6 +707,8 @@ public class X3dOptions
   protected static final String helpSiteImageMagick                      = "https://www.imagemagick.org";
   protected static final String helpSiteVlc                              = "https://www.videolan.org/support/#documentation";
   protected static final String helpSiteProtege                          = "https://protege.stanford.edu/support.php#documentationSupport";
+  protected static final String helpSitePortecle                         = "https://portecle.sourceforge.net/howtos.html";
+  protected static final String helpSiteKeystoreExplorer                 = "https://keystore-explorer.org/doc/5.5/overview.html";
   
   protected static final String helpSiteAltovaXMLSpy                     = "https://www.altova.com/library";
   protected static final String helpSiteBlender                          = "https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
@@ -728,6 +749,8 @@ public class X3dOptions
   public static String getDownloadSiteImageMagick()    {return downloadSiteImageMagick;}
   public static String getDownloadSiteVlc()            {return downloadSiteVlc;}
   public static String getDownloadSiteProtege()        {return downloadSiteProtege;}
+  public static String getDownloadSitePortecle()       {return downloadSitePortecle;}
+  public static String getDownloadSiteKeystoreExplorer() {return downloadSiteKeystoreExplorer;}
   
   public static String getDownloadSiteAltovaXMLSpy()   {return downloadSiteAltovaXMLSpy;}
   public static String getDownloadSiteBlender()        {return downloadSiteBlender;}
@@ -788,6 +811,9 @@ public class X3dOptions
       IMAGEMAGICK_EDITOR_PATH_DEFAULT        = toks( macosxImageMagickEditorPathDefault);
               VLC_PLAYER_PATH_DEFAULT        = toks(         macosxVlcPlayerPathDefault);
           PROTEGE_PLAYER_PATH_DEFAULT        = toks(     macosxProtegePlayerPathDefault);
+         PORTECLE_PLAYER_PATH_DEFAULT        = toks(    macosxPorteclePlayerPathDefault);
+ KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT        = toks(macosxKeystoreExplorerPlayerPathDefault);
+ 
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxBlenderX3dEditorPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(macosxBsContentStudioX3dEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     macosxCuraX3dEditorPathDefault);
@@ -836,6 +862,8 @@ public class X3dOptions
       IMAGEMAGICK_EDITOR_PATH_DEFAULT        = toks( windows64ImageMagickEditorPathDefault);
               VLC_PLAYER_PATH_DEFAULT        = toks(         windows64VlcPlayerPathDefault);
           PROTEGE_PLAYER_PATH_DEFAULT        = toks(     windows64ProtegePlayerPathDefault);
+         PORTECLE_PLAYER_PATH_DEFAULT        = toks(    windows64PorteclePlayerPathDefault);
+ KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT        = toks(windows64KeystoreExplorerPlayerPathDefault);
               
 ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64AltovaXMLSpyX3dEditorPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64BlenderX3dEditorPathDefault);
@@ -885,6 +913,9 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dE
       IMAGEMAGICK_EDITOR_PATH_DEFAULT        = toks( winxpImageMagickEditorPathDefault);
               VLC_PLAYER_PATH_DEFAULT        = toks(         winxpVlcPlayerPathDefault);
           PROTEGE_PLAYER_PATH_DEFAULT        = toks(     winxpProtegePlayerPathDefault);
+         PORTECLE_PLAYER_PATH_DEFAULT        = toks(    winxpPorteclePlayerPathDefault);
+  KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT        = toks(winxpKeystoreExplorerPlayerPathDefault);
+  
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpBlenderX3dEditorPathDefault);
 BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     winxpCuraX3dEditorPathDefault);
@@ -932,6 +963,9 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEdito
       IMAGEMAGICK_EDITOR_PATH_DEFAULT        = toks( otherImageMagickEditorPathDefault);
               VLC_PLAYER_PATH_DEFAULT        = toks(         otherVlcPlayerPathDefault);
           PROTEGE_PLAYER_PATH_DEFAULT        = toks(     otherProtegePlayerPathDefault);
+         PORTECLE_PLAYER_PATH_DEFAULT        = toks(    otherPorteclePlayerPathDefault);
+  KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT        = toks(otherKeystoreExplorerPlayerPathDefault);
+  
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  otherBlenderX3dEditorPathDefault);
 BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     otherCuraX3dEditorPathDefault);
@@ -1004,6 +1038,8 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String  getImageMagickEditorPathDefault()   {return     IMAGEMAGICK_EDITOR_PATH_DEFAULT;}
   public static String          getVlcPlayerPathDefault()   {return             VLC_PLAYER_PATH_DEFAULT;}
   public static String      getProtegePlayerPathDefault()   {return         PROTEGE_PLAYER_PATH_DEFAULT;}
+  public static String     getPorteclePlayerPathDefault()   {return        PORTECLE_PLAYER_PATH_DEFAULT;}
+  public static String getKeystoreExplorerPlayerPathDefault() {return KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT;}
   
   public static String getAltovaXMLSpyX3dEditorPathDefault() {return ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getBlenderX3dEditorPathDefault()   {return     BLENDER_X3D_EDITOR_PATH_DEFAULT;}
@@ -1068,6 +1104,8 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void  setImageMagickEditorPath    (String path){commonSet(   IMAGEMAGICK_EDITOR_PATH_KEY, path);}
   public static void          setVlcPlayerPath    (String path){commonSet(           VLC_PLAYER_PATH_KEY, path);}
   public static void      setProtegePlayerPath    (String path){commonSet(       PROTEGE_PLAYER_PATH_KEY, path);}
+  public static void     setPorteclePlayerPath    (String path){commonSet(      PORTECLE_PLAYER_PATH_KEY, path);}
+  public static void setKeystoreExplorerPlayerPath(String path){commonSet(KEYSTOREEXPLORER_PLAYER_PATH_KEY, path);}
   
   public static void setAltovaXMLSpyX3dEditorPath (String path){commonSet(  ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY, path);}
   public static void   setBlenderX3dEditorPath    (String path){commonSet(   BLENDER_X3D_EDITOR_PATH_KEY, path);}
@@ -1131,6 +1169,9 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void      setImageMagickAutoLaunch (String autoLaunch){commonSet(       IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void              setVlcAutoLaunch (String autoLaunch){commonSet(               VLC_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setProtegeAutoLaunch (String autoLaunch){commonSet(           PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setPortecleAutoLaunch (String autoLaunch){commonSet(          PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setKeystoreExplorerAutoLaunch (String autoLaunch){commonSet(  KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  
   public static void     setAltovaXMLSpyAutoLaunch (String autoLaunch){commonSet(     ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setBlenderAutoLaunch (String autoLaunch){commonSet(           BLENDER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void  setBsContentStudioAutoLaunch (String autoLaunch){commonSet(   BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1183,6 +1224,8 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String  getImageMagickEditorPath()       {return commonGet(   IMAGEMAGICK_EDITOR_PATH_KEY,   IMAGEMAGICK_EDITOR_PATH_DEFAULT);}
   public static String          getVlcPlayerPath()       {return commonGet(           VLC_PLAYER_PATH_KEY,           VLC_PLAYER_PATH_DEFAULT);}
   public static String      getProtegePlayerPath()       {return commonGet(       PROTEGE_PLAYER_PATH_KEY,       PROTEGE_PLAYER_PATH_DEFAULT);}
+  public static String     getPorteclePlayerPath()       {return commonGet(      PORTECLE_PLAYER_PATH_KEY,      PORTECLE_PLAYER_PATH_DEFAULT);}
+  public static String getKeystoreExplorerPlayerPath()   {return commonGet(KEYSTOREEXPLORER_PLAYER_PATH_KEY,KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT);}
   
   public static String getAltovaXMLSpyX3dEditorPath()    {return commonGet(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY,ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT);}
   public static String   getBlenderX3dEditorPath()       {return commonGet(   BLENDER_X3D_EDITOR_PATH_KEY,   BLENDER_X3D_EDITOR_PATH_DEFAULT);}
@@ -1235,6 +1278,9 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String       isImageMagickAutoLaunch() {return commonGet(        IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String               isVlcAutoLaunch() {return commonGet(                VLC_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isProtegeAutoLaunch() {return commonGet(            PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String          isPortecleAutoLaunch() {return commonGet(           PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String  isKeystoreExplorerAutoLaunch() {return commonGet(   KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  
   public static String      isAltovaXMLSpyAutoLaunch() {return commonGet(      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isBlenderAutoLaunch() {return commonGet(            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String   isBsContentStudioAutoLaunch() {return commonGet(    BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
@@ -1283,18 +1329,21 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
 
   public static void resetKeystorePath()         {commonReset(KEYSTORE_PATH_KEY);}
   
-  public static void        resetAmayaEditorPath() {commonReset(          AMAYA_EDITOR_PATH_KEY);}
-  public static void     resetAudacityEditorPath() {commonReset(       AUDACITY_EDITOR_PATH_KEY);}
-  public static void    resetMuseScoreEditorPath() {commonReset(      MUSESCORE_EDITOR_PATH_KEY);}
-  public static void         resetGimpEditorPath() {commonReset(           GIMP_EDITOR_PATH_KEY);}
-  public static void         resetFijiEditorPath() {commonReset(           FIJI_EDITOR_PATH_KEY);}
-  public static void       resetImageJEditorPath() {commonReset(         IMAGEJ_EDITOR_PATH_KEY);}
-  public static void  resetImageMagickEditorPath() {commonReset(    IMAGEMAGICK_EDITOR_PATH_KEY);}
-  public static void          resetVlcPlayerPath() {commonReset(            VLC_PLAYER_PATH_KEY);}
-  public static void      resetProtegePlayerPath() {commonReset(        PROTEGE_PLAYER_PATH_KEY);}
+  public static void        resetAmayaEditorPath()     {commonReset(          AMAYA_EDITOR_PATH_KEY);}
+  public static void     resetAudacityEditorPath()     {commonReset(       AUDACITY_EDITOR_PATH_KEY);}
+  public static void    resetMuseScoreEditorPath()     {commonReset(      MUSESCORE_EDITOR_PATH_KEY);}
+  public static void         resetGimpEditorPath()     {commonReset(           GIMP_EDITOR_PATH_KEY);}
+  public static void         resetFijiEditorPath()     {commonReset(           FIJI_EDITOR_PATH_KEY);}
+  public static void       resetImageJEditorPath()     {commonReset(         IMAGEJ_EDITOR_PATH_KEY);}
+  public static void  resetImageMagickEditorPath()     {commonReset(    IMAGEMAGICK_EDITOR_PATH_KEY);}
+  public static void          resetVlcPlayerPath()     {commonReset(            VLC_PLAYER_PATH_KEY);}
+  public static void      resetProtegePlayerPath()     {commonReset(        PROTEGE_PLAYER_PATH_KEY);}
+  public static void     resetPorteclePlayerPath()     {commonReset(       PORTECLE_PLAYER_PATH_KEY);}
+  public static void resetKeystoreExplorerPlayerPath() {commonReset(KEYSTOREEXPLORER_PLAYER_PATH_KEY);}
+  
   public static void   resetAltovaXMLSpyX3dEditorPath() {commonReset(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY);}
-  public static void   resetBlenderX3dEditorPath() {commonReset(    BLENDER_X3D_EDITOR_PATH_KEY);}
-  public static void resetBsContentStudioX3dEditorPath() {commonReset(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY);}
+  public static void   resetBlenderX3dEditorPath()      {commonReset(    BLENDER_X3D_EDITOR_PATH_KEY);}
+  public static void resetBsContentStudioX3dEditorPath(){commonReset(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY);}
   public static void      resetCuraX3dEditorPath() {commonReset(       CURA_X3D_EDITOR_PATH_KEY);}
   public static void   resetMeshLabX3dEditorPath() {commonReset(    MESHLAB_X3D_EDITOR_PATH_KEY);}
   public static void  resetParaviewX3dEditorPath() {commonReset(   PARAVIEW_X3D_EDITOR_PATH_KEY);}
