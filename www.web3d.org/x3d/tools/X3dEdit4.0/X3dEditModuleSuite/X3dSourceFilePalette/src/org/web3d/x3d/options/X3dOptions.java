@@ -56,8 +56,8 @@ public class X3dOptions
 {
   /* Security options */
   public static       String KEYSTORE_PATH_KEY         = "KEYSTORE_PATH";
-  public static       String KEYSTORE_PATH_DEFAULT; // there is no current 
-  // default path as a user could store examples anywhere on their local machine
+  public static       String KEYSTORE_PATH_DEFAULT     = "c:\\x3d-code\\www.web3d.org\\x3d\\content\\examples\\Basic\\Security\\keystore";
+  //  there is no best default path as a user could store examples anywhere on their local machine
   // property persistence will allow a path to be remembered
   public static       String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; 
 //  public static final String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeystoreNameExtension()).toString();
@@ -69,7 +69,7 @@ public class X3dOptions
           USER_NAME = System.getProperty("user.name");
        X3D_EDIT_PATH = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
     
-//    File dir = new File(new StringBuilder().append(homeDir).append("/X3D-Edit/security").toString());
+//    File dir = new File(new StringBuilder().append(homeDir).append("/X3D-Edit/XML Security").toString());
 //    File fil = new File(dir,KEYSTORE_FILENAME_DEFAULT);
 //    KEYSTORE_PATH_DEFAULT = fil.getAbsolutePath();
   }
@@ -1027,7 +1027,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
 
   public static String getLaunchIntervalDefault()     {return LAUNCH_INTERVAL_DEFAULT;}
 
-  public static String getKeystorePathDefault()       {return KEYSTORE_PATH_DEFAULT;}
+  public static String getKeystorePathDefault()       {return KEYSTORE_PATH_DEFAULT + "/" + KEYSTORE_FILENAME_DEFAULT;}
   
   public static String        getAmayaEditorPathDefault()   {return           AMAYA_EDITOR_PATH_DEFAULT;}
   public static String     getAudacityEditorPathDefault()   {return        AUDACITY_EDITOR_PATH_DEFAULT;}
@@ -1306,7 +1306,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String getLaunchInterval()             {return commonGet(LAUNCH_INTERVAL_KEY,                  LAUNCH_INTERVAL_DEFAULT);}
   public static Long   getLaunchIntervalMilliseconds() {return Long.parseLong(getLaunchInterval()) * 1000l;} // convert seconds to msec
 
-  public static String getKeystorePath()      {return commonGet(KEYSTORE_PATH_KEY,                      KEYSTORE_PATH_DEFAULT);}
+  public static String getKeystorePath()         {return commonGet(KEYSTORE_PATH_KEY, KEYSTORE_PATH_DEFAULT);}
 
   public static void resetContactPath()          {commonReset(CONTACT_EXECUTABLE_PATH_KEY);}
   public static void resetContactGeoPath()       {commonReset(CONTACT_GEO_EXECUTABLE_PATH_KEY);}
