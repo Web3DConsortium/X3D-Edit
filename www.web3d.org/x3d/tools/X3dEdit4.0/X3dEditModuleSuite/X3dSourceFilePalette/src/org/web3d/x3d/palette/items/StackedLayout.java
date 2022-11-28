@@ -16,18 +16,19 @@ import java.util.Vector;
 import java.io.Serializable;
 
 /**
- * Chopped from CardLayout.java, jdk 1.5.0
- * This is a layout manager that operates as the CardLayout manager
- * it is based upon, but it elimnates the first, next, methods.  These
- * methods in the original CardLayout "stacked" the components at 0,0,
- * and did setVisible(false) on all components except the one "on top".
- * This variations also stacks components, but does not concern itself
- * with component visiblity and allows direct user control over
- * enablement and visiblity.  This way, visual effects such as 
- * transparency may be used.
- * So, in effect, we've extracted the layout-only code from CardLayout
- * and allow direct user control over visiblity
+ * Chopped from CardLayout.java, jdk 1.5.0, this is a layout manager that 
+ * operates as the CardLayout manager it is based upon, but it eliminates the 
+ * first and next, methods. These methods in the original CardLayout "stacked" 
+ * the components at 0,0, and did setVisible(false) on all components except the 
+ * one "on top". This variation also stacks components, but does not concern 
+ * itself with component visibility and allows direct user control over
+ * enablement and visibility.  This way, visual effects such as transparency may
+ * be used. So, in effect, we've extracted the layout-only code from CardLayout 
+ * to allow direct user control over visibility.
+ * 
+ * @deprecated 
  */
+@Deprecated(since = "3.2", forRemoval = true)
 public class StackedLayout implements LayoutManager2
 {
   /*
@@ -43,7 +44,7 @@ public class StackedLayout implements LayoutManager2
       name = cardName;
       comp = cardComponent;
     }
-    }
+  }
 
   /*
    * A cards horizontal Layout gap (inset). It specifies
@@ -139,10 +140,12 @@ public class StackedLayout implements LayoutManager2
   }
 
   @Deprecated
+  @Override
   public void addLayoutComponent(String name, Component comp)
   {
   }
 
+  @Override
   public void removeLayoutComponent(Component comp)
   {
   }
@@ -156,6 +159,7 @@ public class StackedLayout implements LayoutManager2
    * @see     java.awt.Container#getPreferredSize
    * @see     java.awt.CardLayout#minimumLayoutSize
    */
+  @Override
   public Dimension preferredLayoutSize(Container parent)
   {
     synchronized (parent.getTreeLock()) {
@@ -187,6 +191,7 @@ public class StackedLayout implements LayoutManager2
    * @see       java.awt.Container#doLayout
    * @see       java.awt.CardLayout#preferredLayoutSize
    */
+  @Override
   public Dimension minimumLayoutSize(Container parent)
   {
     synchronized (parent.getTreeLock()) {
@@ -218,6 +223,7 @@ public class StackedLayout implements LayoutManager2
    * @see #minimumLayoutSize
    * @see #preferredLayoutSize
    */
+  @Override
   public Dimension maximumLayoutSize(Container target)
   {
     return new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
@@ -230,6 +236,7 @@ public class StackedLayout implements LayoutManager2
    * where 0 represents alignment along the origin, 1 is aligned
    * the furthest away from the origin, 0.5 is centered, etc.
    */
+  @Override
   public float getLayoutAlignmentX(Container parent)
   {
     return 0.5f;
@@ -242,6 +249,7 @@ public class StackedLayout implements LayoutManager2
    * where 0 represents alignment along the origin, 1 is aligned
    * the furthest away from the origin, 0.5 is centered, etc.
    */
+  @Override
   public float getLayoutAlignmentY(Container parent)
   {
     return 0.5f;
@@ -251,6 +259,7 @@ public class StackedLayout implements LayoutManager2
    * Invalidates the layout, indicating that if the layout manager
    * has cached information it should be discarded.
    */
+  @Override
   public void invalidateLayout(Container target)
   {
   }
@@ -265,12 +274,13 @@ public class StackedLayout implements LayoutManager2
    * @param     parent the parent container in which to do the layout
    * @see       java.awt.Container#doLayout
    */
+  @Override
   public void layoutContainer(Container parent)
   {
     synchronized (parent.getTreeLock()) {
       Insets insets = parent.getInsets();
       int ncomponents = parent.getComponentCount();
-      Component comp = null;
+      Component comp;
 
       for (int i = 0; i < ncomponents; i++) {
         comp = parent.getComponent(i);
