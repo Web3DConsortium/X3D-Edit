@@ -34,7 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.options;
 
-import java.io.File;
+//import java.io.File;
 import java.util.Date;
 import java.util.prefs.Preferences;
 import org.openide.util.NbPreferences;
@@ -56,18 +56,20 @@ public class X3dOptions
 {
   /* Security options */
   public static       String KEYSTORE_PATH_KEY         = "KEYSTORE_PATH";
-  public static       String KEYSTORE_PATH_DEFAULT     = "C:\\x3d-code\\x3d\\content\\examples\\Basic\\Security\\keystore"; // previously set in static block
+  public static       String KEYSTORE_PATH_DEFAULT; // there is no current 
+  // default path as a user could store examples anywhere on their local machine
+  // property persistence will allow a path to be remembered
   public static       String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; 
 //  public static final String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeyStoreNameExtension()).toString();
 
   public static final String USER_NAME_TOKEN = "__USER-NAME__";
-  public static final String userName, x3dEditPath;
+  public static final String USER_NAME, X3D_EDIT_PATH;
   static {
-    String homeDir = System.getProperty("user.home");
-          userName = System.getProperty("user.name");
-       x3dEditPath = System.getProperty("user.dir"); // _path_/X3DEdit3.3/X3dEditorSuite
+//    String homeDir = System.getProperty("user.home");
+          USER_NAME = System.getProperty("user.name");
+       X3D_EDIT_PATH = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
     
-    File dir = new File(new StringBuilder().append(homeDir).append("/X3D-Edit/security").toString());
+//    File dir = new File(new StringBuilder().append(homeDir).append("/X3D-Edit/security").toString());
 //    File fil = new File(dir,KEYSTORE_FILENAME_DEFAULT);
 //    KEYSTORE_PATH_DEFAULT = fil.getAbsolutePath();
   }
@@ -970,7 +972,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   }
   private static String toks(String s)
   {
-    return s.replaceAll(USER_NAME_TOKEN,userName);
+    return s.replaceAll(USER_NAME_TOKEN, USER_NAME);
   }
   
   public static String getContactPathDefault()        {return CONTACT_EXECUTABLE_PATH_DEFAULT;}

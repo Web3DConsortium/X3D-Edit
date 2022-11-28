@@ -41,9 +41,11 @@ import org.netbeans.spi.options.OptionsPanelController;
 import org.openide.util.HelpCtx;
 import org.openide.util.Lookup;
 
+/** @since 3.2
+ * Not currently used. Candidate for deprecation 
+ */
 final class X3dOptionsPanelController extends OptionsPanelController
 {
-
   private OptionsMiscellaneousX3dPanel panel;
   private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
   private boolean changed;
@@ -51,7 +53,7 @@ final class X3dOptionsPanelController extends OptionsPanelController
   @Override
   public void update()
   {
-    getPanel().load();
+    getPanel();
     changed = false;
   }
 
