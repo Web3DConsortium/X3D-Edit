@@ -40,6 +40,9 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.modules.ModuleInfo;
+import org.openide.modules.Modules;
+import org.openide.modules.SpecificationVersion;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
@@ -64,24 +67,27 @@ public final class X3dEditAboutAction extends CallableSystemAction
   public void performAction()
   {
       ResourceBundle bundle = NbBundle.getBundle("org.netbeans.core.windows.view.ui.Bundle_" + NbBundle.getBranding());
-      String dateOutput = bundle.getString("CTL_MainWindow_Title");
+      String dataOutput = bundle.getString("CTL_MainWindow_Title");
+      
+      Modules mods = Modules.getDefault();
+      ModuleInfo mi = mods.findCodeNameBase("org.web3d.x3d.palette");
+      SpecificationVersion specVer = mi.getSpecificationVersion();
+      String majVer = specVer.toString().substring(0, specVer.toString().lastIndexOf("."));
         
-        // TODO add splash screen image
-        
-        String aboutHtmlMessage = "<html>" +
-                "<p>&nbsp;</p>" +
-                "<h2 align='center'>X3D-Edit 4.0 &nbsp; &nbsp; </h2>" +
-                "<p align='center'>X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
-                "<p align='center'>&nbsp;</p>" +
-                "<p align='center'>Revised &nbsp;<b>" + dateOutput + "</b>" +
-//                " with issue reports welcome via <a href='" + LaunchEmailReportAction.MAILTO_REPORT_URL + "'>e-mail</a>." +
-                "</p>" +
+      String aboutHtmlMessage = "<html>" +
+              "<p>&nbsp;</p>" +
+              "<h2 align='center'>Welcome to X3D-Edit " + majVer + "</h2>" +
+              "<p align='center'>A free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
+              "<p align='center'>&nbsp;</p>" +
+              "<p align='center'><b>" + dataOutput + "</b>&nbsp; Module version: &nbsp;<b>" + specVer.toString() + "</b>" +
+//              " with issue reports welcome via <a href='" + LaunchEmailReportAction.MAILTO_REPORT_URL + "'>e-mail</a>." +
+              "</p>" +
 //        TODO: link not working
-//             + "<p align='center'>&nbsp;</p>"
+              "<p align='center'>&nbsp;</p>" +
 //             + "<p align='center'>Use the X3D-Edit Information menu to launch X3D-Edit home page and issue reports.</p>"
 //             + "<p align='center'>&nbsp;</p>" 
 //             + "<p align='center'><a href='https://savage.nps.edu/X3D-Edit'>https://savage.nps.edu/X3D-Edit</a></p>";
-               "</html>";
+              "</html>";
 
 //    final JButton reportButton = new JButton("Report");
 //    final ActionListener emailReportActionListener = (ActionEvent event) ->
