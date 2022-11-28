@@ -11,6 +11,8 @@ X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for 
 
 Initial tests satisfactory: [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
 
+* Also download and install [ssl_certificate_exception-0.17.nbm](SSL Certificate Exception plugin) ([documentation](https://plugins.netbeans.apache.org/catalogue/?id=20)} while we currently use self-signed certificates.  This helps with automaticupdate capabilities.
+
 *User expectations.* Please note that this beta release is initially focused on restoring original X3D-Edit 3.3 functionality.
 Once baseline stability is demonstrated on multiple platforms, we expect that further authoring support for 
 [X3D4](https://www.web3d.org/x3d4) nodes and features will be added steadily.
