@@ -84,8 +84,8 @@ import org.web3d.x3d.types.X3DSchemaData;
 @ActionRegistration(displayName = "#CTL_DecryptXmlAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Security", position = 1650),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Security", position = 450)
+  @ActionReference(path = "Menu/X3D-Edit/XML Security", position = 1650),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML Security", position = 450)
 })
 
 public final class DecryptXmlAction extends CallableSystemAction

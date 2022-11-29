@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.SAVAGE_DEVELOPERS_GUIDE;
                     displayName = "#CTL_LaunchSavageDevelopersGuideAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Information", position = 150),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Information", position = 150),
+  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Information", position = 200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Information", position = 200),
 })
 
 public final class LaunchSavageDevelopersGuideAction extends CallableSystemAction

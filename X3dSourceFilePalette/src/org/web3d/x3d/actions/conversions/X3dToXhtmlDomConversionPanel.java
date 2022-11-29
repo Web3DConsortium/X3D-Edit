@@ -1167,7 +1167,7 @@ class LocalFileHandler implements HttpHandler {
         int             portValue = Integer.parseInt(portTextField.getText());
         String modelRootDirectory = rootDirectoryTextField.getText().replaceAll("\\\\","/"); // double escaping for Java character and regex literal;
         
-        // put safety/security checks here, e.g start and end with "/"
+        // put safety/XML Security checks here, e.g start and end with "/"
         // https://docs.oracle.com/en/java/javase/16/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html#createContext(java.lang.String,com.sun.net.httpserver.HttpHandler)
         
         if (modelRootDirectory.equals("\\"))

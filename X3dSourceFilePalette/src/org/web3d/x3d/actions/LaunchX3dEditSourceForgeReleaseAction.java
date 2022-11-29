@@ -38,29 +38,51 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
+import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
+import org.openide.util.actions.CallableSystemAction;
+import static org.web3d.x3d.actions.BaseViewAction.SOURCEFORGE_RELEASE_INSTALLERS;
 
-@ActionID(id = "org.web3d.x3d.actions.ViewX3dSecurityExamplesOnlineAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
-                    displayName = "#CTL_ViewX3dSecurityExamplesPage",
+@ActionID(id = "org.web3d.x3d.actions.LaunchX3dEditSourceForgeReleaseAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/SourceForge-logo-16x16.png",
+                    displayName = "#CTL_LaunchX3dEditSourceForgeReleaseAction", 
                             lazy=true)
-@ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/XML Security", position = 2000),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML Security", position = 2000)
+@ActionReferences( value = {
+  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Information", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Information", position = 300),
 })
 
-public final class ViewX3dSecurityExamplesOnlineAction extends BaseViewAction
+public final class LaunchX3dEditSourceForgeReleaseAction extends CallableSystemAction
 {
   @Override
   public void performAction()
   {
-    sendBrowserTo(X3DSECURITYREADME);
-    sendBrowserTo(X3DSECURITYEXAMPLES);
+    LaunchX3dExamplesAction.sendBrowserTo(SOURCEFORGE_RELEASE_INSTALLERS);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_ViewX3dSecurityExamplesPage");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchX3dEditSourceForgeReleaseAction");
+  }
+
+  @Override
+  protected void initialize()
+  {
+    super.initialize();
+    // see org.openide.util.actions.SystemAction.iconResource() Javadoc for more details
+    putValue("noIconInMenu", Boolean.TRUE);
+  }
+
+  @Override
+  public HelpCtx getHelpCtx()
+  {
+    return new HelpCtx("SourceForgeRelease");
+  }
+
+  @Override
+  protected boolean asynchronous()
+  {
+    return false;
   }
 }
