@@ -73,8 +73,8 @@ import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledExc
 @ActionRegistration(displayName = "#CTL_SignDocumentAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Security", position = 800),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Security", position = 800)})
+  @ActionReference(path = "Menu/X3D-Edit/XML Security", position = 800),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML Security", position = 800)})
 
 public final class SignDocumentAction extends BaseX3DEditAction
 {

@@ -261,7 +261,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         </file>
                     </folder>
                     <!-- duplicate of Security menu to support right-click context menu -->
-                    <folder name="Security">
+                    <folder name="XML Security">
                         <attr name="position" intvalue="160"/>
                         <folder name="Manage XML Security keystore...">
                             <attr name="position" intvalue="100"/>
@@ -744,7 +744,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 </file>
             </folder>
             <!-- duplicate of XML Security for top-level X3D menu -->
-            <folder name="Security">
+            <folder name="XML Security">
                 <attr name="position" intvalue="150"/>
                 <folder name="Manage XML Security keystore...">
                     <attr name="position" intvalue="100"/>

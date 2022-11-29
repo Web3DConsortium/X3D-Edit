@@ -63,10 +63,11 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D4AM_EXAMPLESURL                   ="https://www.x3dGraphics.com/examples/X3dForAdvancedModeling";
   public final static String SAVAGEEXAMPLESURL                    ="https://savage.nps.edu/Savage";
   public final static String SAVAGEDEFENSEEXAMPLESURL             ="https://SavageDefense.nps.navy.mil/SavageDefense";
-  public final static String X3DSECURITYEXAMPLES                  ="https://www.web3d.org/x3d/content/examples/Basic/Security";
-  public final static String X3DSECURITYREADME                    ="https://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html";
+  public final static String X3DSECURITYEXAMPLES                  ="https://www.web3d.org/x3d/content/examples/Basic/XML Security";
+  public final static String X3DSECURITYREADME                    ="https://www.web3d.org/x3d/content/examples/Basic/XML Security/X3dSecurityReadMe.html";
   public final static String X3D_EDIT_HOME                        ="https://savage.nps.edu/X3D-Edit";
   public final static String X3D_EDIT_FEATURES                    = X3D_EDIT_HOME + "#Features";
+  public final static String SOURCEFORGE_RELEASE_INSTALLERS       ="https://sourceforge.net/projects/x3d/files";
   public final static String X3D_RESOURCES                        ="https://www.web3d.org/x3d/content/examples/X3dResources.html";
   public final static String X3D_RESOURCES_EXAMPLES_ARCHIVES      = X3D_RESOURCES + "#Examples";
   public final static String X3D_RESOURCES_QUALITY_ASSURANCE      = X3D_RESOURCES + "#QualityAssurance";

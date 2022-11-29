@@ -61,11 +61,11 @@ import org.web3d.x3d.tools.x3db.X3dCanonicalizer;
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 40),
   @ActionReference(path = "Menu/X3D-Edit/Compression", position = 100),
-  @ActionReference(path = "Menu/X3D-Edit/Security", position = 600),
+  @ActionReference(path = "Menu/X3D-Edit/XML Security", position = 600),
   @ActionReference(path = "Toolbars/Author Workflow", position = 40),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 40),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Compression", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Security", position = 600)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML Security", position = 600)
 })
 
 public final class CanonicalizeAction extends CookieAction
