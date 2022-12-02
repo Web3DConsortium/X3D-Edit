@@ -162,7 +162,7 @@ POSSIBILITY OF SUCH DAMAGE.
                     <folder name="New File Templates">
                         <attr name="position" intvalue="40"/>
                     </folder>
-                    <folder name="Show Saved Model">
+                    <folder name="View Saved X3D Model">
                         <attr name="position" intvalue="50"/>
                     </folder>
                     <folder name="Tool Editing of Saved Model">
@@ -625,8 +625,11 @@ POSSIBILITY OF SUCH DAMAGE.
             <folder name="New File Templates">
                 <attr name="position" intvalue="40"/>
             </folder>
-            <folder name="Show Saved Model">
+            <folder name="Tool Editing of Saved Model">
                 <attr name="position" intvalue="50"/>
+            </folder>
+            <folder name="View Saved X3D Model">
+                <attr name="position" intvalue="60"/>
                 <!-- Xj3D internal pane    Xj3dViewerAction            position 20 -->
                 <!-- Xj3D launch           ViewInXj3DApplicationAction position 50 -->
                 <!-- Xj3D user-installed custom application launch ViewInXj3DExternalAction position 60 -->
@@ -645,9 +648,6 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- ViewInVivatyPlayerAction  position 137 -->
                 <!-- ViewInAction  position  -->
                 <!-- ViewInOtherAction  position 200 -->
-            </folder>
-            <folder name="Tool Editing of Saved Model">
-                <attr name="position" intvalue="60"/>
             </folder>
             <file name="x3dMenuSeparatorBetweenConversionsAndExamples.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
