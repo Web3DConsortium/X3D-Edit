@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -64,8 +64,8 @@ import org.openide.util.actions.CookieAction;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
                     displayName = "#CTL_ViewX3dInBrowser", lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 113, separatorAfter = 114),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 113, separatorAfter = 114)
+  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 113, separatorAfter = 114),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 113, separatorAfter = 114)
 }) 
 
 public final class ViewX3dInBrowserAction extends CookieAction
