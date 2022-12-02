@@ -46,7 +46,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_MANTIS_ISSUES;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumMantisIssuesAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/web3d16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/mantis_favicon16x16.png",
                     displayName = "#CTL_LaunchWeb3dConsortiumMantisIssuesAction", 
                             lazy=true)
 @ActionReferences(value = {
