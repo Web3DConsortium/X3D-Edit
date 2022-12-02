@@ -28,7 +28,6 @@
   <Scene>
     <!-- Example scene to illustrate X3D nodes and fields (XML elements and attributes) -->
     <WorldInfo DEF='WorldInfoPrimary' info='"Example scene to illustrate a simple X3D4 model"' title='Hello World X3D4!'/>
-    <WorldInfo DEF='WorldInfoSecondary' title='test HTML CSS fields'/>
     <NavigationInfo type='"EXAMINE" "ANY"'/>
     <Group>
       <Viewpoint DEF='ViewUpClose' centerOfRotation='0 -1 0' description='Hello world!' position='0 -1 7'/>
