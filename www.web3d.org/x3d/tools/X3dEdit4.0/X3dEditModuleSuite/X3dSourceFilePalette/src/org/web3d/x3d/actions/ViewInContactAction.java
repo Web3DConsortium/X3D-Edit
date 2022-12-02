@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/bitmanagement09_favicon_16x16.png",
                     displayName = "#CTL_ViewInContactAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 118),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 118)
+    @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 118),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 118)
 })
 
 public final class ViewInContactAction extends ViewInBaseAction

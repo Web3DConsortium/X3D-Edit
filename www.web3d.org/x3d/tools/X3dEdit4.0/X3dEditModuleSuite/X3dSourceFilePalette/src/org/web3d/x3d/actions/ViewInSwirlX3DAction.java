@@ -52,8 +52,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.ViewInSwirlX3DAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_ViewInSwirlX3DAction", lazy=true)
 @ActionReferences(value={
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 133),
-  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 133)})
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 133),
+  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 133)})
 public final class ViewInSwirlX3DAction extends ViewInBaseAction
 {
   @Override

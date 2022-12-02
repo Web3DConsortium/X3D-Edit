@@ -54,8 +54,8 @@ import org.web3d.x3d.options.X3dOptions;
                     displayName = "#CTL_ViewInView3dSceneAction",
                             lazy=true)
 @ActionReferences(value={
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 136),
-  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 136)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 136),
+  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 136)
 })
 public final class ViewInView3dSceneAction extends ViewInBaseAction
 {
