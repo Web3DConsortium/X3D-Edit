@@ -44,7 +44,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_SCHEMA_DOCTYPE_VALIDATION;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dSchemaDoctypeValidationAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark16x15.png",
                     displayName = "#CTL_LaunchX3dSchemaDoctypeValidationAction", 
                             lazy=true)
 @ActionReferences(value = {

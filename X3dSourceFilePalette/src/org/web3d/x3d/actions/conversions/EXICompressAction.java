@@ -51,8 +51,9 @@ import org.web3d.x3d.X3DEditorSupport;
 import org.xml.sax.InputSource;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.EXICompressAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_ExiAction", 
-                           popupText="TODO update, currently disabled", 
+@ActionRegistration(// TODO not working, TBD   iconBase = "org/web3d/x3d/resources/w3c-favicon-16x16.png",
+                    displayName = "#CTL_ExiAction", 
+                       popupText="TODO update, currently disabled", // TODO is this repeatable
                             lazy=false) // don't do lazy=false since iconBase no longer gets registered)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Compression", position = 900),
@@ -137,7 +138,7 @@ public class EXICompressAction extends BaseConversionsAction
     org.jdom.Document doc = xed.getJdomDoc();
     org.jdom.Element x3dRootEl = doc.getRootElement();
     String version = x3dRootEl.getAttributeValue("version");
-    if(version.equalsIgnoreCase("3.0"))
+    if     (version.equalsIgnoreCase("3.0"))
       return "x3d-3.0.xsd";
     else if(version.equalsIgnoreCase("3.1"))
       return "x3d-3.1.xsd";
@@ -147,7 +148,7 @@ public class EXICompressAction extends BaseConversionsAction
       return "x3d-3.3.xsd";
     else if(version.equalsIgnoreCase("4.0"))
       return "x3d-4.0.xsd";
-    //default
+    // default
     else return "x3d-3.3.xsd"; // presumably unreachable; default recommended
   }
 

@@ -53,41 +53,42 @@ import org.openide.util.actions.CallableSystemAction;
 @SuppressWarnings("serial")
 abstract public class BaseViewAction extends CallableSystemAction
 {
-  public final static String X3D_TIDY_URL                         ="https://www.web3d.org/x3d/stylesheets/X3dTidy.html";
-  public final static String X3DVALIDATORURL                      ="https://savage.nps.edu/X3dValidator";
-  public final static String BASICEXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/Basic";
-  public final static String CONFORMEXAMPLESURL                   ="https://www.web3d.org/x3d/content/examples/ConformanceNist";
-  public final static String HANIMEXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/HumanoidAnimation";
-  public final static String VRMLEXAMPLESURL                      ="https://www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook";
-  public final static String X3D4WA_EXAMPLESURL                   ="https://www.x3dGraphics.com/examples/X3dForWebAuthors";
-  public final static String X3D4AM_EXAMPLESURL                   ="https://www.x3dGraphics.com/examples/X3dForAdvancedModeling";
-  public final static String SAVAGEEXAMPLESURL                    ="https://savage.nps.edu/Savage";
-  public final static String SAVAGEDEFENSEEXAMPLESURL             ="https://SavageDefense.nps.navy.mil/SavageDefense";
-  public final static String X3DSECURITYEXAMPLES                  ="https://www.web3d.org/x3d/content/examples/Basic/XML Security";
-  public final static String X3DSECURITYREADME                    ="https://www.web3d.org/x3d/content/examples/Basic/XML Security/X3dSecurityReadMe.html";
-  public final static String X3D_EDIT_HOME                        ="https://savage.nps.edu/X3D-Edit";
-  public final static String X3D_EDIT_FEATURES                    = X3D_EDIT_HOME + "#Features";
-  public final static String SOURCEFORGE_RELEASE_INSTALLERS       ="https://sourceforge.net/projects/x3d/files";
-  public final static String X3D_RESOURCES                        ="https://www.web3d.org/x3d/content/examples/X3dResources.html";
-  public final static String X3D_RESOURCES_EXAMPLES_ARCHIVES      = X3D_RESOURCES + "#Examples";
-  public final static String X3D_RESOURCES_QUALITY_ASSURANCE      = X3D_RESOURCES + "#QualityAssurance";
-  public final static String X3D_RESOURCES_SECURITY               = X3D_RESOURCES + "#Security";
-  public final static String X3D_RESOURCES_SECURITY_VULNERABILITIES=X3D_RESOURCES + "#Vulnerabilities";
-  public final static String X3D_SCENE_AUTHORING_HINTS            ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html";
-  public final static String X3D_SCENE_AUTHORING_HINTS_CORS       ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#CORS";
-  public final static String X3D_TOOLTIPS                         ="https://www.web3d.org/x3d/tooltips/X3dTooltips.html";
-  public final static String X3D_COURSE                           ="https://x3dgraphics.com/slidesets";
-  public final static String X3D_COURSE_VIDEOS                    ="https://www.youtube.com/channel/UCSOnGlgAFxkWg8ilg-JEbAQ";
-  public final static String X3D_QUICKSTART_TUTORIAL              ="https://www.web3d.org/news-story/x3d-quickstart-tutorial-video-online";
-         
-  public final static String X3D_SCHEMA_DOCTYPE_VALIDATION        ="https://www.web3d.org/specifications";
-  public final static String X3D_REGEX                            ="https://www.web3d.org/specifications/X3dRegularExpressions.html";
-  public final static String X3D_SCHEMATRON                       ="https://www.web3d.org/x3d/tools/schematron/X3dSchematron.html";
-  public final static String X3D_X3DUOM                           ="https://www.web3d.org/specifications/X3DUOM.html";
-  public final static String SAVAGE_DEVELOPERS_GUIDE              ="https://savage.nps.edu/Savage/developers.html";
+  public final static String X3D_TIDY_URL                           ="https://www.web3d.org/x3d/stylesheets/X3dTidy.html";
+  public final static String X3DVALIDATORURL                        ="https://savage.nps.edu/X3dValidator";
+  public final static String BASICEXAMPLESURL                       ="https://www.web3d.org/x3d/content/examples/Basic";
+  public final static String CONFORMEXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/ConformanceNist";
+  public final static String HANIMEXAMPLESURL                       ="https://www.web3d.org/x3d/content/examples/HumanoidAnimation";
+  public final static String VRMLEXAMPLESURL                        ="https://www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook";
+  public final static String X3D4WA_EXAMPLESURL                     ="https://www.x3dGraphics.com/examples/X3dForWebAuthors";
+  public final static String X3D4AM_EXAMPLESURL                     ="https://www.x3dGraphics.com/examples/X3dForAdvancedModeling";
+  public final static String SAVAGEEXAMPLESURL                      ="https://savage.nps.edu/Savage";
+  public final static String SAVAGEDEFENSEEXAMPLESURL               ="https://SavageDefense.nps.navy.mil/SavageDefense";
+  public final static String X3DSECURITYEXAMPLES                    ="https://www.web3d.org/x3d/content/examples/Basic/XML Security";
+  public final static String X3DSECURITYREADME                      ="https://www.web3d.org/x3d/content/examples/Basic/XML Security/X3dSecurityReadMe.html";
+  public final static String X3D_EDIT_HOME                          ="https://savage.nps.edu/X3D-Edit";
+  public final static String X3D_EDIT_FEATURES                      = X3D_EDIT_HOME + "#Features";
+  public final static String SOURCEFORGE_RELEASE_INSTALLERS         ="https://sourceforge.net/projects/x3d/files";
+  public final static String X3D_RESOURCES                          ="https://www.web3d.org/x3d/content/examples/X3dResources.html";
+  public final static String X3D_RESOURCES_EXAMPLES_ARCHIVES        = X3D_RESOURCES + "#Examples";
+  public final static String X3D_RESOURCES_QUALITY_ASSURANCE        = X3D_RESOURCES + "#QualityAssurance";
+  public final static String X3D_RESOURCES_SECURITY                 = X3D_RESOURCES + "#Security";
+  public final static String X3D_RESOURCES_SECURITY_VULNERABILITIES =X3D_RESOURCES + "#Vulnerabilities";
+  public final static String X3D_SCENE_AUTHORING_HINTS              ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html";
+  public final static String X3D_SCENE_AUTHORING_HINTS_CORS         ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#CORS";
+  public final static String X3D_TOOLTIPS                           ="https://www.web3d.org/x3d/tooltips/X3dTooltips.html";
+  public final static String X3D_COURSE                             ="https://x3dgraphics.com/slidesets";
+  public final static String X3D_COURSE_VIDEOS                      ="https://www.youtube.com/channel/UCSOnGlgAFxkWg8ilg-JEbAQ";
+  public final static String X3D_QUICKSTART_TUTORIAL                ="https://www.web3d.org/news-story/x3d-quickstart-tutorial-video-online";
+           
+  public final static String X3D_SCHEMA_DOCTYPE_VALIDATION          ="https://www.web3d.org/specifications";
+  public final static String X3D_REGEX                              ="https://www.web3d.org/specifications/X3dRegularExpressions.html";
+  public final static String X3D_SCHEMATRON                         ="https://www.web3d.org/x3d/tools/schematron/X3dSchematron.html";
+  public final static String X3D_X3DUOM                             ="https://www.web3d.org/specifications/X3DUOM.html";
+  public final static String SAVAGE_DEVELOPERS_GUIDE                ="https://savage.nps.edu/Savage/developers.html";
   
   public final static String WEB3D_CONSORTIUM_HOME                  ="https://web3D.org";
   public final static String WEB3D_CONSORTIUM_JOIN                  ="https://web3D.org/join";
+  public final static String WEB3D_CONSORTIUM_GITHUB_DOCUMENTS      ="https://github.com/Web3dConsortium";
   public final static String WEB3D_CONSORTIUM_MANTIS_ISSUES         ="https://www.web3d.org/member-only/mantis/my_view_page.php";
 //public final static String WEB3D_CONSORTIUM_MANTIS_ISSUES         ="https://www.web3d.org/member-only/mantis/login_page.php";
   public final static String WEB3D_CONFERENCE                       ="https://web3d.siggraph.org";
@@ -133,7 +134,8 @@ abstract public class BaseViewAction extends CallableSystemAction
      try {
        showInBrowser(urlString);
      }
-     catch(Exception e) {
+     catch(Exception e)
+     {
        System.err.println("Trying to display "+urlString+" in HtmlBrowser: "+e.getLocalizedMessage());
      }    
   }
