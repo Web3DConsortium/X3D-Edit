@@ -52,7 +52,8 @@ import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.GzipX3dAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_GzipX3dAction", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/gnu-head-mini-32x32.png",
+                    displayName = "#CTL_GzipX3dAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Compression", position = 1000),

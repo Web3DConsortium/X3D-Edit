@@ -45,7 +45,8 @@ import org.openide.util.actions.CallableSystemAction;
 
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.GzipWrlAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_GzipWrlAction", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/gnu-head-mini-32x32.png",
+                    displayName = "#CTL_GzipWrlAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Compression", position = 1200),

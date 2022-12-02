@@ -55,8 +55,8 @@ import org.openide.util.NbBundle;
     @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 20),
     @ActionReference(path = "Toolbars/Author Workflow", position = 20),
     @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 20),
-    @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 20),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 20),
+    @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 20),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 20),
     @ActionReference(path = "Shortcuts", name = "CS-X")
 })
 @NbBundle.Messages("CTL_Xj3dViewerAction=Xj3D internal pane to render saved model")

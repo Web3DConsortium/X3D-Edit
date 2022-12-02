@@ -57,10 +57,10 @@ import org.web3d.x3d.X3DEditorSupport;
 
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 91),
-  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 151),
+  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 151),
   @ActionReference(path = "Toolbars/Author Workflow", position = 91),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 91),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Show Saved Model", position = 151)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 151)
 })
 
 public class XhtmlX3domAction extends BaseConversionsAction

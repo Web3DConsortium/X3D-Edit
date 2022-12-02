@@ -34,6 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.actions;
 
+import java.awt.Desktop;
+import java.net.URI;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -41,33 +43,48 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D_COMPRESSED_BINARY_ENCODING_STANDARD;
+import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_GITHUB_DOCUMENTS;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchX3DCompressedBinaryEncodingStandardAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ISO_favicon16x16.png",
-                    displayName = "#CTL_LaunchX3DCompressedBinaryEncodingStandardAction",
+@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumGitHubDocumentsAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/github_favicon16x16.png",
+                    displayName = "#CTL_LaunchWeb3DConsortiumGitHubDocumentsAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 700),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 700)
+  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 850),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 850)
 })
 
-public final class LaunchX3DCompressedBinaryEncodingStandardAction extends CallableSystemAction
+@SuppressWarnings("serial")
+public final class LaunchWeb3DConsortiumGitHubDocumentsAction extends CallableSystemAction
 {
   @Override
   public void performAction()
   {
-    // looking for javahelp
-    // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
-    // hlp.showHelp(HelpCtx.findHelp(this));
+    sendBrowserTo(WEB3D_CONSORTIUM_GITHUB_DOCUMENTS);
+  }
+  
+  protected static void sendBrowserTo(String urlString)
+  {
+     try {
+       showInBrowser(urlString);
+     }
+     catch(Exception e) {
+       System.err.println("Trying to display "+urlString+" in HtmlBrowser: "+e.getLocalizedMessage());
+     }    
+  }
+  protected static void showInBrowser(String urlString) throws Exception
+  {
+    // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_COMPRESSED_BINARY_ENCODING_STANDARD);
+    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+        Desktop.getDesktop().browse(new URI(urlString));
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchX3DCompressedBinaryEncodingStandardAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchWeb3DConsortiumGitHubDocumentsAction");
   }
 
   @Override
@@ -81,7 +98,7 @@ public final class LaunchX3DCompressedBinaryEncodingStandardAction extends Calla
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("X3dLaunchX3DCompressedBinaryEncodingStandardAction");
+    return new HelpCtx("X3dResourcesExamples");
   }
 
   @Override
