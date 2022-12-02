@@ -63,7 +63,7 @@ import org.web3d.x3d.palette.items.PROTOTYPE_ExtrusionCrossSection;
 //                    displayName = "#CTL_ExportX3domAction",
 //                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
 //@ActionReferences(value = {
-//  @ActionReference(path = "Menu/X3D-Edit/Show Saved Model", position = 70),
+//  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 70),
 //  @ActionReference(path = "Editors/model/x3d+xml/Popup", position = 212),
 //  @ActionReference(path = "Toolbars/Author Workflow", position = 100),})
 //
