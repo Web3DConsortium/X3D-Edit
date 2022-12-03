@@ -88,6 +88,8 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
     X3DEditorSupport(X3DDataObject obj) {
         super(obj, new Environment(obj));
         setMIMEType("model/x3d+xml"); // NOI18N
+        
+        System.out.println ("*** created X3DEditorSupport()"); // debug breakpoint
     }
 
     // Taken from: https://bits.netbeans.org/7.4/javadoc/org-openide-text/apichanges.html#CloneableEditorSupport.asynchronousOpen
