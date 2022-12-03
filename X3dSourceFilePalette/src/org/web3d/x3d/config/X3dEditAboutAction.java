@@ -69,24 +69,28 @@ public final class X3dEditAboutAction extends CallableSystemAction
       ResourceBundle bundle = NbBundle.getBundle("org.netbeans.core.windows.view.ui.Bundle_" + NbBundle.getBranding());
       String dataOutput = bundle.getString("CTL_MainWindow_Title");
       
-      Modules mods = Modules.getDefault();
-      ModuleInfo mi = mods.findCodeNameBase("org.web3d.x3d.palette");
-      SpecificationVersion specVer = mi.getSpecificationVersion();
-      String majVer = specVer.toString().substring(0, specVer.toString().lastIndexOf("."));
+      Modules modules = Modules.getDefault();
+      ModuleInfo moduleInfo = modules.findCodeNameBase("org.web3d.x3d.palette");
+      SpecificationVersion specificationVersion = moduleInfo.getSpecificationVersion();
+      String x3dMajorVersion = specificationVersion.toString().substring(0, specificationVersion.toString().lastIndexOf("."));
         
       String aboutHtmlMessage = "<html>" +
               "<p>&nbsp;</p>" +
-              "<h2 align='center'>Welcome to X3D-Edit " + majVer + "</h2>" +
+              "<h2 align='center'>Welcome to X3D-Edit " + x3dMajorVersion + "</h2>" +
               "<p align='center'>A free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
               "<p align='center'>&nbsp;</p>" +
-              "<p align='center'><b>" + dataOutput + "</b>&nbsp; Module version: &nbsp;<b>" + specVer.toString() + "</b>" +
+              "<p align='center'>Module update <b>2 December 2022</b> for module version <b>" + specificationVersion.toString() + "</b></p>" +
+              "<p align='center'>&nbsp;</p>" +
+              "<p align='center'>Installer compilation <b>" + dataOutput + "</b> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </p>" +
+              "<p align='center'>&nbsp;</p>" +
+//              "<p align='center'>&nbsp;</p>" +
 //              " with issue reports welcome via <a href='" + LaunchEmailReportAction.MAILTO_REPORT_URL + "'>e-mail</a>." +
               "</p>" +
 //        TODO: link not working
-              "<p align='center'>&nbsp;</p>" +
+//              "<p align='center'>&nbsp;</p>" +
 //             + "<p align='center'>Use the X3D-Edit Information menu to launch X3D-Edit home page and issue reports.</p>"
 //             + "<p align='center'>&nbsp;</p>" 
-//             + "<p align='center'><a href='https://savage.nps.edu/X3D-Edit'>https://savage.nps.edu/X3D-Edit</a></p>";
+//              "<p align='center'><a href='https://savage.nps.edu/X3D-Edit'>https://savage.nps.edu/X3D-Edit</a></p>" +
               "</html>";
 
 //    final JButton reportButton = new JButton("Report");
