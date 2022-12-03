@@ -560,6 +560,7 @@
             </class-path-extension>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>Amaya</word>
             <word>ClassicVRML</word>
             <word>classpath</word>
             <word>ConformanceNist</word>
