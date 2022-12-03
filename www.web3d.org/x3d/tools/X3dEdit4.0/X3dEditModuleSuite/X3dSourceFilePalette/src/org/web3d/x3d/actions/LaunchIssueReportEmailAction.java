@@ -44,17 +44,17 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchEmailReportAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.actions.LaunchIssueReportEmailAction", category = "X3D-Edit")
 // adapted email icon from https://creativecommons.org/website-icons
 @ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/envelope.png",
-                    displayName = "#CTL_LaunchEmailReportAction", 
+                    displayName = "#CTL_LaunchIssueReportEmailAction", 
                             lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Information", position = 900),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Information", position = 900)
 })
 
-public final class LaunchEmailReportAction extends CallableSystemAction
+public final class LaunchIssueReportEmailAction extends CallableSystemAction
 {
   public static String MAILTO_REPORT_URL = "mailto://brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%20Issue%20Report%20";
   // don't add body to email, since that clobbers user signature: body=Found%20a%20possible%20problem.%20&
@@ -69,14 +69,14 @@ public final class LaunchEmailReportAction extends CallableSystemAction
       if (!getElementName().isBlank())
           mailtoReportUrl+= getElementName() + "%20"; // append url-escaped blank character to facilitate user editing
       
-      System.out.println ("LaunchEmailReportAction performAction() mailtoReportUrl=" + mailtoReportUrl);
+      System.out.println ("LaunchIssueReportEmailAction performAction() mailtoReportUrl=" + mailtoReportUrl);
       
       sendBrowserTo(mailtoReportUrl);
   }
   
   public static void sendBrowserTo(String urlString)
   {
-     System.out.println ("LaunchEmailReportAction sendBrowserTo() urlString=" + urlString);
+     System.out.println ("LaunchIssueReportEmailAction sendBrowserTo() urlString=" + urlString);
       
      try {
        showInBrowser(urlString);
@@ -97,7 +97,7 @@ public final class LaunchEmailReportAction extends CallableSystemAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchEmailReportAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchIssueReportEmailAction");
   }
 
   @Override

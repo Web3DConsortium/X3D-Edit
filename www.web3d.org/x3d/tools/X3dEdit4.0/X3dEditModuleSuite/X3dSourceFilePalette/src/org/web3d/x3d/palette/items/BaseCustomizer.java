@@ -55,7 +55,7 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
-import org.web3d.x3d.actions.LaunchEmailReportAction;
+import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.options.X3dOptions;
 import org.web3d.x3d.palette.BetterJTextField;
@@ -357,7 +357,7 @@ public abstract class BaseCustomizer extends JPanel
     final JButton reportButton = findButton(buttonsDialogDisplayer, "Report");
     final ActionListener emailReportActionListener = (ActionEvent event) ->
     {
-       LaunchEmailReportAction.sendBrowserTo(LaunchEmailReportAction.MAILTO_REPORT_URL + currentX3dElement.getElementName());
+       LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + currentX3dElement.getElementName());
     };
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
     if (reportButton != null)
