@@ -57,7 +57,9 @@ import org.web3d.x3d.X3DEditorSupport;
   @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 50),
   @ActionReference(path = "Toolbars/Author Workflow", position = 50),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Export X3D Model to File", position = 50)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Export X3D Model to File", position = 50),
+  @ActionReference(path = "Shortcuts", name = "CS-P"), // shortcut control-shift-P
+  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
 @SuppressWarnings("serial")
