@@ -112,15 +112,15 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
   {
     super(pf, loader);
 //    this.loader = loader;
-    CookieSet set = getCookieSet();
-    set.add(X3DEditorSupport.class, X3DDataObject.this);
-    set.add(ViewSupport.class, X3DDataObject.this);
+    CookieSet cookieSet = getCookieSet();
+    cookieSet.add(X3DEditorSupport.class, X3DDataObject.this);
+    cookieSet.add(ViewSupport.class, X3DDataObject.this);
     File fil = FileUtil.toFile(pf);
     if(fil != null)
       x3dDataObjectDirectory = fil.getParent();
 
     // Enable SaveAs support, per FAQ
-    set.assign(SaveAsCapable.class, (SaveAsCapable) (FileObject folder, String fileName) -> {
+    cookieSet.assign(SaveAsCapable.class, (SaveAsCapable) (FileObject folder, String fileName) -> {
         editorSupport.saveAs(folder, fileName);
     });
     
@@ -140,15 +140,16 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     //This enables the validate and check and transform (xslt) xml buttons
     InputSource in = DataObjectAdapters.inputSource(X3DDataObject.this);
     validateCookie = new ValidateXMLSupport(in);
-    set.add(validateCookie);
+    cookieSet.add(validateCookie);
     checkXmlCookie = new CheckXMLSupport(in);
-    set.add(checkXmlCookie);
+    cookieSet.add(checkXmlCookie);
     transformXmlCookie = new TransformableSupport(new SAXSource(in));
-    set.add(transformXmlCookie);
+    cookieSet.add(transformXmlCookie);
 
     dtdValidator = new DTDValidator(in);
     schemaValidator = new SchemaValidator(in);
-
+    
+    System.out.println ("*** created X3DDataObject()"); // debug breakpoint
   }
 
   public SAXSource getFreshSaxSource()
