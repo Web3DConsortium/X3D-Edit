@@ -52,7 +52,10 @@ import org.openide.util.NbBundle;
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit", position = 1150),              // see layer.xml, now follows /X3D-Edit Information
-  @ActionReference(path = "Editors/model/x3d+xml/Popup", position = 1150) // see layer.xml, now follows /X3D-Edit Information
+  @ActionReference(path = "Editors/model/x3d+xml/Popup", position = 1150),// see layer.xml, now follows /X3D-Edit Information
+  @ActionReference(path = "Shortcuts", name = "CS-P") // shortcut control-shift-P
+  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
+        
 //  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 990),
 //  @ActionReference(path = "Menu/X3D-Edit/Modify Saved Scene in Tool", position = 990),
 })
