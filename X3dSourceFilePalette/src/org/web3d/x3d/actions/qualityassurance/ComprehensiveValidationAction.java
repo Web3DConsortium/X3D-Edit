@@ -76,7 +76,9 @@ import org.web3d.x3d.tools.X3dValuesRegexChecker;
   @ActionReference(path = "Toolbars/Author Workflow", position = 30),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 30),
   @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 300)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 300),
+  @ActionReference(path = "Shortcuts", name = "CS-Q"), // shortcut control-shift-Q
+  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
 public class ComprehensiveValidationAction extends BaseConversionsAction //XmlValidationAction
@@ -116,30 +118,30 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
   {
     private final String sourcePath;
     private       String validationLog;
-    private final X3DDataObject dob;
+    private final X3DDataObject x3dDataObject;
 
-    ComprehensiveValidationTask(String pathToFile, X3DDataObject dob)
+    ComprehensiveValidationTask(String pathToFile, X3DDataObject x3dDataObject)
     {
       sourcePath = pathToFile;
-      this.dob = dob;
+      this.x3dDataObject = x3dDataObject;
     }
 
         @Override
-        public void run() {
-            
-            // Display output to user
+        public void run()
+        {   
+            // Display output to user via console
             InputOutput io = IOProvider.getDefault().getIO("X3D Quality Assurance (QA)", false); // (QA)", false);
             io.select();  // Bring to the front
             try (OutputWriter outputWriterPlain = io.getOut()) {
                 try (OutputWriter outputWriterError = io.getErr()) {
-                    outputWriterPlain.println("--------- X3D Validator checks commenced for " + dob.getPrimaryFile().getNameExt() + " ---------");
+                    outputWriterPlain.println("--------- X3D Validator checks commenced for " + x3dDataObject.getPrimaryFile().getNameExt() + " ---------");
                     
                     CookieObserver coo = new MyCookieObserver(null, false, outputWriterError, outputWriterPlain);
 
                     // Well-formed XML check
                     outputWriterPlain.println();
                     outputWriterPlain.println("Performing well-formed XML check...");
-                    CheckXMLSupport checker = dob.getCheckXmlHelper();
+                    CheckXMLSupport checker = x3dDataObject.getCheckXmlHelper();
                     if (checker.checkXML(coo)) {//observerSilent)) {
                         outputWriterPlain.println("Well-formed XML check: pass");
                     } else {
@@ -163,7 +165,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                     }
                     outputWriterPlain.println();
                     outputWriterPlain.println("Performing DTD validation...");
-                    ValidateXMLSupport dtdValidator = dob.getDtdValidator();
+                    ValidateXMLSupport dtdValidator = x3dDataObject.getDtdValidator();
                     if (dtdValidator.validateXML(coo)) { //observerSilent)) {
                         outputWriterPlain.println("XML DTD validation: pass");
                     } else {
@@ -173,7 +175,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                     outputWriterPlain.println("Performing X3D schema validation...");
 
                     // XML Schema validation
-                    ValidateXMLSupport schemaValidator = dob.getSchemaValidator(); //dob.getValidateHelper();
+                    ValidateXMLSupport schemaValidator = x3dDataObject.getSchemaValidator(); //dob.getValidateHelper();
                     if (schemaValidator.validateXML(coo)) { //observerSilent)) {
                         outputWriterPlain.println("XML schema validation: pass");
                     } else {
@@ -198,14 +200,14 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                     }
 
                     // continue with XSLT transformation (depends on saxon)
-                    TransformableSupport transformer = dob.getTransformXmlHelper();
+                    TransformableSupport transformer = x3dDataObject.getTransformXmlHelper();
                     try {
                         fs = FileUtil.getConfigRoot().getFileSystem();
 
                         // X3dToClassicVRML
                         fo = fs.findResource("Schematron/X3dToX3dvClassicVrmlEncoding.xslt");
                         Source src = new StreamSource(fo.getInputStream());
-                        classicVrmlOutput = File.createTempFile(dob.getPrimaryFile().getNameExt() + "_", "_classicVrmlOutput.txt");
+                        classicVrmlOutput = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_classicVrmlOutput.txt");
                         classicVrmlOutput.deleteOnExit();
                         result = new StreamResult(classicVrmlOutput);
                         outputWriterPlain.println();
@@ -235,7 +237,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                         // X3D Schematron 1
                         fo = fs.findResource("Schematron/X3dSchematronValidityChecks.xslt");
                         Source src = new StreamSource(fo.getInputStream());
-                        schematronOutput = File.createTempFile(dob.getPrimaryFile().getNameExt() + "_", "_schematronOutput_1.txt");
+                        schematronOutput = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_schematronOutput_1.txt");
                         schematronOutput.deleteOnExit();
                         result = new StreamResult(schematronOutput);
 
@@ -259,14 +261,14 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                                 myCo.receive(new CookieMessage(exception.getLocalizedMessage(), CookieMessage.FATAL_ERROR_LEVEL));
                             }
                         });
-                        saxonTransformer.transform(dob.getFreshSaxSource(), result);
+                        saxonTransformer.transform(x3dDataObject.getFreshSaxSource(), result);
 
                         // X3D Schematron 2
                         // replace the transformer with one based on the output from the last check
                         transformer = new TransformableSupport(new StreamSource(new FileInputStream(schematronOutput)));  // Use output from last
                         fo = fs.findResource("Schematron/SvrlReportText.xslt");
                         src = new StreamSource(fo.getInputStream());
-                        schematronOutput2 = File.createTempFile(dob.getPrimaryFile().getNameExt() + "_", "_schematronOutput_2.txt");
+                        schematronOutput2 = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_schematronOutput_2.txt");
                         schematronOutput2.deleteOnExit();
                         result = new StreamResult(schematronOutput2);
 
@@ -292,7 +294,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                         }
                     }
                     outputWriterPlain.println();
-                    outputWriterPlain.println("--------- X3D Validator checks complete for " + dob.getPrimaryFile().getNameExt() + " ---------");
+                    outputWriterPlain.println("--------- X3D Validator checks complete for " + x3dDataObject.getPrimaryFile().getNameExt() + " ---------");
                     outputWriterPlain.println("--------- X3D Validator online at https://savage.nps.edu/X3dValidator ---------");
                     outputWriterPlain.println();
                     // removes asterisk
