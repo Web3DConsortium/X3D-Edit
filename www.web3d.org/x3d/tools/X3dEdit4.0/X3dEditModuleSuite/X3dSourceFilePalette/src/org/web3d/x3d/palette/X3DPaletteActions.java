@@ -66,7 +66,7 @@ public class X3DPaletteActions extends PaletteActions
   /** Creates a new instance of FormPaletteProvider */
   public X3DPaletteActions()
   {
-      System.out.println ("*** created X3DPaletteActions()");
+      System.out.println ("*** created X3DPaletteActions()"); // debug breakpoint
   }
   
   @Override
