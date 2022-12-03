@@ -54,8 +54,9 @@ import org.openide.util.actions.CallableSystemAction;
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Information", position = 100), // see layer.xml
   @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Information", position = 100),
-// https://bits.netbeans.org/15/javadoc/org-openide-awt/org/openide/awt/ActionReference.html
-  @ActionReference(path = "Shortcuts", name = "CS-A")
+  // https://bits.netbeans.org/15/javadoc/org-openide-awt/org/openide/awt/ActionReference.html
+  @ActionReference(path = "Shortcuts", name = "CS-A") // shortcut control-shift-A
+  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
 public final class X3dEditAboutAction extends CallableSystemAction
@@ -87,6 +88,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
       String x3dMajorVersion = specificationVersion.toString().substring(0, specificationVersion.toString().lastIndexOf("."));
       
       String newMainWindowTitle = mainWindowTitle + ", updated " + moduleReleaseDate + " version " + specificationVersion.toString();
+      System.out.println ("*** About X3D-Edit: " + newMainWindowTitle);
       // TODO how to set?  Once that is figured out, move to top-level componenet initialization
 //    resourceBundle.setString("CTL_MainWindow_Title"); ??
     // Unfortunately, not able to set values via the ResourceBundle convention.
