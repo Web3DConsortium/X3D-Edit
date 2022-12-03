@@ -75,6 +75,8 @@ import org.web3d.x3d.palette.items.PROTOTYPE_ExtrusionCrossSection;
   @ActionReference(path = "Menu/X3D-Edit/Edit Element XML", position = 200),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 10),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/Edit Element XML", position = 200),
+  @ActionReference(path = "Shortcuts", name = "CS-E"), // shortcut control-shift-E
+  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 @NbBundle.Messages("CTL_EditElementAction=Edit selected XML element under cursor")
 

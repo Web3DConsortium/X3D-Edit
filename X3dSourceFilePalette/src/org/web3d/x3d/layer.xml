@@ -112,6 +112,18 @@ POSSIBILITY OF SUCH DAMAGE.
         <folder name="Window"/>
     </folder>
     -->
+    <folder name="Actions">
+        <folder name="X3D-Edit">
+            <file name="org-web3d-x3d-actions-LaunchIssueReportEmailAction.instance">
+                <attr name="delegate" newvalue="org.web3d.x3d.actions.LaunchEmailReportAction"/>
+                <attr name="displayName" stringvalue="X3D-Edit Issue Report Email"/>
+                <attr name="iconBase" stringvalue="org/web3d/x3d/palette/items/resources/envelope.png"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+            </file>
+            <file name="org-web3d-x3d-actions-LaunchEmailReportAction.instance_hidden"/>
+        </folder>
+    </folder>
     <folder name="OptionsDialog">
         <folder name="Advanced">
             <!-- add to Tools Options Miscellaneous -->
@@ -829,8 +841,9 @@ POSSIBILITY OF SUCH DAMAGE.
             </folder>
         </folder>
     </folder>
+    <!-- Shortcuts hotkeys, D = Ctrl key. See Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts -->
+    <!-- prefer use of annotations in actual classes, now commented out here
     <folder name="Shortcuts">
-        <!-- hotkeys, D = Ctrl key -->
         <file name="S-D-E.shadow">
             <attr name="originalFile" stringvalue="Actions/Edit/org-web3d-x3d-EditElementAction.instance"/>
         </file>
@@ -838,6 +851,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <attr name="originalFile" stringvalue="Actions/Tools/org-web3d-x3d-actions-qualityassurance-ComprehensiveValidationAction.instance"/>
         </file>
     </folder>
+    -->
     <folder name="Windows2">
         <folder name="Components">
             <file name="DisPlayerRecorderTopComponent.settings" url="DisPlayerRecorderTopComponentSettings.xml"/>

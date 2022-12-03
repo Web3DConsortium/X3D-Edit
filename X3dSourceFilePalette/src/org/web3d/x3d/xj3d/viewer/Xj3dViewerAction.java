@@ -57,7 +57,8 @@ import org.openide.util.NbBundle;
     @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 20),
     @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 20),
     @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 20),
-    @ActionReference(path = "Shortcuts", name = "CS-X")
+    @ActionReference(path = "Shortcuts", name = "CS-X"), // shortcut control-shift-X
+    // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 @NbBundle.Messages("CTL_Xj3dViewerAction=Xj3D internal pane to render saved model")
 
