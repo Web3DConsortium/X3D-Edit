@@ -54,10 +54,15 @@ import org.openide.util.actions.CallableSystemAction;
 @ActionReferences(value = {
   @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Information", position = 100), // see layer.xml
   @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Information", position = 100),
+// https://bits.netbeans.org/15/javadoc/org-openide-awt/org/openide/awt/ActionReference.html
+  @ActionReference(path = "Shortcuts", name = "CS-A")
 })
 
 public final class X3dEditAboutAction extends CallableSystemAction
 {
+  String moduleReleaseDate = "2 December 2022"; // manually edit along with module version for each release
+  
+  String rightMargin = "&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ";
 
   public X3dEditAboutAction()
   {
@@ -66,26 +71,45 @@ public final class X3dEditAboutAction extends CallableSystemAction
   @Override
   public void performAction()
   {
-      ResourceBundle bundle = NbBundle.getBundle("org.netbeans.core.windows.view.ui.Bundle_" + NbBundle.getBranding());
-      String dataOutput = bundle.getString("CTL_MainWindow_Title");
+      // https://bits.netbeans.org/15/javadoc/org-openide-util/org/openide/util/NbBundle.html
+      String branding = NbBundle.getBranding();
+      ResourceBundle resourceBundle = NbBundle.getBundle("org.netbeans.core.windows.view.ui.Bundle_" + branding);
+      String mainWindowTitle = resourceBundle.getString("CTL_MainWindow_Title");
       
+      // https://bits.netbeans.org/15/javadoc/org-openide-modules/org/openide/modules/Modules.html
+      // https://bits.netbeans.org/15/javadoc/org-openide-modules/org/openide/modules/ModuleInfo.html
       Modules modules = Modules.getDefault();
       ModuleInfo moduleInfo = modules.findCodeNameBase("org.web3d.x3d.palette");
+      String           buildVersion = moduleInfo.getBuildVersion();
+      String           displayName  = moduleInfo.getDisplayName();
+      String  implementationVersion = moduleInfo.getImplementationVersion();
       SpecificationVersion specificationVersion = moduleInfo.getSpecificationVersion();
       String x3dMajorVersion = specificationVersion.toString().substring(0, specificationVersion.toString().lastIndexOf("."));
-        
+      
+      String newMainWindowTitle = mainWindowTitle + ", " + " updated " + moduleReleaseDate + " version 4.0." + implementationVersion;
+      // TODO how to set?  Once that is figured out, move to top-level componenet initialization
+//    resourceBundle.setString("CTL_MainWindow_Title"); ??
+      
       String aboutHtmlMessage = "<html>" +
               "<p>&nbsp;</p>" +
+              "<p align='center'><hr />" +
+              "<p align='center'>&nbsp;</p>" +
               "<h2 align='center'>Welcome to X3D-Edit " + x3dMajorVersion + "</h2>" +
               "<p align='center'>A free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
               "<p align='center'>&nbsp;</p>" +
-              "<p align='center'>Module update <b>2 December 2022</b> for module version <b>" + specificationVersion.toString() + "</b></p>" +
+              "<p align='center'><b>" + newMainWindowTitle + "</b> " + rightMargin + " </p>" +
+              "<p align='center'><hr />" +
               "<p align='center'>&nbsp;</p>" +
-              "<p align='center'>Installer compilation <b>" + dataOutput + "</b> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </p>" +
+              "<p align='center'>Installer compilation date <b>" + buildVersion + "</b> " + rightMargin + " </p>" +
               "<p align='center'>&nbsp;</p>" +
+              "<p align='center'>Plugin module update <b>" + moduleReleaseDate + "</b></p>" +
+              "<p align='center'>&nbsp;</p>" +
+              "<p align='center'>Plugin module version <b>" + specificationVersion.toString() + "</b>" + rightMargin + "</p>" +
+              "<p align='center'>&nbsp;</p>" +
+              "<p align='center'><hr />" +
 //              "<p align='center'>&nbsp;</p>" +
 //              " with issue reports welcome via <a href='" + LaunchEmailReportAction.MAILTO_REPORT_URL + "'>e-mail</a>." +
-              "</p>" +
+//              "</p>" +
 //        TODO: link not working
 //              "<p align='center'>&nbsp;</p>" +
 //             + "<p align='center'>Use the X3D-Edit Information menu to launch X3D-Edit home page and issue reports.</p>"
