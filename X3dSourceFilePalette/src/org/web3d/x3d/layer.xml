@@ -520,6 +520,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="enabled" boolvalue="true"/>
                 <attr name="instanceCreate" methodvalue="org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogFactory.createUpdateProvider"/>
                 <attr name="instanceOf" stringvalue="org.netbeans.spi.autoupdate.UpdateProvider"/>
+                <attr name="trusted" boolvalue="true"/>
                 <!-- Update mechanism did not work via SourceForge x3d Files directory, presumably due to url mangling. -->
                 <!-- Note dependency on certificate setups for savage.nps.edu -->
                 <!-- Note SSL Certificate Exception plugin https://plugins.netbeans.apache.org/catalogue/?id=20 -->
