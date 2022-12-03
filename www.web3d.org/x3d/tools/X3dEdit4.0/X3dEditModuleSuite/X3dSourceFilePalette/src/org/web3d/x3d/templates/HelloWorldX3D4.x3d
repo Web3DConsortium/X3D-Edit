@@ -2,7 +2,7 @@
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
 <X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
   <head>
-    <meta content='HelloWorldExample.x3d' name='title'/>
+    <meta content='*TODO rename* HelloWorldExample.x3d' name='title'/>
     <meta content='Test X3D-Edit with simple X3D model example: Hello World!' name='description'/>
     <meta content='10 June 2021' name='created'/>
     <meta content='25 November 2022' name='modified'/>
