@@ -54,7 +54,7 @@ import org.openide.windows.InputOutput;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_SECURITY;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_SECURITY_VULNERABILITIES;
 import org.web3d.x3d.actions.CommandExecutionScripts;
-import org.web3d.x3d.actions.LaunchEmailReportAction;
+import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
 import org.web3d.x3d.actions.ViewX3dSecurityExamplesOnlineAction;
 import org.web3d.x3d.palette.items.BaseCustomizer;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
@@ -9290,7 +9290,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
         try {
-            String mailtoReportUrl = LaunchEmailReportAction.MAILTO_REPORT_URL;
+            String mailtoReportUrl = LaunchIssueReportEmailAction.MAILTO_REPORT_URL;
             mailtoReportUrl  = mailtoReportUrl.replace("%20"," ").trim();
             mailtoReportUrl += ", " + panelName;
             mailtoReportUrl  = mailtoReportUrl.replace(" ","%20");
