@@ -86,7 +86,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
       SpecificationVersion specificationVersion = moduleInfo.getSpecificationVersion();
       String x3dMajorVersion = specificationVersion.toString().substring(0, specificationVersion.toString().lastIndexOf("."));
       
-      String newMainWindowTitle = mainWindowTitle + ", " + " updated " + moduleReleaseDate + " version 4.0." + implementationVersion;
+      String newMainWindowTitle = mainWindowTitle + ", updated " + moduleReleaseDate + " version " + specificationVersion.toString();
       // TODO how to set?  Once that is figured out, move to top-level componenet initialization
 //    resourceBundle.setString("CTL_MainWindow_Title"); ??
       
