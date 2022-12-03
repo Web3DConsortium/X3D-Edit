@@ -3,15 +3,13 @@
 https://sourceforge.net/p/x3d/admin/files/badges/
 -->
 
-# X3D-Edit 4.0 Beta Distribution, 26 November 2022
+# X3D-Edit 4.0 Beta Distribution, 2 December 2022
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
 X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
 
 Initial tests satisfactory: [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
-
-* Also download and install [ssl_certificate_exception-0.17.nbm](SSL Certificate Exception plugin) ([documentation](https://plugins.netbeans.apache.org/catalogue/?id=20)) while we currently use self-signed certificates.  This helps with automaticupdate capabilities.
 
 *User expectations.* Please note that this beta release is initially focused on restoring original X3D-Edit 3.3 functionality.
 Once baseline stability is demonstrated on multiple platforms, we expect that further authoring support for 
@@ -25,20 +23,21 @@ Prerequisite for operation: Java JDK 17 LTS (or later).  Suggested:
 The following files are available for X3D-Edit authoring:
 
 X3D-Edit Install File                                                                                       | Description                                       | Status                                                        | File size | Date        
------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------- | --------- | ------------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system      | 192.1 MB | NOV 26  
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans 15, tested satisfactorily, any operating system     |  70.8 MB | NOV 26  
-[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO future troubleshooting          | 191.9 MB | NOV 26  
-[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO future troubleshooting          | 192.0 MB | NOV 26 
-[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | Tested unsatisfactorily, TODO future troubleshooting          | 192.4 MB | NOV 26  
+----------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------- | --------- | ----------  
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system      |  192.1 MB | 2 DEC 2022
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans 15, tested satisfactorily, any operating system     |   70.8 MB | 2 DEC 2022
+Pre-release files:                                                                                          |                                                   |                                                               |           |
+[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting     |  191.9 MB | 2 DEC 2022
+[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting     |  192.0 MB | 2 DEC 2022
+[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | Tested unsatisfactorily, TODO&nbsp;future troubleshooting     |  192.4 MB | 2 DEC 2022
 
 SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
 
 ----
 
-The Zip installation seems most reliable and popular, typically working without modifications.
+The Zip installation is most reliable and popular, typically working without modifications.
 
-## Troubleshooting
+## Troubleshooting the ZIP
 
 Following installation, a modification might be needed to point to your locally installed Java JDK.
 For example, under Windows the following file requires modification.
@@ -52,6 +51,10 @@ For example, under Windows the following file requires modification.
 * <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19.0.1"</code> (for example)
 
 Note: if you use default installation directory, then you may need administrator permissions to perform any such modifications.
+
+## Troubleshoot Netbeans
+
+* Also download and install [ssl_certificate_exception-0.17.nbm](SSL Certificate Exception plugin) ([documentation](https://plugins.netbeans.apache.org/catalogue/?id=20)) while we currently use self-signed certificates.  This helps with automaticupdate capabilities.
 
 ----
 
