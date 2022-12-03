@@ -89,6 +89,9 @@ public final class X3dEditAboutAction extends CallableSystemAction
       String newMainWindowTitle = mainWindowTitle + ", updated " + moduleReleaseDate + " version " + specificationVersion.toString();
       // TODO how to set?  Once that is figured out, move to top-level componenet initialization
 //    resourceBundle.setString("CTL_MainWindow_Title"); ??
+    // Unfortunately, not able to set values via the ResourceBundle convention.
+    // Can only read values and obtain the keys to those values, no setting.
+    // @see java.util.PropertyResourceBundle
       
       String aboutHtmlMessage = "<html>" +
               "<p>&nbsp;</p>" +
