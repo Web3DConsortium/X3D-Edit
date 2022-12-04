@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_SCHEMATRON;
                     displayName = "#CTL_LaunchX3dSchematronAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 1030),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 1030),
+  @ActionReference(path = "Menu/&X3D-Edit/&Quality Assurance (QA)", position = 1030),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Quality Assurance (QA)", position = 1030),
 })
 
 public final class LaunchX3dSchematronAction extends CallableSystemAction

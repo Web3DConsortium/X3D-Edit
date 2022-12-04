@@ -56,8 +56,8 @@ import org.web3d.x3d.palette.items.NodeListPanel;
                     displayName = "#CTL_WrapElementAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Edit Element XML", position = 780),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Edit Element XML", position = 780)
+  @ActionReference(path = "Menu/&X3D-Edit/&Edit Element XML", position = 780),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Edit Element XML", position = 780)
 })
 
 public final class WrapElementAction extends EditElementAction

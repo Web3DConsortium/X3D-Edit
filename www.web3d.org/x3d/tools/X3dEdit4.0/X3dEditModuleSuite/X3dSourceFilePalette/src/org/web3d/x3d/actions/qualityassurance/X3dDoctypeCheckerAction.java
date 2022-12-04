@@ -55,8 +55,8 @@ import org.web3d.x3d.tools.X3dDoctypeChecker;
                     displayName = "#CTL_X3dDoctypeCheckerAction", 
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 320),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 321995-20120),
+  @ActionReference(path = "Menu/&X3D-Edit/&Quality Assurance (QA)", position = 320),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Quality Assurance (QA)", position = 321995-20120),
 })
 
 public final class X3dDoctypeCheckerAction extends BaseConversionsAction

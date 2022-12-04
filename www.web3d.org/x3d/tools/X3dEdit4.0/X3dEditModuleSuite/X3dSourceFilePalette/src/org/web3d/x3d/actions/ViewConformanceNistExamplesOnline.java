@@ -45,8 +45,8 @@ import org.openide.util.NbBundle;
                     displayName = "#CTL_ViewConformanceNistExamplesOnline", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Example X3D Model Archives/View Online X3D Examples Archives", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Example X3D Model Archives/View Online X3D Examples Archives", position = 400)
+  @ActionReference(path = "Menu/&X3D-Edit/&Example X3D Model Archives/View Online X3D Examples Archives", position = 400),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Example X3D Model Archives/View Online X3D Examples Archives", position = 400)
 })
 
 public final class ViewConformanceNistExamplesOnline extends BaseViewAction

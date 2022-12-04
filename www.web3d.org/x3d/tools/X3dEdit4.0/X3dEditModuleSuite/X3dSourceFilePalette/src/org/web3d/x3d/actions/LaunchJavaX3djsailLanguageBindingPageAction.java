@@ -53,8 +53,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_X3DJSAIL_JAVADOC;
                     displayName = "#CTL_LaunchJavaX3djsailLanguageBindingPageAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/X3D Work in Progress", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D Work in Progress", position = 100)
+  @ActionReference(path = "Menu/&X3D-Edit/X3D &Work in Progress", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D &Work in Progress", position = 100)
 })
 
 public final class LaunchJavaX3djsailLanguageBindingPageAction extends CallableSystemAction

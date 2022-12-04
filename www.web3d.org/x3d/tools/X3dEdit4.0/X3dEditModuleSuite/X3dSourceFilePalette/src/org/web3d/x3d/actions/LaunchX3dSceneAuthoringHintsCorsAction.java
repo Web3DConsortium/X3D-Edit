@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS_COR
                     displayName = "#CTL_LaunchX3dSceneAuthoringHintsCorsAction", 
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Help with X3D", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help with X3D", position = 100),
+  @ActionReference(path = "Menu/&X3D-Edit/&Help with X3D Graphics", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Help with X3D Graphics", position = 100),
 })
 
 @SuppressWarnings("serial")

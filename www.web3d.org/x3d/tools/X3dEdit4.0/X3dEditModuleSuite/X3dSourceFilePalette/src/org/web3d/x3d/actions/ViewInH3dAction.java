@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/H3D-cropped-512px-16x16.png", // 32x32.png",
                     displayName = "#CTL_ViewInH3dAction", lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 124),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 124)})
+  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 124),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 124)})
 
 public final class ViewInH3dAction extends ViewInBaseAction
 {

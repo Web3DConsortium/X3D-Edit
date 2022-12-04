@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/Blender_favicon32x32.png",
                     displayName = "#CTL_EditInBlenderAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 110),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 110),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 110),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 110),
 })
 
 public final class EditInBlenderAction extends ViewInBaseAction

@@ -49,8 +49,8 @@ import org.web3d.x3d.options.X3dOptions;
         displayName = "#CTL_ViewInXj3DExternalAction",
                 lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value={
-  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 60, separatorAfter = 61),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 61),
+  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 60, separatorAfter = 61),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 61),
 })
 
 /**

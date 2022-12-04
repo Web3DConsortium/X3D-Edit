@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.W3C_STANDARDS_OPEN_WEB_PLATFO
                     displayName = "#CTL_LaunchW3cOpenWebStandardsAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/W3C Standards", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C Standards", position = 400)
+  @ActionReference(path = "Menu/&X3D-Edit/W3C &Standards", position = 400),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C &Standards", position = 400)
 })
 
 public final class LaunchW3cOpenWebStandardsAction extends CallableSystemAction

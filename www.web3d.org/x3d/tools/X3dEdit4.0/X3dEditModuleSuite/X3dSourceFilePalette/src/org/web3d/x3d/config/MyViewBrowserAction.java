@@ -55,8 +55,8 @@ import org.openide.util.NbBundle;
                     displayName = "#CTL_MyViewBrowserAction", // "X3D-Edit Home"
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Information", position = 500), // see layer.xml
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Information", position = 500)
+  @ActionReference(path = "Menu/&X3D-Edit/X3D-Edit &Information", position = 500), // see layer.xml
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit &Information", position = 500)
 })
 
 public final class MyViewBrowserAction implements ActionListener

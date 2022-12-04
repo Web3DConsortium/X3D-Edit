@@ -52,11 +52,13 @@ import org.web3d.x3d.X3DEditorSupport;
 // C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit3.3\X3dEditorSuite\websites\savage.nps.edu\X3D-Edit\images\X3D-EditSplash4.vsdx
 
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 100),
-  @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", position = 100),
-  @ActionReference(path = "Toolbars/Author Workflow", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Export X3D Model to File", position = 100)
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 100),
+  @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 100),
+  @ActionReference(path = "Toolbars/&Author Workflow", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 100),
+  @ActionReference(path = "Shortcuts", name = "CS-0"), // shortcut control-shift-0
+  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
 public final class ExportTurtleTriplesAction extends BaseConversionsAction

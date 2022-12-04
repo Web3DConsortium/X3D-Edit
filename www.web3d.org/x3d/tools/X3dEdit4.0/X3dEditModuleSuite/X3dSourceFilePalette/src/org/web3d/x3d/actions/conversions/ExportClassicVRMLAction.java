@@ -48,8 +48,8 @@ import org.openide.util.NbBundle;
                     displayName = "#CTL_ClassicVRMLAction", 
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", position = 250),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Export X3D Model to File", position = 250)
+  @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 250),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 250)
 })
 
 public final class ExportClassicVRMLAction extends Xj3DConverterBaseExportAction

@@ -47,8 +47,8 @@ import org.openide.util.NbBundle;
                     displayName = "#CTL_ImportClassicVrmlAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Import X3D Model from File", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Import X3D Model from File", position = 200)
+  @ActionReference(path = "Menu/&X3D-Edit/&Import X3D Model from File", position = 200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Import X3D Model from File", position = 200)
 })
 
 public final class ImportClassicVrmlAction extends Xj3DConverterBaseImportAction

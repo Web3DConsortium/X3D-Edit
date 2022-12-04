@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.W3C_CASCADING_STYLESHEETS;
                     displayName = "#CTL_LaunchW3cCascadingStyleSheetsAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/W3C Standards", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C Standards", position = 200)
+  @ActionReference(path = "Menu/&X3D-Edit/W3C &Standards", position = 200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C &Standards", position = 200)
 })
 
 public final class LaunchW3cCascadingStyleSheetsAction extends CallableSystemAction

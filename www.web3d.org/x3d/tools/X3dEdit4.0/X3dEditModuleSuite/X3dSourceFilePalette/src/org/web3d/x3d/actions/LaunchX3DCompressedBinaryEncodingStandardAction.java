@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_COMPRESSED_BINARY_ENCODIN
                     displayName = "#CTL_LaunchX3DCompressedBinaryEncodingStandardAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 700),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 700)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 700),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 700)
 })
 
 public final class LaunchX3DCompressedBinaryEncodingStandardAction extends CallableSystemAction

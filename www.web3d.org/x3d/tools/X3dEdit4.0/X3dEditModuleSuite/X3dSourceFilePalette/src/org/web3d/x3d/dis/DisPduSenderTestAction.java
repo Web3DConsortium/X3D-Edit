@@ -51,8 +51,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.dis.DisPduSenderTestAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_DisPduSenderTestAction", lazy = false)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/DIS Networking", name = "DisPduSenderTestAction", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/DIS Networking", position = 300)
+  @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", name = "DisPduSenderTestAction", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 300)
 })
 public class DisPduSenderTestAction extends AbstractAction
 {

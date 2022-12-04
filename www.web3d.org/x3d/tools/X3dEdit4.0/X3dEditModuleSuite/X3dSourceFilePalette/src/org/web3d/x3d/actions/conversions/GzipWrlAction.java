@@ -49,8 +49,8 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_GzipWrlAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Compression", position = 1200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Compression", position = 1200)
+  @ActionReference(path = "Menu/&X3D-Edit/&Compression", position = 1200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Compression", position = 1200)
 })
 
 public final class GzipWrlAction extends CallableSystemAction

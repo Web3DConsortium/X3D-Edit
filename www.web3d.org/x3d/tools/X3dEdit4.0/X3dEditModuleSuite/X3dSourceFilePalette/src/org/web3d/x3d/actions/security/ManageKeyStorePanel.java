@@ -119,7 +119,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
   private char[] pw;
 
   private static JFileChooser saveChooser,openChooser;
-  private static File lastChooserDir = new File(System.getProperty("user.home")+"/X3D-Edit/XML Security");
+  private static File lastChooserDir = new File(System.getProperty("user.home")+"/X3D-Edit/XML &Security");
   
   /** Creates new form ManageKeyStorePanel
    * @param password plain text?

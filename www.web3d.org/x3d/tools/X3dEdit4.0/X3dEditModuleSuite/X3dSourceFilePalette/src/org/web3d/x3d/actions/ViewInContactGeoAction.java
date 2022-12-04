@@ -54,8 +54,8 @@ import org.web3d.x3d.options.X3dOptions;
 //@ActionRegistration(   iconBase = "org/web3d/x3d/resources/bitmanagement09_favicon_16x16.png",
 //                    displayName = "#CTL_ViewInContactGeoAction", lazy=true)
 //@ActionReferences( value = {
-//  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 119),
-//  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 119)
+//  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 119),
+//  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 119)
 //})
 public final class ViewInContactGeoAction extends ViewInBaseAction
 {

@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/seamless3d_favicon.png", // ico
                     displayName = "#CTL_EditInSeamless3dAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 160),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 160),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 160),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 160),
 })
 
 public final class EditInSeamless3dAction extends ViewInBaseAction

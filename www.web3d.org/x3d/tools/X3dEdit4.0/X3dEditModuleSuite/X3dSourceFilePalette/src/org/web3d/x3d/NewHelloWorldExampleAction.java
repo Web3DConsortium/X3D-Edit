@@ -62,9 +62,9 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_X3DNewHelloWorldExampleAction",
                            lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/New File Templates", name = "org-web3d-x3d-NewHelloWorldExampleAction", position = 300),
-  @ActionReference(path = "Menu/X3D-Edit/New File Templates", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/New File Templates", position = 300),
+  @ActionReference(path = "Toolbars/&New File Templates", name = "org-web3d-x3d-NewHelloWorldExampleAction", position = 300),
+  @ActionReference(path = "Menu/&X3D-Edit/&New File Templates", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&New File Templates", position = 300),
 })
 
 public final class NewHelloWorldExampleAction extends CallableSystemAction

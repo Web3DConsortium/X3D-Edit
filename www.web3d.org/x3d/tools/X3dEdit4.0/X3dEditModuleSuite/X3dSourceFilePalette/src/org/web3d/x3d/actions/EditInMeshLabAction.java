@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/meshlabjsLogo32x32.png",
                     displayName = "#CTL_EditInMeshLabAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 130),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 130),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 130),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 130),
 })
 
 public final class EditInMeshLabAction extends ViewInBaseAction

@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/instantreality_16x16.png",
                     displayName = "#CTL_ViewInInstantRealityAction", lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 127),
-  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 127)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 127),
+  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 127)
 })
 public final class ViewInInstantRealityAction extends ViewInBaseAction
 {

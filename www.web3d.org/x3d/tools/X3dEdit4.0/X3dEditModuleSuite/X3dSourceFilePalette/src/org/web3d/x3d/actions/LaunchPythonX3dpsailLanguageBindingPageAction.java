@@ -53,8 +53,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_PYTHON_LANGUAGE_BINDING_X
                     displayName = "#CTL_LaunchPythonX3dpsailLanguageBindingPageAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/X3D Work in Progress", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D Work in Progress", position = 300)
+  @ActionReference(path = "Menu/&X3D-Edit/X3D &Work in Progress", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D &Work in Progress", position = 300)
 })
 
 public final class LaunchPythonX3dpsailLanguageBindingPageAction extends CallableSystemAction

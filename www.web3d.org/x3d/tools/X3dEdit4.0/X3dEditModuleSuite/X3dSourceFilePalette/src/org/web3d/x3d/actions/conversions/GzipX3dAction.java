@@ -56,8 +56,8 @@ import org.web3d.x3d.X3DEditorSupport;
                     displayName = "#CTL_GzipX3dAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Compression", position = 1000),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Compression", position = 1000)
+  @ActionReference(path = "Menu/&X3D-Edit/&Compression", position = 1000),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Compression", position = 1000)
 })
 
 public class GzipX3dAction extends BaseConversionsAction

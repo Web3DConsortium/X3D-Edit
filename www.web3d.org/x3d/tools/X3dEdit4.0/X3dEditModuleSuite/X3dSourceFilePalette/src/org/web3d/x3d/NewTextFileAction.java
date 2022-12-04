@@ -62,9 +62,9 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_NewTextFileAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/New File Templates", position = 380),
-  @ActionReference(path = "Menu/X3D-Edit/New File Templates", position = 380),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/New File Templates", position = 380),
+  @ActionReference(path = "Toolbars/&New File Templates", position = 380),
+  @ActionReference(path = "Menu/&X3D-Edit/&New File Templates", position = 380),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&New File Templates", position = 380),
 })
 
 public final class NewTextFileAction extends CallableSystemAction

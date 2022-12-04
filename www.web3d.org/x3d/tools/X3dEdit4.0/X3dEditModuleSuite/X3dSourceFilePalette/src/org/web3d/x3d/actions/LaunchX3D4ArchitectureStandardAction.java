@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_DI
                     displayName = "#CTL_LaunchX3D4ArchitectureStandardAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 400)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 400),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 400)
 })
 
 public final class LaunchX3D4ArchitectureStandardAction extends CallableSystemAction

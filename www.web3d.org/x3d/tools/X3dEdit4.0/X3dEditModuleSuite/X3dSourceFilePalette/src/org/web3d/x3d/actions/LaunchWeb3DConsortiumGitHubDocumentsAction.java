@@ -50,8 +50,8 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_GITHUB_DOCUM
                     displayName = "#CTL_LaunchWeb3DConsortiumGitHubDocumentsAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 850),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 850)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 850),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 850)
 })
 
 @SuppressWarnings("serial")

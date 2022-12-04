@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_X3DUOM;
                     displayName = "#CTL_LaunchX3duomAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 1000),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 1000),
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 1000),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 1000),
 })
 
 public final class LaunchX3duomAction extends CallableSystemAction

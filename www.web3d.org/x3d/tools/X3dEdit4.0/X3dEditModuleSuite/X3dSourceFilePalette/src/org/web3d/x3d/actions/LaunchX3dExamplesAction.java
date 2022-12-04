@@ -50,8 +50,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_EXAMPLES_ARCHIV
                     displayName = "#CTL_LaunchX3dExamplesAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Example X3D Model Archives", position = 500),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Example X3D Model Archives", position = 500)
+  @ActionReference(path = "Menu/&X3D-Edit/&Example X3D Model Archives", position = 500),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Example X3D Model Archives", position = 500)
 })
 
 public final class LaunchX3dExamplesAction extends CallableSystemAction

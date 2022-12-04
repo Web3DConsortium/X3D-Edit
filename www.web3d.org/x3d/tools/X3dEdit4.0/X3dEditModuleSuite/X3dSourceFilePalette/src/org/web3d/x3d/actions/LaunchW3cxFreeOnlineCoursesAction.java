@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.W3CX_FREE_ONLINE_COURSES;
                     displayName = "#CTL_LaunchW3cxFreeOnlineCoursesAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/W3C Standards", position = 900),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C Standards", position = 900)
+  @ActionReference(path = "Menu/&X3D-Edit/W3C &Standards", position = 900),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C &Standards", position = 900)
 })
 
 public final class LaunchW3cxFreeOnlineCoursesAction extends CallableSystemAction

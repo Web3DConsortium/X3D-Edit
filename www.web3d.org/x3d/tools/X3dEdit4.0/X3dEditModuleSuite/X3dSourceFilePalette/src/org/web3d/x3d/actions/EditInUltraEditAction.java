@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/ultraedit_favicon_32x32.png", // ico
                     displayName = "#CTL_EditInUltraEditAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 170),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 170),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 170),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 170),
 })
 
 public final class EditInUltraEditAction extends ViewInBaseAction

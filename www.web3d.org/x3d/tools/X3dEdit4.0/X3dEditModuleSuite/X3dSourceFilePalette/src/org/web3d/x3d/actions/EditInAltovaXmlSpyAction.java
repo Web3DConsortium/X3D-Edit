@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/altova-favicon-32x32.png",
                     displayName = "#CTL_EditInAltovaXMLSpyAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 100),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 100),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 100),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 100),
 })
 
 public final class EditInAltovaXmlSpyAction extends ViewInBaseAction

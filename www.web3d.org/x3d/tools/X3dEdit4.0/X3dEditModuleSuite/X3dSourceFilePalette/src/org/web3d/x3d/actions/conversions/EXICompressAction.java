@@ -56,8 +56,8 @@ import org.xml.sax.InputSource;
                        popupText="TODO update, currently disabled", // TODO is this repeatable
                             lazy=false) // don't do lazy=false since iconBase no longer gets registered)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Compression", position = 900),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Compression", position = 900)
+  @ActionReference(path = "Menu/&X3D-Edit/&Compression", position = 900),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Compression", position = 900)
 })
 
 public class EXICompressAction extends BaseConversionsAction

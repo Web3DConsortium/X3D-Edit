@@ -48,19 +48,19 @@ import org.openide.util.NbBundle;
  */
 @ActionID(id = "org.web3d.x3d.xj3d.viewer.Xj3dViewerAction", category = "X3D-Edit")
 
-@ActionRegistration(iconBase = "org/web3d/x3d/resources/xj3d.png",
+@ActionRegistration(iconBase = "org/web3d/x3d/resources/xj3d24.png",
         displayName = "#CTL_Xj3dViewerAction",
         lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-    @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 20),
-    @ActionReference(path = "Toolbars/Author Workflow", position = 20),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 20),
-    @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 20),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 20),
+    @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 20),
+    @ActionReference(path = "Toolbars/&Author Workflow", position = 20),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 20),
+    @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 20),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 20),
     @ActionReference(path = "Shortcuts", name = "CS-X"), // shortcut control-shift-X
     // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
-@NbBundle.Messages("CTL_Xj3dViewerAction=Xj3D internal pane to render saved model")
+@NbBundle.Messages("CTL_Xj3dViewerAction=&Xj3D internal pane to render saved model")
 
 /**
  * Sets the Xj3D JFrame visible to view X3D scenes

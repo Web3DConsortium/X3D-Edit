@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/octaga_favicon.png",
                     displayName = "#CTL_ViewInOctagaAction", lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 130),
-  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 130)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 130),
+  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 130)
 })
 public final class ViewInOctagaAction extends ViewInBaseAction
 {

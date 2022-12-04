@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.SOURCEFORGE_RELEASE_INSTALLER
                     displayName = "#CTL_LaunchX3dEditSourceForgeReleaseAction", 
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Information", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Information", position = 300),
+  @ActionReference(path = "Menu/&X3D-Edit/X3D-Edit &Information", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit &Information", position = 300),
 })
 
 public final class LaunchX3dEditSourceForgeReleaseAction extends CallableSystemAction

@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/wings3d_32x32.png",
                     displayName = "#CTL_EditInWings3dAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 190),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 190),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 190),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 190),
 })
 
 public final class EditInWings3dAction extends ViewInBaseAction

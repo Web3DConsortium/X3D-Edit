@@ -50,8 +50,8 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONFERENCE_ACM_DIGITAL_
                     displayName = "#CTL_LaunchWeb3DConferenceAcmDigitalLibraryAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Outreach", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Outreach", position = 200)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Outreach", position = 200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Outreach", position = 200)
 })
 
 public final class LaunchWeb3DConferenceAcmDigitalLibraryAction extends CallableSystemAction

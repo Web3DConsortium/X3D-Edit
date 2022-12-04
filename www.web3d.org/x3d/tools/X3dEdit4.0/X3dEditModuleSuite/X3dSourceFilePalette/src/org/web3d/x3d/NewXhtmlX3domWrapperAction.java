@@ -62,9 +62,9 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_X3DNewXhtmlX3domWrapperAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/New File Templates", position = 320),
-  @ActionReference(path = "Menu/X3D-Edit/New File Templates", position = 320),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/New File Templates", position = 320),
+  @ActionReference(path = "Toolbars/&New File Templates", position = 320),
+  @ActionReference(path = "Menu/&X3D-Edit/&New File Templates", position = 320),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&New File Templates", position = 320),
 })
 
 public final class NewXhtmlX3domWrapperAction extends CallableSystemAction

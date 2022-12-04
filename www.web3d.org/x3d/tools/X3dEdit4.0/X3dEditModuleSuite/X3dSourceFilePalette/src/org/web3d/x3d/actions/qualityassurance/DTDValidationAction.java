@@ -46,8 +46,8 @@ import org.openide.util.NbBundle;
                     displayName = "#CTL_DTDValidationAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 340),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 340),
+  @ActionReference(path = "Menu/&X3D-Edit/&Quality Assurance (QA)", position = 340),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Quality Assurance (QA)", position = 340),
 })
 
 public class DTDValidationAction extends XmlValidationAction
