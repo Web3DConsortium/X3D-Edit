@@ -9,29 +9,21 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 
 X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
 
-Initial tests satisfactory: [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
-
-*User expectations.* Please note that this beta release is initially focused on restoring original X3D-Edit 3.3 functionality.
-Once baseline stability is demonstrated on multiple platforms, we expect that further authoring support for 
-[X3D4](https://www.web3d.org/x3d4) nodes and features will be added steadily.
-
 Prerequisite for operation: Java JDK 17 LTS (or later).  Suggested:
 
 * Oracle  jdk-19.0.1, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
 * OpenJDK jdk-19.0.1, latest versions available at [https://openjdk.org](https://openjdk.org) (but likely have to setup PATH, CLASSPATH)
 
-The following files are available for X3D-Edit authoring:
+Directions: download and extract the .zip, use file properties to unblock if necessary, then run
 
-X3D-Edit Install File                                                                                       | Description                                       | Status                                                        | File size | Date        
------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------- | --------- | ----------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system      |  192.1 MB | 2 DEC 2022
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans 15, tested satisfactorily, any operating system     |   70.8 MB | 2 DEC 2022
-Pre-release files:                                                                                          |                                                   |                                                               |           |
-[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting     |  191.9 MB | 2 DEC 2022
-[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting     |  192.0 MB | 2 DEC 2022
-[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | Tested unsatisfactorily, TODO&nbsp;future troubleshooting     |  192.4 MB | 2 DEC 2022
+* *[install directory]/x3deditmodulesuite\bin\x3deditmodulesuite64.exe*
 
-SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
+*User expectations.* Please note that this beta release is initially focused on restoring original X3D-Edit 3.3 functionality.
+Once baseline stability is demonstrated on multiple platforms, we expect that further authoring support for 
+[X3D4](https://www.web3d.org/x3d4) nodes and features will be added steadily.
+
+NetBeans plugin tests satisfactory: use [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
+
 
 ----
 
@@ -51,10 +43,6 @@ For example, under Windows the following file requires modification.
 * <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19.0.1"</code> (for example)
 
 Note: if you use default installation directory, then you may need administrator permissions to perform any such modifications.
-
-## Troubleshoot Netbeans
-
-* Also download and install [ssl_certificate_exception-0.17.nbm](SSL Certificate Exception plugin) ([documentation](https://plugins.netbeans.apache.org/catalogue/?id=20)) while we currently use self-signed certificates.  This helps with automaticupdate capabilities.
 
 ----
 
