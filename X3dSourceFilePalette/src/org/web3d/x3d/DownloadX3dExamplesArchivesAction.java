@@ -58,13 +58,13 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 // no longer supported import org.netbeans.api.javahelp.Help;
 
-@ActionID(id = "org.web3d.x3d.DownloadContentAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.DownloadX3dExamplesArchivesAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
-                    displayName = "#CTL_DownloadContentAction", 
+                    displayName = "#CTL_DownloadX3dExamplesArchivesAction", 
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Example X3D Model Archives", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Example X3D Model Archives", position = 100)
+  @ActionReference(path = "Menu/&X3D-Edit/&Example X3D Model Archives", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Example X3D Model Archives", position = 100)
 })
 
 @SuppressWarnings("serial")
@@ -206,7 +206,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(DownloadX3dExamplesArchivesAction.class, "CTL_DownloadContentAction");
+    return NbBundle.getMessage(DownloadX3dExamplesArchivesAction.class, "CTL_DownloadX3dExamplesArchivesAction");
   }
 
   @Override

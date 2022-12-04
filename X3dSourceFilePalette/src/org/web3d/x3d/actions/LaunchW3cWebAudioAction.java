@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.W3C_WEB_AUDIO_API;
                     displayName = "#CTL_LaunchW3cWebAudioAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/W3C Standards", position = 600),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C Standards", position = 600)
+  @ActionReference(path = "Menu/&X3D-Edit/W3C &Standards", position = 600),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C &Standards", position = 600)
 })
 
 public final class LaunchW3cWebAudioAction extends CallableSystemAction

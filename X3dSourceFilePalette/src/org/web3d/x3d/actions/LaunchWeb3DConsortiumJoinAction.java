@@ -50,8 +50,8 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_JOIN;
                     displayName = "#CTL_LaunchWeb3DConsortiumJoinAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Outreach", position = 450),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Outreach", position = 450)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Outreach", position = 450),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Outreach", position = 450)
 })
 
 @SuppressWarnings("serial")

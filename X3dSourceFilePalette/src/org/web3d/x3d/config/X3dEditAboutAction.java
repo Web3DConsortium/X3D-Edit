@@ -52,8 +52,8 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_X3dEditAboutAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/X3D-Edit Information", position = 100), // see layer.xml
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit Information", position = 100),
+  @ActionReference(path = "Menu/&X3D-Edit/X3D-Edit &Information", position = 100), // see layer.xml
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit &Information", position = 100),
   // https://bits.netbeans.org/15/javadoc/org-openide-awt/org/openide/awt/ActionReference.html
   @ActionReference(path = "Shortcuts", name = "CS-A") // shortcut control-shift-A
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
@@ -61,7 +61,7 @@ import org.openide.util.actions.CallableSystemAction;
 
 public final class X3dEditAboutAction extends CallableSystemAction
 {
-  String moduleReleaseDate = "2 December 2022"; // manually edit along with module version for each release
+  String moduleReleaseDate = "3 December 2022"; // manually edit along with module version for each release
   
   String rightMargin = "&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ";
 
@@ -117,7 +117,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
 //              "</p>" +
 //        TODO: link not working
 //              "<p align='center'>&nbsp;</p>" +
-//             + "<p align='center'>Use the X3D-Edit Information menu to launch X3D-Edit home page and issue reports.</p>"
+//             + "<p align='center'>Use the X3D-Edit &Information menu to launch X3D-Edit home page and issue reports.</p>"
 //             + "<p align='center'>&nbsp;</p>" 
 //              "<p align='center'><a href='https://savage.nps.edu/X3D-Edit'>https://savage.nps.edu/X3D-Edit</a></p>" +
               "</html>";

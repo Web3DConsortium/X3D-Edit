@@ -58,8 +58,8 @@ import org.xml.sax.SAXException;
                     displayName = "#CTL_RenameElementAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Edit Element XML", position = 750),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Edit Element XML", position = 750)
+  @ActionReference(path = "Menu/&X3D-Edit/&Edit Element XML", position = 750),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Edit Element XML", position = 750)
 })
 
 public final class RenameElementAction extends BaseX3DEditAction //CookieAction

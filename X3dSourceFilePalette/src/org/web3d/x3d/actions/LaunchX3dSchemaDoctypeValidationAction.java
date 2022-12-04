@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_SCHEMA_DOCTYPE_VALIDATION
                     displayName = "#CTL_LaunchX3dSchemaDoctypeValidationAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 1100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 1100),
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 1100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 1100),
 })
 
 public final class LaunchX3dSchemaDoctypeValidationAction extends CallableSystemAction

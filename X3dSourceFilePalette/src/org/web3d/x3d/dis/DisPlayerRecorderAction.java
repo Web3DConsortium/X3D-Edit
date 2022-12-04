@@ -51,8 +51,8 @@ import org.openide.windows.TopComponent;
 @ActionID(id = "org.web3d.x3d.dis.DisPlayerRecorderAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_DisPlayerRecorderAction", lazy = false)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/DIS Networking", name = "DisPlayerRecorderAction", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/DIS Networking", position = 100)
+  @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", name = "DisPlayerRecorderAction", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 100)
 })
 @NbBundle.Messages("CTL_DisPlayerRecorderAction=DIS PDU Player-Recorder")
 public class DisPlayerRecorderAction extends AbstractAction

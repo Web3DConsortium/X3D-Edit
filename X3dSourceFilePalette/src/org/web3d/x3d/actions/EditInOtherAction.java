@@ -44,8 +44,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.EditInOtherAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_EditInOtherAction",lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 900),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 900),
+  @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 900),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 900),
 })
 
 /**

@@ -51,8 +51,8 @@ import org.openide.windows.TopComponent;
 @ActionID(id = "org.web3d.x3d.dis.DisEspduSenderAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_DisEspduSenderAction", lazy = false)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/DIS Networking", name = "org-web3d-x3d-dis-DisTesterAction", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/DIS Networking", position = 200)
+  @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", name = "org-web3d-x3d-dis-DisTesterAction", position = 200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 200)
 })
 public class DisEspduSenderAction extends AbstractAction
 {

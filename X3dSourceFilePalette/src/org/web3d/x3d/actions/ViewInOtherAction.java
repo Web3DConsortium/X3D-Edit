@@ -44,8 +44,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.ViewInOtherAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_ViewInOtherAction",lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 200),
-  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 200)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 200),
+  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 200)
 })
 
 /**

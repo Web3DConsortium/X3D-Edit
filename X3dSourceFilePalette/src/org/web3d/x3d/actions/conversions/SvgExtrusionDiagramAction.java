@@ -48,8 +48,8 @@ import org.web3d.x3d.X3DEditorSupport;
                     displayName = "#CTL_SvgExtrusionDiagram", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", name = "org-web3d-x3d-actions-conversions-SvgExtrusionDiagram", position = 700),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Export X3D Model to File", position = 700)
+  @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", name = "org-web3d-x3d-actions-conversions-SvgExtrusionDiagram", position = 700),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 700)
 })
 
 public final class SvgExtrusionDiagramAction extends BaseConversionsAction

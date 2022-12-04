@@ -49,8 +49,8 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
                     displayName = "#CTL_DeleteElementAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Edit Element XML", position = 700),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Edit Element XML", position = 700)
+  @ActionReference(path = "Menu/&X3D-Edit/&Edit Element XML", position = 700),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Edit Element XML", position = 700)
 })
 
 public final class DeleteElementAction extends BaseX3DEditAction //CookieAction

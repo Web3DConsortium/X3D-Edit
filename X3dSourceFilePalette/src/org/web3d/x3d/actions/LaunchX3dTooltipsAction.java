@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
                     displayName = "#CTL_LaunchX3dTooltipsAction", 
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Help with X3D", position = 900),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Help with X3D", position = 900),
+  @ActionReference(path = "Menu/&X3D-Edit/&Help with X3D Graphics", position = 900),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Help with X3D Graphics", position = 900),
 })
 
 public final class LaunchX3dTooltipsAction extends CallableSystemAction

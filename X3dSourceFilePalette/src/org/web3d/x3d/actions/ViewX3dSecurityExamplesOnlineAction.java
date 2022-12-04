@@ -45,8 +45,8 @@ import org.openide.util.NbBundle;
                     displayName = "#CTL_ViewX3dSecurityExamplesPage",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/XML Security", position = 2000),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML Security", position = 2000)
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 2000),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 2000)
 })
 
 public final class ViewX3dSecurityExamplesOnlineAction extends BaseViewAction

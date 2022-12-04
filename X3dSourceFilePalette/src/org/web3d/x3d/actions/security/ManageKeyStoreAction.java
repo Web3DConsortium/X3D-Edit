@@ -59,8 +59,8 @@ import org.openide.util.actions.CallableSystemAction;
 @ActionRegistration(displayName = "#CTL_ManageKeyStoreAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/XML Security/Manage XML Security keystore...", position = 150),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML Security/Manage XML Security keystore...", position = 150)})
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security/Manage XML Security keystore...", position = 150),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security/Manage XML Security keystore...", position = 150)})
 
 public final class ManageKeyStoreAction extends CallableSystemAction
 {

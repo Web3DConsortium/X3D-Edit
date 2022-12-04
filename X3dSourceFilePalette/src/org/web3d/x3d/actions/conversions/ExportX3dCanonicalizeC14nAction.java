@@ -49,16 +49,16 @@ import org.web3d.x3d.tools.x3db.X3dCanonicalizer;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ExportX3dCanonicalAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/c14n.png",
-                    displayName = "#CTL_ExportCanonicalizeAction", 
+                    displayName = "#CTL_ExportX3dCanonicalizeC14nAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Compression", name = "org-web3d-x3d-actions-conversions-ExportX3dCanonicalAction", position = 150),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Compression", position = 150)
+  @ActionReference(path = "Menu/&X3D-Edit/&Compression", name = "org-web3d-x3d-actions-conversions-ExportX3dCanonicalAction", position = 150),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Compression", position = 150)
 })
 
-public final class ExportX3dCanonicalAction extends BaseConversionsAction
+public final class ExportX3dCanonicalizeC14nAction extends BaseConversionsAction
 {
-  public ExportX3dCanonicalAction()
+  public ExportX3dCanonicalizeC14nAction()
   {
     super.initialize();
   }
@@ -91,7 +91,7 @@ public final class ExportX3dCanonicalAction extends BaseConversionsAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_ExportCanonicalizeAction");
+    return NbBundle.getMessage(getClass(), "CTL_ExportX3dCanonicalizeC14nAction");
   }
 
   @Override
@@ -111,7 +111,7 @@ public final class ExportX3dCanonicalAction extends BaseConversionsAction
   public JMenuItem getMenuPresenter()
   {
     JMenuItem mi = super.getMenuPresenter();
-    mi.setToolTipText(NbBundle.getMessage(getClass(), "CTL_CanonicalizeAction_tt"));
+    mi.setToolTipText(NbBundle.getMessage(getClass(), "CTL_ExportX3dCanonicalizeC14nAction_tt"));
     return mi;
   }
 

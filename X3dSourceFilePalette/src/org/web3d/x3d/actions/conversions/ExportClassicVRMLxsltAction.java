@@ -61,8 +61,8 @@ import org.web3d.x3d.X3DEditorSupport;
                     displayName = "#CTL_ClassicVRMLxsltAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Export X3D Model to File", position = 200)
+  @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 200)
 })
 
 public final class ExportClassicVRMLxsltAction extends BaseConversionsAction

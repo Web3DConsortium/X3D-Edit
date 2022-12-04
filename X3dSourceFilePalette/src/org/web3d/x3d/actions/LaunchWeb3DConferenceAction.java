@@ -50,8 +50,8 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONFERENCE;
                     displayName = "#CTL_LaunchWeb3DConferenceAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Outreach", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Outreach", position = 100)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Outreach", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Outreach", position = 100)
 })
 
 public final class LaunchWeb3DConferenceAction extends CallableSystemAction

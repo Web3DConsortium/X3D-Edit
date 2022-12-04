@@ -72,8 +72,8 @@ import org.web3d.x3d.hanim.bvh.Motion;
                     displayName = "#CTL_BvhToX3dAction",
                            lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Import X3D Model from File", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Import X3D Model from File", position = 50)
+  @ActionReference(path = "Menu/&X3D-Edit/&Import X3D Model from File", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Import X3D Model from File", position = 50)
 })
 
 // TODO refactor to place BVH parser in a separate class in org.web3d.x3d.hanim.bvh package

@@ -50,8 +50,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionID(id = "org.web3d.x3d.actions.ViewInHeilanAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_ViewInHeilanAction", lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/View Saved X3D Model", position = 125),
-  @ActionReference(path = "Menu/X3D-Edit/View Saved X3D Model", position = 125)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 125),
+  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 125)
 }) */
 public final class ViewInHeilanAction extends ViewInBaseAction
 {

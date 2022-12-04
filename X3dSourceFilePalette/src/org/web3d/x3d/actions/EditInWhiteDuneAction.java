@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/whitedune_32x32.png", // ico
                     displayName = "#CTL_EditInWhiteDuneAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 180),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 180),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 180),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 180),
 })
 
 public final class EditInWhiteDuneAction extends ViewInBaseAction

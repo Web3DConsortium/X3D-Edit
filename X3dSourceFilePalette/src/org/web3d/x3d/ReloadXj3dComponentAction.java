@@ -51,7 +51,7 @@ import org.web3d.x3d.xj3d.viewer.Xj3dTopComponent;
                     displayName = "#CTL_ReloadXj3dComponent",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit", position = 60),
+  @ActionReference(path = "Menu/&X3D-Edit", position = 60),
   @ActionReference(path = "Editors/model/x3d+xml/Popup", position = 200),
   @ActionReference(path = "Toolbars/X3D", position = 90),})
 */

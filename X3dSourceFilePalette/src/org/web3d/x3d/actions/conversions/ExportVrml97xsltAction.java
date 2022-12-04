@@ -49,8 +49,8 @@ import org.web3d.x3d.X3DEditorSupport;
                     displayName = "#CTL_Vrml97xsltAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", name = "org-web3d-x3d-actions-conversions-Vrml97xsltAction", position = 150),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Export X3D Model to File", position = 150)
+  @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", name = "org-web3d-x3d-actions-conversions-Vrml97xsltAction", position = 150),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 150)
 })
 
 public final class ExportVrml97xsltAction extends BaseConversionsAction

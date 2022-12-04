@@ -50,8 +50,8 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_FACEBOOK;
                     displayName = "#CTL_LaunchWeb3DConsortiumFacebookAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Outreach", position = 500),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Outreach", position = 500)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Outreach", position = 500),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Outreach", position = 500)
 })
 
 public final class LaunchWeb3DConsortiumFacebookAction extends CallableSystemAction

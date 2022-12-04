@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dOptions;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/bitmanagement09_favicon_16x16.png",
                     displayName = "#CTL_EditInBsContentStudioAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/X3D-Edit/Tool Editing of Saved Model", position = 120),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/Tool Editing of Saved Model", position = 120),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 120),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 120),
 })
 
 public final class EditInBsContentStudioAction extends ViewInBaseAction

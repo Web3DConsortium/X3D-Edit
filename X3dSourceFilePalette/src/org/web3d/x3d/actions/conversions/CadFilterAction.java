@@ -54,12 +54,12 @@ import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.options.Xj3dCadFilterOptionsPanel;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.CadFilterAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xj3d.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xj3d24.png",
                     displayName = "#CTL_CadFilterAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Compression", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Compression", position = 50)
+  @ActionReference(path = "Menu/&X3D-Edit/&Compression", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Compression", position = 50)
 })
 
 public final class CadFilterAction extends CookieAction

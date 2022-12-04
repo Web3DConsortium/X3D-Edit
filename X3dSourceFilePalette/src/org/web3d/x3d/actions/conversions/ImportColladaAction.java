@@ -62,8 +62,8 @@ import xj3d.filter.CDFFilter;
                     displayName = "#CTL_ColladaImportAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Import X3D Model from File", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Import X3D Model from File", position = 100)
+  @ActionReference(path = "Menu/&X3D-Edit/&Import X3D Model from File", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Import X3D Model from File", position = 100)
 })
 
 public final class ImportColladaAction extends CallableSystemAction

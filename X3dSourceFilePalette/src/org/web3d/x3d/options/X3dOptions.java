@@ -69,7 +69,7 @@ public class X3dOptions
           USER_NAME = System.getProperty("user.name");
        X3D_EDIT_PATH = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
     
-//    File dir = new File(new StringBuilder().append(homeDir).append("/X3D-Edit/XML Security").toString());
+//    File dir = new File(new StringBuilder().append(homeDir).append("/X3D-Edit/XML &Security").toString());
 //    File fil = new File(dir,KEYSTORE_FILENAME_DEFAULT);
 //    KEYSTORE_PATH_DEFAULT = fil.getAbsolutePath();
   }

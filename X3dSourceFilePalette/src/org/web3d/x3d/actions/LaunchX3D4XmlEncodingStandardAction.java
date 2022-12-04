@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_XML_ENCODING_STANDARD;
                     displayName = "#CTL_LaunchX3DXmlEncodingStandardAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 500),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 500)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 500),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 500)
 })
 
 public final class LaunchX3D4XmlEncodingStandardAction extends CallableSystemAction

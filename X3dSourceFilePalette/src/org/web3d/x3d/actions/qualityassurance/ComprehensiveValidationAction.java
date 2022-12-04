@@ -72,11 +72,11 @@ import org.web3d.x3d.tools.X3dValuesRegexChecker;
                     displayName = "#CTL_ComprehensiveValidationAction",
                            lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 30),
-  @ActionReference(path = "Toolbars/Author Workflow", position = 30),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 30),
-  @ActionReference(path = "Menu/X3D-Edit/Quality Assurance (QA)", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Quality Assurance (QA)", position = 300),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 30),
+  @ActionReference(path = "Toolbars/&Author Workflow", position = 30),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 30),
+  @ActionReference(path = "Menu/&X3D-Edit/&Quality Assurance (QA)", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Quality Assurance (QA)", position = 300),
   @ActionReference(path = "Shortcuts", name = "CS-Q"), // shortcut control-shift-Q
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })

@@ -53,8 +53,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_ONTOLOGY_DOCUMENTATION;
                     displayName = "#CTL_LaunchX3dOntologyPageAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/X3D Work in Progress", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D Work in Progress", position = 400)
+  @ActionReference(path = "Menu/&X3D-Edit/X3D &Work in Progress", position = 400),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D &Work in Progress", position = 400)
 })
 
 public final class LaunchX3dOntologyPageAction extends CallableSystemAction

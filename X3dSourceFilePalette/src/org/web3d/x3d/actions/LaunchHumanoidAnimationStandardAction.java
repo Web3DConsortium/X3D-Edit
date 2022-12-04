@@ -52,8 +52,8 @@ import static org.web3d.x3d.actions.BaseViewAction.HANIM2_STANDARD;
                     displayName = "#CTL_LaunchHumanoidAnimationStandardAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/X3D-Edit/Web3D Standards", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D Standards", position = 200)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 200)
 })
 
 public final class LaunchHumanoidAnimationStandardAction extends CallableSystemAction

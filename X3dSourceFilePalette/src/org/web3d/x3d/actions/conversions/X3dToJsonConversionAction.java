@@ -52,14 +52,16 @@ import org.web3d.x3d.X3DEditorSupport;
 @ActionID(id = "org.web3d.x3d.actions.conversions.X3dToJsonConversionAction", category = "X3D-Edit")
 
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/json24.png",
-                    displayName = "#CTL_X3dToJsonXsltAction",
+                    displayName = "#CTL_X3dToJsonConversionAction",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 96),
-  @ActionReference(path = "Menu/X3D-Edit/Export X3D Model to File", position = 96),
-  @ActionReference(path = "Toolbars/Author Workflow", position = 96),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 96),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Export X3D Model to File", position = 96)
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 96),
+  @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 96),
+  @ActionReference(path = "Toolbars/&Author Workflow", position = 96),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 96),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 96),
+  @ActionReference(path = "Shortcuts", name = "CS-9"), // shortcut control-shift-9
+  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
 public final class X3dToJsonConversionAction extends BaseConversionsAction
@@ -202,7 +204,7 @@ public final class X3dToJsonConversionAction extends BaseConversionsAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_X3dToJsonXsltAction");
+    return NbBundle.getMessage(getClass(), "CTL_X3dToJsonConversionAction");
   }
 
   @Override
@@ -233,7 +235,7 @@ public final class X3dToJsonConversionAction extends BaseConversionsAction
   public JMenuItem getMenuPresenter()
   {
     JMenuItem mi = super.getMenuPresenter();
-    mi.setToolTipText(NbBundle.getMessage(getClass(), "CTL_X3dToJsonXsltAction_tt"));
+    mi.setToolTipText(NbBundle.getMessage(getClass(), "CTL_X3dToJsonConversionAction_tt"));
     return mi;
   }
 

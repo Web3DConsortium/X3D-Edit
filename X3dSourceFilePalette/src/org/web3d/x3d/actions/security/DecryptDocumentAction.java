@@ -75,8 +75,8 @@ import org.web3d.x3d.BaseX3DEditAction;
 @ActionRegistration(displayName = "#CTL_DecryptDocumentAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/XML Security", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML Security", position = 400)})
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 400),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 400)})
 
 public final class DecryptDocumentAction extends BaseX3DEditAction
 {

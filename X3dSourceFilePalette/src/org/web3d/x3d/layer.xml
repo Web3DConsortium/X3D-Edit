@@ -113,7 +113,7 @@ POSSIBILITY OF SUCH DAMAGE.
     </folder>
     -->
     <folder name="Actions">
-        <folder name="X3D-Edit">
+        <folder name="&amp;X3D-Edit"><!-- mnemonic -->
             <file name="org-web3d-x3d-actions-LaunchIssueReportEmailAction.instance">
                 <attr name="delegate" newvalue="org.web3d.x3d.actions.LaunchEmailReportAction"/>
                 <attr name="displayName" stringvalue="X3D-Edit Issue Report Email"/>
@@ -145,7 +145,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="org-netbeans-modules-masterfs-ui-suspend-PauseAction.shadow_hidden"/>
             <file name="org-netbeans-modules-profiler-actions-SelfSamplerAction.shadow_hidden"/>
         </folder>
-        <folder name="Author Workflow">
+        <folder name="&amp;Author Workflow">
             <attr name="position" intvalue="184"/>
             <!-- test case to make buttons only active when X3D document selected
             <file name="org-web3d-x3d-actions-qualityassurance-SomeAction.shadow">
@@ -155,7 +155,7 @@ POSSIBILITY OF SUCH DAMAGE.
             -->
             <!-- TODO consider adding HAnim LOA default scenes and other templates -->
         </folder>
-        <folder name="New File Templates">
+        <folder name="&amp;New File Templates">
             <attr name="position" intvalue="185"/>
             <!-- TODO hide by default? -->
             <!--<file name="edu-nps-moves-kmleditor-actions-NewKmlFileAction.instance"/>-->
@@ -165,19 +165,19 @@ POSSIBILITY OF SUCH DAMAGE.
         <folder name="model">
             <folder name="x3d+xml">
                 <folder name="Popup">
-                    <folder name="Author Workflow">
+                    <folder name="&amp;Author Workflow">
                         <attr name="position" intvalue="20"/>
                     </folder>
-                    <folder name="Edit Element XML">
+                    <folder name="&amp;Edit Element XML">
                         <attr name="position" intvalue="30"/>
                     </folder>
-                    <folder name="New File Templates">
+                    <folder name="&amp;New File Templates">
                         <attr name="position" intvalue="40"/>
                     </folder>
-                    <folder name="View Saved X3D Model">
+                    <folder name="&amp;Tool Editing of Saved Model">
                         <attr name="position" intvalue="50"/>
                     </folder>
-                    <folder name="Tool Editing of Saved Model">
+                    <folder name="&amp;View Saved X3D Model">
                         <attr name="position" intvalue="60"/>
                     </folder>
                     <file name="x3d-popup-separator2.instance">
@@ -185,16 +185,16 @@ POSSIBILITY OF SUCH DAMAGE.
                         <attr name="position" intvalue="70"/>
                     </file>
                     <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 798 -->
-                    <folder name="Compression">
+                    <folder name="&amp;Compression">
                         <attr name="position" intvalue="80"/>
                         <!-- insertions go here -->
                     </folder>
-                    <folder name="DIS Networking">
+                    <folder name="&amp;DIS Networking">
                         <attr name="position" intvalue="90"/>
                     </folder>
-                    <folder name="Example X3D Model Archives">
+                    <folder name="&amp;Example X3D Model Archives">
                         <attr name="position" intvalue="95"/>
-                        <!-- DownloadContentAction position 100 -->
+                        <!-- DownloadX3dExamplesArchivesAction position 100 -->
                         <folder name="View Local X3D Examples Archives">
                             <attr name="position" intvalue="200"/>
                         </folder>
@@ -204,10 +204,10 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
                         <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
                     </folder>
-                    <folder name="Export X3D Model to File">
+                    <folder name="&amp;Export X3D Model to File">
                         <attr name="position" intvalue="110"/>
                         <!-- annotations used in Action source files to get inserted here
-                        <folder name="Export .x3d as X3D ClassicVRML (.x3dv) Encoding...">
+                        <folder name="&amp;Export .x3d as X3D ClassicVRML (.x3dv) Encoding...">
                             <attr name="position" intvalue="100"/>
                         </folder> -->
                         <!-- Export HTML Documentation         ExportHtmlDocumentationAction    position  50 -->
@@ -219,7 +219,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- Export X3D Binary  x3db           ExportX3dbAction                 position 300 -->
                         <!-- Export X3D Extrusion crossSection ExportSvgExtrusionDiagramAction  position 700 -->
                     </folder>
-                    <folder name="Import X3D Model from File">
+                    <folder name="&amp;Import X3D Model from File">
                         <attr name="position" intvalue="140"/>
                         <!-- annotations used in Action source files to get inserted here -->
                         <!-- Castle Game Engine Convert to X3D LaunchCastleGameEngineCoverterAction position  25 -->
@@ -249,7 +249,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <attr name="position" intvalue="850"/>
                     </file>
                     -->
-                    <folder name="Quality Assurance (QA)">
+                    <folder name="&amp;Quality Assurance (QA)">
                         <attr name="position" intvalue="150"/>
                         <file name="org-web3d-x3d-actions-qualityassurance-separatorBetween.instance">
                             <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
@@ -273,7 +273,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         </file>
                     </folder>
                     <!-- duplicate of Security menu to support right-click context menu -->
-                    <folder name="XML Security">
+                    <folder name="XML &amp;Security">
                         <attr name="position" intvalue="160"/>
                         <folder name="Manage XML Security keystore...">
                             <attr name="position" intvalue="100"/>
@@ -303,17 +303,17 @@ POSSIBILITY OF SUCH DAMAGE.
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                         <attr name="position" intvalue="700"/>
                     </file>
-                    <folder name="Help with X3D">
+                    <folder name="&amp;Help with X3D Graphics">
                         <attr name="position" intvalue="800"/>
                         <!-- insertions go here -->
                         <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 1100 -->
                         <!-- X3D Resources: LaunchX3dResourcesAction position 401 -->
                     </folder>
-                    <folder name="W3C Standards">
+                    <folder name="W3C &amp;Standards">
                         <attr name="position" intvalue="850"/>
                         <!-- various pages of interest to Web developers -->
                     </folder>
-                    <folder name="Web3D Outreach">
+                    <folder name="Web3D &amp;Outreach">
                         <attr name="position" intvalue="900"/>
                         <!-- Web3D Conference                     LaunchWeb3DConferenceAction                  position 100 -->
                         <!-- Web3D Conference ACM Digital Library LaunchWeb3DConferenceAcmDigitalLibraryAction position 200 -->
@@ -328,7 +328,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- Web3D Consortium Twitter             LaunchWeb3DConsortiumTwitterAction           position 600 -->
                         <!-- Web3D Consortium YouTube             LaunchWeb3DConsortiumYouTubeAction           position 700 -->
                     </folder>
-                    <folder name="Web3D Standards">
+                    <folder name="Web3D &amp;Standards">
                         <attr name="position" intvalue="1000"/>
                         <!-- All Web3D Consortium Standards       LaunchWeb3dConsortiumStandardsAction       position 100 -->
                         <!-- X3dGraphicsStandardsRelationships    LaunchX3dGraphicsStandardsRelationshipsAction position 150 -->
@@ -337,7 +337,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                         <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
                     </folder>
-                    <folder name="X3D Work in Progress">
+                    <folder name="X3D &amp;Work in Progress">
                         <attr name="position" intvalue="1050"/>
                         <!-- X3D Unified Object Model (X3DUOM)      X3duomAction                             position 1030 -->
                         <!-- X3D Validation: Schema DOCTYPE X3DUOM  LaunchX3dSchemaDoctypeValidationAction   position 1040 -->
@@ -346,7 +346,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                         <attr name="position" intvalue="1099"/>
                     </file>
-                    <folder name="X3D-Edit Information">
+                    <folder name="X3D-Edit &amp;Information">
                         <attr name="position" intvalue="1100"/>
                         <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 860 -->
                     </folder>
@@ -627,21 +627,21 @@ POSSIBILITY OF SUCH DAMAGE.
             <folder name="Web"/>
         </folder>
         -->
-        <folder name="X3D-Edit">
+        <folder name="&amp;X3D-Edit"><!-- mnemonic -->
             <attr name="position" intvalue="1250"/>
-            <folder name="Author Workflow">
+            <folder name="&amp;Author Workflow">
                 <attr name="position" intvalue="20"/>
             </folder>
-            <folder name="Edit Element XML">
+            <folder name="&amp;Edit Element XML">
                 <attr name="position" intvalue="30"/>
             </folder>
-            <folder name="New File Templates">
+            <folder name="&amp;New File Templates">
                 <attr name="position" intvalue="40"/>
             </folder>
-            <folder name="Tool Editing of Saved Model">
+            <folder name="&amp;Tool Editing of Saved Model">
                 <attr name="position" intvalue="50"/>
             </folder>
-            <folder name="View Saved X3D Model">
+            <folder name="&amp;View Saved X3D Model">
                 <attr name="position" intvalue="60"/>
                 <!-- Xj3D internal pane    Xj3dViewerAction            position 20 -->
                 <!-- Xj3D launch           ViewInXj3DApplicationAction position 50 -->
@@ -666,10 +666,10 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                 <attr name="position" intvalue="70"/>
             </file>
-            <folder name="Compression">
+            <folder name="&amp;Compression">
                 <attr name="position" intvalue="80"/>
                 <!-- CDF using Xj3D CadFilterAction 50 -->
-                <!-- C14N CanonicalizeAction 100 -->
+                <!-- C14N CanonicalizeC14nAction 100 -->
                 <!-- C14N ExportX3dCanonicalAction 150 -->
                 <!-- EXI compression, .exi file EXICompressAction 900 -->
                 <!-- gzip compression .x3d.gz file GzipX3dAction 1000 -->
@@ -691,12 +691,12 @@ POSSIBILITY OF SUCH DAMAGE.
                     <attr name="position" intvalue="1700"/>
                 </file>
             </folder>
-            <folder name="DIS Networking">
+            <folder name="&amp;DIS Networking">
                 <attr name="position" intvalue="90"/>
             </folder>
-            <folder name="Example X3D Model Archives">
+            <folder name="Example X3D &amp;Model Archives">
                 <attr name="position" intvalue="95"/>
-                <!-- DownloadContentAction position 100 -->
+                <!-- DownloadX3dExamplesArchivesAction position 100 -->
                 <folder name="View Local X3D Examples Archives">
                     <attr name="position" intvalue="200"/>
                 </folder>
@@ -706,10 +706,10 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
                 <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
             </folder>
-            <folder name="Export X3D Model to File">
+            <folder name="&amp;Export X3D Model to File">
                 <attr name="position" intvalue="100"/>
                 <!-- annotations used in Action source files to get inserted here
-                <folder name="Export .x3d as X3D ClassicVRML (.x3dv) Encoding...">
+                <folder name="&amp;Export .x3d as X3D ClassicVRML (.x3dv) Encoding...">
                     <attr name="position" intvalue="100"/>
                 </folder> -->
                 <!-- Export HTML Documentation         ExportHtmlDocumentationAction    position  50 -->
@@ -721,7 +721,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- Export X3D Binary  x3db           ExportX3dbAction                 position 300 -->
                 <!-- Export X3D Extrusion crossSection ExportSvgExtrusionDiagramAction  position 700 -->
             </folder>
-            <folder name="Import X3D Model from File">
+            <folder name="&amp;Import X3D Model from File">
                 <attr name="position" intvalue="110"/>
                 <!-- annotations used in Action source files to get inserted here -->
             </folder>
@@ -731,7 +731,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="position" intvalue="80"/>
             </file>
         -->
-            <folder name="Quality Assurance (QA)">
+            <folder name="&amp;Quality Assurance (QA)">
                 <attr name="position" intvalue="120"/>
                 <!-- insertions go here -->
                 <file name="org-web3d-x3d-actions-qualityassurance-separatorBetween.instance">
@@ -757,7 +757,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 </file>
             </folder>
             <!-- duplicate of XML Security for top-level X3D menu -->
-            <folder name="XML Security">
+            <folder name="XML &amp;Security">
                 <attr name="position" intvalue="150"/>
                 <folder name="Manage XML Security keystore...">
                     <attr name="position" intvalue="100"/>
@@ -779,17 +779,17 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                 <attr name="position" intvalue="700"/>
             </file>
-            <folder name="Help with X3D">
+            <folder name="&amp;Help with X3D Graphics">
                 <attr name="position" intvalue="800"/>
                 <!-- insertions go here -->
                 <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 1100 -->
                 <!-- X3D Resources: LaunchX3dResourcesAction position 401 -->
             </folder>
-            <folder name="W3C Standards">
+            <folder name="W3C &amp;Standards">
                 <attr name="position" intvalue="850"/>
                 <!-- various pages of interest to Web developers -->
             </folder>
-            <folder name="Web3D Outreach">
+            <folder name="Web3D &amp;Outreach">
                 <attr name="position" intvalue="900"/>
                 <!-- Web3D Conference                     LaunchWeb3DConferenceAction                  position 100 -->
                 <!-- Web3D Conference ACM Digital Library LaunchWeb3DConferenceAcmDigitalLibraryAction position 200 -->
@@ -804,7 +804,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- Web3D Consortium Twitter             LaunchWeb3DConsortiumTwitterAction           position 600 -->
                 <!-- Web3D Consortium YouTube             LaunchWeb3DConsortiumYouTubeAction           position 700 -->
             </folder>
-            <folder name="Web3D Standards">
+            <folder name="Web3D &amp;Standards">
                 <attr name="position" intvalue="1000"/>
                 <!-- All Web3D Consortium Standards       LaunchWeb3dConsortiumStandardsAction       position 100 -->
                 <!-- X3dGraphicsStandardsRelationships    LaunchX3dGraphicsStandardsRelationshipsAction position 150 -->
@@ -813,14 +813,14 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                 <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
             </folder>
-            <folder name="X3D Work in Progress">
+            <folder name="X3D &amp;Work in Progress">
                 <attr name="position" intvalue="1050"/>
             </folder>
             <file name="org-web3d-menu-5.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                 <attr name="position" intvalue="1099"/>
             </file>
-            <folder name="X3D-Edit Information">
+            <folder name="X3D-Edit &amp;Information">
                 <attr name="position" intvalue="1100"/>
                 <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 1004 -->
             </folder>

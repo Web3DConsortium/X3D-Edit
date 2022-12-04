@@ -53,24 +53,24 @@ import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
 import org.web3d.x3d.tools.x3db.X3dCanonicalizer;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.CanonicalizeAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.actions.conversions.CanonicalizeC14nAction", category = "X3D-Edit")
 
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/c14n.png",
-                    displayName = "#CTL_CanonicalizeAction", 
+                    displayName = "#CTL_CanonicalizeC14nAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/X3D-Edit/Author Workflow", position = 40),
-  @ActionReference(path = "Menu/X3D-Edit/Compression", position = 100),
-  @ActionReference(path = "Menu/X3D-Edit/XML Security", position = 600),
-  @ActionReference(path = "Toolbars/Author Workflow", position = 40),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Author Workflow", position = 40),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Compression", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML Security", position = 600),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 50),
+  @ActionReference(path = "Menu/&X3D-Edit/&Compression", position = 100),
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 600),
+  @ActionReference(path = "Toolbars/&Author Workflow", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Compression", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 600),
   @ActionReference(path = "Shortcuts", name = "CS-4"), // shortcut control-shift-4
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
-public final class CanonicalizeAction extends CookieAction
+public final class CanonicalizeC14nAction extends CookieAction
 {
   @Override
   protected void performAction(Node[] activatedNodes)
@@ -108,7 +108,7 @@ public final class CanonicalizeAction extends CookieAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(CanonicalizeAction.class, "CTL_CanonicalizeAction");
+    return NbBundle.getMessage(CanonicalizeC14nAction.class, "CTL_CanonicalizeC14nAction");
   }
 
   @Override
