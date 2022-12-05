@@ -72,19 +72,19 @@ public class ConversionsHelper
   static final JFileChooser saveChooser;
   static final JCheckBox openInEditor;
   static final JCheckBox openInBrowser;
-  static final OpenResultInEditorChooserAccessory pan;
+  static final OpenResultInEditorChooserAccessory openResultInEditorChooserAccessory;
   private static boolean openInBrowserSetting = true; // default viewable
   private static boolean openInEditorSetting  = true; // default verbose
   private static String saveChooserDialogTitle = "Save X3D conversion";
   
   static {
     saveChooser =  new JFileChooser(); 
-    pan = new OpenResultInEditorChooserAccessory();
-    openInEditor = pan.getOpenInEditorCheckBox();
+    openResultInEditorChooserAccessory = new OpenResultInEditorChooserAccessory();
+    openInEditor = openResultInEditorChooserAccessory.getOpenInEditorCheckBox();
     openInEditor.setSelected(false); // default
-    openInBrowser = pan.getOpenInBrowserCheckBox();
+    openInBrowser = openResultInEditorChooserAccessory.getOpenInBrowserCheckBox();
     openInBrowser.setSelected(true); // default
-    saveChooser.setAccessory(pan);
+    saveChooser.setAccessory(openResultInEditorChooserAccessory);
   }
   public void initialize()
   {
@@ -162,7 +162,7 @@ public class ConversionsHelper
       saveDir = sourceFile.getParent();
     
     saveChooser.setSelectedFile(new File(saveDir,destFileName));
-    saveChooser.setAccessory(wantOpenInEditorShown?pan:null);
+    saveChooser.setAccessory(wantOpenInEditorShown?openResultInEditorChooserAccessory:null);
 
 //    openInEditor.setEnabled(wantOpenInEditorShown);
 //    openInBrowser.setEnabled(wantOpenInEditorShown);

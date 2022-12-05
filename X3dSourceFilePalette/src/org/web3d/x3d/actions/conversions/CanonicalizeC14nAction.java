@@ -59,11 +59,11 @@ import org.web3d.x3d.tools.x3db.X3dCanonicalizer;
                     displayName = "#CTL_CanonicalizeC14nAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 50),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 40),
   @ActionReference(path = "Menu/&X3D-Edit/&Compression", position = 100),
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 600),
-  @ActionReference(path = "Toolbars/&Author Workflow", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 50),
+  @ActionReference(path = "Toolbars/&Author Workflow", position = 40),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 40),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Compression", position = 100),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 600),
   @ActionReference(path = "Shortcuts", name = "CS-4"), // shortcut control-shift-4
@@ -97,6 +97,7 @@ public final class CanonicalizeC14nAction extends CookieAction
 
     canner.setLog4jLevel(oldLev);
     canner.removeLog4jAppender(app);
+    System.out.println("*** X3D Canonicalization (C14N) complete.");
   }
 
   @Override

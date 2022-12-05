@@ -57,8 +57,6 @@ import org.web3d.x3d.X3DEditorSupport;
   @ActionReference(path = "Toolbars/&Author Workflow", position = 100),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 100),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 100),
-  @ActionReference(path = "Shortcuts", name = "CS-0"), // shortcut control-shift-0
-  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
 public final class ExportTurtleTriplesAction extends BaseConversionsAction

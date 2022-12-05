@@ -352,6 +352,8 @@ public abstract class BaseCustomizer extends JPanel
     {
         helpButton.setToolTipText("Show X3D Tooltip or related help page");
         helpButton.addActionListener(helpActionListener);
+        helpButton.setVisible(true);
+        helpButton.setHorizontalAlignment(SwingConstants.LEFT);
     }
     
     final JButton reportButton = findButton(buttonsDialogDisplayer, "Report");
@@ -365,6 +367,7 @@ public abstract class BaseCustomizer extends JPanel
         reportButton.setToolTipText(MAILTO_MAILTO_TOOLTIP);
         reportButton.addActionListener(emailReportActionListener);
         reportButton.setVisible(true);
+        reportButton.setHorizontalAlignment(SwingConstants.LEFT);
     }
 
     if (buttonsDialogDisplayer instanceof JDialog jDialog) {

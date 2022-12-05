@@ -37,8 +37,8 @@ package org.web3d.x3d.actions.conversions;
 import javax.swing.JCheckBox;
 
 /**
- *
- * @author  Mike Bailey <jmbailey@nps.edu>
+ * Utility widget
+ * @author  Mike Bailey <jmbailey@nps.edu> and Don Brutzman <brutzman@nps.edu>
  */
 public class OpenResultInEditorChooserAccessory extends javax.swing.JPanel
 {
@@ -47,6 +47,8 @@ public class OpenResultInEditorChooserAccessory extends javax.swing.JPanel
   public OpenResultInEditorChooserAccessory()
   {
     initComponents();
+    setOpenInBrowserCheckBoxSelected(true); // ensure user-friendly initialization
+    setOpenInEditorCheckBoxSelected (true); // ensure user-friendly initialization
   }
   
   /** This method is called from within the constructor to
@@ -81,6 +83,11 @@ public class OpenResultInEditorChooserAccessory extends javax.swing.JPanel
         OpenInEditorCheckBox.setSelected(true);
         OpenInEditorCheckBox.setText(org.openide.util.NbBundle.getMessage(OpenResultInEditorChooserAccessory.class, "OpenResultInEditorChooserAccessory.OpenInEditorCheckBox.text")); // NOI18N
         OpenInEditorCheckBox.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        OpenInEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpenInEditorCheckBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -122,7 +129,10 @@ public class OpenResultInEditorChooserAccessory extends javax.swing.JPanel
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-  
+
+    private void OpenInEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenInEditorCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OpenInEditorCheckBoxActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox OpenInBrowserCheckBox;
@@ -139,19 +149,28 @@ public class OpenResultInEditorChooserAccessory extends javax.swing.JPanel
     return OpenInEditorCheckBox;
   }
 
-  public void setOpenInEditorCheckBox(JCheckBox OpenCheckBox)
-  {
-    this.OpenInEditorCheckBox = OpenCheckBox;
-  }
-
   public JCheckBox getOpenInBrowserCheckBox()
   {
     return OpenInBrowserCheckBox;
   }
 
-  public void setOpenInBrowserCheckBox(JCheckBox OpenInBrowserCheckBox)
+  public boolean isOpenInEditorCheckBoxSelected()
   {
-    this.OpenInBrowserCheckBox = OpenInBrowserCheckBox;
+    return OpenInEditorCheckBox.isSelected();
   }
-  
+
+  public boolean isOpenInBrowserCheckBoxSelected()
+  {
+    return OpenInBrowserCheckBox.isSelected();
+  }
+
+  public final void setOpenInEditorCheckBoxSelected(boolean newValue)
+  {
+    OpenInEditorCheckBox.setSelected(newValue);
+  }
+
+  public final void setOpenInBrowserCheckBoxSelected(boolean newValue)
+  {
+    OpenInBrowserCheckBox.setSelected(newValue);
+  }
 }

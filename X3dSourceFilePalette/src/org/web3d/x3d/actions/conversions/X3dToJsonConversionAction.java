@@ -59,9 +59,7 @@ import org.web3d.x3d.X3DEditorSupport;
   @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 96),
   @ActionReference(path = "Toolbars/&Author Workflow", position = 96),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 96),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 96),
-  @ActionReference(path = "Shortcuts", name = "CS-9"), // shortcut control-shift-9
-  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 96)
 })
 
 public final class X3dToJsonConversionAction extends BaseConversionsAction

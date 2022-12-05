@@ -56,12 +56,12 @@ import org.web3d.x3d.X3DEditorSupport;
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 91),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 80),
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 151),
-  @ActionReference(path = "Toolbars/&Author Workflow", position = 91),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 91),
+  @ActionReference(path = "Toolbars/&Author Workflow", position = 80),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 80),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 151),
-  @ActionReference(path = "Shortcuts", name = "CS-7"), // shortcut control-shift-7
+//@ActionReference(path = "Shortcuts", name = "CS-8"), // shortcut control-shift-8
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 

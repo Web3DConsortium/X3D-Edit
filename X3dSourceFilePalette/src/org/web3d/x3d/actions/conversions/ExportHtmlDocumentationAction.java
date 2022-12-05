@@ -50,15 +50,15 @@ import org.web3d.x3d.X3DEditorSupport;
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 40),
+  @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 50),
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 150, separatorBefore = 149),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 150),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 150),
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 40),
-  @ActionReference(path = "Toolbars/&Author Workflow", position = 40),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 40),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 40),
-  @ActionReference(path = "Shortcuts", name = "CS-3"), // shortcut control-shift-3
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 50),
+  @ActionReference(path = "Toolbars/&Author Workflow", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 50),
+  @ActionReference(path = "Shortcuts", name = "CS-5"), // shortcut control-shift-5
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
