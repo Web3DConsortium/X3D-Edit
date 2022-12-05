@@ -694,7 +694,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <folder name="&amp;DIS Networking">
                 <attr name="position" intvalue="90"/>
             </folder>
-            <folder name="Example X3D &amp;Model Archives">
+            <folder name="&amp;Example X3D Model Archives">
                 <attr name="position" intvalue="95"/>
                 <!-- DownloadX3dExamplesArchivesAction position 100 -->
                 <folder name="View Local X3D Examples Archives">
