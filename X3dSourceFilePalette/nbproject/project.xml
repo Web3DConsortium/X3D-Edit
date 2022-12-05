@@ -561,9 +561,14 @@
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
             <word>Amaya</word>
+            <word>BioVision</word>
+            <word>bvh</word>
+            <word>Canonicalization</word>
             <word>ClassicVRML</word>
             <word>classpath</word>
+            <word>Collada</word>
             <word>ConformanceNist</word>
+            <word>crossSection</word>
             <word>CSS</word>
             <word>customizer</word>
             <word>denormalization</word>
@@ -572,12 +577,18 @@
             <word>deserialized</word>
             <word>DOCTYPE</word>
             <word>DTD</word>
+            <word>gzip</word>
+            <word>gzipped</word>
             <word>HAnim</word>
+            <word>HAnimHumanoid</word>
+            <word>html</word>
             <word>htmlcolorcodes</word>
             <word>https</word>
             <word>JSON</word>
+            <word>localhost</word>
             <word>mailto</word>
             <word>MeshLab</word>
+            <word>mocap</word>
             <word>NuGraf</word>
             <word>Okino</word>
             <word>Paraview</word>
@@ -588,16 +599,24 @@
             <word>Redistributions</word>
             <word>runtime</word>
             <word>SavageDefense</word>
+            <word>Schematron</word>
             <word>SourceForge</word>
             <word>stackoverflow</word>
             <word>strictfp</word>
+            <word>stylesheet</word>
+            <word>svg</word>
             <word>TODO</word>
             <word>tooltip</word>
             <word>Tooltips</word>
+            <word>ttl</word>
             <word>UltraEdit</word>
+            <word>Validator</word>
             <word>VRML</word>
             <word>WHATWG</word>
             <word>WhiteDune</word>
+            <word>wrl</word>
+            <word>xhtml</word>
+            <word>XSLT</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
