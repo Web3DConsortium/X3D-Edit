@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -54,6 +54,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
     private final BvhToX3dConversionAction bvhToX3dConversionAction;
     /**
      * Creates new form BvhToX3dConversionPanel
+     * @param bvhToX3dConversionAction action class of interest
      */
     public BvhToX3dConversionPanel(BvhToX3dConversionAction bvhToX3dConversionAction) { // , X3DDataObject x3dDataObject
         
@@ -181,7 +182,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.ipadx = 300;
         gridBagConstraints.ipady = 600;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -249,6 +250,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(sourceTextLabel, gridBagConstraints);
 
@@ -272,6 +274,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stripCommentsLabel, gridBagConstraints);
 
@@ -280,6 +283,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stripDefaultAttributesLabel, gridBagConstraints);
 
@@ -288,6 +292,7 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(indentEnabledLabel, gridBagConstraints);
 
@@ -347,18 +352,18 @@ public class BvhToX3dConversionPanel extends javax.swing.JPanel {
          urlCustomizerPanel.setData(urlString);
 //    else urlCustomizerPanel.setMasterDocumentLocation(masterFo);
 
-    String SELECTION_TITLE = "Select BVH file for conversion";
+    String DIALOG_SELECTION_TITLE = "Select BVH file for conversion into .x3d";
     
     urlCustomizerPanel.setFormatChoice("bvh");
 
-    DialogDescriptor dialogDescriptor = new DialogDescriptor(urlCustomizerPanel, SELECTION_TITLE);
-    dialogDescriptor.setTitle(SELECTION_TITLE);
+    DialogDescriptor dialogDescriptor = new DialogDescriptor(urlCustomizerPanel, DIALOG_SELECTION_TITLE);
+    dialogDescriptor.setTitle(DIALOG_SELECTION_TITLE);
 
     Dialog dialog = null;
     try 
     {
       dialog = DialogDisplayer.getDefault().createDialog(dialogDescriptor);
-      dialog.setTitle(SELECTION_TITLE);
+      dialog.setTitle(DIALOG_SELECTION_TITLE);
       dialog.setResizable(true);
 //      dlg.setMinimumSize(new Dimension(700,250));
 //      //dlg.setMaximumSize(new Dimension(300,200));
