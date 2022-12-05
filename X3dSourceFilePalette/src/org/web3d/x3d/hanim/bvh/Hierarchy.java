@@ -530,9 +530,9 @@ public class Hierarchy extends BvhSkeletonParameters
         }
 		
         outputX3DInfo.append(indentSpacing(3));
-        outputX3DInfo.append("<MetadataSet name='BvhToHAnimConversionNameTable'>\n");
+        outputX3DInfo.append("<MetadataSet name='BvhToHAnimNameConversionTable'>\n");
         outputX3DInfo.append(indentSpacing(4));
-        outputX3DInfo.append("<!-- key: MetadataString name='bvhName' reference='bvhType' value='\"name\" \"segmentName\"' (no segmentName for HAnimSite nodes) -->\n");
+        outputX3DInfo.append("<!-- key: MetadataString name='bvhName' reference='bvhType ROOT|JOINT|Site' value='\"jointName\" \"segmentName\"' (HAnimSite nodes have no segmentName) -->\n");
         // initial pseudo HAnimJoint with containerField='skeleton' is not on BVH-based getHierarchyJointList()
         outputX3DInfo.append(indentSpacing(4));
         outputX3DInfo.append("<MetadataString containerField='value' name='");
