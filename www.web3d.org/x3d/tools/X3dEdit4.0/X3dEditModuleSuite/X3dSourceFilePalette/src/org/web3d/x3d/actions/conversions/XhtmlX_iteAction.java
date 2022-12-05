@@ -47,12 +47,12 @@ import org.openide.util.NbBundle;
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 92),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 90),
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 152),
-  @ActionReference(path = "Toolbars/&Author Workflow", position = 92),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 92),
+  @ActionReference(path = "Toolbars/&Author Workflow", position = 90),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 90),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 152),
-  @ActionReference(path = "Shortcuts", name = "CS-8"), // shortcut control-shift-8
+//@ActionReference(path = "Shortcuts", name = "CS-9"), // shortcut control-shift-9
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 

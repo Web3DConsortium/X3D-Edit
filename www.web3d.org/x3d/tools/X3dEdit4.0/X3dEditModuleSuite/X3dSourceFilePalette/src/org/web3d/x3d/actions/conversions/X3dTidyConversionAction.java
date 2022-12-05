@@ -61,7 +61,7 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_TIDY_URL;
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 70),
   @ActionReference(path = "Toolbars/&Author Workflow", position = 70),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 70),
-  @ActionReference(path = "Shortcuts", name = "CS-5"), // shortcut control-shift-5
+//@ActionReference(path = "Shortcuts", name = "CS-7"), // shortcut control-shift-7
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 

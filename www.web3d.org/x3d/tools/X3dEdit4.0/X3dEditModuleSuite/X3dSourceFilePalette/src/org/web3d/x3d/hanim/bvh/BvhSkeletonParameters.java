@@ -234,7 +234,7 @@ public abstract class BvhSkeletonParameters
 		// https://www.web3d.org/x3d/content/examples/Basic/HumanoidAnimation/tables/HAnimJointLoa2Names19774V1.0.txt
 		// https://www.web3d.org/x3d/content/examples/Basic/HumanoidAnimation/tables/HAnimJointLoa3Names19774V1.0.txt
 		
-		// https://www.web3d.org/documents/specifications/19774-1/V2.0/HAnim/concepts.html#Hierarchy
+		// https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/concepts.html#Hierarchy
 		
 		/** first entry is hAnim name, remaining entries are aliases */
 		String[][] LOA1JointSegmentAliasTable = {
