@@ -270,29 +270,35 @@ public class Motion extends BvhSkeletonParameters {
 						channelNamesString = thisJoint.getChannelNamesString();
 					}
                                         // Now get three euler angles according to order specfied in BVH file
+                                        // Z X Y
 					if (channelNamesString.equalsIgnoreCase("Zrotation Xrotation Yrotation") || // JOINT
 					    channelNamesString.endsWith        ("Zrotation Xrotation Yrotation"))   // ROOT channels 0, 1
-//					                   Xposition Yposition Zposition Zrotation Xrotation Yrotation    // ROOT channels 0, 1
 					{
-						phi = values[3*channelIndex+1]; // Euler angle about X axis:  second channel 
-					      theta = values[3*channelIndex+2]; // Euler angle about Y axis:   third channel
-						psi = values[3*channelIndex+0]; // Euler angle about Z axis: initial channel
+						phi = values[3*channelIndex+1]; //   phi Euler angle about X axis:  second channel, index 1
+					      theta = values[3*channelIndex+2]; // theta Euler angle about Y axis:   third channel, index 2
+						psi = values[3*channelIndex+0]; //   psi Euler angle about Z axis: initial channel, index 0
 					}
-					else if (channelNamesString.equalsIgnoreCase("Zrotation Yrotation Xrotation") || // JOINT
+					// Z Y X
+                                        else if (channelNamesString.equalsIgnoreCase("Zrotation Yrotation Xrotation") || // JOINT
 					    channelNamesString.endsWith        ("Zrotation Yrotation Xrotation"))   // ROOT channels 0, 1
-//					                   Xposition Yposition Zposition Zrotation Xrotation Yrotation    // ROOT channels 0, 1
 					{
-						phi = values[3*channelIndex+2]; // Euler angle about X axis:   third channel
-					      theta = values[3*channelIndex+1]; // Euler angle about Y axis:  second channel 
-						psi = values[3*channelIndex+0]; // Euler angle about Z axis: initial channel
+						phi = values[3*channelIndex+2]; //   phi Euler angle about X axis:   third channel, index 2
+					      theta = values[3*channelIndex+1]; // theta Euler angle about Y axis:  second channel, index 1
+						psi = values[3*channelIndex+0]; //   psi Euler angle about Z axis: initial channel, index 0
 					}
-					else  // TODO: different order for theta, psi if different CHANNEL order found
+                                        // X Z Y, or else an error
+					else  // Xrotation Zrotation Yrotation, which is a legal case or else
+                                              // TODO: different order for theta, psi if different CHANNEL order found
 					{
-                                            System.out.println ("*** Error, BVH converter Motion.java encountered unfamiliar rotation order: " + channelNamesString +
-                                                                ", assuming Xrotation Zrotation Yrotation");
-						phi = values[3*channelIndex+0]; // Euler angle about X axis: initial channel
-					      theta = values[3*channelIndex+2]; // Euler angle about Y axis:   third channel 
-						psi = values[3*channelIndex+1]; // Euler angle about Z axis:  second channel
+                                            if (!channelNamesString.equalsIgnoreCase("Xrotation Zrotation Yrotation"))
+                                            {
+                                                System.out.println ("*** Error, BVH converter Motion.java encountered unfamiliar rotation order: " +
+                                                                     channelNamesString + ", assuming Xrotation Zrotation Yrotation");
+                                                System.out.println ("*** Please report this error so that the BVH converter Motion.java can be improved!" );
+                                            }
+						phi = values[3*channelIndex+0]; //   phi Euler angle about X axis: initial channel, index 0
+					      theta = values[3*channelIndex+2]; // theta Euler angle about Y axis:   third channel, index 2
+						psi = values[3*channelIndex+1]; //   psi Euler angle about Z axis:  second channel, index 1
 					}
 					AxisAngle4d axisAngle = getAxisAngleRotation( // computation is also order dependent
 							  phi * Math.PI / 180.0, // degrees to radians
