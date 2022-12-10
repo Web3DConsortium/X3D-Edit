@@ -65,7 +65,8 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
  * @author brutzman
  */
 @ActionID(id = "org.web3d.x3d.actions.ViewInAllAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon32.png",
+// https://en.wikipedia.org/wiki/Three_Arrows
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ThreeArrowsDrei_Pfeile.svg.32x32.png",
                     displayName = "#CTL_ViewInAllAction", lazy=true)
 @ActionReferences( value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 60, separatorAfter = 61),
