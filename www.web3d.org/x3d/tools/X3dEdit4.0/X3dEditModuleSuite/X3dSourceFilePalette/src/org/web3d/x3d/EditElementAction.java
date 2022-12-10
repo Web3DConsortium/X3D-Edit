@@ -66,7 +66,7 @@ import org.web3d.x3d.palette.items.PROTOTYPE_ExtrusionCrossSection;
  */
 @ActionID(id = "org.web3d.x3d.EditElementAction", category = "X3D-Edit")
 
-@ActionRegistration(iconBase = "org/web3d/x3d/resources/edit.png",
+@ActionRegistration(iconBase = "org/web3d/x3d/resources/edit24.png",
                     displayName = "#CTL_EditElementAction",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
