@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -34,10 +34,8 @@
 package org.web3d.x3d.actions.security;
 
 import java.awt.event.ActionEvent;
-
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.security.InvalidKeyException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -45,26 +43,19 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Security;
 import java.security.spec.InvalidKeySpecException;
-
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
-
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESedeKeySpec;
-
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
-
 import org.apache.xml.security.exceptions.Base64DecodingException;
 import org.apache.xml.security.utils.XMLUtils;
-
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-
 import org.openide.util.NbBundle;
-
 import org.web3d.x3d.options.X3dOptions;
 
 /**
@@ -81,13 +72,14 @@ import org.web3d.x3d.options.X3dOptions;
 public class BouncyCastleHelper
 {
   public static final String BEGIN_CERT = "-----BEGIN CERTIFICATE-----";
-  public static final String END_CERT = "-----END CERTIFICATE-----";
+  public static final String END_CERT   = "-----END CERTIFICATE-----";
   
   private static boolean installed = false;
   
   public static void setup()
   {
-    if(!installed) {
+    if(!installed)
+    {
       Security.addProvider(new BouncyCastleProvider());
       installed = true;
     }
@@ -103,7 +95,7 @@ public class BouncyCastleHelper
   
   private static AtomicBoolean babyLock = new AtomicBoolean(false);
   private static boolean LOCKED = true;
-  private static boolean FREE = false;
+  private static boolean FREE   = false;
   
   public static void flushPassword()
   {
@@ -114,10 +106,10 @@ public class BouncyCastleHelper
   }
   
   /**
-   * @param msg to show in dialog
+   * @param message to show in dialog
    * @return
    */
-  public static char[] getAPassword(String msg)
+  public static char[] getAPassword(String message)
   {
     while(!babyLock.compareAndSet(FREE, LOCKED)) {
       Thread.yield();
@@ -128,22 +120,22 @@ public class BouncyCastleHelper
       bumpTimer();
     }
     else {
-      if (msg == null)
-        msg = org.openide.util.NbBundle.getMessage(BouncyCastleHelper.class, "MSG_EnterPassword"); //"Enter password:"
-      final JPasswordField pwF = new JPasswordField(10);
+      if (message == null)
+          message = org.openide.util.NbBundle.getMessage(BouncyCastleHelper.class, "MSG_EnterPassword"); //"Enter password:"
+      final JPasswordField passwordField = new JPasswordField(16);
       
       //problem:  I only wanted OK and CANCEL and I want the pwField to have focus when it comes up;
       // first requires confirm dialog, 2nd requires the timer.
       // this is clumsy but works:
       javax.swing.Timer timer = new javax.swing.Timer(250, (ActionEvent ae) -> {
-          pwF.requestFocusInWindow();    
+          passwordField.requestFocusInWindow();    
       });
       timer.setRepeats(false);
       timer.start();
       
-      int ret = JOptionPane.showConfirmDialog(null, pwF, msg, JOptionPane.OK_CANCEL_OPTION);
+      int ret = JOptionPane.showConfirmDialog(null, passwordField, message, JOptionPane.OK_CANCEL_OPTION);
       if (ret != JOptionPane.CANCEL_OPTION) {
-        retPW = pwF.getPassword();
+        retPW = passwordField.getPassword();
         bumpTimer();
         baby = retPW;
       }
@@ -185,9 +177,9 @@ public class BouncyCastleHelper
   
   public static SecretKey createSecretKey() throws NoSuchAlgorithmException,NoSuchProviderException    
   {
-    KeyGenerator keygen = KeyGenerator.getInstance("DESede","BC");
-    keygen.init(192);  // 192 bits for TripleDES, 24 bytes
-    return keygen.generateKey();
+    KeyGenerator keyGenerator = KeyGenerator.getInstance("DESede","BC");
+    keyGenerator.init(192);  // 192 bits for TripleDES, 24 bytes
+    return keyGenerator.generateKey();
   }
   
   public static SecretKey readSecretKey(InputStream is) throws IOException,
@@ -236,29 +228,31 @@ public class BouncyCastleHelper
   
   public static long getNextCertificateSerialNumber()
   {
-    long last = X3dOptions.getLastCertificateSerialNum();
-    last++;
-    X3dOptions.setLastCertificateSerialNum(last);
-    return last;   
+    long lastCertificateSerialNumber = X3dOptions.getLastCertificateSerialNumber();
+    lastCertificateSerialNumber++;
+    X3dOptions.setLastCertificateSerialNumber(lastCertificateSerialNumber);
+    return lastCertificateSerialNumber;   
   }
   
   public static class KeystorePasswordException extends Exception
   {
-    public KeystorePasswordException(String msg)
+    public KeystorePasswordException(String message)
     {
-      super(msg);
+      super(message);
     }
   }
-  public static ManageKeyStorePanel buildManageKeyPanel(char[] pw) throws Exception
+  public static ManageKeyStorePanel buildManageKeyPanel(char[] passwordCharArray) throws Exception
   {
-    do {
-      try {
-        ManageKeyStorePanel keyPan = new ManageKeyStorePanel(pw);
-        return keyPan;
+    do
+    {
+      try
+      {
+        ManageKeyStorePanel manageKeyStorePanel = new ManageKeyStorePanel(passwordCharArray);
+        return manageKeyStorePanel;
       }
       catch (KeystorePasswordException pwEx) {  // other exceptions are caught up the stack
         flushPassword();
-        pw=null;
+        passwordCharArray=null;
         if(!tryAgain())
           return null;
       }
@@ -282,7 +276,7 @@ public class BouncyCastleHelper
     while (true);
   }
   
-    private static boolean tryAgain()
+  private static boolean tryAgain()
   {
     return JOptionPane.showConfirmDialog(
             null, // parent

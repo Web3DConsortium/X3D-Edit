@@ -59,8 +59,8 @@ import org.openide.util.actions.CallableSystemAction;
 @ActionRegistration(displayName = "#CTL_ManageKeyStoreAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/XML &Security/Manage XML Security keystore...", position = 150),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security/Manage XML Security keystore...", position = 150)})
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 150),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 150)})
 
 public final class ManageKeyStoreAction extends CallableSystemAction
 {
@@ -70,54 +70,61 @@ public final class ManageKeyStoreAction extends CallableSystemAction
     instance=this;
   }
  
-  public void performAction(char[] pw)
+    /**
+     * Manage keystore
+     * @param keystorePassword password for the keystore
+     */
+    public void performAction(char[] keystorePassword)
   {
     BouncyCastleHelper.setup();
 
-    DialogDescriptor descriptor;
+    DialogDescriptor dialogDescriptor;
     try {
-      ManageKeyStorePanel mPan = BouncyCastleHelper.buildManageKeyPanel(pw);
-      if(mPan == null || mPan.getKeystore() == null) // check for proper initialization
+      ManageKeyStorePanel manageKeyStorePanel = BouncyCastleHelper.buildManageKeyPanel(keystorePassword);
+      if(manageKeyStorePanel == null || manageKeyStorePanel.getKeystore() == null) // check for proper initialization
         return;
       // Want only close button and help button
-      JButton closeButt = new JButton(NbBundle.getMessage(getClass(), "MSG_Close")); //"Close");
-      descriptor = new DialogDescriptor(
-          mPan,                             //component
+      JButton closeButton = new JButton(NbBundle.getMessage(getClass(), "MSG_Close")); //"Close");
+      dialogDescriptor = new DialogDescriptor(
+          manageKeyStorePanel,                                   //component
           NbBundle.getMessage(getClass(),"ManageKeysDialogTitle"), //title
           true,                                                    //modal
-          new Object[]{closeButt},                                 //buttons to show
-          closeButt,                                               //default button
-          DialogDescriptor.DEFAULT_ALIGN,                          //button alignment
-          HelpCtx.DEFAULT_HELP,                                    //help context
-          null);                                                   //action listener
+          new Object[]{closeButton},                                    //buttons to show
+          closeButton,                                        //default button
+          DialogDescriptor.DEFAULT_ALIGN,                     //button alignment
+          HelpCtx.DEFAULT_HELP,                                  //help context
+          null);                                                     //action listener
     }
     catch(OperationCancelledException cex) {  // potentially comes from ManageKeyStorePanel constructor
       return;
     }
     catch(Exception ex) {
       String msg = NbBundle.getMessage(getClass(), "MSG_KeystoreError") + ex.getLocalizedMessage(); //"Keystore error: "
-      NotifyDescriptor d = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
-      DialogDisplayer.getDefault().notify(d);
+      NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
+      DialogDisplayer.getDefault().notify(notifyDescriptor);
       return;
     }
     
-    Dialog dlg = null;
+    Dialog dialog = null;
     try {
-      dlg = DialogDisplayer.getDefault().createDialog(descriptor);
-      dlg.setResizable(true);
-      dlg.pack();
-      dlg.setVisible(true);
+      dialog = DialogDisplayer.getDefault().createDialog(dialogDescriptor);
+      dialog.setResizable(true);
+      dialog.pack();
+      dialog.setVisible(true);
     }
     finally {
-      if (dlg != null)
-        dlg.dispose();
+      if (dialog != null)
+        dialog.dispose();
     }
   }
   
-  @Override
+    /**
+     * Default entry point from NetBeans
+     */
+    @Override
   public void performAction()
   {
-    performAction(null); // no password
+    performAction(null); // no password, default action
   }
   
   @Override
