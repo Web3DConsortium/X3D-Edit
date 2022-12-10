@@ -164,6 +164,18 @@
                              dest="${x3dSchematron.dir}/iso_svrl_for_xslt2.xsl"             usetimestamp="true" verbose="true"/>
     </target>
      
+    <property name="xj3d.dir" value="C:\x-nps-gitlab\xj3d\"/>
+    <target name="get.latest.Xj3D.jars.local" description="Download latest Xj3D jar files from version control">
+        <!-- TODO -->
+        <copy todir="release/modules/ext/" preservelastmodified="false" overwrite="true" force="true" verbose="true">
+            <fileset dir="${xj3d.dir}/jars/" includes="xj3d-2.3-3rdparty-nps.jar"/>
+            <fileset dir="${xj3d.dir}/jars/" includes="xj3d-2.3-nps.jar"/>
+            <fileset dir="${xj3d.dir}/jars/" includes="xj3d.browser_2.3.0-nps.jar"/>
+            <fileset dir="${xj3d.dir}/jars/" includes="xj3d.cadfilter_2.3.0-nps.jar"/>
+        </copy>
+    </target>
+    <!-- TODO target name="get.latest.Xj3D.jars.sourceforge" -->
+     
     <target name="get.latest.stylesheets" description="Download latest stylesheet files from version control">
         
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToX3dvClassicVrmlEncoding.xslt"
