@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -95,6 +95,7 @@ import org.openide.windows.InputOutput;
 import org.web3d.x3d.actions.conversions.ProcessRunner;
 import org.web3d.x3d.actions.security.BouncyCastleHelper.KeystorePasswordException;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
+import org.web3d.x3d.options.OptionsMiscellaneousX3dPanel;
 import org.web3d.x3d.options.OptionsMiscellaneousX3dPanelAction;
 import org.web3d.x3d.options.X3dOptions;
 
@@ -106,42 +107,43 @@ import org.web3d.x3d.options.X3dOptions;
 public class ManageKeyStorePanel extends javax.swing.JPanel
 {
   private final int ALIAS_TABLE_COLUMN = 0;
-  private final int TYPE_TABLE_COLUMN = 1;
-  private final int DATE_TABLE_COLUMN = 2;
+  private final int TYPE_TABLE_COLUMN  = 1;
+  private final int DATE_TABLE_COLUMN  = 2;
   private final String ALIAS_TITLE = NbBundle.getMessage(getClass(), "MSG_KeyTableAliasColumnTitle"); //"Alias";
-  private final String TYPE_TITLE = NbBundle.getMessage(getClass(), "MSG_KeyTableTypeColumnTitle"); //"Type";
-  private final String DATE_TITLE = NbBundle.getMessage(getClass(), "MSG_KeyTableDateColumnTitle"); //"Date added";
+  private final String TYPE_TITLE  = NbBundle.getMessage(getClass(), "MSG_KeyTableTypeColumnTitle"); //"Type";
+  private final String DATE_TITLE  = NbBundle.getMessage(getClass(), "MSG_KeyTableDateColumnTitle"); //"Date added";
 
   private Vector<String> titles;
-  private KeyStore ks;
-  private File ksFile;
-  private InputStream ksInpStr;
-  private char[] pw;
+  private KeyStore keyStore;
+  private File keyStoreFile;
+  private InputStream keyStoreInputStream;
+  private char[] password;
 
   private static JFileChooser saveChooser,openChooser;
   private static File lastChooserDir = new File(System.getProperty("user.home")+"/X3D-Edit/XML &Security");
   
   /** Creates new form ManageKeyStorePanel
-   * @param password plain text?
+   * @param pw plain text?
    * @throws java.lang.Exception 
    */
-  public ManageKeyStorePanel(char[] password) throws Exception
+  @SuppressWarnings("UseOfObsoleteCollectionType")
+  public ManageKeyStorePanel(char[] pw) throws Exception
   {
     // Will warn user to set a path to a keystore if not yet accomplished
-    initKeyStore(); // also gets called from reloadTable()
-    if (ks == null) return;
+    initializeKeyStore(); // also gets called from reloadTable()
+    if (keyStore == null) return;
     
     initComponents();
     HelpCtx.setHelpIDString(ManageKeyStorePanel.this, "MANAGE_KEYSTORE_HELPID");
 
-    pw = password;
-    
+    password = pw;
+    // Swing uses Vector, can't replace with ArrayList
     titles = new Vector<>(3);
     titles.add(ALIAS_TITLE);
     titles.add(TYPE_TITLE);
     titles.add(DATE_TITLE);
     
-    initKeyTable();
+    initializeKeyTable();
     reloadTable();
     customizeColumnWidths();
   }
@@ -151,7 +153,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
    * @return the Keystore
    */
   public KeyStore getKeystore() {
-      return ks;
+      return keyStore;
   }
 
   private char[] getAPassword(String msg)
@@ -162,90 +164,96 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
   private String getNewAlias(String typ) throws Exception
   {
     boolean repeat;
-    String returnStr = null;
+    String returnString = null;
     do {
       String msg = NbBundle.getMessage(getClass(), "MSG_EnterNewSpace")+typ+NbBundle.getMessage(getClass(), "MSG_SpaceAliasSpace"); //"Enter new " " alias "; 
-      JTextField tF = new JTextField(17);
-      int ret = JOptionPane.showConfirmDialog(this, tF, msg, JOptionPane.OK_CANCEL_OPTION);
+      JTextField textField = new JTextField(17);
+      int ret = JOptionPane.showConfirmDialog(this, textField, msg, JOptionPane.OK_CANCEL_OPTION);
       if (ret == JOptionPane.CANCEL_OPTION)
         return null;
-      if (ks.containsAlias(tF.getText())) {
+      if (keyStore.containsAlias(textField.getText()))
+      {
         int i = JOptionPane.showConfirmDialog(this, NbBundle.getMessage(getClass(), "MSG_AliasInUseRetry")); //"Alias in use.  Retry?");
         if (i != JOptionPane.OK_OPTION)
-          return null;
+            return null;
         repeat = true;
       }
       else {
         repeat = false;
-        returnStr = tF.getText();
+        returnString = textField.getText();
       }
     }
     while (repeat);
     
-    return returnStr;
+    return returnString;
   }
 
-  private void initKeyStore() throws Exception
+  private void initializeKeyStore() throws Exception
   {
-    String path = X3dOptions.getKeystorePath();
-    if (path == null) {
-      String msg = "<html>" +
+    String initialKeystorePath = X3dOptions.getKeystorePath();
+    if ((initialKeystorePath == null) || 
+         initialKeystorePath.isBlank() || 
+         initialKeystorePath.equalsIgnoreCase(org.openide.util.NbBundle.getMessage(OptionsMiscellaneousX3dPanel.class, "KEYSTORE_DEFAULT_WARNING")))
+    {
+        // must initially set keystore to user-provided location
+        String message = "<html>" +
               "<p>&nbsp;</p>" +
               "<h2 align='center'>First, Set a Path to a Keystore</h2>" +
               "<p align='center'>" + 
-                "<b>X3D-Edit -> X3D-Edit Preferences Panel -> X3D Security -> X3D-Edit Keystore</b>" + 
+                "<b>X3D-Edit -> X3D-Edit Preferences Panel -> XML Security -> X3D-Edit Keystore</b>" + 
               "</p>" +
               "<p>&nbsp;</p>" +
               "<p align='center'>" +
-              "This path will be remembered in the future" +
+              "Next step: set keystore location" +
               "</p>" + 
             "</html>";
-      NotifyDescriptor d = new NotifyDescriptor.Message(msg, NotifyDescriptor.INFORMATION_MESSAGE);
-      DialogDisplayer.getDefault().notify(d);
-      OptionsMiscellaneousX3dPanelAction pa = new OptionsMiscellaneousX3dPanelAction();
-      pa.actionPerformed(null);
-      path = X3dOptions.getKeystorePath();  
-      if (path == null) return;   
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
+        DialogDisplayer.getDefault().notify(notifyDescriptor);
+        OptionsMiscellaneousX3dPanelAction optionsMiscellaneousX3dPanelAction = new OptionsMiscellaneousX3dPanelAction();
+        optionsMiscellaneousX3dPanelAction.setPreferredPane(OptionsMiscellaneousX3dPanel.XML_SECURITY_PANE);
+        optionsMiscellaneousX3dPanelAction.actionPerformed(null); // show panel
+        initialKeystorePath = X3dOptions.getKeystorePath();  
+        if (initialKeystorePath == null) return;   
     }
-    ks = BouncyCastleHelper.getKeyStore();
-    ksFile = new File(path);
-    if (ksFile.exists())
-      ksInpStr = new FileInputStream(ksFile);
+    keyStore     = BouncyCastleHelper.getKeyStore();
+    keyStoreFile = new File(initialKeystorePath);
+    if (keyStoreFile.exists())
+      keyStoreInputStream = new FileInputStream(keyStoreFile);
   }
   
-  private void initKeyTable() throws Exception
+  private void initializeKeyTable() throws Exception
   {
-    String msg = NbBundle.getMessage(getClass(), "MSG_EnterKeystorePassword");
-    if(ksInpStr == null)
-      msg = NbBundle.getMessage(getClass(), "MSG_EnterPasswordForNewKeystore");
+    String message = NbBundle.getMessage(getClass(), "MSG_EnterKeystorePassword");
+    if(keyStoreInputStream == null)
+      message = NbBundle.getMessage(getClass(), "MSG_EnterPasswordForNewKeystore");
     
-    pw = getAPassword(msg); //"Enter " "keystore password"
-    if (pw == null)
-      throw new OperationCancelledException();
+    password = getAPassword(message); //"Enter " "keystore password"
+    if (password == null)
+        throw new OperationCancelledException();
   }
 
   private void reloadTable() throws Exception
   {
-    initKeyStore();
+    initializeKeyStore();
       
     try {
-      ks.load(ksInpStr, pw); // null inpstr means new, empty keystore
+      keyStore.load(keyStoreInputStream, password); // null inpstr means new, empty keystore
     }
     catch(IOException ioex) {
       throw new KeystorePasswordException(NbBundle.getMessage(getClass(), "MSG_BadPassword"));//"Password incorrect or file unreadable");
     }
     
     Vector<Vector<String>> rows = new Vector<>();
-    if (ks != null) {
-      Enumeration<String> aliases = ks.aliases();
+    if (keyStore != null) {
+      Enumeration<String> aliases = keyStore.aliases();
       if (aliases.hasMoreElements()) {
         while (aliases.hasMoreElements()) {
           String s = aliases.nextElement();
           Entry ent;
-          if(ks.isCertificateEntry(s))
-            ent = ks.getEntry(s, null);
+          if(keyStore.isCertificateEntry(s))
+            ent = keyStore.getEntry(s, null);
           else
-            ent = ks.getEntry(s, new KeyStore.PasswordProtection(pw));
+            ent = keyStore.getEntry(s, new KeyStore.PasswordProtection(password));
           Vector<String> vs = new Vector<>(3);
           vs.add(s);
           if (ent instanceof KeyStore.SecretKeyEntry) {
@@ -257,7 +265,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
           else if (ent instanceof KeyStore.TrustedCertificateEntry) {
             vs.add(NbBundle.getMessage(getClass(), "MSG_TrustedPublic")); //"Trusted public key");
           }
-          vs.add(ks.getCreationDate(s).toString());
+          vs.add(keyStore.getCreationDate(s).toString());
           rows.add(vs);
         }
       }
@@ -310,7 +318,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
     if(alias == null)
       return;
     
-    ks.setKeyEntry(alias,secKey,pw,null);
+    keyStore.setKeyEntry(alias,secKey,pw,null);
     
     commonCleanup(NbBundle.getMessage(getClass(), "MSG_SecretKeyGenOpComplete")); //"Secret (symmetric) key generation and store operation complete");
   }
@@ -336,17 +344,17 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
 
     X509Certificate cert = certGen.generate(pair.getPrivate(), "BC");
     
-    ks.setKeyEntry(alias, pair.getPrivate(), pw, new X509Certificate[]{cert});
+    keyStore.setKeyEntry(alias, pair.getPrivate(), pw, new X509Certificate[]{cert});
  
     commonCleanup(NbBundle.getMessage(getClass(), "MSG_KeyPairGenOpComplete")); //"Key pair generation and store operation complete");
   }
   
   private void commonCleanup(String msg) throws Exception
   {
-    ksFile.getParentFile().mkdirs();
+    keyStoreFile.getParentFile().mkdirs();
     
-    FileOutputStream fow = new FileOutputStream(ksFile);
-    ks.store(fow, pw);
+    FileOutputStream fow = new FileOutputStream(keyStoreFile);
+    keyStore.store(fow, password);
 
     InputOutput io = IOProvider.getDefault().getIO("Output", false);
     io.select();
@@ -359,7 +367,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
   
   private void deleteKey(String alias, char[] pw) throws Exception
   {
-    ks.deleteEntry(alias);
+    keyStore.deleteEntry(alias);
     
     commonCleanup(NbBundle.getMessage(getClass(), "MSG_KeyDeleteOpComplete")); //"Key deletion operation complete");
   }
@@ -376,7 +384,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
     v.add("-storetype");
     v.add(KeyStore.getDefaultType());
     v.add("-keystore");
-    v.add(ksFile.getAbsolutePath());
+    v.add(keyStoreFile.getAbsolutePath());
     v.add("-storepass");
     v.add(new String(pw));
     //v.add("-providerClass");  v.add("org.bouncycastle.jce.provider.BouncyCastleProvider");
@@ -426,7 +434,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
     v.add("-storetype");
     v.add(KeyStore.getDefaultType());
     v.add("-keystore");
-    v.add(ksFile.getAbsolutePath());
+    v.add(keyStoreFile.getAbsolutePath());
     v.add("-storepass");
     v.add(new String(passw));
     //v.add("-providerClass");  v.add("org.bouncycastle.jce.provider.BouncyCastleProvider");
@@ -550,9 +558,9 @@ private void exportButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     return;
   String alias = (String) keyTable.getModel().getValueAt(row, ALIAS_TABLE_COLUMN);
   try {
-    Entry ent = ks.getEntry(alias, new PasswordProtection(pw));
+    Entry ent = keyStore.getEntry(alias, new PasswordProtection(password));
     String msg = "";
-    if(ks.entryInstanceOf(alias, KeyStore.SecretKeyEntry.class)) {
+    if(keyStore.entryInstanceOf(alias, KeyStore.SecretKeyEntry.class)) {
         try (PrintStream ps = doSaveChooser(alias,"_key.b64")) {
             if(ps == null)
                 return;
@@ -564,12 +572,12 @@ private void exportButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }
       msg = "Key ";
     }
-    else if(ks.entryInstanceOf(alias, KeyStore.PrivateKeyEntry.class)) {
+    else if(keyStore.entryInstanceOf(alias, KeyStore.PrivateKeyEntry.class)) {
         try (PrintStream ps = doSaveChooser(alias,"_certificateChain.cer")) {
             if(ps == null)
                 return;
             
-            X509Certificate cert = (X509Certificate) ks.getCertificate(alias);
+            X509Certificate cert = (X509Certificate) keyStore.getCertificate(alias);
             ps.println(BouncyCastleHelper.BEGIN_CERT);
             String encStr = XMLUtils.encodeToString(cert.getEncoded());
             ps.print(encStr);
@@ -627,7 +635,7 @@ private void importButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
       if (isSelfSigned(cert))      // if certificate is self-signed, make sure it verifies
         cert.verify(cert.getPublicKey());
 
-      ks.setCertificateEntry(alias, cert);
+      keyStore.setCertificateEntry(alias, cert);
     }
     else {
       String alias = getNewAlias(NbBundle.getMessage(getClass(), "MSG_Secret_lc")); //"secret key");
@@ -635,7 +643,7 @@ private void importButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         return;
 
       SecretKey sKey = BouncyCastleHelper.readSecretKey(is);
-      ks.setEntry(alias, new KeyStore.SecretKeyEntry(sKey), new KeyStore.PasswordProtection(pw));
+      keyStore.setEntry(alias, new KeyStore.SecretKeyEntry(sKey), new KeyStore.PasswordProtection(password));
     }
     commonCleanup(NbBundle.getMessage(getClass(), "MSG_ImportOpComplete")); //"Certificate importation complete");
   }
@@ -668,9 +676,9 @@ private void createButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
   try {
     if (secretRB.isSelected())
-      addSecretKey(pw);
+      addSecretKey(password);
     else
-      addPrivateKeyPair(pw);
+      addPrivateKeyPair(password);
   }
   catch (Exception ex) {
     String msg = NbBundle.getMessage(getClass(), "MSG_KeyGenError") + ex.getLocalizedMessage(); //"Key generation error: "
@@ -705,7 +713,7 @@ private void deleteButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     return;
   
   try {
-    this.deleteKey(alias, pw);
+    this.deleteKey(alias, password);
   }
   catch(Exception ex) {
     String msg = NbBundle.getMessage(getClass(), "MSG_KeyDeleteError") + ex.getLocalizedMessage(); //"Key deletion error: "

@@ -55,8 +55,8 @@ import org.openide.util.actions.CallableSystemAction;
 @ActionRegistration(displayName = "#CTL_ManageKeyStorePortecleAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/XML &Security/Manage XML Security keystore...", position = 160),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security/Manage XML Security keystore...", position = 160)})
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 160, separatorAfter = 180),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 160, separatorAfter = 180)})
 
 /**
  * Use Portecle UI to manage public/private key pair during runtime
@@ -64,7 +64,7 @@ import org.openide.util.actions.CallableSystemAction;
 // * @deprecated
 // * No longer acceptable due to the harshness of the Portecle UI frame behavior
  */
-@Deprecated(since = "3.3", forRemoval = true)
+//@Deprecated(since = "3.3", forRemoval = true)
 public final class ManageKeyStorePortecleAction extends CallableSystemAction
 {
   public static ManageKeyStorePortecleAction instance;
