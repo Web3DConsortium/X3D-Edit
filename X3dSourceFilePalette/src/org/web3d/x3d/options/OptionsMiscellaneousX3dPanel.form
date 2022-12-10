@@ -6596,6 +6596,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="keystorePathTF">
               <Properties>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="org/web3d/x3d/options/Bundle.properties" key="KEYSTORE_DEFAULT_WARNING" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                </Property>
                 <Property name="toolTipText" type="java.lang.String" value="File location for local keystore"/>
               </Properties>
               <Events>

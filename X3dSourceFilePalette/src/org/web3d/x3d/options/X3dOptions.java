@@ -56,18 +56,27 @@ public class X3dOptions
 {
   /* Security options */
   public static       String KEYSTORE_PATH_KEY         = "KEYSTORE_PATH";
-  public static       String KEYSTORE_PATH_DEFAULT     = "c:\\x3d-code\\www.web3d.org\\x3d\\content\\examples\\Basic\\Security\\keystore";
-  //  there is no best default path as a user could store examples anywhere on their local machine
+  /** 
+   * KEYSTORE_PATH_DEFAULT, if defined, should not include filename.
+   * We keep this value null in order to force initial user invocation to choose a path to their local keystore of interest
+   */
+  public static       String KEYSTORE_PATH_DEFAULT     = System.getProperty("user.dir");
+//public static       String KEYSTORE_PATH_DEFAULT     = "c:\\x3d-code\\www.web3d.org\\x3d\\content\\examples\\Basic\\Security\\keystore\\X3D-EditKeystore.ks";
+  
+//  there is no best default path as a user could store examples anywhere on their local machine
   // property persistence will allow a path to be remembered
   public static       String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; 
 //  public static final String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeystoreNameExtension()).toString();
 
   public static final String USER_NAME_TOKEN = "__USER-NAME__";
-  public static final String USER_NAME, X3D_EDIT_PATH;
+  public static final String USER_NAME, USER_NAME_DEFAULT, USER_HOME_DIR, USER_HOME_DIR_DEFAULT, X3D_EDIT_PATH;
   static {
 //    String homeDir = System.getProperty("user.home");
-          USER_NAME = System.getProperty("user.name");
-       X3D_EDIT_PATH = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
+       USER_NAME             = System.getProperty("user.name"); // add key, save value
+       USER_HOME_DIR         = System.getProperty("user.dir");  // add key, save value
+       USER_NAME_DEFAULT     = System.getProperty("user.name");
+       USER_HOME_DIR_DEFAULT = System.getProperty("user.dir");
+       X3D_EDIT_PATH         = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
     
 //    File dir = new File(new StringBuilder().append(homeDir).append("/X3D-Edit/XML &Security").toString());
 //    File fil = new File(dir,KEYSTORE_FILENAME_DEFAULT);
@@ -1306,7 +1315,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String getLaunchInterval()             {return commonGet(LAUNCH_INTERVAL_KEY,                  LAUNCH_INTERVAL_DEFAULT);}
   public static Long   getLaunchIntervalMilliseconds() {return Long.parseLong(getLaunchInterval()) * 1000l;} // convert seconds to msec
 
-  public static String getKeystorePath()         {return commonGet(KEYSTORE_PATH_KEY, KEYSTORE_PATH_DEFAULT);}
+  public static String getKeystorePath()         {return commonGet(KEYSTORE_PATH_KEY, "");} // user must initially define their keystore path
 
   public static void resetContactPath()          {commonReset(CONTACT_EXECUTABLE_PATH_KEY);}
   public static void resetContactGeoPath()       {commonReset(CONTACT_GEO_EXECUTABLE_PATH_KEY);}
@@ -1395,16 +1404,16 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
     prefs.remove(key);
   }
   
-  public static String CERTIFICATE_SERIALNUMBER_KEY = "CERTIFICATE_SERIALNUMBER";
+  public static String CERTIFICATE_SERIALNUMBER_KEY     = "CERTIFICATE_SERIALNUMBER";
   public static long   CERTIFICATE_SERIALNUMBER_DEFAULT = (new Date().getTime()/(1000*60*60)) * 10L;  // date, no time, 0 trail
   
-  public static long getLastCertificateSerialNum()
+  public static long getLastCertificateSerialNumber()
   {
      Preferences prefs = NbPreferences.forModule(X3dOptions.class);
      return prefs.getLong(CERTIFICATE_SERIALNUMBER_KEY, CERTIFICATE_SERIALNUMBER_DEFAULT);
   }
   
-  public static void setLastCertificateSerialNum(long val)
+  public static void setLastCertificateSerialNumber(long val)
   {
      Preferences prefs = NbPreferences.forModule(X3dOptions.class);
      prefs.putLong(CERTIFICATE_SERIALNUMBER_KEY, val);
