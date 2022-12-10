@@ -275,14 +275,18 @@ POSSIBILITY OF SUCH DAMAGE.
                     <!-- duplicate of Security menu to support right-click context menu -->
                     <folder name="XML &amp;Security">
                         <attr name="position" intvalue="160"/>
-                        <folder name="Manage XML Security keystore...">
+                    <!--<folder name="&amp;Manage XML Security keystore...">
                             <attr name="position" intvalue="100"/>
-                        </folder>
-                        <file name="org-web3d-popup-securityseparator1.instance">
+                        </folder>-->
+                        <file name="org-web3d-popup-securityseparator1b.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="100"/>
+                        </file>
+                        <file name="org-web3d-popup-securityseparator2b.instance">
                             <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                             <attr name="position" intvalue="200"/>
                         </file>
-                        <file name="org-web3d-popup-securityseparator2.instance">
+                        <file name="org-web3d-popup-securityseparator3b.instance">
                             <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                             <attr name="position" intvalue="500"/>
                         </file>
@@ -759,19 +763,24 @@ POSSIBILITY OF SUCH DAMAGE.
             <!-- duplicate of XML Security for top-level X3D menu -->
             <folder name="XML &amp;Security">
                 <attr name="position" intvalue="150"/>
-                <folder name="Manage XML Security keystore...">
+            <!--<folder name="&amp;Manage XML Security keystore...">
                     <attr name="position" intvalue="100"/>
-                </folder>
-                <file name="org-web3d-popup-securityseparator1.instance">
+                </folder>-->
+                <!-- TODO separatorBefore, separatorAfter -->
+                <file name="org-web3d-popup-securityseparator1a.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="100"/>
+                </file>
+                <file name="org-web3d-popup-securityseparator2a.instance">
                     <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                     <attr name="position" intvalue="200"/>
                 </file>
-                <file name="org-web3d-popup-securityseparator2.instance">
+                <file name="org-web3d-popup-securityseparator3a.instance">
                     <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                     <attr name="position" intvalue="500"/>
                 </file>
                 <folder name="Format using XML Canonicalization (C14N)...">
-                    <attr name="position" intvalue="700"/>
+                    <attr name="position" intvalue="300"/>
                     <attr name="iconBase" stringvalue="org/web3d/x3d/resources/c14n_blue.png"/>
                 </folder> <!-- xml canonicalization -->
             </folder> <!-- Security -->
