@@ -45,7 +45,7 @@ import org.web3d.x3d.X3DEditorSupport;
 @ActionID(id = "org.web3d.x3d.actions.conversions.ExportHtmlDocumentationAction", category = "X3D-Edit")
 
 @ActionRegistration(
-        iconBase = "org/web3d/x3d/resources/html24.png",
+        iconBase = "org/web3d/x3d/resources/HTML5_Logo_32.png", // https://www.w3.org/html/logo/#downloads
      displayName = "#CTL_ExportHtmlDocumentationAction",
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
