@@ -67,10 +67,18 @@ import org.openide.util.NbBundle;
  */
 public final class OptionsMiscellaneousX3dPanelAction implements ActionListener
 {
+  int preferredPaneIndex = -1; // no preference
+    
   @Override
   public void actionPerformed(ActionEvent e)
   {
-    OptionsMiscellaneousX3dPanel optionsPanel = new OptionsMiscellaneousX3dPanel();
+    OptionsMiscellaneousX3dPanel optionsPanel = new OptionsMiscellaneousX3dPanel(preferredPaneIndex);
+    if (preferredPaneIndex != -1)
+    {
+        optionsPanel.setPreferredPane(preferredPaneIndex);
+        preferredPaneIndex = -1; // reset
+    }
+
     JButton acceptButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Accept"));
     JButton cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Discard"));
     acceptButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Accept"));
@@ -93,4 +101,12 @@ public final class OptionsMiscellaneousX3dPanelAction implements ActionListener
     
     if(descriptor.getValue() == acceptButton) optionsPanel.store();
   }
+    /**
+     * Set preferred pane
+     * @param index the preferredPaneIndex to set
+     */
+    public void setPreferredPane(int index)
+    {
+        preferredPaneIndex = index;
+    }
 }
