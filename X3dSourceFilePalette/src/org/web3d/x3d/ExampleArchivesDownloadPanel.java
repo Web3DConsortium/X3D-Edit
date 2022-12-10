@@ -70,7 +70,7 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
   private final String X3D4WA_EXAMPLESTARGET   = "X3dForWebAuthors";
   private final String X3D4AM_EXAMPLESTARGET   = "X3dForAdvancedModeling";
   
-  private final String DEFAULTROOTDIR = "/";
+  private final String DEFAULTROOTDIR = System.getProperty("user.dir"); // "/";
   private final String targetPath     = "www.web3d.org/x3d/content/examples/";
   private final String antScriptPath  = "X3dAntScripts/examplesDownloaderAntScript.xml";
   
