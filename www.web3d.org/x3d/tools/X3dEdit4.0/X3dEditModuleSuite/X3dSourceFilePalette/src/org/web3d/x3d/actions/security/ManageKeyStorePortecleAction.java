@@ -41,8 +41,8 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d.actions.security;
 
+//import net.sf.portecle.FPortecle;
 import javax.swing.JMenuItem;
-import net.sf.portecle.FPortecle;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -50,21 +50,20 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+import org.web3d.x3d.options.OptionsMiscellaneousX3dPanel;
+import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.security.ManageKeyStorePortecleAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_ManageKeyStorePortecleAction", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/KeyWikimedia-60_Ŝlosilo_1.svg.32x32.png",
+                    displayName = "#CTL_ManageKeyStorePortecleAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 160, separatorAfter = 180),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 160, separatorAfter = 180)})
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 170, separatorAfter = 180),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 170, separatorAfter = 180)})
 
 /**
- * Use Portecle UI to manage public/private key pair during runtime
- * 
-// * @deprecated
-// * No longer acceptable due to the harshness of the Portecle UI frame behavior
+ * Use Portecle UI to manage public/private key pair during runtime.
  */
-//@Deprecated(since = "3.3", forRemoval = true)
 public final class ManageKeyStorePortecleAction extends CallableSystemAction
 {
   public static ManageKeyStorePortecleAction instance;
@@ -75,6 +74,12 @@ public final class ManageKeyStorePortecleAction extends CallableSystemAction
  
   public void performAction(char[] pw)
   {
+      OptionsMiscellaneousX3dPanel.externalProcessLaunch(X3dOptions.getPorteclePlayerPath());
+/*
+      Updating portecle.jar with latest version from sourceforge did not immediately work, December 2022.
+      No longer bundling portecle.jar since old jars might eventually contain security vulnerabilities.
+      
+      Prior work bundled portecle.jar with detailed description to follow.
 
 //    net.sf.portecle.FPortecle portecleFrameGUI = new FPortecle();
 //
@@ -87,9 +92,9 @@ public final class ManageKeyStorePortecleAction extends CallableSystemAction
 
       // Mike's take on this:
 
-   FPortecle portecleFrame = new FPortecle();
-//   portecleFrame.setLocation(500,400);
-//   portecleFrame.setVisible(true);
+//    FPortecle portecleFrame = new FPortecle();
+//    portecleFrame.setLocation(500,400);
+//    portecleFrame.setVisible(true);
 
     // The above will launch the portecle frame.  It's not useable as is, however, because:
     // 1. we need to pass it the X3D-Edit keystore path
@@ -98,7 +103,7 @@ public final class ManageKeyStorePortecleAction extends CallableSystemAction
     // 3. the frame needs to be disposed of when it closes
     // 4. it tries to twiddle with the look and feel...causes exceptions
     // 5. probably others
-
+*/
   }
   
   @Override
