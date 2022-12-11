@@ -290,8 +290,8 @@ POSSIBILITY OF SUCH DAMAGE.
                             <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                             <attr name="position" intvalue="500"/>
                         </file>
-                        <folder name="Format using XML Canonicalization (C14N)...">
-                            <attr name="position" intvalue="700"/>
+                        <folder name="C14N format using XML Canonicalization...">
+                            <attr name="position" intvalue="300"/>
                             <attr name="iconBase" stringvalue="org/web3d/x3d/resources/c14n_blue.png"/>
                             <!-- entries merged into single folder
                             <folder name="Inclusive">
@@ -779,7 +779,7 @@ POSSIBILITY OF SUCH DAMAGE.
                     <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                     <attr name="position" intvalue="500"/>
                 </file>
-                <folder name="Format using XML Canonicalization (C14N)...">
+                <folder name="C14N format using XML Canonicalization...">
                     <attr name="position" intvalue="300"/>
                     <attr name="iconBase" stringvalue="org/web3d/x3d/resources/c14n_blue.png"/>
                 </folder> <!-- xml canonicalization -->
