@@ -76,6 +76,7 @@ public final class LaunchIssueReportEmailAction extends CallableSystemAction
   
   public static void sendBrowserTo(String urlString)
   {
+     urlString = urlString.replace(" ", "%20"); // normalize email url
      System.out.println ("LaunchIssueReportEmailAction sendBrowserTo() urlString=" + urlString);
       
      try {
