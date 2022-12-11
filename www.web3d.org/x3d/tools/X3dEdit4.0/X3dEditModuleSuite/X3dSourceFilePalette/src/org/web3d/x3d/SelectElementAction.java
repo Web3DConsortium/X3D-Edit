@@ -46,7 +46,7 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 
 @ActionID(id = "org.web3d.x3d.SelectElementAction", category = "X3D-Edit")
-@ActionRegistration(iconBase = "org/web3d/x3d/palette/items/resources/XML16.png",
+@ActionRegistration(iconBase = "org/web3d/x3d/palette/items/resources/XML32.png",
                     displayName = "#CTL_SelectElementAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered)
 @ActionReferences( value = {
