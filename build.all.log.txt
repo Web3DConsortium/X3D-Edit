@@ -1,0 +1,532 @@
+platform.download:
+ant -f C:\\x3d-code\\www.web3d.org\\x3d\\tools\\X3dEdit4.0\\X3dEditModuleSuite -DXmaxwarns=1000 clean build
+Deleting directory C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\testuserdir
+testuserdir-delete:
+suite-jnlp.clean:
+clean:
+org.web3d.x3d.palette.taskdefs:
+org.web3d.x3d.palette.common-init:
+org.web3d.x3d.palette.projectized-common.basic-init:
+org.web3d.x3d.palette.basic-init:
+org.web3d.x3d.palette.files-init:
+org.web3d.x3d.palette.testuserdir-delete:
+org.web3d.x3d.palette.projectized-common.clean:
+Deleting directory C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications
+Deleting directory C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron
+Deleting directory C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets
+Created dir: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications
+Created dir: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron
+Created dir: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets
+org.web3d.x3d.palette.clean:
+build-brand:
+Updating property file: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\branding\core\core.jar\org\netbeans\core\startup\Bundle.properties
+Updating property file: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\branding\modules\org-netbeans-core-windows.jar\org\netbeans\core\windows\view\ui\Bundle.properties
+branding:
+Created dir: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\cluster
+Building jar: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\cluster\core\locale\core_x3deditmodulesuite.jar
+Building jar: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\cluster\modules\locale\org-netbeans-core-windows_x3deditmodulesuite.jar
+files-init:
+release:
+Created dir: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\cluster\config\Modules
+suite.build:
+org.web3d.x3d.palette.taskdefs:
+org.web3d.x3d.palette.common-init:
+org.web3d.x3d.palette.projectized-common.basic-init:
+org.web3d.x3d.palette.basic-init:
+org.web3d.x3d.palette.files-init:
+org.web3d.x3d.palette.nbm-license-init:
+org.web3d.x3d.palette.build-init:
+Created dir: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars
+Scanning for modules in C:\Program Files\NetBeans-16\netbeans\extide
+Scanning for modules in C:\Program Files\NetBeans-16\netbeans\ide
+Scanning for modules in C:\Program Files\NetBeans-16\netbeans\java
+Scanning for modules in C:\Program Files\NetBeans-16\netbeans\nb
+Scanning for modules in C:\Program Files\NetBeans-16\netbeans\platform
+Scanning for modules in C:\Program Files\NetBeans-16\netbeans\webcommon
+Scanning for modules in suite C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-apache-tools-ant-module.jar from [C:\Program Files\NetBeans-16\netbeans\extide\modules\org-apache-tools-ant-module.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-api-xml.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-api-xml.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-api-xml-ui.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-api-xml-ui.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-libs-xerces.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-libs-xerces.jar, C:\Program Files\NetBeans-16\netbeans\ide\modules\ext\xerces-2.8.0.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-editor-document.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-modules-editor-document.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-editor-indent.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-modules-editor-indent.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-editor-lib.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-modules-editor-lib.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-editor-mimelookup.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-netbeans-modules-editor-mimelookup.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-options-api.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-netbeans-modules-options-api.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-settings.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-netbeans-modules-settings.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-xml-catalog.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-modules-xml-catalog.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-xml-catalog-ui.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-modules-xml-catalog-ui.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-xml-core.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-modules-xml-core.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-xml-lexer.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-modules-xml-lexer.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-xml-retriever.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-modules-xml-retriever.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-xml-schema-model.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-modules-xml-schema-model.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-modules-xml-xdm.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-modules-xml-xdm.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-netbeans-spi-palette.jar from [C:\Program Files\NetBeans-16\netbeans\ide\modules\org-netbeans-spi-palette.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-actions.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-openide-actions.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-awt.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-openide-awt.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-dialogs.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-openide-dialogs.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-execution.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-openide-execution.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-filesystems.jar from [C:\Program Files\NetBeans-16\netbeans\platform\core\org-openide-filesystems.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-io.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-openide-io.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-loaders.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-openide-loaders.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-modules.jar from [C:\Program Files\NetBeans-16\netbeans\platform\lib\org-openide-modules.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-nodes.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-openide-nodes.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-text.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-openide-text.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-util.jar from [C:\Program Files\NetBeans-16\netbeans\platform\lib\org-openide-util.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-util-lookup.jar from [C:\Program Files\NetBeans-16\netbeans\platform\lib\org-openide-util-lookup.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-util-ui.jar from [C:\Program Files\NetBeans-16\netbeans\platform\lib\org-openide-util-ui.jar]
+Distilling C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\public-package-jars\org-openide-windows.jar from [C:\Program Files\NetBeans-16\netbeans\platform\modules\org-openide-windows.jar]
+org.web3d.x3d.palette.init:
+org.web3d.x3d.palette.up-to-date:
+org.web3d.x3d.palette.projectized-common.-pre-compile:
+org.web3d.x3d.palette.get.latest.DTDs:
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/catalog.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\catalog.dtd
+.
+last modified = Thu Aug 23 22:22:16 PDT 2007
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-InputOutputFields.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0-InputOutputFields.dtd
+.
+last modified = Sat Oct 31 12:51:27 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensions.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensions.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPrivate.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsAmendment1.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsAmendment1.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0.dtd
+......
+last modified = Mon Mar 14 09:32:38 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-InputOutputFields.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.1-InputOutputFields.dtd
+.
+last modified = Sat Oct 31 12:51:27 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPrivate.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.1.dtd
+.......
+last modified = Mon Mar 14 09:32:38 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-InputOutputFields.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.2-InputOutputFields.dtd
+.
+last modified = Sat Oct 31 12:51:27 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPrivate.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.2.dtd
+.........
+last modified = Mon Mar 14 09:32:38 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-InputOutputFields.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.3-InputOutputFields.dtd
+.
+last modified = Sat Oct 31 12:51:27 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPrivate.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Oct 31 12:44:59 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.3.dtd
+.........
+last modified = Mon Mar 14 09:32:38 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-InputOutputFields.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-4.0-InputOutputFields.dtd
+.
+last modified = Sat Oct 31 13:10:17 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPrivate.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Oct 31 13:10:17 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Oct 31 13:10:17 PDT 2015
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Nov 27 10:38:19 PST 2021
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0.dtd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-4.0.dtd
+............
+last modified = Mon Jul 04 10:34:04 PDT 2022
+org.web3d.x3d.palette.get.latest.schemas:
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0.xsd
+....................................
+last modified = Mon Mar 14 09:36:55 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.1.xsd
+........................................
+last modified = Mon Mar 14 09:36:55 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.2.xsd
+...................................................
+last modified = Mon Mar 14 09:36:55 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.3.xsd
+....................................................
+.
+last modified = Mon Mar 14 09:36:55 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-4.0.xsd
+....................................................
+........................................
+last modified = Mon Jul 04 10:34:04 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/OasisXmlCatalogX3D.xml
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\OasisXmlCatalogX3D.xml
+.
+last modified = Sat Oct 01 15:08:40 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsAmendment1.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsAmendment1.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPrivate.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPrivate.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPrivate.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPrivate.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPrivate.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPrivate.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPrivate.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPrivate.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPrivate.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPrivate.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.xsd
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.xsd
+.
+last modified = Sun Jun 28 10:28:32 PDT 2020
+org.web3d.x3d.palette.get.latest.schematrons:
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/build.xml
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\build.xml
+.
+last modified = Fri Oct 02 12:10:48 PDT 2020
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/buildSchematronDevelopment.xml
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\buildSchematronDevelopment.xml
+...
+last modified = Sat Jul 02 09:53:02 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/SvrlReportText.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\SvrlReportText.xslt
+.
+last modified = Sun Oct 22 12:35:45 PDT 2017
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/X3dSchematronValidityChecks.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\X3dSchematronValidityChecks.xslt
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+...........
+last modified = Sun Oct 30 09:44:33 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/X3dSchematronValidityChecks.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\X3dSchematronValidityChecks.xslt
+local file date : Sun Oct 30 09:44:33 PDT 2022
+Not modified - so not downloaded
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_abstract_expand.xsl
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\iso_abstract_expand.xsl
+.
+last modified = Sun Oct 22 12:35:45 PDT 2017
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_dsdl_include.xsl
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\iso_dsdl_include.xsl
+....
+last modified = Sun Oct 22 12:35:45 PDT 2017
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_schematron_skeleton_for_saxon.xsl
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\iso_schematron_skeleton_for_saxon.xsl
+......
+last modified = Sun Oct 22 12:35:45 PDT 2017
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_schematron_skeleton_for_xslt1.xsl
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\iso_schematron_skeleton_for_xslt1.xsl
+.....
+last modified = Sun Oct 22 12:35:45 PDT 2017
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_svrl.xsl
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\iso_svrl.xsl
+..
+last modified = Tue Feb 17 09:59:42 PST 2009
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_svrl_for_xslt2.xsl
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\schematron\iso_svrl_for_xslt2.xsl
+..
+last modified = Sun Oct 22 12:35:45 PDT 2017
+org.web3d.x3d.palette.get.latest.stylesheets:
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToX3dvClassicVrmlEncoding.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToX3dvClassicVrmlEncoding.xslt
+.
+last modified = Sun Jul 21 05:28:28 PDT 2019
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToVrml97.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToVrml97.xslt
+....................................................
+.
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dExtrusionToSvgViaXslt2.0.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dExtrusionToSvgViaXslt2.0.xslt
+..
+last modified = Sun Jul 21 05:28:28 PDT 2019
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dTidy.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dTidy.xslt
+.............................................
+last modified = Sun Oct 30 07:44:57 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToHtml.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToHtml.xslt
+.........
+last modified = Sun Oct 30 06:10:22 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml-1.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToXhtml-1.xslt
+.
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml-2.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToXhtml-2.xslt
+.
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml-3.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToXhtml-3.xslt
+.
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml-4.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToXhtml-4.xslt
+.
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml-5.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToXhtml-5.xslt
+..
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToXhtml.xslt
+......................
+last modified = Sun Oct 30 06:13:32 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToX3dom.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToX3dom.xslt
+...........
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToJson.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToJson.xslt
+....................
+last modified = Sun Oct 30 06:11:27 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToTurtle.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dToTurtle.xslt
+............
+last modified = Fri Jul 01 17:31:00 PDT 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dUnwrap.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dUnwrap.xslt
+....
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dWrap.xslt
+To: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\src\org\web3d\x3d\stylesheets\X3dWrap.xslt
+....
+last modified = Mon Jan 17 16:39:03 PST 2022
+org.web3d.x3d.palette.get.latest:
+Created dir: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\build\classes
+Compiling 857 source files to C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\build\classes
+Ignoring source, target and bootclasspath as release has been set
+Creating empty C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\build\classes\org\web3d\x3d\palette\package-info.class
+Copying 918 files to C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\build\classes
+org.web3d.x3d.palette.compile:
+org.web3d.x3d.palette.jar-prep:
+Computed OpenIDE-Module-Specification-Version: 4.0.21
+Building jar: C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\cluster\modules\org-web3d-x3d-palette.jar
+org.web3d.x3d.palette.jar:
+org.web3d.x3d.palette.netbeans-extra:
+org.web3d.x3d.palette.javahelp:
+org.web3d.x3d.palette.module-auto-deps:
+Copying 34 files to C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\build\cluster
+org.web3d.x3d.palette.release:
+org.web3d.x3d.palette.module-xml-regular:
+org.web3d.x3d.palette.module-xml-autoload:
+org.web3d.x3d.palette.module-xml-eager:
+org.web3d.x3d.palette.chmod-executables:
+org.web3d.x3d.palette.verify-class-linkage:
+1 file(s) have been successfully validated.
+org.web3d.x3d.palette.projectized-common.netbeans:
+Generating Auto Update information for org.web3d.x3d.palette
+org.web3d.x3d.palette.netbeans:
+build:
+BUILD SUCCESSFUL (total time: 33 seconds)
+
