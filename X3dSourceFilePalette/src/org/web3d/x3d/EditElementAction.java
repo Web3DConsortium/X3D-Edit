@@ -65,8 +65,8 @@ import org.web3d.x3d.palette.items.PROTOTYPE_ExtrusionCrossSection;
  * @author jmbailey@nps.edu
  */
 @ActionID(id = "org.web3d.x3d.EditElementAction", category = "X3D-Edit")
-
-@ActionRegistration(iconBase = "org/web3d/x3d/resources/edit24.png",
+// https://commons.wikimedia.org/wiki/File:Edit_font_awesome.svg
+@ActionRegistration(iconBase = "org/web3d/x3d/resources/Edit_font_awesome.svg.32x32.png",
                     displayName = "#CTL_EditElementAction",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
