@@ -161,7 +161,8 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
    */
   @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
         java.awt.GridBagConstraints gridBagConstraints;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -244,8 +245,10 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         sceneResultsPanel.add(jLabel2, gridBagConstraints);
 
         logLevelCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ALL", "WARNINGS", "ERRORS", "FATAL", "NONE" }));
-        logLevelCB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        logLevelCB.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 logLevelCBActionPerformed(evt);
             }
         });
@@ -318,8 +321,10 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         identityFilterRB.setSelected(true);
         identityFilterRB.setText(org.openide.util.NbBundle.getMessage(getClass(), "Xj3dCadFilterOptionsPanel.identityFilterRB.text")); // NOI18N
         identityFilterRB.setToolTipText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.identityFilterRB.toolTipText")); // NOI18N
-        identityFilterRB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        identityFilterRB.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 radioButtsHandler(evt);
             }
         });
@@ -335,8 +340,10 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         buttonGroup1.add(cadFiltersRB);
         cadFiltersRB.setText(org.openide.util.NbBundle.getMessage(getClass(), "Xj3dCadFilterOptionsPanel.cadFiltersRB.text")); // NOI18N
         cadFiltersRB.setToolTipText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.cadFiltersRB.toolTipText")); // NOI18N
-        cadFiltersRB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cadFiltersRB.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 radioButtsHandler(evt);
             }
         });
@@ -351,8 +358,10 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
 
         resetButton.setText(NbBundle.getMessage(getClass(), "Xj3dCadFilterOptionsPanel.resetButton.text")); // NOI18N
         resetButton.setToolTipText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.resetButton.toolTipText")); // NOI18N
-        resetButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        resetButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 resetButtonActionPerformed(evt);
             }
         });
@@ -446,8 +455,10 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
 
         combineShapesCheckBox.setText(org.openide.util.NbBundle.getMessage(getClass(), "Xj3dCadFilterOptionsPanel.combineShapesCheckBox.text")); // NOI18N
         combineShapesCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.combineShapesCheckBox.toolTipText")); // NOI18N
-        combineShapesCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        combineShapesCheckBox.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 combineShapesCheckBoxActionPerformed(evt);
             }
         });
@@ -521,8 +532,10 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
 
         indexFilterCheckBox.setText(org.openide.util.NbBundle.getMessage(getClass(), "Xj3dCadFilterOptionsPanel.indexFilterCheckBox.text")); // NOI18N
         indexFilterCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.indexFilterCheckBox.toolTipText")); // NOI18N
-        indexFilterCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        indexFilterCheckBox.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 indexFilterCheckBoxActionPerformed(evt);
             }
         });
@@ -642,9 +655,11 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         add(verticalSpacerLabel, gridBagConstraints);
 
         reportXj3dCadFilterOptionsPanelButton.setText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.reportXj3dCadFilterOptionsPanelButton.text")); // NOI18N
-        reportXj3dCadFilterOptionsPanelButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
-        reportXj3dCadFilterOptionsPanelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        reportXj3dCadFilterOptionsPanelButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
+        reportXj3dCadFilterOptionsPanelButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 reportXj3dCadFilterOptionsPanelButtonActionPerformed(evt);
             }
         });
@@ -737,7 +752,6 @@ private void indexFilterCheckBoxActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JCheckBox minimumProfileCheckBox;
     private javax.swing.JCheckBox modifyViewpointCheckBox;
     private javax.swing.JCheckBox reIndexCheckBox;
-    private javax.swing.JButton reportSecurityPanelButton;
     private javax.swing.JButton reportXj3dCadFilterOptionsPanelButton;
     private javax.swing.JButton resetButton;
     private javax.swing.JPanel sceneResultsPanel;
