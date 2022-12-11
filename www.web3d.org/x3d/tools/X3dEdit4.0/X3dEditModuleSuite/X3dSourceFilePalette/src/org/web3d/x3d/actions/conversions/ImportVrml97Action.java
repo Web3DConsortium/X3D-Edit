@@ -228,7 +228,6 @@ public final class ImportVrml97Action extends CallableSystemAction
           return true;
         }
       }
-
       return false;
     }
 
