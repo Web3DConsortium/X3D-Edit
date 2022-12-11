@@ -69,10 +69,11 @@
             <entry key="currentVersion" value="${app.title} - ${TODAY} ${TSTAMP}" />
         </propertyfile>
  
+        <!-- also used by X3DEditAboutAction -->
         <propertyfile file="${basedir}/branding/modules/org-netbeans-core-windows.jar/org/netbeans/core/windows/view/ui/Bundle.properties"
                       comment="Updated by build script">
-            <entry key="CTL_MainWindow_Title" value="${app.title} - Build ${BUILD}" />
-            <entry key="CTL_MainWindow_Title_No_Project" value="${app.title} - Build ${BUILD}" />
+            <entry key="CTL_MainWindow_Title" value="${app.title}, build ${BUILD}" />
+            <entry key="CTL_MainWindow_Title_No_Project" value="${app.title}, build ${BUILD}" />
         </propertyfile>
         
     </target>
