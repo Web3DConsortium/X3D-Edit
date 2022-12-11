@@ -1048,6 +1048,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             File modelDirectory = new File(modelPath); // modelRootDirectory);
             Runtime runtime = Runtime.getRuntime();
             // note ability to define launching directory
+//          String[] commandLineParameters = {"python", "-m", "http.server", ""};
             pythonHttpProcess = runtime.exec("python -m http.server " + portValue , new String[0], modelDirectory);
             pythonStopButton.setEnabled(true);
             
