@@ -42,8 +42,11 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.actions.security;
 
 import java.awt.Dialog;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
+import javax.swing.SwingConstants;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -54,9 +57,12 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
+import static org.web3d.x3d.palette.items.BaseCustomizer.MAILTO_TOOLTIP;
 
 @ActionID(id = "org.web3d.x3d.actions.security.ManageKeyStoreAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_ManageKeyStoreAction", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/KeyWikimedia-60_Ŝlosilo_1.svg.32x32.png",
+                    displayName = "#CTL_ManageKeyStoreAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 150),
@@ -64,11 +70,17 @@ import org.openide.util.actions.CallableSystemAction;
 
 public final class ManageKeyStoreAction extends CallableSystemAction
 {
-  public static ManageKeyStoreAction instance;
-  public ManageKeyStoreAction()
-  {
-    instance=this;
-  }
+    public static ManageKeyStoreAction instance;
+    final JButton reportButton = new JButton("Report");
+    final ActionListener emailReportActionListener = (ActionEvent event) ->
+    {
+       LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + "X3D-Edit Manage KeyStore");
+    };
+  
+    public ManageKeyStoreAction()
+    {
+      instance=this;
+    }
  
     /**
      * Manage keystore
@@ -89,7 +101,7 @@ public final class ManageKeyStoreAction extends CallableSystemAction
           manageKeyStorePanel,                                   //component
           NbBundle.getMessage(getClass(),"ManageKeysDialogTitle"), //title
           true,                                                    //modal
-          new Object[]{closeButton},                                    //buttons to show
+          new Object[]{closeButton, reportButton},                                    //buttons to show
           closeButton,                                        //default button
           DialogDescriptor.DEFAULT_ALIGN,                     //button alignment
           HelpCtx.DEFAULT_HELP,                                  //help context
@@ -137,8 +149,15 @@ public final class ManageKeyStoreAction extends CallableSystemAction
   protected void initialize()
   {
     super.initialize();
-    // see org.openide.util.actions.SystemAction.iconResource() Javadoc for more details
-    putValue("noIconInMenu", Boolean.TRUE);
+
+    // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
+    if (reportButton != null)
+    {
+        reportButton.setToolTipText(MAILTO_TOOLTIP);
+        reportButton.addActionListener(emailReportActionListener);
+        reportButton.setVisible(true);
+        reportButton.setHorizontalAlignment(SwingConstants.LEFT);
+    }
   }
 
   @Override

@@ -29,58 +29,71 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- * XMLC14NExclNoCommentsAction.java
- * Created July 2008
+ * CTL_ManageKeyStoreExplorerAction.java
+ * Created June 2009
  *
  * MOVES Institute
  * Naval Postgraduate School, Monterey, CA, USA
  * www.nps.edu
  *
- * @author Mike Bailey
+ * @authors Don Brutzman and Mike Bailey
  * @version $Id$
  */
 package org.web3d.x3d.actions.security;
 
-import org.apache.xml.security.c14n.Canonicalizer;
+import javax.swing.JMenuItem;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
-import org.openide.nodes.Node;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
+import org.openide.util.actions.CallableSystemAction;
+import org.web3d.x3d.options.OptionsMiscellaneousX3dPanel;
+import org.web3d.x3d.options.X3dOptions;
 
-@ActionID(id = "org.web3d.x3d.actions.security.XMLC14NExclNoCommentsAction", category = "X3D-Edit")
-
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/c14n_blue.png",
-                    displayName = "#CTL_XMLC14NExclNoCommentsAction", 
+@ActionID(id = "org.web3d.x3d.actions.security.ManageKeyStoreExplorerAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/KeyWikimedia-60_Ŝlosilo_1.svg.32x32.png",
+                    displayName = "#CTL_ManageKeyStoreExplorerAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/XML &Security/C14N format using XML Canonicalization...", position = 220),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security/C14N format using XML Canonicalization...", position = 220)
-})
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 160),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 160)})
 
-public final class XMLC14NExclNoCommentsAction extends XMLC14NBaseAction
+/**
+ * Use KeyStoreExplorer tool to manage public/private key pairs during runtime.
+ */
+public final class ManageKeyStoreExplorerAction extends CallableSystemAction
 {
-  @Override
-  protected void performAction(Node[] activatedNodes)
+  public static ManageKeyStoreExplorerAction instance;
+  public ManageKeyStoreExplorerAction()
   {
-    basePerformAction(activatedNodes); //, Canonicalizer.ALGO_ID_C14N_EXCL_OMIT_COMMENTS);
+    instance=this;
   }
-
-  @Override
-  protected String getAlgorithm()
+ 
+  public void performAction(char[] pw)
   {
-    return Canonicalizer.ALGO_ID_C14N_EXCL_OMIT_COMMENTS;
+      OptionsMiscellaneousX3dPanel.externalProcessLaunch(X3dOptions.getKeystoreExplorerPlayerPath());
   }
-
+  
   @Override
-  protected void doWork(Node[]activatedNodes) {} // not used, work done in performAction
-
+  public void performAction()
+  {
+    performAction(null); // no password
+  }
+  
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(XMLC14NExclNoCommentsAction.class, "CTL_XMLC14NExclNoCommentsAction");
+    return NbBundle.getMessage(ManageKeyStoreExplorerAction.class, "CTL_ManageKeyStoreExplorerAction");
+  }
+
+  @Override
+  protected void initialize()
+  {
+    super.initialize();
+    // see org.openide.util.actions.SystemAction.iconResource() Javadoc for more details
+    putValue("noIconInMenu", Boolean.TRUE);
   }
 
   @Override
@@ -88,5 +101,25 @@ public final class XMLC14NExclNoCommentsAction extends XMLC14NBaseAction
   {
     return HelpCtx.DEFAULT_HELP;
   }
-}
 
+  @Override
+  protected boolean asynchronous()
+  {
+    return false;
+  }
+  
+  /**
+   * Do this because this call in the super creates a new one every time, losing any
+   * previous tt.
+   * @return what goes into the menu
+   */
+  @Override
+  public JMenuItem getMenuPresenter()
+  {
+    JMenuItem mi = super.getMenuPresenter();
+    mi.setToolTipText(NbBundle.getMessage(getClass(), "TT_ManageKeystoreExplorer"));
+    return mi;
+  }
+
+  public static class OperationCancelledException extends Exception {}
+}

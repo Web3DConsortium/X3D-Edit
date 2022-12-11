@@ -56,8 +56,8 @@ import org.openide.util.NbBundle;
                     displayName = "#CTL_XMLC14NExclCommentsAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/XML &Security/Format using XML Canonicalization (C14N)...", position = 210),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security/Format using XML Canonicalization (C14N)...", position = 210)})
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security/C14N format using XML Canonicalization...", position = 210),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security/C14N format using XML Canonicalization...", position = 210)})
 
 public final class XMLC14NExclCommentsAction extends XMLC14NBaseAction
 {
