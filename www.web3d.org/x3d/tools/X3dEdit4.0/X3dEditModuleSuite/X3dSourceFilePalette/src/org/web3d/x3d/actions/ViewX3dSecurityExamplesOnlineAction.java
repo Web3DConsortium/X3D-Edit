@@ -42,7 +42,7 @@ import org.openide.util.NbBundle;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewX3dSecurityExamplesOnlineAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
-                    displayName = "#CTL_ViewX3dSecurityExamplesPage",
+                    displayName = "#CTL_ViewX3dSecurityExamplesOnlineAction",
                             lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 2000),
@@ -61,6 +61,6 @@ public final class ViewX3dSecurityExamplesOnlineAction extends BaseViewAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_ViewX3dSecurityExamplesPage");
+    return NbBundle.getMessage(getClass(), "CTL_ViewX3dSecurityExamplesOnlineAction");
   }
 }
