@@ -43,6 +43,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileFilter;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.filesystems.FileObject;
@@ -90,6 +91,8 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
   {
       this(null);
       preferredPaneIndex = initialPanelIndex;
+      if (initialPanelIndex != -1)
+          x3dOptionsTabbedPane.setSelectedIndex(initialPanelIndex);
   }
 
   OptionsMiscellaneousX3dPanel()
@@ -562,6 +565,8 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dSecurityPanel = new javax.swing.JPanel();
         keystoreLabel = new javax.swing.JLabel();
         keystorePathTF = new javax.swing.JTextField();
+        clearKeystorePathButton = new javax.swing.JButton();
+        keystoreExplorerPlayerLaunchButton = new javax.swing.JButton();
         keystoreDirectoryButton = new javax.swing.JButton();
         keystoreDefaultButton = new javax.swing.JButton();
         securityExamplesLabel = new javax.swing.JLabel();
@@ -587,7 +592,6 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         keystoreExplorerPlayerPathTF = new javax.swing.JTextField();
         keystoreExplorerPlayerChooserButton = new javax.swing.JButton();
         keystoreExplorerPlayerDefaultButton = new javax.swing.JButton();
-        keystoreExplorerPlayerLaunchButton = new javax.swing.JButton();
         keystoreExplorerPlayerDownloadButton = new javax.swing.JButton();
         keystoreExplorerPlayerHelpButton = new javax.swing.JButton();
         verticalSpacerLabel15 = new javax.swing.JLabel();
@@ -2174,7 +2178,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dPlayerPathsPanel.add(defunctX3dEditorLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportPlayerButton, "Report");
-        reportPlayerButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
+        reportPlayerButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportPlayerButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -3862,7 +3866,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(verticalSpacerLabel12, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportModelingToolsButton, "Report");
-        reportModelingToolsButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
+        reportModelingToolsButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportModelingToolsButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -5141,7 +5145,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         imageVolumeToolsPanel.add(verticalSpacerLabel14, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportImageVolumeToolsButton, "Report");
-        reportImageVolumeToolsButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
+        reportImageVolumeToolsButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportImageVolumeToolsButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -6624,7 +6628,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         webMultimediaToolsPanel.add(verticalSpacerLabel6, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportWebMultimediaToolsButton, "Report");
-        reportWebMultimediaToolsButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
+        reportWebMultimediaToolsButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportWebMultimediaToolsButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -7471,7 +7475,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dEditVisualizationPreferencesPanel.add(verticalSpacerLabel5, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportVisualizationPreferencesButton, "Report");
-        reportVisualizationPreferencesButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
+        reportVisualizationPreferencesButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportVisualizationPreferencesButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -7536,11 +7540,49 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 300;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
         x3dSecurityPanel.add(keystorePathTF, gridBagConstraints);
 
+        org.openide.awt.Mnemonics.setLocalizedText(clearKeystorePathButton, "x");
+        clearKeystorePathButton.setToolTipText("clear content text");
+        clearKeystorePathButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                clearKeystorePathButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
+        x3dSecurityPanel.add(clearKeystorePathButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(keystoreExplorerPlayerLaunchButton, "launch");
+        keystoreExplorerPlayerLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        keystoreExplorerPlayerLaunchButton.setActionCommand("contactTF");
+        keystoreExplorerPlayerLaunchButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                keystoreExplorerPlayerLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dSecurityPanel.add(keystoreExplorerPlayerLaunchButton, gridBagConstraints);
+
+        keystoreDirectoryButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(keystoreDirectoryButton, "...");
         keystoreDirectoryButton.setToolTipText("Browse to select file location for local keystore");
         keystoreDirectoryButton.addActionListener(new java.awt.event.ActionListener()
@@ -7551,12 +7593,12 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         x3dSecurityPanel.add(keystoreDirectoryButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(keystoreDefaultButton, "default");
@@ -7569,7 +7611,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -7608,7 +7650,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dSecurityPanel.add(securityResourcesLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportSecurityPanelButton, "Report");
-        reportSecurityPanelButton.setToolTipText(BaseCustomizer.MAILTO_MAILTO_TOOLTIP);
+        reportSecurityPanelButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportSecurityPanelButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -7617,7 +7659,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
@@ -7629,7 +7671,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
@@ -7729,7 +7771,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -7842,6 +7884,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -7859,7 +7902,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -7942,25 +7985,6 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dSecurityPanel.add(keystoreExplorerPlayerDefaultButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(keystoreExplorerPlayerLaunchButton, "launch");
-        keystoreExplorerPlayerLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        keystoreExplorerPlayerLaunchButton.setActionCommand("contactTF");
-        keystoreExplorerPlayerLaunchButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                keystoreExplorerPlayerLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dSecurityPanel.add(keystoreExplorerPlayerLaunchButton, gridBagConstraints);
-
         org.openide.awt.Mnemonics.setLocalizedText(keystoreExplorerPlayerDownloadButton, "get");
         keystoreExplorerPlayerDownloadButton.setToolTipText("Download tool from website");
         keystoreExplorerPlayerDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
@@ -7974,6 +7998,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -7991,7 +8016,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -8014,7 +8039,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dSecurityPanel.add(keystoreManagerDescriptionLabel, gridBagConstraints);
@@ -8136,12 +8161,12 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
 }//GEN-LAST:event_otherX3dPlayerDownloadButtonActionPerformed
 
 private void keystoreDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreDirectoryButtonActionPerformed
-  commonChooser(keystorePathTF, "Set X3D Keystore directory and file", evt);
+  commonChooser(keystorePathTF, "Set XML Keystore directory and file", evt);
   X3dOptions.setKeystorePath(keystorePathTF.getText().trim());
 }//GEN-LAST:event_keystoreDirectoryButtonActionPerformed
 
 private void keystoreDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreDefaultButtonActionPerformed
-  keystorePathTF.setText(X3dOptions.getKeystorePathDefault());
+  keystorePathTF.setText(X3dOptions.getKeystorePathDefault().replace("\\", "/"));
   X3dOptions.setKeystorePath(keystorePathTF.getText().trim());
 }//GEN-LAST:event_keystoreDefaultButtonActionPerformed
 
@@ -10016,6 +10041,11 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         portecleAutoLaunchCheck ();
     }//GEN-LAST:event_porteclePlayerPathTFFocusLost
 
+    private void clearKeystorePathButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clearKeystorePathButtonActionPerformed
+    {//GEN-HEADEREND:event_clearKeystorePathButtonActionPerformed
+        keystorePathTF.setText("");
+    }//GEN-LAST:event_clearKeystorePathButtonActionPerformed
+
   void reportButtonSend (String panelName)
   {
         // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
@@ -10333,19 +10363,53 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
           Exceptions.printStackTrace(ex);
       }
   }
-  private void externalProcessLaunch(String applicationPath) {
-    ProcessBuilder pb;
-    try
+
+    /**
+     * Launch application in local operating system
+     * @param applicationPath local executable of interest
+     * @see https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/ProcessBuilder.html
+     */
+    public static void externalProcessLaunch(String applicationPath) {
+        ProcessBuilder pb;
+        try
+        {
+            pb = new ProcessBuilder(applicationPath);
+            pb.start();
+        } 
+        catch (IOException ex)
+        {
+            InputOutput io = IOProvider.getDefault().getIO("Output", false);
+            io.select();
+            io.getOut().println(new StringBuilder().append("Error launching external editor: ").append(ex.getLocalizedMessage()).toString());
+        }
+    }
+    /**
+     * Launch application in local operating system
+     * @param applicationInvocation local executable of interest
+     * @param parameters additional parameters, if any
+     * @see https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/ProcessBuilder.html
+     */
+    public static void externalProcessLaunch(String applicationInvocation, String parameters)
     {
-      pb = new ProcessBuilder(applicationPath);
-      pb.start();
+        String[] parameterArray = parameters.split("\\s");
+        String[] launchArray    = new String[1 + parameterArray.length];
+        launchArray[0] = applicationInvocation;
+        System.arraycopy(launchArray, 1, parameterArray, 0, parameterArray.length);
+        
+        ProcessBuilder pb;
+        try
+        {
+            String[] commandLine = applicationInvocation.split("\\s");
+            pb = new ProcessBuilder(commandLine);
+            pb.start();
+        }
+        catch (IOException ex) {
+          InputOutput io = IOProvider.getDefault().getIO("Output", false);
+          io.select();
+          io.getOut().println(new StringBuilder().append("Error launching external editor: ").append(ex.getLocalizedMessage()).toString());
+        }
     }
-    catch (IOException ex) {
-      InputOutput io = IOProvider.getDefault().getIO("Output", false);
-      io.select();
-      io.getOut().println(new StringBuilder().append("Error launching external editor: ").append(ex.getLocalizedMessage()).toString());
-    }
-  }
+
 
   JFileChooser fChooser;
   private void commonChooser(JTextField tf, String title, java.awt.event.ActionEvent evt)
@@ -10357,6 +10421,10 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
       fChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
     }
     fChooser.setDialogTitle(title);
+    
+    if (title.toLowerCase().contains("keystore"))
+        fChooser.setFileFilter(new keyStoreFileTypeFilter());
+    // TODO others?
 
     // Try to aim at the existing directory, if it's there
     try {
@@ -10791,6 +10859,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel bsContentStudioX3dEditorLabel;
     private javax.swing.JButton bsContentStudioX3dEditorLaunchButton;
     private javax.swing.JTextField bsContentStudioX3dEditorPathTF;
+    private javax.swing.JButton clearKeystorePathButton;
     private javax.swing.JCheckBox coneCenterLineCheckBox;
     private javax.swing.JLabel coneLabel;
     private javax.swing.JComboBox<String> coneLinesComboBox;
@@ -11198,7 +11267,32 @@ otherSemanticWebEditorAutoLaunchCheck();
     public void setPreferredPane(int index)
     {
         preferredPaneIndex = index;
-        x3dOptionsTabbedPane.setSelectedComponent(this);
+        x3dOptionsTabbedPane.setSelectedIndex(preferredPaneIndex);
         preferredPaneIndex = -1;
+    }
+    public class keyStoreFileTypeFilter extends FileFilter
+    {
+      @Override
+      public boolean accept(File f)
+      {
+        if (f.isDirectory()) {
+          return true;
+        }
+
+        String extension = FileUtil.toFileObject(f).getExt();
+        if (extension != null) {
+          if (extension.equals("ks") ||
+              extension.equals("KS")) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+        @Override
+        public String getDescription()
+        {
+            return ".ks KeyStore files";
+        }
     }
 }
