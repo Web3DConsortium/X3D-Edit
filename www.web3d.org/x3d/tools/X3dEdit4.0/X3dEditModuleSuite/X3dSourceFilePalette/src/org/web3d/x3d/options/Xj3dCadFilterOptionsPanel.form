@@ -676,7 +676,7 @@
           <ResourceString bundle="org/web3d/x3d/options/Bundle.properties" key="Xj3dCadFilterOptionsPanel.reportXj3dCadFilterOptionsPanelButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="BaseCustomizer.MAILTO_MAILTO_TOOLTIP" type="code"/>
+          <Connection code="BaseCustomizer.MAILTO_TOOLTIP" type="code"/>
         </Property>
       </Properties>
       <Events>
