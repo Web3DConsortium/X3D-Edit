@@ -61,7 +61,7 @@ import org.openide.util.actions.CallableSystemAction;
 
 public final class X3dEditAboutAction extends CallableSystemAction
 {
-  String moduleReleaseDate = "10 December 2022"; // manually edit along with module version for each release
+  String moduleReleaseDate = "11 December 2022"; // manually edit along with module version for each release
   
   String rightMargin = "&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ";
 
@@ -88,6 +88,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
       String x3dMajorVersion = specificationVersion.toString().substring(0, specificationVersion.toString().lastIndexOf("."));
       
       String newMainWindowTitle = mainWindowTitle + ", updated " + moduleReleaseDate + " version " + specificationVersion.toString();
+      // TODO watch out, have seen prefix "{1}" and so might possibly strip this, otherwise currently leaving it as a diagnostic
       System.out.println ("*** About X3D-Edit: " + newMainWindowTitle);
       // TODO how to set?  Once that is figured out, move to top-level componenet initialization
 //    resourceBundle.setString("CTL_MainWindow_Title"); ??
@@ -105,11 +106,10 @@ public final class X3dEditAboutAction extends CallableSystemAction
               "<p align='center'><b>" + newMainWindowTitle + "</b> " + rightMargin + " </p>" +
               "<p align='center'><hr />" +
               "<p align='center'>&nbsp;</p>" +
-              "<p align='center'>Installer compilation date <b>" + buildVersion + "</b> " + rightMargin + " </p>" +
+              "<p align='center'>Original installer compilation date <b>" + buildVersion + "</b> " + rightMargin + " </p>" +
               "<p align='center'>&nbsp;</p>" +
-              "<p align='center'>Plugin module update <b>" + moduleReleaseDate + "</b></p>" +
-              "<p align='center'>&nbsp;</p>" +
-              "<p align='center'>Plugin module version <b>" + specificationVersion.toString() + "</b>" + rightMargin + "</p>" +
+              "<p align='center'>Plugin module updated <b>" + moduleReleaseDate + "</b> " + "<b> " + 
+                                 " version " + specificationVersion.toString() + "</b>" + "&nbsp;" + rightMargin + " </p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'><hr />" +
 //              "<p align='center'>&nbsp;</p>" +
