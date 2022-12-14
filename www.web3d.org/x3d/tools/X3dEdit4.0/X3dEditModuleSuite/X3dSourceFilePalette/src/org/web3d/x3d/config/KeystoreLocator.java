@@ -32,35 +32,38 @@ public class KeystoreLocator extends ModuleInstall implements Runnable
   public void Installer() {
   }
   
-  @Override
-  public void run()
-  {   
-      Path javaKeyStorePath = Path.of(JAVA_X3DEDIT_KEYSTORE_NAME);
-      String errorMessage = "WARNING: cannot find Path for: " + javaKeyStorePath.toString();
-       
-      // Assuming not null here
-      if (!javaKeyStorePath.toFile().exists()) {
-          FindPath finder = new FindPath(javaKeyStorePath.toString());
-          String userDirectoryName = System.getProperty("user.dir"); // might instead be x3dedit33/bin
-          try {
-              Files.walkFileTree(Path.of(userDirectoryName).getParent(), finder);
+    @Override
+    public void run()
+    {   
+        Path javaKeyStorePath = Path.of(JAVA_X3DEDIT_KEYSTORE_NAME);
+        String errorMessage = "WARNING: cannot find Path for: " + javaKeyStorePath.toString();
 
-              // Big assumption here
-              javaKeyStorePath = finder.get();
-          } catch (IOException ex) {
-              System.err.println(errorMessage);
-              return;
-          }
-          
-          if ((javaKeyStorePath != null) && !javaKeyStorePath.toFile().exists()) {
-              System.err.println(errorMessage);
-              return;
-          }
-      }
-      
-      // For module update access via https
-      System.setProperty("javax.net.ssl.trustStore", javaKeyStorePath.toString());
-      System.setProperty("javax.net.ssl.trustStorePassword", JAVA_X3DEDIT_KEYSTORE_PASSWORD);
+        // Assuming not null here
+        if (!javaKeyStorePath.toFile().exists())
+        {
+            FindPath finder = new FindPath(javaKeyStorePath.toString());
+            String userDirectoryName = System.getProperty("user.dir"); // might instead be x3dedit33/bin
+            try {
+                Files.walkFileTree(Path.of(userDirectoryName).getParent(), finder);
+
+                // Big assumption here
+                javaKeyStorePath = finder.get();
+            }
+            catch (IOException ex) {
+                System.err.println(errorMessage);
+                return;
+            }
+            if ((javaKeyStorePath == null) || !javaKeyStorePath.toFile().exists()) {
+                System.err.println(errorMessage);
+                return;
+            }
+        }
+        if (javaKeyStorePath.toFile().exists())
+        {
+            // For module update access via https
+            System.setProperty("javax.net.ssl.trustStore", javaKeyStorePath.toString());
+            System.setProperty("javax.net.ssl.trustStorePassword", JAVA_X3DEDIT_KEYSTORE_PASSWORD);
+        }
   }
 
 }
