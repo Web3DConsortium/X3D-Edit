@@ -65,5 +65,4 @@ public class KeystoreLocator extends ModuleInstall implements Runnable
             System.setProperty("javax.net.ssl.trustStorePassword", JAVA_X3DEDIT_KEYSTORE_PASSWORD);
         }
   }
-
 }
