@@ -204,6 +204,8 @@
              dest="${x3dStylesheets.dir}/X3dToX3dom.xslt"             usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToJson.xslt"
              dest="${x3dStylesheets.dir}/X3dToJson.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToPython.xslt"
+             dest="${x3dStylesheets.dir}/X3dToPython.xslt"             usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToTurtle.xslt"
              dest="${x3dStylesheets.dir}/X3dToTurtle.xslt"           usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dUnwrap.xslt"
