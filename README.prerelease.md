@@ -3,7 +3,7 @@
 https://sourceforge.net/p/x3d/admin/files/badges/
 -->
 
-# X3D-Edit 4.0 Pre-Release, 4 December 2022
+# X3D-Edit 4.0 Pre-Release, 14 December 2022
 
 <!-- posted at https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/ -->
 
@@ -15,14 +15,14 @@ Initial tests satisfactory: [X3D-Edit Update Center](https://savage.nps.edu/X3D-
 
 The following files are available for X3D-Edit authoring:
 
-X3D-Edit Install File                                                                                       | Description                                       | Status                                                        | File size | Date        
------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------- | --------- | ----------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system      |  192.1 MB | 2 DEC 2022
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans 15, tested satisfactorily, any operating system     |   70.8 MB | 2 DEC 2022
-Pre-release files:                                                                                          |                                                   |                                                               |           |
-[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting     |  191.9 MB | 2 DEC 2022
-[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting     |  192.0 MB | 2 DEC 2022
-[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | Tested unsatisfactorily, TODO&nbsp;future troubleshooting     |  192.4 MB | 2 DEC 2022
+X3D-Edit Install File                                                                                       | Description                                       | Status                                                         | File size | Date        
+----------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system       |  192.1 MB | 10 DEC 2022
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;16. tested satisfactorily, any operating system |   70.8 MB | 10 DEC 2022
+Pre-release files:                                                                                          |                                                   |                                                                |           |
+[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  191.9 MB | 10 DEC 2022
+[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  192.0 MB | 10 DEC 2022
+[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  192.4 MB | 10 DEC 2022
 
 SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
 
