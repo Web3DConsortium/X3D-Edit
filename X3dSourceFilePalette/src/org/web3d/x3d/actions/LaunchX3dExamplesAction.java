@@ -36,6 +36,7 @@ package org.web3d.x3d.actions;
 
 import java.awt.Desktop;
 import java.net.URI;
+import java.util.concurrent.TimeUnit;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -65,6 +66,20 @@ public final class LaunchX3dExamplesAction extends CallableSystemAction
       
     sendBrowserTo(X3D_RESOURCES_EXAMPLES_ARCHIVES);
   }
+  
+    public static void pauseSeconds(int numberSeconds)
+    {
+        // https://stackoverflow.com/questions/23283041/how-to-make-java-delay-for-a-few-seconds
+        try        
+        {
+            Thread.sleep(1000);
+            TimeUnit.SECONDS.sleep(1);
+        } 
+        catch(InterruptedException ex) 
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
   
   public static void sendBrowserTo(String urlString)
   {
