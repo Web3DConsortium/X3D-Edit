@@ -53,7 +53,8 @@ import org.web3d.x3d.X3DEditorSupport;
 //@ActionReference(path = "Editors/model/x3d+xml/Popup", position = 215),
 })
 */
-
+/** *** Superceded by X3dToJsonConversionAction *** */
+@Deprecated
 public final class ExportX3dJsonAction extends BaseConversionsAction
 {
   public static String xsltFile = "X3dToJson.xslt";
