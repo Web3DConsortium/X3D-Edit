@@ -465,6 +465,7 @@ POSSIBILITY OF SUCH DAMAGE.
         <file name="X3dToXhtml.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml.xslt"/>
         <file name="X3dToX3dom.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToX3dom.xslt"/>
         <file name="X3dToJson.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToJson.xslt"/>
+        <file name="X3dToPython.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToPython.xslt"/>
         <file name="X3dUnwrap.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dUnwrap.xslt"/>
         <file name="X3dWrap.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dWrap.xslt"/>
     </folder>
