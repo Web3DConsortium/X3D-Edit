@@ -67,6 +67,9 @@ public final class LaunchJavaX3djsailLanguageBindingPageAction extends CallableS
     // hlp.showHelp(HelpCtx.findHelp(this));
       
     LaunchX3dExamplesAction.sendBrowserTo(X3D_X3DJSAIL_JAVADOC);
+    
+    LaunchX3dExamplesAction.pauseSeconds(1); // give user time to notice first page, then second
+    
     LaunchX3dExamplesAction.sendBrowserTo(X3D_JAVA_LANGUAGE_BINDING_X3DJSAIL);
     
   }
