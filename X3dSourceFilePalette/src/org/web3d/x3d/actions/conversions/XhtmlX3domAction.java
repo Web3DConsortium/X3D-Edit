@@ -115,7 +115,7 @@ public class XhtmlX3domAction extends BaseConversionsAction
   {
       ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as XHTML with X3DOM via XSLT");
     
-      if (getPlayer().equalsIgnoreCase("Cobweb"))
+      if (getPlayer().equalsIgnoreCase("Cobweb") || getPlayer().equalsIgnoreCase("X_ITE"))
            return "org/web3d/x3d/resources/cobweb-logo32.png";
       else return "org/web3d/x3d/resources/x3dom-whiteOnblue24.png";
   }
