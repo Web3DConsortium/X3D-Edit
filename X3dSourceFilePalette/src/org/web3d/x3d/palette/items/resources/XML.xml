@@ -17,7 +17,7 @@
   <class name="org.web3d.x3d.palette.items.XML" />
   
   <icon16 urlvalue="org/web3d/x3d/palette/items/resources/XML16.png" />
-  <icon32 urlvalue="org/web3d/x3d/palette/items/resources/XML32.png" />
+  <icon32 urlvalue="org/web3d/x3d/palette/items/resources/XML16.png" />
 
   <description localizing-bundle="org.web3d.x3d.palette.items.resources.Bundle"
                 display-name-key="NAME_x3d-XML"
