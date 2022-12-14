@@ -10374,6 +10374,13 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         try
         {
             pb = new ProcessBuilder(applicationPath);
+            if (applicationPath.contains("Portecle"))
+            {
+                // application apparently needs to start in its own directory
+                File applicationDirectory = (new File(applicationPath)).getParentFile();
+                if (applicationDirectory.isDirectory())
+                    pb.directory(applicationDirectory); // set initial directory
+            }
             pb.start();
         } 
         catch (IOException ex)
