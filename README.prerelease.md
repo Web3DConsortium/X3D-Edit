@@ -3,7 +3,7 @@
 https://sourceforge.net/p/x3d/admin/files/badges/
 -->
 
-# X3D-Edit 4.0 Pre-Release, 14 December 2022
+# X3D-Edit 4.0 Pre-Release, 16 December 2022
 
 <!-- posted at https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/ -->
 
@@ -26,9 +26,11 @@ Pre-release files:                                                              
 
 SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
 
+If you have an X3D-Edit build installed earlier than 16 December 2022, please reinstall your zip.
+
 ## Troubleshoot Netbeans
 
-NetBeans users troubleshooting certificatge permissions can also download and install 
+NetBeans users troubleshooting certificate permissions can also download and install 
 
 * [ssl_certificate_exception-0.17.nbm](SSL Certificate Exception plugin) ([documentation](https://plugins.netbeans.apache.org/catalogue/?id=20)) while we currently use self-signed certificates.  This helps with automaticupdate capabilities.
 
