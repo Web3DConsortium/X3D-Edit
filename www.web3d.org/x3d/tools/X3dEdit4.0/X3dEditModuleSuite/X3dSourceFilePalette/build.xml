@@ -259,11 +259,15 @@
         <echo message="${test.run.args}"/>
     </target>
     
-    <!-- As per the server-cert-keystore-readme.txt in release/modules/ext -->
-    <!-- This process assumes you have already downloaded and temporarily placed
-         the new certificate 'savage.nps.edu.cer' in release/modules/ext. The
-         certificate can be deleted after this procedure. -->
-    <target name="update.server.cert" description="Accomplished anytime there is a certificate change, or change in server configuration">
+    <!-- As per the server-cert-keystore-readme.txt in release/modules/ext, this
+         process is now automated -->
+    <target name="update.server.cert" description="To be accomplished anytime there is a certificate change/update, or change in server configuration">
+             
+        <!-- Alternate, use OpenSSL hack: https://serverfault.com/questions/139728/how-to-download-the-ssl-certificate-from-a-website -->
+        <exec executable="bash" dir="release/modules/ext">
+            <arg value="-c"/>
+            <arg value="openssl s_client -servername ${cert.alias} -connect ${cert.alias}:443 | openssl x509 &gt; ${cert.alias}.cer"/>
+        </exec>
         
         <!-- Start fresh -->
         <delete>
@@ -272,22 +276,22 @@
             </fileset>
         </delete>
         
-        <!-- First import the JDK's keystore -->
+        <!-- Import the JDK's keystore -->
         <exec executable="keytool" dir="release/modules/ext">
             <arg line="-importkeystore -v -srckeystore ${java.home}/lib/security/cacerts -storepass ${storepass} -destkeystore server-cert-keystore.jks"/>
         </exec>
         
-        <!-- Now, import the new server cert into the keystore -->
+        <!-- Now, import the updated Savage server cert into the keystore -->
         <exec executable="keytool" dir="release/modules/ext">
             <arg line="-import -noprompt -alias ${cert.alias} -file ${cert.alias}.cer -storepass ${storepass} -keystore server-cert-keystore.jks"/>
         </exec>
         
-        <!-- Delete the new certificate as it's now imported into the JKS -->
-        <delete>
+        <!-- Delete the server certificate as it's now imported into the JKS -->
+<!--        <delete>
             <fileset dir="release/modules/ext">
-                <filename name="savage.nps.edu.c*"/>
+                <filename name="${cert.alias}.c*"/>
             </fileset>
-        </delete>
+        </delete>-->
     </target>
     
     <target name="list.server.cert" description="Lists the contents of the savage.nps.edu cert">
