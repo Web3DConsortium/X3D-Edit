@@ -34,6 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.actions;
 
+import java.util.concurrent.TimeUnit;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -67,6 +68,9 @@ public final class LaunchPythonX3dpsailLanguageBindingPageAction extends Callabl
     // hlp.showHelp(HelpCtx.findHelp(this));
       
     LaunchX3dExamplesAction.sendBrowserTo(X3D_PYPI);
+    
+    LaunchX3dExamplesAction.pauseSeconds(1); // give user time to notice first page, then second
+    
     LaunchX3dExamplesAction.sendBrowserTo(X3D_PYTHON_LANGUAGE_BINDING_X3DPSAIL);
   }
 
