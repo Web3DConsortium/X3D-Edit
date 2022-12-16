@@ -467,6 +467,10 @@
                 <binary-origin>release/modules/ext/xj3d-2.3-3rdparty-nps.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/log4j-api-2.19.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/log4j-api-2.19.0.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/saxon9B.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/saxon9B.jar</binary-origin>
             </class-path-extension>
@@ -477,6 +481,10 @@
             <class-path-extension>
                 <runtime-relative-path>ext/xalan.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xalan.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/log4j-core-2.19.0.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/log4j-core-2.19.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/commons-httpclient-3.1.jar</runtime-relative-path>
@@ -531,10 +539,6 @@
                 <binary-origin>release/modules/ext/X3dC14n.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/portecle.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/portecle.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/jogamp-fat.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/jogamp-fat.jar</binary-origin>
             </class-path-extension>
@@ -545,10 +549,6 @@
             <class-path-extension>
                 <runtime-relative-path>ext/xj3d.cadfilter_2.3.0-nps.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xj3d.cadfilter_2.3.0-nps.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/log4j-1.2.17.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/log4j-1.2.17.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/dom4j-1.6.1.jar</runtime-relative-path>

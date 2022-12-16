@@ -35,9 +35,9 @@
 package org.web3d.x3d.actions.conversions;
 
 import javax.swing.JEditorPane;
-import org.apache.log4j.Level;
-import org.apache.log4j.PatternLayout;
-import org.apache.log4j.WriterAppender;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.core.layout.PatternLayout;
+import org.apache.logging.log4j.core.appender.WriterAppender;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -49,6 +49,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
+import org.openide.windows.OutputWriter;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
 import org.web3d.x3d.tools.x3db.X3dCanonicalizer;
@@ -83,17 +84,26 @@ public final class CanonicalizeC14nAction extends CookieAction
     io.select();
 
     X3dCanonicalizer canner = new X3dCanonicalizer(pane.getText());
+    
+    // https://stackoverflow.com/questions/45771959/how-to-configure-writerappender-in-log4j2-xml
+    PatternLayout layout = PatternLayout.newBuilder()
+            .withPattern("%d{yyyy-MM-dd HH:mm:ss.SSS} %level [%t] [%c] [%M] [%l] - %msg%n")
+            .build();
 
-    WriterAppender app = new WriterAppender(new PatternLayout(), io.getOut());
+    WriterAppender app = WriterAppender.newBuilder()
+            .setName("writeLogger")
+            .setTarget(io.getOut())
+            .setLayout(layout)
+            .build();
     canner.addLog4jAppender(app);
     Level oldLev = canner.setLog4jLevel(Level.INFO);
 
-      if (!canner.isDigitallySigned()) {
-          if (!canner.isCanonical()) {
-              pane.setText(canner.getFinalC14nScene());
-          }
-		  pane.setCaretPosition(0); // top of document
-      }
+    if (!canner.isDigitallySigned()) {
+        if (!canner.isCanonical()) {
+            pane.setText(canner.getFinalC14nScene());
+        }
+       pane.setCaretPosition(0); // top of document
+    }
 
     canner.setLog4jLevel(oldLev);
     canner.removeLog4jAppender(app);
