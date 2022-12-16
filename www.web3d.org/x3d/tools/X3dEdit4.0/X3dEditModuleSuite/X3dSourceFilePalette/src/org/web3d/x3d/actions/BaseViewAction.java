@@ -68,6 +68,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_EDIT_HOME                          ="https://savage.nps.edu/X3D-Edit";
   public final static String X3D_EDIT_FEATURES                      = X3D_EDIT_HOME + "#Features";
   public final static String SOURCEFORGE_RELEASE_INSTALLERS         ="https://sourceforge.net/projects/x3d/files";
+  public final static String SOURCEFORGE_X3DEDIT_SOURCE             ="https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit4.0";
   public final static String X3D_RESOURCES                          ="https://www.web3d.org/x3d/content/examples/X3dResources.html";
   public final static String X3D_RESOURCES_EXAMPLES_ARCHIVES        = X3D_RESOURCES + "#Examples";
   public final static String X3D_RESOURCES_QUALITY_ASSURANCE        = X3D_RESOURCES + "#QualityAssurance";
