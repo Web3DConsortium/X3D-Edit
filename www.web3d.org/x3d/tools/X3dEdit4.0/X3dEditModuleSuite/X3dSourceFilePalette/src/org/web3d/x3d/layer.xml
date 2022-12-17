@@ -291,7 +291,7 @@ POSSIBILITY OF SUCH DAMAGE.
                             <attr name="position" intvalue="500"/>
                         </file>
                         <folder name="C14N format using XML Canonicalization...">
-                            <attr name="position" intvalue="300"/>
+                            <attr name="position" intvalue="400"/>
                             <attr name="iconBase" stringvalue="org/web3d/x3d/resources/c14n_blue.png"/>
                             <!-- entries merged into single folder
                             <folder name="Inclusive">
@@ -334,7 +334,7 @@ POSSIBILITY OF SUCH DAMAGE.
                     </folder>
                     <folder name="Web3D &amp;Standards">
                         <attr name="position" intvalue="1000"/>
-                        <!-- All Web3D Consortium Standards       LaunchWeb3dConsortiumStandardsAction       position 100 -->
+                        <!-- All Web3D Consortium Standards       LaunchWeb3dConsortiumRecommendedStandardsAction       position 100 -->
                         <!-- X3dGraphicsStandardsRelationships    LaunchX3dGraphicsStandardsRelationshipsAction position 150 -->
                         <!-- HAnim Humanoid Animation Standard    LaunchHumanoidAnimationStandardAction      position 200 -->
                         <!-- X3D4 Architecture Standard           LaunchX3D4ArchitectureStandardAction       position 300 -->
@@ -781,7 +781,7 @@ POSSIBILITY OF SUCH DAMAGE.
                     <attr name="position" intvalue="500"/>
                 </file>
                 <folder name="C14N format using XML Canonicalization...">
-                    <attr name="position" intvalue="300"/>
+                    <attr name="position" intvalue="400"/>
                     <attr name="iconBase" stringvalue="org/web3d/x3d/resources/c14n_blue.png"/>
                 </folder> <!-- xml canonicalization -->
             </folder> <!-- Security -->
@@ -816,7 +816,7 @@ POSSIBILITY OF SUCH DAMAGE.
             </folder>
             <folder name="Web3D &amp;Standards">
                 <attr name="position" intvalue="1000"/>
-                <!-- All Web3D Consortium Standards       LaunchWeb3dConsortiumStandardsAction       position 100 -->
+                <!-- All Web3D Consortium Standards       LaunchWeb3dConsortiumRecommendedStandardsAction       position 100 -->
                 <!-- X3dGraphicsStandardsRelationships    LaunchX3dGraphicsStandardsRelationshipsAction position 150 -->
                 <!-- HAnim Humanoid Animation Standard    LaunchHumanoidAnimationStandardAction      position 200 -->
                 <!-- X3D4 Architecture Standard           LaunchX3D4ArchitectureStandardAction       position 300 -->
