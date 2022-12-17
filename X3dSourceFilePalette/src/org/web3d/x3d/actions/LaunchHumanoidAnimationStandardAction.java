@@ -48,7 +48,7 @@ import static org.web3d.x3d.actions.BaseViewAction.HANIM2_STANDARD;
  * @author brutzman
  */
 @ActionID(id = "org.web3d.x3d.actions.LaunchHumanoidAnimationStandardAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/web3d16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ISO_favicon16x16.png",
                     displayName = "#CTL_LaunchHumanoidAnimationStandardAction",
                             lazy=true)
 @ActionReferences( value = {

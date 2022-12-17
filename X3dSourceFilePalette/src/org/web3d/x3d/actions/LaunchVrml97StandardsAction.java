@@ -49,8 +49,8 @@ import static org.web3d.x3d.actions.BaseViewAction.VRML97_STANDARD_AMENDMENT_1;
                     displayName = "#CTL_LaunchVrml97StandardsAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 300)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 400),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 400)
 })
 
 public final class LaunchVrml97StandardsAction extends CallableSystemAction
@@ -63,6 +63,9 @@ public final class LaunchVrml97StandardsAction extends CallableSystemAction
     // hlp.showHelp(HelpCtx.findHelp(this));
       
     LaunchX3dExamplesAction.sendBrowserTo(VRML97_STANDARD_AMENDMENT_1);
+    
+    LaunchX3dExamplesAction.pauseSeconds(1); // give user time to notice first page, then second
+    
     LaunchX3dExamplesAction.sendBrowserTo(VRML97_STANDARD); // launch second so that most recently visible to user
   }
 
