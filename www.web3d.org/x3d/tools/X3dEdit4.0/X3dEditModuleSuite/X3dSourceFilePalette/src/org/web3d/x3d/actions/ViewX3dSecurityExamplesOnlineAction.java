@@ -55,6 +55,9 @@ public final class ViewX3dSecurityExamplesOnlineAction extends BaseViewAction
   public void performAction()
   {
     sendBrowserTo(X3DSECURITYREADME);
+    
+    LaunchX3dExamplesAction.pauseSeconds(1); // give user time to notice first page, then second
+    
     sendBrowserTo(X3DSECURITYEXAMPLES);
   }
 
