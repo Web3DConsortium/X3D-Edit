@@ -58,7 +58,9 @@ import org.w3c.dom.Document;
 import org.web3d.x3d.BaseX3DEditAction;
 
 @ActionID(id = "org.web3d.x3d.actions.security.CheckedSignedDocumentIntegrity", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_CheckedSignedDocumentIntegrity", 
+// https://letsencrypt.org/images/letsencrypt-logo-horizontal.svg
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/LetsEncryptSeal30x32.png",
+                    displayName = "#CTL_CheckedSignedDocumentIntegrity", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 900),

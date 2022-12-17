@@ -53,6 +53,7 @@ import org.web3d.x3d.options.OptionsMiscellaneousX3dPanel;
 import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.security.ManageKeyStoreExplorerAction", category = "X3D-Edit")
+// https://commons.wikimedia.org/wiki/File:60_%C5%9Closilo_1.svg
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/KeyWikimedia-60_Ŝlosilo_1.svg.32x32.png",
                     displayName = "#CTL_ManageKeyStoreExplorerAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered

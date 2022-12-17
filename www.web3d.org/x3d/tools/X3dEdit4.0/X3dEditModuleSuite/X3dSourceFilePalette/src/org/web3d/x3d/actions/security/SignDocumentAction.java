@@ -70,8 +70,10 @@ import org.web3d.x3d.BaseX3DEditAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
 
 @ActionID(id = "org.web3d.x3d.actions.security.SignDocumentAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_SignDocumentAction", 
-                    lazy=true) // don't do lazy=false since iconBase no longer gets registered
+// https://commons.wikimedia.org/wiki/File:Cross-fountain-pen-nib.gif
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Cross-fountain-pen-nib30x32.png",
+                    displayName = "#CTL_SignDocumentAction", 
+                           lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 800),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 800)})
