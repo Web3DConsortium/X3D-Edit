@@ -62,7 +62,9 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 
 @ActionID(id = "org.web3d.x3d.actions.security.RemoveSignatureAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_RemoveSignatureAction", 
+// https://commons.wikimedia.org/wiki/File:Eraser-307519.svg
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/235px-Eraser-307519.svg32x27.png",
+                    displayName = "#CTL_RemoveSignatureAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 1100),

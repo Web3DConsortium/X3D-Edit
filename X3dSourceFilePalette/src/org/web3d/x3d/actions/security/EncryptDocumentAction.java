@@ -75,11 +75,13 @@ import org.web3d.x3d.actions.conversions.ConversionsHelper;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
 
 @ActionID(id = "org.web3d.x3d.actions.security.EncryptDocumentAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_EncryptDocumentAction", 
+// https://www.web3d.org/x3d/content/examples/Basic/Security/PadlockClosed.png
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/PadlockClosed23x32.png",
+                    displayName = "#CTL_EncryptDocumentAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 300)})
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 400),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 400)})
 
 public final class EncryptDocumentAction extends BaseX3DEditAction
 {

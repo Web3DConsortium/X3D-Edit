@@ -81,11 +81,13 @@ import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledExc
 import org.web3d.x3d.types.X3DSchemaData;
 
 @ActionID(id = "org.web3d.x3d.actions.security.DecryptXmlAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_DecryptXmlAction", 
+// https://www.web3d.org/x3d/content/examples/Basic/Security/PadlockOpen.png
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/PadlockOpen20x32.png",
+                    displayName = "#CTL_DecryptXmlAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 1650),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 450)
+  @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 475),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 475)
 })
 
 public final class DecryptXmlAction extends CallableSystemAction

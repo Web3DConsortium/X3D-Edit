@@ -66,7 +66,9 @@ import org.web3d.x3d.BaseX3DEditAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
 
 @ActionID(id = "org.web3d.x3d.actions.security.VerifySignatureAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_VerifySignatureAction", 
+// https://letsencrypt.org/images/letsencrypt-logo-horizontal.svg
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/LetsEncryptSeal30x32.png",
+                    displayName = "#CTL_VerifySignatureAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 1000),
