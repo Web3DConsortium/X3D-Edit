@@ -43,17 +43,17 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_STANDARDS;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3dConsortiumStandardsAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3dConsortiumRecommendedStandardsAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/web3d16.png",
-                    displayName = "#CTL_LaunchWeb3dConsortiumStandardsAction", 
+                    displayName = "#CTL_LaunchWeb3dConsortiumRecommendedStandardsAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 100)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 300, separatorBefore = 299),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 300, separatorBefore = 299)
 })
 
 @SuppressWarnings("serial")
-public final class LaunchWeb3dConsortiumStandardsAction extends CallableSystemAction
+public final class LaunchWeb3dConsortiumRecommendedStandardsAction extends CallableSystemAction
 {
   @Override
   public void performAction()
@@ -68,7 +68,7 @@ public final class LaunchWeb3dConsortiumStandardsAction extends CallableSystemAc
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchWeb3dConsortiumStandardsAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchWeb3dConsortiumRecommendedStandardsAction");
   }
 
   @Override
