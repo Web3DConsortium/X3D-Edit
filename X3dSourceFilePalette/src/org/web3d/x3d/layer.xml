@@ -286,12 +286,8 @@ POSSIBILITY OF SUCH DAMAGE.
                             <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                             <attr name="position" intvalue="200"/>
                         </file>
-                        <file name="org-web3d-popup-securityseparator3b.instance">
-                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                            <attr name="position" intvalue="500"/>
-                        </file>
                         <folder name="C14N format using XML Canonicalization...">
-                            <attr name="position" intvalue="400"/>
+                            <attr name="position" intvalue="300"/>
                             <attr name="iconBase" stringvalue="org/web3d/x3d/resources/c14n_blue.png"/>
                             <!-- entries merged into single folder
                             <folder name="Inclusive">
@@ -301,6 +297,10 @@ POSSIBILITY OF SUCH DAMAGE.
                               <attr name="position" intvalue="200"/>
                             </folder> -->
                         </folder> <!-- xml canonicalization -->
+                        <file name="org-web3d-popup-securityseparator3b.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="500"/>
+                        </file>
                     </folder>
                     <!-- xml security -->
                     <file name="org-web3d-popup-securityseparator4.instance">
@@ -776,14 +776,14 @@ POSSIBILITY OF SUCH DAMAGE.
                     <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                     <attr name="position" intvalue="200"/>
                 </file>
+                <folder name="C14N format using XML Canonicalization...">
+                    <attr name="position" intvalue="300"/>
+                    <attr name="iconBase" stringvalue="org/web3d/x3d/resources/c14n_blue.png"/>
+                </folder> <!-- xml canonicalization -->
                 <file name="org-web3d-popup-securityseparator3a.instance">
                     <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                     <attr name="position" intvalue="500"/>
                 </file>
-                <folder name="C14N format using XML Canonicalization...">
-                    <attr name="position" intvalue="400"/>
-                    <attr name="iconBase" stringvalue="org/web3d/x3d/resources/c14n_blue.png"/>
-                </folder> <!-- xml canonicalization -->
             </folder> <!-- Security -->
             <file name="org-web3d-popup-securityseparator3.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
