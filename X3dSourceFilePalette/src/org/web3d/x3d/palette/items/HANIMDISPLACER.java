@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -53,8 +53,9 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
  */
 public class HANIMDISPLACER extends X3DGeometryNode
 {
-  private SFInt32[]   coordIndex;
+  private SFInt32[] coordIndex;
   private SFFloat[] displacements;
+  private String    description;
   private String    name;
   private SFFloat   weight, weightDefault;
 
@@ -84,8 +85,9 @@ public class HANIMDISPLACER extends X3DGeometryNode
       sa = parseX(HANIMDISPLACER_ATTR_DISPLACEMENTS_DFLT);
     displacements = parseToSFFloatArray(sa); 
     
-    name    = HANIMDISPLACER_ATTR_NAME_DFLT;
-    weight  = weightDefault     = new SFFloat(HANIMDISPLACER_ATTR_WEIGHT_DFLT);
+    description = HANIMDISPLACER_ATTR_DESCRIPTION_DFLT;
+    name        = HANIMDISPLACER_ATTR_NAME_DFLT;
+    weight      = weightDefault     = new SFFloat(HANIMDISPLACER_ATTR_WEIGHT_DFLT);
     
     // Does not contain children nodes (except for Metadata)
   }
@@ -106,6 +108,9 @@ public class HANIMDISPLACER extends X3DGeometryNode
       String[] sa = parseX(attr.getValue());
       displacements = parseToSFFloatArray(sa);
     }
+    attr = root.getAttribute(HANIMDISPLACER_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
     attr = root.getAttribute(HANIMDISPLACER_ATTR_NAME_NAME);
     if (attr != null)
       name = attr.getValue();
@@ -132,6 +137,13 @@ public class HANIMDISPLACER extends X3DGeometryNode
       sb.append(getCoordIndex());
       sb.append("'");
     }
+    if (HANIMDISPLACER_ATTR_DESCRIPTION_REQD || !description.equals(HANIMDISPLACER_ATTR_DESCRIPTION_DFLT)) {
+      sb.append(" ");
+      sb.append(HANIMDISPLACER_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(escapeXmlCharacters(description));
+      sb.append("'");
+    }
     if (HANIMDISPLACER_ATTR_DISPLACEMENTS_REQD || displacements.length > 0) {
       sb.append(" ");
       sb.append(HANIMDISPLACER_ATTR_DISPLACEMENTS_NAME);
@@ -147,6 +159,16 @@ public class HANIMDISPLACER extends X3DGeometryNode
       sb.append("'");
     }
     return sb.toString();
+  }
+
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String description)
+  {
+    this.description = description;
   }
 
   public String getCoordIndex()

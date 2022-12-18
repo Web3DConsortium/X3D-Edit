@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,10 +35,10 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 import javax.swing.text.JTextComponent;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
-import org.web3d.x3d.types.X3DTransformNode;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
-import static org.web3d.x3d.types.X3DSchemaData4.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
+import static org.web3d.x3d.types.X3DSchemaData4.*;
+import org.web3d.x3d.types.X3DTransformNode;
 
 /**
  * HANIMSITE.java
@@ -53,6 +53,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class HANIMSITE extends X3DTransformNode
 {
+  private String description;
   private String  name;  
 
   public HANIMSITE()
@@ -74,7 +75,8 @@ public class HANIMSITE extends X3DTransformNode
     centerY = centerYDefault = new SFFloat(sa[1]);
     centerZ = centerZDefault = new SFFloat(sa[2]);
     
-    name    = HANIMSITE_ATTR_NAME_DFLT;
+    description = HANIMSITE_ATTR_DESCRIPTION_DFLT;
+    name        = HANIMSITE_ATTR_NAME_DFLT;
 
     sa = parse4(HANIMSITE_ATTR_ROTATION_DFLT);
     rotationX = rotationXDefault = new SFFloat(sa[0]);
@@ -128,6 +130,9 @@ public class HANIMSITE extends X3DTransformNode
       centerY = new SFFloat(sa[1]);
       centerZ = new SFFloat(sa[2]);
     }
+    attr = root.getAttribute(HANIMSITE_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
     attr = root.getAttribute(HANIMSITE_ATTR_NAME_NAME);
     if (attr != null)
       name = attr.getValue();
@@ -215,6 +220,13 @@ public class HANIMSITE extends X3DTransformNode
       sb.append(centerZ);
       sb.append("'");
     }
+    if (HANIMSITE_ATTR_DESCRIPTION_REQD || !description.equals(HANIMSITE_ATTR_DESCRIPTION_DFLT)) {
+      sb.append(" ");
+      sb.append(HANIMSITE_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(escapeXmlCharacters(description));
+      sb.append("'");
+    }
     if (HANIMSITE_ATTR_NAME_REQD || !name.equalsIgnoreCase(HANIMSITE_ATTR_NAME_DFLT)) {
       sb.append(" ");
       sb.append(HANIMSITE_ATTR_NAME_NAME);
@@ -272,6 +284,16 @@ public class HANIMSITE extends X3DTransformNode
     }
 
     return sb.toString();
+  }
+
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String description)
+  {
+    this.description = description;
   }
 
   public String getName()
