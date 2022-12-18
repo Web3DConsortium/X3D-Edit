@@ -56,7 +56,7 @@ import static org.web3d.x3d.palette.X3DPaletteUtilities.*;
  */
 public class ANCHOR extends X3DGroupingNode
 {
-  private String description;
+  private String   description;
   private String[] urls, urlsDefault;
   private String[] parameters;
 
@@ -98,8 +98,9 @@ public class ANCHOR extends X3DGroupingNode
   {
     super.initializeFromJdom(root, comp);
     
-    org.jdom.Attribute attr = root.getAttribute(ANCHOR_ATTR_DESCRIPTION_NAME);
+    org.jdom.Attribute attr;
 
+    attr = root.getAttribute(ANCHOR_ATTR_DESCRIPTION_NAME);
     if (attr != null)
       description = attr.getValue();
     attr = root.getAttribute(ANCHOR_ATTR_URL_NAME);
