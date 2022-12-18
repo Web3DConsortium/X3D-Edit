@@ -34,6 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
+import java.awt.Color;
 import java.awt.Dialog;
 import java.util.Iterator;
 import java.util.Vector;
@@ -108,7 +109,10 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     centerXTF.setText(humanoid.getCenterX());
     centerYTF.setText(humanoid.getCenterY());
     centerZTF.setText(humanoid.getCenterZ());
+    
     nameTextField.setText(humanoid.getName());
+    setDefaultDEFname ();
+    checkNameDefMatchRules();
     
     rotationXaxisTF.setText(humanoid.getRotationX());
     rotationYaxisTF.setText(humanoid.getRotationY());
@@ -149,7 +153,6 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
   private void setDefaultDEFname ()
   {
     super.getDEFUSEpanel().setDefaultDEFname(NbBundle.getMessage(getClass(),getNameKey()) + nameTextField.getText());
-
   }
   private void initInfoTable()
   {
@@ -272,6 +275,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         jTabbedPane1 = new javax.swing.JTabbedPane();
         fieldsPanel = new javax.swing.JPanel();
         nameLabel = new javax.swing.JLabel();
+        nameWarningLabel = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         descriptionLabel = new javax.swing.JLabel();
         descriptionTF = new javax.swing.JTextField();
@@ -324,10 +328,24 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(630, 530));
+        setPreferredSize(new java.awt.Dimension(610, 620));
+        addFocusListener(new java.awt.event.FocusAdapter()
+        {
+            public void focusGained(java.awt.event.FocusEvent evt)
+            {
+                formFocusGained(evt);
+            }
+        });
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel.setMinimumSize(new java.awt.Dimension(10, 10));
+        dEFUSEpanel.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                dEFUSEpanelKeyReleased(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -344,7 +362,14 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         fieldsPanel.setToolTipText("simple attributes");
         fieldsPanel.setMaximumSize(new java.awt.Dimension(2147483647, 311));
         fieldsPanel.setMinimumSize(new java.awt.Dimension(394, 311));
-        fieldsPanel.setPreferredSize(new java.awt.Dimension(399, 336));
+        fieldsPanel.setPreferredSize(new java.awt.Dimension(610, 350));
+        fieldsPanel.addFocusListener(new java.awt.event.FocusAdapter()
+        {
+            public void focusGained(java.awt.event.FocusEvent evt)
+            {
+                fieldsPanelFocusGained(evt);
+            }
+        });
         fieldsPanel.setLayout(new java.awt.GridBagLayout());
 
         nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -358,12 +383,37 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(20, 3, 3, 3);
         fieldsPanel.add(nameLabel, gridBagConstraints);
 
+        nameWarningLabel.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        nameWarningLabel.setText("name must have a legal value");
+        nameWarningLabel.setToolTipText("HAnim has strict rules for name and DEF");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(20, 3, 3, 3);
+        fieldsPanel.add(nameWarningLabel, gridBagConstraints);
+
         nameTextField.setToolTipText("Must assign proper name for this HAnimHumanoid");
+        nameTextField.addFocusListener(new java.awt.event.FocusAdapter()
+        {
+            public void focusGained(java.awt.event.FocusEvent evt)
+            {
+                nameTextFieldFocusGained(evt);
+            }
+        });
         nameTextField.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 nameTextFieldActionPerformed(evt);
+            }
+        });
+        nameTextField.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                nameTextFieldKeyReleased(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -957,7 +1007,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(infoTable, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                .addComponent(infoTable, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                 .addContainerGap())
         );
         infoPanelLayout.setVerticalGroup(
@@ -973,7 +1023,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
+        gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 1.0;
@@ -996,10 +1046,9 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
@@ -1008,6 +1057,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nameTextFieldActionPerformed
     {//GEN-HEADEREND:event_nameTextFieldActionPerformed
         setDefaultDEFname ();
+        checkNameDefMatchRules();
     }//GEN-LAST:event_nameTextFieldActionPerformed
 
     private void versionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_versionComboActionPerformed
@@ -1247,6 +1297,31 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         checkX3D4FieldSupportDialog("HAnimHumanoid","description"); // X3D4 field
     }//GEN-LAST:event_descriptionTFActionPerformed
 
+    private void dEFUSEpanelKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_dEFUSEpanelKeyReleased
+    {//GEN-HEADEREND:event_dEFUSEpanelKeyReleased
+        checkNameDefMatchRules(); // TODO fix, apparently not receiving an event
+    }//GEN-LAST:event_dEFUSEpanelKeyReleased
+
+    private void nameTextFieldKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_nameTextFieldKeyReleased
+    {//GEN-HEADEREND:event_nameTextFieldKeyReleased
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameTextFieldKeyReleased
+
+    private void formFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_formFocusGained
+    {//GEN-HEADEREND:event_formFocusGained
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_formFocusGained
+
+    private void fieldsPanelFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_fieldsPanelFocusGained
+    {//GEN-HEADEREND:event_fieldsPanelFocusGained
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_fieldsPanelFocusGained
+
+    private void nameTextFieldFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_nameTextFieldFocusGained
+    {//GEN-HEADEREND:event_nameTextFieldFocusGained
+        // TODO add your handling code here:Hu
+    }//GEN-LAST:event_nameTextFieldFocusGained
+
   @Override
   public String getNameKey()
   {
@@ -1296,6 +1371,57 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
           }
       }
   }
+  
+    private void checkNameDefMatchRules()
+    {
+        String NAME_REQUIRED      = "name must have a legal value";
+        String NAME_RULE_MATCH    = "successful match, DEF = prefix + name";
+        String NAME_RULE_MISMATCH = "mismatch, prefix + name must match DEF";
+  
+        String DEF    = super.getDEFUSEpanel().getDEF();
+        String name   = nameTextField.getText();
+        String prefix = new String();
+        
+        Color  burntorange = new Color(191,  87,  0);
+        Color   darkorange = new Color(255, 140,  0);
+        Color   darkgreen  = new Color( 21,  71, 52);
+        
+        if (name.isBlank())
+        {
+            nameWarningLabel.setText(NAME_REQUIRED);
+            nameTextField.setBackground(Color.YELLOW);
+            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
+            super.getDEFUSEpanel().refreshPanel();
+        }
+        else if (DEF.isBlank()) // and name value is present
+        {
+            nameWarningLabel.setText("");
+            nameTextField.setBackground(Color.WHITE);
+            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
+            super.getDEFUSEpanel().refreshPanel();
+        }
+        else if (DEF.endsWith(name)) // successful match
+        {
+            prefix = DEF.substring(0,DEF.lastIndexOf(name));
+            hAnimHumanoid.setPrefix(prefix);
+            
+            nameWarningLabel.setText(NAME_RULE_MATCH);
+            nameWarningLabel.setForeground(darkgreen); // too bright: Color.GREEN
+            nameTextField.setBackground(Color.WHITE);
+            super.getDEFUSEpanel().selectX3dDEFUSEpane();
+            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
+            super.getDEFUSEpanel().refreshPanel();
+        }
+        else
+        {
+            nameWarningLabel.setText(NAME_RULE_MISMATCH);
+            nameWarningLabel.setForeground(darkorange);
+            nameTextField.setBackground(Color.YELLOW);
+            super.getDEFUSEpanel().selectX3dDEFUSEpane();
+            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.YELLOW);
+            super.getDEFUSEpanel().refreshPanel();
+        }
+    }
 
   @Override
   public void unloadInput() throws IllegalArgumentException
@@ -1359,6 +1485,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
+    private javax.swing.JLabel nameWarningLabel;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JButton normalizeRotationValuesButton;
     private javax.swing.JTextField rotationAngleTF;
