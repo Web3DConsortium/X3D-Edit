@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -55,11 +55,12 @@ import org.web3d.x3d.types.X3DTransformNode;
  */
 public class HANIMJOINT extends X3DTransformNode
 {
+  private String     description;
   private String     name;
 
   // TODO fix layout, accessors
   private SFInt32[]    skinCoordIndex;                                   // MFInt32
-  private SFFloat[]  llimit, skinCoordWeight, stiffness;               // MFFloat
+  private SFFloat[]  llimit, ulimit, skinCoordWeight, stiffness;         // MFFloat
   private SFFloat limitOrientationX,     limitOrientationXDefault; // SFRotation
   private SFFloat limitOrientationY,     limitOrientationYDefault;
   private SFFloat limitOrientationZ,     limitOrientationZDefault;
@@ -80,7 +81,8 @@ public class HANIMJOINT extends X3DTransformNode
   {
     String[] sa;
     String[] fa;
-    name    = HANIMJOINT_ATTR_NAME_DFLT;
+    description = HANIMJOINT_ATTR_DESCRIPTION_DFLT;
+    name        = HANIMJOINT_ATTR_NAME_DFLT;
     
     if(HANIMJOINT_ATTR_SKINCOORDINDEX_DFLT == null || HANIMJOINT_ATTR_SKINCOORDINDEX_DFLT.length()<=0)
       sa = new String[]{}; // empty
@@ -93,6 +95,12 @@ public class HANIMJOINT extends X3DTransformNode
     else
       sa = parseX(HANIMJOINT_ATTR_LLIMIT_DFLT);
     llimit = parseToSFFloatArray(sa);
+    
+    if(HANIMJOINT_ATTR_ULIMIT_DFLT == null || HANIMJOINT_ATTR_ULIMIT_DFLT.length()<=0)
+      sa = new String[]{}; // empty 
+    else
+      sa = parseX(HANIMJOINT_ATTR_ULIMIT_DFLT);
+    ulimit = parseToSFFloatArray(sa);
     
     if(HANIMJOINT_ATTR_SKINCOORDWEIGHT_DFLT == null || HANIMJOINT_ATTR_SKINCOORDWEIGHT_DFLT.length()<=0)
       sa = new String[]{}; // empty 
@@ -161,6 +169,9 @@ public class HANIMJOINT extends X3DTransformNode
     String[] sa;
     String[] fa;
 
+    attr = root.getAttribute(HANIMJOINT_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
     attr = root.getAttribute(HANIMJOINT_ATTR_NAME_NAME);
     if (attr != null)
       name = attr.getValue();
@@ -174,6 +185,11 @@ public class HANIMJOINT extends X3DTransformNode
     if (attr != null){
       sa = parseX(attr.getValue());
       llimit = parseToSFFloatArray(sa);
+    }
+    attr = root.getAttribute(HANIMJOINT_ATTR_ULIMIT_NAME);
+    if (attr != null){
+      sa = parseX(attr.getValue());
+      ulimit = parseToSFFloatArray(sa);
     }
     attr = root.getAttribute(HANIMJOINT_ATTR_SKINCOORDWEIGHT_NAME);
     if (attr != null){
@@ -306,6 +322,13 @@ public class HANIMJOINT extends X3DTransformNode
       sb.append(centerZ);
       sb.append("'");
     }
+    if (HANIMJOINT_ATTR_DESCRIPTION_REQD || !description.equals(HANIMJOINT_ATTR_DESCRIPTION_DFLT)) {
+      sb.append(" ");
+      sb.append(HANIMJOINT_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(escapeXmlCharacters(description));
+      sb.append("'");
+    }
     if (HANIMJOINT_ATTR_LIMITORIENTATION_REQD ||
                    (!limitOrientationX.equals(limitOrientationXDefault) ||
                     !limitOrientationY.equals(limitOrientationYDefault) ||
@@ -328,6 +351,13 @@ public class HANIMJOINT extends X3DTransformNode
       sb.append(HANIMJOINT_ATTR_LLIMIT_NAME);
       sb.append("='");
       sb.append(getLLimit());
+      sb.append("'");
+    }
+    if (HANIMJOINT_ATTR_ULIMIT_REQD || (getULimit().compareTo(HANIMJOINT_ATTR_ULIMIT_DFLT) != 0)) {
+      sb.append(" ");
+      sb.append(HANIMJOINT_ATTR_ULIMIT_NAME);
+      sb.append("='");
+      sb.append(getULimit());
       sb.append("'");
     }
     if (HANIMJOINT_ATTR_ROTATION_REQD ||
@@ -416,6 +446,16 @@ public class HANIMJOINT extends X3DTransformNode
     }
     return sb.toString();
   }
+
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String description)
+  {
+    this.description = description;
+  }
   
   public String getName()
   {
@@ -438,6 +478,20 @@ public class HANIMJOINT extends X3DTransformNode
     else
       sa = parseX(getLLimit);
     llimit = parseToSFFloatArray(sa); 
+  }
+  
+  public String getULimit()
+  {
+    return formatFloatArray(ulimit);
+  }
+  public void setULimit(String getULimit)
+  {
+    String[] sa;
+    if(getULimit.length()<=0)
+      sa = new String[]{}; // empty 
+    else
+      sa = parseX(getULimit);
+    ulimit = parseToSFFloatArray(sa); 
   }
 
   public String getSkinCoordIndex()

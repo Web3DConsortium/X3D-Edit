@@ -602,7 +602,7 @@ public abstract class BaseCustomizer extends JPanel
 
     String name   = NbBundle.getMessage(getClass(),getNameKey()); // getNameKey comes from the implementing customizer subclass
     if (defUSEpanel.getDefaultDEFname().length() == 0) // don't override suggested name if already set
-        defUSEpanel.setDefaultDEFname(name + "New");   // editable DEF name suggestion for this node
+        defUSEpanel.setDefaultDEFname("New" + name);   // editable DEF name suggestion for this node
     
     defUSEpanel.setHtmlID  (getBaseX3DElement().getHtmlID());
     defUSEpanel.setCssClass(getBaseX3DElement().getCssClass());
@@ -959,12 +959,14 @@ public abstract class BaseCustomizer extends JPanel
             String message1 = elementName + " " + fieldName + " field requires X3D version='4.0'";
             String message2 = "Current document declares X3D version='" + X3DPaletteUtilitiesJdom.getCurrentDocumentX3dVersion() + "'";
             System.out.println ("*** " + "Warning: " + message1 + "  " + message2); // ensure appearance on console
+            if (message2.startsWith("not found"))
+                return false;
             
             NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message("<html><center><p>" + message1 + "</p> <br/> <p>" + message2 + "</p></html>");
             notifyDescriptor.setTitle("Warning, need X3D4"); // or higher, when available
             DialogDisplayer.getDefault().notify(notifyDescriptor);
             
-            X3DPaletteUtilitiesJdom.setCurrentDocumentX3dVersion("4.0"); // TODO get working
+            X3DPaletteUtilitiesJdom.setCurrentDocumentX3dVersion("4.0"); // TODO get this method working
         }
         return X3DPaletteUtilitiesJdom.isCurrentDocumentX3dVersion4(); // whether resulting document is X3D4
     }

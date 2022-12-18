@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,7 +36,7 @@ package org.web3d.x3d.palette.items;
 import javax.swing.text.JTextComponent;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
 import org.web3d.x3d.types.X3DGroupingNode;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
 
@@ -58,6 +58,7 @@ public class HANIMSEGMENT extends X3DGroupingNode
   private SFFloat centerOfMassZ, centerOfMassZDefault;
   private SFFloat mass,          massDefault;
   private SFFloat[] momentsOfInertia, momentsOfInertiaDefault;
+  private String  description;
   private String  name;  
 
   public HANIMSEGMENT()
@@ -83,7 +84,8 @@ public class HANIMSEGMENT extends X3DGroupingNode
     
     momentsOfInertia = momentsOfInertiaDefault = handleFloatArray(this,HANIMSEGMENT_ATTR_MOMENTSOFINERTIA_DFLT);
     
-    name = HANIMSEGMENT_ATTR_NAME_DFLT;
+    description = HANIMSEGMENT_ATTR_DESCRIPTION_DFLT;
+    name        = HANIMSEGMENT_ATTR_NAME_DFLT;
     
     sa = parse3(HANIMSEGMENT_ATTR_BBOXCENTER_DFLT);
     bboxCenterX = bboxCenterXDefault = new SFFloat(sa[0]);
@@ -119,7 +121,11 @@ public class HANIMSEGMENT extends X3DGroupingNode
     
     attr = root.getAttribute( HANIMSEGMENT_ATTR_MOMENTSOFINERTIA_NAME);
     if (attr != null)
-      momentsOfInertia = handleFloatArray(this,attr.getValue());  
+      momentsOfInertia = handleFloatArray(this,attr.getValue());
+    
+    attr = root.getAttribute(HANIMSEGMENT_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
     attr = root.getAttribute( HANIMSEGMENT_ATTR_NAME_NAME);
     if (attr != null)
       name = attr.getValue();    
@@ -192,6 +198,13 @@ public class HANIMSEGMENT extends X3DGroupingNode
       sb.append(formatFloatArray(momentsOfInertia));
       sb.append("'");
     }
+    if (HANIMSEGMENT_ATTR_DESCRIPTION_REQD || !description.equals(HANIMSEGMENT_ATTR_DESCRIPTION_DFLT)) {
+      sb.append(" ");
+      sb.append(HANIMSEGMENT_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(escapeXmlCharacters(description));
+      sb.append("'");
+    }
     if (HANIMSEGMENT_ATTR_NAME_REQD || !name.equalsIgnoreCase(HANIMSEGMENT_ATTR_NAME_DFLT)) {
       sb.append(" ");
       sb.append(HANIMSEGMENT_ATTR_NAME_NAME);
@@ -200,6 +213,16 @@ public class HANIMSEGMENT extends X3DGroupingNode
       sb.append("'");
     }
     return sb.toString();
+  }
+
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String description)
+  {
+    this.description = description;
   }
 
   public String getCenterOfMassX(){return centerOfMassX.toString();}

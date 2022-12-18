@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,10 +35,10 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 import javax.swing.text.JTextComponent;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
-import org.web3d.x3d.types.X3DTransformNode;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
+import org.web3d.x3d.types.X3DTransformNode;
 
 /**
  * HANIMHUMANOID.java
@@ -53,6 +53,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
  */
 public class HANIMHUMANOID extends X3DTransformNode
 {
+  private String description;
   private String  info;
   private String  name;
 
@@ -77,9 +78,9 @@ public class HANIMHUMANOID extends X3DTransformNode
     centerY = centerYDefault = new SFFloat(sa[1]);
     centerZ = centerZDefault = new SFFloat(sa[2]);
     
-    info = HANIMHUMANOID_ATTR_INFO_DFLT;
-    
-    name = HANIMHUMANOID_ATTR_NAME_DFLT;
+    description = HANIMHUMANOID_ATTR_DESCRIPTION_DFLT;
+    info        = HANIMHUMANOID_ATTR_INFO_DFLT;
+    name        = HANIMHUMANOID_ATTR_NAME_DFLT;
     
     sa = parse4(HANIMHUMANOID_ATTR_ROTATION_DFLT);
     rotationX = rotationXDefault = new SFFloat(sa[0]);
@@ -136,6 +137,9 @@ public class HANIMHUMANOID extends X3DTransformNode
     if (attr != null)
       info = attr.getValue();
     
+    attr = root.getAttribute(HANIMHUMANOID_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
     attr = root.getAttribute( HANIMHUMANOID_ATTR_NAME_NAME);
     if (attr != null)
       name = attr.getValue();
@@ -226,6 +230,13 @@ public class HANIMHUMANOID extends X3DTransformNode
       sb.append(centerZ);
       sb.append("'");
     }
+    if (HANIMHUMANOID_ATTR_DESCRIPTION_REQD || !description.equals(HANIMHUMANOID_ATTR_DESCRIPTION_DFLT)) {
+      sb.append(" ");
+      sb.append(HANIMHUMANOID_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(escapeXmlCharacters(description));
+      sb.append("'");
+    }
     if (HANIMHUMANOID_ATTR_INFO_REQD || !info.equals(HANIMHUMANOID_ATTR_INFO_DFLT)) {
       sb.append(" ");
       sb.append(HANIMHUMANOID_ATTR_INFO_NAME);
@@ -297,6 +308,16 @@ public class HANIMHUMANOID extends X3DTransformNode
     }
 
     return sb.toString();
+  }
+
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String description)
+  {
+    this.description = description;
   }
 
   public String getInfo()     {return info;}
