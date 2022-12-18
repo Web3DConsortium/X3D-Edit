@@ -58,6 +58,7 @@ public class HANIMHUMANOID extends X3DTransformNode
   private String  name;
 
   private String  version;
+  private String  prefix; // calculated from DEF = prefix + name
 
   public HANIMHUMANOID()
   {    
@@ -327,5 +328,23 @@ public class HANIMHUMANOID extends X3DTransformNode
   public void setInfo(String s)   {info = s;}
   public void setName(String s)   {name = s;}
   public void setVersion(String s)          {version = s;}
+
+    /**
+     * calculated from DEF = prefix + name
+     * @return the prefix
+     */
+    public String getPrefix()
+    {
+        return prefix;
+    }
+
+    /**
+     * calculated from DEF = prefix + name
+     * @param newPrefix the prefix to set
+     */
+    public void setPrefix(String newPrefix)
+    {
+        this.prefix = newPrefix;
+    }
 
 }
