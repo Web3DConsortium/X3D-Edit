@@ -2947,6 +2947,9 @@ public interface X3DSchemaData
 
   // Humanoid Animation Component
   String  HANIMHUMANOID_ELNAME            = "HAnimHumanoid";
+  String  HANIMHUMANOID_ATTR_DESCRIPTION_NAME = "description";
+  boolean HANIMHUMANOID_ATTR_DESCRIPTION_REQD = false;
+  String  HANIMHUMANOID_ATTR_DESCRIPTION_DFLT = "";
   String  HANIMHUMANOID_ATTR_NAME_NAME    = "name";
   boolean HANIMHUMANOID_ATTR_NAME_REQD    = false;
   String  HANIMHUMANOID_ATTR_NAME_DFLT    = "";
@@ -3000,8 +3003,16 @@ public interface X3DSchemaData
     {"height",""},
     {"weight",""},
   };
+  String[]HANIMHUMANOID_CONTAINERFIELD_CHOICES    = {"children"};
+  String[]HANIMHUMANOID_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'children' for typical use as child node",
+  };
 
   String  HANIMDISPLACER_ELNAME                 = "HAnimDisplacer";
+  String  HANIMDISPLACER_ATTR_DESCRIPTION_NAME = "description";
+  boolean HANIMDISPLACER_ATTR_DESCRIPTION_REQD = false;
+  String  HANIMDISPLACER_ATTR_DESCRIPTION_DFLT = "";
   String  HANIMDISPLACER_ATTR_NAME_NAME         = "name";
   boolean HANIMDISPLACER_ATTR_NAME_REQD         = false;
   String  HANIMDISPLACER_ATTR_NAME_DFLT         = "";
@@ -3102,6 +3113,9 @@ public interface X3DSchemaData
   };
 
   String  HANIMJOINT_ELNAME            = "HAnimJoint";
+  String  HANIMJOINT_ATTR_DESCRIPTION_NAME = "description";
+  boolean HANIMJOINT_ATTR_DESCRIPTION_REQD = false;
+  String  HANIMJOINT_ATTR_DESCRIPTION_DFLT = "";
   String  HANIMJOINT_ATTR_NAME_NAME    = "name";
   boolean HANIMJOINT_ATTR_NAME_REQD    = false;
   String  HANIMJOINT_ATTR_NAME_DFLT    = "";
@@ -3252,6 +3266,9 @@ public interface X3DSchemaData
   };
 
   String  HANIMSEGMENT_ELNAME            = "HAnimSegment";
+  String  HANIMSEGMENT_ATTR_DESCRIPTION_NAME = "description";
+  boolean HANIMSEGMENT_ATTR_DESCRIPTION_REQD = false;
+  String  HANIMSEGMENT_ATTR_DESCRIPTION_DFLT = "";
   String  HANIMSEGMENT_ATTR_NAME_NAME    = "name";
   boolean HANIMSEGMENT_ATTR_NAME_REQD    = false;
   String  HANIMSEGMENT_ATTR_NAME_DFLT    = "";
@@ -3377,6 +3394,9 @@ public interface X3DSchemaData
   };
 
   String  HANIMSITE_ELNAME            = "HAnimSite";
+  String  HANIMSITE_ATTR_DESCRIPTION_NAME = "description";
+  boolean HANIMSITE_ATTR_DESCRIPTION_REQD = false;
+  String  HANIMSITE_ATTR_DESCRIPTION_DFLT = "";
   String  HANIMSITE_ATTR_NAME_NAME    = "name";
   boolean HANIMSITE_ATTR_NAME_REQD    = false;
   String  HANIMSITE_ATTR_NAME_DFLT    = "";
