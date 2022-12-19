@@ -191,7 +191,7 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
       else { // cancelled
         Position startPosition = abstractDocument.createPosition(Math.max(0, selectedLocation.docOffsetStart - 1)); // see jdoc for createPosition()
         int startOffset = startPosition.getOffset();
-        if (!x3dElement.getElementName().equals("X3D"))
+        if (!x3dElement.getElementName().equals("X3D")) // avoid exceeding length of file
             startOffset += 2; // include +2 or else next edit goes to parent node!
         setCaretLocation(startOffset);
       }
