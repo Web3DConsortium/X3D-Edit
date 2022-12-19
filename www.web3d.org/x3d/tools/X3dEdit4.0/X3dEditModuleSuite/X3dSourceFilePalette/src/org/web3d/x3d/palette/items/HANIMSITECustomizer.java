@@ -224,6 +224,8 @@ public class HANIMSITECustomizer extends BaseCustomizer
         bboxSizeTFZ = new javax.swing.JTextField();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
+        spacerLabel2 = new javax.swing.JLabel();
+        spacerLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(640, 460));
         setLayout(new java.awt.GridBagLayout());
@@ -821,6 +823,22 @@ public class HANIMSITECustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(spacerLabel2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(spacerLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameComboBoxActionPerformed
@@ -1275,6 +1293,8 @@ public class HANIMSITECustomizer extends BaseCustomizer
     private javax.swing.JTextField scaleXTF;
     private javax.swing.JTextField scaleYTF;
     private javax.swing.JTextField scaleZTF;
+    private javax.swing.JLabel spacerLabel1;
+    private javax.swing.JLabel spacerLabel2;
     private javax.swing.JLabel translationLabel;
     private javax.swing.JComboBox<String> translationModificationComboBox;
     private javax.swing.JTextField translationXTF;
