@@ -99,7 +99,14 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
   }
   private void setDefaultDEFname()
   {
-    String newDefaultName = nameComboBox.getSelectedItem().toString().trim();
+    String enumerationName, newDefaultName;
+    if  (nameComboBox.getSelectedItem().toString().trim().length() > 5)
+    {
+         enumerationName = nameComboBox.getSelectedItem().toString().substring(3).trim(); // omit index
+         enumerationName = enumerationName.substring(0,enumerationName.indexOf(" ")).trim();     // omit full name
+    }
+    else enumerationName = hAnimDisplacer.getName();
+    newDefaultName = enumerationName;
     if (!localPrefix.isBlank())
     {
         if (!localPrefix.endsWith("_"))
@@ -138,7 +145,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         descriptionTF = new javax.swing.JTextField();
 
         setMinimumSize(new java.awt.Dimension(620, 258));
-        setPreferredSize(new java.awt.Dimension(630, 290));
+        setPreferredSize(new java.awt.Dimension(1100, 290));
         setLayout(new java.awt.GridBagLayout());
 
         nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -439,7 +446,14 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         String NAME_RULE_MISMATCH = "mismatch, prefix + name must match DEF";
   
         String DEF    = super.getDEFUSEpanel().getDEF();
-        String name   = nameComboBox.getSelectedItem().toString();
+        String name, enumerationName;
+        if (nameComboBox.getSelectedIndex() >= 0) // chosen from combo box
+        {
+             enumerationName = nameComboBox.getSelectedItem().toString().substring(3).trim(); // omit index
+             enumerationName = enumerationName.substring(0,enumerationName.indexOf(" ")).trim();     // omit full name
+        }
+        else enumerationName = nameComboBox.getSelectedItem().toString().trim(); // user provided
+        name = enumerationName;
         
         Color  burntorange = new Color(191,  87,  0);
         Color   darkorange = new Color(255, 140,  0);
