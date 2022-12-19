@@ -44,6 +44,8 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
@@ -66,9 +68,12 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
   private String  translationXoriginal, translationYoriginal, translationZoriginal;
   private String       centerXoriginal,      centerYoriginal,      centerZoriginal;
   
+  private String  localPrefix = new String();
+  private boolean alreadyCheckedHumanoidRootSpelling = false; // avoid endless UI loop
+  
   /** Creates new form HANIMJOINTCustomizer
      * @param hAnimJoint data of interest
-     * * @param target Swing component of interest */
+     * @param target Swing component of interest */
   public HANIMJOINTCustomizer(HANIMJOINT hAnimJoint, JTextComponent target)
   {
     super(hAnimJoint);
@@ -98,8 +103,6 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     translationModificationComboBox.setBackground(this.getBackground());
          centerModificationComboBox.setBackground(this.getBackground());
              scaleSelectionComboBox.setBackground(this.getBackground());
-    
-    nameComboBox.setSelectedItem(hAnimJoint.getName());
     
     skinCoordIndexTF.setText    (hAnimJoint.getSkinCoordIndex());
     skinCoordWeightTF.setText   (hAnimJoint.getSkinCoordWeight());
@@ -143,14 +146,30 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
          centerZoriginal = hAnimJoint.getCenterZ();
 
     checkAngles (false);
-
-    setDefaultDEFname ();
+    
+    if (!hAnimJoint.getName().isBlank() &&
+        super.getDEFUSEpanel().getDEF().endsWith(hAnimJoint.getName())) // successful match
+    {
+        localPrefix = super.getDEFUSEpanel().getDEF().substring(0,super.getDEFUSEpanel().getDEF().lastIndexOf(hAnimJoint.getName()));
+    }
+    nameComboBox.setSelectedItem(hAnimJoint.getName());
+//    checkHumanoidRootSpelling();
+    setDefaultDEFname();
     checkNameDefMatchRules();
   }
-  private void setDefaultDEFname ()
+  private void setDefaultDEFname()
   {
-    super.getDEFUSEpanel().setDefaultDEFname(NbBundle.getMessage(getClass(),getNameKey()) + nameComboBox.getSelectedItem().toString());
-
+    String newDefaultName = nameComboBox.getSelectedItem().toString().trim();
+    if (!localPrefix.isBlank())
+    {
+        if (!localPrefix.endsWith("_"))
+             localPrefix += "_";
+        newDefaultName = localPrefix + newDefaultName;
+    }
+    else newDefaultName = NbBundle.getMessage(getClass(),getNameKey()) + newDefaultName;
+    // TODO if available, use prefix from ancestor HAnimHumanoid
+    
+    super.getDEFUSEpanel().setDefaultDEFname(newDefaultName);
   }
   
   /** This method is called from within the constructor to
@@ -255,6 +274,13 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nameLabel.setText("name");
         nameLabel.setToolTipText("Must assign proper name for this HAnimJoint");
+        nameLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                nameLabelMouseEntered(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -1359,7 +1385,8 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
     private void nameComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nameComboBoxActionPerformed
     {//GEN-HEADEREND:event_nameComboBoxActionPerformed
-        setDefaultDEFname ();
+        checkHumanoidRootSpelling();
+        setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxActionPerformed
 
@@ -1573,21 +1600,22 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
     private void nameComboBoxFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_nameComboBoxFocusGained
     {//GEN-HEADEREND:event_nameComboBoxFocusGained
+        checkHumanoidRootSpelling();
+        setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxFocusGained
 
     private void nameComboBoxKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_nameComboBoxKeyReleased
     {//GEN-HEADEREND:event_nameComboBoxKeyReleased
+        checkHumanoidRootSpelling();
+        setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxKeyReleased
 
-    private void nameComboBoxItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_nameComboBoxItemStateChanged
-    {//GEN-HEADEREND:event_nameComboBoxItemStateChanged
-        checkNameDefMatchRules();
-    }//GEN-LAST:event_nameComboBoxItemStateChanged
-
     private void nameComboBoxMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameComboBoxMouseEntered
     {//GEN-HEADEREND:event_nameComboBoxMouseEntered
+        checkHumanoidRootSpelling();
+        setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxMouseEntered
 
@@ -1598,8 +1626,24 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
     private void nameWarningLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameWarningLabelMouseEntered
     {//GEN-HEADEREND:event_nameWarningLabelMouseEntered
+        checkHumanoidRootSpelling();
+        setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameWarningLabelMouseEntered
+
+    private void nameLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameLabelMouseEntered
+    {//GEN-HEADEREND:event_nameLabelMouseEntered
+        checkHumanoidRootSpelling();
+        setDefaultDEFname();
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameLabelMouseEntered
+
+    private void nameComboBoxItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_nameComboBoxItemStateChanged
+    {//GEN-HEADEREND:event_nameComboBoxItemStateChanged
+        checkHumanoidRootSpelling();
+        setDefaultDEFname();
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameComboBoxItemStateChanged
 
   @Override
   public String getNameKey()
@@ -1650,6 +1694,33 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
           }
       }
   }
+    /**
+     * Ensure proper spelling of humanoid_root in accordance with HAnim v2.0 Architecture 4.9.2 The body
+     * Call this after panel components are initialized
+     * @see https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/concepts.html#TheBody
+     */
+    private void checkHumanoidRootSpelling()
+    {
+        if  (alreadyCheckedHumanoidRootSpelling)
+             return;
+        else alreadyCheckedHumanoidRootSpelling = true; // only continue first time
+        String jointName = nameComboBox.getSelectedItem().toString().trim();
+        if ( jointName.toLowerCase().contains("human") && jointName.toLowerCase().contains("root") &&
+            !jointName.equals("humanoid_root"))
+        {
+              String message;
+              message = "<html><center>Required spelling for <i>name</i>='<b>" + jointName + "</b>' is <b>humanoid_root</b>" +
+                      " according to HAnim v2.0 specification.<br/><br/>Convert <i>name</i> field to <b>humanoid_root</b>?";
+            NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+                    message, "Correct spelling of name is humanoid_root", NotifyDescriptor.YES_NO_OPTION);
+            if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
+            {
+                nameComboBox.setSelectedItem("humanoid_root"); // TODO not working
+                nameComboBox.revalidate();
+                nameComboBox.repaint();
+            }
+        }
+    }
     private void checkNameDefMatchRules()
     {
         String NAME_REQUIRED      = "name must have a legal value";
@@ -1681,10 +1752,10 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         }
         else if (DEF.endsWith(name)) // successful match
         {
-            String prefix = DEF.substring(0,DEF.lastIndexOf(name));
-            // TODO compare to ancestor humanoid prefix
+            localPrefix = DEF.substring(0,DEF.lastIndexOf(name));
+            // TODO compare to ancestor humanoid prefix if needed
             
-            nameWarningLabel.setText(NAME_RULE_MATCH);
+            nameWarningLabel.setText(NAME_RULE_MATCH + ", prefix=" + localPrefix);
             nameWarningLabel.setForeground(darkgreen); // too bright: Color.GREEN
             nameComboBox.setBackground(Color.WHITE);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();
@@ -1693,7 +1764,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         }
         else
         {
-            nameWarningLabel.setText(NAME_RULE_MISMATCH);
+            nameWarningLabel.setText(NAME_RULE_MISMATCH + ", prefix=" + localPrefix);
             nameWarningLabel.setForeground(darkorange);
             nameComboBox.setBackground(Color.YELLOW);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();

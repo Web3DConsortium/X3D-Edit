@@ -74,10 +74,12 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
   private String  translationXoriginal, translationYoriginal, translationZoriginal;
   private String       centerXoriginal,      centerYoriginal,      centerZoriginal;
   
+  private String  localPrefix = new String();
+  
     /**
      * Creates new form HANIMHUMANOIDCustomizer
      * @param humanoid data of interest
-     * * @param target Swing component of interest */
+     * @param target Swing component of interest */
     public HANIMHUMANOIDCustomizer(HANIMHUMANOID humanoid, JTextComponent target)
   {
     super(humanoid);
@@ -150,11 +152,29 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
 
     checkAngles (false);
 
-    setDefaultDEFname ();
+    if (!hAnimHumanoid.getName().isBlank() &&
+        super.getDEFUSEpanel().getDEF().endsWith(hAnimHumanoid.getName())) // successful match
+    {
+        localPrefix = super.getDEFUSEpanel().getDEF().substring(0,super.getDEFUSEpanel().getDEF().lastIndexOf(hAnimHumanoid.getName()));
+    }
+    nameTextField.setText(hAnimHumanoid.getName());
+//    checkHumanoidRootSpelling();
+    setDefaultDEFname();
+    checkNameDefMatchRules();
   }
-  private void setDefaultDEFname ()
+  private void setDefaultDEFname()
   {
-    super.getDEFUSEpanel().setDefaultDEFname(NbBundle.getMessage(getClass(),getNameKey()) + nameTextField.getText());
+    String newDefaultName = nameTextField.getText().trim();
+    if (!localPrefix.isBlank())
+    {
+        if (!localPrefix.endsWith("_"))
+             localPrefix += "_";
+        newDefaultName = localPrefix + newDefaultName;
+    }
+    else newDefaultName = NbBundle.getMessage(getClass(),getNameKey()) + newDefaultName;
+    // TODO if available, use prefix from ancestor HAnimHumanoid
+    
+    super.getDEFUSEpanel().setDefaultDEFname(newDefaultName);
   }
   private void initInfoTable()
   {
@@ -378,6 +398,13 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         nameLabel.setText("name");
         nameLabel.setToolTipText("Must assign unique name for this HAnimHumanoid");
+        nameLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                nameLabelMouseEntered(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -1336,6 +1363,11 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameWarningLabelMouseEntered
 
+    private void nameLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameLabelMouseEntered
+    {//GEN-HEADEREND:event_nameLabelMouseEntered
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameLabelMouseEntered
+
   @Override
   public String getNameKey()
   {
@@ -1416,11 +1448,11 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             super.getDEFUSEpanel().refreshPanel();
         }
         else if (DEF.endsWith(name)) // successful match
-        {
-            String prefix = DEF.substring(0,DEF.lastIndexOf(name));
-            hAnimHumanoid.setPrefix(prefix);
+        {            
+            localPrefix = DEF.substring(0,DEF.lastIndexOf(name));
+            // TODO compare to ancestor humanoid prefix if needed
             
-            nameWarningLabel.setText(NAME_RULE_MATCH);
+            nameWarningLabel.setText(NAME_RULE_MATCH + ", prefix=" + localPrefix);
             nameWarningLabel.setForeground(darkgreen); // too bright: Color.GREEN
             nameTextField.setBackground(Color.WHITE);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();
@@ -1429,7 +1461,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         }
         else
         {
-            nameWarningLabel.setText(NAME_RULE_MISMATCH);
+            nameWarningLabel.setText(NAME_RULE_MISMATCH + ", prefix=" + localPrefix);
             nameWarningLabel.setForeground(darkorange);
             nameTextField.setBackground(Color.YELLOW);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();

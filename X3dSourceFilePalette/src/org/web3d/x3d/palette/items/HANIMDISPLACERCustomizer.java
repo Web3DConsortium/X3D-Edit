@@ -57,9 +57,11 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
   private HANIMDISPLACER hAnimDisplacer;
   private JTextComponent target;
   
+  private String  localPrefix = new String();
+  
   /** Creates new form HANIMDISPLACERCustomizer
      * @param displacer data of interest
-     * * @param target Swing component of interest */
+     * @param target Swing component of interest */
   public HANIMDISPLACERCustomizer(HANIMDISPLACER displacer, JTextComponent target)
   {
     super(displacer);
@@ -84,14 +86,30 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
     coordIndexTF.setText    (hAnimDisplacer.getCoordIndex());
     displacementsTF.setText (hAnimDisplacer.getDisplacements());
     weightTF.setText        (hAnimDisplacer.getWeight());
-
-    setDefaultDEFname ();
+    
+    if (!hAnimDisplacer.getName().isBlank() &&
+        super.getDEFUSEpanel().getDEF().endsWith(hAnimDisplacer.getName())) // successful match
+    {
+        localPrefix = super.getDEFUSEpanel().getDEF().substring(0,super.getDEFUSEpanel().getDEF().lastIndexOf(hAnimDisplacer.getName()));
+    }
+    nameComboBox.setSelectedItem(hAnimDisplacer.getName());
+//    checkHumanoidRootSpelling();
+    setDefaultDEFname();
     checkNameDefMatchRules();
   }
-  private void setDefaultDEFname ()
+  private void setDefaultDEFname()
   {
-    super.getDEFUSEpanel().setDefaultDEFname(NbBundle.getMessage(getClass(),getNameKey()) + nameComboBox.getSelectedItem().toString());
-
+    String newDefaultName = nameComboBox.getSelectedItem().toString().trim();
+    if (!localPrefix.isBlank())
+    {
+        if (!localPrefix.endsWith("_"))
+             localPrefix += "_";
+        newDefaultName = localPrefix + newDefaultName;
+    }
+    else newDefaultName = NbBundle.getMessage(getClass(),getNameKey()) + newDefaultName;
+    // TODO if available, use prefix from ancestor HAnimHumanoid
+    
+    super.getDEFUSEpanel().setDefaultDEFname(newDefaultName);
   }
   
   /** This method is called from within the constructor to
@@ -120,17 +138,26 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         descriptionTF = new javax.swing.JTextField();
 
         setMinimumSize(new java.awt.Dimension(620, 258));
-        setPreferredSize(new java.awt.Dimension(660, 270));
+        setPreferredSize(new java.awt.Dimension(630, 290));
         setLayout(new java.awt.GridBagLayout());
 
         nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nameLabel.setText("name");
         nameLabel.setToolTipText("Unique name attribute must be defined so that HAnimDisplacer node can be identified at runtime for animation purposes");
+        nameLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                nameLabelMouseEntered(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameLabel, gridBagConstraints);
 
@@ -178,6 +205,8 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 100;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameComboBox, gridBagConstraints);
 
@@ -195,6 +224,8 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameWarningLabel, gridBagConstraints);
 
@@ -204,8 +235,10 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         descriptionLabel.setToolTipText("Text description to be displayed for action of this node");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionLabel, gridBagConstraints);
 
@@ -218,21 +251,23 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(coordIndexTF, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(displacementsTF, gridBagConstraints);
 
@@ -240,8 +275,10 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         jLabel2.setText("coordIndex");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel2, gridBagConstraints);
 
@@ -249,8 +286,10 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         jLabel3.setText("displacements");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel3, gridBagConstraints);
 
@@ -272,11 +311,12 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         add(dEFUSEpanel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(weightTF, gridBagConstraints);
 
@@ -284,8 +324,10 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         jLabel4.setText("weight");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel4, gridBagConstraints);
 
@@ -325,11 +367,12 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionTF, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
@@ -379,6 +422,11 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameWarningLabelMouseEntered
 
+    private void nameLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameLabelMouseEntered
+    {//GEN-HEADEREND:event_nameLabelMouseEntered
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameLabelMouseEntered
+
   @Override
   public String getNameKey()
   {
@@ -415,10 +463,10 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         }
         else if (DEF.endsWith(name)) // successful match
         {
-            String prefix = DEF.substring(0,DEF.lastIndexOf(name));
-            // TODO compare to ancestor humanoid prefix
+            localPrefix = DEF.substring(0,DEF.lastIndexOf(name));
+            // TODO compare to ancestor humanoid prefix if needed
             
-            nameWarningLabel.setText(NAME_RULE_MATCH);
+            nameWarningLabel.setText(NAME_RULE_MATCH + ", prefix=" + localPrefix);
             nameWarningLabel.setForeground(darkgreen); // too bright: Color.GREEN
             nameComboBox.setBackground(Color.WHITE);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();
@@ -427,7 +475,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         }
         else
         {
-            nameWarningLabel.setText(NAME_RULE_MISMATCH);
+            nameWarningLabel.setText(NAME_RULE_MISMATCH + ", prefix=" + localPrefix);
             nameWarningLabel.setForeground(darkorange);
             nameComboBox.setBackground(Color.YELLOW);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();
