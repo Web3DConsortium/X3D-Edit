@@ -141,7 +141,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
     checkAngles (false);
     
     if (!hAnimSite.getName().isBlank() &&
-        super.getDEFUSEpanel().getDEF().endsWith(hAnimSite.getName())) // successful match
+        super.getDEFUSEpanel().getDEF().endsWith(hAnimSite.getName())) // successful name match
     {
         localPrefix = super.getDEFUSEpanel().getDEF().substring(0,super.getDEFUSEpanel().getDEF().lastIndexOf(hAnimSite.getName()));
     }
@@ -227,7 +227,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         spacerLabel2 = new javax.swing.JLabel();
         spacerLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(640, 460));
+        setPreferredSize(new java.awt.Dimension(600, 500));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel.addKeyListener(new java.awt.event.KeyAdapter()
@@ -260,7 +260,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameLabel, gridBagConstraints);
@@ -306,13 +306,13 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameComboBox, gridBagConstraints);
 
-        nameWarningLabel.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        nameWarningLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         nameWarningLabel.setText("name must have a legal value");
         nameWarningLabel.setToolTipText("HAnim has strict rules for name and DEF");
         nameWarningLabel.addMouseListener(new java.awt.event.MouseAdapter()
@@ -323,9 +323,9 @@ public class HANIMSITECustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameWarningLabel, gridBagConstraints);
@@ -336,7 +336,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         descriptionLabel.setToolTipText("Text description to be displayed for action of this node");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionLabel, gridBagConstraints);
@@ -354,7 +354,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -366,7 +366,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         xLabel.setText("x");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(xLabel, gridBagConstraints);
@@ -375,7 +375,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         yLabel.setText("y");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(yLabel, gridBagConstraints);
@@ -384,7 +384,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         zLabel.setText("z");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(zLabel, gridBagConstraints);
@@ -394,7 +394,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         angleLabel.setToolTipText("angle in radians (can convert large degree values if > 6.28)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(angleLabel, gridBagConstraints);
@@ -403,7 +403,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         adjustmentsLabel.setToolTipText("apply adjustment factor to original value");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new java.awt.Insets(8, 3, 3, 3);
         add(adjustmentsLabel, gridBagConstraints);
 
@@ -411,7 +411,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         translationLabel.setText("translation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(translationLabel, gridBagConstraints);
@@ -425,7 +425,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -440,7 +440,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -455,7 +455,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -472,7 +472,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(translationModificationComboBox, gridBagConstraints);
@@ -481,7 +481,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         centerLabel.setText("center");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(centerLabel, gridBagConstraints);
@@ -495,7 +495,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -510,7 +510,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -525,7 +525,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -542,7 +542,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(centerModificationComboBox, gridBagConstraints);
@@ -551,27 +551,27 @@ public class HANIMSITECustomizer extends BaseCustomizer
         scaleLabel.setText("scale");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(scaleLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(scaleXTF, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(scaleYTF, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -588,7 +588,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(scaleSelectionComboBox, gridBagConstraints);
@@ -597,27 +597,27 @@ public class HANIMSITECustomizer extends BaseCustomizer
         rotationLabel.setText("rotation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rotationLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rotationXaxisTF, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rotationYaxisTF, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -632,7 +632,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -652,7 +652,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.ipadx = 80;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -663,27 +663,27 @@ public class HANIMSITECustomizer extends BaseCustomizer
         scaleOrientationLabel.setText("scaleOrientation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(scaleOrientationLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(scaleOrientationXaxisTF, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(scaleOrientationYaxisTF, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -698,7 +698,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -718,7 +718,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.ipadx = 80;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -735,7 +735,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
@@ -745,27 +745,27 @@ public class HANIMSITECustomizer extends BaseCustomizer
         bboxCenterLabel.setText("bboxCenter");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterTFX, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterTFY, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -775,27 +775,27 @@ public class HANIMSITECustomizer extends BaseCustomizer
         bboxSizeLabel.setText("bboxSize");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeTFX, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeTFY, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -817,7 +817,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -825,7 +825,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         add(nodeHintPanel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -833,7 +833,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         add(spacerLabel2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1081,36 +1081,43 @@ public class HANIMSITECustomizer extends BaseCustomizer
 
     private void nameComboBoxFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_nameComboBoxFocusGained
     {//GEN-HEADEREND:event_nameComboBoxFocusGained
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxFocusGained
 
     private void nameComboBoxKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_nameComboBoxKeyReleased
     {//GEN-HEADEREND:event_nameComboBoxKeyReleased
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxKeyReleased
 
     private void nameComboBoxItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_nameComboBoxItemStateChanged
     {//GEN-HEADEREND:event_nameComboBoxItemStateChanged
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxItemStateChanged
 
     private void nameComboBoxMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameComboBoxMouseEntered
     {//GEN-HEADEREND:event_nameComboBoxMouseEntered
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxMouseEntered
 
     private void dEFUSEpanelKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_dEFUSEpanelKeyReleased
     {//GEN-HEADEREND:event_dEFUSEpanelKeyReleased
+        setDefaultDEFname ();
         checkNameDefMatchRules(); // TODO fix, apparently not receiving an event
     }//GEN-LAST:event_dEFUSEpanelKeyReleased
 
     private void nameWarningLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameWarningLabelMouseEntered
     {//GEN-HEADEREND:event_nameWarningLabelMouseEntered
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameWarningLabelMouseEntered
 
     private void nameLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameLabelMouseEntered
     {//GEN-HEADEREND:event_nameLabelMouseEntered
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameLabelMouseEntered
 
@@ -1166,8 +1173,8 @@ public class HANIMSITECustomizer extends BaseCustomizer
     private void checkNameDefMatchRules()
     {
         String NAME_REQUIRED      = "name must have a legal value";
-        String NAME_RULE_MATCH    = "successful match, DEF = prefix + name";
-        String NAME_RULE_MISMATCH = "mismatch, prefix + name must match DEF";
+        String NAME_RULE_MATCH    = "successful name match: DEF = prefix + name";
+        String NAME_RULE_MISMATCH = "name mismatch: DEF must match prefix + name";
   
         String DEF    = super.getDEFUSEpanel().getDEF();
         String name   = nameComboBox.getSelectedItem().toString();
@@ -1192,7 +1199,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
             super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
             super.getDEFUSEpanel().refreshPanel();
         }
-        else if (DEF.endsWith(name)) // successful match
+        else if (DEF.endsWith(name)) // successful name match
         {
             localPrefix = DEF.substring(0,DEF.lastIndexOf(name));
             // TODO compare to ancestor humanoid prefix if needed

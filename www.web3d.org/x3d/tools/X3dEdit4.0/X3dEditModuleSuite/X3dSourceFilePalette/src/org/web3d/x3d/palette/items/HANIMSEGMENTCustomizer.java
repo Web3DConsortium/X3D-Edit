@@ -115,7 +115,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
     bboxSizeTFZ.setText(hAnimSegment.getBboxSizeZ());
 
     if (!hAnimSegment.getName().isBlank() &&
-        super.getDEFUSEpanel().getDEF().endsWith(hAnimSegment.getName())) // successful match
+        super.getDEFUSEpanel().getDEF().endsWith(hAnimSegment.getName())) // successful name match
     {
         localPrefix = super.getDEFUSEpanel().getDEF().substring(0,super.getDEFUSEpanel().getDEF().lastIndexOf(hAnimSegment.getName()));
     }
@@ -181,9 +181,9 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         bboxSizeTFZ = new javax.swing.JTextField();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        spacerLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(640, 480));
+        setPreferredSize(new java.awt.Dimension(640, 500));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.addKeyListener(new java.awt.event.KeyAdapter()
@@ -215,7 +215,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameLabel, gridBagConstraints);
@@ -261,13 +261,13 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameComboBox, gridBagConstraints);
 
-        nameWarningLabel.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        nameWarningLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         nameWarningLabel.setText("name must have a legal value");
         nameWarningLabel.setToolTipText("HAnim has strict rules for name and DEF");
         nameWarningLabel.addMouseListener(new java.awt.event.MouseAdapter()
@@ -278,9 +278,9 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameWarningLabel, gridBagConstraints);
@@ -291,7 +291,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         descriptionLabel.setToolTipText("Text description to be displayed for action of this node");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionLabel, gridBagConstraints);
@@ -309,7 +309,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -321,27 +321,27 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         centerOfMassLabel.setText("centerOfMass");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(centerOfMassLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(centerOfMassTFX, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(centerOfMassTFY, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -351,13 +351,13 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         massLabel.setText("mass");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(massLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -368,69 +368,69 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         momentsOfInertiaLabel.setText("momentsOfInertia");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(momentsOfInertiaLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(moiTF0, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(moiTF1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(moiTF2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(moiTF3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(moiTF4, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(moiTF5, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(moiTF6, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(moiTF7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -440,27 +440,27 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         jLabel7.setText("bboxCenter");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterTFX, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterTFY, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -470,27 +470,27 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         jLabel8.setText("bboxSize");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel8, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeTFX, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeTFY, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -518,7 +518,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -526,12 +526,12 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         add(nodeHintPanel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridheight = 7;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel1, gridBagConstraints);
+        add(spacerLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameComboBoxActionPerformed
@@ -546,37 +546,43 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
 
     private void nameComboBoxFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_nameComboBoxFocusGained
     {//GEN-HEADEREND:event_nameComboBoxFocusGained
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxFocusGained
 
     private void nameComboBoxKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_nameComboBoxKeyReleased
     {//GEN-HEADEREND:event_nameComboBoxKeyReleased
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxKeyReleased
 
     private void nameComboBoxItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_nameComboBoxItemStateChanged
     {//GEN-HEADEREND:event_nameComboBoxItemStateChanged
+        setDefaultDEFname ();
         checkNameDefMatchRules();
-        
     }//GEN-LAST:event_nameComboBoxItemStateChanged
 
     private void nameComboBoxMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameComboBoxMouseEntered
     {//GEN-HEADEREND:event_nameComboBoxMouseEntered
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxMouseEntered
 
     private void dEFUSEpanel1KeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_dEFUSEpanel1KeyReleased
     {//GEN-HEADEREND:event_dEFUSEpanel1KeyReleased
+        setDefaultDEFname ();
         checkNameDefMatchRules(); // TODO fix, apparently not receiving an event
     }//GEN-LAST:event_dEFUSEpanel1KeyReleased
 
     private void nameWarningLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameWarningLabelMouseEntered
     {//GEN-HEADEREND:event_nameWarningLabelMouseEntered
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameWarningLabelMouseEntered
 
     private void nameLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameLabelMouseEntered
     {//GEN-HEADEREND:event_nameLabelMouseEntered
+        setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameLabelMouseEntered
 
@@ -588,8 +594,8 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
     private void checkNameDefMatchRules()
     {
         String NAME_REQUIRED      = "name must have a legal value";
-        String NAME_RULE_MATCH    = "successful match, DEF = prefix + name";
-        String NAME_RULE_MISMATCH = "mismatch, prefix + name must match DEF";
+        String NAME_RULE_MATCH    = "successful name match: DEF = prefix + name";
+        String NAME_RULE_MISMATCH = "name mismatch: DEF must match prefix + name";
   
         String DEF    = super.getDEFUSEpanel().getDEF();
         String name   = nameComboBox.getSelectedItem().toString();
@@ -614,7 +620,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
             super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
             super.getDEFUSEpanel().refreshPanel();
         }
-        else if (DEF.endsWith(name)) // successful match
+        else if (DEF.endsWith(name)) // successful name match
         {
             localPrefix = DEF.substring(0,DEF.lastIndexOf(name));
             // TODO compare to ancestor humanoid prefix if needed
@@ -681,7 +687,6 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JTextField descriptionTF;
     private javax.swing.JLabel hintLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel massLabel;
@@ -700,6 +705,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel nameWarningLabel;
     private javax.swing.JPanel nodeHintPanel;
+    private javax.swing.JLabel spacerLabel;
     // End of variables declaration//GEN-END:variables
 
 }
