@@ -34,6 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
+import java.awt.Color;
 import java.awt.Dialog;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
@@ -99,6 +100,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
              scaleSelectionComboBox.setBackground(this.getBackground());
     
     nameComboBox.setSelectedItem(hAnimJoint.getName());
+    
     skinCoordIndexTF.setText    (hAnimJoint.getSkinCoordIndex());
     skinCoordWeightTF.setText   (hAnimJoint.getSkinCoordWeight());
     llimitTF.setText            (hAnimJoint.getLLimit());
@@ -143,6 +145,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     checkAngles (false);
 
     setDefaultDEFname ();
+    checkNameDefMatchRules();
   }
   private void setDefaultDEFname ()
   {
@@ -163,6 +166,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         dEFUSEpanel = getDEFUSEpanel();
         nameLabel = new javax.swing.JLabel();
         nameComboBox = new javax.swing.JComboBox<>();
+        nameWarningLabel = new javax.swing.JLabel();
         descriptionLabel = new javax.swing.JLabel();
         descriptionTF = new javax.swing.JTextField();
         llimitLabel = new javax.swing.JLabel();
@@ -226,8 +230,16 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         scaleSelectionComboBox = new javax.swing.JComboBox<>();
 
         setMinimumSize(new java.awt.Dimension(600, 500));
-        setPreferredSize(new java.awt.Dimension(680, 610));
+        setPreferredSize(new java.awt.Dimension(760, 660));
         setLayout(new java.awt.GridBagLayout());
+
+        dEFUSEpanel.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                dEFUSEpanelKeyReleased(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -255,6 +267,27 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         nameComboBox.setModel(new DefaultComboBoxModel<String>(HANIMJOINT_NAME_CHOICES));
         nameComboBox.setToolTipText("select HAminJoint name");
         nameComboBox.setAutoscrolls(true);
+        nameComboBox.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
+                nameComboBoxItemStateChanged(evt);
+            }
+        });
+        nameComboBox.addFocusListener(new java.awt.event.FocusAdapter()
+        {
+            public void focusGained(java.awt.event.FocusEvent evt)
+            {
+                nameComboBoxFocusGained(evt);
+            }
+        });
+        nameComboBox.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                nameComboBoxMouseEntered(evt);
+            }
+        });
         nameComboBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -262,14 +295,39 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
                 nameComboBoxActionPerformed(evt);
             }
         });
+        nameComboBox.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                nameComboBoxKeyReleased(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameComboBox, gridBagConstraints);
+
+        nameWarningLabel.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        nameWarningLabel.setText("name must have a legal value");
+        nameWarningLabel.setToolTipText("HAnim has strict rules for name and DEF");
+        nameWarningLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                nameWarningLabelMouseEntered(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(nameWarningLabel, gridBagConstraints);
 
         descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -1302,6 +1360,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     private void nameComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nameComboBoxActionPerformed
     {//GEN-HEADEREND:event_nameComboBoxActionPerformed
         setDefaultDEFname ();
+        checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxActionPerformed
 
     private void translationModificationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_translationModificationComboBoxActionPerformed
@@ -1512,6 +1571,36 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         // TODO add your handling code here:
     }//GEN-LAST:event_ulimitTFActionPerformed
 
+    private void nameComboBoxFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_nameComboBoxFocusGained
+    {//GEN-HEADEREND:event_nameComboBoxFocusGained
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameComboBoxFocusGained
+
+    private void nameComboBoxKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_nameComboBoxKeyReleased
+    {//GEN-HEADEREND:event_nameComboBoxKeyReleased
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameComboBoxKeyReleased
+
+    private void nameComboBoxItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_nameComboBoxItemStateChanged
+    {//GEN-HEADEREND:event_nameComboBoxItemStateChanged
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameComboBoxItemStateChanged
+
+    private void nameComboBoxMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameComboBoxMouseEntered
+    {//GEN-HEADEREND:event_nameComboBoxMouseEntered
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameComboBoxMouseEntered
+
+    private void dEFUSEpanelKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_dEFUSEpanelKeyReleased
+    {//GEN-HEADEREND:event_dEFUSEpanelKeyReleased
+        checkNameDefMatchRules(); // TODO fix, apparently not receiving an event
+    }//GEN-LAST:event_dEFUSEpanelKeyReleased
+
+    private void nameWarningLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameWarningLabelMouseEntered
+    {//GEN-HEADEREND:event_nameWarningLabelMouseEntered
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameWarningLabelMouseEntered
+
   @Override
   public String getNameKey()
   {
@@ -1561,6 +1650,57 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
           }
       }
   }
+    private void checkNameDefMatchRules()
+    {
+        String NAME_REQUIRED      = "name must have a legal value";
+        String NAME_RULE_MATCH    = "successful match, DEF = prefix + name";
+        String NAME_RULE_MISMATCH = "mismatch, prefix + name must match DEF";
+  
+        String DEF    = super.getDEFUSEpanel().getDEF();
+        String name   = nameComboBox.getSelectedItem().toString();
+        
+        Color  burntorange = new Color(191,  87,  0);
+        Color   darkorange = new Color(255, 140,  0);
+        Color   darkgreen  = new Color( 21,  71, 52);
+        
+        if (name.isBlank())
+        {
+            nameWarningLabel.setText(NAME_REQUIRED);
+            nameWarningLabel.setForeground(darkorange);
+            nameComboBox.setBackground(Color.YELLOW);
+            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
+            super.getDEFUSEpanel().refreshPanel();
+        }
+        else if (DEF.isBlank()) // and name value is present
+        {
+            nameWarningLabel.setText("");
+            nameWarningLabel.setForeground(Color.BLACK);
+            nameComboBox.setBackground(Color.WHITE);
+            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
+            super.getDEFUSEpanel().refreshPanel();
+        }
+        else if (DEF.endsWith(name)) // successful match
+        {
+            String prefix = DEF.substring(0,DEF.lastIndexOf(name));
+            // TODO compare to ancestor humanoid prefix
+            
+            nameWarningLabel.setText(NAME_RULE_MATCH);
+            nameWarningLabel.setForeground(darkgreen); // too bright: Color.GREEN
+            nameComboBox.setBackground(Color.WHITE);
+            super.getDEFUSEpanel().selectX3dDEFUSEpane();
+            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
+            super.getDEFUSEpanel().refreshPanel();
+        }
+        else
+        {
+            nameWarningLabel.setText(NAME_RULE_MISMATCH);
+            nameWarningLabel.setForeground(darkorange);
+            nameComboBox.setBackground(Color.YELLOW);
+            super.getDEFUSEpanel().selectX3dDEFUSEpane();
+            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.YELLOW);
+            super.getDEFUSEpanel().refreshPanel();
+        }
+    }
 
 @Override
   public void unloadInput() throws IllegalArgumentException
@@ -1635,6 +1775,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     private javax.swing.JTextField llimitTF;
     private javax.swing.JComboBox<String> nameComboBox;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nameWarningLabel;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JButton normalizeRotationValuesButton;
     private javax.swing.JTextField rotationAngleTF;

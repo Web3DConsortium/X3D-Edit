@@ -50,6 +50,8 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
@@ -386,6 +388,13 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         nameWarningLabel.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         nameWarningLabel.setText("name must have a legal value");
         nameWarningLabel.setToolTipText("HAnim has strict rules for name and DEF");
+        nameWarningLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                nameWarningLabelMouseEntered(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
@@ -1319,8 +1328,13 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
 
     private void nameTextFieldFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_nameTextFieldFocusGained
     {//GEN-HEADEREND:event_nameTextFieldFocusGained
-        // TODO add your handling code here:Hu
+        checkNameDefMatchRules();
     }//GEN-LAST:event_nameTextFieldFocusGained
+
+    private void nameWarningLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameWarningLabelMouseEntered
+    {//GEN-HEADEREND:event_nameWarningLabelMouseEntered
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameWarningLabelMouseEntered
 
   @Override
   public String getNameKey()
@@ -1380,7 +1394,6 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
   
         String DEF    = super.getDEFUSEpanel().getDEF();
         String name   = nameTextField.getText();
-        String prefix = new String();
         
         Color  burntorange = new Color(191,  87,  0);
         Color   darkorange = new Color(255, 140,  0);
@@ -1389,6 +1402,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         if (name.isBlank())
         {
             nameWarningLabel.setText(NAME_REQUIRED);
+            nameWarningLabel.setForeground(darkorange);
             nameTextField.setBackground(Color.YELLOW);
             super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
             super.getDEFUSEpanel().refreshPanel();
@@ -1396,13 +1410,14 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         else if (DEF.isBlank()) // and name value is present
         {
             nameWarningLabel.setText("");
+            nameWarningLabel.setForeground(Color.BLACK);
             nameTextField.setBackground(Color.WHITE);
             super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
             super.getDEFUSEpanel().refreshPanel();
         }
         else if (DEF.endsWith(name)) // successful match
         {
-            prefix = DEF.substring(0,DEF.lastIndexOf(name));
+            String prefix = DEF.substring(0,DEF.lastIndexOf(name));
             hAnimHumanoid.setPrefix(prefix);
             
             nameWarningLabel.setText(NAME_RULE_MATCH);
