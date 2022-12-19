@@ -115,9 +115,7 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     CookieSet cookieSet = getCookieSet();
     cookieSet.add(X3DEditorSupport.class, X3DDataObject.this);
     cookieSet.add(ViewSupport.class, X3DDataObject.this);
-    File fil = FileUtil.toFile(pf);
-    if(fil != null)
-      x3dDataObjectDirectory = fil.getParent();
+    File x3dFile = FileUtil.toFile(pf);
 
     // Enable SaveAs support, per FAQ
     cookieSet.assign(SaveAsCapable.class, (SaveAsCapable) (FileObject folder, String fileName) -> {
@@ -149,7 +147,13 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     dtdValidator = new DTDValidator(in);
     schemaValidator = new SchemaValidator(in);
     
-    System.out.println ("*** created X3DDataObject()"); // debug breakpoint
+    if(x3dFile == null)
+    {
+        System.out.println ("*** failed to create X3DDataObject() x3dFile " + pf.getPath());
+        return;
+    }
+    x3dDataObjectDirectory = x3dFile.getParent();
+    System.out.println ("*** created X3DDataObject() " + x3dFile.getPath()); // debug breakpoint
   }
 
   public SAXSource getFreshSaxSource()
