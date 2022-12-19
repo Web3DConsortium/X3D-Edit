@@ -67,10 +67,12 @@ public class HANIMSITECustomizer extends BaseCustomizer
   private String  translationXoriginal, translationYoriginal, translationZoriginal;
   private String       centerXoriginal,      centerYoriginal,      centerZoriginal;
   
+  private String  localPrefix = new String();
+  
     /**
      * Creates new form HANIMSITECustomizer
      * @param site data of interest
-     * * @param target Swing component of interest
+     * @param target Swing component of interest
      */
     public HANIMSITECustomizer(HANIMSITE site, JTextComponent target)
   {
@@ -137,13 +139,30 @@ public class HANIMSITECustomizer extends BaseCustomizer
          centerZoriginal = site.getCenterZ();
 
     checkAngles (false);
-
-    setDefaultDEFname ();
+    
+    if (!hAnimSite.getName().isBlank() &&
+        super.getDEFUSEpanel().getDEF().endsWith(hAnimSite.getName())) // successful match
+    {
+        localPrefix = super.getDEFUSEpanel().getDEF().substring(0,super.getDEFUSEpanel().getDEF().lastIndexOf(hAnimSite.getName()));
+    }
+    nameComboBox.setSelectedItem(hAnimSite.getName());
+//    checkHumanoidRootSpelling(); // wait for panel initialization?
+    setDefaultDEFname();
     checkNameDefMatchRules();
   }
-  private void setDefaultDEFname ()
+  private void setDefaultDEFname()
   {
-    super.getDEFUSEpanel().setDefaultDEFname(NbBundle.getMessage(getClass(),getNameKey()) + nameComboBox.getSelectedItem().toString());
+    String newDefaultName = nameComboBox.getSelectedItem().toString().trim();
+    if (!localPrefix.isBlank())
+    {
+        if (!localPrefix.endsWith("_"))
+             localPrefix += "_";
+        newDefaultName = localPrefix + newDefaultName;
+    }
+    else newDefaultName = NbBundle.getMessage(getClass(),getNameKey()) + newDefaultName;
+    // TODO if available, use prefix from ancestor HAnimHumanoid
+    
+    super.getDEFUSEpanel().setDefaultDEFname(newDefaultName);
   }
   
   /** This method is called from within the constructor to
@@ -230,6 +249,13 @@ public class HANIMSITECustomizer extends BaseCustomizer
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         nameLabel.setText("name");
         nameLabel.setToolTipText("Unique name attribute must be defined so that HAnimSite node can be identified at runtime for animation purposes");
+        nameLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                nameLabelMouseEntered(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -987,7 +1013,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
             rotationYaxisTF.getText(),
             rotationZaxisTF.getText(),
             rotationAngleTF.getText());
-        DialogDescriptor dd = new DialogDescriptor(rotationCalculatorPanel, "Rotation Calculator for HAnimJoint rotation");
+        DialogDescriptor dd = new DialogDescriptor(rotationCalculatorPanel, "Rotation Calculator for HAnimSite rotation");
         Dialog dialog = DialogDisplayer.getDefault().createDialog(dd);
         dialog.setVisible(true);
         if (dd.getValue() != DialogDescriptor.CANCEL_OPTION)
@@ -1064,6 +1090,11 @@ public class HANIMSITECustomizer extends BaseCustomizer
     {//GEN-HEADEREND:event_nameWarningLabelMouseEntered
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameWarningLabelMouseEntered
+
+    private void nameLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameLabelMouseEntered
+    {//GEN-HEADEREND:event_nameLabelMouseEntered
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_nameLabelMouseEntered
 
   @Override
   public String getNameKey()
@@ -1145,10 +1176,10 @@ public class HANIMSITECustomizer extends BaseCustomizer
         }
         else if (DEF.endsWith(name)) // successful match
         {
-            String prefix = DEF.substring(0,DEF.lastIndexOf(name));
-            // TODO compare to ancestor humanoid prefix
+            localPrefix = DEF.substring(0,DEF.lastIndexOf(name));
+            // TODO compare to ancestor humanoid prefix if needed
             
-            nameWarningLabel.setText(NAME_RULE_MATCH);
+            nameWarningLabel.setText(NAME_RULE_MATCH + ", prefix=" + localPrefix);
             nameWarningLabel.setForeground(darkgreen); // too bright: Color.GREEN
             nameComboBox.setBackground(Color.WHITE);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();
@@ -1157,7 +1188,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         }
         else
         {
-            nameWarningLabel.setText(NAME_RULE_MISMATCH);
+            nameWarningLabel.setText(NAME_RULE_MISMATCH + ", prefix=" + localPrefix);
             nameWarningLabel.setForeground(darkorange);
             nameComboBox.setBackground(Color.YELLOW);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();
