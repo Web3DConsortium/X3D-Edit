@@ -2567,7 +2567,7 @@ private void directionalLightIntensityTFActionPerformed(java.awt.event.ActionEve
               if (comboVal.equalsIgnoreCase(universalMediaGroupCombo.getItemAt(i))) {
                 universalMediaGroupCombo.setSelectedIndex(i);
                 universalMediaMaterialSlider.setValue(sliderVal);
-                return; // successful match
+                return; // successful name match
               }
             }
           }
