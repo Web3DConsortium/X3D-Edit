@@ -58,7 +58,7 @@ import org.web3d.x3d.InputOutputReporter;
 import xj3d.filter.CDFFilter;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ImportColladaAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/collada-16x16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Collada32x32.png",
                     displayName = "#CTL_ColladaImportAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
