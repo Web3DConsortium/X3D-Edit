@@ -216,7 +216,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
   protected void setCssStyle(String newCssStyle)
   {
     if ((parentCustomizerPanel != null) && 
-        (parentCustomizerPanel.getBaseX3DElement().getElementName() != X3DSchemaData.FONTSTYLE_ELNAME))
+        !parentCustomizerPanel.getBaseX3DElement().getElementName().equals(X3DSchemaData.FONTSTYLE_ELNAME))
     {
         cssStyleTextField.setText(newCssStyle.trim());
     }
