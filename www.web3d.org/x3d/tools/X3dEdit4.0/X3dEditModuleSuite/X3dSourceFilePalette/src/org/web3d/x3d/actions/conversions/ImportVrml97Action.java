@@ -56,7 +56,8 @@ import org.openide.windows.InputOutput;
 import org.openide.windows.OutputWriter;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ImportVrml97Action", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_ImportVrml97Action", 
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/vrml32x32.png",
+                    displayName = "#CTL_ImportVrml97Action", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Import X3D Model from File", position = 150),
