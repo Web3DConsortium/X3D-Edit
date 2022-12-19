@@ -56,7 +56,7 @@ import org.openide.util.actions.CallableSystemAction;
 
 public final class LaunchIssueReportEmailAction extends CallableSystemAction
 {
-  public static String MAILTO_REPORT_URL = "mailto://brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%20Issue%20Report%20";
+  public static String MAILTO_REPORT_URL = "mailto://brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%20issue%20report%20";
   // don't add body to email, since that clobbers user signature: body=Found%20a%20possible%20problem.%20&
 
   private String elementName = new String();
