@@ -300,7 +300,8 @@ public class HANIMHUMANOID extends X3DTransformNode
       sb.append(translationZ);
       sb.append("'");
     }
-    if (HANIMHUMANOID_ATTR_VERSION_REQD || !version.equals(HANIMHUMANOID_ATTR_VERSION_DFLT) ) {
+    // always output HAnimHumanoid version as a good practice, given all the mixups with past versions and possibilities for future versions
+    if (true || HANIMHUMANOID_ATTR_VERSION_REQD || !version.equals(HANIMHUMANOID_ATTR_VERSION_DFLT) ) {
       sb.append(" ");
       sb.append(HANIMHUMANOID_ATTR_VERSION_NAME);
       sb.append("='");
