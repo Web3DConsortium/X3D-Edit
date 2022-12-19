@@ -752,6 +752,21 @@ public class DEFUSEpanel extends javax.swing.JPanel
                newDefaultDEFname = newDefaultDEFname.substring(newDefaultDEFname.lastIndexOf('\\')+1);
         while (newDefaultDEFname.contains(":"))
                newDefaultDEFname = newDefaultDEFname.substring(newDefaultDEFname.lastIndexOf(':')+1);
+        
+        // TODO get actual prefix from ancestor HAnimHumanoid
+        if      (newDefaultDEFname.startsWith("HAnimHumanoid"))
+                 newDefaultDEFname = "prefix_" + newDefaultDEFname.substring("HAnimHumanoid".length());  // extract name
+        else if (newDefaultDEFname.startsWith("HAnimJoint"))
+                 newDefaultDEFname = "prefix_" + newDefaultDEFname.substring("HAnimJoint".length());     // extract name
+        else if (newDefaultDEFname.startsWith("HAnimSegment"))
+                 newDefaultDEFname = "prefix_" + newDefaultDEFname.substring("HAnimSegment".length());   // extract name
+        else if (newDefaultDEFname.startsWith("HAnimSite"))
+                 newDefaultDEFname = "prefix_" + newDefaultDEFname.substring("HAnimSite".length());      // extract name
+        else if (newDefaultDEFname.startsWith("HAnimDisplacer"))
+                 newDefaultDEFname = "prefix_" + newDefaultDEFname.substring("HAnimDisplacer".length()); // extract name
+        else if (newDefaultDEFname.startsWith("HAnimMotion"))
+                 newDefaultDEFname = "prefix_" + newDefaultDEFname.substring("HAnimMotion".length());    // extract name
+        
         this.defaultDEFname = newDefaultDEFname;
         
         // TODO add prefix to default HAnim name
