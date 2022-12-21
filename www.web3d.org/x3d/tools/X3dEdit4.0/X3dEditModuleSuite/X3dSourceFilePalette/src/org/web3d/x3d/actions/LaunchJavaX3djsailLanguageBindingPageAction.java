@@ -49,7 +49,7 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_X3DJSAIL_JAVADOC;
  * @author brutzman
  */
     @ActionID(id = "org.web3d.x3d.actions.LaunchJavaX3djsailLanguageBindingPageAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/JavaCup24.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/java-icon32x32.png",
                     displayName = "#CTL_LaunchJavaX3djsailLanguageBindingPageAction",
                             lazy=true)
 @ActionReferences( value = {
