@@ -60,7 +60,7 @@ public class DisPlayerRecorderAction extends AbstractAction
   public DisPlayerRecorderAction()
   {
     super(NbBundle.getMessage(DisPlayerRecorderAction.class, "CTL_DisPlayerRecorderAction"));
-    putValue(SMALL_ICON, new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png", true)));
+    putValue(SMALL_ICON, new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/siso_logo_lg_32x32.png", true)));
   }
 
   @Override
@@ -68,7 +68,7 @@ public class DisPlayerRecorderAction extends AbstractAction
   { 
     TopComponent window = DisPlayerRecorderTopComponent.findInstance();
     window.open();
-    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png"));
+    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/siso_logo_lg_32x32.png"));
     window.requestActive();
   }
 }
