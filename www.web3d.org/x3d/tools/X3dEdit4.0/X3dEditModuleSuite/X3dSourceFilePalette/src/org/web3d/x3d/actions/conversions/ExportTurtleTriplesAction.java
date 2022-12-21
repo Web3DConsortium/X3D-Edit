@@ -45,7 +45,7 @@ import org.web3d.x3d.X3DEditorSupport;
 @ActionID(id = "org.web3d.x3d.actions.conversions.ExportTurtleTriplesAction", category = "X3D-Edit")
 
 @ActionRegistration(
-        iconBase = "org/web3d/x3d/resources/SemanticWebCube24.png",
+        iconBase = "org/web3d/x3d/resources/sw-cube28x32.png",
      displayName = "#CTL_ExportTurtleTriplesAction",
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 // https://www.w3.org/2007/10/sw-logos.html
