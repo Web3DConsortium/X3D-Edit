@@ -46,7 +46,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_TWITTER;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumTwitterAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/twitter.2.16x16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/twitter.2.png",
                     displayName = "#CTL_LaunchWeb3DConsortiumTwitterAction", 
                             lazy=true)
 @ActionReferences(value = {

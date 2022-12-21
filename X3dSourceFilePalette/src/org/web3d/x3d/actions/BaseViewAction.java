@@ -88,6 +88,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String SAVAGE_DEVELOPERS_GUIDE                ="https://savage.nps.edu/Savage/developers.html";
   public final static String SISO_DIS_RPR_FOM_PRODUCT_SUPPORT_GROUP ="https://www.sisostds.org/StandardsActivities/SupportGroups/DISRPRFOMPSG.aspx";
   
+  public final static String ACM_SIGGRAPH                           ="https://siggraph.acm.org";
   public final static String WEB3D_CONSORTIUM_HOME                  ="https://web3D.org";
   public final static String WEB3D_CONSORTIUM_JOIN                  ="https://web3D.org/join";
   public final static String WEB3D_CONSORTIUM_GITHUB_DOCUMENTS      ="https://github.com/Web3dConsortium";
@@ -123,6 +124,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String W3C_HOME                               ="https://www.w3.org";
   public final static String W3C_STANDARDS_OPEN_WEB_PLATFORM        ="https://www.w3.org/standards";
   public final static String W3C_DEVELOPERS                         ="https://www.w3.org/developers";
+  public final static String W3C_EXI_RECOMMENDATION                 ="https://www.w3.org/TR/exi/";
   public final static String W3C_CASCADING_STYLESHEETS              ="https://www.w3.org/Style/CSS";
   public final static String W3C_WEB_AUDIO_API                      ="https://www.w3.org/TR/webaudio";
   public final static String W3C_SEMANTIC_WEB                       ="https://www.w3.org/standards/semanticweb";

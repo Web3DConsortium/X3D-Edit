@@ -46,7 +46,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_GITHUB_DOCUMENTS;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumGitHubDocumentsAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/github_favicon16x16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/github_favicon32x32.png",
                     displayName = "#CTL_LaunchWeb3DConsortiumGitHubDocumentsAction", 
                             lazy=true)
 @ActionReferences(value = {
