@@ -51,7 +51,7 @@ import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 
 @ActionID(id = "org.web3d.x3d.x3dedit.config.MyViewBrowserAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon32.png",
                     displayName = "#CTL_MyViewBrowserAction", // "X3D-Edit Home"
                             lazy=true)
 @ActionReferences(value = {

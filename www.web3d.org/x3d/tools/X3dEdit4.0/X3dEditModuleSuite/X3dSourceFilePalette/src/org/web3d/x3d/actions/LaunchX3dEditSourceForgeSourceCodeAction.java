@@ -44,7 +44,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.SOURCEFORGE_X3DEDIT_SOURCE;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dEditSourceForgeSourceCodeAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/SourceForge-logo-16x16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/SourceForge-logo-32x32.png",
                     displayName = "#CTL_LaunchX3dEditSourceForgeSourceCodeAction", 
                             lazy=true)
 @ActionReferences( value = {

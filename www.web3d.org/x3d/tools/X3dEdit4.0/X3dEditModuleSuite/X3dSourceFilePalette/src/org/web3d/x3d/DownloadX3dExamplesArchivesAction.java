@@ -59,7 +59,7 @@ import org.openide.util.actions.CallableSystemAction;
 // no longer supported import org.netbeans.api.javahelp.Help;
 
 @ActionID(id = "org.web3d.x3d.DownloadX3dExamplesArchivesAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon32.png",
                     displayName = "#CTL_DownloadX3dExamplesArchivesAction", 
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
@@ -83,7 +83,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
         frame = new JFrame(NbBundle.getMessage(getClass(), "ExampleArchivesDownloadTitle"));
         frame.getContentPane().setLayout(new BorderLayout());
         BufferedImage bufferedImage;
-        frame.setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/X3Dicon16.png"));
+        frame.setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/X3Dicon32.png"));
         panel = new ExampleArchivesDownloadPanel();
 
       frame.getContentPane().add(panel, BorderLayout.CENTER);

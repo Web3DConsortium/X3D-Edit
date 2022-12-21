@@ -46,7 +46,7 @@ import org.openide.util.actions.CallableSystemAction;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchIssueReportEmailAction", category = "X3D-Edit")
 // adapted email icon from https://creativecommons.org/website-icons
-@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/envelope.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/envelope32X24.png",
                     displayName = "#CTL_LaunchIssueReportEmailAction", 
                             lazy=true)
 @ActionReferences(value = {

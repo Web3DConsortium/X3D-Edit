@@ -65,7 +65,7 @@ import xj3d.browser.*;
 */
 @ActionID(id = "org.web3d.x3d.actions.conversions.ViewInXj3DApplicationAction", category = "X3D-Edit")
 @ActionRegistration(
-           iconBase = "org/web3d/x3d/resources/xj3d.png",
+           iconBase = "org/web3d/x3d/resources/Xj3Dlogo32x32.png",
         displayName = "#CTL_ViewInXj3DApplicationAction",
                lazy = true) // don't do lazy=false since iconBase no longer gets registered
 

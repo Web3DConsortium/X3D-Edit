@@ -60,9 +60,9 @@ import javax.xml.transform.ErrorListener;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import javax.xml.transform.TransformerFactory;
 import org.netbeans.api.xml.cookies.CookieMessage;
 import org.netbeans.api.xml.cookies.CookieObserver;
 import org.netbeans.spi.xml.cookies.DefaultXMLProcessorDetail;
@@ -155,12 +155,11 @@ public abstract class BaseConversionsAction extends CallableSystemAction
   protected final static String Nb_in_BaseConversionsAction     = NbBundle.getMessage(BaseConversionsAction.class, "_in_BaseConversionsAction");
 
   /**
-   * Subclass method to xsl the single file managed by the passed TC.
-   * Will normally call back to xsltOneFile in this class.
-   * @param xed our TopComponent instance managing a single x3d file
-   * @returns abs path of saved transformed file
+   * Subclass method to xsl the single file managed by the passed TC.Will normally call back to xsltOneFile in this class.
+   * @param x3dEditor our TopComponent instance managing a single x3d file
+   * @return absolute path of saved transformed file
    */
-  abstract protected String transformSingleFile(X3DEditorSupport.X3dEditor xed);
+  abstract protected String transformSingleFile(X3DEditorSupport.X3dEditor x3dEditor);
 
   /**
    * Method called from app menu
@@ -454,42 +453,42 @@ public abstract class BaseConversionsAction extends CallableSystemAction
                                                    boolean xsltIsOSFile, 
                                                    Map<String,Object> parameterMap)
   {
-    ConversionsHelper.saveFilePack retrn;
+    ConversionsHelper.saveFilePack saveFilePackResult;
     Node[] node = x3dEditor.getActivatedNodes();
 
-    X3DDataObject dob = (X3DDataObject)x3dEditor.getX3dEditorSupport().getDataObject();
-    FileObject mySrc  = dob.getPrimaryFile();
-    File mySrcFile    = FileUtil.toFile(mySrc);
-    final TransformListener console = TransformListener.getInstance();
+    X3DDataObject x3dDataObject = (X3DDataObject)x3dEditor.getX3dEditorSupport().getDataObject();
+    FileObject primaryFileObject  = x3dDataObject.getPrimaryFile();
+    File primaryFile    = FileUtil.toFile(primaryFileObject);
+    final TransformListener transformListener = TransformListener.getInstance();
     resultFileExtension = processFileExtension(resultFileExtension);
     try {
       // This path is setup in the X3D layer.xml file.
-      console.message(Nb_XSLT_Transformation_starting);
-      StreamSource xslStream;
+      transformListener.message(Nb_XSLT_Transformation_starting);
+      StreamSource xsltStreamSource;
       if(xsltIsOSFile) {
-        File xsltF = new File(xsltFileResourcePath);
-        xslStream = new StreamSource(xsltF);
-        console.message(xsltF.getName() + Nb_against + mySrcFile.getAbsolutePath());
+        File xsltFile = new File(xsltFileResourcePath);
+        xsltStreamSource = new StreamSource(xsltFile);
+        transformListener.message(xsltFile.getName() + Nb_against + primaryFile.getAbsolutePath());
       }
       else {
         FileObject jarredTransformer = FileUtil.getConfigRoot().getFileSystem().findResource(xsltFileResourcePath); //Repository.getDefault().getDefaultFileSystem().findResource (xsltFileResourcePath);
-        xslStream = new StreamSource(jarredTransformer.getInputStream());
-        console.message(jarredTransformer.getNameExt() + Nb_against + mySrcFile.getAbsolutePath());
+        xsltStreamSource = new StreamSource(jarredTransformer.getInputStream());
+        transformListener.message(jarredTransformer.getNameExt() + Nb_against + primaryFile.getAbsolutePath());
       }
-      console.moveToFront(); // make console visible
-      console.setNode(node[0]);
+      transformListener.moveToFront(); // make console visible
+      transformListener.setNode(node[0]);
 
       // pop up dialog panel for destination file name
-      retrn = ConversionsHelper.getDestinationFile(mySrcFile,mySrc.getName()+resultFileExtension,wantOpenResultAccessory);
+      saveFilePackResult = ConversionsHelper.getDestinationFile(primaryFile,primaryFileObject.getName()+resultFileExtension,wantOpenResultAccessory);
 
-      if(retrn == null) {
-        console.message(Nb_XSLT_transformation_cancelled);
+      if(saveFilePackResult == null) {
+        transformListener.message(Nb_XSLT_transformation_cancelled);
       }
       else {
-        File myOutFile = retrn.file;
-        myOutFile.createNewFile();
-        StreamResult outStream = new StreamResult(myOutFile);
-        console.message(Nb_Writing + myOutFile.getAbsolutePath());
+        File resultFile = saveFilePackResult.file;
+        resultFile.createNewFile();
+        StreamResult resultFileStreamResult = new StreamResult(resultFile);
+        transformListener.message(Nb_Writing + resultFile.getAbsolutePath());
 
 //        old style; revamp to match ComprehensiveAction which works
 //        TransformerFactory fact = TransformerFactory.newInstance();
@@ -500,23 +499,23 @@ public abstract class BaseConversionsAction extends CallableSystemAction
         /* The large validitychecks style sheet includes some xslt 2.0 statements */
         TransformerFactory saxonTransformerFactory = new net.sf.saxon.TransformerFactoryImpl();
         saxonTransformerFactory.setURIResolver(X3DCatalog.getInstance());
-        Transformer saxonTransformer = saxonTransformerFactory.newTransformer(xslStream);
+        Transformer saxonTransformer = saxonTransformerFactory.newTransformer(xsltStreamSource);
         saxonTransformer.setErrorListener(new ErrorListener()
         {
           @Override
           public void warning(TransformerException exception) throws TransformerException
           {
-            console.receive(new CookieMessage(exception.getLocalizedMessage(),CookieMessage.WARNING_LEVEL));
+            transformListener.receive(new CookieMessage(exception.getLocalizedMessage(),CookieMessage.WARNING_LEVEL));
           }
           @Override
           public void error(TransformerException exception) throws TransformerException
           {
-            console.receive(new CookieMessage(exception.getLocalizedMessage(),CookieMessage.ERROR_LEVEL));
+            transformListener.receive(new CookieMessage(exception.getLocalizedMessage(),CookieMessage.ERROR_LEVEL));
           }
           @Override
           public void fatalError(TransformerException exception) throws TransformerException
           {
-            console.receive(new CookieMessage(exception.getLocalizedMessage(),CookieMessage.FATAL_ERROR_LEVEL));
+            transformListener.receive(new CookieMessage(exception.getLocalizedMessage(),CookieMessage.FATAL_ERROR_LEVEL));
           }
         });
 
@@ -532,25 +531,25 @@ public abstract class BaseConversionsAction extends CallableSystemAction
         ProtectionDomain domain = saxonTransformer.getClass().getProtectionDomain();
         CodeSource codeSource = domain.getCodeSource();
         if (codeSource == null) {
-          console.message(Nb_Using + saxonTransformer.getClass().getName() + Nb_default_JRE_XSLT_processor);
+          transformListener.message(Nb_Using + saxonTransformer.getClass().getName() + Nb_default_JRE_XSLT_processor);
         }
         else {
           URL location = codeSource.getLocation();
-          console.message(Nb_Using + saxonTransformer.getClass().getName() + Nb_XSLT_processor_from_ + location);
+          transformListener.message(Nb_Using + saxonTransformer.getClass().getName() + Nb_XSLT_processor_from_ + location);
         }
 
-        Proxy proxy = new Proxy(console);
+        Proxy proxy = new Proxy(transformListener);
         saxonTransformer.setErrorListener(proxy);
 
-        saxonTransformer.transform(new StreamSource(mySrc.getInputStream()), outStream);
+        saxonTransformer.transform(new StreamSource(primaryFileObject.getInputStream()), resultFileStreamResult);
 
         //tCookie.transform(xslStream, outStream, console);
 
-        console.message(Nb_XSLT_transformation_complete);
+        transformListener.message(Nb_XSLT_transformation_complete);
       }
     }
     catch(IOException | IllegalArgumentException | TransformerException ex) {
-      console.message(Nb_Exception + ex.getMessage());
+      transformListener.message(Nb_Exception + ex.getMessage());
 
       TransformerException transExcept;
       Object detail = null;
@@ -570,12 +569,12 @@ public abstract class BaseConversionsAction extends CallableSystemAction
 
       if (detail != null) {
         CookieMessage message = new CookieMessage(message(ex), CookieMessage.FATAL_ERROR_LEVEL, detail);
-        console.receive(message);
+        transformListener.receive(message);
       }
-      retrn = null;
+      saveFilePackResult = null;
     }
-    console.moveToFront(true);
-    return retrn;
+    transformListener.moveToFront(true);
+    return saveFilePackResult;
   }
 
   /**

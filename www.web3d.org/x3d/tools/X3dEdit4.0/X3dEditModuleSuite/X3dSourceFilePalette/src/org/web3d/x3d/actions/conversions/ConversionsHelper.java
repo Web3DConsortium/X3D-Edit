@@ -85,6 +85,8 @@ public class ConversionsHelper
     openInBrowser = openResultInEditorChooserAccessory.getOpenInBrowserCheckBox();
     openInBrowser.setSelected(true); // default
     saveChooser.setAccessory(openResultInEditorChooserAccessory);
+    ConversionsHelper.setOpenInBrowserSetting(true);
+    ConversionsHelper.setOpenInEditorSetting(true);
   }
   public void initialize()
   {

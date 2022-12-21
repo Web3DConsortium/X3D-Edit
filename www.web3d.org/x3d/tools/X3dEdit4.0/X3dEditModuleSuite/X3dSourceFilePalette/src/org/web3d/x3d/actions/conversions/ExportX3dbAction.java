@@ -44,7 +44,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.ExportX3dbAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xj3d.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Xj3Dlogo32x32.png",
                     displayName = "#CTL_ExportX3dbAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {

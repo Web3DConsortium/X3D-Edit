@@ -46,7 +46,7 @@ import org.openide.util.NbBundle;
  */
 @ActionID(id = "org.web3d.x3d.xj3d.viewer.Xj3dViewerAction", category = "X3D-Edit")
 
-@ActionRegistration(iconBase = "org/web3d/x3d/resources/xj3d24.png",
+@ActionRegistration(iconBase = "org/web3d/x3d/resources/Xj3Dlogo32x32.png",
         displayName = "#CTL_Xj3dViewerAction",
         lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {

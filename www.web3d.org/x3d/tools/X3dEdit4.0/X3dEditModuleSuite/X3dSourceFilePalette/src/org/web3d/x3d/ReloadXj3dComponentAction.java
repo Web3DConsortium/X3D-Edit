@@ -47,7 +47,7 @@ import org.web3d.x3d.xj3d.viewer.Xj3dTopComponent;
 /* Superceded by Xj3dViewerAction
 
 @ActionID(id = "org.web3d.x3d.ReloadXj3dComponentAction", category = "X3D")
-@ActionRegistration(iconBase = "org/web3d/x3d/resources/xj3d.png",
+@ActionRegistration(iconBase = "org/web3d/x3d/resources/Xj3Dlogo32x32.png",
                     displayName = "#CTL_ReloadXj3dComponent",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
