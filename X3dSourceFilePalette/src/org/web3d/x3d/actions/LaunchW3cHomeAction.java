@@ -44,7 +44,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.W3C_HOME;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchW3cHomeAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/w3c-favicon-16x16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/W3cLogoFromSvg32x32.png",
                     displayName = "#CTL_LaunchW3cHomeAction",
                             lazy=true)
 @ActionReferences(value = {

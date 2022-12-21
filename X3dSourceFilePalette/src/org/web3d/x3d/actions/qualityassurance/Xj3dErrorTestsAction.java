@@ -44,7 +44,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 
 @ActionID(id = "org.web3d.x3d.actions.qualityassurance.Xj3dErrorTestsAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xj3d.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Xj3Dlogo32x32.png",
                     displayName = "#CTL_Xj3dErrorTestsAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {

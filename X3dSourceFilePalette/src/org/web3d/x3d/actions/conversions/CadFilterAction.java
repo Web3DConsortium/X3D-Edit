@@ -54,7 +54,7 @@ import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.options.Xj3dCadFilterOptionsPanel;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.CadFilterAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/xj3d24.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Xj3Dlogo32x32.png",
                     displayName = "#CTL_CadFilterAction",
                             lazy=true)
 @ActionReferences(value = {

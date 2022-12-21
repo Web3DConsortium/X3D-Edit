@@ -48,7 +48,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 
 @ActionID(id = "org.web3d.x3d.x3dedit.config.X3dEditAboutAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon32.png",
                     displayName = "#CTL_X3dEditAboutAction",
                             lazy=true)
 @ActionReferences(value = {
@@ -61,7 +61,7 @@ import org.openide.util.actions.CallableSystemAction;
 
 public final class X3dEditAboutAction extends CallableSystemAction
 {
-  String moduleReleaseDate = "16 December 2022"; // manually edit along with module version for each release
+  String moduleReleaseDate = "19 December 2022"; // manually edit along with module version for each release
   
   String rightMargin = "&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ";
 

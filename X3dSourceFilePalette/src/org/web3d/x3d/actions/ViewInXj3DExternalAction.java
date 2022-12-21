@@ -45,7 +45,7 @@ import org.web3d.x3d.options.X3dOptions;
 */
 @ActionID(id = "org.web3d.x3d.actions.ViewInXj3DExternalAction", category = "X3D-Edit")
 @ActionRegistration(
-           iconBase = "org/web3d/x3d/resources/xj3d.png",
+           iconBase = "org/web3d/x3d/resources/Xj3Dlogo32x32.png",
         displayName = "#CTL_ViewInXj3DExternalAction",
                 lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value={

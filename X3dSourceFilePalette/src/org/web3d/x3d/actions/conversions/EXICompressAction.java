@@ -51,7 +51,7 @@ import org.web3d.x3d.X3DEditorSupport;
 import org.xml.sax.InputSource;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.EXICompressAction", category = "X3D-Edit")
-@ActionRegistration(// TODO not working, TBD   iconBase = "org/web3d/x3d/resources/w3c-favicon-16x16.png",
+@ActionRegistration(// TODO not working, TBD   iconBase = "org/web3d/x3d/resources/W3cLogoFromSvg32x32.png",
                     displayName = "#CTL_ExiAction", 
                        popupText="TODO update, currently disabled", // TODO is this repeatable
                             lazy=false) // don't do lazy=false since iconBase no longer gets registered)

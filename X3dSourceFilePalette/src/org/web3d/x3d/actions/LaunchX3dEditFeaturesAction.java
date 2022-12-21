@@ -44,7 +44,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_EDIT_FEATURES;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dEditFeaturesAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon32.png",
                     displayName = "#CTL_LaunchX3dEditFeaturesAction", 
                             lazy=true)
 @ActionReferences( value = {
