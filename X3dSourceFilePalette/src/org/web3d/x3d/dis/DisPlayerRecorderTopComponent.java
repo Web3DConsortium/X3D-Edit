@@ -100,7 +100,7 @@ final class DisPlayerRecorderTopComponent extends TopComponent
           "Cannot find " + PREFERRED_ID + " component. It will not be located properly in the window system.");
       return getDefault();
     }
-    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png"));
+    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/siso_logo_lg_32x32.png"));
     if (window instanceof DisPlayerRecorderTopComponent) {
       return (DisPlayerRecorderTopComponent) window;
     }

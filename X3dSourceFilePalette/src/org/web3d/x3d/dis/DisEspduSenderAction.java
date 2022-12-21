@@ -49,7 +49,8 @@ import org.openide.windows.TopComponent;
  * Action which shows DisTester component.
  */
 @ActionID(id = "org.web3d.x3d.dis.DisEspduSenderAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_DisEspduSenderAction", lazy = false)
+@ActionRegistration(
+                    displayName = "#CTL_DisEspduSenderAction", lazy = false)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", name = "org-web3d-x3d-dis-DisTesterAction", position = 200),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 200)
@@ -59,7 +60,7 @@ public class DisEspduSenderAction extends AbstractAction
   public DisEspduSenderAction()
   {
     super(NbBundle.getMessage(DisEspduSenderAction.class, "CTL_DisTesterAction"));
-    putValue(SMALL_ICON, new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png", true)));
+    putValue(SMALL_ICON, new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/siso_logo_lg_32x32.png", true)));
   }
 
   @Override
@@ -67,7 +68,7 @@ public class DisEspduSenderAction extends AbstractAction
   {
     TopComponent window = DisEspduSenderControlPanel.findInstance();
     window.open();
-    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/palette/items/resources/SISO_favicon.png"));
+    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/siso_logo_lg_32x32.png"));
     window.requestActive();
   }
 }
