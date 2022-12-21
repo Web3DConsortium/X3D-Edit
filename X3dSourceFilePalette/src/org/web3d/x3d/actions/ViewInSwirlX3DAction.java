@@ -50,7 +50,8 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewInSwirlX3DAction", category = "X3D-Edit")
-@ActionRegistration(displayName = "#CTL_ViewInSwirlX3DAction", lazy=true)
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/SwirlLogo32x32.png",
+                    displayName = "#CTL_ViewInSwirlX3DAction", lazy=true)
 @ActionReferences(value={
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 133),
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 133)})
