@@ -254,6 +254,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionLabel, gridBagConstraints);
 
+        coordIndexTF.setToolTipText("Defines index values into the coordinate array for the mesh of vertices affected by this HAnimDisplacer. Values start at index 0.");
         coordIndexTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -272,6 +273,8 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(coordIndexTF, gridBagConstraints);
+
+        displacementsTF.setToolTipText("displacements are a set of SFVec3f values added to neutral/resting position each ofcorresponding vertices referenced by coordIndex field.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -285,6 +288,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("coordIndex");
+        jLabel2.setToolTipText("Defines index values into the coordinate array for the mesh of vertices affected by this HAnimDisplacer. Values start at index 0.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -297,6 +301,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("displacements");
+        jLabel3.setToolTipText("displacements are a set of SFVec3f values added to neutral/resting position each ofcorresponding vertices referenced by coordIndex field.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -323,18 +328,22 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel, gridBagConstraints);
+
+        weightTF.setToolTipText("weight has typical range [0,1] and determines magnitude of displacement");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 60;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(weightTF, gridBagConstraints);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("weight");
+        jLabel4.setToolTipText("weight has typical range [0,1] and determines magnitude of displacement");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
