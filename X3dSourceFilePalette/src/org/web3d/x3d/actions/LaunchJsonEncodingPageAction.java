@@ -48,7 +48,7 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_JSON_CONVERTER;
  * @author brutzman
  */
     @ActionID(id = "org.web3d.x3d.actions.LaunchJsonEncodingPageAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/json24.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/json32x32.png",
                     displayName = "#CTL_LaunchJsonEncodingPageAction",
                             lazy=true)
 @ActionReferences( value = {
