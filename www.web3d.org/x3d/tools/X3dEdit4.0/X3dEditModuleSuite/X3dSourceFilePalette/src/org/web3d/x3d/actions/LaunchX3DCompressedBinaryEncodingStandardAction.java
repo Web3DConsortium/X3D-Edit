@@ -44,7 +44,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_COMPRESSED_BINARY_ENCODING_STANDARD;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3DCompressedBinaryEncodingStandardAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ISO_favicon16x16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ISO_favicon32x32.png",
                     displayName = "#CTL_LaunchX3DCompressedBinaryEncodingStandardAction",
                             lazy=true)
 @ActionReferences(value = {

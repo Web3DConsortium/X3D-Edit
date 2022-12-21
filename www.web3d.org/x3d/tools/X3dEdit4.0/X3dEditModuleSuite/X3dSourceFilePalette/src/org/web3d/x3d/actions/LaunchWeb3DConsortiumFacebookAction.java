@@ -46,7 +46,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_FACEBOOK;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumFacebookAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/386622_facebook_icon.16x16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/facebook_icon_32x32.png",
                     displayName = "#CTL_LaunchWeb3DConsortiumFacebookAction", 
                             lazy=true)
 @ActionReferences(value = {

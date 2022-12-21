@@ -46,7 +46,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONFERENCE;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConferenceAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/cropped-web3dLogo-1-16x16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/web3dConferenceLogo-1-32x32.png",
                     displayName = "#CTL_LaunchWeb3DConferenceAction", 
                             lazy=true)
 @ActionReferences(value = {
