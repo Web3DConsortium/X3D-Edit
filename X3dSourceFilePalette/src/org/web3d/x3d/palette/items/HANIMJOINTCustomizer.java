@@ -152,8 +152,8 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     {
         localPrefix = super.getDEFUSEpanel().getDEF().substring(0,super.getDEFUSEpanel().getDEF().lastIndexOf(hAnimJoint.getName()));
     }
-    nameComboBox.setSelectedItem(hAnimJoint.getName());
-//    checkHumanoidRootSpelling();
+    checkHumanoidRootSpelling(false); // must precede nameComboBox setting
+    nameComboBox.setSelectedItem(hAnimJoint.getName()); 
     setDefaultDEFname();
     checkNameDefMatchRules();
   }
@@ -1504,7 +1504,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
     private void nameComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nameComboBoxActionPerformed
     {//GEN-HEADEREND:event_nameComboBoxActionPerformed
-        checkHumanoidRootSpelling();
+        checkHumanoidRootSpelling(true);
         setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxActionPerformed
@@ -1719,21 +1719,21 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
     private void nameComboBoxFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_nameComboBoxFocusGained
     {//GEN-HEADEREND:event_nameComboBoxFocusGained
-        checkHumanoidRootSpelling();
+        checkHumanoidRootSpelling(true);
         setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxFocusGained
 
     private void nameComboBoxKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_nameComboBoxKeyReleased
     {//GEN-HEADEREND:event_nameComboBoxKeyReleased
-        checkHumanoidRootSpelling();
+        checkHumanoidRootSpelling(true);
         setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxKeyReleased
 
     private void nameComboBoxMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameComboBoxMouseEntered
     {//GEN-HEADEREND:event_nameComboBoxMouseEntered
-        checkHumanoidRootSpelling();
+        checkHumanoidRootSpelling(true);
         setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxMouseEntered
@@ -1745,21 +1745,21 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
     private void nameWarningLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameWarningLabelMouseEntered
     {//GEN-HEADEREND:event_nameWarningLabelMouseEntered
-        checkHumanoidRootSpelling();
+        checkHumanoidRootSpelling(true);
         setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameWarningLabelMouseEntered
 
     private void nameLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameLabelMouseEntered
     {//GEN-HEADEREND:event_nameLabelMouseEntered
-        checkHumanoidRootSpelling();
+        checkHumanoidRootSpelling(true);
         setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameLabelMouseEntered
 
     private void nameComboBoxItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_nameComboBoxItemStateChanged
     {//GEN-HEADEREND:event_nameComboBoxItemStateChanged
-        checkHumanoidRootSpelling();
+        checkHumanoidRootSpelling(true);
         setDefaultDEFname();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameComboBoxItemStateChanged
@@ -1816,27 +1816,46 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     /**
      * Ensure proper spelling of humanoid_root in accordance with HAnim v2.0 Architecture 4.9.2 The body
      * Call this after panel components are initialized
+     * @param testComboBox whether to test ComboBox (typical) or else test original data structure (during object initialization)
      * @see https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/concepts.html#TheBody
      */
-    private void checkHumanoidRootSpelling()
+    private void checkHumanoidRootSpelling(boolean testComboBox)
     {
         if  (alreadyCheckedHumanoidRootSpelling)
              return;
         else alreadyCheckedHumanoidRootSpelling = true; // only continue first time
-        String jointName = nameComboBox.getSelectedItem().toString().trim();
+        
+        String jointName;
+        if  (testComboBox)
+        {
+            jointName= nameComboBox.getSelectedItem().toString().trim();
+        }
+        else 
+        {
+            jointName= hAnimJoint.getName();
+        }
         if ( jointName.toLowerCase().contains("human") && jointName.toLowerCase().contains("root") &&
             !jointName.equals("humanoid_root"))
         {
               String message;
-              message = "<html><center>Required spelling for <i>name</i>='<b>" + jointName + "</b>' is <b>humanoid_root</b>" +
-                      " according to HAnim v2.0 specification.<br/><br/>Convert <i>name</i> field to <b>humanoid_root</b>?";
+              message = "<html><p align='center'>Required spelling for <i>name</i>='<b>" + jointName + "</b>' is <b>humanoid_root</b>" +
+                      " according to HAnim v2.0 specification.</p>" + 
+                      "<p> </p>" + 
+                      "<p align='center'>If changed, you also need to ensure that DEF and ROUTE values match correctly.</p>" +
+                      "<p </p>" + 
+                      "<p align='center'>Convert <i>name</i> field to <b>humanoid_root</b>?</p>";
             NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
                     message, "Correct spelling of name is humanoid_root", NotifyDescriptor.YES_NO_OPTION);
             if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
             {
-                nameComboBox.setSelectedItem("humanoid_root"); // TODO not working
-                nameComboBox.revalidate();
-                nameComboBox.repaint();
+                if (testComboBox == false)
+                    hAnimJoint.setName("humanoid_root");
+                else
+                {
+                    nameComboBox.setSelectedItem("humanoid_root");// TODO not working
+                    nameComboBox.revalidate();
+                    nameComboBox.repaint();
+                }
             }
         }
     }
