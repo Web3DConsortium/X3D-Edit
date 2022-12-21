@@ -50,7 +50,7 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewInH3dAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/H3D-cropped-512px-16x16.png", // 32x32.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/H3D-cropped-512px-32x32.png", // 32x32.png",
                     displayName = "#CTL_ViewInH3dAction", lazy=true)
 @ActionReferences( value = {
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 124),
