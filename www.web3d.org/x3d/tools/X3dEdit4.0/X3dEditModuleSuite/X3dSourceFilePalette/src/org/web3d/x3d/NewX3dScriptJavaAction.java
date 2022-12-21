@@ -58,7 +58,7 @@ import org.openide.util.actions.CallableSystemAction;
  * Create new Java source file for editing
  */
 @ActionID(id = "org.web3d.x3d.NewX3dScriptJavaAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/JavaCup.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/java-icon32x32.png",
                     displayName = "#CTL_X3DNewX3dScriptJavaAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
@@ -128,7 +128,7 @@ public final class NewX3dScriptJavaAction extends CallableSystemAction
   @Override
   protected String iconResource()
   {
-      return "org/web3d/x3d/resources/JavaCup.png";
+      return "org/web3d/x3d/resources/java-icon32x32.png";
     // alternate Java logo from https://www.java.com/en/about/brand/buttons/   org/web3d/x3d/resources/java_get_powered_sm.jpg
   }
   

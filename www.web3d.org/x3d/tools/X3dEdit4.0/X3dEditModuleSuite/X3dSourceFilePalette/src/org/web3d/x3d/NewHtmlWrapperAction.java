@@ -57,7 +57,7 @@ import org.openide.util.actions.CallableSystemAction;
  * Create new HTML page source file for editing
  */
 @ActionID(id = "org.web3d.x3d.NewHtmlWrapperAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/html.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/html24.png",
                     displayName = "#CTL_X3DNewHtmlWrapperAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
@@ -125,7 +125,7 @@ public final class NewHtmlWrapperAction extends CallableSystemAction
   @Override
   protected String iconResource()
   {
-    return "org/web3d/x3d/resources/html.png";
+    return "org/web3d/x3d/resources/html24.png";
   }
   
   @Override
