@@ -992,7 +992,7 @@ public class ROUTECustomizer extends BaseCustomizer
       FieldPan fp = new FieldPan("unknown","unknown","unknown");
       vec.add(fp);
     }
-     * */
+     */
     return (ComboBoxModel<String>)(new DefaultComboBoxModel(vec));
   }
   //todo clean up; this code is also used in BaseX3DElement
