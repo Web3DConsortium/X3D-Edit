@@ -3,7 +3,7 @@
 https://sourceforge.net/p/x3d/admin/files/badges/
 -->
 
-# X3D-Edit 4.0 Beta Distribution, 16 December 2022
+# X3D-Edit 4.0 Beta Distribution, 21 December 2022
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
