@@ -22,7 +22,7 @@ Directions: download and extract the .zip, use file properties to unblock if nec
 Once baseline stability is demonstrated on multiple platforms, we expect that further authoring support for 
 [X3D4](https://www.web3d.org/x3d4) nodes and features will be added steadily.
 
-[https://netbeans.apache.org]NetBeans 16] plugin tests satisfactory: use [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
+[https://netbeans.apache.org](NetBeans 16) plugin tests satisfactory: use [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
 
 If you have an X3D-Edit build installed earlier than 16 December 2022, please reinstall your zip.
 
