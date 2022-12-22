@@ -471,8 +471,8 @@
                 <binary-origin>release/modules/ext/log4j-api-2.19.0.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/saxon9B.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/saxon9B.jar</binary-origin>
+                <runtime-relative-path>ext/jline-2.14.6.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jline-2.14.6.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/xsbc.jar</runtime-relative-path>
@@ -481,6 +481,10 @@
             <class-path-extension>
                 <runtime-relative-path>ext/xalan.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xalan.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xmlresolver-4.4.3.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xmlresolver-4.4.3.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/log4j-core-2.19.0.jar</runtime-relative-path>
@@ -523,8 +527,16 @@
                 <binary-origin>release/modules/ext/xmlsec-2.1.4.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/saxon-he-11.4.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/saxon-he-11.4.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/Vrml97ToX3dNist.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/Vrml97ToX3dNist.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/xmlresolver-4.4.3-data.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xmlresolver-4.4.3-data.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/slf4j-api-1.7.30.jar</runtime-relative-path>
@@ -584,7 +596,9 @@
             <word>html</word>
             <word>htmlcolorcodes</word>
             <word>https</word>
+            <word>javadoc</word>
             <word>JSON</word>
+            <word>keystore</word>
             <word>localhost</word>
             <word>mailto</word>
             <word>MeshLab</word>
