@@ -47,7 +47,7 @@ import org.web3d.x3d.X3DEditorSupport;
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 95),
-  @ActionReference(path = "Toolbars/&Author Workflow", position = 95),
+  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 95),
   @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 400),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 95),
 //@ActionReference(path = "Editors/model/x3d+xml/Popup", position = 215),

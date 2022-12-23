@@ -70,7 +70,7 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
                     displayName = "#CTL_ViewInAllAction", lazy=true)
 @ActionReferences( value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 60, separatorAfter = 61),
-  @ActionReference(path = "Toolbars/&Author Workflow", position = 60),
+  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 60),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 60, separatorAfter = 61),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 110, separatorBefore = 109), // 
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 110, separatorBefore = 109),

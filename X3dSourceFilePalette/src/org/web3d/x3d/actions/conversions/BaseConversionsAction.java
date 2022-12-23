@@ -479,6 +479,7 @@ public abstract class BaseConversionsAction extends CallableSystemAction
       transformListener.setNode(node[0]);
 
       // pop up dialog panel for destination file name
+      ConversionsHelper.getOpenInEditorSetting(); // debug
       saveFilePackResult = ConversionsHelper.getDestinationFile(primaryFile,primaryFileObject.getName()+resultFileExtension,wantOpenResultAccessory);
 
       if(saveFilePackResult == null) {
