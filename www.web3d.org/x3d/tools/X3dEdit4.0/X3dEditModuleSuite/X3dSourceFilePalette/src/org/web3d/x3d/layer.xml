@@ -145,7 +145,8 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="org-netbeans-modules-masterfs-ui-suspend-PauseAction.shadow_hidden"/>
             <file name="org-netbeans-modules-profiler-actions-SelfSamplerAction.shadow_hidden"/>
         </folder>
-        <folder name="&amp;Author Workflow">
+        <folder name="X3D-Edit &amp;Author Workflow">
+            <!-- include X3D-Edit in name in order to provide context for toolbar entries -->
             <attr name="position" intvalue="184"/>
             <!-- test case to make buttons only active when X3D document selected
             <file name="org-web3d-x3d-actions-qualityassurance-SomeAction.shadow">
@@ -155,7 +156,8 @@ POSSIBILITY OF SUCH DAMAGE.
             -->
             <!-- TODO consider adding HAnim LOA default scenes and other templates -->
         </folder>
-        <folder name="&amp;New File Templates">
+        <folder name="X3D-Edit &amp;New File Templates">
+            <!-- include X3D-Edit in name in order to provide context for toolbar entries -->
             <attr name="position" intvalue="185"/>
             <!-- TODO hide by default? -->
             <!--<file name="edu-nps-moves-kmleditor-actions-NewKmlFileAction.instance"/>-->
@@ -464,6 +466,7 @@ POSSIBILITY OF SUCH DAMAGE.
         <file name="X3dToXhtml.bat" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml.bat"/>
         <file name="X3dToXhtml.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToXhtml.xslt"/>
         <file name="X3dToX3dom.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToX3dom.xslt"/>
+        <file name="X3dToJava.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToJava.xslt"/>
         <file name="X3dToJson.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToJson.xslt"/>
         <file name="X3dToPython.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dToPython.xslt"/>
         <file name="X3dUnwrap.xslt" url="nbresloc:/org/web3d/x3d/stylesheets/X3dUnwrap.xslt"/>
