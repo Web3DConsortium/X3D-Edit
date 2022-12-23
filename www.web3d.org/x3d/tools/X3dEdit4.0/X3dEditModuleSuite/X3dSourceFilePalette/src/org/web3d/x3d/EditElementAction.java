@@ -70,7 +70,7 @@ import org.web3d.x3d.palette.items.PROTOTYPE_ExtrusionCrossSection;
                     displayName = "#CTL_EditElementAction",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/&Author Workflow", position = 10),
+  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 10),
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 10),
   @ActionReference(path = "Menu/&X3D-Edit/&Edit Element XML", position = 200),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 10),
