@@ -63,7 +63,7 @@ import org.web3d.x3d.tools.x3db.X3dCanonicalizer;
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 40),
   @ActionReference(path = "Menu/&X3D-Edit/&Compression", position = 100),
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 250),
-  @ActionReference(path = "Toolbars/&Author Workflow", position = 40),
+  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 40),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 40),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Compression", position = 100),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 250),

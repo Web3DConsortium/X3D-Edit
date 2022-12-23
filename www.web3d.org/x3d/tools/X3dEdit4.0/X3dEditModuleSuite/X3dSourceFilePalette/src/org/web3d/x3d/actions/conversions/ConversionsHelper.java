@@ -87,6 +87,7 @@ public class ConversionsHelper
     saveChooser.setAccessory(openResultInEditorChooserAccessory);
     ConversionsHelper.setOpenInBrowserSetting(true);
     ConversionsHelper.setOpenInEditorSetting(true);
+    ConversionsHelper.getOpenInEditorSetting(); // debug
   }
   public void initialize()
   {
