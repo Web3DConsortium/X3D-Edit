@@ -10,7 +10,7 @@
     <meta content='X3D-Edit example' name='subject'/>
     <meta content='https://www.web3d.org/x3d/content/examples/Basic/development/MaterialExample.x3d' name='identifier'/>
     <meta content='src/www.web3d.org/x3d/tools/X3dEdit3.3/X3D/src/org/web3d/x3d/templates/MaterialExample.x3d' name='reference'/>
-    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit' name='generator'/>
     <meta content='../license.html' name='license'/>
   </head>
   <Scene>
