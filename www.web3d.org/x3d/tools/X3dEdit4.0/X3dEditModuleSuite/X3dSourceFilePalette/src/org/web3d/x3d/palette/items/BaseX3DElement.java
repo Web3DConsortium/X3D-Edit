@@ -102,10 +102,6 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
   public BaseX3DElement()
   {
-// TODO illegal block from X3D-Edit 3.3
-//   if(this instanceof X3DNode)
-//      containerField = ((X3DNode)this).getDefaultContainerField();
-
     // avoid internalization (I18N) localization (L10N) of decimal separator (decimal point)
     DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
     decimalFormatSymbols.setDecimalSeparator('.');
@@ -188,7 +184,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         }
         catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
-          //todo error
+          System.err.println ("*** BaseX3dElement " + this.getElementName() + " " + ex.getMessage());
+          System.err.println (Arrays.toString(ex.getStackTrace()));
           return false;
         }
       }
@@ -270,7 +267,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     try {
       c = (Class<? extends BaseCustomizer>)Class.forName(getClass().getName()+ "Customizer");
     }
-    catch(Exception e){}
+    catch(ClassNotFoundException e){}
     return c;
   }
 
@@ -327,7 +324,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     return sb.toString();
   }
 
-  /** Overridden by each element, if attributes exist */
+  /** Overridden by each element, if attributes exist
+    * @return attribute string for each name='value' */
   protected String createAttributes()
   {
     return "";
@@ -382,7 +380,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         return false;
     return (content.contains("<!--"));
   }
-  /** Utility method */
+  /** Utility method 
+    * @return parent */
   protected Element getParent()
   {
     Element el = this.elementLocation.element;
@@ -456,7 +455,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         sb.append(createElementNameCommonX3dAttributes());
     }
     
-    if (isDEF()) // equivalent to checking if X3D node (not statement)?
+    if (isDEF() || isUSE()) // equivalent to checking if X3D node (not statement)?
     {
         String attrs = createAttributes().trim();
         if(attrs.length() > 0) {
@@ -2176,7 +2175,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                 }
                 else if (getElementName().equals("HAnimSite"))
                 {
-                    name         = ((HANIMSITE) this).getName();
+                    name    = ((HANIMSITE) this).getName();
     //              translationValue = ((HANIMSITE) this).getTranslationX() + ' ' + ((HANIMSITE) this).getTranslationY() + ' ' + ((HANIMSITE) this).getTranslationZ();
                 
                     sb.append(
@@ -2247,9 +2246,9 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                         a1 = 1.0;
                         a2 = 0.0;
                         a3 = 0.0;
-                        b1 = Double.valueOf(rotationX);
-                        b2 = Double.valueOf(rotationY);
-                        b3 = Double.valueOf(rotationZ);
+                        b1 = Double.parseDouble(rotationX);
+                        b2 = Double.parseDouble(rotationY);
+                        b3 = Double.parseDouble(rotationZ);
                         a  = Math.sqrt(a1*a1 + a2*a2 + a3*a3); // magnitude
                         b  = Math.sqrt(b1*b1 + b2*b2 + b3*b3); // magnitude
                         a_dot_b = a1*b1 + a2*b2 + a3*b3;
@@ -3224,10 +3223,10 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   protected void setupContent(org.jdom.Element root)
   {
     @SuppressWarnings("unchecked")
-    List<Object> lis = root.getContent();
+    List<Object> contentList = root.getContent();
 
     String contentText = null;
-    if(lis.size() > 0) {
+    if(!contentList.isEmpty()) {
       try {
         StringWriter sw = new StringWriter();
         XMLOutputter xout = new X3DXMLOutputter(); //XMLOutputter();
@@ -3272,7 +3271,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     hasDEF = isDef;
   }
 
-  /** Value of DEF or USE attribute, isDEF() and isUSE tells which */
+  /** Value of DEF or USE attribute, isDEF() and isUSE() identifies which is present
+    * @return DEFUSE value */
   public String getDEFUSEvalue()
   {
     if (DEFUSE==null)
@@ -3316,22 +3316,22 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   {
     return useContainerField;
   }
-  public void setUseContainerField(boolean b)
+  public void setUseContainerField(boolean newValue)
   {
-    useContainerField = b;
+    useContainerField = newValue;
   }
   public String getContainerField()
   {
     return containerField;
   }
-  public void setContainerField(String s)
+  public void setContainerField(String newValue)
   {
-    containerField = s;
+    containerField = newValue;
   }
   public String buildContainerField()
   {
     String cf = getContainerField();
-    if(isUseContainerField() && (cf != null && !cf.isEmpty()))
+    if(isUseContainerField() && (cf != null && !cf.isBlank())) // default values not omitted, hopefully for author clarity
     {
       StringBuilder sb = new StringBuilder();
       sb.append(" containerField='");
@@ -3339,7 +3339,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
       sb.append("'");
       return sb.toString();
     }
-    return "";
+    else return "";
   }
 
   private String htmlID = ""; // initial default
@@ -3706,7 +3706,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     int n = 0;
     for (String str : sa) {
       try {
-        Float.parseFloat(str);
+        Float.valueOf(str);
         sb.append(str);
         if(x > 0) {
           if (++n % x == 0)
@@ -3717,7 +3717,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         else
           sb.append(" ");
       }
-      catch (Exception e) {
+      catch (NumberFormatException e) {
         throw new IllegalArgumentException("Non-numeric data detected, ignored values");
       }
     }
@@ -4032,7 +4032,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 //             escapedValue.append("&gt;");          // replace > character with &gt;   characters; not required/essential
           else if (value.charAt(c) == '\\')
                escapedValue.append("\\\\");          // replace \ character with \\     characters
-          else if ((int)(value.charAt(c)) > 127)     // replace special characters with XML character entity
+          else if ((value.charAt(c)) > 127)     // replace special characters with XML character entity
                escapedValue.append("&#").append((int)(value.charAt(c))).append(";");
           else escapedValue.append(value.charAt(c)); // otherwise no change, pass along the unescaped character
       }
