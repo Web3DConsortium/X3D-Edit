@@ -45,10 +45,10 @@ public class ContainerFieldPanel extends javax.swing.JPanel
     this.setContainerFieldTooltips (containerFieldTooltips);
   }
   
-  public void setContainerField(String containerField)
+  public void setContainerField(String newContainerField)
   {
-    if(containerField != null && containerField.length()>0)
-      containerFieldCombo.setSelectedItem(containerField);
+    if(newContainerField != null && !newContainerField.isBlank())
+      containerFieldCombo.setSelectedItem(newContainerField);
   }
 
   boolean getUseContainerField()
