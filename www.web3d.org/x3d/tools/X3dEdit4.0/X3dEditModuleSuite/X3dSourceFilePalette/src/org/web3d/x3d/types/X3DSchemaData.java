@@ -1016,7 +1016,7 @@ public interface X3DSchemaData
   boolean TRANSFORM_ATTR_BBOXSIZE_REQD         = false;
   String  TRANSFORM_ATTR_BBOXSIZE_DFLT         = "-1 -1 -1";
 
-  // Also used by Shape, LOD
+  // similar versions used by Shape, LOD
   String[]TRANSFORM_CONTAINERFIELD_CHOICES    = {"children", "proxy", "shape", "rootNode"};
   String  TRANSFORM_CONTAINERFIELD_TOOLTIP    = "'children' for typical use as child node, 'shape' when initial child of CADFace";
   String[]TRANSFORM_CONTAINERFIELD_TOOLTIPS   =
@@ -1063,6 +1063,14 @@ public interface X3DSchemaData
   boolean LOD_ATTR_BBOXSIZE_REQD         = false;
   String  LOD_ATTR_BBOXSIZE_DFLT         = "-1 -1 -1";
 
+  String[]LOD_ATTR_CONTAINERFIELD_CHOICES    = {"children", "proxy", "shape"};
+  String[]LOD_ATTR_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "child of a grouping node",
+      "proxy field for a Collision child node",
+      "shape field for a CADFace child node",
+  };
+
   // element Shape
   String  SHAPE_ELNAME               = "Shape";
   String  SHAPE_ATTR_BBOXCENTER_NAME = "bboxCenter";
@@ -1072,13 +1080,14 @@ public interface X3DSchemaData
   boolean SHAPE_ATTR_BBOXSIZE_REQD   = false;
   String  SHAPE_ATTR_BBOXSIZE_DFLT   = "-1 -1 -1";
 
-  String[]SHAPE_ATTR_CONTAINERFIELD_CHOICES    = {"children", "proxy", "shape", "rootNode"};
+  String[]SHAPE_ATTR_CONTAINERFIELD_CHOICES    = {"children", "proxy", "shape", "rootNode", "skin"};
   String[]SHAPE_ATTR_CONTAINERFIELD_TOOLTIPS   =
   {
       "child of a grouping node",
       "proxy field for a Collision child node",
       "shape field for a CADFace child node",
-      "child of a GeoLOD node"
+      "child of a GeoLOD node",
+      "'skin' of a HAnimHumanoid node",
   };
 
   // element Sphere
@@ -1825,6 +1834,13 @@ public interface X3DSchemaData
   String  INDEXEDFACESET_ATTR_TEXCOORDINDEX_NAME = "texCoordIndex";
   boolean INDEXEDFACESET_ATTR_TEXCOORDINDEX_REQD = false;
   String  INDEXEDFACESET_ATTR_TEXCOORDINDEX_DFLT = "";
+  
+  String[]INDEXEDFACESET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
+  String[]INDEXEDFACESET_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'geometry' for typical use within a Shape node",
+      "'skin' of a HAnimHumanoid node",
+  };
 
   // Element ElevationGrid
   String  ELEVATIONGRID_ELNAME                    = "ElevationGrid";
@@ -2432,6 +2448,13 @@ public interface X3DSchemaData
   String  INDEXEDTRIANGLESET_ATTR_INDEX_NAME           = "index";
   boolean INDEXEDTRIANGLESET_ATTR_INDEX_REQD           = false;
   String  INDEXEDTRIANGLESET_ATTR_INDEX_DFLT           = "";
+  
+  String[]INDEXEDTRIANGLESET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
+  String[]INDEXEDTRIANGLESET_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'geometry' for typical use within a Shape node",
+      "'skin' of a HAnimHumanoid node",
+  };
 
   // IndexedTriangleFanSet element
   String  INDEXEDTRIANGLEFANSET_ELNAME                    = "IndexedTriangleFanSet";
@@ -2450,7 +2473,14 @@ public interface X3DSchemaData
   String  INDEXEDTRIANGLEFANSET_ATTR_INDEX_NAME           = "index";
   boolean INDEXEDTRIANGLEFANSET_ATTR_INDEX_REQD           = false;
   String  INDEXEDTRIANGLEFANSET_ATTR_INDEX_DFLT           = "";
-
+  
+  String[]INDEXEDTRIANGLEFANSET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
+  String[]INDEXEDTRIANGLEFANSET_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'geometry' for typical use within a Shape node",
+      "'skin' of a HAnimHumanoid node",
+  };
+  
   // IndexedTriangleStripSet element
   String  INDEXEDTRIANGLESTRIPSET_ELNAME                    = "IndexedTriangleStripSet";
   String  INDEXEDTRIANGLESTRIPSET_ATTR_CCW_NAME             = "ccw";
@@ -2469,6 +2499,13 @@ public interface X3DSchemaData
   boolean INDEXEDTRIANGLESTRIPSET_ATTR_INDEX_REQD           = false;
   String  INDEXEDTRIANGLESTRIPSET_ATTR_INDEX_DFLT           = "";
 
+  String[]INDEXEDTRIANGLESTRIPSET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
+  String[]INDEXEDTRIANGLESTRIPSET_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'geometry' for typical use within a Shape node",
+      "'skin' of a HAnimHumanoid node",
+  };
+  
    // IndexedQuadSet element
   String  INDEXEDQUADSET_ELNAME                    = "IndexedQuadSet";
   String  INDEXEDQUADSET_ATTR_CCW_NAME             = "ccw";
@@ -2486,6 +2523,13 @@ public interface X3DSchemaData
   String  INDEXEDQUADSET_ATTR_INDEX_NAME           = "index";
   boolean INDEXEDQUADSET_ATTR_INDEX_REQD           = false;
   String  INDEXEDQUADSET_ATTR_INDEX_DFLT           = "";
+  
+  String[]INDEXEDQUADSET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
+  String[]INDEXEDQUADSET_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'geometry' for typical use within a Shape node",
+      "'skin' of a HAnimHumanoid node",
+  };
 
   // Element ROUTE
   String  ROUTE_ELNAME              = "ROUTE";
