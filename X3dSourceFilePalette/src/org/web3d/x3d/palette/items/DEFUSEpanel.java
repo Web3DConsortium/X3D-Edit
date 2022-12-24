@@ -57,176 +57,202 @@ import org.web3d.x3d.types.X3DSchemaData;
  */
 public class DEFUSEpanel extends javax.swing.JPanel
 {
-  private String           defaultDEFname = "";
-  private String[] containerFieldTooltips =  {}; // initially empty
-  private BaseCustomizer parentCustomizerPanel;  
+    private String           defaultDEFname = "";
+    private String          currentNodeName = "";
+    private String[] containerFieldTooltips =  {}; // initially empty
+    private BaseCustomizer parentCustomizerPanel;  
 
-  /** Creates new form DEFUSEpanel */
-  public DEFUSEpanel()
-  {
-    initComponents();
-    
-    checkDEFnameModificationButtonLabel ();
-    
-    highlightX3dDEFUSEpane();
-    highlightHtmlCssPane();
-  }
-
-  protected String getDEF()
-  {
-    return defTF.getText().trim();
-  }
-
-  protected void setDEF(String newDEF)
-  {
-    defTF.setText(newDEF.trim());
-  }
-
-  protected String getUSE()
-  {
-    return useCB.getSelectedItem().toString().trim();
-  }
-
-  protected void setUSE(String newUSE)
-  {
-    useCB.setSelectedItem(newUSE.trim()); // TODO test
-  }
-
-  protected javax.swing.JRadioButton getDefRB()
-  {
-    return defRB;
-  }
-
-  protected javax.swing.JRadioButton getUseRB()
-  {
-    return useRB;
-  }
-
-  protected javax.swing.JTextField getDefTF()
-  {
-    return defTF;
-  }
-
-  protected javax.swing.JComboBox<String> getUseCB()
-  {
-    return useCB;
-  }
-
-  protected String getContainerField()
-  {
-    if(containerFieldCheckBox.isSelected())
-      return (String)containerFieldCombo.getSelectedItem();
-    return null;
-  }
-  
-  protected void setContainerField(String s)
-  {
-    containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
-    containerFieldCombo.setEditable(true); // and editable
-    containerFieldCombo.setSelectedItem(s);
-	
-    if (!containerFieldCombo.getSelectedItem().toString().equalsIgnoreCase(s))
+    /** Creates new form DEFUSEpanel */
+    public DEFUSEpanel()
     {
-		containerFieldCombo.addItem(s);
-		containerFieldCombo.setSelectedItem(s);
-    }
-    if (!containerFieldCombo.getSelectedItem().toString().equalsIgnoreCase(s)) // still missing after adding
-    {
-		// TODO notifier?
-        System.err.println ("Error, DEFUSEpanel.setContainerField(" + s + ") is unexpected value");
-    }
-	// https://stackoverflow.com/questions/10904639/how-to-refresh-the-jcombobox-data
-	this.revalidate();
-	this.repaint();
-  }
-  
-  protected void setContainerFieldChoices(String[] choices)
-  {
-    containerFieldCombo.setModel(new DefaultComboBoxModel<>(choices));
-    containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
-    containerFieldCombo.setEditable(true); // and editable
-  }
+        initComponents();
 
-  // overriding single tooltip, consider overriding individual tooltips for each combobox list entry
-  public void setContainerFieldTooltips(String[] newContainerFieldTooltips)
-  {
-    containerFieldTooltips = newContainerFieldTooltips;
-    assignCorrectTooltip ();
-    containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
-    containerFieldCombo.setEditable(true); // and editable
-  }
-  protected void setContainerFieldChoices(String[] containerFieldChoices, String containerFieldTooltip)
-  {
-    containerFieldCombo.setModel(new DefaultComboBoxModel<>(containerFieldChoices));
-    containerFieldCombo.setToolTipText(containerFieldTooltip);
-    containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
-    containerFieldCombo.setEditable(true); // and editable
-  }
-  protected void setContainerFieldChoices(String[] containerFieldChoices, String[] containerFieldTooltips)
-  {
-    containerFieldCombo.setModel(new DefaultComboBoxModel<>(containerFieldChoices));
-    setContainerFieldTooltips(containerFieldTooltips);
-    containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
-    containerFieldCombo.setEditable(true); // and editable
-  }
-  
-  protected void setUseContainerField(boolean b)
-  {
-    containerFieldCheckBox.setSelected(b);
+        checkDEFnameModificationButtonLabel ();
+
+        highlightX3dDEFUSEpane();
+        highlightHtmlCssPane();
+    }
+
+    protected String getDEF()
+    {
+        return defTF.getText().trim();
+    }
+
+    protected void setDEF(String newDEF)
+    {
+        defTF.setText(newDEF.trim());
+    }
+
+    protected String getUSE()
+    {
+        return useCB.getSelectedItem().toString().trim();
+    }
+
+    protected void setUSE(String newUSE)
+    {
+        useCB.setSelectedItem(newUSE.trim()); // TODO test
+    }
+
+    protected javax.swing.JRadioButton getDefRB()
+    {
+        return defRB;
+    }
+
+    protected javax.swing.JRadioButton getUseRB()
+    {
+        return useRB;
+    }
+
+    protected javax.swing.JTextField getDefTF()
+    {
+        return defTF;
+    }
+
+    protected javax.swing.JComboBox<String> getUseCB()
+    {
+        return useCB;
+    }
+
+    protected String getContainerField()
+    {
+        if(containerFieldCheckBox.isSelected())
+          return (String)containerFieldCombo.getSelectedItem();
+        return null;
+    }
+
+    protected void setContainerField(String newContainerField)
+    {
+        containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
+        containerFieldCombo.setEditable(true); // and editable
+        
+        // first check to see if X3D-Edit containerField array holds value of interest, if not then report on console
+        boolean foundContainerField = false;
+        for (int i = 0; i < containerFieldCombo.getModel().getSize(); i++)
+        {
+            if (containerFieldCombo.getItemAt(i).equals(newContainerField))
+            {
+                containerFieldCombo.setSelectedIndex(i);
+                foundContainerField = true;
+                break;
+            }
+        }
+        if (!foundContainerField) // need to update X3D-Edit array of default values corresponding to this node
+        {
+            System.out.println("*** " + getCurrentNodeName() + " containerField=" + newContainerField + " not found in list of expected values");
+            // https://stackoverflow.com/questions/17887927/adding-items-to-a-jcombobox
+            containerFieldCombo.addItem(newContainerField);
+        }
+        containerFieldCombo.setSelectedItem(newContainerField);
+
+        if (!containerFieldCombo.getSelectedItem().toString().equalsIgnoreCase(newContainerField))
+        {
+            containerFieldCombo.addItem(newContainerField);
+            containerFieldCombo.setSelectedItem(newContainerField);
+        }
+        if (!containerFieldCombo.getSelectedItem().toString().equalsIgnoreCase(newContainerField)) // still missing after adding
+        {
+            // TODO notifier?
+            System.err.println ("Error, DEFUSEpanel.setContainerField(" + newContainerField + ") is unexpected value");
+        }
+        // https://stackoverflow.com/questions/10904639/how-to-refresh-the-jcombobox-data
+        this.revalidate();
+        this.repaint();
+    }
+
+    protected void setContainerFieldChoices(String[] choices)
+    {
+        containerFieldCombo.setModel(new DefaultComboBoxModel<>(choices));
+        containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
+        containerFieldCombo.setEditable(true); // and editable
+    }
+
+    // overriding single tooltip, consider overriding individual tooltips for each combobox list entry
+    public void setContainerFieldTooltips(String[] newContainerFieldTooltips)
+    {
+        containerFieldTooltips = newContainerFieldTooltips;
+        assignCorrectTooltip();
+        containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
+        containerFieldCombo.setEditable(true); // and editable
+    }
+    protected void setContainerFieldChoices(String[] containerFieldChoices, String containerFieldTooltip)
+    {
+        containerFieldCombo.setModel(new DefaultComboBoxModel<>(containerFieldChoices));
+        containerFieldCombo.setToolTipText(containerFieldTooltip);
+        containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
+        containerFieldCombo.setEditable(true); // and editable
+    }
+    protected void setContainerFieldChoices(String[] containerFieldChoices, String[] containerFieldTooltips)
+    {
+        containerFieldCombo.setModel(new DefaultComboBoxModel<>(containerFieldChoices));
+        setContainerFieldTooltips(containerFieldTooltips);
+        containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
+        containerFieldCombo.setEditable(true); // and editable
+    }
+
+    protected void setUseContainerField(boolean b)
+    {
+        containerFieldCheckBox.setSelected(b);
 //    containerFieldCheckBoxAction(null);
-  }
-  
-  protected boolean getUseContainerField()
-  {
-    return containerFieldCheckBox.isSelected();
-  }
-  private void checkDEFnameModificationButtonLabel ()
-  {
-      if (getDEF().length() > 0)
-      {
-          DEFnameModificationButton.setText("--");
-          DEFnameModificationButton.setToolTipText("Clear DEF name");
-      }
-      else
-      {
-          DEFnameModificationButton.setText("+");
-          DEFnameModificationButton.setToolTipText("Add example DEF name, edit to ensure unique");
-      }
-  }
-  protected String getHtmlID()
-  {
-    return htmlIdTextField.getText().trim();
-  }
-  protected void setHtmlID(String newDEF)
-  {
-    htmlIdTextField.setText(newDEF.trim());
-  }
-  protected String getCssClass()
-  {
-    return cssClassTextField.getText().trim();
-  }
-  protected void setCssClass(String newDEF)
-  {
-    cssClassTextField.setText(newDEF.trim());
-  }
-  protected String getCssStyle()
-  {
-    return cssStyleTextField.getText().trim();
-  }
-  protected void setCssStyle(String newCssStyle)
-  {
-    if ((parentCustomizerPanel != null) && 
-        !parentCustomizerPanel.getBaseX3DElement().getElementName().equals(X3DSchemaData.FONTSTYLE_ELNAME))
-    {
-        cssStyleTextField.setText(newCssStyle.trim());
     }
-    // TODO handle FontStyle cssStyle attribute
-  }
-  /** This method is called from within the constructor to
-   * initialize the form.
-   * WARNING: Do NOT modify this code. The content of this method is
-   * always regenerated by the Form Editor.
-   */
+
+    protected boolean getUseContainerField()
+    {
+        return containerFieldCheckBox.isSelected();
+    }
+
+    private void checkDEFnameModificationButtonLabel()
+    {
+        if (getDEF().length() > 0)
+        {
+            DEFnameModificationButton.setText("--");
+            DEFnameModificationButton.setToolTipText("Clear DEF name");
+        } else
+        {
+            DEFnameModificationButton.setText("+");
+            DEFnameModificationButton.setToolTipText("Add example DEF name, edit to ensure unique");
+        }
+    }
+
+    protected String getHtmlID()
+    {
+        return htmlIdTextField.getText().trim();
+    }
+
+    protected void setHtmlID(String newDEF)
+    {
+        htmlIdTextField.setText(newDEF.trim());
+    }
+
+    protected String getCssClass()
+    {
+        return cssClassTextField.getText().trim();
+    }
+
+    protected void setCssClass(String newDEF)
+    {
+        cssClassTextField.setText(newDEF.trim());
+    }
+
+    protected String getCssStyle()
+    {
+        return cssStyleTextField.getText().trim();
+    }
+
+    protected void setCssStyle(String newCssStyle)
+    {
+        if ((parentCustomizerPanel != null)
+                && !parentCustomizerPanel.getBaseX3DElement().getElementName().equals(X3DSchemaData.FONTSTYLE_ELNAME))
+        {
+            cssStyleTextField.setText(newCssStyle.trim());
+        }
+        // TODO handle FontStyle cssStyle attribute
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
     {
@@ -591,38 +617,39 @@ public class DEFUSEpanel extends javax.swing.JPanel
 
   private void enableDisable(java.awt.event.ActionEvent evt)//GEN-FIRST:event_enableDisable
   {//GEN-HEADEREND:event_enableDisable
-                   getDefTF().setEnabled(getDefRB().isSelected());
-                   getUseCB().setEnabled(getUseRB().isSelected());
-    DEFnameModificationButton.setEnabled(getDefRB().isSelected());
-    // TODO BaseCustomizer.enableAppendVisualizationCB.setEnabled(getDefRB().isSelected());
-    checkDEFnameModificationButtonLabel ();
+      getDefTF().setEnabled(getDefRB().isSelected());
+      getUseCB().setEnabled(getUseRB().isSelected());
+      DEFnameModificationButton.setEnabled(getDefRB().isSelected());
+      // TODO BaseCustomizer.enableAppendVisualizationCB.setEnabled(getDefRB().isSelected());
+      checkDEFnameModificationButtonLabel();
   }//GEN-LAST:event_enableDisable
 
     private void containerFieldCheckBoxAction(java.awt.event.ActionEvent evt)//GEN-FIRST:event_containerFieldCheckBoxAction
     {//GEN-HEADEREND:event_containerFieldCheckBoxAction
-        containerFieldCombo.setEnabled(containerFieldCheckBox.isSelected());     
+        containerFieldCombo.setEnabled(containerFieldCheckBox.isSelected());
     }//GEN-LAST:event_containerFieldCheckBoxAction
 
     private void DEFnameModificationButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_DEFnameModificationButtonActionPerformed
     {//GEN-HEADEREND:event_DEFnameModificationButtonActionPerformed
         if (DEFnameModificationButton.getText().equals("+"))
         {
-             setDEF(defaultDEFname); // TODO increment by number if needed
+            setDEF(defaultDEFname); // TODO increment by number if needed
+        } else
+        {
+            setDEF(""); // -- minus button
         }
-        else setDEF(""); // -- minus button
-
-        checkDEFnameModificationButtonLabel ();
+        checkDEFnameModificationButtonLabel();
     }//GEN-LAST:event_DEFnameModificationButtonActionPerformed
 
     private void defTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_defTFActionPerformed
     {//GEN-HEADEREND:event_defTFActionPerformed
-        checkDEFnameModificationButtonLabel ();
+        checkDEFnameModificationButtonLabel();
 
     }//GEN-LAST:event_defTFActionPerformed
 
     private void containerFieldComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_containerFieldComboActionPerformed
-        assignCorrectTooltip ();
-		containerFieldCheckBox.setSelected(true);
+        assignCorrectTooltip();
+        containerFieldCheckBox.setSelected(true);
     }//GEN-LAST:event_containerFieldComboActionPerformed
 
     private void useCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useCBActionPerformed
@@ -640,33 +667,36 @@ public class DEFUSEpanel extends javax.swing.JPanel
             useRB.setSelected(true);
     }//GEN-LAST:event_useCBMouseClicked
     // avoid static for persistence since this pane applies to multiple node editors
-    private boolean htmlPaneVisible = true; 
-    
-    public void resetHtmlPaneVisibility ()
+    private boolean htmlPaneVisible = true;
+
+    public void resetHtmlPaneVisibility()
     {
 //        setHtmlPaneVisibility (hasHtmlCssFields());
     }
-    
-    public void setHtmlPaneVisibility (boolean setVisibleValue)
+
+    public void setHtmlPaneVisibility(boolean setVisibleValue)
     {
-        if (true) return; // disabled, not needed with tabbed panel
-        
+        if (true)
+        {
+            return; // disabled, not needed with tabbed panel
+        }
         htmlPaneVisible = setVisibleValue; // remembersetHtmlPaneVisibility
-        
-              htmlIdLabel.setVisible(htmlPaneVisible);
-          htmlIdTextField.setVisible(htmlPaneVisible);
-            cssClassLabel.setVisible(htmlPaneVisible);
+
+        htmlIdLabel.setVisible(htmlPaneVisible);
+        htmlIdTextField.setVisible(htmlPaneVisible);
+        cssClassLabel.setVisible(htmlPaneVisible);
         cssClassTextField.setVisible(htmlPaneVisible);
-            cssStyleLabel.setVisible(htmlPaneVisible);
+        cssStyleLabel.setVisible(htmlPaneVisible);
         cssStyleTextField.setVisible(htmlPaneVisible);
-           htmlHelpButton.setVisible(htmlPaneVisible);
-           
+        htmlHelpButton.setVisible(htmlPaneVisible);
+
 //                         this.revalidate(); 
 //                         this.repaint();
 //        parentCustomizerPanel.revalidate();
 //        parentCustomizerPanel.repaint();
     }
-    private void htmlPaneToggle ()
+
+    private void htmlPaneToggle()
     {
         htmlPaneVisible = !htmlPaneVisible; // toggle offset
         setHtmlPaneVisibility(htmlPaneVisible);
@@ -895,5 +925,21 @@ public class DEFUSEpanel extends javax.swing.JPanel
     public void setParentPanel(BaseCustomizer passedParentCustomizerPanel)
     {
         this.parentCustomizerPanel = passedParentCustomizerPanel;
+    }
+
+    /**
+     * @return the nodeName
+     */
+    public String getCurrentNodeName()
+    {
+        return currentNodeName;
+    }
+
+    /**
+     * @param nodeName the nodeName to set
+     */
+    public void setCurrentNodeName(String nodeName)
+    {
+        this.currentNodeName = nodeName;
     }
 }
