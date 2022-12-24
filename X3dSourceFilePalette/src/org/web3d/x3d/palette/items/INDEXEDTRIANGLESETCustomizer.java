@@ -36,6 +36,8 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
+import static org.web3d.x3d.types.X3DSchemaData.INDEXEDTRIANGLESET_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.INDEXEDTRIANGLESET_CONTAINERFIELD_TOOLTIPS;
 
 /**
  * TIMESENSORCustomizer.java
@@ -50,26 +52,30 @@ import org.openide.util.HelpCtx;
  */
 public class INDEXEDTRIANGLESETCustomizer extends BaseCustomizer
 { 
-  private INDEXEDTRIANGLESET iTriSet;
+  private INDEXEDTRIANGLESET indexedTriangleSet;
   private JTextComponent target;
   
   /** Creates new form TIMESENSORCustomizer */
   public INDEXEDTRIANGLESETCustomizer(INDEXEDTRIANGLESET its, JTextComponent target)
   {
     super(its);
-    this.iTriSet = its;
+    this.indexedTriangleSet = its;
     this.target = target;
                              
     HelpCtx.setHelpIDString(this, "INDEXEDTRIANGLESET_ELEM_HELPID");   
     
     initComponents();
     
-    ccwCB.setSelected(iTriSet.isCcw());
-    colorPerVertexCB.setSelected(iTriSet.isColorPerVertex());
-    normalPerVertexCB.setSelected(iTriSet.isNormalPerVertex());
-    solidCB.setSelected(iTriSet.isSolid());
+    super.getDEFUSEpanel().setContainerFieldChoices(INDEXEDTRIANGLESET_CONTAINERFIELD_CHOICES, INDEXEDTRIANGLESET_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(indexedTriangleSet.getContainerField()); // reset value to match updated JComboBox data model
+    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
 
-    indexTA.setText(iTriSet.getIndex());
+    ccwCB.setSelected(indexedTriangleSet.isCcw());
+    colorPerVertexCB.setSelected(indexedTriangleSet.isColorPerVertex());
+    normalPerVertexCB.setSelected(indexedTriangleSet.isNormalPerVertex());
+    solidCB.setSelected(indexedTriangleSet.isSolid());
+
+    indexTA.setText(indexedTriangleSet.getIndex());
   }
   
   /** This method is called from within the constructor to
@@ -311,11 +317,11 @@ public class INDEXEDTRIANGLESETCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
-    iTriSet.setCcw(ccwCB.isSelected());
-    iTriSet.setColorPerVertex(colorPerVertexCB.isSelected());
-    iTriSet.setNormalPerVertex(normalPerVertexCB.isSelected());
-    iTriSet.setSolid(solidCB.isSelected());
+    indexedTriangleSet.setCcw(ccwCB.isSelected());
+    indexedTriangleSet.setColorPerVertex(colorPerVertexCB.isSelected());
+    indexedTriangleSet.setNormalPerVertex(normalPerVertexCB.isSelected());
+    indexedTriangleSet.setSolid(solidCB.isSelected());
     
-    iTriSet.setIndex(indexTA.getText().trim());
+    indexedTriangleSet.setIndex(indexTA.getText().trim());
   }
 }

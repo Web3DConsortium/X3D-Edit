@@ -71,6 +71,7 @@ public class COLLIDABLEOFFSETCustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerFieldChoices(
             X3DNBodyCollidableNode_ATTR_CONTAINERFIELD_CHOICES, 
             X3DNBodyCollidableNode_ATTR_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(collidableOffset.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     enabledCB.setSelected(collidableOffset.isEnabled());

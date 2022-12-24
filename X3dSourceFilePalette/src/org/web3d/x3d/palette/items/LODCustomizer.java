@@ -68,8 +68,9 @@ public class LODCustomizer extends BaseCustomizer
     
     initComponents();
     
-    // can also be the proxy field of a Collision, or shape field of CADPart
-    super.getDEFUSEpanel().setContainerFieldChoices(SHAPE_ATTR_CONTAINERFIELD_CHOICES, SHAPE_ATTR_CONTAINERFIELD_TOOLTIPS);
+    // can also be the proxy field of a Collision, or shape field of CADFace
+    super.getDEFUSEpanel().setContainerFieldChoices(LOD_ATTR_CONTAINERFIELD_CHOICES, LOD_ATTR_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(lod.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     bboxCenterXTF.setText(lod.getBboxCenterX().trim());

@@ -40,6 +40,8 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import static org.web3d.x3d.types.X3DSchemaData.INDEXEDFACESET_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.INDEXEDFACESET_CONTAINERFIELD_TOOLTIPS;
 
 /**
  * INDEXEDFACESETCustomizer.java
@@ -72,6 +74,10 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
 
     initComponents();
     
+    super.getDEFUSEpanel().setContainerFieldChoices(INDEXEDFACESET_CONTAINERFIELD_CHOICES, INDEXEDFACESET_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(indexedFaceSet.getContainerField()); // reset value to match updated JComboBox data model
+    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
+
     commonInitialization ();
   }
   private void commonInitialization ()

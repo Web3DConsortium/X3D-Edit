@@ -72,6 +72,7 @@ public class RIGIDBODYCustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerFieldChoices(
             RIGIDBODY_ATTR_CONTAINERFIELD_CHOICES,
             RIGIDBODY_ATTR_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(rigidBody.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
 
     autoDampCB.setSelected(rigidBody.isAutoDamp());

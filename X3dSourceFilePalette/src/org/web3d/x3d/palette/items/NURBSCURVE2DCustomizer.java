@@ -89,7 +89,9 @@ public class NURBSCURVE2DCustomizer extends BaseCustomizer
     initComponents();
     
     super.getDEFUSEpanel().setContainerFieldChoices(CONTOURPOLYLINE2D_CONTAINERFIELD_CHOICES, CONTOURPOLYLINE2D_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(nurbsCurve2D.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
+
 
     closedCheckBox.getModel().setSelected(nurbsCurve2D.getClosed());
     

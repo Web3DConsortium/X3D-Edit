@@ -70,6 +70,7 @@ public class COMPOSEDTEXTURE3DCustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerFieldChoices(
             COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_CHOICES,
             COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(composedTexture3D.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
 
     repeatSCB.setSelected(composedTexture3D.isRepeatS());

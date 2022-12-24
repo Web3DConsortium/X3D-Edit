@@ -70,6 +70,7 @@ public class IMAGETEXTURECustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerFieldChoices(
             IMAGETEXTURE_ATTR_CONTAINERFIELD_CHOICES,
             IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(imageTexture.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     urlList.setMasterDocumentLocation(xObj.getPrimaryFile());

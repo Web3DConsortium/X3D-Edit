@@ -69,10 +69,10 @@ public class METADATASTRINGCustomizer extends BaseCustomizer
     initComponents();
     
     super.getDEFUSEpanel().setContainerFieldChoices(METADATA_CONTAINERFIELD_CHOICES, METADATA_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(metadataString.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
-    
-	super.getDEFUSEpanel().setContainerField(metadataString.getContainerField()); // TODO why is this needed??
-	if (super.getDEFUSEpanel().getContainerField().equals("metadata"))
+
+    if (super.getDEFUSEpanel().getContainerField().equals("metadata"))
         super.getDEFUSEpanel().setUseContainerField(false);
     
          nameTextField.setText(metadataString.getName());

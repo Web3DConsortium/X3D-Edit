@@ -87,8 +87,6 @@ public class NURBSTRIMMEDSURFACECustomizer extends BaseCustomizer
     
     initComponents();
     
-// TODO   super.getDEFUSEpanel().setContainerFieldChoices(CONTOURPOLYLINE2D_CONTAINERFIELD_CHOICES, CONTOURPOLYLINE2D_CONTAINERFIELD_TOOLTIPS);
-    
     solidCB.setSelected(nurbsTrimmedSurface.isSolid());
     
     uClosedCheckBox.getModel().setSelected(nurbsTrimmedSurface.get_uClosed());

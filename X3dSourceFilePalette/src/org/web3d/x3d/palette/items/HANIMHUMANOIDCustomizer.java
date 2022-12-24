@@ -94,6 +94,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     initComponents();
     
     super.getDEFUSEpanel().setContainerFieldChoices(HANIMHUMANOID_CONTAINERFIELD_CHOICES, HANIMHUMANOID_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(hAnimHumanoid.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     descriptionTF.setText(hAnimHumanoid.getDescription());

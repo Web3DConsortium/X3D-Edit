@@ -69,6 +69,7 @@ public class COLLISIONCOLLECTIONCustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerFieldChoices(
             COLLISIONCOLLECTION_ATTR_CONTAINERFIELD_CHOICES, 
             COLLISIONCOLLECTION_ATTR_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(collisionCollection.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
 
     enabledCB.setSelected(collisionCollection.isEnabled());

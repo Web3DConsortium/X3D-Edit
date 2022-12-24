@@ -86,9 +86,7 @@ public class NURBSSURFACEINTERPOLATORCustomizer extends BaseCustomizer
     HelpCtx.setHelpIDString(NURBSSURFACEINTERPOLATORCustomizer.this, "NURBSCURVE_ELEM_HELPID");
     
     initComponents();
-    
-// TODO   super.getDEFUSEpanel().setContainerFieldChoices(CONTOURPOLYLINE2D_CONTAINERFIELD_CHOICES, CONTOURPOLYLINE2D_CONTAINERFIELD_TOOLTIPS);
-    
+        
     uOrderComboBox.setSelectedItem(String.valueOf(nurbsTextureCoordinate.get_uOrder())); // also invokes updateOrderWarningLabel()
     vOrderComboBox.setSelectedItem(String.valueOf(nurbsTextureCoordinate.get_vOrder())); // also invokes updateOrderWarningLabel()
 
