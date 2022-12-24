@@ -655,12 +655,12 @@ public abstract class BaseCustomizer extends JPanel
   {
     String containerFieldProvided = getBaseX3DElement().getContainerField();
     
-    if(containerFieldProvided != null && containerFieldProvided.length()>0)
-	{
-		 defUSEpanel.setContainerField(containerFieldProvided);
-		 defUSEpanel.setUseContainerField(true);
-	}
-	else defUSEpanel.setUseContainerField(false);
+    if(containerFieldProvided != null && !containerFieldProvided.isBlank())
+    {
+        defUSEpanel.setContainerField(containerFieldProvided);
+        defUSEpanel.setUseContainerField(true);
+    }
+    else defUSEpanel.setUseContainerField(false);
 	
     defUSEpanel.setUseContainerField(getBaseX3DElement().isUseContainerField());
   }
