@@ -186,25 +186,13 @@ POSSIBILITY OF SUCH DAMAGE.
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                         <attr name="position" intvalue="70"/>
                     </file>
-                    <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 798 -->
+                    <!-- doing things with .x3d model -->
                     <folder name="&amp;Compression">
                         <attr name="position" intvalue="80"/>
                         <!-- insertions go here -->
                     </folder>
                     <folder name="&amp;DIS Networking">
                         <attr name="position" intvalue="90"/>
-                    </folder>
-                    <folder name="&amp;Example X3D Model Archives">
-                        <attr name="position" intvalue="95"/>
-                        <!-- DownloadX3dExamplesArchivesAction position 100 -->
-                        <folder name="View Local X3D Examples Archives">
-                            <attr name="position" intvalue="200"/>
-                        </folder>
-                        <folder name="View Online X3D Examples Archives">
-                            <attr name="position" intvalue="300"/>
-                        </folder>
-                        <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
-                        <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
                     </folder>
                     <folder name="&amp;Export X3D Model to File">
                         <attr name="position" intvalue="110"/>
@@ -303,12 +291,24 @@ POSSIBILITY OF SUCH DAMAGE.
                             <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                             <attr name="position" intvalue="500"/>
                         </file>
-                    </folder>
-                    <!-- xml security -->
+                    </folder><!-- XML Security -->
                     <file name="org-web3d-popup-securityseparator4.instance">
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                        <attr name="position" intvalue="700"/>
+                        <attr name="position" intvalue="600"/>
                     </file>
+            <!-- learning -->
+                    <folder name="&amp;Example X3D Model Archives">
+                        <attr name="position" intvalue="700"/>
+                        <!-- DownloadX3dExamplesArchivesAction position 100 -->
+                        <folder name="View Local X3D Examples Archives">
+                            <attr name="position" intvalue="200"/>
+                        </folder>
+                        <folder name="View Online X3D Examples Archives">
+                            <attr name="position" intvalue="300"/>
+                        </folder>
+                        <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
+                        <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
+                    </folder>
                     <folder name="&amp;Help with X3D Graphics">
                         <attr name="position" intvalue="800"/>
                         <!-- insertions go here -->
@@ -670,10 +670,11 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- ViewInAction  position  -->
                 <!-- ViewInOtherAction  position 200 -->
             </folder>
-            <file name="x3dMenuSeparatorBetweenConversionsAndExamples.instance">
+            <file name="x3dMenuSeparatorBeforeDoing.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                 <attr name="position" intvalue="70"/>
             </file>
+            <!-- doing things with .x3d model -->
             <folder name="&amp;Compression">
                 <attr name="position" intvalue="80"/>
                 <!-- CDF using Xj3D CadFilterAction 50 -->
@@ -701,18 +702,6 @@ POSSIBILITY OF SUCH DAMAGE.
             </folder>
             <folder name="&amp;DIS Networking">
                 <attr name="position" intvalue="90"/>
-            </folder>
-            <folder name="&amp;Example X3D Model Archives">
-                <attr name="position" intvalue="95"/>
-                <!-- DownloadX3dExamplesArchivesAction position 100 -->
-                <folder name="View Local X3D Examples Archives">
-                    <attr name="position" intvalue="200"/>
-                </folder>
-                <folder name="View Online X3D Examples Archives">
-                    <attr name="position" intvalue="300"/>
-                </folder>
-                <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
-                <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
             </folder>
             <folder name="&amp;Export X3D Model to File">
                 <attr name="position" intvalue="100"/>
@@ -787,11 +776,24 @@ POSSIBILITY OF SUCH DAMAGE.
                     <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                     <attr name="position" intvalue="500"/>
                 </file>
-            </folder> <!-- Security -->
+            </folder> <!-- XML Security -->
             <file name="org-web3d-popup-securityseparator3.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                <attr name="position" intvalue="700"/>
+                <attr name="position" intvalue="600"/>
             </file>
+            <!-- learning -->
+            <folder name="&amp;Example X3D Model Archives">
+                <attr name="position" intvalue="700"/>
+                <!-- DownloadX3dExamplesArchivesAction position 100 -->
+                <folder name="View Local X3D Examples Archives">
+                    <attr name="position" intvalue="200"/>
+                </folder>
+                <folder name="View Online X3D Examples Archives">
+                    <attr name="position" intvalue="300"/>
+                </folder>
+                <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
+                <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->
+            </folder>
             <folder name="&amp;Help with X3D Graphics">
                 <attr name="position" intvalue="800"/>
                 <!-- insertions go here -->
