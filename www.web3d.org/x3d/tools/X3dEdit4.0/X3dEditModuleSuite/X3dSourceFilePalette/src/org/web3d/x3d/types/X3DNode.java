@@ -52,6 +52,12 @@ import org.web3d.x3d.sai.*;
  */
 public abstract class X3DNode extends BaseX3DElement
 {
+  /** super constructor for all nodes */
+  @SuppressWarnings("OverridableMethodCallInConstructor")
+  public X3DNode()
+  {
+      setContainerField(this.getDefaultContainerField());
+  }
   abstract public String getDefaultContainerField();
   
   @Override
