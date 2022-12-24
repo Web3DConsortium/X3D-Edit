@@ -71,6 +71,9 @@ public class COLLIDABLESHAPECustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerFieldChoices(
             X3DNBodyCollidableNode_ATTR_CONTAINERFIELD_CHOICES, 
             X3DNBodyCollidableNode_ATTR_CONTAINERFIELD_TOOLTIP);
+    super.getDEFUSEpanel().setContainerField(collidableShape.getContainerField()); // reset value to match updated JComboBox data model
+    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
+
 
     enabledCB.setSelected(collidableShape.isEnabled());
     

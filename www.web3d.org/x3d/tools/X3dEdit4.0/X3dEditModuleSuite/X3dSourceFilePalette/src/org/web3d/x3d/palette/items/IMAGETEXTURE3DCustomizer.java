@@ -71,6 +71,7 @@ public class IMAGETEXTURE3DCustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerFieldChoices(
             COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_CHOICES,
             COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(imageTexture3D.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     urlList.setMasterDocumentLocation(xObj.getPrimaryFile());

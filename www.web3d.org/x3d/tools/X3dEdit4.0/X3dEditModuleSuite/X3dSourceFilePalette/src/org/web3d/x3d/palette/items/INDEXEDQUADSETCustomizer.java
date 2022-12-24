@@ -36,6 +36,8 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
+import static org.web3d.x3d.types.X3DSchemaData.INDEXEDQUADSET_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.INDEXEDQUADSET_CONTAINERFIELD_TOOLTIPS;
 
 /**
  * TIMESENSORCustomizer.java
@@ -50,7 +52,7 @@ import org.openide.util.HelpCtx;
  */
 public class INDEXEDQUADSETCustomizer extends BaseCustomizer
 { 
-  private final INDEXEDQUADSET iQuadSet;
+  private final INDEXEDQUADSET indexedQuadSet;
   private final JTextComponent target;
   
   /** Creates new form INDEXEDQUADSETCustomizer
@@ -60,19 +62,23 @@ public class INDEXEDQUADSETCustomizer extends BaseCustomizer
   public INDEXEDQUADSETCustomizer(INDEXEDQUADSET iqs, JTextComponent target)
   {
     super(iqs);
-    this.iQuadSet = iqs;
+    this.indexedQuadSet = iqs;
     this.target = target;
                              
     HelpCtx.setHelpIDString(this, "INDEXEDQUADSET_ELEM_HELPID");   
     
     initComponents();
     
-    ccwCB.setSelected(iQuadSet.isCcw());
-    colorPerVertexCB.setSelected(iQuadSet.isColorPerVertex());
-    normalPerVertexCB.setSelected(iQuadSet.isNormalPerVertex());
-    solidCB.setSelected(iQuadSet.isSolid());
+    super.getDEFUSEpanel().setContainerFieldChoices(INDEXEDQUADSET_CONTAINERFIELD_CHOICES, INDEXEDQUADSET_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(indexedQuadSet.getContainerField()); // reset value to match updated JComboBox data model
+    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
 
-    indexTA.setText(iQuadSet.getIndex());
+    ccwCB.setSelected(indexedQuadSet.isCcw());
+    colorPerVertexCB.setSelected(indexedQuadSet.isColorPerVertex());
+    normalPerVertexCB.setSelected(indexedQuadSet.isNormalPerVertex());
+    solidCB.setSelected(indexedQuadSet.isSolid());
+
+    indexTA.setText(indexedQuadSet.getIndex());
   }
   
   /** This method is called from within the constructor to
@@ -262,12 +268,12 @@ public class INDEXEDQUADSETCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
-    iQuadSet.setCcw(ccwCB.isSelected());
-    iQuadSet.setColorPerVertex(colorPerVertexCB.isSelected());
-    iQuadSet.setNormalPerVertex(normalPerVertexCB.isSelected());
-    iQuadSet.setSolid(solidCB.isSelected());
+    indexedQuadSet.setCcw(ccwCB.isSelected());
+    indexedQuadSet.setColorPerVertex(colorPerVertexCB.isSelected());
+    indexedQuadSet.setNormalPerVertex(normalPerVertexCB.isSelected());
+    indexedQuadSet.setSolid(solidCB.isSelected());
     
-    iQuadSet.setIndex(indexTA.getText().trim());
+    indexedQuadSet.setIndex(indexTA.getText().trim());
   }
   // TODO checkIndices(), no -1 sentinels allowed; change indexTA to expandableList
 }

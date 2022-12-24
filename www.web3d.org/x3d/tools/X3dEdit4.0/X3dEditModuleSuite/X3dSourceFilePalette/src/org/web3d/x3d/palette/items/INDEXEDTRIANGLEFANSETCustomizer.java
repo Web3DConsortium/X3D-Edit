@@ -36,6 +36,8 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
+import static org.web3d.x3d.types.X3DSchemaData.INDEXEDTRIANGLEFANSET_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.INDEXEDTRIANGLEFANSET_CONTAINERFIELD_TOOLTIPS;
 
 /**
  * TIMESENSORCustomizer.java
@@ -50,26 +52,30 @@ import org.openide.util.HelpCtx;
  */
 public class INDEXEDTRIANGLEFANSETCustomizer extends BaseCustomizer
 { 
-  private INDEXEDTRIANGLEFANSET iTriFanSet;
+  private INDEXEDTRIANGLEFANSET indexedTriangleFanSet;
   private JTextComponent target;
   
   /** Creates new form TIMESENSORCustomizer */
   public INDEXEDTRIANGLEFANSETCustomizer(INDEXEDTRIANGLEFANSET itfs, JTextComponent target)
   {
     super(itfs);
-    this.iTriFanSet = itfs;
+    this.indexedTriangleFanSet = itfs;
     this.target = target;
                              
     HelpCtx.setHelpIDString(this, "INDEXEDTRIANGLEFANSET_ELEM_HELPID");   
     
     initComponents();
     
-    ccwCB.setSelected(iTriFanSet.isCcw());
-    colorPerVertexCB.setSelected(iTriFanSet.isColorPerVertex());
-    normalPerVertexCB.setSelected(iTriFanSet.isNormalPerVertex());
-    solidCB.setSelected(iTriFanSet.isSolid());
+    super.getDEFUSEpanel().setContainerFieldChoices(INDEXEDTRIANGLEFANSET_CONTAINERFIELD_CHOICES, INDEXEDTRIANGLEFANSET_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(indexedTriangleFanSet.getContainerField()); // reset value to match updated JComboBox data model
+    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
+    
+    ccwCB.setSelected(indexedTriangleFanSet.isCcw());
+    colorPerVertexCB.setSelected(indexedTriangleFanSet.isColorPerVertex());
+    normalPerVertexCB.setSelected(indexedTriangleFanSet.isNormalPerVertex());
+    solidCB.setSelected(indexedTriangleFanSet.isSolid());
 
-    indexTA.setText(iTriFanSet.getIndex());
+    indexTA.setText(indexedTriangleFanSet.getIndex());
   }
   
   /** This method is called from within the constructor to
@@ -307,11 +313,11 @@ public class INDEXEDTRIANGLEFANSETCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
-    iTriFanSet.setCcw(ccwCB.isSelected());
-    iTriFanSet.setColorPerVertex(colorPerVertexCB.isSelected());
-    iTriFanSet.setNormalPerVertex(normalPerVertexCB.isSelected());
-    iTriFanSet.setSolid(solidCB.isSelected());
+    indexedTriangleFanSet.setCcw(ccwCB.isSelected());
+    indexedTriangleFanSet.setColorPerVertex(colorPerVertexCB.isSelected());
+    indexedTriangleFanSet.setNormalPerVertex(normalPerVertexCB.isSelected());
+    indexedTriangleFanSet.setSolid(solidCB.isSelected());
     
-    iTriFanSet.setIndex(indexTA.getText().trim());
+    indexedTriangleFanSet.setIndex(indexTA.getText().trim());
   }
 }

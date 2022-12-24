@@ -70,6 +70,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerFieldChoices(
             MOVIETEXTURE_ATTR_CONTAINERFIELD_CHOICES,
             MOVIETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(movieTexture.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     descriptionTF.setText(movieTexture.getDescription());

@@ -36,6 +36,8 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
+import static org.web3d.x3d.types.X3DSchemaData.INDEXEDTRIANGLESTRIPSET_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.INDEXEDTRIANGLESTRIPSET_CONTAINERFIELD_TOOLTIPS;
 
 /**
  * INDEXEDTRIANGLESTRIPSETCustomizer.java
@@ -50,26 +52,30 @@ import org.openide.util.HelpCtx;
  */
 public class INDEXEDTRIANGLESTRIPSETCustomizer extends BaseCustomizer
 { 
-  private INDEXEDTRIANGLESTRIPSET iTriStripSet;
+  private INDEXEDTRIANGLESTRIPSET indexedTriangleStripSet;
   private JTextComponent target;
   
   /** Creates new form TIMESENSORCustomizer */
   public INDEXEDTRIANGLESTRIPSETCustomizer(INDEXEDTRIANGLESTRIPSET itss, JTextComponent target)
   {
     super(itss);
-    this.iTriStripSet = itss;
+    this.indexedTriangleStripSet = itss;
     this.target = target;
                              
     HelpCtx.setHelpIDString(this, "INDEXEDTRIANGLESTRIPSET_ELEM_HELPID");   
     
     initComponents();
     
-    ccwCB.setSelected(iTriStripSet.isCcw());
-    colorPerVertexCB.setSelected(iTriStripSet.isColorPerVertex());
-    normalPerVertexCB.setSelected(iTriStripSet.isNormalPerVertex());
-    solidCB.setSelected(iTriStripSet.isSolid());
+    super.getDEFUSEpanel().setContainerFieldChoices(INDEXEDTRIANGLESTRIPSET_CONTAINERFIELD_CHOICES, INDEXEDTRIANGLESTRIPSET_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(indexedTriangleStripSet.getContainerField()); // reset value to match updated JComboBox data model
+    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
+    
+    ccwCB.setSelected(indexedTriangleStripSet.isCcw());
+    colorPerVertexCB.setSelected(indexedTriangleStripSet.isColorPerVertex());
+    normalPerVertexCB.setSelected(indexedTriangleStripSet.isNormalPerVertex());
+    solidCB.setSelected(indexedTriangleStripSet.isSolid());
 
-    indexTA.setText(iTriStripSet.getIndex());
+    indexTA.setText(indexedTriangleStripSet.getIndex());
   }
   
   /** This method is called from within the constructor to
@@ -284,11 +290,11 @@ public class INDEXEDTRIANGLESTRIPSETCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
-    iTriStripSet.setCcw(ccwCB.isSelected());
-    iTriStripSet.setColorPerVertex(colorPerVertexCB.isSelected());
-    iTriStripSet.setNormalPerVertex(normalPerVertexCB.isSelected());
-    iTriStripSet.setSolid(solidCB.isSelected());
+    indexedTriangleStripSet.setCcw(ccwCB.isSelected());
+    indexedTriangleStripSet.setColorPerVertex(colorPerVertexCB.isSelected());
+    indexedTriangleStripSet.setNormalPerVertex(normalPerVertexCB.isSelected());
+    indexedTriangleStripSet.setSolid(solidCB.isSelected());
     
-    iTriStripSet.setIndex(indexTA.getText().trim());
+    indexedTriangleStripSet.setIndex(indexTA.getText().trim());
   }
 }

@@ -72,6 +72,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
     
     // can be the proxy field of a Collision node
     super.getDEFUSEpanel().setContainerFieldChoices(GROUP_CONTAINERFIELD_CHOICES, GROUP_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(collision.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     if (!collision.getDescription().isBlank())

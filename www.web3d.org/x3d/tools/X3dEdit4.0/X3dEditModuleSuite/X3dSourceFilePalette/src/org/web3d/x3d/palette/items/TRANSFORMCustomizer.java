@@ -85,6 +85,7 @@ public class TRANSFORMCustomizer extends BaseCustomizer
     
     // can be the proxy field of a Collision node shape field of CADPart
     super.getDEFUSEpanel().setContainerFieldChoices(TRANSFORM_CONTAINERFIELD_CHOICES, TRANSFORM_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(transform.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     bboxCenterXTF.setText(transform.getBboxCenterX());

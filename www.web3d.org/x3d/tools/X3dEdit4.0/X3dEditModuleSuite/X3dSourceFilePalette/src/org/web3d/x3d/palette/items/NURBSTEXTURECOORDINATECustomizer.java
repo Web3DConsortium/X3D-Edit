@@ -87,8 +87,6 @@ public class NURBSTEXTURECOORDINATECustomizer extends BaseCustomizer
     
     initComponents();
     
-// TODO   super.getDEFUSEpanel().setContainerFieldChoices(CONTOURPOLYLINE2D_CONTAINERFIELD_CHOICES, CONTOURPOLYLINE2D_CONTAINERFIELD_TOOLTIPS);
-    
     uOrderComboBox.setSelectedItem(String.valueOf(nurbsTextureCoordinate.get_uOrder())); // also invokes updateOrderWarningLabel()
     vOrderComboBox.setSelectedItem(String.valueOf(nurbsTextureCoordinate.get_vOrder())); // also invokes updateOrderWarningLabel()
 

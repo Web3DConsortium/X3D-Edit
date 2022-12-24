@@ -88,8 +88,9 @@ public class SHAPECustomizer extends BaseCustomizer
 
     initComponents();
 
-    // can be the shape field of CADPart
+    // can be the shape field of CADPart or proxy field of Collision
     super.getDEFUSEpanel().setContainerFieldChoices(SHAPE_ATTR_CONTAINERFIELD_CHOICES, SHAPE_ATTR_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(shape.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
 
     if (shape.getContent().trim().isEmpty())

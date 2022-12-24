@@ -54,33 +54,34 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class SWITCHCustomizer extends BaseCustomizer
 { 
-  private final SWITCH s_witch;
+  private final SWITCH _switch;
   private final JTextComponent target;
 
   protected static String WHICHCHOICE_NEGATIVE_ONE_WARNING = "Warning, whichChoice index -1 means no Switch children are rendered";
   
   /** Creates new form SWITCHCustomizer
-   * @param s_witch SWITCH node holding data structures for scene graph
+   * @param _switch SWITCH node holding data structures for scene graph
    * @param target Swing component of interest Swing component
    */
-  public SWITCHCustomizer(SWITCH s_witch, JTextComponent target)
+  public SWITCHCustomizer(SWITCH _switch, JTextComponent target)
   {
-    super(s_witch);
-    this.s_witch=s_witch;
+    super(_switch);
+    this._switch=_switch;
     this.target = target;
                            
     HelpCtx.setHelpIDString(SWITCHCustomizer.this, "SWITCH_ELEM_HELPID");
 
-    s_witch.setVisualizationSelectionAvailable(true); // must precede initComponents() interface initialization
-    s_witch.setVisualizationTooltip("Add wireframe Box and axes to show boundingBox center and size (if defined)");
+    _switch.setVisualizationSelectionAvailable(true); // must precede initComponents() interface initialization
+    _switch.setVisualizationTooltip("Add wireframe Box and axes to show boundingBox center and size (if defined)");
     
     initComponents();
     
     // can be the proxy field of a Collision node
     super.getDEFUSEpanel().setContainerFieldChoices(GROUP_CONTAINERFIELD_CHOICES, GROUP_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(_switch.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
 
-    int whichChoice = Integer.parseInt(s_witch.getWhichChoice().trim());
+    int whichChoice = Integer.parseInt(_switch.getWhichChoice().trim());
     if (whichChoice <= 6)
     {
          whichChoiceComboBox.setSelectedIndex(whichChoice + 1);
@@ -90,12 +91,12 @@ public class SWITCHCustomizer extends BaseCustomizer
 //    ListCellRenderer comboBoxRenderer = whichChoiceComboBox.getRenderer();
 //    comboBoxRenderer.setHorizontalAlignment(JLabel.RIGHT);
 
-    bboxCenterXTF.setText(s_witch.getBboxCenterX().trim());
-    bboxCenterYTF.setText(s_witch.getBboxCenterY().trim());
-    bboxCenterZTF.setText(s_witch.getBboxCenterZ().trim());
-    bboxSizeXTF.setText(s_witch.getBboxSizeX().trim());
-    bboxSizeYTF.setText(s_witch.getBboxSizeY().trim());
-    bboxSizeZTF.setText(s_witch.getBboxSizeZ().trim());
+    bboxCenterXTF.setText(_switch.getBboxCenterX().trim());
+    bboxCenterYTF.setText(_switch.getBboxCenterY().trim());
+    bboxCenterZTF.setText(_switch.getBboxCenterZ().trim());
+    bboxSizeXTF.setText(_switch.getBboxSizeX().trim());
+    bboxSizeYTF.setText(_switch.getBboxSizeY().trim());
+    bboxSizeZTF.setText(_switch.getBboxSizeZ().trim());
 
     checkVisualizable ();
     updateWhichChoiceWarningLabel(whichChoice);
@@ -429,13 +430,13 @@ public class SWITCHCustomizer extends BaseCustomizer
 
     unLoadDEFUSE();
     
-    s_witch.setWhichChoice(String.valueOf(whichChoiceComboBox.getSelectedItem()));
-    s_witch.setBboxCenterX(bboxCenterXTF.getText().trim());
-    s_witch.setBboxCenterY(bboxCenterYTF.getText().trim());
-    s_witch.setBboxCenterY(bboxCenterZTF.getText().trim());
-    s_witch.setBboxSizeX(bboxSizeXTF.getText().trim());
-    s_witch.setBboxSizeY(bboxSizeYTF.getText().trim());
-    s_witch.setBboxSizeZ(bboxSizeZTF.getText().trim());
+    _switch.setWhichChoice(String.valueOf(whichChoiceComboBox.getSelectedItem()));
+    _switch.setBboxCenterX(bboxCenterXTF.getText().trim());
+    _switch.setBboxCenterY(bboxCenterYTF.getText().trim());
+    _switch.setBboxCenterY(bboxCenterZTF.getText().trim());
+    _switch.setBboxSizeX(bboxSizeXTF.getText().trim());
+    _switch.setBboxSizeY(bboxSizeYTF.getText().trim());
+    _switch.setBboxSizeZ(bboxSizeZTF.getText().trim());
   } 
 
 }

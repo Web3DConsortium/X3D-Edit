@@ -49,13 +49,13 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class CONTOUR2DCustomizer extends BaseCustomizer
 {
-  private CONTOUR2D Contour2D;
+  private CONTOUR2D contour2D;
   private JTextComponent target;
   
-  public CONTOUR2DCustomizer(CONTOUR2D Contour2D, JTextComponent target)
+  public CONTOUR2DCustomizer(CONTOUR2D contour2D, JTextComponent target)
   {
-    super(Contour2D);
-    this.Contour2D = Contour2D;
+    super(contour2D);
+    this.contour2D = contour2D;
     this.target = target;
     
     HelpCtx.setHelpIDString(this, "CONTOUR2D_ELEM_HELPID");
@@ -63,9 +63,9 @@ public class CONTOUR2DCustomizer extends BaseCustomizer
     initComponents();
   
     super.getDEFUSEpanel().setContainerFieldChoices(CONTOUR2D_CONTAINERFIELD_CHOICES, CONTOUR2D_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(contour2D.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
-    
-    }
+  }
   
   /** This method is called from within the constructor to
    * initialize the form.

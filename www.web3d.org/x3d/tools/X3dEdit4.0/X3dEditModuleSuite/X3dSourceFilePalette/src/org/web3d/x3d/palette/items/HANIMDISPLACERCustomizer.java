@@ -73,6 +73,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
     initComponents();
     
     super.getDEFUSEpanel().setContainerFieldChoices(HANIMDISPLACER_CONTAINERFIELD_CHOICES, HANIMDISPLACER_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(hAnimDisplacer.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
     descriptionTF.setText(hAnimDisplacer.getDescription());
