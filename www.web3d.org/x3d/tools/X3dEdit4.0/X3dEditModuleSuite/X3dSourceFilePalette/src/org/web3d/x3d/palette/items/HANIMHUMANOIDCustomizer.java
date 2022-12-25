@@ -100,7 +100,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     descriptionTF.setText(hAnimHumanoid.getDescription());
     if (!hAnimHumanoid.getDescription().isBlank())
     {
-        checkX3D4FieldSupportDialog("HAnimDisplacer","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("HAnimDisplacer","description"); // X3D4.0 field
         descriptionTF.setText(hAnimHumanoid.getDescription());
     }
     
@@ -1374,7 +1374,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_descriptionTFActionPerformed
     {//GEN-HEADEREND:event_descriptionTFActionPerformed
-        checkX3D4FieldSupportDialog("HAnimHumanoid","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("HAnimHumanoid","description"); // X3D4.0 field
     }//GEN-LAST:event_descriptionTFActionPerformed
 
     private void dEFUSEpanelKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_dEFUSEpanelKeyReleased

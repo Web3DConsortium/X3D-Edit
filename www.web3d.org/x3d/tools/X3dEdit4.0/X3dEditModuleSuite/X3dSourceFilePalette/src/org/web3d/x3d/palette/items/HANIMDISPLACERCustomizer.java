@@ -79,7 +79,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
     descriptionTF.setText(hAnimDisplacer.getDescription());
     if (!hAnimDisplacer.getDescription().isBlank())
     {
-        checkX3D4FieldSupportDialog("HAnimDisplacer","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("HAnimDisplacer","description"); // X3D4.0 field
         descriptionTF.setText(hAnimDisplacer.getDescription());
     }
     
@@ -422,7 +422,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_descriptionTFActionPerformed
     {//GEN-HEADEREND:event_descriptionTFActionPerformed
-        checkX3D4FieldSupportDialog("HAnimDisplacer","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("HAnimDisplacer","description"); // X3D4.0 field
     }//GEN-LAST:event_descriptionTFActionPerformed
 
     private void nameComboBoxFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_nameComboBoxFocusGained
