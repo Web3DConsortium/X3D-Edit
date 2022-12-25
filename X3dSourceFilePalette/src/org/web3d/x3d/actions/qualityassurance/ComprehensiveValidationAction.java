@@ -84,10 +84,10 @@ import org.web3d.x3d.tools.X3dValuesRegexChecker;
 public class ComprehensiveValidationAction extends BaseConversionsAction //XmlValidationAction
 {
   @Override
-  protected String transformSingleFile(X3dEditor xed)
+  protected String transformSingleFile(X3dEditor x3dEditor)
   {
-    X3DDataObject dob = (X3DDataObject) xed.getX3dEditorSupport().getDataObject();
-    FileObject mySrc = dob.getPrimaryFile();
+    X3DDataObject x3dDataObject = (X3DDataObject) x3dEditor.getX3dEditorSupport().getDataObject();
+    FileObject mySrc = x3dDataObject.getPrimaryFile();
 
     File sourceFile = FileUtil.toFile(mySrc);
 
@@ -110,7 +110,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
     // difficulty to pass X3dC14n.jar visibility to ant build.xml file for invoking java class
     // instead follow pattern in X3dDoctypeCheckerAction:
 
-    RequestProcessor.getDefault().post(new ComprehensiveValidationTask(sourceFile.getAbsolutePath(), dob));
+    RequestProcessor.getDefault().post(new ComprehensiveValidationTask(sourceFile.getAbsolutePath(), x3dDataObject));
     return null;
   }
 
@@ -204,14 +204,14 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                     try {
                         fs = FileUtil.getConfigRoot().getFileSystem();
 
-                        // X3dToClassicVRML
+                        // X3dToX3dvClassicVrmlEncoding
                         fo = fs.findResource("Schematron/X3dToX3dvClassicVrmlEncoding.xslt");
                         Source src = new StreamSource(fo.getInputStream());
                         classicVrmlOutput = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_classicVrmlOutput.txt");
                         classicVrmlOutput.deleteOnExit();
                         result = new StreamResult(classicVrmlOutput);
                         outputWriterPlain.println();
-                        outputWriterPlain.println("Performing X3dToClassicVrml.xslt conversion check...");
+                        outputWriterPlain.println("Performing X3dToX3dvClassicVrmlEncoding.xslt conversion check...");
                         transformer.transform(src, result, new MyCookieObserver(new SkipIfStartsWithUsing(), false, outputWriterError, outputWriterPlain)); //observerVerbose);
 //        rdr = new BufferedReader(new FileReader(classicVrmlOutput));
 //        while(rdr.ready())
