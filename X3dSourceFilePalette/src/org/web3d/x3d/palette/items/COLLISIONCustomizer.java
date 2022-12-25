@@ -77,7 +77,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
     
     if (!collision.getDescription().isBlank())
     {
-        checkX3D4FieldSupportDialog("Collision","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("Collision","description"); // X3D4.0 field
         descriptionTF.setText(collision.getDescription());
     }
     enabledCB.setSelected(collision.isEnabled());
@@ -355,7 +355,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
     
     if (!descriptionTF.getText().isBlank())
     {
-        checkX3D4FieldSupportDialog("Collision","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("Collision","description"); // X3D4.0 field
         collision.setDescription(descriptionTF.getText().trim());
     }
     collision.setEnabled(enabledCB.isSelected());
