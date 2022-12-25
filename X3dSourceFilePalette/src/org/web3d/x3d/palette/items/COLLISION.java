@@ -136,7 +136,7 @@ public class COLLISION extends X3DGroupingNode
   {
     StringBuilder sb = new StringBuilder();
 
-    // description value is only if parent scene is X3D4
+    // description value is only valid if parent scene is X3D4
     if (COLLISION_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
       sb.append(" ");
       sb.append(COLLISION_ATTR_DESCRIPTION_NAME);
