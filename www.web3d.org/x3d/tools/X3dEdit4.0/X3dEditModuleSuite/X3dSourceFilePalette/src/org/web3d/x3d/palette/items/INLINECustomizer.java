@@ -81,7 +81,7 @@ public class INLINECustomizer extends BaseCustomizer
     
     if (!inline.getDescription().isBlank())
     {
-        checkX3D4FieldSupportDialog("Inline","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("Inline","description"); // X3D4.0 field
         descriptionTF.setText(inline.getDescription());
     }
     urlList.setMasterDocumentLocation(x3DDataObject.getPrimaryFile());
@@ -517,7 +517,7 @@ public class INLINECustomizer extends BaseCustomizer
     }//GEN-LAST:event_urlListPropertyChange
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
-        checkX3D4FieldSupportDialog("Inline","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("Inline","description"); // X3D4.0 field
     }//GEN-LAST:event_descriptionTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -560,7 +560,7 @@ public class INLINECustomizer extends BaseCustomizer
     
     if (!descriptionTF.getText().isBlank())
     {
-        checkX3D4FieldSupportDialog("Inline","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("Inline","description"); // X3D4.0 field
         inline.setDescription(descriptionTF.getText().trim());
     }
     
