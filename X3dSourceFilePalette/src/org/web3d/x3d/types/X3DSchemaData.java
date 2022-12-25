@@ -1558,6 +1558,10 @@ public interface X3DSchemaData
   String  IMAGETEXTURE_ATTR_URL_NAME     = "url";
   boolean IMAGETEXTURE_ATTR_URL_REQD     = false;
   String  IMAGETEXTURE_ATTR_URL_DFLT     = "";
+  
+  String  IMAGETEXTURE_ATTR_DESCRIPTION_NAME = "description"; // X3D4.0
+  boolean IMAGETEXTURE_ATTR_DESCRIPTION_REQD = false;
+  String  IMAGETEXTURE_ATTR_DESCRIPTION_DFLT = "";
 
   String[]IMAGETEXTURE_ATTR_CONTAINERFIELD_CHOICES = {
     "texture", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture"};
@@ -4352,6 +4356,10 @@ public interface X3DSchemaData
   String  IMAGETEXTURE3D_ATTR_URL_NAME     = "url";
   boolean IMAGETEXTURE3D_ATTR_URL_REQD     = false;
   String  IMAGETEXTURE3D_ATTR_URL_DFLT     = "";
+  
+  String  IMAGETEXTURE3D_ATTR_DESCRIPTION_NAME = "description"; // X3D4.0
+  boolean IMAGETEXTURE3D_ATTR_DESCRIPTION_REQD = false;
+  String  IMAGETEXTURE3D_ATTR_DESCRIPTION_DFLT = "";
 
   // Element PixelTexture3D
   String  PIXELTEXTURE3D_ELNAME             = "PixelTexture3D";
