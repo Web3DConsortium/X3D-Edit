@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,10 +36,9 @@ package org.web3d.x3d.palette.items;
 
 import java.util.Arrays;
 import javax.swing.text.JTextComponent;
-
 import org.web3d.x3d.types.X3DGroupingNode;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
 
 /**
@@ -188,13 +187,13 @@ public class INLINE extends X3DGroupingNode
       sb.append(bboxSizeZ);
       sb.append("'");
     }
-    // description value is only if parent scene is X3D4
+    // description value is only valid if parent scene is X3D4
     if (INLINE_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
       sb.append(" ");
       sb.append(INLINE_ATTR_DESCRIPTION_NAME);
       sb.append("='");
       sb.append(description);
-      sb.append("'");  
+      sb.append("'");
     }
     if (INLINE_ATTR_LOAD_REQD || load != loadDefault) {
       sb.append(" ");
@@ -278,14 +277,14 @@ public class INLINE extends X3DGroupingNode
     public void setExpectedProfile(String expectedProfile) {
         this.expectedProfile = expectedProfile;
     }
-  
-  public String getDescription()
-  {
-    return description;
-  }
 
-  public void setDescription(String newDescription)
-  {
-    this.description = newDescription;
-  }
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public void setDescription(String newDescription)
+    {
+        this.description = newDescription;
+    }
 }
