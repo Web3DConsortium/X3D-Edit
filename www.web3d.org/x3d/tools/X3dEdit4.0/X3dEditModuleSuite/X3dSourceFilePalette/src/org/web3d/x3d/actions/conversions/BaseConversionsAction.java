@@ -366,37 +366,37 @@ public abstract class BaseConversionsAction extends CallableSystemAction
         if (!outputFile.canWrite())
           throw new IOException(outputFile.getAbsolutePath() + Nb_is_unwritable);
 
-        StreamResult outStream = new StreamResult(outputFile);
+        StreamResult outputStreamResult = new StreamResult(outputFile);
         console.message(Nb_Writing + outputFile.getAbsolutePath());
 
-        TransformerFactory fact = TransformerFactory.newInstance();
-        fact.setErrorListener(new BaseConversionsErrorHandler(console));
-        fact.setURIResolver(X3DCatalog.getInstance());
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        transformerFactory.setErrorListener(new BaseConversionsErrorHandler(console));
+        transformerFactory.setURIResolver(X3DCatalog.getInstance());
 
-        Transformer transf = fact.newTransformer(xslStream);
+        Transformer transformer = transformerFactory.newTransformer(xslStream);
 
         if (parameterMap != null) {
             parameterMap.keySet().forEach(key -> {
-                transf.setParameter(key, parameterMap.get(key));
+                transformer.setParameter(key, parameterMap.get(key));
             });
         }
 
         // code from Netbeans Transformable Support
         // inform user about used implementation
-        ProtectionDomain domain = transf.getClass().getProtectionDomain();
-        CodeSource codeSource = domain.getCodeSource();
+        ProtectionDomain protectionDomain = transformer.getClass().getProtectionDomain();
+        CodeSource codeSource = protectionDomain.getCodeSource();
         if (codeSource == null) {
-          console.message(Nb_Using + transf.getClass().getName() + Nb_default_JRE_XSLT_processor);
+          console.message(Nb_Using + transformer.getClass().getName() + Nb_default_JRE_XSLT_processor);
         }
         else {
-          URL location = codeSource.getLocation();
-          console.message(Nb_Using + transf.getClass().getName() + Nb_XSLT_processor_from_ + location);
+          URL locationURL = codeSource.getLocation();
+          console.message(Nb_Using + transformer.getClass().getName() + Nb_XSLT_processor_from_ + locationURL);
         }
 
         Proxy proxy = new Proxy(console);
-        transf.setErrorListener(proxy);
+        transformer.setErrorListener(proxy);
 
-        transf.transform(new StreamSource(sourceInputStream), outStream);
+        transformer.transform(new StreamSource(sourceInputStream), outputStreamResult);
         console.message(Nb_XSLT_transformation_complete);
 
         if(goodFinishMessage != null)
@@ -411,30 +411,29 @@ public abstract class BaseConversionsAction extends CallableSystemAction
 
   class BaseConversionsErrorHandler implements ErrorListener
   {
-    TransformListener console;
-    BaseConversionsErrorHandler(TransformListener console)
+    TransformListener consoleTransformListener;
+    BaseConversionsErrorHandler(TransformListener consoleTransformListener)
     {
-      this.console = console;
+      this.consoleTransformListener = consoleTransformListener;
     }
 
     @Override
     public void error(TransformerException exception) throws TransformerException
     {
-      console.message("Error: "+exception.getLocalizedMessage());
+      consoleTransformListener.message("Error: "+exception.getLocalizedMessage());
     }
 
     @Override
     public void fatalError(TransformerException exception) throws TransformerException
     {
-      console.message("Fatal Error: "+exception.getLocalizedMessage());
+      consoleTransformListener.message("Fatal Error: "+exception.getLocalizedMessage());
     }
 
     @Override
     public void warning(TransformerException exception) throws TransformerException
     {
-      console.message("Warning: "+exception.getLocalizedMessage());
+      consoleTransformListener.message("Warning: "+exception.getLocalizedMessage());
     }
-
   }
   /**
    * Transform the currently opened X3D file, putting up a chooser to pick the destination file.
@@ -475,7 +474,7 @@ public abstract class BaseConversionsAction extends CallableSystemAction
         xsltStreamSource = new StreamSource(jarredTransformer.getInputStream());
         transformListener.message(jarredTransformer.getNameExt() + Nb_against + primaryFile.getAbsolutePath());
       }
-      transformListener.moveToFront(); // make console visible
+      transformListener.moveToFront(); // make consoleTransformListener visible
       transformListener.setNode(node[0]);
 
       // pop up dialog panel for destination file name
@@ -544,7 +543,7 @@ public abstract class BaseConversionsAction extends CallableSystemAction
 
         saxonTransformer.transform(new StreamSource(primaryFileObject.getInputStream()), resultFileStreamResult);
 
-        //tCookie.transform(xslStream, outStream, console);
+        //tCookie.transform(xslStream, outStream, consoleTransformListener);
 
         transformListener.message(Nb_XSLT_transformation_complete);
       }
@@ -597,46 +596,46 @@ public abstract class BaseConversionsAction extends CallableSystemAction
 //    X3DDataObject dob = (X3DDataObject)x3dEditor.getX3dEditorSupport().getDataObject();
 //    FileObject mySrc  = dob.getPrimaryFile();
 //    File mySrcFile    = FileUtil.toFile(mySrc);
-//    TransformListener console = TransformListener.getInstance();
+//    TransformListener consoleTransformListener = TransformListener.getInstance();
 //    resultFileExtension = processFileExtension(resultFileExtension);
 //    try {
 //      // This path is setup in the X3D layer.xml file.
-//      console.message(NbBundle.getMessage(getClass(),"XSLT_transformation_starting")+":");
+//      consoleTransformListener.message(NbBundle.getMessage(getClass(),"XSLT_transformation_starting")+":");
 //      StreamSource xslStream;
 //      if(xsltIsOSFile) {
 //        File xsltF = new File(xsltFileResourcePath);
 //        xslStream = new StreamSource(xsltF);
-//        console.message(xsltF.getName()+"("+mySrcFile.getAbsolutePath()+")");
+//        consoleTransformListener.message(xsltF.getName()+"("+mySrcFile.getAbsolutePath()+")");
 //      }
 //      else {
 //        FileObject jarredTransformer = Repository.getDefault().getDefaultFileSystem().findResource (xsltFileResourcePath);
 //        xslStream = new StreamSource(jarredTransformer.getInputStream());
-//        console.message(jarredTransformer.getNameExt()+"("+mySrcFile.getAbsolutePath()+")");
+//        consoleTransformListener.message(jarredTransformer.getNameExt()+"("+mySrcFile.getAbsolutePath()+")");
 //      }
-//      console.moveToFront();
-//      console.setNode(node[0]);
+//      consoleTransformListener.moveToFront();
+//      consoleTransformListener.setNode(node[0]);
 //
 //      retrn = ConversionsHelper.getDestinationFile(mySrcFile,mySrc.getName()+resultFileExtension,wantOpenResultAccessory);
 //
 //      if(retrn == null) {
-//        console.message(NbBundle.getMessage(getClass(),"XSLT_transformation_cancelled"));
+//        consoleTransformListener.message(NbBundle.getMessage(getClass(),"XSLT_transformation_cancelled"));
 //      }
 //      else {
 //        File myOutFile = retrn.file;
 //        myOutFile.createNewFile();
 //        StreamResult outStream = new StreamResult(myOutFile);
-//        console.message(NbBundle.getMessage(getClass(),"Writing_") + myOutFile.getAbsolutePath());
+//        consoleTransformListener.message(NbBundle.getMessage(getClass(),"Writing_") + myOutFile.getAbsolutePath());
 //
-//        tCookie.transform(xslStream, outStream, console);
+//        tCookie.transform(xslStream, outStream, consoleTransformListener);
 //
-//        console.message(NbBundle.getMessage(getClass(),"XSLT_transformation_complete"));
+//        consoleTransformListener.message(NbBundle.getMessage(getClass(),"XSLT_transformation_complete"));
 //      }
 //    }
 //    catch(Exception ex) {
-//      console.message(NbBundle.getMessage(getClass(),"Exception:__")+ex.getMessage());
+//      consoleTransformListener.message(NbBundle.getMessage(getClass(),"Exception:__")+ex.getMessage());
 //      retrn = null;
 //    }
-//    console.moveToFront(true);
+//    consoleTransformListener.moveToFront(true);
 //    return retrn;
 //  }
 
