@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,9 +36,8 @@ package org.web3d.x3d.palette.items;
 
 import java.util.Arrays;
 import javax.swing.text.JTextComponent;
-import org.web3d.x3d.types.X3DTexture2DNode;
-
 import static org.web3d.x3d.types.X3DSchemaData.*;
+import org.web3d.x3d.types.X3DTexture2DNode;
 
 /**
  * IMAGETEXTURE.java
@@ -55,6 +54,7 @@ public class IMAGETEXTURE extends X3DTexture2DNode
 {
   private String[]  urls, urlsDefault;
   private boolean insertCommas, insertLineBreaks = false;
+  private String  description, descriptionDefault; // X3D4.0
   
   public IMAGETEXTURE()
   {
@@ -69,6 +69,8 @@ public class IMAGETEXTURE extends X3DTexture2DNode
   @Override
   public void initialize()
   {
+    description = descriptionDefault = IMAGETEXTURE_ATTR_DESCRIPTION_DFLT; // X3D4.0
+    
     repeatS = Boolean.parseBoolean(IMAGETEXTURE_ATTR_REPEATS_DFLT);
     repeatT = Boolean.parseBoolean(IMAGETEXTURE_ATTR_REPEATT_DFLT);
     if(IMAGETEXTURE_ATTR_URL_DFLT.length() > 0)
@@ -81,8 +83,12 @@ public class IMAGETEXTURE extends X3DTexture2DNode
   public void initializeFromJdom(org.jdom.Element root, JTextComponent comp)
   {
     super.initializeFromJdom(root, comp);
+    
+    org.jdom.Attribute attr = root.getAttribute(IMAGETEXTURE_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
 
-    org.jdom.Attribute attr = root.getAttribute(IMAGETEXTURE_ATTR_REPEATS_NAME);
+    attr = root.getAttribute(IMAGETEXTURE_ATTR_REPEATS_NAME);
     if (attr != null)
       repeatS = Boolean.parseBoolean(attr.getValue());
     attr = root.getAttribute(IMAGETEXTURE_ATTR_REPEATT_NAME);
@@ -110,6 +116,15 @@ public class IMAGETEXTURE extends X3DTexture2DNode
   public String createAttributes()
   {
     StringBuilder sb = new StringBuilder();
+    
+    // description value is only valid if parent scene is X3D4
+    if (IMAGETEXTURE_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
+      sb.append(" ");
+      sb.append(IMAGETEXTURE_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(description);
+      sb.append("'");  
+    }
     if (IMAGETEXTURE_ATTR_REPEATS_REQD || repeatS != Boolean.parseBoolean(IMAGETEXTURE_ATTR_REPEATS_DFLT)) {
       sb.append(" ");
       sb.append(IMAGETEXTURE_ATTR_REPEATS_NAME);
@@ -174,5 +189,15 @@ public class IMAGETEXTURE extends X3DTexture2DNode
      */
     public void setInsertLineBreaks(boolean insertLineBreaks) {
         this.insertLineBreaks = insertLineBreaks;
+    }
+  
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public void setDescription(String newDescription)
+    {
+        this.description = newDescription;
     }
 }
