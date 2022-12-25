@@ -57,54 +57,54 @@ import org.web3d.x3d.X3DEditorSupport;
 import org.web3d.x3d.X3DEditorSupport.X3dEditor;
 import org.web3d.x3d.actions.conversions.BaseConversionsAction;
 
-@ActionID(id = "org.web3d.x3d.actions.qualityassurance.X3dToClassicVrmlXsltErrorsAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.actions.qualityassurance.X3dToX3dvClassicVrmlEncodingXsltErrorsAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/xsl_transformation.png",
-                    displayName = "#CTL_X3dToClassicVrmlXsltErrorsAction", 
+                    displayName = "#CTL_X3dToX3dvClassicVrmlEncodingXsltErrorsAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Quality Assurance (QA)", position = 500),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Quality Assurance (QA)", position = 500),
 })
 
-public final class X3dToClassicVrmlXsltErrorsAction extends BaseConversionsAction
+public final class X3dToX3dvClassicVrmlEncodingXsltErrorsAction extends BaseConversionsAction
 {
-  X3DEditorSupport.X3dEditor ed;
+  X3DEditorSupport.X3dEditor x3dEditor;
 
-  public X3dToClassicVrmlXsltErrorsAction()
+  public X3dToX3dvClassicVrmlEncodingXsltErrorsAction()
   {
     this.setEnabled(true);
   }
 
   @Override
-  protected String transformSingleFile(X3dEditor ed)
+  protected String transformSingleFile(X3dEditor x3dEditor)
   {
-   RequestProcessor rp = getReqProc();
-    if(rp != null)
-      rp.post(new VrmlConversionRunner(ed));
+   RequestProcessor requestProcessor = getReqProc();
+    if(requestProcessor != null)
+      requestProcessor.post(new VrmlConversionRunner(x3dEditor));
     return null;
   }
 
   class VrmlConversionRunner implements Runnable
   {
 
-    X3DEditorSupport.X3dEditor ed;
+    X3DEditorSupport.X3dEditor x3dEditor;
 
-    VrmlConversionRunner(X3DEditorSupport.X3dEditor ed)
+    VrmlConversionRunner(X3DEditorSupport.X3dEditor x3dEditor)
     {
-      this.ed = ed;
+      this.x3dEditor = x3dEditor;
     }
 
     @Override
     public void run()
     {
       try {
-        X3DDataObject dob = (X3DDataObject) ed.getX3dEditorSupport().getDataObject();
+        X3DDataObject dob = (X3DDataObject) x3dEditor.getX3dEditorSupport().getDataObject();
         FileObject mySrc = dob.getPrimaryFile();
         File mySrcFile = FileUtil.toFile(mySrc);
 
         File resultF = File.createTempFile(mySrcFile.getName(), ".x3dv");
         String finishMsg = "Save contents of the "+mySrc.getName()+".x3dv tab to the location of your choice (right click->Save As...).";
-        RequestProcessor.Task task = xsltOneFile(ed, mySrc.getNameExt(), new FileInputStream(mySrcFile),
+        RequestProcessor.Task task = xsltOneFile(x3dEditor, mySrc.getNameExt(), new FileInputStream(mySrcFile),
                 resultF, "Schematron/X3dToX3dvClassicVrmlEncoding.xslt", false, null, finishMsg);
 
         if (task != null) {
@@ -126,7 +126,6 @@ public final class X3dToClassicVrmlXsltErrorsAction extends BaseConversionsActio
     }
   }
 
-  
   private RequestProcessor reqProc = null;
   /**
    * Will return null if the last one hasn't finished yet
@@ -139,11 +138,10 @@ public final class X3dToClassicVrmlXsltErrorsAction extends BaseConversionsActio
     return null;
   }
 
-
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(X3dToClassicVrmlXsltErrorsAction.class, "CTL_X3dToClassicVrmlXsltErrorsAction");
+    return NbBundle.getMessage(X3dToX3dvClassicVrmlEncodingXsltErrorsAction.class, "CTL_X3dToX3dvClassicVrmlEncodingXsltErrorsAction");
   }
 
   @Override
@@ -161,7 +159,7 @@ public final class X3dToClassicVrmlXsltErrorsAction extends BaseConversionsActio
   public JMenuItem getMenuPresenter()
   {
     JMenuItem mi = super.getMenuPresenter();
-    mi.setToolTipText(NbBundle.getMessage(X3dToClassicVrmlXsltErrorsAction.class, "CTL_X3dToClassicVrmlXsltErrorsAction_tt"));
+    mi.setToolTipText(NbBundle.getMessage(X3dToX3dvClassicVrmlEncodingXsltErrorsAction.class, "CTL_X3dToX3dvClassicVrmlEncodingXsltErrorsAction_tt"));
     return mi;
   }
 }

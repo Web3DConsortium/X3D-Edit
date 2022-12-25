@@ -37,22 +37,23 @@ package org.web3d.x3d.actions.qualityassurance;
 import javax.swing.JMenuItem;
 import org.openide.util.NbBundle;
 
-public final class X3dToClassicVrmlXsltErrorsWithAntAction extends XmlValidationAction
+public final class X3dToX3dvClassicVrmlEncodingXsltErrorsWithAntAction extends XmlValidationAction
 {
   //todo remove constructor when/if supported
-  public X3dToClassicVrmlXsltErrorsWithAntAction()
+  public X3dToX3dvClassicVrmlEncodingXsltErrorsWithAntAction()
   {
     this.setEnabled(true);
   }
-  
+  @Override
   public void performAction()
   {
-        performValidationAntTask("checkSceneX3dToClassicVrml.xslt");
+        performValidationAntTask("checkSceneX3dToX3dvClassicVrmlEncoding.xslt");
   }
 
+  @Override
   public String getName()
   {
-    return NbBundle.getMessage(X3dToClassicVrmlXsltErrorsWithAntAction.class, "CTL_X3dToClassicVrmlXsltErrorsAction");
+    return NbBundle.getMessage(X3dToX3dvClassicVrmlEncodingXsltErrorsWithAntAction.class, "CTL_X3dToX3dvClassicVrmlEncodingXsltErrorsAction");
   }
 
   /**
@@ -64,7 +65,7 @@ public final class X3dToClassicVrmlXsltErrorsWithAntAction extends XmlValidation
   public JMenuItem getMenuPresenter()
   {
     JMenuItem mi = super.getMenuPresenter();
-    mi.setToolTipText(NbBundle.getMessage(X3dToClassicVrmlXsltErrorsWithAntAction.class, "CTL_X3dToClassicVrmlXsltErrorsAction_tt"));
+    mi.setToolTipText(NbBundle.getMessage(X3dToX3dvClassicVrmlEncodingXsltErrorsWithAntAction.class, "CTL_X3dToX3dvClassicVrmlEncodingXsltErrorsAction_tt"));
     return mi;
   }
 }

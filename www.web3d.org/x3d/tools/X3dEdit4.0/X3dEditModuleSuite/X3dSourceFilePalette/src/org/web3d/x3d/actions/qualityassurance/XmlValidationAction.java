@@ -68,9 +68,9 @@ abstract public class XmlValidationAction extends CallableSystemAction {
 
     static File   schematronStylesheetFile;
     static File   svrlReportStylesheetFile;
-    static File   X3dToClassicVrmlStylesheetFile;
+    static File   X3dToX3dvClassicVrmlEncodingStylesheetFile;
 
-    static String X3dToClassicVrmlResultName;
+    static String X3dToX3dvClassicVrmlEncodingResultName;
     static String svrlOutputFileName;
     static String svrlReportFileName;
 
@@ -96,7 +96,7 @@ abstract public class XmlValidationAction extends CallableSystemAction {
                 schematronStylesheetFile       = new File(tempDirectory.getAbsolutePath() + File.separator + "X3dSchematronValidityChecks" + stylesheetExtension);
                 svrlReportStylesheetFile       = new File(tempDirectory.getAbsolutePath() + File.separator + "SvrlReportText"              + stylesheetExtension);
 
-                X3dToClassicVrmlStylesheetFile = new File(tempDirectory.getAbsolutePath() + File.separator + "X3dToX3dvClassicVrmlEncoding.xslt");
+                X3dToX3dvClassicVrmlEncodingStylesheetFile = new File(tempDirectory.getAbsolutePath() + File.separator + "X3dToX3dvClassicVrmlEncoding.xslt");
 
                 buildF                         = new File(tempDirectory.getAbsolutePath() + File.separator +  "build.xml");
 
@@ -116,7 +116,7 @@ abstract public class XmlValidationAction extends CallableSystemAction {
         // put results in subdirectory
         svrlOutputFileName          = sourceFile.getParent() + File.separator + "_schematron" + File.separator + sourceFile.getName() + ".svrl";
         svrlReportFileName          = sourceFile.getParent() + File.separator + "_schematron" + File.separator + sourceFile.getName() + ".svrl.txt";
-        X3dToClassicVrmlResultName  = sourceFile.getParent() + File.separator + "_schematron" + File.separator + sourceFile.getName() + "v"; // .x3dv
+        X3dToX3dvClassicVrmlEncodingResultName  = sourceFile.getParent() + File.separator + "_schematron" + File.separator + sourceFile.getName() + "v"; // .x3dv
 
         antProperties = new Properties();
         antProperties.setProperty("sourceFile", sourceFile.getAbsolutePath());
@@ -124,9 +124,9 @@ abstract public class XmlValidationAction extends CallableSystemAction {
         antProperties.setProperty("svrlReportStylesheet", svrlReportStylesheetFile.getAbsolutePath());
         antProperties.setProperty("svrlOutputFile", svrlOutputFileName);
         antProperties.setProperty("svrlReportFile", svrlReportFileName);
-        antProperties.setProperty("X3dToClassicVrmlStylesheet", X3dToClassicVrmlStylesheetFile.getAbsolutePath());
+        antProperties.setProperty("X3dToX3dvClassicVrmlEncodingStylesheet", X3dToX3dvClassicVrmlEncodingStylesheetFile.getAbsolutePath());
         antProperties.setProperty("fileEncoding", "ClassicVRML"); // TODO redundant, trying to ensure VRML97 rules not applied
-        antProperties.setProperty("X3dToClassicVrmlOutputFile", X3dToClassicVrmlResultName);
+        antProperties.setProperty("X3dToX3dvClassicVrmlEncodingOutputFile", X3dToX3dvClassicVrmlEncodingResultName);
     }
 
   private static File buildTempDirectory(String[] resourceDirPathsInLayerFile) throws IOException
