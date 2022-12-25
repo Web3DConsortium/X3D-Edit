@@ -86,7 +86,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
     descriptionTF.setText(hAnimSegment.getDescription());
     if (!hAnimSegment.getDescription().isBlank())
     {
-        checkX3D4FieldSupportDialog("HAnimSegment","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("HAnimSegment","description"); // X3D4.0 field
         descriptionTF.setText(hAnimSegment.getDescription());
     }
     
@@ -542,7 +542,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_descriptionTFActionPerformed
     {//GEN-HEADEREND:event_descriptionTFActionPerformed
-        checkX3D4FieldSupportDialog("HAnimSegment","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("HAnimSegment","description"); // X3D4.0 field
     }//GEN-LAST:event_descriptionTFActionPerformed
 
     private void nameComboBoxFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_nameComboBoxFocusGained

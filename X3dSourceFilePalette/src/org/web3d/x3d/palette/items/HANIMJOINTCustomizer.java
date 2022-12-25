@@ -96,7 +96,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     descriptionTF.setText(hAnimJoint.getDescription());
     if (!hAnimJoint.getDescription().isBlank())
     {
-        checkX3D4FieldSupportDialog("HAnimJoint","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("HAnimJoint","description"); // X3D4.0 field
         descriptionTF.setText(hAnimJoint.getDescription());
     }
     
@@ -1710,7 +1710,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_descriptionTFActionPerformed
     {//GEN-HEADEREND:event_descriptionTFActionPerformed
-        checkX3D4FieldSupportDialog("HAnimJoint","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("HAnimJoint","description"); // X3D4.0 field
     }//GEN-LAST:event_descriptionTFActionPerformed
 
     private void ulimitTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ulimitTFActionPerformed
