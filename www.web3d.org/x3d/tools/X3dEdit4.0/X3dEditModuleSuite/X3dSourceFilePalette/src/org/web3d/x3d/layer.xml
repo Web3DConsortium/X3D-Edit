@@ -1665,11 +1665,11 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="HANIMSITE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMSITE.xml">
                 <attr name="position" intvalue="400"/>
             </file>
-            <file name="HANIMMOTION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMMOTION.xml">
-                <attr name="position" intvalue="450"/>
-            </file>
             <file name="HANIMDISPLACER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMDISPLACER.xml">
                 <attr name="position" intvalue="500"/>
+            </file>
+            <file name="HANIMMOTION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMMOTION.xml">
+                <attr name="position" intvalue="550"/>
             </file>
             <file name="ORIENTATIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ORIENTATIONINTERPOLATOR.xml">
                 <attr name="position" intvalue="600"/>
