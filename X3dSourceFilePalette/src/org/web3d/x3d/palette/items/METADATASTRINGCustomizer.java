@@ -37,8 +37,13 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.JTextComponent;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
+import static org.openmali.vecmath2.util.TupleUtils.angle;
+import static org.web3d.x3d.types.X3DPrimitiveTypes.radiansFormat;
+import static org.web3d.x3d.types.X3DPrimitiveTypes.singleDigitFormat;
 import static org.web3d.x3d.types.X3DSchemaData.METADATA_CONTAINERFIELD_CHOICES;
 import static org.web3d.x3d.types.X3DSchemaData.METADATA_CONTAINERFIELD_TOOLTIPS;
 
@@ -67,6 +72,8 @@ public class METADATASTRINGCustomizer extends BaseCustomizer
     HelpCtx.setHelpIDString(this, "METADATASTRING_ELEM_HELPID");
     
     initComponents();
+     
+    checkSwapValueReferenceFields();
     
     super.getDEFUSEpanel().setContainerFieldChoices(METADATA_CONTAINERFIELD_CHOICES, METADATA_CONTAINERFIELD_TOOLTIPS);
     super.getDEFUSEpanel().setContainerField(metadataString.getContainerField()); // reset value to match updated JComboBox data model
@@ -137,11 +144,12 @@ public class METADATASTRINGCustomizer extends BaseCustomizer
         nameTextField = new javax.swing.JTextField();
         referenceTextLabel = new javax.swing.JLabel();
         referenceTextField = new javax.swing.JTextField();
+        valueLabel = new javax.swing.JLabel();
         valueTable = new org.web3d.x3d.palette.items.ExpandableList();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(700, 440));
+        setPreferredSize(new java.awt.Dimension(700, 450));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -212,13 +220,24 @@ public class METADATASTRINGCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(referenceTextField, gridBagConstraints);
 
+        valueLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        valueLabel.setText("value");
+        valueLabel.setToolTipText("reference to metadata standard or definition for this particular metadata value");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(valueLabel, gridBagConstraints);
+
         valueTable.setToolTipText("Single or multiple string values");
         valueTable.setColumnTitles(new String[] {"string values"});
         valueTable.setMinimumSize(new java.awt.Dimension(170, 200));
         valueTable.setPreferredSize(new java.awt.Dimension(170, 200));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
@@ -269,6 +288,7 @@ public class METADATASTRINGCustomizer extends BaseCustomizer
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JTextField referenceTextField;
     private javax.swing.JLabel referenceTextLabel;
+    private javax.swing.JLabel valueLabel;
     private org.web3d.x3d.palette.items.ExpandableList valueTable;
     // End of variables declaration//GEN-END:variables
 
@@ -295,17 +315,45 @@ public class METADATASTRINGCustomizer extends BaseCustomizer
       }
       return valueArray;
   }
-
-  @Override
-  public void unloadInput()
+  /** If MetadataString value list is empty and a reference field is provided, possible author error - offer to swap.
+   *  Note that this operates on metadataString data structures since panel interface may not be initialized when first testing.
+   */
+  private void checkSwapValueReferenceFields()
   {
-     unLoadDEFUSE(); 
-     
-     metadataString.setName(nameTextField.getText().trim());
-     metadataString.setValueArray(buildValueArray());
-     metadataString.setReference(referenceTextField.getText().trim());
+      if ((metadataString.getValueArray().length == 0) && !metadataString.getReference().isBlank())
+      {
+          String message = "<html>  <p align='center'>Ordinarily a MetadataString value is in the <i>value</i> array, not <i>reference</i> field.</p>" + 
+                           "<p> </p><p align='center'><i>reference</i>='" + metadataString.getReference().trim() + "'</p>" +
+                           "<p> </p><p align='center'>However, <i>value</i> array is empty.  Swap them?</p></html>";
+          NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+                  message, "Change reference to value?", NotifyDescriptor.YES_NO_OPTION);
+          if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
+          {
+              message = "*** MetadataString ";
+              if (!getDEFUSEpanel().getDEF().isBlank())
+                  message += "DEF='" + getDEFUSEpanel().getDEF().trim() + "' ";
+              message += "swapped reference='" + metadataString.getReference().trim() + "' as first element in value field";
+              System.out.println(message);
+              String[] newValueRow = new String[1];
+              newValueRow[0] = metadataString.getReference().trim();
+              metadataString.setValueArray(newValueRow);
+              metadataString.setReference("");
+          }
+      }
+  }
 
-     metadataString.setInsertCommas    (valueTable.isInsertCommasSet());
-     metadataString.setInsertLineBreaks(valueTable.isInsertLineBreaksSet());
-  }  
+    @Override
+    public void unloadInput()
+    {
+        unLoadDEFUSE();
+
+        metadataString.setName(nameTextField.getText().trim());
+        metadataString.setValueArray(buildValueArray());
+        metadataString.setReference(referenceTextField.getText().trim());
+
+        metadataString.setInsertCommas(valueTable.isInsertCommasSet());
+        metadataString.setInsertLineBreaks(valueTable.isInsertLineBreaksSet());
+
+        checkSwapValueReferenceFields();
+    }
 }
