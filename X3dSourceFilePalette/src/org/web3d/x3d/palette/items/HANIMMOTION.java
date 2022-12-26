@@ -42,7 +42,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
 
 /**
- * COORDINATEINTERPOLATOR.java
+ * HANIMMOTION.java
  * Created on Sep 13, 2007, 3:05 PM
  *
  * MOVES Institute
@@ -53,7 +53,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
  * @version $Id$
  */
 
-public class HAnimMotion extends X3DInterpolatorNode
+public class HANIMMOTION extends X3DInterpolatorNode
 {
   private String      channels, channelsDefault;
   private boolean[]   channelsEnabled, channelsEnabledDefault;
@@ -74,7 +74,7 @@ public class HAnimMotion extends X3DInterpolatorNode
   private int         numberRows = 0;
   private int         numberColumns = 0;
   
-  public HAnimMotion()
+  public HANIMMOTION()
   {
       this.setTraceEventsSelectionAvailable(true);
       this.setTraceEventsTooltip("Trace " + getElementName() + " events on X3D browser console");
@@ -83,12 +83,12 @@ public class HAnimMotion extends X3DInterpolatorNode
   @Override
   public final String getElementName()
   {
-    return COORDINATEINTERPOLATOR_ELNAME;
+    return HANIMMOTION_ELNAME;
   }
   @Override
   public Class<? extends BaseCustomizer> getCustomizer()
   {
-    return COORDINATEINTERPOLATORCustomizer.class;
+    return HANIMMOTIONCustomizer.class;
   }
 
   @Override
@@ -207,21 +207,8 @@ public class HAnimMotion extends X3DInterpolatorNode
   public String createAttributes()
   {
     StringBuilder sb = new StringBuilder();
-    
-//  private boolean[]   channelsEnabled, channelsEnabledDefault;
-//  private boolean     enabled, enabledDefault;
-//  private SFInt32     endFrame, endFrameDefault;
-//  private SFFloat     frameDuration, frameDurationDefault; // SFTime
-//  private SFInt32     frameIncrement, frameIncrementDefault;
-//  private SFInt32     frameIndex, frameIndexDefault;
-//  private String      joints, jointsDefault;
-//  private SFInt32     loa, loaDefault;
-//  private boolean     loop, loopDefault;
-//  private SFInt32     startFrame, startFrameDefault; // SFTime
-//  private SFFloat[][] values, valuesDefault;
-//  private boolean     insertCommas, insertLineBreaks = false;
   
-    if (HANIMMOTION_ATTR_CHANNELS_REQD || !channels.isBlank()) {
+    if (HANIMMOTION_ATTR_CHANNELS_REQD || !channels.equals(channelsDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_CHANNELS_NAME);
       sb.append("='");

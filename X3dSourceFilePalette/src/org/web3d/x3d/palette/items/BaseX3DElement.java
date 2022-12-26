@@ -2083,6 +2083,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             else if (getElementName().equals("HAnimJoint"))    nameLabel = " name='" +     ((HANIMJOINT) this).getName() + "'";
             else if (getElementName().equals("HAnimSegment"))  nameLabel = " name='" +   ((HANIMSEGMENT) this).getName() + "'";
             else if (getElementName().equals("HAnimSite"))     nameLabel = " name='" +      ((HANIMSITE) this).getName() + "'";
+            else if (getElementName().equals("HAnimMotion"))   nameLabel = " name='" +    ((HANIMMOTION) this).getName() + "'";
 
             boolean transformType      = (getElementName().equals("Transform")     || getElementName().equals("CADPart")        || getElementName().equals("EspduTransform") ||
                                           getElementName().equals("GeoLOD")        || getElementName().equals("GeoTransform"));
@@ -2212,6 +2213,11 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                 {
                     // TODO
                     name    = ((HANIMDISPLACER) this).getName();
+                }
+                else if (getElementName().equals("HAnimMotion"))
+                {
+                    // TODO
+                    name    = ((HANIMMOTION) this).getName();
                 }
 
                 // visualize Transform parameters, if appropriate
@@ -3821,7 +3827,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     int i = 0;
     for(int ir=0;ir<r;ir++)
       for(int ic=0;ic<c;ic++)
-        iaa[ir][ic] = buildSFInt(saa[ir][ic]);
+        iaa[ir][ic] = buildSFInt32(saa[ir][ic]);
     return iaa;
   }
 
@@ -3833,7 +3839,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     int i = 0;
     for(int ir=0;ir<r;ir++)
       for(int ic=0;ic<c;ic++)
-        iaa[ir][ic] = buildSFInt(sa[i++]);
+        iaa[ir][ic] = buildSFInt32(sa[i++]);
     return iaa;
   }
 
@@ -3873,21 +3879,29 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     return sa;
   }
 
-  protected boolean arraysIdenticalOrNull(boolean[] ba, boolean[] ba2)
+  protected boolean arraysIdenticalOrNull(boolean[] ba1, boolean[] ba2)
   {
-    if(ba.length == 0 && ba2.length==0)
+    if ((ba1 == null))
+        return (ba2 == null);
+    if ((ba2 == null))
+        return false;
+    if(ba1.length == 0 && ba2.length==0)
       return true;
-    if(ba.length != ba2.length)
+    if(ba1.length != ba2.length)
       return false;
-    int c = ba.length;
+    int c = ba1.length;
     for(int i=0;i<c;i++)
-      if( !(ba[i] == ba2[i]) )
+      if( !(ba1[i] == ba2[i]) )
         return false;
     return true;
   }
 
   protected boolean arraysIdenticalOrNull(SFFloat[] fa1, SFFloat[] fa2)
   {
+    if ((fa1 == null))
+        return (fa2 == null);
+    if ((fa2 == null))
+        return false;
     if((fa1.length == 0) && (fa2.length == 0))
       return true;
     if(fa1.length != fa2.length)
@@ -3904,6 +3918,10 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
   protected boolean arraysIdenticalOrNull(SFDouble[] da1, SFDouble[] da2)
   {
+    if ((da1 == null))
+        return (da2 == null);
+    if ((da2 == null))
+        return false;
     if((da1.length == 0) && (da2.length == 0))
       return true;
     if(da1.length != da2.length)
@@ -3918,17 +3936,21 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     return true;
   }
 
-  protected boolean arraysIdenticalOrNull(SFInt32[] intAr, SFInt32[] intAr2)
+  protected boolean arraysIdenticalOrNull(SFInt32[] intArr1, SFInt32[] intArg2)
   {
-    if(intAr.length == 0 && intAr2.length==0)
+    if ((intArr1 == null))
+        return (intArg2 == null);
+    if ((intArg2 == null))
+        return false;
+    if(intArr1.length == 0 && intArg2.length==0)
       return true;
-    if(intAr.length != intAr2.length)
+    if(intArr1.length != intArg2.length)
       return false;
 
-    int c = intAr.length;
+    int c = intArr1.length;
     for(int i=0;i<c;i++)
     {
-        if(!intAr[i].equals(intAr2[i]))
+        if(!intArr1[i].equals(intArg2[i]))
         return false;
     }
     return true;
@@ -4316,11 +4338,17 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     return daa;
   }
 
+  /** create SFFloat from String
+    * @param s input
+    * @return result*/
   protected SFFloat buildSFFloat(String s)
   {
     return new SFFloat(s,null,null); // no limits
   }
 
+  /** create SFDouble from String
+    * @param s input
+    * @return result*/
   protected SFDouble buildSFDouble(String s)
   {
     return new SFDouble(s,null,null); // no limits
@@ -4330,7 +4358,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   {
     SFInt32[] ia = new SFInt32[sa.length];
     for(int i=0;i<ia.length;i++)
-      ia[i] = buildSFInt(sa[i]);
+      ia[i] = buildSFInt32(sa[i]);
     return ia;
   }
   protected boolean[] parseToBooleanArray(String[] stringArray)
@@ -4367,7 +4395,10 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
       ba[i] = Boolean.parseBoolean(sa[i]);
     return ba;
   }
-  protected SFInt32 buildSFInt(String s)
+  /** create SFInt32 from String
+    * @param s input
+    * @return result*/
+  protected SFInt32 buildSFInt32(String s)
   {
     return new SFInt32(s,null,null);
   }
