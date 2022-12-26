@@ -579,7 +579,9 @@
             <word>ClassicVRML</word>
             <word>classpath</word>
             <word>Collada</word>
+            <word>ColorRGBA</word>
             <word>ConformanceNist</word>
+            <word>CoordinateDouble</word>
             <word>crossSection</word>
             <word>CSS</word>
             <word>customizer</word>
@@ -589,6 +591,8 @@
             <word>deserialized</word>
             <word>DOCTYPE</word>
             <word>DTD</word>
+            <word>EnvironmentLight</word>
+            <word>FillProperties</word>
             <word>gzip</word>
             <word>gzipped</word>
             <word>HAnim</word>
@@ -596,16 +600,24 @@
             <word>html</word>
             <word>htmlcolorcodes</word>
             <word>https</word>
+            <word>ImageTexture</word>
             <word>javadoc</word>
             <word>JSON</word>
             <word>keystore</word>
+            <word>LineProperties</word>
             <word>localhost</word>
             <word>mailto</word>
             <word>MeshLab</word>
             <word>mocap</word>
+            <word>MovieTexture</word>
+            <word>MultiTexture</word>
+            <word>MultiTextureCoordinate</word>
+            <word>MultiTextureTransform</word>
             <word>NuGraf</word>
             <word>Okino</word>
             <word>Paraview</word>
+            <word>PhysicalMaterial</word>
+            <word>PixelTexture</word>
             <word>PolyTrans</word>
             <word>Portecle</word>
             <word>Quickstart</word>
@@ -619,11 +631,19 @@
             <word>strictfp</word>
             <word>stylesheet</word>
             <word>svg</word>
+            <word>TextureCoordinate</word>
+            <word>TextureCoordinateGenerator</word>
+            <word>TextureProjector</word>
+            <word>TextureProjectorParallel</word>
+            <word>TextureProperties</word>
+            <word>TextureTransform</word>
             <word>TODO</word>
             <word>tooltip</word>
             <word>Tooltips</word>
             <word>ttl</word>
+            <word>TwoSidedMaterial</word>
             <word>UltraEdit</word>
+            <word>UnlitMaterial</word>
             <word>Validator</word>
             <word>VRML</word>
             <word>WHATWG</word>
