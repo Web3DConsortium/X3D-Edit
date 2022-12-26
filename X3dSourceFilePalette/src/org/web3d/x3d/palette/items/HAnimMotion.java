@@ -71,6 +71,9 @@ public class HAnimMotion extends X3DInterpolatorNode
   private SFFloat[][] values, valuesDefault;
   private boolean     insertCommas, insertLineBreaks = false;
   
+  private int         numberRows = 0;
+  private int         numberColumns = 0;
+  
   public HAnimMotion()
   {
       this.setTraceEventsSelectionAvailable(true);
@@ -91,20 +94,20 @@ public class HAnimMotion extends X3DInterpolatorNode
   @Override
   public void initialize()
   {
-        setChannels(channelsDefault         = HANIMMOTION_ATTR_CHANNELS_DFLT);
-        setDescription(descriptionDefault      = HANIMMOTION_ATTR_DESCRIPTION_DFLT);
+        setChannels(channelsDefault       = HANIMMOTION_ATTR_CHANNELS_DFLT);
+        setDescription(descriptionDefault = HANIMMOTION_ATTR_DESCRIPTION_DFLT);
         setJoints(jointsDefault           = HANIMMOTION_ATTR_JOINTS_DFLT);
-        setName(nameDefault             = HANIMMOTION_ATTR_NAME_DFLT); // TODO add to spec?
+        setName(nameDefault               = HANIMMOTION_ATTR_NAME_DFLT); // TODO add to spec?
     
         setEndFrame(endFrameDefault       = new SFInt32  (HANIMMOTION_ATTR_ENDFRAME_DFLT,      0,    65535));
-        setStartFrame(startFrameDefault       = new SFInt32  (HANIMMOTION_ATTR_STARTFRAME_DFLT,    0,    65535));
-        setFrameIncrement(frameIncrementDefault   = new SFInt32  (HANIMMOTION_ATTR_FRAMEINCREMENT_DFLT,0,    65535));
-        setFrameIndex(frameIndexDefault       = new SFInt32  (HANIMMOTION_ATTR_FRAMEINDEX_DFLT,    0,    65535));
-        setLoa(loaDefault              = new SFInt32  (HANIMMOTION_ATTR_LOA_DFLT,          -1,    4));
+        setStartFrame(startFrameDefault   = new SFInt32  (HANIMMOTION_ATTR_STARTFRAME_DFLT,    0,    65535));
+        setFrameIncrement(frameIncrementDefault = new SFInt32  (HANIMMOTION_ATTR_FRAMEINCREMENT_DFLT,0,    65535));
+        setFrameIndex(frameIndexDefault   = new SFInt32  (HANIMMOTION_ATTR_FRAMEINDEX_DFLT,    0,    65535));
+        setLoa(loaDefault                 = new SFInt32  (HANIMMOTION_ATTR_LOA_DFLT,          -1,    4));
     
-        setFrameDuration(frameDurationDefault    = new SFFloat(HANIMMOTION_ATTR_FRAMEDURATION_DFLT,0.0f,null)); // SFTime
-        setEnabled(enabledDefault          = Boolean.parseBoolean(HANIMMOTION_ATTR_ENABLED_DFLT));
-        setLoop(loopDefault             = Boolean.parseBoolean(HANIMMOTION_ATTR_LOOP_DFLT));
+        setFrameDuration(frameDurationDefault = new SFFloat(HANIMMOTION_ATTR_FRAMEDURATION_DFLT,0.0f,null)); // SFTime
+        setEnabled(enabledDefault         = Boolean.parseBoolean(HANIMMOTION_ATTR_ENABLED_DFLT));
+        setLoop(loopDefault               = Boolean.parseBoolean(HANIMMOTION_ATTR_LOOP_DFLT));
     
     String[] sa;
     
@@ -182,16 +185,16 @@ public class HAnimMotion extends X3DInterpolatorNode
     if (attr != null)
     {
       String[] sa = parseX(attr.getValue());
-      int numberKeyValues = sa.length;
-      int numberRows = getEndFrame().getValue() - getStartFrame().getValue() + 1; // note each value is already parsed
-      if (numberRows < 1)
+      int numberValues = sa.length;
+            setNumberRows(getEndFrame().getValue() - getStartFrame().getValue() + 1); // note each value is already parsed
+      if (  getNumberRows() < 1)
       {
           System.out.println("*** bad value for numberRows = endFrame - startFrame + 1 = " + 
-                  getEndFrame().getValue() + " - " + getStartFrame().getValue() + " + 1 = " + numberRows + ", reeset to 1");
-          numberRows = 1;
+                  getEndFrame().getValue() + " - " + getStartFrame().getValue() + " + 1 = " + getNumberRows() + ", reeset to 1");
+                setNumberRows(1);
       }
-      int numberColumns = numberKeyValues / numberRows;
-            setValues(parseToSFFloatTable(sa,numberColumns));
+            setNumberColumns(numberValues / getNumberRows());
+            setValues(parseToSFFloatTable(sa, getNumberColumns()));
       
          if (attr.getValue().contains(","))  setInsertCommas(true);
          if (attr.getValue().contains("\n") ||
@@ -556,6 +559,38 @@ public class HAnimMotion extends X3DInterpolatorNode
     {
         this.values = values;
     }
+
+  public String[][] getValuesString()
+  {
+    if (values.length == 0)
+        return new String[][]{{ }}; // default value array is empty
+    
+    String[][] saa = new String[numberRows][numberColumns];
+    
+    for(int r = 0; r < numberRows; r++)
+    {
+      for(int c =0 ; c < numberColumns; c++)
+      {
+        saa[r][c] = values[r][c].toString();
+      }
+    }
+    return saa;
+  }
+  
+  public void setValuesString(String[][] saa)
+  {
+    if(saa.length == 0) {
+      values = new SFFloat[0][0];
+      return;
+    }
+    
+    values= new SFFloat[numberRows][numberColumns];
+    for (int r = 0; r  <numberRows; r++) {
+      for(int c = 0; c < numberColumns; c++) {
+        values[r][c] = buildSFFloat(saa[r][c]);
+      }
+    }
+  }
  
     /**
      * @return the insertCommas value
@@ -576,5 +611,37 @@ public class HAnimMotion extends X3DInterpolatorNode
      */
     public boolean isInsertLineBreaks() {
         return insertLineBreaks;
+    }
+
+    /**
+     * @return the numberRows
+     */
+    public int getNumberRows()
+    {
+        return numberRows;
+    }
+
+    /**
+     * @param numberRows the numberRows to set
+     */
+    public void setNumberRows(int numberRows)
+    {
+        this.numberRows = numberRows;
+    }
+
+    /**
+     * @return the numberColumns
+     */
+    public int getNumberColumns()
+    {
+        return numberColumns;
+    }
+
+    /**
+     * @param numberColumns the numberColumns to set
+     */
+    public void setNumberColumns(int numberColumns)
+    {
+        this.numberColumns = numberColumns;
     }
 }
