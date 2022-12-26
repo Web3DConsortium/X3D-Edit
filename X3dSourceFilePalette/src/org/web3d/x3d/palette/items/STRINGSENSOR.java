@@ -111,7 +111,7 @@ public class STRINGSENSOR extends X3DKeyDeviceSensorNode
       sb.append(deletionAllowed);
       sb.append("'");
     }
-    // description value is only if parent scene is X3D4
+    // description value is only valid if parent scene is X3D4
     if (STRINGSENSOR_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
       sb.append(" ");
       sb.append(STRINGSENSOR_ATTR_DESCRIPTION_NAME);
