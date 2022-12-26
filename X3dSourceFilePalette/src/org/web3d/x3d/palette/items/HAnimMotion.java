@@ -91,20 +91,20 @@ public class HAnimMotion extends X3DInterpolatorNode
   @Override
   public void initialize()
   {
-    channels       = channelsDefault         = HANIMMOTION_ATTR_CHANNELS_DFLT;
-    description    = descriptionDefault      = HANIMMOTION_ATTR_DESCRIPTION_DFLT;
-    joints         = jointsDefault           = HANIMMOTION_ATTR_JOINTS_DFLT;
-    name           = nameDefault             = HANIMMOTION_ATTR_NAME_DFLT; // TODO add to spec?
+        setChannels(channelsDefault         = HANIMMOTION_ATTR_CHANNELS_DFLT);
+        setDescription(descriptionDefault      = HANIMMOTION_ATTR_DESCRIPTION_DFLT);
+        setJoints(jointsDefault           = HANIMMOTION_ATTR_JOINTS_DFLT);
+        setName(nameDefault             = HANIMMOTION_ATTR_NAME_DFLT); // TODO add to spec?
     
-      endFrame     =   endFrameDefault       = new SFInt32  (HANIMMOTION_ATTR_ENDFRAME_DFLT,      0,    65535);
-    startFrame     = startFrameDefault       = new SFInt32  (HANIMMOTION_ATTR_STARTFRAME_DFLT,    0,    65535);
-    frameIncrement = frameIncrementDefault   = new SFInt32  (HANIMMOTION_ATTR_FRAMEINCREMENT_DFLT,0,    65535);
-    frameIndex     = frameIndexDefault       = new SFInt32  (HANIMMOTION_ATTR_FRAMEINDEX_DFLT,    0,    65535);
-    loa            = loaDefault              = new SFInt32  (HANIMMOTION_ATTR_LOA_DFLT,          -1,    4);
+        setEndFrame(endFrameDefault       = new SFInt32  (HANIMMOTION_ATTR_ENDFRAME_DFLT,      0,    65535));
+        setStartFrame(startFrameDefault       = new SFInt32  (HANIMMOTION_ATTR_STARTFRAME_DFLT,    0,    65535));
+        setFrameIncrement(frameIncrementDefault   = new SFInt32  (HANIMMOTION_ATTR_FRAMEINCREMENT_DFLT,0,    65535));
+        setFrameIndex(frameIndexDefault       = new SFInt32  (HANIMMOTION_ATTR_FRAMEINDEX_DFLT,    0,    65535));
+        setLoa(loaDefault              = new SFInt32  (HANIMMOTION_ATTR_LOA_DFLT,          -1,    4));
     
-    frameDuration  = frameDurationDefault    = new SFFloat(HANIMMOTION_ATTR_FRAMEDURATION_DFLT,0.0f,null); // SFTime
-    enabled        = enabledDefault          = Boolean.parseBoolean(HANIMMOTION_ATTR_ENABLED_DFLT);
-    loop           = loopDefault             = Boolean.parseBoolean(HANIMMOTION_ATTR_LOOP_DFLT);
+        setFrameDuration(frameDurationDefault    = new SFFloat(HANIMMOTION_ATTR_FRAMEDURATION_DFLT,0.0f,null)); // SFTime
+        setEnabled(enabledDefault          = Boolean.parseBoolean(HANIMMOTION_ATTR_ENABLED_DFLT));
+        setLoop(loopDefault             = Boolean.parseBoolean(HANIMMOTION_ATTR_LOOP_DFLT));
     
     String[] sa;
     
@@ -112,7 +112,7 @@ public class HAnimMotion extends X3DInterpolatorNode
       sa = new String[]{}; // empty 
     else
       sa = parseX(HANIMMOTION_ATTR_VALUES_DFLT);
-    values = valuesDefault = parseToSFFloatTable(sa,3); // TODO framewidth or SFFloatArray?
+        setValues(valuesDefault = parseToSFFloatTable(sa,3)); // TODO framewidth or SFFloatArray?
   }
 
   @Override
@@ -123,80 +123,80 @@ public class HAnimMotion extends X3DInterpolatorNode
     
     attr = root.getAttribute(HANIMMOTION_ATTR_CHANNELS_NAME);
     if (attr != null)
-      channels = attr.getValue();
+        setChannels(attr.getValue());
     
     attr = root.getAttribute(HANIMMOTION_ATTR_DESCRIPTION_NAME);
     if (attr != null)
-      description = attr.getValue();
+        setDescription(attr.getValue());
     
     attr = root.getAttribute(HANIMMOTION_ATTR_NAME_NAME);
     if (attr != null)
-      name = attr.getValue();
+        setName(attr.getValue());
     
     attr = root.getAttribute(HANIMMOTION_ATTR_JOINTS_NAME);
     if (attr != null)
-      joints = attr.getValue();
+        setJoints(attr.getValue());
 
     attr = root.getAttribute(HANIMMOTION_ATTR_ENABLED_NAME);
     if(attr != null)
-      enabled = Boolean.parseBoolean(attr.getValue());
+        setEnabled(Boolean.parseBoolean(attr.getValue()));
 
     attr = root.getAttribute(HANIMMOTION_ATTR_LOOP_NAME);
     if(attr != null)
-      loop = Boolean.parseBoolean(attr.getValue());
+        setLoop(Boolean.parseBoolean(attr.getValue()));
   
     attr = root.getAttribute(HANIMMOTION_ATTR_CHANNELSENABLED_NAME);
     if (attr != null) {
          String[] sa = parseX(attr.getValue());
-         channelsEnabled = parseToBooleanArray(sa);
-         if (attr.getValue().contains(","))  insertCommas     = true;
+            setChannelsEnabled(parseToBooleanArray(sa));
+         if (attr.getValue().contains(","))  setInsertCommas(true);
          if (attr.getValue().contains("\n") ||
-             attr.getValue().contains("\r")) insertLineBreaks = true; // TODO not working, line breaks not being passed from JDOM
-         if (insertCommas)                   insertLineBreaks = true; // workaround default, if commas were present then most likely lineBreaks also
+             attr.getValue().contains("\r")) setInsertLineBreaks(true); // TODO not working, line breaks not being passed from JDOM
+         if (isInsertCommas())                   setInsertLineBreaks(true); // workaround default, if commas were present then most likely lineBreaks also
     }
     attr = root.getAttribute(HANIMMOTION_ATTR_ENDFRAME_NAME);
     if(attr != null)
-      endFrame =  new SFInt32(attr.getValue(), 0, 65535);
+        setEndFrame(new SFInt32(attr.getValue(), 0, 65535));
     
     attr = root.getAttribute(HANIMMOTION_ATTR_FRAMEINCREMENT_NAME);
     if(attr != null)
-      frameIncrement =  new SFInt32(attr.getValue(), 0, 65535);
+        setFrameIncrement(new SFInt32(attr.getValue(), 0, 65535));
     
     attr = root.getAttribute(HANIMMOTION_ATTR_FRAMEDURATION_NAME);
     if(attr != null)
-      frameDuration =  new SFFloat(attr.getValue(), 0.0f, null);
+        setFrameDuration(new SFFloat(attr.getValue(), 0.0f, null));
     
     attr = root.getAttribute(HANIMMOTION_ATTR_FRAMEINDEX_NAME);
     if(attr != null)
-      frameIndex =  new SFInt32(attr.getValue(), 0, 65535);
+        setFrameIndex(new SFInt32(attr.getValue(), 0, 65535));
     
     attr = root.getAttribute(HANIMMOTION_ATTR_STARTFRAME_NAME);
     if(attr != null)
-      startFrame =  new SFInt32(attr.getValue(), 0, 65535);
+        setStartFrame(new SFInt32(attr.getValue(), 0, 65535));
     
     attr = root.getAttribute(HANIMMOTION_ATTR_LOA_NAME);
     if(attr != null)
-      loa =  new SFInt32(attr.getValue(), -1, 4);
+        setLoa(new SFInt32(attr.getValue(), -1, 4));
     
     attr = root.getAttribute(HANIMMOTION_ATTR_VALUES_NAME);
     if (attr != null)
     {
       String[] sa = parseX(attr.getValue());
       int numberKeyValues = sa.length;
-      int numberRows = endFrame.getValue() - startFrame.getValue() + 1; // note each value is already parsed
+      int numberRows = getEndFrame().getValue() - getStartFrame().getValue() + 1; // note each value is already parsed
       if (numberRows < 1)
       {
           System.out.println("*** bad value for numberRows = endFrame - startFrame + 1 = " + 
-                  endFrame.getValue() + " - " + startFrame.getValue() + " + 1 = " + numberRows + ", reeset to 1");
+                  getEndFrame().getValue() + " - " + getStartFrame().getValue() + " + 1 = " + numberRows + ", reeset to 1");
           numberRows = 1;
       }
       int numberColumns = numberKeyValues / numberRows;
-      values = parseToSFFloatTable(sa,numberColumns);
+            setValues(parseToSFFloatTable(sa,numberColumns));
       
-         if (attr.getValue().contains(","))  insertCommas     = true;
+         if (attr.getValue().contains(","))  setInsertCommas(true);
          if (attr.getValue().contains("\n") ||
-             attr.getValue().contains("\r")) insertLineBreaks = true; // TODO not working, line breaks not being passed from JDOM
-         if (insertCommas)                     insertLineBreaks = true; // workaround default, if commas were present then most likely lineBreaks also
+             attr.getValue().contains("\r")) setInsertLineBreaks(true); // TODO not working, line breaks not being passed from JDOM
+         if (isInsertCommas())                     setInsertLineBreaks(true); // workaround default, if commas were present then most likely lineBreaks also
     }
   }
  
@@ -222,109 +222,341 @@ public class HAnimMotion extends X3DInterpolatorNode
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_CHANNELS_NAME);
       sb.append("='");
-      sb.append(channels);
+      sb.append(getChannels());
       sb.append("'");
     }
     if (HANIMMOTION_ATTR_CHANNELSENABLED_REQD || !arraysIdenticalOrNull(channelsEnabled,channelsEnabledDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_CHANNELSENABLED_NAME);
       sb.append("='");
-      sb.append(formatBooleanArray(channelsEnabled, insertCommas, insertLineBreaks));
+      sb.append(formatBooleanArray(getChannelsEnabled(), isInsertCommas(), isInsertLineBreaks()));
       sb.append("'");
     }
     if (HANIMMOTION_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_DESCRIPTION_NAME);
       sb.append("='");
-      sb.append(description);
+      sb.append(getDescription());
       sb.append("'");
     }
-    if (HANIMMOTION_ATTR_ENABLED_REQD || (enabled != enabledDefault)) {
+    if (HANIMMOTION_ATTR_ENABLED_REQD || (isEnabled() != enabledDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_ENABLED_NAME);
       sb.append("='");
-      sb.append(enabled);
+      sb.append(isEnabled());
       sb.append("'");
     }
-    if (HANIMMOTION_ATTR_ENDFRAME_REQD || (endFrame != endFrameDefault)) {
+    if (HANIMMOTION_ATTR_ENDFRAME_REQD || (getEndFrame() != endFrameDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_ENDFRAME_NAME);
       sb.append("='");
-      sb.append(endFrame);
+      sb.append(getEndFrame());
       sb.append("'");
     }
-    if (HANIMMOTION_ATTR_FRAMEDURATION_REQD || (frameDuration != frameDurationDefault)) {
+    if (HANIMMOTION_ATTR_FRAMEDURATION_REQD || (getFrameDuration() != frameDurationDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_FRAMEDURATION_NAME);
       sb.append("='");
-      sb.append(frameDuration);
+      sb.append(getFrameDuration());
       sb.append("'");
     }
-    if (HANIMMOTION_ATTR_FRAMEINCREMENT_REQD || (frameIncrement != frameIncrementDefault)) {
+    if (HANIMMOTION_ATTR_FRAMEINCREMENT_REQD || (getFrameIncrement() != frameIncrementDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_FRAMEINCREMENT_NAME);
       sb.append("='");
-      sb.append(frameIncrement);
+      sb.append(getFrameIncrement());
       sb.append("'");
     }
-    if (HANIMMOTION_ATTR_FRAMEINDEX_REQD || (frameIndex != frameIndexDefault)) {
+    if (HANIMMOTION_ATTR_FRAMEINDEX_REQD || (getFrameIndex() != frameIndexDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_FRAMEINDEX_NAME);
       sb.append("='");
-      sb.append(frameIndex);
+      sb.append(getFrameIndex());
       sb.append("'");
     }
     if (HANIMMOTION_ATTR_JOINTS_REQD || (!joints.equals(jointsDefault))) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_JOINTS_NAME);
       sb.append("='");
-      sb.append(joints);
+      sb.append(getJoints());
       sb.append("'");
     }
-    if (HANIMMOTION_ATTR_FRAMEINDEX_REQD || (frameIndex != frameIndexDefault)) {
+    if (HANIMMOTION_ATTR_FRAMEINDEX_REQD || (getFrameIndex() != frameIndexDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_FRAMEINDEX_NAME);
       sb.append("='");
-      sb.append(frameIndex);
+      sb.append(getFrameIndex());
       sb.append("'");
     }
-    if (HANIMMOTION_ATTR_LOA_REQD || (loa != loaDefault)) {
+    if (HANIMMOTION_ATTR_LOA_REQD || (getLoa() != loaDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_LOA_NAME);
       sb.append("='");
-      sb.append(loa);
+      sb.append(getLoa());
       sb.append("'");
     }
-    if (HANIMMOTION_ATTR_LOOP_REQD || (loop != loopDefault)) {
+    if (HANIMMOTION_ATTR_LOOP_REQD || (isLoop() != loopDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_LOOP_NAME);
       sb.append("='");
-      sb.append(loop);
+      sb.append(isLoop());
       sb.append("'");
     }
     if (HANIMMOTION_ATTR_NAME_REQD || (!name.equals(nameDefault))) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_NAME_NAME);
       sb.append("='");
-      sb.append(name);
+      sb.append(getName());
       sb.append("'");
     }
-    if (HANIMMOTION_ATTR_STARTFRAME_REQD || (startFrame != startFrameDefault)) {
+    if (HANIMMOTION_ATTR_STARTFRAME_REQD || (getStartFrame() != startFrameDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_STARTFRAME_NAME);
       sb.append("='");
-      sb.append(startFrame);
+      sb.append(getStartFrame());
       sb.append("'");
     }
     if (HANIMMOTION_ATTR_VALUES_REQD || !arraysIdenticalOrNull(values,valuesDefault)) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_VALUES_NAME);
       sb.append("='");
-      sb.append(formatFloatArray(values, insertCommas, insertLineBreaks));
+      sb.append(formatFloatArray(getValues(), isInsertCommas(), isInsertLineBreaks()));
       sb.append("'");
     }
     return sb.toString();
   }
+
+    /**
+     * @param insertLineBreaks the insertLineBreak values to set
+     */
+    public void setInsertLineBreaks(boolean insertLineBreaks) {
+        this.insertLineBreaks = insertLineBreaks;
+    }
+
+    /**
+     * @return the channels
+     */
+    public String getChannels()
+    {
+        return channels;
+    }
+
+    /**
+     * @param channels the channels to set
+     */
+    public void setChannels(String channels)
+    {
+        this.channels = channels;
+    }
+
+    /**
+     * @return the channelsEnabled
+     */
+    public boolean[] getChannelsEnabled()
+    {
+        return channelsEnabled;
+    }
+
+    /**
+     * @param channelsEnabled the channelsEnabled to set
+     */
+    public void setChannelsEnabled(boolean[] channelsEnabled)
+    {
+        this.channelsEnabled = channelsEnabled;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription()
+    {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
+
+    /**
+     * @return the enabled
+     */
+    public boolean isEnabled()
+    {
+        return enabled;
+    }
+
+    /**
+     * @param enabled the enabled to set
+     */
+    public void setEnabled(boolean enabled)
+    {
+        this.enabled = enabled;
+    }
+
+    /**
+     * @return the endFrame
+     */
+    public SFInt32 getEndFrame()
+    {
+        return endFrame;
+    }
+
+    /**
+     * @param endFrame the endFrame to set
+     */
+    public void setEndFrame(SFInt32 endFrame)
+    {
+        this.endFrame = endFrame;
+    }
+
+    /**
+     * @return the frameDuration
+     */
+    public SFFloat getFrameDuration()
+    {
+        return frameDuration;
+    }
+
+    /**
+     * @param frameDuration the frameDuration to set
+     */
+    public void setFrameDuration(SFFloat frameDuration)
+    {
+        this.frameDuration = frameDuration;
+    }
+
+    /**
+     * @return the frameIncrement
+     */
+    public SFInt32 getFrameIncrement()
+    {
+        return frameIncrement;
+    }
+
+    /**
+     * @param frameIncrement the frameIncrement to set
+     */
+    public void setFrameIncrement(SFInt32 frameIncrement)
+    {
+        this.frameIncrement = frameIncrement;
+    }
+
+    /**
+     * @return the frameIndex
+     */
+    public SFInt32 getFrameIndex()
+    {
+        return frameIndex;
+    }
+
+    /**
+     * @param frameIndex the frameIndex to set
+     */
+    public void setFrameIndex(SFInt32 frameIndex)
+    {
+        this.frameIndex = frameIndex;
+    }
+
+    /**
+     * @return the joints
+     */
+    public String getJoints()
+    {
+        return joints;
+    }
+
+    /**
+     * @param joints the joints to set
+     */
+    public void setJoints(String joints)
+    {
+        this.joints = joints;
+    }
+
+    /**
+     * @return the loa
+     */
+    public SFInt32 getLoa()
+    {
+        return loa;
+    }
+
+    /**
+     * @param loa the loa to set
+     */
+    public void setLoa(SFInt32 loa)
+    {
+        this.loa = loa;
+    }
+
+    /**
+     * @return the loop
+     */
+    public boolean isLoop()
+    {
+        return loop;
+    }
+
+    /**
+     * @param loop the loop to set
+     */
+    public void setLoop(boolean loop)
+    {
+        this.loop = loop;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName()
+    {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    /**
+     * @return the startFrame
+     */
+    public SFInt32 getStartFrame()
+    {
+        return startFrame;
+    }
+
+    /**
+     * @param startFrame the startFrame to set
+     */
+    public void setStartFrame(SFInt32 startFrame)
+    {
+        this.startFrame = startFrame;
+    }
+
+    /**
+     * @return the values
+     */
+    public SFFloat[][] getValues()
+    {
+        return values;
+    }
+
+    /**
+     * @param values the values to set
+     */
+    public void setValues(SFFloat[][] values)
+    {
+        this.values = values;
+    }
+ 
     /**
      * @return the insertCommas value
      */
@@ -345,12 +577,4 @@ public class HAnimMotion extends X3DInterpolatorNode
     public boolean isInsertLineBreaks() {
         return insertLineBreaks;
     }
-
-    /**
-     * @param insertLineBreaks the insertLineBreak values to set
-     */
-    public void setInsertLineBreaks(boolean insertLineBreaks) {
-        this.insertLineBreaks = insertLineBreaks;
-    }
- 
 }
