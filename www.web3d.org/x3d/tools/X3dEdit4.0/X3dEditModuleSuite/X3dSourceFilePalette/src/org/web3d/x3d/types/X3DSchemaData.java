@@ -3573,7 +3573,50 @@ public interface X3DSchemaData
 "suprasternale",
 "waist_preferred_post",
   };
-
+  String  HANIMMOTION_ELNAME                   = "HAnimMotion";
+  String  HANIMMOTION_ATTR_CHANNELS_NAME       = "channels";
+  boolean HANIMMOTION_ATTR_CHANNELS_REQD       = false;
+  String  HANIMMOTION_ATTR_CHANNELS_DFLT       = "";
+  String  HANIMMOTION_ATTR_CHANNELSENABLED_NAME= "channelsEnabled";
+  boolean HANIMMOTION_ATTR_CHANNELSENABLED_REQD= false;
+  String  HANIMMOTION_ATTR_CHANNELSENABLED_DFLT= "";
+  String  HANIMMOTION_ATTR_DESCRIPTION_NAME    = "description";
+  boolean HANIMMOTION_ATTR_DESCRIPTION_REQD    = false;
+  String  HANIMMOTION_ATTR_DESCRIPTION_DFLT    = "";
+  String  HANIMMOTION_ATTR_JOINTS_NAME         = "joints";
+  boolean HANIMMOTION_ATTR_JOINTS_REQD         = false;
+  String  HANIMMOTION_ATTR_JOINTS_DFLT         = "";
+  String  HANIMMOTION_ATTR_NAME_NAME           = "name"; // TODO add to spec?
+  boolean HANIMMOTION_ATTR_NAME_REQD           = false;
+  String  HANIMMOTION_ATTR_NAME_DFLT           = "";
+  String  HANIMMOTION_ATTR_ENABLED_NAME        = "enabled";
+  boolean HANIMMOTION_ATTR_ENABLED_REQD        = false;
+  String  HANIMMOTION_ATTR_ENABLED_DFLT        = "true";
+  String  HANIMMOTION_ATTR_ENDFRAME_NAME       = "endFrame";
+  boolean HANIMMOTION_ATTR_ENDFRAME_REQD       = false;
+  String  HANIMMOTION_ATTR_ENDFRAME_DFLT       = "0";
+  String  HANIMMOTION_ATTR_FRAMEDURATION_NAME  = "frameDuration";
+  boolean HANIMMOTION_ATTR_FRAMEDURATION_REQD  = false;
+  String  HANIMMOTION_ATTR_FRAMEDURATION_DFLT  = "0.1";
+  String  HANIMMOTION_ATTR_FRAMEINCREMENT_NAME = "frameIncrement";
+  boolean HANIMMOTION_ATTR_FRAMEINCREMENT_REQD = false;
+  String  HANIMMOTION_ATTR_FRAMEINCREMENT_DFLT = "";
+  String  HANIMMOTION_ATTR_FRAMEINDEX_NAME     = "frameIndex";
+  boolean HANIMMOTION_ATTR_FRAMEINDEX_REQD     = false;
+  String  HANIMMOTION_ATTR_FRAMEINDEX_DFLT     = "0";
+  String  HANIMMOTION_ATTR_LOA_NAME            = "loa";
+  boolean HANIMMOTION_ATTR_LOA_REQD            = false;
+  String  HANIMMOTION_ATTR_LOA_DFLT            = "-1";
+  String  HANIMMOTION_ATTR_LOOP_NAME           = "loop";
+  boolean HANIMMOTION_ATTR_LOOP_REQD           = false;
+  String  HANIMMOTION_ATTR_LOOP_DFLT           = "false";
+  String  HANIMMOTION_ATTR_STARTFRAME_NAME     = "startFrame";
+  boolean HANIMMOTION_ATTR_STARTFRAME_REQD     = false;
+  String  HANIMMOTION_ATTR_STARTFRAME_DFLT     = "0";
+  String  HANIMMOTION_ATTR_VALUES_NAME         = "values";
+  boolean HANIMMOTION_ATTR_VALUES_REQD         = false;
+  String  HANIMMOTION_ATTR_VALUES_DFLT         = "";
+  
   // NURBS Component
   String  CONTOUR2D_ELNAME                            = "Contour2D";
 
