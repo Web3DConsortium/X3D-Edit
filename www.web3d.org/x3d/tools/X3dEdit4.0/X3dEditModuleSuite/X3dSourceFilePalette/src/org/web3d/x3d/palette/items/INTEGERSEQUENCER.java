@@ -174,7 +174,7 @@ public class INTEGERSEQUENCER extends X3DSequencerNode
       key[r] = buildSFFloat(saa[r][0]);
       if(saa[r][1].length()<= 0)
         saa[r][1] = "0";
-      keyValue[r] = buildSFInt(saa[r][1]);
+      keyValue[r] = buildSFInt32(saa[r][1]);
     }
   }
 
