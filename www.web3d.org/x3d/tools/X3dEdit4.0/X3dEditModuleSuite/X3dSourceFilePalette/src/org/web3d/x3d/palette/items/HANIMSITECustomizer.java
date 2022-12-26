@@ -177,9 +177,10 @@ public class HANIMSITECustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel = getDEFUSEpanel();
+        nameWarningLabel1 = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         nameComboBox = new javax.swing.JComboBox<>();
-        nameWarningLabel = new javax.swing.JLabel();
+        nameWarningLabel2 = new javax.swing.JLabel();
         descriptionLabel = new javax.swing.JLabel();
         descriptionTF = new javax.swing.JTextField();
         xLabel = new javax.swing.JLabel();
@@ -248,6 +249,24 @@ public class HANIMSITECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel, gridBagConstraints);
 
+        nameWarningLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        nameWarningLabel1.setText("name must have a legal value");
+        nameWarningLabel1.setToolTipText("HAnim has strict rules for name and DEF");
+        nameWarningLabel1.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                nameWarningLabel1MouseEntered(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(nameWarningLabel1, gridBagConstraints);
+
         nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         nameLabel.setText("name");
@@ -313,23 +332,23 @@ public class HANIMSITECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameComboBox, gridBagConstraints);
 
-        nameWarningLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        nameWarningLabel.setText("name must have a legal value");
-        nameWarningLabel.setToolTipText("HAnim has strict rules for name and DEF");
-        nameWarningLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        nameWarningLabel2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        nameWarningLabel2.setText("name must end in '_tip' or '_view' or '_pt' suffix");
+        nameWarningLabel2.setToolTipText("HAnim has strict rules for name and DEF");
+        nameWarningLabel2.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseEntered(java.awt.event.MouseEvent evt)
             {
-                nameWarningLabelMouseEntered(evt);
+                nameWarningLabel2MouseEntered(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(nameWarningLabel, gridBagConstraints);
+        add(nameWarningLabel2, gridBagConstraints);
 
         descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -337,7 +356,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         descriptionLabel.setToolTipText("Text description to be displayed for action of this node");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionLabel, gridBagConstraints);
@@ -355,7 +374,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1110,17 +1129,22 @@ public class HANIMSITECustomizer extends BaseCustomizer
         checkNameDefMatchRules(); // TODO fix, apparently not receiving an event
     }//GEN-LAST:event_dEFUSEpanelKeyReleased
 
-    private void nameWarningLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameWarningLabelMouseEntered
-    {//GEN-HEADEREND:event_nameWarningLabelMouseEntered
+    private void nameWarningLabel1MouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameWarningLabel1MouseEntered
+    {//GEN-HEADEREND:event_nameWarningLabel1MouseEntered
         setDefaultDEFname ();
         checkNameDefMatchRules();
-    }//GEN-LAST:event_nameWarningLabelMouseEntered
+    }//GEN-LAST:event_nameWarningLabel1MouseEntered
 
     private void nameLabelMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameLabelMouseEntered
     {//GEN-HEADEREND:event_nameLabelMouseEntered
         setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameLabelMouseEntered
+
+    private void nameWarningLabel2MouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_nameWarningLabel2MouseEntered
+    {//GEN-HEADEREND:event_nameWarningLabel2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameWarningLabel2MouseEntered
 
   @Override
   public String getNameKey()
@@ -1186,16 +1210,16 @@ public class HANIMSITECustomizer extends BaseCustomizer
         
         if (name.isBlank())
         {
-            nameWarningLabel.setText(NAME_REQUIRED);
-            nameWarningLabel.setForeground(darkorange);
+            nameWarningLabel1.setText(NAME_REQUIRED);
+            nameWarningLabel1.setForeground(darkorange);
             nameComboBox.setBackground(Color.YELLOW);
             super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
             super.getDEFUSEpanel().refreshPanel();
         }
         else if (DEF.isBlank()) // and name value is present
         {
-            nameWarningLabel.setText("");
-            nameWarningLabel.setForeground(Color.BLACK);
+            nameWarningLabel1.setText("");
+            nameWarningLabel1.setForeground(Color.BLACK);
             nameComboBox.setBackground(Color.WHITE);
             super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
             super.getDEFUSEpanel().refreshPanel();
@@ -1205,8 +1229,8 @@ public class HANIMSITECustomizer extends BaseCustomizer
             localPrefix = DEF.substring(0,DEF.lastIndexOf(name));
             // TODO compare to ancestor humanoid prefix if needed
             
-            nameWarningLabel.setText(NAME_RULE_MATCH + ", prefix=" + localPrefix);
-            nameWarningLabel.setForeground(darkgreen); // too bright: Color.GREEN
+            nameWarningLabel1.setText(NAME_RULE_MATCH + ", prefix=" + localPrefix);
+            nameWarningLabel1.setForeground(darkgreen); // too bright: Color.GREEN
             nameComboBox.setBackground(Color.WHITE);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();
             super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
@@ -1214,12 +1238,20 @@ public class HANIMSITECustomizer extends BaseCustomizer
         }
         else
         {
-            nameWarningLabel.setText(NAME_RULE_MISMATCH + ", prefix=" + localPrefix);
-            nameWarningLabel.setForeground(darkorange);
+            nameWarningLabel1.setText(NAME_RULE_MISMATCH + ", prefix=" + localPrefix);
+            nameWarningLabel1.setForeground(darkorange);
             nameComboBox.setBackground(Color.YELLOW);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();
             super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.YELLOW);
             super.getDEFUSEpanel().refreshPanel();
+        }
+        if (!name.endsWith("_tip") && !name.endsWith("_view") && !name.endsWith("_pt"))
+        {
+            nameWarningLabel2.setForeground(darkorange);
+        }
+        else
+        {
+            nameWarningLabel2.setForeground(darkgreen);
         }
     }
 
@@ -1281,7 +1313,8 @@ public class HANIMSITECustomizer extends BaseCustomizer
     private javax.swing.JLabel hintLabel;
     private javax.swing.JComboBox<String> nameComboBox;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JLabel nameWarningLabel;
+    private javax.swing.JLabel nameWarningLabel1;
+    private javax.swing.JLabel nameWarningLabel2;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JButton normalizeRotationValuesButton;
     private javax.swing.JTextField rotationAngleTF;
