@@ -62,7 +62,7 @@ public class KEYSENSORCustomizer extends BaseCustomizer
 
     if (!keySensor.getDescription().isBlank())
     {
-        checkX3D4FieldSupportDialog("KeySensor","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("KeySensor","description"); // X3D4.0 field
         descriptionTF.setText(keySensor.getDescription());
     }    
     enabledCB.setSelected(keySensor.isEnabled());
@@ -189,7 +189,7 @@ public class KEYSENSORCustomizer extends BaseCustomizer
     
     if (!descriptionTF.getText().isBlank())
     {
-        checkX3D4FieldSupportDialog("KeySensor","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("KeySensor","description"); // X3D4.0 field
         keySensor.setDescription(descriptionTF.getText().trim());
     }
          

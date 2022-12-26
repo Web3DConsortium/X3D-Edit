@@ -99,7 +99,7 @@ public class KEYSENSOR extends X3DKeyDeviceSensorNode
   {
     StringBuilder sb = new StringBuilder();
 
-    // description value is only if parent scene is X3D4
+    // description value is only valid if parent scene is X3D4
     if (KEYSENSOR_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
       sb.append(" ");
       sb.append(STRINGSENSOR_ATTR_DESCRIPTION_NAME);

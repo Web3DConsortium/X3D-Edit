@@ -65,7 +65,7 @@ public class STRINGSENSORCustomizer extends BaseCustomizer
 
     if (!stringSensor.getDescription().isBlank())
     {
-        checkX3D4FieldSupportDialog("StringSensor","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("StringSensor","description"); // X3D4.0 field
         descriptionTF.setText(stringSensor.getDescription());
     }
     deletionCB.setSelected(stringSensor.isDeletionAllowed());
@@ -217,7 +217,7 @@ public class STRINGSENSORCustomizer extends BaseCustomizer
     
     if (!descriptionTF.getText().isBlank())
     {
-        checkX3D4FieldSupportDialog("StringSensor","description"); // X3D4 field
+        checkX3D4FieldSupportDialog("StringSensor","description"); // X3D4.0 field
         stringSensor.setDescription(descriptionTF.getText().trim());
     }
          
