@@ -14,9 +14,10 @@ Prerequisite for operation: Java JDK 17 LTS (or later).  Suggested:
 * Oracle  jdk-19.0.1, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
 * OpenJDK jdk-19.0.1, latest versions available at [https://openjdk.org](https://openjdk.org) (but likely have to setup PATH, CLASSPATH)
 
-Directions: download and extract the .zip, use file properties to unblock if necessary, then run
+*Directions.* Download and extract the .zip, use file properties to unblock file if necessary,  unzip.
+Then run appropriate operating-system binary in the <code>bin</code> directory.  Windows example:
 
-* *[install directory]/x3deditmodulesuite\bin\x3deditmodulesuite64.exe*
+* *[install directory]/x3deditmodulesuite\bin\x3deditmodulesuite64.exe* 
 
 *User expectations.* Please note that this beta release is initially focused on restoring original X3D-Edit 3.3 functionality.
 Once baseline stability is demonstrated on multiple platforms, we expect that further authoring support for 
@@ -29,6 +30,11 @@ If you have an X3D-Edit build installed earlier than 16 December 2022, please re
 ----
 
 The Zip installation is most reliable and popular, typically working without modifications.
+
+## How To Do It
+
+Installation video (22:56)
+[<img align='right' width='400' src="https://savage.nps.edu/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
 
 ## Troubleshooting the ZIP
 

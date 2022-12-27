@@ -28,9 +28,15 @@ SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/sta
 
 If you have an X3D-Edit build installed earlier than 16 December 2022, please reinstall your zip.
 
+## How To Do It
+
+Installation video (22:56)
+[<img align='right' width='400' src="https://savage.nps.edu/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
+
 ## Troubleshoot Netbeans
 
-NetBeans users troubleshooting certificate permissions can also download and install 
+NetBeans users troubleshooting certificate permissions can also download and install the following NetBeans plugin which provides end-user more positive control 
+when certificate problems occur (such as automated quarterly updates).
 
 * [ssl_certificate_exception-0.17.nbm](SSL Certificate Exception plugin) ([documentation](https://plugins.netbeans.apache.org/catalogue/?id=20)) while we currently use self-signed certificates.  This helps with automaticupdate capabilities.
 
