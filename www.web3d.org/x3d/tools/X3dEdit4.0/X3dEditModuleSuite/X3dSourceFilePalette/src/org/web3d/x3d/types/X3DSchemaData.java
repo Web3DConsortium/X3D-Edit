@@ -3007,6 +3007,9 @@ public interface X3DSchemaData
   String  HANIMHUMANOID_ATTR_INFO_NAME    = "info";
   boolean HANIMHUMANOID_ATTR_INFO_REQD    = false;
   String  HANIMHUMANOID_ATTR_INFO_DFLT    = "";
+  String  HANIMHUMANOID_ATTR_LOA_NAME     = "loa";
+  boolean HANIMHUMANOID_ATTR_LOA_REQD     = false;
+  String  HANIMHUMANOID_ATTR_LOA_DFLT     = "-1";
   String  HANIMHUMANOID_ATTR_ROTATION_NAME= "rotation";
   boolean HANIMHUMANOID_ATTR_ROTATION_REQD= false;
   String  HANIMHUMANOID_ATTR_ROTATION_DFLT= "0 0 1 0";
@@ -3028,9 +3031,21 @@ public interface X3DSchemaData
   String  HANIMHUMANOID_ATTR_BBOXSIZE_NAME      = "bboxSize";
   boolean HANIMHUMANOID_ATTR_BBOXSIZE_REQD      = false;
   String  HANIMHUMANOID_ATTR_BBOXSIZE_DFLT      = "-1 -1 -1";
-  String[]HANIMHUMANOID_ATTR_VERSION_CHOICES = {
+  
+  String[]HANIMHUMANOID_ATTR_LOA_CHOICES = { // also HANIMMOTION
+    "-1","0","1","2","3","4"}; 
+    String[]HANIMHUMANOID_ATTR_LOA_TOOLTIPS   =
+  {
+      "not HAnim compliant, possibly non-human",
+      "LOA-0 is minimalist, single joint at sacrum",
+      "LOA-1 simplest hierarchy - 18 joints, 18 segments",
+      "LOA-2 71 joints, 71 segments",
+      "LOA-3 94 joints, 84 segments",
+      "LOA-4 all 148 joints, 148 segments including hands/fingers and feet/toes",
+  };
+    String[]HANIMHUMANOID_ATTR_VERSION_CHOICES = {
     "1.0","1.1","2.0"}; // ,"2.1","2.2"
-    String[]HANIMHUMANOID_VERSION_TOOLTIPS   =
+    String[]HANIMHUMANOID_ATTR_VERSION_TOOLTIPS   =
   {
       "Initial HAnim version, validation not yet fully supported",
       "Developmental HAnim version, validation not yet fully supported",
@@ -3616,6 +3631,13 @@ public interface X3DSchemaData
   String  HANIMMOTION_ATTR_VALUES_NAME         = "values";
   boolean HANIMMOTION_ATTR_VALUES_REQD         = false;
   String  HANIMMOTION_ATTR_VALUES_DFLT         = "";
+  
+  String[]HANIMMOTION_CONTAINERFIELD_CHOICES    = {"children","motions"};
+  String[]HANIMMOTION_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'children' for typical use as child node",
+      "'motions' for inclusion as field within HAnimHumanoid",
+  };
   
   // NURBS Component
   String  CONTOUR2D_ELNAME                            = "Contour2D";
