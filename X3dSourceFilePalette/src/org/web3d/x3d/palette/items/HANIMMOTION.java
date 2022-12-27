@@ -468,7 +468,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
     }
 
     /**
-     * @return the loa
+     * @return the Level of Articulation (LOA)
      */
     public SFInt32 getLoa()
     {
@@ -476,7 +476,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
     }
 
     /**
-     * @param loa the loa to set
+     * @param loa the Level of Articulation (LOA) to set
      */
     public void setLoa(SFInt32 loa)
     {
