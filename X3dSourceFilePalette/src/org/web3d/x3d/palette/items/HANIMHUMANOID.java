@@ -36,6 +36,7 @@ package org.web3d.x3d.palette.items;
 import javax.swing.text.JTextComponent;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
 import org.web3d.x3d.types.X3DTransformNode;
@@ -53,12 +54,13 @@ import org.web3d.x3d.types.X3DTransformNode;
  */
 public class HANIMHUMANOID extends X3DTransformNode
 {
-  private String description;
-  private String  info;
-  private String  name;
-
-  private String  version;
-  private String  prefix; // calculated from DEF = prefix + name
+  private String   description;
+  private String   info;
+  private String   name;
+  private String   version;
+  private String   prefix; // calculated from DEF = prefix + name
+  private SFInt32  loa, loaDefault;
+  
 
   public HANIMHUMANOID()
   {    
@@ -82,6 +84,8 @@ public class HANIMHUMANOID extends X3DTransformNode
     description = HANIMHUMANOID_ATTR_DESCRIPTION_DFLT;
     info        = HANIMHUMANOID_ATTR_INFO_DFLT;
     name        = HANIMHUMANOID_ATTR_NAME_DFLT;
+    
+    setLoa(loaDefault                 = new SFInt32  (HANIMHUMANOID_ATTR_LOA_DFLT,          -1,    4));
     
     sa = parse4(HANIMHUMANOID_ATTR_ROTATION_DFLT);
     rotationX = rotationXDefault = new SFFloat(sa[0]);
@@ -134,13 +138,18 @@ public class HANIMHUMANOID extends X3DTransformNode
       centerY = new SFFloat(sa[1]);
       centerZ = new SFFloat(sa[2]);
     }
+    attr = root.getAttribute(HANIMHUMANOID_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
+
     attr = root.getAttribute( HANIMHUMANOID_ATTR_INFO_NAME);
     if (attr != null)
       info = attr.getValue();
     
-    attr = root.getAttribute(HANIMHUMANOID_ATTR_DESCRIPTION_NAME);
+    attr = root.getAttribute( HANIMHUMANOID_ATTR_LOA_NAME);
     if (attr != null)
-      description = attr.getValue();
+        setLoa(new SFInt32(attr.getValue(), -1, 4));
+    
     attr = root.getAttribute( HANIMHUMANOID_ATTR_NAME_NAME);
     if (attr != null)
       name = attr.getValue();
@@ -245,6 +254,13 @@ public class HANIMHUMANOID extends X3DTransformNode
       sb.append(escapeXmlCharacters(info));
       sb.append("'");
     }
+    if (HANIMMOTION_ATTR_LOA_REQD || (getLoa() != loaDefault)) {
+      sb.append(" ");
+      sb.append(HANIMMOTION_ATTR_LOA_NAME);
+      sb.append("='");
+      sb.append(getLoa());
+      sb.append("'");
+    }
     if (HANIMHUMANOID_ATTR_NAME_REQD || !name.equalsIgnoreCase(HANIMHUMANOID_ATTR_NAME_DFLT)) {
       sb.append(" ");
       sb.append(HANIMHUMANOID_ATTR_NAME_NAME);
@@ -346,6 +362,22 @@ public class HANIMHUMANOID extends X3DTransformNode
     public void setPrefix(String newPrefix)
     {
         this.prefix = newPrefix;
+    }
+
+    /**
+     * @return the Level of Articulation (LOA)
+     */
+    public SFInt32 getLoa()
+    {
+        return loa;
+    }
+
+    /**
+     * @param loa the Level of Articulation (LOA) to set
+     */
+    public void setLoa(SFInt32 loa)
+    {
+        this.loa = loa;
     }
 
 }
