@@ -134,8 +134,10 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     translationYTF.setText(humanoid.getTranslationY());
     translationZTF.setText(humanoid.getTranslationZ());
     
+        loaCombo.setSelectedItem(humanoid.getLoa());
+        loaCombo.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaCombo.getSelectedIndex()]);
     versionCombo.setSelectedItem(humanoid.getVersion());
-    versionCombo.setToolTipText(HANIMHUMANOID_VERSION_TOOLTIPS[versionCombo.getSelectedIndex()]);
+    versionCombo.setToolTipText(HANIMHUMANOID_ATTR_VERSION_CHOICES[versionCombo.getSelectedIndex()]);
     
     bboxCenterTFX.setText(humanoid.getBboxCenterX());
     bboxCenterTFY.setText(humanoid.getBboxCenterY());
@@ -297,13 +299,15 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         dEFUSEpanel = getDEFUSEpanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         fieldsPanel = new javax.swing.JPanel();
-        nameLabel = new javax.swing.JLabel();
         nameWarningLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
         descriptionLabel = new javax.swing.JLabel();
         descriptionTF = new javax.swing.JTextField();
         versionLabel = new javax.swing.JLabel();
         versionCombo = new javax.swing.JComboBox<>();
+        loaLabel = new javax.swing.JLabel();
+        loaCombo = new javax.swing.JComboBox<>();
         xLabel = new javax.swing.JLabel();
         yLabel = new javax.swing.JLabel();
         zLabel = new javax.swing.JLabel();
@@ -394,25 +398,6 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         });
         fieldsPanel.setLayout(new java.awt.GridBagLayout());
 
-        nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        nameLabel.setText("name");
-        nameLabel.setToolTipText("Must assign unique name for this HAnimHumanoid");
-        nameLabel.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseEntered(java.awt.event.MouseEvent evt)
-            {
-                nameLabelMouseEntered(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        fieldsPanel.add(nameLabel, gridBagConstraints);
-
         nameWarningLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         nameWarningLabel.setText("name must have a legal value");
         nameWarningLabel.setToolTipText("HAnim has strict rules for name and DEF");
@@ -431,6 +416,25 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
         fieldsPanel.add(nameWarningLabel, gridBagConstraints);
+
+        nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        nameLabel.setText("name");
+        nameLabel.setToolTipText("Must assign unique name for this HAnimHumanoid");
+        nameLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                nameLabelMouseEntered(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(nameLabel, gridBagConstraints);
 
         nameTextField.setToolTipText("Must assign proper name for this HAnimHumanoid");
         nameTextField.addFocusListener(new java.awt.event.FocusAdapter()
@@ -502,7 +506,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         versionLabel.setText("version");
         versionLabel.setToolTipText("Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
@@ -522,7 +526,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -530,6 +534,37 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(versionCombo, gridBagConstraints);
+
+        loaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        loaLabel.setText("loa");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(loaLabel, gridBagConstraints);
+
+        loaCombo.setEditable(true);
+        loaCombo.setModel(new DefaultComboBoxModel<String>(HANIMHUMANOID_ATTR_LOA_CHOICES));
+        loaCombo.setToolTipText("Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
+        loaCombo.setMinimumSize(new java.awt.Dimension(50, 20));
+        loaCombo.setPreferredSize(new java.awt.Dimension(50, 20));
+        loaCombo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                loaComboActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(loaCombo, gridBagConstraints);
 
         xLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         xLabel.setText("x");
@@ -1141,7 +1176,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     }//GEN-LAST:event_nameTextFieldActionPerformed
 
     private void versionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_versionComboActionPerformed
-        versionCombo.setToolTipText(HANIMHUMANOID_VERSION_TOOLTIPS[versionCombo.getSelectedIndex()]);
+        versionCombo.setToolTipText(HANIMHUMANOID_ATTR_VERSION_TOOLTIPS[versionCombo.getSelectedIndex()]);
     }//GEN-LAST:event_versionComboActionPerformed
 
     private void translationModificationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_translationModificationComboBoxActionPerformed
@@ -1418,6 +1453,11 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameLabelMouseEntered
 
+    private void loaComboActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_loaComboActionPerformed
+    {//GEN-HEADEREND:event_loaComboActionPerformed
+        loaCombo.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaCombo.getSelectedIndex()]);
+    }//GEN-LAST:event_loaComboActionPerformed
+
   @Override
   public String getNameKey()
   {
@@ -1580,6 +1620,8 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     private javax.swing.JPanel infoPanel;
     private org.web3d.x3d.palette.items.ExpandableList infoTable;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JComboBox<String> loaCombo;
+    private javax.swing.JLabel loaLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JLabel nameWarningLabel;
