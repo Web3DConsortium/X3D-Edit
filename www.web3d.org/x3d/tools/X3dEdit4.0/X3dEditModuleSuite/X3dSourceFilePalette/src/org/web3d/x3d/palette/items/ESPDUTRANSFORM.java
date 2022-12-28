@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,11 +36,12 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
-
-import org.web3d.x3d.types.X3DTransformNode;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DTransformNode;
 
 /**
  * ESPDUTRANSFORM.java
@@ -113,10 +114,10 @@ public class ESPDUTRANSFORM extends X3DTransformNode
   /*private*/ SFFloat munitionStartPointZ, munitionStartPointZDefault;
   /*private*/ String  networkMode;
   /*private*/ SFInt32   port, portDefault;
-  /*private*/ SFFloat readInterval, readIntervalDefault; // SFTime
+  /*private*/ SFDouble readInterval, readIntervalDefault; // SFTime
   /*private*/ SFInt32   siteID, siteIDDefault;
   /*private*/ SFInt32   warhead, warheadDefault;
-  /*private*/ SFFloat writeInterval, writeIntervalDefault; // SFTime
+  /*private*/ SFDouble writeInterval, writeIntervalDefault; // SFTime
   /*private*/ boolean rtpHeaderExpected, rtpHeaderExpecteDefault;
 
   public ESPDUTRANSFORM()
@@ -214,7 +215,7 @@ public class ESPDUTRANSFORM extends X3DTransformNode
 
     /*String*/  networkMode = ESPDUTRANSFORM_ATTR_NETWORKMODE_DFLT;
     /*SFInt32*/   port         = portDefault         = new SFInt32(ESPDUTRANSFORM_ATTR_PORT_DFLT,0,65535);
-    /*SFFloat*/ readInterval = readIntervalDefault = new SFFloat(ESPDUTRANSFORM_ATTR_READINTERVAL_DFLT,0f,null);
+    /*SFFloat*/ readInterval = readIntervalDefault = new SFDouble(ESPDUTRANSFORM_ATTR_READINTERVAL_DFLT,0.0,null);
 
     fa = parse4(ESPDUTRANSFORM_ATTR_ROTATION_DFLT);
     /*SFFloat*/ rotationX = rotationXDefault = new SFFloat(fa[0],null,null);
@@ -237,7 +238,7 @@ public class ESPDUTRANSFORM extends X3DTransformNode
     /*SFFloat*/ translationY  = translationYDefault  = new SFFloat(fa[1],null,null);
     /*SFFloat*/ translationZ  = translationZDefault  = new SFFloat(fa[2],null,null);
     /*SFInt32*/   warhead       = warheadDefault       = new SFInt32(ESPDUTRANSFORM_ATTR_WARHEAD_DFLT,0,65535);
-    /*SFFloat*/ writeInterval = writeIntervalDefault = new SFFloat(ESPDUTRANSFORM_ATTR_WRITEINTERVAL_DFLT,0f,null);
+    /*SFFloat*/ writeInterval = writeIntervalDefault = new SFDouble(ESPDUTRANSFORM_ATTR_WRITEINTERVAL_DFLT,0.0,null);
     fa = parse3(ESPDUTRANSFORM_ATTR_BBOXCENTER_DFLT);
     /*SFFloat*/ bboxCenterX   = bboxCenterXDefault   = new SFFloat(fa[0],null,null);
     /*SFFloat*/ bboxCenterY   = bboxCenterYDefault   = new SFFloat(fa[1],null,null);
@@ -429,7 +430,7 @@ public class ESPDUTRANSFORM extends X3DTransformNode
       port = new SFInt32(attr.getValue());
     attr = root.getAttribute(ESPDUTRANSFORM_ATTR_READINTERVAL_NAME);
     if (attr != null)
-      readInterval = new SFFloat(attr.getValue());
+      readInterval = new SFDouble(attr.getValue());
     attr = root.getAttribute(ESPDUTRANSFORM_ATTR_ROTATION_NAME);
     if (attr != null) {
       sa = parse4(attr.getValue());
@@ -469,7 +470,7 @@ public class ESPDUTRANSFORM extends X3DTransformNode
     }
     attr = root.getAttribute(ESPDUTRANSFORM_ATTR_WRITEINTERVAL_NAME);
     if (attr != null)
-      writeInterval = new SFFloat(attr.getValue());
+      writeInterval = new SFDouble(attr.getValue());
     attr = root.getAttribute(ESPDUTRANSFORM_ATTR_BBOXCENTER_NAME);
     if (attr != null) {
       sa = parse3(attr.getValue());
@@ -1652,7 +1653,7 @@ public class ESPDUTRANSFORM extends X3DTransformNode
 
   public void setReadInterval(String s)
   {
-    readInterval = new SFFloat(s,0f,null);
+    readInterval = new SFDouble(s,0.0,null);
   }
 
   public String isRtpHeaderExpected()
@@ -1692,7 +1693,7 @@ public class ESPDUTRANSFORM extends X3DTransformNode
 
   public void setWriteInterval(String s)
   {
-    writeInterval = new SFFloat(s,0f,null);
+    writeInterval = new SFDouble(s,0.0,null);
   }
   
   // Utility functions
