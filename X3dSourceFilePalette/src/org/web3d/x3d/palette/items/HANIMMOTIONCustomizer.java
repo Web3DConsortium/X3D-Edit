@@ -35,12 +35,15 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import java.awt.Color;
+import java.util.Arrays;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.HANIMHUMANOID_ATTR_LOA_CHOICES;  // reuse
-import static org.web3d.x3d.types.X3DSchemaData.HANIMHUMANOID_ATTR_LOA_TOOLTIPS; // reuse
+import static org.web3d.x3d.types.X3DSchemaData.HANIMHUMANOID_ATTR_LOA_TOOLTIPS;
 import static org.web3d.x3d.types.X3DSchemaData.HANIMMOTION_CONTAINERFIELD_CHOICES;
 import static org.web3d.x3d.types.X3DSchemaData.HANIMMOTION_CONTAINERFIELD_TOOLTIPS;
 
@@ -75,33 +78,47 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     
     initComponents();
     
-    descriptionTF.setText(hanimMotion.getDescription());
+    super.getDEFUSEpanel().setContainerFieldChoices(HANIMMOTION_CONTAINERFIELD_CHOICES, HANIMMOTION_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(hanimMotion.getContainerField()); // reset value to match updated JComboBox data model
+    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
-    keyTupleTable.setTitle("HAnimMotion value arrays");
-    keyTupleTable.setAddColumnButtonTooltip   ("Add column of rotation triplets");
-    keyTupleTable.setRemoveColumnButtonTooltip("Remove column of rotation triplets");
-    keyTupleTable.setAddRowButtonTooltip      ("Add row of rotation triplets");
-    keyTupleTable.setRemoveRowButtonTooltip   ("Remove row of rotation triplets");
-    keyTupleTable.setColumnsLabelText("columns of rotation-vector triplets");
-    keyTupleTable.setRowsLabelText   ("rows of rotation-vector triplets");
-    keyTupleTable.setDefaultTupleValues(new String[]{"0","0","0"}); // 3-tuple
-    keyTupleTable.setColumnWidthAndResizeStrategy(true, 50);
+    channelsTF.setText(hanimMotion.getChannels());
+    channelsEnabledTF.setText(Arrays.toString(hanimMotion.getChannelsEnabled()));
+    descriptionTF.setText(hanimMotion.getDescription());
+    enabledCB.setSelected(hanimMotion.isEnabled());
+    loopCB.setSelected(hanimMotion.isLoop());
+      endFrameTF.setText(hanimMotion.getEndFrame().toString());
+    startFrameTF.setText(hanimMotion.getStartFrame().toString());
+    frameDurationTF.setText(hanimMotion.getFrameDuration().toString());
+    frameIncrementTF.setText(hanimMotion.getFrameIncrement().toString());
+    frameIndexTF.setText(hanimMotion.getFrameIndex().toString());
+    jointsTF.setText(hanimMotion.getJoints());
+    
+    loaComboBox.setSelectedItem(hanimMotion.getLoa());
+    loaComboBox.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaComboBox.getSelectedIndex()]);
+    
+    valuesTable.setTitle("HAnimMotion value arrays");
+    valuesTable.setAddColumnButtonTooltip   ("Add column of rotation triplets");
+    valuesTable.setRemoveColumnButtonTooltip("Remove column of rotation triplets");
+    valuesTable.setAddRowButtonTooltip      ("Add row of rotation triplets");
+    valuesTable.setRemoveRowButtonTooltip   ("Remove row of rotation triplets");
+    valuesTable.setColumnsLabelText("columns of rotation-vector triplets");
+    valuesTable.setRowsLabelText   ("rows of rotation-vector triplets");
+    valuesTable.setDefaultTupleValues(new String[]{"0","0","0"}); // 3-tuple
+    valuesTable.setColumnWidthAndResizeStrategy(true, 50);
 
     String[][] saa = hanimMotion.getValuesString(); // may be 0-length
-    keyTupleTable.setData(TUPLE_SIZE, saa);
+    valuesTable.setData(TUPLE_SIZE, saa);
     if (saa.length == 0) // TODO fix
     {
         // initialize headers for empty table
         String[][] defaultRow = new String[1][4]; // TODO adjust
         defaultRow [0] = new String[]{"0","0","0","0"};
-        keyTupleTable.setData(TUPLE_SIZE, defaultRow);
-        keyTupleTable.setData(TUPLE_SIZE, saa);
+        valuesTable.setData(TUPLE_SIZE, defaultRow);
+        valuesTable.setData(TUPLE_SIZE, saa);
     }
-    keyTupleTable.setInsertCommas(hanimMotion.isInsertCommas());
-    keyTupleTable.setInsertLineBreaks(hanimMotion.isInsertLineBreaks());
-    
-    loaCombo.setSelectedItem(hanimMotion.getLoa());
-    loaCombo.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaCombo.getSelectedIndex()]);
+    valuesTable.setInsertCommas(hanimMotion.isInsertCommas());
+    valuesTable.setInsertLineBreaks(hanimMotion.isInsertLineBreaks());
     
     // TODO others
   }
@@ -137,7 +154,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         nameTextField = new javax.swing.JTextField();
         descriptionLabel = new javax.swing.JLabel();
         descriptionTF = new javax.swing.JTextField();
-        loaCombo = new javax.swing.JComboBox<>();
+        loaComboBox = new javax.swing.JComboBox<>();
         loaLabel = new javax.swing.JLabel();
         enabledLabel = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
@@ -146,9 +163,9 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         frameIndexLabel = new javax.swing.JLabel();
         frameIndexTF = new javax.swing.JTextField();
         startFrameLabel = new javax.swing.JLabel();
-        startFrameTextField = new javax.swing.JTextField();
+        startFrameTF = new javax.swing.JTextField();
         endFrameLabel = new javax.swing.JLabel();
-        endFrameTextField1 = new javax.swing.JTextField();
+        endFrameTF = new javax.swing.JTextField();
         durationLabel = new javax.swing.JLabel();
         frameDurationLabel = new javax.swing.JLabel();
         frameDurationTF = new javax.swing.JTextField();
@@ -161,7 +178,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         jointsLabel = new javax.swing.JLabel();
         jointsTF = new javax.swing.JTextField();
         valuesLabel = new javax.swing.JLabel();
-        keyTupleTable = new org.web3d.x3d.palette.items.ExpandableKeyTupleTable();
+        valuesTable = new org.web3d.x3d.palette.items.ExpandableKeyTupleTable();
         eventHintPanel = new javax.swing.JPanel();
         eventLabel1 = new javax.swing.JLabel();
         eventLabel2 = new javax.swing.JLabel();
@@ -291,17 +308,17 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionTF, gridBagConstraints);
 
-        loaCombo.setEditable(true);
-        loaCombo.setModel(new DefaultComboBoxModel<String>(HANIMHUMANOID_ATTR_LOA_CHOICES));
-        loaCombo.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.loaCombo.toolTipText")); // NOI18N
-        loaCombo.setMaximumSize(new java.awt.Dimension(50, 20));
-        loaCombo.setMinimumSize(new java.awt.Dimension(50, 20));
-        loaCombo.setPreferredSize(new java.awt.Dimension(50, 20));
-        loaCombo.addActionListener(new java.awt.event.ActionListener()
+        loaComboBox.setEditable(true);
+        loaComboBox.setModel(new DefaultComboBoxModel<String>(HANIMHUMANOID_ATTR_LOA_CHOICES));
+        loaComboBox.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.loaComboBox.toolTipText")); // NOI18N
+        loaComboBox.setMaximumSize(new java.awt.Dimension(50, 20));
+        loaComboBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        loaComboBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        loaComboBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                loaComboActionPerformed(evt);
+                loaComboBoxActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -311,7 +328,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(loaCombo, gridBagConstraints);
+        add(loaComboBox, gridBagConstraints);
 
         loaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         loaLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.loaLabel.text")); // NOI18N
@@ -406,12 +423,12 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(startFrameLabel, gridBagConstraints);
 
-        startFrameTextField.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.startFrameTextField.text")); // NOI18N
-        startFrameTextField.addActionListener(new java.awt.event.ActionListener()
+        startFrameTF.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.startFrameTF.text")); // NOI18N
+        startFrameTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                startFrameTextFieldActionPerformed(evt);
+                startFrameTFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -422,7 +439,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(startFrameTextField, gridBagConstraints);
+        add(startFrameTF, gridBagConstraints);
 
         endFrameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         endFrameLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.endFrameLabel.text")); // NOI18N
@@ -435,12 +452,12 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(endFrameLabel, gridBagConstraints);
 
-        endFrameTextField1.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.endFrameTextField1.text")); // NOI18N
-        endFrameTextField1.addActionListener(new java.awt.event.ActionListener()
+        endFrameTF.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.endFrameTF.text")); // NOI18N
+        endFrameTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                endFrameTextField1ActionPerformed(evt);
+                endFrameTFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -451,7 +468,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(endFrameTextField1, gridBagConstraints);
+        add(endFrameTF, gridBagConstraints);
 
         durationLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         durationLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.durationLabel.text")); // NOI18N
@@ -637,7 +654,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 3.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(keyTupleTable, gridBagConstraints);
+        add(valuesTable, gridBagConstraints);
 
         eventHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         eventHintPanel.setLayout(new java.awt.GridBagLayout());
@@ -711,10 +728,10 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         // no action needed
     }//GEN-LAST:event_descriptionTFActionPerformed
 
-    private void loaComboActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_loaComboActionPerformed
-    {//GEN-HEADEREND:event_loaComboActionPerformed
-        loaCombo.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaCombo.getSelectedIndex()]);
-    }//GEN-LAST:event_loaComboActionPerformed
+    private void loaComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_loaComboBoxActionPerformed
+    {//GEN-HEADEREND:event_loaComboBoxActionPerformed
+        loaComboBox.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaComboBox.getSelectedIndex()]);
+    }//GEN-LAST:event_loaComboBoxActionPerformed
 
     private void channelsTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_channelsTFActionPerformed
     {//GEN-HEADEREND:event_channelsTFActionPerformed
@@ -736,15 +753,15 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         // TODO check if less than start frame or greater than total number of frames
     }//GEN-LAST:event_frameIndexTFActionPerformed
 
-    private void startFrameTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startFrameTextFieldActionPerformed
-    {//GEN-HEADEREND:event_startFrameTextFieldActionPerformed
+    private void startFrameTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startFrameTFActionPerformed
+    {//GEN-HEADEREND:event_startFrameTFActionPerformed
         // TODO check if less than 0 or greater than total number of frames
-    }//GEN-LAST:event_startFrameTextFieldActionPerformed
+    }//GEN-LAST:event_startFrameTFActionPerformed
 
-    private void endFrameTextField1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_endFrameTextField1ActionPerformed
-    {//GEN-HEADEREND:event_endFrameTextField1ActionPerformed
+    private void endFrameTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_endFrameTFActionPerformed
+    {//GEN-HEADEREND:event_endFrameTFActionPerformed
         // TODO check if < 1 or outlandishly high
-    }//GEN-LAST:event_endFrameTextField1ActionPerformed
+    }//GEN-LAST:event_endFrameTFActionPerformed
 
     private void frameDurationTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frameDurationTFActionPerformed
     {//GEN-HEADEREND:event_frameDurationTFActionPerformed
@@ -768,7 +785,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     private javax.swing.JCheckBox enabledCB;
     private javax.swing.JLabel enabledLabel;
     private javax.swing.JLabel endFrameLabel;
-    private javax.swing.JTextField endFrameTextField1;
+    private javax.swing.JTextField endFrameTF;
     private javax.swing.JPanel eventHintPanel;
     private javax.swing.JLabel eventLabel1;
     private javax.swing.JLabel eventLabel2;
@@ -780,8 +797,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     private javax.swing.JTextField frameIndexTF;
     private javax.swing.JLabel jointsLabel;
     private javax.swing.JTextField jointsTF;
-    private org.web3d.x3d.palette.items.ExpandableKeyTupleTable keyTupleTable;
-    private javax.swing.JComboBox<String> loaCombo;
+    private javax.swing.JComboBox<String> loaComboBox;
     private javax.swing.JLabel loaLabel;
     private javax.swing.JCheckBox loopCB;
     private javax.swing.JLabel loopLabel;
@@ -790,8 +806,9 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     private javax.swing.JLabel nameWarningLabel;
     private javax.swing.JLabel paddingLabel;
     private javax.swing.JLabel startFrameLabel;
-    private javax.swing.JTextField startFrameTextField;
+    private javax.swing.JTextField startFrameTF;
     private javax.swing.JLabel valuesLabel;
+    private org.web3d.x3d.palette.items.ExpandableKeyTupleTable valuesTable;
     // End of variables declaration//GEN-END:variables
   @Override
   public String getNameKey()
@@ -856,12 +873,23 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
-    // TODO others
+    hanimMotion.setChannels(channelsTF.getText());
+    hanimMotion.setChannelsEnabled(hanimMotion.parseToBooleanArray(channelsEnabledTF.getText().split("\\s")));
+    hanimMotion.setDescription(descriptionTF.getText());
+    hanimMotion.setEnabled(enabledCB.isSelected());
+    hanimMotion.setLoop(loopCB.isSelected());
+    hanimMotion.setEndFrame(new SFInt32(endFrameTF.getText(), 0, 65535));
+    hanimMotion.setStartFrame(new SFInt32(startFrameTF.getText(),0, 65535));
+    hanimMotion.setFrameDuration(new SFDouble(frameDurationTF.getText(),0.0,null)); // SFTime
+    hanimMotion.setFrameIncrement(new SFInt32(frameIncrementTF.getText(),0, 65535));
+    hanimMotion.setFrameIndex(new SFInt32(frameIndexTF.getText(),0, 65535));
+    hanimMotion.setJoints(jointsTF.getText());
+    hanimMotion.setLoa(new SFInt32(loaComboBox.getSelectedItem().toString(),-1,4));
     
-    hanimMotion.setValuesString(keyTupleTable.getData());
+    hanimMotion.setValuesString(valuesTable.getData());
 
-    hanimMotion.setInsertCommas    (keyTupleTable.isInsertCommasSet());
-    hanimMotion.setInsertLineBreaks(keyTupleTable.isInsertLineBreaksSet());
+    hanimMotion.setInsertCommas    (valuesTable.isInsertCommasSet());
+    hanimMotion.setInsertLineBreaks(valuesTable.isInsertLineBreaksSet());
   }  
   
 }
