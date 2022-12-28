@@ -36,6 +36,7 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import org.web3d.x3d.types.X3DInterpolatorNode;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.*;
@@ -60,14 +61,14 @@ public class HANIMMOTION extends X3DInterpolatorNode
   private String      description, descriptionDefault;
   private boolean     enabled, enabledDefault;
   private SFInt32     endFrame, endFrameDefault;
-  private SFFloat     frameDuration, frameDurationDefault; // SFTime
+  private SFDouble    frameDuration, frameDurationDefault; // SFTime
   private SFInt32     frameIncrement, frameIncrementDefault;
   private SFInt32     frameIndex, frameIndexDefault;
   private String      joints, jointsDefault;
   private SFInt32     loa, loaDefault;
   private boolean     loop, loopDefault;
   private String      name, nameDefault; // TODO add to spec?
-  private SFInt32     startFrame, startFrameDefault; // SFTime
+  private SFInt32     startFrame, startFrameDefault;
   private SFFloat[][] values, valuesDefault;
   private boolean     insertCommas, insertLineBreaks = false;
   
@@ -105,7 +106,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
         setFrameIndex(frameIndexDefault   = new SFInt32  (HANIMMOTION_ATTR_FRAMEINDEX_DFLT,    0,    65535));
         setLoa(loaDefault                 = new SFInt32  (HANIMMOTION_ATTR_LOA_DFLT,          -1,    4));
     
-        setFrameDuration(frameDurationDefault = new SFFloat(HANIMMOTION_ATTR_FRAMEDURATION_DFLT,0.0f,null)); // SFTime
+        setFrameDuration(frameDurationDefault = new SFDouble(HANIMMOTION_ATTR_FRAMEDURATION_DFLT,0.0,null)); // SFTime
         setEnabled(enabledDefault         = Boolean.parseBoolean(HANIMMOTION_ATTR_ENABLED_DFLT));
         setLoop(loopDefault               = Boolean.parseBoolean(HANIMMOTION_ATTR_LOOP_DFLT));
     
@@ -167,7 +168,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
     
     attr = root.getAttribute(HANIMMOTION_ATTR_FRAMEDURATION_NAME);
     if(attr != null)
-        setFrameDuration(new SFFloat(attr.getValue(), 0.0f, null));
+        setFrameDuration(new SFDouble(attr.getValue(), 0.0, null));
     
     attr = root.getAttribute(HANIMMOTION_ATTR_FRAMEINDEX_NAME);
     if(attr != null)
@@ -406,7 +407,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
     /**
      * @return the frameDuration
      */
-    public SFFloat getFrameDuration()
+    public SFDouble getFrameDuration()
     {
         return frameDuration;
     }
@@ -414,7 +415,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
     /**
      * @param frameDuration the frameDuration to set
      */
-    public void setFrameDuration(SFFloat frameDuration)
+    public void setFrameDuration(SFDouble frameDuration)
     {
         this.frameDuration = frameDuration;
     }
