@@ -97,10 +97,9 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerField(hAnimHumanoid.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
-    descriptionTF.setText(hAnimHumanoid.getDescription());
     if (!hAnimHumanoid.getDescription().isBlank())
     {
-        checkX3D4FieldSupportDialog("HAnimDisplacer","description"); // X3D4.0 field
+        checkX3D4FieldSupportDialog("HAnimHumanoid","description"); // X3D4.0 field
         descriptionTF.setText(hAnimHumanoid.getDescription());
     }
     
@@ -134,8 +133,10 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     translationYTF.setText(humanoid.getTranslationY());
     translationZTF.setText(humanoid.getTranslationZ());
     
-        loaCombo.setSelectedItem(humanoid.getLoa());
-        loaCombo.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaCombo.getSelectedIndex()]);
+    // TODO if not X3D4, value should be -1
+        loaComboBox.setSelectedItem(humanoid.getLoa());
+        loaComboBox.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaComboBox.getSelectedIndex()]);
+    // TODO if X3D4, value should be 2.0
     versionCombo.setSelectedItem(humanoid.getVersion());
     versionCombo.setToolTipText(HANIMHUMANOID_ATTR_VERSION_CHOICES[versionCombo.getSelectedIndex()]);
     
@@ -307,7 +308,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         versionLabel = new javax.swing.JLabel();
         versionCombo = new javax.swing.JComboBox<>();
         loaLabel = new javax.swing.JLabel();
-        loaCombo = new javax.swing.JComboBox<>();
+        loaComboBox = new javax.swing.JComboBox<>();
         xLabel = new javax.swing.JLabel();
         yLabel = new javax.swing.JLabel();
         zLabel = new javax.swing.JLabel();
@@ -502,6 +503,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(descriptionTF, gridBagConstraints);
 
+        versionLabel.setForeground(new java.awt.Color(0, 153, 153));
         versionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         versionLabel.setText("version");
         versionLabel.setToolTipText("Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
@@ -535,6 +537,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(versionCombo, gridBagConstraints);
 
+        loaLabel.setForeground(new java.awt.Color(0, 153, 153));
         loaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         loaLabel.setText("loa");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -544,16 +547,16 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(loaLabel, gridBagConstraints);
 
-        loaCombo.setEditable(true);
-        loaCombo.setModel(new DefaultComboBoxModel<String>(HANIMHUMANOID_ATTR_LOA_CHOICES));
-        loaCombo.setToolTipText("Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
-        loaCombo.setMinimumSize(new java.awt.Dimension(50, 20));
-        loaCombo.setPreferredSize(new java.awt.Dimension(50, 20));
-        loaCombo.addActionListener(new java.awt.event.ActionListener()
+        loaComboBox.setEditable(true);
+        loaComboBox.setModel(new DefaultComboBoxModel<String>(HANIMHUMANOID_ATTR_LOA_CHOICES));
+        loaComboBox.setToolTipText("Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
+        loaComboBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        loaComboBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        loaComboBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                loaComboActionPerformed(evt);
+                loaComboBoxActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -564,7 +567,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        fieldsPanel.add(loaCombo, gridBagConstraints);
+        fieldsPanel.add(loaComboBox, gridBagConstraints);
 
         xLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         xLabel.setText("x");
@@ -1453,10 +1456,10 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         checkNameDefMatchRules();
     }//GEN-LAST:event_nameLabelMouseEntered
 
-    private void loaComboActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_loaComboActionPerformed
-    {//GEN-HEADEREND:event_loaComboActionPerformed
-        loaCombo.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaCombo.getSelectedIndex()]);
-    }//GEN-LAST:event_loaComboActionPerformed
+    private void loaComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_loaComboBoxActionPerformed
+    {//GEN-HEADEREND:event_loaComboBoxActionPerformed
+        loaComboBox.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaComboBox.getSelectedIndex()]);
+    }//GEN-LAST:event_loaComboBoxActionPerformed
 
   @Override
   public String getNameKey()
@@ -1564,10 +1567,15 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
   public void unloadInput() throws IllegalArgumentException
   {
     unLoadDEFUSE();
+    
      
     hAnimHumanoid.setDescription(descriptionTF.getText().trim());
-    hAnimHumanoid.setName(nameTextField.getText().trim());
+    // TODO if not X3D4, value should be -1
+    hAnimHumanoid.setLoa(new SFInt32(loaComboBox.getSelectedItem().toString(),-1,4));
+    // TODO if X3D4, value should be 2.0
     hAnimHumanoid.setVersion(versionCombo.getSelectedItem().toString());
+    
+    hAnimHumanoid.setName(nameTextField.getText().trim());
     hAnimHumanoid.setCenterX(centerXTF.getText().trim());
     hAnimHumanoid.setCenterY(centerYTF.getText().trim());
     hAnimHumanoid.setCenterZ(centerZTF.getText().trim());
@@ -1620,7 +1628,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     private javax.swing.JPanel infoPanel;
     private org.web3d.x3d.palette.items.ExpandableList infoTable;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JComboBox<String> loaCombo;
+    private javax.swing.JComboBox<String> loaComboBox;
     private javax.swing.JLabel loaLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
