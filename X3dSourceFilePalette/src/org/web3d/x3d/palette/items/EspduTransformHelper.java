@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -37,6 +37,7 @@ import edu.nps.moves.dis7.enumerations.*;
 
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
@@ -141,7 +142,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
     
     /*String*/  espduTransform.networkMode = ESPDUTRANSFORM_ATTR_NETWORKMODE_DFLT;
     /*SFInt32*/   espduTransform.port         = espduTransform.portDefault         = new SFInt32(ESPDUTRANSFORM_ATTR_PORT_DFLT,0,65535);
-    /*SFFloat*/ espduTransform.readInterval = espduTransform.readIntervalDefault = new SFFloat(ESPDUTRANSFORM_ATTR_READINTERVAL_DFLT,0f,null);
+    /*SFFloat*/ espduTransform.readInterval = espduTransform.readIntervalDefault = new SFDouble(ESPDUTRANSFORM_ATTR_READINTERVAL_DFLT,0.0,null); // SFTime
     
     fa = parse4(ESPDUTRANSFORM_ATTR_ROTATION_DFLT);
     /*SFFloat*/ espduTransform.rotationX = espduTransform.rotationXDefault = new SFFloat(fa[0],null,null);
@@ -164,7 +165,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
     /*SFFloat*/ espduTransform.translationY  = espduTransform.translationYDefault  = new SFFloat(fa[1],null,null);
     /*SFFloat*/ espduTransform.translationZ  = espduTransform.translationZDefault  = new SFFloat(fa[2],null,null);
     /*SFInt32*/   espduTransform.warhead       = espduTransform.warheadDefault       = new SFInt32(ESPDUTRANSFORM_ATTR_WARHEAD_DFLT,0,65535);
-    /*SFFloat*/ espduTransform.writeInterval = espduTransform.writeIntervalDefault = new SFFloat(ESPDUTRANSFORM_ATTR_WRITEINTERVAL_DFLT,0f,null);
+    /*SFFloat*/ espduTransform.writeInterval = espduTransform.writeIntervalDefault = new SFDouble(ESPDUTRANSFORM_ATTR_WRITEINTERVAL_DFLT,0.0,null); // SFTime
 ////    fa = parse3(ESPDUTRANSFORM_ATTR_BBOXCENTER_DFLT);
 ////    /*SFFloat*/ et.bboxCenterX   = et.bboxCenterXDefault   = new SFFloat(fa[0],null,null);
 ////    /*SFFloat*/ et.bboxCenterY   = et.bboxCenterYDefault   = new SFFloat(fa[1],null,null);
@@ -353,7 +354,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
       espduTransform.port = new SFInt32(attr.getValue());
     attr = root.getAttribute(ESPDUTRANSFORM_ATTR_READINTERVAL_NAME);
     if (attr != null)
-      espduTransform.readInterval = new SFFloat(attr.getValue());
+      espduTransform.readInterval = new SFDouble(attr.getValue());
     attr = root.getAttribute(ESPDUTRANSFORM_ATTR_ROTATION_NAME);
     if (attr != null) {
       sa = parse4(attr.getValue());
@@ -393,7 +394,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
     }
     attr = root.getAttribute(ESPDUTRANSFORM_ATTR_WRITEINTERVAL_NAME);
     if (attr != null)
-      espduTransform.writeInterval = new SFFloat(attr.getValue());
+      espduTransform.writeInterval = new SFDouble(attr.getValue());
 ////    attr = root.getAttribute(ESPDUTRANSFORM_ATTR_BBOXCENTER_NAME);
 ////    if (attr != null) {
 ////      sa = parse3(attr.getValue());

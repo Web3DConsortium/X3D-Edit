@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,6 +36,7 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import org.web3d.x3d.types.X3DGroupingNode;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.*;
@@ -63,11 +64,11 @@ public abstract class CommonPdu extends X3DGroupingNode
   protected String  networkMode;
   protected SFInt32   port, portDefault;
   protected SFInt32   radioID, radioIDDefault;
-  protected SFFloat readInterval, readIntervalDefault; // SFTime
+  protected SFDouble readInterval, readIntervalDefault; // SFTime
   protected boolean rtpHeaderExpected, rtpHeaderExpecteDefault;
   protected SFInt32   siteID, siteIDDefault;
   protected SFInt32   whichGeometry, whichGeometryDefault;
-  protected SFFloat writeInterval, writeIntervalDefault; // SFTime
+  protected SFDouble writeInterval, writeIntervalDefault; // SFTime
   public CommonPdu()
   {
   }
@@ -84,11 +85,11 @@ public abstract class CommonPdu extends X3DGroupingNode
     networkMode                                     = PDU_ATTR_NETWORKMODE_DFLT;
     port = portDefault                              = new SFInt32(PDU_ATTR_PORT_DFLT,0,65535);
     radioID = radioIDDefault                        = new SFInt32(PDU_ATTR_RADIOID_DFLT,0,65535);
-    readInterval = readIntervalDefault              = new SFFloat(PDU_ATTR_READINTERVAL_DFLT,0f,null);
+    readInterval = readIntervalDefault              = new SFDouble(PDU_ATTR_READINTERVAL_DFLT,0.0,null);
     rtpHeaderExpected = rtpHeaderExpecteDefault     = Boolean.parseBoolean(PDU_ATTR_RTPHEADEREXPECTED_DFLT);
     siteID = siteIDDefault                          = new SFInt32(PDU_ATTR_SITEID_DFLT,0,65535);
     whichGeometry = whichGeometryDefault            = new SFInt32(PDU_ATTR_WHICHGEOMETRY_DFLT,-1,null);
-    writeInterval = writeIntervalDefault            = new SFFloat(PDU_ATTR_WRITEINTERVAL_DFLT,0f,null);
+    writeInterval = writeIntervalDefault            = new SFDouble(PDU_ATTR_WRITEINTERVAL_DFLT,0.0,null);
 
     String[] fa = parse3(PDU_ATTR_BBOXCENTER_DFLT);
     bboxCenterX   = bboxCenterXDefault              = new SFFloat(fa[0],null,null);
@@ -137,7 +138,7 @@ public abstract class CommonPdu extends X3DGroupingNode
       radioID = new SFInt32(attr.getValue());
     attr = root.getAttribute(PDU_ATTR_READINTERVAL_NAME);
     if (attr != null)
-      readInterval = new SFFloat(attr.getValue());
+      readInterval = new SFDouble(attr.getValue());
     attr = root.getAttribute(PDU_ATTR_RTPHEADEREXPECTED_NAME);
     if (attr != null)
       rtpHeaderExpected = Boolean.parseBoolean(attr.getValue());
@@ -149,7 +150,7 @@ public abstract class CommonPdu extends X3DGroupingNode
       whichGeometry = new SFInt32(attr.getValue());
     attr = root.getAttribute(PDU_ATTR_WRITEINTERVAL_NAME);
     if (attr != null)
-      writeInterval = new SFFloat(attr.getValue());
+      writeInterval = new SFDouble(attr.getValue());
     attr = root.getAttribute(PDU_ATTR_BBOXCENTER_NAME);
     if (attr != null) {
       sa = parse3(attr.getValue());
@@ -373,7 +374,7 @@ public abstract class CommonPdu extends X3DGroupingNode
 
   public String getNetworkMode()
   {
-    return networkMode.toString();
+    return networkMode;
   }
 
   public void setNetworkMode(String s)
@@ -408,7 +409,7 @@ public abstract class CommonPdu extends X3DGroupingNode
 
   public void setReadInterval(String s)
   {
-    readInterval = new SFFloat(s,0f,null);
+    readInterval = new SFDouble(s,0.0,null);
   }
 
   public String isRtpHeaderExpected()
@@ -448,6 +449,6 @@ public abstract class CommonPdu extends X3DGroupingNode
 
   public void setWriteInterval(String s)
   {
-    writeInterval = new SFFloat(s,0f,null);
+    writeInterval = new SFDouble(s,0.0,null);
   }      
 }
