@@ -452,7 +452,7 @@ public class X3DPrimitiveTypes
   }
 
   /**
-   * SFDouble is X3D type Single Field Double
+   * SFDouble is X3D type Single Field Double, also matches SFTime
    */
   public static class SFDouble implements X3Dtype
   {
