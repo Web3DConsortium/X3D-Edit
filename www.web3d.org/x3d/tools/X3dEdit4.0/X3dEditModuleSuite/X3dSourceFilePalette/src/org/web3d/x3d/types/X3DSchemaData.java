@@ -3036,12 +3036,12 @@ public interface X3DSchemaData
     "-1","0","1","2","3","4"}; 
     String[]HANIMHUMANOID_ATTR_LOA_TOOLTIPS   =
   {
-      "not HAnim compliant, possibly non-human",
-      "LOA-0 is minimalist, single joint at sacrum",
-      "LOA-1 simplest hierarchy - 18 joints, 18 segments",
-      "LOA-2 71 joints, 71 segments",
-      "LOA-3 94 joints, 84 segments",
-      "LOA-4 all 148 joints, 148 segments including hands/fingers and feet/toes",
+      "loa -1 means not HAnim compliant, possibly non-human",
+      "LOA-0 is minimalist: single joint at sacrum",
+      "LOA-1 simplest hierarchy: 18 joints, 18 segments",
+      "LOA-2 hierarchy: 71 joints, 71 segments",
+      "LOA-3 hierarchy: 94 joints, 84 segments",
+      "LOA-4 hierarchy: all 148 joints, 148 segments with hands/fingers and feet/toes",
   };
     String[]HANIMHUMANOID_ATTR_VERSION_CHOICES = {
     "1.0","1.1","2.0"}; // ,"2.1","2.2"
@@ -3610,6 +3610,9 @@ public interface X3DSchemaData
   String  HANIMMOTION_ATTR_ENDFRAME_NAME       = "endFrame";
   boolean HANIMMOTION_ATTR_ENDFRAME_REQD       = false;
   String  HANIMMOTION_ATTR_ENDFRAME_DFLT       = "0";
+  String  HANIMMOTION_ATTR_FRAMECOUNT_NAME     = "frameCount";
+  boolean HANIMMOTION_ATTR_FRAMECOUNT_REQD     = false;
+  String  HANIMMOTION_ATTR_FRAMECOUNT_DFLT     = "";
   String  HANIMMOTION_ATTR_FRAMEDURATION_NAME  = "frameDuration";
   boolean HANIMMOTION_ATTR_FRAMEDURATION_REQD  = false;
   String  HANIMMOTION_ATTR_FRAMEDURATION_DFLT  = "0.1";
