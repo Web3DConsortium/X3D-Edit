@@ -52,6 +52,7 @@ import org.openide.util.NbBundle;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
@@ -103,7 +104,8 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         descriptionTF.setText(hAnimHumanoid.getDescription());
     }
     
-    initInfoTable();
+    initializeInfoTable();
+    initializeJointTables();
     
     // common background for factor-adjustment combo boxes in order to distinguish from field entries
     translationModificationComboBox.setBackground(this.getBackground());
@@ -134,7 +136,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     translationZTF.setText(humanoid.getTranslationZ());
     
     // TODO if not X3D4, value should be -1
-        loaComboBox.setSelectedItem(humanoid.getLoa());
+        loaComboBox.setSelectedIndex(humanoid.getLoa().getValue() + 1);
         loaComboBox.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaComboBox.getSelectedIndex()]);
     // TODO if X3D4, value should be 2.0
     versionCombo.setSelectedItem(humanoid.getVersion());
@@ -180,13 +182,45 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     
     super.getDEFUSEpanel().setDefaultDEFname(newDefaultName);
   }
-  private void initInfoTable()
+  private void initializeJointTables()
   {
-    infoTable.setColumnTitles(new String[]{"name","value"});
-    infoTable.setNewRowData(new Object[]{"untitled",""});
-    infoTable.setData(HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS);
-    infoTable.setTextAlignment(JLabel.LEADING);
-    infoTable.getTable().setRowHeight(16);
+    // TODO set tab titles green, tooltip X3D4
+    jointBindingPositionsExpandableList.setColumnTitles(new String[]{"index","x","y","z"});
+    jointBindingPositionsExpandableList.setNewRowData(new Object[]{"untitled","0","0","0"});
+    jointBindingPositionsExpandableList.getTable().setRowHeight(16);
+    
+    jointBindingRotationsExpandableList.setColumnTitles(new String[]{"index","x","y","z","angle"});
+    jointBindingRotationsExpandableList.setNewRowData(new Object[]{"untitled","0","1","0","0"});
+    jointBindingRotationsExpandableList.getTable().setRowHeight(16);
+    
+    jointBindingScalesExpandableList.setColumnTitles(new String[]{"index","x","y","z"});
+    jointBindingScalesExpandableList.setNewRowData(new Object[]{"untitled","0","0","0"});
+    jointBindingScalesExpandableList.getTable().setRowHeight(16);
+    
+    // apparently the following has to come after setting data
+    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(100);
+    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(100);
+    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
+    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(100);
+    
+    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(80);
+    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(80);
+    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(80);
+    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(80);
+    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(4).setPreferredWidth(80);
+    
+    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(100);
+    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(100);
+    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
+    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(100);
+  }
+  private void initializeInfoTable()
+  {
+    infoExpandableList.setColumnTitles(new String[]{"name","value"});
+    infoExpandableList.setNewRowData(new Object[]{"untitled",""});
+    infoExpandableList.setData(HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS);
+    infoExpandableList.setTextAlignment(JLabel.LEADING);
+    infoExpandableList.getTable().setRowHeight(16);
     String inps = hAnimHumanoid.getInfo();
     if (inps != null && inps.length() > 0) {
       String[] sa = inps.replace(',', ' ').trim().split("[\\\"']");
@@ -198,7 +232,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
           v.add(s);
         }
       }
-      if (v.size() > 0) {
+      if (!v.isEmpty()) {
         Iterator<String> itr = v.iterator();
         while (itr.hasNext()) {
           String s = itr.next();
@@ -219,13 +253,13 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
       }
     }
     // apparently the following has to come after setting data
-    infoTable.getTable().getColumnModel().getColumn(0).setPreferredWidth(110);
-    infoTable.getTable().getColumnModel().getColumn(1).setPreferredWidth(250);
+    infoExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(110);
+    infoExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(250);
   }
   
   private int tableContains(String nm)
   {
-    JTable tab = infoTable.getTable();
+    JTable tab = infoExpandableList.getTable();
     TableModel mod = tab.getModel();
     int nrows = mod.getRowCount();
     for(int r=0;r<nrows;r++) {
@@ -237,7 +271,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
   
   private void setDataAtRow(int row, String nm, String val)
   {
-    JTable tab = infoTable.getTable();
+    JTable tab = infoExpandableList.getTable();
     DefaultTableModel mod = (DefaultTableModel)tab.getModel();
     mod.setValueAt(nm, row, 0);
     mod.setValueAt(val, row, 1);
@@ -251,14 +285,14 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
   
   private void newRow(String nm, String val)
   {
-    JTable tab = infoTable.getTable();
+    JTable tab = infoExpandableList.getTable();
     DefaultTableModel mod = (DefaultTableModel)tab.getModel();
     mod.addRow(new String[]{nm,val});
   }
   
   String buildInfoString()
   {
-    JTable tab = infoTable.getTable();
+    JTable tab = infoExpandableList.getTable();
     DefaultTableModel mod = (DefaultTableModel)tab.getModel();
     StringBuilder sb = new StringBuilder();
     int nrows = mod.getRowCount();
@@ -351,11 +385,17 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         bboxSizeTFY = new javax.swing.JTextField();
         bboxSizeTFZ = new javax.swing.JTextField();
         infoPanel = new javax.swing.JPanel();
-        infoTable = new org.web3d.x3d.palette.items.ExpandableList();
+        infoExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
+        jointBindingPositionsPanel = new javax.swing.JPanel();
+        jointBindingPositionsExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
+        jointBindingRotationsPanel = new javax.swing.JPanel();
+        jointBindingRotationsExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
+        jointBindingScalesPanel = new javax.swing.JPanel();
+        jointBindingScalesExpandableList = new org.web3d.x3d.palette.items.ExpandableList();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(610, 620));
+        setPreferredSize(new java.awt.Dimension(610, 520));
         addFocusListener(new java.awt.event.FocusAdapter()
         {
             public void focusGained(java.awt.event.FocusEvent evt)
@@ -544,6 +584,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(loaLabel, gridBagConstraints);
 
@@ -1116,7 +1157,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         infoPanel.setToolTipText("Metadata information, name=value pairs");
         infoPanel.setMinimumSize(new java.awt.Dimension(300, 110));
 
-        infoTable.setPreferredSize(new java.awt.Dimension(300, 110));
+        infoExpandableList.setPreferredSize(new java.awt.Dimension(300, 110));
 
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
@@ -1124,18 +1165,91 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(infoTable, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addComponent(infoExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                 .addContainerGap())
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(infoTable, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                .addComponent(infoExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("info table", infoPanel);
+        jTabbedPane1.addTab("info values", infoPanel);
+
+        jointBindingPositionsPanel.setForeground(new java.awt.Color(0, 153, 153));
+
+        jointBindingPositionsExpandableList.setPreferredSize(new java.awt.Dimension(300, 110));
+
+        javax.swing.GroupLayout jointBindingPositionsPanelLayout = new javax.swing.GroupLayout(jointBindingPositionsPanel);
+        jointBindingPositionsPanel.setLayout(jointBindingPositionsPanelLayout);
+        jointBindingPositionsPanelLayout.setHorizontalGroup(
+            jointBindingPositionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jointBindingPositionsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jointBindingPositionsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jointBindingPositionsPanelLayout.setVerticalGroup(
+            jointBindingPositionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jointBindingPositionsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jointBindingPositionsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("jointBindingPositions", jointBindingPositionsPanel);
+
+        jointBindingRotationsPanel.setForeground(new java.awt.Color(0, 153, 153));
+
+        jointBindingRotationsExpandableList.setPreferredSize(new java.awt.Dimension(300, 110));
+
+        javax.swing.GroupLayout jointBindingRotationsPanelLayout = new javax.swing.GroupLayout(jointBindingRotationsPanel);
+        jointBindingRotationsPanel.setLayout(jointBindingRotationsPanelLayout);
+        jointBindingRotationsPanelLayout.setHorizontalGroup(
+            jointBindingRotationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jointBindingRotationsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jointBindingRotationsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jointBindingRotationsPanelLayout.setVerticalGroup(
+            jointBindingRotationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jointBindingRotationsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jointBindingRotationsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("jointBindingRotations", jointBindingRotationsPanel);
+
+        jointBindingScalesPanel.setForeground(new java.awt.Color(0, 153, 153));
+
+        jointBindingScalesExpandableList.setPreferredSize(new java.awt.Dimension(300, 110));
+
+        javax.swing.GroupLayout jointBindingScalesPanelLayout = new javax.swing.GroupLayout(jointBindingScalesPanel);
+        jointBindingScalesPanel.setLayout(jointBindingScalesPanelLayout);
+        jointBindingScalesPanelLayout.setHorizontalGroup(
+            jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jointBindingScalesPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jointBindingScalesExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        jointBindingScalesPanelLayout.setVerticalGroup(
+            jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 307, Short.MAX_VALUE)
+            .addGroup(jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jointBindingScalesPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jointBindingScalesExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        jTabbedPane1.addTab("jointBindingScales", jointBindingScalesPanel);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1625,9 +1739,15 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     private javax.swing.JTextField descriptionTF;
     private javax.swing.JPanel fieldsPanel;
     private javax.swing.JLabel hintLabel;
+    private org.web3d.x3d.palette.items.ExpandableList infoExpandableList;
     private javax.swing.JPanel infoPanel;
-    private org.web3d.x3d.palette.items.ExpandableList infoTable;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private org.web3d.x3d.palette.items.ExpandableList jointBindingPositionsExpandableList;
+    private javax.swing.JPanel jointBindingPositionsPanel;
+    private org.web3d.x3d.palette.items.ExpandableList jointBindingRotationsExpandableList;
+    private javax.swing.JPanel jointBindingRotationsPanel;
+    private org.web3d.x3d.palette.items.ExpandableList jointBindingScalesExpandableList;
+    private javax.swing.JPanel jointBindingScalesPanel;
     private javax.swing.JComboBox<String> loaComboBox;
     private javax.swing.JLabel loaLabel;
     private javax.swing.JLabel nameLabel;
