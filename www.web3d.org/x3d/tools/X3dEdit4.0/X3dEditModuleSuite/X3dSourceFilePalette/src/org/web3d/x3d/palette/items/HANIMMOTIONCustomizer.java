@@ -89,12 +89,13 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     loopCB.setSelected(hanimMotion.isLoop());
       endFrameTF.setText(hanimMotion.getEndFrame().toString());
     startFrameTF.setText(hanimMotion.getStartFrame().toString());
+    frameCountTF.setText(hanimMotion.getFrameCount().toString());
     frameDurationTF.setText(hanimMotion.getFrameDuration().toString());
     frameIncrementTF.setText(hanimMotion.getFrameIncrement().toString());
     frameIndexTF.setText(hanimMotion.getFrameIndex().toString());
     jointsTF.setText(hanimMotion.getJoints());
     
-    loaComboBox.setSelectedItem(hanimMotion.getLoa());
+    loaComboBox.setSelectedIndex(hanimMotion.getLoa().getValue() + 1);
     loaComboBox.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaComboBox.getSelectedIndex()]);
     
     valuesTable.setTitle("HAnimMotion value arrays");
@@ -119,8 +120,6 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     }
     valuesTable.setInsertCommas(hanimMotion.isInsertCommas());
     valuesTable.setInsertLineBreaks(hanimMotion.isInsertLineBreaks());
-    
-    // TODO others
   }
   private void setDefaultDEFname()
   {
@@ -160,6 +159,8 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         enabledCB = new javax.swing.JCheckBox();
         loopLabel = new javax.swing.JLabel();
         loopCB = new javax.swing.JCheckBox();
+        frameCountLabel = new javax.swing.JLabel();
+        frameCountTF = new javax.swing.JTextField();
         frameIndexLabel = new javax.swing.JLabel();
         frameIndexTF = new javax.swing.JTextField();
         startFrameLabel = new javax.swing.JLabel();
@@ -323,7 +324,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -334,7 +335,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         loaLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.loaLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -382,6 +383,35 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loopCB, gridBagConstraints);
+
+        frameCountLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        frameCountLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameCountLabel.text")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(frameCountLabel, gridBagConstraints);
+
+        frameCountTF.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                frameCountTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(frameCountTF, gridBagConstraints);
 
         frameIndexLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         frameIndexLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameIndexLabel.text")); // NOI18N
@@ -475,7 +505,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         durationLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.durationLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
@@ -772,6 +802,11 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     {//GEN-HEADEREND:event_frameIncrementTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_frameIncrementTFActionPerformed
+
+    private void frameCountTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frameCountTFActionPerformed
+    {//GEN-HEADEREND:event_frameCountTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frameCountTFActionPerformed
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -789,6 +824,8 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     private javax.swing.JPanel eventHintPanel;
     private javax.swing.JLabel eventLabel1;
     private javax.swing.JLabel eventLabel2;
+    private javax.swing.JLabel frameCountLabel;
+    private javax.swing.JTextField frameCountTF;
     private javax.swing.JLabel frameDurationLabel;
     private javax.swing.JTextField frameDurationTF;
     private javax.swing.JLabel frameIncrementLabel;
@@ -880,6 +917,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     hanimMotion.setLoop(loopCB.isSelected());
     hanimMotion.setEndFrame(new SFInt32(endFrameTF.getText(), 0, 65535));
     hanimMotion.setStartFrame(new SFInt32(startFrameTF.getText(),0, 65535));
+    hanimMotion.setFrameCount(new SFInt32(frameCountTF.getText(),0, 65535));
     hanimMotion.setFrameDuration(new SFDouble(frameDurationTF.getText(),0.0,null)); // SFTime
     hanimMotion.setFrameIncrement(new SFInt32(frameIncrementTF.getText(),0, 65535));
     hanimMotion.setFrameIndex(new SFInt32(frameIndexTF.getText(),0, 65535));

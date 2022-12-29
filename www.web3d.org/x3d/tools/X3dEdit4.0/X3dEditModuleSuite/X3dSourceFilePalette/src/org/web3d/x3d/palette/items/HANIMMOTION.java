@@ -61,6 +61,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
   private String      description, descriptionDefault;
   private boolean     enabled, enabledDefault;
   private SFInt32     endFrame, endFrameDefault;
+  private SFInt32     frameCount, frameCountDefault;
   private SFDouble    frameDuration, frameDurationDefault; // SFTime
   private SFInt32     frameIncrement, frameIncrementDefault;
   private SFInt32     frameIndex, frameIndexDefault;
@@ -102,7 +103,8 @@ public class HANIMMOTION extends X3DInterpolatorNode
     
         setEndFrame(endFrameDefault       = new SFInt32  (HANIMMOTION_ATTR_ENDFRAME_DFLT,      0,    65535));
         setStartFrame(startFrameDefault   = new SFInt32  (HANIMMOTION_ATTR_STARTFRAME_DFLT,    0,    65535));
-        setFrameIncrement(frameIncrementDefault = new SFInt32  (HANIMMOTION_ATTR_FRAMEINCREMENT_DFLT,0,    65535));
+        setFrameCount(frameCountDefault   = new SFInt32  (HANIMMOTION_ATTR_FRAMECOUNT_DFLT,0,    65535));
+   setFrameIncrement(frameIncrementDefault= new SFInt32  (HANIMMOTION_ATTR_FRAMEINCREMENT_DFLT,0,    65535));
         setFrameIndex(frameIndexDefault   = new SFInt32  (HANIMMOTION_ATTR_FRAMEINDEX_DFLT,    0,    65535));
         setLoa(loaDefault                 = new SFInt32  (HANIMMOTION_ATTR_LOA_DFLT,          -1,    4));
     
@@ -161,6 +163,10 @@ public class HANIMMOTION extends X3DInterpolatorNode
     attr = root.getAttribute(HANIMMOTION_ATTR_ENDFRAME_NAME);
     if(attr != null)
         setEndFrame(new SFInt32(attr.getValue(), 0, 65535));
+    
+    attr = root.getAttribute(HANIMMOTION_ATTR_FRAMECOUNT_NAME);
+    if(attr != null)
+        setFrameCount(new SFInt32(attr.getValue(), 0, 65535));
     
     attr = root.getAttribute(HANIMMOTION_ATTR_FRAMEINCREMENT_NAME);
     if(attr != null)
@@ -242,6 +248,13 @@ public class HANIMMOTION extends X3DInterpolatorNode
       sb.append(HANIMMOTION_ATTR_ENDFRAME_NAME);
       sb.append("='");
       sb.append(getEndFrame());
+      sb.append("'");
+    }
+    if (HANIMMOTION_ATTR_FRAMECOUNT_REQD || (getFrameCount() != frameCountDefault)) {
+      sb.append(" ");
+      sb.append(HANIMMOTION_ATTR_FRAMECOUNT_NAME);
+      sb.append("='");
+      sb.append(getFrameCount());
       sb.append("'");
     }
     if (HANIMMOTION_ATTR_FRAMEDURATION_REQD || (getFrameDuration() != frameDurationDefault)) {
@@ -410,6 +423,22 @@ public class HANIMMOTION extends X3DInterpolatorNode
     public SFDouble getFrameDuration()
     {
         return frameDuration;
+    }
+
+    /**
+     * @return the frameCount
+     */
+    public SFInt32 getFrameCount()
+    {
+        return frameCount;
+    }
+
+    /**
+     * @param frameCount the frameCount to set
+     */
+    public void setFrameCount(SFInt32 frameCount)
+    {
+        this.frameCount = frameCount;
     }
 
     /**
