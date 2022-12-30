@@ -591,6 +591,7 @@
             <word>deserialized</word>
             <word>DOCTYPE</word>
             <word>DTD</word>
+            <word>ElevationGrid</word>
             <word>EnvironmentLight</word>
             <word>FillProperties</word>
             <word>gzip</word>
@@ -601,10 +602,13 @@
             <word>htmlcolorcodes</word>
             <word>https</word>
             <word>ImageTexture</word>
+            <word>IndexedFaceSet</word>
+            <word>IndexedLineSet</word>
             <word>javadoc</word>
             <word>JSON</word>
             <word>keystore</word>
             <word>LineProperties</word>
+            <word>LineSet</word>
             <word>localhost</word>
             <word>mailto</word>
             <word>MeshLab</word>
@@ -618,6 +622,7 @@
             <word>Paraview</word>
             <word>PhysicalMaterial</word>
             <word>PixelTexture</word>
+            <word>PointSet</word>
             <word>PolyTrans</word>
             <word>Portecle</word>
             <word>Quickstart</word>
