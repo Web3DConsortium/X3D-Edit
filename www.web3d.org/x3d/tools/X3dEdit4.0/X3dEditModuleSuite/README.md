@@ -20,8 +20,6 @@ This file is the developers' documentation page for creation of X3D-Edit 4.0 sui
 ----
 ## Work in Progress
 
-* Don: engineering palette entry for COMMENT, getting patterns updated
-
 * Don: MIME type registry within NetBeans for X3D
   [File Type Integration Tutorial](https://netbeans.apache.org/tutorials/nbm-filetype.html)
 
