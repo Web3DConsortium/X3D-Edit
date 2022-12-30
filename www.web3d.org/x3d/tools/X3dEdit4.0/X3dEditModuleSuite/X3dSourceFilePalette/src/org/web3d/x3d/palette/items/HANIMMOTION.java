@@ -271,13 +271,6 @@ public class HANIMMOTION extends X3DInterpolatorNode
       sb.append(getFrameIncrement());
       sb.append("'");
     }
-    if (HANIMMOTION_ATTR_FRAMEINDEX_REQD || (getFrameIndex() != frameIndexDefault)) {
-      sb.append(" ");
-      sb.append(HANIMMOTION_ATTR_FRAMEINDEX_NAME);
-      sb.append("='");
-      sb.append(getFrameIndex());
-      sb.append("'");
-    }
     if (HANIMMOTION_ATTR_JOINTS_REQD || (!joints.equals(jointsDefault))) {
       sb.append(" ");
       sb.append(HANIMMOTION_ATTR_JOINTS_NAME);
