@@ -121,6 +121,11 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_PYPI                               ="https://pypi.org/project/x3d";
   public final static String X3D_ONTOLOGY                           ="https://www.web3d.org/x3d/content/semantics/semantics.html";
   public final static String X3D_ONTOLOGY_DOCUMENTATION             ="https://www.web3d.org/x3d/content/semantics/documentation/owldoc/index.html";
+
+  public final static String X3D_C_LANGUAGE_BINDING_SAI             ="http://www.web3d.org/specifications/ISO-IEC19777/ISO-IEC19777-3v3.3-DIS";
+  public final static String X3D_CPP_LANGUAGE_BINDING_SAI           ="http://www.web3d.org/specifications/ISO-IEC19777/ISO-IEC19777-4v3.3-DIS";
+  public final static String X3D_CSHARP_LANGUAGE_BINDING_SAI        ="http://www.web3d.org/specifications/ISO-IEC19777/ISO-IEC19777-5v3.3-DIS";
+  
   public final static String W3C_HOME                               ="https://www.w3.org";
   public final static String W3C_STANDARDS_OPEN_WEB_PLATFORM        ="https://www.w3.org/standards";
   public final static String W3C_DEVELOPERS                         ="https://www.w3.org/developers";
