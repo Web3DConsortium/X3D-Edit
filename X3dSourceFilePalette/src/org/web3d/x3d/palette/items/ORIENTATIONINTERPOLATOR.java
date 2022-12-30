@@ -129,7 +129,6 @@ public class ORIENTATIONINTERPOLATOR  extends X3DInterpolatorNode
       sb.append("='");
       sb.append(formatFloatArray(key, insertCommas, insertLineBreaks));
       sb.append("'");
-     
     }
     if (ORIENTATIONINTERPOLATOR_ATTR_KEYVALUE_REQD || !arraysIdenticalOrNull(keyValue,keyValueDefault)) {
       
