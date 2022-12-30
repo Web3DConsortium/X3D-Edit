@@ -56,6 +56,9 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.NsidedPolygon;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.N_SIDED_POLYGON;
 import static org.web3d.x3d.types.X3DSchemaData4.parseX;
 
@@ -980,6 +983,22 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
 		   return 0;
 	  else return getData().length;
   }
+  public SFFloat[][] getDataSFFloatArray()
+  {
+    int    rowCount = getTable().getRowCount();
+    int columnCount = getTable().getColumnCount();
+    SFFloat[][] sfFloatArray = new SFFloat[rowCount][columnCount];
+    String [][]  stringArray = getData();
+      
+    for (int row = 0; row < rowCount; row++) 
+    {
+        for (int col = 0; col < columnCount; col++)
+        {
+            sfFloatArray[row][col] = new SFFloat(stringArray[row][col]);
+        }
+    }
+    return sfFloatArray;
+  }
   public String[][] getData()
   {
     TableModel tableModel = jTable.getModel();
@@ -1302,7 +1321,7 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
       ((JLabel) cr).setHorizontalAlignment(textAlignment);
 
     // special renderers for key columns
-    if (boldColumns.size() > 0)
+    if (!boldColumns.isEmpty())
     {
       TableCellRenderer myRenderer = new   BoldRenderer();
 
@@ -3123,7 +3142,7 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
                     {
                         try  
                         {  
-                          cellValue = Double.valueOf(saa[row][col]);
+                          cellValue = Double.parseDouble(saa[row][col]);
                         }  
                         catch(NumberFormatException nfe)  
                         {  
@@ -3319,6 +3338,9 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
       int rowIndex = rowAtPoint(p);
       int colIndex = convertColumnIndexToModel(columnAtPoint(p));
       Object o = getValueAt(rowIndex, colIndex);
+      
+      if (o == null) 
+          return "";
 
       if (o instanceof Color)
       {
@@ -3760,7 +3782,7 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
 	{
 		try
 		{
-		    Double.parseDouble(value);
+		    Double.valueOf(value);
 		}
 		catch (NumberFormatException nfe)
 		{
