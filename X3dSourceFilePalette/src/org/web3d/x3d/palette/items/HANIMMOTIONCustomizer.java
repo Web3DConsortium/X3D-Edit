@@ -135,6 +135,19 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     
     super.getDEFUSEpanel().setDefaultDEFname(newDefaultName);
   }
+  private void adjustForwardsBackwardsLabel()
+  {
+      if (frameDurationTF.getText().trim().startsWith("-"))
+      {
+          forwardBackwardsLabel.setText("backwards");
+          forwardBackwardsLabel.setForeground(darkorange);
+      }
+      else
+      {
+          forwardBackwardsLabel.setText("forwards");
+          forwardBackwardsLabel.setForeground(darkgreen);
+      }
+  }
   
   /** This method is called from within the constructor to
    * initialize the form.
@@ -172,6 +185,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         frameDurationTF = new javax.swing.JTextField();
         frameIncrementLabel = new javax.swing.JLabel();
         frameIncrementTF = new javax.swing.JTextField();
+        forwardBackwardsLabel = new javax.swing.JLabel();
         channelsLabel = new javax.swing.JLabel();
         channelsTF = new javax.swing.JTextField();
         channelsEnabled = new javax.swing.JLabel();
@@ -189,15 +203,15 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
         paddingLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.paddingLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridheight = 10;
+        gridBagConstraints.gridheight = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -301,7 +315,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -333,6 +347,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
         loaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         loaLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.loaLabel.text")); // NOI18N
+        loaLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.loaLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -344,6 +359,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
         enabledLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         enabledLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.enabledLabel.text")); // NOI18N
+        enabledLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.enabledLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -353,6 +369,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledLabel, gridBagConstraints);
 
+        enabledCB.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.enabledCB.toolTipText")); // NOI18N
         enabledCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -365,6 +382,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
         loopLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         loopLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.loopLabel.text")); // NOI18N
+        loopLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.loopLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -374,6 +392,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loopLabel, gridBagConstraints);
 
+        loopCB.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.loopCB.toolTipText")); // NOI18N
         loopCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -386,6 +405,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
         frameCountLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         frameCountLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameCountLabel.text")); // NOI18N
+        frameCountLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameCountLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
@@ -396,6 +416,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(frameCountLabel, gridBagConstraints);
 
+        frameCountTF.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameCountTF.toolTipText")); // NOI18N
         frameCountTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -415,6 +436,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
         frameIndexLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         frameIndexLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameIndexLabel.text")); // NOI18N
+        frameIndexLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameIndexLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
@@ -425,6 +447,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(frameIndexLabel, gridBagConstraints);
 
+        frameIndexTF.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameIndexTF.toolTipText")); // NOI18N
         frameIndexTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -444,6 +467,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
         startFrameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         startFrameLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.startFrameLabel.text")); // NOI18N
+        startFrameLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.startFrameLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
@@ -454,6 +478,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         add(startFrameLabel, gridBagConstraints);
 
         startFrameTF.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.startFrameTF.text")); // NOI18N
+        startFrameTF.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.startFrameTF.toolTipText")); // NOI18N
         startFrameTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -473,6 +498,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
         endFrameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         endFrameLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.endFrameLabel.text")); // NOI18N
+        endFrameLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.endFrameLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
@@ -483,6 +509,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         add(endFrameLabel, gridBagConstraints);
 
         endFrameTF.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.endFrameTF.text")); // NOI18N
+        endFrameTF.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.endFrameTF.toolTipText")); // NOI18N
         endFrameTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -513,6 +540,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
         frameDurationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         frameDurationLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameDurationLabel.text")); // NOI18N
+        frameDurationLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameDurationLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 7;
@@ -523,6 +551,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(frameDurationLabel, gridBagConstraints);
 
+        frameDurationTF.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameDurationTF.toolTipText")); // NOI18N
         frameDurationTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -542,6 +571,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
         frameIncrementLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         frameIncrementLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameIncrementLabel.text")); // NOI18N
+        frameIncrementLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameIncrementLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
@@ -552,6 +582,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(frameIncrementLabel, gridBagConstraints);
 
+        frameIncrementTF.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.frameIncrementTF.toolTipText")); // NOI18N
         frameIncrementTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -568,6 +599,16 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(frameIncrementTF, gridBagConstraints);
+
+        forwardBackwardsLabel.setForeground(new java.awt.Color(21, 71, 52));
+        forwardBackwardsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        forwardBackwardsLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.forwardBackwardsLabel.text")); // NOI18N
+        forwardBackwardsLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.forwardBackwardsLabel.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        add(forwardBackwardsLabel, gridBagConstraints);
 
         channelsLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         channelsLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.channelsLabel.text")); // NOI18N
@@ -594,7 +635,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -627,7 +668,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -660,7 +701,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -679,7 +720,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 17;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 3.0;
@@ -800,7 +841,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
     private void frameIncrementTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frameIncrementTFActionPerformed
     {//GEN-HEADEREND:event_frameIncrementTFActionPerformed
-        // TODO add your handling code here:
+        adjustForwardsBackwardsLabel();
     }//GEN-LAST:event_frameIncrementTFActionPerformed
 
     private void frameCountTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frameCountTFActionPerformed
@@ -824,6 +865,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     private javax.swing.JPanel eventHintPanel;
     private javax.swing.JLabel eventLabel1;
     private javax.swing.JLabel eventLabel2;
+    private javax.swing.JLabel forwardBackwardsLabel;
     private javax.swing.JLabel frameCountLabel;
     private javax.swing.JTextField frameCountTF;
     private javax.swing.JLabel frameDurationLabel;
@@ -848,10 +890,14 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     private org.web3d.x3d.palette.items.ExpandableKeyTupleTable valuesTable;
     // End of variables declaration//GEN-END:variables
   @Override
-  public String getNameKey()
-  {
-    return "NAME_X3D_HANIMMOTION";
-  }
+    public String getNameKey()
+    {
+        return "NAME_X3D_HANIMMOTION";
+    }
+
+    private Color  burntorange = new Color(191,  87,  0);
+    private Color   darkorange = new Color(255, 140,  0);
+    private Color   darkgreen  = new Color( 21,  71, 52);
   
     private void checkNameDefMatchRules()
     {
@@ -861,10 +907,6 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
   
         String DEF    = super.getDEFUSEpanel().getDEF();
         String name   = nameTextField.getText();
-        
-        Color  burntorange = new Color(191,  87,  0);
-        Color   darkorange = new Color(255, 140,  0);
-        Color   darkgreen  = new Color( 21,  71, 52);
         
         if (name.isBlank())
         {
