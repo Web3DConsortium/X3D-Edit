@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,6 +36,8 @@ package org.web3d.x3d.palette.items;
 
 import java.awt.Color;
 import java.awt.Dialog;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
@@ -185,30 +187,140 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
   private void initializeJointTables()
   {
     // TODO set tab titles green, tooltip X3D4
+      
     jointBindingPositionsExpandableList.setColumnTitles(new String[]{"index","x","y","z"});
     jointBindingPositionsExpandableList.setNewRowData(new Object[]{"untitled","0","0","0"});
     jointBindingPositionsExpandableList.getTable().setRowHeight(16);
-    
-    jointBindingRotationsExpandableList.setColumnTitles(new String[]{"index","x","y","z","angle"});
-    jointBindingRotationsExpandableList.setNewRowData(new Object[]{"untitled","0","1","0","0"});
-    jointBindingRotationsExpandableList.getTable().setRowHeight(16);
-    
-    jointBindingScalesExpandableList.setColumnTitles(new String[]{"index","x","y","z"});
-    jointBindingScalesExpandableList.setNewRowData(new Object[]{"untitled","0","0","0"});
-    jointBindingScalesExpandableList.getTable().setRowHeight(16);
-    
+    jointBindingPositionsExpandableList.setColumnTitles(new String[]{"name","value"});
+    jointBindingPositionsExpandableList.setNewRowData(new Object[]{"untitled",""});
+//  jointBindingPositionsExpandableList.setData(HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS);
+    jointBindingPositionsExpandableList.setTextAlignment(JLabel.LEADING);
+    jointBindingPositionsExpandableList.getTable().setRowHeight(16);
+    String inputs = hAnimHumanoid.getJointBindingPositionsString();
+    if (inputs != null && inputs.length() > 0) {
+      String[] sa = inputs.replace(',', ' ').trim().split("[\\\"']");
+      ArrayList<String> v = new ArrayList<>();
+      for (String s : sa) {
+        s = s.trim();
+        if (s.length() > 0 &&
+            !(s.length() == 1 && (s.charAt(0) == '\'' || s.charAt(0) == '"'))) {
+          v.add(s);
+        }
+      }
+      if (!v.isEmpty()) {
+        Iterator<String> itr = v.iterator();
+        while (itr.hasNext()) {
+          String s = itr.next();
+          String[]sta= s.split("=");
+          String nm = sta[0];
+          String value;
+          if(sta.length != 2)
+            value = "";
+          else
+            value = sta[1];
+          
+         int row = tableContains(nm);
+         if (row >= 0)
+            setDataAtRow(row, nm, value);
+          else
+            newRow(nm, value);
+        }
+      }
+    }
     // apparently the following has to come after setting data
     jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(100);
     jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(100);
     jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
     jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(100);
-    
+    // --
+    jointBindingRotationsExpandableList.setColumnTitles(new String[]{"index","x","y","z"});
+    jointBindingRotationsExpandableList.setNewRowData(new Object[]{"untitled","0","0","0"});
+    jointBindingRotationsExpandableList.getTable().setRowHeight(16);
+    jointBindingRotationsExpandableList.setColumnTitles(new String[]{"name","value"});
+    jointBindingRotationsExpandableList.setNewRowData(new Object[]{"untitled",""});
+//  jointBindingRotationsExpandableList.setData(HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS);
+    jointBindingRotationsExpandableList.setTextAlignment(JLabel.LEADING);
+    jointBindingRotationsExpandableList.getTable().setRowHeight(16);
+    inputs = hAnimHumanoid.getJointBindingRotationsString();
+    if (inputs != null && inputs.length() > 0) {
+      String[] sa = inputs.replace(',', ' ').trim().split("[\\\"']");
+      ArrayList<String> v = new ArrayList<>();
+      for (String s : sa) {
+        s = s.trim();
+        if (s.length() > 0 &&
+            !(s.length() == 1 && (s.charAt(0) == '\'' || s.charAt(0) == '"'))) {
+          v.add(s);
+        }
+      }
+      if (!v.isEmpty()) {
+        Iterator<String> itr = v.iterator();
+        while (itr.hasNext()) {
+          String s = itr.next();
+          String[]sta= s.split("=");
+          String nm = sta[0];
+          String value;
+          if(sta.length != 2)
+            value = "";
+          else
+            value = sta[1];
+          
+         int row = tableContains(nm);
+         if (row >= 0)
+            setDataAtRow(row, nm, value);
+          else
+            newRow(nm, value);
+        }
+      }
+    }
+    // apparently the following has to come after setting data    
     jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(80);
     jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(80);
     jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(80);
     jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(80);
     jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(4).setPreferredWidth(80);
     
+    
+    // --
+    jointBindingScalesExpandableList.setColumnTitles(new String[]{"index","x","y","z"});
+    jointBindingScalesExpandableList.setNewRowData(new Object[]{"untitled","0","0","0"});
+    jointBindingScalesExpandableList.getTable().setRowHeight(16);
+    jointBindingScalesExpandableList.setColumnTitles(new String[]{"name","value"});
+    jointBindingScalesExpandableList.setNewRowData(new Object[]{"untitled",""});
+//  jointBindingScalesExpandableList.setData(HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS);
+    jointBindingScalesExpandableList.setTextAlignment(JLabel.LEADING);
+    jointBindingScalesExpandableList.getTable().setRowHeight(16);
+    inputs = hAnimHumanoid.getJointBindingScalesString();
+    if (inputs != null && inputs.length() > 0) {
+      String[] sa = inputs.replace(',', ' ').trim().split("[\\\"']");
+      ArrayList<String> v = new ArrayList<>();
+      for (String s : sa) {
+        s = s.trim();
+        if (s.length() > 0 &&
+            !(s.length() == 1 && (s.charAt(0) == '\'' || s.charAt(0) == '"'))) {
+          v.add(s);
+        }
+      }
+      if (!v.isEmpty()) {
+        Iterator<String> itr = v.iterator();
+        while (itr.hasNext()) {
+          String s = itr.next();
+          String[]sta= s.split("=");
+          String nm = sta[0];
+          String value;
+          if(sta.length != 2)
+            value = "";
+          else
+            value = sta[1];
+          
+         int row = tableContains(nm);
+         if (row >= 0)
+            setDataAtRow(row, nm, value);
+          else
+            newRow(nm, value);
+        }
+      }
+    }
+    // apparently the following has to come after setting data
     jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(100);
     jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(100);
     jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
@@ -221,9 +333,9 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     infoExpandableList.setData(HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS);
     infoExpandableList.setTextAlignment(JLabel.LEADING);
     infoExpandableList.getTable().setRowHeight(16);
-    String inps = hAnimHumanoid.getInfo();
-    if (inps != null && inps.length() > 0) {
-      String[] sa = inps.replace(',', ' ').trim().split("[\\\"']");
+    String inputs = hAnimHumanoid.getInfo();
+    if (inputs != null && inputs.length() > 0) {
+      String[] sa = inputs.replace(',', ' ').trim().split("[\\\"']");
       Vector<String> v = new Vector<String>();
       for (String s : sa) {
         s = s.trim();
@@ -580,6 +692,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         loaLabel.setForeground(new java.awt.Color(0, 153, 153));
         loaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         loaLabel.setText("loa");
+        loaLabel.setToolTipText("Level Of Articulation 0..4 for HAnim complexity and detail, -1 means noncompliant");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -590,7 +703,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
 
         loaComboBox.setEditable(true);
         loaComboBox.setModel(new DefaultComboBoxModel<String>(HANIMHUMANOID_ATTR_LOA_CHOICES));
-        loaComboBox.setToolTipText("Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
+        loaComboBox.setToolTipText("Level Of Articulation 0..4 for HAnim complexity and detail, -1 means noncompliant");
         loaComboBox.setMinimumSize(new java.awt.Dimension(50, 20));
         loaComboBox.setPreferredSize(new java.awt.Dimension(50, 20));
         loaComboBox.addActionListener(new java.awt.event.ActionListener()
@@ -1682,7 +1795,6 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
-     
     hAnimHumanoid.setDescription(descriptionTF.getText().trim());
     // TODO if not X3D4, value should be -1
     hAnimHumanoid.setLoa(new SFInt32(loaComboBox.getSelectedItem().toString(),-1,4));
@@ -1716,6 +1828,18 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     hAnimHumanoid.setBboxSizeX(bboxSizeTFX.getText().trim());
     hAnimHumanoid.setBboxSizeY(bboxSizeTFY.getText().trim());
     hAnimHumanoid.setBboxSizeZ(bboxSizeTFZ.getText().trim());
+    
+    hAnimHumanoid.setInfo(Arrays.toString(infoExpandableList.getData()));
+    hAnimHumanoid.setJointBindingPositions(jointBindingPositionsExpandableList.getDataSFFloatArray());
+    hAnimHumanoid.setJointBindingRotations(jointBindingRotationsExpandableList.getDataSFFloatArray());
+    hAnimHumanoid.setJointBindingScales   (     jointBindingScalesExpandableList.getDataSFFloatArray());
+
+    hAnimHumanoid.setInsertCommas    (jointBindingPositionsExpandableList.isInsertCommasSet() ||
+                                      jointBindingRotationsExpandableList.isInsertCommasSet() ||
+                                         jointBindingScalesExpandableList.isInsertCommasSet());
+    hAnimHumanoid.setInsertLineBreaks(jointBindingPositionsExpandableList.isInsertLineBreaksSet() ||
+                                      jointBindingRotationsExpandableList.isInsertLineBreaksSet() ||
+                                         jointBindingScalesExpandableList.isInsertLineBreaksSet());
   }
      
     // Variables declaration - do not modify//GEN-BEGIN:variables

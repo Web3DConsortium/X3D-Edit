@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -54,12 +54,16 @@ import org.web3d.x3d.types.X3DTransformNode;
  */
 public class HANIMHUMANOID extends X3DTransformNode
 {
-  private String   description;
-  private String   info;
-  private String   name;
-  private String   version;
-  private String   prefix; // calculated from DEF = prefix + name
-  private SFInt32  loa, loaDefault;
+  private String      description;
+  private String      info;
+  private String      name;
+  private String      version;
+  private String      prefix; // calculated from DEF = prefix + name
+  private SFInt32     loa, loaDefault;
+  private SFFloat[][] jointBindingPositions;
+  private SFFloat[][] jointBindingRotations;
+  private SFFloat[][] jointBindingScales;
+  private boolean     insertCommas, insertLineBreaks = false;
   
 
   public HANIMHUMANOID()
@@ -120,6 +124,24 @@ public class HANIMHUMANOID extends X3DTransformNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(sa[0]);
     bboxSizeY = bboxSizeYDefault = new SFFloat(sa[1]);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(sa[2]);
+    
+    if(HANIMHUMANOID_ATTR_JOINTBINDINGPOSITIONS_DFLT == null || HANIMHUMANOID_ATTR_JOINTBINDINGPOSITIONS_DFLT.isEmpty())
+      sa = new String[]{}; // empty 
+    else
+      sa = parseX(HANIMHUMANOID_ATTR_JOINTBINDINGPOSITIONS_DFLT);
+    jointBindingPositions = parseToSFFloatTable(sa,3); 
+    
+    if(HANIMHUMANOID_ATTR_JOINTBINDINGROTATIONS_DFLT == null || HANIMHUMANOID_ATTR_JOINTBINDINGROTATIONS_DFLT.isEmpty())
+      sa = new String[]{}; // empty 
+    else
+      sa = parseX(HANIMHUMANOID_ATTR_JOINTBINDINGROTATIONS_DFLT);
+    jointBindingRotations = parseToSFFloatTable(sa,4); 
+    
+    if(HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_DFLT == null || HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_DFLT.isEmpty())
+      sa = new String[]{}; // empty 
+    else
+      sa = parseX(HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_DFLT);
+    jointBindingScales = parseToSFFloatTable(sa,3); 
 
     setContent("\n\t\t<!--TODO add children HAnimJoint, HAnimSegment, HAnimSite, Coordinate/CoordinateDouble, Normal, and Viewpoint nodes here -->\n\t");
   }
@@ -201,6 +223,33 @@ public class HANIMHUMANOID extends X3DTransformNode
       bboxSizeY = new SFFloat(sa[1]);
       bboxSizeZ = new SFFloat(sa[2]);
     }  
+    attr = root.getAttribute(HANIMHUMANOID_ATTR_JOINTBINDINGPOSITIONS_NAME);
+    if (attr != null) {
+      sa = parseX(attr.getValue());
+      jointBindingPositions = parseToSFFloatTable(sa,3); // cols: x, y, z
+      if (attr.getValue().contains(","))  insertCommas     = true;
+      if (attr.getValue().contains("\n") ||
+          attr.getValue().contains("\r")) insertLineBreaks = true; // TODO not working, line breaks not being passed from JDOM
+      if (insertCommas)                   insertLineBreaks = true; // workaround default, if commas were present then most likely lineBreaks also
+    }
+    attr = root.getAttribute(HANIMHUMANOID_ATTR_JOINTBINDINGROTATIONS_NAME);
+    if (attr != null) {
+      sa = parseX(attr.getValue());
+      jointBindingRotations = parseToSFFloatTable(sa,4); // cols: x, y, z, angle
+      if (attr.getValue().contains(","))  insertCommas     = true;
+      if (attr.getValue().contains("\n") ||
+          attr.getValue().contains("\r")) insertLineBreaks = true; // TODO not working, line breaks not being passed from JDOM
+      if (insertCommas)                   insertLineBreaks = true; // workaround default, if commas were present then most likely lineBreaks also
+    }
+    attr = root.getAttribute(HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_NAME);
+    if (attr != null) {
+      sa = parseX(attr.getValue());
+      jointBindingScales = parseToSFFloatTable(sa,3); // cols: x, y, z
+      if (attr.getValue().contains(","))  insertCommas     = true;
+      if (attr.getValue().contains("\n") ||
+          attr.getValue().contains("\r")) insertLineBreaks = true; // TODO not working, line breaks not being passed from JDOM
+      if (insertCommas)                   insertLineBreaks = true; // workaround default, if commas were present then most likely lineBreaks also
+    }
   }
   @Override
   public String createAttributes()
@@ -324,6 +373,27 @@ public class HANIMHUMANOID extends X3DTransformNode
       sb.append(version);
       sb.append("'");
     }
+    if (HANIMHUMANOID_ATTR_JOINTBINDINGPOSITIONS_REQD || !getJointBindingPositionsString().equals(HANIMHUMANOID_ATTR_JOINTBINDINGPOSITIONS_DFLT)) {
+      sb.append(" ");
+      sb.append(HANIMHUMANOID_ATTR_JOINTBINDINGPOSITIONS_NAME);
+      sb.append("='");
+      sb.append(formatFloatArray(getJointBindingPositions(), insertCommas, insertLineBreaks));
+      sb.append("'");
+    }
+    if (HANIMHUMANOID_ATTR_JOINTBINDINGROTATIONS_REQD || !getJointBindingRotationsString().equals(HANIMHUMANOID_ATTR_JOINTBINDINGROTATIONS_DFLT)) {
+      sb.append(" ");
+      sb.append(HANIMHUMANOID_ATTR_JOINTBINDINGROTATIONS_NAME);
+      sb.append("='");
+      sb.append(formatFloatArray(getJointBindingRotations(), insertCommas, insertLineBreaks));
+      sb.append("'");
+    }
+    if (HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_REQD || !getJointBindingScalesString().equals(HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_DFLT)) {
+      sb.append(" ");
+      sb.append(HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_NAME);
+      sb.append("='");
+      sb.append(formatFloatArray(getJointBindingScales(), insertCommas, insertLineBreaks));
+      sb.append("'");
+    }
 
     return sb.toString();
   }
@@ -380,4 +450,96 @@ public class HANIMHUMANOID extends X3DTransformNode
         this.loa = loa;
     }
 
+    /**
+     * @return the jointBindingPositions
+     */
+    public SFFloat[][] getJointBindingPositions()
+    {
+        return jointBindingPositions;
+    }
+    /**
+     * @return the jointBindingPositions
+     */
+    public String getJointBindingPositionsString()
+    {
+        return formatFloatArray(getJointBindingPositions());
+    }
+    /**
+     * @param jointBindingPositions the jointBindingPositions to set
+     */
+    public void setJointBindingPositions(SFFloat[][] jointBindingPositions)
+    {
+        this.jointBindingPositions = jointBindingPositions;
+    }
+    /**
+     * @return the jointBindingRotations
+     */
+    public SFFloat[][] getJointBindingRotations()
+    {
+        return jointBindingRotations;
+    }
+    /**
+     * @return the jointBindingRotations
+     */
+    public String getJointBindingRotationsString()
+    {
+        return formatFloatArray(getJointBindingRotations());
+    }
+    /**
+     * @param jointBindingRotations the jointBindingRotations to set
+     */
+    public void setJointBindingRotations(SFFloat[][] jointBindingRotations)
+    {
+        this.jointBindingRotations = jointBindingRotations;
+    }
+
+    /**
+     * @return the jointBindingScales
+     */
+    public SFFloat[][] getJointBindingScales()
+    {
+        return jointBindingScales;
+    }
+    /**
+     * @return the jointBindingScales
+     */
+    public String getJointBindingScalesString()
+    {
+        return formatFloatArray(getJointBindingScales());
+    }
+    /**
+     * @param jointBindingScales the jointBindingScales to set
+     */
+    public void setJointBindingScales(SFFloat[][] jointBindingScales)
+    {
+        this.jointBindingScales = jointBindingScales;
+    }
+
+    /**
+     * @return the insertCommas value
+     */
+    public boolean isInsertCommas() {
+        return insertCommas;
+    }
+
+    /**
+     * @param insertCommas the insertCommas value to set
+     */
+    public void setInsertCommas(boolean insertCommas) {
+        this.insertCommas = insertCommas;
+    }
+
+    /**
+     * @return the insertLineBreaks value
+     */
+    public boolean isInsertLineBreaks() {
+        return insertLineBreaks;
+    }
+
+    /**
+     * @param insertLineBreaks the insertLineBreaks value to set
+     */
+    public void setInsertLineBreaks(boolean insertLineBreaks) {
+        this.insertLineBreaks = insertLineBreaks;
+    }
 }
