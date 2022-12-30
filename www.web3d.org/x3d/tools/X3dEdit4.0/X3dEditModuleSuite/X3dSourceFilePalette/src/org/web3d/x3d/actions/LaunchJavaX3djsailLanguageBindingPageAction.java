@@ -91,7 +91,7 @@ public final class LaunchJavaX3djsailLanguageBindingPageAction extends CallableS
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("JsonEncodingPageAction");
+    return new HelpCtx("JavaEncodingPageAction");
   }
 
   @Override
