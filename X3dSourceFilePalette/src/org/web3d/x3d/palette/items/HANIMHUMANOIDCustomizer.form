@@ -219,6 +219,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="loa"/>
+                <Property name="toolTipText" type="java.lang.String" value="Level Of Articulation 0..4 for HAnim complexity and detail, -1 means noncompliant"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -232,7 +233,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new DefaultComboBoxModel&lt;String&gt;(HANIMHUMANOID_ATTR_LOA_CHOICES)" type="code"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0"/>
+                <Property name="toolTipText" type="java.lang.String" value="Level Of Articulation 0..4 for HAnim complexity and detail, -1 means noncompliant"/>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[50, 20]"/>
                 </Property>
