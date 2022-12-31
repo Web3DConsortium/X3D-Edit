@@ -196,7 +196,7 @@ public final class X3DPaletteUtilitiesJdom
   {
       String            x3dVersion = "not found by X3DPaletteUtilities";
       
-      if (x3dEditor != null) // proceed carefully
+      if (x3dEditor != null) // proceed carefully, TODO problems with prior initialization
       {
             org.jdom.Document currentDocument = x3dEditor.getJdomDoc();
             if  (currentDocument != null)
