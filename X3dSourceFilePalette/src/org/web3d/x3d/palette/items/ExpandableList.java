@@ -999,6 +999,22 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
     }
     return sfFloatArray;
   }
+  public String getDataQuotedStrings()
+  {
+    int    rowCount = getTable().getRowCount();
+    int columnCount = getTable().getColumnCount();
+    String [][]  stringArray = getData();
+    StringBuilder dataStringBuilder = new StringBuilder();
+    
+    for (int row = 0; row < rowCount; row++) 
+    {
+        for (int col = 0; col < columnCount; col++)
+        {
+            dataStringBuilder.append(" \"").append(stringArray[row][col]).append("\"");
+        }
+    }
+    return dataStringBuilder.toString().trim();
+  }
   public String[][] getData()
   {
     TableModel tableModel = jTable.getModel();
