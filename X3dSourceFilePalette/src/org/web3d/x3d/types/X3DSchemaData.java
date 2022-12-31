@@ -3062,7 +3062,7 @@ public interface X3DSchemaData
 //      "Experimental HAnim version, validation not well defined, deprecated",
 //      "Draft ISO 19774 version 2018, deprecated",
   };
-  String[][]HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS =
+  String[][]HANIMHUMANOID_ATTR_INFO_SUGGESTED_NAME_PAIRS =
   {
     {"authorName",""},
     {"authorEmail",""},
