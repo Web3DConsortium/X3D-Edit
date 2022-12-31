@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -34,10 +34,10 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 import javax.swing.text.JTextComponent;
-import org.web3d.x3d.types.X3DSequencerNode;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
+import org.web3d.x3d.types.X3DSequencerNode;
 
 /**
  * BOOLEANSEQUENCER.java
@@ -150,7 +150,7 @@ public class BOOLEANSEQUENCER extends X3DSequencerNode
     
     for(int r=0; r<kLen; r++) {
       oaa[r][0] = key[r].toString();
-      oaa[r][1] = Boolean.valueOf(keyValue[r]);
+      oaa[r][1] = keyValue[r];
     }
     return oaa;
   }
