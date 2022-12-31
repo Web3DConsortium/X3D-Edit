@@ -193,7 +193,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     jointBindingPositionsExpandableList.getTable().setRowHeight(16);
     jointBindingPositionsExpandableList.setColumnTitles(new String[]{"name","value"});
     jointBindingPositionsExpandableList.setNewRowData(new Object[]{"untitled",""});
-//  jointBindingPositionsExpandableList.setData(HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS);
+//  jointBindingPositionsExpandableList.setData(HANIMHUMANOID_ATTR_INFO_SUGGESTED_NAME_PAIRS);
     jointBindingPositionsExpandableList.setTextAlignment(JLabel.LEADING);
     jointBindingPositionsExpandableList.getTable().setRowHeight(16);
     String inputs = hAnimHumanoid.getJointBindingPositionsString();
@@ -228,17 +228,17 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
       }
     }
     // apparently the following has to come after setting data
-    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(100);
-    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(100);
-    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
-    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(100);
+//    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(100);
+//    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(100);
+//    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
+//    jointBindingPositionsExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(100);
     // --
     jointBindingRotationsExpandableList.setColumnTitles(new String[]{"index","x","y","z"});
     jointBindingRotationsExpandableList.setNewRowData(new Object[]{"untitled","0","0","0"});
     jointBindingRotationsExpandableList.getTable().setRowHeight(16);
     jointBindingRotationsExpandableList.setColumnTitles(new String[]{"name","value"});
     jointBindingRotationsExpandableList.setNewRowData(new Object[]{"untitled",""});
-//  jointBindingRotationsExpandableList.setData(HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS);
+//  jointBindingRotationsExpandableList.setData(HANIMHUMANOID_ATTR_INFO_SUGGESTED_NAME_PAIRS);
     jointBindingRotationsExpandableList.setTextAlignment(JLabel.LEADING);
     jointBindingRotationsExpandableList.getTable().setRowHeight(16);
     inputs = hAnimHumanoid.getJointBindingRotationsString();
@@ -273,12 +273,11 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
       }
     }
     // apparently the following has to come after setting data    
-    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(80);
-    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(80);
-    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(80);
-    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(80);
-    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(4).setPreferredWidth(80);
-    
+//    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(80);
+//    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(80);
+//    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(80);
+//    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(80);
+//    jointBindingRotationsExpandableList.getTable().getColumnModel().getColumn(4).setPreferredWidth(80);
     
     // --
     jointBindingScalesExpandableList.setColumnTitles(new String[]{"index","x","y","z"});
@@ -286,7 +285,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     jointBindingScalesExpandableList.getTable().setRowHeight(16);
     jointBindingScalesExpandableList.setColumnTitles(new String[]{"name","value"});
     jointBindingScalesExpandableList.setNewRowData(new Object[]{"untitled",""});
-//  jointBindingScalesExpandableList.setData(HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS);
+//  jointBindingScalesExpandableList.setData(HANIMHUMANOID_ATTR_INFO_SUGGESTED_NAME_PAIRS);
     jointBindingScalesExpandableList.setTextAlignment(JLabel.LEADING);
     jointBindingScalesExpandableList.getTable().setRowHeight(16);
     inputs = hAnimHumanoid.getJointBindingScalesString();
@@ -321,16 +320,16 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
       }
     }
     // apparently the following has to come after setting data
-    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(100);
-    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(100);
-    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
-    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(100);
+//    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(0).setPreferredWidth(100);
+//    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(100);
+//    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(2).setPreferredWidth(100);
+//    jointBindingScalesExpandableList.getTable().getColumnModel().getColumn(3).setPreferredWidth(100);
   }
   private void initializeInfoTable()
   {
     infoExpandableList.setColumnTitles(new String[]{"name","value"});
     infoExpandableList.setNewRowData(new Object[]{"untitled",""});
-    infoExpandableList.setData(HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS);
+    infoExpandableList.setData(HANIMHUMANOID_ATTR_INFO_SUGGESTED_NAME_PAIRS);
     infoExpandableList.setTextAlignment(JLabel.LEADING);
     infoExpandableList.getTable().setRowHeight(16);
     String inputs = hAnimHumanoid.getInfo();
@@ -369,13 +368,13 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     infoExpandableList.getTable().getColumnModel().getColumn(1).setPreferredWidth(250);
   }
   
-  private int tableContains(String nm)
+  private int tableContains(String name)
   {
     JTable tab = infoExpandableList.getTable();
     TableModel mod = tab.getModel();
     int nrows = mod.getRowCount();
     for(int r=0;r<nrows;r++) {
-      if(nm.equalsIgnoreCase((String)mod.getValueAt(r, 0)))
+      if(name.equalsIgnoreCase((String)mod.getValueAt(r, 0)))
         return r;
     }
     return -1;
@@ -401,33 +400,34 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     DefaultTableModel mod = (DefaultTableModel)tab.getModel();
     mod.addRow(new String[]{nm,val});
   }
-  
+  /** Build "name=value" strings */
   String buildInfoString()
   {
-    JTable tab = infoExpandableList.getTable();
-    DefaultTableModel mod = (DefaultTableModel)tab.getModel();
+    JTable infoTable = infoExpandableList.getTable();
+    DefaultTableModel tableModel = (DefaultTableModel)infoTable.getModel();
     StringBuilder sb = new StringBuilder();
-    int nrows = mod.getRowCount();
-    for(int r=0;r<nrows;r++) {
-      String n = ((String)mod.getValueAt(r, 0)).trim();
-      String v = ((String)mod.getValueAt(r, 1)).trim();
-      if((n.length()<=0) ||
-         (v.length()<=0 && isFromDefaultList(n)))
-        continue;
-      if(n.length() <= 0)
-        n = "untitled";
+    int rowCount = tableModel.getRowCount();
+    for(int row=0; row < rowCount; row++) {
+      String name  = ((String)tableModel.getValueAt(row, 0)).trim();
+      String value = ((String)tableModel.getValueAt(row, 1)).trim();
+      if ((name.isBlank() || value.isBlank()) && isFromDefaultList(name))
+           continue;
+      if(name.isBlank())
+         name = "untitled";
       sb.append('"');
-      sb.append(n);
+      sb.append(name);
       sb.append('=');
-      sb.append(v);
+      sb.append(value);
       sb.append("\" ");
     }
     return sb.toString().trim();
   }
-  private boolean isFromDefaultList(String s)
+  /** test whether name is from default list of names suggested by spec */
+  private boolean isFromDefaultList(String name)
   {
-    for(String[] sa : HANIMHUMANOID_ATTR_INFO_PSEUDO_DEFAULTS) {
-      if(s.equals(sa[0]))
+    for(String[] defaultNamePair : HANIMHUMANOID_ATTR_INFO_SUGGESTED_NAME_PAIRS) 
+    {
+      if(name.equals(defaultNamePair[0]))
         return true;
     }
     return false;
@@ -663,6 +663,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(versionLabel, gridBagConstraints);
@@ -684,7 +685,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(versionCombo, gridBagConstraints);
@@ -697,6 +698,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(loaLabel, gridBagConstraints);
@@ -718,7 +720,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(loaComboBox, gridBagConstraints);
@@ -1829,7 +1831,8 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     hAnimHumanoid.setBboxSizeY(bboxSizeTFY.getText().trim());
     hAnimHumanoid.setBboxSizeZ(bboxSizeTFZ.getText().trim());
     
-    hAnimHumanoid.setInfo(Arrays.toString(infoExpandableList.getData()));
+    hAnimHumanoid.setInfo(buildInfoString()); 
+    
     hAnimHumanoid.setJointBindingPositions(jointBindingPositionsExpandableList.getDataSFFloatArray());
     hAnimHumanoid.setJointBindingRotations(jointBindingRotationsExpandableList.getDataSFFloatArray());
     hAnimHumanoid.setJointBindingScales   (     jointBindingScalesExpandableList.getDataSFFloatArray());
