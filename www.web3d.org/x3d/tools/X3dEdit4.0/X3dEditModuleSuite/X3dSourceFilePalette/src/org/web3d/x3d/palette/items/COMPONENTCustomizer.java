@@ -35,7 +35,10 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
@@ -66,12 +69,14 @@ public class COMPONENTCustomizer extends BaseCustomizer
     
     levelComboBox.setSelectedItem(component.getLevel());
     
-    String componentName = component.getName();
-    
     // setting any one value resets the others, so these initializations must come first
     nameComboBox.setSelectedIndex(-1);
     xj3dNameComboBox.setSelectedIndex(-1);
     avalonNameComboBox.setSelectedIndex(-1);
+    
+    checkX3D4ComponentNameHAnimDialog(); // may reset value  to "HAnim" if needed
+    
+    String componentName = component.getName();
 
     for (String s : COMPONENT_ATTR_NAME_CHOICES)
     {
@@ -98,6 +103,28 @@ public class COMPONENTCustomizer extends BaseCustomizer
         }
     }
   }
+    /**
+     * Check whether current document supports the corrected HAnim component name used in X3D4
+     */
+    public final void checkX3D4ComponentNameHAnimDialog()
+    {
+        // TODO !X3DPaletteUtilitiesJdom.isCurrentDocumentX3dVersion4() && 
+        if (component.getName().equalsIgnoreCase("H-Anim"))
+        {
+            String message1 = "component name='" + component.getName() + "' field is no longer used in X3D version='4.0'";
+            String message2 = "Convert to component name='HAnim' instead?";
+            System.out.println ("*** " + "Warning: " + message1 + "  " + message2); // ensure appearance on console
+            String message = "<html><center><p>" + message1 + "</p> <br/> <p>" + message2 + "</p></html>";
+            
+            NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
+                  message, "Warning, need component name='HAnim' for X3D4", NotifyDescriptor.YES_NO_OPTION);
+          
+            if (DialogDisplayer.getDefault().notify(notifyDescriptor) == NotifyDescriptor.YES_OPTION)
+            {
+                component.setName("HAnim");
+            }
+        }
+      }
   
   /** This method is called from within the constructor to
    * initialize the form.
@@ -382,29 +409,31 @@ private void avalonNameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
     return "NAME_X3D_COMPONENT";
   }
 
-  @Override
-  public void unloadInput()
-  {
-     component.setLevel(levelComboBox.getSelectedItem().toString().trim());
-     
-     if     ((nameComboBox.getSelectedIndex() >= 0) || (nameComboBox.getSelectedItem() != null)) // editable
-     {
-          component.setName(((String)nameComboBox.getSelectedItem()).trim());
-          component.setExperimentalComponentXj3D   (false);
-          component.setExperimentalComponentAvalon (false);
-     }
-     else if (xj3dNameComboBox.getSelectedIndex() >= 0)   // not editable
-     {
-          component.setName(((String)xj3dNameComboBox.getSelectedItem()).trim());
-          component.setExperimentalComponentXj3D   (true);
-          component.setExperimentalComponentAvalon (false);
-     }
-     else if (avalonNameComboBox.getSelectedIndex() >= 0) // not editable
-     {
-          component.setName(((String)avalonNameComboBox.getSelectedItem()).trim());
-          component.setExperimentalComponentXj3D   (false);
-          component.setExperimentalComponentAvalon (true);
-     }
-     else component.setName(otherComponentTextField.getText());
-  }  
+    @Override
+    public void unloadInput()
+    {
+        component.setLevel(levelComboBox.getSelectedItem().toString().trim());
+
+        if ((nameComboBox.getSelectedIndex() >= 0) || (nameComboBox.getSelectedItem() != null)) // editable
+        {
+            component.setName(((String) nameComboBox.getSelectedItem()).trim());
+            component.setExperimentalComponentXj3D(false);
+            component.setExperimentalComponentAvalon(false);
+        } else if (xj3dNameComboBox.getSelectedIndex() >= 0)   // not editable
+        {
+            component.setName(((String) xj3dNameComboBox.getSelectedItem()).trim());
+            component.setExperimentalComponentXj3D(true);
+            component.setExperimentalComponentAvalon(false);
+        } else if (avalonNameComboBox.getSelectedIndex() >= 0) // not editable
+        {
+            component.setName(((String) avalonNameComboBox.getSelectedItem()).trim());
+            component.setExperimentalComponentXj3D(false);
+            component.setExperimentalComponentAvalon(true);
+        } else
+        {
+            component.setName(otherComponentTextField.getText());
+        }
+
+        checkX3D4ComponentNameHAnimDialog(); // may reset value to "HAnim" if needed
+    }
 }
