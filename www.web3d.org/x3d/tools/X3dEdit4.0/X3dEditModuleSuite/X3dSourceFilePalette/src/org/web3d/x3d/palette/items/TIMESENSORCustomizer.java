@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -53,7 +53,9 @@ public class TIMESENSORCustomizer extends BaseCustomizer
   private TIMESENSOR timeSensor;
   private JTextComponent target;
   
-  /** Creates new form TIMESENSORCustomizer */
+  /** Creates new form TIMESENSORCustomizer
+     * @param timeSensor data
+     * @param target component of interest */
   public TIMESENSORCustomizer(TIMESENSOR timeSensor, JTextComponent target)
   {
     super(timeSensor);
@@ -306,11 +308,13 @@ public class TIMESENSORCustomizer extends BaseCustomizer
     // End of variables declaration//GEN-END:variables
   
   
+  @Override
   public String getNameKey()
   {
     return "NAME_X3D_TIMESENSOR";
   }
 
+  @Override
   public void unloadInput() throws IllegalArgumentException
   {
     unLoadDEFUSE();

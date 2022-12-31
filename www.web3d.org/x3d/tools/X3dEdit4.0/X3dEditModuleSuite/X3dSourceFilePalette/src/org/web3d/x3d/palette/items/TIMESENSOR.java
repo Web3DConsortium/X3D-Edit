@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,9 +35,9 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
-import org.web3d.x3d.types.X3DTimeDependentNode;
-import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import static org.web3d.x3d.types.X3DSchemaData.*;
+import org.web3d.x3d.types.X3DTimeDependentNode;
 
 /**
  * TIMESENSOR.java
@@ -52,12 +52,12 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
 {
-  private SFFloat cycleInterval, cycleIntervalDefault;
-  private SFFloat startTime, startTimeDefault;
-  private SFFloat stopTime, stopTimeDefault;
+  private SFDouble cycleInterval, cycleIntervalDefault;
+  private SFDouble startTime, startTimeDefault;
+  private SFDouble stopTime, stopTimeDefault;
   
-  private SFFloat pauseTime, pauseTimeDefault;
-  private SFFloat resumeTime, resumeTimeDefault;
+  private SFDouble pauseTime, pauseTimeDefault;
+  private SFDouble resumeTime, resumeTimeDefault;
   private boolean enabled, loop;
   
   // TODO description, when added to specification
@@ -77,11 +77,11 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
   @Override
   public void initialize()
   {
-    cycleInterval = cycleIntervalDefault = new SFFloat(TIMESENSOR_ATTR_CYCLEINTERVAL_DFLT,0.0f,null);
-    startTime = startTimeDefault         = new SFFloat(TIMESENSOR_ATTR_STARTTIME_DFLT,null,null);
-    stopTime = stopTimeDefault           = new SFFloat(TIMESENSOR_ATTR_STOPTIME_DFLT,null,null);  
-    pauseTime =  pauseTimeDefault        = new SFFloat(TIMESENSOR_ATTR_PAUSETIME_DFLT,null,null);
-    resumeTime = resumeTimeDefault       = new SFFloat(TIMESENSOR_ATTR_RESUMETIME_DFLT,null,null);
+    cycleInterval = cycleIntervalDefault = new SFDouble(TIMESENSOR_ATTR_CYCLEINTERVAL_DFLT,0.0,null);
+    startTime = startTimeDefault         = new SFDouble(TIMESENSOR_ATTR_STARTTIME_DFLT,null,null);
+    stopTime = stopTimeDefault           = new SFDouble(TIMESENSOR_ATTR_STOPTIME_DFLT,null,null);  
+    pauseTime =  pauseTimeDefault        = new SFDouble(TIMESENSOR_ATTR_PAUSETIME_DFLT,null,null);
+    resumeTime = resumeTimeDefault       = new SFDouble(TIMESENSOR_ATTR_RESUMETIME_DFLT,null,null);
     enabled                              = Boolean.parseBoolean(TIMESENSOR_ATTR_ENABLED_DFLT);
     loop                                 = Boolean.parseBoolean(TIMESENSOR_ATTR_LOOP_DFLT);
   }
@@ -94,19 +94,19 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
 
     attr = root.getAttribute(TIMESENSOR_ATTR_CYCLEINTERVAL_NAME);
     if (attr != null)
-      cycleInterval = new SFFloat(attr.getValue(), 0.0f, null);
+      cycleInterval = new SFDouble(attr.getValue(), 0.0, null);
     attr = root.getAttribute(TIMESENSOR_ATTR_STARTTIME_NAME);
     if (attr != null)
-      startTime = new SFFloat(attr.getValue(), null, null);
+      startTime = new SFDouble(attr.getValue(), null, null);
     attr = root.getAttribute(TIMESENSOR_ATTR_STOPTIME_NAME);
     if (attr != null)
-      stopTime = new SFFloat(attr.getValue(), null, null);
+      stopTime = new SFDouble(attr.getValue(), null, null);
     attr = root.getAttribute(TIMESENSOR_ATTR_PAUSETIME_NAME);
     if (attr != null)
-      pauseTime = new SFFloat(attr.getValue(), null, null);
+      pauseTime = new SFDouble(attr.getValue(), null, null);
     attr = root.getAttribute(TIMESENSOR_ATTR_RESUMETIME_NAME);
     if (attr != null)
-      resumeTime = new SFFloat(attr.getValue(), null, null);
+      resumeTime = new SFDouble(attr.getValue(), null, null);
     attr = root.getAttribute(TIMESENSOR_ATTR_ENABLED_NAME);
     if (attr != null)
       enabled = Boolean.parseBoolean(attr.getValue());
@@ -188,7 +188,7 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
 
   public void setCycleInterval(String cycleInterval)
   {
-    this.cycleInterval = new SFFloat(cycleInterval,0.0f,null);
+    this.cycleInterval = new SFDouble(cycleInterval,0.0,null);
   }
 
   public boolean isEnabled()
@@ -218,7 +218,7 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
 
   public void setPauseTime(String pauseTime)
   {
-    this.pauseTime = new SFFloat(pauseTime,null,null);
+    this.pauseTime = new SFDouble(pauseTime,null,null);
   }
 
   public String getResumeTime()
@@ -228,7 +228,7 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
 
   public void setResumeTime(String resumeTime)
   {
-    this.resumeTime = new SFFloat(resumeTime,null,null);
+    this.resumeTime = new SFDouble(resumeTime,null,null);
   }
 
   public String getStartTime()
@@ -238,7 +238,7 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
 
   public void setStartTime(String startTime)
   {
-    this.startTime = new SFFloat(startTime,null,null);
+    this.startTime = new SFDouble(startTime,null,null);
   }
 
   public String getStopTime()
@@ -248,7 +248,7 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
 
   public void setStopTime(String stopTime)
   {
-    this.stopTime = new SFFloat(stopTime,null,null);
+    this.stopTime = new SFDouble(stopTime,null,null);
   }
 
 }
