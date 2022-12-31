@@ -4310,6 +4310,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
   protected SFFloat[][] parseToSFFloatTable(String[] sa, int numColumns)
   {
+    if (numColumns == 0)
+        return new SFFloat[0][0];
     SFFloat[][] faa = new SFFloat[sa.length/numColumns][numColumns];
     int r = faa.length;
     if(r <= 0)
@@ -4325,6 +4327,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
   protected SFDouble[][] parseToSFDoubleTable(String[] sa, int numColumns)
   {
+    if (numColumns == 0)
+        return new SFDouble[0][0];
     SFDouble[][] daa = new SFDouble[sa.length/numColumns][numColumns];
     int r = daa.length;
     if(r <= 0)
