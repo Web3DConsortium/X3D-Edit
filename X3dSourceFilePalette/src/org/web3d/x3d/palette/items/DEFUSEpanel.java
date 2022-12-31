@@ -68,7 +68,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         initComponents();
 
         checkDEFnameModificationButtonLabel ();
-
+        
         highlightX3dDEFUSEpane();
         highlightHtmlCssPane();
     }
@@ -649,7 +649,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
 
     private void containerFieldComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_containerFieldComboActionPerformed
         assignCorrectTooltip();
-        containerFieldCheckBox.setSelected(true);
+        containerFieldCheckBox.setSelected(containerFieldCombo.getSelectedIndex() > 0); // only check if not (initial) default
     }//GEN-LAST:event_containerFieldComboActionPerformed
 
     private void useCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useCBActionPerformed
