@@ -315,10 +315,6 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 1100 -->
                         <!-- X3D Resources: LaunchX3dResourcesAction position 401 -->
                     </folder>
-                    <folder name="W3C &amp;Standards">
-                        <attr name="position" intvalue="850"/>
-                        <!-- various pages of interest to Web developers -->
-                    </folder>
                     <folder name="Web3D &amp;Outreach">
                         <attr name="position" intvalue="900"/>
                         <!-- Web3D Conference                     LaunchWeb3DConferenceAction                  position 100 -->
@@ -342,6 +338,10 @@ POSSIBILITY OF SUCH DAMAGE.
                         <!-- X3D4 Architecture Standard           LaunchX3D4ArchitectureStandardAction       position 300 -->
                         <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                         <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
+                    </folder>
+                    <folder name="W3C &amp;Standards">
+                        <attr name="position" intvalue="1025"/>
+                        <!-- various pages of interest to Web developers -->
                     </folder>
                     <folder name="X3D &amp;Work in Progress">
                         <attr name="position" intvalue="1050"/>
@@ -800,10 +800,6 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- About X3D-Edit X3dEditAboutAction  CTL_X3dEditAboutAction           position 1100 -->
                 <!-- X3D Resources: LaunchX3dResourcesAction position 401 -->
             </folder>
-            <folder name="W3C &amp;Standards">
-                <attr name="position" intvalue="850"/>
-                <!-- various pages of interest to Web developers -->
-            </folder>
             <folder name="Web3D &amp;Outreach">
                 <attr name="position" intvalue="900"/>
                 <!-- Web3D Conference                     LaunchWeb3DConferenceAction                  position 100 -->
@@ -827,6 +823,10 @@ POSSIBILITY OF SUCH DAMAGE.
                 <!-- X3D4 Architecture Standard           LaunchX3D4ArchitectureStandardAction       position 300 -->
                 <!-- X3D ClassicVRML Encoding Standard    LaunchX3DClassicVrmlEncodingStandardAction position 400 -->
                 <!-- X3D XML Encoding Standard            LaunchX3DXmlEncodingStandardAction         position 500 -->
+            </folder>
+            <folder name="W3C &amp;Standards">
+                <attr name="position" intvalue="1025"/>
+                <!-- various pages of interest to Web developers -->
             </folder>
             <folder name="X3D &amp;Work in Progress">
                 <attr name="position" intvalue="1050"/>
