@@ -54,7 +54,6 @@ import org.jdom.output.XMLOutputter;
 import org.openide.text.ActiveEditorDrop;
 import org.openide.util.Exceptions;
 import org.openide.windows.IOProvider;
-//import org.openide.util.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.options.X3dOptions;
@@ -62,10 +61,13 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DXMLOutputter;
 import org.web3d.x3d.sai.X3DFieldDefinition;
+import org.web3d.x3d.types.*;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
-import org.web3d.x3d.types.*;
 
 /**
  * BaseX3DElement.java
@@ -3743,11 +3745,11 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     int n = 0;
     for (String str : sa) {
       try {
-        Integer.parseInt(str);
+        Integer.valueOf(str);
         sb.append(str);
         sb.append(" ");
       }
-      catch (Exception e) {
+      catch (NumberFormatException e) {
         throw new IllegalArgumentException("Non-numeric data detected, ignored values");
       }
     }
@@ -4358,15 +4360,19 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     return new SFDouble(s,null,null); // no limits
   }
 
-  protected SFInt32[] parseToSFIntArray(String[] sa)
+  protected SFInt32[] parseToSFIntArray(String[] stringArray)
   {
-    SFInt32[] ia = new SFInt32[sa.length];
+    if (stringArray.length == 0)
+        return new SFInt32[0];
+    SFInt32[] ia = new SFInt32[stringArray.length];
     for(int i=0;i<ia.length;i++)
-      ia[i] = buildSFInt32(sa[i]);
+      ia[i] = buildSFInt32(stringArray[i]);
     return ia;
   }
   protected boolean[] parseToBooleanArray(String[] stringArray)
   {
+    if (stringArray.length == 0)
+        return new boolean[0];
     String[] sa = stringArray;
     boolean capitalizationCorrected = false;
     boolean illegalValueFound       = false;
