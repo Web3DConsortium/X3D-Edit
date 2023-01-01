@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -61,7 +61,7 @@ import org.openide.util.actions.CallableSystemAction;
 
 public final class X3dEditAboutAction extends CallableSystemAction
 {
-  String moduleReleaseDate = "21 December 2022"; // TODO manually edit along with module version for each release
+  String moduleReleaseDate = "1 January 2023"; // TODO manually edit along with module version for each release
   
   String rightMargin = "&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ";
 
