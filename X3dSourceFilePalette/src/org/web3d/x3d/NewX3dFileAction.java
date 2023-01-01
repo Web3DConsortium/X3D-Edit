@@ -58,7 +58,7 @@ import org.openide.util.actions.CallableSystemAction;
  */
 @ActionID(id = "org.web3d.x3d.NewX3dFileAction", category = "X3D-Edit")
 
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3D24.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/x3d32x32.png",
                     displayName = "#CTL_X3DNewFileAction",
                            lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {

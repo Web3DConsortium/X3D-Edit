@@ -58,7 +58,7 @@ import org.openide.util.actions.CallableSystemAction;
  * Create new XHTML X3DOM source file for editing
  */
 @ActionID(id = "org.web3d.x3d.NewXhtmlX3domWrapperAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/x3dom-whiteOnblue24.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/x3dom-whiteOnblue32.png",
                     displayName = "#CTL_X3DNewXhtmlX3domWrapperAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {

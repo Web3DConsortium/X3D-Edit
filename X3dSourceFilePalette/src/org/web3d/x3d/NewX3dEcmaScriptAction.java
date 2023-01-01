@@ -58,7 +58,7 @@ import org.openide.util.actions.CallableSystemAction;
  * Create new Ecmascript (javascript) source file for editing
  */
 @ActionID(id = "org.web3d.x3d.NewX3dEcmaScriptAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ecma.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ecma-logo32x12.png",
                     displayName = "#CTL_X3DNewX3dEcmaScriptAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
