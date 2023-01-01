@@ -149,7 +149,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         InstantRealityLabel = new javax.swing.JLabel();
         OctagaLabel = new javax.swing.JLabel();
         swirlX3DLabel = new javax.swing.JLabel();
-        View3dSceneLabel = new javax.swing.JLabel();
+        view3dsceneLabel = new javax.swing.JLabel();
         VivatyLabel = new javax.swing.JLabel();
         Xj3DLabel = new javax.swing.JLabel();
         otherPlayerLabel = new javax.swing.JLabel();
@@ -160,7 +160,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         heilanCheckBox = new javax.swing.JCheckBox();
         instantRealityCheckBox = new javax.swing.JCheckBox();
         octagaCheckBox = new javax.swing.JCheckBox();
-        view3dSceneCheckBox = new javax.swing.JCheckBox();
+        view3dsceneCheckBox = new javax.swing.JCheckBox();
         vivatyCheckBox = new javax.swing.JCheckBox();
         swirlX3dCheckBox = new javax.swing.JCheckBox();
         xj3dCheckBox = new javax.swing.JCheckBox();
@@ -172,7 +172,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         instantRealityTF = new javax.swing.JTextField();
         octagaTF = new javax.swing.JTextField();
         swirlX3dTF = new javax.swing.JTextField();
-        view3dSceneTF = new javax.swing.JTextField();
+        view3dsceneTF = new javax.swing.JTextField();
         vivatyTF = new javax.swing.JTextField();
         xj3DTF = new javax.swing.JTextField();
         otherX3dPlayerPathTF = new javax.swing.JTextField();
@@ -184,7 +184,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         instRealChooserButton = new javax.swing.JButton();
         octagaChooserButton = new javax.swing.JButton();
         SwirlX3DChooserButton = new javax.swing.JButton();
-        view3dSceneChooserButton = new javax.swing.JButton();
+        view3dsceneChooserButton = new javax.swing.JButton();
         vivatyChooserButton = new javax.swing.JButton();
         xj3DChooserButton = new javax.swing.JButton();
         otherChooserButton = new javax.swing.JButton();
@@ -195,7 +195,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         instRealDefaultButton = new javax.swing.JButton();
         octagaDefaultButton = new javax.swing.JButton();
         SwirlX3DDefaultButton = new javax.swing.JButton();
-        view3dSceneDefaultButton = new javax.swing.JButton();
+        view3dsceneDefaultButton = new javax.swing.JButton();
         vivatyDefaultButton = new javax.swing.JButton();
         xj3DDefaultButton = new javax.swing.JButton();
         otherX3dPlayerClearButton = new javax.swing.JButton();
@@ -206,7 +206,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         instantRealityDownloadButton = new javax.swing.JButton();
         octagaDownloadButton = new javax.swing.JButton();
         SwirlX3DDownloadButton = new javax.swing.JButton();
-        view3dSceneDownloadButton = new javax.swing.JButton();
+        view3dsceneDownloadButton = new javax.swing.JButton();
         vivatyDownloadButton = new javax.swing.JButton();
         xj3DDownloadButton = new javax.swing.JButton();
         otherX3dPlayerDownloadButton = new javax.swing.JButton();
@@ -217,7 +217,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         instantRealityLaunchButton = new javax.swing.JButton();
         octagaLaunchButton = new javax.swing.JButton();
         SwirlX3DLaunchButton = new javax.swing.JButton();
-        view3dSceneLaunchButton = new javax.swing.JButton();
+        view3dsceneLaunchButton = new javax.swing.JButton();
         vivatyLaunchButton = new javax.swing.JButton();
         xj3DLaunchButton = new javax.swing.JButton();
         otherX3dPlayerLaunchButton = new javax.swing.JButton();
@@ -701,18 +701,18 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(swirlX3DLabel, gridBagConstraints);
 
-        View3dSceneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(View3dSceneLabel, "view3dscene");
-        View3dSceneLabel.setToolTipText("view3dscene (Castle Game Engine) player");
-        View3dSceneLabel.setMinimumSize(new java.awt.Dimension(120, 20));
-        View3dSceneLabel.setPreferredSize(new java.awt.Dimension(120, 20));
+        view3dsceneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneLabel, "view3dscene");
+        view3dsceneLabel.setToolTipText("view3dscene (Castle Game Engine) player");
+        view3dsceneLabel.setMinimumSize(new java.awt.Dimension(120, 20));
+        view3dsceneLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(View3dSceneLabel, gridBagConstraints);
+        x3dPlayerPathsPanel.add(view3dsceneLabel, gridBagConstraints);
 
         VivatyLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         org.openide.awt.Mnemonics.setLocalizedText(VivatyLabel, "Vivaty");
@@ -867,14 +867,14 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(octagaCheckBox, gridBagConstraints);
 
-        view3dSceneCheckBox.setSelected(true);
-        view3dSceneCheckBox.setToolTipText("Include when autolaunching all browsers");
-        view3dSceneCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        view3dSceneCheckBox.addActionListener(new java.awt.event.ActionListener()
+        view3dsceneCheckBox.setSelected(true);
+        view3dsceneCheckBox.setToolTipText("Include when autolaunching all browsers");
+        view3dsceneCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        view3dsceneCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                view3dSceneCheckBoxActionPerformed(evt);
+                view3dsceneCheckBoxActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -882,7 +882,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
-        x3dPlayerPathsPanel.add(view3dSceneCheckBox, gridBagConstraints);
+        x3dPlayerPathsPanel.add(view3dsceneCheckBox, gridBagConstraints);
 
         vivatyCheckBox.setToolTipText("Include when autolaunching all browsers");
         vivatyCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1089,14 +1089,14 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(swirlX3dTF, gridBagConstraints);
 
-        view3dSceneTF.setToolTipText("Local file location");
-        view3dSceneTF.setMinimumSize(new java.awt.Dimension(100, 20));
-        view3dSceneTF.setPreferredSize(new java.awt.Dimension(100, 20));
-        view3dSceneTF.addActionListener(new java.awt.event.ActionListener()
+        view3dsceneTF.setToolTipText("Local file location");
+        view3dsceneTF.setMinimumSize(new java.awt.Dimension(100, 20));
+        view3dsceneTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        view3dsceneTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                view3dSceneTFActionPerformed(evt);
+                view3dsceneTFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1107,7 +1107,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dSceneTF, gridBagConstraints);
+        x3dPlayerPathsPanel.add(view3dsceneTF, gridBagConstraints);
 
         vivatyTF.setToolTipText("Local file location");
         vivatyTF.setMinimumSize(new java.awt.Dimension(100, 20));
@@ -1315,13 +1315,13 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(SwirlX3DChooserButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(view3dSceneChooserButton, "...");
-        view3dSceneChooserButton.setToolTipText("Find local file location");
-        view3dSceneChooserButton.addActionListener(new java.awt.event.ActionListener()
+        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneChooserButton, "...");
+        view3dsceneChooserButton.setToolTipText("Find local file location");
+        view3dsceneChooserButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                view3dSceneChooserButtonActionPerformed(evt);
+                view3dsceneChooserButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1330,7 +1330,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dSceneChooserButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(view3dsceneChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vivatyChooserButton, "...");
         vivatyChooserButton.setToolTipText("Find local file location");
@@ -1508,14 +1508,14 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(SwirlX3DDefaultButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(view3dSceneDefaultButton, "default");
-        view3dSceneDefaultButton.setToolTipText("Reset default file location");
-        view3dSceneDefaultButton.setActionCommand(X3dOptions.getVivatyPlayerPathDefault());
-        view3dSceneDefaultButton.addActionListener(new java.awt.event.ActionListener()
+        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneDefaultButton, "default");
+        view3dsceneDefaultButton.setToolTipText("Reset default file location");
+        view3dsceneDefaultButton.setActionCommand(X3dOptions.getVivatyPlayerPathDefault());
+        view3dsceneDefaultButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                view3dSceneDefaultButtonActionPerformed(evt);
+                view3dsceneDefaultButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1524,7 +1524,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dSceneDefaultButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(view3dsceneDefaultButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vivatyDefaultButton, "default");
         vivatyDefaultButton.setToolTipText("Reset default file location");
@@ -1699,13 +1699,13 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(SwirlX3DDownloadButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(view3dSceneDownloadButton, "get");
-        view3dSceneDownloadButton.setToolTipText("Download player from website");
-        view3dSceneDownloadButton.addActionListener(new java.awt.event.ActionListener()
+        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneDownloadButton, "get");
+        view3dsceneDownloadButton.setToolTipText("Download player from website");
+        view3dsceneDownloadButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                view3dSceneDownloadButtonActionPerformed(evt);
+                view3dsceneDownloadButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1714,7 +1714,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dSceneDownloadButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(view3dsceneDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vivatyDownloadButton, "get");
         vivatyDownloadButton.setToolTipText("Download player from website");
@@ -1890,10 +1890,10 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(SwirlX3DLaunchButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(view3dSceneLaunchButton, "launch");
-        view3dSceneLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        view3dSceneLaunchButton.setActionCommand("vivatyTF");
-        view3dSceneLaunchButton.addActionListener(new java.awt.event.ActionListener()
+        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneLaunchButton, "launch");
+        view3dsceneLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        view3dsceneLaunchButton.setActionCommand("vivatyTF");
+        view3dsceneLaunchButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
@@ -1906,7 +1906,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dSceneLaunchButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(view3dsceneLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vivatyLaunchButton, "launch");
         vivatyLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -8479,28 +8479,28 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     X3dOptions.setContactPath(contactTF.getText().trim());
 }//GEN-LAST:event_contactTFActionPerformed
 
-    private void view3dSceneCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dSceneCheckBoxActionPerformed
-         if (view3dSceneCheckBox.isSelected())
+    private void view3dsceneCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneCheckBoxActionPerformed
+         if (view3dsceneCheckBox.isSelected())
          X3dOptions.setView3dSceneAutoLaunch("true");
     else X3dOptions.setView3dSceneAutoLaunch("false");
-    }//GEN-LAST:event_view3dSceneCheckBoxActionPerformed
+    }//GEN-LAST:event_view3dsceneCheckBoxActionPerformed
 
-    private void view3dSceneTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dSceneTFActionPerformed
-        X3dOptions.setView3dScenePath(view3dSceneTF.getText().trim());
-    }//GEN-LAST:event_view3dSceneTFActionPerformed
+    private void view3dsceneTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneTFActionPerformed
+        X3dOptions.setView3dScenePath(view3dsceneTF.getText().trim());
+    }//GEN-LAST:event_view3dsceneTFActionPerformed
 
-    private void view3dSceneChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dSceneChooserButtonActionPerformed
-        commonChooser(view3dSceneTF, "Find view3dScene Executable", evt);
-    }//GEN-LAST:event_view3dSceneChooserButtonActionPerformed
+    private void view3dsceneChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneChooserButtonActionPerformed
+        commonChooser(view3dsceneTF, "Find view3dScene Executable", evt);
+    }//GEN-LAST:event_view3dsceneChooserButtonActionPerformed
 
-    private void view3dSceneDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dSceneDefaultButtonActionPerformed
-        view3dSceneTF.setText(X3dOptions.getView3dScenePathDefault());
-        X3dOptions.setView3dScenePath(view3dSceneTF.getText().trim());
-    }//GEN-LAST:event_view3dSceneDefaultButtonActionPerformed
+    private void view3dsceneDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneDefaultButtonActionPerformed
+        view3dsceneTF.setText(X3dOptions.getView3dScenePathDefault());
+        X3dOptions.setView3dScenePath(view3dsceneTF.getText().trim());
+    }//GEN-LAST:event_view3dsceneDefaultButtonActionPerformed
 
-    private void view3dSceneDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dSceneDownloadButtonActionPerformed
+    private void view3dsceneDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneDownloadButtonActionPerformed
         openInBrowser(X3dOptions.getDownloadSiteView3dScene());
-    }//GEN-LAST:event_view3dSceneDownloadButtonActionPerformed
+    }//GEN-LAST:event_view3dsceneDownloadButtonActionPerformed
 
     private void h3dCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3dCheckBoxActionPerformed
                  if (h3dCheckBox.isSelected())
@@ -10464,7 +10464,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
           instantRealityTF.setText(X3dOptions.getInstantRealityPath());
                   octagaTF.setText(X3dOptions.getOctagaPath());
                 swirlX3dTF.setText(X3dOptions.getSwirlX3DPath());
-             view3dSceneTF.setText(X3dOptions.getView3dScenePath());
+             view3dsceneTF.setText(X3dOptions.getView3dScenePath());
                   vivatyTF.setText(X3dOptions.getVivatyPlayerPath());
                     xj3DTF.setText(X3dOptions.getXj3DPath());
       otherX3dPlayerNameTF.setText(X3dOptions.getOtherX3dPlayerName());
@@ -10516,7 +10516,7 @@ polyTransNuGrafEditorPathTF.setText(X3dOptions.getPolyTransNuGrafEditorPath());
                heilanCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isHeilanAutoLaunch()));
        instantRealityCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isInstantRealityAutoLaunch()));
              swirlX3dCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isSwirlX3DAutoLaunch()));
-          view3dSceneCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isView3dSceneAutoLaunch()));
+          view3dsceneCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isView3dSceneAutoLaunch()));
                vivatyCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isVivatyPlayerAutoLaunch()));
                  xj3dCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isXj3dAutoLaunch()));
        otherX3dPlayerCheckBox.setSelected(Boolean.parseBoolean(X3dOptions.isOtherX3dPlayerAutoLaunch()));
@@ -10678,7 +10678,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     else
       X3dOptions.setSwirlX3DPath(path);
 
-    path = view3dSceneTF.getText().trim();
+    path = view3dsceneTF.getText().trim();
     if(path.equals(X3dOptions.getView3dScenePathDefault()))
       X3dOptions.resetView3dScenePath();
     else
@@ -10738,7 +10738,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     X3dOptions.setInstantRealityAutoLaunch(String.valueOf(instantRealityCheckBox.isSelected()));
     X3dOptions.setOctagaAutoLaunch        (String.valueOf(octagaCheckBox.isSelected()));
     X3dOptions.setSwirlX3dAutoLaunch      (String.valueOf(swirlX3dCheckBox.isSelected()));
-    X3dOptions.setView3dSceneAutoLaunch   (String.valueOf(view3dSceneCheckBox.isSelected()));
+    X3dOptions.setView3dSceneAutoLaunch   (String.valueOf(view3dsceneCheckBox.isSelected()));
     X3dOptions.setVivatyPlayerAutoLaunch  (String.valueOf(vivatyCheckBox.isSelected()));
     X3dOptions.setOtherX3dPlayerAutoLaunch(String.valueOf(otherX3dPlayerCheckBox.isSelected()));
     X3dOptions.setOtherX3dEditorAutoLaunch(String.valueOf(otherX3dEditorCheckBox.isSelected()));
@@ -10818,7 +10818,6 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton SwirlX3DDefaultButton;
     private javax.swing.JButton SwirlX3DDownloadButton;
     private javax.swing.JButton SwirlX3DLaunchButton;
-    private javax.swing.JLabel View3dSceneLabel;
     private javax.swing.JLabel VivatyLabel;
     private javax.swing.JLabel Xj3DLabel;
     private javax.swing.JLabel additionalKeystoreManagersLabel;
@@ -11209,12 +11208,13 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel verticalSpacerLabel7;
     private javax.swing.JLabel verticalSpacerLabel8;
     private javax.swing.JLabel verticalSpacerLabel9;
-    private javax.swing.JCheckBox view3dSceneCheckBox;
-    private javax.swing.JButton view3dSceneChooserButton;
-    private javax.swing.JButton view3dSceneDefaultButton;
-    private javax.swing.JButton view3dSceneDownloadButton;
-    private javax.swing.JButton view3dSceneLaunchButton;
-    private javax.swing.JTextField view3dSceneTF;
+    private javax.swing.JCheckBox view3dsceneCheckBox;
+    private javax.swing.JButton view3dsceneChooserButton;
+    private javax.swing.JButton view3dsceneDefaultButton;
+    private javax.swing.JButton view3dsceneDownloadButton;
+    private javax.swing.JLabel view3dsceneLabel;
+    private javax.swing.JButton view3dsceneLaunchButton;
+    private javax.swing.JTextField view3dsceneTF;
     private javax.swing.JButton viewSecurityExamplesReadmeButton;
     private javax.swing.JLabel viewSecurityExamplesReadmeLabel;
     private javax.swing.JButton viewX3dResourcesSecurityButton;
