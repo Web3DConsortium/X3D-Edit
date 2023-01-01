@@ -75,6 +75,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_RESOURCES_SECURITY                 = X3D_RESOURCES + "#Security";
   public final static String X3D_RESOURCES_SECURITY_VULNERABILITIES =X3D_RESOURCES + "#Vulnerabilities";
   public final static String X3D_SCENE_AUTHORING_HINTS              ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html";
+  public final static String ECMASCRIPT_SPECIFICATION               ="https://262.ecma-international.org/13.0";
   public final static String X3D_SCENE_AUTHORING_HINTS_CORS         ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#CORS";
   public final static String X3D_TOOLTIPS                           ="https://www.web3d.org/x3d/tooltips/X3dTooltips.html";
   public final static String X3D_COURSE                             ="https://x3dgraphics.com/slidesets";
