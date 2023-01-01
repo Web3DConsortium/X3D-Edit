@@ -70,8 +70,8 @@ import xj3d.converter.Xj3DConv;
 public class ConversionsHelper
 {
   static final JFileChooser saveChooser;
-  static final JCheckBox openInEditor;
-  static final JCheckBox openInBrowser;
+  static final JCheckBox openInEditorCheckBox;
+  static final JCheckBox openInBrowserCheckBox;
   static final OpenResultInEditorChooserAccessory openResultInEditorChooserAccessory;
   private static boolean openInBrowserSetting = true; // default viewable
   private static boolean openInEditorSetting  = true; // default verbose
@@ -80,10 +80,10 @@ public class ConversionsHelper
   static {
     saveChooser =  new JFileChooser(); 
     openResultInEditorChooserAccessory = new OpenResultInEditorChooserAccessory();
-    openInEditor = openResultInEditorChooserAccessory.getOpenInEditorCheckBox();
-    openInEditor.setSelected(false); // default
-    openInBrowser = openResultInEditorChooserAccessory.getOpenInBrowserCheckBox();
-    openInBrowser.setSelected(true); // default
+    openInEditorCheckBox = openResultInEditorChooserAccessory.getOpenInEditorCheckBox();
+    openInEditorCheckBox.setSelected(true); // default
+    openInBrowserCheckBox = openResultInEditorChooserAccessory.getOpenInBrowserCheckBox();
+    openInBrowserCheckBox.setSelected(true); // default
     saveChooser.setAccessory(openResultInEditorChooserAccessory);
     ConversionsHelper.setOpenInBrowserSetting(true);
     ConversionsHelper.setOpenInEditorSetting(true);
@@ -167,8 +167,8 @@ public class ConversionsHelper
     saveChooser.setSelectedFile(new File(saveDir,destFileName));
     saveChooser.setAccessory(wantOpenInEditorShown?openResultInEditorChooserAccessory:null);
 
-//    openInEditor.setEnabled(wantOpenInEditorShown);
-//    openInBrowser.setEnabled(wantOpenInEditorShown);
+//    openInEditorCheckBox.setEnabled(wantOpenInEditorShown);
+//    openInBrowserCheckBox.setEnabled(wantOpenInEditorShown);
     
     File selFile=null;
     boolean keepLooping = true;
@@ -194,8 +194,8 @@ public class ConversionsHelper
     
     saveFilePack retData = new saveFilePack();
     retData.file = selFile;
-    retData.openInEditor = openInEditor.isSelected();
-    retData.openInBrowser= openInBrowser.isSelected();
+    retData.openInEditor = openInEditorCheckBox.isSelected();
+    retData.openInBrowser= openInBrowserCheckBox.isSelected();
     if (selFile != null)
         saveDirs.put(sourceFile.getAbsolutePath(),selFile.getParent());
     
@@ -263,7 +263,7 @@ public class ConversionsHelper
       
   }
   
-//  static public void openInBrowser(String urlString)
+//  static public void openInBrowserCheckBox(String urlString)
 //  {
 //  }
   
