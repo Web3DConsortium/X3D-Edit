@@ -16,12 +16,12 @@ The following files are available for X3D-Edit authoring:
 
 X3D-Edit Install File                                                                                       | Description                                       | Status                                                         | File size | Date        
 ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system       |  194.8 MB | 21 DEC 2022
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;16. tested satisfactorily, any operating system |   72.3 MB | 21 DEC 2022
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip)                 | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system       |  194.9 MB | 31 DEC 2022
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;16. tested satisfactorily, any operating system |   72.4 MB | 31 DEC 2022
 Pre-release files:                                                                                          |                                                   |                                                                |           |
-[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  194.7 MB | 21 DEC 2022
-[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  194.8 MB | 21 DEC 2022
-[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  195.2 MB | 21 DEC 2022
+[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  194.8 MB | 31 DEC 2022
+[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  194.8 MB | 31 DEC 2022
+[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  195.2 MB | 31 DEC 2022
 
 SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
 
