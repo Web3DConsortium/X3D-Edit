@@ -390,6 +390,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3domPanel.add(x3domLabel, gridBagConstraints);
 
+        x3domHomeButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        x3domHomeButton.setForeground(new java.awt.Color(21, 71, 52));
         org.openide.awt.Mnemonics.setLocalizedText(x3domHomeButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.x3domHomeButton.text")); // NOI18N
         x3domHomeButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -404,9 +406,11 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(6, 3, 3, 3);
         x3domPanel.add(x3domHomeButton, gridBagConstraints);
 
+        x3domHelpButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        x3domHelpButton.setForeground(new java.awt.Color(21, 71, 52));
         org.openide.awt.Mnemonics.setLocalizedText(x3domHelpButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.x3domHelpButton.text")); // NOI18N
         x3domHelpButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -606,6 +610,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x_itePanel.add(x_iteLabel, gridBagConstraints);
 
+        x_iteHomeButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        x_iteHomeButton.setForeground(new java.awt.Color(21, 71, 52));
         org.openide.awt.Mnemonics.setLocalizedText(x_iteHomeButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.x_iteHomeButton.text")); // NOI18N
         x_iteHomeButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.x_iteHomeButton.toolTipText")); // NOI18N
         x_iteHomeButton.addActionListener(new java.awt.event.ActionListener()
@@ -625,6 +631,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 3, 3, 3);
         x_itePanel.add(x_iteHomeButton, gridBagConstraints);
 
+        x_iteHelpButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        x_iteHelpButton.setForeground(new java.awt.Color(21, 71, 52));
         org.openide.awt.Mnemonics.setLocalizedText(x_iteHelpButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.x_iteHelpButton.text")); // NOI18N
         x_iteHelpButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.x_iteHelpButton.toolTipText")); // NOI18N
         x_iteHelpButton.addActionListener(new java.awt.event.ActionListener()
@@ -758,6 +766,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(corsDescriptionLabel, gridBagConstraints);
 
+        corsHelpButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        corsHelpButton.setForeground(new java.awt.Color(21, 71, 52));
         org.openide.awt.Mnemonics.setLocalizedText(corsHelpButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.corsHelpButton.text")); // NOI18N
         corsHelpButton.addActionListener(new java.awt.event.ActionListener()
         {
