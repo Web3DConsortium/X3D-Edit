@@ -3,10 +3,9 @@
 https://sourceforge.net/p/x3d/admin/files/badges/
 -->
 
-# X3D-Edit 4.0 Pre-Release, 21 December 2022
+# X3D-Edit 4.0 Pre-Release, 1 January 2023
 
 <!-- posted at https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/ -->
-
 
 This directory shares pre-release test files prior to [official X3D-Edit release](https://sourceforge.net/projects/x3d/files).
 Please see that page for installation instruction details.
@@ -26,14 +25,18 @@ Pre-release files:                                                              
 
 SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
 
-If you have an X3D-Edit build installed earlier than 16 December 2022, please reinstall your zip.
-
 ## How To Do It
 
-Installation video (22:56)
+The Zip installation is most reliable and popular, typically working without modifications.
+
+[Installation video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
 [<img align='right' width='400' src="https://savage.nps.edu/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
 
 ## Troubleshoot Netbeans
+
+If things don't work "out of the box" for you, here are some further tips.
+
+If you have an X3D-Edit build installed earlier than 16 December 2022, please reinstall your zip.
 
 NetBeans users troubleshooting certificate permissions can also download and install the following NetBeans plugin which provides end-user more positive control 
 when certificate problems occur (such as automated quarterly updates).
