@@ -200,8 +200,8 @@
              dest="${x3dStylesheets.dir}/X3dToXhtml-5.xslt"             usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToXhtml.xslt"
              dest="${x3dStylesheets.dir}/X3dToXhtml.xslt"             usetimestamp="true" verbose="true"/>
-        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToX3dom.xslt"
-             dest="${x3dStylesheets.dir}/X3dToX3dom.xslt"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToX3domX_ITE.xslt"
+             dest="${x3dStylesheets.dir}/X3dToX3domX_ITE.xslt"             usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToJava.xslt"
              dest="${x3dStylesheets.dir}/X3dToJava.xslt"             usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToJson.xslt"
