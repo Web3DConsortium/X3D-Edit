@@ -3,7 +3,7 @@
 https://sourceforge.net/p/x3d/admin/files/badges/
 -->
 
-# X3D-Edit 4.0 Beta Distribution, 21 December 2022
+# X3D-Edit 4.0 Beta Distribution, 1 January 2023
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
@@ -25,18 +25,18 @@ Once baseline stability is demonstrated on multiple platforms, we expect that fu
 
 [NetBeans 16](https://netbeans.apache.org) plugin tests satisfactory: use [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
 
-If you have an X3D-Edit build installed earlier than 16 December 2022, please reinstall your zip.
-
-----
+## How To Do It
 
 The Zip installation is most reliable and popular, typically working without modifications.
 
-## How To Do It
-
-Installation video (22:56)
+[Installation video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
 [<img align='right' width='400' src="https://savage.nps.edu/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
 
 ## Troubleshooting the ZIP
+
+If things don't work "out of the box" for you, here are some further tips.
+
+If you have an X3D-Edit build installed earlier than 16 December 2022, please reinstall your zip.
 
 Following installation, a modification might be needed to point to your locally installed Java JDK.
 For example, under Windows the following file requires modification.
