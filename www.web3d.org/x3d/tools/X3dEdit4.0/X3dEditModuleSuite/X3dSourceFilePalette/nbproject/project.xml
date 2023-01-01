@@ -594,6 +594,7 @@
             <word>ElevationGrid</word>
             <word>EnvironmentLight</word>
             <word>FillProperties</word>
+            <word>frameIncrement</word>
             <word>gzip</word>
             <word>gzipped</word>
             <word>HAnim</word>
