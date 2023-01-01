@@ -39,7 +39,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.text.JTextComponent;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
-import org.openide.util.*;
+import org.openide.util.NbBundle;
 
 /**
  * User interface to enter a new comment.
@@ -57,6 +57,8 @@ public class COMMENTCustomizer extends BaseCustomizer // tutorial: javax.swing.J
 
     /**
      * Creates new form COMMENTCustomizer
+     * @param comment data structure
+     * @param target component of interest
      */
     public COMMENTCustomizer(COMMENT comment, JTextComponent target) 
     {
@@ -67,11 +69,11 @@ public class COMMENTCustomizer extends BaseCustomizer // tutorial: javax.swing.J
     }
     // https://netbeans.apache.org/tutorials/nbm-palette-api1.html
     @NbBundle.Messages({
-        "LBL_Customizer_InsertPrefix=Insert",
+//      "LBL_Customizer_InsertPrefix=Insert",
         "NAME_X3D-COMMENT=XML Comment"})
     public boolean showDialog() {
         dialogOK = false;
-        descriptor = new DialogDescriptor(this, Bundle.LBL_Customizer_InsertPrefix(), true,
+        descriptor = new DialogDescriptor(this, "Insert", true,
                 DialogDescriptor.OK_CANCEL_OPTION, DialogDescriptor.OK_OPTION, (ActionEvent e) -> {
                     if (descriptor.getValue().equals(DialogDescriptor.OK_OPTION)) {
                         evaluateInput();
