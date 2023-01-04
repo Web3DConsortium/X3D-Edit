@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -47,11 +47,11 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_MANTIS_ISSUE
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumMantisIssuesAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/mantis_logo_32x30.png",
-                    displayName = "#CTL_LaunchWeb3dConsortiumMantisIssuesAction", 
+                    displayName = "#CTL_LaunchWeb3DConsortiumMantisIssuesAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 900),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 900)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 950),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 950)
 })
 
 @SuppressWarnings("serial")
@@ -84,7 +84,7 @@ public final class LaunchWeb3DConsortiumMantisIssuesAction extends CallableSyste
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchWeb3dConsortiumMantisIssuesAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchWeb3DConsortiumMantisIssuesAction");
   }
 
   @Override
@@ -98,7 +98,7 @@ public final class LaunchWeb3DConsortiumMantisIssuesAction extends CallableSyste
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("X3dResourcesExamples");
+    return new HelpCtx("Web3DConsortiumMantisIssuesA");
   }
 
   @Override
