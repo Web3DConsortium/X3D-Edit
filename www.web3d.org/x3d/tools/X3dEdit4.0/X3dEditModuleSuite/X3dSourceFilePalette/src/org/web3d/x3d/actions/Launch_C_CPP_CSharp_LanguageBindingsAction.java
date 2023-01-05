@@ -54,8 +54,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_C_LANGUAGE_BINDING_SAI;
                     displayName = "#CTL_Launch_C_CPP_CSharp_LanguageBindingsAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/&X3D-Edit/X3D &Work in Progress", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D &Work in Progress", position = 50)
+  @ActionReference(path = "Menu/&X3D-Edit/X3D &Work in Progress", position = 200),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D &Work in Progress", position = 200)
 })
 
 public final class Launch_C_CPP_CSharp_LanguageBindingsAction extends CallableSystemAction
