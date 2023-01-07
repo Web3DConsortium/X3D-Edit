@@ -54,6 +54,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.Task;
 import org.openide.util.TaskListener;
 import org.web3d.x3d.actions.LocalExamplesFinder;
+import org.web3d.x3d.options.X3dOptions;
 
 /**
  *
@@ -73,6 +74,8 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
   private final String DEFAULTROOTDIR = System.getProperty("user.dir"); // "/";
   private final String targetPath     = "www.web3d.org/x3d/content/examples/";
   private final String antScriptPath  = "X3dAntScripts/examplesDownloaderAntScript.xml";
+  
+  private       String archiveDirectory = "";
   
   private JFileChooser fileChooser;
   private ExecutorTask task;
@@ -590,7 +593,8 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         return;
     
     rootDirectoryTF.setText(fileChooser.getSelectedFile().getAbsolutePath());
-    downloadDirectoryLabelUpdate ();
+    downloadDirectoryLabelUpdate (); // path adjustment, prerequisite to saving value in X3dOptions
+    X3dOptions.setExamplesRootDirectory(archiveDirectory);
 }//GEN-LAST:event_rootDirectoryChooserButtonActionPerformed
 
   private void downloadButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_downloadButtonActionPerformed
@@ -735,7 +739,7 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
 
     final void downloadDirectoryLabelUpdate ()
     {
-        String   archiveDirectory = rootDirectoryTF.getText();
+        archiveDirectory = rootDirectoryTF.getText();
         if      (archiveDirectory.endsWith("\\"))
                  archiveDirectory = archiveDirectory +   "www.web3d.org\\x3d\\content\\examples"; // Windows path
         else if (archiveDirectory.contains("\\") || archiveDirectory.contains(":"))
