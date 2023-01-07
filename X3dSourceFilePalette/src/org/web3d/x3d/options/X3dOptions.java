@@ -190,8 +190,17 @@ public class X3dOptions
      setExamplesRootDirectory (EXAMPLES_ROOT_DIRECTORY_DEFAULT);
   }
   public static void    setKeystorePassword                (String value)  { commonSet(KEYSTORE_PASSWORD_KEY, value);}
-  public static void    setKeystoreFileName                (String value)  { commonSet(KEYSTORE_FILENAME_KEY, value);}
-  public static void    setKeystoreDirectory               (String value)  { commonSet(KEYSTORE_DIRECTORY_KEY, value);}
+  public static void    setKeystoreFileName                (String value)  
+  { 
+      commonSet(KEYSTORE_FILENAME_KEY, value);
+      setKeystorePath(getKeystoreDirectory() + '/' + getKeystoreFileName());
+  }
+  public static void    setKeystoreDirectory               (String value)  
+  { 
+      commonSet(KEYSTORE_DIRECTORY_KEY, value);
+      setKeystorePath(getKeystoreDirectory() + File.separator + getKeystoreFileName());
+  }
+  public static void    setKeystorePath                (String value)  { commonSet(KEYSTORE_PATH_KEY, value);}
   public static void    resetSecurityPassword  ()
   {
       setKeystorePassword (KEYSTORE_PASSWORD_DEFAULT);
