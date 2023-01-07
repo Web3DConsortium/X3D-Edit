@@ -37,6 +37,7 @@ import java.awt.Dialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.awt.ActionID;
@@ -79,16 +80,20 @@ public final class OptionsMiscellaneousX3dPanelAction implements ActionListener
         preferredPaneIndex = -1; // reset
     }
 
-    JButton acceptButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Accept"));
-    JButton cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Discard"));
-    acceptButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Accept"));
-    cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Discard"));
+    JButton completeButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Complete"));
+    completeButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Complete"));
+    JLabel  descriptionLabel = new JLabel ("Each panel change is saved upon entry.");
+//  JButton acceptButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Accept"));
+//  JButton cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Discard"));
+//  acceptButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Accept"));
+//  cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Discard"));
     DialogDescriptor descriptor = new DialogDescriptor(
         optionsPanel, // inner pane
         NbBundle.getMessage(getClass(),"OptionsMiscellaneousX3dPanelDialogTitle"),
         true, // modal
-        new Object[]{acceptButton, cancelButton},  // buttons
-        acceptButton,                            // default
+        new Object[]{
+            descriptionLabel, completeButton}, // acceptButton, cancelButton},  // buttons
+        completeButton,                             // default
         DialogDescriptor.DEFAULT_ALIGN,
         HelpCtx.DEFAULT_HELP,
         null); // action listener
@@ -97,9 +102,10 @@ public final class OptionsMiscellaneousX3dPanelAction implements ActionListener
     dialog.setResizable(true);
     dialog.pack();
     dialog.setVisible(true);
-    //blocks
+    //blocks until complete
     
-    if(descriptor.getValue() == acceptButton) optionsPanel.store();
+    if (descriptor.getValue() == completeButton) 
+        optionsPanel.store(); // TODO superfluous ?
   }
     /**
      * Set preferred pane
