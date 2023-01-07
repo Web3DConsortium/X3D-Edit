@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,6 +35,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.options;
 
 //import java.io.File;
+import java.io.File;
 import java.util.Date;
 import java.util.prefs.Preferences;
 import org.openide.util.NbPreferences;
@@ -54,34 +55,27 @@ import org.openide.util.NbPreferences;
 @SuppressWarnings("StaticNonFinalUsedInInitialization")
 public class X3dOptions
 {
-  /* Security options */
-  public static       String KEYSTORE_PATH_KEY         = "KEYSTORE_PATH";
-  /** 
-   * KEYSTORE_PATH_DEFAULT, if defined, should not include filename.
-   * We keep this value null in order to force initial user invocation to choose a path to their local keystore of interest
-   */
-  public static       String KEYSTORE_PATH_DEFAULT     = System.getProperty("user.dir");
-//public static       String KEYSTORE_PATH_DEFAULT     = "c:\\x3d-code\\www.web3d.org\\x3d\\content\\examples\\Basic\\Security\\keystore\\X3D-EditKeystore.ks";
-  
-//  there is no best default path as a user could store examples anywhere on their local machine
-  // property persistence will allow a path to be remembered
-  public static       String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; 
-//  public static final String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeystoreNameExtension()).toString();
 
-  public static final String USER_NAME_TOKEN = "__USER-NAME__";
-  public static final String USER_NAME, USER_NAME_DEFAULT, USER_HOME_DIR, USER_HOME_DIR_DEFAULT, X3D_EDIT_PATH;
+  // TODO needed?
+  public  static final String AUTHOR_NAME_TOKEN = "__AUTHOR-NAME__";
+  public static        String X3D_EDIT_PATH  = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
+
   static {
 //    String homeDir = System.getProperty("user.home");
-       USER_NAME             = System.getProperty("user.name"); // add key, save value
-       USER_HOME_DIR         = System.getProperty("user.dir");  // add key, save value
-       USER_NAME_DEFAULT     = System.getProperty("user.name");
-       USER_HOME_DIR_DEFAULT = System.getProperty("user.dir");
-       X3D_EDIT_PATH         = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
+//       USER_NAME             = System.getProperty("user.name"); // add key, save value
+//       USER_HOME_DIR         = System.getProperty("user.dir");  // add key, save value
+//       AUTHOR_NAME_DEFAULT     = System.getProperty("user.name");
+//       USER_HOME_DIR_DEFAULT = System.getProperty("user.dir");
+//       X3D_EDIT_PATH         = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
     
 //    File dir = new File(new StringBuilder().append(homeDir).append("/X3D-Edit/XML &Security").toString());
 //    File fil = new File(dir,KEYSTORE_FILENAME_DEFAULT);
 //    KEYSTORE_PATH_DEFAULT = fil.getAbsolutePath();
   }
+  /** constructor */
+//  X3dOptions()
+//  {
+//  }
   
   /* Other preferences */
   public static String  SHOW_NEWLINE_OPTION_KEY       = "SHOW_NEWLINE_OPTION";
@@ -110,6 +104,15 @@ public class X3dOptions
   public static String  VISUALIZE_HANIMSITECOLOR_GREEN_KEY    = "VISUALIZE_HANIMSITECOLOR_GREEN";
   public static String  VISUALIZE_HANIMSITECOLOR_BLUE_KEY     = "VISUALIZE_HANIMSITECOLOR_BLUE";
   
+  private static String AUTHOR_NAME_KEY                       = "AUTHOR_NAME";
+  private static String AUTHOR_EMAIL_KEY                      = "AUTHOR_EMAIL";
+  private static String EXAMPLES_ROOT_DIRECTORY_KEY           = "EXAMPLES_ROOT_DIRECTORY";
+  
+  private static String KEYSTORE_PASSWORD_KEY                 = "KEYSTORE_PASSWORD_KEY";
+  private static String KEYSTORE_FILENAME_KEY                 = "KEYSTORE_FILENAME_KEY";
+  private static String KEYSTORE_DIRECTORY_KEY                = "KEYSTORE_DIRECTORY_KEY";
+  private static String KEYSTORE_PATH_KEY                     = "KEYSTORE_PATH"; // path is directory+filename combination
+  
   // default preference, can be overridden by user choices in X3D-Edit Preferences Panels (Tools > Options > Miscellaneous > X3D > Other Preferences panel)
   public static boolean SHOW_NEWLINE_OPTION_DEFAULT = false;
   public static boolean PREPEND_NEWLINE_DEFAULT     = true;
@@ -137,6 +140,20 @@ public class X3dOptions
   public static String  VISUALIZE_HANIMSITECOLOR_GREEN_DEFAULT    = "0.0";
   public static String  VISUALIZE_HANIMSITECOLOR_BLUE_DEFAULT     = "0.0";
   
+  public static String  AUTHOR_NAME_DEFAULT             = System.getProperty("user.name");
+  public static String  AUTHOR_EMAIL_DEFAULT            = "";
+  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT = System.getProperty("user.dir");
+  
+  // there is no unique best default path as a user could store examples anywhere on their local machine
+  // thus user.dir property persistence will allow a path to be remembered
+  public  static String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; 
+//private static String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeystoreNameExtension()).toString();
+
+  public static String  KEYSTORE_PASSWORD_DEFAULT       = "test";
+  public static String  KEYSTORE_DIRECTORY_DEFAULT      = System.getProperty("user.dir"); // otherwise user can define a local keystore path
+  // https://stackoverflow.com/questions/5971964/when-should-i-use-file-separator-and-when-file-pathseparator
+  public static String  KEYSTORE_PATH_DEFAULT           = System.getProperty("user.dir") + File.separator + KEYSTORE_FILENAME_DEFAULT;
+
   public static void    setShowNewlineOption       (boolean tf)    {commonBSet(SHOW_NEWLINE_OPTION_KEY,tf);}
   public static void    setPrependNewline          (boolean tf)    {commonBSet(    PREPEND_NEWLINE_KEY,tf);}
   public static void    setAppendNewline           (boolean tf)    {commonBSet(     APPEND_NEWLINE_KEY,tf);}
@@ -163,6 +180,40 @@ public class X3dOptions
   public static void    setVisualizeHanimSiteColorGreen    (String color)  { commonSet(VISUALIZE_HANIMSITECOLOR_GREEN_KEY,color);}
   public static void    setVisualizeHanimSiteColorBlue     (String color)  { commonSet(VISUALIZE_HANIMSITECOLOR_BLUE_KEY,color);}
 
+  public static void    setAuthorName                      (String value)  { commonSet(AUTHOR_NAME_KEY, value);}
+  public static void    setAuthorEmail                     (String value)  { commonSet(AUTHOR_EMAIL_KEY, value);}
+  public static void    setExamplesRootDirectory           (String value)  { commonSet(EXAMPLES_ROOT_DIRECTORY_KEY, value);}
+  public static void    resetUserOptions ()
+  {
+                setAuthorName (AUTHOR_NAME_DEFAULT);
+               setAuthorEmail (AUTHOR_EMAIL_DEFAULT);
+     setExamplesRootDirectory (EXAMPLES_ROOT_DIRECTORY_DEFAULT);
+  }
+  public static void    setKeystorePassword                (String value)  { commonSet(KEYSTORE_PASSWORD_KEY, value);}
+  public static void    setKeystoreFileName                (String value)  { commonSet(KEYSTORE_FILENAME_KEY, value);}
+  public static void    setKeystoreDirectory               (String value)  { commonSet(KEYSTORE_DIRECTORY_KEY, value);}
+  public static void    resetSecurityPassword  ()
+  {
+      setKeystorePassword (KEYSTORE_PASSWORD_DEFAULT);
+  }
+  public static void    resetKeystoreDirectory  ()
+  {
+     setKeystoreDirectory (KEYSTORE_DIRECTORY_DEFAULT);
+  }
+  
+  
+  public static String  getAuthorName ()                 {return commonGet(AUTHOR_NAME_KEY,    AUTHOR_NAME_DEFAULT);}
+  public static String  getAuthorEmail ()                {return commonGet(AUTHOR_EMAIL_KEY,   AUTHOR_EMAIL_DEFAULT);}
+  public static String  getExamplesRootDirectory ()      {return commonGet(EXAMPLES_ROOT_DIRECTORY_KEY,   EXAMPLES_ROOT_DIRECTORY_DEFAULT);}
+  public static String  getKeystorePassword ()           {return commonGet(KEYSTORE_PASSWORD_KEY,   KEYSTORE_PASSWORD_DEFAULT);}
+  public static String  getKeystoreFileName ()           {return commonGet(KEYSTORE_FILENAME_KEY,   KEYSTORE_FILENAME_DEFAULT);}
+  public static String  getKeystoreDirectory ()          {return commonGet(KEYSTORE_DIRECTORY_KEY,   KEYSTORE_DIRECTORY_DEFAULT);}
+
+  public static String getKeystorePasswordDefault()      {return KEYSTORE_PASSWORD_DEFAULT;}
+  public static String getKeystoreFileNameDefault()      {return KEYSTORE_FILENAME_DEFAULT;}
+  public static String getKeystoreDirectoryDefault()     {return KEYSTORE_DIRECTORY_DEFAULT;}
+  public static String getKeystorePathDefault()          {return KEYSTORE_DIRECTORY_DEFAULT + "/" + KEYSTORE_FILENAME_DEFAULT;}
+  
   public static boolean getShowNewlineOption()           {return commonBGet(SHOW_NEWLINE_OPTION_KEY, SHOW_NEWLINE_OPTION_DEFAULT);}
   public static boolean getPrependNewline   ()           {return commonBGet(    PREPEND_NEWLINE_KEY,     PREPEND_NEWLINE_DEFAULT);}
   public static boolean getAppendNewline    ()           {return commonBGet(     APPEND_NEWLINE_KEY,      APPEND_NEWLINE_DEFAULT);}
@@ -429,8 +480,8 @@ public class X3dOptions
   // note that installation of 32-bit software on 64-bit machines goes to directory C:\\Program Files (x86)\\
   // platform defaults:
                                                                    // C:\\Program Files\\Bitmanagement Software\\BS Contact\\BSContact.exe
-  private static final String winxpContactPathDefault              = "C:\\Users\\"+USER_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
-  private static final String winxpContactGeoPathDefault           = "C:\\Users\\"+USER_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
+  private static final String winxpContactPathDefault              = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
+  private static final String winxpContactGeoPathDefault           = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
   private static final String winxpFreeWrlPathDefault              = "C:\\Program Files\\freewrl_inw_x64_470\\freeWRL.exe";
 //private static final String winxpFreeWrlPathDefault              = "C:\\Program Files\\freeWRL\\freeWRL.3\\launchdir\\freeWRL_Launcher.exe"; // alternative
   private static final String winxpH3dPathDefault                  = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin32\\H3DViewer.exe"; // TODO 32
@@ -454,8 +505,8 @@ public class X3dOptions
   private static final String winxpSafariPathDefault               = "C:\\Program Files\\Safari\\Safari.exe";
  
                                                                    // C:\\Program Files (x86)\\Bitmanagement Software\\BS Contact\\BSContact.exe
-  private static final String windows64ContactPathDefault          = "C:\\Users\\"+USER_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
-  private static final String windows64ContactGeoPathDefault       = "C:\\Users\\"+USER_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
+  private static final String windows64ContactPathDefault          = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
+  private static final String windows64ContactGeoPathDefault       = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
   private static final String windows64FreeWrlPathDefault          = "C:\\Program Files\\freewrl_inw_x64_470\\freeWRL.exe";
 //private static final String windows64FreeWrlPathDefault          = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\launchdir\\freeWRL_launcher.exe"; // alternative
   private static final String windows64H3dPathDefault              = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin64\\H3DViewer.exe";
@@ -1015,7 +1066,8 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   }
   private static String toks(String s)
   {
-    return s.replaceAll(USER_NAME_TOKEN, USER_NAME);
+//  return s.replaceAll(AUTHOR_NAME_TOKEN, AUTHOR_NAME); // TODO huh?
+    return s;
   }
   
   public static String getContactPathDefault()        {return CONTACT_EXECUTABLE_PATH_DEFAULT;}
@@ -1036,8 +1088,6 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
 
   public static String getLaunchIntervalDefault()     {return LAUNCH_INTERVAL_DEFAULT;}
 
-  public static String getKeystorePathDefault()       {return KEYSTORE_PATH_DEFAULT + "/" + KEYSTORE_FILENAME_DEFAULT;}
-  
   public static String        getAmayaEditorPathDefault()   {return           AMAYA_EDITOR_PATH_DEFAULT;}
   public static String     getAudacityEditorPathDefault()   {return        AUDACITY_EDITOR_PATH_DEFAULT;}
   public static String    getMuseScoreEditorPathDefault()   {return       MUSESCORE_EDITOR_PATH_DEFAULT;}
@@ -1203,9 +1253,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void setOtherVolumeEditorAutoLaunch(String autoLaunch){commonSet(OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setOtherSemanticWebEditorAutoLaunch(String autoLaunch){commonSet(OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
 
-  public static void setLaunchInterval           (String path){commonSet(LAUNCH_INTERVAL_KEY,path);}
-
-  public static void setKeystorePath             (String path){commonSet(KEYSTORE_PATH_KEY,path);}
+  public static void setLaunchInterval             (String path){commonSet(LAUNCH_INTERVAL_KEY,path);}
 
   public static String getContactPath()          {return commonGet(CONTACT_EXECUTABLE_PATH_KEY,        CONTACT_EXECUTABLE_PATH_DEFAULT);}
   public static String getContactGeoPath()       {return commonGet(CONTACT_GEO_EXECUTABLE_PATH_KEY,    CONTACT_GEO_EXECUTABLE_PATH_DEFAULT);}
@@ -1335,8 +1383,6 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void resetOtherX3dEditorName()   {commonReset(OTHER_X3D_EDITOR_EXECUTABLE_NAME_KEY);}
 
   public static void resetLaunchInterval()       {commonReset(LAUNCH_INTERVAL_KEY);}
-
-  public static void resetKeystorePath()         {commonReset(KEYSTORE_PATH_KEY);}
   
   public static void        resetAmayaEditorPath()     {commonReset(          AMAYA_EDITOR_PATH_KEY);}
   public static void     resetAudacityEditorPath()     {commonReset(       AUDACITY_EDITOR_PATH_KEY);}
