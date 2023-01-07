@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -40,16 +40,15 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
-import org.openide.awt.HtmlBrowser.URLDisplayer;
 import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DDataObject;
+import org.web3d.x3d.options.X3dOptions;
 import org.web3d.x3d.tools.usage.DateTimeGroupStamp;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
@@ -226,6 +225,20 @@ public class METACustomizer extends BaseCustomizer
         if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
         {
             contentTA.setText(content.replace("http://", "https://"));
+        }
+   }
+   // TODO author -> creator
+   if ((metaName.equalsIgnoreCase("creator") || metaName.equalsIgnoreCase("author")) &&
+       content.isBlank() && !X3dOptions.getAuthorName().isBlank())
+   {
+       String contentString = (X3dOptions.getAuthorName() + " " + X3dOptions.getAuthorEmail()).trim();
+        NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+              "<html><p align='center'>" + metaName + " is blank, use '" + contentString + "' ?</p>", 
+              "Use author name/email from X3D-Edit Preferences?",
+              NotifyDescriptor.YES_NO_OPTION);
+        if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
+        {
+            contentTA.setText(contentString);
         }
    }
    enableUrlButtons (); // initialize 
