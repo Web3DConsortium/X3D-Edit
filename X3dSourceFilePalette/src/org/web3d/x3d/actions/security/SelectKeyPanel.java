@@ -70,9 +70,9 @@ public class SelectKeyPanel extends javax.swing.JPanel
   private final String TYPE_TITLE  = NbBundle.getMessage(getClass(), "MSG_KeyTableTypeColumnTitle"); //"Type";
   private final String DATE_TITLE  = NbBundle.getMessage(getClass(), "MSG_KeyTableDateColumnTitle"); //"Date added";
   private Vector<String> titles;
-  private KeyStore ks;
-  private File ksFile;
-  private FileInputStream ksInpStr;
+  private KeyStore keystore;
+  private File keystoreFile;
+  private FileInputStream keystoreFileInputStream;
   private char[] pw;
   
   public static int ENCRYPTING_KEY_TYPE = 0;
@@ -97,7 +97,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
     titles.add(TYPE_TITLE);
     titles.add(DATE_TITLE);
 
-    initKeyStore();  // also gets called from reloadTable()
+    inititializeKeyStore();  // also gets called from reloadTable()
     initKeyTable();
     reloadTable();
 
@@ -110,10 +110,10 @@ public class SelectKeyPanel extends javax.swing.JPanel
     if (row == -1)
       return null;
     String alias = (String) keyTable.getModel().getValueAt(row, ALIAS_TABLE_COLUMN);
-    if (ks.isCertificateEntry(alias))
-      return ks.getEntry(alias, null);
+    if (keystore.isCertificateEntry(alias))
+      return keystore.getEntry(alias, null);
     //else
-    return ks.getEntry(alias, new KeyStore.PasswordProtection(pw));
+    return keystore.getEntry(alias, new KeyStore.PasswordProtection(pw));
   }
 
   private char[] getAPassword(String msg)
@@ -124,7 +124,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
   private void initKeyTable() throws Exception
   {
     String msg = NbBundle.getMessage(getClass(), "MSG_EnterKeystorePassword");
-    if(ksInpStr == null)
+    if(keystoreFileInputStream == null)
       msg = NbBundle.getMessage(getClass(), "MSG_EnterPasswordForNewKeystore");
     
     pw = getAPassword(msg); //"Enter " "keystore password"
@@ -134,9 +134,9 @@ public class SelectKeyPanel extends javax.swing.JPanel
 
   private void reloadTable() throws Exception
   {
-    initKeyStore();
+    inititializeKeyStore();
     try {
-      ks.load(ksInpStr, pw); // null inpstr means new, empty keystore
+      keystore.load(keystoreFileInputStream, pw); // null inpstr means new, empty keystore
     }
     catch(IOException ioex) {
       throw new KeystorePasswordException(NbBundle.getMessage(getClass(), "MSG_BadPassword")); //"Password incorrect or file unreadable");
@@ -144,16 +144,16 @@ public class SelectKeyPanel extends javax.swing.JPanel
     
     Vector<Vector<String>> rows = new Vector<Vector<String>>();
     String initialSelection = null;
-    if (ks != null) {
-      Enumeration<String> aliases = ks.aliases();
+    if (keystore != null) {
+      Enumeration<String> aliases = keystore.aliases();
       if (aliases.hasMoreElements()) {
         while (aliases.hasMoreElements()) {
           String s = aliases.nextElement();
           Entry ent;
-          if (ks.isCertificateEntry(s))
-            ent = ks.getEntry(s, null);
+          if (keystore.isCertificateEntry(s))
+            ent = keystore.getEntry(s, null);
           else
-            ent = ks.getEntry(s, new KeyStore.PasswordProtection(pw));
+            ent = keystore.getEntry(s, new KeyStore.PasswordProtection(pw));
           Vector<String> vs = new Vector<String>(3);
           vs.add(s);  // first
           if (ent instanceof KeyStore.SecretKeyEntry) {
@@ -172,7 +172,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
             if(initialSelection == null && beSelective.equals(SelectKeyPanel.SIGNING_KEY_TYPE))
               initialSelection = s;
           }
-          vs.add(ks.getCreationDate(s).toString()); // third
+          vs.add(keystore.getCreationDate(s).toString()); // third
           rows.add(vs);
         }
       }
@@ -206,13 +206,13 @@ public class SelectKeyPanel extends javax.swing.JPanel
     }
   }
 
-  private void initKeyStore() throws Exception
+  private void inititializeKeyStore() throws Exception
   {
-    ks = BouncyCastleHelper.getKeyStore();//KeyStore.getInstance("JKS");
-    String path = X3dOptions.getKeystorePath();
-    ksFile = new File(path);
-    if (ksFile.exists())
-      ksInpStr = new FileInputStream(ksFile);
+    keystore = BouncyCastleHelper.getKeyStore();//KeyStore.getInstance("JKS");
+    String keystorePath = X3dOptions.getKeystorePath();
+    keystoreFile = new File(keystorePath);
+    if (keystoreFile.exists())
+        keystoreFileInputStream = new FileInputStream(keystoreFile);
   }
   
   private int defaultAliasColWidth = 135; //90;
