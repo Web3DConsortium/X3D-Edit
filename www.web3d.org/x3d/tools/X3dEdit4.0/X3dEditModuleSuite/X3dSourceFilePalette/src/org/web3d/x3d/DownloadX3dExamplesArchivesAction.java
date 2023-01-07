@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -73,7 +73,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
   //private static Dialog dlg;
   //private static DialogDescriptor descriptor;
   private ExampleArchivesDownloadPanel panel;
-  private buttBar buttonBar;
+  private buttonBar buttonBar;
   JFrame frame;
 
   @Override
@@ -87,7 +87,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
         panel = new ExampleArchivesDownloadPanel();
 
       frame.getContentPane().add(panel, BorderLayout.CENTER);
-      buttonBar = new buttBar();
+      buttonBar = new buttonBar();
       frame.getContentPane().add(buttonBar, BorderLayout.SOUTH);
 
       frame.pack();
@@ -108,7 +108,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
           }
       } // Close button handler
       ;
-      buttonBar.closeButt.addActionListener(al);
+      buttonBar.closeButton.addActionListener(al);
       final ActionListener hl = (ActionEvent e) -> {
 // TODO convert from JavaHelp to help page
 //          Help help = Lookup.getDefault().lookup(Help.class);
@@ -116,7 +116,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
 //              help.showHelp(getHelpCtx());
 //          }
       };
-      buttonBar.helpButt.addActionListener(hl);
+      buttonBar.helpButton.addActionListener(hl);
 
       // Window title-bar close button handler
       WindowAdapter wl = new WindowAdapter()
@@ -135,18 +135,17 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
     frame.setVisible(true);
   }
 
-  class buttBar extends JPanel
+  class buttonBar extends JPanel
   {
+    JButton helpButton, closeButton;
 
-    JButton helpButt, closeButt;
-
-    buttBar()
+    buttonBar()
     {
       setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
       setBorder(new EmptyBorder(12, 12, 12, 12));
       add(Box.createHorizontalGlue());
-      add(closeButt = new JButton("Close"));
-      add(helpButt = new JButton("Help"));
+      add(closeButton = new JButton("Close"));
+      add(helpButton = new JButton("Help"));
     }
   }
 
@@ -188,12 +187,12 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
 //        }
 //      };
 //
-//      JButton closeButt = new JButton("Close");
+//      JButton closeButton = new JButton("Close");
 //      panel = new ExampleArchivesDownloadPanel();
 //      descriptor = new DialogDescriptor(panel,
 //          NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadTitle"),
 //          false,
-//          new Object[]{closeButt}, closeButt,
+//          new Object[]{closeButton}, closeButton,
 //          DialogDescriptor.DEFAULT_ALIGN, HelpCtx.findHelp(panel), al);
 //
 //      dlg = DialogDisplayer.getDefault().createDialog(descriptor);
