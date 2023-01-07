@@ -123,11 +123,11 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
   private static File lastChooserDir = new File(System.getProperty("user.home")+"/X3D-Edit/XML &Security");
   
   /** Creates new form ManageKeyStorePanel
-   * @param pw plain text?
+   * @param passwordParameter plain text password, typically from X3dOptions
    * @throws java.lang.Exception 
    */
   @SuppressWarnings("UseOfObsoleteCollectionType")
-  public ManageKeyStorePanel(char[] pw) throws Exception
+  public ManageKeyStorePanel(char[] passwordParameter) throws Exception
   {
     // Will warn user to set a path to a keystore if not yet accomplished
     initializeKeyStore(); // also gets called from reloadTable()
@@ -136,7 +136,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
     initComponents();
     HelpCtx.setHelpIDString(ManageKeyStorePanel.this, "MANAGE_KEYSTORE_HELPID");
 
-    password = pw;
+    password = passwordParameter;
     // Swing uses Vector, can't replace with ArrayList
     titles = new Vector<>(3);
     titles.add(ALIAS_TITLE);
@@ -218,17 +218,18 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
     keyStore     = BouncyCastleHelper.getKeyStore();
     keyStoreFile = new File(initialKeystorePath);
     if (keyStoreFile.exists())
-      keyStoreInputStream = new FileInputStream(keyStoreFile);
+        keyStoreInputStream = new FileInputStream(keyStoreFile);
   }
   
   private void initializeKeyTable() throws Exception
   {
     String message = NbBundle.getMessage(getClass(), "MSG_EnterKeystorePassword");
     if(keyStoreInputStream == null)
-      message = NbBundle.getMessage(getClass(), "MSG_EnterPasswordForNewKeystore");
+       message = NbBundle.getMessage(getClass(), "MSG_EnterPasswordForNewKeystore");
     
-    password = getAPassword(message); //"Enter " "keystore password"
-    if (password == null)
+    if ((password == null) || String.valueOf(password).isBlank())
+         password = getAPassword(message); //"Enter " "keystore password"
+    if  (password == null)
         throw new OperationCancelledException();
   }
 
