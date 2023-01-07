@@ -198,7 +198,6 @@ public class X3dOptions
   public static void    setKeystoreDirectory               (String value)  
   { 
       commonSet(KEYSTORE_DIRECTORY_KEY, value);
-      setKeystorePath(getKeystoreDirectory() + File.separator + getKeystoreFileName());
   }
   public static void    setKeystorePath                (String value)  { commonSet(KEYSTORE_PATH_KEY, value);}
   public static void    resetSecurityPassword  ()
