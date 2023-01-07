@@ -26,6 +26,7 @@
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="x3dOptionsTabbedPane">
       <Properties>
+        <Property name="selectedIndex" type="int" value="1"/>
         <Property name="toolTipText" type="java.lang.String" value="Set X3D-Edit preference values"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[825, 600]"/>
@@ -84,7 +85,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="1" gridY="2" gridWidth="2" gridHeight="1" fill="0" ipadX="250" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="17" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="1" gridY="2" gridWidth="2" gridHeight="1" fill="2" ipadX="250" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="17" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -133,7 +134,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="1" gridY="4" gridWidth="2" gridHeight="1" fill="0" ipadX="250" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="17" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="1" gridY="4" gridWidth="2" gridHeight="1" fill="2" ipadX="250" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="17" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -6951,6 +6952,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="keystorePathLabel2">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="2"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
                 <Property name="toolTipText" type="java.lang.String" value="keystore directory + filename"/>
               </Properties>
@@ -7024,7 +7028,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/org/web3d/x3d/resources/KeyWikimedia-60_&#x15c;losilo_1.svg.32x32.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Manage XML Security Keystore using X3D Edit"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;p align=&apos;center&apos;&gt;Manage XML Security Keystore &lt;br /&gt; using X3D-Edit &lt;/p&gt;"/>
                 <Property name="toolTipText" type="java.lang.String" value="launch keystore manager"/>
                 <Property name="iconTextGap" type="int" value="10"/>
               </Properties>
@@ -7033,7 +7037,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="5" gridY="0" gridWidth="5" gridHeight="2" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="15" weightX="1.0" weightY="1.0"/>
+                  <GridBagConstraints gridX="5" gridY="0" gridWidth="5" gridHeight="2" fill="0" ipadX="100" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="14" weightX="1.0" weightY="1.0"/>
                 </Constraint>
               </Constraints>
             </Component>

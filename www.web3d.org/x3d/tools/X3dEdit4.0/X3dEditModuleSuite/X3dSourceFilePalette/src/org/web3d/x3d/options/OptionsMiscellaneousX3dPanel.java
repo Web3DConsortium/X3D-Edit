@@ -63,6 +63,7 @@ import static org.web3d.x3d.options.X3dOptions.EXAMPLES_ROOT_DIRECTORY_DEFAULT;
 import static org.web3d.x3d.options.X3dOptions.getKeystoreFileNameDefault;
 import static org.web3d.x3d.options.X3dOptions.getKeystorePasswordDefault;
 import static org.web3d.x3d.options.X3dOptions.getKeystorePath;
+import static org.web3d.x3d.options.X3dOptions.setAuthorEmail;
 import static org.web3d.x3d.options.X3dOptions.setAuthorName;
 import static org.web3d.x3d.options.X3dOptions.setExamplesRootDirectory;
 import static org.web3d.x3d.options.X3dOptions.setKeystoreFileName;
@@ -690,6 +691,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 250;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -752,6 +754,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 250;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -7971,6 +7974,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         x3dSecurityPanel.add(keystorePathLabel1, gridBagConstraints);
 
+        keystorePathLabel2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(keystorePathLabel2, "  ");
         keystorePathLabel2.setToolTipText("keystore directory + filename");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -8059,7 +8063,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dSecurityPanel.add(keystoreDirectoryButton, gridBagConstraints);
 
         keystoreManageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/KeyWikimedia-60_Ŝlosilo_1.svg.32x32.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(keystoreManageButton, "Manage XML Security Keystore using X3D Edit");
+        org.openide.awt.Mnemonics.setLocalizedText(keystoreManageButton, "<html> <p align='center'>Manage XML Security Keystore <br /> using X3D-Edit </p>");
         keystoreManageButton.setToolTipText("launch keystore manager");
         keystoreManageButton.setIconTextGap(10);
         keystoreManageButton.addActionListener(new java.awt.event.ActionListener()
@@ -8074,7 +8078,8 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -8546,6 +8551,8 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
 
         x3dOptionsTabbedPane.addTab(NbBundle.getMessage(getClass(), "Security_Tab_Title"), x3dSecurityPanel); // NOI18N
 
+        x3dOptionsTabbedPane.setSelectedIndex(1);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -8661,13 +8668,17 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
 }//GEN-LAST:event_otherX3dPlayerDownloadButtonActionPerformed
 
 private void keystoreDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreDirectoryButtonActionPerformed
-  commonChooser(keystoreDirectoryTF, "Set XML Keystore directory and file", evt);
-  X3dOptions.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
+    commonChooser(keystoreDirectoryTF, "Get XML Keystore directory and file", evt);
+    // TODO split
+    X3dOptions.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
+    setKeystoreFileName(keystoreFileNameTF.getText());
+    keystorePathLabel2.setText(getKeystorePath());
 }//GEN-LAST:event_keystoreDirectoryButtonActionPerformed
 
 private void keystoreDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreDefaultButtonActionPerformed
-  keystoreDirectoryTF.setText(X3dOptions.getKeystorePathDefault().replace("\\", "/"));
-  X3dOptions.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
+    keystoreDirectoryTF.setText(X3dOptions.getKeystorePathDefault().replace("\\", "/"));
+    X3dOptions.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
+    keystorePathLabel2.setText(getKeystorePath());
 }//GEN-LAST:event_keystoreDefaultButtonActionPerformed
 
 private void SwirlX3DChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SwirlX3DChooserButtonActionPerformed
@@ -10545,6 +10556,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void keystoreDirectoryTFClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystoreDirectoryTFClearButtonActionPerformed
     {//GEN-HEADEREND:event_keystoreDirectoryTFClearButtonActionPerformed
         keystoreDirectoryTF.setText("");
+        setKeystoreFileName(keystoreFileNameTF.getText());
+        keystorePathLabel2.setText(getKeystorePath());
     }//GEN-LAST:event_keystoreDirectoryTFClearButtonActionPerformed
 
     private void authorExamplesDirectoryTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryTFActionPerformed
@@ -10607,7 +10620,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void authorEmailTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorEmailTextFieldActionPerformed
     {//GEN-HEADEREND:event_authorEmailTextFieldActionPerformed
-        setExamplesRootDirectory(authorEmailTextField.getText());
+        setAuthorEmail(authorEmailTextField.getText());
     }//GEN-LAST:event_authorEmailTextFieldActionPerformed
 
     private void authorNameTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorNameTextFieldActionPerformed
@@ -10644,6 +10657,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void keystoreFileNameTFClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystoreFileNameTFClearButtonActionPerformed
     {//GEN-HEADEREND:event_keystoreFileNameTFClearButtonActionPerformed
         keystoreFileNameTF.setText("");
+        setKeystoreFileName(keystoreFileNameTF.getText());
+        keystorePathLabel2.setText(getKeystorePath());
     }//GEN-LAST:event_keystoreFileNameTFClearButtonActionPerformed
 
     private void keystorePasswordDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystorePasswordDefaultButtonActionPerformed
@@ -10654,6 +10669,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void keystoreFileNameDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystoreFileNameDefaultButtonActionPerformed
     {//GEN-HEADEREND:event_keystoreFileNameDefaultButtonActionPerformed
         keystoreFileNameTF.setText(getKeystoreFileNameDefault());
+        setKeystoreFileName(keystoreFileNameTF.getText());
+        keystorePathLabel2.setText(getKeystorePath());
     }//GEN-LAST:event_keystoreFileNameDefaultButtonActionPerformed
 
   void reportButtonSend (String panelName)
@@ -11071,6 +11088,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         keystorePasswordTF.setText(X3dOptions.getKeystorePassword());
         keystoreFileNameTF.setText(X3dOptions.getKeystoreFileName());
        keystoreDirectoryTF.setText(X3dOptions.getKeystoreDirectory());
+        keystorePathLabel2.setText(X3dOptions.getKeystorePath());
  
                  contactTF.setText(X3dOptions.getContactPath());
               contactGeoTF.setText(X3dOptions.getContactGeoPath());
