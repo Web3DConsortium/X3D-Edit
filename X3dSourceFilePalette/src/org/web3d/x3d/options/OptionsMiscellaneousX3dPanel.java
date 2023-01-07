@@ -61,6 +61,7 @@ import org.web3d.x3d.actions.ViewX3dSecurityExamplesOnlineAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction;
 import static org.web3d.x3d.options.X3dOptions.EXAMPLES_ROOT_DIRECTORY_DEFAULT;
 import static org.web3d.x3d.options.X3dOptions.getKeystoreFileNameDefault;
+import static org.web3d.x3d.options.X3dOptions.getKeystorePassword;
 import static org.web3d.x3d.options.X3dOptions.getKeystorePasswordDefault;
 import static org.web3d.x3d.options.X3dOptions.getKeystorePath;
 import static org.web3d.x3d.options.X3dOptions.setAuthorEmail;
@@ -173,6 +174,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         authorExamplesDirectoryDefaultButton = new javax.swing.JButton();
         downloadLocalExamplesEarchivesButton = new javax.swing.JButton();
         verticalSpacerLabel19 = new javax.swing.JLabel();
+        reportAuthorButton = new javax.swing.JButton();
         x3dPlayerPathsPanel = new javax.swing.JPanel();
         BSContactLabel = new javax.swing.JLabel();
         BSContactGeoLabel = new javax.swing.JLabel();
@@ -888,12 +890,29 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 50.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(verticalSpacerLabel19, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(reportAuthorButton, "Report");
+        reportAuthorButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
+        reportAuthorButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                reportAuthorButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        authorSettingsPanel.add(reportAuthorButton, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab("Author", authorSettingsPanel);
 
@@ -7964,8 +7983,9 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dSecurityPanel.add(keystoreFileNameDefaultButton, gridBagConstraints);
 
+        keystorePathLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         keystorePathLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(keystorePathLabel1, "combined path");
+        org.openide.awt.Mnemonics.setLocalizedText(keystorePathLabel1, "combined path:");
         keystorePathLabel1.setToolTipText("keystore directory + filename");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -8078,8 +8098,8 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.ipadx = 120;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -10534,12 +10554,36 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         browserLaunch(X3dOptions.helpSiteKeystoreExplorer);
     }//GEN-LAST:event_keystoreExplorerPlayerHelpButtonActionPerformed
 
+    private void checkSplitKeystoreDirectoryFilename ()
+    {
+        String newValue = keystoreDirectoryTF.getText().trim();
+        if (newValue.endsWith(".ks"))
+        {
+            int newFileNameIndex = newValue.length();
+            String newFileName;
+            if (newValue.contains("/"))
+            {
+                 newFileNameIndex = newValue.lastIndexOf("/") + 1;
+                 newFileName = newValue.substring(newFileNameIndex);
+            }
+            else if (newValue.contains("\\"))
+            {
+                 newFileNameIndex = newValue.lastIndexOf("\\") + 1;
+                 newFileName = newValue.substring(newFileNameIndex);
+            }
+            else newFileName = newValue;
+            keystoreFileNameTF.setText(newFileName);
+            keystoreDirectoryTF.setText(newValue.substring(0, newFileNameIndex));
+        }
+    }
     private void keystoreDirectoryTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreDirectoryTFActionPerformed
+        checkSplitKeystoreDirectoryFilename ();
         X3dOptions.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
         keystorePathLabel2.setText(getKeystorePath());
     }//GEN-LAST:event_keystoreDirectoryTFActionPerformed
 
     private void keystoreDirectoryTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_keystoreDirectoryTFFocusLost
+        checkSplitKeystoreDirectoryFilename ();
         X3dOptions.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
     }//GEN-LAST:event_keystoreDirectoryTFFocusLost
 
@@ -10562,18 +10606,25 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void authorExamplesDirectoryTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryTFActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryTFActionPerformed
-        setExamplesRootDirectory (authorExamplesDirectoryTF.getText());
+        // TODO check valid directory before allowing
+        authorExamplesDirectoryTF.setText(      authorExamplesDirectoryTF.getText().trim());
+        X3dOptions.setExamplesRootDirectory (authorExamplesDirectoryTF.getText());
     }//GEN-LAST:event_authorExamplesDirectoryTFActionPerformed
 
     private void authorExamplesDirectoryClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryClearButtonActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryClearButtonActionPerformed
         authorExamplesDirectoryTF.setText("");
+        authorExamplesDirectoryTF.setText(      authorExamplesDirectoryTF.getText().trim());
+        X3dOptions.setExamplesRootDirectory (authorExamplesDirectoryTF.getText());
     }//GEN-LAST:event_authorExamplesDirectoryClearButtonActionPerformed
 
     private void authorExamplesDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryButtonActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryButtonActionPerformed
-//        keystorePathTF.setText(X3dOptions.getKeystorePathDefault().replace("\\", "/"));
-//        X3dOptions.setKeystoreDirectory(keystorePathTF.getText().trim());
+//        TODO file chooser, look in given directory first
+        // TODO choose directory, not file
+        commonChooser(authorExamplesDirectoryTF, "Get local examples root directory", evt);
+        authorExamplesDirectoryTF.setText(      authorExamplesDirectoryTF.getText().trim());
+        X3dOptions.setExamplesRootDirectory (authorExamplesDirectoryTF.getText());
     }//GEN-LAST:event_authorExamplesDirectoryButtonActionPerformed
 
     private void authorExamplesDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryDefaultButtonActionPerformed
@@ -10594,7 +10645,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void keystoreManageButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystoreManageButtonActionPerformed
     {//GEN-HEADEREND:event_keystoreManageButtonActionPerformed
         ManageKeyStoreAction newManageKeyStoreAction = new ManageKeyStoreAction();
-        newManageKeyStoreAction.performAction();
+        // https://stackoverflow.com/questions/19594587/how-to-convert-a-string-array-to-char-array-in-java
+        newManageKeyStoreAction.performAction(getKeystorePassword().toCharArray());
     }//GEN-LAST:event_keystoreManageButtonActionPerformed
 
     private void authorNameClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorNameClearButtonActionPerformed
@@ -10672,6 +10724,11 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         setKeystoreFileName(keystoreFileNameTF.getText());
         keystorePathLabel2.setText(getKeystorePath());
     }//GEN-LAST:event_keystoreFileNameDefaultButtonActionPerformed
+
+    private void reportAuthorButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_reportAuthorButtonActionPerformed
+    {//GEN-HEADEREND:event_reportAuthorButtonActionPerformed
+        reportButtonSend ("Panel Preferences: Author settings tab");
+    }//GEN-LAST:event_reportAuthorButtonActionPerformed
 
   void reportButtonSend (String panelName)
   {
@@ -10992,23 +11049,24 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }
 
     /**
-     * Launch application in local operating system
+     * Launch application in local operating system, no passed parameters.
      * @param applicationPath local executable of interest
      * @see https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/ProcessBuilder.html
      */
     public static void externalProcessLaunch(String applicationPath) {
-        ProcessBuilder pb;
+        ProcessBuilder processBuilder;
         try
         {
-            pb = new ProcessBuilder(applicationPath);
-            if (applicationPath.contains("Portecle"))
+            processBuilder = new ProcessBuilder(applicationPath);
+            // check if application apparently needs to start in its own directory
+            if (applicationPath.toLowerCase().contains("portecle"))
             {
-                // application apparently needs to start in its own directory
                 File applicationDirectory = (new File(applicationPath)).getParentFile();
                 if (applicationDirectory.isDirectory())
-                    pb.directory(applicationDirectory); // set initial directory
+                    processBuilder.directory(applicationDirectory); // set initial directory
             }
-            pb.start();
+            // now ready to start
+            processBuilder.start();
         } 
         catch (IOException ex)
         {
@@ -11018,7 +11076,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         }
     }
     /**
-     * Launch application in local operating system
+     * Launch application in local operating system, with passed parameters.
      * @param applicationInvocation local executable of interest
      * @param parameters additional parameters, if any
      * @see https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/ProcessBuilder.html
@@ -11030,12 +11088,20 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         launchArray[0] = applicationInvocation;
         System.arraycopy(launchArray, 1, parameterArray, 0, parameterArray.length);
         
-        ProcessBuilder pb;
+        ProcessBuilder processBuilder;
         try
         {
             String[] commandLine = applicationInvocation.split("\\s");
-            pb = new ProcessBuilder(commandLine);
-            pb.start();
+            processBuilder = new ProcessBuilder(commandLine);
+            // check if application apparently needs to start in its own directory
+            if (applicationInvocation.toLowerCase().contains("portecle"))
+            {
+                File applicationDirectory = (new File(applicationInvocation)).getParentFile();
+                if (applicationDirectory.isDirectory())
+                    processBuilder.directory(applicationDirectory); // set initial directory
+            }
+            // now ready to start
+            processBuilder.start();
         }
         catch (IOException ex) {
           InputOutput io = IOProvider.getDefault().getIO("Output", false);
@@ -11045,34 +11111,38 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }
 
 
-  JFileChooser fChooser;
+  JFileChooser fileChooser;
   private void commonChooser(JTextField tf, String title, java.awt.event.ActionEvent evt)
   {
-    if(fChooser == null) {
-      fChooser = new JFileChooser(System.getProperty("user.home"));
-      fChooser.setMultiSelectionEnabled(false);
-      fChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-      fChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
+    if(fileChooser == null) {
+      fileChooser = new JFileChooser(System.getProperty("user.home"));
+      fileChooser.setMultiSelectionEnabled(false);
+      fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+      fileChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
     }
-    fChooser.setDialogTitle(title);
+    fileChooser.setDialogTitle(title);
+    // https://stackoverflow.com/questions/25666642/jfilechooser-to-pick-a-directory-or-a-single-file
+    if  (title.toLowerCase().contains("directory"))
+         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+    else fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
     
     if (title.toLowerCase().contains("keystore"))
-        fChooser.setFileFilter(new keyStoreFileTypeFilter());
+        fileChooser.setFileFilter(new keyStoreFileTypeFilter());
     // TODO others?
 
     // Try to aim at the existing directory, if it's there
     try {
-      File f = new File(tf.getText().trim());
-      f = f.getParentFile();
-      if(f.exists())
-        fChooser.setCurrentDirectory(f);
+      File file = new File(tf.getText().trim());
+      file = file.getParentFile();
+      if(file.exists())
+        fileChooser.setCurrentDirectory(file);
     }
-    catch(Throwable t) {}// Forget it on any errors
+    catch(Throwable t) {}// Forget about it, if any errors
 
-    int ret = fChooser.showOpenDialog(this);
+    int ret = fileChooser.showOpenDialog(this);
     if(ret == JFileChooser.APPROVE_OPTION)
     {
-        tf.setText(fChooser.getSelectedFile().getAbsolutePath());
+        tf.setText(fileChooser.getSelectedFile().getAbsolutePath());
         // TF callback to save changed options (doesn't happen automatically)
         tf.postActionEvent();
     }
@@ -11791,6 +11861,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel protegePlayerLabel;
     private javax.swing.JButton protegePlayerLaunchButton;
     private javax.swing.JTextField protegePlayerPathTF;
+    private javax.swing.JButton reportAuthorButton;
     private javax.swing.JButton reportImageVolumeToolsButton;
     private javax.swing.JButton reportModelingToolsButton;
     private javax.swing.JButton reportPlayerButton;
