@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<project name="download example archives (Ant utility functions for run-time use)" basedir=".">-->
+<!--<project name="Download X3D Examples Archives (Ant utility functions for run-time use)" basedir=".">-->
 <!-- The project name gets written out as the Output tab name, so make it clear and concise -->
 
 <!-- build file examplesDownloaderAntScript.xml -->
 
-<project name="Download example archives" basedir=".">
+<project name="Download X3D Examples Archives" basedir=".">
     <!-- When run from within X3dEdit app, "." == os tempfile directory, downloads is created there -->
     <target name="all" depends="X3dForWebAuthors,X3dForAdvancedModeling,Vrml2.0Sourcebook,Basic,ConformanceNist,HumanoidAnimation,Savage,SavageDefense">
         <!-- this task takes many moons to accomplish and likely should be avoided -->
