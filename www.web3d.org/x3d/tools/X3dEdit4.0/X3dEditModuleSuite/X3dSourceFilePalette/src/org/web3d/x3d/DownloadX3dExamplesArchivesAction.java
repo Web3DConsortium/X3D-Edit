@@ -79,21 +79,22 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
   @Override
   public void performAction()
   {
-    if (frame == null) {
+    if (frame == null)
+    {
         frame = new JFrame(NbBundle.getMessage(getClass(), "ExampleArchivesDownloadTitle"));
         frame.getContentPane().setLayout(new BorderLayout());
         BufferedImage bufferedImage;
         frame.setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/X3Dicon32.png"));
         panel = new ExampleArchivesDownloadPanel();
 
-      frame.getContentPane().add(panel, BorderLayout.CENTER);
-      buttonBar = new buttonBar();
-      frame.getContentPane().add(buttonBar, BorderLayout.SOUTH);
+        frame.getContentPane().add(panel, BorderLayout.CENTER);
+        buttonBar = new buttonBar();
+        frame.getContentPane().add(buttonBar, BorderLayout.SOUTH);
 
-      frame.pack();
-      frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
-      final ActionListener al = (ActionEvent e) -> {
+        final ActionListener al = (ActionEvent e) -> {
           if (frame != null) {
               if (panel != null) {
                   if (panel.isRunning()) {
@@ -106,31 +107,29 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
               }
               frame.setVisible(false);
           }
-      } // Close button handler
-      ;
-      buttonBar.closeButton.addActionListener(al);
-      final ActionListener hl = (ActionEvent e) -> {
+        } // Close button handler
+        ;
+        buttonBar.closeButton.addActionListener(al);
+        final ActionListener hl = (ActionEvent e) -> {
 // TODO convert from JavaHelp to help page
 //          Help help = Lookup.getDefault().lookup(Help.class);
 //          if (help != null) {
 //              help.showHelp(getHelpCtx());
 //          }
-      };
-      buttonBar.helpButton.addActionListener(hl);
+        };
+        buttonBar.helpButton.addActionListener(hl);
 
-      // Window title-bar close button handler
-      WindowAdapter wl = new WindowAdapter()
-      {
-
-        @Override
-        public void windowClosed(WindowEvent e)
+        // Window title-bar close button handler
+        WindowAdapter wl = new WindowAdapter()
         {
-          al.actionPerformed(null);
-        }
-      };
-      frame.addWindowListener(wl);
+            @Override
+            public void windowClosed(WindowEvent e)
+            {
+              al.actionPerformed(null);
+            }
+        };
+        frame.addWindowListener(wl);
     }
-
     frame.setLocationRelativeTo(null); // center of screen
     frame.setVisible(true);
   }
