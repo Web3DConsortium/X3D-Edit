@@ -315,6 +315,8 @@
                 <package>org.web3d.x3d.actions.conversions</package>
                 <package>org.web3d.x3d.actions.qualityassurance</package>
                 <package>org.web3d.x3d.actions.security</package>
+                <package>org.web3d.x3d.config</package>
+                <package>org.web3d.x3d.config.util</package>
                 <package>org.web3d.x3d.dis</package>
                 <package>org.web3d.x3d.dis.playerrecorder</package>
                 <package>org.web3d.x3d.dom.swing</package>
@@ -632,6 +634,7 @@
             <word>runtime</word>
             <word>SavageDefense</word>
             <word>Schematron</word>
+            <word>SIGGRAPH</word>
             <word>SourceForge</word>
             <word>stackoverflow</word>
             <word>strictfp</word>
