@@ -35,14 +35,17 @@ package org.web3d.x3d.options;
 
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Window;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileFilter;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -167,7 +170,8 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         authorEmailLabel = new javax.swing.JLabel();
         authorEmailTextField = new javax.swing.JTextField();
         authorEmailClearButton = new javax.swing.JButton();
-        authorExamplesDirectoryLabel = new javax.swing.JLabel();
+        authorExamplesLocationLabel = new javax.swing.JLabel();
+        authorExamplesDirectoryDescriptionLabel = new javax.swing.JLabel();
         authorExamplesDirectoryTF = new javax.swing.JTextField();
         authorExamplesDirectoryClearButton = new javax.swing.JButton();
         authorExamplesDirectoryButton = new javax.swing.JButton();
@@ -595,7 +599,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         hAnimAxesOriginLabel = new javax.swing.JLabel();
         verticalSpacerLabel5 = new javax.swing.JLabel();
         reportVisualizationPreferencesButton = new javax.swing.JButton();
-        xj3dCadFilterOptionsPanel = new org.web3d.x3d.options.Xj3dCadFilterOptionsPanel();
+        xj3dCadFilterOptionsPanel = new org.netbeans.modules.form.InvalidComponent();
         x3dSecurityPanel = new javax.swing.JPanel();
         keystoreSectionHeaderLabel = new javax.swing.JLabel();
         keystoreManagerDescription1Label = new javax.swing.JLabel();
@@ -780,17 +784,27 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
         authorSettingsPanel.add(authorEmailClearButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(authorExamplesDirectoryLabel, "Local examples");
-        authorExamplesDirectoryLabel.setToolTipText("Drectory path to local copies of Web3D Examples Archives");
+        org.openide.awt.Mnemonics.setLocalizedText(authorExamplesLocationLabel, "location");
+        authorExamplesLocationLabel.setToolTipText("Drectory path to local copies of X3D Examples Model Archives");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        authorSettingsPanel.add(authorExamplesDirectoryLabel, gridBagConstraints);
+        authorSettingsPanel.add(authorExamplesLocationLabel, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(authorExamplesDirectoryDescriptionLabel, "Directory path to local X3D Examples Model Archives");
+        authorExamplesDirectoryDescriptionLabel.setToolTipText("Drectory path to local copies of X3D Examples Model Archives");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        authorSettingsPanel.add(authorExamplesDirectoryDescriptionLabel, gridBagConstraints);
 
         authorExamplesDirectoryTF.setText(EXAMPLES_DIRECTORY_TF_DEFAULT_MESSAGE);
-        authorExamplesDirectoryTF.setToolTipText("File location for local examples");
+        authorExamplesDirectoryTF.setToolTipText("Drectory path to local copies of X3D Examples Model Archives");
         authorExamplesDirectoryTF.addFocusListener(new java.awt.event.FocusAdapter()
         {
             public void focusLost(java.awt.event.FocusEvent evt)
@@ -848,7 +862,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.ipadx = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         authorSettingsPanel.add(authorExamplesDirectoryButton, gridBagConstraints);
@@ -10606,8 +10620,18 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void authorExamplesDirectoryTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryTFActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryTFActionPerformed
-        // TODO check valid directory before allowing
-        authorExamplesDirectoryTF.setText(      authorExamplesDirectoryTF.getText().trim());
+        // check valid directory before allowing
+        authorExamplesDirectoryTF.setText(authorExamplesDirectoryTF.getText().trim()); // normalize
+        try {
+          File file = new File(authorExamplesDirectoryTF.getText());
+          if  (file.exists() && !file.isDirectory())
+          {
+              file = file.getParentFile(); // ensure directory
+              authorExamplesDirectoryTF.setText(file.getPath());
+          }
+        }
+        catch(Throwable t) {}// Forget about it, if any errors
+        
         X3dOptions.setExamplesRootDirectory (authorExamplesDirectoryTF.getText());
     }//GEN-LAST:event_authorExamplesDirectoryTFActionPerformed
 
@@ -10620,8 +10644,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void authorExamplesDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryButtonActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryButtonActionPerformed
-//        TODO file chooser, look in given directory first
-        // TODO choose directory, not file
+        // file chooser looks in given directory first
         commonChooser(authorExamplesDirectoryTF, "Get local examples root directory", evt);
         authorExamplesDirectoryTF.setText(      authorExamplesDirectoryTF.getText().trim());
         X3dOptions.setExamplesRootDirectory (authorExamplesDirectoryTF.getText());
@@ -10662,7 +10685,14 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void downloadLocalExamplesEarchivesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_downloadLocalExamplesEarchivesButtonActionPerformed
     {//GEN-HEADEREND:event_downloadLocalExamplesEarchivesButtonActionPerformed
         DownloadX3dExamplesArchivesAction downloadX3dExamplesArchivesAction = new DownloadX3dExamplesArchivesAction();
-        downloadX3dExamplesArchivesAction.performAction();
+        SwingUtilities.invokeLater(() -> {
+          downloadX3dExamplesArchivesAction.performAction();
+        });
+        // close this Preferences Panel via action class
+        // https://stackoverflow.com/questions/29357055/close-window-jpanel-in-java
+        JComponent parentComponent = (JComponent) evt.getSource();
+        Window     parentWindow    = SwingUtilities.getWindowAncestor(parentComponent);
+        parentWindow.dispose();
     }//GEN-LAST:event_downloadLocalExamplesEarchivesButtonActionPerformed
 
     private void keystorePasswordTFClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystorePasswordTFClearButtonActionPerformed
@@ -11114,30 +11144,26 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   JFileChooser fileChooser;
   private void commonChooser(JTextField tf, String title, java.awt.event.ActionEvent evt)
   {
-    if(fileChooser == null) {
-      fileChooser = new JFileChooser(System.getProperty("user.home"));
+    if(fileChooser == null) // first time through
+    {
+      if  ((tf.getText() != null) && !tf.getText().isBlank())
+           fileChooser = new JFileChooser(tf.getText().trim());
+      else fileChooser = new JFileChooser(System.getProperty("user.home"));
       fileChooser.setMultiSelectionEnabled(false);
-      fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
       fileChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
     }
     fileChooser.setDialogTitle(title);
     // https://stackoverflow.com/questions/25666642/jfilechooser-to-pick-a-directory-or-a-single-file
-    if  (title.toLowerCase().contains("directory"))
+    if  ( title.toLowerCase().contains("directory") && 
+         !title.toLowerCase().contains("keystore"))
          fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-    else fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+    else fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
     
     if (title.toLowerCase().contains("keystore"))
+    {
         fileChooser.setFileFilter(new keyStoreFileTypeFilter());
-    // TODO others?
-
-    // Try to aim at the existing directory, if it's there
-    try {
-      File file = new File(tf.getText().trim());
-      file = file.getParentFile();
-      if(file.exists())
-        fileChooser.setCurrentDirectory(file);
     }
-    catch(Throwable t) {}// Forget about it, if any errors
+    // TODO special handling for any other file types?
 
     int ret = fileChooser.showOpenDialog(this);
     if(ret == JFileChooser.APPROVE_OPTION)
@@ -11558,8 +11584,9 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton authorExamplesDirectoryButton;
     private javax.swing.JButton authorExamplesDirectoryClearButton;
     private javax.swing.JButton authorExamplesDirectoryDefaultButton;
-    private javax.swing.JLabel authorExamplesDirectoryLabel;
+    private javax.swing.JLabel authorExamplesDirectoryDescriptionLabel;
     private javax.swing.JTextField authorExamplesDirectoryTF;
+    private javax.swing.JLabel authorExamplesLocationLabel;
     private javax.swing.JButton authorNameClearButton;
     private javax.swing.JLabel authorNameLabel;
     private javax.swing.JTextField authorNameTextField;
@@ -11998,7 +12025,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton xj3DDownloadButton;
     private javax.swing.JButton xj3DLaunchButton;
     private javax.swing.JTextField xj3DTF;
-    private org.web3d.x3d.options.Xj3dCadFilterOptionsPanel xj3dCadFilterOptionsPanel;
+    private org.netbeans.modules.form.InvalidComponent xj3dCadFilterOptionsPanel;
     private javax.swing.JCheckBox xj3dCheckBox;
     // End of variables declaration//GEN-END:variables
 
@@ -12014,22 +12041,24 @@ otherSemanticWebEditorAutoLaunchCheck();
     }
     public class keyStoreFileTypeFilter extends FileFilter
     {
-      @Override
-      public boolean accept(File f)
-      {
-        if (f.isDirectory()) {
-          return true;
+        @Override
+        public boolean accept(File f)
+        {
+            if (f.isDirectory())
+            {
+                return true;
+            }
+            String extension = FileUtil.toFileObject(f).getExt();
+            if (extension != null)
+            {
+                if (extension.equals("ks")
+                        || extension.equals("KS"))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
-
-        String extension = FileUtil.toFileObject(f).getExt();
-        if (extension != null) {
-          if (extension.equals("ks") ||
-              extension.equals("KS")) {
-            return true;
-          }
-        }
-        return false;
-      }
 
         @Override
         public String getDescription()
