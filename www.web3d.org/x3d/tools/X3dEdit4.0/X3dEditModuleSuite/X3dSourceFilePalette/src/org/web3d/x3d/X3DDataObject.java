@@ -147,7 +147,7 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     dtdValidator = new DTDValidator(in);
     schemaValidator = new SchemaValidator(in);
     
-    if(x3dFile == null)
+    if(x3dFile == null) // TODO this occurs erroneously when creating a new file
     {
         System.out.println ("*** failed to create X3DDataObject() x3dFile " + pf.getPath());
         return;
