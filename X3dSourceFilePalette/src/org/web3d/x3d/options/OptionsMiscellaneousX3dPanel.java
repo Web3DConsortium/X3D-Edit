@@ -599,7 +599,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         hAnimAxesOriginLabel = new javax.swing.JLabel();
         verticalSpacerLabel5 = new javax.swing.JLabel();
         reportVisualizationPreferencesButton = new javax.swing.JButton();
-        xj3dCadFilterOptionsPanel = new org.netbeans.modules.form.InvalidComponent();
+        xj3dCadFilterOptionsPanel = new org.web3d.x3d.options.Xj3dCadFilterOptionsPanel();
         x3dSecurityPanel = new javax.swing.JPanel();
         keystoreSectionHeaderLabel = new javax.swing.JLabel();
         keystoreManagerDescription1Label = new javax.swing.JLabel();
@@ -793,7 +793,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(authorExamplesLocationLabel, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(authorExamplesDirectoryDescriptionLabel, "Directory path to local X3D Examples Model Archives");
+        org.openide.awt.Mnemonics.setLocalizedText(authorExamplesDirectoryDescriptionLabel, "Directory path to X3D Examples Model Archives, locally downloaded");
         authorExamplesDirectoryDescriptionLabel.setToolTipText("Drectory path to local copies of X3D Examples Model Archives");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -12025,7 +12025,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton xj3DDownloadButton;
     private javax.swing.JButton xj3DLaunchButton;
     private javax.swing.JTextField xj3DTF;
-    private org.netbeans.modules.form.InvalidComponent xj3dCadFilterOptionsPanel;
+    private org.web3d.x3d.options.Xj3dCadFilterOptionsPanel xj3dCadFilterOptionsPanel;
     private javax.swing.JCheckBox xj3dCheckBox;
     // End of variables declaration//GEN-END:variables
 

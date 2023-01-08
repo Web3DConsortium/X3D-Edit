@@ -165,7 +165,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="authorExamplesDirectoryDescriptionLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Directory path to local X3D Examples Model Archives"/>
+                <Property name="text" type="java.lang.String" value="Directory path to X3D Examples Model Archives, locally downloaded"/>
                 <Property name="toolTipText" type="java.lang.String" value="Drectory path to local copies of X3D Examples Model Archives"/>
               </Properties>
               <Constraints>
