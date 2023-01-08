@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -40,7 +40,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -73,7 +72,7 @@ public final class MyViewBrowserAction implements ActionListener
       
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString));
+        Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
     }
     catch (java.net.MalformedURLException mfe) {
       String home = HtmlBrowser.getHomePage();
@@ -87,7 +86,7 @@ public final class MyViewBrowserAction implements ActionListener
       
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString));
+        Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
       }
       catch (java.net.MalformedURLException e1) {
         Exceptions.printStackTrace(e1);

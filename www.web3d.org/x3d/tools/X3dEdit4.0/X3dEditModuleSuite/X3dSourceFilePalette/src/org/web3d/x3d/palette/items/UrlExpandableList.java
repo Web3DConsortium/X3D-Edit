@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -146,7 +146,7 @@ public class UrlExpandableList extends ExpandableList //implements ListSelection
       
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString));
+        Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
       }
       catch (IOException | URISyntaxException ex) {
         NotifyDescriptor.Message nd = new NotifyDescriptor.Message("<html>Url could not be displayed:<br>" + ex.getLocalizedMessage(),

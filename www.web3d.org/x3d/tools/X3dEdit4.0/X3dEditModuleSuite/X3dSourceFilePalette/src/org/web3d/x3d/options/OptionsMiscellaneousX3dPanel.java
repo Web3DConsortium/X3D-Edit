@@ -11037,7 +11037,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
       String urlString = pageUrl;
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString));
+        Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
     }
     catch (java.net.MalformedURLException ex) {
       InputOutput io = IOProvider.getDefault().getIO("Output", false);
@@ -11503,7 +11503,7 @@ otherSemanticWebEditorAutoLaunchCheck();
       
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString));
+        Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
     }
     catch (MalformedURLException e) {
       System.err.println(NbBundle.getMessage(getClass(),"Trying_to_display_") + urlString +

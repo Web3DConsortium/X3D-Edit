@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -56,7 +56,7 @@ import org.openide.util.actions.CallableSystemAction;
 
 public final class LaunchIssueReportEmailAction extends CallableSystemAction
 {
-  public static String MAILTO_REPORT_URL = "mailto://brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%20issue%20report%20";
+  public static String MAILTO_REPORT_URL = "mailto://brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%20issue%20report";
   // don't add body to email, since that clobbers user signature: body=Found%20a%20possible%20problem.%20&
 
   private String elementName = new String();
@@ -67,7 +67,9 @@ public final class LaunchIssueReportEmailAction extends CallableSystemAction
       String mailtoReportUrl = MAILTO_REPORT_URL;
       // TODO add node/statement name
       if (!getElementName().isBlank())
-          mailtoReportUrl+= getElementName() + "%20"; // append url-escaped blank character to facilitate user editing
+      {
+          mailtoReportUrl+= ":%20" + getElementName() + "%20";
+      } // append url-escaped blank character to facilitate user editing
       
       System.out.println ("LaunchIssueReportEmailAction performAction() mailtoReportUrl=" + mailtoReportUrl);
       
@@ -92,7 +94,7 @@ public final class LaunchIssueReportEmailAction extends CallableSystemAction
       
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString));
+        Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
   }
 
   @Override

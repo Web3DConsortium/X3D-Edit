@@ -43,7 +43,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -61,7 +60,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.text.JTextComponent;
 import org.jdom.Attribute;
 import org.jdom.Element;
-import org.openide.awt.HtmlBrowser.URLDisplayer;
 import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
@@ -822,7 +820,7 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
         URI uri;
         try 
         {
-            uri = new URI (documentationTF.getText().trim());
+            uri = new URI (documentationTF.getText().trim().replaceAll("\\\\","/"));
 //            URLDisplayer.getDefault().showURL(url);
       
         // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java

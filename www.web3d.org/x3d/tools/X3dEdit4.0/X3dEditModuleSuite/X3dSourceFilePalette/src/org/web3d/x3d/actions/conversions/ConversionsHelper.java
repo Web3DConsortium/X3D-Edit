@@ -256,7 +256,7 @@ public class ConversionsHelper
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
         try {
-            Desktop.getDesktop().browse(new URI(urlString));
+            Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
     } catch (IOException | URISyntaxException ex) {
         Exceptions.printStackTrace(ex);
     }
