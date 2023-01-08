@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -39,6 +39,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.swing.Action;
 import org.openide.util.NbPreferences;
+import org.web3d.x3d.options.X3dOptions;
 
 /**
  * LocalExamplesFinder.java
@@ -86,7 +87,9 @@ public class LocalExamplesFinder
   private void initialize ()
   {
     // TODO make successful path persistent and exposed through X3D Options panel
-    DEFAULT_ROOT_DIR  = new File(DEFAULT_DIR_TREE);
+    if  (!X3dOptions.getExamplesRootDirectory().isBlank())
+         DEFAULT_ROOT_DIR  = new File(X3dOptions.getExamplesRootDirectory());
+    else DEFAULT_ROOT_DIR  = new File(DEFAULT_DIR_TREE);
     DEFAULT_ROOT_PATH = DEFAULT_ROOT_DIR.getAbsolutePath();
     if ((DEFAULT_ROOT_PATH == null) || DEFAULT_ROOT_PATH.isEmpty() || !DEFAULT_ROOT_DIR.isDirectory())
     {

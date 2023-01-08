@@ -67,7 +67,7 @@ import org.web3d.x3d.X3DEditorSupport;
 
 public class XhtmlX3domAction extends BaseConversionsAction
 {
-    public static String xsltFile = "X3dToX3dom.xslt";
+    public static String xsltFile = "X3dToX3domX_ITE.xslt";
 
     private X3dToXhtmlDomConversionPanel x3dToXhtmlDomConversionPanel;
 
