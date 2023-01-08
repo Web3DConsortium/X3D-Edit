@@ -61,7 +61,7 @@ import org.openide.util.actions.CallableSystemAction;
 
 public final class X3dEditAboutAction extends CallableSystemAction
 {
-  String moduleReleaseDate = "1 January 2023"; // TODO manually edit along with module version for each release
+  String moduleReleaseDate = "8 January 2023"; // TODO manually edit along with module version for each release
   
   String rightMargin = "&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ";
 
