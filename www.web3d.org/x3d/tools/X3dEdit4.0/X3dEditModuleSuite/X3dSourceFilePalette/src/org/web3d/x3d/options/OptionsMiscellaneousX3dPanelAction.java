@@ -79,7 +79,7 @@ public final class OptionsMiscellaneousX3dPanelAction implements ActionListener
         optionsPanel.setPreferredPane(preferredPaneIndex);
         preferredPaneIndex = -1; // reset
     }
-
+    // actually labeled as Continue button since cleanup actions not needed
     JButton completeButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Complete"));
     completeButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Complete"));
     JLabel  descriptionLabel = new JLabel ("Each panel change is saved upon entry.");
