@@ -196,7 +196,7 @@ public class METACustomizer extends BaseCustomizer
     if (metaName.equalsIgnoreCase("generator") &&
         (  contentLowerCase.isEmpty() ||
         ( (contentLowerCase.contains("X3D-Edit".toLowerCase()) || contentLowerCase.contains("X3DEdit".toLowerCase())) &&
-             !content.contains(generatorValueX3dEdit))))
+          !content.contains(generatorValueX3dEdit))))
     {
         NotifyDescriptor d = new NotifyDescriptor.Confirmation(
            "<html><p align='center'>Update X3D-Edit generator value?</p><p>&nbsp;</p><p align='center'><b>" + generatorValueX3dEdit + "</b></p>",
@@ -227,13 +227,29 @@ public class METACustomizer extends BaseCustomizer
             contentTA.setText(content.replace("http://", "https://"));
         }
    }
-   // TODO author -> creator
-   if ((metaName.equalsIgnoreCase("creator") || metaName.equalsIgnoreCase("author")) &&
-       content.isBlank() && !X3dOptions.getAuthorName().isBlank())
+   // meta name author -> creator
+   if (metaName.equalsIgnoreCase("author"))
+   {
+        NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+              "<html><p align='center'>Usual Dublin Core term for " + metaName + " is 'creator', change it?</p>", 
+              "Update meta name?",
+              NotifyDescriptor.YES_NO_OPTION);
+        if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
+        {
+            nameComboBox.setSelectedItem("creator");
+        }
+   }
+   // apply user preferences
+   if ((metaName.equalsIgnoreCase("creator")    || metaName.equalsIgnoreCase("author") || 
+        metaName.equalsIgnoreCase("translator") || metaName.equalsIgnoreCase("modeler")) &&
+       (content.isBlank() || 
+        content.equalsIgnoreCase("*enter name of original author here*") || 
+        content.equalsIgnoreCase("*if manually translating VRML-to-X3D, enter name of person translating here*")) &&
+        !X3dOptions.getAuthorName().isBlank())
    {
        String contentString = (X3dOptions.getAuthorName() + " " + X3dOptions.getAuthorEmail()).trim();
         NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-              "<html><p align='center'>" + metaName + " is blank, use '" + contentString + "' ?</p>", 
+              "<html><p align='center'>" + metaName + " is blank, use your Author preference '" + contentString + "' ?</p>", 
               "Use author name/email from X3D-Edit Preferences?",
               NotifyDescriptor.YES_NO_OPTION);
         if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
@@ -943,7 +959,7 @@ public class METACustomizer extends BaseCustomizer
             return META_ATTR_NAME_REFERENCE + nameHelp;
         }
         else if  (nameHelp.equals("error") || nameHelp.equals("generator") || nameHelp.equals("hint") || 
-                  nameHelp.equals("info")  || nameHelp.equals("")     || 
+                  nameHelp.equals("info")  || nameHelp.isEmpty()     || 
                   nameHelp.startsWith("TODO"))
         {
             // not a special entry in dublin core, TODO find or create custom links for help
@@ -1098,9 +1114,9 @@ public class METACustomizer extends BaseCustomizer
         if ((normalBackgroundColor == null) || (warningBackgroundColor == null)) // initialize
         {
             normalBackgroundColor = nameComboBox.getBackground();
-           warningBackgroundColor = new Color (((float) normalBackgroundColor.getRed()   * 0.85f) / 255.0f, // slight grey - not illegal, just discouraged
-                                               ((float) normalBackgroundColor.getGreen() * 0.85f) / 255.0f,
-                                               ((float) normalBackgroundColor.getBlue()  * 0.85f) / 255.0f);
+           warningBackgroundColor = new Color ((normalBackgroundColor.getRed()   * 0.85f) / 255.0f, // slight grey - not illegal, just discouraged
+                                               (normalBackgroundColor.getGreen() * 0.85f) / 255.0f,
+                                               (normalBackgroundColor.getBlue()  * 0.85f) / 255.0f);
         }
         if ((nameComboBox.getSelectedItem().toString().length() > 0) && (httpEquivalentTextField.getText().length() > 0))
         {
@@ -1287,7 +1303,9 @@ public class METACustomizer extends BaseCustomizer
                 prependHttpsButton.setEnabled(true);
             }
         }
-      return (content.length() > 4)   && // don't offer to launch fragments until long enough to determine whether http:// (or a.txt etc.) is entered 
+        if (content.contains(X3dOptions.getAuthorName()) || content.contains(X3dOptions.getAuthorEmail()))
+            return false;
+       return (content.length() > 4)   && // don't offer to launch fragments until long enough to determine whether http:// (or a.txt etc.) is entered 
               (content.contains("mailto:") ||
               content.contains("://") ||
               content.contains("../") ||
@@ -1352,16 +1370,18 @@ public class METACustomizer extends BaseCustomizer
       {
           contentTA.setText(UrlExpandableList2.escapeUrl(contentTA.getText()));
       }
-              
-     nameHttpEquivalentTextWarningCheck ();
-     meta.setName(((String)nameComboBox.getSelectedItem()).trim());
-     meta.setContentAttribute(contentTA.getText().trim());
-     if (((String)dirComboBox.getSelectedItem()).equals("LTR") ||
-         ((String)dirComboBox.getSelectedItem()).equals("RTL"))
-         meta.setDir(((String)dirComboBox.getSelectedItem()).trim()); // only pass legal values
-     meta.setHttpEquivalent(httpEquivalentTextField.getText().trim());
-     meta.setLang(langTextField.getText().trim());
-     meta.setScheme(schemeTextField.getText().trim());
+      checkMetaNameContentCombinations();
+      nameHttpEquivalentTextWarningCheck();
+      meta.setName(((String) nameComboBox.getSelectedItem()).trim());
+      meta.setContentAttribute(contentTA.getText().trim());
+      if (((String) dirComboBox.getSelectedItem()).equals("LTR") || 
+          ((String) dirComboBox.getSelectedItem()).equals("RTL"))
+      {
+          meta.setDir(((String) dirComboBox.getSelectedItem()).trim()); // only pass legal values
+      }
+      meta.setHttpEquivalent(httpEquivalentTextField.getText().trim());
+      meta.setLang(langTextField.getText().trim());
+      meta.setScheme(schemeTextField.getText().trim());
   }  
 
     /**
