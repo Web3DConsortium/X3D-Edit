@@ -149,9 +149,10 @@ public class METACustomizer extends BaseCustomizer
         contentTA.setText("under development");
     }
 
+    Color   darkgreen  = new Color( 21,  71, 52);
     if  (nameHelpReference ().equals(META_ATTR_NAME_REFERENCE))
          nameComboBox.setForeground(Color.orange); // not found
-    else nameComboBox.setForeground(Color.green);
+    else nameComboBox.setForeground(darkgreen); 
     
     if (!metaName.trim().equals(metaName))
     {
@@ -241,7 +242,9 @@ public class METACustomizer extends BaseCustomizer
    }
    // apply user preferences
    if ((metaName.equalsIgnoreCase("creator")    || metaName.equalsIgnoreCase("author") || 
-        metaName.equalsIgnoreCase("translator") || metaName.equalsIgnoreCase("modeler")) &&
+        metaName.equalsIgnoreCase("translator") || metaName.equalsIgnoreCase("modeler") || 
+        metaName.equalsIgnoreCase("contribu || \n" +
+"        metaName.equalsIgnoreCase(\"translator\")tor")) &&
        (content.isBlank() || 
         content.equalsIgnoreCase("*enter name of original author here*") || 
         content.equalsIgnoreCase("*if manually translating VRML-to-X3D, enter name of person translating here*")) &&
@@ -988,7 +991,7 @@ public class METACustomizer extends BaseCustomizer
       
         // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-            Desktop.getDesktop().browse(new URI(urlAddress));
+            Desktop.getDesktop().browse(new URI(urlAddress.replaceAll("\\\\","/")));
         }
         catch (MalformedURLException e)
         {
