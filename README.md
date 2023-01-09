@@ -139,6 +139,12 @@ Note problem failing when turned on by Project setting for X3D-Edit module suite
 
 TODO.  Consider if this will help create projects of interest - might be superfluous.
 
+## Using the NetBeans IDE created installer for Windows
+
+Desktop shortcut for Windows. Assumes JAVA_HOME areadly defined in Environment Variables
+Right click on shortcut properties and set:
+* Target: x3deditmodulesuite64 --jdkhome "%JAVA_HOME%" --console new
+* Start in: "C:\Program Files\x3deditmodulesuite\bin"
 
 ----
 ## Creating standalone installers
