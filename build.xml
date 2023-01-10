@@ -14,7 +14,41 @@
     INIT SECTION
     ============
     -->
+    
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+    
+    <!--Override for generating a NBM self-signing certificate--> 
+    <!-- From: https://netbeans.apache.org/wiki/DevFaqSignNbm.html -->
+    <target name="-init" depends="suite.-init">
+        <!--Create/Update keystore-->
+        <delete file="${keystore.location}${keystore.name}"/>
+        <mkdir dir="${keystore.location}"/>
+        <genkey alias="${keystore.alias}" storepass="${keystore.password}"
+                dname="${keystore.dname}" keyalg="RSA" verbose="true"
+                keysize="2048" validity="90"
+                keystore="${keystore.location}${keystore.name}"/>
+        <!--Update keystore info in projects-->
+        <antcall target="update-keystore-info"/>
+    </target>
 
+    <target name="update-keystore-info">
+        <for list="${modules}" delimiter=":" param="cur" trim="true">
+            <sequential>
+                <mkdir dir="@{cur}/nbproject/"/>
+                <!--Place the information in the properties file-->
+                <propertyfile file="@{cur}/nbproject/project.properties">
+                    <entry  key="keystore" value="../${keystore.location}${keystore.name}"/>
+                    <entry  key="nbm_alias" value="${keystore.alias}"/>
+                </propertyfile>
+                <mkdir dir="@{cur}/nbproject/private/"/>
+                <!--Place the password in the private properties file-->
+                <propertyfile file="@{cur}/nbproject/private/suite-private.properties">
+                    <entry  key="storepass" value="${keystore.password}"/>
+                </propertyfile>
+            </sequential>
+        </for>
+    </target>
+    
     <target name="platformInitialize" depends="-init,platformType,initializeWindows,initializeUnix,initializeMac"/>
     <target name="platformType">
         <condition property="isWindows" >
@@ -90,7 +124,7 @@
     </target>
     
     <target name="run.xj3d.browser"
-            depends="platformInitialize,-init,-jdk-init"
+            depends="platformInitialize,-jdk-init"
             description="Run the 3D Simulation Viewer App">
       
         <!-- first look on command line, otherwise use ${scene} property from build.properties -->

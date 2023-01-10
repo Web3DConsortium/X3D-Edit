@@ -296,29 +296,30 @@
         </delete>-->
     </target>
     
-    <target name="list.server.cert" description="Lists the contents of the savage.nps.edu cert">
+    <target name="list.server.cert" description="Lists the contents of the release/modules/ext/server-cert-keystore.jks">
         <exec executable="keytool" dir="release/modules/ext">
             <arg line="-list -v -keystore server-cert-keystore.jks -storepass ${storepass}"/>
         </exec>
     </target>
     
     <!-- From: https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html -->
-    <target name="generate.nbm.self.signing.cert" description="Generate a 90 day self-signing certificate for signing NBMs">
+    <!-- Keep this for historical reference into custom NBM sighing -->
+<!--    <target name="generate.nbm.self.signing.cert" description="Generate a 90 day self-signing certificate for signing NBMs">
         
-        <!-- Start fresh -->
+         Start fresh 
         <delete file="${keystore}"/>
         
-        <!-- Now generate a new 90 day signing key -->
+         Now generate a new 90 day signing key 
         <exec executable="keytool">
             <arg line="-genkey -noprompt -trustcacerts -keyalg RSA -alias ${cert.alias} -dname ${dn.name} -keypass ${storepass} -storepass ${storepass} -keystore ${keystore} -validity 90 -keysize 2048"/>
         </exec>
-    </target>
+    </target>-->
     <!--
         Generating 2,048 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 90 days
                 for: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
     -->
     
-    <target name="list.nbm.self.signing.cert" description="Lists the contents of the NBM self-signing cert">
+    <target name="list.nbm.self.signing.cert" depends="init" description="Lists the contents of this module's NBM self-signing cert">
         <exec executable="keytool">
             <arg line="-list -v -keystore ${keystore} -storepass ${storepass}"/>
         </exec>
