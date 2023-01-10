@@ -265,7 +265,7 @@
          process is now automated -->
     <target name="update.server.cert" description="To be accomplished anytime there is a certificate change/update, or change in server configuration">
              
-        <!-- Alternate, use OpenSSL hack: https://serverfault.com/questions/139728/how-to-download-the-ssl-certificate-from-a-website -->
+        <!-- OpenSSL hack: https://serverfault.com/questions/139728/how-to-download-the-ssl-certificate-from-a-website -->
         <exec executable="bash" dir="release/modules/ext">
             <arg value="-c"/>
             <arg value="openssl s_client -servername ${cert.alias} -connect ${cert.alias}:443 | openssl x509 &gt; ${cert.alias}.cer"/>
@@ -280,7 +280,7 @@
         
         <!-- Import the JDK's keystore -->
         <exec executable="keytool" dir="release/modules/ext">
-            <arg line="-importkeystore -v -srckeystore ${java.home}/lib/security/cacerts -storepass ${storepass} -destkeystore server-cert-keystore.jks"/>
+            <arg line="-importkeystore -v -srckeystore ${java.home}/lib/security/cacerts -srcstorepass ${storepass} -storepass ${storepass} -destkeystore server-cert-keystore.jks"/>
         </exec>
         
         <!-- Now, import the updated Savage server cert into the keystore -->
@@ -301,23 +301,6 @@
             <arg line="-list -v -keystore server-cert-keystore.jks -storepass ${storepass}"/>
         </exec>
     </target>
-    
-    <!-- From: https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html -->
-    <!-- Keep this for historical reference into custom NBM sighing -->
-<!--    <target name="generate.nbm.self.signing.cert" description="Generate a 90 day self-signing certificate for signing NBMs">
-        
-         Start fresh 
-        <delete file="${keystore}"/>
-        
-         Now generate a new 90 day signing key 
-        <exec executable="keytool">
-            <arg line="-genkey -noprompt -trustcacerts -keyalg RSA -alias ${cert.alias} -dname ${dn.name} -keypass ${storepass} -storepass ${storepass} -keystore ${keystore} -validity 90 -keysize 2048"/>
-        </exec>
-    </target>-->
-    <!--
-        Generating 2,048 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 90 days
-                for: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
-    -->
     
     <target name="list.nbm.self.signing.cert" depends="init" description="Lists the contents of this module's NBM self-signing cert">
         <exec executable="keytool">
