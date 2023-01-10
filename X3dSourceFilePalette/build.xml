@@ -289,11 +289,11 @@
         </exec>
         
         <!-- Delete the server certificate as it's now imported into the JKS -->
-<!--        <delete>
+        <delete>
             <fileset dir="release/modules/ext">
                 <filename name="${cert.alias}.c*"/>
             </fileset>
-        </delete>-->
+        </delete>
     </target>
     
     <target name="list.server.cert" description="Lists the contents of the release/modules/ext/server-cert-keystore.jks">
