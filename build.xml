@@ -18,15 +18,21 @@
     <taskdef resource="net/sf/antcontrib/antlib.xml"/>
     
     <!--Override for generating a NBM self-signing certificate--> 
-    <!-- From: https://netbeans.apache.org/wiki/DevFaqSignNbm.html -->
+    <!-- Based on https://netbeans.apache.org/wiki/DevFaqSignNbm.html -->
     <target name="-init" depends="suite.-init">
         <!--Create/Update keystore-->
         <delete file="${keystore.location}${keystore.name}"/>
         <mkdir dir="${keystore.location}"/>
         <genkey alias="${keystore.alias}" storepass="${keystore.password}"
                 dname="${keystore.dname}" keyalg="RSA" verbose="true"
-                keysize="2048" validity="90"
+                keysize="2048" validity="90" storetype="PKCS12"
                 keystore="${keystore.location}${keystore.name}"/>
+        
+        <!-- Now show the signing certificate -->
+        <exec executable="keytool">
+            <arg line="-list -v -keystore ${keystore.location}${keystore.name} -storepass ${keystore.password}"/>
+        </exec>
+        
         <!--Update keystore info in projects-->
         <antcall target="update-keystore-info"/>
     </target>
@@ -45,6 +51,23 @@
                 <propertyfile file="@{cur}/nbproject/private/suite-private.properties">
                     <entry  key="storepass" value="${keystore.password}"/>
                 </propertyfile>
+                
+                <!-- First, delete the old alias. If a new savage server cert was generated,
+                     then the alias will not be present and this error will show:
+                    
+                     keytool error: java.lang.Exception: Alias <nbmsigner> does not exist
+                     Result: 1
+                     
+                     This is benign and will not occur on the next gen. of the self signed cert
+                -->
+                <exec executable="keytool">
+                    <arg line="-delete -alias ${keystore.alias} -storepass ${keystore.password} -keystore @{cur}/release/modules/ext/server-cert-keystore.jks"/>
+                </exec>
+                
+                <!-- Import newly generated self-signed cert -->
+                <exec executable="keytool">
+                    <arg line="-importkeystore -v -srckeystore ${keystore.location}${keystore.name} -srcstorepass ${keystore.password} -storepass ${keystore.password} -destkeystore @{cur}/release/modules/ext/server-cert-keystore.jks"/>
+                </exec>
             </sequential>
         </for>
     </target>
