@@ -198,6 +198,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                             outputWriterError.println(s);
                         }
                     }
+                    outputWriterPlain.println("X3D regex check: complete");
 
                     // continue with XSLT transformation (depends on saxon)
                     TransformableSupport transformer = x3dDataObject.getTransformXmlHelper();
