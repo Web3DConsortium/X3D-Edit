@@ -57,6 +57,7 @@ public class HANIMHUMANOID extends X3DTransformNode
   private String      description;
   private String      info;
   private String      name;
+  private String      skeletalConfiguration; // X3D 4.0
   private String      version;
   private String      prefix; // calculated from DEF = prefix + name
   private SFInt32     loa, loaDefault;
@@ -112,6 +113,8 @@ public class HANIMHUMANOID extends X3DTransformNode
     translationX = translationXDefault = new SFFloat(sa[0]);
     translationY = translationYDefault = new SFFloat(sa[1]);
     translationZ = translationZDefault = new SFFloat(sa[2]);
+    
+    skeletalConfiguration = HANIMHUMANOID_ATTR_SKELETALCONFIGURATION_DFLT;
     
     version = HANIMHUMANOID_ATTR_VERSION_DFLT;
     
@@ -206,9 +209,15 @@ public class HANIMHUMANOID extends X3DTransformNode
       translationY = new SFFloat(sa[1]);
       translationZ = new SFFloat(sa[2]);
     }
+    
+    attr = root.getAttribute(HANIMHUMANOID_ATTR_SKELETALCONFIGURATION_NAME);
+    if (attr != null)
+      skeletalConfiguration = attr.getValue();
+    
     attr = root.getAttribute(HANIMHUMANOID_ATTR_VERSION_NAME);
     if (attr != null)
       version = attr.getValue();
+    
     attr = root.getAttribute(HANIMHUMANOID_ATTR_BBOXCENTER_NAME);
     if (attr != null){
       sa = parse3(attr.getValue());
@@ -365,6 +374,13 @@ public class HANIMHUMANOID extends X3DTransformNode
       sb.append(translationZ);
       sb.append("'");
     }
+    if (true || HANIMHUMANOID_ATTR_SKELETALCONFIGURATION_REQD || !skeletalConfiguration.equals(HANIMHUMANOID_ATTR_SKELETALCONFIGURATION_DFLT) ) {
+      sb.append(" ");
+      sb.append(HANIMHUMANOID_ATTR_SKELETALCONFIGURATION_NAME);
+      sb.append("='");
+      sb.append(skeletalConfiguration);
+      sb.append("'");
+    }
     // always output HAnimHumanoid version as a good practice, given all the mixups with past versions and possibilities for future versions
     if (true || HANIMHUMANOID_ATTR_VERSION_REQD || !version.equals(HANIMHUMANOID_ATTR_VERSION_DFLT) ) {
       sb.append(" ");
@@ -408,13 +424,15 @@ public class HANIMHUMANOID extends X3DTransformNode
     this.description = description;
   }
 
-  public String getInfo()     {return info;}
-  public String getName()     {return name;}
-  public String getVersion()  {return version;}
+  public String getInfo()                   {return info;}
+  public String getName()                   {return name;}
+  public String getSkeletalConfiguration()  {return skeletalConfiguration;}
+  public String getVersion()                {return version;}
 
-  public void setInfo(String s)   {info = s;}
-  public void setName(String s)   {name = s;}
-  public void setVersion(String s)          {version = s;}
+  public void setInfo(String s)                 {info = s;}
+  public void setName(String s)                 {name = s;}
+  public void setSkeletalConfiguration(String s){skeletalConfiguration = s;}
+  public void setVersion(String s)              {version = s;}
 
     /**
      * calculated from DEF = prefix + name

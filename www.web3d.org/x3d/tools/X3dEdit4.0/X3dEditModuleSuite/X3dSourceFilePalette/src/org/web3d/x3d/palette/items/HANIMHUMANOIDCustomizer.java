@@ -449,12 +449,15 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         nameWarningLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
-        descriptionLabel = new javax.swing.JLabel();
-        descriptionTF = new javax.swing.JTextField();
         versionLabel = new javax.swing.JLabel();
         versionCombo = new javax.swing.JComboBox<>();
         loaLabel = new javax.swing.JLabel();
         loaComboBox = new javax.swing.JComboBox<>();
+        descriptionLabel = new javax.swing.JLabel();
+        descriptionTF = new javax.swing.JTextField();
+        skeletalConfigurationLabel = new javax.swing.JLabel();
+        skeletalConfigurationTF = new javax.swing.JTextField();
+        skeletalConfigurationDefaultButton = new javax.swing.JButton();
         xLabel = new javax.swing.JLabel();
         yLabel = new javax.swing.JLabel();
         zLabel = new javax.swing.JLabel();
@@ -621,44 +624,10 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(nameTextField, gridBagConstraints);
 
-        descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
-        descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        descriptionLabel.setText("description");
-        descriptionLabel.setToolTipText("Text description to be displayed for action of this node");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        fieldsPanel.add(descriptionLabel, gridBagConstraints);
-
-        descriptionTF.setForeground(new java.awt.Color(0, 153, 153));
-        descriptionTF.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
-        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
-        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
-        descriptionTF.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                descriptionTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        fieldsPanel.add(descriptionTF, gridBagConstraints);
-
         versionLabel.setForeground(new java.awt.Color(0, 153, 153));
         versionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         versionLabel.setText("version");
-        versionLabel.setToolTipText("Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
+        versionLabel.setToolTipText("(v4.0) Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -670,7 +639,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
 
         versionCombo.setEditable(true);
         versionCombo.setModel(new DefaultComboBoxModel<String>(HANIMHUMANOID_ATTR_VERSION_CHOICES));
-        versionCombo.setToolTipText("Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
+        versionCombo.setToolTipText("(v4.0) Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
         versionCombo.setMinimumSize(new java.awt.Dimension(50, 20));
         versionCombo.setPreferredSize(new java.awt.Dimension(50, 20));
         versionCombo.addActionListener(new java.awt.event.ActionListener()
@@ -693,7 +662,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         loaLabel.setForeground(new java.awt.Color(0, 153, 153));
         loaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         loaLabel.setText("loa");
-        loaLabel.setToolTipText("Level Of Articulation 0..4 for HAnim complexity and detail, -1 means noncompliant");
+        loaLabel.setToolTipText("(v4.0) Level Of Articulation 0..4 for HAnim complexity and detail, -1 means noncompliant");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -705,7 +674,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
 
         loaComboBox.setEditable(true);
         loaComboBox.setModel(new DefaultComboBoxModel<String>(HANIMHUMANOID_ATTR_LOA_CHOICES));
-        loaComboBox.setToolTipText("Level Of Articulation 0..4 for HAnim complexity and detail, -1 means noncompliant");
+        loaComboBox.setToolTipText("(v4.0) Level Of Articulation 0..4 for HAnim complexity and detail, -1 means noncompliant");
         loaComboBox.setMinimumSize(new java.awt.Dimension(50, 20));
         loaComboBox.setPreferredSize(new java.awt.Dimension(50, 20));
         loaComboBox.addActionListener(new java.awt.event.ActionListener()
@@ -724,6 +693,91 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(loaComboBox, gridBagConstraints);
+
+        descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        descriptionLabel.setText("description");
+        descriptionLabel.setToolTipText("(v4.0) Text description to be displayed for action of this node");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(descriptionLabel, gridBagConstraints);
+
+        descriptionTF.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionTF.setToolTipText("(v4.0) Author-provided prose that describes intended purpose of the node");
+        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
+        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
+        descriptionTF.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                descriptionTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(descriptionTF, gridBagConstraints);
+
+        skeletalConfigurationLabel.setForeground(new java.awt.Color(0, 153, 153));
+        skeletalConfigurationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        skeletalConfigurationLabel.setText("skeletalConfiguration");
+        skeletalConfigurationLabel.setToolTipText("(v4.0) Models sharing common skeletalConfiguration can share animations");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(skeletalConfigurationLabel, gridBagConstraints);
+
+        skeletalConfigurationTF.setForeground(new java.awt.Color(0, 153, 153));
+        skeletalConfigurationTF.setToolTipText("(v4.0) Models sharing common skeletalConfiguration can share animations");
+        skeletalConfigurationTF.setMinimumSize(new java.awt.Dimension(50, 20));
+        skeletalConfigurationTF.setPreferredSize(new java.awt.Dimension(50, 20));
+        skeletalConfigurationTF.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                skeletalConfigurationTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(skeletalConfigurationTF, gridBagConstraints);
+
+        skeletalConfigurationDefaultButton.setForeground(new java.awt.Color(0, 153, 153));
+        skeletalConfigurationDefaultButton.setText("default");
+        skeletalConfigurationDefaultButton.setToolTipText("set default value BASIC");
+        skeletalConfigurationDefaultButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                skeletalConfigurationDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(skeletalConfigurationDefaultButton, gridBagConstraints);
 
         xLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         xLabel.setText("x");
@@ -1287,7 +1341,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(infoExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                .addComponent(infoExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1310,7 +1364,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             jointBindingPositionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jointBindingPositionsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jointBindingPositionsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                .addComponent(jointBindingPositionsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1333,7 +1387,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             jointBindingRotationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jointBindingRotationsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jointBindingRotationsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                .addComponent(jointBindingRotationsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1356,11 +1410,11 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         );
         jointBindingScalesPanelLayout.setVerticalGroup(
             jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 307, Short.MAX_VALUE)
+            .addGap(0, 313, Short.MAX_VALUE)
             .addGroup(jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jointBindingScalesPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jointBindingScalesExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                    .addComponent(jointBindingScalesExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -1690,6 +1744,16 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         loaComboBox.setToolTipText(HANIMHUMANOID_ATTR_LOA_TOOLTIPS[loaComboBox.getSelectedIndex()]);
     }//GEN-LAST:event_loaComboBoxActionPerformed
 
+    private void skeletalConfigurationTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_skeletalConfigurationTFActionPerformed
+    {//GEN-HEADEREND:event_skeletalConfigurationTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skeletalConfigurationTFActionPerformed
+
+    private void skeletalConfigurationDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_skeletalConfigurationDefaultButtonActionPerformed
+    {//GEN-HEADEREND:event_skeletalConfigurationDefaultButtonActionPerformed
+        skeletalConfigurationTF.setText(HANIMHUMANOID_ATTR_SKELETALCONFIGURATION_DFLT);
+    }//GEN-LAST:event_skeletalConfigurationDefaultButtonActionPerformed
+
   @Override
   public String getNameKey()
   {
@@ -1899,6 +1963,9 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     private javax.swing.JTextField scaleXTF;
     private javax.swing.JTextField scaleYTF;
     private javax.swing.JTextField scaleZTF;
+    private javax.swing.JButton skeletalConfigurationDefaultButton;
+    private javax.swing.JLabel skeletalConfigurationLabel;
+    private javax.swing.JTextField skeletalConfigurationTF;
     private javax.swing.JLabel translationLabel;
     private javax.swing.JComboBox<String> translationModificationComboBox;
     private javax.swing.JTextField translationXTF;
