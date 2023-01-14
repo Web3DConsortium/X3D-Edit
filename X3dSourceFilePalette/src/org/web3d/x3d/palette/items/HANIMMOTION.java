@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -68,7 +68,8 @@ public class HANIMMOTION extends X3DInterpolatorNode
   private String      joints, jointsDefault;
   private SFInt32     loa, loaDefault;
   private boolean     loop, loopDefault;
-  private String      name, nameDefault; // TODO add to spec?
+  private String      name, nameDefault;     // X3D 4.0
+  private String      skeletalConfiguration; // X3D 4.1
   private SFInt32     startFrame, startFrameDefault;
   private SFFloat[][] values, valuesDefault;
   private boolean     insertCommas, insertLineBreaks = false;
@@ -119,6 +120,8 @@ public class HANIMMOTION extends X3DInterpolatorNode
     setFrameDuration(frameDurationDefault = new SFDouble(HANIMMOTION_ATTR_FRAMEDURATION_DFLT,0.0,null)); // SFTime
     setEnabled(enabledDefault         = Boolean.parseBoolean(HANIMMOTION_ATTR_ENABLED_DFLT));
     setLoop(loopDefault               = Boolean.parseBoolean(HANIMMOTION_ATTR_LOOP_DFLT));
+    
+    skeletalConfiguration = HANIMMOTION_ATTR_SKELETALCONFIGURATION_DFLT;
         
     if(HANIMMOTION_ATTR_VALUES_DFLT == null || HANIMMOTION_ATTR_VALUES_DFLT.isBlank())
       sa = new String[]{}; // empty 
@@ -193,6 +196,10 @@ public class HANIMMOTION extends X3DInterpolatorNode
     attr = root.getAttribute(HANIMMOTION_ATTR_LOA_NAME);
     if(attr != null)
         setLoa(new SFInt32(attr.getValue(), -1, 4));
+    
+    attr = root.getAttribute(HANIMMOTION_ATTR_SKELETALCONFIGURATION_NAME);
+    if (attr != null)
+      skeletalConfiguration = attr.getValue();
     
     attr = root.getAttribute(HANIMMOTION_ATTR_VALUES_NAME);
     if (attr != null)
@@ -310,6 +317,13 @@ public class HANIMMOTION extends X3DInterpolatorNode
       sb.append(HANIMMOTION_ATTR_NAME_NAME);
       sb.append("='");
       sb.append(getName());
+      sb.append("'");
+    }
+    if (true || HANIMMOTION_ATTR_SKELETALCONFIGURATION_REQD || !skeletalConfiguration.equals(HANIMMOTION_ATTR_SKELETALCONFIGURATION_DFLT) ) {
+      sb.append(" ");
+      sb.append(HANIMMOTION_ATTR_SKELETALCONFIGURATION_NAME);
+      sb.append("='");
+      sb.append(skeletalConfiguration);
       sb.append("'");
     }
     if (HANIMMOTION_ATTR_STARTFRAME_REQD || (getStartFrame().getValue() != startFrameDefault.getValue())) {
@@ -543,7 +557,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
     {
         this.name = name;
     }
-
+    
     /**
      * @return the startFrame
      */
@@ -659,5 +673,21 @@ public class HANIMMOTION extends X3DInterpolatorNode
     public void setNumberColumns(int numberColumns)
     {
         this.numberColumns = numberColumns;
+    }
+
+    /**
+     * @return the skeletalConfiguration
+     */
+    public String getSkeletalConfiguration()
+    {
+        return skeletalConfiguration;
+    }
+
+    /**
+     * @param newSkeletalConfiguration the skeletalConfiguration to set
+     */
+    public void setSkeletalConfiguration(String newSkeletalConfiguration)
+    {
+        this.skeletalConfiguration = newSkeletalConfiguration;
     }
 }
