@@ -438,7 +438,7 @@ public interface X3DSchemaData
   String[]COMPONENT_ATTR_NAME_CHOICES = {
       "CADGeometry","Core","CubeMapTexturing","DIS","EnvironmentalEffects","EnvironmentalSensor","EventUtilities","Followers","Geometry2D","Geometry3D","Geospatial",
       "Grouping","HAnim","Interpolation","KeyDeviceSensor","Layering","Layout","Lighting","Navigation","Networking","NURBS","ParticleSystems","PickingSensor",
-      "PointDeviceSensor","Shaders","Rendering","RigidBodyPhysics","Scripting","Shape","Sound","Text","Texturing","Texturing3D","Time","VolumeRendering"
+      "PointDeviceSensor","Shaders","Rendering","RigidBodyPhysics","Scripting","Shape","Sound","Text","TextureProjection","Texturing","Texturing3D","Time","VolumeRendering"
   };
   // Xj3D components from   http://www.xj3d.org/extensions/index.html
   String[]COMPONENT_ATTR_NAME_CHOICES_XJ3D = {
