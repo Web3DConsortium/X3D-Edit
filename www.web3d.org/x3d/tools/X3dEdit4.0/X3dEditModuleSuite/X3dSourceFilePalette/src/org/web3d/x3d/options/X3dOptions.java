@@ -142,7 +142,9 @@ public class X3dOptions
   
   public static String  AUTHOR_NAME_DEFAULT             = System.getProperty("user.name");
   public static String  AUTHOR_EMAIL_DEFAULT            = "";
-  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT = System.getProperty("user.dir");
+  // https://stackoverflow.com/questions/585534/what-is-the-best-way-to-find-the-users-home-directory-in-java
+  // TODO is /Desktop OK on MacOSX and Linux?
+  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
   
   // there is no unique best default path as a user could store examples anywhere on their local machine
   // thus user.dir property persistence will allow a path to be remembered
