@@ -101,14 +101,15 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
   public static final int XML_SECURITY_PANE              = 7;
     
   // https://docs.oracle.com/en/java/javase/19/docs/api/java.desktop/javax/swing/JTabbedPane.html#setSelectedIndex(int)
-  private int preferredPaneIndex = X3D_PLAYERS_PANE; // initial pane at at launch, does existing class remember prior setting?
+  private int preferredPaneIndex = -1; // initial pane at at launch, does existing class remember prior setting?
   
   private final String EXAMPLES_DIRECTORY_TF_DEFAULT_MESSAGE = "(root directory of X3D Examples Archives, first initialized by example model archives download or user)";
 
   OptionsMiscellaneousX3dPanel(int initialPanelIndex)
   {
       this(null);
-      preferredPaneIndex = initialPanelIndex;
+      if (initialPanelIndex >= 0)
+          preferredPaneIndex = initialPanelIndex;
       if (initialPanelIndex != -1)
           x3dOptionsTabbedPane.setSelectedIndex(initialPanelIndex);
   }
@@ -176,7 +177,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         authorExamplesDirectoryClearButton = new javax.swing.JButton();
         authorExamplesDirectoryButton = new javax.swing.JButton();
         authorExamplesDirectoryDefaultButton = new javax.swing.JButton();
-        downloadLocalExamplesEarchivesButton = new javax.swing.JButton();
+        downloadLocalExamplesArchivesButton = new javax.swing.JButton();
         verticalSpacerLabel19 = new javax.swing.JLabel();
         reportAuthorButton = new javax.swing.JButton();
         x3dPlayerPathsPanel = new javax.swing.JPanel();
@@ -547,7 +548,6 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         reportWebMultimediaToolsButton = new javax.swing.JButton();
         x3dEditVisualizationPreferencesPanel = new javax.swing.JPanel();
         verticalSpacerLabel2 = new javax.swing.JLabel();
-        horizontalSpacerLabel = new javax.swing.JLabel();
         nodeEditingOptionsPanel = new javax.swing.JPanel();
         showNewLineOptionCheckBox = new javax.swing.JCheckBox();
         prependNewLineCheckBox = new javax.swing.JCheckBox();
@@ -656,6 +656,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         x3dOptionsTabbedPane.setMinimumSize(new java.awt.Dimension(825, 600));
         x3dOptionsTabbedPane.setPreferredSize(new java.awt.Dimension(850, 600));
 
+        authorSettingsPanel.setToolTipText("");
         authorSettingsPanel.setLayout(new java.awt.GridBagLayout());
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel20, "   ");
@@ -884,12 +885,12 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(authorExamplesDirectoryDefaultButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(downloadLocalExamplesEarchivesButton, "Download local examples");
-        downloadLocalExamplesEarchivesButton.addActionListener(new java.awt.event.ActionListener()
+        org.openide.awt.Mnemonics.setLocalizedText(downloadLocalExamplesArchivesButton, "Download local examples");
+        downloadLocalExamplesArchivesButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                downloadLocalExamplesEarchivesButtonActionPerformed(evt);
+                downloadLocalExamplesArchivesButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -898,7 +899,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        authorSettingsPanel.add(downloadLocalExamplesEarchivesButton, gridBagConstraints);
+        authorSettingsPanel.add(downloadLocalExamplesArchivesButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel19, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -6993,16 +6994,6 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         x3dEditVisualizationPreferencesPanel.add(verticalSpacerLabel2, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(horizontalSpacerLabel, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weighty = 1.0;
-        x3dEditVisualizationPreferencesPanel.add(horizontalSpacerLabel, gridBagConstraints);
-
         nodeEditingOptionsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Node editing options", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         nodeEditingOptionsPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -8585,8 +8576,6 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
 
         x3dOptionsTabbedPane.addTab(NbBundle.getMessage(getClass(), "Security_Tab_Title"), x3dSecurityPanel); // NOI18N
 
-        x3dOptionsTabbedPane.setSelectedIndex(1);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -8702,7 +8691,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
 }//GEN-LAST:event_otherX3dPlayerDownloadButtonActionPerformed
 
 private void keystoreDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreDirectoryButtonActionPerformed
-    commonChooser(keystoreDirectoryTF, "Get XML Keystore directory and file", evt);
+    commonChooser(keystoreDirectoryTF, "Choose XML Keystore directory and file", evt);
     // TODO split
     X3dOptions.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
     setKeystoreFileName(keystoreFileNameTF.getText());
@@ -10645,14 +10634,15 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void authorExamplesDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryButtonActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryButtonActionPerformed
         // file chooser looks in given directory first
-        commonChooser(authorExamplesDirectoryTF, "Get local examples root directory", evt);
+        commonChooser(authorExamplesDirectoryTF, "Choose local examples root directory", evt);
         authorExamplesDirectoryTF.setText(      authorExamplesDirectoryTF.getText().trim());
         X3dOptions.setExamplesRootDirectory (authorExamplesDirectoryTF.getText());
     }//GEN-LAST:event_authorExamplesDirectoryButtonActionPerformed
 
     private void authorExamplesDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryDefaultButtonActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryDefaultButtonActionPerformed
-        setExamplesRootDirectory(EXAMPLES_ROOT_DIRECTORY_DEFAULT);
+        authorExamplesDirectoryTF.setText(EXAMPLES_ROOT_DIRECTORY_DEFAULT); // user.home
+        X3dOptions.setExamplesRootDirectory(authorExamplesDirectoryTF.getText());
     }//GEN-LAST:event_authorExamplesDirectoryDefaultButtonActionPerformed
 
     private void keystorePasswordTFFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_keystorePasswordTFFocusLost
@@ -10682,8 +10672,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         authorEmailTextField.setText("");
     }//GEN-LAST:event_authorEmailClearButtonActionPerformed
 
-    private void downloadLocalExamplesEarchivesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_downloadLocalExamplesEarchivesButtonActionPerformed
-    {//GEN-HEADEREND:event_downloadLocalExamplesEarchivesButtonActionPerformed
+    private void downloadLocalExamplesArchivesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_downloadLocalExamplesArchivesButtonActionPerformed
+    {//GEN-HEADEREND:event_downloadLocalExamplesArchivesButtonActionPerformed
         DownloadX3dExamplesArchivesAction downloadX3dExamplesArchivesAction = new DownloadX3dExamplesArchivesAction();
         SwingUtilities.invokeLater(() -> {
           downloadX3dExamplesArchivesAction.performAction();
@@ -10693,7 +10683,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         JComponent parentComponent = (JComponent) evt.getSource();
         Window     parentWindow    = SwingUtilities.getWindowAncestor(parentComponent);
         parentWindow.dispose();
-    }//GEN-LAST:event_downloadLocalExamplesEarchivesButtonActionPerformed
+    }//GEN-LAST:event_downloadLocalExamplesArchivesButtonActionPerformed
 
     private void keystorePasswordTFClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystorePasswordTFClearButtonActionPerformed
     {//GEN-HEADEREND:event_keystorePasswordTFClearButtonActionPerformed
@@ -11637,7 +11627,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton defaultEditorOptionsButton;
     private javax.swing.JButton defaultVisualizationSettingsButton;
     private javax.swing.JLabel defunctX3dEditorLabel;
-    private javax.swing.JButton downloadLocalExamplesEarchivesButton;
+    private javax.swing.JButton downloadLocalExamplesArchivesButton;
     private javax.swing.JLabel externalOntologyEditorLabel;
     private javax.swing.JLabel externalVideoEditorLabel;
     private javax.swing.JLabel externalVolumeEditorLabel;
@@ -11699,7 +11689,6 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel heilanLabel;
     private javax.swing.JButton heilanLaunchButton;
     private javax.swing.JTextField heilanTF;
-    private javax.swing.JLabel horizontalSpacerLabel;
     private javax.swing.JLabel horizontalSpacerLabel1;
     private javax.swing.JLabel htmlToolsLabel;
     private javax.swing.JCheckBox imageJCheckBox;
@@ -12035,9 +12024,12 @@ otherSemanticWebEditorAutoLaunchCheck();
      */
     public void setPreferredPane(int index)
     {
-        preferredPaneIndex = index;
-        x3dOptionsTabbedPane.setSelectedIndex(preferredPaneIndex);
-        preferredPaneIndex = -1;
+        if (index >= -1)
+        {
+            preferredPaneIndex = index;
+            x3dOptionsTabbedPane.setSelectedIndex(preferredPaneIndex);
+            preferredPaneIndex = -1;
+        }
     }
     public class keyStoreFileTypeFilter extends FileFilter
     {
