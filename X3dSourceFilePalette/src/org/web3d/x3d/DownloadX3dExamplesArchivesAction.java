@@ -35,6 +35,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d;
 
 import java.awt.BorderLayout;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -56,6 +57,10 @@ import org.openide.util.HelpCtx;
 import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_EXAMPLES_ARCHIVES;
+import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
+import static org.web3d.x3d.actions.LaunchX3dExamplesAction.sendBrowserTo;
+import static org.web3d.x3d.palette.items.BaseCustomizer.MAILTO_TOOLTIP;
 // no longer supported import org.netbeans.api.javahelp.Help;
 
 @ActionID(id = "org.web3d.x3d.DownloadX3dExamplesArchivesAction", category = "X3D-Edit")
@@ -94,7 +99,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
-        final ActionListener al = (ActionEvent e) -> {
+        final ActionListener closeActionListener = (ActionEvent e) -> {
           if (frame != null) {
               if (panel != null) {
                   if (panel.isRunning()) {
@@ -109,26 +114,38 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
           }
         } // Close button handler
         ;
-        buttonBar.closeButton.addActionListener(al);
-        final ActionListener hl = (ActionEvent e) -> {
+        buttonBar.closeButton.addActionListener(closeActionListener);        
+        
+        final ActionListener helpActionListener = (ActionEvent e) ->
+        {            
+            sendBrowserTo(X3D_RESOURCES_EXAMPLES_ARCHIVES);
+            
 // TODO convert from JavaHelp to help page
 //          Help help = Lookup.getDefault().lookup(Help.class);
 //          if (help != null) {
 //              help.showHelp(getHelpCtx());
 //          }
         };
-        buttonBar.helpButton.addActionListener(hl);
+        buttonBar.helpButton.addActionListener(helpActionListener);
+        buttonBar.helpButton.setToolTipText("Show X3D Resources: Example Archives");
+        
+        final ActionListener reportActionListener = (ActionEvent e) ->
+        {            
+           LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + ", X3D-Edit Manage KeyStore");
+        };
+        buttonBar.reportButton.addActionListener(reportActionListener);
+        buttonBar.reportButton.setToolTipText(MAILTO_TOOLTIP);
 
         // Window title-bar close button handler
-        WindowAdapter wl = new WindowAdapter()
+        WindowAdapter windowListener = new WindowAdapter()
         {
             @Override
             public void windowClosed(WindowEvent e)
             {
-              al.actionPerformed(null);
+              closeActionListener.actionPerformed(null);
             }
         };
-        frame.addWindowListener(wl);
+        frame.addWindowListener(windowListener);
     }
     frame.setLocationRelativeTo(null); // center of screen
     frame.setVisible(true);
@@ -136,15 +153,36 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
 
   class buttonBar extends JPanel
   {
-    JButton helpButton, closeButton;
+    JButton helpButton, closeButton, reportButton;
 
     buttonBar()
     {
-      setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-      setBorder(new EmptyBorder(12, 12, 12, 12));
-      add(Box.createHorizontalGlue());
-      add(closeButton = new JButton("Close"));
-      add(helpButton = new JButton("Help"));
+        java.awt.GridBagLayout gridBagLayout= new java.awt.GridBagLayout();
+        
+        java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor  = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.fill    = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets  = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.weightx = 1.0;
+        
+        setLayout(gridBagLayout);
+        setBorder(new EmptyBorder(3, 3, 3, 3));
+//        add(Box.createHorizontalGlue());
+        javax.swing.JLabel horizontalSpacerLabel = new javax.swing.JLabel();
+        add(horizontalSpacerLabel,                gridBagConstraints);
+        
+         closeButton = new JButton("Close") ;
+        reportButton = new JButton("Report");
+          helpButton = new JButton("Help")  ;
+      
+         closeButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        reportButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+          helpButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        
+        gridBagConstraints.weightx = 0.0;
+        add( closeButton, gridBagConstraints);
+        add(reportButton, gridBagConstraints);
+        add(  helpButton, gridBagConstraints);
     }
   }
 
