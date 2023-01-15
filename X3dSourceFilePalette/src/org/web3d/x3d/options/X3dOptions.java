@@ -108,6 +108,14 @@ public class X3dOptions
   private static String AUTHOR_EMAIL_KEY                      = "AUTHOR_EMAIL";
   private static String EXAMPLES_ROOT_DIRECTORY_KEY           = "EXAMPLES_ROOT_DIRECTORY";
   
+  private static String             BASIC_LOCALEXAMPLES_PRESENT_KEY =             "BASIC_LOCALEXAMPLES_PRESENT_KEY";
+  private static String   CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY =   "CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY";
+  private static String HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY = "HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY";
+  private static String    VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY =    "VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY";
+  private static String            SAVAGE_LOCALEXAMPLES_PRESENT_KEY =            "SAVAGE_LOCALEXAMPLES_PRESENT_KEY";
+  private static String            X3D4WA_LOCALEXAMPLES_PRESENT_KEY =            "X3D4WA_LOCALEXAMPLES_PRESENT_KEY";
+  private static String            X3D4AM_LOCALEXAMPLES_PRESENT_KEY =            "X3D4AM_LOCALEXAMPLES_PRESENT_KEY";
+  
   private static String KEYSTORE_PASSWORD_KEY                 = "KEYSTORE_PASSWORD_KEY";
   private static String KEYSTORE_FILENAME_KEY                 = "KEYSTORE_FILENAME_KEY";
   private static String KEYSTORE_DIRECTORY_KEY                = "KEYSTORE_DIRECTORY_KEY";
@@ -156,52 +164,60 @@ public class X3dOptions
   // https://stackoverflow.com/questions/5971964/when-should-i-use-file-separator-and-when-file-pathseparator
   public static String  KEYSTORE_PATH_DEFAULT           = System.getProperty("user.dir") + File.separator + KEYSTORE_FILENAME_DEFAULT;
 
-  public static void    setShowNewlineOption       (boolean tf)    {commonBSet(SHOW_NEWLINE_OPTION_KEY,tf);}
-  public static void    setPrependNewline          (boolean tf)    {commonBSet(    PREPEND_NEWLINE_KEY,tf);}
-  public static void    setAppendNewline           (boolean tf)    {commonBSet(     APPEND_NEWLINE_KEY,tf);}
-  public static void    setAutoValidate            (boolean tf)    {commonBSet(       AUTOVALIDATE_KEY,tf);}
-  public static void    setVisualizeCoordinateAxes (boolean tf)    {commonBSet(VISUALIZE_COORDINATE_AXES_KEY,tf);}
-  public static void    setVisualizeCenterLine     (boolean tf)    {commonBSet(VISUALIZE_CENTER_LINE_KEY,tf);}
-  public static void    setVisualizeConeLines      (String count)  { commonSet(VISUALIZE_CONE_LINES_KEY,count);}
-  public static void    setVisualizeLineColorRed   (String color)  { commonSet(VISUALIZE_LINECOLOR_RED_KEY,color);}
-  public static void    setVisualizeLineColorGreen (String color)  { commonSet(VISUALIZE_LINECOLOR_GREEN_KEY,color);}
-  public static void    setVisualizeLineColorBlue  (String color)  { commonSet(VISUALIZE_LINECOLOR_BLUE_KEY,color);}
-  public static void    setVisualizeShapeColorRed   (String color) { commonSet(VISUALIZE_SHAPECOLOR_RED_KEY,color);}
-  public static void    setVisualizeShapeColorGreen (String color) { commonSet(VISUALIZE_SHAPECOLOR_GREEN_KEY,color);}
-  public static void    setVisualizeShapeColorBlue  (String color) { commonSet(VISUALIZE_SHAPECOLOR_BLUE_KEY,color);}
-  public static void    setVisualizeTransparency   (String transparency) {commonSet(VISUALIZE_TRANSPARENCY_KEY,transparency);}
+  public static void    setShowNewlineOption       (boolean tf)    {commonBooleanSet(SHOW_NEWLINE_OPTION_KEY,tf);}
+  public static void    setPrependNewline          (boolean tf)    {commonBooleanSet(    PREPEND_NEWLINE_KEY,tf);}
+  public static void    setAppendNewline           (boolean tf)    {commonBooleanSet(     APPEND_NEWLINE_KEY,tf);}
+  public static void    setAutoValidate            (boolean tf)    {commonBooleanSet(       AUTOVALIDATE_KEY,tf);}
+  public static void    setVisualizeCoordinateAxes (boolean tf)    {commonBooleanSet(VISUALIZE_COORDINATE_AXES_KEY,tf);}
+  public static void    setVisualizeCenterLine     (boolean tf)    {commonBooleanSet(VISUALIZE_CENTER_LINE_KEY,tf);}
+  public static void    setVisualizeConeLines      (String count)  { commonStringSet(VISUALIZE_CONE_LINES_KEY,count);}
+  public static void    setVisualizeLineColorRed   (String color)  { commonStringSet(VISUALIZE_LINECOLOR_RED_KEY,color);}
+  public static void    setVisualizeLineColorGreen (String color)  { commonStringSet(VISUALIZE_LINECOLOR_GREEN_KEY,color);}
+  public static void    setVisualizeLineColorBlue  (String color)  { commonStringSet(VISUALIZE_LINECOLOR_BLUE_KEY,color);}
+  public static void    setVisualizeShapeColorRed   (String color) { commonStringSet(VISUALIZE_SHAPECOLOR_RED_KEY,color);}
+  public static void    setVisualizeShapeColorGreen (String color) { commonStringSet(VISUALIZE_SHAPECOLOR_GREEN_KEY,color);}
+  public static void    setVisualizeShapeColorBlue  (String color) { commonStringSet(VISUALIZE_SHAPECOLOR_BLUE_KEY,color);}
+  public static void    setVisualizeTransparency   (String transparency) {commonStringSet(VISUALIZE_TRANSPARENCY_KEY,transparency);}
   
-  public static void    setVisualizeHanimCoordinateAxes    (boolean tf)    {commonBSet(VISUALIZE_HANIM_COORDINATE_AXES_KEY,tf);}
-  public static void    setVisualizeHanimJointColorRed     (String color)  { commonSet(VISUALIZE_HANIMJOINTCOLOR_RED_KEY,color);}
-  public static void    setVisualizeHanimJointColorGreen   (String color)  { commonSet(VISUALIZE_HANIMJOINTCOLOR_GREEN_KEY,color);}
-  public static void    setVisualizeHanimJointColorBlue    (String color)  { commonSet(VISUALIZE_HANIMJOINTCOLOR_BLUE_KEY,color);}
-  public static void    setVisualizeHanimSegmentColorRed   (String color)  { commonSet(VISUALIZE_HANIMSEGMENTCOLOR_RED_KEY,color);}
-  public static void    setVisualizeHanimSegmentColorGreen (String color)  { commonSet(VISUALIZE_HANIMSEGMENTCOLOR_GREEN_KEY,color);}
-  public static void    setVisualizeHanimSegmentColorBlue  (String color)  { commonSet(VISUALIZE_HANIMSEGMENTCOLOR_BLUE_KEY,color);}
-  public static void    setVisualizeHanimSiteColorRed      (String color)  { commonSet(VISUALIZE_HANIMSITECOLOR_RED_KEY,color);}
-  public static void    setVisualizeHanimSiteColorGreen    (String color)  { commonSet(VISUALIZE_HANIMSITECOLOR_GREEN_KEY,color);}
-  public static void    setVisualizeHanimSiteColorBlue     (String color)  { commonSet(VISUALIZE_HANIMSITECOLOR_BLUE_KEY,color);}
+  public static void    setVisualizeHanimCoordinateAxes    (boolean tf)    {commonBooleanSet(VISUALIZE_HANIM_COORDINATE_AXES_KEY,tf);}
+  public static void    setVisualizeHanimJointColorRed     (String color)  { commonStringSet(VISUALIZE_HANIMJOINTCOLOR_RED_KEY,color);}
+  public static void    setVisualizeHanimJointColorGreen   (String color)  { commonStringSet(VISUALIZE_HANIMJOINTCOLOR_GREEN_KEY,color);}
+  public static void    setVisualizeHanimJointColorBlue    (String color)  { commonStringSet(VISUALIZE_HANIMJOINTCOLOR_BLUE_KEY,color);}
+  public static void    setVisualizeHanimSegmentColorRed   (String color)  { commonStringSet(VISUALIZE_HANIMSEGMENTCOLOR_RED_KEY,color);}
+  public static void    setVisualizeHanimSegmentColorGreen (String color)  { commonStringSet(VISUALIZE_HANIMSEGMENTCOLOR_GREEN_KEY,color);}
+  public static void    setVisualizeHanimSegmentColorBlue  (String color)  { commonStringSet(VISUALIZE_HANIMSEGMENTCOLOR_BLUE_KEY,color);}
+  public static void    setVisualizeHanimSiteColorRed      (String color)  { commonStringSet(VISUALIZE_HANIMSITECOLOR_RED_KEY,color);}
+  public static void    setVisualizeHanimSiteColorGreen    (String color)  { commonStringSet(VISUALIZE_HANIMSITECOLOR_GREEN_KEY,color);}
+  public static void    setVisualizeHanimSiteColorBlue     (String color)  { commonStringSet(VISUALIZE_HANIMSITECOLOR_BLUE_KEY,color);}
 
-  public static void    setAuthorName                      (String value)  { commonSet(AUTHOR_NAME_KEY, value);}
-  public static void    setAuthorEmail                     (String value)  { commonSet(AUTHOR_EMAIL_KEY, value);}
-  public static void    setExamplesRootDirectory           (String value)  { commonSet(EXAMPLES_ROOT_DIRECTORY_KEY, value);}
+  public static void    setAuthorName                      (String value)  { commonStringSet(AUTHOR_NAME_KEY, value);}
+  public static void    setAuthorEmail                     (String value)  { commonStringSet(AUTHOR_EMAIL_KEY, value);}
+  public static void    setExamplesRootDirectory           (String value)  { commonStringSet(EXAMPLES_ROOT_DIRECTORY_KEY, value);}
   public static void    resetUserOptions ()
   {
                 setAuthorName (AUTHOR_NAME_DEFAULT);
                setAuthorEmail (AUTHOR_EMAIL_DEFAULT);
      setExamplesRootDirectory (EXAMPLES_ROOT_DIRECTORY_DEFAULT);
   }
-  public static void    setKeystorePassword                (String value)  { commonSet(KEYSTORE_PASSWORD_KEY, value);}
+  public static void             setBasicLocalExamplesPresent (boolean value)  { commonBooleanSet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, value);}
+  public static void   setConformanceNistLocalExamplesPresent (boolean value)  { commonBooleanSet(  CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY, value);}
+  public static void setHumanoidAnimationLocalExamplesPresent (boolean value)  { commonBooleanSet(HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY, value);}
+  public static void    setVrmlSourcebookLocalExamplesPresent (boolean value)  { commonBooleanSet(   VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY, value);}
+  public static void            setSavageLocalExamplesPresent (boolean value)  { commonBooleanSet(           SAVAGE_LOCALEXAMPLES_PRESENT_KEY, value);}
+  public static void            setX3d4waLocalExamplesPresent (boolean value)  { commonBooleanSet(           X3D4WA_LOCALEXAMPLES_PRESENT_KEY, value);}
+  public static void            setX3d4amLocalExamplesPresent (boolean value)  { commonBooleanSet(           X3D4AM_LOCALEXAMPLES_PRESENT_KEY, value);}
+  
+  public static void    setKeystorePassword                (String value)  { commonStringSet(KEYSTORE_PASSWORD_KEY, value);}
   public static void    setKeystoreFileName                (String value)  
   { 
-      commonSet(KEYSTORE_FILENAME_KEY, value);
+      commonStringSet(KEYSTORE_FILENAME_KEY, value);
       setKeystorePath(getKeystoreDirectory() + '/' + getKeystoreFileName());
   }
   public static void    setKeystoreDirectory               (String value)  
   { 
-      commonSet(KEYSTORE_DIRECTORY_KEY, value);
+      commonStringSet(KEYSTORE_DIRECTORY_KEY, value);
   }
-  public static void    setKeystorePath                (String value)  { commonSet(KEYSTORE_PATH_KEY, value);}
+  public static void    setKeystorePath                (String value)  { commonStringSet(KEYSTORE_PATH_KEY, value);}
   public static void    resetSecurityPassword  ()
   {
       setKeystorePassword (KEYSTORE_PASSWORD_DEFAULT);
@@ -212,49 +228,58 @@ public class X3dOptions
   }
   
   
-  public static String  getAuthorName ()                 {return commonGet(AUTHOR_NAME_KEY,    AUTHOR_NAME_DEFAULT);}
-  public static String  getAuthorEmail ()                {return commonGet(AUTHOR_EMAIL_KEY,   AUTHOR_EMAIL_DEFAULT);}
-  public static String  getExamplesRootDirectory ()      {return commonGet(EXAMPLES_ROOT_DIRECTORY_KEY,   EXAMPLES_ROOT_DIRECTORY_DEFAULT);}
-  public static String  getKeystorePassword ()           {return commonGet(KEYSTORE_PASSWORD_KEY,   KEYSTORE_PASSWORD_DEFAULT);}
-  public static String  getKeystoreFileName ()           {return commonGet(KEYSTORE_FILENAME_KEY,   KEYSTORE_FILENAME_DEFAULT);}
-  public static String  getKeystoreDirectory ()          {return commonGet(KEYSTORE_DIRECTORY_KEY,   KEYSTORE_DIRECTORY_DEFAULT);}
+  public static String  getAuthorName ()                 {return commonStringGet(AUTHOR_NAME_KEY,    AUTHOR_NAME_DEFAULT);}
+  public static String  getAuthorEmail ()                {return commonStringGet(AUTHOR_EMAIL_KEY,   AUTHOR_EMAIL_DEFAULT);}
+  public static String  getExamplesRootDirectory ()      {return commonStringGet(EXAMPLES_ROOT_DIRECTORY_KEY,   EXAMPLES_ROOT_DIRECTORY_DEFAULT);}
+  
+  public static boolean             getBasicLocalExamplesPresent () { return commonBooleanGet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, false);}
+  public static boolean   getConformanceNistLocalExamplesPresent () { return commonBooleanGet(  CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY, false);}
+  public static boolean getHumanoidAnimationLocalExamplesPresent () { return commonBooleanGet(HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY, false);}
+  public static boolean    getVrmlSourcebookLocalExamplesPresent () { return commonBooleanGet(   VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY, false);}
+  public static boolean            getSavageLocalExamplesPresent () { return commonBooleanGet(           SAVAGE_LOCALEXAMPLES_PRESENT_KEY, false);}
+  public static boolean            getX3d4waLocalExamplesPresent () { return commonBooleanGet(           X3D4WA_LOCALEXAMPLES_PRESENT_KEY, false);}
+  public static boolean            getX3d4amLocalExamplesPresent () { return commonBooleanGet(           X3D4AM_LOCALEXAMPLES_PRESENT_KEY, false);}
+  
+  public static String  getKeystorePassword ()           {return commonStringGet(KEYSTORE_PASSWORD_KEY,   KEYSTORE_PASSWORD_DEFAULT);}
+  public static String  getKeystoreFileName ()           {return commonStringGet(KEYSTORE_FILENAME_KEY,   KEYSTORE_FILENAME_DEFAULT);}
+  public static String  getKeystoreDirectory ()          {return commonStringGet(KEYSTORE_DIRECTORY_KEY,   KEYSTORE_DIRECTORY_DEFAULT);}
 
   public static String getKeystorePasswordDefault()      {return KEYSTORE_PASSWORD_DEFAULT;}
   public static String getKeystoreFileNameDefault()      {return KEYSTORE_FILENAME_DEFAULT;}
   public static String getKeystoreDirectoryDefault()     {return KEYSTORE_DIRECTORY_DEFAULT;}
   public static String getKeystorePathDefault()          {return KEYSTORE_DIRECTORY_DEFAULT + "/" + KEYSTORE_FILENAME_DEFAULT;}
   
-  public static boolean getShowNewlineOption()           {return commonBGet(SHOW_NEWLINE_OPTION_KEY, SHOW_NEWLINE_OPTION_DEFAULT);}
-  public static boolean getPrependNewline   ()           {return commonBGet(    PREPEND_NEWLINE_KEY,     PREPEND_NEWLINE_DEFAULT);}
-  public static boolean getAppendNewline    ()           {return commonBGet(     APPEND_NEWLINE_KEY,      APPEND_NEWLINE_DEFAULT);}
+  public static boolean getShowNewlineOption()           {return commonBooleanGet(SHOW_NEWLINE_OPTION_KEY, SHOW_NEWLINE_OPTION_DEFAULT);}
+  public static boolean getPrependNewline   ()           {return commonBooleanGet(    PREPEND_NEWLINE_KEY,     PREPEND_NEWLINE_DEFAULT);}
+  public static boolean getAppendNewline    ()           {return commonBooleanGet(     APPEND_NEWLINE_KEY,      APPEND_NEWLINE_DEFAULT);}
   public static void    resetNewLineOptions ()
   {
       setShowNewlineOption (SHOW_NEWLINE_OPTION_DEFAULT);
          setPrependNewline (PREPEND_NEWLINE_DEFAULT);
           setAppendNewline (APPEND_NEWLINE_DEFAULT);
   }
-  public static boolean getAutoValidate   ()             {return commonBGet(     AUTOVALIDATE_KEY,         AUTOVALIDATE_DEFAULT);}
-  public static boolean getVisualizeCoordinateAxes  ()   {return commonBGet(VISUALIZE_COORDINATE_AXES_KEY, VISUALIZE_COORDINATE_AXES_DEFAULT);}
-  public static boolean getVisualizeCenterLine  ()       {return commonBGet(VISUALIZE_CENTER_LINE_KEY,     VISUALIZE_CENTER_LINE_DEFAULT);}
-  public static String  getVisualizeConeLines  ()        {return commonGet (VISUALIZE_CONE_LINES_KEY,      VISUALIZE_CONE_LINES_DEFAULT);}
-  public static String  getVisualizeLineColorRed  ()     {return commonGet (VISUALIZE_LINECOLOR_RED_KEY,   VISUALIZE_LINECOLOR_RED_DEFAULT);}
-  public static String  getVisualizeLineColorGreen ()    {return commonGet (VISUALIZE_LINECOLOR_GREEN_KEY, VISUALIZE_LINECOLOR_GREEN_DEFAULT);}
-  public static String  getVisualizeLineColorBlue ()     {return commonGet (VISUALIZE_LINECOLOR_BLUE_KEY,  VISUALIZE_LINECOLOR_BLUE_DEFAULT);}
-  public static String  getVisualizeShapeColorRed  ()    {return commonGet (VISUALIZE_SHAPECOLOR_RED_KEY,  VISUALIZE_SHAPECOLOR_RED_DEFAULT);}
-  public static String  getVisualizeShapeColorGreen ()   {return commonGet (VISUALIZE_SHAPECOLOR_GREEN_KEY,VISUALIZE_SHAPECOLOR_GREEN_DEFAULT);}
-  public static String  getVisualizeShapeColorBlue ()    {return commonGet (VISUALIZE_SHAPECOLOR_BLUE_KEY, VISUALIZE_SHAPECOLOR_BLUE_DEFAULT);}
-  public static String  getVisualizeTransparency ()      {return commonGet (VISUALIZE_TRANSPARENCY_KEY,  VISUALIZE_TRANSPARENCY_DEFAULT);}
+  public static boolean getAutoValidate   ()             {return commonBooleanGet(     AUTOVALIDATE_KEY,         AUTOVALIDATE_DEFAULT);}
+  public static boolean getVisualizeCoordinateAxes  ()   {return commonBooleanGet(VISUALIZE_COORDINATE_AXES_KEY, VISUALIZE_COORDINATE_AXES_DEFAULT);}
+  public static boolean getVisualizeCenterLine  ()       {return commonBooleanGet(VISUALIZE_CENTER_LINE_KEY,     VISUALIZE_CENTER_LINE_DEFAULT);}
+  public static String  getVisualizeConeLines  ()        {return commonStringGet (VISUALIZE_CONE_LINES_KEY,      VISUALIZE_CONE_LINES_DEFAULT);}
+  public static String  getVisualizeLineColorRed  ()     {return commonStringGet (VISUALIZE_LINECOLOR_RED_KEY,   VISUALIZE_LINECOLOR_RED_DEFAULT);}
+  public static String  getVisualizeLineColorGreen ()    {return commonStringGet (VISUALIZE_LINECOLOR_GREEN_KEY, VISUALIZE_LINECOLOR_GREEN_DEFAULT);}
+  public static String  getVisualizeLineColorBlue ()     {return commonStringGet (VISUALIZE_LINECOLOR_BLUE_KEY,  VISUALIZE_LINECOLOR_BLUE_DEFAULT);}
+  public static String  getVisualizeShapeColorRed  ()    {return commonStringGet (VISUALIZE_SHAPECOLOR_RED_KEY,  VISUALIZE_SHAPECOLOR_RED_DEFAULT);}
+  public static String  getVisualizeShapeColorGreen ()   {return commonStringGet (VISUALIZE_SHAPECOLOR_GREEN_KEY,VISUALIZE_SHAPECOLOR_GREEN_DEFAULT);}
+  public static String  getVisualizeShapeColorBlue ()    {return commonStringGet (VISUALIZE_SHAPECOLOR_BLUE_KEY, VISUALIZE_SHAPECOLOR_BLUE_DEFAULT);}
+  public static String  getVisualizeTransparency ()      {return commonStringGet (VISUALIZE_TRANSPARENCY_KEY,  VISUALIZE_TRANSPARENCY_DEFAULT);}
   
-  public static boolean getVisualizeHanimCoordinateAxes  ()    {return commonBGet(VISUALIZE_HANIM_COORDINATE_AXES_KEY,   VISUALIZE_HANIM_COORDINATE_AXES_DEFAULT);}
-  public static String  getVisualizeHanimJointColorRed  ()     {return commonGet (VISUALIZE_HANIMJOINTCOLOR_RED_KEY,     VISUALIZE_HANIMJOINTCOLOR_RED_DEFAULT);}
-  public static String  getVisualizeHanimJointColorGreen ()    {return commonGet (VISUALIZE_HANIMJOINTCOLOR_GREEN_KEY,   VISUALIZE_HANIMJOINTCOLOR_GREEN_DEFAULT);}
-  public static String  getVisualizeHanimJointColorBlue ()     {return commonGet (VISUALIZE_HANIMJOINTCOLOR_BLUE_KEY,    VISUALIZE_HANIMJOINTCOLOR_BLUE_DEFAULT);}
-  public static String  getVisualizeHanimSegmentColorRed  ()   {return commonGet (VISUALIZE_HANIMSEGMENTCOLOR_RED_KEY,   VISUALIZE_HANIMSEGMENTCOLOR_RED_DEFAULT);}
-  public static String  getVisualizeHanimSegmentColorGreen ()  {return commonGet (VISUALIZE_HANIMSEGMENTCOLOR_GREEN_KEY, VISUALIZE_HANIMSEGMENTCOLOR_GREEN_DEFAULT);}
-  public static String  getVisualizeHanimSegmentColorBlue ()   {return commonGet (VISUALIZE_HANIMSEGMENTCOLOR_BLUE_KEY,  VISUALIZE_HANIMSEGMENTCOLOR_BLUE_DEFAULT);}
-  public static String  getVisualizeHanimSiteColorRed  ()      {return commonGet (VISUALIZE_HANIMSITECOLOR_RED_KEY,      VISUALIZE_HANIMSITECOLOR_RED_DEFAULT);}
-  public static String  getVisualizeHanimSiteColorGreen ()     {return commonGet (VISUALIZE_HANIMSITECOLOR_GREEN_KEY,    VISUALIZE_HANIMSITECOLOR_GREEN_DEFAULT);}
-  public static String  getVisualizeHanimSiteColorBlue ()      {return commonGet (VISUALIZE_HANIMSITECOLOR_BLUE_KEY,     VISUALIZE_HANIMSITECOLOR_BLUE_DEFAULT);}
+  public static boolean getVisualizeHanimCoordinateAxes  ()    {return commonBooleanGet(VISUALIZE_HANIM_COORDINATE_AXES_KEY,   VISUALIZE_HANIM_COORDINATE_AXES_DEFAULT);}
+  public static String  getVisualizeHanimJointColorRed  ()     {return commonStringGet (VISUALIZE_HANIMJOINTCOLOR_RED_KEY,     VISUALIZE_HANIMJOINTCOLOR_RED_DEFAULT);}
+  public static String  getVisualizeHanimJointColorGreen ()    {return commonStringGet (VISUALIZE_HANIMJOINTCOLOR_GREEN_KEY,   VISUALIZE_HANIMJOINTCOLOR_GREEN_DEFAULT);}
+  public static String  getVisualizeHanimJointColorBlue ()     {return commonStringGet (VISUALIZE_HANIMJOINTCOLOR_BLUE_KEY,    VISUALIZE_HANIMJOINTCOLOR_BLUE_DEFAULT);}
+  public static String  getVisualizeHanimSegmentColorRed  ()   {return commonStringGet (VISUALIZE_HANIMSEGMENTCOLOR_RED_KEY,   VISUALIZE_HANIMSEGMENTCOLOR_RED_DEFAULT);}
+  public static String  getVisualizeHanimSegmentColorGreen ()  {return commonStringGet (VISUALIZE_HANIMSEGMENTCOLOR_GREEN_KEY, VISUALIZE_HANIMSEGMENTCOLOR_GREEN_DEFAULT);}
+  public static String  getVisualizeHanimSegmentColorBlue ()   {return commonStringGet (VISUALIZE_HANIMSEGMENTCOLOR_BLUE_KEY,  VISUALIZE_HANIMSEGMENTCOLOR_BLUE_DEFAULT);}
+  public static String  getVisualizeHanimSiteColorRed  ()      {return commonStringGet (VISUALIZE_HANIMSITECOLOR_RED_KEY,      VISUALIZE_HANIMSITECOLOR_RED_DEFAULT);}
+  public static String  getVisualizeHanimSiteColorGreen ()     {return commonStringGet (VISUALIZE_HANIMSITECOLOR_GREEN_KEY,    VISUALIZE_HANIMSITECOLOR_GREEN_DEFAULT);}
+  public static String  getVisualizeHanimSiteColorBlue ()      {return commonStringGet (VISUALIZE_HANIMSITECOLOR_BLUE_KEY,     VISUALIZE_HANIMSITECOLOR_BLUE_DEFAULT);}
   
   public static void    resetVisualizeSettings ()
   {
@@ -1147,233 +1172,233 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String  getOtherSemanticWebEditorSwitchDefault() {return OTHER_SEMANTICWEB_EDITOR_SWITCH_DEFAULT;}
   public static String   getOtherSceneEditorSwitchDefault() {return     OTHER_X3D_EDITOR_SWITCH_DEFAULT;}
 
-  public static void setContactPath              (String path){commonSet(CONTACT_EXECUTABLE_PATH_KEY, path);}
-  public static void setContactGeoPath           (String path){commonSet(CONTACT_GEO_EXECUTABLE_PATH_KEY, path);}
-  public static void setFreeWrlPath              (String path){commonSet(FREEWRL_EXECUTABLE_PATH_KEY, path);}
-  public static void setH3dPath                  (String path){commonSet(H3D_EXECUTABLE_PATH_KEY, path);}
-  public static void setHeilanPath               (String path){commonSet(HEILAN_EXECUTABLE_PATH_KEY, path);}
-  public static void setInstantRealityPath       (String path){commonSet(INSTANTREALITY_EXECUTABLE_PATH_KEY, path);}
-  public static void setOctagaPath               (String path){commonSet(OCTAGA_EXECUTABLE_PATH_KEY, path);}
-  public static void setSwirlX3DPath             (String path){commonSet(SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY, path);}
-  public static void setView3dScenePath          (String path){commonSet(VIEW3DSCENE_EXECUTABLE_PATH_KEY, path);}
-  public static void setVivatyPlayerPath         (String path){commonSet(VIVATYPLAYER_EXECUTABLE_PATH_KEY, path);}
-  public static void setXj3DPath                 (String path){commonSet(XJ3D_EXECUTABLE_PATH_KEY, path);}
-  public static void setOtherX3dPlayerName       (String name){commonSet(OTHER_X3D_PLAYER_EXECUTABLE_NAME_KEY, name);}
-  public static void setOtherX3dPlayerPath       (String path){commonSet(OTHER_X3D_PLAYER_EXECUTABLE_PATH_KEY, path);}
-  public static void setOtherX3dPlayerSwitch     (String pswitch){commonSet(OTHER_X3D_PLAYER_EXECUTABLE_SWITCH_KEY, pswitch);}
-  public static void setOtherX3dEditorName       (String name){commonSet(OTHER_X3D_EDITOR_EXECUTABLE_NAME_KEY, name);}
-  public static void setOtherX3dEditorPath       (String path){commonSet(OTHER_X3D_EDITOR_EXECUTABLE_PATH_KEY, path);}
+  public static void setContactPath              (String path){commonStringSet(CONTACT_EXECUTABLE_PATH_KEY, path);}
+  public static void setContactGeoPath           (String path){commonStringSet(CONTACT_GEO_EXECUTABLE_PATH_KEY, path);}
+  public static void setFreeWrlPath              (String path){commonStringSet(FREEWRL_EXECUTABLE_PATH_KEY, path);}
+  public static void setH3dPath                  (String path){commonStringSet(H3D_EXECUTABLE_PATH_KEY, path);}
+  public static void setHeilanPath               (String path){commonStringSet(HEILAN_EXECUTABLE_PATH_KEY, path);}
+  public static void setInstantRealityPath       (String path){commonStringSet(INSTANTREALITY_EXECUTABLE_PATH_KEY, path);}
+  public static void setOctagaPath               (String path){commonStringSet(OCTAGA_EXECUTABLE_PATH_KEY, path);}
+  public static void setSwirlX3DPath             (String path){commonStringSet(SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY, path);}
+  public static void setView3dScenePath          (String path){commonStringSet(VIEW3DSCENE_EXECUTABLE_PATH_KEY, path);}
+  public static void setVivatyPlayerPath         (String path){commonStringSet(VIVATYPLAYER_EXECUTABLE_PATH_KEY, path);}
+  public static void setXj3DPath                 (String path){commonStringSet(XJ3D_EXECUTABLE_PATH_KEY, path);}
+  public static void setOtherX3dPlayerName       (String name){commonStringSet(OTHER_X3D_PLAYER_EXECUTABLE_NAME_KEY, name);}
+  public static void setOtherX3dPlayerPath       (String path){commonStringSet(OTHER_X3D_PLAYER_EXECUTABLE_PATH_KEY, path);}
+  public static void setOtherX3dPlayerSwitch     (String pswitch){commonStringSet(OTHER_X3D_PLAYER_EXECUTABLE_SWITCH_KEY, pswitch);}
+  public static void setOtherX3dEditorName       (String name){commonStringSet(OTHER_X3D_EDITOR_EXECUTABLE_NAME_KEY, name);}
+  public static void setOtherX3dEditorPath       (String path){commonStringSet(OTHER_X3D_EDITOR_EXECUTABLE_PATH_KEY, path);}
   
-  public static void        setAmayaEditorPath    (String path){commonSet(         AMAYA_EDITOR_PATH_KEY, path);}
-  public static void     setAudacityEditorPath    (String path){commonSet(      AUDACITY_EDITOR_PATH_KEY, path);}
-  public static void    setMuseScoreEditorPath    (String path){commonSet(     MUSESCORE_EDITOR_PATH_KEY, path);}
-  public static void    setGimpImageEditorPath    (String path){commonSet(          GIMP_EDITOR_PATH_KEY, path);}
-  public static void         setFijiEditorPath    (String path){commonSet(          FIJI_EDITOR_PATH_KEY, path);}
-  public static void       setImageJEditorPath    (String path){commonSet(        IMAGEJ_EDITOR_PATH_KEY, path);}
-  public static void  setImageMagickEditorPath    (String path){commonSet(   IMAGEMAGICK_EDITOR_PATH_KEY, path);}
-  public static void          setVlcPlayerPath    (String path){commonSet(           VLC_PLAYER_PATH_KEY, path);}
-  public static void      setProtegePlayerPath    (String path){commonSet(       PROTEGE_PLAYER_PATH_KEY, path);}
-  public static void     setPorteclePlayerPath    (String path){commonSet(      PORTECLE_PLAYER_PATH_KEY, path);}
-  public static void setKeystoreExplorerPlayerPath(String path){commonSet(KEYSTOREEXPLORER_PLAYER_PATH_KEY, path);}
+  public static void        setAmayaEditorPath    (String path){commonStringSet(         AMAYA_EDITOR_PATH_KEY, path);}
+  public static void     setAudacityEditorPath    (String path){commonStringSet(      AUDACITY_EDITOR_PATH_KEY, path);}
+  public static void    setMuseScoreEditorPath    (String path){commonStringSet(     MUSESCORE_EDITOR_PATH_KEY, path);}
+  public static void    setGimpImageEditorPath    (String path){commonStringSet(          GIMP_EDITOR_PATH_KEY, path);}
+  public static void         setFijiEditorPath    (String path){commonStringSet(          FIJI_EDITOR_PATH_KEY, path);}
+  public static void       setImageJEditorPath    (String path){commonStringSet(        IMAGEJ_EDITOR_PATH_KEY, path);}
+  public static void  setImageMagickEditorPath    (String path){commonStringSet(   IMAGEMAGICK_EDITOR_PATH_KEY, path);}
+  public static void          setVlcPlayerPath    (String path){commonStringSet(           VLC_PLAYER_PATH_KEY, path);}
+  public static void      setProtegePlayerPath    (String path){commonStringSet(       PROTEGE_PLAYER_PATH_KEY, path);}
+  public static void     setPorteclePlayerPath    (String path){commonStringSet(      PORTECLE_PLAYER_PATH_KEY, path);}
+  public static void setKeystoreExplorerPlayerPath(String path){commonStringSet(KEYSTOREEXPLORER_PLAYER_PATH_KEY, path);}
   
-  public static void setAltovaXMLSpyX3dEditorPath (String path){commonSet(  ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY, path);}
-  public static void   setBlenderX3dEditorPath    (String path){commonSet(   BLENDER_X3D_EDITOR_PATH_KEY, path);}
-  public static void setBsContentStudioX3dEditorPath(String path){commonSet(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY, path);}
-  public static void      setCuraX3dEditorPath    (String path){commonSet(      CURA_X3D_EDITOR_PATH_KEY, path);}
-  public static void   setMeshLabX3dEditorPath    (String path){commonSet(   MESHLAB_X3D_EDITOR_PATH_KEY, path);}
-  public static void  setParaviewX3dEditorPath    (String path){commonSet(  PARAVIEW_X3D_EDITOR_PATH_KEY, path);}
-  public static void setPolyTransNuGrafEditorPath (String path){commonSet(POLYTRANSNUGRAF_EDITOR_PATH_KEY, path);}
-  public static void  setSeamlessX3dEditorPath    (String path){commonSet(SEAMLESS3D_X3D_EDITOR_PATH_KEY, path);}
-  public static void      setItksnapEditorPath    (String path){commonSet(ITKSNAP_VOLUME_EDITOR_PATH_KEY, path);}
-  public static void        setSeg3dEditorPath    (String path){commonSet(  SEG3D_VOLUME_EDITOR_PATH_KEY, path);}
-  public static void     setSlicer3dEditorPath    (String path){commonSet(SLICER3D_VOLUME_EDITOR_PATH_KEY,path);}
-  public static void      setSvgeditEditorPath    (String path){commonSet(SVG_EDIT_VOLUME_EDITOR_PATH_KEY,path);}
-  public static void setWhiteDuneX3dEditorPath    (String path){commonSet( WHITEDUNE_X3D_EDITOR_PATH_KEY, path);}
-  public static void     setWingsX3dEditorPath    (String path){commonSet(   WINGS3D_X3D_EDITOR_PATH_KEY, path);}
-  public static void setUltraEditX3dEditorPath    (String path){commonSet( ULTRAEDIT_X3D_EDITOR_PATH_KEY, path);}
+  public static void setAltovaXMLSpyX3dEditorPath (String path){commonStringSet(  ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY, path);}
+  public static void   setBlenderX3dEditorPath    (String path){commonStringSet(   BLENDER_X3D_EDITOR_PATH_KEY, path);}
+  public static void setBsContentStudioX3dEditorPath(String path){commonStringSet(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY, path);}
+  public static void      setCuraX3dEditorPath    (String path){commonStringSet(      CURA_X3D_EDITOR_PATH_KEY, path);}
+  public static void   setMeshLabX3dEditorPath    (String path){commonStringSet(   MESHLAB_X3D_EDITOR_PATH_KEY, path);}
+  public static void  setParaviewX3dEditorPath    (String path){commonStringSet(  PARAVIEW_X3D_EDITOR_PATH_KEY, path);}
+  public static void setPolyTransNuGrafEditorPath (String path){commonStringSet(POLYTRANSNUGRAF_EDITOR_PATH_KEY, path);}
+  public static void  setSeamlessX3dEditorPath    (String path){commonStringSet(SEAMLESS3D_X3D_EDITOR_PATH_KEY, path);}
+  public static void      setItksnapEditorPath    (String path){commonStringSet(ITKSNAP_VOLUME_EDITOR_PATH_KEY, path);}
+  public static void        setSeg3dEditorPath    (String path){commonStringSet(  SEG3D_VOLUME_EDITOR_PATH_KEY, path);}
+  public static void     setSlicer3dEditorPath    (String path){commonStringSet(SLICER3D_VOLUME_EDITOR_PATH_KEY,path);}
+  public static void      setSvgeditEditorPath    (String path){commonStringSet(SVG_EDIT_VOLUME_EDITOR_PATH_KEY,path);}
+  public static void setWhiteDuneX3dEditorPath    (String path){commonStringSet( WHITEDUNE_X3D_EDITOR_PATH_KEY, path);}
+  public static void     setWingsX3dEditorPath    (String path){commonStringSet(   WINGS3D_X3D_EDITOR_PATH_KEY, path);}
+  public static void setUltraEditX3dEditorPath    (String path){commonStringSet( ULTRAEDIT_X3D_EDITOR_PATH_KEY, path);}
   
-  public static void   setOtherAudioEditorName    (String name){commonSet(   OTHER_AUDIO_EDITOR_NAME_KEY, name);}
-  public static void   setOtherHtml5EditorName    (String name){commonSet(   OTHER_HTML5_EDITOR_NAME_KEY, name);}
-  public static void   setOtherImageEditorName    (String name){commonSet(   OTHER_IMAGE_EDITOR_NAME_KEY, name);}
-  public static void   setOtherVideoEditorName    (String name){commonSet(   OTHER_VIDEO_EDITOR_NAME_KEY, name);}
-  public static void  setOtherVolumeEditorName    (String name){commonSet(  OTHER_VOLUME_EDITOR_NAME_KEY, name);}
-  public static void  setOtherSemanticWebEditorName (String name){commonSet(  OTHER_SEMANTICWEB_EDITOR_NAME_KEY, name);}
-  public static void   setOtherSceneEditorName    (String name){commonSet(OTHER_X3D_EDITOR_NAME_KEY, name);}
+  public static void   setOtherAudioEditorName    (String name){commonStringSet(   OTHER_AUDIO_EDITOR_NAME_KEY, name);}
+  public static void   setOtherHtml5EditorName    (String name){commonStringSet(   OTHER_HTML5_EDITOR_NAME_KEY, name);}
+  public static void   setOtherImageEditorName    (String name){commonStringSet(   OTHER_IMAGE_EDITOR_NAME_KEY, name);}
+  public static void   setOtherVideoEditorName    (String name){commonStringSet(   OTHER_VIDEO_EDITOR_NAME_KEY, name);}
+  public static void  setOtherVolumeEditorName    (String name){commonStringSet(  OTHER_VOLUME_EDITOR_NAME_KEY, name);}
+  public static void  setOtherSemanticWebEditorName (String name){commonStringSet(  OTHER_SEMANTICWEB_EDITOR_NAME_KEY, name);}
+  public static void   setOtherSceneEditorName    (String name){commonStringSet(OTHER_X3D_EDITOR_NAME_KEY, name);}
   
-  public static void   setOtherAudioEditorPath    (String path){commonSet(   OTHER_AUDIO_EDITOR_PATH_KEY, path);}
-  public static void   setOtherHtml5EditorPath    (String path){commonSet(   OTHER_HTML5_EDITOR_PATH_KEY, path);}
-  public static void   setOtherImageEditorPath    (String path){commonSet(   OTHER_IMAGE_EDITOR_PATH_KEY, path);}
-  public static void   setOtherVideoEditorPath    (String path){commonSet(   OTHER_VIDEO_EDITOR_PATH_KEY, path);}
-  public static void  setOtherVolumeEditorPath    (String path){commonSet(  OTHER_VOLUME_EDITOR_PATH_KEY, path);}
-  public static void setOtherSemanticWebEditorPath (String path){commonSet(  OTHER_SEMANTICWEB_EDITOR_PATH_KEY, path);}
-  public static void   setOtherSceneEditorPath    (String path){commonSet(OTHER_X3D_EDITOR_PATH_KEY, path);}
-  public static void setOtherAudioEditorSwitch (String pswitch){commonSet(   OTHER_AUDIO_EDITOR_SWITCH_KEY, pswitch);}
-  public static void setOtherHtml5EditorSwitch (String pswitch){commonSet(   OTHER_HTML5_EDITOR_SWITCH_KEY, pswitch);}
-  public static void setOtherImageEditorSwitch (String pswitch){commonSet(   OTHER_IMAGE_EDITOR_SWITCH_KEY, pswitch);}
-  public static void setOtherVideoEditorSwitch (String pswitch){commonSet(   OTHER_VIDEO_EDITOR_SWITCH_KEY, pswitch);}
-  public static void setOtherVolumeEditorSwitch(String pswitch){commonSet(  OTHER_VOLUME_EDITOR_SWITCH_KEY, pswitch);}
-  public static void setOtherSemanticWebEditorSwitch(String pswitch){commonSet(  OTHER_SEMANTICWEB_EDITOR_SWITCH_KEY, pswitch);}
-  public static void setOtherSceneEditorSwitch (String pswitch){commonSet(OTHER_X3D_EDITOR_SWITCH_KEY, pswitch);}
+  public static void   setOtherAudioEditorPath    (String path){commonStringSet(   OTHER_AUDIO_EDITOR_PATH_KEY, path);}
+  public static void   setOtherHtml5EditorPath    (String path){commonStringSet(   OTHER_HTML5_EDITOR_PATH_KEY, path);}
+  public static void   setOtherImageEditorPath    (String path){commonStringSet(   OTHER_IMAGE_EDITOR_PATH_KEY, path);}
+  public static void   setOtherVideoEditorPath    (String path){commonStringSet(   OTHER_VIDEO_EDITOR_PATH_KEY, path);}
+  public static void  setOtherVolumeEditorPath    (String path){commonStringSet(  OTHER_VOLUME_EDITOR_PATH_KEY, path);}
+  public static void setOtherSemanticWebEditorPath (String path){commonStringSet(  OTHER_SEMANTICWEB_EDITOR_PATH_KEY, path);}
+  public static void   setOtherSceneEditorPath    (String path){commonStringSet(OTHER_X3D_EDITOR_PATH_KEY, path);}
+  public static void setOtherAudioEditorSwitch (String pswitch){commonStringSet(   OTHER_AUDIO_EDITOR_SWITCH_KEY, pswitch);}
+  public static void setOtherHtml5EditorSwitch (String pswitch){commonStringSet(   OTHER_HTML5_EDITOR_SWITCH_KEY, pswitch);}
+  public static void setOtherImageEditorSwitch (String pswitch){commonStringSet(   OTHER_IMAGE_EDITOR_SWITCH_KEY, pswitch);}
+  public static void setOtherVideoEditorSwitch (String pswitch){commonStringSet(   OTHER_VIDEO_EDITOR_SWITCH_KEY, pswitch);}
+  public static void setOtherVolumeEditorSwitch(String pswitch){commonStringSet(  OTHER_VOLUME_EDITOR_SWITCH_KEY, pswitch);}
+  public static void setOtherSemanticWebEditorSwitch(String pswitch){commonStringSet(  OTHER_SEMANTICWEB_EDITOR_SWITCH_KEY, pswitch);}
+  public static void setOtherSceneEditorSwitch (String pswitch){commonStringSet(OTHER_X3D_EDITOR_SWITCH_KEY, pswitch);}
 
-  public static void setContactAutoLaunch        (String autoLaunch){commonSet(CONTACT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setContactGeoAutoLaunch     (String autoLaunch){commonSet(CONTACT_GEO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setFreeWrlAutoLaunch        (String autoLaunch){commonSet(FREEWRL_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setH3dAutoLaunch            (String autoLaunch){commonSet(H3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setHeilanAutoLaunch         (String autoLaunch){commonSet(HEILAN_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setInstantRealityAutoLaunch (String autoLaunch){commonSet(INSTANTREALITY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOctagaAutoLaunch         (String autoLaunch){commonSet(OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setSwirlX3dAutoLaunch       (String autoLaunch){commonSet(SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setView3dSceneAutoLaunch    (String autoLaunch){commonSet(VIEW3DSCENE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setVivatyPlayerAutoLaunch   (String autoLaunch){commonSet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setXj3dAutoLaunch           (String autoLaunch){commonSet(XJ3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherX3dPlayerAutoLaunch (String autoLaunch){commonSet(OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherX3dEditorAutoLaunch (String autoLaunch){commonSet(OTHER_X3D_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setContactAutoLaunch        (String autoLaunch){commonStringSet(CONTACT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setContactGeoAutoLaunch     (String autoLaunch){commonStringSet(CONTACT_GEO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setFreeWrlAutoLaunch        (String autoLaunch){commonStringSet(FREEWRL_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setH3dAutoLaunch            (String autoLaunch){commonStringSet(H3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setHeilanAutoLaunch         (String autoLaunch){commonStringSet(HEILAN_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setInstantRealityAutoLaunch (String autoLaunch){commonStringSet(INSTANTREALITY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOctagaAutoLaunch         (String autoLaunch){commonStringSet(OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setSwirlX3dAutoLaunch       (String autoLaunch){commonStringSet(SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setView3dSceneAutoLaunch    (String autoLaunch){commonStringSet(VIEW3DSCENE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setVivatyPlayerAutoLaunch   (String autoLaunch){commonStringSet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setXj3dAutoLaunch           (String autoLaunch){commonStringSet(XJ3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherX3dPlayerAutoLaunch (String autoLaunch){commonStringSet(OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherX3dEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_X3D_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   
-  public static void            setAmayaAutoLaunch (String autoLaunch){commonSet(             AMAYA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void         setAudacityAutoLaunch (String autoLaunch){commonSet(          AUDACITY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void        setMuseScoreAutoLaunch (String autoLaunch){commonSet(         MUSESCORE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void             setGimpAutoLaunch (String autoLaunch){commonSet(              GIMP_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void             setFijiAutoLaunch (String autoLaunch){commonSet(              FIJI_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void           setImageJAutoLaunch (String autoLaunch){commonSet(            IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void      setImageMagickAutoLaunch (String autoLaunch){commonSet(       IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void              setVlcAutoLaunch (String autoLaunch){commonSet(               VLC_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setProtegeAutoLaunch (String autoLaunch){commonSet(           PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void         setPortecleAutoLaunch (String autoLaunch){commonSet(          PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setKeystoreExplorerAutoLaunch (String autoLaunch){commonSet(  KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void            setAmayaAutoLaunch (String autoLaunch){commonStringSet(             AMAYA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setAudacityAutoLaunch (String autoLaunch){commonStringSet(          AUDACITY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void        setMuseScoreAutoLaunch (String autoLaunch){commonStringSet(         MUSESCORE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void             setGimpAutoLaunch (String autoLaunch){commonStringSet(              GIMP_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void             setFijiAutoLaunch (String autoLaunch){commonStringSet(              FIJI_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void           setImageJAutoLaunch (String autoLaunch){commonStringSet(            IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void      setImageMagickAutoLaunch (String autoLaunch){commonStringSet(       IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void              setVlcAutoLaunch (String autoLaunch){commonStringSet(               VLC_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setProtegeAutoLaunch (String autoLaunch){commonStringSet(           PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setPortecleAutoLaunch (String autoLaunch){commonStringSet(          PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setKeystoreExplorerAutoLaunch (String autoLaunch){commonStringSet(  KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   
-  public static void     setAltovaXMLSpyAutoLaunch (String autoLaunch){commonSet(     ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setBlenderAutoLaunch (String autoLaunch){commonSet(           BLENDER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void  setBsContentStudioAutoLaunch (String autoLaunch){commonSet(   BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void             setCuraAutoLaunch (String autoLaunch){commonSet(              CURA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setMeshLabAutoLaunch (String autoLaunch){commonSet(           MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void         setParaviewAutoLaunch (String autoLaunch){commonSet(          PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void  setPolyTransNuGrafAutoLaunch (String autoLaunch){commonSet(       POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void       setSeamless3dAutoLaunch (String autoLaunch){commonSet(        SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setItksnapAutoLaunch (String autoLaunch){commonSet(           ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void            setSeg3dAutoLaunch (String autoLaunch){commonSet(             SEG3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void         setSlicer3dAutoLaunch (String autoLaunch){commonSet(          SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setSvgeditAutoLaunch (String autoLaunch){commonSet(          SVG_EDIT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void        setWhiteDuneAutoLaunch (String autoLaunch){commonSet(         WHITEDUNE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setWings3dAutoLaunch (String autoLaunch){commonSet(           WINGS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void        setUltraEditAutoLaunch (String autoLaunch){commonSet(         ULTRAEDIT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherAudioEditorAutoLaunch (String autoLaunch){commonSet(OTHER_AUDIO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherHtml5EditorAutoLaunch (String autoLaunch){commonSet(OTHER_HTML5_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherImageEditorAutoLaunch (String autoLaunch){commonSet(OTHER_IMAGE_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherVideoEditorAutoLaunch (String autoLaunch){commonSet(OTHER_VIDEO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherVolumeEditorAutoLaunch(String autoLaunch){commonSet(OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherSemanticWebEditorAutoLaunch(String autoLaunch){commonSet(OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void     setAltovaXMLSpyAutoLaunch (String autoLaunch){commonStringSet(     ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setBlenderAutoLaunch (String autoLaunch){commonStringSet(           BLENDER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void  setBsContentStudioAutoLaunch (String autoLaunch){commonStringSet(   BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void             setCuraAutoLaunch (String autoLaunch){commonStringSet(              CURA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setMeshLabAutoLaunch (String autoLaunch){commonStringSet(           MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setParaviewAutoLaunch (String autoLaunch){commonStringSet(          PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void  setPolyTransNuGrafAutoLaunch (String autoLaunch){commonStringSet(       POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void       setSeamless3dAutoLaunch (String autoLaunch){commonStringSet(        SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setItksnapAutoLaunch (String autoLaunch){commonStringSet(           ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void            setSeg3dAutoLaunch (String autoLaunch){commonStringSet(             SEG3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setSlicer3dAutoLaunch (String autoLaunch){commonStringSet(          SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setSvgeditAutoLaunch (String autoLaunch){commonStringSet(          SVG_EDIT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void        setWhiteDuneAutoLaunch (String autoLaunch){commonStringSet(         WHITEDUNE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setWings3dAutoLaunch (String autoLaunch){commonStringSet(           WINGS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void        setUltraEditAutoLaunch (String autoLaunch){commonStringSet(         ULTRAEDIT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherAudioEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_AUDIO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherHtml5EditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_HTML5_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherImageEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_IMAGE_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherVideoEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_VIDEO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherVolumeEditorAutoLaunch(String autoLaunch){commonStringSet(OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherSemanticWebEditorAutoLaunch(String autoLaunch){commonStringSet(OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
 
-  public static void setLaunchInterval             (String path){commonSet(LAUNCH_INTERVAL_KEY,path);}
+  public static void setLaunchInterval             (String path){commonStringSet(LAUNCH_INTERVAL_KEY,path);}
 
-  public static String getContactPath()          {return commonGet(CONTACT_EXECUTABLE_PATH_KEY,        CONTACT_EXECUTABLE_PATH_DEFAULT);}
-  public static String getContactGeoPath()       {return commonGet(CONTACT_GEO_EXECUTABLE_PATH_KEY,    CONTACT_GEO_EXECUTABLE_PATH_DEFAULT);}
-  public static String getFreeWrlPath()          {return commonGet(FREEWRL_EXECUTABLE_PATH_KEY,        FREEWRL_EXECUTABLE_PATH_DEFAULT);}
-  public static String getH3dPath()              {return commonGet(H3D_EXECUTABLE_PATH_KEY,            H3D_EXECUTABLE_PATH_DEFAULT);}
-  public static String getHeilanPath()           {return commonGet(HEILAN_EXECUTABLE_PATH_KEY,         HEILAN_EXECUTABLE_PATH_DEFAULT);}
-  public static String getInstantRealityPath()   {return commonGet(INSTANTREALITY_EXECUTABLE_PATH_KEY, INSTANTREALITY_EXECUTABLE_PATH_DEFAULT);}
-  public static String getOctagaPath()           {return commonGet(OCTAGA_EXECUTABLE_PATH_KEY,         OCTAGA_EXECUTABLE_PATH_DEFAULT);}
-  public static String getSwirlX3DPath()         {return commonGet(SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY, SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT);}
-  public static String getView3dScenePath()      {return commonGet(VIEW3DSCENE_EXECUTABLE_PATH_KEY,    VIEW3DSCENE_EXECUTABLE_PATH_DEFAULT);}
-  public static String getVivatyPlayerPath()     {return commonGet(VIVATYPLAYER_EXECUTABLE_PATH_KEY,   VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT);}
-  public static String getXj3DPath()             {return commonGet(XJ3D_EXECUTABLE_PATH_KEY,           XJ3D_EXECUTABLE_PATH_DEFAULT);}
-  public static String getOtherX3dPlayerName()   {return commonGet(OTHER_X3D_PLAYER_EXECUTABLE_NAME_KEY,   OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT);}
-  public static String getOtherX3dPlayerPath()   {return commonGet(OTHER_X3D_PLAYER_EXECUTABLE_PATH_KEY,   OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT);}
-  public static String getOtherX3dPlayerSwitch() {return commonGet(OTHER_X3D_PLAYER_EXECUTABLE_SWITCH_KEY, OTHER_X3D_PLAYER_EXECUTABLE_SWITCH_DEFAULT);}
-  public static String getOtherX3dEditorName()   {return commonGet(OTHER_X3D_EDITOR_EXECUTABLE_NAME_KEY,   OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT);}
-  public static String getOtherX3dEditorPath()   {return commonGet(OTHER_X3D_EDITOR_EXECUTABLE_PATH_KEY,   OTHER_X3D_EDITOR_EXECUTABLE_PATH_DEFAULT);}
+  public static String getContactPath()          {return commonStringGet(CONTACT_EXECUTABLE_PATH_KEY,        CONTACT_EXECUTABLE_PATH_DEFAULT);}
+  public static String getContactGeoPath()       {return commonStringGet(CONTACT_GEO_EXECUTABLE_PATH_KEY,    CONTACT_GEO_EXECUTABLE_PATH_DEFAULT);}
+  public static String getFreeWrlPath()          {return commonStringGet(FREEWRL_EXECUTABLE_PATH_KEY,        FREEWRL_EXECUTABLE_PATH_DEFAULT);}
+  public static String getH3dPath()              {return commonStringGet(H3D_EXECUTABLE_PATH_KEY,            H3D_EXECUTABLE_PATH_DEFAULT);}
+  public static String getHeilanPath()           {return commonStringGet(HEILAN_EXECUTABLE_PATH_KEY,         HEILAN_EXECUTABLE_PATH_DEFAULT);}
+  public static String getInstantRealityPath()   {return commonStringGet(INSTANTREALITY_EXECUTABLE_PATH_KEY, INSTANTREALITY_EXECUTABLE_PATH_DEFAULT);}
+  public static String getOctagaPath()           {return commonStringGet(OCTAGA_EXECUTABLE_PATH_KEY,         OCTAGA_EXECUTABLE_PATH_DEFAULT);}
+  public static String getSwirlX3DPath()         {return commonStringGet(SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY, SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT);}
+  public static String getView3dScenePath()      {return commonStringGet(VIEW3DSCENE_EXECUTABLE_PATH_KEY,    VIEW3DSCENE_EXECUTABLE_PATH_DEFAULT);}
+  public static String getVivatyPlayerPath()     {return commonStringGet(VIVATYPLAYER_EXECUTABLE_PATH_KEY,   VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT);}
+  public static String getXj3DPath()             {return commonStringGet(XJ3D_EXECUTABLE_PATH_KEY,           XJ3D_EXECUTABLE_PATH_DEFAULT);}
+  public static String getOtherX3dPlayerName()   {return commonStringGet(OTHER_X3D_PLAYER_EXECUTABLE_NAME_KEY,   OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT);}
+  public static String getOtherX3dPlayerPath()   {return commonStringGet(OTHER_X3D_PLAYER_EXECUTABLE_PATH_KEY,   OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT);}
+  public static String getOtherX3dPlayerSwitch() {return commonStringGet(OTHER_X3D_PLAYER_EXECUTABLE_SWITCH_KEY, OTHER_X3D_PLAYER_EXECUTABLE_SWITCH_DEFAULT);}
+  public static String getOtherX3dEditorName()   {return commonStringGet(OTHER_X3D_EDITOR_EXECUTABLE_NAME_KEY,   OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT);}
+  public static String getOtherX3dEditorPath()   {return commonStringGet(OTHER_X3D_EDITOR_EXECUTABLE_PATH_KEY,   OTHER_X3D_EDITOR_EXECUTABLE_PATH_DEFAULT);}
   
-  public static String        getAmayaEditorPath()       {return commonGet(         AMAYA_EDITOR_PATH_KEY,         AMAYA_EDITOR_PATH_DEFAULT);}
-  public static String     getAudacityEditorPath()       {return commonGet(      AUDACITY_EDITOR_PATH_KEY,      AUDACITY_EDITOR_PATH_DEFAULT);}
-  public static String    getMuseScoreEditorPath()       {return commonGet(     MUSESCORE_EDITOR_PATH_KEY,     MUSESCORE_EDITOR_PATH_DEFAULT);}
-  public static String    getGimpImageEditorPath()       {return commonGet(          GIMP_EDITOR_PATH_KEY,          GIMP_EDITOR_PATH_DEFAULT);}
-  public static String    getFijiImageEditorPath()       {return commonGet(          FIJI_EDITOR_PATH_KEY,          FIJI_EDITOR_PATH_DEFAULT);}
-  public static String       getImageJEditorPath()       {return commonGet(        IMAGEJ_EDITOR_PATH_KEY,        IMAGEJ_EDITOR_PATH_DEFAULT);}
-  public static String  getImageMagickEditorPath()       {return commonGet(   IMAGEMAGICK_EDITOR_PATH_KEY,   IMAGEMAGICK_EDITOR_PATH_DEFAULT);}
-  public static String          getVlcPlayerPath()       {return commonGet(           VLC_PLAYER_PATH_KEY,           VLC_PLAYER_PATH_DEFAULT);}
-  public static String      getProtegePlayerPath()       {return commonGet(       PROTEGE_PLAYER_PATH_KEY,       PROTEGE_PLAYER_PATH_DEFAULT);}
-  public static String     getPorteclePlayerPath()       {return commonGet(      PORTECLE_PLAYER_PATH_KEY,      PORTECLE_PLAYER_PATH_DEFAULT);}
-  public static String getKeystoreExplorerPlayerPath()   {return commonGet(KEYSTOREEXPLORER_PLAYER_PATH_KEY,KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT);}
+  public static String        getAmayaEditorPath()       {return commonStringGet(         AMAYA_EDITOR_PATH_KEY,         AMAYA_EDITOR_PATH_DEFAULT);}
+  public static String     getAudacityEditorPath()       {return commonStringGet(      AUDACITY_EDITOR_PATH_KEY,      AUDACITY_EDITOR_PATH_DEFAULT);}
+  public static String    getMuseScoreEditorPath()       {return commonStringGet(     MUSESCORE_EDITOR_PATH_KEY,     MUSESCORE_EDITOR_PATH_DEFAULT);}
+  public static String    getGimpImageEditorPath()       {return commonStringGet(          GIMP_EDITOR_PATH_KEY,          GIMP_EDITOR_PATH_DEFAULT);}
+  public static String    getFijiImageEditorPath()       {return commonStringGet(          FIJI_EDITOR_PATH_KEY,          FIJI_EDITOR_PATH_DEFAULT);}
+  public static String       getImageJEditorPath()       {return commonStringGet(        IMAGEJ_EDITOR_PATH_KEY,        IMAGEJ_EDITOR_PATH_DEFAULT);}
+  public static String  getImageMagickEditorPath()       {return commonStringGet(   IMAGEMAGICK_EDITOR_PATH_KEY,   IMAGEMAGICK_EDITOR_PATH_DEFAULT);}
+  public static String          getVlcPlayerPath()       {return commonStringGet(           VLC_PLAYER_PATH_KEY,           VLC_PLAYER_PATH_DEFAULT);}
+  public static String      getProtegePlayerPath()       {return commonStringGet(       PROTEGE_PLAYER_PATH_KEY,       PROTEGE_PLAYER_PATH_DEFAULT);}
+  public static String     getPorteclePlayerPath()       {return commonStringGet(      PORTECLE_PLAYER_PATH_KEY,      PORTECLE_PLAYER_PATH_DEFAULT);}
+  public static String getKeystoreExplorerPlayerPath()   {return commonStringGet(KEYSTOREEXPLORER_PLAYER_PATH_KEY,KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT);}
   
-  public static String getAltovaXMLSpyX3dEditorPath()    {return commonGet(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY,ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT);}
-  public static String   getBlenderX3dEditorPath()       {return commonGet(   BLENDER_X3D_EDITOR_PATH_KEY,   BLENDER_X3D_EDITOR_PATH_DEFAULT);}
-  public static String getBsContentStudioX3dEditorPath() {return commonGet(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY,  BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT);}
-  public static String      getCuraX3dEditorPath()       {return commonGet(      CURA_X3D_EDITOR_PATH_KEY,      CURA_X3D_EDITOR_PATH_DEFAULT);}
-  public static String   getMeshLabX3dEditorPath()       {return commonGet(   MESHLAB_X3D_EDITOR_PATH_KEY,   MESHLAB_X3D_EDITOR_PATH_DEFAULT);}
-  public static String  getParaviewX3dEditorPath()       {return commonGet(  PARAVIEW_X3D_EDITOR_PATH_KEY,  PARAVIEW_X3D_EDITOR_PATH_DEFAULT);}
-  public static String getPolyTransNuGrafEditorPath()    {return commonGet(POLYTRANSNUGRAF_EDITOR_PATH_KEY, POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT);}
-  public static String  getSeamlessX3dEditorPath()       {return commonGet(SEAMLESS3D_X3D_EDITOR_PATH_KEY,SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT);}
-  public static String      getItksnapEditorPath()       {return commonGet(ITKSNAP_VOLUME_EDITOR_PATH_KEY,   ITKSNAP_X3D_EDITOR_PATH_DEFAULT);}
-  public static String        getSeg3dEditorPath()       {return commonGet(  SEG3D_VOLUME_EDITOR_PATH_KEY,     SEG3D_X3D_EDITOR_PATH_DEFAULT);}
-  public static String     getSlicer3dEditorPath()       {return commonGet(SLICER3D_VOLUME_EDITOR_PATH_KEY, SLICER3D_X3D_EDITOR_PATH_DEFAULT);}
-  public static String      getSvgeditEditorPath()       {return commonGet(SVG_EDIT_VOLUME_EDITOR_PATH_KEY, SVG_EDIT_X3D_EDITOR_PATH_DEFAULT);}
-  public static String getWhiteDuneX3dEditorPath()       {return commonGet( WHITEDUNE_X3D_EDITOR_PATH_KEY, WHITEDUNE_X3D_EDITOR_PATH_DEFAULT);}
-  public static String     getWingsX3dEditorPath()       {return commonGet(   WINGS3D_X3D_EDITOR_PATH_KEY,   WINGS3D_X3D_EDITOR_PATH_DEFAULT);}
-  public static String getUltraEditX3dEditorPath()       {return commonGet( ULTRAEDIT_X3D_EDITOR_PATH_KEY, ULTRAEDIT_X3D_EDITOR_PATH_DEFAULT);}
-  public static String   getOtherAudioEditorPath()       {return commonGet(   OTHER_AUDIO_EDITOR_PATH_KEY,   OTHER_AUDIO_EDITOR_PATH_DEFAULT);}
-  public static String   getOtherHtml5EditorPath()       {return commonGet(   OTHER_HTML5_EDITOR_PATH_KEY,   OTHER_HTML5_EDITOR_PATH_DEFAULT);}
-  public static String   getOtherImageEditorPath()       {return commonGet(   OTHER_IMAGE_EDITOR_PATH_KEY,   OTHER_IMAGE_EDITOR_PATH_DEFAULT);}
-  public static String   getOtherVideoEditorPath()       {return commonGet(   OTHER_VIDEO_EDITOR_PATH_KEY,   OTHER_VIDEO_EDITOR_PATH_DEFAULT);}
-  public static String   getOtherVolumeEditorPath()      {return commonGet(  OTHER_VOLUME_EDITOR_PATH_KEY,  OTHER_VOLUME_EDITOR_PATH_DEFAULT);}
-  public static String   getOtherSemanticWebEditorPath() {return commonGet(OTHER_SEMANTICWEB_EDITOR_PATH_KEY,  OTHER_SEMANTICWEB_EDITOR_PATH_DEFAULT);}
-  public static String   getOtherAudioEditorName()       {return commonGet(   OTHER_AUDIO_EDITOR_NAME_KEY,   OTHER_AUDIO_EDITOR_NAME_DEFAULT);}
-  public static String   getOtherHtml5EditorName()       {return commonGet(   OTHER_HTML5_EDITOR_NAME_KEY,   OTHER_HTML5_EDITOR_NAME_DEFAULT);}
-  public static String   getOtherImageEditorName()       {return commonGet(   OTHER_IMAGE_EDITOR_NAME_KEY,   OTHER_IMAGE_EDITOR_NAME_DEFAULT);}
-  public static String   getOtherVideoEditorName()       {return commonGet(   OTHER_VIDEO_EDITOR_NAME_KEY,   OTHER_VIDEO_EDITOR_NAME_DEFAULT);}
-  public static String   getOtherVolumeEditorName()      {return commonGet(  OTHER_VOLUME_EDITOR_NAME_KEY,  OTHER_VOLUME_EDITOR_NAME_DEFAULT);}
-  public static String   getOtherSemanticWebEditorName() {return commonGet(OTHER_SEMANTICWEB_EDITOR_NAME_KEY,OTHER_SEMANTICWEB_EDITOR_NAME_DEFAULT);}
+  public static String getAltovaXMLSpyX3dEditorPath()    {return commonStringGet(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY,ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT);}
+  public static String   getBlenderX3dEditorPath()       {return commonStringGet(   BLENDER_X3D_EDITOR_PATH_KEY,   BLENDER_X3D_EDITOR_PATH_DEFAULT);}
+  public static String getBsContentStudioX3dEditorPath() {return commonStringGet(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY,  BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT);}
+  public static String      getCuraX3dEditorPath()       {return commonStringGet(      CURA_X3D_EDITOR_PATH_KEY,      CURA_X3D_EDITOR_PATH_DEFAULT);}
+  public static String   getMeshLabX3dEditorPath()       {return commonStringGet(   MESHLAB_X3D_EDITOR_PATH_KEY,   MESHLAB_X3D_EDITOR_PATH_DEFAULT);}
+  public static String  getParaviewX3dEditorPath()       {return commonStringGet(  PARAVIEW_X3D_EDITOR_PATH_KEY,  PARAVIEW_X3D_EDITOR_PATH_DEFAULT);}
+  public static String getPolyTransNuGrafEditorPath()    {return commonStringGet(POLYTRANSNUGRAF_EDITOR_PATH_KEY, POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT);}
+  public static String  getSeamlessX3dEditorPath()       {return commonStringGet(SEAMLESS3D_X3D_EDITOR_PATH_KEY,SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT);}
+  public static String      getItksnapEditorPath()       {return commonStringGet(ITKSNAP_VOLUME_EDITOR_PATH_KEY,   ITKSNAP_X3D_EDITOR_PATH_DEFAULT);}
+  public static String        getSeg3dEditorPath()       {return commonStringGet(  SEG3D_VOLUME_EDITOR_PATH_KEY,     SEG3D_X3D_EDITOR_PATH_DEFAULT);}
+  public static String     getSlicer3dEditorPath()       {return commonStringGet(SLICER3D_VOLUME_EDITOR_PATH_KEY, SLICER3D_X3D_EDITOR_PATH_DEFAULT);}
+  public static String      getSvgeditEditorPath()       {return commonStringGet(SVG_EDIT_VOLUME_EDITOR_PATH_KEY, SVG_EDIT_X3D_EDITOR_PATH_DEFAULT);}
+  public static String getWhiteDuneX3dEditorPath()       {return commonStringGet( WHITEDUNE_X3D_EDITOR_PATH_KEY, WHITEDUNE_X3D_EDITOR_PATH_DEFAULT);}
+  public static String     getWingsX3dEditorPath()       {return commonStringGet(   WINGS3D_X3D_EDITOR_PATH_KEY,   WINGS3D_X3D_EDITOR_PATH_DEFAULT);}
+  public static String getUltraEditX3dEditorPath()       {return commonStringGet( ULTRAEDIT_X3D_EDITOR_PATH_KEY, ULTRAEDIT_X3D_EDITOR_PATH_DEFAULT);}
+  public static String   getOtherAudioEditorPath()       {return commonStringGet(   OTHER_AUDIO_EDITOR_PATH_KEY,   OTHER_AUDIO_EDITOR_PATH_DEFAULT);}
+  public static String   getOtherHtml5EditorPath()       {return commonStringGet(   OTHER_HTML5_EDITOR_PATH_KEY,   OTHER_HTML5_EDITOR_PATH_DEFAULT);}
+  public static String   getOtherImageEditorPath()       {return commonStringGet(   OTHER_IMAGE_EDITOR_PATH_KEY,   OTHER_IMAGE_EDITOR_PATH_DEFAULT);}
+  public static String   getOtherVideoEditorPath()       {return commonStringGet(   OTHER_VIDEO_EDITOR_PATH_KEY,   OTHER_VIDEO_EDITOR_PATH_DEFAULT);}
+  public static String   getOtherVolumeEditorPath()      {return commonStringGet(  OTHER_VOLUME_EDITOR_PATH_KEY,  OTHER_VOLUME_EDITOR_PATH_DEFAULT);}
+  public static String   getOtherSemanticWebEditorPath() {return commonStringGet(OTHER_SEMANTICWEB_EDITOR_PATH_KEY,  OTHER_SEMANTICWEB_EDITOR_PATH_DEFAULT);}
+  public static String   getOtherAudioEditorName()       {return commonStringGet(   OTHER_AUDIO_EDITOR_NAME_KEY,   OTHER_AUDIO_EDITOR_NAME_DEFAULT);}
+  public static String   getOtherHtml5EditorName()       {return commonStringGet(   OTHER_HTML5_EDITOR_NAME_KEY,   OTHER_HTML5_EDITOR_NAME_DEFAULT);}
+  public static String   getOtherImageEditorName()       {return commonStringGet(   OTHER_IMAGE_EDITOR_NAME_KEY,   OTHER_IMAGE_EDITOR_NAME_DEFAULT);}
+  public static String   getOtherVideoEditorName()       {return commonStringGet(   OTHER_VIDEO_EDITOR_NAME_KEY,   OTHER_VIDEO_EDITOR_NAME_DEFAULT);}
+  public static String   getOtherVolumeEditorName()      {return commonStringGet(  OTHER_VOLUME_EDITOR_NAME_KEY,  OTHER_VOLUME_EDITOR_NAME_DEFAULT);}
+  public static String   getOtherSemanticWebEditorName() {return commonStringGet(OTHER_SEMANTICWEB_EDITOR_NAME_KEY,OTHER_SEMANTICWEB_EDITOR_NAME_DEFAULT);}
 
-  public static String isContactAutoLaunch()        {return commonGet(CONTACT_EXECUTABLE_AUTOLAUNCH_KEY,               AUTOLAUNCH_DEFAULT);}
-  public static String isContactGeoAutoLaunch()     {return commonGet(CONTACT_GEO_EXECUTABLE_AUTOLAUNCH_KEY,           AUTOLAUNCH_DEFAULT);}
-  public static String isFreeWrlAutoLaunch()        {return commonGet(FREEWRL_EXECUTABLE_AUTOLAUNCH_KEY,               AUTOLAUNCH_DEFAULT);}
-  public static String isH3dAutoLaunch()            {return commonGet(H3D_EXECUTABLE_AUTOLAUNCH_KEY,                   AUTOLAUNCH_DEFAULT);}
-  public static String isHeilanAutoLaunch()         {return commonGet(HEILAN_EXECUTABLE_AUTOLAUNCH_KEY,         HEILAN_AUTOLAUNCH_DEFAULT);}
-  public static String isInstantRealityAutoLaunch() {return commonGet(INSTANTREALITY_EXECUTABLE_AUTOLAUNCH_KEY,        AUTOLAUNCH_DEFAULT);}
-  public static String isOctagaAutoLaunch()         {return commonGet(OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY,                AUTOLAUNCH_DEFAULT);}
-  public static String isSwirlX3DAutoLaunch()       {return commonGet(SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY,        AUTOLAUNCH_DEFAULT);}
-  public static String isView3dSceneAutoLaunch()    {return commonGet(VIEW3DSCENE_EXECUTABLE_AUTOLAUNCH_KEY,           AUTOLAUNCH_DEFAULT);}
-  public static String isVivatyPlayerAutoLaunch()   {return commonGet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY,          AUTOLAUNCH_DEFAULT);}
-  public static String isXj3dAutoLaunch()           {return commonGet(XJ3D_EXECUTABLE_AUTOLAUNCH_KEY,                  AUTOLAUNCH_DEFAULT);}
-  public static String isOtherX3dPlayerAutoLaunch() {return commonGet(OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY,      AUTOLAUNCH_DEFAULT);}
-  public static String isOtherX3dEditorAutoLaunch() {return commonGet(OTHER_X3D_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,      AUTOLAUNCH_DEFAULT);}
+  public static String isContactAutoLaunch()        {return commonStringGet(CONTACT_EXECUTABLE_AUTOLAUNCH_KEY,               AUTOLAUNCH_DEFAULT);}
+  public static String isContactGeoAutoLaunch()     {return commonStringGet(CONTACT_GEO_EXECUTABLE_AUTOLAUNCH_KEY,           AUTOLAUNCH_DEFAULT);}
+  public static String isFreeWrlAutoLaunch()        {return commonStringGet(FREEWRL_EXECUTABLE_AUTOLAUNCH_KEY,               AUTOLAUNCH_DEFAULT);}
+  public static String isH3dAutoLaunch()            {return commonStringGet(H3D_EXECUTABLE_AUTOLAUNCH_KEY,                   AUTOLAUNCH_DEFAULT);}
+  public static String isHeilanAutoLaunch()         {return commonStringGet(HEILAN_EXECUTABLE_AUTOLAUNCH_KEY,         HEILAN_AUTOLAUNCH_DEFAULT);}
+  public static String isInstantRealityAutoLaunch() {return commonStringGet(INSTANTREALITY_EXECUTABLE_AUTOLAUNCH_KEY,        AUTOLAUNCH_DEFAULT);}
+  public static String isOctagaAutoLaunch()         {return commonStringGet(OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY,                AUTOLAUNCH_DEFAULT);}
+  public static String isSwirlX3DAutoLaunch()       {return commonStringGet(SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY,        AUTOLAUNCH_DEFAULT);}
+  public static String isView3dSceneAutoLaunch()    {return commonStringGet(VIEW3DSCENE_EXECUTABLE_AUTOLAUNCH_KEY,           AUTOLAUNCH_DEFAULT);}
+  public static String isVivatyPlayerAutoLaunch()   {return commonStringGet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY,          AUTOLAUNCH_DEFAULT);}
+  public static String isXj3dAutoLaunch()           {return commonStringGet(XJ3D_EXECUTABLE_AUTOLAUNCH_KEY,                  AUTOLAUNCH_DEFAULT);}
+  public static String isOtherX3dPlayerAutoLaunch() {return commonStringGet(OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY,      AUTOLAUNCH_DEFAULT);}
+  public static String isOtherX3dEditorAutoLaunch() {return commonStringGet(OTHER_X3D_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,      AUTOLAUNCH_DEFAULT);}
   
-  public static String             isAmayaAutoLaunch() {return commonGet(              AMAYA_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String          isAudacityAutoLaunch() {return commonGet(           AUDACITY_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String         isMuseScoreAutoLaunch() {return commonGet(          MUSESCORE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String              isGimpAutoLaunch() {return commonGet(               GIMP_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String              isFijiAutoLaunch() {return commonGet(               FIJI_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String            isImageJAutoLaunch() {return commonGet(             IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String       isImageMagickAutoLaunch() {return commonGet(        IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String               isVlcAutoLaunch() {return commonGet(                VLC_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String           isProtegeAutoLaunch() {return commonGet(            PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String          isPortecleAutoLaunch() {return commonGet(           PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String  isKeystoreExplorerAutoLaunch() {return commonGet(   KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String             isAmayaAutoLaunch() {return commonStringGet(              AMAYA_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String          isAudacityAutoLaunch() {return commonStringGet(           AUDACITY_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String         isMuseScoreAutoLaunch() {return commonStringGet(          MUSESCORE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String              isGimpAutoLaunch() {return commonStringGet(               GIMP_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String              isFijiAutoLaunch() {return commonStringGet(               FIJI_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String            isImageJAutoLaunch() {return commonStringGet(             IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String       isImageMagickAutoLaunch() {return commonStringGet(        IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String               isVlcAutoLaunch() {return commonStringGet(                VLC_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String           isProtegeAutoLaunch() {return commonStringGet(            PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String          isPortecleAutoLaunch() {return commonStringGet(           PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String  isKeystoreExplorerAutoLaunch() {return commonStringGet(   KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   
-  public static String      isAltovaXMLSpyAutoLaunch() {return commonGet(      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String           isBlenderAutoLaunch() {return commonGet(            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String   isBsContentStudioAutoLaunch() {return commonGet(    BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String              isCuraAutoLaunch() {return commonGet(               CURA_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String           isMeshLabAutoLaunch() {return commonGet(            MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String          isParaviewAutoLaunch() {return commonGet(           PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String   isPolyTransNuGrafAutoLaunch() {return commonGet(        POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String        isSeamless3dAutoLaunch() {return commonGet(         SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String           isItksnapAutoLaunch() {return commonGet(            ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String             isSeg3dAutoLaunch() {return commonGet(              SEG3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String          isSlicer3dAutoLaunch() {return commonGet(           SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String           isSvgeditAutoLaunch() {return commonGet(           SVG_EDIT_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String         isWhiteDuneAutoLaunch() {return commonGet(          WHITEDUNE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String           isWings3dAutoLaunch() {return commonGet(            WINGS3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String         isUltraEditAutoLaunch() {return commonGet(          ULTRAEDIT_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String  isOtherAudioEditorAutoLaunch() {return commonGet( OTHER_AUDIO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String  isOtherHtml5EditorAutoLaunch() {return commonGet( OTHER_HTML5_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String  isOtherImageEditorAutoLaunch() {return commonGet( OTHER_IMAGE_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String  isOtherVideoEditorAutoLaunch() {return commonGet( OTHER_VIDEO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String isOtherVolumeEditorAutoLaunch() {return commonGet(OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String isOtherSemanticWebEditorAutoLaunch() {return commonGet(OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,AUTOLAUNCH_DEFAULT);}
+  public static String      isAltovaXMLSpyAutoLaunch() {return commonStringGet(      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String           isBlenderAutoLaunch() {return commonStringGet(            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String   isBsContentStudioAutoLaunch() {return commonStringGet(    BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String              isCuraAutoLaunch() {return commonStringGet(               CURA_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String           isMeshLabAutoLaunch() {return commonStringGet(            MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String          isParaviewAutoLaunch() {return commonStringGet(           PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String   isPolyTransNuGrafAutoLaunch() {return commonStringGet(        POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String        isSeamless3dAutoLaunch() {return commonStringGet(         SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String           isItksnapAutoLaunch() {return commonStringGet(            ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String             isSeg3dAutoLaunch() {return commonStringGet(              SEG3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String          isSlicer3dAutoLaunch() {return commonStringGet(           SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String           isSvgeditAutoLaunch() {return commonStringGet(           SVG_EDIT_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String         isWhiteDuneAutoLaunch() {return commonStringGet(          WHITEDUNE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String           isWings3dAutoLaunch() {return commonStringGet(            WINGS3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String         isUltraEditAutoLaunch() {return commonStringGet(          ULTRAEDIT_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String  isOtherAudioEditorAutoLaunch() {return commonStringGet( OTHER_AUDIO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String  isOtherHtml5EditorAutoLaunch() {return commonStringGet( OTHER_HTML5_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String  isOtherImageEditorAutoLaunch() {return commonStringGet( OTHER_IMAGE_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String  isOtherVideoEditorAutoLaunch() {return commonStringGet( OTHER_VIDEO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String isOtherVolumeEditorAutoLaunch() {return commonStringGet(OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String isOtherSemanticWebEditorAutoLaunch() {return commonStringGet(OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,AUTOLAUNCH_DEFAULT);}
 
-  public static String getLaunchInterval()             {return commonGet(LAUNCH_INTERVAL_KEY,                  LAUNCH_INTERVAL_DEFAULT);}
+  public static String getLaunchInterval()             {return commonStringGet(LAUNCH_INTERVAL_KEY,                  LAUNCH_INTERVAL_DEFAULT);}
   public static Long   getLaunchIntervalMilliseconds() {return Long.parseLong(getLaunchInterval()) * 1000l;} // convert seconds to msec
 
-  public static String getKeystorePath()         {return commonGet(KEYSTORE_PATH_KEY, "");} // user must initially define their keystore path
+  public static String getKeystorePath()         {return commonStringGet(KEYSTORE_PATH_KEY, "");} // user must initially define their keystore path
 
   public static void resetContactPath()          {commonReset(CONTACT_EXECUTABLE_PATH_KEY);}
   public static void resetContactGeoPath()       {commonReset(CONTACT_GEO_EXECUTABLE_PATH_KEY);}
@@ -1434,25 +1459,25 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void  resetOtherVolumeEditorName() {commonReset(   OTHER_VOLUME_EDITOR_NAME_KEY);}
   public static void  resetOtherSemanticWebEditorName() {commonReset(   OTHER_SEMANTICWEB_EDITOR_NAME_KEY);}
  
-  private static void commonSet(String key, String val)
+  private static void commonStringSet(String key, String val)
   {
     Preferences prefs = NbPreferences.forModule(X3dOptions.class);
     prefs.put(key,val);  
   }
-  private static void commonBSet(String key, boolean tf)
+  private static void commonBooleanSet(String key, boolean tf)
   {
     Preferences prefs = NbPreferences.forModule(X3dOptions.class);
     prefs.putBoolean(key,tf);      
   }
-  public static String commonGet(String key, String defaultValue)
+  public static String commonStringGet(String key, String defaultValue)
   {
     Preferences prefs = NbPreferences.forModule(X3dOptions.class);
     return prefs.get(key, defaultValue);
   } 
-  public static boolean commonBGet(String key, boolean defalt)
+  public static boolean commonBooleanGet(String key, boolean defaultValue)
   {
     Preferences prefs = NbPreferences.forModule(X3dOptions.class);
-    return prefs.getBoolean(key, defalt);   
+    return prefs.getBoolean(key, defaultValue);   
   }
   public static void commonReset(String key)
   {
@@ -1538,65 +1563,65 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static boolean CADFILTER_DEFAULT_REINDEX = false;
   public static boolean CADFILTER_DEFAULT_DEBUG   = false;
 
-  public static void setCadFilterX3dVersion(String s)                { commonSet(CADFILTER_KEY_VERSION,s);}
-  public static void setCadFilterTriangleCount(boolean tf)           {commonBSet(CADFILTER_KEY_TRIANGLE_COUNT,tf);}
-  public static void setCadFilterLogLevel(String s)                  { commonSet(CADFILTER_KEY_LOG_LEVEL,s);}
-  public static void setCadFilterEmbedProto(boolean tf)              {commonBSet(CADFILTER_KEY_EMBED_PROTO,tf);}
-  public static void setCadFilterBinaryCompression(String s)         { commonSet(CADFILTER_KEY_BIN_COMPRESS,s);}
-  public static void setCadFilterMinimumProfile(boolean tf)          {commonBSet(CADFILTER_KEY_MIN_PROFILE,tf);}
-  public static void setCadFilterAppearanceFilter(boolean tf)        {commonBSet(CADFILTER_KEY_APPEARANCE_FILTER,tf);}
-  public static void setCadFilterIdentityFilter(boolean tf)          {commonBSet(CADFILTER_KEY_IDENTITY_FILTER,tf);}
-  public static void setCadFilterCadFiltersRB(boolean tf)            {commonBSet(CADFILTER_KEY_CAD_FILTERS,tf);}
-  public static void setCadFilterAbsScaleFactor(String s)            { commonSet(CADFILTER_KEY_ABS_SCALE_FACTOR,s);}
-  public static void setCadFilterAddBoundingBoxes(boolean tf)        {commonBSet(CADFILTER_KEY_BOUNDING_BOXES,tf);}
-  public static void setCadFilterIFStoITS(boolean tf)                {commonBSet(CADFILTER_KEY_IFACE_TO_ITRIANGLE,tf);}
-  public static void setCadFilterFloatingPointQuantization(String s) { commonSet(CADFILTER_KEY_FLOAT_QUANT,s);}
-  public static void setCadFilterCenterFilter(boolean tf)            {commonBSet(CADFILTER_KEY_CENTER,tf);}
-  public static void setCadFilterIFStoTS(boolean tf)                 {commonBSet(CADFILTER_KEY_IFACE_TO_TRIANGLE,tf);}
-  public static void setCadFilterCombineAppearances(boolean tf)      {commonBSet(CADFILTER_KEY_COMBINE_APPEARANCES,tf);}
-  public static void setCadFilterCombineShapes(boolean tf)           {commonBSet(CADFILTER_KEY_COMBINE_SHAPES,tf);}
-  public static void setCadFilterIndexFilter(boolean tf)             {commonBSet(CADFILTER_KEY_INDEX,tf);}
-  public static void setCadFilterDefuseImageTexture(boolean tf)      {commonBSet(CADFILTER_KEY_DEFUSE_IMAGE_TEXTURE,tf);}
-  public static void setCadFilterMaterialFilter(boolean tf)          {commonBSet(CADFILTER_KEY_MATERIAL,tf);}
-  public static void setCadFilterModifyViewpoint(boolean tf)         {commonBSet(CADFILTER_KEY_MOD_VIEWPOINT,tf);}
-  public static void setCadFilterFlattenTransforms(boolean tf)       {commonBSet(CADFILTER_KEY_FLATTEN_TRANSFORM,tf);}
-  public static void setCadFilterFlattenTextureTransforms(boolean tf){commonBSet(CADFILTER_KEY_FLATTEN_TEXTURETRANSFORM,tf);}
-  public static void setCadFilterFlattenSelectable(boolean tf)       {commonBSet(CADFILTER_KEY_FLATTEN_SELECTABLE,tf);}
-  public static void setCadFilterDefNameShortened(boolean tf)        {commonBSet(CADFILTER_KEY_SHORTEN_DEF,tf);}
-  public static void setCadFilterGenerateNormals(boolean tf)         {commonBSet(CADFILTER_KEY_GEN_NORMALS,tf);}
-  public static void setCadFilterTriangulationFilter(boolean tf)     {commonBSet(CADFILTER_KEY_TRIANGULATION,tf);}
-  public static void setCadFilterReindex(boolean tf)                 {commonBSet(CADFILTER_KEY_REINDEX,tf);}
-  public static void setCadFilterDebug(boolean tf)                   {commonBSet(CADFILTER_KEY_DEBUG,tf);}
+  public static void setCadFilterX3dVersion(String s)                { commonStringSet(CADFILTER_KEY_VERSION,s);}
+  public static void setCadFilterTriangleCount(boolean tf)           {commonBooleanSet(CADFILTER_KEY_TRIANGLE_COUNT,tf);}
+  public static void setCadFilterLogLevel(String s)                  { commonStringSet(CADFILTER_KEY_LOG_LEVEL,s);}
+  public static void setCadFilterEmbedProto(boolean tf)              {commonBooleanSet(CADFILTER_KEY_EMBED_PROTO,tf);}
+  public static void setCadFilterBinaryCompression(String s)         { commonStringSet(CADFILTER_KEY_BIN_COMPRESS,s);}
+  public static void setCadFilterMinimumProfile(boolean tf)          {commonBooleanSet(CADFILTER_KEY_MIN_PROFILE,tf);}
+  public static void setCadFilterAppearanceFilter(boolean tf)        {commonBooleanSet(CADFILTER_KEY_APPEARANCE_FILTER,tf);}
+  public static void setCadFilterIdentityFilter(boolean tf)          {commonBooleanSet(CADFILTER_KEY_IDENTITY_FILTER,tf);}
+  public static void setCadFilterCadFiltersRB(boolean tf)            {commonBooleanSet(CADFILTER_KEY_CAD_FILTERS,tf);}
+  public static void setCadFilterAbsScaleFactor(String s)            { commonStringSet(CADFILTER_KEY_ABS_SCALE_FACTOR,s);}
+  public static void setCadFilterAddBoundingBoxes(boolean tf)        {commonBooleanSet(CADFILTER_KEY_BOUNDING_BOXES,tf);}
+  public static void setCadFilterIFStoITS(boolean tf)                {commonBooleanSet(CADFILTER_KEY_IFACE_TO_ITRIANGLE,tf);}
+  public static void setCadFilterFloatingPointQuantization(String s) { commonStringSet(CADFILTER_KEY_FLOAT_QUANT,s);}
+  public static void setCadFilterCenterFilter(boolean tf)            {commonBooleanSet(CADFILTER_KEY_CENTER,tf);}
+  public static void setCadFilterIFStoTS(boolean tf)                 {commonBooleanSet(CADFILTER_KEY_IFACE_TO_TRIANGLE,tf);}
+  public static void setCadFilterCombineAppearances(boolean tf)      {commonBooleanSet(CADFILTER_KEY_COMBINE_APPEARANCES,tf);}
+  public static void setCadFilterCombineShapes(boolean tf)           {commonBooleanSet(CADFILTER_KEY_COMBINE_SHAPES,tf);}
+  public static void setCadFilterIndexFilter(boolean tf)             {commonBooleanSet(CADFILTER_KEY_INDEX,tf);}
+  public static void setCadFilterDefuseImageTexture(boolean tf)      {commonBooleanSet(CADFILTER_KEY_DEFUSE_IMAGE_TEXTURE,tf);}
+  public static void setCadFilterMaterialFilter(boolean tf)          {commonBooleanSet(CADFILTER_KEY_MATERIAL,tf);}
+  public static void setCadFilterModifyViewpoint(boolean tf)         {commonBooleanSet(CADFILTER_KEY_MOD_VIEWPOINT,tf);}
+  public static void setCadFilterFlattenTransforms(boolean tf)       {commonBooleanSet(CADFILTER_KEY_FLATTEN_TRANSFORM,tf);}
+  public static void setCadFilterFlattenTextureTransforms(boolean tf){commonBooleanSet(CADFILTER_KEY_FLATTEN_TEXTURETRANSFORM,tf);}
+  public static void setCadFilterFlattenSelectable(boolean tf)       {commonBooleanSet(CADFILTER_KEY_FLATTEN_SELECTABLE,tf);}
+  public static void setCadFilterDefNameShortened(boolean tf)        {commonBooleanSet(CADFILTER_KEY_SHORTEN_DEF,tf);}
+  public static void setCadFilterGenerateNormals(boolean tf)         {commonBooleanSet(CADFILTER_KEY_GEN_NORMALS,tf);}
+  public static void setCadFilterTriangulationFilter(boolean tf)     {commonBooleanSet(CADFILTER_KEY_TRIANGULATION,tf);}
+  public static void setCadFilterReindex(boolean tf)                 {commonBooleanSet(CADFILTER_KEY_REINDEX,tf);}
+  public static void setCadFilterDebug(boolean tf)                   {commonBooleanSet(CADFILTER_KEY_DEBUG,tf);}
        
-  public static String  getCadFilterX3dVersion()                {return  commonGet(CADFILTER_KEY_VERSION,             CADFILTER_DEFAULT_VERSION);}
-  public static boolean getCadFilterTriangleCount()             {return commonBGet(CADFILTER_KEY_TRIANGLE_COUNT,      CADFILTER_DEFAULT_TRIANGLE_COUNT);}
-  public static String  getCadFilterLogLevel()                  {return  commonGet(CADFILTER_KEY_LOG_LEVEL,           CADFILTER_DEFAULT_LOG_LEVEL);}
-  public static boolean getCadFilterEmbedProto()                {return commonBGet(CADFILTER_KEY_EMBED_PROTO,         CADFILTER_DEFAULT_EMBED_PROTO);}
-  public static String  getCadFilterBinaryCompressionMethod()   {return  commonGet(CADFILTER_KEY_BIN_COMPRESS,        CADFILTER_DEFAULT_BIN_COMPRESS);}
-  public static boolean getCadFilterMinimumProfile()            {return commonBGet(CADFILTER_KEY_MIN_PROFILE,         CADFILTER_DEFAULT_MIN_PROFILE);}
-  public static boolean getCadFilterAppearanceFilter()            {return commonBGet(CADFILTER_KEY_IDENTITY_FILTER,   CADFILTER_DEFAULT_APPEARANCE_FILTER);}
-  public static boolean getCadFilterIdentityFilter()            {return commonBGet(CADFILTER_KEY_IDENTITY_FILTER,     CADFILTER_DEFAULT_IDENTITY_FILTER);}
-  public static boolean getCadFiltersEnabledRadioButton()       {return commonBGet(CADFILTER_KEY_CAD_FILTERS,         CADFILTER_DEFAULT_CAD_FILTERS);}
-  public static String  getCadFilterAbsScaleFactor()            {return  commonGet(CADFILTER_KEY_ABS_SCALE_FACTOR,    CADFILTER_DEFAULT_ABS_SCALE_FACTOR);}
-  public static boolean getCadFilterAddBoundingBoxes()          {return commonBGet(CADFILTER_KEY_BOUNDING_BOXES,      CADFILTER_DEFAULT_BOUNDING_BOXES);}
-  public static boolean getCadFilterIFStoITS()                  {return commonBGet(CADFILTER_KEY_IFACE_TO_ITRIANGLE,  CADFILTER_DEFAULT_IFACE_TO_ITRIANGLE);}
-  public static String  getCadFilterFloatingPointQuantization() {return  commonGet(CADFILTER_KEY_FLOAT_QUANT,         CADFILTER_DEFAULT_FLOAT_QUANT);}
-  public static boolean getCadFilterCenterFilter()              {return commonBGet(CADFILTER_KEY_CENTER,              CADFILTER_DEFAULT_CENTER);}
-  public static boolean getCadFilterIFStoTS()                   {return commonBGet(CADFILTER_KEY_IFACE_TO_TRIANGLE,   CADFILTER_DEFAULT_IFACE_TO_TRIANGLE);}
-  public static boolean getCadFilterCombineAppearances()             {return commonBGet(CADFILTER_KEY_COMBINE_SHAPES, CADFILTER_DEFAULT_COMBINE_APPEARANCES);}
-  public static boolean getCadFilterCombineShapes()             {return commonBGet(CADFILTER_KEY_COMBINE_SHAPES,      CADFILTER_DEFAULT_COMBINE_SHAPES);}
-  public static boolean getCadFilterIndexFilter()               {return commonBGet(CADFILTER_KEY_INDEX,               CADFILTER_DEFAULT_INDEX);}
-  public static boolean getCadFilterDefuseImageTexture()        {return commonBGet(CADFILTER_KEY_DEFUSE_IMAGE_TEXTURE,CADFILTER_DEFAULT_DEFUSE_IMAGE_TEXTURE);}
-  public static boolean getCadFilterMaterialFilter()            {return commonBGet(CADFILTER_KEY_MOD_VIEWPOINT,       CADFILTER_DEFAULT_MATERIAL);}
-  public static boolean getCadFilterModifyViewpoint()           {return commonBGet(CADFILTER_KEY_MOD_VIEWPOINT,       CADFILTER_DEFAULT_MOD_VIEWPOINT);}
-  public static boolean getCadFilterFlattenTransforms()         {return commonBGet(CADFILTER_KEY_FLATTEN_TRANSFORM,   CADFILTER_DEFAULT_FLATTEN_TRANSFORM);}
-  public static boolean getCadFilterFlattenTextureTransforms()  {return commonBGet(CADFILTER_KEY_FLATTEN_TEXTURETRANSFORM,CADFILTER_DEFAULT_FLATTEN_TEXTURETRANSFORM);}
-  public static boolean getCadFilterFlattenSelectable()         {return commonBGet(CADFILTER_KEY_FLATTEN_SELECTABLE,  CADFILTER_DEFAULT_FLATTEN_SELECTABLE);}
-  public static boolean getCadFilterDefNameShortened()          {return commonBGet(CADFILTER_KEY_SHORTEN_DEF,         CADFILTER_DEFAULT_SHORTEN_DEF);}
-  public static boolean getCadFilterGenerateNormals()           {return commonBGet(CADFILTER_KEY_GEN_NORMALS,         CADFILTER_DEFAULT_GEN_NORMALS);}
-  public static boolean getCadFilterTriangulationFilter()       {return commonBGet(CADFILTER_KEY_TRIANGULATION,       CADFILTER_DEFAULT_TRIANGULATION);}
-  public static boolean getCadFilterReIndex()                   {return commonBGet(CADFILTER_KEY_REINDEX,             CADFILTER_DEFAULT_REINDEX);}
-  public static boolean getCadFilterDebug()                     {return commonBGet(CADFILTER_KEY_DEBUG,               CADFILTER_DEFAULT_DEBUG);}
+  public static String  getCadFilterX3dVersion()                {return  commonStringGet(CADFILTER_KEY_VERSION,             CADFILTER_DEFAULT_VERSION);}
+  public static boolean getCadFilterTriangleCount()             {return commonBooleanGet(CADFILTER_KEY_TRIANGLE_COUNT,      CADFILTER_DEFAULT_TRIANGLE_COUNT);}
+  public static String  getCadFilterLogLevel()                  {return  commonStringGet(CADFILTER_KEY_LOG_LEVEL,           CADFILTER_DEFAULT_LOG_LEVEL);}
+  public static boolean getCadFilterEmbedProto()                {return commonBooleanGet(CADFILTER_KEY_EMBED_PROTO,         CADFILTER_DEFAULT_EMBED_PROTO);}
+  public static String  getCadFilterBinaryCompressionMethod()   {return  commonStringGet(CADFILTER_KEY_BIN_COMPRESS,        CADFILTER_DEFAULT_BIN_COMPRESS);}
+  public static boolean getCadFilterMinimumProfile()            {return commonBooleanGet(CADFILTER_KEY_MIN_PROFILE,         CADFILTER_DEFAULT_MIN_PROFILE);}
+  public static boolean getCadFilterAppearanceFilter()            {return commonBooleanGet(CADFILTER_KEY_IDENTITY_FILTER,   CADFILTER_DEFAULT_APPEARANCE_FILTER);}
+  public static boolean getCadFilterIdentityFilter()            {return commonBooleanGet(CADFILTER_KEY_IDENTITY_FILTER,     CADFILTER_DEFAULT_IDENTITY_FILTER);}
+  public static boolean getCadFiltersEnabledRadioButton()       {return commonBooleanGet(CADFILTER_KEY_CAD_FILTERS,         CADFILTER_DEFAULT_CAD_FILTERS);}
+  public static String  getCadFilterAbsScaleFactor()            {return  commonStringGet(CADFILTER_KEY_ABS_SCALE_FACTOR,    CADFILTER_DEFAULT_ABS_SCALE_FACTOR);}
+  public static boolean getCadFilterAddBoundingBoxes()          {return commonBooleanGet(CADFILTER_KEY_BOUNDING_BOXES,      CADFILTER_DEFAULT_BOUNDING_BOXES);}
+  public static boolean getCadFilterIFStoITS()                  {return commonBooleanGet(CADFILTER_KEY_IFACE_TO_ITRIANGLE,  CADFILTER_DEFAULT_IFACE_TO_ITRIANGLE);}
+  public static String  getCadFilterFloatingPointQuantization() {return  commonStringGet(CADFILTER_KEY_FLOAT_QUANT,         CADFILTER_DEFAULT_FLOAT_QUANT);}
+  public static boolean getCadFilterCenterFilter()              {return commonBooleanGet(CADFILTER_KEY_CENTER,              CADFILTER_DEFAULT_CENTER);}
+  public static boolean getCadFilterIFStoTS()                   {return commonBooleanGet(CADFILTER_KEY_IFACE_TO_TRIANGLE,   CADFILTER_DEFAULT_IFACE_TO_TRIANGLE);}
+  public static boolean getCadFilterCombineAppearances()             {return commonBooleanGet(CADFILTER_KEY_COMBINE_SHAPES, CADFILTER_DEFAULT_COMBINE_APPEARANCES);}
+  public static boolean getCadFilterCombineShapes()             {return commonBooleanGet(CADFILTER_KEY_COMBINE_SHAPES,      CADFILTER_DEFAULT_COMBINE_SHAPES);}
+  public static boolean getCadFilterIndexFilter()               {return commonBooleanGet(CADFILTER_KEY_INDEX,               CADFILTER_DEFAULT_INDEX);}
+  public static boolean getCadFilterDefuseImageTexture()        {return commonBooleanGet(CADFILTER_KEY_DEFUSE_IMAGE_TEXTURE,CADFILTER_DEFAULT_DEFUSE_IMAGE_TEXTURE);}
+  public static boolean getCadFilterMaterialFilter()            {return commonBooleanGet(CADFILTER_KEY_MOD_VIEWPOINT,       CADFILTER_DEFAULT_MATERIAL);}
+  public static boolean getCadFilterModifyViewpoint()           {return commonBooleanGet(CADFILTER_KEY_MOD_VIEWPOINT,       CADFILTER_DEFAULT_MOD_VIEWPOINT);}
+  public static boolean getCadFilterFlattenTransforms()         {return commonBooleanGet(CADFILTER_KEY_FLATTEN_TRANSFORM,   CADFILTER_DEFAULT_FLATTEN_TRANSFORM);}
+  public static boolean getCadFilterFlattenTextureTransforms()  {return commonBooleanGet(CADFILTER_KEY_FLATTEN_TEXTURETRANSFORM,CADFILTER_DEFAULT_FLATTEN_TEXTURETRANSFORM);}
+  public static boolean getCadFilterFlattenSelectable()         {return commonBooleanGet(CADFILTER_KEY_FLATTEN_SELECTABLE,  CADFILTER_DEFAULT_FLATTEN_SELECTABLE);}
+  public static boolean getCadFilterDefNameShortened()          {return commonBooleanGet(CADFILTER_KEY_SHORTEN_DEF,         CADFILTER_DEFAULT_SHORTEN_DEF);}
+  public static boolean getCadFilterGenerateNormals()           {return commonBooleanGet(CADFILTER_KEY_GEN_NORMALS,         CADFILTER_DEFAULT_GEN_NORMALS);}
+  public static boolean getCadFilterTriangulationFilter()       {return commonBooleanGet(CADFILTER_KEY_TRIANGULATION,       CADFILTER_DEFAULT_TRIANGULATION);}
+  public static boolean getCadFilterReIndex()                   {return commonBooleanGet(CADFILTER_KEY_REINDEX,             CADFILTER_DEFAULT_REINDEX);}
+  public static boolean getCadFilterDebug()                     {return commonBooleanGet(CADFILTER_KEY_DEBUG,               CADFILTER_DEFAULT_DEBUG);}
   
   public static void resetAllCadFilterPreferences()
   {
@@ -1640,21 +1665,21 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String DIS_SCALEY_KEY   = "DIS_SCALEY";
   public static String DIS_SCALEZ_KEY   = "DIS_SCALEZ";
   
-  public static String getDISaddress(String dflt)  {return commonGet(DIS_ADDRESS_KEY, dflt);}
-  public static String getDISport(String dflt)     {return commonGet(DIS_PORT_KEY,    dflt);}
-  public static String getDISappID(String dflt)    {return commonGet(DIS_APPID_KEY,   dflt);}
-  public static String getDISentityID(String dflt) {return commonGet(DIS_ENTITYID_KEY,dflt);}
-  public static String getDISsiteID(String dflt)   {return commonGet(DIS_SITEID_KEY,  dflt);}
-  public static String getDIStranslationScaleX(String dflt)   {return commonGet(DIS_SCALEX_KEY, dflt);}
-  public static String getDIStranslationScaleY(String dflt)   {return commonGet(DIS_SCALEY_KEY, dflt);}
-  public static String getDIStranslationScaleZ(String dflt)   {return commonGet(DIS_SCALEZ_KEY, dflt);}
+  public static String getDISaddress(String dflt)  {return commonStringGet(DIS_ADDRESS_KEY, dflt);}
+  public static String getDISport(String dflt)     {return commonStringGet(DIS_PORT_KEY,    dflt);}
+  public static String getDISappID(String dflt)    {return commonStringGet(DIS_APPID_KEY,   dflt);}
+  public static String getDISentityID(String dflt) {return commonStringGet(DIS_ENTITYID_KEY,dflt);}
+  public static String getDISsiteID(String dflt)   {return commonStringGet(DIS_SITEID_KEY,  dflt);}
+  public static String getDIStranslationScaleX(String dflt)   {return commonStringGet(DIS_SCALEX_KEY, dflt);}
+  public static String getDIStranslationScaleY(String dflt)   {return commonStringGet(DIS_SCALEY_KEY, dflt);}
+  public static String getDIStranslationScaleZ(String dflt)   {return commonStringGet(DIS_SCALEZ_KEY, dflt);}
   
-  public static void setDISaddress(String val)  {commonSet(DIS_ADDRESS_KEY, val);}
-  public static void setDISport(String val)     {commonSet(DIS_PORT_KEY,    val);}
-  public static void setDISappID(String val)    {commonSet(DIS_APPID_KEY,   val);}
-  public static void setDISentityID(String val) {commonSet(DIS_ENTITYID_KEY,val);}
-  public static void setDISsiteID(String val)   {commonSet(DIS_SITEID_KEY,  val);}
-  public static void setDIStranslationScaleX(String val) {commonSet(DIS_SCALEX_KEY, val);}
-  public static void setDIStranslationScaleY(String val) {commonSet(DIS_SCALEY_KEY, val);}
-  public static void setDIStranslationScaleZ(String val) {commonSet(DIS_SCALEZ_KEY, val);}
+  public static void setDISaddress(String val)  {commonStringSet(DIS_ADDRESS_KEY, val);}
+  public static void setDISport(String val)     {commonStringSet(DIS_PORT_KEY,    val);}
+  public static void setDISappID(String val)    {commonStringSet(DIS_APPID_KEY,   val);}
+  public static void setDISentityID(String val) {commonStringSet(DIS_ENTITYID_KEY,val);}
+  public static void setDISsiteID(String val)   {commonStringSet(DIS_SITEID_KEY,  val);}
+  public static void setDIStranslationScaleX(String val) {commonStringSet(DIS_SCALEX_KEY, val);}
+  public static void setDIStranslationScaleY(String val) {commonStringSet(DIS_SCALEY_KEY, val);}
+  public static void setDIStranslationScaleZ(String val) {commonStringSet(DIS_SCALEZ_KEY, val);}
 }
