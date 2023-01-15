@@ -39,11 +39,12 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d;
 
+import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Properties;
@@ -56,6 +57,7 @@ import org.openide.filesystems.FileUtil;
 import org.openide.util.HelpCtx;
 import org.openide.util.Task;
 import org.openide.util.TaskListener;
+import static org.web3d.x3d.actions.LaunchX3dExamplesAction.sendBrowserTo;
 import org.web3d.x3d.actions.LocalExamplesFinder;
 import org.web3d.x3d.options.X3dOptions;
 import static org.web3d.x3d.options.X3dOptions.EXAMPLES_ROOT_DIRECTORY_DEFAULT;
@@ -67,14 +69,14 @@ import static org.web3d.x3d.options.X3dOptions.setExamplesRootDirectory;
  */
 public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
 {
-  private final String BASICEXAMPLESTARGET     = "Basic";
-  private final String CONFORMANCENISTTARGET   = "ConformanceNist";
-  private final String HUMANOIDANIMATIONTARGET = "HumanoidAnimation";
-  private final String VRML20SOURCEBOOKTARGET  = "Vrml2.0Sourcebook";
-  private final String SAVAGETARGET            = "Savage";
-  private final String SAVAGEDEFENSETARGET     = "SavageDefense";
-  private final String X3D4WA_EXAMPLESTARGET   = "X3dForWebAuthors";
-  private final String X3D4AM_EXAMPLESTARGET   = "X3dForAdvancedModeling";
+  private static final String BASICEXAMPLESTARGET     = "Basic";
+  private static final String CONFORMANCENISTTARGET   = "ConformanceNist"; // note capitalization
+  private static final String HUMANOIDANIMATIONTARGET = "HumanoidAnimation";
+  private static final String VRML20SOURCEBOOKTARGET  = "Vrml2.0Sourcebook";
+  private static final String SAVAGETARGET            = "Savage";
+  private static final String SAVAGEDEFENSETARGET     = "SavageDefense";   // private NPS
+  private static final String X3D4WA_EXAMPLESTARGET   = "X3dForWebAuthors";
+  private static final String X3D4AM_EXAMPLESTARGET   = "X3dForAdvancedModeling";
   
   private final String DEFAULTROOTDIR = System.getProperty("user.dir"); // "/";
   private final String targetPath     = "www.web3d.org/x3d/content/examples/";
@@ -107,6 +109,182 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
     
     downloadDirectoryLabelUpdate (); // initialize
     downloadDirectoryOpenButton.setEnabled(Desktop.isDesktopSupported());
+    
+    progressHintLabel.setVisible(false);
+     
+    updateStatusPropertiesLocalArchivesPresent();
+    updatePanelLocalArchivesPresent();
+  }
+  
+  /* Update status of all local archives */
+  public void updatePanelLocalArchivesPresent()
+  {
+        Color   black      = new Color(  0,   0,  0);
+        Color   darkgreen  = new Color( 21,  71, 52);
+        
+        Font plainFont = x3d4waExamplesCB.getFont().deriveFont(Font.PLAIN);
+        Font  boldFont = plainFont.deriveFont(Font.BOLD);
+        
+        if  (isLocalArchivePresent(X3D4WA_EXAMPLESTARGET))
+        {
+            x3d4waExamplesCB.setForeground(darkgreen);
+            x3d4waExamplesCB.setFont(boldFont);
+        }
+        else 
+        {
+            x3d4waExamplesCB.setForeground(black);
+            x3d4waExamplesCB.setFont(plainFont);
+        }
+        if  (isLocalArchivePresent(X3D4AM_EXAMPLESTARGET))
+        {
+            x3d4amExamplesCB.setForeground(darkgreen);
+            x3d4amExamplesCB.setFont(boldFont);
+        }
+        else 
+        {
+            x3d4amExamplesCB.setForeground(black);
+            x3d4amExamplesCB.setFont(plainFont);
+        }
+        if  (isLocalArchivePresent(VRML20SOURCEBOOKTARGET))
+        {
+            vrmlSourcebookCB.setForeground(darkgreen);
+            vrmlSourcebookCB.setFont(boldFont);
+        }
+        else 
+        {
+            vrmlSourcebookCB.setForeground(black);
+            vrmlSourcebookCB.setFont(plainFont);
+        }
+        if  (isLocalArchivePresent(BASICEXAMPLESTARGET))
+        {
+            basicExamplesCB.setForeground(darkgreen);
+            basicExamplesCB.setFont(boldFont);
+        }
+        else 
+        {
+            basicExamplesCB.setForeground(black);
+            basicExamplesCB.setFont(plainFont);
+        }
+        if  (isLocalArchivePresent(CONFORMANCENISTTARGET))
+        {
+            conformanceCB.setForeground(darkgreen);
+            conformanceCB.setFont(boldFont);
+        }
+        else 
+        {
+            conformanceCB.setForeground(black);
+            conformanceCB.setFont(plainFont);
+        }
+        if  (isLocalArchivePresent(HUMANOIDANIMATIONTARGET))
+        {
+            humanoidAnimationCB.setForeground(darkgreen);
+            humanoidAnimationCB.setFont(boldFont);
+        }
+        else
+        {
+            humanoidAnimationCB.setForeground(black);
+            humanoidAnimationCB.setFont(plainFont);
+        }
+        if  (isLocalArchivePresent(SAVAGETARGET))
+        {
+            savageCB.setForeground(darkgreen);
+            savageCB.setFont(boldFont);
+        }
+        else 
+        {
+            savageCB.setForeground(black);
+            savageCB.setFont(plainFont);
+        }
+        // preceding isLocalArchivePresent() checks set the property value too
+                 x3d4waExamplesBrowserViewButton.setEnabled(X3dOptions.getX3d4waLocalExamplesPresent());
+               x3d4waExamplesDirectoryOpenButton.setEnabled(X3dOptions.getX3d4waLocalExamplesPresent());
+                 x3d4amExamplesBrowserViewButton.setEnabled(X3dOptions.getX3d4amLocalExamplesPresent());
+               x3d4amExamplesDirectoryOpenButton.setEnabled(X3dOptions.getX3d4amLocalExamplesPresent());
+         vrmlSourcebookExamplesBrowserViewButton.setEnabled(X3dOptions.getVrmlSourcebookLocalExamplesPresent());
+       vrmlSourcebookExamplesDirectoryOpenButton.setEnabled(X3dOptions.getVrmlSourcebookLocalExamplesPresent());
+                  basicExamplesBrowserViewButton.setEnabled(X3dOptions.getBasicLocalExamplesPresent());
+                basicExamplesDirectoryOpenButton.setEnabled(X3dOptions.getBasicLocalExamplesPresent());
+            conformanceExamplesBrowserViewButton.setEnabled(X3dOptions.getConformanceNistLocalExamplesPresent());
+          conformanceExamplesDirectoryOpenButton.setEnabled(X3dOptions.getConformanceNistLocalExamplesPresent());
+      humanoidAnimationExamplesBrowserViewButton.setEnabled(X3dOptions.getHumanoidAnimationLocalExamplesPresent());
+    humanoidAnimationExamplesDirectoryOpenButton.setEnabled(X3dOptions.getHumanoidAnimationLocalExamplesPresent());
+                 savageExamplesBrowserViewButton.setEnabled(X3dOptions.getSavageLocalExamplesPresent());
+               savageExamplesDirectoryOpenButton.setEnabled(X3dOptions.getSavageLocalExamplesPresent());
+  }
+  
+  /* Update status of all local archives */
+  public static void updateStatusPropertiesLocalArchivesPresent()
+  {
+      isLocalArchivePresent(BASICEXAMPLESTARGET    );
+      isLocalArchivePresent(CONFORMANCENISTTARGET  );
+      isLocalArchivePresent(HUMANOIDANIMATIONTARGET);
+      isLocalArchivePresent(VRML20SOURCEBOOKTARGET );
+      isLocalArchivePresent(SAVAGETARGET           );
+      isLocalArchivePresent(X3D4WA_EXAMPLESTARGET  );
+      isLocalArchivePresent(X3D4AM_EXAMPLESTARGET  );
+  }
+  /** Checks presence and sets persistent variable
+     * @param archiveName name of archive
+     * @return whether local copy of archive is present */
+  public static boolean isLocalArchivePresent(String archiveName)
+  {
+      boolean archivePresent;
+      if      (archiveName.equals(BASICEXAMPLESTARGET))
+      {
+          archivePresent = (new File(X3dOptions.getExamplesRootDirectory() + File.separator + 
+                            BASICEXAMPLESTARGET + File.separator + "HelloWorld.x3d")).exists();
+          X3dOptions.setBasicLocalExamplesPresent(archivePresent);
+          return archivePresent;
+      }
+      else if (archiveName.equals(CONFORMANCENISTTARGET))
+      {
+          
+          archivePresent = ((new File(X3dOptions.getExamplesRootDirectory() + File.separator + 
+                            CONFORMANCENISTTARGET + File.separator + "HelloWorld.x3d")).exists());
+          X3dOptions.setConformanceNistLocalExamplesPresent(archivePresent);
+          return archivePresent;
+      }
+      else if (archiveName.equals(HUMANOIDANIMATIONTARGET))
+      {
+          
+          archivePresent = ((new File(X3dOptions.getExamplesRootDirectory() + File.separator + 
+                            HUMANOIDANIMATIONTARGET + File.separator + "HelloWorld.x3d")).exists());
+          X3dOptions.setHumanoidAnimationLocalExamplesPresent(archivePresent);
+          return archivePresent;
+      }
+      else if (archiveName.equals(VRML20SOURCEBOOKTARGET))
+      {
+          archivePresent = ((new File(X3dOptions.getExamplesRootDirectory() + File.separator + 
+                            VRML20SOURCEBOOKTARGET + File.separator + "HelloWorld.x3d")).exists());
+          X3dOptions.setVrmlSourcebookLocalExamplesPresent(archivePresent);
+          return archivePresent;
+      }
+      else if (archiveName.equals(SAVAGETARGET))
+      {
+          archivePresent = ((new File(X3dOptions.getExamplesRootDirectory() + File.separator + 
+                            SAVAGETARGET + File.separator + "HelloWorld.x3d")).exists());
+          X3dOptions.setSavageLocalExamplesPresent(archivePresent);
+          return archivePresent;
+      }
+      else if (archiveName.equals(X3D4WA_EXAMPLESTARGET))
+      {
+          archivePresent = ((new File(X3dOptions.getExamplesRootDirectory() + File.separator + 
+                            X3D4WA_EXAMPLESTARGET + File.separator + "HelloWorld.x3d")).exists());
+          X3dOptions.setX3d4waLocalExamplesPresent(archivePresent);
+          return archivePresent;
+      }
+      else if (archiveName.equals(X3D4AM_EXAMPLESTARGET))
+      {
+          archivePresent = ((new File(X3dOptions.getExamplesRootDirectory() + File.separator + 
+                            X3D4AM_EXAMPLESTARGET + File.separator + "HelloWorld.x3d")).exists());
+          X3dOptions.setX3d4amLocalExamplesPresent(archivePresent);
+          return archivePresent;
+      }
+      else
+      {
+          System.err.println("*** " + archiveName + " is not a valid X3D Examples Archive name");
+          return false;
+      }
   }
 
   /** This method is called from within the constructor to
@@ -122,19 +300,38 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         x3d4waExamplesCB = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         x3dForWebAuthorsTA = new javax.swing.JTextArea();
+        x3d4waExamplesBrowserViewButton = new javax.swing.JButton();
+        x3d4waExamplesDirectoryOpenButton = new javax.swing.JButton();
         x3d4amExamplesCB = new javax.swing.JCheckBox();
         jScrollPane6 = new javax.swing.JScrollPane();
         x3dForAdvancedModelingTA = new javax.swing.JTextArea();
-        basicExamplesCB = new javax.swing.JCheckBox();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        basicExamplesTA = new javax.swing.JTextArea();
-        conformanceCB = new javax.swing.JCheckBox();
+        x3d4amExamplesBrowserViewButton = new javax.swing.JButton();
+        x3d4amExamplesDirectoryOpenButton = new javax.swing.JButton();
         vrmlSourcebookCB = new javax.swing.JCheckBox();
         jScrollPane4 = new javax.swing.JScrollPane();
         vrmlTA = new javax.swing.JTextArea();
+        vrmlSourcebookExamplesBrowserViewButton = new javax.swing.JButton();
+        vrmlSourcebookExamplesDirectoryOpenButton = new javax.swing.JButton();
+        basicExamplesCB = new javax.swing.JCheckBox();
+        basicExamplesBrowserViewButton = new javax.swing.JButton();
+        basicExamplesDirectoryOpenButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        basicExamplesTA = new javax.swing.JTextArea();
+        conformanceCB = new javax.swing.JCheckBox();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        conformanceTA1 = new javax.swing.JTextArea();
+        conformanceExamplesBrowserViewButton = new javax.swing.JButton();
+        conformanceExamplesDirectoryOpenButton = new javax.swing.JButton();
+        humanoidAnimationCB = new javax.swing.JCheckBox();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        hanimTextArea = new javax.swing.JTextArea();
+        humanoidAnimationExamplesBrowserViewButton = new javax.swing.JButton();
+        humanoidAnimationExamplesDirectoryOpenButton = new javax.swing.JButton();
         savageCB = new javax.swing.JCheckBox();
         jScrollPane5 = new javax.swing.JScrollPane();
         savageTA = new javax.swing.JTextArea();
+        savageExamplesBrowserViewButton = new javax.swing.JButton();
+        savageExamplesDirectoryOpenButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         downLoadLab = new javax.swing.JLabel();
         rootDownloadDirectoryTF = new javax.swing.JTextField();
@@ -145,17 +342,14 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         downloadDirectoryOpenButton = new javax.swing.JButton();
         startDownloadButton = new javax.swing.JButton();
         cancelDownloadButton = new javax.swing.JButton();
-        conformanceCB1 = new javax.swing.JCheckBox();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        conformanceTA1 = new javax.swing.JTextArea();
-        humanoidAnimationCB = new javax.swing.JCheckBox();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        hanimTextArea = new javax.swing.JTextArea();
+        progressHintLabel = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setLayout(new java.awt.GridBagLayout());
 
+        x3d4waExamplesCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         x3d4waExamplesCB.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4waExamplesCB.text")); // NOI18N
+        x3d4waExamplesCB.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
         x3d4waExamplesCB.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -166,7 +360,7 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
@@ -189,19 +383,59 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         jScrollPane1.setViewportView(x3dForWebAuthorsTA);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.ipady = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
+        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane1, gridBagConstraints);
 
+        x3d4waExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
+        x3d4waExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        x3d4waExamplesBrowserViewButton.setMargin(null);
+        x3d4waExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                x3d4waExamplesBrowserViewButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(x3d4waExamplesBrowserViewButton, gridBagConstraints);
+
+        x3d4waExamplesDirectoryOpenButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4waExamplesDirectoryOpenButton.text")); // NOI18N
+        x3d4waExamplesDirectoryOpenButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.vrmlSourcebookExamplesDirectoryOpenButton.toolTipText")); // NOI18N
+        x3d4waExamplesDirectoryOpenButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                x3d4waExamplesDirectoryOpenButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
+        add(x3d4waExamplesDirectoryOpenButton, gridBagConstraints);
+
+        x3d4amExamplesCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         x3d4amExamplesCB.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesCB.text")); // NOI18N
+        x3d4amExamplesCB.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
         x3d4amExamplesCB.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -211,8 +445,8 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
@@ -235,85 +469,59 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         jScrollPane6.setViewportView(x3dForAdvancedModelingTA);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.ipady = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
+        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane6, gridBagConstraints);
 
-        basicExamplesCB.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.text")); // NOI18N
-        basicExamplesCB.addActionListener(new java.awt.event.ActionListener()
+        x3d4amExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
+        x3d4amExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        x3d4amExamplesBrowserViewButton.setMargin(null);
+        x3d4amExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                basicExamplesCBActionPerformed(evt);
+                x3d4amExamplesBrowserViewButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        add(basicExamplesCB, gridBagConstraints);
-
-        jScrollPane2.setMaximumSize(new java.awt.Dimension(120, 24));
-        jScrollPane2.setMinimumSize(new java.awt.Dimension(120, 24));
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(120, 24));
-
-        basicExamplesTA.setEditable(false);
-        basicExamplesTA.setColumns(20);
-        basicExamplesTA.setLineWrap(true);
-        basicExamplesTA.setRows(2);
-        basicExamplesTA.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesTA.text")); // NOI18N
-        basicExamplesTA.setWrapStyleWord(true);
-        basicExamplesTA.setAutoscrolls(false);
-        basicExamplesTA.setMaximumSize(new java.awt.Dimension(80, 400));
-        basicExamplesTA.setMinimumSize(new java.awt.Dimension(80, 400));
-        basicExamplesTA.setPreferredSize(new java.awt.Dimension(80, 400));
-        jScrollPane2.setViewportView(basicExamplesTA);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.ipady = 50;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-        add(jScrollPane2, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(x3d4amExamplesBrowserViewButton, gridBagConstraints);
 
-        conformanceCB.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.conformanceCB.text")); // NOI18N
-        conformanceCB.setMaximumSize(new java.awt.Dimension(250, 23));
-        conformanceCB.setMinimumSize(new java.awt.Dimension(250, 23));
-        conformanceCB.setPreferredSize(new java.awt.Dimension(250, 23));
-        conformanceCB.addActionListener(new java.awt.event.ActionListener()
+        x3d4amExamplesDirectoryOpenButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesDirectoryOpenButton.text")); // NOI18N
+        x3d4amExamplesDirectoryOpenButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.vrmlSourcebookExamplesDirectoryOpenButton.toolTipText")); // NOI18N
+        x3d4amExamplesDirectoryOpenButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                conformanceCBActionPerformed(evt);
+                x3d4amExamplesDirectoryOpenButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        add(conformanceCB, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
+        add(x3d4amExamplesDirectoryOpenButton, gridBagConstraints);
 
+        vrmlSourcebookCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         vrmlSourcebookCB.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.vrmlSourcebookCB.text")); // NOI18N
+        vrmlSourcebookCB.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
         vrmlSourcebookCB.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -323,8 +531,8 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
@@ -347,19 +555,318 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         jScrollPane4.setViewportView(vrmlTA);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.ipady = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
+        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane4, gridBagConstraints);
 
+        vrmlSourcebookExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
+        vrmlSourcebookExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        vrmlSourcebookExamplesBrowserViewButton.setMargin(null);
+        vrmlSourcebookExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                vrmlSourcebookExamplesBrowserViewButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(vrmlSourcebookExamplesBrowserViewButton, gridBagConstraints);
+
+        vrmlSourcebookExamplesDirectoryOpenButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.vrmlSourcebookExamplesDirectoryOpenButton.text")); // NOI18N
+        vrmlSourcebookExamplesDirectoryOpenButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.vrmlSourcebookExamplesDirectoryOpenButton.toolTipText")); // NOI18N
+        vrmlSourcebookExamplesDirectoryOpenButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                vrmlSourcebookExamplesDirectoryOpenButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
+        add(vrmlSourcebookExamplesDirectoryOpenButton, gridBagConstraints);
+
+        basicExamplesCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        basicExamplesCB.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.text")); // NOI18N
+        basicExamplesCB.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
+        basicExamplesCB.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                basicExamplesCBActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        add(basicExamplesCB, gridBagConstraints);
+
+        basicExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
+        basicExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        basicExamplesBrowserViewButton.setMargin(null);
+        basicExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                basicExamplesBrowserViewButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(basicExamplesBrowserViewButton, gridBagConstraints);
+
+        basicExamplesDirectoryOpenButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesDirectoryOpenButton.text")); // NOI18N
+        basicExamplesDirectoryOpenButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.vrmlSourcebookExamplesDirectoryOpenButton.toolTipText")); // NOI18N
+        basicExamplesDirectoryOpenButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                basicExamplesDirectoryOpenButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
+        add(basicExamplesDirectoryOpenButton, gridBagConstraints);
+
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(120, 24));
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(120, 24));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(120, 24));
+
+        basicExamplesTA.setEditable(false);
+        basicExamplesTA.setColumns(20);
+        basicExamplesTA.setLineWrap(true);
+        basicExamplesTA.setRows(2);
+        basicExamplesTA.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesTA.text")); // NOI18N
+        basicExamplesTA.setWrapStyleWord(true);
+        basicExamplesTA.setAutoscrolls(false);
+        basicExamplesTA.setMaximumSize(new java.awt.Dimension(80, 400));
+        basicExamplesTA.setMinimumSize(new java.awt.Dimension(80, 400));
+        basicExamplesTA.setPreferredSize(new java.awt.Dimension(80, 400));
+        jScrollPane2.setViewportView(basicExamplesTA);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.ipady = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
+        add(jScrollPane2, gridBagConstraints);
+
+        conformanceCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        conformanceCB.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.conformanceCB.text")); // NOI18N
+        conformanceCB.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
+        conformanceCB.setMaximumSize(new java.awt.Dimension(250, 23));
+        conformanceCB.setMinimumSize(new java.awt.Dimension(250, 23));
+        conformanceCB.setPreferredSize(new java.awt.Dimension(250, 23));
+        conformanceCB.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                conformanceCBActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        add(conformanceCB, gridBagConstraints);
+
+        jScrollPane7.setMaximumSize(new java.awt.Dimension(120, 24));
+        jScrollPane7.setMinimumSize(new java.awt.Dimension(120, 24));
+        jScrollPane7.setPreferredSize(new java.awt.Dimension(120, 24));
+
+        conformanceTA1.setEditable(false);
+        conformanceTA1.setColumns(20);
+        conformanceTA1.setLineWrap(true);
+        conformanceTA1.setRows(4);
+        conformanceTA1.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.conformanceTA1.text")); // NOI18N
+        conformanceTA1.setWrapStyleWord(true);
+        conformanceTA1.setAutoscrolls(false);
+        conformanceTA1.setMaximumSize(new java.awt.Dimension(80, 400));
+        conformanceTA1.setMinimumSize(new java.awt.Dimension(80, 400));
+        conformanceTA1.setPreferredSize(new java.awt.Dimension(80, 400));
+        jScrollPane7.setViewportView(conformanceTA1);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.ipady = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
+        add(jScrollPane7, gridBagConstraints);
+
+        conformanceExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
+        conformanceExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        conformanceExamplesBrowserViewButton.setMargin(null);
+        conformanceExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                conformanceExamplesBrowserViewButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(conformanceExamplesBrowserViewButton, gridBagConstraints);
+
+        conformanceExamplesDirectoryOpenButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.conformanceExamplesDirectoryOpenButton.text")); // NOI18N
+        conformanceExamplesDirectoryOpenButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.vrmlSourcebookExamplesDirectoryOpenButton.toolTipText")); // NOI18N
+        conformanceExamplesDirectoryOpenButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                conformanceExamplesDirectoryOpenButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
+        add(conformanceExamplesDirectoryOpenButton, gridBagConstraints);
+
+        humanoidAnimationCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        humanoidAnimationCB.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.humanoidAnimationCB.text")); // NOI18N
+        humanoidAnimationCB.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
+        humanoidAnimationCB.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                humanoidAnimationCBActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(humanoidAnimationCB, gridBagConstraints);
+
+        jScrollPane8.setMaximumSize(new java.awt.Dimension(120, 24));
+        jScrollPane8.setMinimumSize(new java.awt.Dimension(120, 24));
+        jScrollPane8.setPreferredSize(new java.awt.Dimension(120, 24));
+
+        hanimTextArea.setEditable(false);
+        hanimTextArea.setColumns(20);
+        hanimTextArea.setLineWrap(true);
+        hanimTextArea.setRows(4);
+        hanimTextArea.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.hanimTextArea.text")); // NOI18N
+        hanimTextArea.setWrapStyleWord(true);
+        hanimTextArea.setAutoscrolls(false);
+        hanimTextArea.setMaximumSize(new java.awt.Dimension(80, 400));
+        hanimTextArea.setMinimumSize(new java.awt.Dimension(80, 400));
+        hanimTextArea.setPreferredSize(new java.awt.Dimension(80, 400));
+        jScrollPane8.setViewportView(hanimTextArea);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.ipady = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
+        add(jScrollPane8, gridBagConstraints);
+
+        humanoidAnimationExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
+        humanoidAnimationExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        humanoidAnimationExamplesBrowserViewButton.setMargin(null);
+        humanoidAnimationExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                humanoidAnimationExamplesBrowserViewButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(humanoidAnimationExamplesBrowserViewButton, gridBagConstraints);
+
+        humanoidAnimationExamplesDirectoryOpenButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.humanoidAnimationExamplesDirectoryOpenButton.text")); // NOI18N
+        humanoidAnimationExamplesDirectoryOpenButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.vrmlSourcebookExamplesDirectoryOpenButton.toolTipText")); // NOI18N
+        humanoidAnimationExamplesDirectoryOpenButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                humanoidAnimationExamplesDirectoryOpenButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
+        add(humanoidAnimationExamplesDirectoryOpenButton, gridBagConstraints);
+
+        savageCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         savageCB.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.savageCB.text")); // NOI18N
+        savageCB.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
         savageCB.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -369,8 +876,8 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
@@ -393,21 +900,59 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         jScrollPane5.setViewportView(savageTA);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.ipady = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
+        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane5, gridBagConstraints);
+
+        savageExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
+        savageExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        savageExamplesBrowserViewButton.setMargin(null);
+        savageExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                savageExamplesBrowserViewButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(savageExamplesBrowserViewButton, gridBagConstraints);
+
+        savageExamplesDirectoryOpenButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.savageExamplesDirectoryOpenButton.text")); // NOI18N
+        savageExamplesDirectoryOpenButton.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.vrmlSourcebookExamplesDirectoryOpenButton.toolTipText")); // NOI18N
+        savageExamplesDirectoryOpenButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                savageExamplesDirectoryOpenButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
+        add(savageExamplesDirectoryOpenButton, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 3, 6, 3);
         add(jSeparator1, gridBagConstraints);
@@ -420,8 +965,7 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         downLoadLab.setPreferredSize(new java.awt.Dimension(120, 24));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
@@ -449,15 +993,15 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 500;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         add(rootDownloadDirectoryTF, gridBagConstraints);
 
         rootDownloadDirectoryChooserButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.rootDownloadDirectoryChooserButton.text")); // NOI18N
@@ -470,13 +1014,13 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         add(rootDownloadDirectoryChooserButton, gridBagConstraints);
 
         rootDownloadDirectoryDefaultButton.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.rootDownloadDirectoryDefaultButton.text")); // NOI18N
@@ -489,10 +1033,12 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rootDownloadDirectoryDefaultButton, gridBagConstraints);
 
@@ -500,8 +1046,7 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         downloadDirectoryNoteLabel.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.downloadDirectoryNoteLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -511,9 +1056,9 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         downloadDirectoryLabel.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.downloadDirectoryLabel.text")); // NOI18N
         downloadDirectoryLabel.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.downloadDirectoryLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 4, 3, 3);
         add(downloadDirectoryLabel, gridBagConstraints);
@@ -528,8 +1073,8 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
@@ -551,10 +1096,10 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.ipadx = 40;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         add(startDownloadButton, gridBagConstraints);
@@ -571,99 +1116,25 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         add(cancelDownloadButton, gridBagConstraints);
 
-        conformanceCB1.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.conformanceCB1.text")); // NOI18N
-        conformanceCB1.setMaximumSize(new java.awt.Dimension(250, 23));
-        conformanceCB1.setMinimumSize(new java.awt.Dimension(250, 23));
-        conformanceCB1.setPreferredSize(new java.awt.Dimension(250, 23));
+        progressHintLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        progressHintLabel.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.progressHintLabel.text")); // NOI18N
+        progressHintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.progressHintLabel.toolTipText")); // NOI18N
+        progressHintLabel.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        add(conformanceCB1, gridBagConstraints);
-
-        jScrollPane7.setMaximumSize(new java.awt.Dimension(120, 24));
-        jScrollPane7.setMinimumSize(new java.awt.Dimension(120, 24));
-        jScrollPane7.setPreferredSize(new java.awt.Dimension(120, 24));
-
-        conformanceTA1.setEditable(false);
-        conformanceTA1.setColumns(20);
-        conformanceTA1.setLineWrap(true);
-        conformanceTA1.setRows(4);
-        conformanceTA1.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.conformanceTA1.text")); // NOI18N
-        conformanceTA1.setWrapStyleWord(true);
-        conformanceTA1.setAutoscrolls(false);
-        conformanceTA1.setMaximumSize(new java.awt.Dimension(80, 400));
-        conformanceTA1.setMinimumSize(new java.awt.Dimension(80, 400));
-        conformanceTA1.setPreferredSize(new java.awt.Dimension(80, 400));
-        jScrollPane7.setViewportView(conformanceTA1);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.ipady = 50;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-        add(jScrollPane7, gridBagConstraints);
-
-        humanoidAnimationCB.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.humanoidAnimationCB.text")); // NOI18N
-        humanoidAnimationCB.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                humanoidAnimationCBActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        add(humanoidAnimationCB, gridBagConstraints);
-
-        jScrollPane8.setMaximumSize(new java.awt.Dimension(120, 24));
-        jScrollPane8.setMinimumSize(new java.awt.Dimension(120, 24));
-        jScrollPane8.setPreferredSize(new java.awt.Dimension(120, 24));
-
-        hanimTextArea.setEditable(false);
-        hanimTextArea.setColumns(20);
-        hanimTextArea.setLineWrap(true);
-        hanimTextArea.setRows(4);
-        hanimTextArea.setText(org.openide.util.NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadPanel.hanimTextArea.text")); // NOI18N
-        hanimTextArea.setWrapStyleWord(true);
-        hanimTextArea.setAutoscrolls(false);
-        hanimTextArea.setMaximumSize(new java.awt.Dimension(80, 400));
-        hanimTextArea.setMinimumSize(new java.awt.Dimension(80, 400));
-        hanimTextArea.setPreferredSize(new java.awt.Dimension(80, 400));
-        jScrollPane8.setViewportView(hanimTextArea);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.ipady = 50;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-        add(jScrollPane8, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(progressHintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
   private void rootDownloadDirectoryChooserButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_rootDownloadDirectoryChooserButtonActionPerformed
   {//GEN-HEADEREND:event_rootDownloadDirectoryChooserButtonActionPerformed
@@ -706,6 +1177,8 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         targets.add(VRML20SOURCEBOOKTARGET);
     if (savageCB.isSelected())
         targets.add(SAVAGETARGET);
+    
+    updatePanelLocalArchivesPresent();
 
     if (targets.size() <= 0)
       return;
@@ -736,8 +1209,10 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
       task.getInputOutput().select();
       startDownloadButton.setText("download started...");
       startDownloadButton.setEnabled(false);
-        cancelDownloadButton.setEnabled(true);
-        cancelDownloadButton.requestFocus(true);
+     cancelDownloadButton.setEnabled(true);
+     cancelDownloadButton.requestFocus(true);
+     progressHintLabel.setEnabled(true);
+     progressHintLabel.setVisible(true);
 
       // Save the locations for the View menu
       File interimParentDirectory = new File(targetDir,targetPath);
@@ -834,14 +1309,18 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         rootDownloadDirectoryTF.setText(X3dOptions.getExamplesRootDirectory());
         downloadDirectoryLabelUpdate (); // re-initialize
     }//GEN-LAST:event_rootDownloadDirectoryDefaultButtonActionPerformed
-
-    private void downloadDirectoryOpenButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_downloadDirectoryOpenButtonActionPerformed
-    {//GEN-HEADEREND:event_downloadDirectoryOpenButtonActionPerformed
+    /** Open directory using local file system
+     * @param archiveName optional: name of local X3D example archive, uses root directory otherwise */ 
+    private void directoryOpen (String archiveName)
+    {
         if (Desktop.isDesktopSupported())
         {
             try
             {
-                File archiveDirectoryFile = new File(archiveDirectory); // which is linked in downloadDirectoryLabel
+                String fullArchiveDirectory = archiveDirectory;
+                if (!archiveName.isBlank() && !archiveName.equals(archiveDirectory))
+                    fullArchiveDirectory += File.separatorChar + archiveName;
+                File archiveDirectoryFile = new File(fullArchiveDirectory); // which is linked in downloadDirectoryLabel
                 if  (archiveDirectoryFile.isDirectory())
                 //   Desktop.getDesktop().browseFileDirectory(archiveDirectoryFile); // not supported on windows 8(
                      Desktop.getDesktop().browse(archiveDirectoryFile.toURI());
@@ -851,7 +1330,81 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
                 System.err.println(Arrays.toString(ioe.getStackTrace()));
             }
         }
+    }
+    private void downloadDirectoryOpenButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_downloadDirectoryOpenButtonActionPerformed
+    {//GEN-HEADEREND:event_downloadDirectoryOpenButtonActionPerformed
+        directoryOpen("");
     }//GEN-LAST:event_downloadDirectoryOpenButtonActionPerformed
+
+    private void basicExamplesDirectoryOpenButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_basicExamplesDirectoryOpenButtonActionPerformed
+    {//GEN-HEADEREND:event_basicExamplesDirectoryOpenButtonActionPerformed
+        directoryOpen(BASICEXAMPLESTARGET);
+    }//GEN-LAST:event_basicExamplesDirectoryOpenButtonActionPerformed
+
+    private void basicExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_basicExamplesBrowserViewButtonActionPerformed
+    {//GEN-HEADEREND:event_basicExamplesBrowserViewButtonActionPerformed
+        sendBrowserTo(archiveDirectory + File.separatorChar + BASICEXAMPLESTARGET + File.separatorChar + "index.html");
+    }//GEN-LAST:event_basicExamplesBrowserViewButtonActionPerformed
+
+    private void x3d4waExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_x3d4waExamplesBrowserViewButtonActionPerformed
+    {//GEN-HEADEREND:event_x3d4waExamplesBrowserViewButtonActionPerformed
+        sendBrowserTo(archiveDirectory + File.separatorChar + X3D4WA_EXAMPLESTARGET + File.separatorChar + "index.html");
+    }//GEN-LAST:event_x3d4waExamplesBrowserViewButtonActionPerformed
+
+    private void x3d4waExamplesDirectoryOpenButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_x3d4waExamplesDirectoryOpenButtonActionPerformed
+    {//GEN-HEADEREND:event_x3d4waExamplesDirectoryOpenButtonActionPerformed
+        directoryOpen(X3D4WA_EXAMPLESTARGET);
+    }//GEN-LAST:event_x3d4waExamplesDirectoryOpenButtonActionPerformed
+
+    private void x3d4amExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_x3d4amExamplesBrowserViewButtonActionPerformed
+    {//GEN-HEADEREND:event_x3d4amExamplesBrowserViewButtonActionPerformed
+        sendBrowserTo(archiveDirectory + File.separatorChar + X3D4AM_EXAMPLESTARGET + File.separatorChar + "index.html");
+    }//GEN-LAST:event_x3d4amExamplesBrowserViewButtonActionPerformed
+
+    private void x3d4amExamplesDirectoryOpenButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_x3d4amExamplesDirectoryOpenButtonActionPerformed
+    {//GEN-HEADEREND:event_x3d4amExamplesDirectoryOpenButtonActionPerformed
+        directoryOpen(X3D4AM_EXAMPLESTARGET);
+    }//GEN-LAST:event_x3d4amExamplesDirectoryOpenButtonActionPerformed
+
+    private void vrmlSourcebookExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_vrmlSourcebookExamplesBrowserViewButtonActionPerformed
+    {//GEN-HEADEREND:event_vrmlSourcebookExamplesBrowserViewButtonActionPerformed
+        sendBrowserTo(archiveDirectory + File.separatorChar + VRML20SOURCEBOOKTARGET + File.separatorChar + "index.html");
+    }//GEN-LAST:event_vrmlSourcebookExamplesBrowserViewButtonActionPerformed
+
+    private void vrmlSourcebookExamplesDirectoryOpenButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_vrmlSourcebookExamplesDirectoryOpenButtonActionPerformed
+    {//GEN-HEADEREND:event_vrmlSourcebookExamplesDirectoryOpenButtonActionPerformed
+        directoryOpen(VRML20SOURCEBOOKTARGET);
+    }//GEN-LAST:event_vrmlSourcebookExamplesDirectoryOpenButtonActionPerformed
+
+    private void savageExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_savageExamplesBrowserViewButtonActionPerformed
+    {//GEN-HEADEREND:event_savageExamplesBrowserViewButtonActionPerformed
+        sendBrowserTo(archiveDirectory + File.separatorChar + SAVAGETARGET + File.separatorChar + "index.html");
+    }//GEN-LAST:event_savageExamplesBrowserViewButtonActionPerformed
+
+    private void savageExamplesDirectoryOpenButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_savageExamplesDirectoryOpenButtonActionPerformed
+    {//GEN-HEADEREND:event_savageExamplesDirectoryOpenButtonActionPerformed
+        directoryOpen(SAVAGETARGET);
+    }//GEN-LAST:event_savageExamplesDirectoryOpenButtonActionPerformed
+
+    private void conformanceExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_conformanceExamplesBrowserViewButtonActionPerformed
+    {//GEN-HEADEREND:event_conformanceExamplesBrowserViewButtonActionPerformed
+        sendBrowserTo(archiveDirectory + File.separatorChar + CONFORMANCENISTTARGET + File.separatorChar + "index.html");
+    }//GEN-LAST:event_conformanceExamplesBrowserViewButtonActionPerformed
+
+    private void conformanceExamplesDirectoryOpenButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_conformanceExamplesDirectoryOpenButtonActionPerformed
+    {//GEN-HEADEREND:event_conformanceExamplesDirectoryOpenButtonActionPerformed
+        directoryOpen(CONFORMANCENISTTARGET);
+    }//GEN-LAST:event_conformanceExamplesDirectoryOpenButtonActionPerformed
+
+    private void humanoidAnimationExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_humanoidAnimationExamplesBrowserViewButtonActionPerformed
+    {//GEN-HEADEREND:event_humanoidAnimationExamplesBrowserViewButtonActionPerformed
+        sendBrowserTo(archiveDirectory + File.separatorChar + HUMANOIDANIMATIONTARGET + File.separatorChar + "index.html");
+    }//GEN-LAST:event_humanoidAnimationExamplesBrowserViewButtonActionPerformed
+
+    private void humanoidAnimationExamplesDirectoryOpenButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_humanoidAnimationExamplesDirectoryOpenButtonActionPerformed
+    {//GEN-HEADEREND:event_humanoidAnimationExamplesDirectoryOpenButtonActionPerformed
+        directoryOpen(HUMANOIDANIMATIONTARGET);
+    }//GEN-LAST:event_humanoidAnimationExamplesDirectoryOpenButtonActionPerformed
 
     final void downloadDirectoryLabelUpdate ()
     {
@@ -867,16 +1420,17 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         X3dOptions.setExamplesRootDirectory(archiveDirectory);
         
         downloadButtonRequestFocus();
+        updatePanelLocalArchivesPresent();
     }
     private void downloadButtonRequestFocus()
     {
-        if (x3d4amExamplesCB.isSelected()    ||
-            x3d4waExamplesCB.isSelected()    ||
-            basicExamplesCB.isSelected()     ||
-            conformanceCB.isSelected()       ||
+        if (   x3d4amExamplesCB.isSelected() ||
+               x3d4waExamplesCB.isSelected() ||
+                basicExamplesCB.isSelected() ||
+                  conformanceCB.isSelected() ||
             humanoidAnimationCB.isSelected() ||
-            vrmlSourcebookCB.isSelected()    ||
-            savageCB.isSelected()
+               vrmlSourcebookCB.isSelected() ||
+                       savageCB.isSelected()
             )
         {
             startDownloadButton.setEnabled(true);
@@ -889,11 +1443,14 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton basicExamplesBrowserViewButton;
     private javax.swing.JCheckBox basicExamplesCB;
+    private javax.swing.JButton basicExamplesDirectoryOpenButton;
     private javax.swing.JTextArea basicExamplesTA;
     private javax.swing.JButton cancelDownloadButton;
     private javax.swing.JCheckBox conformanceCB;
-    private javax.swing.JCheckBox conformanceCB1;
+    private javax.swing.JButton conformanceExamplesBrowserViewButton;
+    private javax.swing.JButton conformanceExamplesDirectoryOpenButton;
     private javax.swing.JTextArea conformanceTA1;
     private javax.swing.JLabel downLoadLab;
     private javax.swing.JLabel downloadDirectoryLabel;
@@ -901,6 +1458,8 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
     private javax.swing.JButton downloadDirectoryOpenButton;
     private javax.swing.JTextArea hanimTextArea;
     private javax.swing.JCheckBox humanoidAnimationCB;
+    private javax.swing.JButton humanoidAnimationExamplesBrowserViewButton;
+    private javax.swing.JButton humanoidAnimationExamplesDirectoryOpenButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
@@ -909,16 +1468,25 @@ public class ExampleArchivesDownloadPanel extends javax.swing.JPanel
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel progressHintLabel;
     private javax.swing.JButton rootDownloadDirectoryChooserButton;
     private javax.swing.JButton rootDownloadDirectoryDefaultButton;
     private javax.swing.JTextField rootDownloadDirectoryTF;
     private javax.swing.JCheckBox savageCB;
+    private javax.swing.JButton savageExamplesBrowserViewButton;
+    private javax.swing.JButton savageExamplesDirectoryOpenButton;
     private javax.swing.JTextArea savageTA;
     private javax.swing.JButton startDownloadButton;
     private javax.swing.JCheckBox vrmlSourcebookCB;
+    private javax.swing.JButton vrmlSourcebookExamplesBrowserViewButton;
+    private javax.swing.JButton vrmlSourcebookExamplesDirectoryOpenButton;
     private javax.swing.JTextArea vrmlTA;
+    private javax.swing.JButton x3d4amExamplesBrowserViewButton;
     private javax.swing.JCheckBox x3d4amExamplesCB;
+    private javax.swing.JButton x3d4amExamplesDirectoryOpenButton;
+    private javax.swing.JButton x3d4waExamplesBrowserViewButton;
     private javax.swing.JCheckBox x3d4waExamplesCB;
+    private javax.swing.JButton x3d4waExamplesDirectoryOpenButton;
     private javax.swing.JTextArea x3dForAdvancedModelingTA;
     private javax.swing.JTextArea x3dForWebAuthorsTA;
     // End of variables declaration//GEN-END:variables
