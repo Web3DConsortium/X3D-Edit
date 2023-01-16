@@ -220,6 +220,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         viewX3d4Html5AnnexButton = new javax.swing.JButton();
         viewSecurityExamplesReadmeLabel = new javax.swing.JLabel();
         verticalSpacerLabelBottom = new javax.swing.JLabel();
+        horizontalSpacerLabel = new javax.swing.JLabel();
+        horizontalSpacerLabel1 = new javax.swing.JLabel();
         x3domPanel = new javax.swing.JPanel();
         x3domHeaderLabel = new javax.swing.JLabel();
         x3domLabel = new javax.swing.JLabel();
@@ -284,14 +286,13 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         pageIntegrationTabbedPane.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.pageIntegrationTabbedPane.toolTipText")); // NOI18N
 
         htmlPanel.setMinimumSize(new java.awt.Dimension(300, 70));
-        htmlPanel.setPreferredSize(new java.awt.Dimension(300, 70));
         htmlPanel.setLayout(new java.awt.GridBagLayout());
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel1, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.verticalSpacerLabel1.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 2.0;
@@ -302,10 +303,11 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         org.openide.awt.Mnemonics.setLocalizedText(html5ImageLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.html5ImageLabel.text")); // NOI18N
         html5ImageLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.html5ImageLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(8, 0, 3, 0);
         htmlPanel.add(html5ImageLabel, gridBagConstraints);
 
@@ -324,7 +326,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(widthLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.widthLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.weighty = 1.0;
@@ -333,10 +335,11 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(widthDescriptionLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.widthDescriptionLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
         htmlPanel.add(widthDescriptionLabel, gridBagConstraints);
@@ -346,7 +349,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         widthTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.widthTextField.toolTipText")); // NOI18N
         widthTextField.setMaximumSize(new java.awt.Dimension(60, 22));
         widthTextField.setMinimumSize(new java.awt.Dimension(20, 22));
-        widthTextField.setPreferredSize(new java.awt.Dimension(20, 22));
+        widthTextField.setPreferredSize(new java.awt.Dimension(60, 22));
         widthTextField.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -355,11 +358,11 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 4, 3, 3);
@@ -367,7 +370,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(heightLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.heightLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.weighty = 1.0;
@@ -376,10 +379,11 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(heightDescriptionLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.heightDescriptionLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
         htmlPanel.add(heightDescriptionLabel, gridBagConstraints);
@@ -389,7 +393,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         heightTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.heightTextField.toolTipText")); // NOI18N
         heightTextField.setMaximumSize(new java.awt.Dimension(60, 22));
         heightTextField.setMinimumSize(new java.awt.Dimension(20, 22));
-        heightTextField.setPreferredSize(new java.awt.Dimension(20, 22));
+        heightTextField.setPreferredSize(new java.awt.Dimension(60, 22));
         heightTextField.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -398,11 +402,11 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 4, 3, 3);
@@ -412,7 +416,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 2.0;
@@ -440,7 +444,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -451,12 +455,34 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 10.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         htmlPanel.add(verticalSpacerLabelBottom, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(horizontalSpacerLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.horizontalSpacerLabel.text")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 4.0;
+        gridBagConstraints.weighty = 1.0;
+        htmlPanel.add(horizontalSpacerLabel, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(horizontalSpacerLabel1, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.horizontalSpacerLabel1.text")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 4.0;
+        gridBagConstraints.weighty = 1.0;
+        htmlPanel.add(horizontalSpacerLabel1, gridBagConstraints);
 
         pageIntegrationTabbedPane.addTab(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.htmlPanel.TabConstraints.tabTitle"), htmlPanel); // NOI18N
 
@@ -865,7 +891,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         corsDescriptionLabel.setPreferredSize(new java.awt.Dimension(116, 32));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.gridwidth = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 4;
@@ -1163,8 +1189,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         org.openide.awt.Mnemonics.setLocalizedText(jettyHeaderLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.jettyHeaderLabel.text")); // NOI18N
         jettyHeaderLabel.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 14;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(jettyHeaderLabel, gridBagConstraints);
 
@@ -1173,8 +1199,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         jettyStartButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.jettyStartButton.toolTipText")); // NOI18N
         jettyStartButton.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 14;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -1184,8 +1210,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         org.openide.awt.Mnemonics.setLocalizedText(jettyStopButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.jettyStopButton.text")); // NOI18N
         jettyStopButton.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 14;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(jettyStopButton, gridBagConstraints);
@@ -1194,8 +1220,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         org.openide.awt.Mnemonics.setLocalizedText(pythonHeaderLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.pythonHeaderLabel.text")); // NOI18N
         pythonHeaderLabel.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(pythonHeaderLabel, gridBagConstraints);
 
@@ -1211,8 +1237,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1228,8 +1254,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(pythonStopButton, gridBagConstraints);
@@ -1695,6 +1721,8 @@ class LocalFileHandler implements HttpHandler {
     private javax.swing.JLabel heightDescriptionLabel;
     private javax.swing.JLabel heightLabel;
     private javax.swing.JTextField heightTextField;
+    private javax.swing.JLabel horizontalSpacerLabel;
+    private javax.swing.JLabel horizontalSpacerLabel1;
     private javax.swing.JLabel html5ImageLabel;
     private javax.swing.JLabel html5ImageLabel3;
     private javax.swing.JPanel htmlPanel;
