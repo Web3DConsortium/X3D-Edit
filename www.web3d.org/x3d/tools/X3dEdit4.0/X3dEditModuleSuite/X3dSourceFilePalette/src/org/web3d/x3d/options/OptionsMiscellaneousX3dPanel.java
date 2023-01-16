@@ -11132,12 +11132,12 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
 
   JFileChooser fileChooser;
-  private void commonChooser(JTextField tf, String title, java.awt.event.ActionEvent evt)
+  public void commonChooser(JTextField textField, String title, java.awt.event.ActionEvent evt)
   {
     if(fileChooser == null) // first time through
     {
-      if  ((tf.getText() != null) && !tf.getText().isBlank())
-           fileChooser = new JFileChooser(tf.getText().trim());
+      if  ((textField.getText() != null) && !textField.getText().isBlank())
+           fileChooser = new JFileChooser(textField.getText().trim());
       else fileChooser = new JFileChooser(System.getProperty("user.home"));
       fileChooser.setMultiSelectionEnabled(false);
       fileChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
@@ -11155,12 +11155,12 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }
     // TODO special handling for any other file types?
 
-    int ret = fileChooser.showOpenDialog(this);
-    if(ret == JFileChooser.APPROVE_OPTION)
+    int returnValue = fileChooser.showOpenDialog(this);
+    if (returnValue == JFileChooser.APPROVE_OPTION)
     {
-        tf.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        textField.setText(fileChooser.getSelectedFile().getAbsolutePath());
         // TF callback to save changed options (doesn't happen automatically)
-        tf.postActionEvent();
+        textField.postActionEvent();
     }
   }
   /**
