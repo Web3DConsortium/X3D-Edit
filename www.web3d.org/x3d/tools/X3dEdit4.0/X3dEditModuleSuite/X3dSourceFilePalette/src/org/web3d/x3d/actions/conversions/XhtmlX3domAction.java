@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+ * Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  *  
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -73,7 +73,9 @@ public class XhtmlX3domAction extends BaseConversionsAction
 
     private final HashMap<String,Object> parametersHashMap = new HashMap<>();
     
-    private final String            playerDefault = "X3DOM";// "X_CIT"
+    public  static final String             X3DOM = "X3DOM";
+    public  static final String             X_ITE = "X_ITE";
+    private final String            playerDefault = X3DOM;  // otherwise setPlayer(X_ITE) via subclass initialization
     private final String      traceEnabledDefault = "true"; // development, debug mode for XSLT stylesheed
     // X3D
     private final String         x3dHeightDefault = "450";
@@ -135,6 +137,10 @@ public class XhtmlX3domAction extends BaseConversionsAction
         if (x3dToXhtmlDomConversionPanel == null)
         {
             x3dToXhtmlDomConversionPanel = new X3dToXhtmlDomConversionPanel (this);
+            if      (getPlayer().equals(X3DOM))
+                     x3dToXhtmlDomConversionPanel.setPaneIndex(X3dToXhtmlDomConversionPanel.X3DOM_TAB);
+            else if (getPlayer().equals(X_ITE))
+                     x3dToXhtmlDomConversionPanel.setPaneIndex(X3dToXhtmlDomConversionPanel.X_ITE_TAB);
     
             // pattern from Xj3dCadFilterOptionsPanel to launch and exit the panel
              continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Continue")); // Transform
