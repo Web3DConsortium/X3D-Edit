@@ -69,5 +69,6 @@ public final class XhtmlX_iteAction extends XhtmlX3domAction {
     {
         this.setPlayer("X_ITE");
         super.initialize();
+        setPlayer(XhtmlX3domAction.X_ITE);
     }
 }
