@@ -107,6 +107,8 @@ public class X3dOptions
   private static String AUTHOR_NAME_KEY                       = "AUTHOR_NAME";
   private static String AUTHOR_EMAIL_KEY                      = "AUTHOR_EMAIL";
   private static String EXAMPLES_ROOT_DIRECTORY_KEY           = "EXAMPLES_ROOT_DIRECTORY";
+  private static String AUTOLAUNCH_CORS_DIRECTORY_KEY         = "AUTOLAUNCH_CORS_DIRECTORY_KEY";
+  private static String AUTHOR_DESIGNATED_CORS_DIRECTORY_KEY  = "AUTHOR_DESIGNATED_CORS_DIRECTORY_KEY";
   
   private static String             BASIC_LOCALEXAMPLES_PRESENT_KEY =             "BASIC_LOCALEXAMPLES_PRESENT_KEY";
   private static String   CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY =   "CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY";
@@ -152,7 +154,9 @@ public class X3dOptions
   public static String  AUTHOR_EMAIL_DEFAULT            = "";
   // https://stackoverflow.com/questions/585534/what-is-the-best-way-to-find-the-users-home-directory-in-java
   // TODO is /Desktop OK on MacOSX and Linux?
-  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
+  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT          = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
+  public static boolean AUTOLAUNCH_CORS_DIRECTORY_DEFAULT        = true;
+  public static String  AUTHOR_DESIGNATED_CORS_DIRECTORY_DEFAULT = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
   
   // there is no unique best default path as a user could store examples anywhere on their local machine
   // thus user.dir property persistence will allow a path to be remembered
@@ -193,6 +197,9 @@ public class X3dOptions
   public static void    setAuthorName                      (String value)  { commonStringSet(AUTHOR_NAME_KEY, value);}
   public static void    setAuthorEmail                     (String value)  { commonStringSet(AUTHOR_EMAIL_KEY, value);}
   public static void    setExamplesRootDirectory           (String value)  { commonStringSet(EXAMPLES_ROOT_DIRECTORY_KEY, value);}
+  public static void    setAutolaunchCorsDirectory         (boolean value) { commonBooleanSet(AUTOLAUNCH_CORS_DIRECTORY_KEY, value);}
+  public static void    setAuthorDesignatedCorsDirectory   (String value)  { commonStringSet(AUTHOR_DESIGNATED_CORS_DIRECTORY_KEY, value);}
+  
   public static void    resetUserOptions ()
   {
                 setAuthorName (AUTHOR_NAME_DEFAULT);
@@ -228,9 +235,11 @@ public class X3dOptions
   }
   
   
-  public static String  getAuthorName ()                 {return commonStringGet(AUTHOR_NAME_KEY,    AUTHOR_NAME_DEFAULT);}
-  public static String  getAuthorEmail ()                {return commonStringGet(AUTHOR_EMAIL_KEY,   AUTHOR_EMAIL_DEFAULT);}
-  public static String  getExamplesRootDirectory ()      {return commonStringGet(EXAMPLES_ROOT_DIRECTORY_KEY,   EXAMPLES_ROOT_DIRECTORY_DEFAULT);}
+  public static String  getAuthorName ()                            { return commonStringGet(AUTHOR_NAME_KEY,    AUTHOR_NAME_DEFAULT);}
+  public static String  getAuthorEmail ()                           { return commonStringGet(AUTHOR_EMAIL_KEY,   AUTHOR_EMAIL_DEFAULT);}
+  public static String  getExamplesRootDirectory ()                 { return commonStringGet(EXAMPLES_ROOT_DIRECTORY_KEY,   EXAMPLES_ROOT_DIRECTORY_DEFAULT);}
+  public static boolean getAutolaunchCorsDirectory ()               { return commonBooleanGet(AUTOLAUNCH_CORS_DIRECTORY_KEY,   AUTOLAUNCH_CORS_DIRECTORY_DEFAULT);}
+  public static String  getAuthorDesignatedCorsDirectory ()         { return commonStringGet(AUTHOR_DESIGNATED_CORS_DIRECTORY_KEY,   AUTHOR_DESIGNATED_CORS_DIRECTORY_DEFAULT);}
   
   public static boolean             getBasicLocalExamplesPresent () { return commonBooleanGet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, false);}
   public static boolean   getConformanceNistLocalExamplesPresent () { return commonBooleanGet(  CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY, false);}
@@ -240,14 +249,14 @@ public class X3dOptions
   public static boolean            getX3d4waLocalExamplesPresent () { return commonBooleanGet(           X3D4WA_LOCALEXAMPLES_PRESENT_KEY, false);}
   public static boolean            getX3d4amLocalExamplesPresent () { return commonBooleanGet(           X3D4AM_LOCALEXAMPLES_PRESENT_KEY, false);}
   
-  public static String  getKeystorePassword ()           {return commonStringGet(KEYSTORE_PASSWORD_KEY,   KEYSTORE_PASSWORD_DEFAULT);}
-  public static String  getKeystoreFileName ()           {return commonStringGet(KEYSTORE_FILENAME_KEY,   KEYSTORE_FILENAME_DEFAULT);}
-  public static String  getKeystoreDirectory ()          {return commonStringGet(KEYSTORE_DIRECTORY_KEY,   KEYSTORE_DIRECTORY_DEFAULT);}
-
-  public static String getKeystorePasswordDefault()      {return KEYSTORE_PASSWORD_DEFAULT;}
-  public static String getKeystoreFileNameDefault()      {return KEYSTORE_FILENAME_DEFAULT;}
-  public static String getKeystoreDirectoryDefault()     {return KEYSTORE_DIRECTORY_DEFAULT;}
-  public static String getKeystorePathDefault()          {return KEYSTORE_DIRECTORY_DEFAULT + "/" + KEYSTORE_FILENAME_DEFAULT;}
+  public static String  getKeystorePassword ()                      { return commonStringGet(KEYSTORE_PASSWORD_KEY,   KEYSTORE_PASSWORD_DEFAULT);}
+  public static String  getKeystoreFileName ()                      { return commonStringGet(KEYSTORE_FILENAME_KEY,   KEYSTORE_FILENAME_DEFAULT);}
+  public static String  getKeystoreDirectory ()                     { return commonStringGet(KEYSTORE_DIRECTORY_KEY,   KEYSTORE_DIRECTORY_DEFAULT);}
+            
+  public static String getKeystorePasswordDefault()                 { return KEYSTORE_PASSWORD_DEFAULT;}
+  public static String getKeystoreFileNameDefault()                 { return KEYSTORE_FILENAME_DEFAULT;}
+  public static String getKeystoreDirectoryDefault()                { return KEYSTORE_DIRECTORY_DEFAULT;}
+  public static String getKeystorePathDefault()                     { return KEYSTORE_DIRECTORY_DEFAULT + "/" + KEYSTORE_FILENAME_DEFAULT;}
   
   public static boolean getShowNewlineOption()           {return commonBooleanGet(SHOW_NEWLINE_OPTION_KEY, SHOW_NEWLINE_OPTION_DEFAULT);}
   public static boolean getPrependNewline   ()           {return commonBooleanGet(    PREPEND_NEWLINE_KEY,     PREPEND_NEWLINE_DEFAULT);}
