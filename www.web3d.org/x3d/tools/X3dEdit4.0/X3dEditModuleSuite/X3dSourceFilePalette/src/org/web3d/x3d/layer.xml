@@ -1499,6 +1499,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="position" intvalue="1000"/>
             </file>
         </folder>
+        <!-- TODO Acoustics and Web Audio -->
         <folder name="Computer_Aided_Design_CAD">
             <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Computer_Aided_Design_CAD"/>
             <attr name="position" intvalue="15000"/>
@@ -1539,31 +1540,9 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="position" intvalue="1200"/>
             </file>
         </folder>
-        <folder name="Distributed_Interactive_Simulation_DIS">
-            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Distributed_Interactive_Simulation_DIS"/>
-            <attr name="position" intvalue="16000"/>
-            <file name="ESPDUTRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ESPDUTRANSFORM.xml">
-                <attr name="position" intvalue="100"/>
-            </file>
-            <file name="DISENTITYMANAGER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DISENTITYMANAGER.xml">
-                <attr name="position" intvalue="200"/>
-            </file>
-            <file name="DISENTITYTYPEMAPPING.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DISENTITYTYPEMAPPING.xml">
-                <attr name="position" intvalue="300"/>
-            </file>
-            <file name="RECEIVERPDU.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/RECEIVERPDU.xml">
-                <attr name="position" intvalue="400"/>
-            </file>
-            <file name="SIGNALPDU.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SIGNALPDU.xml">
-                <attr name="position" intvalue="500"/>
-            </file>
-            <file name="TRANSMITTERPDU.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TRANSMITTERPDU.xml">
-                <attr name="position" intvalue="600"/>
-            </file>
-        </folder>
         <folder name="Follower_nodes_Chasers_and_Dampers">
             <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Follower_nodes_Chasers_and_Dampers"/>
-            <attr name="position" intvalue="17000"/>
+            <attr name="position" intvalue="16000"/>
             <file name="COLORCHASER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COLORCHASER.xml">
                 <attr name="position" intvalue="100"/>
             </file>
@@ -1605,6 +1584,28 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
             <file name="TEXCOORDDAMPER2D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXCOORDDAMPER2D.xml">
                 <attr name="position" intvalue="1050"/>
+            </file>
+        </folder>
+        <folder name="Distributed_Interactive_Simulation_DIS">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Distributed_Interactive_Simulation_DIS"/>
+            <attr name="position" intvalue="17000"/>
+            <file name="ESPDUTRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ESPDUTRANSFORM.xml">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="DISENTITYMANAGER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DISENTITYMANAGER.xml">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="DISENTITYTYPEMAPPING.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DISENTITYTYPEMAPPING.xml">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="RECEIVERPDU.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/RECEIVERPDU.xml">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="SIGNALPDU.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SIGNALPDU.xml">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="TRANSMITTERPDU.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TRANSMITTERPDU.xml">
+                <attr name="position" intvalue="600"/>
             </file>
         </folder>
         <folder name="Geospatial_X3D_Earth">
@@ -1810,6 +1811,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="position" intvalue="1000"/>
             </file>
         </folder>
+        <!-- TODO Texture Projection -->
         <folder name="Texturing3D_Volume_Rendering">
             <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Texturing3D_Volume_Rendering"/>
             <attr name="position" intvalue="23000"/>
