@@ -47,6 +47,8 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.CORS_TAB;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.NO_CHANGE_IN_TAB;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX3domAction", category = "X3D-Edit")
 
@@ -75,6 +77,7 @@ public class XhtmlX3domAction extends BaseConversionsAction
     
     public  static final String             X3DOM = "X3DOM";
     public  static final String             X_ITE = "X_ITE";
+    private              int         preferredTab = NO_CHANGE_IN_TAB;
     private final String            playerDefault = X3DOM;  // otherwise setPlayer(X_ITE) via subclass initialization
     private final String      traceEnabledDefault = "true"; // development, debug mode for XSLT stylesheed
     // X3D
@@ -137,7 +140,9 @@ public class XhtmlX3domAction extends BaseConversionsAction
         if (x3dToXhtmlDomConversionPanel == null)
         {
             x3dToXhtmlDomConversionPanel = new X3dToXhtmlDomConversionPanel (this);
-            if      (getPlayer().equals(X3DOM))
+            if      (getPreferredTab() == CORS_TAB)
+                     x3dToXhtmlDomConversionPanel.setPaneIndex(CORS_TAB);  
+            else if (getPlayer().equals(X3DOM))
                      x3dToXhtmlDomConversionPanel.setPaneIndex(X3dToXhtmlDomConversionPanel.X3DOM_TAB);
             else if (getPlayer().equals(X_ITE))
                      x3dToXhtmlDomConversionPanel.setPaneIndex(X3dToXhtmlDomConversionPanel.X_ITE_TAB);
@@ -435,5 +440,21 @@ public class XhtmlX3domAction extends BaseConversionsAction
      */
     public void setPlayer(String player) {
         this.player = player;
+    }
+
+    /**
+     * @return the preferredTab
+     */
+    public int getPreferredTab()
+    {
+        return preferredTab;
+    }
+
+    /**
+     * @param aPreferredTab the preferredTab to set
+     */
+    public void setPreferredTab(int aPreferredTab)
+    {
+        preferredTab = aPreferredTab;
     }
 }

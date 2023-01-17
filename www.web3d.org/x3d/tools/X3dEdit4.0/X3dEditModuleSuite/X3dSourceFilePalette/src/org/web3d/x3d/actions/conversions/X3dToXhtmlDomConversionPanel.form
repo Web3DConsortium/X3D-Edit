@@ -795,7 +795,7 @@
         <Container class="javax.swing.JPanel" name="corsPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="CORS http server">
+              <JTabbedPaneConstraints tabName="CORS http server on localhost">
                 <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="org/web3d/x3d/actions/conversions/Bundle.properties" key="X3dToXhtmlDomConversionPanel.corsPanel.TabConstraints.tabTitle" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
@@ -956,27 +956,34 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="corsDirectoryButtonGroup"/>
                 </Property>
+                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="org/web3d/x3d/actions/conversions/Bundle.properties" key="X3dToXhtmlDomConversionPanel.useExamplesRootDirectoryRadioButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="useExamplesRootDirectoryRadioButtonActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="5" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="22" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="useDesignatedDirectoryRadioButton1">
+            <Component class="javax.swing.JRadioButton" name="useDesignatedDirectoryRadioButton">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="corsDirectoryButtonGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/actions/conversions/Bundle.properties" key="X3dToXhtmlDomConversionPanel.useDesignatedDirectoryRadioButton1.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/actions/conversions/Bundle.properties" key="X3dToXhtmlDomConversionPanel.useDesignatedDirectoryRadioButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="useDesignatedDirectoryRadioButtonActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="6" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="22" weightX="0.0" weightY="0.0"/>
@@ -988,10 +995,10 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="corsDirectoryButtonGroup"/>
                 </Property>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="org/web3d/x3d/actions/conversions/Bundle.properties" key="X3dToXhtmlDomConversionPanel.useModelDirectoryRadioButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
               <Events>
@@ -1032,6 +1039,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="designatedLocalhostDirectoryTextFieldMouseExited"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="designatedLocalhostDirectoryTextFieldActionPerformed"/>
               </Events>
               <Constraints>
@@ -1120,6 +1128,7 @@
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="org/web3d/x3d/actions/conversions/Bundle.properties" key="X3dToXhtmlDomConversionPanel.currentDirectoryLabel.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1150,6 +1159,7 @@
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="org/web3d/x3d/actions/conversions/Bundle.properties" key="X3dToXhtmlDomConversionPanel.javaAutoStartButton.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="javaAutoStartButtonActionPerformed"/>
@@ -1218,6 +1228,9 @@
                 </Property>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alwaysAutostartCheckBoxActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="0" gridY="11" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="22" weightX="0.0" weightY="0.0"/>
