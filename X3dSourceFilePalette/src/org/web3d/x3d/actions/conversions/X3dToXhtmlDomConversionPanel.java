@@ -37,13 +37,10 @@ package org.web3d.x3d.actions.conversions;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.InetSocketAddress;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -142,12 +139,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 	urlList.setFileChooserX3d();
         
         // TODO, maybe if needed
-         jettyHeaderLabel.setVisible(false);
-         jettyStartButton.setVisible(false);
-          jettyStopButton.setVisible(false);
-        pythonHeaderLabel.setVisible(false);
-        pythonStartButton.setVisible(false);
-         pythonStopButton.setVisible(false);
+//        pythonStartButton.setVisible(false);
+//         pythonStopButton.setVisible(false);
     }
     
     protected final void setPlayerSelection (String playerName)
@@ -269,12 +262,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         javaAutoStartButton = new javax.swing.JButton();
         javaStartButton = new javax.swing.JButton();
         javaStopButton = new javax.swing.JButton();
-        jettyHeaderLabel = new javax.swing.JLabel();
-        jettyStartButton = new javax.swing.JButton();
-        jettyStopButton = new javax.swing.JButton();
-        pythonHeaderLabel = new javax.swing.JLabel();
-        pythonStartButton = new javax.swing.JButton();
-        pythonStopButton = new javax.swing.JButton();
+        localhostHttpIconHeader = new javax.swing.JLabel();
         alwaysAutostartCheckBox = new javax.swing.JCheckBox();
         localHttpServerLabel = new javax.swing.JLabel();
         html5ImageLabel3 = new javax.swing.JLabel();
@@ -891,7 +879,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         corsDescriptionLabel.setPreferredSize(new java.awt.Dimension(116, 32));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 4;
@@ -913,10 +901,9 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.ipadx = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -925,6 +912,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         localhostLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(localhostLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.localhostLabel.text")); // NOI18N
+        localhostLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.localhostLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -936,6 +924,14 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         corsPanel.add(localhostLabel, gridBagConstraints);
 
         localhostComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.0.0.0", "127.0.0.1" }));
+        localhostComboBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.localhostComboBox.toolTipText")); // NOI18N
+        localhostComboBox.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                localhostComboBoxActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -1059,6 +1055,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(designatedDirectoryClearButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.designatedDirectoryClearButton.text")); // NOI18N
         designatedDirectoryClearButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.designatedDirectoryClearButton.toolTipText")); // NOI18N
+        designatedDirectoryClearButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
         designatedDirectoryClearButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -1076,6 +1073,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         designatedDirectoryButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(designatedDirectoryButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.designatedDirectoryButton.text")); // NOI18N
         designatedDirectoryButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.designatedDirectoryButton.toolTipText")); // NOI18N
+        designatedDirectoryButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
         designatedDirectoryButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -1106,8 +1104,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.ipadx = 32;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(designatedDirectoryDefaultButton, gridBagConstraints);
@@ -1185,80 +1182,15 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(javaStopButton, gridBagConstraints);
 
-        jettyHeaderLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jettyHeaderLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.jettyHeaderLabel.text")); // NOI18N
-        jettyHeaderLabel.setEnabled(false);
+        org.openide.awt.Mnemonics.setLocalizedText(localhostHttpIconHeader, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.localhostHttpIconHeader.text")); // NOI18N
+        localhostHttpIconHeader.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.localhostHttpIconHeader.toolTipText")); // NOI18N
+        localhostHttpIconHeader.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        corsPanel.add(jettyHeaderLabel, gridBagConstraints);
-
-        jettyStartButton.setForeground(new java.awt.Color(255, 102, 0));
-        org.openide.awt.Mnemonics.setLocalizedText(jettyStartButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.jettyStartButton.text")); // NOI18N
-        jettyStartButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.jettyStartButton.toolTipText")); // NOI18N
-        jettyStartButton.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        corsPanel.add(jettyStartButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jettyStopButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.jettyStopButton.text")); // NOI18N
-        jettyStopButton.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        corsPanel.add(jettyStopButton, gridBagConstraints);
-
-        pythonHeaderLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(pythonHeaderLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.pythonHeaderLabel.text")); // NOI18N
-        pythonHeaderLabel.setEnabled(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        corsPanel.add(pythonHeaderLabel, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(pythonStartButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.pythonStartButton.text")); // NOI18N
-        pythonStartButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.pythonStartButton.toolTipText")); // NOI18N
-        pythonStartButton.setActionCommand(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.pythonStartButton.actionCommand")); // NOI18N
-        pythonStartButton.setEnabled(false);
-        pythonStartButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                pythonStartButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        corsPanel.add(pythonStartButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(pythonStopButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.pythonStopButton.text")); // NOI18N
-        pythonStopButton.setEnabled(false);
-        pythonStopButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                pythonStopButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        corsPanel.add(pythonStopButton, gridBagConstraints);
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        corsPanel.add(localhostHttpIconHeader, gridBagConstraints);
 
         alwaysAutostartCheckBox.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(alwaysAutostartCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.alwaysAutostartCheckBox.text")); // NOI18N
@@ -1293,10 +1225,11 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         html5ImageLabel3.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.html5ImageLabel3.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
         gridBagConstraints.insets = new java.awt.Insets(8, 0, 3, 0);
         corsPanel.add(html5ImageLabel3, gridBagConstraints);
 
@@ -1378,57 +1311,6 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         launchCorsAction.performAction();
     }//GEN-LAST:event_corsHelpButtonActionPerformed
 
-    Process pythonHttpProcess;
-    
-    private void pythonStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pythonStartButtonActionPerformed
-       // https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/Console.html
-//        java.io.Console pythonSystemConsole;
-//        if ((pythonSystemConsole = System.console()) != null)
-//             pythonSystemConsole.printf("%s", "Hello python system console");
-//        else System.err.println ("*** failure to launch system console");
-
-    // common code
-        int             portValue = Integer.parseInt(portTextField.getText());
-        String modelRootDirectory = localExamplesRootDirectoryTextField.getText().replaceAll("\\\\","/"); // double escaping for Java character and regex literal;
-    // common code
-        
-        try
-        {
-            URI uri = new URI(modelRootDirectory);
-            String modelPath = uri.getPath();
-            
-            String localUrl = "https://localhost:" + portValue + "/" + modelPath;
-            localUrl = localUrl.replaceAll("\\\\","/"); // double escaping for Java character and regex literal
-            
-            if (pythonHttpProcess != null)
-                stopPythonHttpProcess();
-            
-            // initial code Rick Lentz
-            // TODO how to capture/share process console output
-            File modelDirectory = new File(modelPath); // modelRootDirectory);
-            Runtime runtime = Runtime.getRuntime();
-            // note ability to define launching directory
-//          String[] commandLineParameters = {"python", "-m", "http.server", ""};
-            pythonHttpProcess = runtime.exec("python -m http.server " + portValue , new String[0], modelDirectory);
-            pythonStopButton.setEnabled(true);
-            
-			System.out.println("*** CORS console launched: python -m http.server " + portValue + " in " + modelPath);
-            LaunchX3dExamplesAction.sendBrowserTo("/"); // which goes to modelPath);
-			System.out.println("*** launch default browser to " + modelPath);
-			System.out.flush();
-        }
-        catch (URISyntaxException urise)
-        {
-            System.err.println ("*** pythonConsoleButtonActionPerformed() URISyntaxException " + urise);
-			urise.printStackTrace();
-        }
-        catch (IOException ioe)
-        {
-            System.err.println ("*** pythonConsoleButtonActionPerformed() IOException " + ioe);
-			ioe.printStackTrace();
-        }
-    }//GEN-LAST:event_pythonStartButtonActionPerformed
-
     /**
      * @link https://dzone.com/articles/simple-http-server-in-java
      */
@@ -1504,9 +1386,7 @@ class LocalFileHandler implements HttpHandler {
      * @param evt triggering input event from callback
      */
     private void javaStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaStartButtonActionPerformed
-        javaAutoStartButton.setEnabled(false);
-            javaStartButton.setEnabled(true); 
-             javaStopButton.setEnabled(false); 
+             
         // Would spinning off a JAVA process that references the local dir using the below work?
         // ref: https://dzone.com/articles/simple-http-server-in-java
 
@@ -1524,39 +1404,42 @@ class LocalFileHandler implements HttpHandler {
         String localUrl = "https://localhost:" + portValue + modelRootDirectory;
         localUrl = localUrl.replaceAll("\\\\","/"); // double escaping for Java character and regex literal
         
-        try
+//        try
         {
             if (httpServer != null) // created previously
             {
                 javaHttpServerClose();
             }
-            httpServer = HttpServer.create((new InetSocketAddress("localhost", portValue)), 0);
+//////            httpServer = HttpServer.create((new InetSocketAddress("localhost", portValue)), 0);
             
-			// INFO [org.netbeans.api.java.source.ElementHandle]: Cannot resolve: ElementHandle[kind=METHOD; sigs=com.sun.net.httpserver.HttpServer createContext (Ljava/lang/String;)Lcom/sun/net/httpserver/HttpContext; ]
-			httpServer.createContext(modelRootDirectory, new LocalFileHandler() );
+            // INFO [org.netbeans.api.java.source.ElementHandle]: Cannot resolve: ElementHandle[kind=METHOD; sigs=com.sun.net.httpserver.HttpServer createContext (Ljava/lang/String;)Lcom/sun/net/httpserver/HttpContext; ]
+//////            httpServer.createContext(modelRootDirectory, new LocalFileHandler() );
             // https://docs.oracle.com/en/java/javase/16/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html#setExecutor(java.util.concurrent.Executor)
 			
-            ThreadPerTaskExecutor httpServerExecutor = new ThreadPerTaskExecutor();
-            httpServer.setExecutor(httpServerExecutor); // null means default implementation; TODO eliminate potential problem
-            
-            httpServer.start();
-			System.out.println("*** Java httpServer started for CORS");
-            javaStopButton.setEnabled(true);
+//            ThreadPerTaskExecutor httpServerExecutor = new ThreadPerTaskExecutor();
+//            httpServer.setExecutor(httpServerExecutor); // null means default implementation; TODO eliminate potential problem
+//            
+//            httpServer.start();
+//            System.out.println("*** Java httpServer started for CORS");
             
             LaunchX3dExamplesAction.sendBrowserTo(localUrl);
-			System.out.println("*** launch default browser to " + localUrl);
-			System.out.flush();
+            System.out.println("*** launch default browser to " + localUrl);
+            System.out.flush();
         }
-        catch (IOException ioe)
-        {
-            System.err.println ("*** javaHttpServerButtonActionPerformed() exception " + ioe);
-			ioe.printStackTrace();
-        }
+//        catch (IOException ioe)
+//        {
+//            System.err.println ("*** javaHttpServerButtonActionPerformed() exception " + ioe);
+//            ioe.printStackTrace();
+//        }
         // https://localhost:8000
         // TODO what about restricting http server to specific directory tree?
         // TODO what about launching browser in initial directory
         // TODO what about ability to kill process?
         // TODO what about overall session timeout?
+        
+        javaAutoStartButton.setEnabled(false);
+            javaStartButton.setEnabled(false); 
+             javaStopButton.setEnabled(true);
     }//GEN-LAST:event_javaStartButtonActionPerformed
 
     private void localExamplesRootDirectoryTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localExamplesRootDirectoryTextFieldActionPerformed
@@ -1585,33 +1468,30 @@ class LocalFileHandler implements HttpHandler {
          javaStopButton.setEnabled(false);
         return false;
     }
-    private boolean startPythonHttpProcess ()
-    {
-        // TODO 
-        pythonStartButton.setEnabled(false);
-         pythonStopButton.setEnabled(true);
-        return false;
-    }
-    private boolean stopPythonHttpProcess ()
-    {
-        // TODO also invoke this method on application exit
-        pythonHttpProcess.destroy();
-        pythonStartButton.setEnabled(true);
-         pythonStopButton.setEnabled(false);
-        System.out.println("*** stop (destroy) python process");
-        pythonHttpProcess = null;
-        return true;
-    }
-    /** set chooser tab */
+//    private boolean startPythonHttpProcess ()
+//    {
+//        // TODO 
+//        pythonStartButton.setEnabled(false);
+//         pythonStopButton.setEnabled(true);
+//        return false;
+//    }
+//    private boolean stopPythonHttpProcess ()
+//    {
+//        // TODO also invoke this method on application exit
+//        pythonHttpProcess.destroy();
+//        pythonStartButton.setEnabled(true);
+//         pythonStopButton.setEnabled(false);
+//        System.out.println("*** stop (destroy) python process");
+//        pythonHttpProcess = null;
+//        return true;
+//    }
+    /** set chooser tab
+     * @param newIndex tab to select */
     public void setPaneIndex(int newIndex)
     {
         if ((newIndex >= 0) && (newIndex <= 3))
             pageIntegrationTabbedPane.setSelectedIndex(newIndex);
     }
-    private void pythonStopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pythonStopButtonActionPerformed
-        stopPythonHttpProcess ();
-    }//GEN-LAST:event_pythonStopButtonActionPerformed
-
     private void javaStopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaStopButtonActionPerformed
         javaAutoStartButton.setEnabled(true);
             javaStartButton.setEnabled(true);
@@ -1704,6 +1584,11 @@ class LocalFileHandler implements HttpHandler {
         X3dOptions.setAuthorDesignatedCorsDirectory(designatedLocalhostDirectoryTextField.getText());
     }//GEN-LAST:event_designatedDirectoryClearButtonActionPerformed
 
+    private void localhostComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_localhostComboBoxActionPerformed
+    {//GEN-HEADEREND:event_localhostComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_localhostComboBoxActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox alwaysAutostartCheckBox;
     private javax.swing.JCheckBox cacheCheckBox;
@@ -1730,12 +1615,10 @@ class LocalFileHandler implements HttpHandler {
     private javax.swing.JLabel javaHeaderLabel;
     private javax.swing.JButton javaStartButton;
     private javax.swing.JButton javaStopButton;
-    private javax.swing.JLabel jettyHeaderLabel;
-    private javax.swing.JButton jettyStartButton;
-    private javax.swing.JButton jettyStopButton;
     private javax.swing.JTextField localExamplesRootDirectoryTextField;
     private javax.swing.JLabel localHttpServerLabel;
     private javax.swing.JComboBox<String> localhostComboBox;
+    private javax.swing.JLabel localhostHttpIconHeader;
     private javax.swing.JLabel localhostLabel;
     private javax.swing.JTabbedPane pageIntegrationTabbedPane;
     private javax.swing.ButtonGroup playerButtonGroup;
@@ -1744,9 +1627,6 @@ class LocalFileHandler implements HttpHandler {
     private javax.swing.JComboBox primitiveQualityComboBox;
     private javax.swing.JLabel primitiveQualityDescriptionLabel;
     private javax.swing.JLabel primitiveQualityLabel;
-    private javax.swing.JLabel pythonHeaderLabel;
-    private javax.swing.JButton pythonStartButton;
-    private javax.swing.JButton pythonStopButton;
     private javax.swing.JCheckBox showLogCheckBox;
     private javax.swing.JLabel showLogLabel;
     private javax.swing.JCheckBox showProgressCheckBox;
