@@ -38,35 +38,37 @@ import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.CORS_TAB;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX_iteAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.actions.conversions.CorsHttpPanelAction", category = "X3D-Edit")
 
 @ActionRegistration(
-        iconBase = "org/web3d/x3d/resources/cobweb-logo32.png",
-     displayName = "#CTL_XhtmlX_iteAction",
+        iconBase = "org/web3d/x3d/resources/http64x42.png",
+     displayName = "#CTL_CorsHttpPanelAction",
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 90),
-  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 152),
-  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 90),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 90),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 152),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 92),
+  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 154),
+  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 92),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 92),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 154),
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
-public final class XhtmlX_iteAction extends XhtmlX3domAction {
+public final class CorsHttpPanelAction extends XhtmlX3domAction {
 
     @Override
     public String getName()
     {
-        return NbBundle.getMessage(getClass(), "CTL_XhtmlX_iteAction");
+        return NbBundle.getMessage(getClass(), "CTL_CorsHttpPanelAction");
     }
 
     @Override
     protected void initialize()
     {
         setPlayer(XhtmlX3domAction.X_ITE);
+        setPreferredTab(CORS_TAB);
         super.initialize(); // last, following setup
     }
 }

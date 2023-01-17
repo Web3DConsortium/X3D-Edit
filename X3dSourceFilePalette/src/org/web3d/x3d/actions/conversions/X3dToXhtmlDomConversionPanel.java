@@ -37,10 +37,13 @@ package org.web3d.x3d.actions.conversions;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.InetSocketAddress;
+import java.net.URI;
 import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -70,15 +73,21 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
     public  final String X_ITE_site = "https://create3000.github.io/x_ite";
     public  final String X_ITE_help = "https://create3000.github.io/x_ite/tutorials";
     
-    public static final int HTML_LAYOUT_TAB = 0;
-    public static final int       X3DOM_TAB = 1;
-    public static final int       X_ITE_TAB = 2;
-    public static final int        CORS_TAB = 3;
+    public static final int NO_CHANGE_IN_TAB = -1;
+    public static final int  HTML_LAYOUT_TAB =  0;
+    public static final int        X3DOM_TAB =  1;
+    public static final int        X_ITE_TAB =  2;
+    public static final int         CORS_TAB =  3;
     
+    private             String    authorCorsDirectoryChoice = LOCAL_EXAMPLES_ROOT;
+    public static final String          LOCAL_EXAMPLES_ROOT = "LOCAL_EXAMPLES_ROOT";
+    public static final String         DESIGNATED_DIRECTORY = "DESIGNATED_DIRECTORY";
+    public static final String  CURRENT_X3D_MODEL_DIRECTORY = "CURRENT_X3D_MODEL_DIRECTORY";
+        
     private JFileChooser corsDirectoryChooser;
     
     /**
-     * Creates new form X3dToXhtmlDomInitializationPanel
+     * Creates new form X3dToXhtmlDomConversionPanel
      * @param xhtmlX3domAction action class of interest
      */
     public X3dToXhtmlDomConversionPanel(XhtmlX3domAction xhtmlX3domAction) {
@@ -113,7 +122,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         
         if (xhtmlX3domAction.getPlayer().equalsIgnoreCase("Cobweb") || xhtmlX3domAction.getPlayer().equalsIgnoreCase(X_ITE_name))
         {
-            pageIntegrationTabbedPane.setSelectedIndex(1);
+            pageIntegrationTabbedPane.setSelectedIndex(X_ITE_TAB);
             
 //             x_iteRadioButton.setSelected(true);
 //             
@@ -125,7 +134,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         }
         else if (xhtmlX3domAction.getPlayer().equalsIgnoreCase(X3DOM_name))
         {
-            pageIntegrationTabbedPane.setSelectedIndex(0);
+            pageIntegrationTabbedPane.setSelectedIndex(X3DOM_TAB);
             
 //            x3domRadioButton.setSelected(true);
 //             
@@ -135,23 +144,32 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 //            // hide X_ITE widgets
 //            setDisplayWidgetsX_ITE (false);
         }
+        // might set X_ITE but then want CORS HTTP
+        if (xhtmlX3domAction.getPreferredTab() == CORS_TAB)
+        {
+            pageIntegrationTabbedPane.setSelectedIndex(CORS_TAB);
+        }
 		
 	urlList.setFileChooserX3d();
         
-        // TODO, maybe if needed
+        // TODO, maybe if someday needed
 //        pythonStartButton.setVisible(false);
 //         pythonStopButton.setVisible(false);
     }
     
     protected final void setPlayerSelection (String playerName)
     {
-        if (playerName.equalsIgnoreCase("Cobweb") || playerName.equalsIgnoreCase(X_ITE_name))
+        if      (xhtmlX3domAction.getPreferredTab() == CORS_TAB)
         {
-            pageIntegrationTabbedPane.setSelectedIndex(1);
+            pageIntegrationTabbedPane.setSelectedIndex(CORS_TAB);
+        }
+        else if (playerName.equalsIgnoreCase("Cobweb") || playerName.equalsIgnoreCase(X_ITE_name))
+        {
+            pageIntegrationTabbedPane.setSelectedIndex(X_ITE_TAB);
         }
         else  if (playerName.equalsIgnoreCase(X3DOM_name))
         {
-            pageIntegrationTabbedPane.setSelectedIndex(0);
+            pageIntegrationTabbedPane.setSelectedIndex(X3DOM_TAB);
         }
         // else ignore
     }
@@ -182,7 +200,15 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
                          urlList.setUrlData(xhtmlX3domAction.getUrlScene());
         
         // TODO cache local url(s) if different
-        localExamplesRootDirectoryTextField.setText(X3dOptions.getExamplesRootDirectory());
+        localExamplesRootDirectoryTextField.setText(    X3dOptions.getExamplesRootDirectory());
+                    alwaysAutostartCheckBox.setSelected(X3dOptions.getAuthorAutolaunchCorsDirectory());
+        
+        if      (X3dOptions.getAuthorCorsDirectoryChoice().equals(LOCAL_EXAMPLES_ROOT))
+                 useExamplesRootDirectoryRadioButton.setSelected(true);
+        else if (X3dOptions.getAuthorCorsDirectoryChoice().equals(DESIGNATED_DIRECTORY))
+                        useDesignatedDirectoryRadioButton.setSelected(true);
+        else if (X3dOptions.getAuthorCorsDirectoryChoice().equals(CURRENT_X3D_MODEL_DIRECTORY))
+                        useModelDirectoryRadioButton.setSelected(true);
     }
 
     /**
@@ -250,7 +276,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         portLabel = new javax.swing.JLabel();
         portTextField = new javax.swing.JTextField();
         useExamplesRootDirectoryRadioButton = new javax.swing.JRadioButton();
-        useDesignatedDirectoryRadioButton1 = new javax.swing.JRadioButton();
+        useDesignatedDirectoryRadioButton = new javax.swing.JRadioButton();
         useModelDirectoryRadioButton = new javax.swing.JRadioButton();
         localExamplesRootDirectoryTextField = new javax.swing.JTextField();
         designatedLocalhostDirectoryTextField = new javax.swing.JTextField();
@@ -975,8 +1001,16 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         corsPanel.add(portTextField, gridBagConstraints);
 
         corsDirectoryButtonGroup.add(useExamplesRootDirectoryRadioButton);
+        useExamplesRootDirectoryRadioButton.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(useExamplesRootDirectoryRadioButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.useExamplesRootDirectoryRadioButton.text")); // NOI18N
         useExamplesRootDirectoryRadioButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        useExamplesRootDirectoryRadioButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                useExamplesRootDirectoryRadioButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -984,19 +1018,26 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         corsPanel.add(useExamplesRootDirectoryRadioButton, gridBagConstraints);
 
-        corsDirectoryButtonGroup.add(useDesignatedDirectoryRadioButton1);
-        org.openide.awt.Mnemonics.setLocalizedText(useDesignatedDirectoryRadioButton1, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.useDesignatedDirectoryRadioButton1.text")); // NOI18N
-        useDesignatedDirectoryRadioButton1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        corsDirectoryButtonGroup.add(useDesignatedDirectoryRadioButton);
+        org.openide.awt.Mnemonics.setLocalizedText(useDesignatedDirectoryRadioButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.useDesignatedDirectoryRadioButton.text")); // NOI18N
+        useDesignatedDirectoryRadioButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        useDesignatedDirectoryRadioButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                useDesignatedDirectoryRadioButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        corsPanel.add(useDesignatedDirectoryRadioButton1, gridBagConstraints);
+        corsPanel.add(useDesignatedDirectoryRadioButton, gridBagConstraints);
 
         corsDirectoryButtonGroup.add(useModelDirectoryRadioButton);
-        useModelDirectoryRadioButton.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(useModelDirectoryRadioButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.useModelDirectoryRadioButton.text")); // NOI18N
+        useModelDirectoryRadioButton.setEnabled(false);
         useModelDirectoryRadioButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         useModelDirectoryRadioButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -1035,6 +1076,13 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         designatedLocalhostDirectoryTextField.setText(X3dOptions.getExamplesRootDirectory());
         designatedLocalhostDirectoryTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.designatedLocalhostDirectoryTextField.toolTipText")); // NOI18N
+        designatedLocalhostDirectoryTextField.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseExited(java.awt.event.MouseEvent evt)
+            {
+                designatedLocalhostDirectoryTextFieldMouseExited(evt);
+            }
+        });
         designatedLocalhostDirectoryTextField.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -1111,6 +1159,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         currentDirectoryLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(currentDirectoryLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.currentDirectoryLabel.text")); // NOI18N
+        currentDirectoryLabel.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
@@ -1129,6 +1178,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(javaAutoStartButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.javaAutoStartButton.text")); // NOI18N
         javaAutoStartButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.javaAutoStartButton.toolTipText")); // NOI18N
+        javaAutoStartButton.setEnabled(false);
         javaAutoStartButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -1195,6 +1245,13 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         alwaysAutostartCheckBox.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(alwaysAutostartCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.alwaysAutostartCheckBox.text")); // NOI18N
         alwaysAutostartCheckBox.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        alwaysAutostartCheckBox.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                alwaysAutostartCheckBoxActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
@@ -1316,56 +1373,59 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
      */
 class LocalFileHandler implements HttpHandler {
 
-	@Override    
- 	public void handle(HttpExchange httpExchange) throws IOException {
-
+    @Override    
+    public void handle(HttpExchange httpExchange) throws IOException 
+    {
     	String requestParamValue=null; 
     	if("GET".equals(httpExchange.getRequestMethod())) 
     	{ 
     		requestParamValue = handleGetRequest(httpExchange);
     	}
     	handleResponse(httpExchange,requestParamValue); 
-	}
+    }
 
-	private String handleGetRequest(HttpExchange httpExchange) 
-	{
-		String decoded = null;
-		try 
+    private String handleGetRequest(HttpExchange httpExchange) 
+    {
+        String decoded = null;
+        try 
         {
-			decoded = URLDecoder.decode(httpExchange.getRequestURI().toString().substring(1), "UTF-8");
-		} 
+            decoded = URLDecoder.decode(httpExchange.getRequestURI().toString().substring(1), "UTF-8");
+        } 
         catch (UnsupportedEncodingException e) 
         {
-			e.printStackTrace();
-		}
-	    return decoded;
-	}
+            e.printStackTrace();
+        }
+        return decoded;
+    }
 
-	private void handleResponse(HttpExchange httpExchange, String requestParamValue)  throws  IOException {
-		OutputStream outputStream = httpExchange.getResponseBody();
+    private void handleResponse(HttpExchange httpExchange, String requestParamValue)  throws  IOException
+    {
+        OutputStream outputStream = httpExchange.getResponseBody();
 
-		byte[] content = Files.readAllBytes(Paths.get(requestParamValue));
+        byte[] content = Files.readAllBytes(Paths.get(requestParamValue));
 
-		
-		httpExchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
+
+        httpExchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
       	httpExchange.sendResponseHeaders(200, content.length);
-		outputStream.write(content);
-		outputStream.flush();
-		outputStream.close();
+        outputStream.write(content);
+        outputStream.flush();
+        outputStream.close();
     }
 }
-    /* avoid potential Netbeans/X3D-Edit error when using null (default) executor in same thread
-    * https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/concurrent/Executor.html
+    /* Avoid potential Netbeans/X3D-Edit error when using null (default) executor in same thread
+    * @see https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/concurrent/Executor.html
     */
-    class ThreadPerTaskExecutor implements java.util.concurrent.Executor {
-      @Override
-      public void execute(Runnable r) {
-        new Thread(r).start();
-      }
+    class ThreadPerTaskExecutor implements java.util.concurrent.Executor
+    {
+        @Override
+        public void execute(Runnable r)
+        {
+            new Thread(r).start();
+        }
     }
 
     HttpServer httpServer;
-    final String DEFAULT_MODEL_ROOT_DIRECTORY = "local directory tree for model visibility";
+//    final String DEFAULT_MODEL_ROOT_DIRECTORY = "local directory tree for model visibility";
     
     private void javaHttpServerClose()
     {
@@ -1376,6 +1436,7 @@ class LocalFileHandler implements HttpHandler {
             System.out.flush();
             javaStopButton.setEnabled(false);
             httpServer = null; // forcibly destroy
+            // TODO unbind address
         }
     }
     
@@ -1386,51 +1447,73 @@ class LocalFileHandler implements HttpHandler {
      * @param evt triggering input event from callback
      */
     private void javaStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaStartButtonActionPerformed
-             
         // Would spinning off a JAVA process that references the local dir using the below work?
         // ref: https://dzone.com/articles/simple-http-server-in-java
 
+        // TODO port value checks
         int             portValue = Integer.parseInt(portTextField.getText());
-        String modelRootDirectory = localExamplesRootDirectoryTextField.getText().replaceAll("\\\\","/"); // double escaping for Java character and regex literal;
+        String       addressValue = localhostComboBox.getSelectedItem().toString();
+        if (addressValue.isBlank())
+            addressValue = "localhost"; // probably wrong, expect this to get overwritten by interface
+        String modelRootDirectory = "/";
+        
+        if      (useExamplesRootDirectoryRadioButton.isSelected())
+                 modelRootDirectory = localExamplesRootDirectoryTextField.getText();
+        else if (  useDesignatedDirectoryRadioButton.isSelected())
+                 modelRootDirectory = designatedLocalhostDirectoryTextField.getText();
+//        else if (       useModelDirectoryRadioButton.isSelected())
+//                 modelRootDirectory = directory of current html page and model
+        
+        // TODO URI conversion likely better; getting path exception for server context
+//        modelRootDirectory = modelRootDirectory.replaceAll("\\\\","/"); // double escaping for Java character and regex literal;
         
         // put safety/XML &Security checks here, e.g start and end with "/"
-        // https://docs.oracle.com/en/java/javase/16/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html#createContext(java.lang.String,com.sun.net.httpserver.HttpHandler)
+        // https://docs.oracle.com/en/java/javase/19/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html#createContext(java.lang.String,com.sun.net.httpserver.HttpHandler)
         
         if (modelRootDirectory.equals("\\"))
         {
             // TODO error handling, starting/ending slashes, etc. probably confirm by checking it is a valid URI instance
         }
-            
-        String localUrl = "https://localhost:" + portValue + modelRootDirectory;
+        // note http for local use, not https
+        String localUrl = "http://" + addressValue + ":" + portValue + File.separatorChar + modelRootDirectory;
         localUrl = localUrl.replaceAll("\\\\","/"); // double escaping for Java character and regex literal
         
-//        try
+        try
         {
+            File holdFile = new File(modelRootDirectory); // which is linked in downloadDirectoryLabel
+            if  (!holdFile.isDirectory())
+                System.out.println("*** URI problem...");
+            URI modelRootDirectoryURI = holdFile.toURI();
+                
             if (httpServer != null) // created previously
             {
                 javaHttpServerClose();
             }
-//////            httpServer = HttpServer.create((new InetSocketAddress("localhost", portValue)), 0);
+            httpServer = HttpServer.create((new InetSocketAddress(addressValue, portValue)), 0);
+            
+            // TODO administrator permission needed?
             
             // INFO [org.netbeans.api.java.source.ElementHandle]: Cannot resolve: ElementHandle[kind=METHOD; sigs=com.sun.net.httpserver.HttpServer createContext (Ljava/lang/String;)Lcom/sun/net/httpserver/HttpContext; ]
-//////            httpServer.createContext(modelRootDirectory, new LocalFileHandler() );
-            // https://docs.oracle.com/en/java/javase/16/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html#setExecutor(java.util.concurrent.Executor)
-			
-//            ThreadPerTaskExecutor httpServerExecutor = new ThreadPerTaskExecutor();
-//            httpServer.setExecutor(httpServerExecutor); // null means default implementation; TODO eliminate potential problem
-//            
-//            httpServer.start();
-//            System.out.println("*** Java httpServer started for CORS");
+            httpServer.createContext(modelRootDirectoryURI.getPath(), new LocalFileHandler() );
             
-            LaunchX3dExamplesAction.sendBrowserTo(localUrl);
-            System.out.println("*** launch default browser to " + localUrl);
+            // https://docs.oracle.com/en/java/javase/19/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html#setExecutor(java.util.concurrent.Executor)
+            ThreadPerTaskExecutor httpServerExecutor = new ThreadPerTaskExecutor();
+            httpServer.setExecutor(httpServerExecutor); // null means default implementation; TODO eliminate potential problem
+
+            httpServer.start();
+            System.out.println("*** Java httpServer started for CORS");
+            
+            LaunchX3dExamplesAction.sendBrowserTo("/"); // localUrl);
+            System.out.println("*** launch default browser to / looking for " + localUrl);
             System.out.flush();
         }
-//        catch (IOException ioe)
-//        {
-//            System.err.println ("*** javaHttpServerButtonActionPerformed() exception " + ioe);
-//            ioe.printStackTrace();
-//        }
+        catch (IOException ioe)
+        {
+            System.err.println ("*** javaHttpServerButtonActionPerformed() exception " + ioe);
+            ioe.printStackTrace();
+            
+            // TODO report via dialog box if address already bound, http server might already be running
+        }
         // https://localhost:8000
         // TODO what about restricting http server to specific directory tree?
         // TODO what about launching browser in initial directory
@@ -1493,7 +1576,7 @@ class LocalFileHandler implements HttpHandler {
             pageIntegrationTabbedPane.setSelectedIndex(newIndex);
     }
     private void javaStopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_javaStopButtonActionPerformed
-        javaAutoStartButton.setEnabled(true);
+//        javaAutoStartButton.setEnabled(true); // TODO activate
             javaStartButton.setEnabled(true);
              javaStopButton.setEnabled(false); 
         
@@ -1536,12 +1619,13 @@ class LocalFileHandler implements HttpHandler {
 
     private void useModelDirectoryRadioButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_useModelDirectoryRadioButtonActionPerformed
     {//GEN-HEADEREND:event_useModelDirectoryRadioButtonActionPerformed
-        // TODO add your handling code here:
+        setAuthorCorsDirectoryChoice(CURRENT_X3D_MODEL_DIRECTORY);
+        X3dOptions.setAuthorCorsDirectoryChoice(CURRENT_X3D_MODEL_DIRECTORY);
     }//GEN-LAST:event_useModelDirectoryRadioButtonActionPerformed
 
     private void designatedLocalhostDirectoryTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_designatedLocalhostDirectoryTextFieldActionPerformed
     {//GEN-HEADEREND:event_designatedLocalhostDirectoryTextFieldActionPerformed
-        // TODO add your handling code here:
+        X3dOptions.setAuthorDesignatedCorsDirectory(designatedLocalhostDirectoryTextField.getText().trim());
     }//GEN-LAST:event_designatedLocalhostDirectoryTextFieldActionPerformed
 
     private void designatedDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_designatedDirectoryDefaultButtonActionPerformed
@@ -1589,6 +1673,28 @@ class LocalFileHandler implements HttpHandler {
         // TODO add your handling code here:
     }//GEN-LAST:event_localhostComboBoxActionPerformed
 
+    private void useExamplesRootDirectoryRadioButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_useExamplesRootDirectoryRadioButtonActionPerformed
+    {//GEN-HEADEREND:event_useExamplesRootDirectoryRadioButtonActionPerformed
+        setAuthorCorsDirectoryChoice(LOCAL_EXAMPLES_ROOT);
+        X3dOptions.setAuthorCorsDirectoryChoice(LOCAL_EXAMPLES_ROOT);
+    }//GEN-LAST:event_useExamplesRootDirectoryRadioButtonActionPerformed
+
+    private void useDesignatedDirectoryRadioButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_useDesignatedDirectoryRadioButtonActionPerformed
+    {//GEN-HEADEREND:event_useDesignatedDirectoryRadioButtonActionPerformed
+        setAuthorCorsDirectoryChoice(DESIGNATED_DIRECTORY);
+        X3dOptions.setAuthorCorsDirectoryChoice(DESIGNATED_DIRECTORY);
+    }//GEN-LAST:event_useDesignatedDirectoryRadioButtonActionPerformed
+
+    private void alwaysAutostartCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_alwaysAutostartCheckBoxActionPerformed
+    {//GEN-HEADEREND:event_alwaysAutostartCheckBoxActionPerformed
+        X3dOptions.setAuthorAutolaunchCorsDirectory(alwaysAutostartCheckBox.isSelected());
+    }//GEN-LAST:event_alwaysAutostartCheckBoxActionPerformed
+
+    private void designatedLocalhostDirectoryTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_designatedLocalhostDirectoryTextFieldMouseExited
+    {//GEN-HEADEREND:event_designatedLocalhostDirectoryTextFieldMouseExited
+        X3dOptions.setAuthorDesignatedCorsDirectory(designatedLocalhostDirectoryTextField.getText().trim());
+    }//GEN-LAST:event_designatedLocalhostDirectoryTextFieldMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox alwaysAutostartCheckBox;
     private javax.swing.JCheckBox cacheCheckBox;
@@ -1635,7 +1741,7 @@ class LocalFileHandler implements HttpHandler {
     private javax.swing.JLabel showStatisticsLabel;
     private javax.swing.JLabel urlLabel;
     private org.web3d.x3d.palette.items.UrlExpandableList2 urlList;
-    private javax.swing.JRadioButton useDesignatedDirectoryRadioButton1;
+    private javax.swing.JRadioButton useDesignatedDirectoryRadioButton;
     private javax.swing.JRadioButton useExamplesRootDirectoryRadioButton;
     private javax.swing.JRadioButton useModelDirectoryRadioButton;
     private javax.swing.JLabel verticalSpacerLabel1;
@@ -1662,4 +1768,18 @@ class LocalFileHandler implements HttpHandler {
     private javax.swing.JPanel x_itePanel;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * @return the authorCorsDirectoryChoice
+     */
+    public String getAuthorCorsDirectoryChoice()
+    {
+        return authorCorsDirectoryChoice;
+    }
+    /**
+     * @param newAuthorCorsDirectoryChoice the preferredCorsDirectoryChoice to set
+     */
+    public void setAuthorCorsDirectoryChoice(String newAuthorCorsDirectoryChoice)
+    {
+        this.authorCorsDirectoryChoice = newAuthorCorsDirectoryChoice;
+    }
 }
