@@ -51,7 +51,7 @@ import org.web3d.x3d.X3DEditorSupport;
 @ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX3domAction", category = "X3D-Edit")
 
 @ActionRegistration(
-        iconBase = "org/web3d/x3d/resources/x3dom-whiteOnblue24.png",
+        iconBase = "org/web3d/x3d/resources/x3dom-whiteOnblue32.png",
      displayName = "#CTL_XhtmlX3domAction",
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
@@ -119,7 +119,7 @@ public class XhtmlX3domAction extends BaseConversionsAction
     
       if (getPlayer().equalsIgnoreCase("Cobweb") || getPlayer().equalsIgnoreCase("X_ITE"))
            return "org/web3d/x3d/resources/cobweb-logo32.png";
-      else return "org/web3d/x3d/resources/x3dom-whiteOnblue24.png";
+      else return "org/web3d/x3d/resources/x3dom-whiteOnblue32.png";
   }
   // see org.openide.util.actions.SystemAction.iconResource() Javadoc for more details
 
