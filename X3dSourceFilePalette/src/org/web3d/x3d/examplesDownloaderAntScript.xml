@@ -6,7 +6,7 @@
 
 <project name="Download X3D Examples Archives" basedir=".">
     <!-- When run from within X3dEdit app, "." == os tempfile directory, downloads is created there -->
-    <target name="all" depends="X3dForWebAuthors,X3dForAdvancedModeling,Vrml2.0Sourcebook,Basic,ConformanceNist,HumanoidAnimation,Savage,SavageDefense">
+    <target name="all" depends="X3dForWebAuthors,X3dForAdvancedModeling,Vrml2Sourcebook,Basic,ConformanceNist,HumanoidAnimation,Savage,SavageDefense">
         <!-- this task takes many moons to accomplish and likely should be avoided -->
     </target>
 
@@ -65,12 +65,12 @@
         <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/SavageDefense"/>
     </target>
 
-    <target name="Vrml2.0Sourcebook" depends="mkdir">
+    <target name="Vrml2Sourcebook" depends="mkdir">
         <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesVrml2Sourcebook.zip" dest="downloads/X3dExamplesVrml2Sourcebook.zip" verbose="true"/>
         <unzip                               src="downloads/X3dExamplesVrml2Sourcebook.zip" dest="${examplesRootDirectory}"  overwrite="true"/>
         <delete                             file="downloads/X3dExamplesVrml2Sourcebook.zip" verbose="true"/>
-        <echo message="X3D scenes for Vrml2.0Sourcebook example archive are installed in local directory:"/>
-        <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook"/>
+        <echo message="X3D scenes for Vrml2Sourcebook example archive are installed in local directory:"/>
+        <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/Vrml2Sourcebook"/>
     </target>
 
     <target name="X3dForWebAuthors" depends="mkdir">
