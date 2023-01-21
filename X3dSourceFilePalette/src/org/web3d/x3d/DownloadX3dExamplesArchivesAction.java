@@ -35,14 +35,11 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d;
 
 import java.awt.BorderLayout;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -77,7 +74,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
 {
   //private static Dialog dlg;
   //private static DialogDescriptor descriptor;
-  private ExampleArchivesDownloadPanel panel;
+  private DownloadX3dExamplesArchivesPanel panel;
   private buttonBar buttonBar;
   JFrame frame;
 
@@ -90,7 +87,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
         frame.getContentPane().setLayout(new BorderLayout());
         BufferedImage bufferedImage;
         frame.setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/X3Dicon32.png"));
-        panel = new ExampleArchivesDownloadPanel();
+        panel = new DownloadX3dExamplesArchivesPanel();
 
         frame.getContentPane().add(panel, BorderLayout.CENTER);
         buttonBar = new buttonBar();
@@ -225,9 +222,9 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
 //      };
 //
 //      JButton closeButton = new JButton("Close");
-//      panel = new ExampleArchivesDownloadPanel();
+//      panel = new DownloadX3dExamplesArchivesPanel();
 //      descriptor = new DialogDescriptor(panel,
-//          NbBundle.getMessage(ExampleArchivesDownloadPanel.class, "ExampleArchivesDownloadTitle"),
+//          NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadTitle"),
 //          false,
 //          new Object[]{closeButton}, closeButton,
 //          DialogDescriptor.DEFAULT_ALIGN, HelpCtx.findHelp(panel), al);
