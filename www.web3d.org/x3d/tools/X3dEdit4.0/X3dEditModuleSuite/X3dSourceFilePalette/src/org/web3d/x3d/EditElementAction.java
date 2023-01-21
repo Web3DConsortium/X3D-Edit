@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -78,7 +78,6 @@ import org.web3d.x3d.palette.items.PROTOTYPE_ExtrusionCrossSection;
   @ActionReference(path = "Shortcuts", name = "CS-E"), // shortcut control-shift-E
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
-@NbBundle.Messages("CTL_EditElementAction=&Edit selected XML element under cursor")
 
 public class EditElementAction extends BaseX3DEditAction //CookieAction
 {
@@ -241,10 +240,10 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
 
   protected void insertNewString(ElementLocation selectedLocation, String newString, int oldStringLength) throws Exception
   {
-    // Remember start and end around insert
-    Position startPosition = abstractDocument.createPosition(Math.max(0, selectedLocation.docOffsetStart - 1)); // see jdoc for createPosition()
-    int startOffset = startPosition.getOffset();
-    Position   endPosition = abstractDocument.createPosition(selectedLocation.docOffsetEnd);
+        // Remember start and end around insert
+        Position startPosition = abstractDocument.createPosition(Math.max(0, selectedLocation.docOffsetStart - 1)); // see jdoc for createPosition()
+        int startOffset = startPosition.getOffset();
+        Position   endPosition = abstractDocument.createPosition(selectedLocation.docOffsetEnd);
 
 	if (newString.trim().startsWith("<?xml")) // replacing XML and DOCTYPE
 	{
@@ -263,27 +262,29 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
 		return; // do not reformat
 
         // Reformat
-	else if (baseDocument != null) { // TODO fix
-      //New 6.5 code
-      Indent indent = Indent.get(baseDocument);
-      indent.lock();
-      indent.reindent(startPosition.getOffset(), endPosition.getOffset());
-      indent.unlock();
+	else if (baseDocument != null) 
+        { 
+            // TODO fix
+            //New 6.5 code
+            Indent indent = Indent.get(baseDocument);
+            indent.lock();
+            indent.reindent(startPosition.getOffset(), endPosition.getOffset());
+            indent.unlock();
 
-      //pre-6.5 code:
-//      baseDocument.getFormatter().reformatLock();
-//      baseDocument.getFormatter().reformat(baseDocument, startPos.getOffset(), endPos.getOffset());
-//      baseDocument.getFormatter().reformatUnlock();
+            //pre-6.5 code:
+      //      baseDocument.getFormatter().reformatLock();
+      //      baseDocument.getFormatter().reformat(baseDocument, startPos.getOffset(), endPos.getOffset());
+      //      baseDocument.getFormatter().reformatUnlock();
 
-     X3DPaletteUtilitiesJdom.buildJdom(documentEditorPane);  // rebuild after format
+           X3DPaletteUtilitiesJdom.buildJdom(documentEditorPane);  // rebuild after format
 
-     // don't bother selecting the new element.  We want our cursor to be in it, and that negates selection
-     // ElementLocation newSelectedLocation = X3DPaletteUtilitiesJdom.findSelectedElement(documentEditorPane); //findSelectedElement();
-     // documentEditorPane.setSelectionStart(newSelectedLocation.docOffsetStart);
-     // documentEditorPane.setSelectionEnd(newSelectedLocation.docOffsetEnd);
-    }
-    if (x3dElement != null)
-        x3dElement.postInsert(documentEditorPane);  // inform element object (e.g., BOX, MATERIAL, etc.) that we're done
+           // don't bother selecting the new element.  We want our cursor to be in it, and that negates selection
+           // ElementLocation newSelectedLocation = X3DPaletteUtilitiesJdom.findSelectedElement(documentEditorPane); //findSelectedElement();
+           // documentEditorPane.setSelectionStart(newSelectedLocation.docOffsetStart);
+           // documentEditorPane.setSelectionEnd(newSelectedLocation.docOffsetEnd);
+        }
+        if (x3dElement != null)
+            x3dElement.postInsert(documentEditorPane);  // inform element object (e.g., BOX, MATERIAL, etc.) that we're done
   }
 
   /**
