@@ -84,7 +84,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
   private final String targetPath     = "www.web3d.org/x3d/content/examples/";
   private final String antScriptPath  = "X3dAntScripts/examplesDownloaderAntScript.xml";
   
-  private       String localArchiveDirectory = "";
+  private       String localArchiveDirectory = ""; // not root but below, if available
   
   private JFileChooser fileChooser;
   private ExecutorTask task;
@@ -96,16 +96,16 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     HelpCtx.setHelpIDString(DownloadX3dExamplesArchivesPanel.this, "helpExampleDownloads");
     
     // figure out root directory
-    String originalDirectory = X3dOptions.getExamplesRootDirectory();
-    String workingDirectory  = X3dOptions.getExamplesRootDirectory();
-    if  (workingDirectory.contains("\\"))
-         workingDirectory = workingDirectory.replace("\\","/");
-    if  (workingDirectory.endsWith("/"))
-         workingDirectory = workingDirectory.substring(0, workingDirectory.length() -1);
-    if  (workingDirectory.endsWith("www.web3d.org/x3d/content/examples"))
+    String originalRootDirectory = X3dOptions.getExamplesRootDirectory();
+    String workingRootDirectory  = X3dOptions.getExamplesRootDirectory();
+    if  (workingRootDirectory.contains("\\"))
+         workingRootDirectory = workingRootDirectory.replace("\\","/");
+    if  (workingRootDirectory.endsWith("/"))
+         workingRootDirectory = workingRootDirectory.substring(0, workingRootDirectory.length() -1);
+    if  (workingRootDirectory.endsWith("www.web3d.org/x3d/content/examples"))
     {
-         workingDirectory = originalDirectory.substring(0, originalDirectory.indexOf("www.web3d.org") - 1);
-         rootDownloadDirectoryTF.setText(workingDirectory);
+         workingRootDirectory = originalRootDirectory.substring(0, originalRootDirectory.indexOf("www.web3d.org") - 1);
+         rootDownloadDirectoryTF.setText(workingRootDirectory);
     }
     else rootDownloadDirectoryTF.setText(X3dOptions.getExamplesRootDirectory());
     
@@ -354,7 +354,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 
         x3d4waExamplesCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         x3d4waExamplesCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.x3d4waExamplesCB.text")); // NOI18N
-        x3d4waExamplesCB.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
+        x3d4waExamplesCB.setToolTipText("select to download latest archive");
         x3d4waExamplesCB.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -395,16 +395,16 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 60;
-        gridBagConstraints.ipady = 30;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane1, gridBagConstraints);
 
-        x3d4waExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
-        x3d4waExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        x3d4waExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.x3d4waExamplesBrowserViewButton.text")); // NOI18N
+        x3d4waExamplesBrowserViewButton.setToolTipText("view local archive in Web browser");
         x3d4waExamplesBrowserViewButton.setMargin(null);
         x3d4waExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -419,6 +419,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(x3d4waExamplesBrowserViewButton, gridBagConstraints);
 
@@ -436,13 +437,14 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(x3d4waExamplesDirectoryOpenButton, gridBagConstraints);
 
         x3d4amExamplesCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         x3d4amExamplesCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.x3d4amExamplesCB.text")); // NOI18N
-        x3d4amExamplesCB.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
+        x3d4amExamplesCB.setToolTipText("select to download latest archive");
         x3d4amExamplesCB.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -483,16 +485,16 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 60;
-        gridBagConstraints.ipady = 30;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane6, gridBagConstraints);
 
-        x3d4amExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
-        x3d4amExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        x3d4amExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
+        x3d4amExamplesBrowserViewButton.setToolTipText("view local archive in Web browser");
         x3d4amExamplesBrowserViewButton.setMargin(null);
         x3d4amExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -507,6 +509,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(x3d4amExamplesBrowserViewButton, gridBagConstraints);
 
@@ -524,13 +527,14 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(x3d4amExamplesDirectoryOpenButton, gridBagConstraints);
 
         vrmlSourcebookCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         vrmlSourcebookCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.vrmlSourcebookCB.text")); // NOI18N
-        vrmlSourcebookCB.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
+        vrmlSourcebookCB.setToolTipText("select to download latest archive");
         vrmlSourcebookCB.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -571,16 +575,16 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 60;
-        gridBagConstraints.ipady = 30;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane4, gridBagConstraints);
 
-        vrmlSourcebookExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
-        vrmlSourcebookExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        vrmlSourcebookExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.vrmlSourcebookExamplesBrowserViewButton.text")); // NOI18N
+        vrmlSourcebookExamplesBrowserViewButton.setToolTipText("view local archive in Web browser");
         vrmlSourcebookExamplesBrowserViewButton.setMargin(null);
         vrmlSourcebookExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -595,6 +599,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(vrmlSourcebookExamplesBrowserViewButton, gridBagConstraints);
 
@@ -612,6 +617,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(vrmlSourcebookExamplesDirectoryOpenButton, gridBagConstraints);
@@ -638,7 +644,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         add(basicExamplesCB, gridBagConstraints);
 
         basicExamplesBrowserViewButton.setText("view");
-        basicExamplesBrowserViewButton.setToolTipText("view local archive in Web browser");
+        basicExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.basicExamplesBrowserViewButton.toolTipText")); // NOI18N
         basicExamplesBrowserViewButton.setMargin(null);
         basicExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -653,6 +659,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(basicExamplesBrowserViewButton, gridBagConstraints);
 
@@ -670,6 +677,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(basicExamplesDirectoryOpenButton, gridBagConstraints);
@@ -696,8 +704,8 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 60;
-        gridBagConstraints.ipady = 30;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -706,7 +714,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 
         conformanceCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         conformanceCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.conformanceCB.text")); // NOI18N
-        conformanceCB.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
+        conformanceCB.setToolTipText("select to download latest archive");
         conformanceCB.setMaximumSize(new java.awt.Dimension(250, 23));
         conformanceCB.setMinimumSize(new java.awt.Dimension(250, 23));
         conformanceCB.setPreferredSize(new java.awt.Dimension(250, 23));
@@ -750,16 +758,16 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 60;
-        gridBagConstraints.ipady = 30;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane7, gridBagConstraints);
 
-        conformanceExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
-        conformanceExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        conformanceExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.conformanceExamplesBrowserViewButton.text")); // NOI18N
+        conformanceExamplesBrowserViewButton.setToolTipText("view local archive in Web browser");
         conformanceExamplesBrowserViewButton.setMargin(null);
         conformanceExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -774,6 +782,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(conformanceExamplesBrowserViewButton, gridBagConstraints);
 
@@ -791,13 +800,14 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(conformanceExamplesDirectoryOpenButton, gridBagConstraints);
 
         humanoidAnimationCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         humanoidAnimationCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.humanoidAnimationCB.text")); // NOI18N
-        humanoidAnimationCB.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
+        humanoidAnimationCB.setToolTipText("select to download latest archive");
         humanoidAnimationCB.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -837,16 +847,16 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 60;
-        gridBagConstraints.ipady = 30;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane8, gridBagConstraints);
 
-        humanoidAnimationExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
-        humanoidAnimationExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        humanoidAnimationExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.humanoidAnimationExamplesBrowserViewButton.text")); // NOI18N
+        humanoidAnimationExamplesBrowserViewButton.setToolTipText("view local archive in Web browser");
         humanoidAnimationExamplesBrowserViewButton.setMargin(null);
         humanoidAnimationExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -861,6 +871,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(humanoidAnimationExamplesBrowserViewButton, gridBagConstraints);
 
@@ -878,13 +889,14 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(humanoidAnimationExamplesDirectoryOpenButton, gridBagConstraints);
 
         savageCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         savageCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.savageCB.text")); // NOI18N
-        savageCB.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.basicExamplesCB.toolTipText")); // NOI18N
+        savageCB.setToolTipText("select to download latest archive");
         savageCB.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -923,18 +935,18 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.ipady = 50;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.ipady = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane5, gridBagConstraints);
 
-        savageExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.text")); // NOI18N
-        savageExamplesBrowserViewButton.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "ExampleArchivesDownloadPanel.x3d4amExamplesBrowserViewButton.toolTipText")); // NOI18N
+        savageExamplesBrowserViewButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.savageExamplesBrowserViewButton.text")); // NOI18N
+        savageExamplesBrowserViewButton.setToolTipText("view local archive in Web browser");
         savageExamplesBrowserViewButton.setMargin(null);
         savageExamplesBrowserViewButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -949,6 +961,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(savageExamplesBrowserViewButton, gridBagConstraints);
 
@@ -966,6 +979,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(savageExamplesDirectoryOpenButton, gridBagConstraints);
@@ -1191,7 +1205,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(allSelectCheckBox, gridBagConstraints);
@@ -1207,7 +1221,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(allClearCheckBox, gridBagConstraints);
@@ -1523,9 +1537,16 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
                      Desktop.getDesktop().browse(archiveDirectoryFile.toURI());
                 else
                 {
-                    archiveDirectoryFile = new File(localArchiveDirectory); // backtrack up to root
+                    // archive not found, so go to user-designated examples installation root
+                    archiveDirectoryFile = new File(rootDownloadDirectoryTF.getText());
                     if  (archiveDirectoryFile.isDirectory())
-                         Desktop.getDesktop().browse(archiveDirectoryFile.toURI());
+                    {
+                        NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
+                                "No example archives found, opening installation root directory '" + 
+                                rootDownloadDirectoryTF.getText() + "' instead.", "Open directory for local examples", NotifyDescriptor.PLAIN_MESSAGE);
+                        DialogDisplayer.getDefault().notify(notifyDescriptor);
+                        Desktop.getDesktop().browse(archiveDirectoryFile.toURI());
+                    }
                     else
                     {
                         NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
