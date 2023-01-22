@@ -109,6 +109,9 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     }
     else rootDownloadDirectoryTF.setText(X3dOptions.getExamplesRootDirectory());
     
+    if (rootDownloadDirectoryTF.getText().isBlank())
+        startDownloadButton.setEnabled(false);
+    
     downloadDirectoryLabelUpdate (); // initialize
     downloadDirectoryOpenButton.setEnabled(Desktop.isDesktopSupported());
     
@@ -1013,6 +1016,13 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
             rootDownloadDirectoryTF.setText(new File(DEFAULTROOTDIR).getCanonicalPath());
         }
         catch(IOException ex) {}
+        rootDownloadDirectoryTF.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseExited(java.awt.event.MouseEvent evt)
+            {
+                rootDownloadDirectoryTFMouseExited(evt);
+            }
+        });
         rootDownloadDirectoryTF.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -1088,6 +1098,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(downloadDirectoryNoteLabel, gridBagConstraints);
 
+        downloadDirectoryLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         downloadDirectoryLabel.setForeground(new java.awt.Color(0, 102, 51));
         downloadDirectoryLabel.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.downloadDirectoryLabel.text")); // NOI18N
         downloadDirectoryLabel.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.downloadDirectoryLabel.toolTipText")); // NOI18N
@@ -1119,6 +1130,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(downloadDirectoryOpenButton, gridBagConstraints);
 
+        startDownloadButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         startDownloadButton.setForeground(new java.awt.Color(0, 102, 51));
         startDownloadButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.startDownloadButton.text")); // NOI18N
         startDownloadButton.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.startDownloadButton.toolTipText")); // NOI18N
@@ -1141,6 +1153,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         add(startDownloadButton, gridBagConstraints);
 
+        cancelDownloadButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cancelDownloadButton.setForeground(new java.awt.Color(153, 0, 0));
         cancelDownloadButton.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.cancelDownloadButton.text")); // NOI18N
         cancelDownloadButton.setEnabled(false);
@@ -1542,8 +1555,10 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
                     if  (archiveDirectoryFile.isDirectory())
                     {
                         NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
-                                "No example archives found, opening installation root directory '" + 
-                                rootDownloadDirectoryTF.getText() + "' instead.", "Open directory for local examples", NotifyDescriptor.PLAIN_MESSAGE);
+                                "<html><p align='center'>No local example archives found.</p> <br /> " + 
+                                      "<p align='center'>Opening installation root directory '" + 
+                                rootDownloadDirectoryTF.getText() + "' instead.</p></html>", 
+                           "Open directory for local examples", NotifyDescriptor.PLAIN_MESSAGE);
                         DialogDisplayer.getDefault().notify(notifyDescriptor);
                         Desktop.getDesktop().browse(archiveDirectoryFile.toURI());
                     }
@@ -1676,6 +1691,13 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         allSelectCheckBox.setSelected(false);
     }//GEN-LAST:event_allClearCheckBoxActionPerformed
 
+    private void rootDownloadDirectoryTFMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_rootDownloadDirectoryTFMouseExited
+    {//GEN-HEADEREND:event_rootDownloadDirectoryTFMouseExited
+        downloadDirectoryLabelUpdate ();
+        updateStatusPropertiesLocalArchivesPresent();
+        updatePanelLocalArchivesPresent();
+    }//GEN-LAST:event_rootDownloadDirectoryTFMouseExited
+
     final void downloadDirectoryLabelUpdate ()
     {
         localArchiveDirectory = rootDownloadDirectoryTF.getText();
@@ -1686,11 +1708,13 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         else if (localArchiveDirectory.endsWith("/"))
                  localArchiveDirectory = localArchiveDirectory +   "www.web3d.org/x3d/content/examples";    // Unix path
         else     localArchiveDirectory = localArchiveDirectory +  "/www.web3d.org/x3d/content/examples";    // Unix path
-        downloadDirectoryLabel.setText("<html><b><code><a href='file:/" + localArchiveDirectory + "' target='_blank'>" + localArchiveDirectory + "</a></code></b>"); 
+        downloadDirectoryLabel.setText(localArchiveDirectory); 
         X3dOptions.setExamplesRootDirectory(localArchiveDirectory);
-        
-        startDownloadButtonRequestFocus();
+
         updatePanelLocalArchivesPresent();
+        if  (rootDownloadDirectoryTF.getText().isBlank())
+             startDownloadButton.setEnabled(false);
+        else startDownloadButtonRequestFocus();
     }
     private void startDownloadButtonRequestFocus()
     {
