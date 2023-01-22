@@ -780,6 +780,7 @@
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rootDownloadDirectoryTFMouseExited"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rootDownloadDirectoryTFActionPerformed"/>
         <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="rootDownloadDirectoryTFPropertyChange"/>
       </Events>
@@ -845,6 +846,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="downloadDirectoryLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="2"/>
+        </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="66" red="0" type="rgb"/>
         </Property>
@@ -884,6 +888,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="startDownloadButton">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="66" red="0" type="rgb"/>
         </Property>
@@ -914,6 +921,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="cancelDownloadButton">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="99" type="rgb"/>
         </Property>
