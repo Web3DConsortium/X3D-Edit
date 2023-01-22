@@ -79,7 +79,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
     public static final int        X_ITE_TAB =  2;
     public static final int         CORS_TAB =  3;
     
-    private             String    authorCorsDirectoryChoice = LOCAL_EXAMPLES_ROOT;
+    private             String          authorCorsDirectory;
+    // LOCAL_EXAMPLES_ROOT is default in X3dOptions.AUTHOR_CORS_DIRECTORY_CHOICE_DEFAULT
     public static final String          LOCAL_EXAMPLES_ROOT = "LOCAL_EXAMPLES_ROOT";
     public static final String         DESIGNATED_DIRECTORY = "DESIGNATED_DIRECTORY";
     public static final String  CURRENT_X3D_MODEL_DIRECTORY = "CURRENT_X3D_MODEL_DIRECTORY";
@@ -200,15 +201,25 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
                          urlList.setUrlData(xhtmlX3domAction.getUrlScene());
         
         // TODO cache local url(s) if different
-        localExamplesRootDirectoryTextField.setText(    X3dOptions.getExamplesRootDirectory());
                     alwaysAutostartCheckBox.setSelected(X3dOptions.getAuthorAutolaunchCorsDirectory());
+        localExamplesRootDirectoryTextField.setText(    X3dOptions.getExamplesRootDirectory());
+        designatedLocalhostDirectoryTextField.setText( X3dOptions.getAuthorDesignatedCorsDirectory());
         
         if      (X3dOptions.getAuthorCorsDirectoryChoice().equals(LOCAL_EXAMPLES_ROOT))
-                 useExamplesRootDirectoryRadioButton.setSelected(true);
+        {
+            useExamplesRootDirectoryRadioButton.setSelected(true);
+            authorCorsDirectory =  localExamplesRootDirectoryTextField.getText();
+        }
         else if (X3dOptions.getAuthorCorsDirectoryChoice().equals(DESIGNATED_DIRECTORY))
-                        useDesignatedDirectoryRadioButton.setSelected(true);
+        {
+            useDesignatedDirectoryRadioButton.setSelected(true);
+            authorCorsDirectory =  designatedLocalhostDirectoryTextField.getText();
+        }
         else if (X3dOptions.getAuthorCorsDirectoryChoice().equals(CURRENT_X3D_MODEL_DIRECTORY))
-                        useModelDirectoryRadioButton.setSelected(true);
+        {
+            useModelDirectoryRadioButton.setSelected(true);
+            authorCorsDirectory =  "TODO";
+        }
     }
 
     /**
@@ -284,6 +295,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         designatedDirectoryButton = new javax.swing.JButton();
         designatedDirectoryDefaultButton = new javax.swing.JButton();
         currentDirectoryLabel = new javax.swing.JLabel();
+        launchLocalDirectoryInBrowserButton = new javax.swing.JButton();
         javaHeaderLabel = new javax.swing.JLabel();
         javaAutoStartButton = new javax.swing.JButton();
         javaStartButton = new javax.swing.JButton();
@@ -927,8 +939,9 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weightx = 1.0;
@@ -940,16 +953,15 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         org.openide.awt.Mnemonics.setLocalizedText(localhostLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.localhostLabel.text")); // NOI18N
         localhostLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.localhostLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(localhostLabel, gridBagConstraints);
 
-        localhostComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.0.0.0", "127.0.0.1" }));
+        localhostComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "localhost", "0.0.0.0", "127.0.0.1" }));
         localhostComboBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.localhostComboBox.toolTipText")); // NOI18N
         localhostComboBox.addActionListener(new java.awt.event.ActionListener()
         {
@@ -959,9 +971,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(localhostComboBox, gridBagConstraints);
@@ -969,7 +980,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         portLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(portLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.portLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -991,7 +1002,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 32;
@@ -1152,7 +1163,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.ipadx = 32;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(designatedDirectoryDefaultButton, gridBagConstraints);
@@ -1167,6 +1178,23 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(currentDirectoryLabel, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(launchLocalDirectoryInBrowserButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.launchLocalDirectoryInBrowserButton.text")); // NOI18N
+        launchLocalDirectoryInBrowserButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.launchLocalDirectoryInBrowserButton.toolTipText")); // NOI18N
+        launchLocalDirectoryInBrowserButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                launchLocalDirectoryInBrowserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        corsPanel.add(launchLocalDirectoryInBrowserButton, gridBagConstraints);
 
         javaHeaderLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(javaHeaderLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.javaHeaderLabel.text")); // NOI18N
@@ -1228,6 +1256,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(javaStopButton, gridBagConstraints);
@@ -1244,6 +1273,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         alwaysAutostartCheckBox.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(alwaysAutostartCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.alwaysAutostartCheckBox.text")); // NOI18N
+        alwaysAutostartCheckBox.setEnabled(false);
         alwaysAutostartCheckBox.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         alwaysAutostartCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
@@ -1253,26 +1283,25 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(alwaysAutostartCheckBox, gridBagConstraints);
 
         localHttpServerLabel.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        localHttpServerLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        localHttpServerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(localHttpServerLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.localHttpServerLabel.text")); // NOI18N
         localHttpServerLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.localHttpServerLabel.toolTipText")); // NOI18N
-        localHttpServerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        localHttpServerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 2.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
         corsPanel.add(localHttpServerLabel, gridBagConstraints);
@@ -1281,9 +1310,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         org.openide.awt.Mnemonics.setLocalizedText(html5ImageLabel3, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.html5ImageLabel3.text")); // NOI18N
         html5ImageLabel3.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.html5ImageLabel3.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
@@ -1480,7 +1508,7 @@ class LocalFileHandler implements HttpHandler {
         
         try
         {
-            File holdFile = new File(modelRootDirectory); // which is linked in downloadDirectoryLabel
+            File holdFile = new File(modelRootDirectory); // which is linked in downloadDirectoryLabel, actually a direcgory
             if  (!holdFile.isDirectory())
                 System.out.println("*** URI problem...");
             URI modelRootDirectoryURI = holdFile.toURI();
@@ -1619,7 +1647,8 @@ class LocalFileHandler implements HttpHandler {
 
     private void useModelDirectoryRadioButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_useModelDirectoryRadioButtonActionPerformed
     {//GEN-HEADEREND:event_useModelDirectoryRadioButtonActionPerformed
-        setAuthorCorsDirectoryChoice(CURRENT_X3D_MODEL_DIRECTORY);
+        // TODO figure out current directory
+        setAuthorCorsDirectory(CURRENT_X3D_MODEL_DIRECTORY);
         X3dOptions.setAuthorCorsDirectoryChoice(CURRENT_X3D_MODEL_DIRECTORY);
     }//GEN-LAST:event_useModelDirectoryRadioButtonActionPerformed
 
@@ -1675,13 +1704,13 @@ class LocalFileHandler implements HttpHandler {
 
     private void useExamplesRootDirectoryRadioButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_useExamplesRootDirectoryRadioButtonActionPerformed
     {//GEN-HEADEREND:event_useExamplesRootDirectoryRadioButtonActionPerformed
-        setAuthorCorsDirectoryChoice(LOCAL_EXAMPLES_ROOT);
+        setAuthorCorsDirectory(localExamplesRootDirectoryTextField.getText());
         X3dOptions.setAuthorCorsDirectoryChoice(LOCAL_EXAMPLES_ROOT);
     }//GEN-LAST:event_useExamplesRootDirectoryRadioButtonActionPerformed
 
     private void useDesignatedDirectoryRadioButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_useDesignatedDirectoryRadioButtonActionPerformed
     {//GEN-HEADEREND:event_useDesignatedDirectoryRadioButtonActionPerformed
-        setAuthorCorsDirectoryChoice(DESIGNATED_DIRECTORY);
+        setAuthorCorsDirectory(designatedLocalhostDirectoryTextField.getText());
         X3dOptions.setAuthorCorsDirectoryChoice(DESIGNATED_DIRECTORY);
     }//GEN-LAST:event_useDesignatedDirectoryRadioButtonActionPerformed
 
@@ -1694,6 +1723,18 @@ class LocalFileHandler implements HttpHandler {
     {//GEN-HEADEREND:event_designatedLocalhostDirectoryTextFieldMouseExited
         X3dOptions.setAuthorDesignatedCorsDirectory(designatedLocalhostDirectoryTextField.getText().trim());
     }//GEN-LAST:event_designatedLocalhostDirectoryTextFieldMouseExited
+
+    private void launchLocalDirectoryInBrowserButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_launchLocalDirectoryInBrowserButtonActionPerformed
+    {//GEN-HEADEREND:event_launchLocalDirectoryInBrowserButtonActionPerformed
+        // TODO consolidate duplicative code
+        int             portValue = Integer.parseInt(portTextField.getText());
+        String       addressValue = localhostComboBox.getSelectedItem().toString();
+        if (addressValue.isBlank())
+            addressValue = "localhost";
+        // getAuthorCorsDirectory() should be root of query to https://localhost:8000
+        String localRootAddress = "http://" + addressValue + ":" + portValue;
+        openInBrowser(localRootAddress);
+    }//GEN-LAST:event_launchLocalDirectoryInBrowserButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox alwaysAutostartCheckBox;
@@ -1721,6 +1762,7 @@ class LocalFileHandler implements HttpHandler {
     private javax.swing.JLabel javaHeaderLabel;
     private javax.swing.JButton javaStartButton;
     private javax.swing.JButton javaStopButton;
+    private javax.swing.JButton launchLocalDirectoryInBrowserButton;
     private javax.swing.JTextField localExamplesRootDirectoryTextField;
     private javax.swing.JLabel localHttpServerLabel;
     private javax.swing.JComboBox<String> localhostComboBox;
@@ -1769,17 +1811,17 @@ class LocalFileHandler implements HttpHandler {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * @return the authorCorsDirectoryChoice
+     * @return the authorCorsDirectory
      */
-    public String getAuthorCorsDirectoryChoice()
+    public String getAuthorCorsDirectory()
     {
-        return authorCorsDirectoryChoice;
+        return authorCorsDirectory;
     }
     /**
      * @param newAuthorCorsDirectoryChoice the preferredCorsDirectoryChoice to set
      */
-    public void setAuthorCorsDirectoryChoice(String newAuthorCorsDirectoryChoice)
+    public void setAuthorCorsDirectory(String newAuthorCorsDirectoryChoice)
     {
-        this.authorCorsDirectoryChoice = newAuthorCorsDirectoryChoice;
+        this.authorCorsDirectory = newAuthorCorsDirectoryChoice;
     }
 }

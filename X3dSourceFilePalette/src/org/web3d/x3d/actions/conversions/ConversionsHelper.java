@@ -215,6 +215,7 @@ public class ConversionsHelper
 
   static public void openInEditor(File f) throws Exception
   {
+    System.out.println("*** ConversionsHelper.openInInEditor File " + f.getPath());
     FileObject fo = FileUtil.createData(f);
     if (fo != null) {
       DataObject dobj = DataObject.find(fo);
@@ -235,14 +236,18 @@ public class ConversionsHelper
     throw new Exception("Editor not found for "+f.getAbsolutePath());
   }
   
-  static public void openInBrowser(String f)
+  static public void openInBrowser(String someAddress)
   {
     try {
-      openInBrowser(new URL("file://"+f));
+        someAddress = someAddress.replaceAll("\\\\","/");
+        System.out.println("*** ConversionsHelper.openInBrowser String " + someAddress);
+        if  (someAddress.startsWith("http"))
+             openInBrowser(new URL(someAddress));
+        else openInBrowser(new URL("file://"+someAddress));
     }
     catch (MalformedURLException e) {
       IOProvider.getDefault().getIO("Output",false).getOut().append(
-        NbBundle.getMessage(BaseConversionsAction.class,"Trying_to_display_") + f +
+        NbBundle.getMessage(BaseConversionsAction.class,"Trying_to_display_") + someAddress +
         NbBundle.getMessage(BaseConversionsAction.class,"_in_HtmlBrowser:_") + e.getLocalizedMessage());   
     }
   }
@@ -256,11 +261,28 @@ public class ConversionsHelper
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
         try {
+            System.out.println("*** ConversionsHelper.openInBrowser URL    " + urlString);
             Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
-    } catch (IOException | URISyntaxException ex) {
+    } 
+    catch (IOException | URISyntaxException ex) {
+        System.err.println("*** ConversionsHelper failure to openInBrowser " + urlString);
         Exceptions.printStackTrace(ex);
     }
-      
+  }
+  
+  static public void openInBrowser(URI uri)
+  {
+    // HtmlBrowser.URLDisplayer.getDefault().showURL(uri);
+    
+    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+        try {
+            System.out.println("*** ConversionsHelper.openInBrowser URI    " + uri.toString());
+            Desktop.getDesktop().browse(uri);
+    } 
+    catch (IOException ex) {
+        Exceptions.printStackTrace(ex);
+    }
   }
   
 //  static public void openInBrowserCheckBox(String urlString)
