@@ -43,7 +43,7 @@ import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.COR
 @ActionID(id = "org.web3d.x3d.actions.conversions.CorsHttpPanelAction", category = "X3D-Edit")
 
 @ActionRegistration(
-        iconBase = "org/web3d/x3d/resources/http64x42.png",
+        iconBase = "org/web3d/x3d/resources/http32x24.png",
      displayName = "#CTL_CorsHttpPanelAction",
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
