@@ -69,7 +69,10 @@ public final class X3dEditAboutAction extends CallableSystemAction
   {
   }
 
-  @Override
+    /**
+     * create and present panel
+     */
+    @Override
   public void performAction()
   {
       // https://bits.netbeans.org/15/javadoc/org-openide-util/org/openide/util/NbBundle.html
@@ -155,7 +158,6 @@ public final class X3dEditAboutAction extends CallableSystemAction
 
         NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
                 aboutHtmlMessage, "About X3D-Edit", NotifyDescriptor.PLAIN_MESSAGE);
-
         DialogDisplayer.getDefault().notify(notifyDescriptor);
   }
 
