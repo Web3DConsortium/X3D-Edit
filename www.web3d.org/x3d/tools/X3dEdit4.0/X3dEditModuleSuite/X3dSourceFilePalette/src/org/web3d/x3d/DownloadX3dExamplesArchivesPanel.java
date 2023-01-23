@@ -1436,6 +1436,9 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
       task.getInputOutput().select();
       task.getInputOutput().getErr().append(ex.getMessage());
     }
+    // TODO are downloads complete prior to reaching next step?
+    updateStatusPropertiesLocalArchivesPresent();
+    updatePanelLocalArchivesPresent();
   }
   
   public boolean isRunning()
