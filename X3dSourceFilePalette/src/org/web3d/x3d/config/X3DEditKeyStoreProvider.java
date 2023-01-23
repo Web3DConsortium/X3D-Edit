@@ -31,7 +31,6 @@ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
  */
-
 package org.web3d.x3d.config;
 
 import java.io.FileInputStream;
@@ -40,12 +39,10 @@ import java.io.InputStream;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
 import java.security.cert.CertificateException;
 import org.netbeans.spi.autoupdate.KeyStoreProvider;
 import org.openide.util.Exceptions;
 import org.openide.util.lookup.ServiceProvider;
-import org.web3d.x3d.actions.security.BouncyCastleHelper;
 
 /** KeyStore provider service for trusting our NBM self-signed certificate 
  *
@@ -59,8 +56,8 @@ public class X3DEditKeyStoreProvider implements KeyStoreProvider {
     @Override
     public KeyStore getKeyStore() {
         try {
-            keystore = BouncyCastleHelper.getKeyStore();
-        } catch (KeyStoreException | NoSuchProviderException ex) {
+            keystore = KeyStore.getInstance("JKS");
+        } catch (KeyStoreException ex) {
             Exceptions.printStackTrace(ex);
         }
         
