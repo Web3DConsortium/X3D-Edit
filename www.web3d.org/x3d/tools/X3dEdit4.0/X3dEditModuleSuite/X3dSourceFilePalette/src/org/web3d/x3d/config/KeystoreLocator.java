@@ -44,7 +44,10 @@ public class KeystoreLocator extends ModuleInstall implements Runnable
             FindPath finder = new FindPath(javaKeyStorePath.toString());
             String userDirectoryName = System.getProperty("user.dir"); // might instead be x3dedit33/bin
             try {
-                Files.walkFileTree(Path.of(userDirectoryName).getParent(), finder);
+                Path pathOfUserDirParent = Path.of(userDirectoryName).getParent();
+                if (pathOfUserDirParent == null)
+                    return; // getting NPE duirng IDE plugin install
+                Files.walkFileTree(pathOfUserDirParent, finder);
 
                 // Big assumption here
                 javaKeyStorePath = finder.get();
