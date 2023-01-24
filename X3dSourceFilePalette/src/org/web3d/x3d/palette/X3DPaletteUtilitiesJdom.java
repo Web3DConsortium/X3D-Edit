@@ -631,12 +631,10 @@ public final class X3DPaletteUtilitiesJdom
   }
   public static Vector<ElementLocation> buildLocations(JTextComponent pane) throws BadLocationException
   {
-    X3DEditorSupport.X3dEditor x3dEditor = ((X3DEditorSupport.X3dEditor) getTopComponent(pane));
-    X3DEditorSupport x3dEditorSupport = x3dEditor.getX3dEditorSupport();
-    Vector<ElementLocation> saxLocations = x3dEditor.getJdomSaxLocations();
-    AbstractDocument abstractDocument = (AbstractDocument)x3dEditorSupport.getDocument();
-
-    int pos = pane.getCaretPosition();
+    X3DEditorSupport.X3dEditor x3dEtor = ((X3DEditorSupport.X3dEditor) getTopComponent(pane));
+    X3DEditorSupport x3dEtorSupport = x3dEtor.getX3dEditorSupport();
+    Vector<ElementLocation> saxLocations = x3dEtor.getJdomSaxLocations();
+    AbstractDocument abstractDocument = (AbstractDocument)x3dEtorSupport.getDocument();
 
     javax.swing.text.Element root = abstractDocument.getDefaultRootElement();  // This is not an XML/jdom element
     int count = root.getElementCount();
@@ -660,17 +658,32 @@ public final class X3DPaletteUtilitiesJdom
     return saxLocations;
   }
 
+  /** Find and return a named element
+   * 
+   * @param pane the pane containing XML/X3D
+   * @param targetName the name of the element to return
+   * @return the named element
+   * @throws BadLocationException if something goes wrong
+   */
   public static ElementLocation findNamedElement(JTextComponent pane, String targetName) throws BadLocationException
   {
-    return findNamedElement(pane,targetName,null);
+    return findNamedElement(pane, targetName, null);
   }
 
-  public static ElementLocation findNamedElement(JTextComponent pane, String targetName, String namePrefix) throws BadLocationException
+  /** Find and return a named element of a specific namespace
+   * 
+   * @param pane the pane containing XML/X3D
+   * @param targetName the name of the element to return under a specific namespace
+   * @param nameSpace the specific namespace pointing to an element name
+   * @return the named element a specific namespace
+   * @throws BadLocationException if something goes wrong
+   */
+  public static ElementLocation findNamedElement(JTextComponent pane, String targetName, String nameSpace) throws BadLocationException
   {
     Vector<ElementLocation> saxLocations = buildLocations(pane);
     for(ElementLocation location : saxLocations) {
       if(location.name.equals(targetName)) {
-        if(namePrefix == null || !namePrefix.equals(location.element.getNamespacePrefix()))
+        if(nameSpace == null || !nameSpace.equals(location.element.getNamespaceURI()))
           continue;
         return location;
       }
