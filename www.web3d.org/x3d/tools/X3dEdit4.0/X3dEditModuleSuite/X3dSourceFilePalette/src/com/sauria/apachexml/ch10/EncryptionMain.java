@@ -9,6 +9,7 @@ package com.sauria.apachexml.ch10;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.OutputStream;
 import java.security.Key;
 
 //import java.security.Provider;
@@ -92,7 +93,7 @@ public class EncryptionMain
     of.setIndenting(true);
     of.setMethod(org.apache.xml.serialize.Method.XML);
     
-    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    OutputStream baos = new ByteArrayOutputStream();
     org.apache.xml.serialize.DOMSerializer serializer = new org.apache.xml.serialize.XMLSerializer(baos, of);
     serializer.serialize(document);
     return (baos.toString());

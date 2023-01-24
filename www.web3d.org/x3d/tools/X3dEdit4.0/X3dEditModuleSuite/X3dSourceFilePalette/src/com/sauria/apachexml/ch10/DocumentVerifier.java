@@ -79,11 +79,10 @@ public class DocumentVerifier
     return new XMLSignature(signatureElement, baseURI);
    }
   
-  @SuppressWarnings("unchecked")
-  public static List verifySignedDocument(Document doc, PublicKey pKey, String baseURI) throws Exception
+  public static List<XMLSignatureInput> verifySignedDocument(Document doc, PublicKey pKey, String baseURI) throws Exception
   {
     XMLSignature signature = getSignature(doc,baseURI);
-    List result = new ArrayList();
+    List<XMLSignatureInput> result = new ArrayList<>();
     boolean coarseResult = false;
 //    Element namespaceContext = XMLUtils.createDSctx(doc, "ds", Constants.SignatureSpecNS);
 //    Element signatureElement = null;
@@ -119,13 +118,12 @@ public class DocumentVerifier
       SignedInfo si = signature.getSignedInfo();
       getFailedReferences(result, si);
       if(result.size() <= 0)
-        result.add("Unspecified verification error");
+        result.add(null);
     }
     return result;
   }
   
-  @SuppressWarnings("unchecked")
-  public static void getFailedReferences(List result, SignedInfo si) throws XMLSecurityException
+  public static void getFailedReferences(List<XMLSignatureInput> result, SignedInfo si) throws XMLSecurityException
   {
     int length = si.getLength();
     for (int i = 0; i < length; i++) {
@@ -151,7 +149,7 @@ public class DocumentVerifier
     Document doc = getInputDocument(signatureFile);
     List result = verifySignedDocument(doc, pkey, baseURI);
 
-    if (result.size() > 0) {
+    if (!result.isEmpty()) {
       for (int i = 0; i < result.size(); i++) {
         XMLSignatureInput xsi = (XMLSignatureInput) result.get(i);
         System.out.println("Reference URI " + xsi.getSourceURI() + " did not verify.");
