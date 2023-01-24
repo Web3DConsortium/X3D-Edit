@@ -133,22 +133,21 @@ public final class VerifySignatureAction extends BaseX3DEditAction
       if(ent == null)
         return;
       PublicKey pKey;
-      if(ent instanceof KeyStore.PrivateKeyEntry)
-        pKey = ((KeyStore.PrivateKeyEntry)ent).getCertificateChain()[0].getPublicKey();
-      else if(ent instanceof KeyStore.TrustedCertificateEntry)
-        pKey = ((KeyStore.TrustedCertificateEntry)ent).getTrustedCertificate().getPublicKey();
+      if(ent instanceof KeyStore.PrivateKeyEntry privateKeyEntry)
+        pKey = privateKeyEntry.getCertificateChain()[0].getPublicKey();
+      else if(ent instanceof KeyStore.TrustedCertificateEntry trustedCertificateEntry)
+        pKey = trustedCertificateEntry.getTrustedCertificate().getPublicKey();
       else
         throw new Exception(NbBundle.getMessage(getClass(), "MSG_PubPrivateTrustedToVerify"));//"Use only public/private key pairs or trusted keys to verify");
 
-      List failedRefs = DocumentVerifier.verifySignedDocument(w3cDoc, pKey, "");
+      List<XMLSignatureInput> failedRefs = DocumentVerifier.verifySignedDocument(w3cDoc, pKey, "");
       
-      if(failedRefs.size()<=0)       
+      if(failedRefs.isEmpty())       
         showMsg(NbBundle.getMessage(getClass(), "MSG_VerifyOpComplete")); //"Signature in document verified successfully");
       else {
         StringBuilder refsb = new StringBuilder();
         for (Object obj : failedRefs) {
-          if(obj instanceof XMLSignatureInput) {
-            XMLSignatureInput xsi = (XMLSignatureInput) obj;
+          if(obj instanceof XMLSignatureInput xsi) {
             refsb.append(xsi.getSourceURI());
             refsb.append(" ");
           }

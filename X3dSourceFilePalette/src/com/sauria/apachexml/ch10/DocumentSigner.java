@@ -12,6 +12,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.security.KeyStore;
@@ -283,7 +284,7 @@ public class DocumentSigner
       kse.printStackTrace(System.err);
     }
 
-    FileInputStream fis = null;
+    InputStream fis = null;
     try {
       fis = new FileInputStream(filename);
     }
