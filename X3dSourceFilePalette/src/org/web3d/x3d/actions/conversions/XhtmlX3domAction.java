@@ -148,9 +148,9 @@ public class XhtmlX3domAction extends BaseConversionsAction
                      x3dToXhtmlDomConversionPanel.setPaneIndex(X3dToXhtmlDomConversionPanel.X_ITE_TAB);
     
             // pattern from Xj3dCadFilterOptionsPanel to launch and exit the panel
-             continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Continue")); // Transform
-                resetButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Reset"));
-               cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Cancel"));
+             continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Continue")); // Transform Model
+                resetButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Reset"));    // Reset
+               cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Cancel"));   // Cancel
             continueButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
                resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
               cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Cancel"));
