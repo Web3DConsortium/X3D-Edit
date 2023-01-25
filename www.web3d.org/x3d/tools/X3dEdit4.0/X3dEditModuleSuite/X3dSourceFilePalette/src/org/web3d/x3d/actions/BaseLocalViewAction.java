@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,6 +35,10 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.actions;
 
 import org.openide.util.NbBundle;
+import org.web3d.x3d.DownloadX3dExamplesArchivesPanel;
+import static org.web3d.x3d.DownloadX3dExamplesArchivesPanel.isLocalArchivePresent;
+import org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel;
+import org.web3d.x3d.options.X3dOptions;
 //import org.web3d.x3d.InputOutputReporter;
 
 /**
@@ -57,22 +61,37 @@ abstract public class BaseLocalViewAction extends BaseViewAction
       setEnabled(false);
   }
   
-  protected void performAction2(String dirLoc, String errPath)
+  protected void performAction2(String directoryLocation, String errPath)
   {
-    if(dirLoc == null) {
-      showErrOut(errPath);
-    }
-    String urlString = "file://"+dirLoc+"/index.html";
-    if(dirLoc != null) {
-      try {
-        showInBrowser(urlString);
-      }
-      catch(Exception e) {
-        showOut("Error showing browser ("+urlString+"):"+e.getLocalizedMessage());
-      }
-    }
+    DownloadX3dExamplesArchivesPanel.updateStatusPropertiesLocalArchivesPresent();
     
+    if (directoryLocation == null) {
+        showErrOut(errPath);
+        directoryLocation = "";
+    }
+    String urlString = "file://"+directoryLocation+"/index.html";
+    
+    String   archiveName = directoryLocation;
+    if      (archiveName.contains("\\"))
+             archiveName = directoryLocation.substring(directoryLocation.lastIndexOf("\\") + 1);
+    else if (archiveName.contains("/"))
+             archiveName = directoryLocation.substring(directoryLocation.lastIndexOf("/") + 1);
+    
+    // note that this tests whether port is bound, since that might occur externally (regardless of local http server)
+    if (isLocalArchivePresent(archiveName) && 
+        !X3dToXhtmlDomConversionPanel.portAvailable(Integer.parseInt(X3dOptions.getPortExampleArchivesServer()))) // TODO and server started...
+        urlString = "http://localhost:" + X3dOptions.getPortExampleArchivesServer() + "/" + archiveName + "/index.html";
+    
+    try
+    {
+        showInBrowser(urlString);
+    } 
+    catch (Exception e)
+    {
+        showOut("Error showing browser (" + urlString + "):" + e.getLocalizedMessage());
+    }
   }
+  
   
   protected void showErrOut(String dir)
   {

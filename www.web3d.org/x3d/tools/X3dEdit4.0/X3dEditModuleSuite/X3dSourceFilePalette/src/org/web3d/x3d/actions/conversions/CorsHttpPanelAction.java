@@ -53,9 +53,11 @@ import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.COR
 
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 92),
+  @ActionReference(path = "Menu/&X3D-Edit/&Example X3D Model Archives", position = 150),
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 154),
   @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 92),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 92),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Example X3D Model Archives", position = 150),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 154),
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })

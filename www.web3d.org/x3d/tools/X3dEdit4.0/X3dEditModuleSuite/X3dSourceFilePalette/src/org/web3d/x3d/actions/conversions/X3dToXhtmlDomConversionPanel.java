@@ -41,7 +41,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.ConnectException;
 import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.net.URI;
 import java.net.URLDecoder;
 import java.nio.file.Files;
@@ -129,6 +131,12 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 //         x_iteLabel.setIcon(new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/cobweb-logo160.png")));
         
         loadValuesInPanel (); // must follow componenent intialization
+        autolaunchServers ();
+        indicatePortsBoundOnServers();
+        
+        // refactorying in progress
+          oldStartJavaServerButton.setVisible(false);
+        oldStartPythonServerButton.setVisible(false);
         
         // used in parent XhtmlX3domAction and X3dToXhtmlDomConversionPanel
         // TODO lookup x3dEditor to get correct directory
@@ -214,6 +222,106 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         }
         urlComplete = urlComplete.trim();
         xhtmlX3domAction.setUrlScene(urlComplete);
+    }
+    
+    protected final void autolaunchServers ()
+    {
+        if (X3dOptions.getAuthorModelsServerAutolaunch() &&
+            portAvailable(Integer.parseInt(X3dOptions.getPortAuthorModelsServer())))
+        {
+            startAuthorModelsServer ();
+            System.out.println("*** autolaunch AuthorModelsServer port " + X3dOptions.getPortAuthorModelsServer() +
+                               " isAlive=" + isAliveAuthorModelsServer);
+        }
+        
+        if (X3dOptions.getExampleArchivesServerAutolaunch() &&
+            portAvailable(Integer.parseInt(X3dOptions.getPortExampleArchivesServer())))
+        {
+            startExampleArchivesServer ();
+            System.out.println("*** autolaunch ExampleArchivesServer port " + X3dOptions.getPortExampleArchivesServer() +
+                               " isAlive=" + isAliveExampleArchivesServer);
+        }
+        
+        if (X3dOptions.getActiveX3dModelServerAutolaunch() &&
+            portAvailable(Integer.parseInt(X3dOptions.getPortActiveX3dModelServer())))
+        {
+            startActiveX3dModelServerServer ();
+            System.out.println("*** autolaunch ActiveX3dModelServer port " + X3dOptions.getPortExampleArchivesServer() +
+                               " isAlive=" + isAliveActiveX3dModelServer);
+        }
+    }
+    protected final void startAuthorModelsServer ()
+    {
+        // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
+               
+        ArrayList<String> commands = new ArrayList<>();
+        commands.clear();
+        commands.add("jwebserver");
+        commands.add("--bind-address");
+        commands.add(addressComboBox.getSelectedItem().toString());
+        commands.add("--port");
+        commands.add(portAuthorModelsServerTextField.getText());
+        commands.add("--output");
+        commands.add("verbose");
+        isAliveAuthorModelsServer = startServer(AUTHOR_MODELS, commands, authorModelsDirectoryTextField.getText());
+        if (isAliveAuthorModelsServer)
+        {
+            startAuthorModelsServerButton.setText(HTTP_RUNNING);
+//          startAuthorModelsServerButton.setForeground(Colors.darkgreen);
+              stopAuthorModelsServerButton.setEnabled(true);
+              stopAuthorModelsServerButton.setText(HTTP_STOP);
+//            stopAuthorModelsServerButton.setForeground(Colors.RED); // also BOLD
+        }
+        indicatePortsBoundOnServers();
+    }
+    protected final void startExampleArchivesServer ()
+    {
+        // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
+               
+        ArrayList<String> commands = new ArrayList<>();
+        commands.clear();
+        commands.add("jwebserver");
+        commands.add("--bind-address");
+        commands.add(addressComboBox.getSelectedItem().toString());
+        commands.add("--port");
+        commands.add(portExampleArchivesServerTextField.getText());
+        commands.add("--output");
+        commands.add("verbose");
+        isAliveExampleArchivesServer = startServer(EXAMPLE_ARCHIVES, commands, examplesArchivesDirectoryTextField.getText());
+        if (isAliveExampleArchivesServer)
+        {
+            startExampleArchivesServerButton.setText(HTTP_RUNNING);
+//          startExampleArchivesServerButton.setForeground(Colors.darkgreen);
+             stopExampleArchivesServerButton.setEnabled(true);
+             stopExampleArchivesServerButton.setText(HTTP_STOP);
+//           stopExampleArchivesServerButton.setForeground(Colors.RED); // also BOLD
+        }
+        indicatePortsBoundOnServers();
+    }
+    protected final void startActiveX3dModelServerServer ()
+    {
+        // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
+               
+        ArrayList<String> commands = new ArrayList<>();
+        commands.clear();
+        commands.add("jwebserver");
+        commands.add("--bind-address");
+        commands.add(addressComboBox.getSelectedItem().toString());
+        commands.add("--port");
+        commands.add(portActiveX3dModelServerTextField.getText());
+        commands.add("--output");
+        commands.add("verbose");
+//      isAliveAuthorModelsServer = startServer(ACTIVE_X3D_MODEL, commands, activeX3dModelDirectoryTextField.getText());
+        isAliveAuthorModelsServer = startServer(ACTIVE_X3D_MODEL, commands, examplesArchivesDirectoryTextField.getText());
+        if (isAliveActiveX3dModelServer)
+        {
+            startActiveX3dModelServerButton.setText(HTTP_RUNNING);
+//          startActiveX3dModelServerButton.setForeground(Colors.darkgreen);
+             stopActiveX3dModelServerButton.setEnabled(true);
+             stopActiveX3dModelServerButton.setText(HTTP_STOP);
+//          stopActiveX3dModelServerButton.setForeground(Colors.RED); // also BOLD
+        }
+        indicatePortsBoundOnServers();
     }
     
     protected final void loadValuesInPanel ()
@@ -321,6 +429,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         startAuthorModelsServerButton = new javax.swing.JButton();
         stopAuthorModelsServerButton = new javax.swing.JButton();
         browseLocalhostAuthorModelsButton = new javax.swing.JButton();
+        authorModelsServerStatusLabel = new javax.swing.JLabel();
         authorModelsDirectoryTextField = new javax.swing.JTextField();
         authorModelsDirectoryClearButton = new javax.swing.JButton();
         authorModelsDirectoryChooserButton = new javax.swing.JButton();
@@ -334,6 +443,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         startExampleArchivesServerButton = new javax.swing.JButton();
         stopExampleArchivesServerButton = new javax.swing.JButton();
         browseLocalhostExampleArchivesButton = new javax.swing.JButton();
+        exampleArchivesServerStatusLabel = new javax.swing.JLabel();
         examplesArchivesDirectoryTextField = new javax.swing.JTextField();
         browseHttpSeparator3 = new javax.swing.JSeparator();
         activeX3dModelLocationLabel = new javax.swing.JLabel();
@@ -344,10 +454,11 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         startActiveX3dModelServerButton = new javax.swing.JButton();
         stopActiveX3dModelServerButton = new javax.swing.JButton();
         browseLocalhostActiveX3dModelsButton = new javax.swing.JButton();
+        activeX3dModelServerStatusLabel = new javax.swing.JLabel();
         currentDirectoryLabel = new javax.swing.JLabel();
         corsDescriptionLabel = new javax.swing.JLabel();
-        oldJavaStartButton = new javax.swing.JButton();
-        startPythonServerButton = new javax.swing.JButton();
+        oldStartJavaServerButton = new javax.swing.JButton();
+        oldStartPythonServerButton = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         setPreferredSize(new java.awt.Dimension(720, 600));
@@ -950,7 +1061,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -965,7 +1076,6 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
@@ -982,9 +1092,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(addressComboBox, gridBagConstraints);
@@ -1041,7 +1150,6 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(autolaunchAuthorModelsServerCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.autolaunchAuthorModelsServerCheckBox.text")); // NOI18N
         autolaunchAuthorModelsServerCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.autolaunchAuthorModelsServerCheckBox.toolTipText")); // NOI18N
-        autolaunchAuthorModelsServerCheckBox.setEnabled(false);
         autolaunchAuthorModelsServerCheckBox.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         autolaunchAuthorModelsServerCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
@@ -1161,6 +1269,18 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(browseLocalhostAuthorModelsButton, gridBagConstraints);
 
+        authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(authorModelsServerStatusLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.authorModelsServerStatusLabel.text")); // NOI18N
+        authorModelsServerStatusLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.authorModelsServerStatusLabel.toolTipText")); // NOI18N
+        authorModelsServerStatusLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        corsPanel.add(authorModelsServerStatusLabel, gridBagConstraints);
+
         authorModelsDirectoryTextField.setText(X3dOptions.getExamplesRootDirectory());
         authorModelsDirectoryTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.authorModelsDirectoryTextField.toolTipText")); // NOI18N
         authorModelsDirectoryTextField.addMouseListener(new java.awt.event.MouseAdapter()
@@ -1279,7 +1399,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.ipadx = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1288,7 +1408,6 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(autolaunchExampleArchivesServerCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.autolaunchExampleArchivesServerCheckBox.text")); // NOI18N
         autolaunchExampleArchivesServerCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.autolaunchExampleArchivesServerCheckBox.toolTipText")); // NOI18N
-        autolaunchExampleArchivesServerCheckBox.setEnabled(false);
         autolaunchExampleArchivesServerCheckBox.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         autolaunchExampleArchivesServerCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
@@ -1408,6 +1527,18 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(browseLocalhostExampleArchivesButton, gridBagConstraints);
 
+        exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(exampleArchivesServerStatusLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.exampleArchivesServerStatusLabel.text")); // NOI18N
+        exampleArchivesServerStatusLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.exampleArchivesServerStatusLabel.toolTipText")); // NOI18N
+        exampleArchivesServerStatusLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        corsPanel.add(exampleArchivesServerStatusLabel, gridBagConstraints);
+
         examplesArchivesDirectoryTextField.setText(X3dOptions.getExamplesRootDirectory());
         examplesArchivesDirectoryTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.examplesArchivesDirectoryTextField.toolTipText")); // NOI18N
         examplesArchivesDirectoryTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1465,7 +1596,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.ipadx = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1594,6 +1725,18 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(browseLocalhostActiveX3dModelsButton, gridBagConstraints);
 
+        activeX3dModelServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleRed24x24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(activeX3dModelServerStatusLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.activeX3dModelServerStatusLabel.text")); // NOI18N
+        activeX3dModelServerStatusLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.activeX3dModelServerStatusLabel.toolTipText")); // NOI18N
+        activeX3dModelServerStatusLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        corsPanel.add(activeX3dModelServerStatusLabel, gridBagConstraints);
+
         org.openide.awt.Mnemonics.setLocalizedText(currentDirectoryLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.currentDirectoryLabel.text")); // NOI18N
         currentDirectoryLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         currentDirectoryLabel.setEnabled(false);
@@ -1628,14 +1771,14 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
         corsPanel.add(corsDescriptionLabel, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(oldJavaStartButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.oldJavaStartButton.text")); // NOI18N
-        oldJavaStartButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.oldJavaStartButton.toolTipText")); // NOI18N
-        oldJavaStartButton.setEnabled(false);
-        oldJavaStartButton.addActionListener(new java.awt.event.ActionListener()
+        org.openide.awt.Mnemonics.setLocalizedText(oldStartJavaServerButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.oldStartJavaServerButton.text")); // NOI18N
+        oldStartJavaServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.oldStartJavaServerButton.toolTipText")); // NOI18N
+        oldStartJavaServerButton.setEnabled(false);
+        oldStartJavaServerButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                oldJavaStartButtonActionPerformed(evt);
+                oldStartJavaServerButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1646,16 +1789,16 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 4;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        corsPanel.add(oldJavaStartButton, gridBagConstraints);
+        corsPanel.add(oldStartJavaServerButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(startPythonServerButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.startPythonServerButton.text")); // NOI18N
-        startPythonServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.startPythonServerButton.toolTipText")); // NOI18N
-        startPythonServerButton.setEnabled(false);
-        startPythonServerButton.addActionListener(new java.awt.event.ActionListener()
+        org.openide.awt.Mnemonics.setLocalizedText(oldStartPythonServerButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.oldStartPythonServerButton.text")); // NOI18N
+        oldStartPythonServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.oldStartPythonServerButton.toolTipText")); // NOI18N
+        oldStartPythonServerButton.setEnabled(false);
+        oldStartPythonServerButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                startPythonServerButtonActionPerformed(evt);
+                oldStartPythonServerButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1664,7 +1807,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        corsPanel.add(startPythonServerButton, gridBagConstraints);
+        corsPanel.add(oldStartPythonServerButton, gridBagConstraints);
 
         pageIntegrationTabbedPane.addTab(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionPanel.class, "X3dToXhtmlDomConversionPanel.corsPanel.TabConstraints.tabTitle"), corsPanel); // NOI18N
 
@@ -1823,7 +1966,7 @@ class LocalFileHandler implements HttpHandler {
      * @link https://dzone.com/articles/simple-http-server-in-java
      * @param evt triggering input event from callback
      */
-    private void oldJavaStartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oldJavaStartButtonActionPerformed
+    private void oldStartJavaServerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oldStartJavaServerButtonActionPerformed
         // Would spinning off a JAVA process that references the local dir using the below work?
         // ref: https://dzone.com/articles/simple-http-server-in-java
 
@@ -1893,24 +2036,85 @@ class LocalFileHandler implements HttpHandler {
 //        javaAutoStartButton.setEnabled(false);
 //            oldJavaStartButton.setEnabled(false); 
 //             stopAuthorModelsServerButton.setEnabled(true);
-    }//GEN-LAST:event_oldJavaStartButtonActionPerformed
+    }//GEN-LAST:event_oldStartJavaServerButtonActionPerformed
 
     private void examplesArchivesDirectoryTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_examplesArchivesDirectoryTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_examplesArchivesDirectoryTextFieldActionPerformed
 
-    public void indicateCorsServerRunning (boolean state)
+    /**
+     * Check whether port on local host is bound
+     * @param port of interest
+     * @return whether port is bound
+     * @see https://stackoverflow.com/questions/434718/sockets-discover-port-availability-using-java
+     */
+    public static boolean portAvailable (int port)
     {
-        // TODO, perhaps an image icon in tab?
+      try (Socket ignored = new Socket("localhost", port)) 
+      {
+          return false;
+      }
+      catch (ConnectException e)
+      {
+          return true;
+      }
+      catch (IOException e)
+      {
+          System.err.println ("*** portAvailable(" + port + ") error while trying to check open port");
+          System.err.println (e);
+          return false;
+      }
     }
-    public void indicateCorsServerNeeded (boolean state)
+    /** show green if bound (by any http server), grey otherwise */
+    private void indicatePortsBoundOnServers()
     {
-        // TODO, invoke when spinning off X_ITE pages
+        String PORT_BOUND = "http running on port ";
+        String PORT_OPEN  = "http not running on port ";
+        if  (portAvailable(Integer.parseInt(X3dOptions.getPortAuthorModelsServer())))
+        {
+             authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
+             authorModelsServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getPortAuthorModelsServer());
+        }
+        else 
+        {
+            authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
+             authorModelsServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getPortAuthorModelsServer());
+        }
+        
+        if  (portAvailable(Integer.parseInt(X3dOptions.getPortExampleArchivesServer())))
+        {
+             exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
+             exampleArchivesServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getPortExampleArchivesServer());
+        }
+        else 
+        {
+             exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
+             exampleArchivesServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getPortExampleArchivesServer());
+        } 
+        
+        if  (portAvailable(Integer.parseInt(X3dOptions.getPortActiveX3dModelServer())))
+        {
+             activeX3dModelServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
+             activeX3dModelServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getPortActiveX3dModelServer());
+        }
+        else 
+        {
+             activeX3dModelServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
+             activeX3dModelServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getPortActiveX3dModelServer());
+        } 
     }
+  /** show green if bound (by any http server), grey otherwise */
+    private void indicateExampleArchivesPortBound ()
+    {
+        if  (portAvailable(Integer.parseInt(X3dOptions.getPortExampleArchivesServer())))
+             exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
+        else exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png"))); 
+    }
+    
     private boolean startJavaHttpProcess ()
     {
         // TODO, return whether running
-        oldJavaStartButton.setEnabled(false);
+        oldStartJavaServerButton.setEnabled(false);
          stopAuthorModelsServerButton.setEnabled(true);
 //       stopAuthorModelsServerButton.setForeground(Colors.black); // also PLAIN
         return false;
@@ -1918,7 +2122,7 @@ class LocalFileHandler implements HttpHandler {
     private boolean stopJavaHttpProcess ()
     {
         // TODO, return whether running
-        oldJavaStartButton.setEnabled(true);
+        oldStartJavaServerButton.setEnabled(true);
          stopAuthorModelsServerButton.setEnabled(false);
 //            stopAuthorModelsServerButton.setForeground(Colors.red); // also BOLD
         return false;
@@ -1984,6 +2188,7 @@ class LocalFileHandler implements HttpHandler {
         startAuthorModelsServerButton.setEnabled(true);
         startAuthorModelsServerButton.setText(HTTP_START);
          stopAuthorModelsServerButton.setEnabled(false); // TODO color
+        indicatePortsBoundOnServers();
     }//GEN-LAST:event_stopAuthorModelsServerButtonActionPerformed
 
     private void x3domHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_x3domHomeButtonActionPerformed
@@ -2011,6 +2216,7 @@ class LocalFileHandler implements HttpHandler {
     {//GEN-HEADEREND:event_portAuthorModelsServerTextFieldActionPerformed
         // TODO check values 8000..? and not duplicated
         X3dOptions.setAuthorModelsServerPort(portAuthorModelsServerTextField.getText().trim());
+        indicatePortsBoundOnServers();
     }//GEN-LAST:event_portAuthorModelsServerTextFieldActionPerformed
 
     private void authorModelsDirectoryTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorModelsDirectoryTextFieldActionPerformed
@@ -2151,30 +2357,11 @@ class LocalFileHandler implements HttpHandler {
     
     private void startAuthorModelsServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startAuthorModelsServerButtonActionPerformed
     {//GEN-HEADEREND:event_startAuthorModelsServerButtonActionPerformed
-        // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
-               
-        ArrayList<String> commands = new ArrayList<>();
-        commands.clear();
-        commands.add("jwebserver");
-        commands.add("--bind-address");
-        commands.add(addressComboBox.getSelectedItem().toString());
-        commands.add("--port");
-        commands.add(portAuthorModelsServerTextField.getText());
-        commands.add("--output");
-        commands.add("verbose");
-        isAliveAuthorModelsServer = startServer(AUTHOR_MODELS, commands, authorModelsDirectoryTextField.getText());
-        if (isAliveAuthorModelsServer)
-        {
-            startAuthorModelsServerButton.setText(HTTP_RUNNING);
-//          startAuthorModelsServerButton.setForeground(Colors.darkgreen);
-              stopAuthorModelsServerButton.setEnabled(true);
-              stopAuthorModelsServerButton.setText(HTTP_STOP);
-//            stopAuthorModelsServerButton.setForeground(Colors.RED); // also BOLD
-        }
+        startAuthorModelsServer ();
     }//GEN-LAST:event_startAuthorModelsServerButtonActionPerformed
 
-    private void startPythonServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startPythonServerButtonActionPerformed
-    {//GEN-HEADEREND:event_startPythonServerButtonActionPerformed
+    private void oldStartPythonServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_oldStartPythonServerButtonActionPerformed
+    {//GEN-HEADEREND:event_oldStartPythonServerButtonActionPerformed
         // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
                
         ArrayList<String> commands = new ArrayList<>();
@@ -2183,12 +2370,13 @@ class LocalFileHandler implements HttpHandler {
         commands.add("-m");
         commands.add("http.server");
         commands.add(portAuthorModelsServerTextField.getText());
-    }//GEN-LAST:event_startPythonServerButtonActionPerformed
+    }//GEN-LAST:event_oldStartPythonServerButtonActionPerformed
 
     private void portAuthorModelsServerTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_portAuthorModelsServerTextFieldMouseExited
     {//GEN-HEADEREND:event_portAuthorModelsServerTextFieldMouseExited
         // TODO check values 8000..? and not duplicated
         X3dOptions.setAuthorModelsServerPort(portAuthorModelsServerTextField.getText().trim());
+        indicatePortsBoundOnServers();
     }//GEN-LAST:event_portAuthorModelsServerTextFieldMouseExited
 
     private void autolaunchAuthorModelsServerCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_autolaunchAuthorModelsServerCheckBoxActionPerformed
@@ -2208,48 +2396,35 @@ class LocalFileHandler implements HttpHandler {
 
     private void portExampleArchivesServerTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_portExampleArchivesServerTextFieldMouseExited
     {//GEN-HEADEREND:event_portExampleArchivesServerTextFieldMouseExited
-        // TODO add your handling code here:
+        // TODO check values 8000..? and not duplicated
+        X3dOptions.setExampleArchivesServerPort(portExampleArchivesServerTextField.getText().trim());
+        indicatePortsBoundOnServers();
     }//GEN-LAST:event_portExampleArchivesServerTextFieldMouseExited
 
     private void portExampleArchivesServerTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_portExampleArchivesServerTextFieldActionPerformed
     {//GEN-HEADEREND:event_portExampleArchivesServerTextFieldActionPerformed
         // TODO check values 8000..? and not duplicated
         X3dOptions.setExampleArchivesServerPort(portExampleArchivesServerTextField.getText().trim());
+        indicatePortsBoundOnServers();
     }//GEN-LAST:event_portExampleArchivesServerTextFieldActionPerformed
 
     private void portActiveX3dModelServerTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_portActiveX3dModelServerTextFieldMouseExited
     {//GEN-HEADEREND:event_portActiveX3dModelServerTextFieldMouseExited
-        // TODO add your handling code here:
+        // TODO check values 8000..? and not duplicated
+        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
+        indicatePortsBoundOnServers();
     }//GEN-LAST:event_portActiveX3dModelServerTextFieldMouseExited
 
     private void portActiveX3dModelServerTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_portActiveX3dModelServerTextFieldActionPerformed
     {//GEN-HEADEREND:event_portActiveX3dModelServerTextFieldActionPerformed
         // TODO check values 8000..? and not duplicated
         X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
+        indicatePortsBoundOnServers();
     }//GEN-LAST:event_portActiveX3dModelServerTextFieldActionPerformed
 
     private void startExampleArchivesServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startExampleArchivesServerButtonActionPerformed
     {//GEN-HEADEREND:event_startExampleArchivesServerButtonActionPerformed
-        // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
-               
-        ArrayList<String> commands = new ArrayList<>();
-        commands.clear();
-        commands.add("jwebserver");
-        commands.add("--bind-address");
-        commands.add(addressComboBox.getSelectedItem().toString());
-        commands.add("--port");
-        commands.add(portExampleArchivesServerTextField.getText());
-        commands.add("--output");
-        commands.add("verbose");
-        isAliveExampleArchivesServer = startServer(EXAMPLE_ARCHIVES, commands, examplesArchivesDirectoryTextField.getText());
-        if (isAliveExampleArchivesServer)
-        {
-            startExampleArchivesServerButton.setText(HTTP_RUNNING);
-//          startExampleArchivesServerButton.setForeground(Colors.darkgreen);
-             stopExampleArchivesServerButton.setEnabled(true);
-             stopExampleArchivesServerButton.setText(HTTP_STOP);
-//           stopExampleArchivesServerButton.setForeground(Colors.RED); // also BOLD
-        }
+        startExampleArchivesServer ();
     }//GEN-LAST:event_startExampleArchivesServerButtonActionPerformed
 
     private void stopExampleArchivesServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stopExampleArchivesServerButtonActionPerformed
@@ -2258,31 +2433,12 @@ class LocalFileHandler implements HttpHandler {
         startExampleArchivesServerButton.setEnabled(true);
         startExampleArchivesServerButton.setText(HTTP_START);
          stopExampleArchivesServerButton.setEnabled(false); // TODO color
+        indicatePortsBoundOnServers();
     }//GEN-LAST:event_stopExampleArchivesServerButtonActionPerformed
 
     private void startActiveX3dModelServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startActiveX3dModelServerButtonActionPerformed
     {//GEN-HEADEREND:event_startActiveX3dModelServerButtonActionPerformed
-        // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
-               
-        ArrayList<String> commands = new ArrayList<>();
-        commands.clear();
-        commands.add("jwebserver");
-        commands.add("--bind-address");
-        commands.add(addressComboBox.getSelectedItem().toString());
-        commands.add("--port");
-        commands.add(portActiveX3dModelServerTextField.getText());
-        commands.add("--output");
-        commands.add("verbose");
-//      isAliveAuthorModelsServer = startServer(ACTIVE_X3D_MODEL, commands, activeX3dModelDirectoryTextField.getText());
-        isAliveAuthorModelsServer = startServer(ACTIVE_X3D_MODEL, commands, examplesArchivesDirectoryTextField.getText());
-        if (isAliveActiveX3dModelServer)
-        {
-            startActiveX3dModelServerButton.setText(HTTP_RUNNING);
-//          startActiveX3dModelServerButton.setForeground(Colors.darkgreen);
-             stopActiveX3dModelServerButton.setEnabled(true);
-             stopActiveX3dModelServerButton.setText(HTTP_STOP);
-//          stopActiveX3dModelServerButton.setForeground(Colors.RED); // also BOLD
-        }
+        startActiveX3dModelServerServer ();
     }//GEN-LAST:event_startActiveX3dModelServerButtonActionPerformed
 
     private void stopActiveX3dModelServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stopActiveX3dModelServerButtonActionPerformed
@@ -2291,6 +2447,7 @@ class LocalFileHandler implements HttpHandler {
         startActiveX3dModelServerButton.setEnabled(true);
         startActiveX3dModelServerButton.setText(HTTP_START);
          stopActiveX3dModelServerButton.setEnabled(false); // TODO color
+        indicatePortsBoundOnServers();
     }//GEN-LAST:event_stopActiveX3dModelServerButtonActionPerformed
 
     private void browseLocalhostExampleArchivesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_browseLocalhostExampleArchivesButtonActionPerformed
@@ -2315,6 +2472,7 @@ class LocalFileHandler implements HttpHandler {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel activeX3dModelLocationLabel;
+    private javax.swing.JLabel activeX3dModelServerStatusLabel;
     private javax.swing.JComboBox<String> addressComboBox;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JButton authorModelsDirectoryChooserButton;
@@ -2322,6 +2480,7 @@ class LocalFileHandler implements HttpHandler {
     private javax.swing.JButton authorModelsDirectoryDefaultButton;
     private javax.swing.JLabel authorModelsDirectoryLabel;
     private javax.swing.JTextField authorModelsDirectoryTextField;
+    private javax.swing.JLabel authorModelsServerStatusLabel;
     private javax.swing.JLabel autoLabel1;
     private javax.swing.JLabel autoLabel2;
     private javax.swing.JLabel autoLabel3;
@@ -2340,6 +2499,7 @@ class LocalFileHandler implements HttpHandler {
     private javax.swing.JButton corsHelpButton;
     private javax.swing.JPanel corsPanel;
     private javax.swing.JLabel currentDirectoryLabel;
+    private javax.swing.JLabel exampleArchivesServerStatusLabel;
     private javax.swing.JLabel examplesArchiveDescriptionLabel1;
     private javax.swing.JTextField examplesArchivesDirectoryTextField;
     private javax.swing.JLabel heightDescriptionLabel;
@@ -2350,7 +2510,8 @@ class LocalFileHandler implements HttpHandler {
     private javax.swing.JLabel html5ImageLabel;
     private javax.swing.JPanel htmlPanel;
     private javax.swing.JLabel localhostHttpServerControlsLabel;
-    private javax.swing.JButton oldJavaStartButton;
+    private javax.swing.JButton oldStartJavaServerButton;
+    private javax.swing.JButton oldStartPythonServerButton;
     private javax.swing.JTabbedPane pageIntegrationTabbedPane;
     private javax.swing.ButtonGroup playerButtonGroup;
     private javax.swing.JTextField portActiveX3dModelServerTextField;
@@ -2371,7 +2532,6 @@ class LocalFileHandler implements HttpHandler {
     private javax.swing.JButton startActiveX3dModelServerButton;
     private javax.swing.JButton startAuthorModelsServerButton;
     private javax.swing.JButton startExampleArchivesServerButton;
-    private javax.swing.JButton startPythonServerButton;
     private javax.swing.JButton stopActiveX3dModelServerButton;
     private javax.swing.JButton stopAuthorModelsServerButton;
     private javax.swing.JButton stopExampleArchivesServerButton;

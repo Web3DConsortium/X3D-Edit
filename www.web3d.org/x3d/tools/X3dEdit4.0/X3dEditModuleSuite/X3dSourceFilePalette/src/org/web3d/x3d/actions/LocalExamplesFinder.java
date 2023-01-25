@@ -70,14 +70,14 @@ public class LocalExamplesFinder
   public static String DEFAULT_SAVAGE_PATH;
   public static String DEFAULT_SAVAGEDEFENSE_PATH;
   
-  private dirHandler basic;
-  private dirHandler conform;
-  private dirHandler hanim;
-  private dirHandler vrmlsb;
-  private dirHandler x3d4wa;
-  private dirHandler x3d4am;
-  private dirHandler savage;
-  private dirHandler savagedefense;
+  private DirectoryHandler basic;
+  private DirectoryHandler conform;
+  private DirectoryHandler hanim;
+  private DirectoryHandler vrmlsb;
+  private DirectoryHandler x3d4wa;
+  private DirectoryHandler x3d4am;
+  private DirectoryHandler savage;
+  private DirectoryHandler savagedefense;
   private boolean    savageDefenseFound = false;
   
   private LocalExamplesFinder()
@@ -99,24 +99,24 @@ public class LocalExamplesFinder
     DEFAULT_BASIC_PATH   = DEFAULT_ROOT_PATH+File.separator+"Basic";
     DEFAULT_CONFORM_PATH = DEFAULT_ROOT_PATH+File.separator+"ConformanceNist";
     DEFAULT_HANIM_PATH   = DEFAULT_ROOT_PATH+File.separator+"HumanoidAnimation";
-    DEFAULT_VRMLSB_PATH  = DEFAULT_ROOT_PATH+File.separator+"Vrml2.0Sourcebook";
+    DEFAULT_VRMLSB_PATH  = DEFAULT_ROOT_PATH+File.separator+"Vrml2Sourcebook";
     DEFAULT_X3D4WA_PATH  = DEFAULT_ROOT_PATH+File.separator+"X3dForWebAuthors";  
     DEFAULT_X3D4AM_PATH  = DEFAULT_ROOT_PATH+File.separator+"X3dForAdvancedModeling";  
     DEFAULT_SAVAGE_PATH  = DEFAULT_ROOT_PATH+File.separator+"Savage";
     DEFAULT_SAVAGEDEFENSE_PATH  = DEFAULT_ROOT_PATH+File.separator+"SavageDefense";
     
-    basic   = new dirHandler("BasicExamples"      ,DEFAULT_BASIC_PATH); // noi18n
-    conform = new dirHandler("ConformanceExamples",DEFAULT_CONFORM_PATH);
-    hanim   = new dirHandler("HumanoidExamples"   ,DEFAULT_HANIM_PATH);
-    vrmlsb  = new dirHandler("VrmlExamples"       ,DEFAULT_VRMLSB_PATH);
-    x3d4wa  = new dirHandler("X3d4waExamples"     ,DEFAULT_X3D4WA_PATH);
-    x3d4am  = new dirHandler("X3d4amExamples"     ,DEFAULT_X3D4AM_PATH);
-    savage  = new dirHandler("SavageExamples"     ,DEFAULT_SAVAGE_PATH);
+    basic   = new DirectoryHandler("BasicExamples"      ,DEFAULT_BASIC_PATH); // noi18n
+    conform = new DirectoryHandler("ConformanceExamples",DEFAULT_CONFORM_PATH);
+    hanim   = new DirectoryHandler("HumanoidExamples"   ,DEFAULT_HANIM_PATH);
+    vrmlsb  = new DirectoryHandler("VrmlExamples"       ,DEFAULT_VRMLSB_PATH);
+    x3d4wa  = new DirectoryHandler("X3d4waExamples"     ,DEFAULT_X3D4WA_PATH);
+    x3d4am  = new DirectoryHandler("X3d4amExamples"     ,DEFAULT_X3D4AM_PATH);
+    savage  = new DirectoryHandler("SavageExamples"     ,DEFAULT_SAVAGE_PATH);
     
     if ((new File(DEFAULT_SAVAGEDEFENSE_PATH)).isDirectory())
     {
         savageDefenseFound = true;
-        savagedefense = new dirHandler("SavageDefenseExamples", DEFAULT_SAVAGEDEFENSE_PATH);
+        savagedefense = new DirectoryHandler("SavageDefenseExamples", DEFAULT_SAVAGEDEFENSE_PATH);
     }
   }
 
@@ -143,9 +143,9 @@ public class LocalExamplesFinder
         return savageDefenseFound;
     }
         
-  class dirHandler
+  class DirectoryHandler
   {
-    dirHandler(String key, String dflt)
+    DirectoryHandler(String key, String dflt)
     {
       defaultLoc = dflt;
       prefsKey = key;
@@ -157,36 +157,36 @@ public class LocalExamplesFinder
   
   public String findBasicExamplesDirectory(Action menuItem)
   {
-    return findExamplesDir(basic,menuItem);
+    return findExamplesDirectory(basic,menuItem);
   }
   public String findConformExamplesDirectory(Action menuItem)
   {
-    return findExamplesDir(conform,menuItem);
+    return findExamplesDirectory(conform,menuItem);
   }
   public String findHumanoidAnimationExamplesDirectory(Action menuItem)
   {
-    return findExamplesDir(hanim,menuItem);
+    return findExamplesDirectory(hanim,menuItem);
   }
   public String findVrmlExamplesDirectory(Action menuItem)
   {
-    return findExamplesDir(vrmlsb,menuItem);
+    return findExamplesDirectory(vrmlsb,menuItem);
   }
   public String findX3d4waExamplesDirectory(Action menuItem)
   {
-    return findExamplesDir(x3d4wa,menuItem);
+    return findExamplesDirectory(x3d4wa,menuItem);
   }
   public String findX3d4amExamplesDirectory(Action menuItem)
   {
-    return findExamplesDir(x3d4am,menuItem);
+    return findExamplesDirectory(x3d4am,menuItem);
   }
   public String findSavageExamplesDirectory(Action menuItem)
   {
-    return findExamplesDir(savage,menuItem);
+    return findExamplesDirectory(savage,menuItem);
   }
   public String findSavageDefenseExamplesDirectory(Action menuItem)
   {
       if  (isSavageDefenseFound())
-           return findExamplesDir(savagedefense,menuItem);
+           return findExamplesDirectory(savagedefense,menuItem);
       else return null;
   }
   
@@ -226,32 +226,32 @@ public class LocalExamplesFinder
   }
   
   
-  private String findExamplesDir(dirHandler dh, Action enabler)
+  private String findExamplesDirectory(DirectoryHandler directoryHandler, Action enabler)
   {
-    dh.listeners.add(enabler);
-    String ret = prefsGet(dh.prefsKey);
+    directoryHandler.listeners.add(enabler);
+    String ret = prefsGet(directoryHandler.prefsKey);
     if(ret != null)
       if(!isThere(ret)) {         // erased?
-        prefsRemove(dh.prefsKey);
+        prefsRemove(directoryHandler.prefsKey);
         ret = null;
       }
     if(ret == null)
-      ret = findDefaultDir(dh);
+      ret = findDefaultDirecctory(directoryHandler);
     if(ret != null)
-      setExamplesDir(dh,ret);
+      setExamplesDir(directoryHandler,ret);
     else
-      doActions(dh,false);
+      doActions(directoryHandler,false);
     return ret;    
   }
   
-  private String findDefaultDir(dirHandler dh)
+  private String findDefaultDirecctory(DirectoryHandler directoryHandler)
   {
-    if(isThere(dh.defaultLoc))
-      return dh.defaultLoc;
+    if(isThere(directoryHandler.defaultLoc))
+      return directoryHandler.defaultLoc;
     return null;
   }
   
-  private void doActions(dirHandler dh, boolean enabled)
+  private void doActions(DirectoryHandler dh, boolean enabled)
   {
     for(Action a: dh.listeners)
       a.setEnabled(enabled);
@@ -271,7 +271,7 @@ public class LocalExamplesFinder
     return NbPreferences.forModule(getClass()).get(key, null);
   }
   
-  private void setExamplesDir(dirHandler dh,String s)
+  private void setExamplesDir(DirectoryHandler dh,String s)
   {
     prefsSet(dh.prefsKey,s);
     doActions(dh,true);
