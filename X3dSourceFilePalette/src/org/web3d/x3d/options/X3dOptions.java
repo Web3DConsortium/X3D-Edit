@@ -112,12 +112,12 @@ public class X3dOptions
   
   private static String AUTHOR_MODELS_DIRECTORY_KEY           = "AUTHOR_MODELS_DIRECTORY_KEY";
   private static String AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY   = "AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY";
-  private static String EXAMPLE_ARCHIVES_AUTOLAUNCH_KEY       = "EXAMPLE_ARCHIVES_AUTOLAUNCH_KEY";
+  private static String EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY       = "EXAMPLE_ARCHIVES_AUTOLAUNCH_KEY";
   private static String ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY= "ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY";
   private static String AUTHOR_MODELS_SERVER_PORT_KEY         = "AUTHOR_MODELS_SERVER_PORT_KEY";
   private static String EXAMPLE_ARCHIVES_SERVER_PORT_KEY      = "EXAMPLE_ARCHIVES_SERVER_PORT_KEY";
   private static String ACTIVE_X3D_MODEL_SERVER_PORT_KEY      = "ACTIVE_X3D_MODEL_SERVER_PORT_KEY";
-                // TODO AUTHOR_CORS_ADDRESS, two more AUTHOR_CORS_PORT, autolaunch
+  // TODO AUTHOR_CORS_ADDRESS
   
   private static String             BASIC_LOCALEXAMPLES_PRESENT_KEY =             "BASIC_LOCALEXAMPLES_PRESENT_KEY";
   private static String   CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY =   "CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY";
@@ -163,10 +163,13 @@ public class X3dOptions
   public static String  AUTHOR_EMAIL_DEFAULT            = "";
   // https://stackoverflow.com/questions/585534/what-is-the-best-way-to-find-the-users-home-directory-in-java
   // TODO is /Desktop OK on MacOSX and Linux?
-  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT          = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
-  public static boolean AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT        = true;
-  public static String  AUTHOR_MODELS_DIRECTORY_DEFAULT = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
+  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
+  public static String  AUTHOR_MODELS_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
   
+  public static boolean AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT    = true;
+  public static boolean EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_DEFAULT = true;
+  public static boolean AUTHOR_X3D_MODEL_SERVER_AUTOLAUNCH_DEFAULT = false; // TODO wait until functionality implemented
+
   public static String  AUTHOR_MODELS_SERVER_PORT_DEFAULT     = "8001";
   public static String  EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT  = "8002";
   public static String  ACTIVE_X3D_MODEL_SERVER_PORT_DEFAULT  = "8003";
@@ -212,7 +215,7 @@ public class X3dOptions
   public static void    setExamplesRootDirectory           (String value)  { commonStringSet(EXAMPLES_ROOT_DIRECTORY_KEY, value);}
   public static void    setAuthorModelsDirectory           (String value)  { commonStringSet(AUTHOR_MODELS_DIRECTORY_KEY, value);}
   public static void    setAuthorModelsServerAutolaunch    (boolean value) { commonBooleanSet(AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY, value);}
-  public static void    setExampleArchivesServerAutolaunch (boolean value) { commonBooleanSet(EXAMPLE_ARCHIVES_AUTOLAUNCH_KEY, value);}
+  public static void    setExampleArchivesServerAutolaunch (boolean value) { commonBooleanSet(EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY, value);}
   public static void    setActiveX3dModelServerAutolaunch  (boolean value) { commonBooleanSet(ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY, value);}
   public static void    setAuthorModelsServerPort          (String value)  { commonStringSet(AUTHOR_MODELS_SERVER_PORT_KEY, value);}
   public static void    setExampleArchivesServerPort       (String value)  { commonStringSet(EXAMPLE_ARCHIVES_SERVER_PORT_KEY, value);}
@@ -259,8 +262,8 @@ public class X3dOptions
   
   public static String  getAuthorModelsDirectory ()                 { return commonStringGet(AUTHOR_MODELS_DIRECTORY_KEY,   AUTHOR_MODELS_DIRECTORY_DEFAULT);}
   public static boolean getAuthorModelsServerAutolaunch ()          { return commonBooleanGet(AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY,   AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT);}
-  public static boolean getExampleArchivesServerAutolaunch ()       { return commonBooleanGet(EXAMPLE_ARCHIVES_AUTOLAUNCH_KEY,   AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT);}
-  public static boolean getActiveX3dModelServerAutolaunch ()        { return commonBooleanGet(ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY,   AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT);}
+  public static boolean getExampleArchivesServerAutolaunch ()       { return commonBooleanGet(EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY,   EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_DEFAULT);}
+  public static boolean getActiveX3dModelServerAutolaunch ()        { return commonBooleanGet(ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY,   AUTHOR_X3D_MODEL_SERVER_AUTOLAUNCH_DEFAULT);}
   public static String  getPortAuthorModelsServer ()                { return commonStringGet(AUTHOR_MODELS_SERVER_PORT_KEY,      AUTHOR_MODELS_SERVER_PORT_DEFAULT);}
   public static String  getPortExampleArchivesServer ()             { return commonStringGet(EXAMPLE_ARCHIVES_SERVER_PORT_KEY,   EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);}
   public static String  getPortActiveX3dModelServer ()              { return commonStringGet(ACTIVE_X3D_MODEL_SERVER_PORT_KEY,   ACTIVE_X3D_MODEL_SERVER_PORT_DEFAULT);}
