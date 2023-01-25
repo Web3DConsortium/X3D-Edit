@@ -261,24 +261,28 @@
         <echo message="${test.run.args}"/>
     </target>
     
-    <!-- As per the server-cert-keystore-readme.txt in release/modules/ext, this
+    <!-- Perform this task whenever the Savage server cert has changed/updated.
+         As per the server-cert-keystore-readme.txt in release/modules/ext, this
          process is now automated -->
     <target name="update.server.cert" description="To be accomplished anytime there is a certificate change/update, or change in server configuration">
              
+        <!-- Pull down the new/updated server cert -->
         <!-- OpenSSL hack: https://serverfault.com/questions/139728/how-to-download-the-ssl-certificate-from-a-website -->
         <exec executable="bash" dir="release/modules/ext">
             <arg value="-c"/>
             <arg value="openssl s_client -servername ${cert.alias} -connect ${cert.alias}:443 | openssl x509 &gt; ${cert.alias}.cer"/>
         </exec>
         
-        <!-- Start fresh -->
+        <!-- Start fresh, delete the old keystore -->
         <delete>
             <fileset dir="release/modules/ext">
                 <filename name="server-cert-keystore.jks"/>
             </fileset>
         </delete>
         
-        <!-- Import the JDK's keystore -->
+        <!-- Now, import the JDK's keystore. This is necessary because during
+             X3D-Edit runtime, were telling the JVM that all trusts are now 
+             located in this JKS -->
         <exec executable="keytool" dir="release/modules/ext">
             <arg line="-importkeystore -v -srckeystore ${java.home}/lib/security/cacerts -srcstorepass ${storepass} -storepass ${storepass} -destkeystore server-cert-keystore.jks"/>
         </exec>
@@ -288,7 +292,7 @@
             <arg line="-import -noprompt -alias ${cert.alias} -file ${cert.alias}.cer -storepass ${storepass} -keystore server-cert-keystore.jks"/>
         </exec>
         
-        <!-- Delete the server certificate as it's now imported into the JKS -->
+        <!-- Delete the server cert as it's now imported into the JKS -->
         <delete>
             <fileset dir="release/modules/ext">
                 <filename name="${cert.alias}.c*"/>
