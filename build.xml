@@ -9,68 +9,13 @@
         
     <property file="nbproject/project.properties"/>
     
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+    
     <!--
     ============
     INIT SECTION
     ============
     -->
-    
-    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
-    
-    <!--Override for generating a NBM self-signing certificate--> 
-    <!-- Based on https://netbeans.apache.org/wiki/DevFaqSignNbm.html -->
-    <target name="-init" depends="suite.-init">
-        <!--Create/Update keystore-->
-        <delete file="${keystore.location}${keystore.name}"/>
-        <mkdir dir="${keystore.location}"/>
-        <genkey alias="${keystore.alias}" storepass="${keystore.password}"
-                dname="${keystore.dname}" keyalg="RSA" verbose="true"
-                keysize="2048" validity="90" storetype="PKCS12"
-                keystore="${keystore.location}${keystore.name}"/>
-        
-        <!-- Now show the signing certificate -->
-        <exec executable="keytool">
-            <arg line="-list -v -keystore ${keystore.location}${keystore.name} -storepass ${keystore.password}"/>
-        </exec>
-        
-        <!--Update keystore info in projects-->
-        <antcall target="update-keystore-info"/>
-    </target>
-
-    <target name="update-keystore-info">
-        <for list="${modules}" delimiter=":" param="cur" trim="true">
-            <sequential>
-                <mkdir dir="@{cur}/nbproject/"/>
-                <!--Place the information in the properties file-->
-                <propertyfile file="@{cur}/nbproject/project.properties">
-                    <entry  key="keystore" value="../${keystore.location}${keystore.name}"/>
-                    <entry  key="nbm_alias" value="${keystore.alias}"/>
-                </propertyfile>
-                <mkdir dir="@{cur}/nbproject/private/"/>
-                <!--Place the password in the private properties file-->
-                <propertyfile file="@{cur}/nbproject/private/suite-private.properties">
-                    <entry  key="storepass" value="${keystore.password}"/>
-                </propertyfile>
-                
-                <!-- First, delete the old alias. If a new savage server cert was generated,
-                     then the alias will not be present and this error will show:
-                    
-                     keytool error: java.lang.Exception: Alias <nbmsigner> does not exist
-                     Result: 1
-                     
-                     This is benign and will not occur on the next gen. of the self signed cert
-                -->
-                <exec executable="keytool">
-                    <arg line="-delete -alias ${keystore.alias} -storepass ${keystore.password} -keystore @{cur}/release/modules/ext/server-cert-keystore.jks"/>
-                </exec>
-                
-                <!-- Import newly generated self-signed cert -->
-                <exec executable="keytool">
-                    <arg line="-importkeystore -v -srckeystore ${keystore.location}${keystore.name} -srcstorepass ${keystore.password} -storepass ${keystore.password} -destkeystore @{cur}/release/modules/ext/server-cert-keystore.jks"/>
-                </exec>
-            </sequential>
-        </for>
-    </target>
     
     <target name="platformInitialize" depends="-init,platformType,initializeWindows,initializeUnix,initializeMac"/>
     <target name="platformType">
@@ -94,16 +39,16 @@
     </target>
 
     <target name="initializeWindows" if="isWindows" depends="initializeXj3d">
-        <property name="run.xj3d.args"  value="${win_runarguments}"/>
-        <property name="run.args"  value="${common.args} ${win.run.args}"/>
+        <property name="run.xj3d.args" value="${win_runarguments}"/>
+        <property name="run.args"      value="${common.args} ${win.run.args}"/>
     </target>
     <target name="initializeUnix" if="isUnixNotMac" depends="initializeXj3d">
-        <property name="run.xj3d.args"  value="${unix_runarguments}"/>
-        <property name="run.args"  value="${common.args} ${unix.run.args}"/>
+        <property name="run.xj3d.args" value="${unix_runarguments}"/>
+        <property name="run.args"      value="${common.args} ${unix.run.args}"/>
     </target>
     <target name="initializeMac" if="isMac" depends="initializeXj3d">
-        <property name="run.xj3d.args"  value="${mac_runarguments}"/>
-        <property name="run.args"  value="${common.args} ${mac.run.args}"/>
+        <property name="run.xj3d.args" value="${mac_runarguments}"/>
+        <property name="run.args"      value="${common.args} ${mac.run.args}"/>
     </target>
     <target name="initializeXj3d" >
         <property name="win_runarguments"  value="${common.xj3d.args} ${xj3darg6}"/>
@@ -111,7 +56,13 @@
         <property name="mac_runarguments"  value="${common.xj3d.args} ${xj3darg8} ${xj3darg9} ${xj3darg10} ${xj3darg11} ${xj3darg14}"/>
     </target>
     
-    <!-- override build to add update branding -->
+    <!--
+    =============
+    BUILD SECTION
+    =============
+    -->
+    
+    <!-- override build to add a way to update branding -->
     <target name="build" depends="build-brand,suite.build"/>
     <target name="build-brand" depends="-init">
         
@@ -134,6 +85,12 @@
         </propertyfile>
         
     </target>
+    
+    <!--
+    ===========
+    RUN SECTION
+    ===========
+    -->
     
     <!-- Override initializing the app before running -->
     <target name="run" depends="platformInitialize,suite.run" description="Runs X3D-Edit"/>
@@ -187,6 +144,12 @@
 
     </target>
     
+    <!--
+    =============
+    DEBUG SECTION
+    =============
+    -->
+    
     <!-- Override -->
     <target name="debug" 
             depends="platformInitialize,build,-jdk-init,-jdk-presetdef-nbjpdastart,do.debug" 
@@ -218,6 +181,69 @@
             <property name="run.args" value="${debug.args}"/>
             <reference refid="cluster.path.id"/>
         </ant>
+    </target>
+    
+    <!--
+    ============
+    MISC SECTION
+    ============
+    -->
+    
+    <!-- For generating a NBM self-signing certificate. Do this every 90 days
+         before building a NBM. --> 
+    <!-- Based on https://netbeans.apache.org/wiki/DevFaqSignNbm.html -->
+    <target name="generate.nbm.signing.cert" depends="-init">
+        <!--Create/Update keystore-->
+        <delete file="${keystore.location}${keystore.name}"/>
+        <mkdir dir="${keystore.location}"/>
+        <genkey alias="${keystore.alias}" storepass="${keystore.password}"
+                dname="${keystore.dname}" keyalg="RSA" verbose="true"
+                keysize="2048" validity="90" storetype="PKCS12"
+                keystore="${keystore.location}${keystore.name}"/>
+        
+        <!-- Now show the signing certificate -->
+        <exec executable="keytool">
+            <arg line="-list -v -keystore ${keystore.location}${keystore.name} -storepass ${keystore.password}"/>
+        </exec>
+        
+        <!--Update keystore info in projects-->
+        <antcall target="update-keystore-info"/>
+    </target>
+
+    <!-- Don't run alone, invoke by the above task only -->
+    <target name="update-keystore-info">
+        <for list="${modules}" delimiter=":" param="cur" trim="true">
+            <sequential>
+                <mkdir dir="@{cur}/nbproject/"/>
+                <!--Place the information in the properties file-->
+                <propertyfile file="@{cur}/nbproject/project.properties">
+                    <entry  key="keystore" value="../${keystore.location}${keystore.name}"/>
+                    <entry  key="nbm_alias" value="${keystore.alias}"/>
+                </propertyfile>
+                <mkdir dir="@{cur}/nbproject/private/"/>
+                <!--Place the password in the private properties file-->
+                <propertyfile file="@{cur}/nbproject/private/suite-private.properties">
+                    <entry  key="storepass" value="${keystore.password}"/>
+                </propertyfile>
+                
+                <!-- First, delete the old alias. If a new savage server cert was generated,
+                     then the alias will not be present and this error will show:
+                    
+                     keytool error: java.lang.Exception: Alias <nbmsigner> does not exist
+                     Result: 1
+                     
+                     This is benign and will not occur on the next gen. of the self signed cert
+                -->
+                <exec executable="keytool">
+                    <arg line="-delete -alias ${keystore.alias} -storepass ${keystore.password} -keystore @{cur}/release/modules/ext/server-cert-keystore.jks"/>
+                </exec>
+                
+                <!-- Import newly generated self-signed cert -->
+                <exec executable="keytool">
+                    <arg line="-importkeystore -v -srckeystore ${keystore.location}${keystore.name} -srcstorepass ${keystore.password} -storepass ${keystore.password} -destkeystore @{cur}/release/modules/ext/server-cert-keystore.jks"/>
+                </exec>
+            </sequential>
+        </for>
     </target>
     
     <target name="view.X3D-Edit.home.local" description="view local copy of X3D-Edit. home page in web browser (Netbeans only)">
