@@ -98,6 +98,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String WEB3D_CONSORTIUM_MANTIS_ISSUES         ="https://www.web3d.org/member-only/mantis/my_view_page.php";
 //public final static String WEB3D_CONSORTIUM_MANTIS_ISSUES         ="https://www.web3d.org/member-only/mantis/login_page.php";
   public final static String WEB3D_CONFERENCE                       ="https://web3d.siggraph.org";
+  public final static String INCITS_H3                              ="https://www.incits.org/committees/h3";
   public final static String WEB3D_CONFERENCE_ACM_DIGITAL_LIBRARY   ="https://dl.acm.org/conference/web3d";
   public final static String WEB3D_CONFERENCE_YOUTUBE               ="https://www.youtube.com/channel/UCxg1RdwicxPHgRT0QQbuGFQ";
   public final static String WEB3D_FACEBOOK                         ="https://www.facebook.com/people/Web3D-Consortium/100057066266099/";
