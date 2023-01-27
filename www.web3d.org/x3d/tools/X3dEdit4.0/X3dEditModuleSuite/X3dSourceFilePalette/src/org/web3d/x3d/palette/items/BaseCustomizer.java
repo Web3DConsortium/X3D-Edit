@@ -339,10 +339,10 @@ public abstract class BaseCustomizer extends JPanel
     final ActionListener helpActionListener = (ActionEvent event) ->
     {
         switch (currentX3dElement.getElementName()) {
-            case XML_ELNAME -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
+            case     XML_ELNAME -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
             case COMMENT_ELNAME -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
             case DOCTYPE_ELNAME -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
-            // launch appropriate X3D Tooltip
+            // otherwise launch appropriate X3D Tooltip
             default -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#" + currentX3dElement.getElementName());
         }
     };
