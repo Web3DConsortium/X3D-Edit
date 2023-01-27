@@ -104,9 +104,9 @@ public final class X3dToJsonConversionAction extends BaseConversionsAction
             x3dToJsonConversionPanel = new X3dToJsonConversionPanel (this);
     
             // pattern from Xj3dCadFilterOptionsPanel to launch and exit the panel
-             continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Continue"));
+             continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_TransformModel"));
                 resetButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Reset"));
-               cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Cancel"));
+               cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_CONTINUE"));
             continueButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
                resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
               cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Cancel"));

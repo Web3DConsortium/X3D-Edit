@@ -67,7 +67,7 @@ import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.NO_
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
-public class XhtmlX3domAction extends BaseConversionsAction
+public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
 {
     public static String xsltFile = "X3dToX3domX_ITE.xslt";
 
@@ -105,7 +105,7 @@ public class XhtmlX3domAction extends BaseConversionsAction
     
     private DialogDescriptor descriptor;
     private Dialog dialog;
-    private JButton continueButton, resetButton, cancelButton;
+    private JButton transformModelButton, resetButton, continueButton;
     
     private ConversionsHelper.saveFilePack fp;
 
@@ -140,6 +140,7 @@ public class XhtmlX3domAction extends BaseConversionsAction
         if (x3dToXhtmlDomConversionPanel == null)
         {
             x3dToXhtmlDomConversionPanel = new X3dToXhtmlDomConversionPanel (this);
+            x3dToXhtmlDomConversionPanel.setParentActionClass(this); // allow callback configurations
             if      (getPreferredTab() == CORS_TAB)
                      x3dToXhtmlDomConversionPanel.setPaneIndex(CORS_TAB);  
             else if (getPlayer().equals(X3DOM))
@@ -148,24 +149,31 @@ public class XhtmlX3domAction extends BaseConversionsAction
                      x3dToXhtmlDomConversionPanel.setPaneIndex(X3dToXhtmlDomConversionPanel.X_ITE_TAB);
     
             // pattern from Xj3dCadFilterOptionsPanel to launch and exit the panel
-             continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Continue")); // Transform Model
-                resetButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Reset"));    // Reset
-               cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Cancel"));   // Cancel
-            continueButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
-               resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
-              cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Cancel"));
-            HelpCtx.setHelpIDString(x3dToXhtmlDomConversionPanel, "X3dToJson.html");
+            transformModelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_TransformModel")); // Transform Model
+            transformModelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_TransformModel"));
 
+//            resetButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Reset"));    // Reset
+//            resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
+
+            continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_CONTINUE"));   // Continue
+            continueButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
+            x3dToXhtmlDomConversionPanel.updateParentPageIntegrationTabbedPaneState();
+            
+//            HelpCtx.setHelpIDString(x3dToXhtmlDomConversionPanel, "X3dToJson.html");
+
+            // https://bits.netbeans.org/dev/javadoc/org-openide-dialogs/org/openide/DialogDescriptor.html
             descriptor = new DialogDescriptor(
                 x3dToXhtmlDomConversionPanel, // inner pane
                 NbBundle.getMessage(getClass(),"X3dToXhtmlDomConversionPanel.DialogTitle"),
                 true, // modal
-                new Object[]{continueButton, resetButton, cancelButton},  // buttons
-                continueButton,                            // default
+                new Object[]{transformModelButton, continueButton},  // other buttons: resetButton, 
+                transformModelButton,                      // default
                 DialogDescriptor.DEFAULT_ALIGN,
-                HelpCtx.DEFAULT_HELP, // TODO confirm linking
+                HelpCtx.DEFAULT_HELP, // unneeded, unfortunately provides a button
                 null); // action listener
 
+            // no way to set options without also getting a help contact,
+            // TODO need to replace this block with classic Swing setup like DownloadX3dExamplesArchivesAction
             dialog = DialogDisplayer.getDefault().createDialog(descriptor);
             dialog.setResizable(true);
             dialog.pack();
@@ -194,7 +202,7 @@ public class XhtmlX3domAction extends BaseConversionsAction
   {
         saveParametersHashMap (); // save prior values
         
-        // used in parent XhtmlX3domAction and X3dToXhtmlDomConversionPanel
+        // used in parent X3dToXhtmlDomConversionAction and X3dToXhtmlDomConversionPanel
         X3DDataObject dob = (X3DDataObject)x3dEditor.getX3dEditorSupport().getDataObject();
         String fileName = dob.getPrimaryFile().getNameExt();
         String filePath = dob.getPrimaryFile().getPath();
@@ -218,7 +226,7 @@ public class XhtmlX3domAction extends BaseConversionsAction
                 x3dToXhtmlDomConversionPanel.loadValuesInPanel ();
                 // continue looping
             }
-            else if (descriptor.getValue() == continueButton)
+            else if (descriptor.getValue() == transformModelButton)
             {
                 // do not save url until after panel operations are complete
                 x3dToXhtmlDomConversionPanel.saveUrlValues();
@@ -456,5 +464,10 @@ public class XhtmlX3domAction extends BaseConversionsAction
     public void setPreferredTab(int aPreferredTab)
     {
         preferredTab = aPreferredTab;
+    }
+    public void setTransformModelButtonEnabled (boolean value)
+    {
+        if (transformModelButton != null)
+            transformModelButton.setEnabled(value);
     }
 }

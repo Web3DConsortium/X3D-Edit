@@ -55,7 +55,7 @@ import org.openide.util.NbBundle;
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
-public final class XhtmlX_iteAction extends XhtmlX3domAction {
+public final class XhtmlX_iteAction extends X3dToXhtmlDomConversionAction {
 
     @Override
     public String getName()
@@ -66,7 +66,7 @@ public final class XhtmlX_iteAction extends XhtmlX3domAction {
     @Override
     protected void initialize()
     {
-        setPlayer(XhtmlX3domAction.X_ITE);
+        setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
         super.initialize(); // last, following setup
     }
 }
