@@ -72,7 +72,7 @@ public final class CadFilterAction extends CookieAction
     
     Xj3dCadFilterOptionsPanel optionsPanel = new Xj3dCadFilterOptionsPanel();
     JButton continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Save_As"));
-    JButton   cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Cancel"));
+    JButton   cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_CONTINUE"));
     continueButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Save_As"));
       cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Cancel"));
     DialogDescriptor descriptor = new DialogDescriptor(

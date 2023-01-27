@@ -62,7 +62,7 @@ import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.COR
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
-public final class CorsHttpPanelAction extends XhtmlX3domAction {
+public final class CorsHttpPanelAction extends X3dToXhtmlDomConversionAction {
 
     @Override
     public String getName()
@@ -73,8 +73,9 @@ public final class CorsHttpPanelAction extends XhtmlX3domAction {
     @Override
     protected void initialize()
     {
-        setPlayer(XhtmlX3domAction.X_ITE);
+        setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
         setPreferredTab(CORS_TAB);
+        setTransformModelButtonEnabled(false);
         super.initialize(); // last, following setup
     }
 }
