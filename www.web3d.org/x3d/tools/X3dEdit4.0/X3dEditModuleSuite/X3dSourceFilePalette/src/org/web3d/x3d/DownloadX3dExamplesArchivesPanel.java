@@ -71,14 +71,16 @@ import static org.web3d.x3d.options.X3dOptions.setExamplesRootDirectory;
  */
 public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 {
-  private static final String BASICEXAMPLESTARGET     = "Basic";
-  private static final String CONFORMANCENISTTARGET   = "ConformanceNist"; // note capitalization
-  private static final String HUMANOIDANIMATIONTARGET = "HumanoidAnimation";
-  private static final String VRML2SOURCEBOOKTARGET   = "Vrml2Sourcebook";
-  private static final String SAVAGETARGET            = "Savage";
-  private static final String SAVAGEDEFENSETARGET     = "SavageDefense";   // private NPS
-  private static final String X3D4WA_EXAMPLESTARGET   = "X3dForWebAuthors";
-  private static final String X3D4AM_EXAMPLESTARGET   = "X3dForAdvancedModeling";
+  private static final String BASICEXAMPLESTARGET        = "Basic";
+  private static final String CONFORMANCENISTTARGET      = "ConformanceNist"; // note capitalization
+  private static final String HUMANOIDANIMATIONTARGET    = "HumanoidAnimation";
+  private static final String VRML2SOURCEBOOKTARGET      = "Vrml2Sourcebook";
+  private static final String SAVAGETARGET               = "Savage";
+  private static final String SAVAGEDEFENSETARGET        = "SavageDefense";   // private NPS
+  private static final String X3D4WA_EXAMPLESTARGET      = "X3dForWebAuthors";
+  private static final String X3D4AM_EXAMPLESTARGET      = "X3dForAdvancedModeling";
+  private static      boolean anyArchivePresent          = false;   
+  private             boolean anyArchivePresentInitially = false;   
   
   private final String DEFAULTROOTDIR = System.getProperty("user.dir"); // "/";
   private final String targetPath     = "www.web3d.org/x3d/content/examples/";
@@ -89,7 +91,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
   private JFileChooser fileChooser;
   private ExecutorTask task;
   
-  /** Creates new form ExampleArchivesDownloadPanel */
+  /** Constructor that creates new form ExampleArchivesDownloadPanel */
   public DownloadX3dExamplesArchivesPanel()
   {
     initComponents();
@@ -117,12 +119,13 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     
     progressHintLabel.setVisible(false);
      
-    updateStatusPropertiesLocalArchivesPresent();
+    updateStatusPropertiesLocalArchivesPresent(); // also updates anyArchivePresent
+    anyArchivePresentInitially = anyArchivePresent;
     updatePanelLocalArchivesPresent();
   }
   
   /* Update status of all local archives */
-  public void updatePanelLocalArchivesPresent()
+  private void updatePanelLocalArchivesPresent()
   {
         Color   black      = new Color(  0,   0,  0);
         Color   darkgreen  = new Color( 21,  71, 52);
@@ -220,13 +223,17 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
   /* Update status of all local archives */
   public static void updateStatusPropertiesLocalArchivesPresent()
   {
-      isLocalArchivePresent(BASICEXAMPLESTARGET    );
-      isLocalArchivePresent(CONFORMANCENISTTARGET  );
-      isLocalArchivePresent(HUMANOIDANIMATIONTARGET);
-      isLocalArchivePresent(VRML2SOURCEBOOKTARGET  );
-      isLocalArchivePresent(SAVAGETARGET           );
-      isLocalArchivePresent(X3D4WA_EXAMPLESTARGET  );
-      isLocalArchivePresent(X3D4AM_EXAMPLESTARGET  );
+    anyArchivePresent =
+    (
+        // each of these checks also performs a persistent property
+        isLocalArchivePresent(BASICEXAMPLESTARGET    ) ||
+        isLocalArchivePresent(CONFORMANCENISTTARGET  ) ||
+        isLocalArchivePresent(HUMANOIDANIMATIONTARGET) ||
+        isLocalArchivePresent(VRML2SOURCEBOOKTARGET  ) ||
+        isLocalArchivePresent(SAVAGETARGET           ) ||
+        isLocalArchivePresent(X3D4WA_EXAMPLESTARGET  ) ||
+        isLocalArchivePresent(X3D4AM_EXAMPLESTARGET  )
+    );
   }
   /** Checks presence and sets persistent variable
      * @param archiveName name of archive
@@ -355,7 +362,6 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setLayout(new java.awt.GridBagLayout());
 
-        x3d4waExamplesCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         x3d4waExamplesCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.x3d4waExamplesCB.text")); // NOI18N
         x3d4waExamplesCB.setToolTipText("select to download latest archive");
         x3d4waExamplesCB.addActionListener(new java.awt.event.ActionListener()
@@ -445,7 +451,6 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(x3d4waExamplesDirectoryOpenButton, gridBagConstraints);
 
-        x3d4amExamplesCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         x3d4amExamplesCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.x3d4amExamplesCB.text")); // NOI18N
         x3d4amExamplesCB.setToolTipText("select to download latest archive");
         x3d4amExamplesCB.addActionListener(new java.awt.event.ActionListener()
@@ -535,7 +540,6 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(x3d4amExamplesDirectoryOpenButton, gridBagConstraints);
 
-        vrmlSourcebookCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         vrmlSourcebookCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.vrmlSourcebookCB.text")); // NOI18N
         vrmlSourcebookCB.setToolTipText("select to download latest archive");
         vrmlSourcebookCB.addActionListener(new java.awt.event.ActionListener()
@@ -625,7 +629,6 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(vrmlSourcebookExamplesDirectoryOpenButton, gridBagConstraints);
 
-        basicExamplesCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         basicExamplesCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.basicExamplesCB.text")); // NOI18N
         basicExamplesCB.setToolTipText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.basicExamplesCB.toolTipText")); // NOI18N
         basicExamplesCB.addActionListener(new java.awt.event.ActionListener()
@@ -715,7 +718,6 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 0);
         add(jScrollPane2, gridBagConstraints);
 
-        conformanceCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         conformanceCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.conformanceCB.text")); // NOI18N
         conformanceCB.setToolTipText("select to download latest archive");
         conformanceCB.setMaximumSize(new java.awt.Dimension(250, 23));
@@ -808,7 +810,6 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(conformanceExamplesDirectoryOpenButton, gridBagConstraints);
 
-        humanoidAnimationCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         humanoidAnimationCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.humanoidAnimationCB.text")); // NOI18N
         humanoidAnimationCB.setToolTipText("select to download latest archive");
         humanoidAnimationCB.addActionListener(new java.awt.event.ActionListener()
@@ -897,7 +898,6 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
         add(humanoidAnimationExamplesDirectoryOpenButton, gridBagConstraints);
 
-        savageCB.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         savageCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.savageCB.text")); // NOI18N
         savageCB.setToolTipText("select to download latest archive");
         savageCB.addActionListener(new java.awt.event.ActionListener()
@@ -1436,9 +1436,19 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
       task.getInputOutput().select();
       task.getInputOutput().getErr().append(ex.getMessage());
     }
-    // TODO are downloads complete prior to reaching next step?
+    // TODO confirm,are downloads complete prior to reaching next step?
     updateStatusPropertiesLocalArchivesPresent();
     updatePanelLocalArchivesPresent();
+    if (!anyArchivePresentInitially && isAnyArchivePresent())
+    {
+        // initial installation complete, support user with autolaunch
+        X3dOptions.setExampleArchivesServerAutolaunch(true);
+        
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
+                "Enabling autolaunch of localhost HTTP server for example archives", 
+                "Enabling autolaunch", NotifyDescriptor.PLAIN_MESSAGE);
+        DialogDisplayer.getDefault().notify(notifyDescriptor);
+    }
   }
   
   public boolean isRunning()
@@ -1790,4 +1800,20 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     private javax.swing.JTextArea x3dForAdvancedModelingTA;
     private javax.swing.JTextArea x3dForWebAuthorsTA;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the anyArchivePresent
+     */
+    public boolean isAnyArchivePresent()
+    {
+        return anyArchivePresent;
+    }
+
+    /**
+     * @param anyArchivePresent the anyArchivePresent to set
+     */
+    public void setAnyArchivePresent(boolean anyArchivePresent)
+    {
+        this.anyArchivePresent = anyArchivePresent;
+    }
 }
