@@ -10750,7 +10750,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         reportButtonSend ("Panel Preferences: Author settings tab");
     }//GEN-LAST:event_reportAuthorButtonActionPerformed
 
-  void reportButtonSend (String panelName)
+  public static void reportButtonSend (String panelName)
   {
         // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
@@ -11048,7 +11048,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     svgeditEditorLaunchButton.setEnabled(true); // executableFile);
   }
 
-  private void browserLaunch(String pageUrl)
+  public static void browserLaunch(String pageUrl)
   {
     try
     {
