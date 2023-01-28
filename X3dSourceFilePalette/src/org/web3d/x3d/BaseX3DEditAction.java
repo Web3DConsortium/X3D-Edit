@@ -106,6 +106,7 @@ abstract public class BaseX3DEditAction extends CookieAction
   private void actionPreamble(Node[] activatedNodes) throws IOException, SAXException, JDOMException
   {
     x3dDataObject = activatedNodes[0].getLookup().lookup(org.web3d.x3d.X3DDataObject.class);
+    if (x3dDataObject == null) return; // Can happen when attempting to sign an encrypted document
     x3dEditorSupport  = x3dDataObject.getLookup().lookup(org.web3d.x3d.X3DEditorSupport.class);
     documentEditorPane = x3dEditorSupport.getOpenedPanes()[0];
     X3DPaletteUtilitiesJdom.buildJdom(documentEditorPane);  // rebuild jdom tree
@@ -249,6 +250,7 @@ abstract public class BaseX3DEditAction extends CookieAction
     DOMImplementationLS dls = (DOMImplementationLS) dreg.getDOMImplementation("LS");
     LSParser parser = dls.createLSParser(DOMImplementationLS.MODE_SYNCHRONOUS, null);
     LSInput lsInp = dls.createLSInput();
+    if (x3dEditorSupport == null) return null; // can happen when attempting to sign an encrypted document
     lsInp.setByteStream(this.x3dEditorSupport.getInputStream());
     return parser.parse(lsInp);
   }

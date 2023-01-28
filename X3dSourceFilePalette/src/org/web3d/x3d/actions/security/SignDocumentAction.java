@@ -126,6 +126,12 @@ public final class SignDocumentAction extends BaseX3DEditAction
         return;
       
       Document w3cDoc = getW3cDocument();
+      if (w3cDoc == null) {
+          String msg = "Signing error: You must first sign the docuemnt, then encrypt if desired";
+          NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
+          DialogDisplayer.getDefault().notify(nd);
+          return;
+      } // can happen when attempting to sign an encrypted document
 
       // I don't think this is good; the namespace gets put into the Signature element which should be good enough
       //insertSigningNameSpace(w3cDoc);
