@@ -150,7 +150,6 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
             else if (getPlayer().equals(X_ITE))
                      x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
         }
-        
         x3dToXhtmlDomConversionFrame.pack();
         x3dToXhtmlDomConversionFrame.setVisible(true);
         
@@ -176,7 +175,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
 //
 //            continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_CONTINUE"));   // Continue
 //            continueButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
-//            x3dToXhtmlDomConversionPanel.updateParentPageIntegrationTabbedPaneState();
+//            x3dToXhtmlDomConversionPanel.updatePageIntegrationTabbedPaneState();
 //            
 ////            HelpCtx.setHelpIDString(x3dToXhtmlDomConversionPanel, "X3dToJson.html");
 //
@@ -231,33 +230,33 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
         urlList += " \"" + filePath +  "\""; // Cobweb has problems with file path, likely local security issue
         setUrlScene(urlList);
         
-        x3dToXhtmlDomConversionPanel.loadValuesInPanel(); // ensure latest greatest
+//        x3dToXhtmlDomConversionFrame.loadValuesInPanel(); // ensure latest greatest
     
-        boolean conversionPanelSettingsReady = false;
-
-        while (!conversionPanelSettingsReady)
-        {
-            dialog.setVisible(true);  // display X3dToXhtmlDomConversionPanel, blocks until a dialog button is pressed
-            
-            if       (descriptor.getValue() == resetButton)
-            {
-                resetValuesToDefault(); // but do not save since user may later cancel
-                x3dToXhtmlDomConversionPanel.loadValuesInPanel ();
-                // continue looping
-            }
-            else if (descriptor.getValue() == transformModelButton)
-            {
-                // do not save url until after panel operations are complete
-                x3dToXhtmlDomConversionPanel.saveUrlValues();
-                
-                saveParametersHashMap (); // save new values from panel to hash map
-                conversionPanelSettingsReady = true; // X3dToXhtmlDomConversionPanel panel operations complete
-            }
-            else // (descriptor.getValue() == cancelButton)
-            {
-                return null;
-            }
-        }
+//        boolean conversionPanelSettingsReady = false;
+//
+//        while (!conversionPanelSettingsReady)
+//        {
+//            dialog.setVisible(true);  // display X3dToXhtmlDomConversionPanel, blocks until a dialog button is pressed
+//            
+//            if       (descriptor.getValue() == resetButton)
+//            {
+//                resetValuesToDefault(); // but do not save since user may later cancel
+//                x3dToXhtmlDomConversionPanel.loadValuesInPanel ();
+//                // continue looping
+//            }
+//            else if (descriptor.getValue() == transformModelButton)
+//            {
+//                // do not save url until after panel operations are complete
+//                x3dToXhtmlDomConversionPanel.saveUrlValues();
+//                
+//                saveParametersHashMap (); // save new values from panel to hash map
+//                conversionPanelSettingsReady = true; // X3dToXhtmlDomConversionPanel panel operations complete
+//            }
+//            else // (descriptor.getValue() == cancelButton)
+//            {
+//                return null;
+//            }
+//        }
   //  if (BaseConversionsAction.xsltFilesRoot == null)
         String fileExtension;
         if (getPlayer().equalsIgnoreCase("X_ITE") || getPlayer().equalsIgnoreCase("Cobweb"))
