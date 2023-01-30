@@ -39,8 +39,6 @@ import java.io.File;
 import java.util.Date;
 import java.util.prefs.Preferences;
 import org.openide.util.NbPreferences;
-import org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel;
-import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.LOCAL_EXAMPLES_ROOT;
 //import org.web3d.x3d.actions.security.BouncyCastleHelper;
 
 /**
@@ -110,14 +108,17 @@ public class X3dOptions
   private static String AUTHOR_EMAIL_KEY                      = "AUTHOR_EMAIL";
   private static String EXAMPLES_ROOT_DIRECTORY_KEY           = "EXAMPLES_ROOT_DIRECTORY";
   
+  private static String AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY  = "AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY";
+  private static String AUTHOR_PREFERENCE_HTML_WIDTH_KEY      = "AUTHOR_PREFERENCE_HTML_WIDTH_KEY";
+  private static String AUTHOR_PREFERENCE_HTML_HEIGHT_KEY     = "AUTHOR_PREFERENCE_HTML_HEIGHT_KEY";
+  
   private static String AUTHOR_MODELS_DIRECTORY_KEY           = "AUTHOR_MODELS_DIRECTORY_KEY";
   private static String AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY   = "AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY";
-  private static String EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY       = "EXAMPLE_ARCHIVES_AUTOLAUNCH_KEY";
+  private static String EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY= "EXAMPLE_ARCHIVES_AUTOLAUNCH_KEY";
   private static String ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY= "ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY";
   private static String AUTHOR_MODELS_SERVER_PORT_KEY         = "AUTHOR_MODELS_SERVER_PORT_KEY";
   private static String EXAMPLE_ARCHIVES_SERVER_PORT_KEY      = "EXAMPLE_ARCHIVES_SERVER_PORT_KEY";
   private static String ACTIVE_X3D_MODEL_SERVER_PORT_KEY      = "ACTIVE_X3D_MODEL_SERVER_PORT_KEY";
-  // TODO AUTHOR_CORS_ADDRESS
   
   private static String             BASIC_LOCALEXAMPLES_PRESENT_KEY =             "BASIC_LOCALEXAMPLES_PRESENT_KEY";
   private static String   CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY =   "CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY";
@@ -166,13 +167,17 @@ public class X3dOptions
   public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
   public static String  AUTHOR_MODELS_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
   
+  public static String  AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT   =     "";
+  public static String  AUTHOR_PREFERENCE_HTML_WIDTH_DEFAULT       =  "450";
+  public static String  AUTHOR_PREFERENCE_HTML_HEIGHT_DEFAULT      =  "800";
+  
   public static boolean AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT    = true;
   public static boolean EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_DEFAULT = true;
   public static boolean AUTHOR_X3D_MODEL_SERVER_AUTOLAUNCH_DEFAULT = false; // TODO wait until functionality implemented
 
-  public static String  AUTHOR_MODELS_SERVER_PORT_DEFAULT     = "8001";
-  public static String  EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT  = "8002";
-  public static String  ACTIVE_X3D_MODEL_SERVER_PORT_DEFAULT  = "8003";
+  public static String  AUTHOR_MODELS_SERVER_PORT_DEFAULT          = "8001";
+  public static String  EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT       = "8002";
+  public static String  ACTIVE_X3D_MODEL_SERVER_PORT_DEFAULT       = "8003";
   
   // there is no unique best default path as a user could store examples anywhere on their local machine
   // thus user.dir property persistence will allow a path to be remembered
@@ -212,6 +217,11 @@ public class X3dOptions
 
   public static void    setAuthorName                      (String value)  { commonStringSet(AUTHOR_NAME_KEY, value);}
   public static void    setAuthorEmail                     (String value)  { commonStringSet(AUTHOR_EMAIL_KEY, value);}
+  
+  public static void    setAuthorPreferenceCorsDirectory   (String value)  { commonStringSet(AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY, value);}
+  public static void    setAuthorPreferenceHtmlWidth       (String value)  { commonStringSet(AUTHOR_PREFERENCE_HTML_WIDTH_KEY, value);}
+  public static void    setAuthorPreferenceHtmlHeight      (String value)  { commonStringSet(AUTHOR_PREFERENCE_HTML_HEIGHT_KEY, value);}
+  
   public static void    setExamplesRootDirectory           (String value)  { commonStringSet(EXAMPLES_ROOT_DIRECTORY_KEY, value);}
   public static void    setAuthorModelsDirectory           (String value)  { commonStringSet(AUTHOR_MODELS_DIRECTORY_KEY, value);}
   public static void    setAuthorModelsServerAutolaunch    (boolean value) { commonBooleanSet(AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY, value);}
@@ -223,9 +233,10 @@ public class X3dOptions
   
   public static void    resetUserOptions ()
   {
-                setAuthorName (AUTHOR_NAME_DEFAULT);
-               setAuthorEmail (AUTHOR_EMAIL_DEFAULT);
-     setExamplesRootDirectory (EXAMPLES_ROOT_DIRECTORY_DEFAULT);
+                        setAuthorName (AUTHOR_NAME_DEFAULT);
+                       setAuthorEmail (AUTHOR_EMAIL_DEFAULT);
+             setExamplesRootDirectory (EXAMPLES_ROOT_DIRECTORY_DEFAULT);
+     setAuthorPreferenceCorsDirectory (AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT);
   }
   public static void             setBasicLocalExamplesPresent (boolean value)  { commonBooleanSet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, value);}
   public static void   setConformanceNistLocalExamplesPresent (boolean value)  { commonBooleanSet(  CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY, value);}
@@ -260,13 +271,17 @@ public class X3dOptions
   public static String  getAuthorEmail ()                           { return commonStringGet(AUTHOR_EMAIL_KEY,   AUTHOR_EMAIL_DEFAULT);}
   public static String  getExamplesRootDirectory ()                 { return commonStringGet(EXAMPLES_ROOT_DIRECTORY_KEY,   EXAMPLES_ROOT_DIRECTORY_DEFAULT);}
   
-  public static String  getAuthorModelsDirectory ()                 { return commonStringGet(AUTHOR_MODELS_DIRECTORY_KEY,   AUTHOR_MODELS_DIRECTORY_DEFAULT);}
-  public static boolean getAuthorModelsServerAutolaunch ()          { return commonBooleanGet(AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY,   AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT);}
+  public static String  getAuthorPreferenceCorsDirectory ()         { return commonStringGet(AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY,      AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT);}
+  public static String  getAuthorPreferenceHtmlWidth ()             { return commonStringGet(AUTHOR_PREFERENCE_HTML_WIDTH_KEY,          AUTHOR_PREFERENCE_HTML_WIDTH_DEFAULT);}
+  public static String  getAuthorPreferenceHtmlHeight ()            { return commonStringGet(AUTHOR_PREFERENCE_HTML_HEIGHT_KEY,         AUTHOR_PREFERENCE_HTML_HEIGHT_DEFAULT);}
+  
+  public static String  getAuthorModelsDirectory ()                 { return commonStringGet(AUTHOR_MODELS_DIRECTORY_KEY,               AUTHOR_MODELS_DIRECTORY_DEFAULT);}
+  public static boolean getAuthorModelsServerAutolaunch ()          { return commonBooleanGet(AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY,      AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT);}
   public static boolean getExampleArchivesServerAutolaunch ()       { return commonBooleanGet(EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY,   EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_DEFAULT);}
   public static boolean getActiveX3dModelServerAutolaunch ()        { return commonBooleanGet(ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY,   AUTHOR_X3D_MODEL_SERVER_AUTOLAUNCH_DEFAULT);}
-  public static String  getPortAuthorModelsServer ()                { return commonStringGet(AUTHOR_MODELS_SERVER_PORT_KEY,      AUTHOR_MODELS_SERVER_PORT_DEFAULT);}
-  public static String  getPortExampleArchivesServer ()             { return commonStringGet(EXAMPLE_ARCHIVES_SERVER_PORT_KEY,   EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);}
-  public static String  getPortActiveX3dModelServer ()              { return commonStringGet(ACTIVE_X3D_MODEL_SERVER_PORT_KEY,   ACTIVE_X3D_MODEL_SERVER_PORT_DEFAULT);}
+  public static String  getPortAuthorModelsServer ()                { return commonStringGet(AUTHOR_MODELS_SERVER_PORT_KEY,             AUTHOR_MODELS_SERVER_PORT_DEFAULT);}
+  public static String  getPortExampleArchivesServer ()             { return commonStringGet(EXAMPLE_ARCHIVES_SERVER_PORT_KEY,          EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);}
+  public static String  getPortActiveX3dModelServer ()              { return commonStringGet(ACTIVE_X3D_MODEL_SERVER_PORT_KEY,          ACTIVE_X3D_MODEL_SERVER_PORT_DEFAULT);}
   
   public static boolean             getBasicLocalExamplesPresent () { return commonBooleanGet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, false);}
   public static boolean   getConformanceNistLocalExamplesPresent () { return commonBooleanGet(  CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY, false);}
