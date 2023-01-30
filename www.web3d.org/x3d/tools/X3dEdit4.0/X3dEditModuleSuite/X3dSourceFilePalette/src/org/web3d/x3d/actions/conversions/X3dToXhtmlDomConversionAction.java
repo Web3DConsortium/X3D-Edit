@@ -71,6 +71,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
 {
     public static String xsltFile = "X3dToX3domX_ITE.xslt";
 
+    private X3dToXhtmlDomConversionFrame x3dToXhtmlDomConversionFrame;
     private X3dToXhtmlDomConversionPanel x3dToXhtmlDomConversionPanel;
 
     private final HashMap<String,Object> parametersHashMap = new HashMap<>();
@@ -131,53 +132,71 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     {
         super.initialize();
 
-        if (parametersHashMap.isEmpty())
+        // TODO confirm whether needed, moving properties to X3dOptions instead
+        if (parametersHashMap.isEmpty()) 
         {
             resetValuesToDefault ();
             saveParametersHashMap ();
         }
-        // launch panel to confirm settings; default re-use behavior is to retain prior values by not reinitializing each time
-        if (x3dToXhtmlDomConversionPanel == null)
+        // create frame to initialize settings; default re-use behavior is to retain prior values by not reinitializing each time
+        if (x3dToXhtmlDomConversionFrame == null)
         {
-            x3dToXhtmlDomConversionPanel = new X3dToXhtmlDomConversionPanel (this);
-            x3dToXhtmlDomConversionPanel.setParentActionClass(this); // allow callback configurations
+            x3dToXhtmlDomConversionFrame = new X3dToXhtmlDomConversionFrame (this);
+//            x3dToXhtmlDomConversionFrame.setParentActionClass(this); // allow callback configurations
             if      (getPreferredTab() == CORS_TAB)
-                     x3dToXhtmlDomConversionPanel.setPaneIndex(CORS_TAB);  
+                     x3dToXhtmlDomConversionFrame.setPaneIndex(CORS_TAB);  
             else if (getPlayer().equals(X3DOM))
-                     x3dToXhtmlDomConversionPanel.setPaneIndex(X3dToXhtmlDomConversionPanel.X3DOM_TAB);
+                     x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X3DOM_TAB);
             else if (getPlayer().equals(X_ITE))
-                     x3dToXhtmlDomConversionPanel.setPaneIndex(X3dToXhtmlDomConversionPanel.X_ITE_TAB);
-    
-            // pattern from Xj3dCadFilterOptionsPanel to launch and exit the panel
-            transformModelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_TransformModel")); // Transform Model
-            transformModelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_TransformModel"));
-
-//            resetButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Reset"));    // Reset
-//            resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
-
-            continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_CONTINUE"));   // Continue
-            continueButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
-            x3dToXhtmlDomConversionPanel.updateParentPageIntegrationTabbedPaneState();
-            
-//            HelpCtx.setHelpIDString(x3dToXhtmlDomConversionPanel, "X3dToJson.html");
-
-            // https://bits.netbeans.org/dev/javadoc/org-openide-dialogs/org/openide/DialogDescriptor.html
-            descriptor = new DialogDescriptor(
-                x3dToXhtmlDomConversionPanel, // inner pane
-                NbBundle.getMessage(getClass(),"X3dToXhtmlDomConversionPanel.DialogTitle"),
-                true, // modal
-                new Object[]{transformModelButton, continueButton},  // other buttons: resetButton, 
-                transformModelButton,                      // default
-                DialogDescriptor.DEFAULT_ALIGN,
-                HelpCtx.DEFAULT_HELP, // unneeded, unfortunately provides a button
-                null); // action listener
-
-            // no way to set options without also getting a help contact,
-            // TODO need to replace this block with classic Swing setup like DownloadX3dExamplesArchivesAction
-            dialog = DialogDisplayer.getDefault().createDialog(descriptor);
-            dialog.setResizable(true);
-            dialog.pack();
+                     x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
         }
+        
+        x3dToXhtmlDomConversionFrame.pack();
+        x3dToXhtmlDomConversionFrame.setVisible(true);
+        
+// prior
+//        // launch panel to confirm settings; default re-use behavior is to retain prior values by not reinitializing each time
+//        if (x3dToXhtmlDomConversionPanel == null)
+//        {
+//            x3dToXhtmlDomConversionPanel = new X3dToXhtmlDomConversionPanel (this);
+//            x3dToXhtmlDomConversionPanel.setParentActionClass(this); // allow callback configurations
+//            if      (getPreferredTab() == CORS_TAB)
+//                     x3dToXhtmlDomConversionPanel.setPaneIndex(CORS_TAB);  
+//            else if (getPlayer().equals(X3DOM))
+//                     x3dToXhtmlDomConversionPanel.setPaneIndex(X3dToXhtmlDomConversionPanel.X3DOM_TAB);
+//            else if (getPlayer().equals(X_ITE))
+//                     x3dToXhtmlDomConversionPanel.setPaneIndex(X3dToXhtmlDomConversionPanel.X_ITE_TAB);
+//    
+//            // pattern from Xj3dCadFilterOptionsPanel to launch and exit the panel
+//            transformModelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_TransformModel")); // Transform Model
+//            transformModelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_TransformModel"));
+//
+////            resetButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Reset"));    // Reset
+////            resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
+//
+//            continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_CONTINUE"));   // Continue
+//            continueButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
+//            x3dToXhtmlDomConversionPanel.updateParentPageIntegrationTabbedPaneState();
+//            
+////            HelpCtx.setHelpIDString(x3dToXhtmlDomConversionPanel, "X3dToJson.html");
+//
+//            // https://bits.netbeans.org/dev/javadoc/org-openide-dialogs/org/openide/DialogDescriptor.html
+//            descriptor = new DialogDescriptor(
+//                x3dToXhtmlDomConversionPanel, // inner pane
+//                NbBundle.getMessage(getClass(),"X3dToXhtmlDomConversionPanel.DialogTitle"),
+//                true, // modal
+//                new Object[]{transformModelButton, continueButton},  // other buttons: resetButton, 
+//                transformModelButton,                      // default
+//                DialogDescriptor.DEFAULT_ALIGN,
+//                HelpCtx.DEFAULT_HELP, // unneeded, unfortunately provides a button
+//                null); // action listener
+//
+//            // no way to set options without also getting a help contact,
+//            // TODO need to replace this block with classic Swing setup like DownloadX3dExamplesArchivesAction
+//            dialog = DialogDisplayer.getDefault().createDialog(descriptor);
+//            dialog.setResizable(true);
+//            dialog.pack();
+//        }
     }
   
     protected void resetValuesToDefault ()
