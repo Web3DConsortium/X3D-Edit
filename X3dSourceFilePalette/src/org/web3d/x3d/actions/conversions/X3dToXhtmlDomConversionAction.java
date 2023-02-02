@@ -37,8 +37,8 @@ import java.awt.Dialog;
 import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
+import javax.swing.SwingUtilities;
 import org.openide.DialogDescriptor;
-import org.openide.DialogDisplayer;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -150,8 +150,17 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
             else if (getPlayer().equals(X_ITE))
                      x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
         }
-        x3dToXhtmlDomConversionFrame.pack();
-        x3dToXhtmlDomConversionFrame.setVisible(true);
+        
+        if(x3dToXhtmlDomConversionFrame != null)
+           SwingUtilities.invokeLater(() -> {
+              
+              // TODO problem, stray event/invocation immediately performing conversion task upon launch
+              // hack prevents first-time fall through to processing xslt
+              x3dToXhtmlDomConversionFrame.setVisible(true);
+              x3dToXhtmlDomConversionFrame.toFront();
+              
+//            x3dToXhtmlDomConversionFrame.repaint(); // causes infinite loop
+           });
         
 // prior
 //        // launch panel to confirm settings; default re-use behavior is to retain prior values by not reinitializing each time
