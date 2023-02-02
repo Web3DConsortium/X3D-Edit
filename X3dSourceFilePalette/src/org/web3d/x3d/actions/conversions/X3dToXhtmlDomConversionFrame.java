@@ -2939,7 +2939,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             sleep (500); // msec
             return exitValue;
         }
-        System.out.println("*** stopExampleArchivesServer() found httpServerProcess1 null, no response"); 
+        System.out.println("*** stopAuthorModelsServer() found httpServerProcess1 null, no response"); 
         return -1;
     }
     // TODO invoke thie method on JVM shutdown
@@ -2964,7 +2964,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                     message = "exitValue=" + exitValue;
                     break;
             }
-            System.out.println("*** stopAuthorModelsServer() " + message);
+            System.out.println("*** stopExampleArchivesServer() " + message);
             // wait a little for for server to stop prior to checking status
             sleep (500); // msec
             return exitValue;
@@ -2993,7 +2993,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                     message = "exitValue=" + exitValue;
                     break;
             }
-            System.out.println("*** stopAuthorModelsServer() " + message);
+            System.out.println("*** stopActiveX3dModelServer() " + message);
             // wait a little for for server to stop prior to checking status
             sleep (500); // msec
             return exitValue;
