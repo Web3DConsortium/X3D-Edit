@@ -141,11 +141,11 @@ POSSIBILITY OF SUCH DAMAGE.
         </folder>
         -->
         <folder name="Memory">
-            <!-- intentionally hide Profile buttons -->
+            <!-- intentionally hide Profile buttons which NetBeans places (by default) adjacent to Memory button -->
             <file name="org-netbeans-modules-masterfs-ui-suspend-PauseAction.shadow_hidden"/>
             <file name="org-netbeans-modules-profiler-actions-SelfSamplerAction.shadow_hidden"/>
         </folder>
-        <folder name="X3D-Edit &amp;Author Workflow">
+        <folder name="X3D-Edit Author Workflow">
             <!-- include X3D-Edit in name in order to provide context for toolbar entries -->
             <attr name="position" intvalue="184"/>
             <!-- test case to make buttons only active when X3D document selected
@@ -156,7 +156,8 @@ POSSIBILITY OF SUCH DAMAGE.
             -->
             <!-- TODO consider adding HAnim LOA default scenes and other templates -->
         </folder>
-        <folder name="X3D-Edit &amp;New File Templates">
+        <!-- appending _hidden to name makes it unavailable, not just hidden from active toolbar display -->
+        <folder name="X3D-Edit New File Templates">
             <!-- include X3D-Edit in name in order to provide context for toolbar entries -->
             <attr name="position" intvalue="185"/>
             <!-- TODO hide by default? -->
@@ -872,7 +873,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="DisPlayerRecorderTopComponent.settings" url="DisPlayerRecorderTopComponentSettings.xml"/>
             <file name="DisTesterTopComponent.settings" url="DisTesterTopComponentSettings.xml"/>
         <!--<file name="JShellEditor.settings_hidden"/> -->
-            <file name="Xj3dTopComponent.settings" url="Xj3dTopComponentSettings.xml"/> <!-- renamed -->
+            <file name="Xj3dTopComponent.settings_hidden" url="Xj3dTopComponentSettings.xml"/> <!-- renamed -->
         <!--<file name="projectTabLogical_tc.settings_hidden"/>
             <file name="projectTab_tc.settings_hidden"/>
             <file name="services.settings_hidden"/> -->
