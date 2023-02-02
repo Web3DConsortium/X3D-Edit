@@ -47,6 +47,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.security.CodeSource;
 import java.security.ProtectionDomain;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -139,6 +140,14 @@ public abstract class BaseConversionsAction extends CallableSystemAction
       e.printStackTrace();
     }
   }
+  /* attempting to thwart automatic running of performAction() when initializing the class */
+  boolean firstEntryBaseConversionsAction = true;
+  
+  /** Do not depend on default constructor, just in case that causes problems */
+  public BaseConversionsAction ()
+  {
+    System.out.println("*** BaseConversionsAction constructor...");
+  }
 
   protected final static String Nb_Select_files_to_process      = NbBundle.getMessage(BaseConversionsAction.class, "Select_file(s)_to_process");
   protected final static String Nb_Select_X3D_Files             = NbBundle.getMessage(BaseConversionsAction.class, "Select_X3D_Files");
@@ -148,14 +157,15 @@ public abstract class BaseConversionsAction extends CallableSystemAction
   protected final static String Nb_XSLT_transformation_cancelled= NbBundle.getMessage(BaseConversionsAction.class, "XSLT_transformation_cancelled");
   protected final static String Nb_Exception                    = NbBundle.getMessage(BaseConversionsAction.class, "Exception:__");
   protected final static String Nb_Using                        = NbBundle.getMessage(BaseConversionsAction.class, "_Using_");
-  protected final static String Nb_against                      = NbBundle.getMessage(BaseConversionsAction.class, "_against_");
+//  protected final static String Nb_against                      = NbBundle.getMessage(BaseConversionsAction.class, "_against_");
   protected final static String Nb_default_JRE_XSLT_processor   = NbBundle.getMessage(BaseConversionsAction.class, "_default_JRE_XSLT_processor");
   protected final static String Nb_XSLT_processor_from_         = NbBundle.getMessage(BaseConversionsAction.class, "_XSLT_processor_from_");
   protected final static String Nb_is_unwritable                = NbBundle.getMessage(BaseConversionsAction.class, "_is_unwritable");
   protected final static String Nb_in_BaseConversionsAction     = NbBundle.getMessage(BaseConversionsAction.class, "_in_BaseConversionsAction");
 
   /**
-   * Subclass method to xsl the single file managed by the passed TC.Will normally call back to xsltOneFile in this class.
+   * Subclass method to xsl the single file managed by the passed TC.
+   * Will normally call back to xsltOneFile in this class.
    * @param x3dEditor our TopComponent instance managing a single x3d file
    * @return absolute path of saved transformed file
    */
@@ -167,10 +177,16 @@ public abstract class BaseConversionsAction extends CallableSystemAction
   @Override
   public void performAction()
   {
+    if (firstEntryBaseConversionsAction)
+    {
+        firstEntryBaseConversionsAction = false; // ugly hack attempting to avoid auto-start of panel action
+        return;
+    }
     // the Mode/TopComponent access must always be done in EventThread
     if(EventQueue.isDispatchThread())
       worker.run();
-    else {
+    else
+    {
       try {
         EventQueue.invokeAndWait(worker);
       }
@@ -184,24 +200,24 @@ public abstract class BaseConversionsAction extends CallableSystemAction
       Mode m = WindowManager.getDefault().findMode("editor"); // noi18n
       TopComponent selectedOne = m.getSelectedTopComponent();
 
-      TopComponent[] tcs = m.getTopComponents();
-      if (tcs == null || tcs.length <= 0)
+      TopComponent[] topComponentArray = m.getTopComponents();
+      if (topComponentArray == null || topComponentArray.length <= 0)
           return;
       
-      Vector<X3DEditorSupport.X3dEditor> x3dTcs = new Vector<>();
-      for (TopComponent tc : tcs)
+      ArrayList<X3DEditorSupport.X3dEditor> x3dEditorTopComponentVector = new ArrayList<>();
+      for (TopComponent tc : topComponentArray)
           if (tc instanceof X3DEditorSupport.X3dEditor) {
-              x3dTcs.add((X3DEditorSupport.X3dEditor) tc);
+              x3dEditorTopComponentVector.add((X3DEditorSupport.X3dEditor) tc);
           }
       
-      if (x3dTcs.size() == 1) {
-          transformSingleFile(x3dTcs.get(0));
+      if (x3dEditorTopComponentVector.size() == 1) {
+          transformSingleFile(x3dEditorTopComponentVector.get(0));
           return;
       }
 
       Integer selected = null;
       Vector<String> filenames = new Vector<>();
-      for (X3DEditorSupport.X3dEditor ed : x3dTcs) {
+      for (X3DEditorSupport.X3dEditor ed : x3dEditorTopComponentVector) {
           X3DDataObject dob = (X3DDataObject) ed.getX3dEditorSupport().getDataObject();
           filenames.add(dob.getPrimaryFile().getNameExt());
           if (ed.equals(selectedOne)) {
@@ -234,7 +250,7 @@ public abstract class BaseConversionsAction extends CallableSystemAction
       List<String>  selectedFns = list.getSelectedValuesList();
 
       for (String fn : selectedFns) {
-          for (X3DEditorSupport.X3dEditor xed : x3dTcs)
+          for (X3DEditorSupport.X3dEditor xed : x3dEditorTopComponentVector)
               if (xed.getX3dEditorSupport().getDataObject().getPrimaryFile().getNameExt().equals(fn)) {
                   transformSingleFile(xed);
                   break;
@@ -349,12 +365,12 @@ public abstract class BaseConversionsAction extends CallableSystemAction
         if (xsltIsOSFile) {
           File xsltF = new File(xsltFileResourcePath);
           xslStream = new StreamSource(xsltF);
-          console.message(" "+xsltF.getName() + Nb_against + sourceHandle);
+          console.message(" "+xsltF.getName() + "transformation script being applied to " + sourceHandle);
         }
         else {
           FileObject jarredTransformer = FileUtil.getConfigRoot().getFileSystem().findResource(xsltFileResourcePath);
           xslStream = new StreamSource(jarredTransformer.getInputStream());
-          console.message(" "+jarredTransformer.getNameExt() + Nb_against + sourceHandle);
+          console.message(" "+jarredTransformer.getNameExt() + "transformation script being applied to " + sourceHandle);
         }
 
         console.moveToFront();
@@ -453,10 +469,10 @@ public abstract class BaseConversionsAction extends CallableSystemAction
                                                    Map<String,Object> parameterMap)
   {
     ConversionsHelper.saveFilePack saveFilePackResult;
-    Node[] node = x3dEditor.getActivatedNodes();
+    Node[] x3dEditorActivatedNodeArray = x3dEditor.getActivatedNodes();
 
     X3DDataObject x3dDataObject = (X3DDataObject)x3dEditor.getX3dEditorSupport().getDataObject();
-    FileObject primaryFileObject  = x3dDataObject.getPrimaryFile();
+    FileObject primaryFileObject = x3dDataObject.getPrimaryFile();
     File primaryFile    = FileUtil.toFile(primaryFileObject);
     final TransformListener transformListener = TransformListener.getInstance();
     resultFileExtension = processFileExtension(resultFileExtension);
@@ -467,15 +483,15 @@ public abstract class BaseConversionsAction extends CallableSystemAction
       if(xsltIsOSFile) {
         File xsltFile = new File(xsltFileResourcePath);
         xsltStreamSource = new StreamSource(xsltFile);
-        transformListener.message(xsltFile.getName() + Nb_against + primaryFile.getAbsolutePath());
+        transformListener.message(xsltFile.getName() + "transformation script being applied to " + primaryFile.getAbsolutePath());
       }
       else {
         FileObject jarredTransformer = FileUtil.getConfigRoot().getFileSystem().findResource(xsltFileResourcePath); //Repository.getDefault().getDefaultFileSystem().findResource (xsltFileResourcePath);
         xsltStreamSource = new StreamSource(jarredTransformer.getInputStream());
-        transformListener.message(jarredTransformer.getNameExt() + Nb_against + primaryFile.getAbsolutePath());
+        transformListener.message(jarredTransformer.getNameExt() + "transformation script being applied to " + primaryFile.getAbsolutePath());
       }
       transformListener.moveToFront(); // make consoleTransformListener visible
-      transformListener.setNode(node[0]);
+      transformListener.setNode(x3dEditorActivatedNodeArray[0]);
 
       // pop up dialog panel for destination file name
       ConversionsHelper.getOpenInEditorSetting(); // debug
