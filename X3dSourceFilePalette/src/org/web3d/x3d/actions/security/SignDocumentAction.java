@@ -127,7 +127,7 @@ public final class SignDocumentAction extends BaseX3DEditAction
       
       Document w3cDoc = getW3cDocument();
       if (w3cDoc == null) {
-          String msg = "Signing error: You must first sign the docuemnt, then encrypt if desired";
+          String msg = "Signing error: You must first sign the document, then encrypt if desired";
           NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
           DialogDisplayer.getDefault().notify(nd);
           return;
