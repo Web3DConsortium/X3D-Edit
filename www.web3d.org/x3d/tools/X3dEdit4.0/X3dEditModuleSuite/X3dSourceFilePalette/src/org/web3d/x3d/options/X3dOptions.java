@@ -171,8 +171,8 @@ public class X3dOptions
   public static String  AUTHOR_PREFERENCE_HTML_WIDTH_DEFAULT       =  "450";
   public static String  AUTHOR_PREFERENCE_HTML_HEIGHT_DEFAULT      =  "800";
   
-  public static boolean AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT    = true;
-  public static boolean EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_DEFAULT = true;
+  public static boolean AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT    = false; // TODO Ask author prior to setting true
+  public static boolean EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_DEFAULT = false; // TODO Ask author prior to setting true
   public static boolean AUTHOR_X3D_MODEL_SERVER_AUTOLAUNCH_DEFAULT = false; // TODO wait until functionality implemented
 
   public static String  AUTHOR_MODELS_SERVER_PORT_DEFAULT          = "8001";
