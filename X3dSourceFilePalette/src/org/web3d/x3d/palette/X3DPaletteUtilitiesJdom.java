@@ -450,7 +450,7 @@ public final class X3DPaletteUtilitiesJdom
   }
 
   /**
-   * Method called from actions which may rely on the last-build jdom docuement;
+   * Method called from actions which may rely on the last-build jdom document;
    * these are actions like getUSE saxLocations, check route forward refs, etc.
    * @param s
    * @return
