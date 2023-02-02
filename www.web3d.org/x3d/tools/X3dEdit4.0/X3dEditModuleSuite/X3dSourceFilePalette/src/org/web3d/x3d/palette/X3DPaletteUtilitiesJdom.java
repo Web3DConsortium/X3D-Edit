@@ -452,15 +452,15 @@ public final class X3DPaletteUtilitiesJdom
   /**
    * Method called from actions which may rely on the last-build jdom document;
    * these are actions like getUSE saxLocations, check route forward refs, etc.
-   * @param s
-   * @return
+   * @param sourceText input text of interest
+   * @return new JDOM document
    * @throws java.io.IOException
    * @throws org.xml.sax.SAXException
    * @throws org.jdom.JDOMException
    */
-  public static org.jdom.Document buildJdomFromString(String s) throws IOException, SAXException, JDOMException
+  public static org.jdom.Document buildJdomFromString(String sourceText) throws IOException, SAXException, JDOMException
   {
-    return _buildJdom(s).doc;
+    return _buildJdom(sourceText).doc;
   }
 
   /**
