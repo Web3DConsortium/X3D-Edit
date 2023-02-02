@@ -95,11 +95,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     Process        httpServerProcess2;
     Process        httpServerProcess3;
     
-    Color   black      = new Color(  0,   0,  0);
-    Color   darkgreen  = new Color( 21,  71, 52);
+    Color   black      = new Color(  0,   0,   0);
+    Color   darkgreen  = new Color( 42, 142, 104);
 
     Font plainFont;
     Font  boldFont;
+    String message = new String();
     
     private static X3dToXhtmlDomConversionAction xhtmlX3domAction;
     
@@ -2916,11 +2917,24 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     {
         if ((httpServerProcess1 != null)) //  && httpServerProcess1.isAlive()
         {
-            System.out.println("*** stopAuthorModelsServer() httpServerProcess1.supportsNormalTermination=" + httpServerProcess1.supportsNormalTermination()); 
+            // typically these http servers respond supportsNormalTermination=false
+            // System.out.println("*** stopAuthorModelsServer() httpServerProcess1.supportsNormalTermination=" + httpServerProcess1.supportsNormalTermination()); 
             // TODO can we reach in and tell it to stop?  might require implementing http server directly
             // http servers seem to persist, so destroyForcibly()
             int exitValue = httpServerProcess1.destroyForcibly().exitValue();
-            System.out.println("*** stopAuthorModelsServer() exitValue=" + exitValue); 
+            switch (exitValue)
+            {
+                case 1:
+                    message = "exitValue=" + exitValue + " (http process normal shutdown)";
+                    break;
+                case 2:
+                    message = "exitValue=" + exitValue + " (http process still running)";
+                    break;
+                default:
+                    message = "exitValue=" + exitValue;
+                    break;
+            }
+            System.out.println("*** stopAuthorModelsServer() " + message);
             // wait a little for for server to stop prior to checking status
             sleep (500); // msec
             return exitValue;
@@ -2933,11 +2947,24 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     {
         if ((httpServerProcess2 != null)) //  && httpServerProcess2.isAlive()
         {
-            System.out.println("*** stopAuthorModelsServer() httpServerProcess2.supportsNormalTermination=" + httpServerProcess2.supportsNormalTermination()); 
+            // typically these http servers respond supportsNormalTermination=false
+            // System.out.println("*** stopAuthorModelsServer() httpServerProcess2.supportsNormalTermination=" + httpServerProcess2.supportsNormalTermination()); 
             // TODO can we reach in and tell it to stop?  might require implementing http server directly
             // http servers seem to persist, so destroyForcibly()
             int exitValue = httpServerProcess2.destroyForcibly().exitValue();
-            System.out.println("*** stopAuthorModelsServer() exitValue=" + exitValue);  
+            switch (exitValue)
+            {
+                case 1:
+                    message = "exitValue=" + exitValue + " (http process normal shutdown)";
+                    break;
+                case 2:
+                    message = "exitValue=" + exitValue + " (http process still running)";
+                    break;
+                default:
+                    message = "exitValue=" + exitValue;
+                    break;
+            }
+            System.out.println("*** stopAuthorModelsServer() " + message);
             // wait a little for for server to stop prior to checking status
             sleep (500); // msec
             return exitValue;
@@ -2949,11 +2976,24 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     {
         if ((httpServerProcess3 != null)) //  && httpServerProcess3.isAlive()
         {
-            System.out.println("*** stopAuthorModelsServer() httpServerProcess3.supportsNormalTermination=" + httpServerProcess3.supportsNormalTermination()); 
+            // typically these http servers respond supportsNormalTermination=false
+            // System.out.println("*** stopAuthorModelsServer() httpServerProcess3.supportsNormalTermination=" + httpServerProcess3.supportsNormalTermination()); 
             // TODO can we reach in and tell it to stop?  might require implementing http server directly
             // http servers seem to persist, so destroyForcibly()
             int exitValue = httpServerProcess3.destroyForcibly().exitValue();
-            System.out.println("*** stopAuthorModelsServer() exitValue=" + exitValue);  
+            switch (exitValue)
+            {
+                case 1:
+                    message = "exitValue=" + exitValue + " (http process normal shutdown)";
+                    break;
+                case 2:
+                    message = "exitValue=" + exitValue + " (http process still running)";
+                    break;
+                default:
+                    message = "exitValue=" + exitValue;
+                    break;
+            }
+            System.out.println("*** stopAuthorModelsServer() " + message);
             // wait a little for for server to stop prior to checking status
             sleep (500); // msec
             return exitValue;
@@ -2975,14 +3015,14 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         
         // https://stackoverflow.com/questions/4042434/converting-arrayliststring-to-string-in-java
         String[] cliCommandStringArray = cliCommands.toArray(new String[0]);
-                
+
 //        ShutDownHook shutdownHook = new ShutDownHook(); // handled upstream
         
         File directoryLocationFile = new File(directoryLocation);
         if  (directoryLocationFile.isDirectory())
         {
             System.out.println("*** startServer() " + whichServer + " directoryLocation=" + directoryLocation);
-            System.out.println("+++ startServer() " + 
+            System.out.println("    startServer() " + 
                     (Arrays.toString(cliCommands.toArray())).replace("[","").replace("]","").replace(",","").replace("[","")
                     + portValue);
             try {
@@ -3001,7 +3041,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                         httpServerProcess1 = runtime.exec(cliCommandStringArray, null, directoryLocationFile);
                           isAlive = httpServerProcess1.isAlive();
                         portValue = portAuthorModelsServerTextField.getText();
-                        System.out.println("+++ startServer() " + whichServer + " httpServerProcess1.isAlive()=" + isAlive + " on port " + portValue);
+                        System.out.println("    startServer() " + whichServer + " httpServerProcess1.isAlive()=" + isAlive + " on port " + portValue);
                         break;
 
                     case EXAMPLE_ARCHIVES:
@@ -3011,7 +3051,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                         httpServerProcess2 = runtime.exec(cliCommandStringArray, null, directoryLocationFile);
                           isAlive = httpServerProcess2.isAlive();
                         portValue = portExampleArchivesServerTextField.getText();
-                        System.out.println("+++ startServer() " + whichServer + " httpServerProcess2.isAlive()=" + isAlive + " on port " + portValue);
+                        System.out.println("    startServer() " + whichServer + " httpServerProcess2.isAlive()=" + isAlive + " on port " + portValue);
                         break;
 
                     case ACTIVE_X3D_MODEL:
@@ -3021,13 +3061,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                         httpServerProcess3 = runtime.exec(cliCommandStringArray, null, directoryLocationFile);
                           isAlive = httpServerProcess3.isAlive();
                         portValue = portActiveX3dModelServerTextField.getText();
-                        System.out.println("+++ startServer() " + whichServer + " httpServerProcess3.isAlive()=" + isAlive + " on port " + portValue);
+                        System.out.println("    startServer() " + whichServer + " httpServerProcess3.isAlive()=" + isAlive + " on port " + portValue);
                         break;
                 }
             }
             catch (IOException ex)
             {
-                System.err.println("+++ Problem with startServer() whichServer=" + whichServer);
+                System.err.println("    Problem with startServer() whichServer=" + whichServer);
                 Exceptions.printStackTrace(ex);
             }
             if (!isAlive)
@@ -3046,7 +3086,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         }
         else  
         {
-            System.err.println("+++ startServer() failed, incorrect directoryLocation=" + directoryLocation);
+            System.err.println("    startServer() failed, incorrect directoryLocation=" + directoryLocation);
             return false;
         }
     }
