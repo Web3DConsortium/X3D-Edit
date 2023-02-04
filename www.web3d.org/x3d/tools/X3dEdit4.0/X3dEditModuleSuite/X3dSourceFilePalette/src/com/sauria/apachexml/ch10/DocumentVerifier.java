@@ -73,6 +73,8 @@ public class DocumentVerifier
   {
     Element namespaceContext = /*XMLUtils.*/createDSctx(doc, "ds", Constants.SignatureSpecNS);
     Element signatureElement = (Element) XPathAPI.selectSingleNode(doc, "//ds:Signature[1]", namespaceContext);
+    
+    // TODO: Don't throw an exception, just warn user that the doc is not signed and return
     if (signatureElement == null)
       throw new Exception("No signature in document, integrity verification and authentication not possible");
 
