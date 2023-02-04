@@ -22,11 +22,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
 import org.openide.util.ImageUtilities;
+import org.openide.util.NbBundle;
 import org.web3d.x3d.DownloadX3dExamplesArchivesAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D4_HTML_AUTHORING_GUIDELINES;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS;
@@ -115,24 +117,16 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         initComponents();
         setTitle (" X3D4 Integration in HTML5"); // note leading space for readability
         setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/HTML5_Logo_64.png"));
-                           
-//        HelpCtx.setHelpIDString(this, "X3D-Edit.X3dToXhtmlDomConversionPanel");
-        
-//         html5Image94x120Label.setIcon(new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/HTML5_logo_and_wordmark.svg94x120.png")));
-//           x3dImage100Label.setIcon(new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/x3d100x100.png")));
-//         x3domLabel.setIcon(new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/x3dom-whiteOnblue160.png")));
-//         x_iteLabel.setIcon(new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/cobweb-logo160.png")));
+
+        plainFont = addressLabel.getFont().deriveFont(Font.PLAIN);
+         boldFont = plainFont.deriveFont(Font.BOLD);
         
         loadValuesInPanel (); // must follow componenent intialization
 	urlList.setFileChooserX3d(); // configuration
         autolaunchServers ();
         updateIndicationsPortsBoundOnServers();
-        
-        plainFont = addressLabel.getFont().deriveFont(Font.PLAIN);
-         boldFont = plainFont.deriveFont(Font.BOLD);
-        
-//        setVisible(true); // TODO correct?
 
+        // shutdown localhost http servers on exit
         // https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runtime.html#getRuntime()
         // https://stackoverflow.com/questions/191215/how-to-stop-java-process-gracefully
         // https://stackoverflow.com/questions/19639319/java-shutdown-hook
@@ -141,7 +135,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             @Override
             public void run()
             {
-                // TODO is it possible to discern which of three servers is running, to improve output message?
+                // TODO is it possible to discern which of three servers is running by this thread, in order to improve output message?
                 String message = "*** X3D-Edit shutdownHook for http servers";
                 System.out.println(message);
                 stopAuthorModelsServer();
@@ -1932,8 +1926,9 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 4;
+        gridBagConstraints.ipadx = 48;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         getContentPane().add(transformModelButton, gridBagConstraints);
@@ -2328,7 +2323,10 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void transformModelButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_transformModelButtonActionPerformed
     {//GEN-HEADEREND:event_transformModelButtonActionPerformed
-        // TODO add your handling code here:
+        // invoke file conversion
+        xhtmlX3domAction.setReadyForConversion(true);
+        xhtmlX3domAction.performAction();
+        xhtmlX3domAction.setReadyForConversion(false); // all done, prevent unintended reinitiation
     }//GEN-LAST:event_transformModelButtonActionPerformed
 
     private void x3domImageLabelMouseReleased(java.awt.event.MouseEvent evt)//GEN-FIRST:event_x3domImageLabelMouseReleased
@@ -3179,6 +3177,7 @@ class LocalFileHandlerOld implements HttpHandler {
     
     final void updatePageIntegrationTabbedPaneState()
     {
+        xhtmlX3domAction.setReadyForConversion(false);
         switch (pageIntegrationTabbedPane.getSelectedIndex())
         {
             case HTML_LAYOUT_TAB:

@@ -60,7 +60,7 @@ import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.NO_
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 80),
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 151),
-  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 80),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 80),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 80),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 151),
 //@ActionReference(path = "Shortcuts", name = "CS-8"), // shortcut control-shift-8
@@ -109,6 +109,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     private JButton transformModelButton, resetButton, continueButton;
     
     private ConversionsHelper.saveFilePack fp;
+    private boolean readyForConversion = false;
 
   @Override
   public String getName()
@@ -130,7 +131,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     @Override
     protected void initialize()
     {
-        super.initialize();
+        super.initialize(); // BaseConversionsAction
 
         // TODO confirm whether needed, moving properties to X3dOptions instead
         if (parametersHashMap.isEmpty()) 
@@ -156,8 +157,8 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
               
               // TODO problem, stray event/invocation immediately performing conversion task upon launch
               // hack prevents first-time fall through to processing xslt
-              x3dToXhtmlDomConversionFrame.setVisible(true);
               x3dToXhtmlDomConversionFrame.toFront();
+              x3dToXhtmlDomConversionFrame.setVisible(true);
               
 //            x3dToXhtmlDomConversionFrame.repaint(); // causes infinite loop
            });
@@ -496,5 +497,21 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     {
         if (transformModelButton != null)
             transformModelButton.setEnabled(value);
+    }
+
+    /**
+     * @return the readyForConversion
+     */
+    public boolean isReadyForConversion()
+    {
+        return readyForConversion;
+    }
+
+    /**
+     * @param readyForConversion the readyForConversion to set
+     */
+    public void setReadyForConversion(boolean readyForConversion)
+    {
+        this.readyForConversion = readyForConversion;
     }
 }
