@@ -81,21 +81,16 @@ public final class CheckedSignedDocumentIntegrity extends BaseX3DEditAction
     try {
       Document w3cDoc = getW3cDocument();
 
-      List failedRefs = DocumentVerifier.verifySignedDocument(w3cDoc, null, "");
+      List<XMLSignatureInput> failedRefs = DocumentVerifier.verifySignedDocument(w3cDoc, null, "");
 
-      if (failedRefs.size() <= 0)
+      if (failedRefs.isEmpty())
         showMsg("Document integrity check successful");
       else {
         StringBuilder refsb = new StringBuilder();
 
-        for (Object obj : failedRefs) {
-          if(obj instanceof XMLSignatureInput) {
-            XMLSignatureInput xsi = (XMLSignatureInput) obj;
-            refsb.append(xsi.getSourceURI());
-            refsb.append(" ");
-          }
-          else
-            showMsg("Document integrity check failed: "+obj.toString(),JOptionPane.ERROR_MESSAGE);
+        for (XMLSignatureInput xsi : failedRefs) {
+          refsb.append(xsi.getSourceURI());
+          refsb.append(" ");
         }
         if(refsb.length()>0) {
           refsb.insert(0, "Reference URI(s) ");
