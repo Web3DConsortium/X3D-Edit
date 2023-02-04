@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -70,7 +70,7 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
                     displayName = "#CTL_ViewInAllAction", lazy=true)
 @ActionReferences( value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 60, separatorAfter = 61),
-  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 60),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 60),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 60, separatorAfter = 61),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 110, separatorBefore = 109), // 
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 110, separatorBefore = 109),
