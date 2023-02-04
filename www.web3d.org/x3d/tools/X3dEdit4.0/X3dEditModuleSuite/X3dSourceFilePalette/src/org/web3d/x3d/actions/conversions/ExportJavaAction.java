@@ -52,7 +52,7 @@ import org.web3d.x3d.X3DEditorSupport;
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 94),
   @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 94),
-  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 94),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 94),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 94),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 94)
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts

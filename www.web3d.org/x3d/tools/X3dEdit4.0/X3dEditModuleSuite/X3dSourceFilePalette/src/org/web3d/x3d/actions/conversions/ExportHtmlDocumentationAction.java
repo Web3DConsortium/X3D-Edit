@@ -55,7 +55,7 @@ import org.web3d.x3d.X3DEditorSupport;
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 150),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 150),
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 50),
-  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 50),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 50),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 50),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 50),
   @ActionReference(path = "Shortcuts", name = "CS-5"), // shortcut control-shift-5
