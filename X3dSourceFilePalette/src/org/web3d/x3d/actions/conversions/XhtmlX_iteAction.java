@@ -49,7 +49,7 @@ import org.openide.util.NbBundle;
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 90),
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 152),
-  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 90),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 90),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 90),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 152),
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
