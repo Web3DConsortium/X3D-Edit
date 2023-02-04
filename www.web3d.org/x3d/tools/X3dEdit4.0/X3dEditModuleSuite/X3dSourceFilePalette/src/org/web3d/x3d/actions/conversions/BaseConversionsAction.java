@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -140,13 +140,11 @@ public abstract class BaseConversionsAction extends CallableSystemAction
       e.printStackTrace();
     }
   }
-  /* attempting to thwart automatic running of performAction() when initializing the class */
-  boolean firstEntryBaseConversionsAction = true;
   
   /** Do not depend on default constructor, just in case that causes problems */
   public BaseConversionsAction ()
   {
-    System.out.println("*** BaseConversionsAction constructor...");
+//    System.out.println("*** BaseConversionsAction constructor...");
   }
 
   protected final static String Nb_Select_files_to_process      = NbBundle.getMessage(BaseConversionsAction.class, "Select_file(s)_to_process");
@@ -177,85 +175,108 @@ public abstract class BaseConversionsAction extends CallableSystemAction
   @Override
   public void performAction()
   {
-    if (firstEntryBaseConversionsAction)
-    {
-        firstEntryBaseConversionsAction = false; // ugly hack attempting to avoid auto-start of panel action
-        return;
-    }
+
     // the Mode/TopComponent access must always be done in EventThread
     if(EventQueue.isDispatchThread())
-      worker.run();
+      conversionsWorkerRunnable.run();
     else
     {
       try {
-        EventQueue.invokeAndWait(worker);
+        EventQueue.invokeAndWait(conversionsWorkerRunnable);
       }
       catch(InterruptedException | InvocationTargetException ex) {
         System.err.println(Nb_Exception + ex.getClass().getSimpleName() + Nb_in_BaseConversionsAction);
       }
     }
   }
+  /** Runnable thread that performs the conversion */
+  private final Runnable conversionsWorkerRunnable = () ->
+  {
+        if (this instanceof X3dToXhtmlDomConversionAction) 
+        {
+            // avoid runaway default conversion by complex panel until user is ready
+            if (!((X3dToXhtmlDomConversionAction) this).isReadyForConversion())
+                return; 
+        }
+          
+        Mode windowManagerEditorMode = WindowManager.getDefault().findMode("editor"); // noi18n
+        TopComponent selectedOneComponent = windowManagerEditorMode.getSelectedTopComponent();
 
-  private final Runnable worker = () -> {
-      Mode m = WindowManager.getDefault().findMode("editor"); // noi18n
-      TopComponent selectedOne = m.getSelectedTopComponent();
+        TopComponent[] topComponentArray = windowManagerEditorMode.getTopComponents();
+        if (topComponentArray == null || topComponentArray.length <= 0)
+        {
+            System.err.println ("*** cannot perform action if no X3D-Edit window components are available");
+            return; // no action to perform
+        }
 
-      TopComponent[] topComponentArray = m.getTopComponents();
-      if (topComponentArray == null || topComponentArray.length <= 0)
-          return;
-      
-      ArrayList<X3DEditorSupport.X3dEditor> x3dEditorTopComponentVector = new ArrayList<>();
-      for (TopComponent tc : topComponentArray)
-          if (tc instanceof X3DEditorSupport.X3dEditor) {
-              x3dEditorTopComponentVector.add((X3DEditorSupport.X3dEditor) tc);
-          }
-      
-      if (x3dEditorTopComponentVector.size() == 1) {
-          transformSingleFile(x3dEditorTopComponentVector.get(0));
-          return;
-      }
+        // TODO test what invoked this, do not execute if autolaunched by X3DOM/X_ITE panel, 
+        // rather count on deliberate ivocation by button
 
-      Integer selected = null;
-      Vector<String> filenames = new Vector<>();
-      for (X3DEditorSupport.X3dEditor ed : x3dEditorTopComponentVector) {
-          X3DDataObject dob = (X3DDataObject) ed.getX3dEditorSupport().getDataObject();
-          filenames.add(dob.getPrimaryFile().getNameExt());
-          if (ed.equals(selectedOne)) {
-              //selected = filenames.size() - 1;
-              // changed to:
-              // if there are several X3d files and one of them is the top, do that one only
-              transformSingleFile(ed);
-              return;
-          }
-      }
+        ArrayList<X3DEditorSupport.X3dEditor> x3dEditorTopComponentArrayList = new ArrayList<>();
+        for (TopComponent topComponent : topComponentArray)
+            if (topComponent instanceof X3DEditorSupport.X3dEditor)
+            {
+                x3dEditorTopComponentArrayList.add((X3DEditorSupport.X3dEditor) topComponent);
+            }
 
-      JList<String> list = new JList<>(filenames);
-      list.setVisibleRowCount(3);
-      list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-      if (selected != null)
-          list.setSelectedIndex(selected);
-      JPanel p = new JPanel(new BorderLayout());
-      p.setBorder(new EmptyBorder(10, 10, 0, 10));
-      p.add(new JLabel(Nb_Select_files_to_process), BorderLayout.NORTH);
-      p.add(new JScrollPane(list), BorderLayout.CENTER);
-      DialogDescriptor dialogDescriptor = new DialogDescriptor(p, Nb_Select_X3D_Files);
-      Dialog dialog = DialogDisplayer.getDefault().createDialog(dialogDescriptor);
-      dialog.setSize(300, 200);
-      // TODO set single selection, i.e. setMultipSelectionEnables(false)
-      dialog.setAlwaysOnTop(true);
-      dialog.setVisible(true);
-      if (dialogDescriptor.getValue().equals(DialogDescriptor.CANCEL_OPTION))
-          return;
-      
-      List<String>  selectedFns = list.getSelectedValuesList();
+        if (x3dEditorTopComponentArrayList.isEmpty()) 
+        {
+            System.err.println ("*** cannot perform action if no X3D model is available");
+            return;
+        }
+        else if (x3dEditorTopComponentArrayList.size() == 1) // no need to ask user which model
+        {
+            transformSingleFile(x3dEditorTopComponentArrayList.get(0));
+            return;
+        }
+        // more than one model found, continue after asking user to select model of interest
+        Integer selectedModelIndex = null; // TODO no longer needed?
+        Vector<String> filenames = new Vector<>();
+        for (X3DEditorSupport.X3dEditor x3dEditor : x3dEditorTopComponentArrayList)
+        {
+            X3DDataObject x3dDataObject = (X3DDataObject) x3dEditor.getX3dEditorSupport().getDataObject();
+            filenames.add(x3dDataObject.getPrimaryFile().getNameExt());
+            if (x3dEditor.equals(selectedOneComponent)) {
+                //selected = filenames.size() - 1;
+                // changed to:
+                // if there are several X3d files and one of them is the top, do that one only
+                transformSingleFile(x3dEditor);
+                return;
+            }
+        }
+        // more than one model found but none selected, ask user to select model of interest
+        JList<String> filenamesJList = new JList<>(filenames);
+        filenamesJList.setVisibleRowCount(3);
+        filenamesJList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        if (selectedModelIndex != null)
+            filenamesJList.setSelectedIndex(selectedModelIndex);
+        JPanel filenameSelectionPanel = new JPanel(new BorderLayout());
+        filenameSelectionPanel.setBorder(new EmptyBorder(10, 10, 0, 10));
+        filenameSelectionPanel.add(new JLabel(Nb_Select_files_to_process), BorderLayout.NORTH);
+        filenameSelectionPanel.add(new JScrollPane(filenamesJList), BorderLayout.CENTER);
+        DialogDescriptor dialogDescriptor = new DialogDescriptor(filenameSelectionPanel, Nb_Select_X3D_Files);
+        Dialog dialog = DialogDisplayer.getDefault().createDialog(dialogDescriptor);
+        int height = 200;
+        if (filenames.size() > 4)
+            height = 300;
+        dialog.setSize(350, height);
+        // TODO set single selection, i.e. setMultipSelectionEnables(false)
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true); // displays and blocks until user makes a return selection
+        if (dialogDescriptor.getValue().equals(DialogDescriptor.CANCEL_OPTION))
+            return;
 
-      for (String fn : selectedFns) {
-          for (X3DEditorSupport.X3dEditor xed : x3dEditorTopComponentVector)
-              if (xed.getX3dEditorSupport().getDataObject().getPrimaryFile().getNameExt().equals(fn)) {
-                  transformSingleFile(xed);
-                  break;
-              }
-      }
+        List<String>  selectedFilenamesList = filenamesJList.getSelectedValuesList();
+
+        for (String filename : selectedFilenamesList) // transform all user-selected filenames
+        {
+            for (X3DEditorSupport.X3dEditor x3dEditor : x3dEditorTopComponentArrayList)
+                if (x3dEditor.getX3dEditorSupport().getDataObject().getPrimaryFile().getNameExt().equals(filename))
+                {
+                    transformSingleFile(x3dEditor);
+                    break;
+                }
+        }
   };
 
   protected String processFileExtension(String s)
@@ -271,12 +292,10 @@ public abstract class BaseConversionsAction extends CallableSystemAction
     return s;
   }
 
-  private RequestProcessor reqProc;
-
   /**
    * Transform the currently open X3D disk file, putting the result into the passed destination disk file.
    * @param x3dEditor reference to X3dEditor
-   * @param xsltFileResourcePath path to xslt stylesheet
+   * @param xsltFileResourcePath path to XSLT stylesheet
    * @param xsltIsOSFile whether stylesheet is an operating system file
    * @param parameterMap map of key=value pairs to provide to spreadsheet
    * @param goodFinishMessage message on successful finish
@@ -316,16 +335,18 @@ public abstract class BaseConversionsAction extends CallableSystemAction
                                            Map<String, Object> parameterMap, 
                                            String goodFinishMessage)
   {
-    RequestProcessor rp = getReqProc();
+    RequestProcessor rp = getRequestProcessor();
     if(rp != null)
       return rp.post(new XsltRunner(x3dEditor,sourceHandle,sourceInputStream,outputF,xsltFileResourcePath,xsltIsOSFile,parameterMap, goodFinishMessage));
     return null;
   }
 
-  private synchronized RequestProcessor getReqProc()
+  private RequestProcessor requestProcessor;
+
+  private synchronized RequestProcessor getRequestProcessor()
   {
-    if(reqProc == null) {
-      return reqProc = RequestProcessor.getDefault();
+    if (requestProcessor == null) {
+      return requestProcessor = RequestProcessor.getDefault();
     }
     return null;
   }
@@ -365,12 +386,12 @@ public abstract class BaseConversionsAction extends CallableSystemAction
         if (xsltIsOSFile) {
           File xsltF = new File(xsltFileResourcePath);
           xslStream = new StreamSource(xsltF);
-          console.message(" "+xsltF.getName() + "transformation script being applied to " + sourceHandle);
+          console.message(" "+xsltF.getName() + " transformation script being applied to " + sourceHandle);
         }
         else {
           FileObject jarredTransformer = FileUtil.getConfigRoot().getFileSystem().findResource(xsltFileResourcePath);
           xslStream = new StreamSource(jarredTransformer.getInputStream());
-          console.message(" "+jarredTransformer.getNameExt() + "transformation script being applied to " + sourceHandle);
+          console.message(" "+jarredTransformer.getNameExt() + " transformation script being applied to " + sourceHandle);
         }
 
         console.moveToFront();
@@ -421,7 +442,7 @@ public abstract class BaseConversionsAction extends CallableSystemAction
       catch (IOException | IllegalArgumentException | TransformerException ex) {
         console.message(ex.getClass().getSimpleName()+": "+ex.getLocalizedMessage());
       }
-      reqProc = null;
+      requestProcessor = null;
     }
   }
 
@@ -483,12 +504,12 @@ public abstract class BaseConversionsAction extends CallableSystemAction
       if(xsltIsOSFile) {
         File xsltFile = new File(xsltFileResourcePath);
         xsltStreamSource = new StreamSource(xsltFile);
-        transformListener.message(xsltFile.getName() + "transformation script being applied to " + primaryFile.getAbsolutePath());
+        transformListener.message(xsltFile.getName() + " transformation script being applied to " + primaryFile.getAbsolutePath());
       }
       else {
         FileObject jarredTransformer = FileUtil.getConfigRoot().getFileSystem().findResource(xsltFileResourcePath); //Repository.getDefault().getDefaultFileSystem().findResource (xsltFileResourcePath);
         xsltStreamSource = new StreamSource(jarredTransformer.getInputStream());
-        transformListener.message(jarredTransformer.getNameExt() + "transformation script being applied to " + primaryFile.getAbsolutePath());
+        transformListener.message(jarredTransformer.getNameExt() + " transformation script being applied to " + primaryFile.getAbsolutePath());
       }
       transformListener.moveToFront(); // make consoleTransformListener visible
       transformListener.setNode(x3dEditorActivatedNodeArray[0]);
