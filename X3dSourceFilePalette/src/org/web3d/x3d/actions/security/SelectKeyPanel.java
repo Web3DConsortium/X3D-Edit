@@ -52,9 +52,13 @@ import java.util.Enumeration;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.actions.security.BouncyCastleHelper.KeystorePasswordException;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
+import org.web3d.x3d.options.OptionsMiscellaneousX3dPanel;
+import org.web3d.x3d.options.OptionsMiscellaneousX3dPanelAction;
 import org.web3d.x3d.options.X3dOptions;
 
 /**
@@ -89,6 +93,10 @@ public class SelectKeyPanel extends javax.swing.JPanel
   
   public SelectKeyPanel(Integer keyType) throws Exception
   {
+    // Will warn user to set a path to a keystore if not yet accomplished
+    initializeKeyStore(); // also gets called from reloadTable()
+    if (keystore == null) return;
+    
     beSelective = keyType;
     initComponents();
 
@@ -97,7 +105,6 @@ public class SelectKeyPanel extends javax.swing.JPanel
     titles.add(TYPE_TITLE);
     titles.add(DATE_TITLE);
 
-    inititializeKeyStore();  // also gets called from reloadTable()
     initKeyTable();
     reloadTable();
 
@@ -134,7 +141,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
 
   private void reloadTable() throws Exception
   {
-    inititializeKeyStore();
+    initializeKeyStore();
     try {
       keystore.load(keystoreFileInputStream, pw); // null inpstr means new, empty keystore
     }
@@ -206,10 +213,34 @@ public class SelectKeyPanel extends javax.swing.JPanel
     }
   }
 
-  private void inititializeKeyStore() throws Exception
+  private void initializeKeyStore() throws Exception
   {
-    keystore = BouncyCastleHelper.getKeyStore();//KeyStore.getInstance("JKS");
     String keystorePath = X3dOptions.getKeystorePath();
+    if ((keystorePath == null) || 
+         keystorePath.isBlank() || 
+         keystorePath.equalsIgnoreCase(org.openide.util.NbBundle.getMessage(OptionsMiscellaneousX3dPanel.class, "KEYSTORE_DEFAULT_WARNING")))
+    {
+        // must initially set keystore to user-provided location
+        String message = "<html>" +
+              "<p>&nbsp;</p>" +
+              "<h2 align='center'>First, Set a Path to a Keystore</h2>" +
+              "<p align='center'>" + 
+                "<i>X3D-Edit > X3D-Edit Preferences Panel > XML Security > X3D-Edit Keystore</i>" + 
+              "</p>" +
+              "<p>&nbsp;</p>" +
+              "<p align='center'>" +
+              "Next step: set keystore location" +
+              "</p>" + 
+            "</html>";
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
+        DialogDisplayer.getDefault().notify(notifyDescriptor);
+        OptionsMiscellaneousX3dPanelAction optionsMiscellaneousX3dPanelAction = new OptionsMiscellaneousX3dPanelAction();
+        optionsMiscellaneousX3dPanelAction.setPreferredPane(OptionsMiscellaneousX3dPanel.XML_SECURITY_PANE);
+        optionsMiscellaneousX3dPanelAction.actionPerformed(null); // show panel
+        keystorePath = X3dOptions.getKeystorePath();  
+        if (keystorePath == null) return;   
+    }
+    keystore = BouncyCastleHelper.getKeyStore();//KeyStore.getInstance("JKS");
     keystoreFile = new File(keystorePath);
     if (keystoreFile.exists())
         keystoreFileInputStream = new FileInputStream(keystoreFile);
