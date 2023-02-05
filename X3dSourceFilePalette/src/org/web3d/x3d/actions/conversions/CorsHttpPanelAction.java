@@ -75,7 +75,8 @@ public final class CorsHttpPanelAction extends X3dToXhtmlDomConversionAction {
     {
         setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
         setPreferredTab(CORS_TAB);
-        setTransformModelButtonEnabled(false);
+        setTransformModelButtonEnabled(false); // button might be null/ignored
+        setReadyForConversion(false);
         super.initialize(); // last, following setup
     }
 }

@@ -33,12 +33,13 @@
  */
 package org.web3d.x3d.actions.conversions;
 
-import java.awt.Dialog;
+import java.io.File;
 import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
-import org.openide.DialogDescriptor;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -49,6 +50,7 @@ import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.CORS_TAB;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.NO_CHANGE_IN_TAB;
+import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX3domAction", category = "X3D-Edit")
 
@@ -69,10 +71,26 @@ import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.NO_
 
 public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
 {
+
+    /**
+     * @return the transformSingleFileName
+     */
+    public String getTransformSingleFileName()
+    {
+        return transformSingleFileName;
+    }
+
+    /**
+     * @return the transformSingleFilePath
+     */
+    public String getTransformSingleFilePath()
+    {
+        return transformSingleFilePath;
+    }
     public static String xsltFile = "X3dToX3domX_ITE.xslt";
 
     private X3dToXhtmlDomConversionFrame x3dToXhtmlDomConversionFrame;
-    private X3dToXhtmlDomConversionPanel x3dToXhtmlDomConversionPanel;
+//  private X3dToXhtmlDomConversionPanel x3dToXhtmlDomConversionPanel; // obsolete
 
     private final HashMap<String,Object> parametersHashMap = new HashMap<>();
     
@@ -104,12 +122,17 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     private String          urlScene = urlDefault; // String holding MFString
     private String      traceEnabled = traceEnabledDefault;
     
-    private DialogDescriptor descriptor;
-    private Dialog dialog;
+//    private DialogDescriptor dialogDescriptor;
+//    private Dialog dialog;
     private JButton transformModelButton, resetButton, continueButton;
     
-    private ConversionsHelper.saveFilePack fp;
+    private ConversionsHelper.saveFilePack filePack;
+    /** prevent runaway autolaunch of converter before ready */
     private boolean readyForConversion = false;
+    /** ask once if needed and not set */
+    boolean userConfirmedWhetherAutolaunchOK = false;
+    private String transformSingleFileName = new String();
+    private String transformSingleFilePath = new String();
 
   @Override
   public String getName()
@@ -133,7 +156,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     {
         super.initialize(); // BaseConversionsAction
 
-        // TODO confirm whether needed, moving properties to X3dOptions instead
+        // TODO confirm whether needed, possibly moving properties to X3dOptions instead
         if (parametersHashMap.isEmpty()) 
         {
             resetValuesToDefault ();
@@ -231,16 +254,17 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
         saveParametersHashMap (); // save prior values
         
         // used in parent X3dToXhtmlDomConversionAction and X3dToXhtmlDomConversionPanel
-        X3DDataObject dob = (X3DDataObject)x3dEditor.getX3dEditorSupport().getDataObject();
-        String fileName = dob.getPrimaryFile().getNameExt();
-        String filePath = dob.getPrimaryFile().getPath();
+        X3DDataObject x3dDataObject = (X3DDataObject)x3dEditor.getX3dEditorSupport().getDataObject();
+        transformSingleFileName = x3dDataObject.getPrimaryFile().getNameExt();
+        transformSingleFilePath = x3dDataObject.getPrimaryFile().getPath();
         
         String urlList;
-        urlList  =  "\"" + fileName +  "\""; // Cobweb requires relative path to file first
-        urlList += " \"" + filePath +  "\""; // Cobweb has problems with file path, likely local security issue
+        urlList  =  "\"" + transformSingleFileName +  "\""; // Cobweb requires relative path to file first
+        urlList += " \"" + transformSingleFilePath + File.separatorChar + transformSingleFileName + "\""; // Cobweb has problems with file path, likely local security issue
+        // TODO also add identifier if provided in scene
         setUrlScene(urlList);
         
-//        x3dToXhtmlDomConversionFrame.loadValuesInPanel(); // ensure latest greatest
+//        x3dToXhtmlDomConversionFrame.initializeValuesInPanel(); // ensure latest greatest
     
 //        boolean conversionPanelSettingsReady = false;
 //
@@ -251,7 +275,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
 //            if       (descriptor.getValue() == resetButton)
 //            {
 //                resetValuesToDefault(); // but do not save since user may later cancel
-//                x3dToXhtmlDomConversionPanel.loadValuesInPanel ();
+//                x3dToXhtmlDomConversionPanel.initializeValuesInPanel ();
 //                // continue looping
 //            }
 //            else if (descriptor.getValue() == transformModelButton)
@@ -269,28 +293,53 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
 //        }
   //  if (BaseConversionsAction.xsltFilesRoot == null)
         String fileExtension;
+        int    newModelPort;
         if (getPlayer().equalsIgnoreCase("X_ITE") || getPlayer().equalsIgnoreCase("Cobweb"))
-             fileExtension = "X_ITE.html";
+        {
+            fileExtension = "X_ITE.html";
+            if (!userConfirmedWhetherAutolaunchOK && !X3dOptions.isActiveX3dModelServerAutolaunch())
+            {
+                userConfirmedWhetherAutolaunchOK = true; // ask once per session
+                
+                NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+                        "Autolaunch localhost http server to overcome CORS restrivctions?",
+                        "Autolaunch localhost http server?", NotifyDescriptor.YES_NO_OPTION);
+                if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
+                {
+                    X3dOptions.setActiveX3dModelServerAutolaunch(true);
+                }
+            }
+            // time to autolaunch for new model, if allowed
+            if (X3dOptions.isActiveX3dModelServerAutolaunch())
+            {
+                newModelPort = x3dToXhtmlDomConversionFrame.launchNewActiveX3dModelServer(transformSingleFileName, transformSingleFilePath);
+                if (newModelPort == -1)
+                    System.err.println ("*** transformSingleFile() " + transformSingleFileName + " launchNewActiveX3dModelServerfailed, continuing...");
+            }
+        }
         else fileExtension = "X3dom.xhtml";
-        fp = xsltOneFile(x3dEditor, "X3dTransforms/" + xsltFile, fileExtension, true, false, parametersHashMap);
+        filePack = xsltOneFile(x3dEditor, "X3dTransforms/" + xsltFile, fileExtension, true, false, parametersHashMap);
   //  else {
   //    File target = new File(BaseConversionsAction.xsltFilesRoot, xsltFile);
   //    fp = xsltOneFile(ed, target.getAbsolutePath(), ".html", false, true, null);
   //  }
-    if (fp != null) {
+    if (filePack != null) {
 //          if (!fp.initialized)  // set defaults, first time through
 //          {
 //              fp.openInBrowser = true;
 //              fp.openInEditor  = false;
 //              fp.initialized   = true;
 //          }
-          if (fp.openInEditor) {
-              ConversionsHelper.openInEditor(fp.file.getAbsolutePath());
+          if (filePack.openInEditor)
+          {
+              ConversionsHelper.openInEditor(filePack.file.getAbsolutePath());
           }
-          if (fp.openInBrowser) {
-              ConversionsHelper.openInBrowser(fp.file.getAbsolutePath());
+          if (filePack.openInBrowser)
+          {
+              x3dToXhtmlDomConversionFrame.getLocalHttpPrefix();
+              ConversionsHelper.openInBrowser(filePack.file.getAbsolutePath());
           }
-          return fp.file.getAbsolutePath();
+          return filePack.file.getAbsolutePath();
       }
       return null;
     }
