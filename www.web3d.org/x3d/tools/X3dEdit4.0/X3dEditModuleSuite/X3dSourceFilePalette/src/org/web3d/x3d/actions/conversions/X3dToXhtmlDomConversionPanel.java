@@ -66,10 +66,10 @@ import static org.web3d.x3d.options.X3dOptions.AUTHOR_MODELS_DIRECTORY_DEFAULT;
 import org.web3d.x3d.palette.items.BaseCustomizer;
 
 /**
- *
+ * replaced/refactored by X3dToXhtmlDomConversionFrame
  * @author brutzman
  */
-
+@Deprecated
 public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
 
     private final X3dToXhtmlDomConversionAction xhtmlX3domAction;
@@ -233,7 +233,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
     
     protected final void autolaunchServers ()
     {
-        if (X3dOptions.getAuthorModelsServerAutolaunch() &&
+        if (X3dOptions.isAuthorModelsServerAutolaunch() &&
             portAvailable(Integer.parseInt(X3dOptions.getPortAuthorModelsServer())))
         {
             startAuthorModelsServer ();
@@ -241,7 +241,7 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
                                " isAlive=" + isAliveAuthorModelsServer);
         }
         
-        if (X3dOptions.getExampleArchivesServerAutolaunch() &&
+        if (X3dOptions.isExampleArchivesServerAutolaunch() &&
             portAvailable(Integer.parseInt(X3dOptions.getPortExampleArchivesServer())))
         {
             startExampleArchivesServer ();
@@ -249,8 +249,8 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
                                " isAlive=" + isAliveExampleArchivesServer);
         }
         
-        if (X3dOptions.getActiveX3dModelServerAutolaunch() &&
-            portAvailable(Integer.parseInt(X3dOptions.getPortActiveX3dModelServer())))
+//        if (X3dOptions.isActiveX3dModelServerAutolaunch() &&
+//            portAvailable(Integer.parseInt(X3dOptions.getPortActiveX3dModelServer())))
         {
             startActiveX3dModelServerServer ();
             System.out.println("*** autolaunch ActiveX3dModelServer port " + X3dOptions.getPortExampleArchivesServer() +
@@ -342,12 +342,12 @@ public class X3dToXhtmlDomConversionPanel extends javax.swing.JPanel {
                    cacheCheckBox.setSelected    (xhtmlX3domAction.isCache());
                          urlList.setUrlData     (xhtmlX3domAction.getUrlScene());
         
-      autolaunchAuthorModelsServerCheckBox.setSelected(X3dOptions.getAuthorModelsServerAutolaunch());
-   autolaunchExampleArchivesServerCheckBox.setSelected(X3dOptions.getExampleArchivesServerAutolaunch());
-    autolaunchActiveX3dModelServerCheckBox.setSelected(X3dOptions.getActiveX3dModelServerAutolaunch());
+      autolaunchAuthorModelsServerCheckBox.setSelected(X3dOptions.isAuthorModelsServerAutolaunch());
+   autolaunchExampleArchivesServerCheckBox.setSelected(X3dOptions.isExampleArchivesServerAutolaunch());
+    autolaunchActiveX3dModelServerCheckBox.setSelected(X3dOptions.isActiveX3dModelServerAutolaunch());
            portAuthorModelsServerTextField.setText    (X3dOptions.getPortAuthorModelsServer());
         portExampleArchivesServerTextField.setText    (X3dOptions.getPortExampleArchivesServer());
-         portActiveX3dModelServerTextField.setText    (X3dOptions.getPortActiveX3dModelServer());
+//         portActiveX3dModelServerTextField.setText    (X3dOptions.getPortActiveX3dModelServer());
         examplesArchivesDirectoryTextField.setText    (X3dOptions.getExamplesRootDirectory());
             authorModelsDirectoryTextField.setText    (X3dOptions.getAuthorModelsDirectory());
         
@@ -2298,19 +2298,19 @@ class LocalFileHandler implements HttpHandler {
              message.append(" not bound, ");
         } 
         
-        message.append("activeX3dModel port ").append(X3dOptions.getPortActiveX3dModelServer());
-        if  (portAvailable(Integer.parseInt(X3dOptions.getPortActiveX3dModelServer())))
-        {
-             activeX3dModelServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
-             activeX3dModelServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getPortActiveX3dModelServer());
-             message.append(" is bound.");
-        }
-        else 
-        {
-             activeX3dModelServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
-             activeX3dModelServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getPortActiveX3dModelServer());
-             message.append(" not bound.");
-        } 
+//        message.append("activeX3dModel port ").append(X3dOptions.getPortActiveX3dModelServer());
+//        if  (portAvailable(Integer.parseInt(X3dOptions.getPortActiveX3dModelServer())))
+//        {
+//             activeX3dModelServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
+//             activeX3dModelServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getPortActiveX3dModelServer());
+//             message.append(" is bound.");
+//        }
+//        else 
+//        {
+//             activeX3dModelServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
+//             activeX3dModelServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getPortActiveX3dModelServer());
+//             message.append(" not bound.");
+//        } 
         System.out.println(message.toString());
     }
   /** show green if bound (by any http server), grey otherwise */
@@ -2624,14 +2624,14 @@ class LocalFileHandler implements HttpHandler {
     private void portActiveX3dModelServerTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_portActiveX3dModelServerTextFieldMouseExited
     {//GEN-HEADEREND:event_portActiveX3dModelServerTextFieldMouseExited
         // TODO check values 8000..? and not duplicated
-        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
+//        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
         updateIndicationsPortsBoundOnServers();
     }//GEN-LAST:event_portActiveX3dModelServerTextFieldMouseExited
 
     private void portActiveX3dModelServerTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_portActiveX3dModelServerTextFieldActionPerformed
     {//GEN-HEADEREND:event_portActiveX3dModelServerTextFieldActionPerformed
         // TODO check values 8000..? and not duplicated
-        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
+//        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
         updateIndicationsPortsBoundOnServers();
     }//GEN-LAST:event_portActiveX3dModelServerTextFieldActionPerformed
 
