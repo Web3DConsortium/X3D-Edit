@@ -46,6 +46,14 @@ import org.web3d.x3d.palette.items.BaseCustomizer;
  */
 public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
+    /**
+     * @return the localHttpPrefix
+     */
+    public String getLocalHttpPrefix()
+    {
+        return localHttpPrefix;
+    }
+
     private final String X3DOM_name = "X3DOM";
     public  final String X3DOM_site = "https://www.x3dom.org";
     public  final String X3DOM_help = "https://www.x3dom.org/examples";
@@ -68,6 +76,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         
     private JFileChooser authorModelsDirectoryChooser;
     private JFileChooser         corsDirectoryChooser;
+    private String     localHttpPrefix = new String();
     
     final String HTTP_START   = "http start";
     final String HTTP_STOP    = "http stop";
@@ -82,6 +91,15 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     boolean isAliveExampleArchivesServer = false;
     boolean  isAliveActiveX3dModelServer = false;
     
+    final int INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT = 8011;
+    int     nextActiveX3dModelServerPort = INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT;
+    ArrayList<String>  activeX3dModelNameList;
+    ArrayList<String>  activeX3dModelDirectoryList;
+    ArrayList<String>  activeX3dModelPortList;
+    ArrayList<Process> activeX3dModelProcessList;
+    int activeServerSelection = -1; // from activeX3dModelDirectoryServerListComboBox selected index
+    
+    
     // ProcessBuilder and Process do not provide a mechanism for inserting a shutdown hook,
     // so use Runtime and Process instead
     // https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/ProcessBuilder.html
@@ -95,7 +113,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     // https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/Process.html
     Process        httpServerProcess1;
     Process        httpServerProcess2;
-    Process        httpServerProcess3;
+    Process        httpServerProcessNew;
     
     Color   black      = new Color(  0,   0,   0);
     Color   darkgreen  = new Color( 42, 142, 104);
@@ -113,20 +131,25 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     public X3dToXhtmlDomConversionFrame(X3dToXhtmlDomConversionAction xhtmlX3domAction)
     {
         X3dToXhtmlDomConversionFrame.xhtmlX3domAction = xhtmlX3domAction; // same as this. for static variable
+        this.activeX3dModelNameList      = new ArrayList<>();
+        this.activeX3dModelDirectoryList = new ArrayList<>();
+        this.activeX3dModelPortList      = new ArrayList<>();
+        this.activeX3dModelProcessList   = new ArrayList<>();
         
         initComponents();
-        setTitle (" X3D4 Integration in HTML5"); // note leading space for readability
+        setTitle (" X3D4 Model Integration in HTML5 Web Page"); // note leading space for readability
         setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/HTML5_Logo_64.png"));
 
         plainFont = addressLabel.getFont().deriveFont(Font.PLAIN);
          boldFont = plainFont.deriveFont(Font.BOLD);
         
-        loadValuesInPanel (); // must follow componenent intialization
+        initializeValuesInPanel (); // must follow componenent intialization
 	urlList.setFileChooserX3d(); // configuration
-        autolaunchServers ();
-        updateIndicationsPortsBoundOnServers();
+        // TODO load scene url
+        portActiveX3dModelServerTextField.setEditable(false);
+        updateActiveX3dModelDirectoryButtons();
 
-        // shutdown localhost http servers on exit
+        // prepare for shutdown of localhost http servers on exit
         // https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runtime.html#getRuntime()
         // https://stackoverflow.com/questions/191215/how-to-stop-java-process-gracefully
         // https://stackoverflow.com/questions/19639319/java-shutdown-hook
@@ -140,12 +163,15 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 System.out.println(message);
                 stopAuthorModelsServer();
                 stopExampleArchivesServer();
-                stopActiveX3dModelServer();
+                stopActiveX3dModelServers(); // ArrayList
                 System.out.flush(); // output might briefly appear in console while shutting down
             }
         });
+        autolaunchServers (); // must follow runtime and shutdownhook initialization
+        updateIndicationsPortsBoundOnServers();
+        checkListSizes("X3dToXhtmlDomConversionFrame constructor");
         
-        // ------ legacy ------
+        // ------ legacy code follows ------
         
         // refactorying in progress
 //          oldStartJavaServerButton.setVisible(false);
@@ -1326,7 +1352,9 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(authorModelsDirectoryDefaultButton, gridBagConstraints);
@@ -1654,7 +1682,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         corsPanel.add(portLabel3, gridBagConstraints);
 
         portActiveX3dModelServerTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        portActiveX3dModelServerTextField.setText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.portActiveX3dModelServerTextField.text")); // NOI18N
+        portActiveX3dModelServerTextField.setText(String.valueOf(INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT));
         portActiveX3dModelServerTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.portActiveX3dModelServerTextField.toolTipText")); // NOI18N
         portActiveX3dModelServerTextField.setMaximumSize(new java.awt.Dimension(60, 22));
         portActiveX3dModelServerTextField.setMinimumSize(new java.awt.Dimension(20, 22));
@@ -1765,8 +1793,22 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(activeX3dModelServerStatusLabel, gridBagConstraints);
 
-        activeX3dModelDirectoryServerListComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "This combo box lists model directories that have localhost http servers running", "user directory 1", "user directory 2", "user directory 3" }));
+        activeX3dModelDirectoryServerListComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "This combo box lists model directories that have localhost http servers running" }));
         activeX3dModelDirectoryServerListComboBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryServerListComboBox.toolTipText")); // NOI18N
+        activeX3dModelDirectoryServerListComboBox.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
+                activeX3dModelDirectoryServerListComboBoxItemStateChanged(evt);
+            }
+        });
+        activeX3dModelDirectoryServerListComboBox.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                activeX3dModelDirectoryServerListComboBoxActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 16;
@@ -2178,31 +2220,33 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void autolaunchActiveX3dModelServerCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_autolaunchActiveX3dModelServerCheckBoxActionPerformed
     {//GEN-HEADEREND:event_autolaunchActiveX3dModelServerCheckBoxActionPerformed
+        // true means autolaunch a new server for each active X3D model converted
         X3dOptions.setAuthorModelsServerAutolaunch(autolaunchAuthorModelsServerCheckBox.isSelected());
     }//GEN-LAST:event_autolaunchActiveX3dModelServerCheckBoxActionPerformed
 
     private void portActiveX3dModelServerTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_portActiveX3dModelServerTextFieldMouseExited
     {//GEN-HEADEREND:event_portActiveX3dModelServerTextFieldMouseExited
         // TODO check values 8000..? and not duplicated
-        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
+//        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
         updateIndicationsPortsBoundOnServers();
     }//GEN-LAST:event_portActiveX3dModelServerTextFieldMouseExited
 
     private void portActiveX3dModelServerTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_portActiveX3dModelServerTextFieldActionPerformed
     {//GEN-HEADEREND:event_portActiveX3dModelServerTextFieldActionPerformed
         // TODO check values 8000..? and not duplicated
-        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
+//        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
         updateIndicationsPortsBoundOnServers();
     }//GEN-LAST:event_portActiveX3dModelServerTextFieldActionPerformed
 
     private void startActiveX3dModelServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startActiveX3dModelServerButtonActionPerformed
     {//GEN-HEADEREND:event_startActiveX3dModelServerButtonActionPerformed
-        startActiveX3dModelServerServer ();
+        activeServerSelection = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
+        startActiveX3dModelServer ();
     }//GEN-LAST:event_startActiveX3dModelServerButtonActionPerformed
 
     private void stopActiveX3dModelServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stopActiveX3dModelServerButtonActionPerformed
     {//GEN-HEADEREND:event_stopActiveX3dModelServerButtonActionPerformed
-        stopActiveX3dModelServer();
+        stopActiveX3dModelServers();
         startActiveX3dModelServerButton.setEnabled(true);
         startActiveX3dModelServerButton.setText(HTTP_START);
         startActiveX3dModelServerButton.setForeground(black);
@@ -2213,10 +2257,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void browseLocalhostActiveX3dModelsButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_browseLocalhostActiveX3dModelsButtonActionPerformed
     {//GEN-HEADEREND:event_browseLocalhostActiveX3dModelsButtonActionPerformed
-        int portValue = Integer.parseInt(portActiveX3dModelServerTextField.getText());
+        activeServerSelection = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
+        if (activeServerSelection <= 1)
+            return; // no entries
+        int portValue = Integer.parseInt(activeX3dModelPortList.get(activeServerSelection));
         if (addressValue.isBlank())
             addressValue = "localhost";
-        // getAuthorCorsDirectory() should be root of query to https://localhost:8001
+        // activeX3dModelDirectoryList.get(activeServerSelection) should be root of query to https://localhost:8001
         String localRootAddress = "http://" + addressValue + ":" + portValue;
         openInBrowser(localRootAddress);
     }//GEN-LAST:event_browseLocalhostActiveX3dModelsButtonActionPerformed
@@ -2302,7 +2349,6 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private void oldStartPythonServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_oldStartPythonServerButtonActionPerformed
     {//GEN-HEADEREND:event_oldStartPythonServerButtonActionPerformed
         // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
-
         ArrayList<String> commands = new ArrayList<>();
         commands.clear();
         commands.add("python");
@@ -2325,7 +2371,23 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_transformModelButtonActionPerformed
         // invoke file conversion
         xhtmlX3domAction.setReadyForConversion(true);
-        xhtmlX3domAction.performAction();
+        int portValue;
+        if (!portActiveX3dModelServerTextField.getText().isEmpty())
+        {
+            portValue = Integer.parseInt(portActiveX3dModelServerTextField.getText());
+        }
+        else // TODO why a mismatch?  fix it
+        {
+            portValue = nextActiveX3dModelServerPort;
+            nextActiveX3dModelServerPort++;
+        }
+        if (addressValue.isBlank())
+            addressValue = "localhost";
+        // getAuthorCorsDirectory() should be root of query to https://localhost:8001
+        if  (pageIntegrationTabbedPane.getSelectedIndex() == X_ITE_TAB)
+             localHttpPrefix = "http://" + addressValue + ":" + portValue + "/";
+        else localHttpPrefix = new String();
+        xhtmlX3domAction.performAction(); // transform, load/launch result
         xhtmlX3domAction.setReadyForConversion(false); // all done, prevent unintended reinitiation
     }//GEN-LAST:event_transformModelButtonActionPerformed
 
@@ -2352,7 +2414,28 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void activeX3dModelDirectoryClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_activeX3dModelDirectoryClearButtonActionPerformed
     {//GEN-HEADEREND:event_activeX3dModelDirectoryClearButtonActionPerformed
-        // TODO clear current list entry
+        if (activeX3dModelNameList.size() >= activeX3dModelDirectoryServerListComboBox.getModel().getSize() + 1)
+        {
+            // don't delete first explanatory entry in combobox
+            if (activeX3dModelDirectoryServerListComboBox.getSelectedIndex() > 1)
+            {
+                int index = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
+                activeX3dModelNameList.remove(index);
+                activeX3dModelDirectoryList.remove(index);
+                activeX3dModelPortList.remove(index);
+                activeX3dModelProcessList.remove(index);
+                activeX3dModelDirectoryServerListComboBox.removeItem(index + 1);
+                if (activeX3dModelDirectoryServerListComboBox.getSelectedIndex() > 1) // update other displays to match
+                {
+                    portActiveX3dModelServerTextField.setText(activeX3dModelPortList.get(activeServerSelection));
+                }
+                else // default combobox selection
+                {
+                    portActiveX3dModelServerTextField.setText("");
+                }
+                updateIndicationsPortsBoundOnServers();
+            }
+        }
     }//GEN-LAST:event_activeX3dModelDirectoryClearButtonActionPerformed
 
     private void activeX3dModelDirectoryChooserButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_activeX3dModelDirectoryChooserButtonActionPerformed
@@ -2368,7 +2451,9 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void activeX3dModelLocationLabelMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_activeX3dModelLocationLabelMouseExited
     {//GEN-HEADEREND:event_activeX3dModelLocationLabelMouseExited
-        activeX3dModelDirectoryChooser();
+        boolean haveLaunchedModels = (activeX3dModelNameList.size() > 1);
+        if (haveLaunchedModels)
+            activeX3dModelDirectoryChooser();
     }//GEN-LAST:event_activeX3dModelLocationLabelMouseExited
 
     private void examplesArchiveDescriptionLabelMouseReleased(java.awt.event.MouseEvent evt)//GEN-FIRST:event_examplesArchiveDescriptionLabelMouseReleased
@@ -2381,6 +2466,29 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         authorModelsDirectoryChooser();
     }//GEN-LAST:event_authorModelsDirectoryLabelMouseReleased
 
+    private void activeX3dModelDirectoryServerListComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_activeX3dModelDirectoryServerListComboBoxActionPerformed
+    {//GEN-HEADEREND:event_activeX3dModelDirectoryServerListComboBoxActionPerformed
+        checkListSizes("activeX3dModelDirectoryServerListComboBoxActionPerformed");
+        activeServerSelection = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
+        if (activeServerSelection <= 1)
+            return; // no entries
+        portActiveX3dModelServerTextField.setText(activeX3dModelPortList.get(activeServerSelection));
+    }//GEN-LAST:event_activeX3dModelDirectoryServerListComboBoxActionPerformed
+
+    private void activeX3dModelDirectoryServerListComboBoxItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_activeX3dModelDirectoryServerListComboBoxItemStateChanged
+    {//GEN-HEADEREND:event_activeX3dModelDirectoryServerListComboBoxItemStateChanged
+        updateActiveX3dModelDirectoryButtons();
+    }//GEN-LAST:event_activeX3dModelDirectoryServerListComboBoxItemStateChanged
+
+    private void updateActiveX3dModelDirectoryButtons()
+    {
+        boolean haveLaunchedModels = (activeX3dModelNameList.size() > 1);
+        startActiveX3dModelServerButton.setEnabled(haveLaunchedModels);
+         stopActiveX3dModelServerButton.setEnabled(haveLaunchedModels);
+   browseLocalhostActiveX3dModelsButton.setEnabled(haveLaunchedModels);
+     activeX3dModelDirectoryClearButton.setEnabled(haveLaunchedModels);
+   activeX3dModelDirectoryChooserButton.setEnabled(haveLaunchedModels);
+    }
     private void exampleArchivesDirectoryChooser()
     {
         // file chooser looks in given directory first
@@ -2413,8 +2521,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             if  ((authorModelsDirectoryTextField.getText() != null) && !authorModelsDirectoryTextField.getText().isBlank())
                  corsDirectoryChooser = new JFileChooser(authorModelsDirectoryTextField.getText().trim());
             else corsDirectoryChooser = new JFileChooser(System.getProperty("user.home"));
-                 corsDirectoryChooser.setMultiSelectionEnabled(false);
-                 corsDirectoryChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
+            corsDirectoryChooser.setMultiSelectionEnabled(false);
+            corsDirectoryChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
         }
         String title = "Choose designated CORS server directory for author models";
         corsDirectoryChooser.setDialogTitle(title);
@@ -2434,6 +2542,19 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private void activeX3dModelDirectoryChooser()
     {
         System.out.println ("*** TODO activeX3dModelDirectoryChooser() selection");
+        if (activeX3dModelNameList.isEmpty())
+        {
+            System.out.println ("*** activeX3dModelDirectoryChooser() no action taken since no model directories have been launchedused");
+            return; // TODO disable button if list is empty
+        }
+        int activeIndex = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
+        String modelDirectory = activeX3dModelDirectoryList.get(activeIndex);
+        corsDirectoryChooser = new JFileChooser(modelDirectory);
+            corsDirectoryChooser.setMultiSelectionEnabled(false);
+            corsDirectoryChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
+        corsDirectoryChooser.setDialogTitle("Active X3d model directory");
+        int returnValue = corsDirectoryChooser.showOpenDialog(this);
+        // ignore return
     }
     /**
      * @param args the command line arguments
@@ -2608,7 +2729,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     
     protected final void autolaunchServers ()
     {
-        if (X3dOptions.getAuthorModelsServerAutolaunch())
+        if (X3dOptions.isAuthorModelsServerAutolaunch())
         {
             if (!isPortBound(Integer.parseInt(X3dOptions.getPortAuthorModelsServer())))
             {
@@ -2619,7 +2740,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             else System.out.println("*** autolaunch ignored, AuthorModelsServer port " + X3dOptions.getPortAuthorModelsServer() +
                                     " isAlive=" + isAliveAuthorModelsServer);
         }
-        if (X3dOptions.getExampleArchivesServerAutolaunch())
+        if (X3dOptions.isExampleArchivesServerAutolaunch())
         {
             if (!isPortBound(Integer.parseInt(X3dOptions.getPortExampleArchivesServer())))
             {
@@ -2630,22 +2751,20 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             else System.out.println("*** autolaunch ignored, ExampleArchivesServer port " + X3dOptions.getPortExampleArchivesServer() +
                                     " isAlive=" + isAliveExampleArchivesServer);
         }
-        if (X3dOptions.getActiveX3dModelServerAutolaunch())
+        if (X3dOptions.isActiveX3dModelServerAutolaunch())
         {
-            if (!isPortBound(Integer.parseInt(X3dOptions.getPortActiveX3dModelServer())))
+            String currentActiveX3dModelPortValue = portActiveX3dModelServerTextField.getText();
+            if (!activeX3dModelNameList.isEmpty())
             {
-                 startActiveX3dModelServerServer ();
-                 System.out.println("*** autolaunch started, ActiveX3dModelServer port " + X3dOptions.getPortExampleArchivesServer() +
-                                   " isAlive=" + isAliveActiveX3dModelServer);
+                 System.out.println("*** autolaunch started, ActiveX3dModelServers");
+                 startActiveX3dModelServer ();
             }
-            else System.out.println("*** autolaunch ignored, ActiveX3dModelServer port " + X3dOptions.getPortExampleArchivesServer() +
-                                   " isAlive=" + isAliveActiveX3dModelServer);
+            else System.out.println("*** autolaunch ignored, activeX3dModelNameList isEmpty()");
         }
     }
     protected final void startAuthorModelsServer ()
     {
         // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
-               
         ArrayList<String> commands = new ArrayList<>();
         commands.clear();
         commands.add("jwebserver");
@@ -2655,19 +2774,21 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         commands.add(portAuthorModelsServerTextField.getText());
         commands.add("--output");
         commands.add("verbose");
+
         isAliveAuthorModelsServer = startServer(AUTHOR_MODELS, commands, authorModelsDirectoryTextField.getText());
         if (isAliveAuthorModelsServer || isPortBound(Integer.parseInt(portAuthorModelsServerTextField.getText())))
         {
             startAuthorModelsServerButton.setText(HTTP_RUNNING);
             startAuthorModelsServerButton.setForeground(darkgreen);
             startAuthorModelsServerButton.setFont(boldFont);
-            
+
               stopAuthorModelsServerButton.setEnabled(true);
               stopAuthorModelsServerButton.setText(HTTP_STOP);
 //            stopAuthorModelsServerButton.setForeground(Color.RED); // also BOLD
         }
         updateIndicationsPortsBoundOnServers();
     }
+    
     protected final void startExampleArchivesServer ()
     {
         // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
@@ -2693,35 +2814,45 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         }
         updateIndicationsPortsBoundOnServers();
     }
-    protected final void startActiveX3dModelServerServer ()
+    protected final void startActiveX3dModelServer ()
     {
-        // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
-               
-        ArrayList<String> commands = new ArrayList<>();
-        commands.clear();
-        commands.add("jwebserver");
-        commands.add("--bind-address");
-        commands.add(addressComboBox.getSelectedItem().toString());
-        commands.add("--port");
-        commands.add(portActiveX3dModelServerTextField.getText());
-        commands.add("--output");
-        commands.add("verbose");
-        isAliveAuthorModelsServer = startServer(ACTIVE_X3D_MODEL, commands, 
-                exampleArchivesDirectoryTextField.getText()); // TODO adjust
-        sleep(500l);
-        if (isAliveActiveX3dModelServer || isPortBound(Integer.parseInt(portActiveX3dModelServerTextField.getText())))
+        if (activeX3dModelNameList.isEmpty())
         {
-            startActiveX3dModelServerButton.setText(HTTP_RUNNING);
-            startActiveX3dModelServerButton.setForeground(darkgreen);
-            startActiveX3dModelServerButton.setFont(boldFont);
-             stopActiveX3dModelServerButton.setEnabled(true);
-             stopActiveX3dModelServerButton.setText(HTTP_STOP);
-//           stopActiveX3dModelServerButton.setForeground(Color.RED); // also BOLD
+             System.out.println("*** startActiveX3dModelServers() ignored since no model directories have been launched");
+             startActiveX3dModelServer ();        
+        }
+        int index = 0;
+        for (String activeX3dModelPort : activeX3dModelPortList)
+        {
+            index++;
+            // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
+            ArrayList<String> commands = new ArrayList<>();
+            commands.clear();
+            commands.add("jwebserver");
+            commands.add("--bind-address");
+            commands.add(addressComboBox.getSelectedItem().toString());
+            commands.add("--port");
+            commands.add(portActiveX3dModelServerTextField.getText());
+            commands.add("--output");
+            commands.add("verbose");
+            isAliveActiveX3dModelServer = startServer(ACTIVE_X3D_MODEL, commands, 
+                    exampleArchivesDirectoryTextField.getText()); // TODO adjust
+            
+            sleep(200l);
+            if (isAliveActiveX3dModelServer || isPortBound(Integer.parseInt(activeX3dModelPortList.get(index))))
+            {
+                startActiveX3dModelServerButton.setText(HTTP_RUNNING);
+                startActiveX3dModelServerButton.setForeground(darkgreen);
+                startActiveX3dModelServerButton.setFont(boldFont);
+                 stopActiveX3dModelServerButton.setEnabled(true);
+                 stopActiveX3dModelServerButton.setText(HTTP_STOP);
+    //           stopActiveX3dModelServerButton.setForeground(Color.RED); // also BOLD
+            }
         }
         updateIndicationsPortsBoundOnServers();
     }
     
-    protected final void loadValuesInPanel ()
+    protected final void initializeValuesInPanel ()
     {
       if (xhtmlX3domAction != null)
       {
@@ -2738,12 +2869,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                   widthTextField.setText        (      X3dOptions.getAuthorPreferenceHtmlWidth () ); 
                  heightTextField.setText        (      X3dOptions.getAuthorPreferenceHtmlHeight () );
         
-      autolaunchAuthorModelsServerCheckBox.setSelected(X3dOptions.getAuthorModelsServerAutolaunch());
-   autolaunchExampleArchivesServerCheckBox.setSelected(X3dOptions.getExampleArchivesServerAutolaunch());
-    autolaunchActiveX3dModelServerCheckBox.setSelected(X3dOptions.getActiveX3dModelServerAutolaunch());
+      autolaunchAuthorModelsServerCheckBox.setSelected(X3dOptions.isAuthorModelsServerAutolaunch());
+   autolaunchExampleArchivesServerCheckBox.setSelected(X3dOptions.isExampleArchivesServerAutolaunch());
+    autolaunchActiveX3dModelServerCheckBox.setSelected(X3dOptions.isActiveX3dModelServerAutolaunch());
            portAuthorModelsServerTextField.setText    (X3dOptions.getPortAuthorModelsServer());
         portExampleArchivesServerTextField.setText    (X3dOptions.getPortExampleArchivesServer());
-         portActiveX3dModelServerTextField.setText    (X3dOptions.getPortActiveX3dModelServer());
+         portActiveX3dModelServerTextField.setText    (String.valueOf(INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT));
         exampleArchivesDirectoryTextField.setText    (X3dOptions.getExamplesRootDirectory());
             authorModelsDirectoryTextField.setText    (X3dOptions.getAuthorModelsDirectory());
         
@@ -2761,6 +2892,17 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 //        {
 //            authorCorsDirectory =  "TODO";
 //        }
+    }
+    
+    /**
+     * Check whether port on local host is bound (meaning another process has it, probably an http server)
+     * @param port of interest
+     * @return whether port is bound
+     * @see https://stackoverflow.com/questions/434718/sockets-discover-port-availability-using-java
+     */
+    public static boolean isPortBound (String port)
+    {
+        return isPortBound (Integer.parseInt(port));
     }
 
     /**
@@ -2796,50 +2938,104 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         
         String PORT_BOUND = "http running on port ";
         String PORT_OPEN  = "http not running on port ";
-        StringBuilder message = new StringBuilder();
-        message.append("*** http port refresh: ");
-        message.append("authorModelsServer port ").append(X3dOptions.getPortAuthorModelsServer());
+        StringBuilder messageBuilder = new StringBuilder();
+        messageBuilder.append("*** http port refresh: ");
+        messageBuilder.append("authorModelsServer port ").append(X3dOptions.getPortAuthorModelsServer());
         if  (isPortBound(Integer.parseInt(X3dOptions.getPortAuthorModelsServer())))
         {
              authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
              authorModelsServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getPortAuthorModelsServer());
-             message.append(" is bound, ");
+             messageBuilder.append(" is bound, ");
         }
         else 
         {
             authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
              authorModelsServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getPortAuthorModelsServer());
-             message.append(" not bound, ");
+             messageBuilder.append(" not bound, ");
         }
         
-        message.append("exampleArchivesServer port ").append(X3dOptions.getPortExampleArchivesServer());
+        messageBuilder.append("exampleArchivesServer port ").append(X3dOptions.getPortExampleArchivesServer());
         if  (isPortBound(Integer.parseInt(X3dOptions.getPortExampleArchivesServer())))
         {
              exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
              exampleArchivesServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getPortExampleArchivesServer());
-             message.append(" is bound, ");
+             messageBuilder.append(" is bound, ");
         }
         else 
         {
              exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
              exampleArchivesServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getPortExampleArchivesServer());
-             message.append(" not bound, ");
+             messageBuilder.append(" not bound, ");
         } 
         
-        message.append("activeX3dModel port ").append(X3dOptions.getPortActiveX3dModelServer());
-        if  (isPortBound(Integer.parseInt(X3dOptions.getPortActiveX3dModelServer())))
+        int index = 0;
+        if (activeX3dModelDirectoryServerListComboBox.getSelectedIndex() > 1)
+        {
+            index = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
+        //  activeX3dModelNameList.get(indexList); // should be displayed by combobox
+        //  activeX3dModelDirectoryList.get(index);
+            portActiveX3dModelServerTextField.setText(activeX3dModelPortList.get(index));
+        //  activeX3dModelProcessList.get(index);
+        }
+        else // default combobox selection
+        {
+            portActiveX3dModelServerTextField.setText("");
+        }
+        String currentActiveX3dModelPortValue = portActiveX3dModelServerTextField.getText();
+        messageBuilder.append("activeX3dModel port ").append(currentActiveX3dModelPortValue);
+        if  (!currentActiveX3dModelPortValue.isEmpty() &&
+             isPortBound(Integer.parseInt(currentActiveX3dModelPortValue)))
         {
              activeX3dModelServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
-             activeX3dModelServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getPortActiveX3dModelServer());
-             message.append(" is bound.");
+             activeX3dModelServerStatusLabel.setToolTipText(PORT_BOUND + currentActiveX3dModelPortValue);
+             messageBuilder.append(" is bound, ");
         }
         else 
         {
              activeX3dModelServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
-             activeX3dModelServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getPortActiveX3dModelServer());
-             message.append(" not bound.");
-        } 
-        System.out.println(message.toString());
+             activeX3dModelServerStatusLabel.setToolTipText(PORT_OPEN + currentActiveX3dModelPortValue);
+             messageBuilder.append(" not bound, ");
+        }
+        if ((index > 0) && (activeX3dModelProcessList.get(index) != null)) // running
+        {
+            startActiveX3dModelServerButton.setText(HTTP_RUNNING);
+            startActiveX3dModelServerButton.setForeground(darkgreen);
+            startActiveX3dModelServerButton.setFont(boldFont);
+            
+             stopActiveX3dModelServerButton.setEnabled(true);
+             stopActiveX3dModelServerButton.setText(HTTP_STOP);
+//           stopActiveX3dModelServerButton.setForeground(Color.RED); // also BOLD
+             messageBuilder.append(" with httpProcess running.");
+        }
+        else // not running
+        {
+            startActiveX3dModelServerButton.setEnabled(true);
+            startActiveX3dModelServerButton.setText(HTTP_START);
+            startActiveX3dModelServerButton.setForeground(black);
+            startActiveX3dModelServerButton.setFont(plainFont);
+             stopActiveX3dModelServerButton.setEnabled(false); // TODO color
+             messageBuilder.append(" with httpProcess not running.");
+        }
+        updateActiveX3dModelDirectoryButtons();
+        System.out.println(messageBuilder.toString());
+    }
+    
+    private void checkListSizes(String origination)
+    {
+        int      comboBoxAdditions = activeX3dModelDirectoryServerListComboBox.getItemCount() - 1;
+        int      nameListSize = activeX3dModelNameList.size();
+        int directoryListSize = activeX3dModelDirectoryList.size();
+        int      portListSize = activeX3dModelPortList.size();
+        int   processListSize = activeX3dModelProcessList.size();
+        if ((comboBoxAdditions != nameListSize) ||
+            (comboBoxAdditions != directoryListSize) ||
+            (comboBoxAdditions != portListSize) ||
+            (comboBoxAdditions != processListSize))
+        {
+            System.err.println("*** checkListSizes() mismatch error detected by " + origination);
+            System.err.println("    comboBoxSize=" + comboBoxAdditions + ", nameListSize="    + nameListSize + ", directoryListSize=" + directoryListSize + 
+                                 ", portListSize=" + portListSize + ", processListSize=" + processListSize);
+        }
     }
     
 //    /** show green if bound (by any http server), grey otherwise */
@@ -2913,6 +3109,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     // TODO invoke thie method on JVM shutdown
     private int stopAuthorModelsServer()
     {
+        isAliveAuthorModelsServer = false;
         if ((httpServerProcess1 != null)) //  && httpServerProcess1.isAlive()
         {
             // typically these http servers respond supportsNormalTermination=false
@@ -2943,6 +3140,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     // TODO invoke thie method on JVM shutdown
     private int stopExampleArchivesServer()
     {
+        isAliveExampleArchivesServer = false;
         if ((httpServerProcess2 != null)) //  && httpServerProcess2.isAlive()
         {
             // typically these http servers respond supportsNormalTermination=false
@@ -2970,34 +3168,49 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         System.out.println("*** stopExampleArchivesServer() found httpServerProcess2 null, no response"); 
         return -1;
     }
-    private int stopActiveX3dModelServer()
+    private void stopActiveX3dModelServers()
     {
-        if ((httpServerProcess3 != null)) //  && httpServerProcess3.isAlive()
+        int    exitValue;
+        if (activeX3dModelProcessList.isEmpty())
         {
+            System.out.println("*** stopActiveX3dModelServers() has empty activeX3dModelProcessList, no localhost server shutdowns needed.");
+            return;
+        }
+        int index = 0;
+        for (Process httpServerProcess : activeX3dModelProcessList)
+        {
+            index++;
+            message = activeX3dModelDirectoryList.get(index) + " port=" + 
+                      activeX3dModelPortList.get(index);
             // typically these http servers respond supportsNormalTermination=false
-            // System.out.println("*** stopAuthorModelsServer() httpServerProcess3.supportsNormalTermination=" + httpServerProcess3.supportsNormalTermination()); 
+            // System.out.println("*** stopAuthorModelsServer() httpServerProcessNew.supportsNormalTermination=" + httpServerProcessNew.supportsNormalTermination()); 
             // TODO can we reach in and tell it to stop?  might require implementing http server directly
             // http servers seem to persist, so destroyForcibly()
-            int exitValue = httpServerProcess3.destroyForcibly().exitValue();
-            switch (exitValue)
+            if (httpServerProcess == null)
             {
-                case 1:
-                    message = "exitValue=" + exitValue + " (http process normal shutdown)";
-                    break;
-                case 2:
-                    message = "exitValue=" + exitValue + " (http process still running)";
-                    break;
-                default:
-                    message = "exitValue=" + exitValue;
-                    break;
+                exitValue = -1;
+                message += " exitValue=" + exitValue + " (httpServerProcess null, not previously running)";
+            }
+            else
+            {
+                exitValue = httpServerProcess.destroyForcibly().exitValue();
+                switch (exitValue)
+                {
+                    case 1:
+                        message += " exitValue=" + exitValue + " (http process normal shutdown)";
+                        break;
+                    case 2:
+                        message += " exitValue=" + exitValue + " (http process still running)";
+                        break;
+                    default:
+                        message += " exitValue=" + exitValue;
+                        break;
+                }
             }
             System.out.println("*** stopActiveX3dModelServer() " + message);
             // wait a little for for server to stop prior to checking status
-            sleep (500); // msec
-            return exitValue;
+            sleep (200); // msec
         }
-        System.out.println("*** stopExampleArchivesServer() found httpServerProcess3 null, no response"); 
-        return -1;
     }
 
     /**
@@ -3015,7 +3228,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         String[] cliCommandStringArray = cliCommands.toArray(new String[0]);
 
 //        ShutDownHook shutdownHook = new ShutDownHook(); // handled upstream
-        
+        // TODO select directory from directoryLocation which includes filename...
         File directoryLocationFile = new File(directoryLocation);
         if  (directoryLocationFile.isDirectory())
         {
@@ -3053,13 +3266,22 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                         break;
 
                     case ACTIVE_X3D_MODEL:
-                        // TODO how to redirect process output?
-                        if (httpServerProcess3 != null)
-                            stopActiveX3dModelServer(); // prepare to restart
-                        httpServerProcess3 = runtime.exec(cliCommandStringArray, null, directoryLocationFile);
-                          isAlive = httpServerProcess3.isAlive();
+                         // TODO how to redirect process output?
+//                        if (httpServerProcessNew != null)
+//                            stopActiveX3dModelServers(); // prepare to restart
+                        httpServerProcessNew = runtime.exec(cliCommandStringArray, null, directoryLocationFile);
+                        if (httpServerProcessNew != null)
+                        {
+                            isAlive = httpServerProcessNew.isAlive();
+                            activeX3dModelProcessList.add(httpServerProcessNew);
+                        }
+                        else
+                        {
+                            activeX3dModelProcessList.add(null);
+                            // TODO fix other lists in calling method
+                        }
                         portValue = portActiveX3dModelServerTextField.getText();
-                        System.out.println("    startServer() " + whichServer + " httpServerProcess3.isAlive()=" + isAlive + " on port " + portValue);
+                        System.out.println("    startServer() " + whichServer + " httpServerProcessNew.isAlive()=" + isAlive + " on port " + portValue);
                         break;
                 }
             }
@@ -3194,4 +3416,95 @@ class LocalFileHandlerOld implements HttpHandler {
                 break;
         }
     }
+    /** Launch new local http server when needed, avoiding duplications
+     * @param modelName of interest
+     * @param modelDirectory of interest
+     * @return port number used, otherwise -1 if failed to launch
+     */
+    protected int launchNewActiveX3dModelServer(String modelName, String modelDirectory)    
+    {
+        int foundPort;
+        // check if needed, prior model might have used directory
+        if      (authorModelsDirectoryTextField.getText().equals(modelDirectory) && 
+                 isAliveAuthorModelsServer)
+        {
+            foundPort = Integer.parseInt(portAuthorModelsServerTextField.getText());
+            System.out.println("*** launchNewActiveX3dModelServer() directory" + modelDirectory + 
+                               " matching authorModelsDirectory, no need to launch new server on port=" + foundPort);
+            return foundPort;
+        }
+        else if (exampleArchivesDirectoryTextField.getText().equals(modelDirectory) && 
+                 isAliveExampleArchivesServer)
+        {
+            foundPort = Integer.parseInt(portExampleArchivesServerTextField.getText());
+            System.out.println("*** launchNewActiveX3dModelServer() directory" + modelDirectory + 
+                               " matching exampleArchivesDirectory, no need to launch new server on port=" + foundPort);
+            return foundPort;
+        }
+        else if (activeX3dModelDirectoryList.contains(modelDirectory))
+        {
+            int    activeIndex = activeX3dModelDirectoryList.indexOf(modelDirectory);
+            String activePort  = activeX3dModelPortList.get(activeIndex);
+            if (isPortBound(activePort))
+            {
+                System.out.println("*** launchNewActiveX3dModelServer() directory" + modelDirectory + 
+                                 " matching prior activeX3dModelDirectory, no need to launch new server on port=" + activePort);
+                return Integer.parseInt(activePort);
+            }
+            else
+            {
+                System.out.println("*** launchNewActiveX3dModelServer() found directory " + modelDirectory + 
+                              " with localhost http port=" + activePort + " not bound as expected, trying again");
+            }
+        }
+        // attempt to find an open port, usually they are not bound unless zombie processes are persisting
+        int incrementCounter = 1;
+        while (isPortBound(nextActiveX3dModelServerPort))
+        {
+            if (incrementCounter > 10)
+            {
+                System.err.println("*** launchNewActiveX3dModelServer() unable to find unbound port, transformation cancelled");
+                return -1; // failure
+            }
+            System.err.println("*** launchNewActiveX3dModelServer() nextActiveX3dModelServerPort=" + nextActiveX3dModelServerPort + 
+                              " is unexpectedly bound, incrementing and trying again");
+            nextActiveX3dModelServerPort++;
+            incrementCounter++;
+        }
+        portActiveX3dModelServerTextField.setText(String.valueOf(nextActiveX3dModelServerPort));
+        activeX3dModelPortList.add(String.valueOf(nextActiveX3dModelServerPort));
+        activeX3dModelNameList.add(modelName);
+        activeX3dModelDirectoryList.add(modelDirectory);
+        // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
+        ArrayList<String> commands = new ArrayList<>();
+        commands.clear();
+        commands.add("jwebserver");
+        commands.add("--bind-address");
+        commands.add(addressComboBox.getSelectedItem().toString());
+        commands.add("--port");
+        commands.add(String.valueOf(nextActiveX3dModelServerPort));
+        commands.add("--output");
+        commands.add("verbose");
+        
+        boolean isAliveNewModelServer = startServer(modelName, commands, modelDirectory);
+        if (isAliveNewModelServer || isPortBound(nextActiveX3dModelServerPort))
+        {
+            startActiveX3dModelServerButton.setText(HTTP_RUNNING);
+            startActiveX3dModelServerButton.setForeground(darkgreen);
+            startActiveX3dModelServerButton.setFont(boldFont);
+            
+             stopActiveX3dModelServerButton.setEnabled(true);
+             stopActiveX3dModelServerButton.setText(HTTP_STOP);
+//           stopActiveX3dModelServerButton.setForeground(Color.RED); // also BOLD
+
+            portActiveX3dModelServerTextField.setText(String.valueOf(nextActiveX3dModelServerPort));
+            activeX3dModelNameList.add      (modelName);
+            activeX3dModelDirectoryList.add (modelDirectory);
+            activeX3dModelPortList.add      (String.valueOf(nextActiveX3dModelServerPort));
+            activeX3dModelDirectoryServerListComboBox.addItem(modelName);
+            updateIndicationsPortsBoundOnServers();
+            return nextActiveX3dModelServerPort;
+        }
+        return -1; // failure
     }
+}

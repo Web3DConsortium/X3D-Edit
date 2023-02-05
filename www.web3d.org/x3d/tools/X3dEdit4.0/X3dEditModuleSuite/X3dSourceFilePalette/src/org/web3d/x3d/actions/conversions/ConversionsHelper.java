@@ -236,18 +236,19 @@ public class ConversionsHelper
     throw new Exception("Editor not found for "+f.getAbsolutePath());
   }
   
-  static public void openInBrowser(String someAddress)
+  static public void openInBrowser(String resultFileAddress)
   {
     try {
-        someAddress = someAddress.replaceAll("\\\\","/");
-        System.out.println("*** ConversionsHelper.openInBrowser String " + someAddress);
-        if  (someAddress.startsWith("http"))
-             openInBrowser(new URL(someAddress));
-        else openInBrowser(new URL("file://"+someAddress));
+        resultFileAddress = resultFileAddress.replaceAll("\\\\","/");
+
+        System.out.println("*** ConversionsHelper.openInBrowser String " + resultFileAddress);
+        if  (resultFileAddress.startsWith("http"))
+             openInBrowser(new URL(resultFileAddress));
+        else openInBrowser(new URL("file://"+resultFileAddress));
     }
     catch (MalformedURLException e) {
       IOProvider.getDefault().getIO("Output",false).getOut().append(
-        NbBundle.getMessage(BaseConversionsAction.class,"Trying_to_display_") + someAddress +
+        NbBundle.getMessage(BaseConversionsAction.class,"Trying_to_display_") + resultFileAddress +
         NbBundle.getMessage(BaseConversionsAction.class,"_in_HtmlBrowser:_") + e.getLocalizedMessage());   
     }
   }
