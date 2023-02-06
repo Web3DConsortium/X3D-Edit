@@ -116,7 +116,7 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     cookieSet.add(X3DEditorSupport.class, X3DDataObject.this);
     cookieSet.add(ViewSupport.class, X3DDataObject.this);
     File x3dFile = FileUtil.toFile(pf);
-
+    
     // Enable SaveAs support, per FAQ
     cookieSet.assign(SaveAsCapable.class, (SaveAsCapable) (FileObject folder, String fileName) -> {
         editorSupport.saveAs(folder, fileName);
@@ -147,8 +147,9 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     dtdValidator = new DTDValidator(in);
     schemaValidator = new SchemaValidator(in);
     
-    if(x3dFile == null) // TODO this occurs erroneously when creating a new file
+    if(x3dFile == null)
     {
+        // TODO fix, this occurs erroneously when creating a new file
         System.out.println ("*** failed to create X3DDataObject() x3dFile " + pf.getPath());
         return;
     }
