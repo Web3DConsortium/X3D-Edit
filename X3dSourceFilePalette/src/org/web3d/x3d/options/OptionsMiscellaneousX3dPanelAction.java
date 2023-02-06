@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -52,8 +52,11 @@ import org.openide.util.NbBundle;
                     displayName = "#CTL_OptionsMiscellaneousX3dPanel",
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit", position = 1150),              // see layer.xml, now follows /X3D-Edit &Information
+  @ActionReference(path = "Menu/&X3D-Edit", position = 1150),             // see layer.xml, now follows /X3D-Edit &Information
   @ActionReference(path = "Editors/model/x3d+xml/Popup", position = 1150),// see layer.xml, now follows /X3D-Edit &Information
+  // appear at beginning of toolbar, already in menu:
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 5),
+  
   @ActionReference(path = "Shortcuts", name = "CS-P") // shortcut control-shift-P
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
         

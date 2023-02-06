@@ -143,10 +143,14 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         plainFont = addressLabel.getFont().deriveFont(Font.PLAIN);
          boldFont = plainFont.deriveFont(Font.BOLD);
         
-        initializeValuesInPanel (); // must follow componenent intialization
+        initializeValuesInPanel(); // must follow componenent intialization
+        // several fields are not intended for user editing
+                portActiveX3dModelServerTextField.setEditable(false);
+                exampleArchivesDirectoryTextField.setEditable(false);
+        activeX3dModelDirectoryServerListComboBox.setEditable(false);
+        
 	urlList.setFileChooserX3d(); // configuration
         // TODO load scene url
-        portActiveX3dModelServerTextField.setEditable(false);
         updateActiveX3dModelDirectoryButtons();
 
         // prepare for shutdown of localhost http servers on exit
@@ -159,12 +163,14 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             public void run()
             {
                 // TODO is it possible to discern which of three servers is running by this thread, in order to improve output message?
-                String message = "*** X3D-Edit shutdownHook for http servers";
+                message = "*** X3D-Edit shutdownHook now terminating http server processes...";
                 System.out.println(message);
                 stopAuthorModelsServer();
                 stopExampleArchivesServer();
                 stopActiveX3dModelServers(); // ArrayList
-                System.out.flush(); // output might briefly appear in console while shutting down
+                message = "*** X3D-Edit shutdownHook complete.";
+                System.out.println(message);
+                System.out.flush(); // output might briefly appear in console while shutting down, also appears in NetBeans debug console
             }
         });
         autolaunchServers (); // must follow runtime and shutdownhook initialization
@@ -2092,16 +2098,35 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void portAuthorModelsServerTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_portAuthorModelsServerTextFieldMouseExited
     {//GEN-HEADEREND:event_portAuthorModelsServerTextFieldMouseExited
-        // TODO check values 8000..? and not duplicated
-        X3dOptions.setAuthorModelsServerPort(portAuthorModelsServerTextField.getText().trim());
-        updateIndicationsPortsBoundOnServers();
+        portAuthorModelsServer();
     }//GEN-LAST:event_portAuthorModelsServerTextFieldMouseExited
 
+    private void portAuthorModelsServer()
+    {
+        // TODO check values 8000..? and not duplicated
+        if (portAuthorModelsServerTextField.getText().isBlank())
+        {
+            System.out.println("*** Resetting blank port for AuthorModelsServer to default " + X3dOptions.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
+            portAuthorModelsServerTextField.setText(X3dOptions.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
+        }
+        if (!X3dOptions.getAuthorModelsServerPort().equals(portAuthorModelsServerTextField.getText().trim()))
+        {
+            X3dOptions.setAuthorModelsServerPort(portAuthorModelsServerTextField.getText().trim());
+            if (isAliveAuthorModelsServer)
+            {
+                // notify user that file location is unworkable
+                message = "AuthorModelsServer is already running, be sure to restart localhost http server to expose new port=" + portAuthorModelsServerTextField.getText().trim();
+                System.out.println("*** " + message);
+                portAuthorModelsServerTextField.setBackground(Color.yellow);
+                NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
+                DialogDisplayer.getDefault().notify(notifyDescriptor);
+            }
+        }
+        updateIndicationsPortsBoundOnServers();
+    }
     private void portAuthorModelsServerTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_portAuthorModelsServerTextFieldActionPerformed
     {//GEN-HEADEREND:event_portAuthorModelsServerTextFieldActionPerformed
-        // TODO check values 8000..? and not duplicated
-        X3dOptions.setAuthorModelsServerPort(portAuthorModelsServerTextField.getText().trim());
-        updateIndicationsPortsBoundOnServers();
+        portAuthorModelsServer();
     }//GEN-LAST:event_portAuthorModelsServerTextFieldActionPerformed
 
     private void startAuthorModelsServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startAuthorModelsServerButtonActionPerformed
@@ -2118,6 +2143,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         startAuthorModelsServerButton.setFont(plainFont);
         
         stopAuthorModelsServerButton.setEnabled(false); // TODO color
+        portAuthorModelsServerTextField.setBackground(Color.white);
+         authorModelsDirectoryTextField.setBackground(Color.white);
         updateIndicationsPortsBoundOnServers();
     }//GEN-LAST:event_stopAuthorModelsServerButtonActionPerformed
 
@@ -2143,7 +2170,19 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void authorModelsDirectoryTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorModelsDirectoryTextFieldActionPerformed
     {//GEN-HEADEREND:event_authorModelsDirectoryTextFieldActionPerformed
-        X3dOptions.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText().trim());
+        if (!X3dOptions.getAuthorModelsDirectory().equals(authorModelsDirectoryTextField.getText().trim()))
+        {
+            X3dOptions.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText().trim());
+            if (isAliveAuthorModelsServer)
+            {
+                // notify user that file location is unworkable
+                message = "AuthorModelsServer is already running, be sure to restart localhost http server to expose new directoryLocation='" + authorModelsDirectoryTextField.getText().trim() + "'";
+                System.out.println("*** " + message);
+                authorModelsDirectoryTextField.setBackground(Color.yellow);
+                NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
+                DialogDisplayer.getDefault().notify(notifyDescriptor);
+            }
+        }
     }//GEN-LAST:event_authorModelsDirectoryTextFieldActionPerformed
 
     private void authorModelsDirectoryClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorModelsDirectoryClearButtonActionPerformed
@@ -2170,16 +2209,35 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void portExampleArchivesServerTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_portExampleArchivesServerTextFieldMouseExited
     {//GEN-HEADEREND:event_portExampleArchivesServerTextFieldMouseExited
-        // TODO check values 8000..? and not duplicated
-        X3dOptions.setExampleArchivesServerPort(portExampleArchivesServerTextField.getText().trim());
-        updateIndicationsPortsBoundOnServers();
+        portExampleArchivesServer();
     }//GEN-LAST:event_portExampleArchivesServerTextFieldMouseExited
 
+    private void portExampleArchivesServer()
+    {
+        // TODO check values 8000..? and not duplicated
+        if (portExampleArchivesServerTextField.getText().isBlank())
+        {
+            System.out.println("*** Resetting blank port for ExampleArchivesServer to default " + X3dOptions.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
+            portExampleArchivesServerTextField.setText(X3dOptions.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
+        }
+        if (!X3dOptions.getExampleArchivesServerPort().equals(portExampleArchivesServerTextField.getText().trim()))
+        {
+            X3dOptions.setExampleArchivesServerPort(portExampleArchivesServerTextField.getText().trim());
+            if (isAliveExampleArchivesServer)
+            {
+                // notify user that file location is unworkable
+                message = "ExampleArchivesServer is already running, be sure to restart localhost http server to expose new port=" + portExampleArchivesServerTextField.getText().trim();
+                System.out.println("*** " + message);
+                portExampleArchivesServerTextField.setBackground(Color.yellow);
+                NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
+                DialogDisplayer.getDefault().notify(notifyDescriptor);
+            }
+        }
+        updateIndicationsPortsBoundOnServers();
+    }
     private void portExampleArchivesServerTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_portExampleArchivesServerTextFieldActionPerformed
     {//GEN-HEADEREND:event_portExampleArchivesServerTextFieldActionPerformed
-        // TODO check values 8000..? and not duplicated
-        X3dOptions.setExampleArchivesServerPort(portExampleArchivesServerTextField.getText().trim());
-        updateIndicationsPortsBoundOnServers();
+        portExampleArchivesServer();
     }//GEN-LAST:event_portExampleArchivesServerTextFieldActionPerformed
 
     private void startExampleArchivesServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startExampleArchivesServerButtonActionPerformed
@@ -2196,6 +2254,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         startExampleArchivesServerButton.setFont(plainFont);
         stopExampleArchivesServerButton.setEnabled(false); // TODO color
         updateIndicationsPortsBoundOnServers();
+        portExampleArchivesServerTextField.setBackground(Color.white);
+        exampleArchivesDirectoryTextField.setBackground(Color.white);
     }//GEN-LAST:event_stopExampleArchivesServerButtonActionPerformed
 
     private void browseLocalhostExampleArchivesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_browseLocalhostExampleArchivesButtonActionPerformed
@@ -2503,13 +2563,16 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         String title = "Choose designated CORS server directory for author models";
         corsDirectoryChooser.setDialogTitle(title);
         // https://stackoverflow.com/questions/25666642/jfilechooser-to-pick-a-directory-or-a-single-file
-        corsDirectoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        corsDirectoryChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES) ; // prevents user from seeing what is present: DIRECTORIES_ONLY);
 
         int returnValue = corsDirectoryChooser.showOpenDialog(this);
         if (returnValue == JFileChooser.APPROVE_OPTION)
         {
-            exampleArchivesDirectoryTextField.setText(corsDirectoryChooser.getSelectedFile().getAbsolutePath());
-            // TF callback to save changed options (doesn't happen automatically)
+            if  (corsDirectoryChooser.getSelectedFile().isDirectory())
+                 exampleArchivesDirectoryTextField.setText(corsDirectoryChooser.getSelectedFile().getAbsolutePath());
+            else exampleArchivesDirectoryTextField.setText(corsDirectoryChooser.getCurrentDirectory().getAbsolutePath());
+            // TODO TF callback to save changed options (doesn't happen automatically)
+            exampleArchivesDirectoryTextField.postActionEvent();
         }
         // do not change X3dOptions value
     }
@@ -2527,13 +2590,15 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         String title = "Choose designated CORS server directory for author models";
         corsDirectoryChooser.setDialogTitle(title);
         // https://stackoverflow.com/questions/25666642/jfilechooser-to-pick-a-directory-or-a-single-file
-        corsDirectoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        corsDirectoryChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES) ; // prevents user from seeing what is present: DIRECTORIES_ONLY);
 
         int returnValue = corsDirectoryChooser.showOpenDialog(this);
         if (returnValue == JFileChooser.APPROVE_OPTION)
         {
-            authorModelsDirectoryTextField.setText(corsDirectoryChooser.getSelectedFile().getAbsolutePath());
-            // TF callback to save changed options (doesn't happen automatically)
+            if  (corsDirectoryChooser.getSelectedFile().isDirectory())
+                 authorModelsDirectoryTextField.setText(corsDirectoryChooser.getSelectedFile().getAbsolutePath());
+            else authorModelsDirectoryTextField.setText(corsDirectoryChooser.getCurrentDirectory().getAbsolutePath());
+            // TODO TF callback to save changed options (doesn't happen automatically)
             authorModelsDirectoryTextField.postActionEvent();
         }
         authorModelsDirectoryTextField.setText(authorModelsDirectoryTextField.getText().trim());
@@ -2731,24 +2796,24 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     {
         if (X3dOptions.isAuthorModelsServerAutolaunch())
         {
-            if (!isPortBound(Integer.parseInt(X3dOptions.getPortAuthorModelsServer())))
+            if (!isPortBound(Integer.parseInt(X3dOptions.getAuthorModelsServerPort())))
             {
                  startAuthorModelsServer ();
-                 System.out.println("*** autolaunch started, AuthorModelsServer port " + X3dOptions.getPortAuthorModelsServer() +
+                 System.out.println("*** autolaunch started, AuthorModelsServer port " + X3dOptions.getAuthorModelsServerPort() +
                                     " isAlive=" + isAliveAuthorModelsServer);
             }
-            else System.out.println("*** autolaunch ignored, AuthorModelsServer port " + X3dOptions.getPortAuthorModelsServer() +
+            else System.out.println("*** autolaunch ignored, AuthorModelsServer port " + X3dOptions.getAuthorModelsServerPort() +
                                     " isAlive=" + isAliveAuthorModelsServer);
         }
         if (X3dOptions.isExampleArchivesServerAutolaunch())
         {
-            if (!isPortBound(Integer.parseInt(X3dOptions.getPortExampleArchivesServer())))
+            if (!isPortBound(Integer.parseInt(X3dOptions.getExampleArchivesServerPort())))
             {
                  startExampleArchivesServer ();
-                 System.out.println("*** autolaunch started, ExampleArchivesServer port " + X3dOptions.getPortExampleArchivesServer() +
+                 System.out.println("*** autolaunch started, ExampleArchivesServer port " + X3dOptions.getExampleArchivesServerPort() +
                                     " isAlive=" + isAliveExampleArchivesServer);
             }
-            else System.out.println("*** autolaunch ignored, ExampleArchivesServer port " + X3dOptions.getPortExampleArchivesServer() +
+            else System.out.println("*** autolaunch ignored, ExampleArchivesServer port " + X3dOptions.getExampleArchivesServerPort() +
                                     " isAlive=" + isAliveExampleArchivesServer);
         }
         if (X3dOptions.isActiveX3dModelServerAutolaunch())
@@ -2787,6 +2852,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 //            stopAuthorModelsServerButton.setForeground(Color.RED); // also BOLD
         }
         updateIndicationsPortsBoundOnServers();
+        portAuthorModelsServerTextField.setBackground(Color.white);
+         authorModelsDirectoryTextField.setBackground(Color.white);
     }
     
     protected final void startExampleArchivesServer ()
@@ -2813,6 +2880,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 //           stopExampleArchivesServerButton.setForeground(Color.RED); // also BOLD
         }
         updateIndicationsPortsBoundOnServers();
+        portExampleArchivesServerTextField.setBackground(Color.white);
+        exampleArchivesDirectoryTextField.setBackground(Color.white);
     }
     protected final void startActiveX3dModelServer ()
     {
@@ -2852,7 +2921,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         updateIndicationsPortsBoundOnServers();
     }
     
-    protected final void initializeValuesInPanel ()
+    protected final void initializeValuesInPanel()
     {
       if (xhtmlX3domAction != null)
       {
@@ -2872,23 +2941,23 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
       autolaunchAuthorModelsServerCheckBox.setSelected(X3dOptions.isAuthorModelsServerAutolaunch());
    autolaunchExampleArchivesServerCheckBox.setSelected(X3dOptions.isExampleArchivesServerAutolaunch());
     autolaunchActiveX3dModelServerCheckBox.setSelected(X3dOptions.isActiveX3dModelServerAutolaunch());
-           portAuthorModelsServerTextField.setText    (X3dOptions.getPortAuthorModelsServer());
-        portExampleArchivesServerTextField.setText    (X3dOptions.getPortExampleArchivesServer());
+           portAuthorModelsServerTextField.setText    (X3dOptions.getAuthorModelsServerPort());
+        portExampleArchivesServerTextField.setText    (X3dOptions.getExampleArchivesServerPort());
          portActiveX3dModelServerTextField.setText    (String.valueOf(INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT));
-        exampleArchivesDirectoryTextField.setText    (X3dOptions.getExamplesRootDirectory());
+         exampleArchivesDirectoryTextField.setText    (X3dOptions.getExamplesRootDirectory());
             authorModelsDirectoryTextField.setText    (X3dOptions.getAuthorModelsDirectory());
         
         // TODO give indication if any examples are in archives
         
-//        if      (X3dOptions.getPortAuthorModelsServer().equals(LOCAL_EXAMPLES_ROOT))
+//        if      (X3dOptions.getAuthorModelsServerPort().equals(LOCAL_EXAMPLES_ROOT))
 //        {
 //            authorCorsDirectory =  examplesArchiveRootDirectoryTextField.getText();
 //        }
-//        else if (X3dOptions.getPortAuthorModelsServer().equals(DESIGNATED_DIRECTORY))
+//        else if (X3dOptions.getAuthorModelsServerPort().equals(DESIGNATED_DIRECTORY))
 //        {
 //            authorCorsDirectory =  authorModelsDirectoryTextField.getText();
 //        }
-//        else if (X3dOptions.getPortAuthorModelsServer().equals(CURRENT_X3D_MODEL_DIRECTORY))
+//        else if (X3dOptions.getAuthorModelsServerPort().equals(CURRENT_X3D_MODEL_DIRECTORY))
 //        {
 //            authorCorsDirectory =  "TODO";
 //        }
@@ -2903,6 +2972,24 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     public static boolean isPortBound (String port)
     {
         return isPortBound (Integer.parseInt(port));
+    }
+    
+    /**
+     * Check whether port on local host is bound (meaning another process has it, probably an http server)
+     * @return whether port is bound
+     */
+    public static boolean isPortBoundAuthorModelsServer()
+    {
+        return isPortBound(X3dOptions.getAuthorModelsServerPort());
+    }
+    
+    /**
+     * Check whether port on local host is bound (meaning another process has it, probably an http server)
+     * @return whether port is bound
+     */
+    public static boolean isPortBoundExampleArchivesServer()
+    {
+        return isPortBound(X3dOptions.getExampleArchivesServerPort());
     }
 
     /**
@@ -2940,31 +3027,45 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         String PORT_OPEN  = "http not running on port ";
         StringBuilder messageBuilder = new StringBuilder();
         messageBuilder.append("*** http port refresh: ");
-        messageBuilder.append("authorModelsServer port ").append(X3dOptions.getPortAuthorModelsServer());
-        if  (isPortBound(Integer.parseInt(X3dOptions.getPortAuthorModelsServer())))
+        
+        if (X3dOptions.getAuthorModelsServerPort().isBlank())
+        {
+            System.out.println("*** Resetting blank port for AuthorModelsServer to default " + X3dOptions.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
+            portAuthorModelsServerTextField.setText(X3dOptions.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
+            X3dOptions.setExampleArchivesServerPort(X3dOptions.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
+        }
+        messageBuilder.append("authorModelsServer port ").append(X3dOptions.getAuthorModelsServerPort());
+        
+        if  (isPortBound(Integer.parseInt(X3dOptions.getAuthorModelsServerPort())))
         {
              authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
-             authorModelsServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getPortAuthorModelsServer());
+             authorModelsServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getAuthorModelsServerPort());
              messageBuilder.append(" is bound, ");
         }
         else 
         {
             authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
-             authorModelsServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getPortAuthorModelsServer());
+             authorModelsServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getAuthorModelsServerPort());
              messageBuilder.append(" not bound, ");
         }
         
-        messageBuilder.append("exampleArchivesServer port ").append(X3dOptions.getPortExampleArchivesServer());
-        if  (isPortBound(Integer.parseInt(X3dOptions.getPortExampleArchivesServer())))
+        if (X3dOptions.getExampleArchivesServerPort().isBlank())
+        {
+            System.out.println("*** Resetting blank port for ExampleArchivesServer to default " + X3dOptions.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
+            portExampleArchivesServerTextField.setText(X3dOptions.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
+            X3dOptions.setExampleArchivesServerPort(X3dOptions.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
+        }
+        messageBuilder.append("exampleArchivesServer port ").append(X3dOptions.getExampleArchivesServerPort());
+        if  (isPortBound(Integer.parseInt(X3dOptions.getExampleArchivesServerPort())))
         {
              exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
-             exampleArchivesServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getPortExampleArchivesServer());
+             exampleArchivesServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getExampleArchivesServerPort());
              messageBuilder.append(" is bound, ");
         }
         else 
         {
              exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
-             exampleArchivesServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getPortExampleArchivesServer());
+             exampleArchivesServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getExampleArchivesServerPort());
              messageBuilder.append(" not bound, ");
         } 
         
@@ -2982,7 +3083,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             portActiveX3dModelServerTextField.setText("");
         }
         String currentActiveX3dModelPortValue = portActiveX3dModelServerTextField.getText();
-        messageBuilder.append("activeX3dModel port ").append(currentActiveX3dModelPortValue);
+        messageBuilder.append("activeX3dModel port=").append(currentActiveX3dModelPortValue);
         if  (!currentActiveX3dModelPortValue.isEmpty() &&
              isPortBound(Integer.parseInt(currentActiveX3dModelPortValue)))
         {
@@ -3041,21 +3142,21 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 //    /** show green if bound (by any http server), grey otherwise */
 //    private void indicateAuthorModelsServerPortBound ()
 //    {
-//        if  (isPortBound(Integer.parseInt(X3dOptions.getPortAuthorModelsServer())))
+//        if  (isPortBound(Integer.parseInt(X3dOptions.getAuthorModelsServerPort())))
 //             authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
 //        else authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png"))); 
 //    }
 //    /** show green if bound (by any http server), grey otherwise */
 //    private void indicateExampleArchivesServerPortBound ()
 //    {
-//        if  (isPortBound(Integer.parseInt(X3dOptions.getPortExampleArchivesServer())))
+//        if  (isPortBound(Integer.parseInt(X3dOptions.getExampleArchivesServerPort())))
 //             exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
 //        else exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png"))); 
 //    }
 //    /** show green if bound (by any http server), grey otherwise */
 //    private void indicateActiveX3dModelServerPortBound ()
 //    {
-//        if  (isPortBound(Integer.parseInt(X3dOptions.getPortExampleArchivesServer())))
+//        if  (isPortBound(Integer.parseInt(X3dOptions.getExampleArchivesServerPort())))
 //             exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
 //        else exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png"))); 
 //    }
@@ -3129,7 +3230,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                     message = "exitValue=" + exitValue;
                     break;
             }
-            System.out.println("*** stopAuthorModelsServer() " + message);
+            System.out.println("*** stopAuthorModelsServer()    " + message);
             // wait a little for for server to stop prior to checking status
             sleep (500); // msec
             return exitValue;
@@ -3230,6 +3331,20 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 //        ShutDownHook shutdownHook = new ShutDownHook(); // handled upstream
         // TODO select directory from directoryLocation which includes filename...
         File directoryLocationFile = new File(directoryLocation);
+        if  (!directoryLocationFile.isDirectory())
+        {
+            directoryLocationFile = directoryLocationFile.getParentFile();
+            if (!directoryLocationFile.isDirectory())
+            {
+                // notify user that file location is unworkable
+                System.err.println("*** startServer() Unable to start server " + whichServer + " at directoryLocation='" + directoryLocation + "'");
+                message = "<html><p align='center'>Unable to start " + whichServer + " at directoryLocation='" + directoryLocation + "'</p> </html>";
+                NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
+                DialogDisplayer.getDefault().notify(notifyDescriptor);
+                return false;
+            }
+            // should be usable now
+        }
         if  (directoryLocationFile.isDirectory())
         {
             System.out.println("*** startServer() " + whichServer + " directoryLocation=" + directoryLocation);
@@ -3293,7 +3408,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             if (!isAlive)
             {
                 // notify user port is already bound
-                String message = "<html><p align='center'>new CORS http server did not start, possibly port " + portValue + " is already bound?</p> <br /> <p align='center'>Continuing...</p></html>";
+                message = "<html><p align='center'>new CORS http server did not start, possibly port " + portValue + " is already bound?</p> <br /> <p align='center'>Continuing...</p></html>";
                 NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
                 DialogDisplayer.getDefault().notify(notifyDescriptor);
             }
@@ -3413,6 +3528,7 @@ class LocalFileHandlerOld implements HttpHandler {
                 break;
             case CORS_TAB:
                 transformModelButton.setEnabled(false);
+                updateIndicationsPortsBoundOnServers();
                 break;
         }
     }
@@ -3506,5 +3622,9 @@ class LocalFileHandlerOld implements HttpHandler {
             return nextActiveX3dModelServerPort;
         }
         return -1; // failure
+    }
+    public void setUrlData (String urlData)
+    {
+        urlList.setUrlData (urlData);
     }
 }

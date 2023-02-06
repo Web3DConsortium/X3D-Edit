@@ -118,7 +118,7 @@ public class X3dOptions
   private static String ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY= "ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY";
   private static String AUTHOR_MODELS_SERVER_PORT_KEY         = "AUTHOR_MODELS_SERVER_PORT_KEY";
   private static String EXAMPLE_ARCHIVES_SERVER_PORT_KEY      = "EXAMPLE_ARCHIVES_SERVER_PORT_KEY";
-  private static String ACTIVE_X3D_MODEL_SERVER_PORT_KEY      = "ACTIVE_X3D_MODEL_SERVER_PORT_KEY";
+  private static String NEW_X3D_MODELS_DIRECTORY_KEY          = "NEW_X3D_MODELS_DIRECTORY_KEY";
   
   private static String             BASIC_LOCALEXAMPLES_PRESENT_KEY =             "BASIC_LOCALEXAMPLES_PRESENT_KEY";
   private static String   CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY =   "CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY";
@@ -163,11 +163,12 @@ public class X3dOptions
   public static String  AUTHOR_NAME_DEFAULT             = System.getProperty("user.name");
   public static String  AUTHOR_EMAIL_DEFAULT            = "";
   // https://stackoverflow.com/questions/585534/what-is-the-best-way-to-find-the-users-home-directory-in-java
-  // TODO is /Desktop OK on MacOSX and Linux?
-  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
-  public static String  AUTHOR_MODELS_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop"; // user.dir is local X3D-Edit execution directory
+  // TODO confirm if /Desktop is a good location on MacOSX and Linux?
+  public static String  NEW_X3D_MODELS_DIRECTORY_DEFAULT           = System.getProperty("user.home") + File.separatorChar + "Desktop" + File.separatorChar + "NewX3dModels";
+  public static String  AUTHOR_MODELS_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop" + File.separatorChar + "NewX3dModels"; // user.dir is local X3D-Edit execution directory
+  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop" + File.separatorChar;                  // user.dir is local X3D-Edit execution directory
   
-  public static String  AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT   =     "";
+  public static String  AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT   =  "";
   public static String  AUTHOR_PREFERENCE_HTML_WIDTH_DEFAULT       =  "450";
   public static String  AUTHOR_PREFERENCE_HTML_HEIGHT_DEFAULT      =  "800";
   
@@ -177,7 +178,6 @@ public class X3dOptions
 
   public static String  AUTHOR_MODELS_SERVER_PORT_DEFAULT          = "8001";
   public static String  EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT       = "8002";
-  public static String  ACTIVE_X3D_MODEL_SERVER_PORT_DEFAULT       = "8003";
   
   // there is no unique best default path as a user could store examples anywhere on their local machine
   // thus user.dir property persistence will allow a path to be remembered
@@ -185,7 +185,7 @@ public class X3dOptions
 //private static String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeystoreNameExtension()).toString();
 
   public static String  KEYSTORE_PASSWORD_DEFAULT       = "test";
-  public static String  KEYSTORE_DIRECTORY_DEFAULT      = System.getProperty("user.dir"); // otherwise user can define a local keystore path
+  public static String  KEYSTORE_DIRECTORY_DEFAULT      = System.getProperty("user.dir") + File.separatorChar; // otherwise user can define a local keystore path
   // https://stackoverflow.com/questions/5971964/when-should-i-use-file-separator-and-when-file-pathseparator
   public static String  KEYSTORE_PATH_DEFAULT           = System.getProperty("user.dir") + File.separator + KEYSTORE_FILENAME_DEFAULT;
 
@@ -222,14 +222,24 @@ public class X3dOptions
   public static void    setAuthorPreferenceHtmlWidth       (String value)  { commonStringSet(AUTHOR_PREFERENCE_HTML_WIDTH_KEY, value);}
   public static void    setAuthorPreferenceHtmlHeight      (String value)  { commonStringSet(AUTHOR_PREFERENCE_HTML_HEIGHT_KEY, value);}
   
-  public static void    setExamplesRootDirectory           (String value)  { commonStringSet(EXAMPLES_ROOT_DIRECTORY_KEY, value);}
-  public static void    setAuthorModelsDirectory           (String value)  { commonStringSet(AUTHOR_MODELS_DIRECTORY_KEY, value);}
+  public static void    setExamplesRootDirectory           (String value)  { 
+      if (value == null)
+          return;
+      if      (value.endsWith("\\") || value.endsWith("/"))
+               value = value.substring(0, value.length() - 1);
+      if      (value.endsWith("www.web3d.org\\x3d\\content\\examples"))
+               value = value.substring(0, value.lastIndexOf("www.web3d.org\\x3d\\content\\examples") + 1);
+      else if (value.endsWith("www.web3d.org/x3d/content/examples"))
+               value = value.substring(0, value.lastIndexOf("www.web3d.org/x3d/content/examples") + 1);
+      commonStringSet(EXAMPLES_ROOT_DIRECTORY_KEY, value);}
+
+  public static void    setNewX3dModelsDirectory           (String value)  {  commonStringSet(NEW_X3D_MODELS_DIRECTORY_KEY, value);}
+  public static void    setAuthorModelsDirectory           (String value)  {  commonStringSet(AUTHOR_MODELS_DIRECTORY_KEY, value);}
   public static void    setAuthorModelsServerAutolaunch    (boolean value) { commonBooleanSet(AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY, value);}
   public static void    setExampleArchivesServerAutolaunch (boolean value) { commonBooleanSet(EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY, value);}
   public static void    setActiveX3dModelServerAutolaunch  (boolean value) { commonBooleanSet(ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY, value);}
-  public static void    setAuthorModelsServerPort          (String value)  { commonStringSet(AUTHOR_MODELS_SERVER_PORT_KEY, value);}
-  public static void    setExampleArchivesServerPort       (String value)  { commonStringSet(EXAMPLE_ARCHIVES_SERVER_PORT_KEY, value);}
-  public static void    setActiveX3dModelServerPort        (String value)  { commonStringSet(ACTIVE_X3D_MODEL_SERVER_PORT_KEY, value);}
+  public static void    setAuthorModelsServerPort          (String value)  {  commonStringSet(AUTHOR_MODELS_SERVER_PORT_KEY, value);}
+  public static void    setExampleArchivesServerPort       (String value)  {  commonStringSet(EXAMPLE_ARCHIVES_SERVER_PORT_KEY, value);}
   
   public static void    resetUserOptions ()
   {
@@ -266,22 +276,21 @@ public class X3dOptions
      setKeystoreDirectory (KEYSTORE_DIRECTORY_DEFAULT);
   }
   
+  public static String  getAuthorName ()                            { return  commonStringGet(AUTHOR_NAME_KEY,    AUTHOR_NAME_DEFAULT);}
+  public static String  getAuthorEmail ()                           { return  commonStringGet(AUTHOR_EMAIL_KEY,   AUTHOR_EMAIL_DEFAULT);}
+  public static String  getExamplesRootDirectory ()                 { return  commonStringGet(EXAMPLES_ROOT_DIRECTORY_KEY,   EXAMPLES_ROOT_DIRECTORY_DEFAULT);}
   
-  public static String  getAuthorName ()                            { return commonStringGet(AUTHOR_NAME_KEY,    AUTHOR_NAME_DEFAULT);}
-  public static String  getAuthorEmail ()                           { return commonStringGet(AUTHOR_EMAIL_KEY,   AUTHOR_EMAIL_DEFAULT);}
-  public static String  getExamplesRootDirectory ()                 { return commonStringGet(EXAMPLES_ROOT_DIRECTORY_KEY,   EXAMPLES_ROOT_DIRECTORY_DEFAULT);}
+  public static String  getAuthorPreferenceCorsDirectory ()         { return  commonStringGet(AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY,      AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT);}
+  public static String  getAuthorPreferenceHtmlWidth ()             { return  commonStringGet(AUTHOR_PREFERENCE_HTML_WIDTH_KEY,          AUTHOR_PREFERENCE_HTML_WIDTH_DEFAULT);}
+  public static String  getAuthorPreferenceHtmlHeight ()            { return  commonStringGet(AUTHOR_PREFERENCE_HTML_HEIGHT_KEY,         AUTHOR_PREFERENCE_HTML_HEIGHT_DEFAULT);}
   
-  public static String  getAuthorPreferenceCorsDirectory ()         { return commonStringGet(AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY,      AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT);}
-  public static String  getAuthorPreferenceHtmlWidth ()             { return commonStringGet(AUTHOR_PREFERENCE_HTML_WIDTH_KEY,          AUTHOR_PREFERENCE_HTML_WIDTH_DEFAULT);}
-  public static String  getAuthorPreferenceHtmlHeight ()            { return commonStringGet(AUTHOR_PREFERENCE_HTML_HEIGHT_KEY,         AUTHOR_PREFERENCE_HTML_HEIGHT_DEFAULT);}
-  
-  public static String  getAuthorModelsDirectory ()                 { return commonStringGet(AUTHOR_MODELS_DIRECTORY_KEY,               AUTHOR_MODELS_DIRECTORY_DEFAULT);}
-  public static boolean getAuthorModelsServerAutolaunch ()          { return commonBooleanGet(AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY,      AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT);}
-  public static boolean getExampleArchivesServerAutolaunch ()       { return commonBooleanGet(EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY,   EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_DEFAULT);}
-  public static boolean getActiveX3dModelServerAutolaunch ()        { return commonBooleanGet(ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY,   AUTHOR_X3D_MODEL_SERVER_AUTOLAUNCH_DEFAULT);}
-  public static String  getPortAuthorModelsServer ()                { return commonStringGet(AUTHOR_MODELS_SERVER_PORT_KEY,             AUTHOR_MODELS_SERVER_PORT_DEFAULT);}
-  public static String  getPortExampleArchivesServer ()             { return commonStringGet(EXAMPLE_ARCHIVES_SERVER_PORT_KEY,          EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);}
-  public static String  getPortActiveX3dModelServer ()              { return commonStringGet(ACTIVE_X3D_MODEL_SERVER_PORT_KEY,          ACTIVE_X3D_MODEL_SERVER_PORT_DEFAULT);}
+  public static String  getNewX3dModelsDirectory ()                 { return  commonStringGet(NEW_X3D_MODELS_DIRECTORY_KEY,              NEW_X3D_MODELS_DIRECTORY_DEFAULT);}
+  public static String  getAuthorModelsDirectory ()                 { return  commonStringGet(AUTHOR_MODELS_DIRECTORY_KEY,               AUTHOR_MODELS_DIRECTORY_DEFAULT);}
+  public static boolean isAuthorModelsServerAutolaunch ()           { return commonBooleanGet(AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY,       AUTHOR_MODELS_SERVER_AUTOLAUNCH_DEFAULT);}
+  public static boolean isExampleArchivesServerAutolaunch ()        { return commonBooleanGet(EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY,    EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_DEFAULT);}
+  public static boolean isActiveX3dModelServerAutolaunch ()         { return commonBooleanGet(ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY,    AUTHOR_X3D_MODEL_SERVER_AUTOLAUNCH_DEFAULT);}
+  public static String  getAuthorModelsServerPort ()                { return  commonStringGet(AUTHOR_MODELS_SERVER_PORT_KEY,             AUTHOR_MODELS_SERVER_PORT_DEFAULT);}
+  public static String  getExampleArchivesServerPort ()             { return  commonStringGet(EXAMPLE_ARCHIVES_SERVER_PORT_KEY,          EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);}
   
   public static boolean             getBasicLocalExamplesPresent () { return commonBooleanGet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, false);}
   public static boolean   getConformanceNistLocalExamplesPresent () { return commonBooleanGet(  CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY, false);}
@@ -291,9 +300,9 @@ public class X3dOptions
   public static boolean            getX3d4waLocalExamplesPresent () { return commonBooleanGet(           X3D4WA_LOCALEXAMPLES_PRESENT_KEY, false);}
   public static boolean            getX3d4amLocalExamplesPresent () { return commonBooleanGet(           X3D4AM_LOCALEXAMPLES_PRESENT_KEY, false);}
   
-  public static String  getKeystorePassword ()                      { return commonStringGet(KEYSTORE_PASSWORD_KEY,   KEYSTORE_PASSWORD_DEFAULT);}
-  public static String  getKeystoreFileName ()                      { return commonStringGet(KEYSTORE_FILENAME_KEY,   KEYSTORE_FILENAME_DEFAULT);}
-  public static String  getKeystoreDirectory ()                     { return commonStringGet(KEYSTORE_DIRECTORY_KEY,   KEYSTORE_DIRECTORY_DEFAULT);}
+  public static String  getKeystorePassword ()                      { return  commonStringGet(KEYSTORE_PASSWORD_KEY,   KEYSTORE_PASSWORD_DEFAULT);}
+  public static String  getKeystoreFileName ()                      { return  commonStringGet(KEYSTORE_FILENAME_KEY,   KEYSTORE_FILENAME_DEFAULT);}
+  public static String  getKeystoreDirectory ()                     { return  commonStringGet(KEYSTORE_DIRECTORY_KEY,   KEYSTORE_DIRECTORY_DEFAULT);}
             
   public static String getKeystorePasswordDefault()                 { return KEYSTORE_PASSWORD_DEFAULT;}
   public static String getKeystoreFileNameDefault()                 { return KEYSTORE_FILENAME_DEFAULT;}
