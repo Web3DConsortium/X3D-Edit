@@ -63,7 +63,6 @@ import static org.web3d.x3d.actions.LaunchX3dExamplesAction.sendBrowserTo;
 import org.web3d.x3d.actions.LocalExamplesFinder;
 import org.web3d.x3d.options.X3dOptions;
 import static org.web3d.x3d.options.X3dOptions.EXAMPLES_ROOT_DIRECTORY_DEFAULT;
-import static org.web3d.x3d.options.X3dOptions.setExamplesRootDirectory;
 
 /**
  *
@@ -89,7 +88,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
   private       String localArchiveDirectory = ""; // not root but below, if available
   
   private JFileChooser fileChooser;
-  private ExecutorTask task;
+  private ExecutorTask executorTask;
   
   /** Constructor that creates new form ExampleArchivesDownloadPanel */
   public DownloadX3dExamplesArchivesPanel()
@@ -1405,9 +1404,9 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
       os.close();
       lock.releaseLock();
 
-      task = ActionUtils.runTarget(tmpFO, targetsArray, props);
-      task.addTaskListener(new taskListener());
-      task.getInputOutput().select();
+      executorTask = ActionUtils.runTarget(tmpFO, targetsArray, props);
+      executorTask.addTaskListener(new taskListener());
+      executorTask.getInputOutput().select();
       startDownloadButton.setText("Download started...");
       startDownloadButton.setEnabled(false);
      cancelDownloadButton.setEnabled(true);
@@ -1433,10 +1432,12 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         LocalExamplesFinder.instance().setSavageExamplesDirectory           (new File(interimParentDirectory,SAVAGETARGET).getAbsolutePath());
     }//GEN-LAST:event_startDownloadButtonActionPerformed
     catch (IOException | IllegalArgumentException ex) {
-      task.getInputOutput().select();
-      task.getInputOutput().getErr().append(ex.getMessage());
+      executorTask.getInputOutput().select();
+      executorTask.getInputOutput().getErr().append(ex.getMessage());
     }
-    // TODO confirm,are downloads complete prior to reaching next step?
+    // TODO confirm, are downloads complete prior to reaching next step?
+    executorTask.waitFinished(); // don't want to block
+    
     updateStatusPropertiesLocalArchivesPresent();
     updatePanelLocalArchivesPresent();
     if (!anyArchivePresentInitially && isAnyArchivePresent())
@@ -1453,7 +1454,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
   
   public boolean isRunning()
   {
-    return task != null;
+    return executorTask != null;
   }
   
   class taskListener implements TaskListener
@@ -1467,9 +1468,9 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
   }
   public void killTask()
   {
-    if(task != null) {
-      task.stop();
-      task = null;
+    if(executorTask != null) {
+      executorTask.stop();
+      executorTask = null;
     }
     startDownloadButton.setText("Start downloads");
     startDownloadButton.setEnabled(true);
@@ -1540,7 +1541,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 
     private void rootDownloadDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_rootDownloadDirectoryDefaultButtonActionPerformed
     {//GEN-HEADEREND:event_rootDownloadDirectoryDefaultButtonActionPerformed
-        setExamplesRootDirectory(EXAMPLES_ROOT_DIRECTORY_DEFAULT); // user.dir
+        X3dOptions.setExamplesRootDirectory(EXAMPLES_ROOT_DIRECTORY_DEFAULT); // user.dir
         rootDownloadDirectoryTF.setText(X3dOptions.getExamplesRootDirectory());
         downloadDirectoryLabelUpdate (); // re-initialize
         updateStatusPropertiesLocalArchivesPresent();
