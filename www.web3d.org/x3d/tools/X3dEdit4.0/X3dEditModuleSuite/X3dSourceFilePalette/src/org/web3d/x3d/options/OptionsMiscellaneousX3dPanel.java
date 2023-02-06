@@ -10904,6 +10904,17 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     /** Include information so that directory purpose is evident. */
     private void initializeNewModelsDirectory()
     {
+        // set autolaunch if appropriate
+        if (newX3dModelsDirectoryTF.getText().trim().equals(X3dOptions.getAuthorModelsDirectory()))
+        {
+            X3dOptions.setExampleArchivesServerAutolaunch(true);
+            
+        
+            NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
+                    "Enabling autolaunch of localhost HTTP server for New Models (Author Models) directory", 
+                    "Enabling autolaunch", NotifyDescriptor.PLAIN_MESSAGE);
+            DialogDisplayer.getDefault().notify(notifyDescriptor);
+        }
         String filename = "README.X3D-Edit.txt";
         String filepath = newX3dModelsDirectoryTF.getText() + File.separatorChar + filename;
         File ReadmeFile = new File(filepath);
@@ -10935,8 +10946,8 @@ for Extensible 3D (X3D) Graphics International Standard.
 * https://web3d.org/x3d
 """);
         readmeWriter.close();
-        
     }
+
     public static void reportButtonSend (String panelName)
     {
         // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java

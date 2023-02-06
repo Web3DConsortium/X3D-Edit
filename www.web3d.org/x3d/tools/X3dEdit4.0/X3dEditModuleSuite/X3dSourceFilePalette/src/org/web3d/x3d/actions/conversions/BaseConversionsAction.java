@@ -213,15 +213,6 @@ import org.xml.sax.SAXParseException;
             return; // no action to perform
         }
 
-        // Do not execute if autolaunched by X3DOM/X_ITE panel, rather count on deliberate invocation by button
-        if (this instanceof X3dToXhtmlDomConversionAction) 
-        {
-            // avoid runaway default conversion by complex panel until user is ready
-            if (!((X3dToXhtmlDomConversionAction) this).isReadyForConversion())
-            {
-                return;
-            }
-        }
         ArrayList<X3DEditorSupport.X3dEditor> x3dEditorTopComponentArrayList = new ArrayList<>();
         for (TopComponent topComponent : topComponentArray)
         {
@@ -235,7 +226,17 @@ import org.xml.sax.SAXParseException;
             System.err.println ("*** cannot perform action if no X3D model is available");
             return;
         }
-        else if (x3dEditorTopComponentArrayList.size() == 1) // no need to ask user which model
+        // Do not execute if autolaunched by X3DOM/X_ITE panel, rather count on deliberate invocation by button
+        if (this instanceof X3dToXhtmlDomConversionAction) 
+        {
+            // avoid runaway default conversion by complex panel until user is ready
+            if (!((X3dToXhtmlDomConversionAction) this).isReadyForConversion())
+            {
+                return;
+            }
+        }
+        // ready to launch
+        if (x3dEditorTopComponentArrayList.size() == 1) // no need to ask user which model
         {
             X3dEditor x3dEditor = x3dEditorTopComponentArrayList.get(0);
             transformSingleFile(x3dEditor);
