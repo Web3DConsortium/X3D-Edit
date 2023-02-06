@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -58,7 +58,7 @@ import java.io.*;
  * https://www.geocities.com/marcoschmidt.geo/java-image-file-code-examples.html
  */
 
-public class PixelTextureGenerator extends Frame
+public final class PixelTextureGenerator extends Frame
 {
 	private Image image;
         private File outputFile;
@@ -73,7 +73,7 @@ public class PixelTextureGenerator extends Frame
 	{
 	  try
 	  {
-        String name = new String();
+                String name;
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		image = toolkit.getImage(imageFilename);
 		MediaTracker mediaTracker = new MediaTracker(this);
@@ -305,7 +305,7 @@ public class PixelTextureGenerator extends Frame
             out.write("    <meta content='https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/fieldsDef.html#SFImage' name='reference'/>\n");
             out.write("    <meta content='https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/texturing.html#Texturecoordinates' name='reference'/>\n");
             out.write("    <meta content='https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/texturing.html#PixelTexture' name='reference'/>\n");
-            out.write("    <meta content='https://www.web3d.org/x3d/content/examples/Vrml2.0Sourcebook/Chapter17-Textures/_pages/page13.html' name='reference'/>\n");
+            out.write("    <meta content='https://www.web3d.org/x3d/content/examples/Vrml2Sourcebook/Chapter17-Textures/_pages/page13.html' name='reference'/>\n");
             out.write("  </head>\n");
             out.write("  <Scene>\n");
             out.write("    <Viewpoint position='0 0 1.5' description='PixelTexture version of image " + imageFilename + "'/>\n");
