@@ -65,7 +65,7 @@ import org.web3d.x3d.palette.items.PROTOTYPE_ExtrusionCrossSection;
 //@ActionReferences(value = {
 //  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 70),
 //  @ActionReference(path = "Editors/model/x3d+xml/Popup", position = 212),
-//  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 100),})
+//  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 100),})
 //
 //@NbBundle.Messages("CTL_ExportX3domAction=Export X3DOM XHTML")
 

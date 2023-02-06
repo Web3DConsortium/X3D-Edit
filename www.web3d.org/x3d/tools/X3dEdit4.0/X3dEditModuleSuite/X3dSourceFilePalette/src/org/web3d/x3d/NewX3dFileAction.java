@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -52,6 +52,7 @@ import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+import org.web3d.x3d.options.X3dOptions;
 
 /**
  * Create new X3D scene source file .x3d for editing
@@ -62,7 +63,7 @@ import org.openide.util.actions.CallableSystemAction;
                     displayName = "#CTL_X3DNewFileAction",
                            lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/X3D-Edit &New File Templates", name = "org-web3d-x3d-NewX3DFileAction", position = 310),
+  @ActionReference(path = "Toolbars/X3D-Edit New File Templates", name = "org-web3d-x3d-NewX3DFileAction", position = 310),
   @ActionReference(path = "Menu/&X3D-Edit/&New File Templates", position = 310),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&New File Templates", position = 310),
 })
@@ -85,9 +86,9 @@ public final class NewX3dFileAction extends CallableSystemAction
       
       DataObject templ = DataObject.find(x3dTmplFo);      // get a DataObject for the template
        
-      // Build the temp file in home dir.
-      File home = new File(System.getProperty("user.home"));
-      FileObject homeFo = FileUtil.createFolder(home);
+      // Build the temp file in home directory
+      File homeDirectory = new File(X3dOptions.getNewX3dModelsDirectory());
+      FileObject homeFo = FileUtil.createFolder(homeDirectory);
       
       // Find a free name
       String freename = FileUtil.findFreeFileName(homeFo, "newSceneGraph", "x3d");
