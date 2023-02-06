@@ -236,6 +236,9 @@ public class ConversionsHelper
     throw new Exception("Editor not found for "+f.getAbsolutePath());
   }
   
+  /** Open file in system browser, ensuring prefix such as http://localhost:8001 has been included already.
+   * @param resultFileAddress file or Web address to open
+   */
   static public void openInBrowser(String resultFileAddress)
   {
     try {
@@ -253,12 +256,29 @@ public class ConversionsHelper
     }
   }
   
+  /** Open file in system browser, ensuring prefix such as http://localhost:8001 has been included already.
+   * @param url file or Web address to open
+   */
   static public void openInBrowser(URL url)
   {
     // HtmlBrowser.URLDisplayer.getDefault().showURL(url);
-    
+      
+    if ((url == null) || url.toString().isBlank())
+    {
+        System.err.println("*** openInBrowser(" + url + ") is an incorrect url address");
+        return;
+    }
     String urlString = url.toString();
-    
+    int    portValue = url.getPort();
+    if (urlString.startsWith("http://localhost") && !X3dToXhtmlDomConversionFrame.isPortBound(portValue))
+    {
+        // notify user if localhost port is not bound
+        String message = "openInBrowser(" + urlString + ") port=" + portValue + " is not bound, may need to start localhost http server";
+        System.out.println("*** " + message);
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
+        DialogDisplayer.getDefault().notify(notifyDescriptor);
+        // continue anyway
+    }
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
         try {
@@ -271,10 +291,29 @@ public class ConversionsHelper
     }
   }
   
+  /** Open file in system browser, ensuring prefix such as http://localhost:8001 has been included already.
+   * @param uri file or Web address to open
+   */
   static public void openInBrowser(URI uri)
   {
     // HtmlBrowser.URLDisplayer.getDefault().showURL(uri);
-    
+      
+    if ((uri == null) || uri.toString().isBlank())
+    {
+        System.err.println("*** openInBrowser(" + uri + ") is an incorrect uri address");
+        return;
+    }
+    String uriString = uri.toString();
+    int    portValue = uri.getPort();
+    if (uriString.startsWith("http://localhost") && !X3dToXhtmlDomConversionFrame.isPortBound(portValue))
+    {
+        // notify user if localhost port is not bound
+        String message = "openInBrowser(" + uriString + ") port=" + portValue + " is not bound, may need to start localhost http server";
+        System.out.println("*** " + message);
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
+        DialogDisplayer.getDefault().notify(notifyDescriptor);
+        // continue anyway
+    }
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
         try {

@@ -48,8 +48,8 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
-import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.CORS_TAB;
-import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.NO_CHANGE_IN_TAB;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.CORS_TAB;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.NO_CHANGE_IN_TAB;
 import org.web3d.x3d.options.X3dOptions;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX3domAction", category = "X3D-Edit")
@@ -250,19 +250,24 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
 
   @Override
   public String transformSingleFile(X3DEditorSupport.X3dEditor x3dEditor)
-  {
-        saveParametersHashMap (); // save prior values
-        
+  {        
         // used in parent X3dToXhtmlDomConversionAction and X3dToXhtmlDomConversionPanel
         X3DDataObject x3dDataObject = (X3DDataObject)x3dEditor.getX3dEditorSupport().getDataObject();
         transformSingleFileName = x3dDataObject.getPrimaryFile().getNameExt();
-        transformSingleFilePath = x3dDataObject.getPrimaryFile().getPath();
+        transformSingleFilePath = x3dDataObject.getPrimaryFile().getPath(); // full path, including file name
         
         String urlList;
-        urlList  =  "\"" + transformSingleFileName +  "\""; // Cobweb requires relative path to file first
-        urlList += " \"" + transformSingleFilePath + File.separatorChar + transformSingleFileName + "\""; // Cobweb has problems with file path, likely local security issue
+        urlList  =  "\"" + transformSingleFileName + "\""; // Cobweb requires relative path to file first
+        urlList += " \"" + transformSingleFilePath + "\""; // Cobweb has problems with file path, likely local security issue
+        
         // TODO also add identifier if provided in scene
+        // x3dDataObject.getFreshSaxSource().getInputSource().etc...;
+        
+        // TODO parametersHashMap add urlList
+        
+        
         setUrlScene(urlList);
+        x3dToXhtmlDomConversionFrame.setUrlData(urlList); // update panel display
         
 //        x3dToXhtmlDomConversionFrame.initializeValuesInPanel(); // ensure latest greatest
     
@@ -297,12 +302,14 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
         if (getPlayer().equalsIgnoreCase("X_ITE") || getPlayer().equalsIgnoreCase("Cobweb"))
         {
             fileExtension = "X_ITE.html";
-            if (!userConfirmedWhetherAutolaunchOK && !X3dOptions.isActiveX3dModelServerAutolaunch())
+            if (!userConfirmedWhetherAutolaunchOK && 
+                !X3dOptions.isActiveX3dModelServerAutolaunch() && 
+                !X3dToXhtmlDomConversionFrame.isPortBoundAuthorModelsServer())
             {
                 userConfirmedWhetherAutolaunchOK = true; // ask once per session
                 
                 NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-                        "Autolaunch localhost http server to overcome CORS restrivctions?",
+                        "Autolaunch localhost http server to overcome CORS restrictions?",
                         "Autolaunch localhost http server?", NotifyDescriptor.YES_NO_OPTION);
                 if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
                 {
@@ -318,6 +325,8 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
             }
         }
         else fileExtension = "X3dom.xhtml";
+        
+        saveParametersHashMap(); // save latest values for stylesheet usage
         filePack = xsltOneFile(x3dEditor, "X3dTransforms/" + xsltFile, fileExtension, true, false, parametersHashMap);
   //  else {
   //    File target = new File(BaseConversionsAction.xsltFilesRoot, xsltFile);
@@ -344,7 +353,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
       return null;
     }
     
-    private void saveParametersHashMap ()
+    private void saveParametersHashMap()
     {
         parametersHashMap.clear();
         parametersHashMap.put("player",           getPlayer());

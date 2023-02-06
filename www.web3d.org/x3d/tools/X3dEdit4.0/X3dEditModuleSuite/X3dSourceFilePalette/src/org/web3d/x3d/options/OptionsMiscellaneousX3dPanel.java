@@ -37,7 +37,10 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Window;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -69,7 +72,6 @@ import static org.web3d.x3d.options.X3dOptions.getKeystorePasswordDefault;
 import static org.web3d.x3d.options.X3dOptions.getKeystorePath;
 import static org.web3d.x3d.options.X3dOptions.setAuthorEmail;
 import static org.web3d.x3d.options.X3dOptions.setAuthorName;
-import static org.web3d.x3d.options.X3dOptions.setExamplesRootDirectory;
 import static org.web3d.x3d.options.X3dOptions.setKeystoreFileName;
 import static org.web3d.x3d.options.X3dOptions.setKeystorePassword;
 import org.web3d.x3d.palette.items.BaseCustomizer;
@@ -167,10 +169,17 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         authorNameLabel = new javax.swing.JLabel();
         authorNameTextField = new javax.swing.JTextField();
         authorNameClearButton = new javax.swing.JButton();
-        verticalSpacerLabel17 = new javax.swing.JLabel();
         authorEmailLabel = new javax.swing.JLabel();
         authorEmailTextField = new javax.swing.JTextField();
         authorEmailClearButton = new javax.swing.JButton();
+        verticalSpacerLabel17 = new javax.swing.JLabel();
+        newX3dModelsDirectoryDescriptionLabel = new javax.swing.JLabel();
+        newX3dModelsDirectoryLocationLabel = new javax.swing.JLabel();
+        newX3dModelsDirectoryTF = new javax.swing.JTextField();
+        newX3dModelsDirectoryClearButton = new javax.swing.JButton();
+        newX3dModelsDirectoryButton = new javax.swing.JButton();
+        newX3dModelsDirectoryDefaultButton = new javax.swing.JButton();
+        verticalSpacerLabel21 = new javax.swing.JLabel();
         authorExamplesLocationLabel = new javax.swing.JLabel();
         authorExamplesDirectoryDescriptionLabel = new javax.swing.JLabel();
         authorExamplesDirectoryTF = new javax.swing.JTextField();
@@ -722,17 +731,6 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
         authorSettingsPanel.add(authorNameClearButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel17, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipady = 10;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        authorSettingsPanel.add(verticalSpacerLabel17, gridBagConstraints);
-
         org.openide.awt.Mnemonics.setLocalizedText(authorEmailLabel, "Author email");
         authorEmailLabel.setToolTipText("optional, used for model metadata");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -785,11 +783,133 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
         authorSettingsPanel.add(authorEmailClearButton, gridBagConstraints);
 
+        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel17, "   ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        authorSettingsPanel.add(verticalSpacerLabel17, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(newX3dModelsDirectoryDescriptionLabel, "Directory path for new X3D models");
+        newX3dModelsDirectoryDescriptionLabel.setToolTipText("Drectory path for new X3D models");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        authorSettingsPanel.add(newX3dModelsDirectoryDescriptionLabel, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(newX3dModelsDirectoryLocationLabel, "location");
+        newX3dModelsDirectoryLocationLabel.setToolTipText("Drectory path for new X3D models");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        authorSettingsPanel.add(newX3dModelsDirectoryLocationLabel, gridBagConstraints);
+
+        newX3dModelsDirectoryTF.setText(X3dOptions.NEW_X3D_MODELS_DIRECTORY_DEFAULT);
+        newX3dModelsDirectoryTF.setToolTipText("Drectory path for new X3D models");
+        newX3dModelsDirectoryTF.addFocusListener(new java.awt.event.FocusAdapter()
+        {
+            public void focusLost(java.awt.event.FocusEvent evt)
+            {
+                newX3dModelsDirectoryTFFocusLost(evt);
+            }
+        });
+        newX3dModelsDirectoryTF.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                newX3dModelsDirectoryTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 300;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        authorSettingsPanel.add(newX3dModelsDirectoryTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(newX3dModelsDirectoryClearButton, "x");
+        newX3dModelsDirectoryClearButton.setToolTipText("clear content text");
+        newX3dModelsDirectoryClearButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                newX3dModelsDirectoryClearButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
+        authorSettingsPanel.add(newX3dModelsDirectoryClearButton, gridBagConstraints);
+
+        newX3dModelsDirectoryButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(newX3dModelsDirectoryButton, "...");
+        newX3dModelsDirectoryButton.setToolTipText("Browse to select file location for new X3D models");
+        newX3dModelsDirectoryButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                newX3dModelsDirectoryButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
+        authorSettingsPanel.add(newX3dModelsDirectoryButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(newX3dModelsDirectoryDefaultButton, "default");
+        newX3dModelsDirectoryDefaultButton.setToolTipText("Reset default file location for new X3D models");
+        newX3dModelsDirectoryDefaultButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                newX3dModelsDirectoryDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        authorSettingsPanel.add(newX3dModelsDirectoryDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel21, "   ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        authorSettingsPanel.add(verticalSpacerLabel21, gridBagConstraints);
+
         org.openide.awt.Mnemonics.setLocalizedText(authorExamplesLocationLabel, "location");
         authorExamplesLocationLabel.setToolTipText("Drectory path to local copies of X3D Examples Model Archives");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(authorExamplesLocationLabel, gridBagConstraints);
@@ -798,7 +918,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         authorExamplesDirectoryDescriptionLabel.setToolTipText("Drectory path to local copies of X3D Examples Model Archives");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -822,7 +942,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 300;
@@ -842,7 +962,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -861,7 +981,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -879,7 +999,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -895,7 +1015,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -904,7 +1024,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel19, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -923,7 +1043,7 @@ final public class OptionsMiscellaneousX3dPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -10750,8 +10870,75 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         reportButtonSend ("Panel Preferences: Author settings tab");
     }//GEN-LAST:event_reportAuthorButtonActionPerformed
 
-  public static void reportButtonSend (String panelName)
-  {
+    private void newX3dModelsDirectoryTFFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryTFFocusLost
+    {//GEN-HEADEREND:event_newX3dModelsDirectoryTFFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newX3dModelsDirectoryTFFocusLost
+
+    private void newX3dModelsDirectoryTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryTFActionPerformed
+    {//GEN-HEADEREND:event_newX3dModelsDirectoryTFActionPerformed
+        // TODO add your handling code here:
+        initializeNewModelsDirectory();
+    }//GEN-LAST:event_newX3dModelsDirectoryTFActionPerformed
+
+    private void newX3dModelsDirectoryClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryClearButtonActionPerformed
+    {//GEN-HEADEREND:event_newX3dModelsDirectoryClearButtonActionPerformed
+        newX3dModelsDirectoryTF.setText("");
+    }//GEN-LAST:event_newX3dModelsDirectoryClearButtonActionPerformed
+
+    private void newX3dModelsDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryButtonActionPerformed
+    {//GEN-HEADEREND:event_newX3dModelsDirectoryButtonActionPerformed
+        // file chooser looks in given directory first
+        commonChooser(newX3dModelsDirectoryTF, "Choose directory for creating new X3D example files", evt);
+        newX3dModelsDirectoryTF.setText(       newX3dModelsDirectoryTF.getText().trim());
+        X3dOptions.setNewX3dModelsDirectory(newX3dModelsDirectoryTF.getText());
+        initializeNewModelsDirectory();
+    }//GEN-LAST:event_newX3dModelsDirectoryButtonActionPerformed
+
+    private void newX3dModelsDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryDefaultButtonActionPerformed
+    {//GEN-HEADEREND:event_newX3dModelsDirectoryDefaultButtonActionPerformed
+       newX3dModelsDirectoryTF.setText(X3dOptions.NEW_X3D_MODELS_DIRECTORY_DEFAULT);
+       initializeNewModelsDirectory();
+    }//GEN-LAST:event_newX3dModelsDirectoryDefaultButtonActionPerformed
+
+    /** Include information so that directory purpose is evident. */
+    private void initializeNewModelsDirectory()
+    {
+        String filename = "README.X3D-Edit.txt";
+        String filepath = newX3dModelsDirectoryTF.getText() + File.separatorChar + filename;
+        File ReadmeFile = new File(filepath);
+        if (ReadmeFile.exists())
+        {
+            // close file?
+            return;
+        }
+        // https://stackoverflow.com/questions/2885173/how-do-i-create-a-file-and-write-to-it
+        PrintWriter readmeWriter;
+        try
+        {
+            System.out.println("*** writing " + filepath);
+            readmeWriter = new PrintWriter(filepath, "UTF-8");
+        }
+        catch (FileNotFoundException | UnsupportedEncodingException ex)
+        {
+            
+            Exceptions.printStackTrace(ex);
+            return;
+        }
+        readmeWriter.println(filename);
+        readmeWriter.println();
+        readmeWriter.println("""
+This directory contains new models created using X3D-Edit authoring tool
+for Extensible 3D (X3D) Graphics International Standard.
+
+* https://savage.nps.edu/X3D-Edit
+* https://web3d.org/x3d
+""");
+        readmeWriter.close();
+        
+    }
+    public static void reportButtonSend (String panelName)
+    {
         // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
         try {
@@ -10765,7 +10952,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
             Exceptions.printStackTrace(ex);
         }
-  }
+    }
   private void amayaAutoLaunchCheck ()
   {
     checkExistingFile = new File(amayaEditorPathTF.getText().trim());
@@ -11136,29 +11323,53 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   {
     if(fileChooser == null) // first time through
     {
+      String newX3dModelDirectoryPath;
       if  ((textField.getText() != null) && !textField.getText().isBlank())
-           fileChooser = new JFileChooser(textField.getText().trim());
-      else fileChooser = new JFileChooser(System.getProperty("user.home"));
+           newX3dModelDirectoryPath = textField.getText().trim();
+      else newX3dModelDirectoryPath = X3dOptions.getNewX3dModelsDirectory();
+      
+      File newX3dModelDirectory = new File(newX3dModelDirectoryPath);
+      if (!newX3dModelDirectory.exists())
+      {
+          boolean successfulCreation = newX3dModelDirectory.mkdir();
+          if (!successfulCreation)
+          {
+              System.err.println("*** commonChooser(" + title + ") unable to create new directory " + newX3dModelDirectoryPath);
+          }
+      }
+      if  (!newX3dModelDirectory.exists() ||
+           !newX3dModelDirectory.isDirectory()) // ensure directory works
+      {
+          newX3dModelDirectory.getParent();
+          newX3dModelDirectoryPath = newX3dModelDirectory.getAbsolutePath();
+          X3dOptions.setNewX3dModelsDirectory(newX3dModelDirectoryPath);
+      }
+      fileChooser = new JFileChooser(newX3dModelDirectoryPath);
       fileChooser.setMultiSelectionEnabled(false);
       fileChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
     }
     fileChooser.setDialogTitle(title);
     // https://stackoverflow.com/questions/25666642/jfilechooser-to-pick-a-directory-or-a-single-file
-    if  ( title.toLowerCase().contains("directory") && 
-         !title.toLowerCase().contains("keystore"))
-         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-    else fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+    fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES) ; // prevents user from seeing what is present: DIRECTORIES_ONLY);
     
     if (title.toLowerCase().contains("keystore"))
     {
         fileChooser.setFileFilter(new keyStoreFileTypeFilter());
     }
     // TODO special handling for any other file types?
+    
+////    File newX3dModelDirectory = new File(fileChooser.getCurrentDirectory())
 
-    int returnValue = fileChooser.showOpenDialog(this);
+    int returnValue = fileChooser.showOpenDialog(this); // blocks to display and choose
     if (returnValue == JFileChooser.APPROVE_OPTION)
     {
-        textField.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        if  ( title.toLowerCase().contains("directory") && 
+             !title.toLowerCase().contains("keystore"))
+        {
+             textField.setText(fileChooser.getCurrentDirectory().getAbsolutePath());
+        }
+        else textField.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        
         // TF callback to save changed options (doesn't happen automatically)
         textField.postActionEvent();
     }
@@ -11168,8 +11379,9 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
    */
   void load()
   {
-      authorNameTextField.setText (X3dOptions.getAuthorName());
+       authorNameTextField.setText(X3dOptions.getAuthorName());
       authorEmailTextField.setText(X3dOptions.getAuthorEmail());
+   newX3dModelsDirectoryTF.setText(X3dOptions.getNewX3dModelsDirectory());
  authorExamplesDirectoryTF.setText(X3dOptions.getExamplesRootDirectory());
         keystorePasswordTF.setText(X3dOptions.getKeystorePassword());
         keystoreFileNameTF.setText(X3dOptions.getKeystoreFileName());
@@ -11202,9 +11414,9 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         imageMagickEditorTF.setText(X3dOptions.getImageMagickEditorPath());
             vlcPlayerPathTF.setText(X3dOptions.getVlcPlayerPath());
         protegePlayerPathTF.setText(X3dOptions.getProtegePlayerPath());
-        porteclePlayerPathTF.setText(X3dOptions.getPorteclePlayerPath());
-         keystoreDirectoryTF.setText(X3dOptions.getKeystoreDirectory());
-        keystoreExplorerPlayerPathTF.setText(X3dOptions.getKeystoreExplorerPlayerPath());
+       porteclePlayerPathTF.setText(X3dOptions.getPorteclePlayerPath());
+        keystoreDirectoryTF.setText(X3dOptions.getKeystoreDirectory());
+keystoreExplorerPlayerPathTF.setText(X3dOptions.getKeystoreExplorerPlayerPath());
       altovaXMLSpyTextField.setText(X3dOptions.getAltovaXMLSpyX3dEditorPath());
      blenderX3dEditorPathTF.setText(X3dOptions.getBlenderX3dEditorPath());
 bsContentStudioX3dEditorPathTF.setText(X3dOptions.getBsContentStudioX3dEditorPath());
@@ -11778,6 +11990,12 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel museScoreEditorLabel;
     private javax.swing.JButton museScoreEditorLaunchButton;
     private javax.swing.JTextField museScoreEditorPathTF;
+    private javax.swing.JButton newX3dModelsDirectoryButton;
+    private javax.swing.JButton newX3dModelsDirectoryClearButton;
+    private javax.swing.JButton newX3dModelsDirectoryDefaultButton;
+    private javax.swing.JLabel newX3dModelsDirectoryDescriptionLabel;
+    private javax.swing.JLabel newX3dModelsDirectoryLocationLabel;
+    private javax.swing.JTextField newX3dModelsDirectoryTF;
     private javax.swing.JPanel nodeEditingOptionsPanel;
     private javax.swing.JCheckBox octagaCheckBox;
     private javax.swing.JButton octagaChooserButton;
@@ -11952,6 +12170,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel verticalSpacerLabel19;
     private javax.swing.JLabel verticalSpacerLabel2;
     private javax.swing.JLabel verticalSpacerLabel20;
+    private javax.swing.JLabel verticalSpacerLabel21;
     private javax.swing.JLabel verticalSpacerLabel3;
     private javax.swing.JLabel verticalSpacerLabel4;
     private javax.swing.JLabel verticalSpacerLabel5;

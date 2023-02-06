@@ -410,13 +410,13 @@ import org.xml.sax.SAXParseException;
                 {
                     File xsltF = new File(xsltFileResourcePath);
                     xslStream = new StreamSource(xsltF);
-                    console.message(" " + xsltF.getName() + " transformation script being applied to " + sourceHandle);
+                    console.message(" " + xsltF.getName() + " transformation script applied to " + sourceHandle);
                 } 
                 else
                 {
                     FileObject jarredTransformer = FileUtil.getConfigRoot().getFileSystem().findResource(xsltFileResourcePath);
                     xslStream = new StreamSource(jarredTransformer.getInputStream());
-                    console.message(" " + jarredTransformer.getNameExt() + " transformation script being applied to " + sourceHandle);
+                    console.message(" " + jarredTransformer.getNameExt() + " transformation script applied to " + sourceHandle);
                 }
 
                 console.moveToFront();
@@ -542,13 +542,13 @@ import org.xml.sax.SAXParseException;
             {
                 File xsltFile = new File(xsltFileResourcePath);
                 xsltStreamSource = new StreamSource(xsltFile);
-                transformListener.message(xsltFile.getName() + " transformation script being applied to " + primaryFile.getAbsolutePath());
+                transformListener.message(xsltFile.getName() + " transformation script applied to " + primaryFile.getAbsolutePath());
             } 
             else
             {
                 FileObject jarredTransformer = FileUtil.getConfigRoot().getFileSystem().findResource(xsltFileResourcePath); //Repository.getDefault().getDefaultFileSystem().findResource (xsltFileResourcePath);
                 xsltStreamSource = new StreamSource(jarredTransformer.getInputStream());
-                transformListener.message(jarredTransformer.getNameExt() + " transformation script being applied to " + primaryFile.getAbsolutePath());
+                transformListener.message(jarredTransformer.getNameExt() + " transformation script applied to " + primaryFile.getAbsolutePath());
             }
             transformListener.moveToFront(); // make consoleTransformListener visible
             transformListener.setNode(x3dEditorActivatedNodeArray[0]);
