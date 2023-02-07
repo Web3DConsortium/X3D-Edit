@@ -75,16 +75,16 @@ public final class NewHelloWorldExampleAction extends CallableSystemAction
   {
     try {
       // Look in the "filesystem" to find the registered template (through classpath)
-      String path = "Templates/Other/HelloWorldX3D4.x3d"; // TODO Templates/Other/HelloWorldX3D4.x3d
-      FileObject x3dTmplFo = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
-      if (x3dTmplFo == null)
+      String path = "Templates/Other/HelloWorldX3D4.x3d";
+      FileObject x3dTemplateFileObject = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
+      if (x3dTemplateFileObject == null)
       {
           System.out.println("*** Error, template file " + path + " not found");
           return;
       }
-      x3dTmplFo.setAttribute("template", Boolean.TRUE);
+      x3dTemplateFileObject.setAttribute("template", Boolean.TRUE);
       
-      DataObject templ = DataObject.find(x3dTmplFo);      // get a DataObject for the template
+      DataObject templ = DataObject.find(x3dTemplateFileObject);      // get a DataObject for the template
        
       // Build the temp file in home directory
       File homeDirectory = new File(X3dEditUserPreferences.getNewX3dModelsDirectory());
