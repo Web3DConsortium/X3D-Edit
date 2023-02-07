@@ -67,13 +67,13 @@ public final class LaunchX3dExamplesAction extends CallableSystemAction
     sendBrowserTo(X3D_RESOURCES_EXAMPLES_ARCHIVES);
   }
   
-    public static void pauseSeconds(int numberSeconds)
+    public static void sleepSeconds(int numberSeconds)
     {
         // https://stackoverflow.com/questions/23283041/how-to-make-java-delay-for-a-few-seconds
         try        
         {
-            Thread.sleep(1000);
-            TimeUnit.SECONDS.sleep(1);
+//            Thread.sleep(1000 * numberSeconds);
+            TimeUnit.SECONDS.sleep(numberSeconds);
         } 
         catch(InterruptedException ex) 
         {
