@@ -55,8 +55,6 @@ import org.openide.util.NbPreferences;
 @SuppressWarnings("StaticNonFinalUsedInInitialization")
 public class X3dOptions
 {
-
-  // TODO needed?
   public  static final String AUTHOR_NAME_TOKEN = "__AUTHOR-NAME__";
   public static        String X3D_EDIT_PATH  = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
 
@@ -72,9 +70,11 @@ public class X3dOptions
 //    File fil = new File(dir,KEYSTORE_FILENAME_DEFAULT);
 //    KEYSTORE_PATH_DEFAULT = fil.getAbsolutePath();
   }
-  /** constructor */
+
+  /** Constructor not needed while all properties and methods are static */
 //  X3dOptions()
 //  {
+////      System.out.println("*** X3dOptions ");
 //  }
   
   /* Other preferences */
