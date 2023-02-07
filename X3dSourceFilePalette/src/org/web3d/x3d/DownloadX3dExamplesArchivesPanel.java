@@ -1436,7 +1436,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
       executorTask.getInputOutput().getErr().append(ex.getMessage());
     }
     // TODO confirm, are downloads complete prior to reaching next step?
-    executorTask.waitFinished(); // don't want to block
+//    executorTask.waitFinished(); // don't block reporting output progress
     
     updateStatusPropertiesLocalArchivesPresent();
     updatePanelLocalArchivesPresent();
