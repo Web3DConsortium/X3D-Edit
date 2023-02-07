@@ -2169,6 +2169,11 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void authorModelsDirectoryTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorModelsDirectoryTextFieldActionPerformed
     {//GEN-HEADEREND:event_authorModelsDirectoryTextFieldActionPerformed
+        checkAuthorModelsDirectoryAutolaunch ();
+    }//GEN-LAST:event_authorModelsDirectoryTextFieldActionPerformed
+
+    private void checkAuthorModelsDirectoryAutolaunch ()
+    {
         if (!X3dEditUserPreferences.getAuthorModelsDirectory().equals(authorModelsDirectoryTextField.getText().trim()))
         {
             X3dEditUserPreferences.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText().trim());
@@ -2182,8 +2187,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 DialogDisplayer.getDefault().notify(notifyDescriptor);
             }
         }
-    }//GEN-LAST:event_authorModelsDirectoryTextFieldActionPerformed
-
+    }
     private void authorModelsDirectoryClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorModelsDirectoryClearButtonActionPerformed
     {//GEN-HEADEREND:event_authorModelsDirectoryClearButtonActionPerformed
         authorModelsDirectoryTextField.setText("");
@@ -3511,22 +3515,27 @@ class LocalFileHandlerOld implements HttpHandler {
         }
     }
     
+    /** perform necessary display updates when switching tabs, this is an event callback */
     final void updatePageIntegrationTabbedPaneState()
     {
-        xhtmlX3domAction.setReadyForConversion(false);
+        initializeValuesInPanel(); // values might have changed from other user actions prior to switching tabs
         switch (pageIntegrationTabbedPane.getSelectedIndex())
         {
             case HTML_LAYOUT_TAB:
                 transformModelButton.setEnabled(false);
+                xhtmlX3domAction.setReadyForConversion(false);
                 break;
             case X3DOM_TAB:
                 transformModelButton.setEnabled(true);
+                xhtmlX3domAction.setReadyForConversion(true);
                 break;
             case X_ITE_TAB:
                 transformModelButton.setEnabled(true);
+                xhtmlX3domAction.setReadyForConversion(true);
                 break;
             case CORS_TAB:
                 transformModelButton.setEnabled(false);
+                xhtmlX3domAction.setReadyForConversion(false);
                 updateIndicationsPortsBoundOnServers();
                 break;
         }
