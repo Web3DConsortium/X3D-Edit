@@ -63,6 +63,8 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D4AM_EXAMPLESURL                     ="https://www.x3dGraphics.com/examples/X3dForAdvancedModeling";
   public final static String SAVAGEEXAMPLESURL                      ="https://savage.nps.edu/Savage";
   public final static String SAVAGEDEFENSEEXAMPLESURL               ="https://SavageDefense.nps.navy.mil/SavageDefense";
+  public final static String X3D_CANONICALIZATION_C14N              ="https://www.web3d.org/x3d/tools/canonical/doc/x3dTools.htm";
+  public final static String X3D_CANONICALIZATION_C14N_SPECIFICATION="https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/concepts.html#X3DCanonicalForm";
   public final static String X3DSECURITYEXAMPLES                    ="https://www.web3d.org/x3d/content/examples/Basic/Security";
   public final static String X3DSECURITYREADME                      ="https://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html";
   public final static String X3D_EDIT_HOME                          ="https://savage.nps.edu/X3D-Edit";
@@ -137,6 +139,9 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String W3C_EXI_RECOMMENDATION                 ="https://www.w3.org/TR/exi/";
   public final static String W3C_CASCADING_STYLESHEETS              ="https://www.w3.org/Style/CSS";
   public final static String W3C_WEB_AUDIO_API                      ="https://www.w3.org/TR/webaudio";
+  public final static String W3C_XML_RECOMMENDATION                 ="https://www.w3.org/TR/xml";
+  public final static String W3C_XPATH_RECOMMENDATION               ="https://www.w3.org/TR/xpath";
+  public final static String W3C_XSLT_RECOMMENDATION                ="https://www.w3.org/TR/xslt";
   public final static String W3C_SEMANTIC_WEB                       ="https://www.w3.org/standards/semanticweb";
   public final static String W3C_WHATWG_HTML5_STANDARD              ="https://html.spec.whatwg.org/multipage";
   public final static String W3CX_FREE_ONLINE_COURSES               ="https://www.edx.org/school/w3cx";
