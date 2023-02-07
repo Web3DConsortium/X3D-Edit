@@ -230,10 +230,13 @@ public class X3dEditUserPreferences
           return;
       if      (value.endsWith("\\") || value.endsWith("/"))
                value = value.substring(0, value.length() - 1);
-      if      (value.endsWith("www.web3d.org\\x3d\\content\\examples"))
-               value = value.substring(0, value.lastIndexOf("www.web3d.org\\x3d\\content\\examples") + 1);
-      else if (value.endsWith("www.web3d.org/x3d/content/examples"))
-               value = value.substring(0, value.lastIndexOf("www.web3d.org/x3d/content/examples") + 1);
+      
+      // do not shorten ExamplesRootDirectory address since it is source directory for localhost http cors server
+//    if      (value.endsWith("www.web3d.org\\x3d\\content\\examples"))
+//             value = value.substring(0, value.lastIndexOf("www.web3d.org\\x3d\\content\\examples"));
+//    else if (value.endsWith("www.web3d.org/x3d/content/examples"))
+//             value = value.substring(0, value.lastIndexOf("www.web3d.org/x3d/content/examples"));
+
       commonStringSet(EXAMPLES_ROOT_DIRECTORY_KEY, value);}
 
   public static void    setNewX3dModelsDirectory           (String value)  {  commonStringSet(NEW_X3D_MODELS_DIRECTORY_KEY, value);}
