@@ -73,7 +73,7 @@ import org.web3d.x3d.tools.X3dValuesRegexChecker;
                            lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 30),
-  @ActionReference(path = "Toolbars/X3D-Edit &Author Workflow", position = 30),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 30),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 30),
   @ActionReference(path = "Menu/&X3D-Edit/&Quality Assurance (QA)", position = 300),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Quality Assurance (QA)", position = 300),
