@@ -48,7 +48,7 @@ import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DDataObject;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.tools.usage.DateTimeGroupStamp;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
@@ -248,9 +248,9 @@ public class METACustomizer extends BaseCustomizer
        (content.isBlank() || 
         content.equalsIgnoreCase("*enter name of original author here*") || 
         content.equalsIgnoreCase("*if manually translating VRML-to-X3D, enter name of person translating here*")) &&
-        !X3dOptions.getAuthorName().isBlank())
+        !X3dEditUserPreferences.getAuthorName().isBlank())
    {
-       String contentString = (X3dOptions.getAuthorName() + " " + X3dOptions.getAuthorEmail()).trim();
+       String contentString = (X3dEditUserPreferences.getAuthorName() + " " + X3dEditUserPreferences.getAuthorEmail()).trim();
         NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
               "<html><p align='center'>" + metaName + " is blank, use your Author preference '" + contentString + "' ?</p>", 
               "Use author name/email from X3D-Edit Preferences?",
@@ -1306,7 +1306,7 @@ public class METACustomizer extends BaseCustomizer
                 prependHttpsButton.setEnabled(true);
             }
         }
-        if (content.contains(X3dOptions.getAuthorName()) || content.contains(X3dOptions.getAuthorEmail()))
+        if (content.contains(X3dEditUserPreferences.getAuthorName()) || content.contains(X3dEditUserPreferences.getAuthorEmail()))
             return false;
        return (content.length() > 4)   && // don't offer to launch fragments until long enough to determine whether http:// (or a.txt etc.) is entered 
               (content.contains("mailto:") ||

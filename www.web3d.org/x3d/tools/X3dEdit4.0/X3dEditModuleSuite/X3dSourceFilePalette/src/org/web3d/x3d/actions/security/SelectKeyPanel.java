@@ -57,9 +57,9 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.actions.security.BouncyCastleHelper.KeystorePasswordException;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
-import org.web3d.x3d.options.OptionsMiscellaneousX3dPanel;
-import org.web3d.x3d.options.OptionsMiscellaneousX3dPanelAction;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferencesPanel;
+import org.web3d.x3d.options.X3dEditUserPreferencesPanelAction;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /**
  *
@@ -215,10 +215,10 @@ public class SelectKeyPanel extends javax.swing.JPanel
 
   private void initializeKeyStore() throws Exception
   {
-    String keystorePath = X3dOptions.getKeystorePath();
+    String keystorePath = X3dEditUserPreferences.getKeystorePath();
     if ((keystorePath == null) || 
          keystorePath.isBlank() || 
-         keystorePath.equalsIgnoreCase(org.openide.util.NbBundle.getMessage(OptionsMiscellaneousX3dPanel.class, "KEYSTORE_DEFAULT_WARNING")))
+         keystorePath.equalsIgnoreCase(org.openide.util.NbBundle.getMessage(X3dEditUserPreferencesPanel.class, "KEYSTORE_DEFAULT_WARNING")))
     {
         // must initially set keystore to user-provided location
         String message = "<html>" +
@@ -234,10 +234,10 @@ public class SelectKeyPanel extends javax.swing.JPanel
             "</html>";
         NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
         DialogDisplayer.getDefault().notify(notifyDescriptor);
-        OptionsMiscellaneousX3dPanelAction optionsMiscellaneousX3dPanelAction = new OptionsMiscellaneousX3dPanelAction();
-        optionsMiscellaneousX3dPanelAction.setPreferredPane(OptionsMiscellaneousX3dPanel.XML_SECURITY_PANE);
+        X3dEditUserPreferencesPanelAction optionsMiscellaneousX3dPanelAction = new X3dEditUserPreferencesPanelAction();
+        optionsMiscellaneousX3dPanelAction.setPreferredPane(X3dEditUserPreferencesPanel.XML_SECURITY_PANE);
         optionsMiscellaneousX3dPanelAction.actionPerformed(null); // show panel
-        keystorePath = X3dOptions.getKeystorePath();  
+        keystorePath = X3dEditUserPreferences.getKeystorePath();  
         if (keystorePath == null) return;   
     }
     keystore = BouncyCastleHelper.getKeyStore();//KeyStore.getInstance("JKS");

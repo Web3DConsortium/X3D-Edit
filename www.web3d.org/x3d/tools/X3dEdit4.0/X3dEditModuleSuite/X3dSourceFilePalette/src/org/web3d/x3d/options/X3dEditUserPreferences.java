@@ -42,21 +42,21 @@ import org.openide.util.NbPreferences;
 //import org.web3d.x3d.actions.security.BouncyCastleHelper;
 
 /**
- * X3dOptions.java
- * Created on Apr 17, 2008
- * 
- * Note X3D-Edit options persistence: 
- * www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/build/testuserdir/config/Preferences/org/web3d/x3d/palette.properties
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
+ * X3dEditUserPreferences.java
+ Created on Apr 17, 2008
+ 
+ Note X3D-Edit options persistence: 
+ www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/build/testuserdir/config/Preferences/org/web3d/x3d/palette.properties
+
+ MOVES Institute
+ Naval Postgraduate School, Monterey, CA, USA
+ www.nps.edu
  *
  * @author Mike Bailey <jmbailey@nps.edu>
  * @version $Id$
  */
 @SuppressWarnings("StaticNonFinalUsedInInitialization")
-public class X3dOptions
+public class X3dEditUserPreferences
 {
   public  static final String AUTHOR_NAME_TOKEN = "__AUTHOR-NAME__";
   public static        String X3D_EDIT_PATH  = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
@@ -75,9 +75,9 @@ public class X3dOptions
   }
 
   /** Constructor not needed while all properties and methods are static */
-//  X3dOptions()
+//  X3dEditUserPreferences()
 //  {
-////      System.out.println("*** X3dOptions ");
+////      System.out.println("*** X3dEditUserPreferences ");
 //  }
   
   /* Other preferences */
@@ -1524,27 +1524,27 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
  
   private static void commonStringSet(String key, String val)
   {
-    Preferences prefs = NbPreferences.forModule(X3dOptions.class);
+    Preferences prefs = NbPreferences.forModule(X3dEditUserPreferences.class);
     prefs.put(key,val);  
   }
   private static void commonBooleanSet(String key, boolean tf)
   {
-    Preferences prefs = NbPreferences.forModule(X3dOptions.class);
+    Preferences prefs = NbPreferences.forModule(X3dEditUserPreferences.class);
     prefs.putBoolean(key,tf);      
   }
   public static String commonStringGet(String key, String defaultValue)
   {
-    Preferences prefs = NbPreferences.forModule(X3dOptions.class);
+    Preferences prefs = NbPreferences.forModule(X3dEditUserPreferences.class);
     return prefs.get(key, defaultValue);
   } 
   public static boolean commonBooleanGet(String key, boolean defaultValue)
   {
-    Preferences prefs = NbPreferences.forModule(X3dOptions.class);
+    Preferences prefs = NbPreferences.forModule(X3dEditUserPreferences.class);
     return prefs.getBoolean(key, defaultValue);   
   }
   public static void commonReset(String key)
   {
-    Preferences prefs = NbPreferences.forModule(X3dOptions.class);
+    Preferences prefs = NbPreferences.forModule(X3dEditUserPreferences.class);
     prefs.remove(key);
   }
   
@@ -1553,13 +1553,13 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   
   public static long getLastCertificateSerialNumber()
   {
-     Preferences prefs = NbPreferences.forModule(X3dOptions.class);
+     Preferences prefs = NbPreferences.forModule(X3dEditUserPreferences.class);
      return prefs.getLong(CERTIFICATE_SERIALNUMBER_KEY, CERTIFICATE_SERIALNUMBER_DEFAULT);
   }
   
   public static void setLastCertificateSerialNumber(long val)
   {
-     Preferences prefs = NbPreferences.forModule(X3dOptions.class);
+     Preferences prefs = NbPreferences.forModule(X3dEditUserPreferences.class);
      prefs.putLong(CERTIFICATE_SERIALNUMBER_KEY, val);
   }   
   // Cad Filter preferences

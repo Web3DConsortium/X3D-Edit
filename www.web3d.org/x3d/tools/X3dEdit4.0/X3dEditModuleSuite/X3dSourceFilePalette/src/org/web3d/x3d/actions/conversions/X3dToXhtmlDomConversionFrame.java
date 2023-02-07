@@ -35,9 +35,9 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.actions.LaunchX3dSceneAuthoringHintsCorsAction;
 import static org.web3d.x3d.actions.conversions.ConversionsHelper.openInBrowser;
-import org.web3d.x3d.options.OptionsMiscellaneousX3dPanel;
-import org.web3d.x3d.options.X3dOptions;
-import static org.web3d.x3d.options.X3dOptions.AUTHOR_MODELS_DIRECTORY_DEFAULT;
+import org.web3d.x3d.options.X3dEditUserPreferencesPanel;
+import org.web3d.x3d.options.X3dEditUserPreferences;
+import static org.web3d.x3d.options.X3dEditUserPreferences.AUTHOR_MODELS_DIRECTORY_DEFAULT;
 import org.web3d.x3d.palette.items.BaseCustomizer;
 
 /**
@@ -69,7 +69,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     public static final int         CORS_TAB =  3;
     
     private             String          authorCorsDirectory;
-    // LOCAL_EXAMPLES_ROOT is default in X3dOptions.AUTHOR_MODELS_DIRECTORY_PORT_DEFAULT
+    // LOCAL_EXAMPLES_ROOT is default in X3dEditUserPreferences.AUTHOR_MODELS_DIRECTORY_PORT_DEFAULT
     public static final String          LOCAL_EXAMPLES_ROOT = "LOCAL_EXAMPLES_ROOT";
     public static final String         DESIGNATED_DIRECTORY = "DESIGNATED_DIRECTORY";
     public static final String  CURRENT_X3D_MODEL_DIRECTORY = "CURRENT_X3D_MODEL_DIRECTORY";
@@ -1277,7 +1277,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(authorModelsServerStatusLabel, gridBagConstraints);
 
-        authorModelsDirectoryTextField.setText(X3dOptions.getExamplesRootDirectory());
+        authorModelsDirectoryTextField.setText(X3dEditUserPreferences.getExamplesRootDirectory());
         authorModelsDirectoryTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsDirectoryTextField.toolTipText")); // NOI18N
         authorModelsDirectoryTextField.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -1550,7 +1550,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(exampleArchivesServerStatusLabel, gridBagConstraints);
 
-        exampleArchivesDirectoryTextField.setText(X3dOptions.getExamplesRootDirectory());
+        exampleArchivesDirectoryTextField.setText(X3dEditUserPreferences.getExamplesRootDirectory());
         exampleArchivesDirectoryTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.exampleArchivesDirectoryTextField.toolTipText")); // NOI18N
         exampleArchivesDirectoryTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         exampleArchivesDirectoryTextField.setEnabled(false);
@@ -1985,13 +1985,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void widthTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_widthTextFieldActionPerformed
     {//GEN-HEADEREND:event_widthTextFieldActionPerformed
-        // TODO change persistence to X3dOptions
+        // TODO change persistence to X3dEditUserPreferences
         // xhtmlX3domAction.setX3dWidth(widthTextField.getText());
     }//GEN-LAST:event_widthTextFieldActionPerformed
 
     private void heightTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_heightTextFieldActionPerformed
     {//GEN-HEADEREND:event_heightTextFieldActionPerformed
-        // TODO change persistence to X3dOptions
+        // TODO change persistence to X3dEditUserPreferences
         // xhtmlX3domAction.setX3dHeight(heightTextField.getText());
     }//GEN-LAST:event_heightTextFieldActionPerformed
 
@@ -2002,7 +2002,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void helpSceneAuthoringHintsHtmlButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_helpSceneAuthoringHintsHtmlButtonActionPerformed
     {//GEN-HEADEREND:event_helpSceneAuthoringHintsHtmlButtonActionPerformed
-        OptionsMiscellaneousX3dPanel.browserLaunch(X3D_SCENE_AUTHORING_HINTS + "#HTML");
+        X3dEditUserPreferencesPanel.browserLaunch(X3D_SCENE_AUTHORING_HINTS + "#HTML");
     }//GEN-LAST:event_helpSceneAuthoringHintsHtmlButtonActionPerformed
 
     private void reportButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_reportButtonActionPerformed
@@ -2010,16 +2010,16 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         switch (pageIntegrationTabbedPane.getSelectedIndex())
         {
             case HTML_LAYOUT_TAB: 
-                OptionsMiscellaneousX3dPanel.reportButtonSend ("DOM Conversion Panel: HTML page integration pane");
+                X3dEditUserPreferencesPanel.reportButtonSend ("DOM Conversion Panel: HTML page integration pane");
                 break;
             case X3DOM_TAB: 
-                OptionsMiscellaneousX3dPanel.reportButtonSend ("DOM Conversion Panel: X3DOM pane");
+                X3dEditUserPreferencesPanel.reportButtonSend ("DOM Conversion Panel: X3DOM pane");
                 break;
             case X_ITE_TAB: 
-                OptionsMiscellaneousX3dPanel.reportButtonSend ("DOM Conversion Panel: X_ITE pane");
+                X3dEditUserPreferencesPanel.reportButtonSend ("DOM Conversion Panel: X_ITE pane");
                 break;
             case CORS_TAB: 
-                OptionsMiscellaneousX3dPanel.reportButtonSend ("DOM Conversion Panel: CORS localhost http server pane");
+                X3dEditUserPreferencesPanel.reportButtonSend ("DOM Conversion Panel: CORS localhost http server pane");
                 break;
         }
     }//GEN-LAST:event_reportButtonActionPerformed
@@ -2036,25 +2036,25 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void showLogCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_showLogCheckBoxActionPerformed
     {//GEN-HEADEREND:event_showLogCheckBoxActionPerformed
-        // TODO change persistence to X3dOptions
+        // TODO change persistence to X3dEditUserPreferences
         // xhtmlX3domAction.setShowLog(showLogCheckBox.isSelected());
     }//GEN-LAST:event_showLogCheckBoxActionPerformed
 
     private void showStatisticsCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_showStatisticsCheckBoxActionPerformed
     {//GEN-HEADEREND:event_showStatisticsCheckBoxActionPerformed
-        // TODO change persistence to X3dOptions
+        // TODO change persistence to X3dEditUserPreferences
         // xhtmlX3domAction.setShowStatistics(showStatisticsCheckBox.isSelected());
     }//GEN-LAST:event_showStatisticsCheckBoxActionPerformed
 
     private void showProgressCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_showProgressCheckBoxActionPerformed
     {//GEN-HEADEREND:event_showProgressCheckBoxActionPerformed
-        // TODO change persistence to X3dOptions
+        // TODO change persistence to X3dEditUserPreferences
         // xhtmlX3domAction.setShowProgress(showProgressCheckBox.isSelected());
     }//GEN-LAST:event_showProgressCheckBoxActionPerformed
 
     private void primitiveQualityComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_primitiveQualityComboBoxActionPerformed
     {//GEN-HEADEREND:event_primitiveQualityComboBoxActionPerformed
-        // TODO change persistence to X3dOptions
+        // TODO change persistence to X3dEditUserPreferences
         // xhtmlX3domAction.setPrimitiveQuality( primitiveQualityComboBox.getSelectedItem().toString());
     }//GEN-LAST:event_primitiveQualityComboBoxActionPerformed
 
@@ -2070,7 +2070,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void cacheCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cacheCheckBoxActionPerformed
     {//GEN-HEADEREND:event_cacheCheckBoxActionPerformed
-        // TODO change persistence to X3dOptions
+        // TODO change persistence to X3dEditUserPreferences
         // xhtmlX3domAction.setCache(cacheCheckBox.isSelected());
     }//GEN-LAST:event_cacheCheckBoxActionPerformed
 
@@ -2092,7 +2092,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void autolaunchAuthorModelsServerCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_autolaunchAuthorModelsServerCheckBoxActionPerformed
     {//GEN-HEADEREND:event_autolaunchAuthorModelsServerCheckBoxActionPerformed
-        X3dOptions.setAuthorModelsServerAutolaunch(autolaunchAuthorModelsServerCheckBox.isSelected());
+        X3dEditUserPreferences.setAuthorModelsServerAutolaunch(autolaunchAuthorModelsServerCheckBox.isSelected());
     }//GEN-LAST:event_autolaunchAuthorModelsServerCheckBoxActionPerformed
 
     private void portAuthorModelsServerTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_portAuthorModelsServerTextFieldMouseExited
@@ -2105,12 +2105,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         // TODO check values 8000..? and not duplicated
         if (portAuthorModelsServerTextField.getText().isBlank())
         {
-            System.out.println("*** Resetting blank port for AuthorModelsServer to default " + X3dOptions.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
-            portAuthorModelsServerTextField.setText(X3dOptions.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
+            System.out.println("*** Resetting blank port for AuthorModelsServer to default " + X3dEditUserPreferences.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
+            portAuthorModelsServerTextField.setText(X3dEditUserPreferences.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
         }
-        if (!X3dOptions.getAuthorModelsServerPort().equals(portAuthorModelsServerTextField.getText().trim()))
+        if (!X3dEditUserPreferences.getAuthorModelsServerPort().equals(portAuthorModelsServerTextField.getText().trim()))
         {
-            X3dOptions.setAuthorModelsServerPort(portAuthorModelsServerTextField.getText().trim());
+            X3dEditUserPreferences.setAuthorModelsServerPort(portAuthorModelsServerTextField.getText().trim());
             if (isAliveAuthorModelsServer)
             {
                 // notify user that file location is unworkable
@@ -2164,14 +2164,14 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void authorModelsDirectoryTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_authorModelsDirectoryTextFieldMouseExited
     {//GEN-HEADEREND:event_authorModelsDirectoryTextFieldMouseExited
-        X3dOptions.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText().trim());
+        X3dEditUserPreferences.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText().trim());
     }//GEN-LAST:event_authorModelsDirectoryTextFieldMouseExited
 
     private void authorModelsDirectoryTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorModelsDirectoryTextFieldActionPerformed
     {//GEN-HEADEREND:event_authorModelsDirectoryTextFieldActionPerformed
-        if (!X3dOptions.getAuthorModelsDirectory().equals(authorModelsDirectoryTextField.getText().trim()))
+        if (!X3dEditUserPreferences.getAuthorModelsDirectory().equals(authorModelsDirectoryTextField.getText().trim()))
         {
-            X3dOptions.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText().trim());
+            X3dEditUserPreferences.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText().trim());
             if (isAliveAuthorModelsServer)
             {
                 // notify user that file location is unworkable
@@ -2187,7 +2187,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private void authorModelsDirectoryClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorModelsDirectoryClearButtonActionPerformed
     {//GEN-HEADEREND:event_authorModelsDirectoryClearButtonActionPerformed
         authorModelsDirectoryTextField.setText("");
-        X3dOptions.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText());
+        X3dEditUserPreferences.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText());
     }//GEN-LAST:event_authorModelsDirectoryClearButtonActionPerformed
 
     private void authorModelsDirectoryChooserButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorModelsDirectoryChooserButtonActionPerformed
@@ -2198,12 +2198,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private void authorModelsDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorModelsDirectoryDefaultButtonActionPerformed
     {//GEN-HEADEREND:event_authorModelsDirectoryDefaultButtonActionPerformed
         authorModelsDirectoryTextField.setText(AUTHOR_MODELS_DIRECTORY_DEFAULT); // user.home
-        X3dOptions.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText());
+        X3dEditUserPreferences.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText());
     }//GEN-LAST:event_authorModelsDirectoryDefaultButtonActionPerformed
 
     private void autolaunchExampleArchivesServerCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_autolaunchExampleArchivesServerCheckBoxActionPerformed
     {//GEN-HEADEREND:event_autolaunchExampleArchivesServerCheckBoxActionPerformed
-        X3dOptions.setExampleArchivesServerAutolaunch(autolaunchExampleArchivesServerCheckBox.isSelected());
+        X3dEditUserPreferences.setExampleArchivesServerAutolaunch(autolaunchExampleArchivesServerCheckBox.isSelected());
     }//GEN-LAST:event_autolaunchExampleArchivesServerCheckBoxActionPerformed
 
     private void portExampleArchivesServerTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_portExampleArchivesServerTextFieldMouseExited
@@ -2216,12 +2216,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         // TODO check values 8000..? and not duplicated
         if (portExampleArchivesServerTextField.getText().isBlank())
         {
-            System.out.println("*** Resetting blank port for ExampleArchivesServer to default " + X3dOptions.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
-            portExampleArchivesServerTextField.setText(X3dOptions.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
+            System.out.println("*** Resetting blank port for ExampleArchivesServer to default " + X3dEditUserPreferences.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
+            portExampleArchivesServerTextField.setText(X3dEditUserPreferences.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
         }
-        if (!X3dOptions.getExampleArchivesServerPort().equals(portExampleArchivesServerTextField.getText().trim()))
+        if (!X3dEditUserPreferences.getExampleArchivesServerPort().equals(portExampleArchivesServerTextField.getText().trim()))
         {
-            X3dOptions.setExampleArchivesServerPort(portExampleArchivesServerTextField.getText().trim());
+            X3dEditUserPreferences.setExampleArchivesServerPort(portExampleArchivesServerTextField.getText().trim());
             if (isAliveExampleArchivesServer)
             {
                 // notify user that file location is unworkable
@@ -2280,20 +2280,20 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private void autolaunchActiveX3dModelServerCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_autolaunchActiveX3dModelServerCheckBoxActionPerformed
     {//GEN-HEADEREND:event_autolaunchActiveX3dModelServerCheckBoxActionPerformed
         // true means autolaunch a new server for each active X3D model converted
-        X3dOptions.setAuthorModelsServerAutolaunch(autolaunchAuthorModelsServerCheckBox.isSelected());
+        X3dEditUserPreferences.setAuthorModelsServerAutolaunch(autolaunchAuthorModelsServerCheckBox.isSelected());
     }//GEN-LAST:event_autolaunchActiveX3dModelServerCheckBoxActionPerformed
 
     private void portActiveX3dModelServerTextFieldMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_portActiveX3dModelServerTextFieldMouseExited
     {//GEN-HEADEREND:event_portActiveX3dModelServerTextFieldMouseExited
         // TODO check values 8000..? and not duplicated
-//        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
+//        X3dEditUserPreferences.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
         updateIndicationsPortsBoundOnServers();
     }//GEN-LAST:event_portActiveX3dModelServerTextFieldMouseExited
 
     private void portActiveX3dModelServerTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_portActiveX3dModelServerTextFieldActionPerformed
     {//GEN-HEADEREND:event_portActiveX3dModelServerTextFieldActionPerformed
         // TODO check values 8000..? and not duplicated
-//        X3dOptions.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
+//        X3dEditUserPreferences.setActiveX3dModelServerPort(portActiveX3dModelServerTextField.getText().trim());
         updateIndicationsPortsBoundOnServers();
     }//GEN-LAST:event_portActiveX3dModelServerTextFieldActionPerformed
 
@@ -2573,7 +2573,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             // TODO TF callback to save changed options (doesn't happen automatically)
             exampleArchivesDirectoryTextField.postActionEvent();
         }
-        // do not change X3dOptions value
+        // do not change X3dEditUserPreferences value
     }
     private void authorModelsDirectoryChooser()
     {
@@ -2601,7 +2601,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             authorModelsDirectoryTextField.postActionEvent();
         }
         authorModelsDirectoryTextField.setText(authorModelsDirectoryTextField.getText().trim());
-        X3dOptions.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText());
+        X3dEditUserPreferences.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText());
     }
     private void activeX3dModelDirectoryChooser()
     {
@@ -2793,29 +2793,29 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     
     protected final void autolaunchServers ()
     {
-        if (X3dOptions.isAuthorModelsServerAutolaunch())
+        if (X3dEditUserPreferences.isAuthorModelsServerAutolaunch())
         {
-            if (!isPortBound(Integer.parseInt(X3dOptions.getAuthorModelsServerPort())))
+            if (!isPortBound(Integer.parseInt(X3dEditUserPreferences.getAuthorModelsServerPort())))
             {
                  startAuthorModelsServer ();
-                 System.out.println("*** autolaunch started, AuthorModelsServer port " + X3dOptions.getAuthorModelsServerPort() +
+                 System.out.println("*** autolaunch started, AuthorModelsServer port " + X3dEditUserPreferences.getAuthorModelsServerPort() +
                                     " isAlive=" + isAliveAuthorModelsServer);
             }
-            else System.out.println("*** autolaunch ignored, AuthorModelsServer port " + X3dOptions.getAuthorModelsServerPort() +
+            else System.out.println("*** autolaunch ignored, AuthorModelsServer port " + X3dEditUserPreferences.getAuthorModelsServerPort() +
                                     " isAlive=" + isAliveAuthorModelsServer);
         }
-        if (X3dOptions.isExampleArchivesServerAutolaunch())
+        if (X3dEditUserPreferences.isExampleArchivesServerAutolaunch())
         {
-            if (!isPortBound(Integer.parseInt(X3dOptions.getExampleArchivesServerPort())))
+            if (!isPortBound(Integer.parseInt(X3dEditUserPreferences.getExampleArchivesServerPort())))
             {
                  startExampleArchivesServer ();
-                 System.out.println("*** autolaunch started, ExampleArchivesServer port " + X3dOptions.getExampleArchivesServerPort() +
+                 System.out.println("*** autolaunch started, ExampleArchivesServer port " + X3dEditUserPreferences.getExampleArchivesServerPort() +
                                     " isAlive=" + isAliveExampleArchivesServer);
             }
-            else System.out.println("*** autolaunch ignored, ExampleArchivesServer port " + X3dOptions.getExampleArchivesServerPort() +
+            else System.out.println("*** autolaunch ignored, ExampleArchivesServer port " + X3dEditUserPreferences.getExampleArchivesServerPort() +
                                     " isAlive=" + isAliveExampleArchivesServer);
         }
-        if (X3dOptions.isActiveX3dModelServerAutolaunch())
+        if (X3dEditUserPreferences.isActiveX3dModelServerAutolaunch())
         {
             String currentActiveX3dModelPortValue = portActiveX3dModelServerTextField.getText();
             if (!activeX3dModelNameList.isEmpty())
@@ -2933,30 +2933,30 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                    cacheCheckBox.setSelected    (xhtmlX3domAction.isCache());
                          urlList.setUrlData     (xhtmlX3domAction.getUrlScene());
       }
-        // TODO mistaken design        (      X3dOptions.getAuthorPreferenceCorsDirectory () );
-                  widthTextField.setText        (      X3dOptions.getAuthorPreferenceHtmlWidth () ); 
-                 heightTextField.setText        (      X3dOptions.getAuthorPreferenceHtmlHeight () );
+        // TODO mistaken design        (      X3dEditUserPreferences.getAuthorPreferenceCorsDirectory () );
+                  widthTextField.setText        (X3dEditUserPreferences.getAuthorPreferenceHtmlWidth () ); 
+                 heightTextField.setText        (X3dEditUserPreferences.getAuthorPreferenceHtmlHeight () );
         
-      autolaunchAuthorModelsServerCheckBox.setSelected(X3dOptions.isAuthorModelsServerAutolaunch());
-   autolaunchExampleArchivesServerCheckBox.setSelected(X3dOptions.isExampleArchivesServerAutolaunch());
-    autolaunchActiveX3dModelServerCheckBox.setSelected(X3dOptions.isActiveX3dModelServerAutolaunch());
-           portAuthorModelsServerTextField.setText    (X3dOptions.getAuthorModelsServerPort());
-        portExampleArchivesServerTextField.setText    (X3dOptions.getExampleArchivesServerPort());
+      autolaunchAuthorModelsServerCheckBox.setSelected(X3dEditUserPreferences.isAuthorModelsServerAutolaunch());
+   autolaunchExampleArchivesServerCheckBox.setSelected(X3dEditUserPreferences.isExampleArchivesServerAutolaunch());
+    autolaunchActiveX3dModelServerCheckBox.setSelected(X3dEditUserPreferences.isActiveX3dModelServerAutolaunch());
+           portAuthorModelsServerTextField.setText    (X3dEditUserPreferences.getAuthorModelsServerPort());
+        portExampleArchivesServerTextField.setText    (X3dEditUserPreferences.getExampleArchivesServerPort());
          portActiveX3dModelServerTextField.setText    (String.valueOf(INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT));
-         exampleArchivesDirectoryTextField.setText    (X3dOptions.getExamplesRootDirectory());
-            authorModelsDirectoryTextField.setText    (X3dOptions.getAuthorModelsDirectory());
+         exampleArchivesDirectoryTextField.setText    (X3dEditUserPreferences.getExamplesRootDirectory());
+            authorModelsDirectoryTextField.setText    (X3dEditUserPreferences.getAuthorModelsDirectory());
         
         // TODO give indication if any examples are in archives
         
-//        if      (X3dOptions.getAuthorModelsServerPort().equals(LOCAL_EXAMPLES_ROOT))
+//        if      (X3dEditUserPreferences.getAuthorModelsServerPort().equals(LOCAL_EXAMPLES_ROOT))
 //        {
 //            authorCorsDirectory =  examplesArchiveRootDirectoryTextField.getText();
 //        }
-//        else if (X3dOptions.getAuthorModelsServerPort().equals(DESIGNATED_DIRECTORY))
+//        else if (X3dEditUserPreferences.getAuthorModelsServerPort().equals(DESIGNATED_DIRECTORY))
 //        {
 //            authorCorsDirectory =  authorModelsDirectoryTextField.getText();
 //        }
-//        else if (X3dOptions.getAuthorModelsServerPort().equals(CURRENT_X3D_MODEL_DIRECTORY))
+//        else if (X3dEditUserPreferences.getAuthorModelsServerPort().equals(CURRENT_X3D_MODEL_DIRECTORY))
 //        {
 //            authorCorsDirectory =  "TODO";
 //        }
@@ -2979,7 +2979,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
      */
     public static boolean isPortBoundAuthorModelsServer()
     {
-        return isPortBound(X3dOptions.getAuthorModelsServerPort());
+        return isPortBound(X3dEditUserPreferences.getAuthorModelsServerPort());
     }
     
     /**
@@ -2988,7 +2988,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
      */
     public static boolean isPortBoundExampleArchivesServer()
     {
-        return isPortBound(X3dOptions.getExampleArchivesServerPort());
+        return isPortBound(X3dEditUserPreferences.getExampleArchivesServerPort());
     }
 
     /**
@@ -3027,44 +3027,44 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         StringBuilder messageBuilder = new StringBuilder();
         messageBuilder.append("*** http port refresh: ");
         
-        if (X3dOptions.getAuthorModelsServerPort().isBlank())
+        if (X3dEditUserPreferences.getAuthorModelsServerPort().isBlank())
         {
-            System.out.println("*** Resetting blank port for AuthorModelsServer to default " + X3dOptions.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
-            portAuthorModelsServerTextField.setText(X3dOptions.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
-            X3dOptions.setExampleArchivesServerPort(X3dOptions.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
+            System.out.println("*** Resetting blank port for AuthorModelsServer to default " + X3dEditUserPreferences.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
+            portAuthorModelsServerTextField.setText(X3dEditUserPreferences.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
+            X3dEditUserPreferences.setExampleArchivesServerPort(X3dEditUserPreferences.AUTHOR_MODELS_SERVER_PORT_DEFAULT);
         }
-        messageBuilder.append("authorModelsServer port ").append(X3dOptions.getAuthorModelsServerPort());
+        messageBuilder.append("authorModelsServer port ").append(X3dEditUserPreferences.getAuthorModelsServerPort());
         
-        if  (isPortBound(Integer.parseInt(X3dOptions.getAuthorModelsServerPort())))
+        if  (isPortBound(Integer.parseInt(X3dEditUserPreferences.getAuthorModelsServerPort())))
         {
              authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
-             authorModelsServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getAuthorModelsServerPort());
+             authorModelsServerStatusLabel.setToolTipText(PORT_BOUND + X3dEditUserPreferences.getAuthorModelsServerPort());
              messageBuilder.append(" is bound, ");
         }
         else 
         {
             authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
-             authorModelsServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getAuthorModelsServerPort());
+             authorModelsServerStatusLabel.setToolTipText(PORT_OPEN + X3dEditUserPreferences.getAuthorModelsServerPort());
              messageBuilder.append(" not bound, ");
         }
         
-        if (X3dOptions.getExampleArchivesServerPort().isBlank())
+        if (X3dEditUserPreferences.getExampleArchivesServerPort().isBlank())
         {
-            System.out.println("*** Resetting blank port for ExampleArchivesServer to default " + X3dOptions.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
-            portExampleArchivesServerTextField.setText(X3dOptions.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
-            X3dOptions.setExampleArchivesServerPort(X3dOptions.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
+            System.out.println("*** Resetting blank port for ExampleArchivesServer to default " + X3dEditUserPreferences.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
+            portExampleArchivesServerTextField.setText(X3dEditUserPreferences.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
+            X3dEditUserPreferences.setExampleArchivesServerPort(X3dEditUserPreferences.EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT);
         }
-        messageBuilder.append("exampleArchivesServer port ").append(X3dOptions.getExampleArchivesServerPort());
-        if  (isPortBound(Integer.parseInt(X3dOptions.getExampleArchivesServerPort())))
+        messageBuilder.append("exampleArchivesServer port ").append(X3dEditUserPreferences.getExampleArchivesServerPort());
+        if  (isPortBound(Integer.parseInt(X3dEditUserPreferences.getExampleArchivesServerPort())))
         {
              exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
-             exampleArchivesServerStatusLabel.setToolTipText(PORT_BOUND + X3dOptions.getExampleArchivesServerPort());
+             exampleArchivesServerStatusLabel.setToolTipText(PORT_BOUND + X3dEditUserPreferences.getExampleArchivesServerPort());
              messageBuilder.append(" is bound, ");
         }
         else 
         {
              exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png")));
-             exampleArchivesServerStatusLabel.setToolTipText(PORT_OPEN + X3dOptions.getExampleArchivesServerPort());
+             exampleArchivesServerStatusLabel.setToolTipText(PORT_OPEN + X3dEditUserPreferences.getExampleArchivesServerPort());
              messageBuilder.append(" not bound, ");
         } 
         
@@ -3141,21 +3141,21 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 //    /** show green if bound (by any http server), grey otherwise */
 //    private void indicateAuthorModelsServerPortBound ()
 //    {
-//        if  (isPortBound(Integer.parseInt(X3dOptions.getAuthorModelsServerPort())))
+//        if  (isPortBound(Integer.parseInt(X3dEditUserPreferences.getAuthorModelsServerPort())))
 //             authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
 //        else authorModelsServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png"))); 
 //    }
 //    /** show green if bound (by any http server), grey otherwise */
 //    private void indicateExampleArchivesServerPortBound ()
 //    {
-//        if  (isPortBound(Integer.parseInt(X3dOptions.getExampleArchivesServerPort())))
+//        if  (isPortBound(Integer.parseInt(X3dEditUserPreferences.getExampleArchivesServerPort())))
 //             exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
 //        else exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png"))); 
 //    }
 //    /** show green if bound (by any http server), grey otherwise */
 //    private void indicateActiveX3dModelServerPortBound ()
 //    {
-//        if  (isPortBound(Integer.parseInt(X3dOptions.getExampleArchivesServerPort())))
+//        if  (isPortBound(Integer.parseInt(X3dEditUserPreferences.getExampleArchivesServerPort())))
 //             exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGreen24x24.png")));
 //        else exampleArchivesServerStatusLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/circleGrey24x24.png"))); 
 //    }

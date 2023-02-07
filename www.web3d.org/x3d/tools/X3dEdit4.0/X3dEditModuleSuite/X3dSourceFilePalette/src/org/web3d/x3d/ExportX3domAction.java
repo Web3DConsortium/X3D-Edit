@@ -47,7 +47,7 @@ import org.openide.NotifyDescriptor;
 import org.openide.nodes.Node;
 import org.openide.util.NbBundle;
 import org.openide.util.RequestProcessor;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
@@ -176,7 +176,7 @@ public class ExportX3domAction extends BaseX3DEditAction //CookieAction
         }
         // =============================================================================================================================
         // Element is now inserted.  Validate resulting document only if user preference is set (on by default)
-        if (((newString.length() > 0) || handlerInsertionMade) && X3dOptions.getAutoValidate())
+        if (((newString.length() > 0) || handlerInsertionMade) && X3dEditUserPreferences.getAutoValidate())
           // Schedule validation task in separate thread
           RequestProcessor.getDefault().post(new ValidateThread(documentEditorPane, "inserted text", true));
       }

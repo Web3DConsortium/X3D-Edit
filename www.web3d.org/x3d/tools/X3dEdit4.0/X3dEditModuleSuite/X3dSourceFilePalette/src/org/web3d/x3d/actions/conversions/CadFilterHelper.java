@@ -42,7 +42,7 @@ import java.util.Vector;
 import org.openide.filesystems.FileUtil;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import xj3d.filter.CDFFilter;
 
 /**
@@ -90,63 +90,63 @@ public class CadFilterHelper
   {
     Vector<String> filterArgs = new Vector<>();
     filterArgs.add(XJ3D_FILTERARG_LOGLEVEL);
-    filterArgs.add(X3dOptions.getCadFilterLogLevel());
+    filterArgs.add(X3dEditUserPreferences.getCadFilterLogLevel());
 
     filterArgs.add(XJ3D_FILTERARG_VERSION);
-    filterArgs.add(X3dOptions.getCadFilterX3dVersion());
+    filterArgs.add(X3dEditUserPreferences.getCadFilterX3dVersion());
 
     filterArgs.add(XJ3D_FILTERARG_COMPRESS);
-    filterArgs.add(X3dOptions.getCadFilterBinaryCompressionMethod());
+    filterArgs.add(X3dEditUserPreferences.getCadFilterBinaryCompressionMethod());
 
     filterArgs.add(XJ3D_FILTERARG_QUANT); // this is listed in GUI as in the filter, but in xj3d src as filter arg
-    filterArgs.add(X3dOptions.getCadFilterFloatingPointQuantization());
+    filterArgs.add(X3dEditUserPreferences.getCadFilterFloatingPointQuantization());
 
     //filterArgs.add(XJ3D_FILTERARG_UPGRADE);
     //filterArgs.add(?);
 
     Vector<String> filters = new Vector<>();
 
-    if (X3dOptions.getCadFiltersEnabledRadioButton()) {
-      String s = X3dOptions.getCadFilterAbsScaleFactor();
-      if(!s.equals(X3dOptions.CADFILTER_DEFAULT_ABS_SCALE_FACTOR)) {
+    if (X3dEditUserPreferences.getCadFiltersEnabledRadioButton()) {
+      String s = X3dEditUserPreferences.getCadFilterAbsScaleFactor();
+      if(!s.equals(X3dEditUserPreferences.CADFILTER_DEFAULT_ABS_SCALE_FACTOR)) {
         filters.add(XJ3D_FILTER_ABSSCALE);
         filters.add(s);
       }
-      if (X3dOptions.getCadFilterTriangleCount())
+      if (X3dEditUserPreferences.getCadFilterTriangleCount())
         filters.add(XJ3D_FILTER_TRIANGLECOUNTINFO);
-      //if (X3dOptions.getCadFilterEmbedProto());//filters.add(XJ3D_);
-      if (X3dOptions.getCadFilterMinimumProfile())
+      //if (X3dEditUserPreferences.getCadFilterEmbedProto());//filters.add(XJ3D_);
+      if (X3dEditUserPreferences.getCadFilterMinimumProfile())
         filters.add(XJ3D_FILTER_MINPROFILE);
-      //if (X3dOptions.getCadFilterBoundingBoxes());//filters.add(XJ3D_);
-      if (X3dOptions.getCadFilterIFStoITS())
+      //if (X3dEditUserPreferences.getCadFilterBoundingBoxes());//filters.add(XJ3D_);
+      if (X3dEditUserPreferences.getCadFilterIFStoITS())
         filters.add(XJ3D_FILTER_IFSTOITS);
-      if (X3dOptions.getCadFilterCenterFilter())
+      if (X3dEditUserPreferences.getCadFilterCenterFilter())
         filters.add(XJ3D_FILTER_CENTER);
-      if (X3dOptions.getCadFilterIFStoTS())
+      if (X3dEditUserPreferences.getCadFilterIFStoTS())
         filters.add(XJ3D_FILTER_IFSTOTS);
-      if (X3dOptions.getCadFilterCombineShapes())
+      if (X3dEditUserPreferences.getCadFilterCombineShapes())
         filters.add(XJ3D_FILTER_COMBINESHAPES);
-      if (X3dOptions.getCadFilterIndexFilter())
+      if (X3dEditUserPreferences.getCadFilterIndexFilter())
         filters.add(XJ3D_FILTER_INDEX);
-      if (X3dOptions.getCadFilterDefuseImageTexture())
+      if (X3dEditUserPreferences.getCadFilterDefuseImageTexture())
         filters.add(XJ3D_FILTER_DEFUSE_IMAGE_TEXTURE);
-      if (X3dOptions.getCadFilterModifyViewpoint())
+      if (X3dEditUserPreferences.getCadFilterModifyViewpoint())
         filters.add(XJ3D_FILTER_MODIFYVIEWPOINT);
-      if (X3dOptions.getCadFilterFlattenTransforms())
+      if (X3dEditUserPreferences.getCadFilterFlattenTransforms())
         filters.add(XJ3D_FILTER_FLATTENTRANSFORM);
-      if (X3dOptions.getCadFilterFlattenTextureTransforms())
+      if (X3dEditUserPreferences.getCadFilterFlattenTextureTransforms())
         filters.add(XJ3D_FILTER_FLATTENTEXTURETRANSFORM);
-      if (X3dOptions.getCadFilterFlattenSelectable())
+      if (X3dEditUserPreferences.getCadFilterFlattenSelectable())
         filters.add(XJ3D_FILTER_FLATTENSELECTABLE);
-      if (X3dOptions.getCadFilterDefNameShortened())
+      if (X3dEditUserPreferences.getCadFilterDefNameShortened())
         filters.add(XJ3D_FILTER_SHORTENDEF);
-      if (X3dOptions.getCadFilterGenerateNormals())
+      if (X3dEditUserPreferences.getCadFilterGenerateNormals())
         filters.add(XJ3D_FILTER_GENNORMALS);
-      if (X3dOptions.getCadFilterTriangulationFilter())
+      if (X3dEditUserPreferences.getCadFilterTriangulationFilter())
         filters.add(XJ3D_FILTER_TRIANGULATION);
-      if (X3dOptions.getCadFilterReIndex())
+      if (X3dEditUserPreferences.getCadFilterReIndex())
         filters.add(XJ3D_FILTER_REINDEX);
-      if (X3dOptions.getCadFilterDebug())
+      if (X3dEditUserPreferences.getCadFilterDebug())
         filters.add(XJ3D_FILTER_DEBUG);
     }
     else

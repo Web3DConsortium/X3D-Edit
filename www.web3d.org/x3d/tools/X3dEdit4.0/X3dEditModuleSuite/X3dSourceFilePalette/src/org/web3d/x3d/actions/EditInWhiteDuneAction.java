@@ -47,7 +47,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.EditInWhiteDuneAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/whitedune_32x32.png", // ico
@@ -68,7 +68,7 @@ public final class EditInWhiteDuneAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getWhiteDuneX3dEditorPath();
+    return X3dEditUserPreferences.getWhiteDuneX3dEditorPath();
   }
 
   @Override
@@ -80,7 +80,7 @@ public final class EditInWhiteDuneAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isWhiteDuneAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isWhiteDuneAutoLaunch());
   }
     
   @Override

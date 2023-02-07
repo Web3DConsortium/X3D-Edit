@@ -47,9 +47,9 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 
-@ActionID(id = "org.web3d.x3d.options.OptionsMiscellaneousX3dPanelAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.options.X3dEditUserPreferencesPanelAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon32.png",
-                    displayName = "#CTL_OptionsMiscellaneousX3dPanel",
+                    displayName = "#CTL_X3dEditUserPreferencesPanel",
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit", position = 1150),             // see layer.xml, now follows /X3D-Edit &Information
@@ -64,19 +64,19 @@ import org.openide.util.NbBundle;
 //  @ActionReference(path = "Menu/&X3D-Edit/Modify Saved Scene in Tool", position = 990),
 })
 
-/** Instantiates the X3D-Edit Options panel that can be invoked from an 
+/** Instantiates the X3dEditUserPreferencesPanel that can be invoked from an 
  * abstract caller 
  *
  * @since 3.2
  */
-public final class OptionsMiscellaneousX3dPanelAction implements ActionListener
+public final class X3dEditUserPreferencesPanelAction implements ActionListener
 {
   int preferredPaneIndex = -1; // no preference
     
   @Override
   public void actionPerformed(ActionEvent e)
   {
-    OptionsMiscellaneousX3dPanel optionsPanel = new OptionsMiscellaneousX3dPanel(preferredPaneIndex);
+    X3dEditUserPreferencesPanel optionsPanel = new X3dEditUserPreferencesPanel(preferredPaneIndex);
     if (preferredPaneIndex != -1)
     {
         optionsPanel.setPreferredPane(preferredPaneIndex);
@@ -92,7 +92,7 @@ public final class OptionsMiscellaneousX3dPanelAction implements ActionListener
 //  cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Discard"));
     DialogDescriptor descriptor = new DialogDescriptor(
         optionsPanel, // inner pane
-        NbBundle.getMessage(getClass(),"OptionsMiscellaneousX3dPanelDialogTitle"),
+        NbBundle.getMessage(getClass(),"X3dEditUserPreferencesPanelDialogTitle"),
         true, // modal
         new Object[]{
             descriptionLabel, completeButton}, // acceptButton, cancelButton},  // buttons

@@ -39,7 +39,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 /*
   This one views the scene in the EXTERNAL user-installed version of the XJ3d installed player.
 */
@@ -80,7 +80,7 @@ public final class ViewInXj3DExternalAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getXj3DPath();
+    return X3dEditUserPreferences.getXj3DPath();
   }
 
   @Override
@@ -92,7 +92,7 @@ public final class ViewInXj3DExternalAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isXj3dAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isXj3dAutoLaunch());
   }
 
   @Override

@@ -47,7 +47,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.EditInWings3dAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/wings3d_32x32.png",
@@ -68,7 +68,7 @@ public final class EditInWings3dAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getWingsX3dEditorPath();
+    return X3dEditUserPreferences.getWingsX3dEditorPath();
   }
 
   @Override
@@ -80,7 +80,7 @@ public final class EditInWings3dAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isWings3dAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isWings3dAutoLaunch());
   }
     
   @Override

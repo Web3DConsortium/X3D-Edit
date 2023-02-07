@@ -239,7 +239,7 @@
                 <Component class="javax.swing.JTextField" name="xScaleTF">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="X3dOptions.getDIStranslationScaleX(DEFAULT_TRANSLATION_SCALE)" type="code"/>
+                      <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getDIStranslationScaleX(DEFAULT_TRANSLATION_SCALE)" type="code"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="scale-factor multiplier" noResource="true"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -267,7 +267,7 @@
                 <Component class="javax.swing.JTextField" name="yScaleTF">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="X3dOptions.getDIStranslationScaleY(DEFAULT_TRANSLATION_SCALE)" type="code"/>
+                      <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getDIStranslationScaleY(DEFAULT_TRANSLATION_SCALE)" type="code"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="org/web3d/x3d/dis/Bundle.properties" key="DisEspduSenderControlPanel.yScaleTF.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -297,7 +297,7 @@
                 <Component class="javax.swing.JTextField" name="zScaleTF">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="X3dOptions.getDIStranslationScaleZ(DEFAULT_TRANSLATION_SCALE)" type="code"/>
+                      <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getDIStranslationScaleZ(DEFAULT_TRANSLATION_SCALE)" type="code"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="org/web3d/x3d/dis/Bundle.properties" key="DisEspduSenderControlPanel.zScaleTF.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -911,7 +911,7 @@
                 <Component class="javax.swing.JTextField" name="addressTF">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="X3dOptions.getDISaddress(DEFAULT_DIS_ADDRESS)" type="code"/>
+                      <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getDISaddress(DEFAULT_DIS_ADDRESS)" type="code"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="multicast address 224.0.0.0 through 239.255.255.255 for this simulation" noResource="true"/>
                   </Properties>
@@ -943,7 +943,7 @@
                 <Component class="javax.swing.JTextField" name="portTF">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="X3dOptions.getDISport(DEFAULT_PORT)" type="code"/>
+                      <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getDISport(DEFAULT_PORT)" type="code"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="multicast port number between 1 and 65535 for this simulation" noResource="true"/>
                   </Properties>
@@ -973,7 +973,7 @@
                 <Component class="javax.swing.JTextField" name="siteIDTF">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="X3dOptions.getDISsiteID(DEFAULT_SITEID)" type="code"/>
+                      <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getDISsiteID(DEFAULT_SITEID)" type="code"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="simulation/exercise siteID of participating LAN or organization"/>
                   </Properties>
@@ -1003,7 +1003,7 @@
                 <Component class="javax.swing.JTextField" name="appIDTF">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="X3dOptions.getDISappID(DEFAULT_APPID)" type="code"/>
+                      <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getDISappID(DEFAULT_APPID)" type="code"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="simulation/exercise applicationID is unique for a given simulation" noResource="true"/>
                   </Properties>
@@ -1035,7 +1035,7 @@
                 <Component class="javax.swing.JTextField" name="entityIDTF">
                   <Properties>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="X3dOptions.getDISentityID(DEFAULT_ENTITYID)" type="code"/>
+                      <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getDISentityID(DEFAULT_ENTITYID)" type="code"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="simulation/exercise entityID is unique value for given entity within that application" noResource="true"/>
                   </Properties>

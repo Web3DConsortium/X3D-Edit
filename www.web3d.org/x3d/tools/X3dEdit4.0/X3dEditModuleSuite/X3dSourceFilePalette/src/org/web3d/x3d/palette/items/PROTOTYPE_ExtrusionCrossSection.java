@@ -35,7 +35,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.AbstractDocument;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.types.SceneGraphStructureNodeType;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 
@@ -135,9 +135,9 @@ public class PROTOTYPE_ExtrusionCrossSection extends SceneGraphStructureNodeType
      */
     public String getProtoInstance()
     {
-        String lineColor         = X3dOptions.getVisualizeLineColor ();
-        String shapeColor        = X3dOptions.getVisualizeShapeColor();
-        String shapeTransparency = X3dOptions.getVisualizeTransparency();
+        String lineColor         = X3dEditUserPreferences.getVisualizeLineColor ();
+        String shapeColor        = X3dEditUserPreferences.getVisualizeShapeColor();
+        String shapeTransparency = X3dEditUserPreferences.getVisualizeTransparency();
 
     return  "    <ProtoInstance name='ExtrusionCrossSection'>\n" +
             "      <fieldValue name='name' value=''/>\n" +

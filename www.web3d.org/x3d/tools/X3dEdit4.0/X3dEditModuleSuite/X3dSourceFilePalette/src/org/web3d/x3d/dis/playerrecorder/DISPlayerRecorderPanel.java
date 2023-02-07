@@ -72,7 +72,7 @@ import org.web3d.x3d.dis.playerrecorder.DISGrabber.DISReceivedListener;
 import org.web3d.x3d.dis.playerrecorder.DISPlayer.DISSenderStoppedListener;
 import org.web3d.x3d.dis.playerrecorder.DISPlayer.DISSentListener;
 import org.web3d.x3d.dis.playerrecorder.DISPlayerRecorderStateMachine.PlayerEvent;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 
 /**
@@ -905,7 +905,7 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         netParamPanel.add(jLabel1, gridBagConstraints);
 
-        addressTF.setText(X3dOptions.getDISaddress(org.web3d.x3d.dis.DisEspduSenderControlPanel.DEFAULT_DIS_ADDRESS));
+        addressTF.setText(X3dEditUserPreferences.getDISaddress(org.web3d.x3d.dis.DisEspduSenderControlPanel.DEFAULT_DIS_ADDRESS));
         addressTF.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.addressTF.toolTipText")); // NOI18N
         addressTF.setMinimumSize(new java.awt.Dimension(114, 22));
         addressTF.setPreferredSize(new java.awt.Dimension(114, 22));
@@ -920,7 +920,7 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         netParamPanel.add(jLabel2, gridBagConstraints);
 
-        portTF.setText(X3dOptions.getDISport(""+org.web3d.x3d.dis.DisEspduSenderControlPanel.DEFAULT_PORT));
+        portTF.setText(X3dEditUserPreferences.getDISport(""+org.web3d.x3d.dis.DisEspduSenderControlPanel.DEFAULT_PORT));
         portTF.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.portTF.toolTipText")); // NOI18N
         portTF.setMinimumSize(new java.awt.Dimension(46, 22));
         portTF.setPreferredSize(new java.awt.Dimension(46, 22));

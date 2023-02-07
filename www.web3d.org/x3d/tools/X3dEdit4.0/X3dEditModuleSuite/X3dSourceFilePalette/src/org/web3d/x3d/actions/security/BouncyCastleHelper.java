@@ -56,7 +56,7 @@ import org.apache.xml.security.exceptions.Base64DecodingException;
 import org.apache.xml.security.utils.XMLUtils;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /**
  * BouncyCastleHelper.java
@@ -228,9 +228,9 @@ public class BouncyCastleHelper
   
   public static long getNextCertificateSerialNumber()
   {
-    long lastCertificateSerialNumber = X3dOptions.getLastCertificateSerialNumber();
+    long lastCertificateSerialNumber = X3dEditUserPreferences.getLastCertificateSerialNumber();
     lastCertificateSerialNumber++;
-    X3dOptions.setLastCertificateSerialNumber(lastCertificateSerialNumber);
+    X3dEditUserPreferences.setLastCertificateSerialNumber(lastCertificateSerialNumber);
     return lastCertificateSerialNumber;   
   }
   

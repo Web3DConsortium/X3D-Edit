@@ -1231,7 +1231,7 @@
             <Component class="javax.swing.JTextField" name="authorModelsDirectoryTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getExamplesRootDirectory()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getExamplesRootDirectory()" type="code"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="org/web3d/x3d/actions/conversions/Bundle.properties" key="X3dToXhtmlDomConversionPanel.authorModelsDirectoryTextField.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -1514,7 +1514,7 @@
             <Component class="javax.swing.JTextField" name="examplesArchivesDirectoryTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getExamplesRootDirectory()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getExamplesRootDirectory()" type="code"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="org/web3d/x3d/actions/conversions/Bundle.properties" key="X3dToXhtmlDomConversionPanel.examplesArchivesDirectoryTextField.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>

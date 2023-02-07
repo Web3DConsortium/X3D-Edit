@@ -47,7 +47,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /**
  * Launch Blender authoring tool
@@ -72,7 +72,7 @@ public final class EditInBlenderAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getBlenderX3dEditorPath();
+    return X3dEditUserPreferences.getBlenderX3dEditorPath();
   }
 
   @Override
@@ -84,7 +84,7 @@ public final class EditInBlenderAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isBlenderAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isBlenderAutoLaunch());
   }
     
   @Override

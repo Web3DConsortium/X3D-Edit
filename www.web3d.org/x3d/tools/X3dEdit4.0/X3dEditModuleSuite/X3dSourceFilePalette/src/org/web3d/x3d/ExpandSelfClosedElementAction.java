@@ -48,7 +48,7 @@ import org.openide.util.actions.CookieAction;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.openide.windows.OutputWriter;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
@@ -86,7 +86,7 @@ public final class ExpandSelfClosedElementAction extends BaseX3DEditAction //Coo
 //    baseDocument.getFormatter().reformat(baseDocument,selectedLocation.docOffsetStart,selectedLocation.docOffsetEnd+25);  // guess doesn't seem to hurt
 //    baseDocument.getFormatter().reformatUnlock();
         }
-        if (X3dOptions.getAutoValidate())
+        if (X3dEditUserPreferences.getAutoValidate())
             // Schedule validation task in separate thread
             RequestProcessor.getDefault().post(new ValidateThread(documentEditorPane, "inserted text", true));
       }

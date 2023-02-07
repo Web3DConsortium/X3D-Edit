@@ -61,7 +61,7 @@ import org.openide.util.RequestProcessor;
 import org.openide.util.lookup.Lookups;
 import org.openide.util.lookup.ProxyLookup;
 import org.openide.windows.CloneableOpenSupport;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.X3DPaletteFactory;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
@@ -136,7 +136,7 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
 
         // Validate resulting document only if user preference is set (on by default)
         Runnable r = () -> {
-            if (X3dOptions.getAutoValidate()) {
+            if (X3dEditUserPreferences.getAutoValidate()) {
                 JEditorPane documentEditorPane = getOpenedPanes()[0];
                 validateXML(documentEditorPane, getDataObject().getPrimaryFile().getPath());
             }

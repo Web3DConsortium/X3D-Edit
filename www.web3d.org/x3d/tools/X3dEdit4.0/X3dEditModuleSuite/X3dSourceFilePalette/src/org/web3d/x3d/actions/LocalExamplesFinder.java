@@ -39,7 +39,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.swing.Action;
 import org.openide.util.NbPreferences;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /**
  * LocalExamplesFinder.java
@@ -87,8 +87,8 @@ public class LocalExamplesFinder
   private void initialize ()
   {
     // TODO make successful path persistent and exposed through X3D Options panel
-    if  (!X3dOptions.getExamplesRootDirectory().isBlank())
-         DEFAULT_ROOT_DIR  = new File(X3dOptions.getExamplesRootDirectory());
+    if  (!X3dEditUserPreferences.getExamplesRootDirectory().isBlank())
+         DEFAULT_ROOT_DIR  = new File(X3dEditUserPreferences.getExamplesRootDirectory());
     else DEFAULT_ROOT_DIR  = new File(DEFAULT_DIR_TREE);
     DEFAULT_ROOT_PATH = DEFAULT_ROOT_DIR.getAbsolutePath();
     if ((DEFAULT_ROOT_PATH == null) || DEFAULT_ROOT_PATH.isEmpty() || !DEFAULT_ROOT_DIR.isDirectory())

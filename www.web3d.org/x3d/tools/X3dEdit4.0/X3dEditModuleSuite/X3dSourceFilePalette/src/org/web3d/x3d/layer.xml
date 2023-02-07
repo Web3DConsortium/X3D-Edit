@@ -357,7 +357,7 @@ POSSIBILITY OF SUCH DAMAGE.
                         <attr name="position" intvalue="1100"/>
                         <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 860 -->
                     </folder>
-                    <!-- OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 1150 -->
+                    <!-- X3dEditUserPreferencesPanelAction CTL_X3dEditUserPreferencesPanel position 1150 -->
                     <file name="org-web3d-x3d-popup-final-separator.instance">
                         <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                         <attr name="position" intvalue="1151"/>
@@ -840,7 +840,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="position" intvalue="1100"/>
                 <!-- X3D-Edit Home        MyViewBrowserAction                CTL_MyViewBrowserAction          position 1004 -->
             </folder>
-            <!-- OptionsMiscellaneousX3dPanelAction CTL_OptionsMiscellaneousX3dPanel position 1150 -->
+            <!-- X3dEditUserPreferencesPanelAction CTL_X3dEditUserPreferencesPanel position 1150 -->
             <file name="org-web3d-x3d-menu-final-separator.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
                 <attr name="position" intvalue="1151"/>

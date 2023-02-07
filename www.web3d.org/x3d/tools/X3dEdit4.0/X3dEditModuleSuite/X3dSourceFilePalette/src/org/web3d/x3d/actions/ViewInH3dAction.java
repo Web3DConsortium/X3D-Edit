@@ -47,7 +47,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewInH3dAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/H3D-cropped-512px-32x32.png", // 32x32.png",
@@ -61,7 +61,7 @@ public final class ViewInH3dAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getH3dPath();
+    return X3dEditUserPreferences.getH3dPath();
   }
 
   @Override
@@ -80,7 +80,7 @@ public final class ViewInH3dAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isH3dAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isH3dAutoLaunch());
   }
 
   @Override

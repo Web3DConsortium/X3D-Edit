@@ -53,7 +53,7 @@ import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /**
  * Create new text source file for editing
@@ -82,7 +82,7 @@ public final class NewTextFileAction extends CallableSystemAction
       DataObject templ = DataObject.find(textFileTemplateFileObject);      // get a DataObject for the template
        
       // Build the temp file in home directory
-      File homeDirectory = new File(X3dOptions.getNewX3dModelsDirectory());
+      File homeDirectory = new File(X3dEditUserPreferences.getNewX3dModelsDirectory());
       FileObject homeFo = FileUtil.createFolder(homeDirectory);
       
       // Find a free name
