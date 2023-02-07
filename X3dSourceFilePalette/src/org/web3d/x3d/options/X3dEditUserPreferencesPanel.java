@@ -59,6 +59,8 @@ import org.openide.util.NbBundle;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.web3d.x3d.DownloadX3dExamplesArchivesAction;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_CANONICALIZATION_C14N;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_CANONICALIZATION_C14N_SPECIFICATION;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_SECURITY;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_SECURITY_VULNERABILITIES;
 import org.web3d.x3d.actions.CommandExecutionScripts;
@@ -634,7 +636,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         reportSecurityPanelButton = new javax.swing.JButton();
         additionalKeystoreManagersLabel = new javax.swing.JLabel();
         viewSecurityExamplesReadmeButton = new javax.swing.JButton();
-        verticalSpacerLabel18 = new javax.swing.JLabel();
         viewX3dResourcesSecurityButton = new javax.swing.JButton();
         viewX3dResourcesSecurityVulnerabilitiesButton = new javax.swing.JButton();
         viewSecurityExamplesReadmeLabel = new javax.swing.JLabel();
@@ -654,8 +655,9 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         keystoreExplorerPlayerDefaultButton = new javax.swing.JButton();
         keystoreExplorerPlayerDownloadButton = new javax.swing.JButton();
         keystoreExplorerPlayerHelpButton = new javax.swing.JButton();
-        verticalSpacerLabel15 = new javax.swing.JLabel();
         keystoreManagerDescription2Label2 = new javax.swing.JLabel();
+        viewX3dCanonicalizationC14nReadmeButton = new javax.swing.JButton();
+        viewX3dCanonicalizationC14nReadmeLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(850, 600));
         setPreferredSize(new java.awt.Dimension(850, 600));
@@ -7937,6 +7939,9 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 
         x3dOptionsTabbedPane.addTab("X3D-Edit Visualization Settings", null, x3dEditVisualizationPreferencesPanel, "Additional editor preferences");
 
+        xj3dCadFilterOptionsPanel.setToolTipText("CAD Filter configuration settings for geometry reduction");
+        xj3dCadFilterOptionsPanel.setMinimumSize(new java.awt.Dimension(825, 600));
+        xj3dCadFilterOptionsPanel.setPreferredSize(new java.awt.Dimension(825, 600));
         x3dOptionsTabbedPane.addTab(NbBundle.getMessage(getClass(), "Cad_Filter_Tab_Title"), xj3dCadFilterOptionsPanel); // NOI18N
 
         x3dSecurityPanel.setToolTipText("X3D-Edit settings for Security ");
@@ -8269,7 +8274,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 
         securityExamplesLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         securityExamplesLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        org.openide.awt.Mnemonics.setLocalizedText(securityExamplesLabel, "X3D Security Examples");
+        org.openide.awt.Mnemonics.setLocalizedText(securityExamplesLabel, "X3D Canonicalization (C14N) and X3D Security Examples");
         securityExamplesLabel.setToolTipText("X3D Security Examples show how to apply XML Encryption and Authentication to X3D scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -8279,7 +8284,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(20, 6, 1, 3);
+        gridBagConstraints.insets = new java.awt.Insets(20, 6, 6, 3);
         x3dSecurityPanel.add(securityExamplesLabel, gridBagConstraints);
 
         securityResourcesLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -8288,13 +8293,13 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         securityResourcesLabel.setToolTipText("X3D Security Examples show how to apply XML Encryption and Authentication to X3D scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(20, 6, 1, 3);
+        gridBagConstraints.insets = new java.awt.Insets(20, 6, 6, 3);
         x3dSecurityPanel.add(securityResourcesLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(reportSecurityPanelButton, "Report");
@@ -8308,8 +8313,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dSecurityPanel.add(reportSecurityPanelButton, gridBagConstraints);
 
@@ -8336,21 +8343,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dSecurityPanel.add(viewSecurityExamplesReadmeButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel18, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dSecurityPanel.add(verticalSpacerLabel18, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(viewX3dResourcesSecurityButton, "View");
         viewX3dResourcesSecurityButton.addActionListener(new java.awt.event.ActionListener()
@@ -8362,7 +8358,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dSecurityPanel.add(viewX3dResourcesSecurityButton, gridBagConstraints);
@@ -8377,15 +8373,16 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dSecurityPanel.add(viewX3dResourcesSecurityVulnerabilitiesButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(viewSecurityExamplesReadmeLabel, "X3D Security Examples and README");
+        viewSecurityExamplesReadmeLabel.setToolTipText("view X3D Security Examples and README");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -8394,9 +8391,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dSecurityPanel.add(viewSecurityExamplesReadmeLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(viewX3dResourcesSecurityLabel, "X3D Resources: Security");
+        viewX3dResourcesSecurityLabel.setToolTipText("view X3D Resources: Security");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -8405,9 +8403,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dSecurityPanel.add(viewX3dResourcesSecurityLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(viewX3dResourcesSecurityVulnerabilitiesLabel, "X3D Resources: Security Vulnerabilities");
+        viewX3dResourcesSecurityVulnerabilitiesLabel.setToolTipText("view X3D Resources: Security Vulnerabilities");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -8418,7 +8417,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipady = 20;
@@ -8674,17 +8673,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dSecurityPanel.add(keystoreExplorerPlayerHelpButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel15, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dSecurityPanel.add(verticalSpacerLabel15, gridBagConstraints);
-
         org.openide.awt.Mnemonics.setLocalizedText(keystoreManagerDescription2Label2, "Alternative keystore managers are available and optional.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -8693,6 +8681,34 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
         x3dSecurityPanel.add(keystoreManagerDescription2Label2, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(viewX3dCanonicalizationC14nReadmeButton, "View");
+        viewX3dCanonicalizationC14nReadmeButton.setToolTipText("");
+        viewX3dCanonicalizationC14nReadmeButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                viewX3dCanonicalizationC14nReadmeButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dSecurityPanel.add(viewX3dCanonicalizationC14nReadmeButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(viewX3dCanonicalizationC14nReadmeLabel, "X3D Canonicalization (C14N) to normalize file whitespace");
+        viewX3dCanonicalizationC14nReadmeLabel.setToolTipText("view X3D Canonicalization (C14N)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dSecurityPanel.add(viewX3dCanonicalizationC14nReadmeLabel, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab(NbBundle.getMessage(getClass(), "Security_Tab_Title"), x3dSecurityPanel); // NOI18N
 
@@ -8807,7 +8823,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 
   private void otherX3dPlayerDownloadButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_otherX3dPlayerDownloadButtonActionPerformed
   {//GEN-HEADEREND:event_otherX3dPlayerDownloadButtonActionPerformed
-    openInBrowser(X3dEditUserPreferences.getDownloadSiteOtherX3dPlayer());
+        openInBrowser(X3dEditUserPreferences.getDownloadSiteOtherX3dPlayer());
 }//GEN-LAST:event_otherX3dPlayerDownloadButtonActionPerformed
 
 private void keystoreDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreDirectoryButtonActionPerformed
@@ -8834,7 +8850,7 @@ private void SwirlX3DDefaultButtonActionPerformed(java.awt.event.ActionEvent evt
 }//GEN-LAST:event_SwirlX3DDefaultButtonActionPerformed
 
 private void SwirlX3DDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SwirlX3DDownloadButtonActionPerformed
-  openInBrowser(X3dEditUserPreferences.getDownloadSiteSwirlX3D());
+    openInBrowser(X3dEditUserPreferences.getDownloadSiteSwirlX3D());
 }//GEN-LAST:event_SwirlX3DDownloadButtonActionPerformed
 
 private void commonLauncher(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commonLauncher
@@ -8982,7 +8998,7 @@ private void heilanDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)/
 
 private void heilanDownloadButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_heilanDownloadButtonActionPerformed
 {//GEN-HEADEREND:event_heilanDownloadButtonActionPerformed
-  openInBrowser(X3dEditUserPreferences.getDownloadSiteHeilan());
+    openInBrowser(X3dEditUserPreferences.getDownloadSiteHeilan());
 }//GEN-LAST:event_heilanDownloadButtonActionPerformed
 
 private void heilanCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_heilanCheckBoxActionPerformed
@@ -10901,6 +10917,24 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
        initializeNewModelsDirectory();
     }//GEN-LAST:event_newX3dModelsDirectoryDefaultButtonActionPerformed
 
+    private void viewX3dCanonicalizationC14nReadmeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_viewX3dCanonicalizationC14nReadmeButtonActionPerformed
+    {//GEN-HEADEREND:event_viewX3dCanonicalizationC14nReadmeButtonActionPerformed
+        openInBrowser(X3D_CANONICALIZATION_C14N); // TODO update, also update links on X3D Resources
+        sleep (500l);
+        openInBrowser(X3D_CANONICALIZATION_C14N_SPECIFICATION);
+    }//GEN-LAST:event_viewX3dCanonicalizationC14nReadmeButtonActionPerformed
+
+    public void sleep (long msecDuration)
+    {
+        try
+        {
+            Thread.sleep(msecDuration);
+        } 
+        catch (InterruptedException ex)
+        {
+            Exceptions.printStackTrace(ex);
+        }
+    }
     /** Include information so that directory purpose is evident. */
     private void initializeNewModelsDirectory()
     {
@@ -10909,12 +10943,13 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
             X3dEditUserPreferences.setExampleArchivesServerAutolaunch(true);
             
-        
             NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
-                    "Enabling autolaunch of localhost HTTP server for New Models (Author Models) directory", 
+                    "Enabling autolaunch of localhost HTTP server for author X3D New Models directory", 
                     "Enabling autolaunch", NotifyDescriptor.PLAIN_MESSAGE);
             DialogDisplayer.getDefault().notify(notifyDescriptor);
         }
+        // TODO refactor/combine with checkAuthorModelsDirectoryAutolaunch ();
+        
         String filename = "README.X3D-Edit.txt";
         String filepath = newX3dModelsDirectoryTF.getText() + File.separatorChar + filename;
         File ReadmeFile = new File(filepath);
@@ -12174,10 +12209,8 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel verticalSpacerLabel12;
     private javax.swing.JLabel verticalSpacerLabel13;
     private javax.swing.JLabel verticalSpacerLabel14;
-    private javax.swing.JLabel verticalSpacerLabel15;
     private javax.swing.JLabel verticalSpacerLabel16;
     private javax.swing.JLabel verticalSpacerLabel17;
-    private javax.swing.JLabel verticalSpacerLabel18;
     private javax.swing.JLabel verticalSpacerLabel19;
     private javax.swing.JLabel verticalSpacerLabel2;
     private javax.swing.JLabel verticalSpacerLabel20;
@@ -12198,6 +12231,8 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JTextField view3dsceneTF;
     private javax.swing.JButton viewSecurityExamplesReadmeButton;
     private javax.swing.JLabel viewSecurityExamplesReadmeLabel;
+    private javax.swing.JButton viewX3dCanonicalizationC14nReadmeButton;
+    private javax.swing.JLabel viewX3dCanonicalizationC14nReadmeLabel;
     private javax.swing.JButton viewX3dResourcesSecurityButton;
     private javax.swing.JLabel viewX3dResourcesSecurityLabel;
     private javax.swing.JButton viewX3dResourcesSecurityVulnerabilitiesButton;
