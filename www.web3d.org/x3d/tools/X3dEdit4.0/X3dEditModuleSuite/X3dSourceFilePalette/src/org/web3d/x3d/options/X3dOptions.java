@@ -44,6 +44,9 @@ import org.openide.util.NbPreferences;
 /**
  * X3dOptions.java
  * Created on Apr 17, 2008
+ * 
+ * Note X3D-Edit options persistence: 
+ * www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/build/testuserdir/config/Preferences/org/web3d/x3d/palette.properties
  *
  * MOVES Institute
  * Naval Postgraduate School, Monterey, CA, USA
