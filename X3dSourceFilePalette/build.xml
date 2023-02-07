@@ -266,15 +266,15 @@
          process is now automated -->
     <target name="update.server.cert" description="To be accomplished anytime there is a certificate change/update, or change in server configuration">
              
-        <!-- Pull down the new/updated server cert -->
+        <echo message="openssl pull down the new/updated server cert"/>
         <!-- OpenSSL hack: https://serverfault.com/questions/139728/how-to-download-the-ssl-certificate-from-a-website -->
         <exec executable="bash" dir="release/modules/ext" os="mac">
             <arg value="-c"/>
-            <arg value="openssl s_client -servername ${cert.alias} -connect ${cert.alias}:443 | openssl x509 &gt; ${cert.alias}.cer"/>
+            <arg value="openssl s_client -servername ${cert.server.alias} -connect ${cert.server.alias}:443 | openssl x509 &gt; ${cert.server.alias}.cer"/>
         </exec>
         <exec executable="/cygwin/bin/bash" dir="release/modules/ext" os="windows">
             <arg value="-c"/>
-            <arg value="openssl s_client -servername ${cert.alias} -connect ${cert.alias}:443 | openssl x509 &gt; ${cert.alias}.cer"/>
+            <arg value="openssl s_client -servername ${cert.server.alias} -connect ${cert.server.alias}:443 | openssl x509 &gt; ${cert.server.alias}.crt"/>
         </exec>
         
         <!-- Start fresh, delete the old keystore -->
@@ -284,22 +284,26 @@
             </fileset>
         </delete>
         
+        <echo message="importkeystore locally saves new/updated server cert"/>
         <!-- Now, import the JDK's keystore. This is necessary because during
              X3D-Edit runtime, were telling the JVM that all trusts are now 
              located in this JKS -->
         <exec executable="keytool" dir="release/modules/ext">
-            <arg line="-importkeystore -v -srckeystore ${java.home}/lib/security/cacerts -srcstorepass ${storepass} -storepass ${storepass} -destkeystore server-cert-keystore.jks"/>
+            <arg line='-importkeystore -v -srckeystore "${java.home}"/lib/security/cacerts -srcstorepass ${storepass} -storepass ${storepass} -destkeystore server-cert-keystore.jks'/>
         </exec>
         
-        <!-- Now, import the updated Savage server cert into the keystore -->
-        <exec executable="keytool" dir="release/modules/ext">
-            <arg line="-import -noprompt -alias ${cert.alias} -file ${cert.alias}.cer -storepass ${storepass} -keystore server-cert-keystore.jks"/>
+        <echo message="keytool imports the updated Savage server cert into the keystore"/>
+        <exec executable="keytool" dir="release/modules/ext" os="mac">
+            <arg line="-import -noprompt -alias ${cert.server.alias} -file ${cert.server.alias}.cer -storepass ${storepass} -keystore server-cert-keystore.jks"/>
+        </exec>
+        <exec executable="keytool" dir="release/modules/ext" os="windows">
+            <arg line="-import -noprompt -alias ${cert.server.alias} -file ${cert.server.alias}.crt -storepass ${storepass} -keystore server-cert-keystore.jks"/>
         </exec>
         
         <!-- Delete the server cert as it's now imported into the JKS -->
         <delete>
             <fileset dir="release/modules/ext">
-                <filename name="${cert.alias}.c*"/>
+                <filename name="${cert.server.alias}"/>
             </fileset>
         </delete>
     </target>
