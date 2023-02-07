@@ -50,7 +50,7 @@ import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.CORS_TAB;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.NO_CHANGE_IN_TAB;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX3domAction", category = "X3D-Edit")
 
@@ -156,7 +156,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     {
         super.initialize(); // BaseConversionsAction
 
-        // TODO confirm whether needed, possibly moving properties to X3dOptions instead
+        // TODO confirm whether needed, possibly moving properties to X3dEditUserPreferences instead
         if (parametersHashMap.isEmpty()) 
         {
             resetValuesToDefault ();
@@ -303,7 +303,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
         {
             fileExtension = "X_ITE.html";
             if (!userConfirmedWhetherAutolaunchOK && 
-                !X3dOptions.isActiveX3dModelServerAutolaunch() && 
+                !X3dEditUserPreferences.isActiveX3dModelServerAutolaunch() && 
                 !X3dToXhtmlDomConversionFrame.isPortBoundAuthorModelsServer())
             {
                 userConfirmedWhetherAutolaunchOK = true; // ask once per session
@@ -313,11 +313,11 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
                         "Autolaunch localhost http server?", NotifyDescriptor.YES_NO_OPTION);
                 if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
                 {
-                    X3dOptions.setActiveX3dModelServerAutolaunch(true);
+                    X3dEditUserPreferences.setActiveX3dModelServerAutolaunch(true);
                 }
             }
             // time to autolaunch for new model, if allowed
-            if (X3dOptions.isActiveX3dModelServerAutolaunch())
+            if (X3dEditUserPreferences.isActiveX3dModelServerAutolaunch())
             {
                 newModelPort = x3dToXhtmlDomConversionFrame.launchNewActiveX3dModelServer(transformSingleFileName, transformSingleFilePath);
                 if (newModelPort == -1)

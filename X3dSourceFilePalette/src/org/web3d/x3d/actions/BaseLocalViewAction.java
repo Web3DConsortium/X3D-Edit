@@ -38,9 +38,8 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.DownloadX3dExamplesArchivesPanel;
 import static org.web3d.x3d.DownloadX3dExamplesArchivesPanel.isLocalArchivePresent;
 import org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 //import org.web3d.x3d.InputOutputReporter;
-
 /**
  * BaseLocalViewAction.java
  * Created on Feb 7, 2008
@@ -79,8 +78,8 @@ abstract public class BaseLocalViewAction extends BaseViewAction
     
     // note that this tests whether port is bound, since that might occur externally (regardless of local http server)
     if (isLocalArchivePresent(archiveName) && 
-        X3dToXhtmlDomConversionFrame.isPortBound(Integer.parseInt(X3dOptions.getExampleArchivesServerPort()))) // TODO and server started...
-        urlString = "http://localhost:" + X3dOptions.getExampleArchivesServerPort() + "/" + archiveName + "/index.html";
+        X3dToXhtmlDomConversionFrame.isPortBound(Integer.parseInt(X3dEditUserPreferences.getExampleArchivesServerPort()))) // TODO and server started...
+        urlString = "http://localhost:" + X3dEditUserPreferences.getExampleArchivesServerPort() + "/" + archiveName + "/index.html";
     
     try
     {

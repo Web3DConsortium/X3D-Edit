@@ -46,7 +46,7 @@ import org.openide.awt.ActionRegistration;
 import org.openide.nodes.Node;
 import org.openide.util.NbBundle;
 import org.openide.util.RequestProcessor;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
@@ -91,7 +91,7 @@ public final class RenameElementAction extends BaseX3DEditAction //CookieAction
       Node n = activatedNodes[0];
       //doValidate(n);
       // Do this validate instead to get a "Undo change" dialog on error
-      if (X3dOptions.getAutoValidate())
+      if (X3dEditUserPreferences.getAutoValidate())
         // Schedule validation task in separate thread
         RequestProcessor.getDefault().post(new ValidateThread(documentEditorPane, "renamed element", true));
     }

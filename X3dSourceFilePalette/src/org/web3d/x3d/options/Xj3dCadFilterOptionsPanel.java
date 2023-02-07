@@ -58,37 +58,37 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
   }
   private void setValues()
   {
-    identityFilterRB.setSelected             (X3dOptions.getCadFilterIdentityFilter());
-    cadFiltersRB.setSelected                 (X3dOptions.getCadFiltersEnabledRadioButton());
+    identityFilterRB.setSelected             (X3dEditUserPreferences.getCadFilterIdentityFilter());
+    cadFiltersRB.setSelected                 (X3dEditUserPreferences.getCadFiltersEnabledRadioButton());
 
-    absoluteScaleFactorTF.setText            (X3dOptions.getCadFilterAbsScaleFactor());
-    addBoundingBoxesCheckBox.setSelected     (X3dOptions.getCadFilterAddBoundingBoxes());
-    appearanceFilterCheckBox.setSelected     (X3dOptions.getCadFilterAppearanceFilter());
-    binaryCompressionMethodCB.setSelectedItem(X3dOptions.getCadFilterBinaryCompressionMethod());
-    centerFilterCheckBox.setSelected         (X3dOptions.getCadFilterCenterFilter());
-    combineAppearancesCheckBox.setSelected   (X3dOptions.getCadFilterCombineAppearances());
-    combineShapesCheckBox.setSelected        (X3dOptions.getCadFilterCombineShapes());
-    debugCheckBox.setSelected                (X3dOptions.getCadFilterDebug());
-    defNameShortenedCheckBox.setSelected     (X3dOptions.getCadFilterDefNameShortened());
-    defUseImageTextureCheckBox.setSelected   (X3dOptions.getCadFilterDefuseImageTexture());
-    embedPrototypesCheckBox.setSelected      (X3dOptions.getCadFilterEmbedProto());
+    absoluteScaleFactorTF.setText            (X3dEditUserPreferences.getCadFilterAbsScaleFactor());
+    addBoundingBoxesCheckBox.setSelected     (X3dEditUserPreferences.getCadFilterAddBoundingBoxes());
+    appearanceFilterCheckBox.setSelected     (X3dEditUserPreferences.getCadFilterAppearanceFilter());
+    binaryCompressionMethodCB.setSelectedItem(X3dEditUserPreferences.getCadFilterBinaryCompressionMethod());
+    centerFilterCheckBox.setSelected         (X3dEditUserPreferences.getCadFilterCenterFilter());
+    combineAppearancesCheckBox.setSelected   (X3dEditUserPreferences.getCadFilterCombineAppearances());
+    combineShapesCheckBox.setSelected        (X3dEditUserPreferences.getCadFilterCombineShapes());
+    debugCheckBox.setSelected                (X3dEditUserPreferences.getCadFilterDebug());
+    defNameShortenedCheckBox.setSelected     (X3dEditUserPreferences.getCadFilterDefNameShortened());
+    defUseImageTextureCheckBox.setSelected   (X3dEditUserPreferences.getCadFilterDefuseImageTexture());
+    embedPrototypesCheckBox.setSelected      (X3dEditUserPreferences.getCadFilterEmbedProto());
 
-    flattenTransformsCheckBox.setSelected    (X3dOptions.getCadFilterFlattenTransforms());
-    flattenTextureTransformsCheckBox.setSelected (X3dOptions.getCadFilterFlattenTextureTransforms());
-    flattenSelectableCheckBox.setSelected    (X3dOptions.getCadFilterFlattenSelectable());
-    floatingPointQuantizationTF.setText      (X3dOptions.getCadFilterFloatingPointQuantization());
-    generateNormalsCheckBox.setSelected      (X3dOptions.getCadFilterGenerateNormals());
-    indexFilterCheckBox.setSelected          (X3dOptions.getCadFilterIndexFilter());
-    IFStoITSCheckBox.setSelected             (X3dOptions.getCadFilterIFStoITS());
-    IFStoTSCheckBox.setSelected              (X3dOptions.getCadFilterIFStoTS());
-    logLevelCB.setSelectedItem               (X3dOptions.getCadFilterLogLevel());
-    materialFilterCheckBox.setSelected       (X3dOptions.getCadFilterMaterialFilter());
-    minimumProfileCheckBox.setSelected       (X3dOptions.getCadFilterMinimumProfile());
-    modifyViewpointCheckBox.setSelected      (X3dOptions.getCadFilterModifyViewpoint());
-    reIndexCheckBox.setSelected              (X3dOptions.getCadFilterReIndex());
-    triangleCountCheckBox.setSelected        (X3dOptions.getCadFilterTriangleCount());
-    triangulationFilterCheckBox.setSelected  (X3dOptions.getCadFilterTriangulationFilter());
-    x3dVersionCB.setSelectedItem             (X3dOptions.getCadFilterX3dVersion());
+    flattenTransformsCheckBox.setSelected    (X3dEditUserPreferences.getCadFilterFlattenTransforms());
+    flattenTextureTransformsCheckBox.setSelected (X3dEditUserPreferences.getCadFilterFlattenTextureTransforms());
+    flattenSelectableCheckBox.setSelected    (X3dEditUserPreferences.getCadFilterFlattenSelectable());
+    floatingPointQuantizationTF.setText      (X3dEditUserPreferences.getCadFilterFloatingPointQuantization());
+    generateNormalsCheckBox.setSelected      (X3dEditUserPreferences.getCadFilterGenerateNormals());
+    indexFilterCheckBox.setSelected          (X3dEditUserPreferences.getCadFilterIndexFilter());
+    IFStoITSCheckBox.setSelected             (X3dEditUserPreferences.getCadFilterIFStoITS());
+    IFStoTSCheckBox.setSelected              (X3dEditUserPreferences.getCadFilterIFStoTS());
+    logLevelCB.setSelectedItem               (X3dEditUserPreferences.getCadFilterLogLevel());
+    materialFilterCheckBox.setSelected       (X3dEditUserPreferences.getCadFilterMaterialFilter());
+    minimumProfileCheckBox.setSelected       (X3dEditUserPreferences.getCadFilterMinimumProfile());
+    modifyViewpointCheckBox.setSelected      (X3dEditUserPreferences.getCadFilterModifyViewpoint());
+    reIndexCheckBox.setSelected              (X3dEditUserPreferences.getCadFilterReIndex());
+    triangleCountCheckBox.setSelected        (X3dEditUserPreferences.getCadFilterTriangleCount());
+    triangulationFilterCheckBox.setSelected  (X3dEditUserPreferences.getCadFilterTriangulationFilter());
+    x3dVersionCB.setSelectedItem             (X3dEditUserPreferences.getCadFilterX3dVersion());
 
     radioButtsHandler(null);
   }
@@ -98,47 +98,47 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
     String badSets = "";
     try {
       (new SFFloat(absoluteScaleFactorTF.getText())).getValue(); // check valid value
-      X3dOptions.setCadFilterAbsScaleFactor(absoluteScaleFactorTF.getText().trim());
+      X3dEditUserPreferences.setCadFilterAbsScaleFactor(absoluteScaleFactorTF.getText().trim());
     }
     catch(NumberFormatException ex) {
       badSets = badSets + this.absoluteScaleFactorLabel.getText() + " ";
     }
     try {
       (new SFFloat(floatingPointQuantizationTF.getText())).getValue(); // check valid value
-      X3dOptions.setCadFilterFloatingPointQuantization(floatingPointQuantizationTF.getText().trim());
+      X3dEditUserPreferences.setCadFilterFloatingPointQuantization(floatingPointQuantizationTF.getText().trim());
     }
     catch(NumberFormatException ex) {
       badSets = badSets + floatingPointQuantizationLabel.getText();
     }
-    X3dOptions.setCadFilterIdentityFilter     (identityFilterRB.isSelected());
-    X3dOptions.setCadFilterCadFiltersRB       (cadFiltersRB.isSelected());
+    X3dEditUserPreferences.setCadFilterIdentityFilter     (identityFilterRB.isSelected());
+    X3dEditUserPreferences.setCadFilterCadFiltersRB       (cadFiltersRB.isSelected());
 
-    X3dOptions.setCadFilterAddBoundingBoxes   (addBoundingBoxesCheckBox.isSelected());
-    X3dOptions.setCadFilterAppearanceFilter   (appearanceFilterCheckBox.isSelected());
-    X3dOptions.setCadFilterBinaryCompression  ((String)binaryCompressionMethodCB.getSelectedItem());
-    X3dOptions.setCadFilterCombineAppearances (combineAppearancesCheckBox.isSelected());
-    X3dOptions.setCadFilterCombineShapes      (combineShapesCheckBox.isSelected());
-    X3dOptions.setCadFilterCenterFilter       (centerFilterCheckBox.isSelected());
-    X3dOptions.setCadFilterDebug              (debugCheckBox.isSelected());
-    X3dOptions.setCadFilterDefNameShortened   (defNameShortenedCheckBox.isSelected());
-    X3dOptions.setCadFilterDefuseImageTexture (defUseImageTextureCheckBox.isSelected());
-    X3dOptions.setCadFilterEmbedProto         (embedPrototypesCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterAddBoundingBoxes   (addBoundingBoxesCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterAppearanceFilter   (appearanceFilterCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterBinaryCompression  ((String)binaryCompressionMethodCB.getSelectedItem());
+    X3dEditUserPreferences.setCadFilterCombineAppearances (combineAppearancesCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterCombineShapes      (combineShapesCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterCenterFilter       (centerFilterCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterDebug              (debugCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterDefNameShortened   (defNameShortenedCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterDefuseImageTexture (defUseImageTextureCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterEmbedProto         (embedPrototypesCheckBox.isSelected());
 
-    X3dOptions.setCadFilterFlattenTransforms  (flattenTransformsCheckBox.isSelected());
-    X3dOptions.setCadFilterFlattenTextureTransforms  (flattenTextureTransformsCheckBox.isSelected());
-    X3dOptions.setCadFilterFlattenSelectable  (flattenSelectableCheckBox.isSelected());
-    X3dOptions.setCadFilterGenerateNormals    (generateNormalsCheckBox.isSelected());
-    X3dOptions.setCadFilterIndexFilter        (indexFilterCheckBox.isSelected());
-    X3dOptions.setCadFilterIFStoITS           (IFStoITSCheckBox.isSelected());
-    X3dOptions.setCadFilterIFStoTS            (IFStoTSCheckBox.isSelected());
-    X3dOptions.setCadFilterLogLevel           ((String)logLevelCB.getSelectedItem());
-    X3dOptions.setCadFilterMaterialFilter     (materialFilterCheckBox.isSelected());
-    X3dOptions.setCadFilterMinimumProfile     (minimumProfileCheckBox.isSelected());
-    X3dOptions.setCadFilterModifyViewpoint    (modifyViewpointCheckBox.isSelected());
-    X3dOptions.setCadFilterReindex            (reIndexCheckBox.isSelected());
-    X3dOptions.setCadFilterTriangleCount      (triangleCountCheckBox.isSelected());
-    X3dOptions.setCadFilterTriangulationFilter(triangulationFilterCheckBox.isSelected());
-    X3dOptions.setCadFilterX3dVersion         ((String)x3dVersionCB.getSelectedItem());
+    X3dEditUserPreferences.setCadFilterFlattenTransforms  (flattenTransformsCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterFlattenTextureTransforms  (flattenTextureTransformsCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterFlattenSelectable  (flattenSelectableCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterGenerateNormals    (generateNormalsCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterIndexFilter        (indexFilterCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterIFStoITS           (IFStoITSCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterIFStoTS            (IFStoTSCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterLogLevel           ((String)logLevelCB.getSelectedItem());
+    X3dEditUserPreferences.setCadFilterMaterialFilter     (materialFilterCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterMinimumProfile     (minimumProfileCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterModifyViewpoint    (modifyViewpointCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterReindex            (reIndexCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterTriangleCount      (triangleCountCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterTriangulationFilter(triangulationFilterCheckBox.isSelected());
+    X3dEditUserPreferences.setCadFilterX3dVersion         ((String)x3dVersionCB.getSelectedItem());
    
     badSets = badSets.trim();
     if(badSets.length() > 0) {
@@ -151,7 +151,7 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
 
   public void resetAll()
   {
-    X3dOptions.resetAllCadFilterPreferences();
+    X3dEditUserPreferences.resetAllCadFilterPreferences();
     setValues();
   }
   /** This method is called from within the constructor to
@@ -715,7 +715,7 @@ private void indexFilterCheckBoxActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_logLevelCBActionPerformed
 
     private void reportXj3dCadFilterOptionsPanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportXj3dCadFilterOptionsPanelButtonActionPerformed
-        (new OptionsMiscellaneousX3dPanel()).reportButtonSend ("Panel Preferences: Xj3D CAD Filter Options tab");
+        (new X3dEditUserPreferencesPanel()).reportButtonSend ("Panel Preferences: Xj3D CAD Filter Options tab");
     }//GEN-LAST:event_reportXj3dCadFilterOptionsPanelButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

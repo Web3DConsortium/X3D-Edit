@@ -49,8 +49,8 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import org.web3d.x3d.options.OptionsMiscellaneousX3dPanel;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferencesPanel;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.security.ManageKeyStoreExplorerAction", category = "X3D-Edit")
 // https://commons.wikimedia.org/wiki/File:60_%C5%9Closilo_1.svg
@@ -74,7 +74,7 @@ public final class ManageKeyStoreExplorerAction extends CallableSystemAction
  
   public void performAction(char[] pw)
   {
-      OptionsMiscellaneousX3dPanel.externalProcessLaunch(X3dOptions.getKeystoreExplorerPlayerPath());
+      X3dEditUserPreferencesPanel.externalProcessLaunch(X3dEditUserPreferences.getKeystoreExplorerPlayerPath());
   }
   
   @Override

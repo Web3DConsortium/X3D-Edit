@@ -47,7 +47,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewInContactAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/bitmanagement09_favicon_16x16.png",
@@ -68,7 +68,7 @@ public final class ViewInContactAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getContactPath();
+    return X3dEditUserPreferences.getContactPath();
   }
 
   @Override
@@ -80,7 +80,7 @@ public final class ViewInContactAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isContactAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isContactAutoLaunch());
   }
     
   @Override

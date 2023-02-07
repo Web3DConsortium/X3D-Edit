@@ -43,7 +43,7 @@ package org.web3d.x3d.actions;
 
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 // Hide, no longer active
 /*
@@ -58,7 +58,7 @@ public final class ViewInHeilanAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getHeilanPath();
+    return X3dEditUserPreferences.getHeilanPath();
   }
 
   @Override
@@ -77,7 +77,7 @@ public final class ViewInHeilanAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isHeilanAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isHeilanAutoLaunch());
   }
 
   @Override

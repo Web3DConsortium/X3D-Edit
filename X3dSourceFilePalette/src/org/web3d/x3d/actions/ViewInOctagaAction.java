@@ -47,7 +47,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.ViewInOctagaAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/Octaga32x32.png",
@@ -67,7 +67,7 @@ public final class ViewInOctagaAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getOctagaPath();
+    return X3dEditUserPreferences.getOctagaPath();
   }
 
   @Override
@@ -79,7 +79,7 @@ public final class ViewInOctagaAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isOctagaAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isOctagaAutoLaunch());
   }
 
   @Override

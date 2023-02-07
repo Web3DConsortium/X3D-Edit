@@ -52,7 +52,7 @@ import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
@@ -384,7 +384,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 5);
         translationPanel.add(scaleLabel, gridBagConstraints);
 
-        xScaleTF.setText(X3dOptions.getDIStranslationScaleX(DEFAULT_TRANSLATION_SCALE));
+        xScaleTF.setText(X3dEditUserPreferences.getDIStranslationScaleX(DEFAULT_TRANSLATION_SCALE));
         xScaleTF.setToolTipText("scale-factor multiplier"); // NOI18N
         xScaleTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         xScaleTF.setMinimumSize(new java.awt.Dimension(32, 20));
@@ -407,7 +407,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
         translationPanel.add(xScaleTF, gridBagConstraints);
 
-        yScaleTF.setText(X3dOptions.getDIStranslationScaleY(DEFAULT_TRANSLATION_SCALE));
+        yScaleTF.setText(X3dEditUserPreferences.getDIStranslationScaleY(DEFAULT_TRANSLATION_SCALE));
         yScaleTF.setToolTipText(org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.yScaleTF.toolTipText")); // NOI18N
         yScaleTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         yScaleTF.setMinimumSize(new java.awt.Dimension(32, 20));
@@ -430,7 +430,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
         translationPanel.add(yScaleTF, gridBagConstraints);
 
-        zScaleTF.setText(X3dOptions.getDIStranslationScaleZ(DEFAULT_TRANSLATION_SCALE));
+        zScaleTF.setText(X3dEditUserPreferences.getDIStranslationScaleZ(DEFAULT_TRANSLATION_SCALE));
         zScaleTF.setToolTipText(org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.zScaleTF.toolTipText")); // NOI18N
         zScaleTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         zScaleTF.setMinimumSize(new java.awt.Dimension(32, 20));
@@ -847,7 +847,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         DisSettingsPanel.add(addressLabel, gridBagConstraints);
 
-        addressTF.setText(X3dOptions.getDISaddress(DEFAULT_DIS_ADDRESS));
+        addressTF.setText(X3dEditUserPreferences.getDISaddress(DEFAULT_DIS_ADDRESS));
         addressTF.setToolTipText("multicast address 224.0.0.0 through 239.255.255.255 for this simulation"); // NOI18N
         addressTF.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -873,7 +873,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         DisSettingsPanel.add(portLabel, gridBagConstraints);
 
-        portTF.setText(X3dOptions.getDISport(DEFAULT_PORT));
+        portTF.setText(X3dEditUserPreferences.getDISport(DEFAULT_PORT));
         portTF.setToolTipText("multicast port number between 1 and 65535 for this simulation"); // NOI18N
         portTF.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -899,7 +899,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         DisSettingsPanel.add(siteIDLabel, gridBagConstraints);
 
-        siteIDTF.setText(X3dOptions.getDISsiteID(DEFAULT_SITEID));
+        siteIDTF.setText(X3dEditUserPreferences.getDISsiteID(DEFAULT_SITEID));
         siteIDTF.setToolTipText("simulation/exercise siteID of participating LAN or organization");
         siteIDTF.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -925,7 +925,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         DisSettingsPanel.add(appIDLabel, gridBagConstraints);
 
-        appIDTF.setText(X3dOptions.getDISappID(DEFAULT_APPID));
+        appIDTF.setText(X3dEditUserPreferences.getDISappID(DEFAULT_APPID));
         appIDTF.setToolTipText("simulation/exercise applicationID is unique for a given simulation"); // NOI18N
         appIDTF.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -951,7 +951,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         DisSettingsPanel.add(entityIDLabel, gridBagConstraints);
 
-        entityIDTF.setText(X3dOptions.getDISentityID(DEFAULT_ENTITYID));
+        entityIDTF.setText(X3dEditUserPreferences.getDISentityID(DEFAULT_ENTITYID));
         entityIDTF.setToolTipText("simulation/exercise entityID is unique value for given entity within that application"); // NOI18N
         entityIDTF.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1220,14 +1220,14 @@ private void joystickCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//
 
   private void savePrefs()
   {
-    X3dOptions.setDISaddress(addressTF.getText().trim());
-    X3dOptions.setDISport(portTF.getText().trim());
-    X3dOptions.setDISappID(appIDTF.getText().trim());
-    X3dOptions.setDISentityID(entityIDTF.getText().trim());
-    X3dOptions.setDISsiteID(siteIDTF.getText().trim());
-    X3dOptions.setDIStranslationScaleX(xScaleTF.getText().trim());
-    X3dOptions.setDIStranslationScaleY(yScaleTF.getText().trim());
-    X3dOptions.setDIStranslationScaleZ(zScaleTF.getText().trim());
+    X3dEditUserPreferences.setDISaddress(addressTF.getText().trim());
+    X3dEditUserPreferences.setDISport(portTF.getText().trim());
+    X3dEditUserPreferences.setDISappID(appIDTF.getText().trim());
+    X3dEditUserPreferences.setDISentityID(entityIDTF.getText().trim());
+    X3dEditUserPreferences.setDISsiteID(siteIDTF.getText().trim());
+    X3dEditUserPreferences.setDIStranslationScaleX(xScaleTF.getText().trim());
+    X3dEditUserPreferences.setDIStranslationScaleY(yScaleTF.getText().trim());
+    X3dEditUserPreferences.setDIStranslationScaleZ(zScaleTF.getText().trim());
   }
 
   private void sendPositionUpdate ()

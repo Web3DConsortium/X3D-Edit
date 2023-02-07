@@ -95,9 +95,9 @@ import org.openide.windows.InputOutput;
 import org.web3d.x3d.actions.conversions.ProcessRunner;
 import org.web3d.x3d.actions.security.BouncyCastleHelper.KeystorePasswordException;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
-import org.web3d.x3d.options.OptionsMiscellaneousX3dPanel;
-import org.web3d.x3d.options.OptionsMiscellaneousX3dPanelAction;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferencesPanel;
+import org.web3d.x3d.options.X3dEditUserPreferencesPanelAction;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /** Custom panel to manage keystore files (XML Security)
  *
@@ -123,7 +123,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
   private static File lastChooserDir = new File(System.getProperty("user.home")+"/X3D-Edit/XML &Security");
   
   /** Creates new form ManageKeyStorePanel
-   * @param passwordParameter plain text password, typically from X3dOptions
+   * @param passwordParameter plain text password, typically from X3dEditUserPreferences
    * @throws java.lang.Exception 
    */
   @SuppressWarnings("UseOfObsoleteCollectionType")
@@ -190,10 +190,10 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
 
   private void initializeKeyStore() throws Exception
   {
-    String initialKeystorePath = X3dOptions.getKeystorePath();
+    String initialKeystorePath = X3dEditUserPreferences.getKeystorePath();
     if ((initialKeystorePath == null) || 
          initialKeystorePath.isBlank() || 
-         initialKeystorePath.equalsIgnoreCase(org.openide.util.NbBundle.getMessage(OptionsMiscellaneousX3dPanel.class, "KEYSTORE_DEFAULT_WARNING")))
+         initialKeystorePath.equalsIgnoreCase(org.openide.util.NbBundle.getMessage(X3dEditUserPreferencesPanel.class, "KEYSTORE_DEFAULT_WARNING")))
     {
         // must initially set keystore to user-provided location
         String message = "<html>" +
@@ -209,10 +209,10 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
             "</html>";
         NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
         DialogDisplayer.getDefault().notify(notifyDescriptor);
-        OptionsMiscellaneousX3dPanelAction optionsMiscellaneousX3dPanelAction = new OptionsMiscellaneousX3dPanelAction();
-        optionsMiscellaneousX3dPanelAction.setPreferredPane(OptionsMiscellaneousX3dPanel.XML_SECURITY_PANE);
+        X3dEditUserPreferencesPanelAction optionsMiscellaneousX3dPanelAction = new X3dEditUserPreferencesPanelAction();
+        optionsMiscellaneousX3dPanelAction.setPreferredPane(X3dEditUserPreferencesPanel.XML_SECURITY_PANE);
         optionsMiscellaneousX3dPanelAction.actionPerformed(null); // show panel
-        initialKeystorePath = X3dOptions.getKeystorePath();  
+        initialKeystorePath = X3dEditUserPreferences.getKeystorePath();  
         if (initialKeystorePath == null) return;   
     }
     keyStore     = BouncyCastleHelper.getKeyStore();

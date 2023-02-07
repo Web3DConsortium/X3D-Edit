@@ -56,7 +56,7 @@ import org.openide.util.NbBundle;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
 import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.BetterJTextField;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.types.X3DNode;
@@ -230,8 +230,8 @@ public abstract class BaseCustomizer extends JPanel
             }
             else if (dragDrop)    // use defaults instead of user selections (since none provided)
             {
-                wantLeadingLineFeed  = X3dOptions.getPrependNewline();
-                wantTrailingLineFeed = X3dOptions.getAppendNewline();
+                wantLeadingLineFeed  = X3dEditUserPreferences.getPrependNewline();
+                wantTrailingLineFeed = X3dEditUserPreferences.getAppendNewline();
             }
             else // editing in place, not dragDrop, so both values remain false,
             {
@@ -299,11 +299,11 @@ public abstract class BaseCustomizer extends JPanel
 
     prependNewLineCB.setToolTipText("prepend newLine before adding element to scene");
     prependNewLineCB.addActionListener((java.awt.event.ActionEvent evt) -> {
-        X3dOptions.setPrependNewline(prependNewLineCB.isSelected());
+        X3dEditUserPreferences.setPrependNewline(prependNewLineCB.isSelected());
     });
     appendNewLineCB.setToolTipText("append newLine after adding element to scene");
     appendNewLineCB.addActionListener((java.awt.event.ActionEvent evt) -> {
-        X3dOptions.setAppendNewline(appendNewLineCB.isSelected());
+        X3dEditUserPreferences.setAppendNewline(appendNewLineCB.isSelected());
     });
 
     buttonsDialogDescriptor = new DialogDescriptor(this,

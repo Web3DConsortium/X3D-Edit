@@ -46,7 +46,7 @@ import org.openide.util.Lookup;
  */
 final class X3dOptionsPanelController extends OptionsPanelController
 {
-  private OptionsMiscellaneousX3dPanel panel;
+  private X3dEditUserPreferencesPanel panel;
   private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
   private boolean changed;
 
@@ -107,10 +107,10 @@ final class X3dOptionsPanelController extends OptionsPanelController
   }
 
  /** Singleton version of panel */  
-  private OptionsMiscellaneousX3dPanel getPanel()
+  private X3dEditUserPreferencesPanel getPanel()
   {
     if (panel == null) {
-      panel = new OptionsMiscellaneousX3dPanel(this);
+      panel = new X3dEditUserPreferencesPanel(this);
     }
     return panel;
   }

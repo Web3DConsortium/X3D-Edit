@@ -73,7 +73,7 @@ import org.openide.windows.InputOutput;
 import org.web3d.vrml.util.URLChecker;
 import org.web3d.x3d.UrlStatus;
 import org.web3d.x3d.actions.conversions.ConversionsHelper;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 
 /**
@@ -1521,212 +1521,212 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     try {
       if      (isSoundSupportedExtension(extension) || isSoundAlternateExtension(extension))
       {
-        if (X3dOptions.isAudacityAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isAudacityAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getAudacityEditorPath(),       fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getAudacityEditorPath(),       fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isMuseScoreAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isMuseScoreAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getMuseScoreEditorPath(),       fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getMuseScoreEditorPath(),       fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isOtherAudioEditorAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isOtherAudioEditorAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getOtherAudioEditorPath(),       fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getOtherAudioEditorPath(),       fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
       }
       else if (isHtmlExtension(extension))
       {
-        if (X3dOptions.isAmayaAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isAmayaAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getAmayaEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getAmayaEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isUltraEditAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isUltraEditAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getUltraEditX3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getUltraEditX3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isOtherHtml5EditorAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isOtherHtml5EditorAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getOtherHtml5EditorPath(),       fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getOtherHtml5EditorPath(),       fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
       }
       else if (isImageSupportedExtension(extension) || isImageAlternateExtension(extension))
       {
-        if (X3dOptions.isGimpAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isGimpAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getGimpImageEditorPath(),    fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getGimpImageEditorPath(),    fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isFijiAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isFijiAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getFijiImageEditorPath(),    fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getFijiImageEditorPath(),    fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isImageJAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isImageJAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getImageJEditorPath(),       fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getImageJEditorPath(),       fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isImageMagickAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isImageMagickAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getImageMagickEditorPath(),  fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getImageMagickEditorPath(),  fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isOtherImageEditorAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isOtherImageEditorAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getOtherImageEditorPath(),       fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getOtherImageEditorPath(),       fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
       }
       else if (isMovieSupportedExtension(extension))
       {
-        if (X3dOptions.isVlcAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isVlcAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getVlcPlayerPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getVlcPlayerPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isOtherVideoEditorAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isOtherVideoEditorAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getOtherVideoEditorPath(),       fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getOtherVideoEditorPath(),       fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
       }
       else if (isVolumeExtension(extension))
       {
-        if (X3dOptions.isFijiAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isFijiAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getFijiImageEditorPath(),    fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getFijiImageEditorPath(),    fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isImageJAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isImageJAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getImageJEditorPath(),       fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getImageJEditorPath(),       fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isItksnapAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isItksnapAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getItksnapEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getItksnapEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isSeg3dAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isSeg3dAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getSeg3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getSeg3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isSlicer3dAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isSlicer3dAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getSlicer3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getSlicer3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isOtherVolumeEditorAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isOtherVolumeEditorAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getOtherVolumeEditorPath(),       fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getOtherVolumeEditorPath(),       fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
       }
       else if (isX3dSupportedExtension(extension))
       {
-        if (X3dOptions.isBlenderAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isBlenderAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getBlenderX3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getBlenderX3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isMeshLabAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isMeshLabAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getMeshLabX3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getMeshLabX3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isParaviewAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isParaviewAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getParaviewX3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getParaviewX3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isSeamless3dAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isSeamless3dAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getSeamlessX3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getSeamlessX3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isUltraEditAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isUltraEditAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getUltraEditX3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getUltraEditX3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isWings3dAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isWings3dAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getWingsX3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getWingsX3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
-        if (X3dOptions.isOtherX3dEditorAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isOtherX3dEditorAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getOtherX3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getOtherX3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
       }
       else if (isHtmlExtension(extension) || isXmlExtension(extension) || isTextExtension(extension)) // can use UltraEdit if available
       {
-        if (X3dOptions.isUltraEditAutoLaunch().equalsIgnoreCase("true"))
+        if (X3dEditUserPreferences.isUltraEditAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
-          pb = new ProcessBuilder(X3dOptions.getUltraEditX3dEditorPath(), fullPath);
+          pb = new ProcessBuilder(X3dEditUserPreferences.getUltraEditX3dEditorPath(), fullPath);
           pb.start();
-          Thread.sleep(X3dOptions.getLaunchIntervalMilliseconds());
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
       }
       else // no support for this file type

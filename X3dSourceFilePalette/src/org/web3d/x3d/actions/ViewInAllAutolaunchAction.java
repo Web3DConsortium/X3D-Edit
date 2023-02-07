@@ -57,7 +57,7 @@ import org.openide.util.RequestProcessor;
 import org.openide.util.actions.CookieAction;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.actions.conversions.ViewInXj3DApplicationAction;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
@@ -132,7 +132,7 @@ public final class ViewInAllAutolaunchAction extends CookieAction
   @Override
   protected void performAction(Node[] activatedNodes)
   {
-        launchInterval = X3dOptions.getLaunchInterval(); // seconds
+        launchInterval = X3dEditUserPreferences.getLaunchInterval(); // seconds
 
         RequestProcessor rProc = RequestProcessor.getDefault();
         int delay=0;

@@ -70,7 +70,7 @@ import org.openide.xml.EntityCatalog;
 import org.web3d.x3d.EditElementAction;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.items.BaseX3DElement;
 import org.xml.sax.Attributes;
 import org.xml.sax.EntityResolver;
@@ -166,7 +166,7 @@ public final class X3DPaletteUtilitiesJdom
     if(start >= cursorOffsetWhenDone) // good insert
       baseX3DElement.postInsert(target);
 
-    if (X3dOptions.getAutoValidate())
+    if (X3dEditUserPreferences.getAutoValidate())
       // Schedule validation task in separate thread
       RequestProcessor.getDefault().post(new ValidateThread(target, "inserted text", true));
     return start;

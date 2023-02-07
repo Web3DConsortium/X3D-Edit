@@ -50,7 +50,7 @@ import org.openide.nodes.Node;
 import org.openide.util.Exceptions;
 import org.openide.util.actions.CookieAction;
 import org.web3d.x3d.X3DDataObject;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @SuppressWarnings("serial")
 public abstract class ViewInBaseAction extends CookieAction
@@ -65,8 +65,8 @@ public abstract class ViewInBaseAction extends CookieAction
       if(f.exists())
         localEnabled = true;
     }
-    else if ((path != null) && (X3dOptions.getOtherX3dPlayerNameDefault() != null) && 
-              path.equals(X3dOptions.getOtherX3dPlayerNameDefault()))
+    else if ((path != null) && (X3dEditUserPreferences.getOtherX3dPlayerNameDefault() != null) && 
+              path.equals(X3dEditUserPreferences.getOtherX3dPlayerNameDefault()))
     {
         return true;
     }

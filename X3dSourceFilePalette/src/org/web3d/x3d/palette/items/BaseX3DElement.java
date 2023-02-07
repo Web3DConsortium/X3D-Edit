@@ -56,7 +56,7 @@ import org.openide.util.Exceptions;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.web3d.x3d.X3DDataObject;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DXMLOutputter;
@@ -192,7 +192,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         }
       }
 
-      BaseCustomizer.DialogReturnEnumeration retrn = cust.showDialog(X3dOptions.getShowNewlineOption());
+      BaseCustomizer.DialogReturnEnumeration retrn = cust.showDialog(X3dEditUserPreferences.getShowNewlineOption());
       if (retrn != BaseCustomizer.DialogReturnEnumeration.CANCEL) {
         try {
           String lineFeedText = "";
@@ -2029,9 +2029,9 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     // =============================================================================================================================
     // Visualization additions
 
-    String lineColor         = X3dOptions.getVisualizeLineColor ();
-    String shapeColor        = X3dOptions.getVisualizeShapeColor();
-    String shapeTransparency = X3dOptions.getVisualizeTransparency();
+    String lineColor         = X3dEditUserPreferences.getVisualizeLineColor ();
+    String shapeColor        = X3dEditUserPreferences.getVisualizeShapeColor();
+    String shapeTransparency = X3dEditUserPreferences.getVisualizeTransparency();
 
     String DEFlabel = "";
     if (isDEF() && (getDEFUSEvalue().length() > 0)) 
@@ -2091,8 +2091,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                                           getElementName().equals("GeoLOD")        || getElementName().equals("GeoTransform"));
             boolean hAnimTransformType = (getElementName().equals("HAnimHumanoid") || getElementName().equals("HAnimJoint")     || getElementName().equals("HAnimSite"));
 
-            if (!boundingBoxSize.equals(TRANSFORM_ATTR_BBOXSIZE_DFLT) ||      (transformType && X3dOptions.getVisualizeCoordinateAxes())
-                                                                      || (hAnimTransformType)) // && X3dOptions.getVisualizeHanimCoordinateAxes()
+            if (!boundingBoxSize.equals(TRANSFORM_ATTR_BBOXSIZE_DFLT) ||      (transformType && X3dEditUserPreferences.getVisualizeCoordinateAxes())
+                                                                      || (hAnimTransformType)) // && X3dEditUserPreferences.getVisualizeHanimCoordinateAxes()
             {
                 if     (getElementName().equals("Transform")     || getElementName().equals("CADPart")    || getElementName().equals("EspduTransform") ||
                         getElementName().equals("HAnimHumanoid") || getElementName().equals("HAnimJoint") || getElementName().equals("HAnimSite"))
@@ -2147,7 +2147,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "\n");
 
                 // insert HAnim viewpoint, if approptiate
-                if ((hAnimTransformType && X3dOptions.getVisualizeHanimCoordinateAxes())
+                if ((hAnimTransformType && X3dEditUserPreferences.getVisualizeHanimCoordinateAxes())
                      || getElementName().equals("HAnimHumanoid")) // always provide HAnimHumanoid axes)
                 {
                     sb.append (
@@ -2199,9 +2199,9 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                 "                <Coordinate point='0 0.008 0 -0.008 0 0 0 0 0.008 0.008 0 0 0 0 -0.008 0 -0.008 0'/>\n").append(
                 "              </IndexedFaceSet>\n").append(
                 "              <Appearance>\n").append(
-                "                <Material diffuseColor='").append(X3dOptions.getVisualizeHanimSiteColorRed()).append(" ").
-                                                            append(X3dOptions.getVisualizeHanimSiteColorGreen()).append(" ").
-                                                            append(X3dOptions.getVisualizeHanimSiteColorBlue()).append("'/>\n").append(
+                "                <Material diffuseColor='").append(X3dEditUserPreferences.getVisualizeHanimSiteColorRed()).append(" ").
+                                                            append(X3dEditUserPreferences.getVisualizeHanimSiteColorGreen()).append(" ").
+                                                            append(X3dEditUserPreferences.getVisualizeHanimSiteColorBlue()).append("'/>\n").append(
                 "              </Appearance>\n").append(
                 "            </Shape>\n").append(
                 "          </Group>\n"
@@ -2223,8 +2223,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                 }
 
                 // visualize Transform parameters, if appropriate
-                if (        (transformType && X3dOptions.getVisualizeCoordinateAxes())
-                    || (hAnimTransformType && X3dOptions.getVisualizeHanimCoordinateAxes())
+                if (        (transformType && X3dEditUserPreferences.getVisualizeCoordinateAxes())
+                    || (hAnimTransformType && X3dEditUserPreferences.getVisualizeHanimCoordinateAxes())
                     || getElementName().equals("HAnimHumanoid")) // always provide HAnimHumanoid axes
                 {
                     sb.append (
@@ -2352,7 +2352,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                         );
                     }
                     // second: visualize Transform scale parameters, if appropriate
-                    if (!scale.equals(TRANSFORM_ATTR_SCALE_DFLT) && X3dOptions.getVisualizeCoordinateAxes())
+                    if (!scale.equals(TRANSFORM_ATTR_SCALE_DFLT) && X3dEditUserPreferences.getVisualizeCoordinateAxes())
                     {
                         sb.append (
                 "        <Group>\n").append(
@@ -2394,7 +2394,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                 } // end of transformType-specific visualization, may also need bbox visualization
 
                 // third: visualize bounding box parameters, if appropriate
-                if (!boundingBoxSize.equals(TRANSFORM_ATTR_BBOXSIZE_DFLT) && X3dOptions.getVisualizeCoordinateAxes())
+                if (!boundingBoxSize.equals(TRANSFORM_ATTR_BBOXSIZE_DFLT) && X3dEditUserPreferences.getVisualizeCoordinateAxes())
                 {
                     sb.append (
             "        <Transform translation='").append(boundingBoxCenter).append("'>\n").append(
@@ -2459,7 +2459,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "    <Switch whichChoice='0' class='visualization.").append( getElementName()).append("'>\n").append(
             "      <Transform translation='").append(sensorCenter).append("'>\n"
             );
-            if (X3dOptions.getVisualizeCoordinateAxes())
+            if (X3dEditUserPreferences.getVisualizeCoordinateAxes())
             {
                 sb.append (
             "        <!-- Unit wireframe axes (XYZ=RGB) show local center of ").append( getElementName()).append(" sensed volume -->\n").append(
@@ -2512,7 +2512,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             String lightColors   = pointLight.getColor0()    + " " + pointLight.getColor1()    + " " + pointLight.getColor2();
             String lightLocation = pointLight.getLocationX() + " " + pointLight.getLocationY() + " " + pointLight.getLocationZ();
 
-            String lightSphereTransparency = X3dOptions.getVisualizeTransparency();
+            String lightSphereTransparency = X3dEditUserPreferences.getVisualizeTransparency();
 
             // output customized LightOutlineGeometry
             sb.append (
@@ -2521,7 +2521,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "      <!-- PointLight outline: simple Sphere -->\n").append(
             "      <Transform translation='").append(lightLocation).append("'>\n"
             );
-            if (X3dOptions.getVisualizeCoordinateAxes())
+            if (X3dEditUserPreferences.getVisualizeCoordinateAxes())
             {
                 sb.append (
             "        <!-- here is local center of ").append( getElementName()).append(" coordinate system -->\n").append(
@@ -2551,7 +2551,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
             // don't use default user-preference color, rather match color of spotLight itself
 
-            String lightOutlineTransparency = X3dOptions.getVisualizeTransparency();
+            String lightOutlineTransparency = X3dEditUserPreferences.getVisualizeTransparency();
             String lightDirection = spotLight.getDirectionX() + " " + spotLight.getDirectionY() + " " + spotLight.getDirectionZ();
             String lightLocation  = spotLight.getLocationX()  + " " + spotLight.getLocationY()  + " " + spotLight.getLocationZ();
             String lightColors    = spotLight.getColorRed()   + " " + spotLight.getColorGreen() + " " + spotLight.getColorBlue();
@@ -2602,7 +2602,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "      <Transform rotation='0 1 0 ").append(horizontalAngle).append("' ").append("translation='").append(lightLocation).append("'>\n").append(
             "        <Transform rotation='1 0 0 ").append(pitchAngle).append("'>\n"
             );
-            if (X3dOptions.getVisualizeCoordinateAxes())
+            if (X3dEditUserPreferences.getVisualizeCoordinateAxes())
             {
                 sb.append (
             "          <!-- here is local center of ").append( getElementName()).append(" coordinate system, with local X axis pointed along direction vector -->\n").append(
@@ -2616,35 +2616,35 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                          ).append(singleDigitFormat.format(beamWidthScaleFactor)).append(" "
                          ).append(singleDigitFormat.format(beamWidthScaleFactor)).append(" "
                          ).append(spotLight.getRadius()).append("'>\n").append(
-            "            <!-- Beam CircleLines made out of 24 line segments, turned into a cone with ").append(X3dOptions.getVisualizeConeLines()).append(" side lines -->\n").append(
+            "            <!-- Beam CircleLines made out of 24 line segments, turned into a cone with ").append(X3dEditUserPreferences.getVisualizeConeLines()).append(" side lines -->\n").append(
             "            <Shape>\n").append(
             "              <IndexedLineSet coordIndex='0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 -1 "
             );
-            if ((new SFInt32(X3dOptions.getVisualizeConeLines())).getValue() == 2)
+            if ((new SFInt32(X3dEditUserPreferences.getVisualizeConeLines())).getValue() == 2)
             {
                 sb.append ("25 0 -1 25 12 -1'>\n");
             }
-            else if ((new SFInt32(X3dOptions.getVisualizeConeLines())).getValue() == 3)
+            else if ((new SFInt32(X3dEditUserPreferences.getVisualizeConeLines())).getValue() == 3)
             {
                 sb.append ("25 0 -1 25 8 -1 25 16 -1'>\n");
             }
-            else if ((new SFInt32(X3dOptions.getVisualizeConeLines())).getValue() == 4)
+            else if ((new SFInt32(X3dEditUserPreferences.getVisualizeConeLines())).getValue() == 4)
             {
                 sb.append ("25 0 -1 25 6 -1 25 12 -1 25 18 -1'>\n");
             }
-            else if ((new SFInt32(X3dOptions.getVisualizeConeLines())).getValue() == 6)
+            else if ((new SFInt32(X3dEditUserPreferences.getVisualizeConeLines())).getValue() == 6)
             {
                 sb.append ("25 0 -1 25 4 -1 25 8 -1 25 12 -1 25 16 -1 25 20 -1'>\n");
             }
-            else if ((new SFInt32(X3dOptions.getVisualizeConeLines())).getValue() == 12)
+            else if ((new SFInt32(X3dEditUserPreferences.getVisualizeConeLines())).getValue() == 12)
             {
                 sb.append ("25 0 -1 25 2 -1 25 4 -1 25 6 -1 25 8 -1 25 10 -1 25 12 -1 25 14 -1 25 16 -1 25 18 -1 25 20 -1 25 22 -1'>\n");
             }
-            else if ((new SFInt32(X3dOptions.getVisualizeConeLines())).getValue() == 24)
+            else if ((new SFInt32(X3dEditUserPreferences.getVisualizeConeLines())).getValue() == 24)
             {
                 sb.append ("25 0 -1 25 1 -1 25 2 -1 25 3 -1 25 4 -1 25 5 -1 25 6 -1 25 7 -1 25 8 -1 25 9 -1 25 10 -1 25 11 -1 25 12 -1 25 13 -1 25 14 -1 25 15 -1 25 16 -1 25 17 -1 25 18 -1 25 19 -1 25 20 -1 25 21 -1 25 22 -1 25 23 -1'>\n");
             }
-            else // default: if ((new SFInt32(X3dOptions.getVisualizeConeLines())).getValue() == 8)
+            else // default: if ((new SFInt32(X3dEditUserPreferences.getVisualizeConeLines())).getValue() == 8)
             {
                 sb.append ("25 0 -1 25 3 -1 25 6 -1 25 9 -1 25 12 -1 25 15 -1 25 18 -1 25 21 -1'>\n");
             }
@@ -2656,7 +2656,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "              </Appearance>\n").append(
             "            </Shape>\n"
             );
-            if (X3dOptions.getVisualizeCenterLine())
+            if (X3dEditUserPreferences.getVisualizeCenterLine())
             {
                 sb.append (
             "            <!-- center line -->\n").append(
@@ -2708,13 +2708,13 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             String soundLocation  = sound.getLocationX()  + " " + sound.getLocationY()  + " " + sound.getLocationZ();
             String soundDirection = sound.getDirectionX() + " " + sound.getDirectionY() + " " + sound.getDirectionZ();
 
-            double innerEllipseRed   = Double.parseDouble(X3dOptions.getVisualizeLineColorRed());
-            double innerEllipseGreen = Double.parseDouble(X3dOptions.getVisualizeLineColorGreen());
-            double innerEllipseBlue  = Double.parseDouble(X3dOptions.getVisualizeLineColorBlue());
-            double outerEllipseRed   = Double.parseDouble(X3dOptions.getVisualizeShapeColorRed());
-            double outerEllipseGreen = Double.parseDouble(X3dOptions.getVisualizeShapeColorGreen());
-            double outerEllipseBlue  = Double.parseDouble(X3dOptions.getVisualizeShapeColorBlue());
-            double soundTransparency = Double.parseDouble(X3dOptions.getVisualizeTransparency());
+            double innerEllipseRed   = Double.parseDouble(X3dEditUserPreferences.getVisualizeLineColorRed());
+            double innerEllipseGreen = Double.parseDouble(X3dEditUserPreferences.getVisualizeLineColorGreen());
+            double innerEllipseBlue  = Double.parseDouble(X3dEditUserPreferences.getVisualizeLineColorBlue());
+            double outerEllipseRed   = Double.parseDouble(X3dEditUserPreferences.getVisualizeShapeColorRed());
+            double outerEllipseGreen = Double.parseDouble(X3dEditUserPreferences.getVisualizeShapeColorGreen());
+            double outerEllipseBlue  = Double.parseDouble(X3dEditUserPreferences.getVisualizeShapeColorBlue());
+            double soundTransparency = Double.parseDouble(X3dEditUserPreferences.getVisualizeTransparency());
 
             // max (outside) color is dimmer than min (inside) color
             String minSoundColors  = innerEllipseRed + " " + innerEllipseGreen + " " + innerEllipseBlue;
@@ -2776,7 +2776,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "      <Transform rotation='0 1 0 ").append(horizontalAngle).append("' ").append("translation='").append(soundLocation).append("'>\n").append(
             "        <Transform rotation='1 0 0 ").append(pitchAngle).append("'>\n"
             );
-            if (X3dOptions.getVisualizeCoordinateAxes())
+            if (X3dEditUserPreferences.getVisualizeCoordinateAxes())
             {
                 sb.append (
             "          <!-- here is local center of ").append( getElementName()).append(" coordinate system sound ellipse, with local X axis pointed along direction vector -->\n").append(
@@ -2842,7 +2842,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                 sb.append (
             "    <Switch whichChoice='0' class='visualization.").append(getElementName()).append("'>\n"
             );
-            if (X3dOptions.getVisualizeCoordinateAxes())
+            if (X3dEditUserPreferences.getVisualizeCoordinateAxes())
             {
                 sb.append (
             "      <!-- here is local center of ").append(getElementName()).append(" coordinate system, with local X axis pointed along direction vector -->\n").append(

@@ -47,7 +47,7 @@ package org.web3d.x3d.actions;
 //import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 // do not show, duplicative
 //@ActionID(id = "org.web3d.x3d.actions.ViewInContactGeoAction", category = "X3D-Edit")
@@ -68,7 +68,7 @@ public final class ViewInContactGeoAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getContactGeoPath();
+    return X3dEditUserPreferences.getContactGeoPath();
   }
 
   @Override
@@ -80,7 +80,7 @@ public final class ViewInContactGeoAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isContactGeoAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isContactGeoAutoLaunch());
   }
     
   @Override

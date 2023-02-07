@@ -179,7 +179,7 @@
             <Component class="javax.swing.JTextField" name="newX3dModelsDirectoryTF">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.NEW_X3D_MODELS_DIRECTORY_DEFAULT" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.NEW_X3D_MODELS_DIRECTORY_DEFAULT" type="code"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Drectory path for new X3D models"/>
               </Properties>
@@ -1169,7 +1169,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getContactPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getContactPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -1186,7 +1186,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getContactGeoPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getContactGeoPathDefault()" type="code"/>
                 </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -1204,7 +1204,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getFreeWrlPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getFreeWrlPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -1221,7 +1221,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getInstantRealityPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getInstantRealityPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -1238,7 +1238,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getInstantRealityPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getInstantRealityPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -1255,7 +1255,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getOctagaPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getOctagaPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -1272,7 +1272,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getSwirlX3DPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getSwirlX3DPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -1289,7 +1289,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getVivatyPlayerPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getVivatyPlayerPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -1306,7 +1306,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getVivatyPlayerPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getVivatyPlayerPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -1323,7 +1323,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getXj3DPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getXj3DPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -1340,7 +1340,7 @@
                 <Property name="text" type="java.lang.String" value="clear"/>
                 <Property name="toolTipText" type="java.lang.String" value="reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getOtherX3dPlayerPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getOtherX3dPlayerPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -1775,7 +1775,7 @@
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.getInstantRealityPathDefault()" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.getInstantRealityPathDefault()" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -6866,7 +6866,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="org.netbeans.modules.form.InvalidComponent" name="xj3dCadFilterOptionsPanel">
+        <Component class="org.web3d.x3d.options.Xj3dCadFilterOptionsPanel" name="xj3dCadFilterOptionsPanel">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="CAD Filter configuration settings for geometry reduction"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -7009,7 +7009,7 @@
             <Component class="javax.swing.JTextField" name="keystoreFileNameTF">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="X3dOptions.KEYSTORE_FILENAME_DEFAULT" type="code"/>
+                  <Connection code="org.web3d.x3d.options.X3dEditUserPreferences.KEYSTORE_FILENAME_DEFAULT" type="code"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="default keystore password: test"/>
               </Properties>

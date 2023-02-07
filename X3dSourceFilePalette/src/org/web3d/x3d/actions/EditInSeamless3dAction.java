@@ -47,7 +47,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.EditInSeamless3dAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/seamless3d_favicon.png", // ico
@@ -68,7 +68,7 @@ public final class EditInSeamless3dAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getSeamlessX3dEditorPath();
+    return X3dEditUserPreferences.getSeamlessX3dEditorPath();
   }
 
   @Override
@@ -80,7 +80,7 @@ public final class EditInSeamless3dAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isSeamless3dAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isSeamless3dAutoLaunch());
   }
     
   @Override

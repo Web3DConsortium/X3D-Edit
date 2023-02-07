@@ -43,7 +43,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /**
  * Action which sends out examples of all PDUs.
@@ -65,8 +65,8 @@ public class DisPduSenderTestAction extends AbstractAction
   @Override
   public void actionPerformed(ActionEvent evt)
   {
-    String address = X3dOptions.getDISaddress("239.1.2.3");
-    String port    = X3dOptions.getDISport("3000");
+    String address = X3dEditUserPreferences.getDISaddress("239.1.2.3");
+    String port    = X3dEditUserPreferences.getDISport("3000");
     
     System.out.println("========================================================================================");
     System.out.println("DIS PDU Alphabetical Sender Test");

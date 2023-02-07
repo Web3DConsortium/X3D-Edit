@@ -39,7 +39,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
-import org.web3d.x3d.options.X3dOptions;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.EditInOtherAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_EditInOtherAction",lazy=true)
@@ -64,7 +64,7 @@ public final class EditInOtherAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dOptions.getOtherX3dEditorPath();
+    return X3dEditUserPreferences.getOtherX3dEditorPath();
   }
 
   @Override
@@ -76,13 +76,13 @@ public final class EditInOtherAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dOptions.isOtherX3dEditorAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isOtherX3dEditorAutoLaunch());
   }
    
   @Override
   public String getName()
   {
-    return X3dOptions.getOtherX3dEditorName();
+    return X3dEditUserPreferences.getOtherX3dEditorName();
     // NbBundle.getMessage(getClass(), "CTL_EditInOtherAction");
   }
 
