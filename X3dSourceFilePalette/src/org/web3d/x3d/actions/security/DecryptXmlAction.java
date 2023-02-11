@@ -159,8 +159,7 @@ public final class DecryptXmlAction extends CallableSystemAction
       Document w3cDoc = parser.parse(lsInp);
       
       Entry ent = keyPan.getSelectedEntry();
-      if (ent instanceof KeyStore.SecretKeyEntry) {
-        KeyStore.SecretKeyEntry secKeyEnt = (KeyStore.SecretKeyEntry) ent;
+      if (ent instanceof KeyStore.SecretKeyEntry secKeyEnt) {
         org.apache.xml.security.Init.init();
 
         XMLCipher cipher = XMLCipher.getProviderInstance(XMLCipher.TRIPLEDES,"BC");
@@ -200,9 +199,9 @@ public final class DecryptXmlAction extends CallableSystemAction
           return;
         
         File outFile = saveChooser.getSelectedFile();
-        FileWriter outFw = new FileWriter(outFile);
-        outFw.write(xmlString);
-        outFw.close();
+        try (FileWriter outFw = new FileWriter(outFile)) {
+            outFw.write(xmlString);
+        }
         
         if(openInEditorCB.isSelected()) {
           ConversionsHelper.openInEditor(outFile);
