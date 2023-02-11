@@ -76,13 +76,27 @@
                       comment="Updated by build script">
             <entry key="currentVersion" value="${app.title} - ${TODAY} ${TSTAMP}" />
         </propertyfile>
- 
-        <!-- also used by X3DEditAboutAction -->
+        
+        <!-- TODO read version from module, then append to CTL_MainWindow_Title -->
+        <!-- C:\x3d-code\www.web3d.org\x3d\tools\X3dEdit4.0\X3dEditModuleSuite\X3dSourceFilePalette\nbproject\project.properties -->
+        <!-- 
+        <property name="MODULE_PROJECT_PROPERTIES_FILE" file="${project.org.web3d.x3d.palette}/manifest.mf"/>
+        <property name="MODULE_MANIFEST_VERSION"       value="${MODULE_PROJECT_PROPERTIES_FILE}.OpenIDE-Module-Implementation-Version"/>
+        <! - - trace - - >
+        <echo message="MODULE_PROJECT_PROPERTIES_FILE=${MODULE_PROJECT_PROPERTIES_FILE}"/>
+        <echo message="       MODULE_MANIFEST_VERSION=${MODULE_MANIFEST_VERSION}"/> -->
+        <echo message="OpenIDE-Module-Implementation-Version=${OpenIDE-Module-Implementation-Version}"/>
+        <echo message="OpenIDE.Module.Implementation.Version=${OpenIDE.Module.Implementation.Version}"/>
+        <echoproperties />
+        
+        <!-- CTL_MainWindow_Title result is also used by X3DEditAboutAction -->
+        <property name="CTL_MainWindow_Title" value="${app.title}, build ${BUILD}, module ${app.version}.${mf.OpenIDE-Module-Implementation-Version}"/>
         <propertyfile file="${basedir}/branding/modules/org-netbeans-core-windows.jar/org/netbeans/core/windows/view/ui/Bundle.properties"
                       comment="Updated by build script">
-            <entry key="CTL_MainWindow_Title" value="${app.title}, build ${BUILD}" />
+            <entry key="CTL_MainWindow_Title"            value="${app.title}, build ${BUILD}, module ${app.version}.TODO" />
             <entry key="CTL_MainWindow_Title_No_Project" value="${app.title}, build ${BUILD}" />
         </propertyfile>
+        <echo message="CTL_MainWindow_Title=${CTL_MainWindow_Title}"/>
         
     </target>
     
