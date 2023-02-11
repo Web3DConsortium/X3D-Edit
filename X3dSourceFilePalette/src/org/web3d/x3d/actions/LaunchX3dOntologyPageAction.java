@@ -68,7 +68,7 @@ public final class LaunchX3dOntologyPageAction extends CallableSystemAction
       
     LaunchX3dExamplesAction.sendBrowserTo(X3D_ONTOLOGY_DOCUMENTATION);
     
-    LaunchX3dExamplesAction.pauseSeconds(1); // give user time to notice first page, then second
+    LaunchX3dExamplesAction.sleepSeconds(1); // give user time to notice first page, then second
     
     LaunchX3dExamplesAction.sendBrowserTo(X3D_ONTOLOGY);
   }
