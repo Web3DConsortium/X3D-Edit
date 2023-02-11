@@ -94,7 +94,10 @@ public class DocumentSigner
 
     Node root = document.getDocumentElement();
 
-    root.appendChild(sig.getElement());
+    if (sig != null)
+        root.appendChild(sig.getElement());
+    else
+        return null;
 
     try {
       addReferences(sig);
@@ -212,8 +215,6 @@ public class DocumentSigner
     signer.setSignatureMethod( XMLSignature.ALGO_ID_SIGNATURE_DSA);
     signer.setDigestMethod(Constants.ALGO_ID_DIGEST_SHA1);
 
-    Manifest m = signer.addManifest();
-
     SignatureProperties sps = signer.addSignatureProperties();
     SignatureProperty sp = new SignatureProperty(sps.getDocument(),
           "http://www.sauria.com",
@@ -293,7 +294,8 @@ public class DocumentSigner
     }
 
     try {
-      ks.load(fis, keystorePassword.toCharArray());
+      if (ks != null)
+        ks.load(fis, keystorePassword.toCharArray());
     }
     catch (NoSuchAlgorithmException | CertificateException | IOException nsae) {
       nsae.printStackTrace(System.err);
