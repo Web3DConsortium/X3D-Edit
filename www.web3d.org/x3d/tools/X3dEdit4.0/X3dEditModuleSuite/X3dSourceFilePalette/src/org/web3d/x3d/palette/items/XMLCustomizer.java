@@ -1,19 +1,17 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
 
- * Redistributions of source code must retain the above copyright
+    * Redistributions of source code must retain the above copyright
       notice, this list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright
+    * Redistributions in binary form must reproduce the above copyright
       notice, this list of conditions and the following disclaimer
       in the documentation and/or other materials provided with the
       distribution.
- * Neither the names of the Naval Postgraduate School (NPS)
-      Modeling Virtual Environments and Simulation (MOVES) Institute
-      (https://www.nps.edu and https://MovesInstitute.nps.edu)
+    * Neither the name of the Web3D Consortium (http://www.web3D.org)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -30,11 +28,12 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
 LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
- */
-
+*/
 package org.web3d.x3d.palette.items;
+
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
+
 /**
  * XMLCustomizer.java
  * Created on March 7, 2008, 2:46 PM
@@ -44,13 +43,10 @@ import org.openide.util.HelpCtx;
  * www.nps.edu
  *
  * @author Mike Bailey, Don Brutzman
- * @version $Id$
  */
 public class XMLCustomizer extends BaseCustomizer
 {
-  private XML xmlHeader;
-  private JTextComponent target;
-
+    
   public XMLCustomizer(XML xmlHeader, JTextComponent target)
   {
     super(xmlHeader);
@@ -58,6 +54,8 @@ public class XMLCustomizer extends BaseCustomizer
     HelpCtx.setHelpIDString(XMLCustomizer.this, "XML_HELPID"); // not in tooltips, TODO add it
 
     initComponents();
+    
+    // TODO: Resize to get all bottom button components showing, esp. "Accept"
   }
 
   /** This method is called from within the constructor to
@@ -99,7 +97,7 @@ public class XMLCustomizer extends BaseCustomizer
   @Override
   public String getNameKey()
   {
-    return "NAME_X3D_DOCTYPE";
+    return "NAME_XML_HEADER";
   }
 
   @Override
