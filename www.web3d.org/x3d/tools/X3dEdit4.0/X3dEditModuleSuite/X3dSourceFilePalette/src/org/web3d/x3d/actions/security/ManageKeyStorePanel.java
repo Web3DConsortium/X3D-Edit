@@ -224,7 +224,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
   private void initializeKeyTable() throws Exception
   {
     String message = NbBundle.getMessage(getClass(), "MSG_EnterKeystorePassword");
-    message += " for " + keyStoreFile.getName();
+    message += keyStoreFile.getName();
     if(keyStoreInputStream == null)
        message = NbBundle.getMessage(getClass(), "MSG_EnterPasswordForNewKeystore");
     
