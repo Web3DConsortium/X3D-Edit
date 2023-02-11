@@ -60,9 +60,7 @@ import org.openide.util.actions.CallableSystemAction;
 })
 
 public final class X3dEditAboutAction extends CallableSystemAction
-{
-  String moduleReleaseDate = "8 January 2023"; // TODO manually edit along with module version for each release
-  
+{  
   String rightMargin = "&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ";
 
   public X3dEditAboutAction()
@@ -76,6 +74,8 @@ public final class X3dEditAboutAction extends CallableSystemAction
   public void performAction()
   {
       // https://bits.netbeans.org/15/javadoc/org-openide-util/org/openide/util/NbBundle.html
+      // Branding values are updated automatically whenever X3D-Edit is rebuilt, with the
+      // module version number (e.g. 4.0.27) updated via the X3D-Edit 4.0 Module, properties, API Versioning values
       String branding = NbBundle.getBranding();
       ResourceBundle resourceBundle = NbBundle.getBundle("org.netbeans.core.windows.view.ui.Bundle_" + branding);
       String mainWindowTitle = resourceBundle.getString("CTL_MainWindow_Title");
@@ -90,7 +90,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
       SpecificationVersion specificationVersion = moduleInfo.getSpecificationVersion();
       String x3dMajorVersion = specificationVersion.toString().substring(0, specificationVersion.toString().lastIndexOf("."));
       
-      String newMainWindowTitle = mainWindowTitle + ", updated " + moduleReleaseDate + " version " + specificationVersion.toString();
+      String newMainWindowTitle = mainWindowTitle + ", plugin version " + specificationVersion.toString(); // TODO avoid duplicate
       // TODO watch out, have seen prefix "{1}" and so might possibly strip this, otherwise currently leaving it as a diagnostic
       System.out.println ("*** About X3D-Edit: " + newMainWindowTitle);
       // TODO how to set?  Once that is figured out, move to top-level componenet initialization
@@ -107,12 +107,8 @@ public final class X3dEditAboutAction extends CallableSystemAction
               "<p align='center'>A free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'><b>" + newMainWindowTitle + "</b> " + rightMargin + " </p>" +
-              "<p align='center'><hr />" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Original installer compilation date <b>" + buildVersion + "</b> " + rightMargin + " </p>" +
-              "<p align='center'>&nbsp;</p>" +
-              "<p align='center'>Plugin module updated <b>" + moduleReleaseDate + "</b> " + "<b> " + 
-                                 " version " + specificationVersion.toString() + "</b>" + "&nbsp;" + rightMargin + " </p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'><hr />" +
 //              "<p align='center'>&nbsp;</p>" +
