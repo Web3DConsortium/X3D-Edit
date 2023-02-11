@@ -64,7 +64,7 @@ public final class LaunchVrml97StandardsAction extends CallableSystemAction
       
     LaunchX3dExamplesAction.sendBrowserTo(VRML97_STANDARD_AMENDMENT_1);
     
-    LaunchX3dExamplesAction.pauseSeconds(1); // give user time to notice first page, then second
+    LaunchX3dExamplesAction.sleepSeconds(1); // give user time to notice first page, then second
     
     LaunchX3dExamplesAction.sendBrowserTo(VRML97_STANDARD); // launch second so that most recently visible to user
   }
