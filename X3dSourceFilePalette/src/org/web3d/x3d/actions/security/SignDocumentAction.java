@@ -1,20 +1,21 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
- * Redistributions of source code must retain the above copyright
-notice, this list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright
-notice, this list of conditions and the following disclaimer
-in the documentation and/or other materials provided with the
-distribution.
- * Neither the names of the Naval Postgraduate School (NPS)
-Modeling Virtual Environments and Simulation (MOVES) Institute
-(https://www.nps.edu and https://MovesInstitute.nps.edu)
-nor the names of its contributors may be used to endorse or
-promote products derived from this software without specific
-prior written permission.
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer
+      in the documentation and/or other materials provided with the
+      distribution.
+    * Neither the name of the Web3D Consortium (http://www.web3D.org)
+      nor the names of its contributors may be used to endorse or
+      promote products derived from this software without specific
+      prior written permission.
+
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
 LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -27,18 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
 LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
- */
-/**
- * SignDocumentAction.java
- * Created July 2008
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
- * @version $Id$
- */
+*/
 package org.web3d.x3d.actions.security;
 
 import com.sauria.apachexml.ch10.DocumentSigner;
@@ -51,6 +41,7 @@ import java.security.PublicKey;
 import java.security.cert.X509Certificate;
 import javax.swing.JMenuItem;
 import org.apache.xml.security.signature.XMLSignature;
+import org.apache.xml.security.utils.XMLUtils;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -68,6 +59,7 @@ import org.openide.windows.InputOutput;
 import org.w3c.dom.Document;
 import org.web3d.x3d.BaseX3DEditAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
+import org.web3d.x3d.types.X3DSchemaData;
 
 @ActionID(id = "org.web3d.x3d.actions.security.SignDocumentAction", category = "X3D-Edit")
 // https://commons.wikimedia.org/wiki/File:Cross-fountain-pen-nib.gif
@@ -78,6 +70,17 @@ import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledExc
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 800),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 800)})
 
+/**
+ * Digitally signs a XML (X3D) document using a specified public/private key pair.
+ * 
+ * Created July 2008
+ *
+ * MOVES Institute
+ * Naval Postgraduate School, Monterey, CA, USA
+ * www.nps.edu
+ *
+ * @author Mike Bailey
+ */
 public final class SignDocumentAction extends BaseX3DEditAction
 {
   @Override
@@ -132,9 +135,6 @@ public final class SignDocumentAction extends BaseX3DEditAction
           DialogDisplayer.getDefault().notify(nd);
           return;
       } // can happen when attempting to sign an encrypted document
-
-      // I don't think this is good; the namespace gets put into the Signature element which should be good enough
-      //insertSigningNameSpace(w3cDoc);
       
       Entry ent = keyPan.getSelectedEntry();
 
@@ -151,15 +151,22 @@ public final class SignDocumentAction extends BaseX3DEditAction
       String digestMethod = org.apache.xml.security.utils.Constants.ALGO_ID_DIGEST_SHA1;
 
       DocumentSigner signer = new DocumentSigner(w3cDoc, privKey, cert, pubKey, "", signatureMethod, digestMethod);
-
-      signer.sign();
+      w3cDoc = signer.sign();
+      
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
       signer.writeSignature(baos);
+      baos.reset();
+      XMLUtils.outputDOMc14nWithComments(w3cDoc, baos);
       String signedXml = baos.toString("UTF-8");
+      
+      // During document signing by the Apache XML Security suite, the XML
+      // header and the X3D doctype element are stripped since the signing is
+      // performed at the X3D (root) element.
+      signedXml = insertDocTypeAndXmlHeader(signedXml);
       
       int len = abstractDocument.getLength();
       abstractDocument.replace(0, len, signedXml, null);
-
+      
       InputOutput io = IOProvider.getDefault().getIO("Output", false);
       io.select();
       io.getOut().println(NbBundle.getMessage(getClass(), "MSG_SignOpComplete")); //"Signing operation complete");
@@ -167,16 +174,7 @@ public final class SignDocumentAction extends BaseX3DEditAction
     catch (Exception ex) {  //todo, specific msgs for spec exceptions
       throw new RuntimeException(ex); // let baseclass handle
     }
-
   }
-  
-//  private void insertSigningNameSpace(Document w3cDoc)
-//  {
-//    org.apache.xml.security.Init.init();
-//    Element elm = w3cDoc.getDocumentElement();
-//    elm.setAttribute("xmlns:"+org.apache.xml.security.utils.Constants.getSignatureSpecNSprefix(),
-//                     org.apache.xml.security.utils.Constants.SignatureSpecNS);
-//  }
 
   @Override
   public JMenuItem getMenuPresenter()
@@ -184,7 +182,6 @@ public final class SignDocumentAction extends BaseX3DEditAction
     JMenuItem mi = super.getMenuPresenter();
     mi.setToolTipText(NbBundle.getMessage(getClass(), "CTL_SignDocumentAction.toolTipText"));
     return mi;
-
   }
 
   @Override
@@ -193,7 +190,6 @@ public final class SignDocumentAction extends BaseX3DEditAction
     JMenuItem mi = super.getMenuPresenter();
     mi.setToolTipText(NbBundle.getMessage(getClass(), "CTL_SignDocumentAction.toolTipText"));
     return mi;
-
   }
 
   @Override
@@ -232,6 +228,41 @@ public final class SignDocumentAction extends BaseX3DEditAction
   protected boolean asynchronous()
   {
     return false;
+  }
+  
+  private String insertDocTypeAndXmlHeader(String xml)
+  {
+    String lineSep = System.getProperty("line.separator");
+    StringBuilder sb = new StringBuilder();
+    
+    if (!xml.contains("<?xml")) {
+      sb.append(X3DSchemaData.XML_HEADER);
+      sb.append(lineSep);
+    }
+    if (xml.contains("<X3D")) {
+      if (xml.contains("version=\"4.0\"")) {
+        sb.append(X3DSchemaData.DOCTYPE_4_0);
+        sb.append(lineSep);
+      }
+      else if (xml.contains("version=\"3.3\"")) {
+        sb.append(X3DSchemaData.DOCTYPE_3_3);
+        sb.append(lineSep);
+      }
+      else if (xml.contains("version=\"3.2\"")) {
+        sb.append(X3DSchemaData.DOCTYPE_3_2);
+        sb.append(lineSep);
+      }
+      else if (xml.contains("version=\"3.1\"")) {
+        sb.append(X3DSchemaData.DOCTYPE_3_1);
+        sb.append(lineSep);
+      }
+      else if (xml.contains("version=\"3.0\"")) {
+        sb.append(X3DSchemaData.DOCTYPE_3_0);
+        sb.append(lineSep);
+      }
+    }
+    sb.append(xml);
+    return sb.toString();
   }
 }
 
