@@ -131,7 +131,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
   private void initKeyTable() throws Exception
   {
     String msg = NbBundle.getMessage(getClass(), "MSG_EnterKeystorePassword");
-    msg += " for " + keystoreFile.getName();
+    msg += keystoreFile.getName();
     if(keystoreFileInputStream == null)
       msg = NbBundle.getMessage(getClass(), "MSG_EnterPasswordForNewKeystore");
     
