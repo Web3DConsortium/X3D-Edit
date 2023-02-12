@@ -135,31 +135,21 @@ public final class EncryptDocumentAction extends BaseX3DEditAction
       Document w3cDoc = getW3cDocument(); //new XercesDOMAdapter().getDocument(this.x3dEditorSupport.getInputStream(), false);
       NodeList nlist = w3cDoc.getElementsByTagName("X3D");
       Element w3cElem = (org.w3c.dom.Element) nlist.item(0);
-      Document newdoc;
 
+      org.apache.xml.security.Init.init();
+      XMLCipher cipher = XMLCipher.getProviderInstance(XMLCipher.TRIPLEDES, "BC");
       Entry ent = keyPan.getSelectedEntry();
 
-      if (ent instanceof KeyStore.SecretKeyEntry) {
-        KeyStore.SecretKeyEntry secKeyEnt = (KeyStore.SecretKeyEntry) ent;
-        org.apache.xml.security.Init.init();
-
-        XMLCipher cipher = XMLCipher.getProviderInstance(XMLCipher.TRIPLEDES, "BC");
+      if (ent instanceof KeyStore.SecretKeyEntry secKeyEnt) {
         cipher.init(XMLCipher.ENCRYPT_MODE, secKeyEnt.getSecretKey());
-        newdoc = cipher.doFinal(w3cDoc, w3cElem);
-      }
-      else if (ent instanceof KeyStore.PrivateKeyEntry) {
-        // Doesn't work
-        KeyStore.PrivateKeyEntry prKeyEnt = (KeyStore.PrivateKeyEntry) ent;
-        org.apache.xml.security.Init.init();
-
-        XMLCipher cipher = XMLCipher.getProviderInstance(XMLCipher.TRIPLEDES, "BC");
+      } else if (ent instanceof KeyStore.PrivateKeyEntry prKeyEnt) {
         cipher.init(XMLCipher.ENCRYPT_MODE, prKeyEnt.getCertificate().getPublicKey());
-        newdoc = cipher.doFinal(w3cDoc, w3cElem);
       }
       else {
         throw new Exception(NbBundle.getMessage(getClass(), "MSG_SecretToEncrypt")); //"Use only secret (symmetric) keys to encrypt");
       }
 
+      Document newdoc = cipher.doFinal(w3cDoc, w3cElem);
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
       XMLUtils.outputDOMc14nWithComments(newdoc, baos);
       String xmlString = baos.toString("UTF-8");
@@ -185,9 +175,9 @@ public final class EncryptDocumentAction extends BaseX3DEditAction
         return;
 
       File outFile = saveChooser.getSelectedFile();
-      FileWriter outFw = new FileWriter(outFile);
-      outFw.write(xmlString);
-      outFw.close();
+      try (FileWriter outFw = new FileWriter(outFile)) {
+          outFw.write(xmlString);
+      }
 
       if (openInEditorCB.isSelected()) {
         ConversionsHelper.openInEditor(outFile);
