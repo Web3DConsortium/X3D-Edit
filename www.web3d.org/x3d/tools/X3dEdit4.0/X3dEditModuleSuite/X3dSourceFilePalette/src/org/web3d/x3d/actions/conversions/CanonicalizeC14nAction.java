@@ -49,7 +49,6 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
-import org.openide.windows.OutputWriter;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
 import org.web3d.x3d.tools.x3db.X3dCanonicalizer;
@@ -103,11 +102,13 @@ public final class CanonicalizeC14nAction extends CookieAction
             pane.setText(canner.getFinalC14nScene());
         }
        pane.setCaretPosition(0); // top of document
+       io.getOut().println(NbBundle.getMessage(getClass(), "MSG_CanonOpComplete")); //"Canonicalization operation complete");    
+    } else {
+       io.getOut().println("*** X3D Document digitally signed and assumed to be C14N'd");
     }
-
+    
     canner.setLog4jLevel(oldLev);
     canner.removeLog4jAppender(app);
-    System.out.println("*** X3D Canonicalization (C14N) complete.");
   }
 
   @Override
