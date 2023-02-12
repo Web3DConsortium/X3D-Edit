@@ -113,7 +113,7 @@ public final class DecryptXmlAction extends CallableSystemAction
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(new XMLFilter());
       }
-
+      
       if (fileChooser.showOpenDialog(null) != JFileChooser.APPROVE_OPTION)
         return;
       

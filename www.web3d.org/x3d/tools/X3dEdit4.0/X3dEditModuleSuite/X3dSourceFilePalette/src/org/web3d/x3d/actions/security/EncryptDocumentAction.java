@@ -132,7 +132,15 @@ public final class EncryptDocumentAction extends BaseX3DEditAction
       if (descriptor.getValue() == DialogDescriptor.CANCEL_OPTION)
         return;
 
-      Document w3cDoc = getW3cDocument(); //new XercesDOMAdapter().getDocument(this.x3dEditorSupport.getInputStream(), false);
+      Document w3cDoc = getW3cDocument();
+      
+      if (w3cDoc == null) {
+          String msg = NbBundle.getMessage(getClass(), "MSG_DocumentEncrypted"); //"Encryption found"
+          NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
+          DialogDisplayer.getDefault().notify(nd);
+          return;
+      } // can happen when attempting to encrypt an encrypted document
+      
       NodeList nlist = w3cDoc.getElementsByTagName("X3D");
       Element w3cElem = (org.w3c.dom.Element) nlist.item(0);
 
