@@ -61,7 +61,8 @@ import static org.web3d.x3d.palette.items.BaseCustomizer.MAILTO_TOOLTIP;
 // no longer supported import org.netbeans.api.javahelp.Help;
 
 @ActionID(id = "org.web3d.x3d.DownloadX3dExamplesArchivesAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon32.png",
+// https://commons.wikimedia.org/wiki/File:Icon_download_96x96.png
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Icon_download_32x32.png",
                     displayName = "#CTL_DownloadX3dExamplesArchivesAction", 
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
@@ -86,7 +87,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
         frame = new JFrame(NbBundle.getMessage(getClass(), "ExampleArchivesDownloadTitle"));
         frame.getContentPane().setLayout(new BorderLayout());
         BufferedImage bufferedImage;
-        frame.setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/X3Dicon32.png"));
+        frame.setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/Icon_download_32x32.png"));
         panel = new DownloadX3dExamplesArchivesPanel();
 
         frame.getContentPane().add(panel, BorderLayout.CENTER);
@@ -128,7 +129,8 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
         
         final ActionListener reportActionListener = (ActionEvent e) ->
         {            
-           LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + ", X3D-Edit Manage KeyStore");
+           LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + 
+                   ", X3D-Edit " + NbBundle.getMessage(getClass(), "ExampleArchivesDownloadTitle"));
         };
         buttonBar.reportButton.addActionListener(reportActionListener);
         buttonBar.reportButton.setToolTipText(MAILTO_TOOLTIP);

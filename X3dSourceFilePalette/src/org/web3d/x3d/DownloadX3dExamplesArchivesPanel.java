@@ -61,6 +61,7 @@ import org.openide.util.Task;
 import org.openide.util.TaskListener;
 import static org.web3d.x3d.actions.LaunchX3dExamplesAction.sendBrowserTo;
 import org.web3d.x3d.actions.LocalExamplesFinder;
+import org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 import static org.web3d.x3d.options.X3dEditUserPreferences.EXAMPLES_ROOT_DIRECTORY_DEFAULT;
 
@@ -97,8 +98,8 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     HelpCtx.setHelpIDString(DownloadX3dExamplesArchivesPanel.this, "helpExampleDownloads");
     
     // figure out root directory
-    String originalRootDirectory = X3dEditUserPreferences.getExamplesRootDirectory();
-    String workingRootDirectory  = X3dEditUserPreferences.getExamplesRootDirectory();
+    String originalRootDirectory = X3dEditUserPreferences.getExampleArchivesRootDirectory();
+    String workingRootDirectory  = X3dEditUserPreferences.getExampleArchivesRootDirectory();
     if  (workingRootDirectory.contains("\\"))
          workingRootDirectory = workingRootDirectory.replace("\\","/");
     if  (workingRootDirectory.endsWith("/"))
@@ -108,7 +109,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
          workingRootDirectory = originalRootDirectory.substring(0, originalRootDirectory.indexOf("www.web3d.org") - 1);
          rootDownloadDirectoryTF.setText(workingRootDirectory);
     }
-    else rootDownloadDirectoryTF.setText(X3dEditUserPreferences.getExamplesRootDirectory());
+    else rootDownloadDirectoryTF.setText(X3dEditUserPreferences.getExampleArchivesRootDirectory());
     
     if (rootDownloadDirectoryTF.getText().isBlank())
         startDownloadButton.setEnabled(false);
@@ -242,7 +243,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
       boolean archivePresent;
       if      (archiveName.equals(BASICEXAMPLESTARGET))
       {
-          archivePresent = (new File(X3dEditUserPreferences.getExamplesRootDirectory() + File.separator + 
+          archivePresent = (new File(X3dEditUserPreferences.getExampleArchivesRootDirectory() + File.separator + 
                             BASICEXAMPLESTARGET + File.separator + "HelloWorld.x3d")).exists();
           X3dEditUserPreferences.setBasicLocalExamplesPresent(archivePresent);
           return archivePresent;
@@ -250,7 +251,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
       else if (archiveName.equals(CONFORMANCENISTTARGET))
       {
           
-          archivePresent = ((new File(X3dEditUserPreferences.getExamplesRootDirectory() + File.separator + 
+          archivePresent = ((new File(X3dEditUserPreferences.getExampleArchivesRootDirectory() + File.separator + 
                             CONFORMANCENISTTARGET + File.separator + "HelloWorld.x3d")).exists());
           X3dEditUserPreferences.setConformanceNistLocalExamplesPresent(archivePresent);
           return archivePresent;
@@ -258,35 +259,35 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
       else if (archiveName.equals(HUMANOIDANIMATIONTARGET))
       {
           
-          archivePresent = ((new File(X3dEditUserPreferences.getExamplesRootDirectory() + File.separator + 
+          archivePresent = ((new File(X3dEditUserPreferences.getExampleArchivesRootDirectory() + File.separator + 
                             HUMANOIDANIMATIONTARGET + File.separator + "HelloWorld.x3d")).exists());
           X3dEditUserPreferences.setHumanoidAnimationLocalExamplesPresent(archivePresent);
           return archivePresent;
       }
       else if (archiveName.equals(VRML2SOURCEBOOKTARGET))
       {
-          archivePresent = ((new File(X3dEditUserPreferences.getExamplesRootDirectory() + File.separator + 
+          archivePresent = ((new File(X3dEditUserPreferences.getExampleArchivesRootDirectory() + File.separator + 
                             VRML2SOURCEBOOKTARGET + File.separator + "HelloWorld.x3d")).exists());
           X3dEditUserPreferences.setVrmlSourcebookLocalExamplesPresent(archivePresent);
           return archivePresent;
       }
       else if (archiveName.equals(SAVAGETARGET))
       {
-          archivePresent = ((new File(X3dEditUserPreferences.getExamplesRootDirectory() + File.separator + 
+          archivePresent = ((new File(X3dEditUserPreferences.getExampleArchivesRootDirectory() + File.separator + 
                             SAVAGETARGET + File.separator + "HelloWorld.x3d")).exists());
           X3dEditUserPreferences.setSavageLocalExamplesPresent(archivePresent);
           return archivePresent;
       }
       else if (archiveName.equals(X3D4WA_EXAMPLESTARGET))
       {
-          archivePresent = ((new File(X3dEditUserPreferences.getExamplesRootDirectory() + File.separator + 
+          archivePresent = ((new File(X3dEditUserPreferences.getExampleArchivesRootDirectory() + File.separator + 
                             X3D4WA_EXAMPLESTARGET + File.separator + "HelloWorld.x3d")).exists());
           X3dEditUserPreferences.setX3d4waLocalExamplesPresent(archivePresent);
           return archivePresent;
       }
       else if (archiveName.equals(X3D4AM_EXAMPLESTARGET))
       {
-          archivePresent = ((new File(X3dEditUserPreferences.getExamplesRootDirectory() + File.separator + 
+          archivePresent = ((new File(X3dEditUserPreferences.getExampleArchivesRootDirectory() + File.separator + 
                             X3D4AM_EXAMPLESTARGET + File.separator + "HelloWorld.x3d")).exists());
           X3dEditUserPreferences.setX3d4amLocalExamplesPresent(archivePresent);
           return archivePresent;
@@ -1061,8 +1062,8 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         add(rootDownloadDirectoryChooserButton, gridBagConstraints);
@@ -1542,7 +1543,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     private void rootDownloadDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_rootDownloadDirectoryDefaultButtonActionPerformed
     {//GEN-HEADEREND:event_rootDownloadDirectoryDefaultButtonActionPerformed
         X3dEditUserPreferences.setExamplesRootDirectory(EXAMPLES_ROOT_DIRECTORY_DEFAULT); // user.dir
-        rootDownloadDirectoryTF.setText(X3dEditUserPreferences.getExamplesRootDirectory());
+        rootDownloadDirectoryTF.setText(X3dEditUserPreferences.getExampleArchivesRootDirectory());
         downloadDirectoryLabelUpdate (); // re-initialize
         updateStatusPropertiesLocalArchivesPresent();
         updatePanelLocalArchivesPresent();
@@ -1602,11 +1603,13 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 
     private void basicExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_basicExamplesBrowserViewButtonActionPerformed
     {//GEN-HEADEREND:event_basicExamplesBrowserViewButtonActionPerformed
+        checkAutolaunchRunExampleArchivesServer();
         sendBrowserTo(localArchiveDirectory + File.separatorChar + BASICEXAMPLESTARGET + File.separatorChar + "index.html");
     }//GEN-LAST:event_basicExamplesBrowserViewButtonActionPerformed
 
     private void x3d4waExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_x3d4waExamplesBrowserViewButtonActionPerformed
     {//GEN-HEADEREND:event_x3d4waExamplesBrowserViewButtonActionPerformed
+        checkAutolaunchRunExampleArchivesServer();
         sendBrowserTo(localArchiveDirectory + File.separatorChar + X3D4WA_EXAMPLESTARGET + File.separatorChar + "index.html");
     }//GEN-LAST:event_x3d4waExamplesBrowserViewButtonActionPerformed
 
@@ -1617,6 +1620,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 
     private void x3d4amExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_x3d4amExamplesBrowserViewButtonActionPerformed
     {//GEN-HEADEREND:event_x3d4amExamplesBrowserViewButtonActionPerformed
+        checkAutolaunchRunExampleArchivesServer();
         sendBrowserTo(localArchiveDirectory + File.separatorChar + X3D4AM_EXAMPLESTARGET + File.separatorChar + "index.html");
     }//GEN-LAST:event_x3d4amExamplesBrowserViewButtonActionPerformed
 
@@ -1627,6 +1631,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 
     private void vrmlSourcebookExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_vrmlSourcebookExamplesBrowserViewButtonActionPerformed
     {//GEN-HEADEREND:event_vrmlSourcebookExamplesBrowserViewButtonActionPerformed
+        checkAutolaunchRunExampleArchivesServer();
         sendBrowserTo(localArchiveDirectory + File.separatorChar + VRML2SOURCEBOOKTARGET + File.separatorChar + "index.html");
     }//GEN-LAST:event_vrmlSourcebookExamplesBrowserViewButtonActionPerformed
 
@@ -1637,6 +1642,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 
     private void savageExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_savageExamplesBrowserViewButtonActionPerformed
     {//GEN-HEADEREND:event_savageExamplesBrowserViewButtonActionPerformed
+        checkAutolaunchRunExampleArchivesServer();
         sendBrowserTo(localArchiveDirectory + File.separatorChar + SAVAGETARGET + File.separatorChar + "index.html");
     }//GEN-LAST:event_savageExamplesBrowserViewButtonActionPerformed
 
@@ -1647,6 +1653,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 
     private void conformanceExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_conformanceExamplesBrowserViewButtonActionPerformed
     {//GEN-HEADEREND:event_conformanceExamplesBrowserViewButtonActionPerformed
+        checkAutolaunchRunExampleArchivesServer();
         sendBrowserTo(localArchiveDirectory + File.separatorChar + CONFORMANCENISTTARGET + File.separatorChar + "index.html");
     }//GEN-LAST:event_conformanceExamplesBrowserViewButtonActionPerformed
 
@@ -1657,6 +1664,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 
     private void humanoidAnimationExamplesBrowserViewButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_humanoidAnimationExamplesBrowserViewButtonActionPerformed
     {//GEN-HEADEREND:event_humanoidAnimationExamplesBrowserViewButtonActionPerformed
+        checkAutolaunchRunExampleArchivesServer();
         sendBrowserTo(localArchiveDirectory + File.separatorChar + HUMANOIDANIMATIONTARGET + File.separatorChar + "index.html");
     }//GEN-LAST:event_humanoidAnimationExamplesBrowserViewButtonActionPerformed
 
@@ -1712,6 +1720,21 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         updatePanelLocalArchivesPresent();
     }//GEN-LAST:event_rootDownloadDirectoryTFMouseExited
 
+    final void checkAutolaunchRunExampleArchivesServer()
+    {
+        if (!X3dEditUserPreferences.isExampleArchivesServerAutolaunch())
+        {
+            NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+                    "<html><p align='center'>Localhost http server is necessary to view local examples using X_ITE." +
+                    "</p><br /><p align='center'>Turn on autolaunch for local Example Archives server?</p></html>", 
+                    "Autolaunch http server?", NotifyDescriptor.YES_NO_OPTION);
+            if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
+            {
+                X3dEditUserPreferences.setExampleArchivesServerAutolaunch(true);
+                // TODO start server?
+            }
+        }
+    }
     final void downloadDirectoryLabelUpdate ()
     {
         localArchiveDirectory = rootDownloadDirectoryTF.getText();
