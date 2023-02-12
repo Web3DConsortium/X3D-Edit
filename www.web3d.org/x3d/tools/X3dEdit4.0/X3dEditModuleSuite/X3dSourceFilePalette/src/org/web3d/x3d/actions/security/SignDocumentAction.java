@@ -135,6 +135,7 @@ public final class SignDocumentAction extends BaseX3DEditAction
           DialogDisplayer.getDefault().notify(nd);
           return;
       } // can happen when attempting to sign an encrypted document
+      w3cDoc.getElementsByTagNameNS("ds", "Signature");
       
       Entry ent = keyPan.getSelectedEntry();
 
