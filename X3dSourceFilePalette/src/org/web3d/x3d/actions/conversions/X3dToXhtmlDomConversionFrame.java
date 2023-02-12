@@ -22,22 +22,20 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
 import org.openide.util.ImageUtilities;
-import org.openide.util.NbBundle;
 import org.web3d.x3d.DownloadX3dExamplesArchivesAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D4_HTML_AUTHORING_GUIDELINES;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.actions.LaunchX3dSceneAuthoringHintsCorsAction;
 import static org.web3d.x3d.actions.conversions.ConversionsHelper.openInBrowser;
-import org.web3d.x3d.options.X3dEditUserPreferencesPanel;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 import static org.web3d.x3d.options.X3dEditUserPreferences.AUTHOR_MODELS_DIRECTORY_DEFAULT;
+import org.web3d.x3d.options.X3dEditUserPreferencesPanel;
 import org.web3d.x3d.palette.items.BaseCustomizer;
 
 /**
@@ -1277,7 +1275,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(authorModelsServerStatusLabel, gridBagConstraints);
 
-        authorModelsDirectoryTextField.setText(X3dEditUserPreferences.getExamplesRootDirectory());
+        authorModelsDirectoryTextField.setText(org.web3d.x3d.options.X3dEditUserPreferences.getExampleArchivesRootDirectory());
         authorModelsDirectoryTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsDirectoryTextField.toolTipText")); // NOI18N
         authorModelsDirectoryTextField.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -1550,7 +1548,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         corsPanel.add(exampleArchivesServerStatusLabel, gridBagConstraints);
 
-        exampleArchivesDirectoryTextField.setText(X3dEditUserPreferences.getExamplesRootDirectory());
+        exampleArchivesDirectoryTextField.setText(org.web3d.x3d.options.X3dEditUserPreferences.getExampleArchivesRootDirectory());
         exampleArchivesDirectoryTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.exampleArchivesDirectoryTextField.toolTipText")); // NOI18N
         exampleArchivesDirectoryTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         exampleArchivesDirectoryTextField.setEnabled(false);
@@ -2947,7 +2945,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
            portAuthorModelsServerTextField.setText    (X3dEditUserPreferences.getAuthorModelsServerPort());
         portExampleArchivesServerTextField.setText    (X3dEditUserPreferences.getExampleArchivesServerPort());
          portActiveX3dModelServerTextField.setText    (String.valueOf(INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT));
-         exampleArchivesDirectoryTextField.setText    (X3dEditUserPreferences.getExamplesRootDirectory());
+         exampleArchivesDirectoryTextField.setText    (X3dEditUserPreferences.getExampleArchivesRootDirectory());
             authorModelsDirectoryTextField.setText    (X3dEditUserPreferences.getAuthorModelsDirectory());
         
         // TODO give indication if any examples are in archives
