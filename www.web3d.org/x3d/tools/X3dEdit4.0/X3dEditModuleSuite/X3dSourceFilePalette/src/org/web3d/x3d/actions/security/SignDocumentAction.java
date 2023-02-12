@@ -41,7 +41,6 @@ import java.security.PublicKey;
 import java.security.cert.X509Certificate;
 import javax.swing.JMenuItem;
 import org.apache.xml.security.signature.XMLSignature;
-import org.apache.xml.security.utils.XMLUtils;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -57,6 +56,7 @@ import org.openide.util.actions.CookieAction;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 import org.web3d.x3d.BaseX3DEditAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
 import org.web3d.x3d.types.X3DSchemaData;
@@ -80,6 +80,7 @@ import org.web3d.x3d.types.X3DSchemaData;
  * www.nps.edu
  *
  * @author Mike Bailey
+ * @version $Id$
  */
 public final class SignDocumentAction extends BaseX3DEditAction
 {
@@ -135,10 +136,17 @@ public final class SignDocumentAction extends BaseX3DEditAction
           DialogDisplayer.getDefault().notify(nd);
           return;
       } // can happen when attempting to sign an encrypted document
-      w3cDoc.getElementsByTagNameNS("ds", "Signature");
+      
+      // Prevent multiple signings
+      NodeList ns = w3cDoc.getElementsByTagName("ds:Signature");
+      if (ns.getLength() > 0) {
+          String msg = "Signing error: document has already been signed";
+          NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
+          DialogDisplayer.getDefault().notify(nd);
+          return;
+      }   
       
       Entry ent = keyPan.getSelectedEntry();
-
       if (!(ent instanceof PrivateKeyEntry)) {
         throw new Exception(NbBundle.getMessage(getClass(), "MSG_PubPrivateToSign")); //"Use only public/private key pairs to sign");
       }
@@ -152,12 +160,10 @@ public final class SignDocumentAction extends BaseX3DEditAction
       String digestMethod = org.apache.xml.security.utils.Constants.ALGO_ID_DIGEST_SHA1;
 
       DocumentSigner signer = new DocumentSigner(w3cDoc, privKey, cert, pubKey, "", signatureMethod, digestMethod);
-      w3cDoc = signer.sign();
+      signer.sign();
       
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
-      signer.writeSignature(baos);
-      baos.reset();
-      XMLUtils.outputDOMc14nWithComments(w3cDoc, baos);
+      signer.toC14N(baos);
       String signedXml = baos.toString("UTF-8");
       
       // During document signing by the Apache XML Security suite, the XML
