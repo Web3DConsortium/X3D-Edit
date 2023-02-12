@@ -126,40 +126,22 @@ public final class EncryptElementAction extends BaseX3DEditAction
       org.w3c.dom.NodeList nlist = w3cDoc.getElementsByTagName(selectedLocation.name);
       org.w3c.dom.Element w3cElem = (org.w3c.dom.Element)nlist.item(0);
       
+      org.apache.xml.security.Init.init();
+      XMLCipher cipher = XMLCipher.getProviderInstance(XMLCipher.TRIPLEDES, "BC");
       Entry ent = keyPan.getSelectedEntry();
-      if (ent instanceof KeyStore.SecretKeyEntry) {
-        KeyStore.SecretKeyEntry secKeyEnt = (KeyStore.SecretKeyEntry) ent;
-        org.apache.xml.security.Init.init();
-          
-        XMLCipher cipher = XMLCipher.getProviderInstance(XMLCipher.TRIPLEDES,"BC");
+      if (ent instanceof KeyStore.SecretKeyEntry secKeyEnt) {
         cipher.init(XMLCipher.ENCRYPT_MODE, secKeyEnt.getSecretKey());
-        org.w3c.dom.Document newdoc = cipher.doFinal(w3cDoc, w3cElem);
-        
-        org.jdom.Document jdoc = new DOMBuilder().build(newdoc);
-        String signedXml = new XMLOutputter().outputString(jdoc);
-        int len = abstractDocument.getLength();
-        abstractDocument.replace(0, len, signedXml, null);
-        
-      }
-      else if (ent instanceof KeyStore.PrivateKeyEntry) {
-        // Doesn't work
-        KeyStore.PrivateKeyEntry prKeyEnt = (KeyStore.PrivateKeyEntry) ent;
-        org.apache.xml.security.Init.init();
-          
-        XMLCipher cipher = XMLCipher.getProviderInstance(XMLCipher.TRIPLEDES,"BC");
+      } else if (ent instanceof KeyStore.PrivateKeyEntry prKeyEnt) {
         cipher.init(XMLCipher.ENCRYPT_MODE, prKeyEnt.getCertificate().getPublicKey());
-        org.w3c.dom.Document newdoc = cipher.doFinal(w3cDoc, w3cElem);
-        
-        org.jdom.Document jdoc = new DOMBuilder().build(newdoc);
-        String signedXml = new XMLOutputter().outputString(jdoc);
-        int len = abstractDocument.getLength();
-        abstractDocument.replace(0, len, signedXml, null);
-       
-        // Leave code in place for nice exception message
- 
       }
       else
         throw new Exception(NbBundle.getMessage(getClass(), "MSG_OnlySecretToEncrypt")); //"Use only secret (symmetric) keys to encrypt");
+      
+      org.w3c.dom.Document newdoc = cipher.doFinal(w3cDoc, w3cElem);
+      org.jdom.Document jdoc = new DOMBuilder().build(newdoc);
+      String signedXml = new XMLOutputter().outputString(jdoc);
+      int len = abstractDocument.getLength();
+      abstractDocument.replace(0, len, signedXml, null);
       
       InputOutput io = IOProvider.getDefault().getIO("Output", false);
       io.select();
