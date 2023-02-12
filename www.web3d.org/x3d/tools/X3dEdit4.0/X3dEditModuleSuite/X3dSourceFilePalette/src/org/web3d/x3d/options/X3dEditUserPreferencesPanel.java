@@ -11428,7 +11428,7 @@ for Extensible 3D (X3D) Graphics International Standard.
        authorNameTextField.setText(X3dEditUserPreferences.getAuthorName());
       authorEmailTextField.setText(X3dEditUserPreferences.getAuthorEmail());
    newX3dModelsDirectoryTF.setText(X3dEditUserPreferences.getNewX3dModelsDirectory());
- authorExamplesDirectoryTF.setText(X3dEditUserPreferences.getExamplesRootDirectory());
+ authorExamplesDirectoryTF.setText(X3dEditUserPreferences.getExampleArchivesRootDirectory());
         keystorePasswordTF.setText(X3dEditUserPreferences.getKeystorePassword());
         keystoreFileNameTF.setText(X3dEditUserPreferences.getKeystoreFileName());
        keystoreDirectoryTF.setText(X3dEditUserPreferences.getKeystoreDirectory());
