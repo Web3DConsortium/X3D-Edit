@@ -89,7 +89,7 @@ public final class VerifySignatureAction extends BaseX3DEditAction
     try {
       Document w3cDoc = getW3cDocument();
       
-      if(!DocumentVerifier.hasSignature(w3cDoc, "")) {
+      if (!DocumentVerifier.hasSignature(w3cDoc, "")) {
         String msg = NbBundle.getMessage(getClass(), "MSG_SignatureNotFound"); //"No signature "
         NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
         DialogDisplayer.getDefault().notify(nd);

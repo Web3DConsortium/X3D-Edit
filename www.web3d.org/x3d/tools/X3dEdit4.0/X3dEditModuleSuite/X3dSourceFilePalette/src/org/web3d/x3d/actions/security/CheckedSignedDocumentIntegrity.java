@@ -84,12 +84,11 @@ public final class CheckedSignedDocumentIntegrity extends BaseX3DEditAction
     try {
       Document w3cDoc = getW3cDocument();
       
-      NodeList ns = w3cDoc.getElementsByTagName("ds:Signature");
-      if (ns.getLength() == 0) {
-          String msg = "Document was never signed";
-          NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.INFORMATION_MESSAGE);
-          DialogDisplayer.getDefault().notify(nd);
-          return;
+      if (!DocumentVerifier.hasSignature(w3cDoc, "")) {
+        String msg = NbBundle.getMessage(getClass(), "MSG_SignatureNotFound"); //"No signature "
+        NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.INFORMATION_MESSAGE);
+        DialogDisplayer.getDefault().notify(nd);
+        return;       
       }
 
       List<XMLSignatureInput> failedRefs = DocumentVerifier.verifySignedDocument(w3cDoc, null, "");

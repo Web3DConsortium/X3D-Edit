@@ -32,6 +32,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.actions.security;
 
 import com.sauria.apachexml.ch10.DocumentSigner;
+import com.sauria.apachexml.ch10.DocumentVerifier;
 import java.awt.Dialog;
 import java.io.ByteArrayOutputStream;
 import java.security.KeyStore.Entry;
@@ -138,13 +139,12 @@ public final class SignDocumentAction extends BaseX3DEditAction
       } // can happen when attempting to sign an encrypted document
       
       // Prevent multiple signings
-      NodeList ns = w3cDoc.getElementsByTagName("ds:Signature");
-      if (ns.getLength() > 0) {
-          String msg = "Signing error: document has already been signed";
-          NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
-          DialogDisplayer.getDefault().notify(nd);
-          return;
-      }   
+      if (!DocumentVerifier.hasSignature(w3cDoc, "")) {
+        String msg = NbBundle.getMessage(getClass(), "MSG_SignatureFound"); //"Signature found"
+        NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.INFORMATION_MESSAGE);
+        DialogDisplayer.getDefault().notify(nd);
+        return;       
+      }
       
       Entry ent = keyPan.getSelectedEntry();
       if (!(ent instanceof PrivateKeyEntry)) {

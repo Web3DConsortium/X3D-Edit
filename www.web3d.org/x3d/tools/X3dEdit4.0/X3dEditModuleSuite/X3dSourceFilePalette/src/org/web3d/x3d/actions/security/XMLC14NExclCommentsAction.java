@@ -1,20 +1,21 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
- * Redistributions of source code must retain the above copyright
-notice, this list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright
-notice, this list of conditions and the following disclaimer
-in the documentation and/or other materials provided with the
-distribution.
- * Neither the names of the Naval Postgraduate School (NPS)
-Modeling Virtual Environments and Simulation (MOVES) Institute
-(https://www.nps.edu and https://MovesInstitute.nps.edu)
-nor the names of its contributors may be used to endorse or
-promote products derived from this software without specific
-prior written permission.
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer
+      in the documentation and/or other materials provided with the
+      distribution.
+    * Neither the name of the Web3D Consortium (http://www.web3D.org)
+      nor the names of its contributors may be used to endorse or
+      promote products derived from this software without specific
+      prior written permission.
+
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
 LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -27,18 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
 LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
- */
-/**
- * XMLC14NExclCommentsAction.java
- * Created July 2008
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
- * @version $Id$
- */
+*/
 package org.web3d.x3d.actions.security;
 
 import org.apache.xml.security.c14n.Canonicalizer;
@@ -57,8 +47,20 @@ import org.openide.util.NbBundle;
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security/C14N format using XML Canonicalization...", position = 210),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security/C14N format using XML Canonicalization...", position = 210)})
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security/C14N format using XML Canonicalization...", position = 210)
+})
 
+/**
+ * XMLC14NExclCommentsAction.java
+ * Created July 2008
+ *
+ * MOVES Institute
+ * Naval Postgraduate School, Monterey, CA, USA
+ * www.nps.edu
+ *
+ * @author Mike Bailey
+ * @version $Id$
+ */
 public final class XMLC14NExclCommentsAction extends XMLC14NBaseAction
 {
   @Override
@@ -74,9 +76,8 @@ public final class XMLC14NExclCommentsAction extends XMLC14NBaseAction
   }
 
   @Override
-  protected void doWork(Node[] activatedNodes)
-  {
-    // Not used, work done in performAction
+  protected void doWork(Node[] activatedNodes) {
+      super.doWork(activatedNodes);
   }
 
   @Override
