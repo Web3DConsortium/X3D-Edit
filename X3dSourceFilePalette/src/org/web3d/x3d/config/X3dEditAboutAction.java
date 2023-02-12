@@ -90,23 +90,16 @@ public final class X3dEditAboutAction extends CallableSystemAction
       SpecificationVersion specificationVersion = moduleInfo.getSpecificationVersion();
       String x3dMajorVersion = specificationVersion.toString().substring(0, specificationVersion.toString().lastIndexOf("."));
       
-      String newMainWindowTitle = mainWindowTitle + ", plugin version " + specificationVersion.toString(); // TODO avoid duplicate
-      // TODO watch out, have seen prefix "{1}" and so might possibly strip this, otherwise currently leaving it as a diagnostic
-      System.out.println ("*** About X3D-Edit: " + newMainWindowTitle);
-      // TODO how to set?  Once that is figured out, move to top-level componenet initialization
-//    resourceBundle.setString("CTL_MainWindow_Title"); ??
-    // Unfortunately, not able to set values via the ResourceBundle convention.
-    // Can only read values and obtain the keys to those values, no setting.
-    // @see java.util.PropertyResourceBundle
+      System.out.println ("*** About X3D-Edit: " + mainWindowTitle);
       
       String aboutHtmlMessage = "<html>" +
               "<p>&nbsp;</p>" +
               "<p align='center'><hr />" +
               "<p align='center'>&nbsp;</p>" +
-              "<h2 align='center'>Welcome to X3D-Edit " + x3dMajorVersion + "</h2>" +
-              "<p align='center'>A free, open-source Extensible 3D (X3D) Graphics authoring tool.</p>" +
+              "<h2 align='center'>Welcome to X3D-Edit " + x3dMajorVersion + rightMargin + "</h2>" +
+              "<p align='center'>A free, open-source Extensible 3D (X3D) Graphics authoring tool." + rightMargin + "</p>" +
               "<p align='center'>&nbsp;</p>" +
-              "<p align='center'><b>" + newMainWindowTitle + "</b> " + rightMargin + " </p>" +
+              "<p align='center'><b>" + mainWindowTitle + "</b> " + rightMargin + " </p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'>Original installer compilation date <b>" + buildVersion + "</b> " + rightMargin + " </p>" +
               "<p align='center'>&nbsp;</p>" +
