@@ -59,13 +59,9 @@ public class DocumentSigner
   protected String transformArray[] = null;
   protected List   objectList = null;
   
-  static
-  {
-    org.apache.xml.security.Init.init();
-  }
-
   public DocumentSigner()
   {
+    org.apache.xml.security.Init.init();
   }
 
   public DocumentSigner(Document doc,
@@ -73,6 +69,7 @@ public class DocumentSigner
                         PublicKey publicKey, String baseURI,
                         String signatureMethod, String digestMethod)
   {
+    this();
     this.document = doc;
     this.privateKey = privateKey;
     this.certificate = cert;
@@ -154,7 +151,7 @@ public class DocumentSigner
     sig.addDocument("#xpointer(/)", transforms,digestMethod);
   }
 
-  public void writeSignature(OutputStream outputStream)
+  public void toC14N(OutputStream outputStream)
   {
     XMLUtils.outputDOMc14nWithComments(document, outputStream);
   }
@@ -224,7 +221,7 @@ public class DocumentSigner
     signer.sign();
 
     try (FileOutputStream signatureStream = new FileOutputStream(signatureFile)) {
-        signer.writeSignature(signatureStream);
+        signer.toC14N(signatureStream);
     }
     catch (FileNotFoundException fnfe) {
       fnfe.printStackTrace(System.err);
