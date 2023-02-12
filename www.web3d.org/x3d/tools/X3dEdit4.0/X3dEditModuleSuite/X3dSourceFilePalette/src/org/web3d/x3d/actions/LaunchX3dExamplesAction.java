@@ -45,6 +45,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_EXAMPLES_ARCHIVES;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dExamplesAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon32.png",
@@ -94,9 +95,32 @@ public final class LaunchX3dExamplesAction extends CallableSystemAction
   {
     // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
       
+      urlString = urlString.replaceAll("\\\\","/");
+      
+      if      ( urlString.contains(X3dEditUserPreferences.getExampleArchivesRootDirectory().replaceAll("\\\\","/")) &&
+               !urlString.startsWith("http://"))
+      {
+          String segments[] = urlString.split(X3dEditUserPreferences.getExampleArchivesRootDirectory().replaceAll("\\\\","/"));
+          urlString = segments[segments.length - 1];
+          if (urlString.startsWith("/") || urlString.startsWith("\\"))
+              urlString =  urlString.substring(1);
+          urlString = "http://localhost:" + X3dEditUserPreferences.getExampleArchivesServerPort()+ "/" + urlString;
+      }
+      // prepend prefix http://localhost:port using http server-relative directory when appropriate
+      else if ( urlString.contains(X3dEditUserPreferences.getAuthorModelsDirectory().replaceAll("\\\\","/")) &&
+               !urlString.startsWith("http://"))
+      {
+          String segments[] = urlString.split(X3dEditUserPreferences.getAuthorModelsDirectory());
+          urlString = segments[segments.length - 1];
+          if (urlString.startsWith("") || urlString.startsWith("\\"))
+              urlString =  urlString.substring(1);
+          urlString = "http://localhost:" + X3dEditUserPreferences.getAuthorModelsServerPort() + "/" + urlString;
+      }
+      // TODO local launches need to be handled beforehand
+      
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
+        Desktop.getDesktop().browse(new URI(urlString));
   }
 
   @Override
