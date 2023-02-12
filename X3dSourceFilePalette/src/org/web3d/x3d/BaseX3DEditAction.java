@@ -106,17 +106,23 @@ abstract public class BaseX3DEditAction extends CookieAction
   private void actionPreamble(Node[] activatedNodes) throws IOException, SAXException, JDOMException
   {
     x3dDataObject = activatedNodes[0].getLookup().lookup(org.web3d.x3d.X3DDataObject.class);
-    if (x3dDataObject == null) return; // Can happen when attempting to sign an encrypted document
-    x3dEditorSupport  = x3dDataObject.getLookup().lookup(org.web3d.x3d.X3DEditorSupport.class);
-    documentEditorPane = x3dEditorSupport.getOpenedPanes()[0];
-    X3DPaletteUtilitiesJdom.buildJdom(documentEditorPane);  // rebuild jdom tree
+    
+    // x3dDataObject can be null when only XML, not X3D, files are open in the editor
+    if (x3dDataObject != null) {
+        x3dEditorSupport = x3dDataObject.getLookup().lookup(org.web3d.x3d.X3DEditorSupport.class);
+        documentEditorPane = x3dEditorSupport.getOpenedPanes()[0];
+        X3DPaletteUtilitiesJdom.buildJdom(documentEditorPane);  // rebuild jdom tree
 
-//    locSupp = new SAXLocatorSupport(x3dEditorSupport.getInputStream());
-    //saxLocations = locSupp.getLocations();
-    X3dEditor x3dEditor = (X3dEditor)X3DPaletteUtilitiesJdom.getTopComponent(documentEditorPane);
-    saxLocations = x3dEditor.getJdomSaxLocations();
+        X3dEditor x3dEditor = (X3dEditor)X3DPaletteUtilitiesJdom.getTopComponent(documentEditorPane);
+        saxLocations = x3dEditor.getJdomSaxLocations();
 
-    abstractDocument = (AbstractDocument) x3dEditorSupport.getDocument();
+        abstractDocument = (AbstractDocument) x3dEditorSupport.getDocument();
+    } else {
+        x3dEditorSupport = null;
+        documentEditorPane = null;
+        saxLocations = null;
+        abstractDocument = null;
+    }
   }
 
   private void doWorkUnderLock(final Node[] activatedNodes)
@@ -245,12 +251,12 @@ abstract public class BaseX3DEditAction extends CookieAction
 
   public org.w3c.dom.Document getW3cDocument() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException
   {
+    if (x3dEditorSupport == null) return null; // can happen when an XML doc, not X3D is active in the editor
+    
     DOMImplementationRegistry dreg = DOMImplementationRegistry.newInstance();
-
     DOMImplementationLS dls = (DOMImplementationLS) dreg.getDOMImplementation("LS");
     LSParser parser = dls.createLSParser(DOMImplementationLS.MODE_SYNCHRONOUS, null);
     LSInput lsInp = dls.createLSInput();
-    if (x3dEditorSupport == null) return null; // can happen when attempting to sign an encrypted document
     lsInp.setByteStream(this.x3dEditorSupport.getInputStream());
     return parser.parse(lsInp);
   }
