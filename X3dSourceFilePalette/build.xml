@@ -8,14 +8,9 @@
     <!-- override -->
     <target name="clean" depends="projectized-common.clean,-post-clean"/>
   
-    <target name="echoproperties" depends="projectized-common.-javadoc-init">
-        <echoproperties />
-    </target>
-    <target name="saveVersion" depends="projectized-common.-javadoc-init">
-        <echo message="TODO save property to file, but not finding how to dereference it ${OpenIDE-Module-Implementation-Version}" />
-        <echo message="$mf=${mf}"/>
-        <echo message="$mf.OpenIDE-Module-Implementation-Version=${mf.OpenIDE-Module-Implementation-Version}"/>
-        <echo file="Manifest.mf"/>
+    <target name="moduleVersion" depends="projectized-common.-javadoc-init">
+        <echo message="mf.OpenIDE-Module-Implementation-Version=${mf.OpenIDE-Module-Implementation-Version}"/>
+        <echo file="moduleVersion.properties" message="module.version=${mf.OpenIDE-Module-Implementation-Version}"/>
     </target>
     
     <!-- Ensure the latest Q/A materials -->
