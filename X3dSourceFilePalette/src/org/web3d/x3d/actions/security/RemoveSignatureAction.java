@@ -48,15 +48,19 @@ import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import org.jdom.JDOMException;
 import org.jdom.output.XMLOutputter;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.loaders.DataObject;
 import org.openide.nodes.Node;
+import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
+import org.w3c.dom.Document;
 import org.web3d.x3d.BaseX3DEditAction;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
@@ -75,6 +79,17 @@ public final class RemoveSignatureAction extends BaseX3DEditAction
   @Override
   protected void doWork(Node[] activatedNodes)
   {
+      try {
+          Document w3cDoc = getW3cDocument();
+          if (w3cDoc == null) {
+            String msg = NbBundle.getMessage(getClass(), "MSG_EncryptedSignatureRemoval"); //"Can not remove encrypted signature"
+            NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
+            DialogDisplayer.getDefault().notify(nd);
+            return; // can happen when attempting to remove sig from an encrypted document
+          } 
+      } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException ex) {
+          Exceptions.printStackTrace(ex);
+      }
     try {     
      ElementLocation signatureLoc = X3DPaletteUtilitiesJdom.findNamedElement(
          documentEditorPane,

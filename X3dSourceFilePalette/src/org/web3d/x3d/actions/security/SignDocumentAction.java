@@ -57,7 +57,6 @@ import org.openide.util.actions.CookieAction;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 import org.web3d.x3d.BaseX3DEditAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
 import org.web3d.x3d.types.X3DSchemaData;
@@ -131,20 +130,22 @@ public final class SignDocumentAction extends BaseX3DEditAction
         return;
       
       Document w3cDoc = getW3cDocument();
-      if (w3cDoc == null) {
-          String msg = "Signing error: You must first sign the document, then encrypt if desired";
-          NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
-          DialogDisplayer.getDefault().notify(nd);
-          return;
-      } // can happen when attempting to sign an encrypted document
       
       // Prevent multiple signings
-      if (!DocumentVerifier.hasSignature(w3cDoc, "")) {
-        String msg = NbBundle.getMessage(getClass(), "MSG_SignatureFound"); //"Signature found"
-        NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.INFORMATION_MESSAGE);
+      String msg;
+      NotifyDescriptor nd;
+      if (w3cDoc != null && DocumentVerifier.hasSignature(w3cDoc, "")) {
+        msg = NbBundle.getMessage(getClass(), "MSG_SignatureFound"); //"Signature found"
+        nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.INFORMATION_MESSAGE);
         DialogDisplayer.getDefault().notify(nd);
         return;       
       }
+      if (w3cDoc == null) {
+          msg = NbBundle.getMessage(getClass(), "MSG_DocumentEncrypted"); //"Encryption found"
+          nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.ERROR_MESSAGE);
+          DialogDisplayer.getDefault().notify(nd);
+          return;
+      } // can happen when attempting to sign an encrypted document
       
       Entry ent = keyPan.getSelectedEntry();
       if (!(ent instanceof PrivateKeyEntry)) {
