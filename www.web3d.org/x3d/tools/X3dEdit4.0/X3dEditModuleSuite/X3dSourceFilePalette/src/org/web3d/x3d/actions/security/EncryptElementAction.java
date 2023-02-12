@@ -65,6 +65,7 @@ import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledExc
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 
+// TODO: This action does not seem to be exposed via and menu in X3D-Edit, unused?
 @ActionID(id = "org.web3d.x3d.actions.security.EncryptElementAction", category = "X3D-Edit")
 @ActionRegistration(displayName = "#CTL_EncryptElementAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered)
