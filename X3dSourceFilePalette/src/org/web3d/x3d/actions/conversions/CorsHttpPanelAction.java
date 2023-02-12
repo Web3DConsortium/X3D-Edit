@@ -38,7 +38,7 @@ import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
-import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionPanel.CORS_TAB;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.CORS_TAB;
 
 /**
  * Utility class to make pane available within parent class
