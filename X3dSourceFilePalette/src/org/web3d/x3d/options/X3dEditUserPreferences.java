@@ -284,7 +284,7 @@ public class X3dEditUserPreferences
   
   public static String  getAuthorName ()                            { return  commonStringGet(AUTHOR_NAME_KEY,    AUTHOR_NAME_DEFAULT);}
   public static String  getAuthorEmail ()                           { return  commonStringGet(AUTHOR_EMAIL_KEY,   AUTHOR_EMAIL_DEFAULT);}
-  public static String  getExamplesRootDirectory ()                 { return  commonStringGet(EXAMPLES_ROOT_DIRECTORY_KEY,   EXAMPLES_ROOT_DIRECTORY_DEFAULT);}
+  public static String  getExampleArchivesRootDirectory ()          { return  commonStringGet(EXAMPLES_ROOT_DIRECTORY_KEY,   EXAMPLES_ROOT_DIRECTORY_DEFAULT);}
   
   public static String  getAuthorPreferenceCorsDirectory ()         { return  commonStringGet(AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY,      AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT);}
   public static String  getAuthorPreferenceHtmlWidth ()             { return  commonStringGet(AUTHOR_PREFERENCE_HTML_WIDTH_KEY,          AUTHOR_PREFERENCE_HTML_WIDTH_DEFAULT);}
