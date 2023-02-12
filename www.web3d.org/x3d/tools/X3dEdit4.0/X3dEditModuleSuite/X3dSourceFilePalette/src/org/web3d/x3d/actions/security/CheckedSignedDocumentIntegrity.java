@@ -45,6 +45,8 @@ import com.sauria.apachexml.ch10.DocumentVerifier;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.apache.xml.security.signature.XMLSignatureInput;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -55,6 +57,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CookieAction;
 import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 import org.web3d.x3d.BaseX3DEditAction;
 
 @ActionID(id = "org.web3d.x3d.actions.security.CheckedSignedDocumentIntegrity", category = "X3D-Edit")
@@ -80,6 +83,14 @@ public final class CheckedSignedDocumentIntegrity extends BaseX3DEditAction
   {
     try {
       Document w3cDoc = getW3cDocument();
+      
+      NodeList ns = w3cDoc.getElementsByTagName("ds:Signature");
+      if (ns.getLength() == 0) {
+          String msg = "Document was never signed";
+          NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.INFORMATION_MESSAGE);
+          DialogDisplayer.getDefault().notify(nd);
+          return;
+      }
 
       List<XMLSignatureInput> failedRefs = DocumentVerifier.verifySignedDocument(w3cDoc, null, "");
 
