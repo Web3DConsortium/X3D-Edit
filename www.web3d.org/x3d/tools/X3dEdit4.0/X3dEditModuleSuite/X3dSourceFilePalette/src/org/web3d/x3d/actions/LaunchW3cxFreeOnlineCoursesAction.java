@@ -61,7 +61,7 @@ public final class LaunchW3cxFreeOnlineCoursesAction extends CallableSystemActio
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(W3CX_FREE_ONLINE_COURSES);
+    BaseViewAction.sendBrowserTo(W3CX_FREE_ONLINE_COURSES);
   }
 
   @Override

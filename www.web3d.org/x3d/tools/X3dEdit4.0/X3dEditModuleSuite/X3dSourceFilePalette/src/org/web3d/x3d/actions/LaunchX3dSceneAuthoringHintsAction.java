@@ -61,7 +61,7 @@ public final class LaunchX3dSceneAuthoringHintsAction extends CallableSystemActi
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_SCENE_AUTHORING_HINTS);
+    BaseViewAction.sendBrowserTo(X3D_SCENE_AUTHORING_HINTS);
   }
 
   @Override

@@ -62,7 +62,7 @@ public final class LaunchX3dGraphicsStandardsRelationshipsAction extends Callabl
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_GRAPHICS_STANDARDS_RELATIONSHIPS);
+    BaseViewAction.sendBrowserTo(X3D_GRAPHICS_STANDARDS_RELATIONSHIPS);
   }
 
   @Override

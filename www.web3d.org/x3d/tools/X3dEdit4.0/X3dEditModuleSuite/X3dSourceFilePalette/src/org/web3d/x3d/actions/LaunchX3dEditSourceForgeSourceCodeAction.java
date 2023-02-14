@@ -57,7 +57,7 @@ public final class LaunchX3dEditSourceForgeSourceCodeAction extends CallableSyst
   @Override
   public void performAction()
   {
-    LaunchX3dExamplesAction.sendBrowserTo(SOURCEFORGE_X3DEDIT_SOURCE);
+    BaseViewAction.sendBrowserTo(SOURCEFORGE_X3DEDIT_SOURCE);
   }
 
   @Override

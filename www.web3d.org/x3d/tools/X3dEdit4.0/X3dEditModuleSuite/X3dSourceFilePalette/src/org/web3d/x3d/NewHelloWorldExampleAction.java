@@ -88,23 +88,23 @@ public final class NewHelloWorldExampleAction extends CallableSystemAction
        
       // Build the temp file in home directory
       File homeDirectory = new File(X3dEditUserPreferences.getNewX3dModelsDirectory());
-      FileObject homeFo = FileUtil.createFolder(homeDirectory);
+      FileObject homeFileObject = FileUtil.createFolder(homeDirectory);
       
-      // Find a free name
-      String freename = FileUtil.findFreeFileName(homeFo, "newHelloWorldExample", "x3d");
-      DataObject newDo = templ.createFromTemplate(DataFolder.findFolder(homeFo),freename);
+      // Find a free name, may append number for uniqueness
+      String freename = FileUtil.findFreeFileName(homeFileObject, "newHelloWorldExample", "x3d");
+      DataObject newDataObject = templ.createFromTemplate(DataFolder.findFolder(homeFileObject),freename);
       
       // The above method calls into X3DDataObject.handleCreateFromTemplate(), which copies the template
       // into the new file.
       
       // Finally, execute the OpenAction
-      OpenCookie oc = newDo.getLookup().lookup(OpenCookie.class);
-      if(oc != null) {
-        oc.open();
-        return;
+      OpenCookie openCookie = newDataObject.getLookup().lookup(OpenCookie.class);
+      if (openCookie != null) {
+          openCookie.open();
+          return;
       }
       // Old way
-      Node nod = newDo.getNodeDelegate();
+      Node nod = newDataObject.getNodeDelegate();
       Action[] acts = nod.getActions(false);
       for(Action a : acts) {
         if(a instanceof OpenAction) {

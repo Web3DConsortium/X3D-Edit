@@ -61,7 +61,7 @@ public final class LaunchX3DClassicVrmlEncodingStandardAction extends CallableSy
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_CLASSICVRML_ENCODING_STANDARD);
+    BaseViewAction.sendBrowserTo(X3D_CLASSICVRML_ENCODING_STANDARD);
   }
 
   @Override

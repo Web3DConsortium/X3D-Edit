@@ -61,7 +61,7 @@ public final class LaunchCastleGameEngineConverterAction extends CallableSystemA
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(CASTLE_GAME_ENGINE_CONVERTER);
+    BaseViewAction.sendBrowserTo(CASTLE_GAME_ENGINE_CONVERTER);
   }
 
   @Override

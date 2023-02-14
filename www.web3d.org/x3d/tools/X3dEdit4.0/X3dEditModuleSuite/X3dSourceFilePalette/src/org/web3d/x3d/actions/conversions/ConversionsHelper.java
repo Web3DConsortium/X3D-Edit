@@ -241,6 +241,7 @@ public class ConversionsHelper
    */
   static public void openInBrowser(String resultFileAddress)
   {
+      // TODO copy logic from LaunchDownload panel View button
     try {
         resultFileAddress = resultFileAddress.replaceAll("\\\\","/");
 

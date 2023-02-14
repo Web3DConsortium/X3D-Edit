@@ -147,10 +147,10 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     dtdValidator = new DTDValidator(in);
     schemaValidator = new SchemaValidator(in);
     
-    if(x3dFile == null)
+    if (x3dFile == null)
     {
-        // TODO fix, this occurs erroneously when creating a new file
-        System.out.println ("*** failed to create X3DDataObject() x3dFile " + pf.getPath());
+        // copying new template file
+        System.out.println ("*** create X3DDataObject() x3dFile " + pf.getPath());
         return;
     }
     x3dDataObjectDirectory = x3dFile.getParent();
@@ -185,16 +185,16 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
       String path = "Templates/Other/newScene.x3d";
       if (newName.contains("HelloWorld"))
           path = "Templates/Other/HelloWorldX3D4.x3d";
-      FileObject x3dTmplFo = FileUtil.getConfigRoot().getFileSystem().findResource(path);
-      if (x3dTmplFo == null) 
+      FileObject x3dTemplateFileObject = FileUtil.getConfigRoot().getFileSystem().findResource(path);
+      if (x3dTemplateFileObject == null) 
       {
           System.out.println("*** Error, template file " + path + " not found");
       }
-      FileObject directoryFo = directoryDF.getPrimaryFile();  // FO referring to target dir
+      FileObject directoryFileObject = directoryDF.getPrimaryFile();  // FO referring to target dir
       // write the new file to disk by copying the template
-      FileObject newFo = FileUtil.copyFile(x3dTmplFo, directoryFo, newName);
+      FileObject newFileObject = FileUtil.copyFile(x3dTemplateFileObject, directoryFileObject, newName);
 
-      return new X3DDataObject(newFo, getMultiFileLoader());
+      return new X3DDataObject(newFileObject, getMultiFileLoader());
   }
 
   @SuppressWarnings("unchecked")

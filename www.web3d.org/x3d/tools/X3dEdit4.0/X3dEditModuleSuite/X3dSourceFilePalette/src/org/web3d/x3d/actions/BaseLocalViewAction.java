@@ -68,7 +68,7 @@ abstract public class BaseLocalViewAction extends BaseViewAction
         showErrOut(errPath);
         directoryLocation = "";
     }
-    String urlString = "file://"+directoryLocation+"/index.html";
+    String urlString = "file://"+directoryLocation+"/index.html"; // default url
     
     String   archiveName = directoryLocation;
     if      (archiveName.contains("\\"))
@@ -83,7 +83,8 @@ abstract public class BaseLocalViewAction extends BaseViewAction
     
     try
     {
-        showInBrowser(urlString);
+//      showInBrowser(urlString); // avoid local, reinforce unified method
+        BaseViewAction.showInBrowser(urlString);
     } 
     catch (Exception e)
     {

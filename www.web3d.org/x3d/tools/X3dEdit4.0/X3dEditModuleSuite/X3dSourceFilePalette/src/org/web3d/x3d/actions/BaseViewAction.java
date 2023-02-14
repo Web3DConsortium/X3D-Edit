@@ -38,6 +38,7 @@ import java.awt.Desktop;
 import java.net.URI;
 import org.openide.util.HelpCtx;
 import org.openide.util.actions.CallableSystemAction;
+import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /**
  * BaseViewAction.java
@@ -148,7 +149,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   
   private Boolean menuItemEnabled = Boolean.TRUE;
   
-  protected void sendBrowserTo(String urlString)
+  public static void sendBrowserTo(String urlString)
   {
      try {
        showInBrowser(urlString);
@@ -159,14 +160,36 @@ abstract public class BaseViewAction extends CallableSystemAction
      }    
   }
   
-  protected void showInBrowser(String urlString) throws Exception
+  protected static void showInBrowser(String urlString) throws Exception
   {
     // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
-     
+      
+      urlString = urlString.replaceAll("\\\\","/");
+      
+      if      ( urlString.contains(X3dEditUserPreferences.getExampleArchivesRootDirectory().replaceAll("\\\\","/")) &&
+               !urlString.startsWith("http://"))
+      {
+          String segments[] = urlString.split(X3dEditUserPreferences.getExampleArchivesRootDirectory().replaceAll("\\\\","/"));
+          urlString = segments[segments.length - 1];
+          if (urlString.startsWith("/") || urlString.startsWith("\\"))
+              urlString =  urlString.substring(1);
+          urlString = "http://localhost:" + X3dEditUserPreferences.getExampleArchivesServerPort()+ "/" + urlString;
+      }
+      // prepend prefix http://localhost:port using http server-relative directory when appropriate
+      else if ( urlString.contains(X3dEditUserPreferences.getAuthorModelsDirectory().replaceAll("\\\\","/")) &&
+               !urlString.startsWith("http://"))
+      {
+          String segments[] = urlString.split(X3dEditUserPreferences.getAuthorModelsDirectory());
+          urlString = segments[segments.length - 1];
+          if (urlString.startsWith("") || urlString.startsWith("\\"))
+              urlString =  urlString.substring(1);
+          urlString = "http://localhost:" + X3dEditUserPreferences.getAuthorModelsServerPort() + "/" + urlString;
+      }
+      // TODO local launches need to be handled beforehand
+      
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
     if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
-    
+        Desktop.getDesktop().browse(new URI(urlString));
   }
   
   protected String getLocalExamplesPath()

@@ -64,11 +64,11 @@ public final class LaunchW3cXmlXsltAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(W3C_XPATH_RECOMMENDATION);
+    BaseViewAction.sendBrowserTo(W3C_XPATH_RECOMMENDATION);
     sleepSeconds(1);
-    LaunchX3dExamplesAction.sendBrowserTo(W3C_XSLT_RECOMMENDATION);
+    BaseViewAction.sendBrowserTo(W3C_XSLT_RECOMMENDATION);
     sleepSeconds(1);
-    LaunchX3dExamplesAction.sendBrowserTo(W3C_XML_RECOMMENDATION);
+    BaseViewAction.sendBrowserTo(W3C_XML_RECOMMENDATION);
   }
 
   @Override

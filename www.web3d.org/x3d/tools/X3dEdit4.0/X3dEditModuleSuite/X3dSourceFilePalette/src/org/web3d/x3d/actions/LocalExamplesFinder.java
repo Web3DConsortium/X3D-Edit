@@ -62,23 +62,23 @@ public class LocalExamplesFinder
   public static String DEFAULT_SOURCEFORGE = "/x3d-code"; // default sourceforge checkout parent directory
   public static String DEFAULT_ROOT_PATH;
   public static String DEFAULT_BASIC_PATH;
-  public static String DEFAULT_CONFORM_PATH;
+  public static String DEFAULT_CONFORMANCENIST_PATH;
   public static String DEFAULT_HANIM_PATH;
-  public static String DEFAULT_VRMLSB_PATH;
+  public static String DEFAULT_VRMLSOURCEBOOK_PATH;
   public static String DEFAULT_X3D4WA_PATH;
   public static String DEFAULT_X3D4AM_PATH;
   public static String DEFAULT_SAVAGE_PATH;
   public static String DEFAULT_SAVAGEDEFENSE_PATH;
   
-  private DirectoryHandler basic;
-  private DirectoryHandler conform;
-  private DirectoryHandler hanim;
-  private DirectoryHandler vrmlsb;
-  private DirectoryHandler x3d4wa;
-  private DirectoryHandler x3d4am;
-  private DirectoryHandler savage;
-  private DirectoryHandler savagedefense;
-  private boolean    savageDefenseFound = false;
+  private DirectoryHandler basicDirectoryHandler;
+  private DirectoryHandler conformanceNistDirectoryHandler;
+  private DirectoryHandler hanimDirectoryHandler;
+  private DirectoryHandler vrmlsourcebookDirectoryHandler;
+  private DirectoryHandler x3d4waDirectoryHandler;
+  private DirectoryHandler x3d4amDirectoryHandler;
+  private DirectoryHandler savageDirectoryHandler;
+  private DirectoryHandler savagedefenseDirectoryHandler;
+  private boolean          savageDefenseFound = false;
   
   private LocalExamplesFinder()
   {
@@ -87,8 +87,8 @@ public class LocalExamplesFinder
   private void initialize ()
   {
     // TODO make successful path persistent and exposed through X3D Options panel
-    if  (!X3dEditUserPreferences.getExamplesRootDirectory().isBlank())
-         DEFAULT_ROOT_DIR  = new File(X3dEditUserPreferences.getExamplesRootDirectory());
+    if  (!X3dEditUserPreferences.getExampleArchivesRootDirectory().isBlank())
+         DEFAULT_ROOT_DIR  = new File(X3dEditUserPreferences.getExampleArchivesRootDirectory());
     else DEFAULT_ROOT_DIR  = new File(DEFAULT_DIR_TREE);
     DEFAULT_ROOT_PATH = DEFAULT_ROOT_DIR.getAbsolutePath();
     if ((DEFAULT_ROOT_PATH == null) || DEFAULT_ROOT_PATH.isEmpty() || !DEFAULT_ROOT_DIR.isDirectory())
@@ -96,27 +96,27 @@ public class LocalExamplesFinder
         DEFAULT_ROOT_DIR  = new File(DEFAULT_SOURCEFORGE + DEFAULT_DIR_TREE);
         DEFAULT_ROOT_PATH = DEFAULT_ROOT_DIR.getAbsolutePath();
     } // noi18n
-    DEFAULT_BASIC_PATH   = DEFAULT_ROOT_PATH+File.separator+"Basic";
-    DEFAULT_CONFORM_PATH = DEFAULT_ROOT_PATH+File.separator+"ConformanceNist";
-    DEFAULT_HANIM_PATH   = DEFAULT_ROOT_PATH+File.separator+"HumanoidAnimation";
-    DEFAULT_VRMLSB_PATH  = DEFAULT_ROOT_PATH+File.separator+"Vrml2Sourcebook";
-    DEFAULT_X3D4WA_PATH  = DEFAULT_ROOT_PATH+File.separator+"X3dForWebAuthors";  
-    DEFAULT_X3D4AM_PATH  = DEFAULT_ROOT_PATH+File.separator+"X3dForAdvancedModeling";  
-    DEFAULT_SAVAGE_PATH  = DEFAULT_ROOT_PATH+File.separator+"Savage";
-    DEFAULT_SAVAGEDEFENSE_PATH  = DEFAULT_ROOT_PATH+File.separator+"SavageDefense";
+    DEFAULT_BASIC_PATH           = DEFAULT_ROOT_PATH+File.separator+"Basic";
+    DEFAULT_CONFORMANCENIST_PATH = DEFAULT_ROOT_PATH+File.separator+"ConformanceNist";
+    DEFAULT_HANIM_PATH           = DEFAULT_ROOT_PATH+File.separator+"HumanoidAnimation";
+    DEFAULT_VRMLSOURCEBOOK_PATH  = DEFAULT_ROOT_PATH+File.separator+"Vrml2Sourcebook";
+    DEFAULT_X3D4WA_PATH          = DEFAULT_ROOT_PATH+File.separator+"X3dForWebAuthors";  
+    DEFAULT_X3D4AM_PATH          = DEFAULT_ROOT_PATH+File.separator+"X3dForAdvancedModeling";  
+    DEFAULT_SAVAGE_PATH          = DEFAULT_ROOT_PATH+File.separator+"Savage";
+    DEFAULT_SAVAGEDEFENSE_PATH   = DEFAULT_ROOT_PATH+File.separator+"SavageDefense";
     
-    basic   = new DirectoryHandler("BasicExamples"      ,DEFAULT_BASIC_PATH); // noi18n
-    conform = new DirectoryHandler("ConformanceExamples",DEFAULT_CONFORM_PATH);
-    hanim   = new DirectoryHandler("HumanoidExamples"   ,DEFAULT_HANIM_PATH);
-    vrmlsb  = new DirectoryHandler("VrmlExamples"       ,DEFAULT_VRMLSB_PATH);
-    x3d4wa  = new DirectoryHandler("X3d4waExamples"     ,DEFAULT_X3D4WA_PATH);
-    x3d4am  = new DirectoryHandler("X3d4amExamples"     ,DEFAULT_X3D4AM_PATH);
-    savage  = new DirectoryHandler("SavageExamples"     ,DEFAULT_SAVAGE_PATH);
+    basicDirectoryHandler   = new DirectoryHandler("BasicExamples"      ,DEFAULT_BASIC_PATH); // noi18n
+    conformanceNistDirectoryHandler = new DirectoryHandler("ConformanceExamples",DEFAULT_CONFORMANCENIST_PATH);
+    hanimDirectoryHandler   = new DirectoryHandler("HumanoidExamples"   ,DEFAULT_HANIM_PATH);
+    vrmlsourcebookDirectoryHandler  = new DirectoryHandler("VrmlExamples"       ,DEFAULT_VRMLSOURCEBOOK_PATH);
+    x3d4waDirectoryHandler  = new DirectoryHandler("X3d4waExamples"     ,DEFAULT_X3D4WA_PATH);
+    x3d4amDirectoryHandler  = new DirectoryHandler("X3d4amExamples"     ,DEFAULT_X3D4AM_PATH);
+    savageDirectoryHandler  = new DirectoryHandler("SavageExamples"     ,DEFAULT_SAVAGE_PATH);
     
     if ((new File(DEFAULT_SAVAGEDEFENSE_PATH)).isDirectory())
     {
         savageDefenseFound = true;
-        savagedefense = new DirectoryHandler("SavageDefenseExamples", DEFAULT_SAVAGEDEFENSE_PATH);
+        savagedefenseDirectoryHandler = new DirectoryHandler("SavageDefenseExamples", DEFAULT_SAVAGEDEFENSE_PATH);
     }
   }
 
@@ -157,72 +157,72 @@ public class LocalExamplesFinder
   
   public String findBasicExamplesDirectory(Action menuItem)
   {
-    return findExamplesDirectory(basic,menuItem);
+    return findExamplesDirectory(basicDirectoryHandler,menuItem);
   }
   public String findConformExamplesDirectory(Action menuItem)
   {
-    return findExamplesDirectory(conform,menuItem);
+    return findExamplesDirectory(conformanceNistDirectoryHandler,menuItem);
   }
   public String findHumanoidAnimationExamplesDirectory(Action menuItem)
   {
-    return findExamplesDirectory(hanim,menuItem);
+    return findExamplesDirectory(hanimDirectoryHandler,menuItem);
   }
   public String findVrmlExamplesDirectory(Action menuItem)
   {
-    return findExamplesDirectory(vrmlsb,menuItem);
+    return findExamplesDirectory(vrmlsourcebookDirectoryHandler,menuItem);
   }
   public String findX3d4waExamplesDirectory(Action menuItem)
   {
-    return findExamplesDirectory(x3d4wa,menuItem);
+    return findExamplesDirectory(x3d4waDirectoryHandler,menuItem);
   }
   public String findX3d4amExamplesDirectory(Action menuItem)
   {
-    return findExamplesDirectory(x3d4am,menuItem);
+    return findExamplesDirectory(x3d4amDirectoryHandler,menuItem);
   }
   public String findSavageExamplesDirectory(Action menuItem)
   {
-    return findExamplesDirectory(savage,menuItem);
+    return findExamplesDirectory(savageDirectoryHandler,menuItem);
   }
   public String findSavageDefenseExamplesDirectory(Action menuItem)
   {
       if  (isSavageDefenseFound())
-           return findExamplesDirectory(savagedefense,menuItem);
+           return findExamplesDirectory(savagedefenseDirectoryHandler,menuItem);
       else return null;
   }
   
     
   public void setBasicExamplesDirectory(String s)
   {
-    setExamplesDir(basic,s);
+    setExamplesDir(basicDirectoryHandler,s);
   }
   public void setConformExamplesDirectory(String s)
   {
-    setExamplesDir(conform,s);
+    setExamplesDir(conformanceNistDirectoryHandler,s);
   }
   public void setHumanoidAnimationExamplesDirectory(String s)
   {
-    setExamplesDir(hanim,s);
+    setExamplesDir(hanimDirectoryHandler,s);
   }
   public void setVrmlExamplesDirectory(String s)
   {
-    setExamplesDir(vrmlsb,s);
+    setExamplesDir(vrmlsourcebookDirectoryHandler,s);
   }
   public void setX3d4waExamplesDirectory(String s)
   { 
-    setExamplesDir(x3d4wa,s);
+    setExamplesDir(x3d4waDirectoryHandler,s);
   }
   public void setX3d4amExamplesDirectory(String s)
   { 
-    setExamplesDir(x3d4am,s);
+    setExamplesDir(x3d4amDirectoryHandler,s);
   }
   public void setSavageExamplesDirectory(String s)
   {
-    setExamplesDir(savage,s);
+    setExamplesDir(savageDirectoryHandler,s);
   }
   public void setSavageDefenseExamplesDirectory(String s)
   {
       if  (isSavageDefenseFound())
-           setExamplesDir(savagedefense,s);
+           setExamplesDir(savagedefenseDirectoryHandler,s);
   }
   
   

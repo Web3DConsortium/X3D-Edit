@@ -61,7 +61,7 @@ public final class LaunchExiEfficientXmlInterchangeAction extends CallableSystem
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(W3C_EXI_RECOMMENDATION);
+    BaseViewAction.sendBrowserTo(W3C_EXI_RECOMMENDATION);
   }
 
   @Override

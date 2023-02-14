@@ -61,7 +61,7 @@ public final class LaunchX3dSchemaDoctypeValidationAction extends CallableSystem
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_SCHEMA_DOCTYPE_VALIDATION);
+    BaseViewAction.sendBrowserTo(X3D_SCHEMA_DOCTYPE_VALIDATION);
   }
 
   @Override

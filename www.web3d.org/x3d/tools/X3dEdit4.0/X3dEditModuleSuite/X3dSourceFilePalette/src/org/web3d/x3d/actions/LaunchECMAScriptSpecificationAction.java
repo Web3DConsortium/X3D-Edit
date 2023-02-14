@@ -58,7 +58,7 @@ public final class LaunchECMAScriptSpecificationAction extends CallableSystemAct
   @Override
   public void performAction()
   {
-    LaunchX3dExamplesAction.sendBrowserTo(ECMASCRIPT_SPECIFICATION);
+    BaseViewAction.sendBrowserTo(ECMASCRIPT_SPECIFICATION);
   }
 
   @Override

@@ -53,9 +53,9 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
+import org.web3d.x3d.actions.BaseViewAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
 import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
-import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.BetterJTextField;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
@@ -339,11 +339,11 @@ public abstract class BaseCustomizer extends JPanel
     final ActionListener helpActionListener = (ActionEvent event) ->
     {
         switch (currentX3dElement.getElementName()) {
-            case     XML_ELNAME -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
-            case COMMENT_ELNAME -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
-            case DOCTYPE_ELNAME -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
+            case     XML_ELNAME -> BaseViewAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
+            case COMMENT_ELNAME -> BaseViewAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
+            case DOCTYPE_ELNAME -> BaseViewAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
             // otherwise launch appropriate X3D Tooltip
-            default -> LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS + "#" + currentX3dElement.getElementName());
+            default -> BaseViewAction.sendBrowserTo(X3D_TOOLTIPS + "#" + currentX3dElement.getElementName());
         }
     };
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...

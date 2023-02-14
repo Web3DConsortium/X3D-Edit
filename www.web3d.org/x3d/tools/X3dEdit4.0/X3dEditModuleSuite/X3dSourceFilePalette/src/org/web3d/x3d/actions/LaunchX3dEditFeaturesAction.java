@@ -57,7 +57,7 @@ public final class LaunchX3dEditFeaturesAction extends CallableSystemAction
   @Override
   public void performAction()
   {
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_EDIT_FEATURES);
+    BaseViewAction.sendBrowserTo(X3D_EDIT_FEATURES);
   }
 
   @Override

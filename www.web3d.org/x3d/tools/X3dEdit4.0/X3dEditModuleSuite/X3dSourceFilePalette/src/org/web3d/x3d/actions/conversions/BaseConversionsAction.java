@@ -223,7 +223,7 @@ import org.xml.sax.SAXParseException;
         }
         if (x3dEditorTopComponentArrayList.isEmpty()) 
         {
-            System.err.println ("*** cannot perform action if no X3D model is available");
+            System.err.println ("*** cannot perform action if no X3D model is open");
             return;
         }
         // Do not execute if autolaunched by X3DOM/X_ITE panel, rather count on deliberate invocation by button

@@ -28,9 +28,9 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
 import org.openide.util.ImageUtilities;
 import org.web3d.x3d.DownloadX3dExamplesArchivesAction;
+import org.web3d.x3d.actions.BaseViewAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D4_HTML_AUTHORING_GUIDELINES;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS;
-import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.actions.LaunchX3dSceneAuthoringHintsCorsAction;
 import static org.web3d.x3d.actions.conversions.ConversionsHelper.openInBrowser;
 import org.web3d.x3d.options.X3dEditUserPreferences;
@@ -76,26 +76,26 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private JFileChooser         corsDirectoryChooser;
     private String     localHttpPrefix = new String();
     
-    final String HTTP_START   = "http start";
-    final String HTTP_STOP    = "http stop";
-    final String HTTP_RUNNING = "running...";
+    final static String HTTP_START   = "http start";
+    final static String HTTP_STOP    = "http stop";
+    final static String HTTP_RUNNING = "running...";
     
-    final String AUTHOR_MODELS    = "AUTHOR_MODELS";
-    final String EXAMPLE_ARCHIVES = "EXAMPLE_ARCHIVES";
-    final String ACTIVE_X3D_MODEL = "ACTIVE_X3D_MODEL";
+    final static String AUTHOR_MODELS    = "AUTHOR_MODELS";
+    final static String EXAMPLE_ARCHIVES = "EXAMPLE_ARCHIVES";
+    final static String ACTIVE_X3D_MODEL = "ACTIVE_X3D_MODEL";
         
-    String                  addressValue = "localhost";
-    boolean    isAliveAuthorModelsServer = false;
-    boolean isAliveExampleArchivesServer = false;
-    boolean  isAliveActiveX3dModelServer = false;
+    static String                  addressValue = "localhost";
+    static boolean    isAliveAuthorModelsServer = false;
+    static boolean isAliveExampleArchivesServer = false;
+    static boolean  isAliveActiveX3dModelServer = false;
     
-    final int INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT = 8011;
-    int     nextActiveX3dModelServerPort = INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT;
-    ArrayList<String>  activeX3dModelNameList;
-    ArrayList<String>  activeX3dModelDirectoryList;
-    ArrayList<String>  activeX3dModelPortList;
-    ArrayList<Process> activeX3dModelProcessList;
-    int activeServerSelection = -1; // from activeX3dModelDirectoryServerListComboBox selected index
+    private final int INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT = 8011;
+    private int     nextActiveX3dModelServerPort = INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT;
+    private static ArrayList<String>  activeX3dModelNameList;
+    private static ArrayList<String>  activeX3dModelDirectoryList;
+    private static ArrayList<String>  activeX3dModelPortList;
+    private static ArrayList<Process> activeX3dModelProcessList;
+    private int activeServerSelection = -1; // from activeX3dModelDirectoryServerListComboBox selected index
     
     
     // ProcessBuilder and Process do not provide a mechanism for inserting a shutdown hook,
@@ -106,19 +106,19 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 //    ProcessBuilder processBuilder3;
     
     // https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runtime.html
-    Runtime runtime;
+    private static Runtime runtime;
     
     // https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/Process.html
-    Process        httpServerProcess1;
-    Process        httpServerProcess2;
-    Process        httpServerProcessNew;
+    static Process        httpServerProcess1;
+    static Process        httpServerProcess2;
+    static Process        httpServerProcessNew;
     
     Color   black      = new Color(  0,   0,   0);
     Color   darkgreen  = new Color( 42, 142, 104);
 
     Font plainFont;
     Font  boldFont;
-    String message = new String();
+    static String message = new String();
     
     private static X3dToXhtmlDomConversionAction xhtmlX3domAction;
     
@@ -129,10 +129,10 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     public X3dToXhtmlDomConversionFrame(X3dToXhtmlDomConversionAction xhtmlX3domAction)
     {
         X3dToXhtmlDomConversionFrame.xhtmlX3domAction = xhtmlX3domAction; // same as this. for static variable
-        this.activeX3dModelNameList      = new ArrayList<>();
-        this.activeX3dModelDirectoryList = new ArrayList<>();
-        this.activeX3dModelPortList      = new ArrayList<>();
-        this.activeX3dModelProcessList   = new ArrayList<>();
+        activeX3dModelNameList      = new ArrayList<>();
+        activeX3dModelDirectoryList = new ArrayList<>();
+        activeX3dModelPortList      = new ArrayList<>();
+        activeX3dModelProcessList   = new ArrayList<>();
         
         initComponents();
         setTitle (" X3D4 Model Integration in HTML5 Web Page"); // note leading space for readability
@@ -2024,12 +2024,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void x3domHomeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_x3domHomeButtonActionPerformed
     {//GEN-HEADEREND:event_x3domHomeButtonActionPerformed
-        LaunchX3dExamplesAction.sendBrowserTo(X3DOM_site);
+        BaseViewAction.sendBrowserTo(X3DOM_site);
     }//GEN-LAST:event_x3domHomeButtonActionPerformed
 
     private void x3domHelpButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_x3domHelpButtonActionPerformed
     {//GEN-HEADEREND:event_x3domHelpButtonActionPerformed
-        LaunchX3dExamplesAction.sendBrowserTo(X3DOM_help);
+        BaseViewAction.sendBrowserTo(X3DOM_help);
     }//GEN-LAST:event_x3domHelpButtonActionPerformed
 
     private void showLogCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_showLogCheckBoxActionPerformed
@@ -2058,12 +2058,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void x_iteHomeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_x_iteHomeButtonActionPerformed
     {//GEN-HEADEREND:event_x_iteHomeButtonActionPerformed
-        LaunchX3dExamplesAction.sendBrowserTo(X_ITE_site);
+        BaseViewAction.sendBrowserTo(X_ITE_site);
     }//GEN-LAST:event_x_iteHomeButtonActionPerformed
 
     private void x_iteHelpButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_x_iteHelpButtonActionPerformed
     {//GEN-HEADEREND:event_x_iteHelpButtonActionPerformed
-        LaunchX3dExamplesAction.sendBrowserTo(X_ITE_help);
+        BaseViewAction.sendBrowserTo(X_ITE_help);
     }//GEN-LAST:event_x_iteHelpButtonActionPerformed
 
     private void cacheCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cacheCheckBoxActionPerformed
@@ -2129,6 +2129,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private void startAuthorModelsServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startAuthorModelsServerButtonActionPerformed
     {//GEN-HEADEREND:event_startAuthorModelsServerButtonActionPerformed
         startAuthorModelsServer ();
+        
     }//GEN-LAST:event_startAuthorModelsServerButtonActionPerformed
 
     private void stopAuthorModelsServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stopAuthorModelsServerButtonActionPerformed
@@ -2227,7 +2228,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             if (isAliveExampleArchivesServer)
             {
                 // notify user that file location is unworkable
-                message = "ExampleArchivesServer is already running, be sure to restart localhost http server to expose new port=" + portExampleArchivesServerTextField.getText().trim();
+                message = "ExampleArchivesServer is already running, be sure to restart localhost http server to expose new port=" + X3dEditUserPreferences.getExampleArchivesServerPort().trim();
                 System.out.println("*** " + message);
                 portExampleArchivesServerTextField.setBackground(Color.yellow);
                 NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
@@ -2341,7 +2342,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
         // TODO port value checks
         int             portValue = Integer.parseInt(portAuthorModelsServerTextField.getText());
-        String       addressValue = addressComboBox.getSelectedItem().toString();
+      /*String*/       addressValue = addressComboBox.getSelectedItem().toString();
         if (addressValue.isBlank())
             addressValue = "localhost"; // probably wrong, expect this to get overwritten by interface
         String modelRootDirectory = "/";
@@ -2385,7 +2386,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                         originalJavaHttpServer.start();
                         System.out.println("*** Java httpServer started for CORS");
 
-                        LaunchX3dExamplesAction.sendBrowserTo("/"); // localUrl);
+                        BaseViewAction.sendBrowserTo("/"); // localUrl);
                     System.out.println("*** launch default browser to / looking for " + localUrl);
                     System.out.flush();
                 }
@@ -2454,12 +2455,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void x3domImageLabelMouseReleased(java.awt.event.MouseEvent evt)//GEN-FIRST:event_x3domImageLabelMouseReleased
     {//GEN-HEADEREND:event_x3domImageLabelMouseReleased
-        LaunchX3dExamplesAction.sendBrowserTo(X3DOM_site);
+        BaseViewAction.sendBrowserTo(X3DOM_site);
     }//GEN-LAST:event_x3domImageLabelMouseReleased
 
     private void x_iteLabelMouseReleased(java.awt.event.MouseEvent evt)//GEN-FIRST:event_x_iteLabelMouseReleased
     {//GEN-HEADEREND:event_x_iteLabelMouseReleased
-        LaunchX3dExamplesAction.sendBrowserTo(X_ITE_site);
+        BaseViewAction.sendBrowserTo(X_ITE_site);
     }//GEN-LAST:event_x_iteLabelMouseReleased
 
     private void httpLabelMouseReleased(java.awt.event.MouseEvent evt)//GEN-FIRST:event_httpLabelMouseReleased
@@ -2835,14 +2836,14 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         commands.clear();
         commands.add("jwebserver");
         commands.add("--bind-address");
-        commands.add(addressComboBox.getSelectedItem().toString());
+        commands.add(addressValue);
         commands.add("--port");
-        commands.add(portAuthorModelsServerTextField.getText());
+        commands.add(X3dEditUserPreferences.getAuthorModelsServerPort());
         commands.add("--output");
         commands.add("verbose");
 
         isAliveAuthorModelsServer = startServer(AUTHOR_MODELS, commands, authorModelsDirectoryTextField.getText());
-        if (isAliveAuthorModelsServer || isPortBound(Integer.parseInt(portAuthorModelsServerTextField.getText())))
+        if (isAliveAuthorModelsServer || isPortBound(Integer.parseInt(X3dEditUserPreferences.getAuthorModelsServerPort())))
         {
             startAuthorModelsServerButton.setText(HTTP_RUNNING);
             startAuthorModelsServerButton.setForeground(darkgreen);
@@ -2865,13 +2866,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         commands.clear();
         commands.add("jwebserver");
         commands.add("--bind-address");
-        commands.add(addressComboBox.getSelectedItem().toString());
+        commands.add(addressValue);
         commands.add("--port");
-        commands.add(portExampleArchivesServerTextField.getText());
+        commands.add(X3dEditUserPreferences.getExampleArchivesServerPort());
         commands.add("--output");
         commands.add("verbose");
         isAliveExampleArchivesServer = startServer(EXAMPLE_ARCHIVES, commands, exampleArchivesDirectoryTextField.getText());
-        if (isAliveExampleArchivesServer || isPortBound(Integer.parseInt(portExampleArchivesServerTextField.getText())))
+        if (isAliveExampleArchivesServer || isPortBound(Integer.parseInt(X3dEditUserPreferences.getExampleArchivesServerPort())))
         {
             startExampleArchivesServerButton.setText(HTTP_RUNNING);
             startExampleArchivesServerButton.setForeground(darkgreen);
@@ -2900,7 +2901,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             commands.clear();
             commands.add("jwebserver");
             commands.add("--bind-address");
-            commands.add(addressComboBox.getSelectedItem().toString());
+            commands.add(addressValue);
             commands.add("--port");
             commands.add(portActiveX3dModelServerTextField.getText());
             commands.add("--output");
@@ -3197,7 +3198,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     /** local convenience method to sleep in main frame
      * @param duration msec to sleep
      */
-    private void sleep(long duration)
+    private static void sleep(long duration)
     {
         try {
             Thread.sleep(duration); // msec
@@ -3209,7 +3210,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     }
     
     // TODO invoke thie method on JVM shutdown
-    private int stopAuthorModelsServer()
+    private static int stopAuthorModelsServer()
     {
         isAliveAuthorModelsServer = false;
         if ((httpServerProcess1 != null)) //  && httpServerProcess1.isAlive()
@@ -3240,7 +3241,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         return -1;
     }
     // TODO invoke thie method on JVM shutdown
-    private int stopExampleArchivesServer()
+    private static int stopExampleArchivesServer()
     {
         isAliveExampleArchivesServer = false;
         if ((httpServerProcess2 != null)) //  && httpServerProcess2.isAlive()
@@ -3321,9 +3322,10 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
      * @param cli command-line invocation
      * @return whether process is alive
      */
-    private boolean startServer (String whichServer, ArrayList<String> cliCommands, String directoryLocation)
+    private static boolean startServer (String whichServer, ArrayList<String> cliCommands, String directoryLocation)
     {
         boolean isAlive = false;
+        boolean isBound = false;
         String portValue = "";
         
         // https://stackoverflow.com/questions/4042434/converting-arrayliststring-to-string-in-java
@@ -3367,7 +3369,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                         // null indicates "If envp is null, the subprocess inherits the environment settings of the current process."
                         httpServerProcess1 = runtime.exec(cliCommandStringArray, null, directoryLocationFile);
                           isAlive = httpServerProcess1.isAlive();
-                        portValue = portAuthorModelsServerTextField.getText();
+                          isBound = isAliveAuthorModelsServer;
+                        portValue = X3dEditUserPreferences.getAuthorModelsServerPort();
                         System.out.println("    startServer() " + whichServer + " httpServerProcess1.isAlive()=" + isAlive + " on port " + portValue);
                         break;
 
@@ -3377,7 +3380,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                             stopExampleArchivesServer(); // prepare to restart
                         httpServerProcess2 = runtime.exec(cliCommandStringArray, null, directoryLocationFile);
                           isAlive = httpServerProcess2.isAlive();
-                        portValue = portExampleArchivesServerTextField.getText();
+                          isBound = isAliveExampleArchivesServer;
+                        portValue = X3dEditUserPreferences.getExampleArchivesServerPort();
                         System.out.println("    startServer() " + whichServer + " httpServerProcess2.isAlive()=" + isAlive + " on port " + portValue);
                         break;
 
@@ -3396,7 +3400,10 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                             activeX3dModelProcessList.add(null);
                             // TODO fix other lists in calling method
                         }
-                        portValue = portActiveX3dModelServerTextField.getText();
+                        // TODO for static method, this probably will not work unless menu selection gets consistently saved with correct default.
+                        // alternative design: pass port value as parameter 
+                        portValue = X3dEditUserPreferences.getExampleArchivesServerPort(); // portActiveX3dModelServerTextField.getText();
+                          isBound = isPortBound(portValue);
                         System.out.println("    startServer() " + whichServer + " httpServerProcessNew.isAlive()=" + isAlive + " on port " + portValue);
                         break;
                 }
@@ -3406,19 +3413,19 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 System.err.println("    Problem with startServer() whichServer=" + whichServer);
                 Exceptions.printStackTrace(ex);
             }
-            if (!isAlive)
+            if (!isAlive && !isBound)
             {
-                // notify user port is already bound
-                message = "<html><p align='center'>new CORS http server did not start, possibly port " + portValue + " is already bound?</p> <br /> <p align='center'>Continuing...</p></html>";
+                // notify user port is not bound
+                message = "<html><p align='center'>new CORS http server has not started, port " + portValue + " is not bound</p> <br /> <p align='center'>Continuing...</p></html>";
                 NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
                 DialogDisplayer.getDefault().notify(notifyDescriptor);
             }
             else 
             {
                 // wait a little for for server to start prior to checking status
-                sleep(1000); // msec
+                sleep(500); // msec
             }
-            return isAlive;
+            return isAlive || isBound; // legacy server might be running and binding port, still ready for action
         }
         else  
         {
@@ -3602,7 +3609,7 @@ class LocalFileHandlerOld implements HttpHandler {
         commands.clear();
         commands.add("jwebserver");
         commands.add("--bind-address");
-        commands.add(addressComboBox.getSelectedItem().toString());
+        commands.add(addressValue);
         commands.add("--port");
         commands.add(String.valueOf(nextActiveX3dModelServerPort));
         commands.add("--output");

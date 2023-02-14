@@ -66,11 +66,11 @@ public final class LaunchPythonX3dpsailLanguageBindingPageAction extends Callabl
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_PYPI);
+    BaseViewAction.sendBrowserTo(X3D_PYPI);
     
     LaunchX3dExamplesAction.sleepSeconds(1); // give user time to notice first page, then second
     
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_PYTHON_LANGUAGE_BINDING_X3DPSAIL);
+    BaseViewAction.sendBrowserTo(X3D_PYTHON_LANGUAGE_BINDING_X3DPSAIL);
   }
 
   @Override

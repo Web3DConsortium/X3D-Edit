@@ -61,7 +61,7 @@ public final class LaunchX3dTooltipsAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_TOOLTIPS);
+    BaseViewAction.sendBrowserTo(X3D_TOOLTIPS);
   }
 
   @Override

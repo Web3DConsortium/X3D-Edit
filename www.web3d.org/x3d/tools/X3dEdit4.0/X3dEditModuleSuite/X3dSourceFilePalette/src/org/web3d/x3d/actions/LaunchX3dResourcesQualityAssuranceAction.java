@@ -61,7 +61,7 @@ public final class LaunchX3dResourcesQualityAssuranceAction extends CallableSyst
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_RESOURCES_QUALITY_ASSURANCE);
+    BaseViewAction.sendBrowserTo(X3D_RESOURCES_QUALITY_ASSURANCE);
   }
 
   @Override
