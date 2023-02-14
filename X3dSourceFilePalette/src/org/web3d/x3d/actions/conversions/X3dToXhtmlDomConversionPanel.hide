@@ -2214,7 +2214,7 @@ class LocalFileHandler implements HttpHandler {
             originalJavaHttpServer.start();
             System.out.println("*** Java httpServer started for CORS");
             
-            LaunchX3dExamplesAction.sendBrowserTo("/"); // localUrl);
+            BaseViewAction.sendBrowserTo("/"); // localUrl);
             System.out.println("*** launch default browser to / looking for " + localUrl);
             System.out.flush();
         }
@@ -2405,19 +2405,19 @@ class LocalFileHandler implements HttpHandler {
     }//GEN-LAST:event_stopAuthorModelsServerButtonActionPerformed
 
     private void x3domHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_x3domHomeButtonActionPerformed
-        LaunchX3dExamplesAction.sendBrowserTo(X3DOM_site);
+        BaseViewAction.sendBrowserTo(X3DOM_site);
     }//GEN-LAST:event_x3domHomeButtonActionPerformed
 
     private void x3domHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_x3domHelpButtonActionPerformed
-        LaunchX3dExamplesAction.sendBrowserTo(X3DOM_help);
+        BaseViewAction.sendBrowserTo(X3DOM_help);
     }//GEN-LAST:event_x3domHelpButtonActionPerformed
 
     private void x_iteHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_x_iteHomeButtonActionPerformed
-        LaunchX3dExamplesAction.sendBrowserTo(X_ITE_site);
+        BaseViewAction.sendBrowserTo(X_ITE_site);
     }//GEN-LAST:event_x_iteHomeButtonActionPerformed
 
     private void x_iteHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_x_iteHelpButtonActionPerformed
-        LaunchX3dExamplesAction.sendBrowserTo(X_ITE_help);
+        BaseViewAction.sendBrowserTo(X_ITE_help);
     }//GEN-LAST:event_x_iteHelpButtonActionPerformed
 
     private void viewX3d4Html5AnnexButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_viewX3d4Html5AnnexButtonActionPerformed

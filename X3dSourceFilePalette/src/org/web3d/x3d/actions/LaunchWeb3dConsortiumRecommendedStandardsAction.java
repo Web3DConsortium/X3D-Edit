@@ -62,7 +62,7 @@ public final class LaunchWeb3dConsortiumRecommendedStandardsAction extends Calla
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(WEB3D_STANDARDS);
+    BaseViewAction.sendBrowserTo(WEB3D_STANDARDS);
   }
 
   @Override

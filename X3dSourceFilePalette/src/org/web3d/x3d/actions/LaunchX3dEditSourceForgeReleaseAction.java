@@ -57,7 +57,7 @@ public final class LaunchX3dEditSourceForgeReleaseAction extends CallableSystemA
   @Override
   public void performAction()
   {
-    LaunchX3dExamplesAction.sendBrowserTo(SOURCEFORGE_RELEASE_INSTALLERS);
+    BaseViewAction.sendBrowserTo(SOURCEFORGE_RELEASE_INSTALLERS);
   }
 
   @Override

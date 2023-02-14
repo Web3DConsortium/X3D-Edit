@@ -61,7 +61,7 @@ public final class LaunchSisoDisRprFomProductSupportGroupAction extends Callable
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(SISO_DIS_RPR_FOM_PRODUCT_SUPPORT_GROUP);
+    BaseViewAction.sendBrowserTo(SISO_DIS_RPR_FOM_PRODUCT_SUPPORT_GROUP);
   }
 
   @Override

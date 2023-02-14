@@ -50,8 +50,8 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_EXAMPLES;
                     displayName = "#CTL_LaunchWeb3DExamplesAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Example X3D Model Archives", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Example X3D Model Archives", position = 400)
+  @ActionReference(path = "Menu/&X3D-Edit/&Example X3D Model Archives", position = 500),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Example X3D Model Archives", position = 500)
 })
 
 public final class LaunchWeb3DExamplesAction extends CallableSystemAction
@@ -63,26 +63,26 @@ public final class LaunchWeb3DExamplesAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    sendBrowserTo(WEB3D_EXAMPLES);
+    BaseViewAction.sendBrowserTo(WEB3D_EXAMPLES);
   }
   
-  protected static void sendBrowserTo(String urlString)
-  {
-     try {
-       showInBrowser(urlString);
-     }
-     catch(Exception e) {
-       System.err.println("Trying to display "+urlString+" in HtmlBrowser: "+e.getLocalizedMessage());
-     }    
-  }
-  protected static void showInBrowser(String urlString) throws Exception
-  {
-    // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
-      
-    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
-    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
-  }
+//  protected static void BaseViewAction.sendBrowserTo(String urlString)
+//  {
+//     try {
+//       showInBrowser(urlString);
+//     }
+//     catch(Exception e) {
+//       System.err.println("Trying to display "+urlString+" in HtmlBrowser: "+e.getLocalizedMessage());
+//     }    
+//  }
+//  protected static void showInBrowser(String urlString) throws Exception
+//  {
+//    // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
+//      
+//    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
+//    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+//        Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
+//  }
 
   @Override
   public String getName()

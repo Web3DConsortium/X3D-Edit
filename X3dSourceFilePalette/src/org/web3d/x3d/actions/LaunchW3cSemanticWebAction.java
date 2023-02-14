@@ -61,7 +61,7 @@ public final class LaunchW3cSemanticWebAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(W3C_SEMANTIC_WEB);
+    BaseViewAction.sendBrowserTo(W3C_SEMANTIC_WEB);
   }
 
   @Override

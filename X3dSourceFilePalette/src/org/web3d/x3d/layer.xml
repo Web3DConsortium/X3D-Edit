@@ -301,11 +301,13 @@ POSSIBILITY OF SUCH DAMAGE.
                     <folder name="&amp;Example X3D Model Archives">
                         <attr name="position" intvalue="700"/>
                         <!-- DownloadX3dExamplesArchivesAction position 100 -->
+                        <folder name="View Online X3D Examples Archives">
+                            <attr name="position" intvalue="100"/>
+                            <attr name="iconBase" stringvalue="org/web3d/x3d/resources/X3Dicon32.png"/>
+                        </folder>
                         <folder name="View Local X3D Examples Archives">
                             <attr name="position" intvalue="200"/>
-                        </folder>
-                        <folder name="View Online X3D Examples Archives">
-                            <attr name="position" intvalue="300"/>
+                            <attr name="iconBase" stringvalue="org/web3d/x3d/resources/X3Dicon32.png"/>
                         </folder>
                         <!-- Web3D Consortium: X3D Examples LaunchWeb3DExamplesAction position 400 -->
                         <!-- X3D Resources: Examples        LaunchX3dExamplesAction        position 500 -->

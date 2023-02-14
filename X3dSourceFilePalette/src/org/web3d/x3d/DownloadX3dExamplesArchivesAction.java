@@ -54,9 +54,9 @@ import org.openide.util.HelpCtx;
 import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+import org.web3d.x3d.actions.BaseViewAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_EXAMPLES_ARCHIVES;
 import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
-import static org.web3d.x3d.actions.LaunchX3dExamplesAction.sendBrowserTo;
 import static org.web3d.x3d.palette.items.BaseCustomizer.MAILTO_TOOLTIP;
 // no longer supported import org.netbeans.api.javahelp.Help;
 
@@ -66,8 +66,8 @@ import static org.web3d.x3d.palette.items.BaseCustomizer.MAILTO_TOOLTIP;
                     displayName = "#CTL_DownloadX3dExamplesArchivesAction", 
                             lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Example X3D Model Archives", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Example X3D Model Archives", position = 100)
+  @ActionReference(path = "Menu/&X3D-Edit/&Example X3D Model Archives", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Example X3D Model Archives", position = 300)
 })
 
 @SuppressWarnings("serial")
@@ -116,7 +116,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
         
         final ActionListener helpActionListener = (ActionEvent e) ->
         {            
-            sendBrowserTo(X3D_RESOURCES_EXAMPLES_ARCHIVES);
+            BaseViewAction.sendBrowserTo(X3D_RESOURCES_EXAMPLES_ARCHIVES);
             
 // TODO convert from JavaHelp to help page
 //          Help help = Lookup.getDefault().lookup(Help.class);

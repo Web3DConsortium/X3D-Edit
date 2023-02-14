@@ -73,15 +73,15 @@ public final class Launch_C_CPP_CSharp_LanguageBindingsAction extends CallableSy
 
 // X3D SAI for C#   http://www.web3d.org/specifications/ISO-IEC19777/ISO-IEC19777-5v3.3-DIS 
 
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_C_LANGUAGE_BINDING_SAI   );
+    BaseViewAction.sendBrowserTo(X3D_C_LANGUAGE_BINDING_SAI   );
     
     LaunchX3dExamplesAction.sleepSeconds(1); // give user time to notice first page, then second
     
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_CPP_LANGUAGE_BINDING_SAI);
+    BaseViewAction.sendBrowserTo(X3D_CPP_LANGUAGE_BINDING_SAI);
     
     LaunchX3dExamplesAction.sleepSeconds(1); // give user time to notice first page, then second
     
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_CSHARP_LANGUAGE_BINDING_SAI);
+    BaseViewAction.sendBrowserTo(X3D_CSHARP_LANGUAGE_BINDING_SAI);
   }
 
   @Override

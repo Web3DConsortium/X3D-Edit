@@ -66,11 +66,11 @@ public final class LaunchX3dOntologyPageAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_ONTOLOGY_DOCUMENTATION);
+    BaseViewAction.sendBrowserTo(X3D_ONTOLOGY_DOCUMENTATION);
     
     LaunchX3dExamplesAction.sleepSeconds(1); // give user time to notice first page, then second
     
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_ONTOLOGY);
+    BaseViewAction.sendBrowserTo(X3D_ONTOLOGY);
   }
 
   @Override

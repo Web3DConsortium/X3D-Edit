@@ -59,9 +59,8 @@ import org.openide.filesystems.FileUtil;
 import org.openide.util.HelpCtx;
 import org.openide.util.Task;
 import org.openide.util.TaskListener;
-import static org.web3d.x3d.actions.LaunchX3dExamplesAction.sendBrowserTo;
+import static org.web3d.x3d.actions.BaseViewAction.sendBrowserTo;
 import org.web3d.x3d.actions.LocalExamplesFinder;
-import org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 import static org.web3d.x3d.options.X3dEditUserPreferences.EXAMPLES_ROOT_DIRECTORY_DEFAULT;
 
@@ -1445,6 +1444,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     {
         // initial installation complete, support user with autolaunch
         X3dEditUserPreferences.setExampleArchivesServerAutolaunch(true);
+        
         
         NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
                 "Enabling autolaunch of localhost HTTP server for example archives", 

@@ -61,7 +61,7 @@ public final class LaunchW3cCascadingStyleSheetsAction extends CallableSystemAct
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(W3C_CASCADING_STYLESHEETS);
+    BaseViewAction.sendBrowserTo(W3C_CASCADING_STYLESHEETS);
   }
 
   @Override

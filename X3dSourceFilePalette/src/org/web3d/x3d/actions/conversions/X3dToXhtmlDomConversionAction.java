@@ -303,7 +303,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
         {
             fileExtension = "X_ITE.html";
             if (!userConfirmedWhetherAutolaunchOK && 
-                !X3dEditUserPreferences.isActiveX3dModelServerAutolaunch() && 
+                !X3dEditUserPreferences.isAuthorModelsServerAutolaunch() && 
                 !X3dToXhtmlDomConversionFrame.isPortBoundAuthorModelsServer())
             {
                 userConfirmedWhetherAutolaunchOK = true; // ask once per session
@@ -313,12 +313,15 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
                         "Autolaunch localhost http server?", NotifyDescriptor.YES_NO_OPTION);
                 if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
                 {
+                    X3dEditUserPreferences.setAuthorModelsServerAutolaunch(true);
                     X3dEditUserPreferences.setActiveX3dModelServerAutolaunch(true);
                 }
             }
-            // time to autolaunch for new model, if allowed
+            // otherwise time to autolaunch for new model, if allowed
             if (X3dEditUserPreferences.isActiveX3dModelServerAutolaunch())
             {
+                x3dToXhtmlDomConversionFrame.toFront();
+                x3dToXhtmlDomConversionFrame.setVisible(true);
                 newModelPort = x3dToXhtmlDomConversionFrame.launchNewActiveX3dModelServer(transformSingleFileName, transformSingleFilePath);
                 if (newModelPort == -1)
                     System.err.println ("*** transformSingleFile() " + transformSingleFileName + " launchNewActiveX3dModelServerfailed, continuing...");
@@ -345,8 +348,10 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
           }
           if (filePack.openInBrowser)
           {
-              x3dToXhtmlDomConversionFrame.getLocalHttpPrefix();
-              ConversionsHelper.openInBrowser(filePack.file.getAbsolutePath());
+                x3dToXhtmlDomConversionFrame.toFront();
+                x3dToXhtmlDomConversionFrame.setVisible(true);
+                x3dToXhtmlDomConversionFrame.getLocalHttpPrefix();
+                ConversionsHelper.openInBrowser(filePack.file.getAbsolutePath());
           }
           return filePack.file.getAbsolutePath();
       }

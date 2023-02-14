@@ -61,7 +61,7 @@ public final class LaunchX3D4XmlEncodingStandardAction extends CallableSystemAct
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_XML_ENCODING_STANDARD);
+    BaseViewAction.sendBrowserTo(X3D_XML_ENCODING_STANDARD);
   }
 
   @Override

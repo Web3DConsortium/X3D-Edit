@@ -61,7 +61,7 @@ public final class LaunchW3cOpenWebStandardsAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(W3C_STANDARDS_OPEN_WEB_PLATFORM);
+    BaseViewAction.sendBrowserTo(W3C_STANDARDS_OPEN_WEB_PLATFORM);
   }
 
   @Override

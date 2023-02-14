@@ -62,11 +62,11 @@ public final class LaunchVrml97StandardsAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(VRML97_STANDARD_AMENDMENT_1);
+    BaseViewAction.sendBrowserTo(VRML97_STANDARD_AMENDMENT_1);
     
     LaunchX3dExamplesAction.sleepSeconds(1); // give user time to notice first page, then second
     
-    LaunchX3dExamplesAction.sendBrowserTo(VRML97_STANDARD); // launch second so that most recently visible to user
+    BaseViewAction.sendBrowserTo(VRML97_STANDARD); // launch second so that most recently visible to user
   }
 
   @Override

@@ -58,7 +58,7 @@ public final class LaunchX3dSceneAuthoringHintsCorsAction extends CallableSystem
   @Override
   public void performAction()
   {
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_SCENE_AUTHORING_HINTS_CORS);
+    BaseViewAction.sendBrowserTo(X3D_SCENE_AUTHORING_HINTS_CORS);
   }
 
   @Override

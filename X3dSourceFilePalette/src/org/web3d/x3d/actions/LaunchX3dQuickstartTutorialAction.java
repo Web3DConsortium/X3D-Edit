@@ -61,7 +61,7 @@ public final class LaunchX3dQuickstartTutorialAction extends CallableSystemActio
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(X3D_QUICKSTART_TUTORIAL);
+    BaseViewAction.sendBrowserTo(X3D_QUICKSTART_TUTORIAL);
   }
 
   @Override

@@ -61,7 +61,7 @@ public final class LaunchSavageDevelopersGuideAction extends CallableSystemActio
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    LaunchX3dExamplesAction.sendBrowserTo(SAVAGE_DEVELOPERS_GUIDE);
+    BaseViewAction.sendBrowserTo(SAVAGE_DEVELOPERS_GUIDE);
   }
 
   @Override

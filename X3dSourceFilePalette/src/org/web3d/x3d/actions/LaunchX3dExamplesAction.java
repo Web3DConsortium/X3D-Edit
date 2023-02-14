@@ -52,8 +52,8 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
                     displayName = "#CTL_LaunchX3dExamplesAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Example X3D Model Archives", position = 500),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Example X3D Model Archives", position = 500)
+  @ActionReference(path = "Menu/&X3D-Edit/&Example X3D Model Archives", position = 600),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Example X3D Model Archives", position = 600)
 })
 
 public final class LaunchX3dExamplesAction extends CallableSystemAction
@@ -65,7 +65,7 @@ public final class LaunchX3dExamplesAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    sendBrowserTo(X3D_RESOURCES_EXAMPLES_ARCHIVES);
+    BaseViewAction.sendBrowserTo(X3D_RESOURCES_EXAMPLES_ARCHIVES);
   }
   
     public static void sleepSeconds(int numberSeconds)
@@ -81,47 +81,6 @@ public final class LaunchX3dExamplesAction extends CallableSystemAction
             Thread.currentThread().interrupt();
         }
     }
-  
-  public static void sendBrowserTo(String urlString)
-  {
-     try {
-       showInBrowser(urlString);
-     }
-     catch(Exception e) {
-       System.err.println("Trying to display "+urlString+" in HtmlBrowser: "+e.getLocalizedMessage());
-     }    
-  }
-  protected static void showInBrowser(String urlString) throws Exception
-  {
-    // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
-      
-      urlString = urlString.replaceAll("\\\\","/");
-      
-      if      ( urlString.contains(X3dEditUserPreferences.getExampleArchivesRootDirectory().replaceAll("\\\\","/")) &&
-               !urlString.startsWith("http://"))
-      {
-          String segments[] = urlString.split(X3dEditUserPreferences.getExampleArchivesRootDirectory().replaceAll("\\\\","/"));
-          urlString = segments[segments.length - 1];
-          if (urlString.startsWith("/") || urlString.startsWith("\\"))
-              urlString =  urlString.substring(1);
-          urlString = "http://localhost:" + X3dEditUserPreferences.getExampleArchivesServerPort()+ "/" + urlString;
-      }
-      // prepend prefix http://localhost:port using http server-relative directory when appropriate
-      else if ( urlString.contains(X3dEditUserPreferences.getAuthorModelsDirectory().replaceAll("\\\\","/")) &&
-               !urlString.startsWith("http://"))
-      {
-          String segments[] = urlString.split(X3dEditUserPreferences.getAuthorModelsDirectory());
-          urlString = segments[segments.length - 1];
-          if (urlString.startsWith("") || urlString.startsWith("\\"))
-              urlString =  urlString.substring(1);
-          urlString = "http://localhost:" + X3dEditUserPreferences.getAuthorModelsServerPort() + "/" + urlString;
-      }
-      // TODO local launches need to be handled beforehand
-      
-    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
-    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString));
-  }
 
   @Override
   public String getName()
