@@ -169,7 +169,8 @@ public class X3dEditUserPreferences
   // TODO confirm if /Desktop is a good location on MacOSX and Linux?
   public static String  NEW_X3D_MODELS_DIRECTORY_DEFAULT           = System.getProperty("user.home") + File.separatorChar + "Desktop" + File.separatorChar + "NewX3dModels";
   public static String  AUTHOR_MODELS_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop" + File.separatorChar + "NewX3dModels"; // user.dir is local X3D-Edit execution directory
-  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop" + File.separatorChar + "NewX3dModels";                  // user.dir is local X3D-Edit execution directory
+  public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop" + File.separatorChar + "NewX3dModels" +
+                                                                     File.separatorChar + "www.web3d.org" + File.separatorChar + "x3d" + File.separatorChar + "content" + File.separatorChar + "examples";
   
   public static String  AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT   =  "";
   public static String  AUTHOR_PREFERENCE_HTML_WIDTH_DEFAULT       =  "450";
