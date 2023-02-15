@@ -10757,14 +10757,14 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         }
         catch(Throwable t) {}// Forget about it, if any errors
         
-        X3dEditUserPreferences.setExamplesRootDirectory (authorExamplesDirectoryTF.getText());
+        X3dEditUserPreferences.setExampleArchivesRootDirectory (authorExamplesDirectoryTF.getText());
     }//GEN-LAST:event_authorExamplesDirectoryTFActionPerformed
 
     private void authorExamplesDirectoryClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryClearButtonActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryClearButtonActionPerformed
         authorExamplesDirectoryTF.setText("");
         authorExamplesDirectoryTF.setText(      authorExamplesDirectoryTF.getText().trim());
-        X3dEditUserPreferences.setExamplesRootDirectory (authorExamplesDirectoryTF.getText());
+        X3dEditUserPreferences.setExampleArchivesRootDirectory (authorExamplesDirectoryTF.getText());
     }//GEN-LAST:event_authorExamplesDirectoryClearButtonActionPerformed
 
     private void authorExamplesDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryButtonActionPerformed
@@ -10772,13 +10772,13 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         // file chooser looks in given directory first
         commonChooser(authorExamplesDirectoryTF, "Choose local examples root directory", evt);
         authorExamplesDirectoryTF.setText(      authorExamplesDirectoryTF.getText().trim());
-        X3dEditUserPreferences.setExamplesRootDirectory (authorExamplesDirectoryTF.getText());
+        X3dEditUserPreferences.setExampleArchivesRootDirectory (authorExamplesDirectoryTF.getText());
     }//GEN-LAST:event_authorExamplesDirectoryButtonActionPerformed
 
     private void authorExamplesDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryDefaultButtonActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryDefaultButtonActionPerformed
         authorExamplesDirectoryTF.setText(EXAMPLES_ROOT_DIRECTORY_DEFAULT); // user.home
-        X3dEditUserPreferences.setExamplesRootDirectory(authorExamplesDirectoryTF.getText());
+        X3dEditUserPreferences.setExampleArchivesRootDirectory(authorExamplesDirectoryTF.getText());
     }//GEN-LAST:event_authorExamplesDirectoryDefaultButtonActionPerformed
 
     private void keystorePasswordTFFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_keystorePasswordTFFocusLost

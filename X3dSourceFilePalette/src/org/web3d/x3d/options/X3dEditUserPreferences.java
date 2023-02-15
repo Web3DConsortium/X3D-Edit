@@ -226,7 +226,7 @@ public class X3dEditUserPreferences
   public static void    setAuthorPreferenceHtmlWidth       (String value)  { commonStringSet(AUTHOR_PREFERENCE_HTML_WIDTH_KEY, value);}
   public static void    setAuthorPreferenceHtmlHeight      (String value)  { commonStringSet(AUTHOR_PREFERENCE_HTML_HEIGHT_KEY, value);}
   
-  public static void    setExamplesRootDirectory           (String value)  { 
+  public static void    setExampleArchivesRootDirectory    (String value)  { 
       if (value == null)
           return;
       if      (value.endsWith("\\") || value.endsWith("/"))
@@ -252,7 +252,7 @@ public class X3dEditUserPreferences
   {
                         setAuthorName (AUTHOR_NAME_DEFAULT);
                        setAuthorEmail (AUTHOR_EMAIL_DEFAULT);
-             setExamplesRootDirectory (EXAMPLES_ROOT_DIRECTORY_DEFAULT);
+      setExampleArchivesRootDirectory (EXAMPLES_ROOT_DIRECTORY_DEFAULT);
      setAuthorPreferenceCorsDirectory (AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT);
   }
   public static void             setBasicLocalExamplesPresent (boolean value)  { commonBooleanSet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, value);}
