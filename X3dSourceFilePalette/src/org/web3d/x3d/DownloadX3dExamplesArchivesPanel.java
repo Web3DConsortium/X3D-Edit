@@ -111,15 +111,24 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
          workingRootDirectory = workingRootDirectory.replace("\\","/");
     if  (workingRootDirectory.endsWith("/"))
          workingRootDirectory = workingRootDirectory.substring(0, workingRootDirectory.length() -1);
-    if  (workingRootDirectory.endsWith("www.web3d.org/x3d/content/examples"))
+    if  (workingRootDirectory.endsWith("www.web3d.org/x3d/content/examples") ||
+         workingRootDirectory.endsWith("www.web3d.org\\x3d\\content\\examples"))
     {
          workingRootDirectory = originalRootDirectory.substring(0, originalRootDirectory.indexOf("www.web3d.org") - 1);
+         X3dEditUserPreferences.setExampleArchivesRootDirectory(workingRootDirectory);
          rootDownloadDirectoryTF.setText(workingRootDirectory);
     }
     else rootDownloadDirectoryTF.setText(X3dEditUserPreferences.getExampleArchivesRootDirectory());
     
     if (rootDownloadDirectoryTF.getText().isBlank())
+    {
         startDownloadButton.setEnabled(false);
+    }
+    else
+    {
+        System.out.println("*** DownloadX3dExamplesArchivesPanel ExampleArchivesRootDirectory=" + X3dEditUserPreferences.getExampleArchivesRootDirectory());
+    }
+    
     
     downloadDirectoryLabelUpdate (); // initialize
     downloadDirectoryOpenButton.setEnabled(Desktop.isDesktopSupported());
@@ -1258,7 +1267,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     
     rootDownloadDirectoryTF.setText(fileChooser.getSelectedFile().getAbsolutePath());
     downloadDirectoryLabelUpdate (); // path adjustment, prerequisite to saving value in X3dEditUserPreferences
-    X3dEditUserPreferences.setExamplesRootDirectory(localArchiveDirectory);
+    X3dEditUserPreferences.setExampleArchivesRootDirectory(localArchiveDirectory);
     updateStatusPropertiesLocalArchivesPresent();
     updatePanelLocalArchivesPresent();
 }//GEN-LAST:event_rootDownloadDirectoryChooserButtonActionPerformed
@@ -1268,7 +1277,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     allSelectCheckBox.setSelected(false);
      allClearCheckBox.setSelected(false);
     downloadDirectoryLabelUpdate (); // path adjustment, prerequisite to saving value in X3dEditUserPreferences
-    X3dEditUserPreferences.setExamplesRootDirectory(localArchiveDirectory);
+    X3dEditUserPreferences.setExampleArchivesRootDirectory(localArchiveDirectory);
     updateStatusPropertiesLocalArchivesPresent();
     updatePanelLocalArchivesPresent();
     
@@ -1594,7 +1603,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 
     private void rootDownloadDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_rootDownloadDirectoryDefaultButtonActionPerformed
     {//GEN-HEADEREND:event_rootDownloadDirectoryDefaultButtonActionPerformed
-        X3dEditUserPreferences.setExamplesRootDirectory(EXAMPLES_ROOT_DIRECTORY_DEFAULT); // user.dir
+        X3dEditUserPreferences.setExampleArchivesRootDirectory(EXAMPLES_ROOT_DIRECTORY_DEFAULT); // user.dir
         rootDownloadDirectoryTF.setText(X3dEditUserPreferences.getExampleArchivesRootDirectory());
         downloadDirectoryLabelUpdate (); // re-initialize
         updateStatusPropertiesLocalArchivesPresent();
@@ -1817,7 +1826,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
                  localArchiveDirectory = localArchiveDirectory +   "www.web3d.org/x3d/content/examples";    // Unix path
         else     localArchiveDirectory = localArchiveDirectory +  "/www.web3d.org/x3d/content/examples";    // Unix path
         downloadDirectoryLabel.setText(localArchiveDirectory); 
-        X3dEditUserPreferences.setExamplesRootDirectory(localArchiveDirectory);
+        X3dEditUserPreferences.setExampleArchivesRootDirectory(localArchiveDirectory);
 
         updateStatusPropertiesLocalArchivesPresent();
         updatePanelLocalArchivesPresent();
