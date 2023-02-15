@@ -337,6 +337,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         activeX3dModelDirectoryChooserButton = new javax.swing.JButton();
         corsDescriptionLabel = new javax.swing.JLabel();
         horizontalSpacerLabelButtons4 = new javax.swing.JLabel();
+        downloadPanelLaunchButton = new javax.swing.JButton();
         horizontalSpacerBottomLabel = new javax.swing.JLabel();
         reportButton = new javax.swing.JButton();
         continueButton = new javax.swing.JButton();
@@ -1091,9 +1092,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1336,7 +1336,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
+        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
         corsPanel.add(authorModelsDirectoryChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(authorModelsDirectoryDefaultButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsDirectoryDefaultButton.text")); // NOI18N
@@ -1354,8 +1354,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.ipadx = 32;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1606,7 +1606,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
+        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
         corsPanel.add(exampleArchivesDirectoryChooserButton, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1623,6 +1623,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(activeX3dModelLocationLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelLocationLabel.text")); // NOI18N
         activeX3dModelLocationLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelLocationLabel.toolTipText")); // NOI18N
         activeX3dModelLocationLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        activeX3dModelLocationLabel.setEnabled(false);
         activeX3dModelLocationLabel.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseExited(java.awt.event.MouseEvent evt)
@@ -1687,6 +1688,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         portActiveX3dModelServerTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         portActiveX3dModelServerTextField.setText(String.valueOf(INITIAL_ACTIVE_X3D_MODEL_SERVER_PORT));
         portActiveX3dModelServerTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.portActiveX3dModelServerTextField.toolTipText")); // NOI18N
+        portActiveX3dModelServerTextField.setEnabled(false);
         portActiveX3dModelServerTextField.setMaximumSize(new java.awt.Dimension(60, 22));
         portActiveX3dModelServerTextField.setMinimumSize(new java.awt.Dimension(20, 22));
         portActiveX3dModelServerTextField.setPreferredSize(new java.awt.Dimension(20, 22));
@@ -1717,6 +1719,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
         org.openide.awt.Mnemonics.setLocalizedText(startActiveX3dModelServerButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.startActiveX3dModelServerButton.text")); // NOI18N
         startActiveX3dModelServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.startActiveX3dModelServerButton.toolTipText")); // NOI18N
+        startActiveX3dModelServerButton.setEnabled(false);
         startActiveX3dModelServerButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
         startActiveX3dModelServerButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -1759,6 +1762,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
         org.openide.awt.Mnemonics.setLocalizedText(browseLocalhostActiveX3dModelsButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.browseLocalhostActiveX3dModelsButton.text")); // NOI18N
         browseLocalhostActiveX3dModelsButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.browseLocalhostActiveX3dModelsButton.toolTipText")); // NOI18N
+        browseLocalhostActiveX3dModelsButton.setEnabled(false);
         browseLocalhostActiveX3dModelsButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
         browseLocalhostActiveX3dModelsButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -1798,6 +1802,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
         activeX3dModelDirectoryServerListComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "This combo box lists model directories that have localhost http servers running" }));
         activeX3dModelDirectoryServerListComboBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryServerListComboBox.toolTipText")); // NOI18N
+        activeX3dModelDirectoryServerListComboBox.setEnabled(false);
         activeX3dModelDirectoryServerListComboBox.addItemListener(new java.awt.event.ItemListener()
         {
             public void itemStateChanged(java.awt.event.ItemEvent evt)
@@ -1822,6 +1827,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
         org.openide.awt.Mnemonics.setLocalizedText(activeX3dModelDirectoryClearButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryClearButton.text")); // NOI18N
         activeX3dModelDirectoryClearButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryClearButton.toolTipText")); // NOI18N
+        activeX3dModelDirectoryClearButton.setEnabled(false);
         activeX3dModelDirectoryClearButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
         activeX3dModelDirectoryClearButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -1841,6 +1847,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         activeX3dModelDirectoryChooserButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(activeX3dModelDirectoryChooserButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryChooserButton.text")); // NOI18N
         activeX3dModelDirectoryChooserButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryChooserButton.toolTipText")); // NOI18N
+        activeX3dModelDirectoryChooserButton.setEnabled(false);
         activeX3dModelDirectoryChooserButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
         activeX3dModelDirectoryChooserButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -1854,7 +1861,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
+        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
         corsPanel.add(activeX3dModelDirectoryChooserButton, gridBagConstraints);
 
         corsDescriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1886,6 +1893,25 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.weightx = 10.0;
         corsPanel.add(horizontalSpacerLabelButtons4, gridBagConstraints);
+
+        downloadPanelLaunchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/Icon_download_32x32.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(downloadPanelLaunchButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.downloadPanelLaunchButton.text")); // NOI18N
+        downloadPanelLaunchButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.downloadPanelLaunchButton.toolTipText")); // NOI18N
+        downloadPanelLaunchButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        downloadPanelLaunchButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                downloadPanelLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        corsPanel.add(downloadPanelLaunchButton, gridBagConstraints);
 
         pageIntegrationTabbedPane.addTab(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.corsPanel.TabConstraints.tabTitle"), corsPanel); // NOI18N
 
@@ -2148,6 +2174,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void browseLocalhostAuthorModelsButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_browseLocalhostAuthorModelsButtonActionPerformed
     {//GEN-HEADEREND:event_browseLocalhostAuthorModelsButtonActionPerformed
+        checkAuthorModelsDirectoryAutolaunch ();
         int portValue = Integer.parseInt(portAuthorModelsServerTextField.getText());
         if (addressValue.isBlank())
             addressValue = "localhost";
@@ -2173,6 +2200,14 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void checkAuthorModelsDirectoryAutolaunch ()
     {
+        if (!X3dEditUserPreferences.isAuthorModelsServerAutolaunch())
+        {
+            X3dEditUserPreferences.setAuthorModelsServerAutolaunch(true);
+            message = "AuthorModelsServer autoLaunch now set true, starting in directoryLocation='" + authorModelsDirectoryTextField.getText().trim() + "'";
+            System.out.println("*** " + message);
+            if (!isAliveAuthorModelsServer)
+                 startAuthorModelsServer();
+        }
         if (!X3dEditUserPreferences.getAuthorModelsDirectory().equals(authorModelsDirectoryTextField.getText().trim()))
         {
             X3dEditUserPreferences.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText().trim());
@@ -2542,6 +2577,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         updateActiveX3dModelDirectoryButtons();
     }//GEN-LAST:event_activeX3dModelDirectoryServerListComboBoxItemStateChanged
 
+    private void downloadPanelLaunchButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_downloadPanelLaunchButtonActionPerformed
+    {//GEN-HEADEREND:event_downloadPanelLaunchButtonActionPerformed
+        DownloadX3dExamplesArchivesAction downloadX3dExamplesArchivesAction = new DownloadX3dExamplesArchivesAction ();
+        downloadX3dExamplesArchivesAction.performAction();
+    }//GEN-LAST:event_downloadPanelLaunchButtonActionPerformed
+
     private void updateActiveX3dModelDirectoryButtons()
     {
         boolean haveLaunchedModels = (activeX3dModelNameList.size() > 1);
@@ -2692,6 +2733,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private javax.swing.JLabel corsDescriptionLabel;
     private javax.swing.JButton corsHelpButton;
     private javax.swing.JPanel corsPanel;
+    private javax.swing.JButton downloadPanelLaunchButton;
     private javax.swing.JButton exampleArchivesDirectoryChooserButton;
     private javax.swing.JTextField exampleArchivesDirectoryTextField;
     private javax.swing.JButton exampleArchivesDownloadPanelButton;

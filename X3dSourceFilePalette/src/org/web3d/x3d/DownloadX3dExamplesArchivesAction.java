@@ -117,7 +117,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
         final ActionListener helpActionListener = (ActionEvent e) ->
         {            
             BaseViewAction.sendBrowserTo(X3D_RESOURCES_EXAMPLES_ARCHIVES);
-            
+
 // TODO convert from JavaHelp to help page
 //          Help help = Lookup.getDefault().lookup(Help.class);
 //          if (help != null) {
