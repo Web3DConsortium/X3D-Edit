@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- You may freely edit this file. See harness/README in the NetBeans platform -->
 <!-- for some information on what you could do (e.g. targets to override). -->
-<project name="org.web3d.x3d.palette" default="run" basedir=".">
+<project name="X3D-Edit Module" default="run" basedir=".">
     <description>X3D-Edit module: builds, tests, and runs the project org.web3d.x3d.palette.</description>
     <import file="nbproject/build-impl.xml"/>
     
