@@ -70,25 +70,30 @@ import static org.web3d.x3d.options.X3dEditUserPreferences.EXAMPLES_ROOT_DIRECTO
  */
 public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 {
-  private static final String BASICEXAMPLESTARGET        = "Basic";
-  private static final String CONFORMANCENISTTARGET      = "ConformanceNist"; // note capitalization
-  private static final String HUMANOIDANIMATIONTARGET    = "HumanoidAnimation";
-  private static final String VRML2SOURCEBOOKTARGET      = "Vrml2Sourcebook";
-  private static final String SAVAGETARGET               = "Savage";
-  private static final String SAVAGEDEFENSETARGET        = "SavageDefense";   // private NPS
-  private static final String X3D4WA_EXAMPLESTARGET      = "X3dForWebAuthors";
-  private static final String X3D4AM_EXAMPLESTARGET      = "X3dForAdvancedModeling";
-  private static      boolean anyArchivePresent          = false;   
-  private             boolean anyArchivePresentInitially = false;   
+    private static final String BASICEXAMPLESTARGET        = "Basic";
+    private static final String CONFORMANCENISTTARGET      = "ConformanceNist"; // note capitalization
+    private static final String HUMANOIDANIMATIONTARGET    = "HumanoidAnimation";
+    private static final String VRML2SOURCEBOOKTARGET      = "Vrml2Sourcebook";
+    private static final String SAVAGETARGET               = "Savage";
+    private static final String SAVAGEDEFENSETARGET        = "SavageDefense";   // private NPS
+    private static final String X3D4WA_EXAMPLESTARGET      = "X3dForWebAuthors";
+    private static final String X3D4AM_EXAMPLESTARGET      = "X3dForAdvancedModeling";
+    private static      boolean anyArchivePresent          = false;   
+    private             boolean anyArchivePresentInitially = false;   
+
+    private final String DEFAULTROOTDIR = System.getProperty("user.dir"); // "/";
+    private final String targetPath     = "www.web3d.org/x3d/content/examples/";
+    private final String antScriptPath  = "X3dAntScripts/examplesDownloaderAntScript.xml";
+
+    private       String localArchiveDirectory = ""; // not root but below, if available
   
-  private final String DEFAULTROOTDIR = System.getProperty("user.dir"); // "/";
-  private final String targetPath     = "www.web3d.org/x3d/content/examples/";
-  private final String antScriptPath  = "X3dAntScripts/examplesDownloaderAntScript.xml";
-  
-  private       String localArchiveDirectory = ""; // not root but below, if available
-  
-  private JFileChooser fileChooser;
-  private ExecutorTask executorTask;
+    Color   black      = new Color(  0,   0,  0);
+    Color   darkgreen  = new Color( 21,  71, 52);
+    Color   red        = new Color(153,   0,  0);
+    Font plainFont;
+    Font  boldFont;
+    private JFileChooser fileChooser;
+    private ExecutorTask executorTask;
   
   /** Constructor that creates new form ExampleArchivesDownloadPanel */
   public DownloadX3dExamplesArchivesPanel()
@@ -96,6 +101,9 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     initComponents();
     HelpCtx.setHelpIDString(DownloadX3dExamplesArchivesPanel.this, "helpExampleDownloads");
     
+    plainFont = x3d4waExamplesCB.getFont().deriveFont(Font.PLAIN);
+     boldFont = plainFont.deriveFont(Font.BOLD);
+
     // figure out root directory
     String originalRootDirectory = X3dEditUserPreferences.getExampleArchivesRootDirectory();
     String workingRootDirectory  = X3dEditUserPreferences.getExampleArchivesRootDirectory();
@@ -120,18 +128,13 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
      
     updateStatusPropertiesLocalArchivesPresent(); // also updates anyArchivePresent
     anyArchivePresentInitially = anyArchivePresent;
+    updateStatusPropertiesLocalArchivesPresent();
     updatePanelLocalArchivesPresent();
   }
   
   /* Update status of all local archives */
   private void updatePanelLocalArchivesPresent()
   {
-        Color   black      = new Color(  0,   0,  0);
-        Color   darkgreen  = new Color( 21,  71, 52);
-        
-        Font plainFont = x3d4waExamplesCB.getFont().deriveFont(Font.PLAIN);
-        Font  boldFont = plainFont.deriveFont(Font.BOLD);
-        
         if  (isLocalArchivePresent(X3D4WA_EXAMPLESTARGET))
         {
             x3d4waExamplesCB.setForeground(darkgreen);
@@ -224,7 +227,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
   {
     anyArchivePresent =
     (
-        // each of these checks also performs a persistent property
+        // each of these checks also performs a persistent property update
         isLocalArchivePresent(BASICEXAMPLESTARGET    ) ||
         isLocalArchivePresent(CONFORMANCENISTTARGET  ) ||
         isLocalArchivePresent(HUMANOIDANIMATIONTARGET) ||
@@ -1266,6 +1269,8 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
      allClearCheckBox.setSelected(false);
     downloadDirectoryLabelUpdate (); // path adjustment, prerequisite to saving value in X3dEditUserPreferences
     X3dEditUserPreferences.setExamplesRootDirectory(localArchiveDirectory);
+    updateStatusPropertiesLocalArchivesPresent();
+    updatePanelLocalArchivesPresent();
     
     ArrayList<String> targets = new ArrayList<>();
     String message = "<html><p align='center'><b>ARCHIVE_NAME</b> examples archive</p><p> is already present in local directory.</p>"
@@ -1281,10 +1286,17 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
             if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
             {
                 targets.add(X3D4WA_EXAMPLESTARGET);
+                x3d4waExamplesCB.setForeground(red);
+                x3d4waExamplesCB.setFont(boldFont);
             }
             else x3d4waExamplesCB.setSelected(false);
         }
-        else targets.add(X3D4WA_EXAMPLESTARGET);
+        else 
+        {
+            targets.add(X3D4WA_EXAMPLESTARGET);
+            x3d4waExamplesCB.setForeground(red);
+            x3d4waExamplesCB.setFont(boldFont);
+        }
     }
     if (x3d4amExamplesCB.isSelected())
     {
@@ -1296,10 +1308,15 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
             if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
             {
                 targets.add(X3D4AM_EXAMPLESTARGET);
+                x3d4amExamplesCB.setForeground(red);
+                x3d4amExamplesCB.setFont(boldFont);
             }
             else x3d4amExamplesCB.setSelected(false);
         }
-        else targets.add(X3D4AM_EXAMPLESTARGET);
+        else 
+        {
+            targets.add(X3D4AM_EXAMPLESTARGET);
+        }
     }
     if (vrmlSourcebookCB.isSelected())
     {
@@ -1311,10 +1328,15 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
             if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
             {
                 targets.add(VRML2SOURCEBOOKTARGET);
+                vrmlSourcebookCB.setForeground(red);
+                vrmlSourcebookCB.setFont(boldFont);
             }
             else vrmlSourcebookCB.setSelected(false);
         }
-        else targets.add(VRML2SOURCEBOOKTARGET);
+        else 
+        {
+            targets.add(VRML2SOURCEBOOKTARGET);
+        }
     }
     if (basicExamplesCB.isSelected())
     {
@@ -1326,10 +1348,17 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
             if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
             {
                 targets.add(BASICEXAMPLESTARGET);
+                basicExamplesCB.setForeground(red);
+                basicExamplesCB.setFont(boldFont);
             }
             else basicExamplesCB.setSelected(false);
         }
-        else targets.add(BASICEXAMPLESTARGET);
+        else 
+        {
+            targets.add(BASICEXAMPLESTARGET);
+            basicExamplesCB.setForeground(red);
+            basicExamplesCB.setFont(boldFont);
+        }
     }
     if (conformanceCB.isSelected())
     {
@@ -1341,10 +1370,17 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
             if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
             {
                 targets.add(CONFORMANCENISTTARGET);
+                conformanceCB.setForeground(red);
+                conformanceCB.setFont(boldFont);
             }
             else conformanceCB.setSelected(false);
         }
-        else targets.add(CONFORMANCENISTTARGET);
+        else 
+        {
+            targets.add(CONFORMANCENISTTARGET);
+            conformanceCB.setForeground(red);
+            conformanceCB.setFont(boldFont);
+        }
     }
     if (humanoidAnimationCB.isSelected())
     {
@@ -1356,10 +1392,17 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
             if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
             {
                 targets.add(HUMANOIDANIMATIONTARGET);
+                humanoidAnimationCB.setForeground(red);
+                humanoidAnimationCB.setFont(boldFont);
             }
             else humanoidAnimationCB.setSelected(false);
         }
-        else targets.add(HUMANOIDANIMATIONTARGET);
+        else 
+        {
+            targets.add(HUMANOIDANIMATIONTARGET);
+            humanoidAnimationCB.setForeground(red);
+            humanoidAnimationCB.setFont(boldFont);
+        }
     }
     if (savageCB.isSelected())
     {
@@ -1371,13 +1414,18 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
             if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
             {
                 targets.add(SAVAGETARGET);
+                savageCB.setForeground(red);
+                savageCB.setFont(boldFont);
             }
             else savageCB.setSelected(false);
         }
-        else targets.add(SAVAGETARGET);
+        else 
+        {
+            targets.add(SAVAGETARGET);
+            savageCB.setForeground(red);
+            savageCB.setFont(boldFont);
+        }
     }
-    
-    updatePanelLocalArchivesPresent();
     startDownloadButtonRequestFocus(); // might have not confirmed selection of any archives for download
 
     if (targets.size() <= 0)
@@ -1385,26 +1433,27 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     
     String[] targetsArray = targets.toArray(new String[0]);
 
-    Properties props = null;
-    String targetDir = rootDownloadDirectoryTF.getText().trim();
-    if (targetDir.length() > 0) {
-      props = new Properties();
-      props.put("examplesRootDirectory", targetDir);
+    Properties targetProperties = null;
+    String targetDirectory = rootDownloadDirectoryTF.getText().trim();
+    if (targetDirectory.length() > 0) {
+        targetProperties = new Properties();
+        targetProperties.put("examplesRootDirectory", targetDirectory);
     }
 
     try {
       FileObject buildFile = FileUtil.getConfigRoot()/*Repository.getDefault().getDefaultFileSystem()*/.getFileSystem().findResource(antScriptPath);
       // Can only execute ant tasks residing on disk, so get this out of the jar into a temp directory
-      final File tmp = File.createTempFile(buildFile.getName(), buildFile.getExt());
-      tmp.deleteOnExit();
-      FileObject tmpFO = FileUtil.createData(tmp);
-      FileLock lock = tmpFO.lock();
-      OutputStream os = tmpFO.getOutputStream(lock);     
+      final File tempFile = File.createTempFile(buildFile.getName(), buildFile.getExt());
+     
+      tempFile.deleteOnExit(); // TODO avoid "parameter file was not normalized" warning
+      FileObject tempFileObject = FileUtil.createData(tempFile);
+      FileLock fileLock = tempFileObject.lock();
+      OutputStream os = tempFileObject.getOutputStream(fileLock);     
       FileUtil.copy(buildFile.getInputStream(), os);
       os.close();
-      lock.releaseLock();
+      fileLock.releaseLock();
 
-      executorTask = ActionUtils.runTarget(tmpFO, targetsArray, props);
+      executorTask = ActionUtils.runTarget(tempFileObject, targetsArray, targetProperties);
       executorTask.addTaskListener(new taskListener());
       executorTask.getInputOutput().select();
       startDownloadButton.setText("Download started...");
@@ -1415,7 +1464,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
      progressHintLabel.setVisible(true);
 
       // Save the locations for the View menu
-      File interimParentDirectory = new File(targetDir,targetPath);
+      File interimParentDirectory = new File(targetDirectory,targetPath);
       if (x3d4waExamplesCB.isSelected())
         LocalExamplesFinder.instance().setX3d4waExamplesDirectory           (new File(interimParentDirectory,X3D4WA_EXAMPLESTARGET).getAbsolutePath());
       if (x3d4waExamplesCB.isSelected())          
@@ -1445,7 +1494,6 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         // initial installation complete, support user with autolaunch
         X3dEditUserPreferences.setExampleArchivesServerAutolaunch(true);
         
-        
         NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
                 "Enabling autolaunch of localhost HTTP server for example archives", 
                 "Enabling autolaunch", NotifyDescriptor.PLAIN_MESSAGE);
@@ -1473,9 +1521,13 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
       executorTask.stop();
       executorTask = null;
     }
-    startDownloadButton.setText("Start downloads");
-    startDownloadButton.setEnabled(true);
+    // downloading all done
+     startDownloadButton.setText("Start downloads"); // restore label
+     startDownloadButton.setEnabled(true);
     cancelDownloadButton.setEnabled(false);
+    clearAllArchiveCheckBoxes();
+    updateStatusPropertiesLocalArchivesPresent();
+    updatePanelLocalArchivesPresent();
   }
   private void cancelDownloadButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cancelDownloadButtonActionPerformed
   {//GEN-HEADEREND:event_cancelDownloadButtonActionPerformed
@@ -1700,6 +1752,14 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     {//GEN-HEADEREND:event_allClearCheckBoxActionPerformed
         if (allClearCheckBox.isSelected())
         {
+            clearAllArchiveCheckBoxes();
+            startDownloadButtonRequestFocus();
+        }
+        allSelectCheckBox.setSelected(false);
+    }//GEN-LAST:event_allClearCheckBoxActionPerformed
+
+    public void clearAllArchiveCheckBoxes()
+    {
             x3d4waExamplesCB.setSelected(false);
             x3d4amExamplesCB.setSelected(false);
             vrmlSourcebookCB.setSelected(false);
@@ -1707,12 +1767,23 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
                conformanceCB.setSelected(false);
          humanoidAnimationCB.setSelected(false);
                     savageCB.setSelected(false);
-            
-            startDownloadButtonRequestFocus();
-        }
-        allSelectCheckBox.setSelected(false);
-    }//GEN-LAST:event_allClearCheckBoxActionPerformed
 
+            x3d4waExamplesCB.setForeground(black);
+            x3d4amExamplesCB.setForeground(black);
+            vrmlSourcebookCB.setForeground(black);
+             basicExamplesCB.setForeground(black);
+               conformanceCB.setForeground(black);
+         humanoidAnimationCB.setForeground(black);
+                    savageCB.setForeground(black);
+
+            x3d4waExamplesCB.setFont(plainFont);
+            x3d4amExamplesCB.setFont(plainFont);
+            vrmlSourcebookCB.setFont(plainFont);
+             basicExamplesCB.setFont(plainFont);
+               conformanceCB.setFont(plainFont);
+         humanoidAnimationCB.setFont(plainFont);
+                    savageCB.setFont(plainFont);
+    }
     private void rootDownloadDirectoryTFMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_rootDownloadDirectoryTFMouseExited
     {//GEN-HEADEREND:event_rootDownloadDirectoryTFMouseExited
         downloadDirectoryLabelUpdate ();
@@ -1748,6 +1819,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         downloadDirectoryLabel.setText(localArchiveDirectory); 
         X3dEditUserPreferences.setExamplesRootDirectory(localArchiveDirectory);
 
+        updateStatusPropertiesLocalArchivesPresent();
         updatePanelLocalArchivesPresent();
         if  (rootDownloadDirectoryTF.getText().isBlank())
              startDownloadButton.setEnabled(false);
