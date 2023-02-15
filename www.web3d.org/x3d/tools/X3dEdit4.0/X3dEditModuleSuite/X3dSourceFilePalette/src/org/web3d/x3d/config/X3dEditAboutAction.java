@@ -54,7 +54,7 @@ import org.openide.util.actions.CallableSystemAction;
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/X3D-Edit &Information", position = 100), // see layer.xml
   @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit &Information", position = 100),
-  // https://bits.netbeans.org/15/javadoc/org-openide-awt/org/openide/awt/ActionReference.html
+  // https://bits.netbeans.org/16/javadoc/org-openide-awt/org/openide/awt/ActionReference.html
   @ActionReference(path = "Shortcuts", name = "CS-A") // shortcut control-shift-A
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
@@ -73,15 +73,15 @@ public final class X3dEditAboutAction extends CallableSystemAction
     @Override
   public void performAction()
   {
-      // https://bits.netbeans.org/15/javadoc/org-openide-util/org/openide/util/NbBundle.html
+      // https://bits.netbeans.org/16/javadoc/org-openide-util/org/openide/util/NbBundle.html
       // Branding values are updated automatically whenever X3D-Edit is rebuilt, with the
       // module version number (e.g. 4.0.27) updated via the X3D-Edit 4.0 Module, properties, API Versioning values
       String branding = NbBundle.getBranding();
       ResourceBundle resourceBundle = NbBundle.getBundle("org.netbeans.core.windows.view.ui.Bundle_" + branding);
       String mainWindowTitle = resourceBundle.getString("CTL_MainWindow_Title");
       
-      // https://bits.netbeans.org/15/javadoc/org-openide-modules/org/openide/modules/Modules.html
-      // https://bits.netbeans.org/15/javadoc/org-openide-modules/org/openide/modules/ModuleInfo.html
+      // https://bits.netbeans.org/16/javadoc/org-openide-modules/org/openide/modules/Modules.html
+      // https://bits.netbeans.org/16/javadoc/org-openide-modules/org/openide/modules/ModuleInfo.html
       Modules modules = Modules.getDefault();
       ModuleInfo moduleInfo = modules.findCodeNameBase("org.web3d.x3d.palette");
       String           buildVersion = moduleInfo.getBuildVersion();
