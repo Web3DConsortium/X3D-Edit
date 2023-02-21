@@ -2202,6 +2202,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 startAuthorModelsServerButton.setText(HTTP_RUNNING);
                 startAuthorModelsServerButton.setForeground(darkgreen);
                 startAuthorModelsServerButton.setFont(boldFont);
+                startAuthorModelsServerButton.setEnabled(true);
 
                   stopAuthorModelsServerButton.setEnabled(true);
                   stopAuthorModelsServerButton.setText(HTTP_STOP);
@@ -2224,10 +2225,10 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private void stopAuthorModelsServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stopAuthorModelsServerButtonActionPerformed
     {//GEN-HEADEREND:event_stopAuthorModelsServerButtonActionPerformed
         stopAuthorModelsServer();
-        startAuthorModelsServerButton.setEnabled(true);
         startAuthorModelsServerButton.setText(HTTP_START);
         startAuthorModelsServerButton.setForeground(black);
         startAuthorModelsServerButton.setFont(plainFont);
+        startAuthorModelsServerButton.setEnabled(true);
         
         stopAuthorModelsServerButton.setEnabled(false);
         stopAuthorModelsServerButton.setForeground(black);
@@ -2353,6 +2354,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 startExampleArchivesServerButton.setText(HTTP_RUNNING);
                 startExampleArchivesServerButton.setForeground(darkgreen);
                 startExampleArchivesServerButton.setFont(boldFont);
+                startExampleArchivesServerButton.setEnabled(true);
+                
                  stopExampleArchivesServerButton.setEnabled(true);
                  stopExampleArchivesServerButton.setText(HTTP_STOP);
                  stopExampleArchivesServerButton.setForeground(Color.RED); // also BOLD
@@ -2378,11 +2381,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         startExampleArchivesServerButton.setText(HTTP_START);
         startExampleArchivesServerButton.setForeground(black);
         startExampleArchivesServerButton.setFont(plainFont);
+        
         stopExampleArchivesServerButton.setEnabled(false);
         stopExampleArchivesServerButton.setForeground(black);
         updateIndicationsPortsBoundOnServers();
         portExampleArchivesServerTextField.setBackground(Color.white);
-        exampleArchivesDirectoryTextField.setBackground(Color.white);
+         exampleArchivesDirectoryTextField.setBackground(Color.white);
     }//GEN-LAST:event_stopExampleArchivesServerButtonActionPerformed
 
     private void browseLocalhostExampleArchivesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_browseLocalhostExampleArchivesButtonActionPerformed
@@ -2436,12 +2440,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private void stopActiveX3dModelServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stopActiveX3dModelServerButtonActionPerformed
     {//GEN-HEADEREND:event_stopActiveX3dModelServerButtonActionPerformed
         stopActiveX3dModelServers();
-        startActiveX3dModelServerButton.setEnabled(true);
         startActiveX3dModelServerButton.setText(HTTP_START);
         startActiveX3dModelServerButton.setForeground(black);
         startActiveX3dModelServerButton.setFont(plainFont);
-        stopActiveX3dModelServerButton.setEnabled(false);
-        stopActiveX3dModelServerButton.setForeground(black);
+        startActiveX3dModelServerButton.setEnabled(true);
+        
+         stopActiveX3dModelServerButton.setEnabled(false);
+         stopActiveX3dModelServerButton.setForeground(black);
         updateIndicationsPortsBoundOnServers();
     }//GEN-LAST:event_stopActiveX3dModelServerButtonActionPerformed
 
@@ -3107,6 +3112,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 startActiveX3dModelServerButton.setText(HTTP_RUNNING);
                 startActiveX3dModelServerButton.setForeground(darkgreen);
                 startActiveX3dModelServerButton.setFont(boldFont);
+                startActiveX3dModelServerButton.setEnabled(true);
+            
                  stopActiveX3dModelServerButton.setEnabled(true);
                  stopActiveX3dModelServerButton.setText(HTTP_STOP);
                  stopActiveX3dModelServerButton.setForeground(Color.RED); // also BOLD
@@ -3149,6 +3156,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 startAuthorModelsServerButton.setText(HTTP_RUNNING);
                 startAuthorModelsServerButton.setForeground(darkgreen);
                 startAuthorModelsServerButton.setFont(boldFont);
+                startAuthorModelsServerButton.setEnabled(true);
 
                   stopAuthorModelsServerButton.setEnabled(true);
                   stopAuthorModelsServerButton.setText(HTTP_STOP);
@@ -3179,6 +3187,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 startExampleArchivesServerButton.setText(HTTP_RUNNING);
                 startExampleArchivesServerButton.setForeground(darkgreen);
                 startExampleArchivesServerButton.setFont(boldFont);
+                startExampleArchivesServerButton.setEnabled(true);
+                
                  stopExampleArchivesServerButton.setEnabled(true);
                  stopExampleArchivesServerButton.setText(HTTP_STOP);
                  stopExampleArchivesServerButton.setForeground(Color.RED); // also BOLD
@@ -3356,6 +3366,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             startActiveX3dModelServerButton.setText(HTTP_RUNNING);
             startActiveX3dModelServerButton.setForeground(darkgreen);
             startActiveX3dModelServerButton.setFont(boldFont);
+            startActiveX3dModelServerButton.setEnabled(true);
             
              stopActiveX3dModelServerButton.setEnabled(true);
              stopActiveX3dModelServerButton.setText(HTTP_STOP);
@@ -3364,10 +3375,11 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         }
         else // not running
         {
-            startActiveX3dModelServerButton.setEnabled(true);
             startActiveX3dModelServerButton.setText(HTTP_START);
             startActiveX3dModelServerButton.setForeground(black);
             startActiveX3dModelServerButton.setFont(plainFont);
+            startActiveX3dModelServerButton.setEnabled(true);
+            
              stopActiveX3dModelServerButton.setEnabled(false);
              stopActiveX3dModelServerButton.setForeground(black);
              messageBuilder.append(" with httpProcess not running.");
@@ -3883,6 +3895,7 @@ class LocalFileHandlerOld implements HttpHandler {
             startActiveX3dModelServerButton.setText(HTTP_RUNNING);
             startActiveX3dModelServerButton.setForeground(darkgreen);
             startActiveX3dModelServerButton.setFont(boldFont);
+            startActiveX3dModelServerButton.setEnabled(true);
             
              stopActiveX3dModelServerButton.setEnabled(true);
              stopActiveX3dModelServerButton.setText(HTTP_STOP);
