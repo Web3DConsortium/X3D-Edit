@@ -225,7 +225,6 @@
 
     <!-- override -->
     <target name="-pre-compile" depends="projectized-common.-pre-compile">
-        <antcall target="moduleVersion"/>
         <antcall target="get.latest"/>
     </target>
     
