@@ -77,6 +77,8 @@
             <entry key="currentVersion" value="${app.title} - ${TODAY} ${TSTAMP}" />
         </propertyfile>
         
+        <ant dir="${project.org.web3d.x3d.palette}" inheritAll="false" target="moduleVersion"/>
+        
         <!-- Read API Version from module, then append to CTL_MainWindow_Title -->
         <property file="${project.org.web3d.x3d.palette}/moduleVersion.properties"/>
         <property name="MODULE_MANIFEST_VERSION" value="${module.version}"/>
