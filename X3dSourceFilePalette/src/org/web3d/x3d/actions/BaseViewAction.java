@@ -194,7 +194,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   
   protected String getLocalExamplesPath()
   {
-    return null;
+    return X3dEditUserPreferences.getExampleArchivesRootDirectory();
   }
   
  @Override

@@ -269,7 +269,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
         setUrlScene(urlList);
         x3dToXhtmlDomConversionFrame.setUrlData(urlList); // update panel display
         
-//        x3dToXhtmlDomConversionFrame.initializeValuesInPanel(); // ensure latest greatest
+//        x3dToXhtmlDomConversionFrame.updateValuesInPanel(); // ensure latest greatest
     
 //        boolean conversionPanelSettingsReady = false;
 //
@@ -280,7 +280,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
 //            if       (descriptor.getValue() == resetButton)
 //            {
 //                resetValuesToDefault(); // but do not save since user may later cancel
-//                x3dToXhtmlDomConversionPanel.initializeValuesInPanel ();
+//                x3dToXhtmlDomConversionPanel.updateValuesInPanel ();
 //                // continue looping
 //            }
 //            else if (descriptor.getValue() == transformModelButton)

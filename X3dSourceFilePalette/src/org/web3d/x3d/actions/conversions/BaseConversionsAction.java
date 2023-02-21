@@ -221,7 +221,7 @@ import org.xml.sax.SAXParseException;
                 x3dEditorTopComponentArrayList.add((X3DEditorSupport.X3dEditor) topComponent);
             }
         }
-        if (x3dEditorTopComponentArrayList.isEmpty()) 
+        if (x3dEditorTopComponentArrayList.isEmpty() && !(this instanceof X3dToXhtmlDomConversionAction)) 
         {
             System.err.println ("*** cannot perform action if no X3D model is open");
             return;

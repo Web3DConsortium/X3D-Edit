@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -51,18 +51,18 @@ import org.openide.util.NbBundle;
 
 public final class ViewX3d4waExamplesLocalAction extends BaseLocalViewAction
 {
-  public ViewX3d4waExamplesLocalAction()
-  {
-    // This will automatically disable us if the examples have not been downloaded
-    LocalExamplesFinder.instance().findX3d4waExamplesDirectory(this);
-  }
+    public ViewX3d4waExamplesLocalAction()
+    {
+        // This will automatically disable us if the examples have not been downloaded
+        LocalExamplesFinder.instance().findX3d4waExamplesDirectory(this);
+    }
   
-  @Override
-  public void performAction()
-  {
-    performAction2(LocalExamplesFinder.instance().findX3d4waExamplesDirectory(this),
-                   LocalExamplesFinder.DEFAULT_X3D4WA_PATH);
-  }
+    @Override
+    public void performAction()
+    {
+        performAction2(LocalExamplesFinder.instance().findX3d4waExamplesDirectory(this),
+                       LocalExamplesFinder.DEFAULT_X3D4WA_PATH);
+    }
 
   @Override
   public String getName()

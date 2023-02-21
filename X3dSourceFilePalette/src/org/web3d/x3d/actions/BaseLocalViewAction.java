@@ -37,6 +37,7 @@ package org.web3d.x3d.actions;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.DownloadX3dExamplesArchivesPanel;
 import static org.web3d.x3d.DownloadX3dExamplesArchivesPanel.isLocalArchivePresent;
+import static org.web3d.x3d.DownloadX3dExamplesArchivesPanel.updateStatusPropertiesLocalArchivesPresent;
 import org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 //import org.web3d.x3d.InputOutputReporter;
@@ -56,8 +57,21 @@ abstract public class BaseLocalViewAction extends BaseViewAction
 {
   public BaseLocalViewAction()
   {
-    if(this.getLocalExamplesPath() == null)
-      setEnabled(false);
+    if ((this.getLocalExamplesPath() == null) || this.getLocalExamplesPath().isBlank())
+        setEnabled(false); // TODO needed?
+    else
+    {
+        setEnabled(true);  // TODO needed?
+        updateStatusPropertiesLocalArchivesPresent();
+        if (DownloadX3dExamplesArchivesPanel.isAnyArchivePresent())
+        {
+            if (!X3dEditUserPreferences.isExampleArchivesServerAutolaunch())
+            {
+                DownloadX3dExamplesArchivesPanel.checkAutolaunchRunExampleArchivesServer();
+            }
+            X3dToXhtmlDomConversionFrame.autolaunchAllServers();
+        }
+    }
   }
   
   protected void performAction2(String directoryLocation, String errPath)

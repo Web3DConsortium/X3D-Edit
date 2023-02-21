@@ -97,6 +97,8 @@ public final class NewHelloWorldExampleAction extends CallableSystemAction
       // The above method calls into X3DDataObject.handleCreateFromTemplate(), which copies the template
       // into the new file.
       
+      // TODO copy image file(s) so that CORS restrictions are met
+      
       // Finally, execute the OpenAction
       OpenCookie openCookie = newDataObject.getLookup().lookup(OpenCookie.class);
       if (openCookie != null) {
