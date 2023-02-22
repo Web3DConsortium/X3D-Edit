@@ -2073,16 +2073,16 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         switch (pageIntegrationTabbedPane.getSelectedIndex())
         {
             case HTML_LAYOUT_TAB: 
-                X3dEditUserPreferencesPanel.reportButtonSend ("DOM Conversion Panel: HTML page integration pane");
+                X3dEditUserPreferencesPanel.reportButtonSend ("X3D4 Model Integration in HTML5 Web Page: HTML page integration pane");
                 break;
             case X3DOM_TAB: 
-                X3dEditUserPreferencesPanel.reportButtonSend ("DOM Conversion Panel: X3DOM pane");
+                X3dEditUserPreferencesPanel.reportButtonSend ("X3D4 Model Integration in HTML5 Web Page: X3DOM pane");
                 break;
             case X_ITE_TAB: 
-                X3dEditUserPreferencesPanel.reportButtonSend ("DOM Conversion Panel: X_ITE pane");
+                X3dEditUserPreferencesPanel.reportButtonSend ("X3D4 Model Integration in HTML5 Web Page: X_ITE pane");
                 break;
             case CORS_TAB: 
-                X3dEditUserPreferencesPanel.reportButtonSend ("DOM Conversion Panel: CORS localhost http server pane");
+                X3dEditUserPreferencesPanel.reportButtonSend ("X3D4 Model Integration in HTML5 Web Page: CORS localhost http server pane");
                 break;
         }
     }//GEN-LAST:event_reportButtonActionPerformed
