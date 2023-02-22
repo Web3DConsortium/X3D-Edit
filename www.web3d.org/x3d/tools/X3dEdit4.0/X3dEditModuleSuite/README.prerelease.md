@@ -36,7 +36,7 @@ The Zip installation is most reliable and popular, typically working without mod
 
 If things don't work "out of the box" for you, here are some further tips.
 
-If you have an X3D-Edit build installed earlier than 16 December 2022, please reinstall your zip.
+If you have an earlier X3D-Edit build installed earlier, please reinstall your zip.
 
 NetBeans users troubleshooting certificate permissions can also download and install the following NetBeans plugin which provides end-user more positive control 
 when certificate problems occur (such as automated quarterly updates).
