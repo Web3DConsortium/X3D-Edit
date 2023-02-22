@@ -378,7 +378,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         allClearCheckBox = new javax.swing.JCheckBox();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        setPreferredSize(new java.awt.Dimension(800, 520));
+        setPreferredSize(new java.awt.Dimension(860, 520));
         setLayout(new java.awt.GridBagLayout());
 
         x3d4waExamplesCB.setText(org.openide.util.NbBundle.getMessage(DownloadX3dExamplesArchivesPanel.class, "DownloadX3dExamplesArchivesPanel.x3d4waExamplesCB.text")); // NOI18N
@@ -445,7 +445,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -465,7 +465,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -536,7 +536,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -556,7 +556,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -627,7 +627,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -647,7 +647,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -689,7 +689,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -709,7 +709,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -812,7 +812,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -832,7 +832,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -902,7 +902,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -922,7 +922,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -993,7 +993,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1013,7 +1013,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1114,7 +1114,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1158,7 +1158,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1235,7 +1235,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipadx = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
