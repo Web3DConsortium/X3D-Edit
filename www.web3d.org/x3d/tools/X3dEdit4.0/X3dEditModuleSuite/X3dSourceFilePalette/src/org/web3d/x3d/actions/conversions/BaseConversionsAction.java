@@ -69,6 +69,7 @@ import org.netbeans.api.xml.cookies.CookieObserver;
 import org.netbeans.spi.xml.cookies.DefaultXMLProcessorDetail;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
 import org.openide.nodes.Node;
@@ -207,11 +208,6 @@ import org.xml.sax.SAXParseException;
         TopComponent selectedOneComponent = windowManagerEditorMode.getSelectedTopComponent();
 
         TopComponent[] topComponentArray = windowManagerEditorMode.getTopComponents();
-        if (topComponentArray == null || topComponentArray.length <= 0)
-        {
-            System.err.println ("*** cannot perform action if no X3D-Edit window components are available");
-            return; // no action to perform
-        }
 
         ArrayList<X3DEditorSupport.X3dEditor> x3dEditorTopComponentArrayList = new ArrayList<>();
         for (TopComponent topComponent : topComponentArray)
@@ -221,10 +217,13 @@ import org.xml.sax.SAXParseException;
                 x3dEditorTopComponentArrayList.add((X3DEditorSupport.X3dEditor) topComponent);
             }
         }
-        if (x3dEditorTopComponentArrayList.isEmpty() && !(this instanceof X3dToXhtmlDomConversionAction)) 
+        if (x3dEditorTopComponentArrayList.isEmpty())
         {
-            System.err.println ("*** cannot perform action if no X3D model is open");
-            return;
+            String message = "Must first open a file prior to conversion...";
+            NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
+            DialogDisplayer.getDefault().notifyLater(msg); //ed);
+            System.err.println ("*** " + this.getClass().getName() + ": " + message);
+            return; // no action to perform
         }
         // Do not execute if autolaunched by X3DOM/X_ITE panel, rather count on deliberate invocation by button
         if (this instanceof X3dToXhtmlDomConversionAction) 
