@@ -450,6 +450,7 @@
             <word>EnvironmentLight</word>
             <word>FillProperties</word>
             <word>frameIncrement</word>
+            <word>glTF</word>
             <word>gzip</word>
             <word>gzipped</word>
             <word>HAnim</word>
