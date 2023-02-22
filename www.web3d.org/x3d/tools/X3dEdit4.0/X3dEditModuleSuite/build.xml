@@ -63,7 +63,10 @@
     -->
     
     <!-- override build to add a way to update branding -->
-    <target name="build" depends="build-brand,suite.build"/>
+    <target name="build" depends="build-brand,suite.build">
+        <!-- TODO can we shift this message to become a dependency in a prerelease target? -->
+        <echo message="*** Release preparations: run target 'generate.nbm.signing.cert'"/>
+    </target>
     <target name="build-brand" depends="-init">
         
         <tstamp>
