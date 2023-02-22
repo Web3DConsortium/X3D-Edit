@@ -43,6 +43,8 @@ package org.web3d.x3d.actions;
 
 import java.io.File;
 import java.io.IOException;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.awt.StatusDisplayer;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
@@ -58,6 +60,10 @@ public abstract class ViewInBaseAction extends CookieAction
   @Override
   protected boolean enable(Node[] activatedNodes)
   {
+        if ((activatedNodes ==  null) || (activatedNodes.length == 0))
+        {
+            return false;
+        }
     boolean localEnabled = false;
     String path = getExePath();
     if(path != null && path.length()>0) {
@@ -65,7 +71,7 @@ public abstract class ViewInBaseAction extends CookieAction
       if(f.exists())
         localEnabled = true;
     }
-    else if ((path != null) && (X3dEditUserPreferences.getOtherX3dPlayerNameDefault() != null) && 
+    else if ((path != null) &&  (X3dEditUserPreferences.getOtherX3dPlayerNameDefault() != null) && 
               path.equals(X3dEditUserPreferences.getOtherX3dPlayerNameDefault()))
     {
         return true;
@@ -79,6 +85,13 @@ public abstract class ViewInBaseAction extends CookieAction
     X3DDataObject x3DDataObject = activatedNodes[0].getLookup().lookup(X3DDataObject.class);
 
     FileObject fo = x3DDataObject.getPrimaryFile();
+    if ((fo == null) || !fo.canRead())
+    {
+        String message = "File not available, please open a file first";
+        NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
+        DialogDisplayer.getDefault().notifyLater(msg); //ed);
+        System.out.println("*** " + message);
+    }
     try {
       String statusString = getStatusString();
       if(statusString != null && statusString.length()>0)
