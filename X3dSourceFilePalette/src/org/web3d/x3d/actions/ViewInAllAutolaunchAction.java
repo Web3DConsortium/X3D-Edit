@@ -46,6 +46,8 @@
 package org.web3d.x3d.actions;
 
 import java.io.File;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -101,13 +103,13 @@ public final class ViewInAllAutolaunchAction extends CookieAction
       ViewInOtherAction.get(ViewInOtherAction.class)
     };
 
-    if (isAnythingThere())
+    if (areAnyLaunchActionsThere())
       return;
 
     this.setEnabled(false);
   }
 
-  private boolean isAnythingThere()
+  private boolean areAnyLaunchActionsThere()
   {
     for (ViewInBaseAction launchAction : allActions)
     {
@@ -122,12 +124,20 @@ public final class ViewInAllAutolaunchAction extends CookieAction
     return true; // false;
   }
 
-  @Override
-  protected boolean enable(Node[] activatedNodes)
-  {
-    boolean localEnabled = isAnythingThere();
-    return super.enable(activatedNodes) && localEnabled;
-  }
+    @Override
+    protected boolean enable(Node[] activatedNodes)
+    {
+        if ((activatedNodes ==  null) || (activatedNodes.length == 0))
+        {
+            String message = "Cannot perform action if no X3D model is open";
+            NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
+            DialogDisplayer.getDefault().notifyLater(msg); //ed);
+            System.err.println ("*** " + this.getClass().getName() + ": " + message);
+            return false;
+        }
+        boolean localLaunchActionsAvailable = areAnyLaunchActionsThere();
+        return super.enable(activatedNodes) && localLaunchActionsAvailable;
+    }
 
   @Override
   protected void performAction(Node[] activatedNodes)
