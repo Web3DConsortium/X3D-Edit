@@ -219,10 +219,10 @@ import org.xml.sax.SAXParseException;
         }
         if (x3dEditorTopComponentArrayList.isEmpty())
         {
-            String message = "Must first open a file prior to conversion...";
-            NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
-            DialogDisplayer.getDefault().notifyLater(msg); //ed);
+            String message = "Must first open a file prior to performing conversion...";
             System.err.println ("*** " + this.getClass().getName() + ": " + message);
+            NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
+            DialogDisplayer.getDefault().notify(msg); //ed);
             return; // no action to perform
         }
         // Do not execute if autolaunched by X3DOM/X_ITE panel, rather count on deliberate invocation by button
