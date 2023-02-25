@@ -35,6 +35,8 @@
 package org.web3d.x3d.actions.conversions;
 
 import javax.swing.JMenuItem;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -64,11 +66,11 @@ public final class ExportX3dCanonicalizeC14nAction extends BaseConversionsAction
   }
   
   @Override
-  public String transformSingleFile(X3DEditorSupport.X3dEditor ed)
+  public String transformSingleFile(X3DEditorSupport.X3dEditor x3dEditor)
   {
     // todo warn if editor is dirty.
-    FileObject fo = ed.getX3dEditorSupport().getDataObject().getPrimaryFile();    
-    RequestProcessor.getDefault().post(new CanonTask(FileUtil.toFile(fo).getAbsolutePath()));
+    FileObject fileObject = x3dEditor.getX3dEditorSupport().getDataObject().getPrimaryFile();    
+    RequestProcessor.getDefault().post(new CanonTask(FileUtil.toFile(fileObject).getAbsolutePath()));
     
 //    if(resultFile != null)
 //     openInEditor(resultFile);
