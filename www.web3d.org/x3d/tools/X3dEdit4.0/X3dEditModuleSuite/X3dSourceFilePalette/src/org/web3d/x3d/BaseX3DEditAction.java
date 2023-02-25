@@ -98,7 +98,7 @@ abstract public class BaseX3DEditAction extends CookieAction
     catch (IOException | SAXException | JDOMException ex) {
       //NotifyDescriptor.Exception ed = new NotifyDescriptor.Exception(ex);
       NotifyDescriptor.Message msg = new NotifyDescriptor.Message(ex.getLocalizedMessage());
-      DialogDisplayer.getDefault().notifyLater(msg); //ed);
+      DialogDisplayer.getDefault().notify(msg);
     }
   }
   protected abstract void doWork(Node[] activatedNodes);
