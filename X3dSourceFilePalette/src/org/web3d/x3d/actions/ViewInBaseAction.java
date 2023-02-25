@@ -88,9 +88,9 @@ public abstract class ViewInBaseAction extends CookieAction
     if ((fo == null) || !fo.canRead())
     {
         String message = "File not available, please open a file first";
-        NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
-        DialogDisplayer.getDefault().notifyLater(msg); //ed);
         System.out.println("*** " + message);
+        NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
+        DialogDisplayer.getDefault().notify(msg);
     }
     try {
       String statusString = getStatusString();
