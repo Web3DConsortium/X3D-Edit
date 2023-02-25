@@ -222,7 +222,7 @@ import org.xml.sax.SAXParseException;
             String message = "Must first open a file prior to performing conversion...";
             System.err.println ("*** " + this.getClass().getName() + ": " + message);
             NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
-            DialogDisplayer.getDefault().notify(msg); //ed);
+            DialogDisplayer.getDefault().notify(msg);
             return; // no action to perform
         }
         // Do not execute if autolaunched by X3DOM/X_ITE panel, rather count on deliberate invocation by button
