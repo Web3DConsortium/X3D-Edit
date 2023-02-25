@@ -166,7 +166,7 @@ public class X3dEditUserPreferences
   public static String  AUTHOR_NAME_DEFAULT             = System.getProperty("user.name");
   public static String  AUTHOR_EMAIL_DEFAULT            = "";
   // https://stackoverflow.com/questions/585534/what-is-the-best-way-to-find-the-users-home-directory-in-java
-  // TODO confirm if /Desktop is a good location on MacOSX and Linux?
+  // TODO confirm if /Desktop is a good location on Linux?
   public static String  NEW_X3D_MODELS_DIRECTORY_DEFAULT           = System.getProperty("user.home") + File.separatorChar + "Desktop" + File.separatorChar + "NewX3dModels";
   public static String  AUTHOR_MODELS_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop" + File.separatorChar + "NewX3dModels"; // user.dir is local X3D-Edit execution directory
   public static String  EXAMPLES_ROOT_DIRECTORY_DEFAULT            = System.getProperty("user.home") + File.separatorChar + "Desktop" + File.separatorChar + "NewX3dModels" +
