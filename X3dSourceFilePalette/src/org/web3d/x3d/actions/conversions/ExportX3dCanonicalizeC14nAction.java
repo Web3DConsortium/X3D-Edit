@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -69,7 +69,15 @@ public final class ExportX3dCanonicalizeC14nAction extends BaseConversionsAction
   public String transformSingleFile(X3DEditorSupport.X3dEditor x3dEditor)
   {
     // todo warn if editor is dirty.
-    FileObject fileObject = x3dEditor.getX3dEditorSupport().getDataObject().getPrimaryFile();    
+    FileObject fileObject = x3dEditor.getX3dEditorSupport().getDataObject().getPrimaryFile();
+    
+    if (fileObject == null)
+    {
+        String message = "Must first open an .x3d model prior to performing conversion.  No action taken.";
+        System.err.println ("*** " + this.getClass().getName() + ": " + message);
+        NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
+        DialogDisplayer.getDefault().notify(msg);
+    }
     RequestProcessor.getDefault().post(new CanonTask(FileUtil.toFile(fileObject).getAbsolutePath()));
     
 //    if(resultFile != null)
