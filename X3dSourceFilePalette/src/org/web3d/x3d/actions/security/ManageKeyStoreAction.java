@@ -72,7 +72,7 @@ import static org.web3d.x3d.palette.items.BaseCustomizer.MAILTO_TOOLTIP;
 public final class ManageKeyStoreAction extends CallableSystemAction
 {
     public static ManageKeyStoreAction instance;
-    final JButton reportButton = new JButton("Report");
+    final JButton feedbackButton = new JButton("Feedback");
     final ActionListener emailReportActionListener = (ActionEvent event) ->
     {
        LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + ", X3D-Edit Manage KeyStore");
@@ -102,7 +102,7 @@ public final class ManageKeyStoreAction extends CallableSystemAction
           manageKeyStorePanel,                                   //component
           NbBundle.getMessage(getClass(),"ManageKeysDialogTitle"), //title
           true,                                                    //modal
-          new Object[]{closeButton, reportButton},                                    //buttons to show
+          new Object[]{closeButton, feedbackButton},                                    //buttons to show
           closeButton,                                        //default button
           DialogDescriptor.DEFAULT_ALIGN,                     //button alignment
           HelpCtx.DEFAULT_HELP,                                  //help context
@@ -152,12 +152,12 @@ public final class ManageKeyStoreAction extends CallableSystemAction
     super.initialize();
 
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
-    if (reportButton != null)
+    if (feedbackButton != null)
     {
-        reportButton.setToolTipText(MAILTO_TOOLTIP);
-        reportButton.addActionListener(emailReportActionListener);
-        reportButton.setVisible(true);
-        reportButton.setHorizontalAlignment(SwingConstants.LEFT);
+        feedbackButton.setToolTipText(MAILTO_TOOLTIP);
+        feedbackButton.addActionListener(emailReportActionListener);
+        feedbackButton.setVisible(true);
+        feedbackButton.setHorizontalAlignment(SwingConstants.LEFT);
     }
   }
 

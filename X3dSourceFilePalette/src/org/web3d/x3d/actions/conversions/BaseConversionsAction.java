@@ -84,6 +84,7 @@ import org.web3d.x3d.X3DCatalog;
 import org.web3d.x3d.X3DDataObject;
 import org.web3d.x3d.X3DEditorSupport;
 import org.web3d.x3d.X3DEditorSupport.X3dEditor;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionAction.x3dToXhtmlDomConversionFrame;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
@@ -185,10 +186,34 @@ import org.xml.sax.SAXParseException;
     public void performAction()
     {
         // Mode/TopComponent inspection and access must always be done in EventThread
-        if (EventQueue.isDispatchThread())
+        if (EventQueue.isDispatchThread()) // avoid duplication
         {
-            conversionsWorkerRunnable.run();
-        } 
+            if (this instanceof X3dToXhtmlDomConversionAction) // singleton special handling required
+            {
+                if (X3dToXhtmlDomConversionAction.isRunning)
+                {
+                    // already running
+                }
+                else // not yet running, start it
+                {
+                    X3dToXhtmlDomConversionAction.isRunning = true;
+//                    conversionsWorkerRunnable.run();
+                }
+                if      (this instanceof CorsHttpPanelAction)
+                         x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.CORS_TAB);
+                else if (this instanceof XhtmlX_iteAction)
+                         x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
+                else     x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X3DOM_TAB); // default
+                X3dToXhtmlDomConversionAction.x3dToXhtmlDomConversionFrame.toFront();
+                X3dToXhtmlDomConversionAction.x3dToXhtmlDomConversionFrame.setVisible(true);
+            }
+            conversionsWorkerRunnable.run(); // all other conversions
+        }
+//        else if ((this instanceof CorsHttpPanelAction) && ((X3dToXhtmlDomConversionAction)this).x3dToXhtmlDomConversionFrame != null)
+//        {
+//            ((X3dToXhtmlDomConversionAction)this).x3dToXhtmlDomConversionFrame.toFront();
+//            ((X3dToXhtmlDomConversionAction)this).x3dToXhtmlDomConversionFrame.setVisible(true);
+//        }
         else
         {
             try
@@ -217,21 +242,26 @@ import org.xml.sax.SAXParseException;
                 x3dEditorTopComponentArrayList.add((X3DEditorSupport.X3dEditor) topComponent);
             }
         }
+        // no independent invocation of HTML tab to worry about
+        if (this instanceof CorsHttpPanelAction)
+        {
+            return; // no further checks or action here
+        }
         if (x3dEditorTopComponentArrayList.isEmpty())
         {
-            String message = "Must first open a file prior to performing conversion...";
+            String message = "Must first open an .x3d model prior to performing conversion.  No action taken.";
             System.err.println ("*** " + this.getClass().getName() + ": " + message);
             NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
             DialogDisplayer.getDefault().notify(msg);
             return; // no action to perform
         }
-        // Do not execute if autolaunched by X3DOM/X_ITE panel, rather count on deliberate invocation by button
-        if (this instanceof X3dToXhtmlDomConversionAction) 
+        // Do not immediately execute if autolaunched by X3DOM or X_ITE panel, rather count on deliberate invocation by button
+        if (this instanceof X3dToXhtmlDomConversionAction) // X3DOM or X_ITE
         {
-            // avoid runaway default conversion by complex panel until user is ready
+            // avoid runaway default conversion by complex panel until user is ready with one or more .x3d models
             if (!((X3dToXhtmlDomConversionAction) this).isReadyForConversion())
             {
-                return;
+                ((X3dToXhtmlDomConversionAction) this).setReadyForConversion(true);
             }
         }
         // ready to launch

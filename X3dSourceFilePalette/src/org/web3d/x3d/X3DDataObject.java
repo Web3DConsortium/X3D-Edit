@@ -172,13 +172,13 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
 
   /**
    * Create a new X3d file from template
-   * @param directoryDF a DataFolder
+   * @param directoryDataFolder a DataFolder
    * @param newName for file
    * @return a DataObject of our new file
    * @throws java.io.IOException
    */
   @Override
-  protected DataObject handleCreateFromTemplate(DataFolder directoryDF, String newName)
+  protected DataObject handleCreateFromTemplate(DataFolder directoryDataFolder, String newName)
       throws IOException
   {
       // Make a FileObject for the template file
@@ -190,7 +190,7 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
       {
           System.out.println("*** Error, template file " + path + " not found");
       }
-      FileObject directoryFileObject = directoryDF.getPrimaryFile();  // FO referring to target dir
+      FileObject directoryFileObject = directoryDataFolder.getPrimaryFile();  // FO referring to target dir
       // write the new file to disk by copying the template
       FileObject newFileObject = FileUtil.copyFile(x3dTemplateFileObject, directoryFileObject, newName);
 

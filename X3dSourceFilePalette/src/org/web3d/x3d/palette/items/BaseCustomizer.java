@@ -87,9 +87,9 @@ import static org.web3d.x3d.types.X3DSchemaData.XML_ELNAME;
 public abstract class BaseCustomizer extends JPanel
 {
   /**
-   * tooltip for mailto Report buttons
+   * tooltip for mailto Feedback buttons
    */
-  public  static final String MAILTO_TOOLTIP = "Send email issue report: please describe issue, give example .x3d excerpt or attach a snapshot";
+  public  static final String MAILTO_TOOLTIP = "Send email feedback: please describe issue, give example .x3d excerpt or attach a snapshot";
   private DialogDescriptor buttonsDialogDescriptor, exitDescriptor = null;
   private Dialog buttonsDialogDisplayer, exitDialog = null;
   private boolean dropOK;
@@ -167,7 +167,7 @@ public abstract class BaseCustomizer extends JPanel
   JButton windowCloserButton        = new JButton();
   JButton acceptChangesDialogButton = new JButton();
   JButton discardChangesButton      = new JButton();
-  JButton emailReportButton         = new JButton("Report");
+  JButton emailFeedbackButton       = new JButton("Feedback");
 
   /**
    * entered directly if editing in place
@@ -280,7 +280,7 @@ public abstract class BaseCustomizer extends JPanel
         appendVisualizationCB,
         DialogDescriptor.OK_OPTION,
         DialogDescriptor.CANCEL_OPTION,
-        emailReportButton
+        emailFeedbackButton
       };
     else {
       optionalButtonsArray = new Object[]{
@@ -291,7 +291,7 @@ public abstract class BaseCustomizer extends JPanel
         appendVisualizationCB,
         DialogDescriptor.OK_OPTION,
         DialogDescriptor.CANCEL_OPTION,
-        emailReportButton
+        emailFeedbackButton
       };
       prependNewLineCB = new JCheckBox("before", false);  // don't show prepend, append checkboxes
        appendNewLineCB = new JCheckBox("after",  false);
@@ -355,8 +355,8 @@ public abstract class BaseCustomizer extends JPanel
         helpButton.setHorizontalAlignment(SwingConstants.LEFT);
     }
     
-    final JButton reportButton = findButton(buttonsDialogDisplayer, "Report");
-    final ActionListener emailReportActionListener = (ActionEvent event) ->
+    final JButton reportButton = findButton(buttonsDialogDisplayer, "Feedback");
+    final ActionListener emailFeedbackActionListener = (ActionEvent event) ->
     {
        LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + ", " + currentX3dElement.getElementName());
     };
@@ -364,7 +364,7 @@ public abstract class BaseCustomizer extends JPanel
     if (reportButton != null)
     {
         reportButton.setToolTipText(MAILTO_TOOLTIP);
-        reportButton.addActionListener(emailReportActionListener);
+        reportButton.addActionListener(emailFeedbackActionListener);
         reportButton.setVisible(true);
         reportButton.setHorizontalAlignment(SwingConstants.LEFT);
     }

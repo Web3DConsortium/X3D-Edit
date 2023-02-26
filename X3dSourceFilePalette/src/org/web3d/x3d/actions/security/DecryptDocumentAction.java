@@ -183,7 +183,7 @@ public final class DecryptDocumentAction extends BaseX3DEditAction
 //    }
 //    catch (Exception ex) {  //todo, specific msgs for spec exceptions
 //      NotifyDescriptor.Exception ed = new NotifyDescriptor.Exception(ex);
-//      DialogDisplayer.getDefault().notifyLater(ed);
+//      DialogDisplayer.getDefault().notify(ed);
 //    }
 //
 //    actionPostamble();
