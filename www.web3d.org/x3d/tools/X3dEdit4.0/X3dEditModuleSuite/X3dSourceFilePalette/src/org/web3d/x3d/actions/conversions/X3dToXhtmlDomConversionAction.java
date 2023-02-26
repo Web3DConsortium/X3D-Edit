@@ -302,10 +302,15 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
         }
         else if (getCurrentServerType().equals(ACTIVE_X3D_MODEL))
         {
-                 portValue = X3dToXhtmlDomConversionFrame.nextActiveX3dModelServerPort;
-                 X3dToXhtmlDomConversionFrame.nextActiveX3dModelServerPort++;
+                 // TODO save process number??
+                 x3dToXhtmlDomConversionFrame.launchNewActiveX3dModelServer(transformSingleFileName, transformSingleFileDirectory);
+                 portValue = X3dToXhtmlDomConversionFrame.getActiveServerPortValue();
         }
-        else     portValue = Integer.parseInt(X3dEditUserPreferences.getAuthorModelsServerPort()); // unexpected
+        else // unexpected   
+        {
+            portValue = Integer.parseInt(X3dEditUserPreferences.getAuthorModelsServerPort());
+            System.err.println ("*** X3dToXhtmlDomConversionAction.transformSingleFile(" + transformSingleFilePath + "error, server type not recognized...");
+        }
         
         // getAuthorCorsDirectory() should be root of query to https://localhost:8001
         if  (x3dToXhtmlDomConversionFrame.getTabbedPaneIndex() == X_ITE_TAB)
@@ -467,7 +472,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
                     else if (getCurrentServerType().equals(EXAMPLE_ARCHIVES))
                              localAddress += filePack.file.getAbsolutePath().substring(X3dEditUserPreferences.getExampleArchivesRootDirectory().length() + 1);
                     else if (getCurrentServerType().equals(ACTIVE_X3D_MODEL))
-                             localAddress += filePack.file.getAbsolutePath(); // TODO .substring(x3dToXhtmlDomConversionFrame.a());
+                             localAddress += filePack.file.getName(); // directory handled by server
                 }
                 localAddress = localAddress.replaceAll("\\\\","/"); // making sure
                 ConversionsHelper.openInBrowser(localAddress);
