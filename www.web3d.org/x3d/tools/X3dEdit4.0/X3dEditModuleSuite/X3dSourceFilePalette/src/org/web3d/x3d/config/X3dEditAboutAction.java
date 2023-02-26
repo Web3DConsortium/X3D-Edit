@@ -114,23 +114,23 @@ public final class X3dEditAboutAction extends CallableSystemAction
 //              "<p align='center'><a href='https://savage.nps.edu/X3D-Edit'>https://savage.nps.edu/X3D-Edit</a></p>" +
               "</html>";
 
-//    final JButton reportButton = new JButton("Report");
+//    final JButton feedbackButton = new JButton("Feedback");
 //    final ActionListener emailReportActionListener = (ActionEvent event) ->
 //    {
 //       LaunchEmailReportAction.sendBrowserTo(LaunchEmailReportAction.MAILTO_REPORT_URL);
 //    };
 //    // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
-//    if (reportButton != null)
+//    if (feedbackButton != null)
 //    {
-//        reportButton.setToolTipText("Send email issue report: please describe issue, give example .x3d excerpt or attach a snapshot");
-//        reportButton.addActionListener(emailReportActionListener);
-//        reportButton.setVisible(true);
+//        feedbackButton.setToolTipText("Send email issue report: please describe issue, give example .x3d excerpt or attach a snapshot");
+//        feedbackButton.addActionListener(emailReportActionListener);
+//        feedbackButton.setVisible(true);
 //    }
 //
 //    Object[] optionalButtonsArray;
 //    optionalButtonsArray = new Object[]{
 //        aboutHtmlMessage,
-//        reportButton
+//        feedbackButton
 //    };
 //
 //    NotifyDescriptor notifyDescriptor = new DialogDescriptor(this,

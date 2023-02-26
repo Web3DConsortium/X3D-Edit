@@ -118,7 +118,7 @@ POSSIBILITY OF SUCH DAMAGE.
         <folder name="&amp;X3D-Edit"><!-- mnemonic -->
             <file name="org-web3d-x3d-actions-LaunchIssueReportEmailAction.instance">
                 <attr name="delegate" newvalue="org.web3d.x3d.actions.LaunchEmailReportAction"/>
-                <attr name="displayName" stringvalue="X3D-Edit Issue Report Email"/>
+                <attr name="displayName" stringvalue="X3D-Edit Issue Feedback Email"/>
                 <attr name="iconBase" stringvalue="org/web3d/x3d/palette/items/resources/envelope.png"/>
                 <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
                 <attr name="noIconInMenu" boolvalue="false"/>
@@ -789,12 +789,12 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="position" intvalue="700"/>
                 <!-- DownloadX3dExamplesArchivesAction position 100 -->
                 <folder name="View Online X3D Examples Archives">
-                    <attr name="position" intvalue="200"/>
+                    <attr name="position" intvalue="100"/>
                     <attr name="iconBase" stringvalue="org/web3d/x3d/resources/X3Dicon32.png"/>
                     <attr name="noIconInMenu" boolvalue="false"/>
                 </folder>
                 <folder name="View Local X3D Examples Archives">
-                    <attr name="position" intvalue="300"/>
+                    <attr name="position" intvalue="200"/>
                     <attr name="iconBase" stringvalue="org/web3d/x3d/resources/X3Dicon32.png"/>
                     <attr name="noIconInMenu" boolvalue="false"/>
                 </folder>

@@ -129,7 +129,7 @@ public final class ViewInAllAutolaunchAction extends CookieAction
     {
         if ((activatedNodes ==  null) || (activatedNodes.length == 0))
         {
-            String message = "Cannot perform action if no X3D model is open...";
+            String message = "Cannot launch players if no X3D model is open. No action taken.";
             System.err.println ("*** " + this.getClass().getName() + ": " + message);
             NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
             DialogDisplayer.getDefault().notify(msg);

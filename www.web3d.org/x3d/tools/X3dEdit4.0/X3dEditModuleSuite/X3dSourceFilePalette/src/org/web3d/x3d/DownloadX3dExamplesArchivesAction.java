@@ -132,8 +132,8 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
            LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + 
                    ", X3D-Edit " + NbBundle.getMessage(getClass(), "ExampleArchivesDownloadTitle"));
         };
-        buttonBar.reportButton.addActionListener(reportActionListener);
-        buttonBar.reportButton.setToolTipText(MAILTO_TOOLTIP);
+        buttonBar.feedbackButton.addActionListener(reportActionListener);
+        buttonBar.feedbackButton.setToolTipText(MAILTO_TOOLTIP);
 
         // Window title-bar close button handler
         WindowAdapter windowListener = new WindowAdapter()
@@ -152,7 +152,7 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
 
   class buttonBar extends JPanel
   {
-    JButton helpButton, closeButton, reportButton;
+    JButton helpButton, closeButton, feedbackButton;
 
     buttonBar()
     {
@@ -171,16 +171,16 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
         add(horizontalSpacerLabel,                gridBagConstraints);
         
          closeButton = new JButton("Close") ;
-        reportButton = new JButton("Report");
+        feedbackButton = new JButton("Feedback");
           helpButton = new JButton("Help")  ;
       
          closeButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        reportButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        feedbackButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
           helpButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         
         gridBagConstraints.weightx = 0.0;
         add( closeButton, gridBagConstraints);
-        add(reportButton, gridBagConstraints);
+        add(feedbackButton, gridBagConstraints);
         add(  helpButton, gridBagConstraints);
     }
   }

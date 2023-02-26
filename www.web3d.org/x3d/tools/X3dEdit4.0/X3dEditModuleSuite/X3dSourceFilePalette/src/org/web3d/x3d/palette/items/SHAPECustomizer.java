@@ -1916,7 +1916,7 @@ public class SHAPECustomizer extends BaseCustomizer
              !(radiusTextField.getText().trim().contains(" ")))
          {
             NotifyDescriptor.Message msg = new NotifyDescriptor.Message("<html><p>Hint: use radius text field to enter<br/> both innerRadius and outerRadius</p>");
-            DialogDisplayer.getDefault().notifyLater(msg);             
+            DialogDisplayer.getDefault().notify(msg);             
          }
     }//GEN-LAST:event_disk2dRadioButtonActionPerformed
 

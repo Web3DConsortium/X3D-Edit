@@ -682,7 +682,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         authorSettingsPanel.add(verticalSpacerLabel20, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(authorNameLabel, "Author name");
-        authorNameLabel.setToolTipText("optional, used for model metadata");
+        authorNameLabel.setToolTipText("optional, used for model meta tags (just like HTML)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -690,7 +690,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(authorNameLabel, gridBagConstraints);
 
-        authorNameTextField.setToolTipText("optional, used for model metadata");
+        authorNameTextField.setToolTipText("optional, used for model meta tags (just like HTML)");
         authorNameTextField.addFocusListener(new java.awt.event.FocusAdapter()
         {
             public void focusLost(java.awt.event.FocusEvent evt)
@@ -734,7 +734,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         authorSettingsPanel.add(authorNameClearButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(authorEmailLabel, "Author email");
-        authorEmailLabel.setToolTipText("optional, used for model metadata");
+        authorEmailLabel.setToolTipText("optional, used for model meta tags (just like HTML)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -742,7 +742,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(authorEmailLabel, gridBagConstraints);
 
-        authorEmailTextField.setToolTipText("optional, used for model metadata");
+        authorEmailTextField.setToolTipText("optional, used for model meta tags (just like HTML)");
         authorEmailTextField.addFocusListener(new java.awt.event.FocusAdapter()
         {
             public void focusLost(java.awt.event.FocusEvent evt)
@@ -796,8 +796,8 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(verticalSpacerLabel17, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(newX3dModelsDirectoryDescriptionLabel, "Directory path for new X3D models");
-        newX3dModelsDirectoryDescriptionLabel.setToolTipText("Drectory path for new X3D models");
+        org.openide.awt.Mnemonics.setLocalizedText(newX3dModelsDirectoryDescriptionLabel, "New X3D Models, directory path for authors");
+        newX3dModelsDirectoryDescriptionLabel.setToolTipText("New X3D Models directory path for local authoring");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -916,8 +916,8 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(authorExamplesLocationLabel, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(authorExamplesDirectoryDescriptionLabel, "Directory path to X3D Examples Model Archives, locally downloaded");
-        authorExamplesDirectoryDescriptionLabel.setToolTipText("Drectory path to local copies of X3D Examples Model Archives");
+        org.openide.awt.Mnemonics.setLocalizedText(authorExamplesDirectoryDescriptionLabel, "X3D Examples Model Archives, locally downloaded directory path");
+        authorExamplesDirectoryDescriptionLabel.setToolTipText("X3D Examples Model Archives, locally downloaded directory path");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
@@ -1007,7 +1007,9 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(authorExamplesDirectoryDefaultButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(downloadLocalExamplesArchivesButton, "Download local examples");
+        downloadLocalExamplesArchivesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/Icon_download_32x32.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(downloadLocalExamplesArchivesButton, "Download X3D Examples");
+        downloadLocalExamplesArchivesButton.setToolTipText("Download X3D Examples");
         downloadLocalExamplesArchivesButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -1019,7 +1021,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(downloadLocalExamplesArchivesButton, gridBagConstraints);
 
@@ -8302,7 +8304,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(20, 6, 6, 3);
         x3dSecurityPanel.add(securityResourcesLabel, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(reportSecurityPanelButton, "Report");
+        org.openide.awt.Mnemonics.setLocalizedText(reportSecurityPanelButton, "Feedback");
         reportSecurityPanelButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportSecurityPanelButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -8712,12 +8714,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 
         x3dOptionsTabbedPane.addTab(NbBundle.getMessage(getClass(), "Security_Tab_Title"), x3dSecurityPanel); // NOI18N
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-        add(x3dOptionsTabbedPane, gridBagConstraints);
+        add(x3dOptionsTabbedPane, new java.awt.GridBagConstraints());
     }// </editor-fold>//GEN-END:initComponents
     private void freeWrlChooserButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_freeWrlChooserButtonActionPerformed
     {//GEN-HEADEREND:event_freeWrlChooserButtonActionPerformed
@@ -10599,27 +10596,27 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_otherVolumeEditorPathTFFocusLost
 
     private void reportPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportPlayerButtonActionPerformed
-        reportButtonSend ("Panel Preferences: X3D Players tab");
+        feedbackButtonSend ("Panel Preferences: X3D Players tab");
     }//GEN-LAST:event_reportPlayerButtonActionPerformed
 
     private void reportModelingToolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportModelingToolsButtonActionPerformed
-        reportButtonSend ("Panel Preferences: X3D Modeling Tools tab");
+        feedbackButtonSend ("Panel Preferences: X3D Modeling Tools tab");
     }//GEN-LAST:event_reportModelingToolsButtonActionPerformed
 
     private void reportImageVolumeToolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportImageVolumeToolsButtonActionPerformed
-        reportButtonSend ("Panel Preferences: Image and Volume Tools tab");
+        feedbackButtonSend ("Panel Preferences: Image and Volume Tools tab");
     }//GEN-LAST:event_reportImageVolumeToolsButtonActionPerformed
 
     private void reportWebMultimediaToolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportWebMultimediaToolsButtonActionPerformed
-        reportButtonSend ("Panel Preferences: Web and Multimedia Tools tab");
+        feedbackButtonSend ("Panel Preferences: Web and Multimedia Tools tab");
     }//GEN-LAST:event_reportWebMultimediaToolsButtonActionPerformed
 
     private void reportVisualizationPreferencesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportVisualizationPreferencesButtonActionPerformed
-        reportButtonSend ("Panel Preferences: Visualization Settings tab");
+        feedbackButtonSend ("Panel Preferences: Visualization Settings tab");
     }//GEN-LAST:event_reportVisualizationPreferencesButtonActionPerformed
 
     private void reportSecurityPanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportSecurityPanelButtonActionPerformed
-        reportButtonSend ("Panel Preferences: X3D Security tab");
+        feedbackButtonSend ("Panel Preferences: X3D Security tab");
     }//GEN-LAST:event_reportSecurityPanelButtonActionPerformed
 
     private void viewX3dResourcesSecurityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewX3dResourcesSecurityButtonActionPerformed
@@ -10883,7 +10880,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void reportAuthorButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_reportAuthorButtonActionPerformed
     {//GEN-HEADEREND:event_reportAuthorButtonActionPerformed
-        reportButtonSend ("Panel Preferences: Author settings tab");
+        feedbackButtonSend ("Panel Preferences: Author settings tab");
     }//GEN-LAST:event_reportAuthorButtonActionPerformed
 
     private void newX3dModelsDirectoryTFFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryTFFocusLost
@@ -10983,7 +10980,7 @@ for Extensible 3D (X3D) Graphics International Standard.
         readmeWriter.close();
     }
 
-    public static void reportButtonSend (String panelName)
+    public static void feedbackButtonSend (String panelName)
     {
         // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))

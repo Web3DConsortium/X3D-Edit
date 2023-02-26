@@ -93,7 +93,7 @@ public abstract class XMLC14NBaseAction extends BaseX3DEditAction
     catch (IOException | ClassNotFoundException | IllegalAccessException | InstantiationException | MissingResourceException | BadLocationException | CanonicalizationException | InvalidCanonicalizerException ex) {  //todo, specific msgs for spec exceptions
       //NotifyDescriptor.Exception ed = new NotifyDescriptor.Exception(ex);
       NotifyDescriptor.Message msg = new NotifyDescriptor.Message(ex.getLocalizedMessage());
-      DialogDisplayer.getDefault().notifyLater(msg); //ed);
+      DialogDisplayer.getDefault().notify(msg);
     }
   }
 

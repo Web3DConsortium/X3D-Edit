@@ -38,6 +38,7 @@ import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X_ITE_TAB;
 
 @ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX_iteAction", category = "X3D-Edit")
 
@@ -67,6 +68,7 @@ public final class XhtmlX_iteAction extends X3dToXhtmlDomConversionAction {
     protected void initialize()
     {
         setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
+        setPreferredTab(X_ITE_TAB);
         super.initialize(); // last, following setup
     }
 }

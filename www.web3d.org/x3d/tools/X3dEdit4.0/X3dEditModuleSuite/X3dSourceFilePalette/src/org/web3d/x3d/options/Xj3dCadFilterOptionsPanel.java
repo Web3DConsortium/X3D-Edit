@@ -206,7 +206,7 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         debugCheckBox = new javax.swing.JCheckBox();
         spacerLabel = new javax.swing.JLabel();
         verticalSpacerLabel = new javax.swing.JLabel();
-        reportXj3dCadFilterOptionsPanelButton = new javax.swing.JButton();
+        feedbackXj3dCadFilterOptionsPanelButton = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(625, 460));
         setPreferredSize(new java.awt.Dimension(709, 460));
@@ -654,13 +654,13 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(verticalSpacerLabel, gridBagConstraints);
 
-        reportXj3dCadFilterOptionsPanelButton.setText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.reportXj3dCadFilterOptionsPanelButton.text")); // NOI18N
-        reportXj3dCadFilterOptionsPanelButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
-        reportXj3dCadFilterOptionsPanelButton.addActionListener(new java.awt.event.ActionListener()
+        feedbackXj3dCadFilterOptionsPanelButton.setText(org.openide.util.NbBundle.getMessage(Xj3dCadFilterOptionsPanel.class, "Xj3dCadFilterOptionsPanel.feedbackXj3dCadFilterOptionsPanelButton.text")); // NOI18N
+        feedbackXj3dCadFilterOptionsPanelButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
+        feedbackXj3dCadFilterOptionsPanelButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                reportXj3dCadFilterOptionsPanelButtonActionPerformed(evt);
+                feedbackXj3dCadFilterOptionsPanelButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -668,7 +668,7 @@ public class Xj3dCadFilterOptionsPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(reportXj3dCadFilterOptionsPanelButton, gridBagConstraints);
+        add(feedbackXj3dCadFilterOptionsPanelButton, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
   private void resetButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_resetButtonActionPerformed
@@ -714,9 +714,9 @@ private void indexFilterCheckBoxActionPerformed(java.awt.event.ActionEvent evt) 
         // TODO add your handling code here:
     }//GEN-LAST:event_logLevelCBActionPerformed
 
-    private void reportXj3dCadFilterOptionsPanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportXj3dCadFilterOptionsPanelButtonActionPerformed
-        (new X3dEditUserPreferencesPanel()).reportButtonSend ("Panel Preferences: Xj3D CAD Filter Options tab");
-    }//GEN-LAST:event_reportXj3dCadFilterOptionsPanelButtonActionPerformed
+    private void feedbackXj3dCadFilterOptionsPanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedbackXj3dCadFilterOptionsPanelButtonActionPerformed
+        (new X3dEditUserPreferencesPanel()).feedbackButtonSend ("Panel Preferences: Xj3D CAD Filter Options tab");
+    }//GEN-LAST:event_feedbackXj3dCadFilterOptionsPanelButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox IFStoITSCheckBox;
@@ -735,6 +735,7 @@ private void indexFilterCheckBoxActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JCheckBox defNameShortenedCheckBox;
     private javax.swing.JCheckBox defUseImageTextureCheckBox;
     private javax.swing.JCheckBox embedPrototypesCheckBox;
+    private javax.swing.JButton feedbackXj3dCadFilterOptionsPanelButton;
     private javax.swing.JPanel filterMethodsPanel;
     private javax.swing.JCheckBox flattenSelectableCheckBox;
     private javax.swing.JCheckBox flattenTextureTransformsCheckBox;
@@ -752,7 +753,6 @@ private void indexFilterCheckBoxActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JCheckBox minimumProfileCheckBox;
     private javax.swing.JCheckBox modifyViewpointCheckBox;
     private javax.swing.JCheckBox reIndexCheckBox;
-    private javax.swing.JButton reportXj3dCadFilterOptionsPanelButton;
     private javax.swing.JButton resetButton;
     private javax.swing.JPanel sceneResultsPanel;
     private javax.swing.JLabel spacerLabel;
