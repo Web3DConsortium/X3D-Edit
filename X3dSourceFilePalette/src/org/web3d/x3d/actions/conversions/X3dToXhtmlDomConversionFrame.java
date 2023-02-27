@@ -2725,12 +2725,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private void activeX3dModelDirectoryServerListComboBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_activeX3dModelDirectoryServerListComboBoxActionPerformed
     {//GEN-HEADEREND:event_activeX3dModelDirectoryServerListComboBoxActionPerformed
         checkActiveX3dModelListSizes("activeX3dModelDirectoryServerListComboBoxActionPerformed");
-        activeX3dModelServerSelection = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
+        activeX3dModelServerSelection = activeX3dModelDirectoryServerListComboBox.getSelectedIndex(); // first non-info value is index 1
         if (getActiveServerSelection() <= 0) // TODO reserved index 0?
             return; // no entries
-        portActiveX3dModelServerTextField.setText(activeX3dModelPortList.get(activeX3dModelServerSelection));
-        activeX3dModelServerPort =                  activeX3dModelPortList.get(activeX3dModelServerSelection);
-        // TODO check server status
+        portActiveX3dModelServerTextField.setText(activeX3dModelPortList.get(activeX3dModelServerSelection - 1));
+        activeX3dModelServerPort =                  activeX3dModelPortList.get(activeX3dModelServerSelection - 1);
+        // TODO check server status, update display
     }//GEN-LAST:event_activeX3dModelDirectoryServerListComboBoxActionPerformed
 
     private void activeX3dModelDirectoryServerListComboBoxItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_activeX3dModelDirectoryServerListComboBoxItemStateChanged
@@ -3418,15 +3418,14 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
              exampleArchivesServerStatusLabel.setToolTipText(PORT_OPEN + X3dEditUserPreferences.getExampleArchivesServerPort());
              messageBuilder.append(" not bound, ");
         } 
-        
+        // ActiveX3dModel 
         int index = 0;
-        if (activeX3dModelDirectoryServerListComboBox.getSelectedIndex() > 1)
+        if (activeX3dModelServerSelection > 0)
         {
-            index = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
-        //  activeX3dModelNameList.get(indexList); // should be displayed by combobox
-        //  activeX3dModelDirectoryList.get(index);
-            portActiveX3dModelServerTextField.setText(activeX3dModelPortList.get(index));
-        //  activeX3dModelProcessList.get(index);
+            portActiveX3dModelServerTextField.setText(activeX3dModelPortList.get(activeX3dModelServerSelection - 1));
+        //  activeX3dModelNameList.get     (activeX3dModelServerSelection - 1);
+        //  activeX3dModelDirectoryList.get(activeX3dModelServerSelection - 1); // should already be displayed by combobox
+        //  activeX3dModelProcessList.get  (activeX3dModelServerSelection - 1);
         }
         else // default combobox selection
         {
@@ -3447,7 +3446,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
              activeX3dModelServerStatusLabel.setToolTipText(PORT_OPEN + currentActiveX3dModelPortValue);
              messageBuilder.append(" not bound, ");
         }
-        if ((index > 0) && (activeX3dModelProcessList.get(index) != null)) // running
+        if ((activeX3dModelServerSelection > 0) && (activeX3dModelProcessList.get(activeX3dModelServerSelection) != null)) // running
         {
             // TODO autolaunch
             startActiveX3dModelServerButton.setText(HTTP_RUNNING);
@@ -3967,19 +3966,19 @@ class LocalFileHandlerOld implements HttpHandler {
         }
         else if (activeX3dModelDirectoryList.contains(modelDirectory))
         {
-            int    activeIndex = activeX3dModelDirectoryList.indexOf(modelDirectory);
-            String activePort  = activeX3dModelPortList.get(activeIndex);
-            if (isPortBound(activePort))
+            activeX3dModelServerSelection = activeX3dModelDirectoryList.indexOf(modelDirectory);
+            activeX3dModelServerPort      = activeX3dModelPortList.get(activeX3dModelServerSelection - 1);
+            if (isPortBound(activeX3dModelServerPort))
             {
                 System.out.println("*** launchNewActiveX3dModelServer() directory " + modelDirectory + 
-                                   " matching prior activeX3dModelDirectory, no need to launch new server on port=" + activePort);
-                return Integer.parseInt(activePort);
+                                   " matching prior activeX3dModelDirectory, no need to launch new server on port=" + activeX3dModelServerPort);
+                return Integer.parseInt(activeX3dModelServerPort);
             }
             else
             {
                 System.out.println("*** launchNewActiveX3dModelServer() found directory " + modelDirectory + 
-                                   " with localhost http port=" + activePort + " not bound as expected, trying again");
-                // TODO ?
+                                   " with localhost http port=" + activeX3dModelServerPort + " not bound as expected, trying again");
+                // TODO ? otherwise continue with restart
             }
         }
         // modelDirectory not found supported by any server, add to activeX3dModel list
@@ -3999,12 +3998,12 @@ class LocalFileHandlerOld implements HttpHandler {
         }
         // open port found, add entry to lists and continue
         portActiveX3dModelServerTextField.setText(String.valueOf(nextActiveX3dModelServerPort));
-        activeX3dModelPortList.add(String.valueOf(nextActiveX3dModelServerPort));
-        activeX3dModelServerPort =   String.valueOf(nextActiveX3dModelServerPort);
-        activeX3dModelNameList.add(modelName);
+        activeX3dModelPortList.add(               String.valueOf(nextActiveX3dModelServerPort));
+        activeX3dModelServerPort =                  String.valueOf(nextActiveX3dModelServerPort);
+        activeX3dModelNameList.add     (modelName);
         activeX3dModelDirectoryList.add(modelDirectory);
-        activeX3dModelServerSelection = activeX3dModelNameList.indexOf(modelName);
-        activeX3dModelDirectoryServerListComboBox.setSelectedIndex(activeX3dModelServerSelection);
+        activeX3dModelDirectoryServerListComboBox.setSelectedItem(modelDirectory); // re-selects or adds item as appropriate
+        activeX3dModelServerSelection = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
         
         // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
         ArrayList<String> commands = new ArrayList<>();
