@@ -38,6 +38,8 @@ import javax.swing.JEditorPane;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.layout.PatternLayout;
 import org.apache.logging.log4j.core.appender.WriterAppender;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -75,9 +77,18 @@ public final class CanonicalizeC14nAction extends CookieAction
   @Override
   protected void performAction(Node[] activatedNodes)
   {
-    X3DDataObject dobj = activatedNodes[0].getLookup().lookup(org.web3d.x3d.X3DDataObject.class);
-    X3DEditorSupport supp = dobj.getLookup().lookup(org.web3d.x3d.X3DEditorSupport.class);
-    JEditorPane pane = supp.getOpenedPanes()[0];
+    X3DDataObject x3dDataObject = activatedNodes[0].getLookup().lookup(org.web3d.x3d.X3DDataObject.class);
+    X3DEditorSupport x3DEditorSupport = x3dDataObject.getLookup().lookup(org.web3d.x3d.X3DEditorSupport.class);
+    
+    if (x3DEditorSupport.getOpenedPanes().length == 0)
+    {
+        String message = "Must first open an .x3d model prior to performing conversion.  No action taken.";
+        System.err.println ("*** " + this.getClass().getName() + ": " + message);
+        NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
+        DialogDisplayer.getDefault().notify(msg);
+        return; // no action to perform
+    }
+    JEditorPane pane = x3DEditorSupport.getOpenedPanes()[0];
 
     InputOutput io = IOProvider.getDefault().getIO("Output", false);
     io.select();
