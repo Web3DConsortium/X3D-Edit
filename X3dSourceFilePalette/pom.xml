@@ -25,6 +25,7 @@
             </roles>
         </developer>
         <developer>
+            <id>terry-norbraten</id>
             <name>Terry D. Norbraten</name>
             <email>tdnorbra@nps.edu</email>
             <organization>MOVES Institute</organization>
@@ -62,10 +63,18 @@
         <url>https://github.com/Web3DConsortium/X3D-Edit/issues</url>
     </issueManagement>
     <distributionManagement>
+        <!-- TODO: Placeholders for now. Determine real plugin site URLs -->
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
         <site>
-            <!-- TODO: Placeholders for now. Determine real plugin site URLs -->
             <name>${project.name} Website</name>
-            <url>https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/org-web3d-x3d-palette.nbm/download/</url>
+            <url>https://savage.nps.edu/${project.name}/</url>
         </site>
     </distributionManagement>
     <properties>
@@ -84,6 +93,9 @@
             <artifactId>org-netbeans-api-annotations-common</artifactId>
             <version>RELEASE170</version>
         </dependency>
+        <!-- TODO: put all other module dependencies here. Mimic project.xml -->
+        <!-- NOTE: Some dependencies like OpenDIS and Xj3D aren't in the central
+                   repo and will have to be installed locally -->
     </dependencies>
     <build>
         <plugins>
