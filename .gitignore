@@ -1,1 +1,11 @@
+/build/
+.DS_Store
 /nbproject/private/
+/target/
+/X3dSourceFilePalette/build/
+/X3dSourceFilePalette/nbproject/private/
+/X3dSourceFilePalette/moduleVersion.properties
+/X3dSourceFilePalette/src/main/java/org/web3d/x3d/specifications/
+/X3dSourceFilePalette/src/main/java/org/web3d/x3d/schematron/
+/X3dSourceFilePalette/src/main/java/org/web3d/x3d/stylesheets/
+/X3dSourceFilePalette/target/

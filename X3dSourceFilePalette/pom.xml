@@ -6,8 +6,8 @@
     <name>X3D-Edit</name>
     <description>X3D-Edit supports creation, authoring, validation and viewing of X3D graphics model files</description>
     <url>https://github.com/Web3DConsortium/X3D-Edit/tree/master/X3dSourceFilePalette/</url>
-    <inceptionYear><!-- TODO --></inceptionYear>
-    <version>4.0.0</version>
+    <inceptionYear>1999</inceptionYear>
+    <version>4.0.27</version>
     <packaging>nbm</packaging>
     <organization>
         <name>Web3D Consortium</name>
@@ -74,7 +74,7 @@
         </repository>
         <site>
             <name>${project.name} Website</name>
-            <url>https://savage.nps.edu/${project.name}/</url>
+            <url>https://savage.nps.edu/X3D-Edit/</url>
         </site>
     </distributionManagement>
     <properties>
@@ -99,6 +99,17 @@
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
@@ -160,6 +171,20 @@
                 <configuration>
                     <useDefaultManifestFile>true</useDefaultManifestFile>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
