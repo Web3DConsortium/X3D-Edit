@@ -1,0 +1,9 @@
+If the ssh-agent drops identities, have to put them back for command line git to
+work w/ ssh keys. Test by:
+
+> ssh-add -L
+
+If no keys are loaded, then:
+
+> eval "$(ssh-agent -s)"
+> ssh-add ~/.ssh/id_github_rsa

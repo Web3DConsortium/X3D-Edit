@@ -273,7 +273,7 @@
              
         <echo message="openssl pull down the new/updated server cert"/>
         <!-- OpenSSL hack: https://serverfault.com/questions/139728/how-to-download-the-ssl-certificate-from-a-website -->
-        <exec executable="bash" dir="release/modules/ext" os="mac">
+        <exec executable="zsh" dir="release/modules/ext" osfamily="mac">
             <arg value="-c"/>
             <arg value="openssl s_client -servername ${cert.server.alias} -connect ${cert.server.alias}:443 | openssl x509 &gt; ${cert.server.alias}.cer"/>
         </exec>
@@ -298,7 +298,7 @@
         </exec>
         
         <echo message="keytool imports the updated Savage server cert into the keystore"/>
-        <exec executable="keytool" dir="release/modules/ext" os="mac">
+        <exec executable="keytool" dir="release/modules/ext" osfamily="mac">
             <arg line="-import -noprompt -alias ${cert.server.alias} -file ${cert.server.alias}.cer -storepass ${storepass} -keystore server-cert-keystore.jks"/>
         </exec>
         <exec executable="keytool" dir="release/modules/ext" os="windows">
@@ -306,20 +306,21 @@
         </exec>
         
         <!-- Delete the server cert as it's now imported into the JKS -->
+        <!-- Use target inspect.server.cert to verify this -->
         <delete>
             <fileset dir="release/modules/ext">
-                <filename name="${cert.server.alias}"/>
+                <filename name="${cert.server.alias}.*"/>
             </fileset>
         </delete>
     </target>
     
-    <target name="list.server.cert" description="Lists the contents of the release/modules/ext/server-cert-keystore.jks">
+    <target name="inspect.server.cert" description="Lists the contents of the release/modules/ext/server-cert-keystore.jks">
         <exec executable="keytool" dir="release/modules/ext">
             <arg line="-list -v -keystore server-cert-keystore.jks -storepass ${storepass}"/>
         </exec>
     </target>
     
-    <target name="list.nbm.self.signing.cert" depends="init" description="Lists the contents of this module's NBM self-signing cert">
+    <target name="inspect.nbm.self.signing.cert" depends="init" description="Lists the contents of this module's NBM self-signing cert">
         <exec executable="keytool">
             <arg line="-list -v -keystore ${keystore} -storepass ${storepass}"/>
         </exec>

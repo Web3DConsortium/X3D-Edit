@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.web3d.x3d.tools</groupId>
+    <artifactId>x3dedit</artifactId>
+    <name>X3D-Edit</name>
+    <description>X3D-Edit supports creation, authoring, validation and viewing of X3D graphics model files</description>
+    <url>https://github.com/Web3DConsortium/X3D-Edit/</url>
+    <inceptionYear><!-- TODO --></inceptionYear>
+    <version>4.0.0</version>
+    <packaging>nbm</packaging>
+    <organization>
+        <name>Web3D Consortium</name>
+        <url>https://www.web3d.org/</url>
+    </organization>
+    <developers>
+        <developer>
+            <name>Don Brutzman, Ph.D.</name>
+            <email>brutzman@nps.edu</email>
+            <organization>MOVES Institute</organization>
+            <organizationUrl>https://my.nps.edu/web/moves/</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Terry D. Norbraten</name>
+            <email>tdnorbra@nps.edu</email>
+            <organization>MOVES Institute</organization>
+            <organizationUrl>https://my.nps.edu/web/moves/</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Mike Bailey</name>
+            <email>mike@blueoak.com</email>
+            <organization>Retired</organization>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>license.txt</name>
+            <url>https://github.com/Web3DConsortium/X3D-Edit/blob/master/license.txt</url>
+            <distribution>repo</distribution>
+            <comments>A non-viral, business friendly, BSD Style license</comments>
+        </license>
+    </licenses>
+    <scm>
+        <!-- TODO: Need to verify these URLs -->
+        <connection>scm:git:https://github.com:Web3DConsortium/X3D-Edit.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:Web3DConsortium/X3D-Edit.git</developerConnection>
+        <url>https://github.com/Web3DConsortium/X3D-Edit</url>
+        <tag>HEAD</tag>
+    </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/Web3DConsortium/X3D-Edit/issues</url>
+    </issueManagement>
+    <distributionManagement>
+        <site>
+            <!-- TODO: Placeholders for now. Determine real plugin site URLs -->
+            <name>${project.name} Website</name>
+            <url>https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/org-web3d-x3d-palette.nbm/download/</url>
+        </site>
+    </distributionManagement>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-api-annotations-common</artifactId>
+            <version>RELEASE170</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>nbm</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <!-- Here is where we ask the Ant harness to buidl the NBM -->
+                            <target>
+                                <ant antfile="${basedir}/build.xml">
+                                    <target name="nbm"/>
+                                </ant>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.netbeans.utilities</groupId>
+                <artifactId>nbm-maven-plugin</artifactId>
+                <version>4.8</version>
+                <extensions>true</extensions>
+                <executions>
+                <!-- TODO: Prep for total maven production of the NBM -->
+<!--                    <execution>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <nbmResource>
+                                <directory>release/modules/lib</directory>
+                                <targetPath>modules/lib</targetPath>
+                                <includes>
+                                    <include>**/*.dll</include>
+                                    <include>**/*.so</include>
+                                    <include>**/*.jnlib</include>
+                                </includes>
+                            </nbmResource>
+                        </configuration>
+                    </execution>-->
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <showDeprecation>true</showDeprecation>
+                    <release>${maven.compiler.release}</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <useDefaultManifestFile>true</useDefaultManifestFile>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.4.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.4.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-changes-plugin</artifactId>
+                <version>2.12.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>animal-sniffer-maven-plugin</artifactId>
+                <version>1.22</version>
+            </plugin>
+        </plugins>
+    </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>index</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>
