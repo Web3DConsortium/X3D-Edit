@@ -5,7 +5,7 @@
     <artifactId>x3dedit</artifactId>
     <name>X3D-Edit</name>
     <description>X3D-Edit supports creation, authoring, validation and viewing of X3D graphics model files</description>
-    <url>https://github.com/Web3DConsortium/X3D-Edit/</url>
+    <url>https://github.com/Web3DConsortium/X3D-Edit/tree/master/X3dSourceFilePalette/</url>
     <inceptionYear><!-- TODO --></inceptionYear>
     <version>4.0.0</version>
     <packaging>nbm</packaging>
@@ -54,7 +54,7 @@
         <!-- TODO: Need to verify these URLs -->
         <connection>scm:git:https://github.com:Web3DConsortium/X3D-Edit.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:Web3DConsortium/X3D-Edit.git</developerConnection>
-        <url>https://github.com/Web3DConsortium/X3D-Edit</url>
+        <url>https://github.com/Web3DConsortium/X3D-Edit/tree/master/X3dSourceFilePalette/</url>
         <tag>HEAD</tag>
     </scm>
     <issueManagement>
