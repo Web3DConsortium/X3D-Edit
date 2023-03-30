@@ -119,7 +119,8 @@
                         <id>nbm</id>
                         <phase>package</phase>
                         <configuration>
-                            <!-- Here is where we ask the Ant harness to buidl the NBM -->
+                            <!-- Here is where we ask the Ant harness to build 
+                                 the NBM. CLI: mvn antrun:run@nbm -->
                             <target>
                                 <ant antfile="${basedir}/build.xml">
                                     <target name="nbm"/>
@@ -140,6 +141,7 @@
                 <executions>
                 <!-- TODO: Prep for total maven production of the NBM -->
 <!--                    <execution>
+                        <id>natives</id>
                         <phase>prepare-package</phase>
                         <configuration>
                             <nbmResource>
@@ -175,7 +177,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
