@@ -311,7 +311,28 @@
                     </test-dependency>
                 </test-type>
             </test-dependencies>
-            <public-packages/>
+            <public-packages>
+                <package>com.sauria.apachexml.ch10</package>
+                <package>edu.nps.moves</package>
+                <package>net.java.dev.colorchooser</package>
+                <package>org.apache.commons.httpclient.contrib.ssl</package>
+                <package>org.web3d.x3d</package>
+                <package>org.web3d.x3d.actions</package>
+                <package>org.web3d.x3d.actions.conversions</package>
+                <package>org.web3d.x3d.actions.qualityassurance</package>
+                <package>org.web3d.x3d.actions.security</package>
+                <package>org.web3d.x3d.config</package>
+                <package>org.web3d.x3d.config.util</package>
+                <package>org.web3d.x3d.dis</package>
+                <package>org.web3d.x3d.dis.playerrecorder</package>
+                <package>org.web3d.x3d.options</package>
+                <package>org.web3d.x3d.palette</package>
+                <package>org.web3d.x3d.palette.items</package>
+                <package>org.web3d.x3d.thirdparty</package>
+                <package>org.web3d.x3d.types</package>
+                <package>org.web3d.x3d.xj3d.viewer</package>
+                <package>xj3d.converter</package>
+            </public-packages>
             <class-path-extension>
                 <runtime-relative-path>ext/bcprov.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/bcprov.jar</binary-origin>

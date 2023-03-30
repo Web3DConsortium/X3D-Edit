@@ -5,9 +5,9 @@
     <artifactId>x3dedit</artifactId>
     <name>X3D-Edit</name>
     <description>X3D-Edit supports creation, authoring, validation and viewing of X3D graphics model files</description>
-    <url>https://github.com/Web3DConsortium/X3D-Edit/tree/master/X3dSourceFilePalette/</url>
+    <url>https://github.com/Web3DConsortium/X3D-Edit/</url>
     <inceptionYear>1999</inceptionYear>
-    <version>4.0.27</version>
+    <version>4.0.27-SNAPSHOT</version>
     <packaging>nbm</packaging>
     <organization>
         <name>Web3D Consortium</name>
@@ -15,6 +15,7 @@
     </organization>
     <developers>
         <developer>
+            <id>brutzman</id>
             <name>Don Brutzman, Ph.D.</name>
             <email>brutzman@nps.edu</email>
             <organization>MOVES Institute</organization>
@@ -53,10 +54,10 @@
     </licenses>
     <scm>
         <!-- TODO: Need to verify these URLs -->
-        <connection>scm:git:https://github.com:Web3DConsortium/X3D-Edit.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:Web3DConsortium/X3D-Edit.git</developerConnection>
-        <url>https://github.com/Web3DConsortium/X3D-Edit/tree/master/X3dSourceFilePalette/</url>
-        <tag>HEAD</tag>
+        <connection>scm:git:git://github.com:Web3DConsortium/X3D-Edit.git</connection>
+        <developerConnection>scm:git:ssh://github.com:Web3DConsortium/X3D-Edit.git</developerConnection>
+        <url>https://github.com/Web3DConsortium/X3D-Edit/tree/${project.scm.tag}/X3dSourceFilePalette/</url>
+        <tag>master</tag>
     </scm>
     <issueManagement>
         <system>GitHub</system>
@@ -66,11 +67,11 @@
         <!-- TODO: Placeholders for now. Determine real plugin site URLs -->
         <snapshotRepository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
         <site>
             <name>${project.name} Website</name>
@@ -107,6 +108,7 @@
                 <configuration>
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <!-- Set this to true and the release will automatically proceed and sync to Central Repository will follow  -->
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
@@ -189,8 +191,29 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.4.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
