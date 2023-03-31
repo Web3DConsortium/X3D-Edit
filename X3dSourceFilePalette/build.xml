@@ -338,15 +338,16 @@
                              type="default" releases="false" snapshots="true" 
                              updates="always" checksums="fail"/>
     
-        <!--    <resolver:remoterepo id="rel" url="${ossrh-staging-repository-url}" 
+        <!--    <resolver:remoterepo id="ossrh" url="${ossrh-staging-repository-url}" 
         type="default" releases="true" snapshots="false" 
         updates="daily" checksums="warn"/>-->
     
+        <!-- Can use ${pom.property} syntax with this -->
         <resolver:pom file="pom.xml" id="pom"/>
     </target>
     
-    <target name="deploy" depends="prepare.repositories">
-        <!--<move file="${build.dir}/${code-name-base}.nbm" toFile="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>-->
+    <target name="deploy" depends="clean,nbm,prepare.repositories">
+        <move file="${build.dir}/${code-name-base}.nbm" toFile="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
         <resolver:artifacts id="snapshot">
             <artifact file="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
         </resolver:artifacts>
@@ -355,7 +356,7 @@
         </resolver:deploy>
     </target>
     
-    <target name="package" depends="clean, nbm, javadoc" description="Prepare for a Maven release">
+    <target name="package" depends="clean,nbm,javadoc" description="Prepare for a Maven release">
         <move file="${build.dir}/${code-name-base}.nbm" toFile="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
         
         <!-- build the javadoc jar -->
@@ -375,11 +376,11 @@
         </resolver:artifacts>
     </target>
     
-    <target name="stage" depends="package, prepare.repositories">
+    <target name="stage" depends="package,prepare.repositories">
         <resolver:deploy artifactsref="release">
             <remoteRepo refid="rel"/>
         </resolver:deploy>
     </target>
-    <!-- Now, close and release on https://oss.sonatype.org after the release is uploaded -->
+    <!-- Now, close and release on https://oss.sonatype.org after the release hss uploaded -->
 
 </project>
