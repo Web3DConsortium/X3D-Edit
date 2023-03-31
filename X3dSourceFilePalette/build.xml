@@ -332,31 +332,37 @@
     
     <!-- Maven deploy targets -->
     
+    <!-- deploy will prepare, sign and deploy a snapshot version of of the NBM 
+         to the snapshot repository.
+    
+         stage will prepare, sign and deploy all artifacts to the staging 
+         repository where the package upload can then be closed and released -->
+    
     <target name="prepare.repositories" depends="init">
     
-        <resolver:remoterepo id="ossrh" url="${ossrh-snapshots-repository-url}" 
+        <resolver:remoterepo id="${ossrh-server-id}" url="${ossrh-snapshots-repository-url}" 
                              type="default" releases="false" snapshots="true" 
                              updates="always" checksums="fail"/>
     
-        <!--    <resolver:remoterepo id="ossrh" url="${ossrh-staging-repository-url}" 
-        type="default" releases="true" snapshots="false" 
-        updates="daily" checksums="warn"/>-->
+        <resolver:remoterepo id="${ossrh-server-id}" url="${ossrh-staging-repository-url}" 
+                             type="default" releases="true" snapshots="false" 
+                             updates="daily" checksums="warn"/>
     
         <!-- Can use ${pom.property} syntax with this -->
         <resolver:pom file="pom.xml" id="pom"/>
     </target>
     
-    <target name="deploy" depends="clean,nbm,prepare.repositories">
+    <target name="deploy" depends="clean,nbm-nosignature,prepare.repositories">
         <move file="${build.dir}/${code-name-base}.nbm" toFile="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
         <resolver:artifacts id="snapshot">
             <artifact file="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
         </resolver:artifacts>
         <resolver:deploy artifactsref="snapshot">
-            <remoteRepo refid="ossrh"/>
+            <remoteRepo refid="${ossrh-server-id}"/>
         </resolver:deploy>
     </target>
     
-    <target name="package" depends="clean,nbm,javadoc" description="Prepare for a Maven release">
+    <target name="package" depends="clean,nbm-nosignature,javadoc" description="Prepare for a Maven release">
         <move file="${build.dir}/${code-name-base}.nbm" toFile="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
         
         <!-- build the javadoc jar -->
@@ -378,7 +384,7 @@
     
     <target name="stage" depends="package,prepare.repositories">
         <resolver:deploy artifactsref="release">
-            <remoteRepo refid="rel"/>
+            <remoteRepo refid="${ossrh-server-id}"/>
         </resolver:deploy>
     </target>
     <!-- Now, close and release on https://oss.sonatype.org after the release hss uploaded -->

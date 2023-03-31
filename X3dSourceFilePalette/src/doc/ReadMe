@@ -7,3 +7,20 @@ If no keys are loaded, then:
 
 > eval "$(ssh-agent -s)"
 > ssh-add ~/.ssh/id_github_rsa
+
+To access snapshot dependencies, place this excerpt in a pom.xml:
+<dependencies>
+    <dependency>
+        <groupId>org.web3d.x3d.tools</groupId>
+        <artifactId>x3dedit</artifactId>
+        <version>4.0.27-SNAPSHOT</version>
+        <type>nbm</type>
+    </dependency>
+</dependencies>
+<repositories>
+    <repository>
+        <id>maven-snapshots</id>
+        <name>Maven Snapshot Repo</name>
+        <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+    </repository>
+</repositories>
