@@ -53,7 +53,6 @@
         </license>
     </licenses>
     <scm>
-        <!-- TODO: Need to verify these URLs -->
         <connection>scm:git:git://github.com:Web3DConsortium/X3D-Edit.git</connection>
         <developerConnection>scm:git:ssh://github.com:Web3DConsortium/X3D-Edit.git</developerConnection>
         <url>https://github.com/Web3DConsortium/X3D-Edit/tree/${project.scm.tag}/X3dSourceFilePalette/</url>
@@ -64,7 +63,6 @@
         <url>https://github.com/Web3DConsortium/X3D-Edit/issues</url>
     </issueManagement>
     <distributionManagement>
-        <!-- TODO: Placeholders for now. Determine real plugin site URLs -->
         <snapshotRepository>
             <id>ossrh</id>
             <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
@@ -103,7 +101,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
+                <version>1.6.8</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
@@ -193,7 +191,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
