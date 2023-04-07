@@ -24,3 +24,7 @@ To access snapshot dependencies, place this excerpt in a pom.xml:
         <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
     </repository>
 </repositories>
+
+Version preparation:
+Project Properties -> API Versioning -> Implementation Version
+pom.xml (version tag)

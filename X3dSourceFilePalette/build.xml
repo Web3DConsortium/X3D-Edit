@@ -330,63 +330,137 @@
         </exec>
     </target>
     
-    <!-- Maven deploy targets -->
+    <!-- Maven deploy/release targets -->
     
-    <!-- deploy will prepare, sign and deploy a snapshot version of of the NBM 
-         to the snapshot repository.
+    <!-- deploy will prepare, sign and deploy a snapshot version of the NBM to 
+         the snapshot repository.
     
-         stage will prepare, sign and deploy all artifacts to the staging 
-         repository where the package upload can then be closed and released -->
+         stage will prepare, sign and deploy all release artifacts to the 
+         staging repository where the package upload can then be closed and 
+         released from https://s01.oss.sonatype.org
+    -->
     
     <target name="prepare.repositories" depends="init">
     
-        <resolver:remoterepo id="${ossrh-server-id}" url="${ossrh-snapshots-repository-url}" 
+        <!-- Can use ${pom.property} syntax with this -->
+        <resolver:pom file="pom.xml" id="pom"/>
+        
+        <property name="snapshot.nbm" value="${build.dir}/${pom.artifactId}-${pom.version}-SNAPSHOT.nbm"/>
+        <property name="release.nbm" value="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
+        <property name="sources.jar"  value="${build.dir}/${pom.artifactId}-${pom.version}-sources.jar"/>
+        <property name="javadoc.jar"  value="${build.dir}/${pom.artifactId}-${pom.version}-javadoc.jar"/>
+    
+        <resolver:remoterepo id="snapshot-repo" url="${ossrh-snapshots-repository-url}" 
                              type="default" releases="false" snapshots="true" 
                              updates="always" checksums="fail"/>
     
-        <resolver:remoterepo id="${ossrh-server-id}" url="${ossrh-staging-repository-url}" 
+        <resolver:remoterepo id="staging-repo" url="${ossrh-staging-repository-url}" 
                              type="default" releases="true" snapshots="false" 
                              updates="daily" checksums="warn"/>
-    
-        <!-- Can use ${pom.property} syntax with this -->
-        <resolver:pom file="pom.xml" id="pom"/>
     </target>
     
-    <target name="deploy" depends="clean,nbm-nosignature,prepare.repositories">
-        <move file="${build.dir}/${code-name-base}.nbm" toFile="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
+    <target name="deploy.snapshot" depends="clean,nbm,prepare.repositories" 
+            description="Generate and deploy a SNAPSHOT NBM to Sonatype Open Source Software (OSS) Repository Hosting (OSSRH) snapshot repo">
+        <move file="${build.dir}/${code-name-base}.nbm" toFile="${snapshot.nbm}"/>
         <resolver:artifacts id="snapshot">
-            <artifact file="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
+            <artifact file="${snapshot.nbm}"/>
         </resolver:artifacts>
         <resolver:deploy artifactsref="snapshot">
-            <remoteRepo refid="${ossrh-server-id}"/>
+            <remoteRepo refid="snapshot-repo"/>
         </resolver:deploy>
     </target>
     
+    <!-- Override b/c we do not use pack200 any longer -->
+    <target name="nbm-nosignature" depends="init,netbeans,-nbm-prompt-for-storepass,-init-executables" description="Build NBM archive unsigned.">
+        <mkdir dir="${build.dir}"/>
+        <property name="nbm.target.cluster" value=""/> <!-- fallback -->
+        <property name="license.file.override" value="${license.file}"/>
+        <property name="use.pack200" value="false"/> <!-- Override -->
+        <property name="pack200.excludes" value=""/>
+        <property name="nbm.locales" value="${locales}"/>
+        <makenbm file="${build.dir}/${nbm}"
+                 productdir="${cluster}"
+                 module="${module.jar}"
+                 homepage="${nbm.homepage}"
+                 distribution="${nbm.distribution}"
+                 needsrestart="${nbm.needs.restart}"
+                 global="${nbm.is.global}"
+                 preferredupdate="${nbm.is.preferredupdate}"
+                 usepack200="${use.pack200}"
+                 pack200excludes="${pack200.excludes}"
+                 targetcluster="${nbm.target.cluster}"
+                 releasedate="${nbm.release.date}"
+                 moduleauthor="${nbm.module.author}"
+                 locales="${nbm.locales}">
+            <license file="${license.file.override}"/>
+            <updaterjar>
+                <pathfileset>
+                    <path refid="cluster.path.id"/>
+                    <filename name="modules/ext/updater.jar"/>
+                </pathfileset>
+            </updaterjar>
+            <executables refid="module.executable.files"/>
+        </makenbm>
+    </target>
+    
     <target name="package" depends="clean,nbm-nosignature,javadoc" description="Prepare for a Maven release">
-        <move file="${build.dir}/${code-name-base}.nbm" toFile="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
+        <move file="${build.dir}/${code-name-base}.nbm" toFile="${release.nbm}"/>
         
         <!-- build the javadoc jar -->
-        <jar jarfile="${javadoc-jar}">
+        <jar jarfile="${javadoc.jar}">
             <fileset dir="${netbeans.javadoc.dir}"/>
         </jar>
 
         <!-- build the sources jar -->
-        <jar jarfile="${sources-jar}">
+        <jar jarfile="${sources.jar}">
             <fileset dir="${src.dir}"/>
         </jar>
-        
-        <resolver:artifacts id="release">
-            <artifact file="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
-            <artifact file="${build.dir}/${pom.artifactId}-${pom.version}-sources.jar" classifier="sources"/>
-            <artifact file="${build.dir}/${pom.artifactId}-${pom.version}-javadoc.jar" classifier="javadoc"/>
-        </resolver:artifacts>
     </target>
     
-    <target name="stage" depends="package,prepare.repositories">
+    <!-- Macrodef from: https://apache.googlesource.com/pig/+/e22fcb2967489388f07307e3de689a7c9cc9b6f8/build.xml -->
+    <target name="sign" depends="clean.sign">
+        <macrodef name="sign-artifact" description="GPG signs all artifacts">
+            <attribute name="input.file"/>
+            <sequential>
+                <echo>Signing @{input.file}, Sig File: @{input.file}.asc</echo>
+                <exec executable="/Users/terry/opt/anaconda3/bin/gpg" dir="${basedir}" osfamily="mac">
+                    <arg line="-abv @{input.file}"/>
+                </exec>
+                <exec executable="/cygwin/bin/gpg" dir="${basedir}" osfamily="windows">
+                    <arg line="-abv @{input.file}"/>
+                </exec>
+            </sequential>
+        </macrodef>
+        <sign-artifact input.file="pom.xml"/>
+        <sign-artifact input.file="${release.nbm}"/>
+        <sign-artifact input.file="${sources.jar}"/>
+        <sign-artifact input.file="${javadoc.jar}"/>
+    </target>
+    
+    <target name="clean.sign" depends="init" description="Delete .asc files">
+       <delete>
+         <fileset dir="${build.dir}" includes="*.asc"/>
+         <fileset dir="${basedir}" includes="*.asc"/>
+       </delete>
+    </target>
+    
+    <!-- Example for deploying .asc files from here: https://github.com/vigna/dsiutils/blob/master/build.xml -->
+    <target name="stage.release" depends="prepare.repositories,package,sign" 
+            description="Generate and deploy a Release NBM and artifacts to Sonatype Open Source Software (OSS) Repository Hosting (OSSRH) staging repo for synching to Maven Central">
+        <resolver:artifacts id="release">
+            <!-- pom is automatically deployed -->
+            <artifact file="pom.xml.asc" type="pom.asc"/>
+            <artifact file="${release.nbm}"/>
+            <artifact file="${release.nbm}.asc" type="nbm.asc"/>
+            <artifact file="${sources.jar}" classifier="sources"/>
+            <artifact file="${sources.jar}.asc" type="jar.asc" classifier="sources"/>
+            <artifact file="${javadoc.jar}" classifier="javadoc"/>
+            <artifact file="${javadoc.jar}.asc" type="jar.asc" classifier="javadoc"/>
+        </resolver:artifacts>
         <resolver:deploy artifactsref="release">
-            <remoteRepo refid="${ossrh-server-id}"/>
+            <remoteRepo refid="staging-repo"/>
         </resolver:deploy>
     </target>
-    <!-- Now, close and release on https://oss.sonatype.org after the release hss uploaded -->
+    <!-- Now, close, then release on https://s01.oss.sonatype.org after the release artifacts have uploaded -->
 
 </project>
