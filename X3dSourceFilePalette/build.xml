@@ -332,12 +332,12 @@
     
     <!-- Maven deploy/release targets -->
     
-    <!-- deploy will prepare, sign and deploy a snapshot version of the NBM to 
-         the snapshot repository.
+    <!-- deploy.snapshot will prepare, sign and deploy a snapshot version of the 
+         NBM to the Sonatype snapshot repository.
     
-         stage will prepare, sign and deploy all release artifacts to the 
-         staging repository where the package upload can then be closed and 
-         released from https://s01.oss.sonatype.org
+         stage.release will prepare, sign and deploy all release artifacts to 
+         the Sonatype staging repository where the packaged upload can then be 
+         closed and released from https://s01.oss.sonatype.org
     -->
     
     <target name="prepare.repositories" depends="init">
@@ -370,40 +370,7 @@
         </resolver:deploy>
     </target>
     
-    <!-- Override b/c we do not use pack200 any longer -->
-    <target name="nbm-nosignature" depends="init,netbeans,-nbm-prompt-for-storepass,-init-executables" description="Build NBM archive unsigned.">
-        <mkdir dir="${build.dir}"/>
-        <property name="nbm.target.cluster" value=""/> <!-- fallback -->
-        <property name="license.file.override" value="${license.file}"/>
-        <property name="use.pack200" value="false"/> <!-- Override -->
-        <property name="pack200.excludes" value=""/>
-        <property name="nbm.locales" value="${locales}"/>
-        <makenbm file="${build.dir}/${nbm}"
-                 productdir="${cluster}"
-                 module="${module.jar}"
-                 homepage="${nbm.homepage}"
-                 distribution="${nbm.distribution}"
-                 needsrestart="${nbm.needs.restart}"
-                 global="${nbm.is.global}"
-                 preferredupdate="${nbm.is.preferredupdate}"
-                 usepack200="${use.pack200}"
-                 pack200excludes="${pack200.excludes}"
-                 targetcluster="${nbm.target.cluster}"
-                 releasedate="${nbm.release.date}"
-                 moduleauthor="${nbm.module.author}"
-                 locales="${nbm.locales}">
-            <license file="${license.file.override}"/>
-            <updaterjar>
-                <pathfileset>
-                    <path refid="cluster.path.id"/>
-                    <filename name="modules/ext/updater.jar"/>
-                </pathfileset>
-            </updaterjar>
-            <executables refid="module.executable.files"/>
-        </makenbm>
-    </target>
-    
-    <target name="package" depends="clean,nbm-nosignature,javadoc" description="Prepare for a Maven release">
+    <target name="package" depends="clean,nbm,javadoc" description="Prepare for a Maven release">
         <move file="${build.dir}/${code-name-base}.nbm" toFile="${release.nbm}"/>
         
         <!-- build the javadoc jar -->
