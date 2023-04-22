@@ -309,8 +309,8 @@
             <arg line="-import -noprompt -alias ${cert.server.alias} -file ${cert.server.alias}.crt -storepass ${storepass} -keystore server-cert-keystore.jks"/>
         </exec>
 
-        <!-- Delete the server cert as it's now imported into the JKS -->
-        <!-- Use target inspect.server.cert to verify this -->
+        <!-- Delete the downloaded server cert as it's now imported into the JKS -->
+        <!-- Use target inspect.server.cert to verify inclusion in the keystore -->
         <delete>
             <fileset dir="release/modules/ext">
                 <filename name="${cert.server.alias}.*"/>
@@ -318,15 +318,15 @@
         </delete>
     </target>
 
-    <target name="inspect.server.cert" description="Lists the contents of the release/modules/ext/server-cert-keystore.jks">
+    <target name="inspect.server.cert" description="List the ${cert.server.alias} within release/modules/ext/server-cert-keystore.jks">
         <exec executable="keytool" dir="release/modules/ext">
-            <arg line="-list -v -keystore server-cert-keystore.jks -storepass ${storepass}"/>
+            <arg line="-list -v -keystore server-cert-keystore.jks -storepass ${storepass} -alias ${cert.server.alias}"/>
         </exec>
     </target>
 
-    <target name="inspect.nbm.self.signing.cert" depends="init" description="Lists the contents of this module's NBM self-signing cert">
-        <exec executable="keytool">
-            <arg line="-list -v -keystore ${keystore} -storepass ${storepass}"/>
+    <target name="inspect.nbm.self.signing.cert" depends="init" description="Lists the ${nbm_alias} of (NBM self-signing cert) within release/modules/ext/server-cert-keystore.jks">
+        <exec executable="keytool" dir="release/modules/ext">
+            <arg line="-list -v -keystore server-cert-keystore.jks -storepass ${storepass} -alias ${nbm_alias}"/>
         </exec>
     </target>
     
