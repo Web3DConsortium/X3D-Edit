@@ -370,7 +370,7 @@
         </resolver:deploy>
     </target>
     
-    <target name="package" depends="clean,nbm,javadoc" description="Prepare for a Maven release">
+    <target name="package" depends="nbm,javadoc" description="Prepare for a Maven release">
         <move file="${build.dir}/${code-name-base}.nbm" toFile="${release.nbm}"/>
         
         <!-- build the javadoc jar -->
@@ -390,7 +390,7 @@
             <attribute name="input.file"/>
             <sequential>
                 <echo>Signing @{input.file}, Sig File: @{input.file}.asc</echo>
-                <exec executable="/Users/terry/opt/anaconda3/bin/gpg" dir="${basedir}" osfamily="mac">
+                <exec executable="${gpg}" dir="${basedir}" osfamily="mac">
                     <arg line="-abv @{input.file}"/>
                 </exec>
                 <exec executable="/cygwin/bin/gpg" dir="${basedir}" osfamily="windows">
