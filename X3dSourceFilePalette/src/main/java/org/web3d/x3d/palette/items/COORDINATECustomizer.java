@@ -119,8 +119,8 @@ public class COORDINATECustomizer extends BaseCustomizer
 		currentLength = expandableListPoints.getData().length;
 	String title = "point array (" + currentLength + " total points)";
 	if (expandableListPoints.isClosed())
-	       title += " geometry is closed (with coincident endpoints)";
-	else   title += " geometry is open (with distinct endpoints)";
+	       title += " where geometry is closed (with coincident endpoints)";
+	else   title += " where geometry is open (with distinct endpoints)";
 	return title;
   }
   

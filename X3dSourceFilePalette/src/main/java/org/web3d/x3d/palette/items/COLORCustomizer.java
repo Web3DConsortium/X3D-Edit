@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -139,7 +139,7 @@ public class COLORCustomizer extends BaseCustomizer
 
     private void expandableListColorsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_expandableListColorsPropertyChange
         expandableListColors.setTitle("color array (" + expandableListColors.getRowCount() + " total colors)");
-		checkColorValues ();
+	checkColorValues ();
     }//GEN-LAST:event_expandableListColorsPropertyChange
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -151,7 +151,7 @@ public class COLORCustomizer extends BaseCustomizer
   {
 	  String red, green, blue;
 	  float  redValue, greenValue, blueValue;
-      NotifyDescriptor descriptor;
+	  NotifyDescriptor descriptor;
 	  boolean valueChanged = false;
 	  String [][] saa = expandableListColors.getData();
 	  

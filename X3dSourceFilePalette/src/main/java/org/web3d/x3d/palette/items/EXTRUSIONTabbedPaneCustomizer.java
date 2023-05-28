@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -828,10 +828,10 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
         {
             for (int i = 0; i < saa.length; i++)
             {
-                x     = Double.valueOf(saa[i][0]);
-                y     = Double.valueOf(saa[i][1]);
-                z     = Double.valueOf(saa[i][2]);
-                angle = Double.valueOf(saa[i][3]);
+                x     = Double.parseDouble(saa[i][0]);
+                y     = Double.parseDouble(saa[i][1]);
+                z     = Double.parseDouble(saa[i][2]);
+                angle = Double.parseDouble(saa[i][3]);
                 normalizationFactor = Math.sqrt(x * x + y * y + z * z);
                 if (normalizationFactor == 0.0)
                 {
@@ -871,7 +871,7 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
         checkCreaseAngle (true);
         double angle;
 
-        angle = Double.valueOf(creaseAngleTF.getText());
+        angle = Double.parseDouble(creaseAngleTF.getText());
         if (angle == -0.0)
         {
             angle = 0.0;
@@ -930,11 +930,11 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
         String[][] saaCrossSection = expandableListCrossSection.getData();
         if ((saaCrossSection.length >= 2) && isCrossSectionClosed())
         {
-            expandableListCrossSection.setTitle("crossSection array geometry is closed (with coincident endpoints)");
+            expandableListCrossSection.setTitle("crossSection array where geometry is closed (with coincident endpoints)");
         }
         else if (saaCrossSection.length >= 2)
         {
-            expandableListCrossSection.setTitle("crossSection array geometry is open (with distinct endpoints)");
+            expandableListCrossSection.setTitle("crossSection array where geometry is open (with distinct endpoints)");
         }
         else
         {
@@ -1022,8 +1022,8 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
 				tabbedPane.setTitleAt      (1, "<html>crossSection array ["                   + expandableListCrossSection.getRowCount() + "] " + crossSectionStatus + ", plot display");
             	tabTooltip = "crossSection is extruded along spine axis";
 				if (isCrossSectionClosed())
-					 tabTooltip += ", crossSection array geometry is closed (with coincident endpoints)";
-				else tabTooltip += ", crossSection array geometry is open (with distinct endpoints)";
+					 tabTooltip += ", crossSection array where geometry is closed (with coincident endpoints)";
+				else tabTooltip += ", crossSection array where geometry is open (with distinct endpoints)";
                 tabbedPane.setToolTipTextAt(1, tabTooltip);
 			}
             
@@ -1037,8 +1037,8 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
                 tabTitle   = "<html>spine array [" +                   expandableListSpine.getRowCount() + "] " + spineStatus;
                 tabTooltip = "spine points are central axis of Extrusion";
 				if (isSpineClosed())
-					 tabTooltip += ", spine array geometry is closed (with coincident endpoints)";
-				else tabTooltip += ", spine array geometry is open (with distinct endpoints)";
+					 tabTooltip += ", spine array where geometry is closed (with coincident endpoints)";
+				else tabTooltip += ", spine array where geometry is open (with distinct endpoints)";
             }
             if  ((expandableListScale.getRowCount() != 0) && (expandableListScale.getRowCount() != 1) && (expandableListScale.getRowCount() != expandableListSpine.getRowCount()))
             {
@@ -1275,7 +1275,7 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
               finalOrientationTextField.setText("0.0");
         // indicate degree values in tooltips
         // usability note:  can enter degree values (-6..+6) as (354..366) to provoke this conversion check
-        double angle = Double.valueOf(initialOrientationTextField.getText());
+        double angle = Double.parseDouble(initialOrientationTextField.getText());
         initialOrientationTextField.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
         if ((Math.abs(angle) > 2.0 * Math.PI) && !largeRadianAnglesConfirmed)
         {
@@ -1334,7 +1334,7 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
 
         for (int i = 0; i < saa.length; i++)
         {
-            double angle = Double.valueOf(saa[i][3]);
+            double angle = Double.parseDouble(saa[i][3]);
             if (Math.abs(angle) > 2.0 * Math.PI)
             {
                 String message;
@@ -1430,11 +1430,11 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
         
         if ((saaSpine.length >= 2) && isSpineClosed())
         {
-            expandableListSpine.setTitle("spine array geometry is closed (with coincident endpoints)");
+            expandableListSpine.setTitle("spine array where geometry is closed (with coincident endpoints)");
         }
         else if (saaSpine.length >= 2)
         {
-            expandableListSpine.setTitle("spine array geometry is open (with distinct endpoints)");
+            expandableListSpine.setTitle("spine array where geometry is open (with distinct endpoints)");
         }
         else
         {
