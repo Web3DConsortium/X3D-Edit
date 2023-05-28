@@ -80,7 +80,7 @@ public class COLORCustomizer extends BaseCustomizer
     expandableListColors.setInsertCommas    (color.isInsertCommas());
     expandableListColors.setInsertLineBreaks(color.isInsertLineBreaks());
     
-    expandableListColors.setTitle("color array (" + saa.length + " total)");
+    expandableListColors.setTitle("color array (" + saa.length + " total colors)");
   }
   
   /** This method is called from within the constructor to
@@ -138,7 +138,7 @@ public class COLORCustomizer extends BaseCustomizer
     }// </editor-fold>//GEN-END:initComponents
 
     private void expandableListColorsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_expandableListColorsPropertyChange
-        expandableListColors.setTitle("color array (" + expandableListColors.getRowCount() + " total)");
+        expandableListColors.setTitle("color array (" + expandableListColors.getRowCount() + " total colors)");
 		checkColorValues ();
     }//GEN-LAST:event_expandableListColorsPropertyChange
   

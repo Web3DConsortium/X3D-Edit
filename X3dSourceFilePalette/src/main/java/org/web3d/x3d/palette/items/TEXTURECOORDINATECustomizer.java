@@ -115,7 +115,7 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
     expandableListPoints.setGeneratePointsChoices(COORDINATE2D_ATTR_POINT_CHOICES); // provide choice labels for appending
     expandableListPoints.setGeneratePointsEnumerationValues(COORDINATE2D_ATTR_POINT_VALUES);
     
-    expandableListPoints.setTitle("point array (" + saa.length + " total)");
+    expandableListPoints.setTitle("point array (" + saa.length + " total points)");
 
     updateJFreeChartPointPlot ();
   }
@@ -215,7 +215,7 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
 
     private void expandableListPropertyChanged(PropertyChangeEvent evt)//GEN-FIRST:event_expandableListPropertyChanged
     {//GEN-HEADEREND:event_expandableListPropertyChanged
-        expandableListPoints.setTitle("point array (" + expandableListPoints.getRowCount() + " total)");
+        expandableListPoints.setTitle("point array (" + expandableListPoints.getRowCount() + " total points)");
 		updateJFreeChartPointPlot ();
     }//GEN-LAST:event_expandableListPropertyChanged
 

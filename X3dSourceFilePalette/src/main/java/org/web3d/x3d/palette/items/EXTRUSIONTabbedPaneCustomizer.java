@@ -930,11 +930,11 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
         String[][] saaCrossSection = expandableListCrossSection.getData();
         if ((saaCrossSection.length >= 2) && isCrossSectionClosed())
         {
-            expandableListCrossSection.setTitle("crossSection array is closed (coincident endpoints)");
+            expandableListCrossSection.setTitle("crossSection array geometry is closed (with coincident endpoints)");
         }
         else if (saaCrossSection.length >= 2)
         {
-            expandableListCrossSection.setTitle("crossSection array is open (distinct endpoints)");
+            expandableListCrossSection.setTitle("crossSection array geometry is open (with distinct endpoints)");
         }
         else
         {
@@ -1022,8 +1022,8 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
 				tabbedPane.setTitleAt      (1, "<html>crossSection array ["                   + expandableListCrossSection.getRowCount() + "] " + crossSectionStatus + ", plot display");
             	tabTooltip = "crossSection is extruded along spine axis";
 				if (isCrossSectionClosed())
-					 tabTooltip += ", crossSection array is closed (coincident endpoints)";
-				else tabTooltip += ", crossSection array is open (distinct endpoints)";
+					 tabTooltip += ", crossSection array geometry is closed (with coincident endpoints)";
+				else tabTooltip += ", crossSection array geometry is open (with distinct endpoints)";
                 tabbedPane.setToolTipTextAt(1, tabTooltip);
 			}
             
@@ -1037,8 +1037,8 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
                 tabTitle   = "<html>spine array [" +                   expandableListSpine.getRowCount() + "] " + spineStatus;
                 tabTooltip = "spine points are central axis of Extrusion";
 				if (isSpineClosed())
-					 tabTooltip += ", spine array is closed (coincident endpoints)";
-				else tabTooltip += ", spine array is open (distinct endpoints)";
+					 tabTooltip += ", spine array geometry is closed (with coincident endpoints)";
+				else tabTooltip += ", spine array geometry is open (with distinct endpoints)";
             }
             if  ((expandableListScale.getRowCount() != 0) && (expandableListScale.getRowCount() != 1) && (expandableListScale.getRowCount() != expandableListSpine.getRowCount()))
             {
@@ -1430,11 +1430,11 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
         
         if ((saaSpine.length >= 2) && isSpineClosed())
         {
-            expandableListSpine.setTitle("spine array is closed (coincident endpoints)");
+            expandableListSpine.setTitle("spine array geometry is closed (with coincident endpoints)");
         }
         else if (saaSpine.length >= 2)
         {
-            expandableListSpine.setTitle("spine array is open (distinct endpoints)");
+            expandableListSpine.setTitle("spine array geometry is open (with distinct endpoints)");
         }
         else
         {
