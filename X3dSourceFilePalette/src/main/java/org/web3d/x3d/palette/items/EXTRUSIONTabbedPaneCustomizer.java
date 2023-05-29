@@ -1300,7 +1300,7 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
         }
         // do not comment on negative values
         
-        angle = Double.valueOf(finalOrientationTextField.getText());
+        angle = Double.parseDouble(finalOrientationTextField.getText());
         finalOrientationTextField.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
         if ((Math.abs(angle) > 2.0 * Math.PI) && !largeRadianAnglesConfirmed)
         {
@@ -1359,7 +1359,7 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
     {
         // indicate degree values in tooltips
         // usability note:  can enter degree values (-6..+6) as (354..366) to provoke this conversion check
-        double angle = Double.valueOf(creaseAngleTF.getText());
+        double angle = Double.parseDouble(creaseAngleTF.getText());
         creaseAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
         if (Math.abs(angle) > 2.0 * Math.PI)
         {
@@ -1492,15 +1492,15 @@ public class EXTRUSIONTabbedPaneCustomizer extends BaseCustomizer implements Cha
         {
           String s0 = saaScale[i][0];
           String s1 = saaScale[i][1];
-          if (s0 == null || s0.length() <= 0 || s1 == null || s1.length() <= 0)
-             continue;
-          float scale0 = (new SFFloat(s0)).getValue();
-          float scale1 = (new SFFloat(s1)).getValue();
-          if ((scale0 <= 0.0f) || (scale1 <= 0.0f))
-          {
-            nonPositiveScaleFound = true;
-            break;
-          }
+            if (s0 == null || s0.length() <= 0 || s1 == null || s1.length() <= 0)
+                continue;
+            float scale0 = (new SFFloat(s0)).getValue();
+            float scale1 = (new SFFloat(s1)).getValue();
+            if ((scale0 <= 0.0f) || (scale1 <= 0.0f))
+            {
+                nonPositiveScaleFound = true;
+                break;
+            }
         }
         if (nonPositiveScaleFound)
         {
