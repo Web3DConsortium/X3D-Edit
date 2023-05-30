@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -53,6 +53,7 @@ public class COORDINATECustomizer extends BaseCustomizer
 {
   private final COORDINATE coordinate;
   private final JTextComponent target;
+  private       String         title; // comment can be inserted as content
 
   public COORDINATECustomizer(COORDINATEDOUBLE coordinateDouble, JTextComponent target)
   {
@@ -70,6 +71,7 @@ public class COORDINATECustomizer extends BaseCustomizer
     super(coordinate);
     this.coordinate = coordinate;
     this.target = target;
+    this.coordinate.setDouble(false);
 
     commonInitialization ();
   }
@@ -109,18 +111,34 @@ public class COORDINATECustomizer extends BaseCustomizer
     expandableListPoints.setGeneratePointsChoices(COORDINATE_ATTR_POINT_CHOICES); // provide choice labels for appending
     expandableListPoints.setGeneratePointsEnumerationValues(COORDINATE_ATTR_POINT_VALUES);
     
-	expandableListPoints.setIncludeMakeOpenClosedButton(true);
-	expandableListPoints.setTitle(listTitle());
+    expandableListPoints.setIncludeMakeOpenClosedButton(true);
+    expandableListPoints.setTitle(listTitle());
   }
   public String listTitle ()
   {
 	int currentLength = 0;
+	int   tupleLength = 0;
 	if (expandableListPoints.getData() != null)
-		currentLength = expandableListPoints.getData().length;
-	String title = "point array (" + currentLength + " total points)";
+        {
+              tupleLength = expandableListPoints.getRowCount();
+            currentLength = expandableListPoints.getData().length;
+            if  (coordinate.isDouble())
+                 currentLength *= 3; // MFVec3d
+            else currentLength *= 3; // MFVec3f
+        }
+	title = "point array (" + tupleLength + " tuples, " + currentLength + " total ";
+        if  (coordinate.isDouble())
+             title += "doubles)";
+        else title += "floats)";
 	if (expandableListPoints.isClosed())
-	       title += " where geometry is closed (with coincident endpoints)";
-	else   title += " where geometry is open (with distinct endpoints)";
+	       title += " has closed geometry with coincident endpoints";
+	else   title += " has open geometry with distinct endpoints";
+        if (coordinate.getContent().isBlank() || coordinate.getContent().startsWith("<!-- point array "))// TODO consider global property for terse/verbose
+        {
+            if  (tupleLength > 0)
+                 coordinate.setContent("<!-- " + title + " -->");
+            else coordinate.clearContent();
+        } // thanks for suggested diagnostic output by Carol McDonald
 	return title;
   }
   
@@ -212,5 +230,6 @@ public class COORDINATECustomizer extends BaseCustomizer
     coordinate.setPoint(expandableListPoints.getData());
     coordinate.setInsertCommas    (expandableListPoints.isInsertCommasSet());
     coordinate.setInsertLineBreaks(expandableListPoints.isInsertLineBreaksSet());
+    coordinate.setNumberTuplesBetweenLineBreaks(expandableListPoints.getNumberTuplesBetweenLineBreaks());
   }  
 }
