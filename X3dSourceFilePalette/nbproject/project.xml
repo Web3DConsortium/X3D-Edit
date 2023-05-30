@@ -535,8 +535,10 @@
             <word>WHATWG</word>
             <word>WhiteDune</word>
             <word>wrl</word>
+            <word>xDimension</word>
             <word>xhtml</word>
             <word>XSLT</word>
+            <word>zDimension</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
