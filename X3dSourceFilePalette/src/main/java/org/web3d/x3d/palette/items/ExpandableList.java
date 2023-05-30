@@ -119,12 +119,14 @@ public class ExpandableList extends javax.swing.JPanel implements ListSelectionL
 
   private IndexRenderer idxRenderer = new IndexRenderer();
 
-  private boolean showEditEnhancements, insertCommas, insertLineBreaks = false;
+  private boolean showEditEnhancements = true;
+  private boolean insertCommas, insertLineBreaks, appendComment = false;
   private boolean includeMakeOpenClosedButton = false;
   private boolean angleColumnIncluded = false;
   private boolean   keyColumnIncluded = false;
   private boolean flippableRowData  = false;
   private boolean largeRadianAnglesConfirmed = false;
+  private int     numberTuplesBetweenLineBreaks; // TODO make this a savable property
 
   private final int      ASSIGN_OPERATION = 0;
   private final int         ADD_OPERATION = 1;
@@ -204,11 +206,20 @@ public class ExpandableList extends javax.swing.JPanel implements ListSelectionL
     copiedRow       = null;
     specifiedNewRow = null;
 
-        insertCommasCheckBox.setVisible(isShowEditEnhancements());
-    insertLineBreaksCheckBox.setVisible(isShowEditEnhancements());
-                 insertLabel.setVisible(isShowEditEnhancements());
-        insertCommasCheckBox.setSelected(isInsertCommasSet());
-    insertLineBreaksCheckBox.setSelected(isInsertLineBreaksSet());
+                          insertLabel.setVisible(isShowEditEnhancements());
+                 insertCommasCheckBox.setVisible(isShowEditEnhancements());
+             insertLineBreaksCheckBox.setVisible(isShowEditEnhancements());
+numberTuplesBetweenLineBreaksComboBox.setVisible(isShowEditEnhancements());
+                appendCommentCheckBox.setVisible(isShowEditEnhancements());
+                 insertCommasCheckBox.setSelected(isInsertCommasSet());
+             insertLineBreaksCheckBox.setSelected(isInsertLineBreaksSet());
+             
+             if (numberTuplesBetweenLineBreaks == 0)
+                 numberTuplesBetweenLineBreaks  = 1;
+numberTuplesBetweenLineBreaksComboBox.setSelectedItem(String.valueOf(numberTuplesBetweenLineBreaks)); // TODO make this a savable property
+                appendCommentCheckBox.setSelected(isInsertLineBreaksSet());
+       // https://stackoverflow.com/questions/19641404/is-there-any-way-to-right-align-the-text-in-a-jcombobox
+       ((JLabel)numberTuplesBetweenLineBreaksComboBox.getRenderer()).setHorizontalAlignment(JLabel.RIGHT);
 
     jTable.getSelectionModel().addListSelectionListener(new MySelectionListener());
     jTable.addFocusListener(new MyFocusListener());
@@ -1525,6 +1536,10 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
         insertLabel = new javax.swing.JLabel();
         insertCommasCheckBox = new javax.swing.JCheckBox();
         insertLineBreaksCheckBox = new javax.swing.JCheckBox();
+        numberTuplesBetweenLineBreaksComboBox = new javax.swing.JComboBox<>();
+        phrasingLabel = new javax.swing.JLabel();
+        appendCommentCheckBox = new javax.swing.JCheckBox();
+        cellEditSeparator2 = new javax.swing.JSeparator();
         generatePointsPanel = new javax.swing.JPanel();
         generatePointsSeparator = new javax.swing.JSeparator();
         generateLabel = new javax.swing.JLabel();
@@ -1541,8 +1556,8 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
         statisticsButton = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setMinimumSize(new java.awt.Dimension(300, 110));
-        setPreferredSize(new java.awt.Dimension(680, 400));
+        setMinimumSize(new java.awt.Dimension(320, 110));
+        setPreferredSize(new java.awt.Dimension(720, 400));
         setLayout(new java.awt.GridBagLayout());
 
         jTableScrollPane.setPreferredSize(new java.awt.Dimension(200, 80));
@@ -1872,19 +1887,21 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         interfacePanel.add(cellEditPanel, gridBagConstraints);
 
+        insertPanel.setToolTipText(org.openide.util.NbBundle.getMessage(ExpandableList.class, "ExpandableList.insertPanel.toolTipText")); // NOI18N
+        insertPanel.setAlignmentX(0.0F);
+        insertPanel.setMinimumSize(new java.awt.Dimension(500, 22));
+        insertPanel.setPreferredSize(new java.awt.Dimension(500, 22));
         insertPanel.setLayout(new java.awt.GridBagLayout());
 
-        insertLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        insertLabel.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         insertLabel.setText(org.openide.util.NbBundle.getMessage(ExpandableList.class, "ExpandableList.insertLabel.text")); // NOI18N
         insertLabel.setToolTipText(org.openide.util.NbBundle.getMessage(ExpandableList.class, "ExpandableList.insertLabel.toolTipText")); // NOI18N
-        insertLabel.setMaximumSize(null);
-        insertLabel.setMinimumSize(null);
-        insertLabel.setPreferredSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         insertPanel.add(insertLabel, gridBagConstraints);
 
@@ -1912,11 +1929,61 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         insertPanel.add(insertLineBreaksCheckBox, gridBagConstraints);
 
+        numberTuplesBetweenLineBreaksComboBox.setEditable(true);
+        numberTuplesBetweenLineBreaksComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "10", "25", "50", "100" }));
+        numberTuplesBetweenLineBreaksComboBox.setToolTipText(org.openide.util.NbBundle.getMessage(ExpandableList.class, "ExpandableList.numberTuplesBetweenLineBreaksComboBox.toolTipText")); // NOI18N
+        numberTuplesBetweenLineBreaksComboBox.setMinimumSize(new java.awt.Dimension(56, 22));
+        numberTuplesBetweenLineBreaksComboBox.setPreferredSize(new java.awt.Dimension(56, 22));
+        numberTuplesBetweenLineBreaksComboBox.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                numberTuplesBetweenLineBreaksComboBoxFocusLost(evt);
+            }
+        });
+        numberTuplesBetweenLineBreaksComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberTuplesBetweenLineBreaksComboBoxActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        insertPanel.add(numberTuplesBetweenLineBreaksComboBox, gridBagConstraints);
+
+        phrasingLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        phrasingLabel.setText(org.openide.util.NbBundle.getMessage(ExpandableList.class, "ExpandableList.phrasingLabel.text")); // NOI18N
+        phrasingLabel.setToolTipText(org.openide.util.NbBundle.getMessage(ExpandableList.class, "ExpandableList.phrasingLabel.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        insertPanel.add(phrasingLabel, gridBagConstraints);
+
+        appendCommentCheckBox.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        appendCommentCheckBox.setText(org.openide.util.NbBundle.getMessage(ExpandableList.class, "ExpandableList.appendCommentCheckBox.text")); // NOI18N
+        appendCommentCheckBox.setToolTipText(NbBundle.getMessage(getClass(),"ExpandableList.TTIP_APPEND_COMMENT"));
+        appendCommentCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                appendCommentCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        insertPanel.add(appendCommentCheckBox, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
         interfacePanel.add(insertPanel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        interfacePanel.add(cellEditSeparator2, gridBagConstraints);
 
         generatePointsPanel.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2090,7 +2157,7 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -3288,13 +3355,35 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
         checkMakeOpenClosedButtonEnabled(); // update display to match
     }//GEN-LAST:event_makeOpenClosedButtonActionPerformed
 
+    private void appendCommentCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appendCommentCheckBoxActionPerformed
+        setAppendComment(appendCommentCheckBox.isSelected());
+    }//GEN-LAST:event_appendCommentCheckBoxActionPerformed
+
+    private void numberTuplesBetweenLineBreaksComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberTuplesBetweenLineBreaksComboBoxActionPerformed
+        setNumberTuplesBetweenLineBreaks(numberTuplesBetweenLineBreaksComboBox.getSelectedItem().toString());
+        insertCommasCheckBox.setSelected(true);
+        setInsertCommas(true);
+        insertLineBreaksCheckBox.setSelected(true);
+        setInsertLineBreaks(true);
+    }//GEN-LAST:event_numberTuplesBetweenLineBreaksComboBoxActionPerformed
+
+    private void numberTuplesBetweenLineBreaksComboBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numberTuplesBetweenLineBreaksComboBoxFocusLost
+        setNumberTuplesBetweenLineBreaks(numberTuplesBetweenLineBreaksComboBox.getSelectedItem().toString());
+        insertCommasCheckBox.setSelected(true);
+        setInsertCommas(true);
+        insertLineBreaksCheckBox.setSelected(true);
+        setInsertLineBreaks(true);
+    }//GEN-LAST:event_numberTuplesBetweenLineBreaksComboBoxFocusLost
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPointsButton;
     private javax.swing.JButton appendButton;
+    private javax.swing.JCheckBox appendCommentCheckBox;
     private javax.swing.JButton applyCellFactorButton;
     private javax.swing.JLabel cellEditLabel;
     private javax.swing.JPanel cellEditPanel;
     private javax.swing.JSeparator cellEditSeparator;
+    private javax.swing.JSeparator cellEditSeparator2;
     private javax.swing.JComboBox<String> cellSelectionComboBox;
     private javax.swing.JRadioButton closedLoopRadioButton;
     private javax.swing.JButton copyButton;
@@ -3315,10 +3404,12 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JScrollPane jTableScrollPane;
     private javax.swing.JButton makeOpenClosedButton;
     private javax.swing.JTextField numberOfPointsTextField;
+    private javax.swing.JComboBox<String> numberTuplesBetweenLineBreaksComboBox;
     private javax.swing.ButtonGroup openClosedButtonGroup;
     private javax.swing.JPanel openClosedLoopPanel;
     private javax.swing.JRadioButton openLoopRadioButton;
     private javax.swing.JComboBox<String> operationComboBox;
+    private javax.swing.JLabel phrasingLabel;
     private javax.swing.JButton removeAllRowsButton;
     private javax.swing.JButton removeButton;
     private javax.swing.JPanel rowButtonPanel;
@@ -3555,10 +3646,12 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
      * @param showAppendCommasLineBreaks whether the Append Commas, Line Breaks radio boxes are displayed
      */
     public void setShowAppendCommasLineBreaks(boolean showAppendCommasLineBreaks) {
-        this.showEditEnhancements = showAppendCommasLineBreaks;
-        insertCommasCheckBox.setVisible(showAppendCommasLineBreaks);
-    insertLineBreaksCheckBox.setVisible(showAppendCommasLineBreaks);
-                 insertLabel.setVisible(showAppendCommasLineBreaks);
+                 this.showEditEnhancements = showAppendCommasLineBreaks;
+                          insertLabel.setVisible(showAppendCommasLineBreaks);
+                 insertCommasCheckBox.setVisible(showAppendCommasLineBreaks);
+             insertLineBreaksCheckBox.setVisible(showAppendCommasLineBreaks);
+numberTuplesBetweenLineBreaksComboBox.setVisible(showAppendCommasLineBreaks);
+                appendCommentCheckBox.setVisible(showAppendCommasLineBreaks);
     }
 
     /**
@@ -3827,4 +3920,43 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
 		}
 		else makeOpenClosedButton.setEnabled(false);
 	}
+
+    /**
+     * @return the appendComments
+     */
+    public boolean isAppendComment() {
+        return appendComment;
+    }
+
+    /**
+     * @param appendComments the appendComments to set
+     */
+    public void setAppendComment(boolean appendComments) {
+        this.appendComment = appendComments;
+    }
+
+    /**
+     * @return the numberValuesBetweenLineBreaks
+     */
+    public int getNumberTuplesBetweenLineBreaks() {
+        return numberTuplesBetweenLineBreaks;
+    }
+
+    /**
+     * @param value the numberValuesBetweenLineBreaks to set
+     */
+    public void setNumberTuplesBetweenLineBreaks(String value) {
+        int intValue;
+        try
+        {
+            intValue = Integer.parseInt(value);
+            if  (intValue >= 0)
+                 numberTuplesBetweenLineBreaks = intValue;
+            else System.out.println("ExpandableList.setNumberTuplesBetweenLineBreaks() received negative value=" + intValue + ", ignored");
+        }
+        catch (NumberFormatException nfe)
+        {
+            System.out.println("ExpandableList.setNumberTuplesBetweenLineBreaks() received illegal value=" + value + ", ignored");
+        }
+    }
 }
