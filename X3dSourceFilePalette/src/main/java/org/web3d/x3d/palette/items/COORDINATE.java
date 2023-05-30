@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -57,6 +57,7 @@ public class COORDINATE extends X3DCoordinateNode
   private SFFloat[][] point, pointDefault;
   private boolean ddouble;
   private boolean insertCommas, insertLineBreaks = false;
+  private int numberTuplesBetweenLineBreaks = 1;
 
   public COORDINATE()
   {
@@ -107,7 +108,7 @@ public class COORDINATE extends X3DCoordinateNode
          if (attr.getValue().contains(","))  insertCommas     = true;
          if (attr.getValue().contains("\n") ||
              attr.getValue().contains("\r")) insertLineBreaks = true; // TODO not working, line breaks not being passed from JDOM
-         if (insertCommas)                   insertLineBreaks = true; // workaround default, if commas were present then most likely lineBreaks also
+         if (insertCommas)                     insertLineBreaks = true; // workaround default, if commas were present then most likely lineBreaks also
     }
     else point = new SFFloat[][]{}; // empty array
   }
@@ -127,7 +128,7 @@ public class COORDINATE extends X3DCoordinateNode
       sb.append(" ");
       sb.append(COORDINATE_ATTR_POINT_NAME);
       sb.append("='");
-      sb.append(formatFloatArray(point, insertCommas, insertLineBreaks));
+      sb.append(formatFloatArray(point, insertCommas, insertLineBreaks, getNumberTuplesBetweenLineBreaks()));
       sb.append("'");
     }
     return sb.toString();
@@ -189,5 +190,22 @@ public class COORDINATE extends X3DCoordinateNode
      */
     public void setInsertLineBreaks(boolean insertLineBreaks) {
         this.insertLineBreaks = insertLineBreaks;
+    }
+
+    /**
+     * @return the numberTuplesBetweenLineBreaks
+     */
+    public int getNumberTuplesBetweenLineBreaks() {
+        return numberTuplesBetweenLineBreaks;
+    }
+
+    /**
+     * @param newNumberTuplesBetweenLineBreaks the numberTuplesBetweenLineBreaks to set
+     */
+    public void setNumberTuplesBetweenLineBreaks(int newNumberTuplesBetweenLineBreaks)
+    {
+        if  (newNumberTuplesBetweenLineBreaks >= 0)
+             numberTuplesBetweenLineBreaks = newNumberTuplesBetweenLineBreaks;
+        else System.out.println("Coordinate.setNumberTuplesBetweenLineBreaks() received negative value=" + newNumberTuplesBetweenLineBreaks + ", ignored");
     }
 }
