@@ -236,7 +236,7 @@ public abstract class BaseCustomizer extends JPanel
             else // editing in place, not dragDrop, so both values remain false,
             {
                 wantLeadingLineFeed  = false;
-                wantTrailingLineFeed = false;
+                wantTrailingLineFeed = X3dEditUserPreferences.getAppendNewline(); // conservative, readable
             }
         }
         else // cancelled
