@@ -52,14 +52,17 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFileChooser;
+import javax.swing.SwingUtilities;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.Exceptions;
 import org.openide.util.ImageUtilities;
 import org.web3d.x3d.DownloadX3dExamplesArchivesAction;
 import org.web3d.x3d.actions.BaseViewAction;
+import static org.web3d.x3d.actions.BaseViewAction.W3C_WHATWG_HTML5_STANDARD;
 import static org.web3d.x3d.actions.BaseViewAction.X3D4_HTML_AUTHORING_GUIDELINES;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS;
+import org.web3d.x3d.actions.LaunchW3cWhatwgHtml5Action;
 import org.web3d.x3d.actions.LaunchX3dSceneAuthoringHintsCorsAction;
 import static org.web3d.x3d.actions.conversions.ConversionsHelper.openInBrowser;
 import org.web3d.x3d.options.X3dEditUserPreferences;
@@ -77,11 +80,9 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     {
         return pageIntegrationTabbedPane.getSelectedIndex();
     }
-    private final String X3DOM_name = "X3DOM";
     public  final String X3DOM_site = "https://www.x3dom.org";
     public  final String X3DOM_help = "https://www.x3dom.org/examples";
     
-    private final String X_ITE_name = "X_ITE";
     public  final String X_ITE_site = "https://create3000.github.io/x_ite";
     public  final String X_ITE_help = "https://create3000.github.io/x_ite/tutorials";
     
@@ -165,6 +166,11 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         initComponents();
         setTitle (" X3D4 Model Integration in HTML5 Web Page"); // note leading space for readability
         setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/HTML5_Logo_64.png"));
+        
+         htmlPanel.setToolTipText("HTML can include X3D source");
+        x3domPanel.setToolTipText("X3DOM renderer in HTML page for X3D model");
+        x_itePanel.setToolTipText("X_ITE renderer in HTML page for X3D model");
+         corsPanel.setToolTipText("localhost http server to meet CORS restrictions for X_ITE");
 
         plainFont = addressLabel.getFont().deriveFont(Font.PLAIN);
          boldFont = plainFont.deriveFont(Font.BOLD);
@@ -236,11 +242,11 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         
 //        if (cobwebRadioButton.isSelected()) 
 //        {                                                  
-//             xhtmlX3domAction.setPlayer("Cobweb");
+//             xhtmlX3domAction.setPlayer(X3dToXhtmlDomConversionAction.COBWEB);
 //        }
-//        else xhtmlX3domAction.setPlayer(X3DOM_name);
+//        else xhtmlX3domAction.setPlayer(X3dToXhtmlDomConversionAction.X3DOM);
         
-//        if (xhtmlX3domAction.getPlayer().equalsIgnoreCase("Cobweb") || xhtmlX3domAction.getPlayer().equalsIgnoreCase(X_ITE_name))
+//        if (xhtmlX3domAction.getPlayer().equalsIgnoreCase(X3dToXhtmlDomConversionAction.COBWEB) || xhtmlX3domAction.getPlayer().equalsIgnoreCase(X3dToXhtmlDomConversionAction.X_ITE))
 //        {
 //            pageIntegrationTabbedPane.setSelectedIndex(X_ITE_TAB);
             
@@ -252,7 +258,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 //            // show X_ITE widgets
 //            setDisplayWidgetsX_ITE (true);
 //        }
-//        else if (xhtmlX3domAction.getPlayer().equalsIgnoreCase(X3DOM_name))
+//        else if (xhtmlX3domAction.getPlayer().equalsIgnoreCase(X3dToXhtmlDomConversionAction.X3DOM))
 //        {
 //            pageIntegrationTabbedPane.setSelectedIndex(X3DOM_TAB);
             
@@ -290,8 +296,9 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         oldStartPythonServerButton = new javax.swing.JButton();
         pageIntegrationTabbedPane = new javax.swing.JTabbedPane();
         htmlPanel = new javax.swing.JPanel();
-        verticalSpacerLabel1 = new javax.swing.JLabel();
         html5ImageLabel = new javax.swing.JLabel();
+        htmlHeaderLabel = new javax.swing.JLabel();
+        sizeLabel = new javax.swing.JLabel();
         widthLabel = new javax.swing.JLabel();
         widthDescriptionLabel = new javax.swing.JLabel();
         widthTextField = new javax.swing.JTextField();
@@ -306,6 +313,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         verticalSpacerLabelBottom = new javax.swing.JLabel();
         horizontalSpacerLabel = new javax.swing.JLabel();
         horizontalSpacerLabel1 = new javax.swing.JLabel();
+        html5Button = new javax.swing.JButton();
+        html5Label = new javax.swing.JLabel();
         x3domPanel = new javax.swing.JPanel();
         x3domHeaderLabel = new javax.swing.JLabel();
         x3domLabel = new javax.swing.JLabel();
@@ -421,17 +430,6 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         htmlPanel.setMinimumSize(new java.awt.Dimension(300, 70));
         htmlPanel.setLayout(new java.awt.GridBagLayout());
 
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel1, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.verticalSpacerLabel1.text")); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 2.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        htmlPanel.add(verticalSpacerLabel1, gridBagConstraints);
-
         html5ImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/HTML5_Logo_64.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(html5ImageLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.html5ImageLabel.text")); // NOI18N
         html5ImageLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.html5ImageLabel.toolTipText")); // NOI18N
@@ -446,10 +444,32 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         htmlPanel.add(html5ImageLabel, gridBagConstraints);
 
+        htmlHeaderLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(htmlHeaderLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.htmlHeaderLabel.text")); // NOI18N
+        htmlHeaderLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.htmlHeaderLabel.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        htmlPanel.add(htmlHeaderLabel, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(sizeLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.sizeLabel.text")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
+        htmlPanel.add(sizeLabel, gridBagConstraints);
+
         org.openide.awt.Mnemonics.setLocalizedText(widthLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.widthLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -458,7 +478,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(widthDescriptionLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.widthDescriptionLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
@@ -479,7 +499,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -491,7 +511,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(heightLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.heightLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -500,7 +520,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(heightDescriptionLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.heightDescriptionLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
@@ -521,7 +541,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -533,7 +553,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel2, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.verticalSpacerLabel2.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
@@ -550,17 +570,20 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         htmlPanel.add(viewX3d4Html5AnnexButton, gridBagConstraints);
 
+        viewX3d4Html5AnnexLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(viewX3d4Html5AnnexLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.viewX3d4Html5AnnexLabel.text")); // NOI18N
         viewX3d4Html5AnnexLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.viewX3d4Html5AnnexLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -582,7 +605,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
@@ -590,11 +613,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         htmlPanel.add(helpSceneAuthoringHintsHtmlButton, gridBagConstraints);
 
+        helpSceneAuthoringHintsHtmlLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(helpSceneAuthoringHintsHtmlLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.helpSceneAuthoringHintsHtmlLabel.text")); // NOI18N
         helpSceneAuthoringHintsHtmlLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.helpSceneAuthoringHintsHtmlLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -606,7 +630,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabelBottom, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.verticalSpacerLabelBottom.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
@@ -635,6 +659,36 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 4.0;
         gridBagConstraints.weighty = 1.0;
         htmlPanel.add(horizontalSpacerLabel1, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(html5Button, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.html5Button.text")); // NOI18N
+        html5Button.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.html5Button.toolTipText")); // NOI18N
+        html5Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                html5ButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        htmlPanel.add(html5Button, gridBagConstraints);
+
+        html5Label.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(html5Label, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.html5Label.text")); // NOI18N
+        html5Label.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.html5Label.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        htmlPanel.add(html5Label, gridBagConstraints);
 
         pageIntegrationTabbedPane.addTab(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.htmlPanel.TabConstraints.tabTitle"), new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/HTML5_Logo_32.png")), htmlPanel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.htmlPanel.TabConstraints.tabToolTip")); // NOI18N
 
@@ -2017,15 +2071,19 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         {
             case HTML_LAYOUT_TAB: 
                 X3dEditUserPreferencesPanel.feedbackButtonSend ("X3D4 Model Integration in HTML5 Web Page: HTML page integration pane");
+                // no change in player, might be either X3DOM or X_ITE
                 break;
             case X3DOM_TAB: 
                 X3dEditUserPreferencesPanel.feedbackButtonSend ("X3D4 Model Integration in HTML5 Web Page: X3DOM pane");
+                x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X3DOM);
                 break;
             case X_ITE_TAB: 
                 X3dEditUserPreferencesPanel.feedbackButtonSend ("X3D4 Model Integration in HTML5 Web Page: X_ITE pane");
+                x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
                 break;
             case CORS_TAB: 
                 X3dEditUserPreferencesPanel.feedbackButtonSend ("X3D4 Model Integration in HTML5 Web Page: CORS localhost http server pane");
+                x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X_ITE); // X3DOM does not need CORS, but X_ITE does
                 break;
         }
     }//GEN-LAST:event_feedbackButtonActionPerformed
@@ -2160,9 +2218,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                  stopAuthorModelsServerButton.setForeground(Color.BLACK);
             }
         }
-        updateIndicationsPortsBoundOnServers();
         portAuthorModelsServerTextField.setBackground(Color.white);
          authorModelsDirectoryTextField.setBackground(Color.white);
+        // delay update invocation since localhost http shutdown may take time
+        SwingUtilities.invokeLater(() -> {
+            updateIndicationsPortsBoundOnServers();
+        });
     }//GEN-LAST:event_startAuthorModelsServerButtonActionPerformed
 
     private void stopAuthorModelsServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stopAuthorModelsServerButtonActionPerformed
@@ -2177,7 +2238,10 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         stopAuthorModelsServerButton.setForeground(black);
         portAuthorModelsServerTextField.setBackground(Color.white);
          authorModelsDirectoryTextField.setBackground(Color.white);
-        updateIndicationsPortsBoundOnServers();
+        // delay update invocation since localhost http shutdown may take time
+        SwingUtilities.invokeLater(() -> {
+            updateIndicationsPortsBoundOnServers();
+        });
     }//GEN-LAST:event_stopAuthorModelsServerButtonActionPerformed
 
     private void browseLocalhostAuthorModelsButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_browseLocalhostAuthorModelsButtonActionPerformed
@@ -2346,9 +2410,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         
         stopExampleArchivesServerButton.setEnabled(false);
         stopExampleArchivesServerButton.setForeground(black);
-        updateIndicationsPortsBoundOnServers(); // TODO delay invocation since shutdown takes time
         portExampleArchivesServerTextField.setBackground(Color.white);
          exampleArchivesDirectoryTextField.setBackground(Color.white);
+        // delay update invocation since localhost http shutdown may take time
+        SwingUtilities.invokeLater(() -> {
+            updateIndicationsPortsBoundOnServers();
+        });
     }//GEN-LAST:event_stopExampleArchivesServerButtonActionPerformed
 
     private void browseLocalhostExampleArchivesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_browseLocalhostExampleArchivesButtonActionPerformed
@@ -2742,6 +2809,10 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         updateIndicationsPortsBoundOnServers();
     }//GEN-LAST:event_exampleArchivesDirectoryClearButtonActionPerformed
 
+    private void html5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_html5ButtonActionPerformed
+        openInBrowser(W3C_WHATWG_HTML5_STANDARD);
+    }//GEN-LAST:event_html5ButtonActionPerformed
+
     private void updateActiveX3dModelDirectoryButtons()
     {
         boolean haveLaunchedModels = (activeX3dModelNameList.size() > 1);
@@ -2963,7 +3034,10 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private javax.swing.JLabel horizontalSpacerLabel1;
     private javax.swing.JLabel horizontalSpacerLabelButtons3;
     private javax.swing.JLabel horizontalSpacerLabelButtons4;
+    private javax.swing.JButton html5Button;
     private javax.swing.JLabel html5ImageLabel;
+    private javax.swing.JLabel html5Label;
+    private javax.swing.JLabel htmlHeaderLabel;
     private javax.swing.JPanel htmlPanel;
     private javax.swing.JLabel httpLabel;
     private javax.swing.JLabel localhostHttpServerControlsLabel;
@@ -2988,6 +3062,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private javax.swing.JLabel showProgressLabel;
     private javax.swing.JCheckBox showStatisticsCheckBox;
     private javax.swing.JLabel showStatisticsLabel;
+    private javax.swing.JLabel sizeLabel;
     private javax.swing.JButton startActiveX3dModelServerButton;
     private javax.swing.JButton startAuthorModelsServerButton;
     private javax.swing.JButton startExampleArchivesServerButton;
@@ -2997,7 +3072,6 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private javax.swing.JButton transformModelButton;
     private javax.swing.JLabel urlLabel;
     private org.web3d.x3d.palette.items.UrlExpandableList2 urlList;
-    private javax.swing.JLabel verticalSpacerLabel1;
     private javax.swing.JLabel verticalSpacerLabel2;
     private javax.swing.JLabel verticalSpacerLabelBottom;
     private javax.swing.JButton viewX3d4Html5AnnexButton;
@@ -3027,11 +3101,11 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         {
             pageIntegrationTabbedPane.setSelectedIndex(CORS_TAB);
         }
-        else if (playerName.equalsIgnoreCase("Cobweb") || playerName.equalsIgnoreCase(X_ITE_name))
+        else if (playerName.equalsIgnoreCase(X3dToXhtmlDomConversionAction.X_ITE) || playerName.equalsIgnoreCase(X3dToXhtmlDomConversionAction.COBWEB))
         {
             pageIntegrationTabbedPane.setSelectedIndex(X_ITE_TAB);
         }
-        else  if (playerName.equalsIgnoreCase(X3DOM_name))
+        else  if (playerName.equalsIgnoreCase(X3dToXhtmlDomConversionAction.X3DOM))
         {
             pageIntegrationTabbedPane.setSelectedIndex(X3DOM_TAB);
         }
@@ -3966,18 +4040,22 @@ class LocalFileHandlerOld implements HttpHandler {
             case HTML_LAYOUT_TAB:
                 transformModelButton.setEnabled(false);
                 x3dToXhtmlDomConversionAction.setReadyForConversion(false);
+                // no change in player, might be either X3DOM or X_ITE
                 break;
             case X3DOM_TAB:
                 transformModelButton.setEnabled(true);
                 x3dToXhtmlDomConversionAction.setReadyForConversion(true);
+                x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X3DOM);
                 break;
             case X_ITE_TAB:
                 transformModelButton.setEnabled(true);
                 x3dToXhtmlDomConversionAction.setReadyForConversion(true);
+                x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
                 break;
             case CORS_TAB:
                 transformModelButton.setEnabled(false);
                 x3dToXhtmlDomConversionAction.setReadyForConversion(false);
+                x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X_ITE); // X3DOM does not need CORS, but X_ITE does
                 updateValuesInPanel();
                 updateIndicationsPortsBoundOnServers();
                 break;

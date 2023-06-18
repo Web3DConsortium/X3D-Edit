@@ -51,7 +51,7 @@ import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.ACT
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.AUTHOR_MODELS;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.CORS_TAB;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.EXAMPLE_ARCHIVES;
-import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.NO_CHANGE_IN_TAB;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X3DOM_TAB;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X_ITE_TAB;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.addressValue;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.message;
@@ -102,7 +102,8 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     
     public  static final String             X3DOM = "X3DOM";
     public  static final String             X_ITE = "X_ITE";
-    private              int         preferredTab = NO_CHANGE_IN_TAB;
+    public  static final String            COBWEB = "Cobweb";
+    private              int         preferredTab = X3DOM_TAB;
     private final static String     playerDefault = X3DOM;  // otherwise setPlayer(X_ITE) via subclass initialization
     private final String      traceEnabledDefault = "true"; // development, debug mode for XSLT stylesheed
     // X3D
@@ -162,9 +163,8 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
   @Override
   protected String iconResource()
   {
-      ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as XHTML with X3DOM via XSLT");
     
-      if (getPlayer().equalsIgnoreCase("Cobweb") || getPlayer().equalsIgnoreCase("X_ITE"))
+      if (getPlayer().equalsIgnoreCase(X_ITE) || getPlayer().equalsIgnoreCase(COBWEB))
            return "org/web3d/x3d/resources/cobweb-logo32.png";
       else return "org/web3d/x3d/resources/x3dom-whiteOnblue32.png";
   }
@@ -201,10 +201,10 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
                                    setPreferredTab(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
             x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
         }
+        ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as HTML5 via XSLT, rendered with X3DOM or X_ITE");
         
         if(x3dToXhtmlDomConversionFrame != null)
            SwingUtilities.invokeLater(() -> {
-              
               // TODO problem, stray event/invocation immediately performing conversion task upon launch
               // hack prevents first-time fall through to processing xslt
               x3dToXhtmlDomConversionFrame.toFront();
@@ -370,7 +370,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
   
         String fileExtension;
         int    newModelPort;
-        if (getPlayer().equalsIgnoreCase("X_ITE") || getPlayer().equalsIgnoreCase("Cobweb"))
+        if (getPlayer().equalsIgnoreCase(X_ITE) || getPlayer().equalsIgnoreCase(COBWEB))
         {
             fileExtension = "X_ITE.html";
             switch (getCurrentServerType())

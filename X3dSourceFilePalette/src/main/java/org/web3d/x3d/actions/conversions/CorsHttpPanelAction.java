@@ -79,4 +79,11 @@ public final class CorsHttpPanelAction extends X3dToXhtmlDomConversionAction {
         setReadyForConversion(false);
         super.initialize(); // last, following setup
     }
+    
+    @Override
+    protected String iconResource()
+    {
+        return "org/web3d/x3d/resources/HTTP_logo.svg.32x16.png";
+    }
+    // see org.openide.util.actions.SystemAction.iconResource() Javadoc for more details
 }

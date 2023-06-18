@@ -199,13 +199,13 @@ import org.xml.sax.SAXParseException;
                     X3dToXhtmlDomConversionAction.isRunning = true;
 //                    conversionsWorkerRunnable.run();
                 }
-                if      (X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase("X3DOM"))
+                if      (X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase(X3dToXhtmlDomConversionAction.X3DOM))
                          x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X3DOM_TAB);
-                else if (X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase("X_ITE") || 
-                         X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase("Cobweb"))
-                         x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
                 else if (this instanceof CorsHttpPanelAction)
                          x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.CORS_TAB);
+                else if (X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase(X3dToXhtmlDomConversionAction.X_ITE) || 
+                         X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase(X3dToXhtmlDomConversionAction.COBWEB))
+                         x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
                 
                 X3dToXhtmlDomConversionAction.x3dToXhtmlDomConversionFrame.toFront();
                 X3dToXhtmlDomConversionAction.x3dToXhtmlDomConversionFrame.setVisible(true);
