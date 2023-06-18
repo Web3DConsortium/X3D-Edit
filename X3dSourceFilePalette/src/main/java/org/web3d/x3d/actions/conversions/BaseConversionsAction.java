@@ -201,7 +201,9 @@ import org.xml.sax.SAXParseException;
                 }
                 if      (this instanceof CorsHttpPanelAction)
                          x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.CORS_TAB);
-                else if (this instanceof XhtmlX_iteAction)
+                else if ((this instanceof XhtmlX_iteAction) ||
+                         X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase("X_ITE") || 
+                         X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase("Cobweb"))
                          x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
                 else     x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X3DOM_TAB); // default
                 X3dToXhtmlDomConversionAction.x3dToXhtmlDomConversionFrame.toFront();
