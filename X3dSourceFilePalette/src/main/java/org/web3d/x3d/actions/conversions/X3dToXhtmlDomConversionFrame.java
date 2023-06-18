@@ -127,12 +127,12 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     
     // ProcessBuilder and Process do not provide a mechanism for inserting a shutdown hook,
     // so use Runtime and Process instead
-    // https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/ProcessBuilder.html
+    // https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/ProcessBuilder.html
 //    ProcessBuilder processBuilder1;
 //    ProcessBuilder processBuilder2;
 //    ProcessBuilder processBuilder3;
     
-    // https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runtime.html
+    // https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Runtime.html
     public static Runtime runtime;
     
     // https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/Process.html
@@ -165,19 +165,6 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         initComponents();
         setTitle (" X3D4 Model Integration in HTML5 Web Page"); // note leading space for readability
         setIconImage(ImageUtilities.loadImage("org/web3d/x3d/resources/HTML5_Logo_64.png"));
-        
-        // unset autolaunch if not present
-        if (X3dEditUserPreferences.getAuthorModelsDirectory().isBlank() || X3dEditUserPreferences.getAuthorModelsServerPort().isBlank())
-        {
-            X3dEditUserPreferences.setAuthorModelsServerAutolaunch(false);
-            autolaunchAuthorModelsServerCheckBox.setSelected(false);
-        }
-        if (X3dEditUserPreferences.getExampleArchivesRootDirectory().isBlank() || X3dEditUserPreferences.getExampleArchivesServerPort().isBlank())
-        {
-            X3dEditUserPreferences.setExampleArchivesServerAutolaunch(false);
-            autolaunchExampleArchivesServerCheckBox.setSelected(false);
-        }
-        // leave ActiveX3dModel autolaunch unmodified on startup (likely empty)
 
         plainFont = addressLabel.getFont().deriveFont(Font.PLAIN);
          boldFont = plainFont.deriveFont(Font.BOLD);
@@ -193,7 +180,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         updateActiveX3dModelDirectoryButtons();
 
         // prepare for shutdown of localhost http servers on exit
-        // https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runtime.html#getRuntime()
+        // https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Runtime.html#getRuntime()
         // https://stackoverflow.com/questions/191215/how-to-stop-java-process-gracefully
         // https://stackoverflow.com/questions/19639319/java-shutdown-hook
         if (runtime == null)
@@ -213,6 +200,21 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 System.out.flush(); // output might briefly appear in console while shutting down, also appears in NetBeans debug console
             }
         });
+        
+        // disable buttons if either direcory or port is not  present
+        if (X3dEditUserPreferences.getAuthorModelsDirectory().isBlank() || X3dEditUserPreferences.getAuthorModelsServerPort().isBlank())
+        {
+            X3dEditUserPreferences.setAuthorModelsServerAutolaunch(false);
+            autolaunchAuthorModelsServerCheckBox.setSelected(false);
+            startAuthorModelsServerButton.setEnabled(false);
+        }
+        if (X3dEditUserPreferences.getExampleArchivesRootDirectory().isBlank() || X3dEditUserPreferences.getExampleArchivesServerPort().isBlank())
+        {
+            X3dEditUserPreferences.setExampleArchivesServerAutolaunch(false);
+            autolaunchExampleArchivesServerCheckBox.setSelected(false);
+            startExampleArchivesServerButton.setEnabled(false);
+        }
+        // leave ActiveX3dModel autolaunch unmodified on startup (likely empty)
         autolaunchAllServers (); // must follow runtime and shutdownhook initialization
         updateIndicationsPortsBoundOnServers();
         checkActiveX3dModelListSizes("X3dToXhtmlDomConversionFrame constructor");
@@ -281,8 +283,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
         oldStartJavaServerButton = new javax.swing.JButton();
@@ -391,10 +392,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(oldStartJavaServerButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.oldStartJavaServerButton.text")); // NOI18N
         oldStartJavaServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.oldStartJavaServerButton.toolTipText")); // NOI18N
         oldStartJavaServerButton.setEnabled(false);
-        oldStartJavaServerButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        oldStartJavaServerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 oldStartJavaServerButtonActionPerformed(evt);
             }
         });
@@ -402,10 +401,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(oldStartPythonServerButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.oldStartPythonServerButton.text")); // NOI18N
         oldStartPythonServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.oldStartPythonServerButton.toolTipText")); // NOI18N
         oldStartPythonServerButton.setEnabled(false);
-        oldStartPythonServerButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        oldStartPythonServerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 oldStartPythonServerButtonActionPerformed(evt);
             }
         });
@@ -414,10 +411,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
         pageIntegrationTabbedPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pageIntegrationTabbedPane.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.pageIntegrationTabbedPane.toolTipText")); // NOI18N
-        pageIntegrationTabbedPane.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        pageIntegrationTabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 pageIntegrationTabbedPaneStateChanged(evt);
             }
         });
@@ -477,10 +472,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         widthTextField.setMaximumSize(new java.awt.Dimension(60, 22));
         widthTextField.setMinimumSize(new java.awt.Dimension(20, 22));
         widthTextField.setPreferredSize(new java.awt.Dimension(60, 22));
-        widthTextField.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        widthTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 widthTextFieldActionPerformed(evt);
             }
         });
@@ -521,10 +514,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         heightTextField.setMaximumSize(new java.awt.Dimension(60, 22));
         heightTextField.setMinimumSize(new java.awt.Dimension(20, 22));
         heightTextField.setPreferredSize(new java.awt.Dimension(60, 22));
-        heightTextField.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        heightTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 heightTextFieldActionPerformed(evt);
             }
         });
@@ -552,10 +543,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
         org.openide.awt.Mnemonics.setLocalizedText(viewX3d4Html5AnnexButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.viewX3d4Html5AnnexButton.text")); // NOI18N
         viewX3d4Html5AnnexButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.viewX3d4Html5AnnexButton.toolTipText")); // NOI18N
-        viewX3d4Html5AnnexButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        viewX3d4Html5AnnexButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewX3d4Html5AnnexButtonActionPerformed(evt);
             }
         });
@@ -586,10 +575,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         helpSceneAuthoringHintsHtmlButton.setMaximumSize(new java.awt.Dimension(44, 23));
         helpSceneAuthoringHintsHtmlButton.setMinimumSize(new java.awt.Dimension(44, 23));
         helpSceneAuthoringHintsHtmlButton.setPreferredSize(new java.awt.Dimension(44, 23));
-        helpSceneAuthoringHintsHtmlButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        helpSceneAuthoringHintsHtmlButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 helpSceneAuthoringHintsHtmlButtonActionPerformed(evt);
             }
         });
@@ -682,10 +669,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         x3domHomeButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         x3domHomeButton.setForeground(new java.awt.Color(21, 71, 52));
         org.openide.awt.Mnemonics.setLocalizedText(x3domHomeButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x3domHomeButton.text")); // NOI18N
-        x3domHomeButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        x3domHomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 x3domHomeButtonActionPerformed(evt);
             }
         });
@@ -702,10 +687,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         x3domHelpButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         x3domHelpButton.setForeground(new java.awt.Color(21, 71, 52));
         org.openide.awt.Mnemonics.setLocalizedText(x3domHelpButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x3domHelpButton.text")); // NOI18N
-        x3domHelpButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        x3domHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 x3domHelpButtonActionPerformed(evt);
             }
         });
@@ -721,10 +704,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         x3domImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/x3dom_logo150x44.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(x3domImageLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x3domImageLabel.text")); // NOI18N
         x3domImageLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x3domImageLabel.toolTipText")); // NOI18N
-        x3domImageLabel.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseReleased(java.awt.event.MouseEvent evt)
-            {
+        x3domImageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
                 x3domImageLabelMouseReleased(evt);
             }
         });
@@ -741,10 +722,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         showLogCheckBox.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(showLogCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.showLogCheckBox.text")); // NOI18N
         showLogCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        showLogCheckBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        showLogCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showLogCheckBoxActionPerformed(evt);
             }
         });
@@ -771,10 +750,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         showStatisticsCheckBox.setActionCommand(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.showStatisticsCheckBox.actionCommand")); // NOI18N
         showStatisticsCheckBox.setDoubleBuffered(true);
         showStatisticsCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        showStatisticsCheckBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        showStatisticsCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showStatisticsCheckBoxActionPerformed(evt);
             }
         });
@@ -801,10 +778,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(showProgressCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.showProgressCheckBox.text")); // NOI18N
         showProgressCheckBox.setActionCommand(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.showProgressCheckBox.actionCommand")); // NOI18N
         showProgressCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        showProgressCheckBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        showProgressCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showProgressCheckBoxActionPerformed(evt);
             }
         });
@@ -845,10 +820,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         primitiveQualityComboBox.setMaximumSize(new java.awt.Dimension(60, 22));
         primitiveQualityComboBox.setMinimumSize(new java.awt.Dimension(20, 22));
         primitiveQualityComboBox.setPreferredSize(new java.awt.Dimension(55, 22));
-        primitiveQualityComboBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        primitiveQualityComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 primitiveQualityComboBoxActionPerformed(evt);
             }
         });
@@ -912,10 +885,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         x_iteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/x_ite_logo64x64.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(x_iteLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x_iteLabel.text")); // NOI18N
         x_iteLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x_iteLabel.toolTipText")); // NOI18N
-        x_iteLabel.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseReleased(java.awt.event.MouseEvent evt)
-            {
+        x_iteLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
                 x_iteLabelMouseReleased(evt);
             }
         });
@@ -931,10 +902,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         x_iteHomeButton.setForeground(new java.awt.Color(21, 71, 52));
         org.openide.awt.Mnemonics.setLocalizedText(x_iteHomeButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x_iteHomeButton.text")); // NOI18N
         x_iteHomeButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x_iteHomeButton.toolTipText")); // NOI18N
-        x_iteHomeButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        x_iteHomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 x_iteHomeButtonActionPerformed(evt);
             }
         });
@@ -952,10 +921,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         x_iteHelpButton.setForeground(new java.awt.Color(21, 71, 52));
         org.openide.awt.Mnemonics.setLocalizedText(x_iteHelpButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x_iteHelpButton.text")); // NOI18N
         x_iteHelpButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x_iteHelpButton.toolTipText")); // NOI18N
-        x_iteHelpButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        x_iteHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 x_iteHelpButtonActionPerformed(evt);
             }
         });
@@ -972,10 +939,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         cacheCheckBox.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(cacheCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.cacheCheckBox.text")); // NOI18N
         cacheCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.cacheCheckBox.toolTipText")); // NOI18N
-        cacheCheckBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        cacheCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cacheCheckBoxActionPerformed(evt);
             }
         });
@@ -1011,10 +976,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         urlList.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         urlList.setMinimumSize(new java.awt.Dimension(600, 120));
         urlList.setPreferredSize(new java.awt.Dimension(620, 250));
-        urlList.addPropertyChangeListener(new java.beans.PropertyChangeListener()
-        {
-            public void propertyChange(java.beans.PropertyChangeEvent evt)
-            {
+        urlList.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 urlListPropertyChange(evt);
             }
         });
@@ -1063,17 +1026,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         pageIntegrationTabbedPane.addTab(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x_itePanel.TabConstraints.tabTitle"), new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/x_ite_logo32x32.png")), x_itePanel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.x_itePanel.TabConstraints.tabToolTip")); // NOI18N
 
         corsPanel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.corsPanel.toolTipText")); // NOI18N
-        corsPanel.addFocusListener(new java.awt.event.FocusAdapter()
-        {
-            public void focusGained(java.awt.event.FocusEvent evt)
-            {
+        corsPanel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
                 corsPanelFocusGained(evt);
             }
         });
-        corsPanel.addComponentListener(new java.awt.event.ComponentAdapter()
-        {
-            public void componentShown(java.awt.event.ComponentEvent evt)
-            {
+        corsPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
                 corsPanelComponentShown(evt);
             }
         });
@@ -1110,10 +1069,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
         addressComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "localhost", "0.0.0.0", "127.0.0.1" }));
         addressComboBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.addressComboBox.toolTipText")); // NOI18N
-        addressComboBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        addressComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addressComboBoxActionPerformed(evt);
             }
         });
@@ -1127,10 +1084,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         corsHelpButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         corsHelpButton.setForeground(new java.awt.Color(21, 71, 52));
         org.openide.awt.Mnemonics.setLocalizedText(corsHelpButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.corsHelpButton.text")); // NOI18N
-        corsHelpButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        corsHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 corsHelpButtonActionPerformed(evt);
             }
         });
@@ -1147,10 +1102,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         httpLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/HTTP_logo.svg.64x34.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(httpLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.httpLabel.text")); // NOI18N
         httpLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.httpLabel.toolTipText")); // NOI18N
-        httpLabel.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseReleased(java.awt.event.MouseEvent evt)
-            {
+        httpLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
                 httpLabelMouseReleased(evt);
             }
         });
@@ -1167,10 +1120,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(authorModelsDirectoryLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsDirectoryLabel.text")); // NOI18N
         authorModelsDirectoryLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsDirectoryLabel.toolTipText")); // NOI18N
         authorModelsDirectoryLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        authorModelsDirectoryLabel.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseReleased(java.awt.event.MouseEvent evt)
-            {
+        authorModelsDirectoryLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
                 authorModelsDirectoryLabelMouseReleased(evt);
             }
         });
@@ -1202,10 +1153,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(autolaunchAuthorModelsServerCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.autolaunchAuthorModelsServerCheckBox.text")); // NOI18N
         autolaunchAuthorModelsServerCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.autolaunchAuthorModelsServerCheckBox.toolTipText")); // NOI18N
         autolaunchAuthorModelsServerCheckBox.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        autolaunchAuthorModelsServerCheckBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        autolaunchAuthorModelsServerCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 autolaunchAuthorModelsServerCheckBoxActionPerformed(evt);
             }
         });
@@ -1233,17 +1182,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         portAuthorModelsServerTextField.setMaximumSize(new java.awt.Dimension(60, 22));
         portAuthorModelsServerTextField.setMinimumSize(new java.awt.Dimension(20, 22));
         portAuthorModelsServerTextField.setPreferredSize(new java.awt.Dimension(20, 22));
-        portAuthorModelsServerTextField.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseExited(java.awt.event.MouseEvent evt)
-            {
+        portAuthorModelsServerTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
                 portAuthorModelsServerTextFieldMouseExited(evt);
             }
         });
-        portAuthorModelsServerTextField.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        portAuthorModelsServerTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 portAuthorModelsServerTextFieldActionPerformed(evt);
             }
         });
@@ -1261,10 +1206,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(startAuthorModelsServerButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.startAuthorModelsServerButton.text")); // NOI18N
         startAuthorModelsServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.startAuthorModelsServerButton.toolTipText")); // NOI18N
         startAuthorModelsServerButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
-        startAuthorModelsServerButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        startAuthorModelsServerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startAuthorModelsServerButtonActionPerformed(evt);
             }
         });
@@ -1282,10 +1225,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         stopAuthorModelsServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.stopAuthorModelsServerButton.toolTipText")); // NOI18N
         stopAuthorModelsServerButton.setEnabled(false);
         stopAuthorModelsServerButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
-        stopAuthorModelsServerButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        stopAuthorModelsServerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stopAuthorModelsServerButtonActionPerformed(evt);
             }
         });
@@ -1303,10 +1244,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(browseLocalhostAuthorModelsButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.browseLocalhostAuthorModelsButton.text")); // NOI18N
         browseLocalhostAuthorModelsButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.browseLocalhostAuthorModelsButton.toolTipText")); // NOI18N
         browseLocalhostAuthorModelsButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
-        browseLocalhostAuthorModelsButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        browseLocalhostAuthorModelsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browseLocalhostAuthorModelsButtonActionPerformed(evt);
             }
         });
@@ -1324,10 +1263,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(authorModelsServerStatusLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsServerStatusLabel.text")); // NOI18N
         authorModelsServerStatusLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsServerStatusLabel.toolTipText")); // NOI18N
         authorModelsServerStatusLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        authorModelsServerStatusLabel.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseReleased(java.awt.event.MouseEvent evt)
-            {
+        authorModelsServerStatusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
                 authorModelsServerStatusLabelMouseReleased(evt);
             }
         });
@@ -1341,17 +1278,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
         authorModelsDirectoryTextField.setText(org.web3d.x3d.options.X3dEditUserPreferences.getExampleArchivesRootDirectory());
         authorModelsDirectoryTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsDirectoryTextField.toolTipText")); // NOI18N
-        authorModelsDirectoryTextField.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseExited(java.awt.event.MouseEvent evt)
-            {
+        authorModelsDirectoryTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
                 authorModelsDirectoryTextFieldMouseExited(evt);
             }
         });
-        authorModelsDirectoryTextField.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        authorModelsDirectoryTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 authorModelsDirectoryTextFieldActionPerformed(evt);
             }
         });
@@ -1369,10 +1302,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(authorModelsDirectoryClearButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsDirectoryClearButton.text")); // NOI18N
         authorModelsDirectoryClearButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsDirectoryClearButton.toolTipText")); // NOI18N
         authorModelsDirectoryClearButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        authorModelsDirectoryClearButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        authorModelsDirectoryClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 authorModelsDirectoryClearButtonActionPerformed(evt);
             }
         });
@@ -1388,10 +1319,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(authorModelsDirectoryChooserButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsDirectoryChooserButton.text")); // NOI18N
         authorModelsDirectoryChooserButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.authorModelsDirectoryChooserButton.toolTipText")); // NOI18N
         authorModelsDirectoryChooserButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        authorModelsDirectoryChooserButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        authorModelsDirectoryChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 authorModelsDirectoryChooserButtonActionPerformed(evt);
             }
         });
@@ -1408,10 +1337,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         authorModelsDirectoryDefaultButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
         authorModelsDirectoryDefaultButton.setMinimumSize(new java.awt.Dimension(24, 24));
         authorModelsDirectoryDefaultButton.setPreferredSize(new java.awt.Dimension(48, 24));
-        authorModelsDirectoryDefaultButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        authorModelsDirectoryDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 authorModelsDirectoryDefaultButtonActionPerformed(evt);
             }
         });
@@ -1440,10 +1367,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(examplesArchiveDescriptionLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.examplesArchiveDescriptionLabel.text")); // NOI18N
         examplesArchiveDescriptionLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.examplesArchiveDescriptionLabel.toolTipText")); // NOI18N
         examplesArchiveDescriptionLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        examplesArchiveDescriptionLabel.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseReleased(java.awt.event.MouseEvent evt)
-            {
+        examplesArchiveDescriptionLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
                 examplesArchiveDescriptionLabelMouseReleased(evt);
             }
         });
@@ -1475,10 +1400,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(autolaunchExampleArchivesServerCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.autolaunchExampleArchivesServerCheckBox.text")); // NOI18N
         autolaunchExampleArchivesServerCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.autolaunchExampleArchivesServerCheckBox.toolTipText")); // NOI18N
         autolaunchExampleArchivesServerCheckBox.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        autolaunchExampleArchivesServerCheckBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        autolaunchExampleArchivesServerCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 autolaunchExampleArchivesServerCheckBoxActionPerformed(evt);
             }
         });
@@ -1506,17 +1429,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         portExampleArchivesServerTextField.setMaximumSize(new java.awt.Dimension(60, 22));
         portExampleArchivesServerTextField.setMinimumSize(new java.awt.Dimension(20, 22));
         portExampleArchivesServerTextField.setPreferredSize(new java.awt.Dimension(20, 22));
-        portExampleArchivesServerTextField.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseExited(java.awt.event.MouseEvent evt)
-            {
+        portExampleArchivesServerTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
                 portExampleArchivesServerTextFieldMouseExited(evt);
             }
         });
-        portExampleArchivesServerTextField.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        portExampleArchivesServerTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 portExampleArchivesServerTextFieldActionPerformed(evt);
             }
         });
@@ -1534,10 +1453,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(startExampleArchivesServerButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.startExampleArchivesServerButton.text")); // NOI18N
         startExampleArchivesServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.startExampleArchivesServerButton.toolTipText")); // NOI18N
         startExampleArchivesServerButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
-        startExampleArchivesServerButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        startExampleArchivesServerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startExampleArchivesServerButtonActionPerformed(evt);
             }
         });
@@ -1555,10 +1472,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         stopExampleArchivesServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.stopExampleArchivesServerButton.toolTipText")); // NOI18N
         stopExampleArchivesServerButton.setEnabled(false);
         stopExampleArchivesServerButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
-        stopExampleArchivesServerButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        stopExampleArchivesServerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stopExampleArchivesServerButtonActionPerformed(evt);
             }
         });
@@ -1576,10 +1491,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(browseLocalhostExampleArchivesButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.browseLocalhostExampleArchivesButton.text")); // NOI18N
         browseLocalhostExampleArchivesButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.browseLocalhostExampleArchivesButton.toolTipText")); // NOI18N
         browseLocalhostExampleArchivesButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
-        browseLocalhostExampleArchivesButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        browseLocalhostExampleArchivesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browseLocalhostExampleArchivesButtonActionPerformed(evt);
             }
         });
@@ -1597,10 +1510,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(exampleArchivesServerStatusLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.exampleArchivesServerStatusLabel.text")); // NOI18N
         exampleArchivesServerStatusLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.exampleArchivesServerStatusLabel.toolTipText")); // NOI18N
         exampleArchivesServerStatusLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        exampleArchivesServerStatusLabel.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseReleased(java.awt.event.MouseEvent evt)
-            {
+        exampleArchivesServerStatusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
                 exampleArchivesServerStatusLabelMouseReleased(evt);
             }
         });
@@ -1618,10 +1529,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         exampleArchivesDirectoryTextField.setEnabled(false);
         exampleArchivesDirectoryTextField.setMinimumSize(new java.awt.Dimension(64, 22));
         exampleArchivesDirectoryTextField.setPreferredSize(new java.awt.Dimension(85, 22));
-        exampleArchivesDirectoryTextField.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        exampleArchivesDirectoryTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exampleArchivesDirectoryTextFieldActionPerformed(evt);
             }
         });
@@ -1639,11 +1548,9 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(exampleArchivesDownloadPanelButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.exampleArchivesDownloadPanelButton.text")); // NOI18N
         exampleArchivesDownloadPanelButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.exampleArchivesDownloadPanelButton.toolTipText")); // NOI18N
         exampleArchivesDownloadPanelButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        exampleArchivesDownloadPanelButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                exampleArchivesDownloadPanelButtonActionPerformed(evt);
+        exampleArchivesDownloadPanelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exampleArchivesDirectoryClearButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1658,10 +1565,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(exampleArchivesDirectoryChooserButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.exampleArchivesDirectoryChooserButton.text")); // NOI18N
         exampleArchivesDirectoryChooserButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.exampleArchivesDirectoryChooserButton.toolTipText")); // NOI18N
         exampleArchivesDirectoryChooserButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        exampleArchivesDirectoryChooserButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        exampleArchivesDirectoryChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exampleArchivesDirectoryChooserButtonActionPerformed(evt);
             }
         });
@@ -1687,10 +1592,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(activeX3dModelLocationLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelLocationLabel.text")); // NOI18N
         activeX3dModelLocationLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelLocationLabel.toolTipText")); // NOI18N
         activeX3dModelLocationLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        activeX3dModelLocationLabel.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseExited(java.awt.event.MouseEvent evt)
-            {
+        activeX3dModelLocationLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
                 activeX3dModelLocationLabelMouseExited(evt);
             }
         });
@@ -1722,10 +1625,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(autolaunchActiveX3dModelServerCheckBox, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.autolaunchActiveX3dModelServerCheckBox.text")); // NOI18N
         autolaunchActiveX3dModelServerCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.autolaunchActiveX3dModelServerCheckBox.toolTipText")); // NOI18N
         autolaunchActiveX3dModelServerCheckBox.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        autolaunchActiveX3dModelServerCheckBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        autolaunchActiveX3dModelServerCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 autolaunchActiveX3dModelServerCheckBoxActionPerformed(evt);
             }
         });
@@ -1753,17 +1654,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         portActiveX3dModelServerTextField.setMaximumSize(new java.awt.Dimension(60, 22));
         portActiveX3dModelServerTextField.setMinimumSize(new java.awt.Dimension(20, 22));
         portActiveX3dModelServerTextField.setPreferredSize(new java.awt.Dimension(20, 22));
-        portActiveX3dModelServerTextField.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseExited(java.awt.event.MouseEvent evt)
-            {
+        portActiveX3dModelServerTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
                 portActiveX3dModelServerTextFieldMouseExited(evt);
             }
         });
-        portActiveX3dModelServerTextField.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        portActiveX3dModelServerTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 portActiveX3dModelServerTextFieldActionPerformed(evt);
             }
         });
@@ -1781,10 +1678,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(startActiveX3dModelServerButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.startActiveX3dModelServerButton.text")); // NOI18N
         startActiveX3dModelServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.startActiveX3dModelServerButton.toolTipText")); // NOI18N
         startActiveX3dModelServerButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
-        startActiveX3dModelServerButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        startActiveX3dModelServerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startActiveX3dModelServerButtonActionPerformed(evt);
             }
         });
@@ -1801,10 +1696,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(stopActiveX3dModelServerButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.stopActiveX3dModelServerButton.text")); // NOI18N
         stopActiveX3dModelServerButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.stopActiveX3dModelServerButton.toolTipText")); // NOI18N
         stopActiveX3dModelServerButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
-        stopActiveX3dModelServerButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        stopActiveX3dModelServerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stopActiveX3dModelServerButtonActionPerformed(evt);
             }
         });
@@ -1822,10 +1715,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(browseLocalhostActiveX3dModelsButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.browseLocalhostActiveX3dModelsButton.text")); // NOI18N
         browseLocalhostActiveX3dModelsButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.browseLocalhostActiveX3dModelsButton.toolTipText")); // NOI18N
         browseLocalhostActiveX3dModelsButton.setMargin(new java.awt.Insets(3, 3, 3, 3));
-        browseLocalhostActiveX3dModelsButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        browseLocalhostActiveX3dModelsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browseLocalhostActiveX3dModelsButtonActionPerformed(evt);
             }
         });
@@ -1843,10 +1734,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(activeX3dModelServerStatusLabel, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelServerStatusLabel.text")); // NOI18N
         activeX3dModelServerStatusLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.exampleArchivesServerStatusLabel.toolTipText")); // NOI18N
         activeX3dModelServerStatusLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        activeX3dModelServerStatusLabel.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseReleased(java.awt.event.MouseEvent evt)
-            {
+        activeX3dModelServerStatusLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
                 activeX3dModelServerStatusLabelMouseReleased(evt);
             }
         });
@@ -1860,17 +1749,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
         activeX3dModelDirectoryServerListComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "This combo box lists model directories that have localhost http servers running" }));
         activeX3dModelDirectoryServerListComboBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryServerListComboBox.toolTipText")); // NOI18N
-        activeX3dModelDirectoryServerListComboBox.addItemListener(new java.awt.event.ItemListener()
-        {
-            public void itemStateChanged(java.awt.event.ItemEvent evt)
-            {
+        activeX3dModelDirectoryServerListComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 activeX3dModelDirectoryServerListComboBoxItemStateChanged(evt);
             }
         });
-        activeX3dModelDirectoryServerListComboBox.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        activeX3dModelDirectoryServerListComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activeX3dModelDirectoryServerListComboBoxActionPerformed(evt);
             }
         });
@@ -1885,10 +1770,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(activeX3dModelDirectoryClearButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryClearButton.text")); // NOI18N
         activeX3dModelDirectoryClearButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryClearButton.toolTipText")); // NOI18N
         activeX3dModelDirectoryClearButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        activeX3dModelDirectoryClearButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        activeX3dModelDirectoryClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activeX3dModelDirectoryClearButtonActionPerformed(evt);
             }
         });
@@ -1904,10 +1787,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(activeX3dModelDirectoryChooserButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryChooserButton.text")); // NOI18N
         activeX3dModelDirectoryChooserButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.activeX3dModelDirectoryChooserButton.toolTipText")); // NOI18N
         activeX3dModelDirectoryChooserButton.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        activeX3dModelDirectoryChooserButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        activeX3dModelDirectoryChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activeX3dModelDirectoryChooserButtonActionPerformed(evt);
             }
         });
@@ -1953,10 +1834,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(downloadPanelLaunchButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.downloadPanelLaunchButton.text")); // NOI18N
         downloadPanelLaunchButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.downloadPanelLaunchButton.toolTipText")); // NOI18N
         downloadPanelLaunchButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        downloadPanelLaunchButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        downloadPanelLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 downloadPanelLaunchButtonActionPerformed(evt);
             }
         });
@@ -1974,10 +1853,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         refreshExampleArchivesButton.setMinimumSize(new java.awt.Dimension(26, 26));
         refreshExampleArchivesButton.setPreferredSize(new java.awt.Dimension(26, 26));
         refreshExampleArchivesButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        refreshExampleArchivesButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        refreshExampleArchivesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshExampleArchivesButtonActionPerformed(evt);
             }
         });
@@ -1994,10 +1871,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         refreshAuthorModelsButton.setMinimumSize(new java.awt.Dimension(26, 26));
         refreshAuthorModelsButton.setPreferredSize(new java.awt.Dimension(26, 26));
         refreshAuthorModelsButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        refreshAuthorModelsButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        refreshAuthorModelsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshAuthorModelsButtonActionPerformed(evt);
             }
         });
@@ -2014,10 +1889,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         refreshActiveX3dModelButton.setMinimumSize(new java.awt.Dimension(26, 26));
         refreshActiveX3dModelButton.setPreferredSize(new java.awt.Dimension(26, 26));
         refreshActiveX3dModelButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        refreshActiveX3dModelButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        refreshActiveX3dModelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshActiveX3dModelButtonActionPerformed(evt);
             }
         });
@@ -2058,10 +1931,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         feedbackButton.setMaximumSize(new java.awt.Dimension(55, 23));
         feedbackButton.setMinimumSize(new java.awt.Dimension(55, 23));
         feedbackButton.setPreferredSize(new java.awt.Dimension(55, 23));
-        feedbackButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        feedbackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 feedbackButtonActionPerformed(evt);
             }
         });
@@ -2071,7 +1942,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 11);
         getContentPane().add(feedbackButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(continueButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.continueButton.text")); // NOI18N
@@ -2080,10 +1951,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         continueButton.setMaximumSize(new java.awt.Dimension(55, 23));
         continueButton.setMinimumSize(new java.awt.Dimension(55, 23));
         continueButton.setPreferredSize(new java.awt.Dimension(55, 23));
-        continueButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        continueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 continueButtonActionPerformed(evt);
             }
         });
@@ -2099,13 +1968,11 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         org.openide.awt.Mnemonics.setLocalizedText(transformModelButton, org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.transformModelButton.text")); // NOI18N
         transformModelButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dToXhtmlDomConversionFrame.class, "X3dToXhtmlDomConversionFrame.transformModelButton.toolTipText")); // NOI18N
         transformModelButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        transformModelButton.setMaximumSize(new java.awt.Dimension(55, 23));
-        transformModelButton.setMinimumSize(new java.awt.Dimension(55, 23));
-        transformModelButton.setPreferredSize(new java.awt.Dimension(55, 23));
-        transformModelButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        transformModelButton.setMaximumSize(new java.awt.Dimension(120, 23));
+        transformModelButton.setMinimumSize(new java.awt.Dimension(120, 23));
+        transformModelButton.setPreferredSize(new java.awt.Dimension(120, 23));
+        transformModelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 transformModelButtonActionPerformed(evt);
             }
         });
@@ -2342,6 +2209,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void checkAuthorModelsDirectoryAutolaunch ()
     {
+        // unset launch buttons if either directory or port not present
+        if (X3dEditUserPreferences.getAuthorModelsDirectory().isBlank() || X3dEditUserPreferences.getAuthorModelsServerPort().isBlank())
+        {
+            autolaunchAuthorModelsServerCheckBox.setEnabled(false);
+            X3dEditUserPreferences.setAuthorModelsServerAutolaunch(false);
+            startAuthorModelsServerButton.setEnabled(false);
+        }
         if (!X3dEditUserPreferences.isAuthorModelsServerAutolaunch())
         {
             X3dEditUserPreferences.setAuthorModelsServerAutolaunch(true);
@@ -2368,6 +2242,11 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_authorModelsDirectoryClearButtonActionPerformed
         authorModelsDirectoryTextField.setText("");
         X3dEditUserPreferences.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText());
+        stopAuthorModelsServer();
+        X3dEditUserPreferences.setAuthorModelsServerAutolaunch(false);
+        autolaunchAuthorModelsServerCheckBox.setSelected(false);
+             startAuthorModelsServerButton.setEnabled(false);
+        updateIndicationsPortsBoundOnServers();
     }//GEN-LAST:event_authorModelsDirectoryClearButtonActionPerformed
 
     private void authorModelsDirectoryChooserButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorModelsDirectoryChooserButtonActionPerformed
@@ -2393,6 +2272,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void portExampleArchivesServerCheck()
     {
+        // unset launch buttons if either directory or port not present
+        if (X3dEditUserPreferences.getExampleArchivesRootDirectory().isBlank() || X3dEditUserPreferences.getExampleArchivesServerPort().isBlank())
+        {
+            autolaunchExampleArchivesServerCheckBox.setEnabled(false);
+            X3dEditUserPreferences.setExampleArchivesServerAutolaunch(false);
+            startExampleArchivesServerButton.setEnabled(false);
+        }
         // TODO check values 8000..? and not duplicated
         if (portExampleArchivesServerTextField.getText().isBlank())
         {
@@ -2508,7 +2394,10 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
 
     private void startActiveX3dModelServerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_startActiveX3dModelServerButtonActionPerformed
     {//GEN-HEADEREND:event_startActiveX3dModelServerButtonActionPerformed
+        // https://docs.oracle.com/javase/tutorial/uiswing/components/combobox.html
         activeX3dModelServerSelection = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
+        activeX3dModelDirectoryServerListComboBox.setForeground(darkgreen);
+        activeX3dModelDirectoryServerListComboBox.setFont(boldFont);
         startActiveX3dModelServer();
         // TODO panel updates
     }//GEN-LAST:event_startActiveX3dModelServerButtonActionPerformed
@@ -2534,8 +2423,8 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         int portValue = Integer.parseInt(activeX3dModelPortList.get(getActiveServerSelection()));
         if (addressValue.isBlank())
             addressValue = "localhost";
-        // activeX3dModelDirectoryList.get(activeX3dModelServerSelection) should be root of query to https://localhost:8001
-        String localRootAddress = "http://" + addressValue + ":" + portValue;
+        // activeX3dModelDirectoryList.get(activeX3dModelServerSelection) should be root of query to http://localhost:8001
+        String localRootAddress = "http://" + addressValue + ":" + portValue; // prepend CORS prefix
         openInBrowser(localRootAddress);
     }//GEN-LAST:event_browseLocalhostActiveX3dModelsButtonActionPerformed
 
@@ -2561,7 +2450,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         //        modelRootDirectory = modelRootDirectory.replaceAll("\\\\","/"); // double escaping for Java character and regex literal;
 
             // put safety/XML &Security checks here, e.g start and end with "/"
-            // https://docs.oracle.com/en/java/javase/19/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html#createContext(java.lang.String,com.sun.net.httpserver.HttpHandler)
+            // https://docs.oracle.com/en/java/javase/20/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html#createContext(java.lang.String,com.sun.net.httpserver.HttpHandler)
 
             if (modelRootDirectory.equals("\\"))
                 {
@@ -2589,7 +2478,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                         // INFO [org.netbeans.api.java.source.ElementHandle]: Cannot resolve: ElementHandle[kind=METHOD; sigs=com.sun.net.httpserver.HttpServer createContext (Ljava/lang/String;)Lcom/sun/net/httpserver/HttpContext; ]
 //////                        originalJavaHttpServer.createContext(modelRootDirectoryURI.getPath(), new LocalFileHandlerOld() );
 
-                        // https://docs.oracle.com/en/java/javase/19/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html#setExecutor(java.util.concurrent.Executor)
+                        // https://docs.oracle.com/en/java/javase/20/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html#setExecutor(java.util.concurrent.Executor)
                         ThreadPerTaskExecutor httpServerExecutor = new ThreadPerTaskExecutor();
                         originalJavaHttpServer.setExecutor(httpServerExecutor); // null means default implementation; TODO eliminate potential problem
 
@@ -2680,6 +2569,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 activeX3dModelDirectoryList.remove(index);
                 activeX3dModelPortList.remove(index);
                 activeX3dModelProcessList.remove(index);
+                stopActiveX3dModelServer(index);
                 activeX3dModelDirectoryServerListComboBox.removeItem(index + 1);
                 if (activeX3dModelDirectoryServerListComboBox.getSelectedIndex() > 1) // update other displays to match
                 {
@@ -2698,12 +2588,6 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_activeX3dModelDirectoryChooserButtonActionPerformed
         activeX3dModelDirectoryChooser();
     }//GEN-LAST:event_activeX3dModelDirectoryChooserButtonActionPerformed
-
-    private void exampleArchivesDownloadPanelButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_exampleArchivesDownloadPanelButtonActionPerformed
-    {//GEN-HEADEREND:event_exampleArchivesDownloadPanelButtonActionPerformed
-        DownloadX3dExamplesArchivesAction downloadX3dExamplesArchivesAction = new DownloadX3dExamplesArchivesAction();
-        downloadX3dExamplesArchivesAction.performAction();
-    }//GEN-LAST:event_exampleArchivesDownloadPanelButtonActionPerformed
 
     private void activeX3dModelLocationLabelMouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_activeX3dModelLocationLabelMouseExited
     {//GEN-HEADEREND:event_activeX3dModelLocationLabelMouseExited
@@ -2816,6 +2700,44 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         System.out.println("*** panel refresh: " + message);
     }//GEN-LAST:event_refreshActiveX3dModelButtonActionPerformed
 
+    private void exampleArchivesDirectoryClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exampleArchivesDirectoryClearButtonActionPerformed
+        // if directory exists, or CORS server is running, are you sure?
+        if  ((exampleArchivesDirectoryTextField.getText() != null) && !exampleArchivesDirectoryTextField.getText().isBlank())
+        {
+            File exampleArchivesDirectory = new File (exampleArchivesDirectoryTextField.getText());
+            if (exampleArchivesDirectory.exists() || (exampleArchivesHttpServerProcess != null))
+            {
+                StringBuilder notificationMessage = new StringBuilder();
+                notificationMessage.append("<html><p align='center'>");
+                if (exampleArchivesDirectory.exists())
+                {
+                    notificationMessage.append("<b>Example archives directory exists.</b>");
+                    notificationMessage.append("<br />");
+                }
+                if ((exampleArchivesHttpServerProcess != null))
+                {
+                    notificationMessage.append("<b>CORS https server is running.</b>");
+                    notificationMessage.append("<br />");
+                }
+                notificationMessage.append("<b>Are you sure</b> you want to stop server and delete this path?</p>");
+                NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+                      notificationMessage.toString(),
+                      "Clear example archives path?", NotifyDescriptor.YES_NO_OPTION);
+                if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.NO_OPTION) 
+                {
+                    return; // do not clear path
+                }
+            }
+        }
+        exampleArchivesDirectoryTextField.setText("");
+        X3dEditUserPreferences.setExampleArchivesRootDirectory(exampleArchivesDirectoryTextField.getText());
+        stopExampleArchivesServer();
+        X3dEditUserPreferences.setExampleArchivesServerAutolaunch(false);
+        autolaunchExampleArchivesServerCheckBox.setSelected(false);
+               startExampleArchivesServerButton.setEnabled(false);
+        updateIndicationsPortsBoundOnServers();
+    }//GEN-LAST:event_exampleArchivesDirectoryClearButtonActionPerformed
+
     private void updateActiveX3dModelDirectoryButtons()
     {
         boolean haveLaunchedModels = (activeX3dModelNameList.size() > 1);
@@ -2827,16 +2749,30 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     }
     private void exampleArchivesDirectoryChooser()
     {
+        // first check if expected directory exists, notify user if not found
+        if  ((exampleArchivesDirectoryTextField.getText() != null) && !exampleArchivesDirectoryTextField.getText().isBlank())
+        {
+            File exampleArchivesDirectory = new File (exampleArchivesDirectoryTextField.getText());
+            if (!exampleArchivesDirectory.exists())
+            {
+                // notify user that file location is unworkable
+                System.err.println("*** exampleArchivesDirectoryChooser() Unable to find directory " + " '" + exampleArchivesDirectoryTextField.getText() + "'");
+                message = "<html><p align='center'>Unable to find directory '" + exampleArchivesDirectoryTextField.getText() + "'</p> </html>";
+                NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.WARNING_MESSAGE);
+                DialogDisplayer.getDefault().notify(notifyDescriptor);
+            }
+        }
         // file chooser looks in given directory first
         if (corsDirectoryChooser == null) // first time through
         {
             if  ((exampleArchivesDirectoryTextField.getText() != null) && !exampleArchivesDirectoryTextField.getText().isBlank())
                  corsDirectoryChooser = new JFileChooser(exampleArchivesDirectoryTextField.getText().trim());
             else corsDirectoryChooser = new JFileChooser(System.getProperty("user.home"));
+            
                  corsDirectoryChooser.setMultiSelectionEnabled(false);
                  corsDirectoryChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
         }
-        String title = "Choose designated CORS server directory for author models";
+        String title = "Choose designated CORS server directory for example archives";
         corsDirectoryChooser.setDialogTitle(title);
         // https://stackoverflow.com/questions/25666642/jfilechooser-to-pick-a-directory-or-a-single-file
         corsDirectoryChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES) ; // prevents user from seeing what is present: DIRECTORIES_ONLY);
@@ -2850,10 +2786,27 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             // TODO TF callback to save changed options (doesn't happen automatically)
             exampleArchivesDirectoryTextField.postActionEvent();
         }
-        // do not change X3dEditUserPreferences value
+        exampleArchivesDirectoryTextField.setText(exampleArchivesDirectoryTextField.getText().trim()); // omit stray whitespace
+        X3dEditUserPreferences.setExampleArchivesRootDirectory(exampleArchivesDirectoryTextField.getText());// unset launch buttons if either directory or port not present
+        if (X3dEditUserPreferences.getAuthorModelsDirectory().isBlank() || X3dEditUserPreferences.getAuthorModelsServerPort().isBlank())
+             startAuthorModelsServerButton.setEnabled(false);
+        else startExampleArchivesServerButton.setEnabled(true);
     }
     private void authorModelsDirectoryChooser()
     {
+        // first check if expected directory exists, notify user if not found
+        if  ((authorModelsDirectoryTextField.getText() != null) && !authorModelsDirectoryTextField.getText().isBlank())
+        {
+            File authorModelsDirectory = new File (authorModelsDirectoryTextField.getText());
+            if (!authorModelsDirectory.exists())
+            {
+                // notify user that file location is unworkable
+                System.err.println("*** authorModelsDirectoryChooser() Unable to find directory " + " '" + authorModelsDirectoryTextField.getText() + "'");
+                message = "<html><p align='center'>Unable to find directory '" + authorModelsDirectoryTextField.getText() + "'</p> </html>";
+                NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.WARNING_MESSAGE);
+                DialogDisplayer.getDefault().notify(notifyDescriptor);
+            }
+        }
         // file chooser looks in given directory first
         if (corsDirectoryChooser == null) // first time through
         {
@@ -2877,12 +2830,17 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             // TODO TF callback to save changed options (doesn't happen automatically)
             authorModelsDirectoryTextField.postActionEvent();
         }
-        authorModelsDirectoryTextField.setText(authorModelsDirectoryTextField.getText().trim());
+        authorModelsDirectoryTextField.setText(authorModelsDirectoryTextField.getText().trim()); // omit stray whitespace
         X3dEditUserPreferences.setAuthorModelsDirectory(authorModelsDirectoryTextField.getText());
+        // unset launch buttons if either directory or port not present
+        if (X3dEditUserPreferences.getAuthorModelsDirectory().isBlank() || X3dEditUserPreferences.getAuthorModelsServerPort().isBlank())
+             startAuthorModelsServerButton.setEnabled(false);
+        else startAuthorModelsServerButton.setEnabled(true);
     }
     private void activeX3dModelDirectoryChooser()
     {
         System.out.println ("*** TODO activeX3dModelDirectoryChooser() selection");
+        
         if (activeX3dModelNameList.isEmpty())
         {
             System.out.println ("*** activeX3dModelDirectoryChooser() no action taken since no model directories have been launchedused");
@@ -2890,6 +2848,20 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         }
         activeX3dModelServerSelection = activeX3dModelDirectoryServerListComboBox.getSelectedIndex();
         String modelDirectory = activeX3dModelDirectoryList.get(getActiveServerSelection());
+        
+        // next check if expected directory exists, notify user if not found
+        if  ((modelDirectory != null) && !modelDirectory.isBlank())
+        {
+            File activeX3dModelDirectory = new File (modelDirectory);
+            if (!activeX3dModelDirectory.exists())
+            {
+                // notify user that file location is unworkable
+                System.err.println("*** activeX3dModelDirectoryChooser() Unable to find directory " + " '" + modelDirectory + "'");
+                message = "<html><p align='center'>Unable to find directory '" + modelDirectory + "'</p> </html>";
+                NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.WARNING_MESSAGE);
+                DialogDisplayer.getDefault().notify(notifyDescriptor);
+            }
+        }
         corsDirectoryChooser = new JFileChooser(modelDirectory);
         corsDirectoryChooser.setMultiSelectionEnabled(false);
         corsDirectoryChooser.putClientProperty("JFileChooser.appBundleIsTraversable", "never");  // for macs
@@ -3129,10 +3101,23 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     }
     
     /** build CLI invocation to start server
-     * @see https://docs.oracle.com/en/java/javase/19/docs/specs/man/jwebserver.html
+     * @see https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html
      */
     public final static void startAuthorModelsServer ()
     {
+        if (X3dEditUserPreferences.getAuthorModelsDirectory().isBlank() || X3dEditUserPreferences.getAuthorModelsServerPort().isBlank())
+        {
+            // notify user that file location is unworkable
+            System.err.println("*** startServer() Unable to startAuthorModelsServer() at directoryLocation='" + X3dEditUserPreferences.getAuthorModelsDirectory() + 
+                                "' port='" + X3dEditUserPreferences.getAuthorModelsServerPort() + "'");
+            message = "<html><p align='center'>Unable to startAuthorModelsServer() at <br /> directoryLocation='" + X3dEditUserPreferences.getAuthorModelsDirectory() +
+                                "'<br /> port='" + X3dEditUserPreferences.getAuthorModelsServerPort() + "'</p> </html>";
+            NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.ERROR_MESSAGE);
+            DialogDisplayer.getDefault().notify(notifyDescriptor);
+            // TODO set CORS_TAB ?
+
+            return;
+        }
         // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
         ArrayList<String> commands = new ArrayList<>();
         commands.clear();
@@ -3142,18 +3127,30 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         commands.add("--port");
         commands.add(X3dEditUserPreferences.getAuthorModelsServerPort());
         commands.add("--output");
-        commands.add("verbose");
+//      commands.add("verbose"); // not an allowed parameter
 
         isAliveAuthorModelsServer = startServer(AUTHOR_MODELS, commands, X3dEditUserPreferences.getAuthorModelsDirectory()); // authorModelsDirectoryTextField.getText());
     }
     
     /** build CLI invocation to start server
-     * @see https://docs.oracle.com/en/java/javase/19/docs/specs/man/jwebserver.html
+     * @see https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html
      */
     public final static void startExampleArchivesServer ()
     {
+        if (X3dEditUserPreferences.getExampleArchivesRootDirectory().isBlank() || X3dEditUserPreferences.getExampleArchivesServerPort().isBlank())
+        {
+            // notify user that file location is unworkable
+            System.err.println("*** startServer() Unable to startExampleArchivesServer() at directoryLocation='" + X3dEditUserPreferences.getExampleArchivesRootDirectory() + 
+                                "' port='" + X3dEditUserPreferences.getExampleArchivesServerPort() + "'");
+            message = "<html><p align='center'>Unable to startExampleArchivesServer() at <br /> directoryLocation='" + X3dEditUserPreferences.getExampleArchivesRootDirectory() +
+                                "'<br /> port='" + X3dEditUserPreferences.getExampleArchivesServerPort() + "'</p> </html>";
+            NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.ERROR_MESSAGE);
+            DialogDisplayer.getDefault().notify(notifyDescriptor);
+            // TODO set CORS_TAB ?
+
+            return;
+        }
         // https://stackoverflow.com/questions/10954194/start-cmd-by-using-processbuilder
-               
         ArrayList<String> commands = new ArrayList<>();
         commands.clear();
         commands.add("jwebserver");
@@ -3162,11 +3159,11 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         commands.add("--port");
         commands.add(X3dEditUserPreferences.getExampleArchivesServerPort());
         commands.add("--output");
-        commands.add("verbose");
+//      commands.add("verbose"); // not an allowed parameter
         isAliveExampleArchivesServer = startServer(EXAMPLE_ARCHIVES, commands, X3dEditUserPreferences.getExampleArchivesRootDirectory()); // exampleArchivesDirectoryTextField.getText());
     }
     /** build CLI invocation to start server
-     * @see https://docs.oracle.com/en/java/javase/19/docs/specs/man/jwebserver.html
+     * @see https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html
      */
     public final void startActiveX3dModelServer ()
     {
@@ -3622,6 +3619,42 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         System.out.println("*** stopExampleArchivesServer() found exampleArchivesHttpServerProcess null, no response"); 
         return -1;
     }
+    private void stopActiveX3dModelServer(int serverIndex)
+    {
+        int    exitValue;
+        message = activeX3dModelDirectoryList.get(serverIndex) + " port=" + 
+                  activeX3dModelPortList.get(serverIndex);
+        Process httpServerProcess = activeX3dModelProcessList.get(serverIndex);
+        // typically these http servers respond supportsNormalTermination=false
+        // System.out.println("*** stopAuthorModelsServer() httpServerProcessNew.supportsNormalTermination=" + httpServerProcessNew.supportsNormalTermination()); 
+        // TODO can we reach in and tell it to stop?  might require implementing http server directly
+        // http servers seem to persist, so destroyForcibly()
+        if (httpServerProcess == null)
+        {
+            exitValue = -1;
+            message += " exitValue=" + exitValue + " (httpServerProcess null, not previously running)";
+        }
+        else
+        {
+            exitValue = httpServerProcess.destroyForcibly().exitValue();
+//              // wait a little for for server to stop prior to checking status
+//              sleep (200); // msec
+            switch (exitValue)
+            {
+                case 1:
+                    message += "localhost http process normal shutdown (exitValue=" + exitValue + ")";
+                    break;
+                case 2:
+                    message += "localhost http process still running   (exitValue=" + exitValue + ")";
+                    break;
+                default:
+                    message += " exitValue=" + exitValue;
+                    break;
+            }
+        }
+        System.out.println("*** stopActiveX3dModelServer(" + serverIndex + ") " + message);
+    }
+    
     private void stopActiveX3dModelServers()
     {
         int    exitValue;
@@ -3671,7 +3704,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
      * Start jwebserver Java Simple Web Server according to command-line invocation
      * @param whichServer AUTHOR_MODELS 1, EXAMPLE_ARCHIVES 2 or ACTIVE_X3D_MODEL 3
      * @param cli command-line invocation
-     * @see https://docs.oracle.com/en/java/javase/19/docs/specs/man/jwebserver.html
+     * @see https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html
      * @see https://blogs.oracle.com/javamagazine/post/java-18-simple-web-server
      * @see https://inside.java/2021/12/06/working-with-the-simple-web-server/
      * @see https://openjdk.org/jeps/408
@@ -3723,7 +3756,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                         // TODO how to redirect process output?
                         if (authorModelsHttpServerProcess != null)
                             stopAuthorModelsServer(); // prepare to restart
-                        // https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runtime.html#exec(java.lang.String%5B%5D,java.lang.String%5B%5D,java.io.File)
+                        // https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Runtime.html#exec(java.lang.String%5B%5D,java.lang.String%5B%5D,java.io.File)
                         // null indicates "If envp is null, the subprocess inherits the environment settings of the current process."
                         authorModelsHttpServerProcess = runtime.exec(cliCommandStringArray, null, directoryLocationFile);
                           isAlive = isAliveAuthorModelsServer = authorModelsHttpServerProcess.isAlive();
@@ -3846,7 +3879,7 @@ class LocalFileHandlerOld implements HttpHandler {
     }
 }
     /* Avoid potential Netbeans/X3D-Edit error when using null (default) executor in same thread
-    * @see https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/concurrent/Executor.html
+    * @see https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/concurrent/Executor.html
     */
     class ThreadPerTaskExecutor implements java.util.concurrent.Executor
     {
