@@ -187,11 +187,20 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
             x3dToXhtmlDomConversionFrame = new X3dToXhtmlDomConversionFrame (this);
         }
         if      (getPreferredTab() == CORS_TAB)
-                 x3dToXhtmlDomConversionFrame.setPaneIndex(CORS_TAB);  
+        {
+                                      setPreferredTab(CORS_TAB);
+            x3dToXhtmlDomConversionFrame.setPaneIndex(CORS_TAB);
+        }  
         else if (getPlayer().equals(X3DOM))
-                 x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X3DOM_TAB);
+        {
+                                   setPreferredTab(X3dToXhtmlDomConversionFrame.X3DOM_TAB);
+            x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X3DOM_TAB);
+        }
         else if (getPlayer().equals(X_ITE))
-                 x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
+        {
+                                   setPreferredTab(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
+            x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
+        }
         
         if(x3dToXhtmlDomConversionFrame != null)
            SwingUtilities.invokeLater(() -> {
