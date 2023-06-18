@@ -103,7 +103,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     public  static final String             X3DOM = "X3DOM";
     public  static final String             X_ITE = "X_ITE";
     private              int         preferredTab = NO_CHANGE_IN_TAB;
-    private final String            playerDefault = X3DOM;  // otherwise setPlayer(X_ITE) via subclass initialization
+    private final static String     playerDefault = X3DOM;  // otherwise setPlayer(X_ITE) via subclass initialization
     private final String      traceEnabledDefault = "true"; // development, debug mode for XSLT stylesheed
     // X3D
     private final String         x3dHeightDefault = "450";
@@ -119,7 +119,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
    
     private String         x3dHeight = x3dHeightDefault;
     private String          x3dWidth = x3dWidthDefault;
-    private String            player = playerDefault;
+    private static String     player = playerDefault;
     private boolean          showLog = showLogDefault;
     private boolean     showProgress = showProgressDefault;
     private boolean   showStatistics = showStatisticsDefault;
@@ -662,7 +662,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     /**
      * @return the player
      */
-    public String getPlayer() {
+    public static String getPlayer() {
         return player;
     }
 
