@@ -348,11 +348,13 @@ import org.xml.sax.SAXParseException;
     /**
      * Transform the currently open X3D disk file, putting the result into the passed destination disk file.
      * @param x3dEditor reference to X3dEditor
+     * @param outputFile for results
      * @param xsltFileResourcePath path to XSLT stylesheet
      * @param xsltIsOSFile whether stylesheet is an operating system file
      * @param parameterMap map of key=value pairs to provide to spreadsheet
      * @param goodFinishMessage message on successful finish
      * @return
+     * @throws java.io.FileNotFoundException if file problem occurs
      */
     public RequestProcessor.Task xsltOneFile(X3DEditorSupport.X3dEditor x3dEditor,
                                             File outputFile, 
