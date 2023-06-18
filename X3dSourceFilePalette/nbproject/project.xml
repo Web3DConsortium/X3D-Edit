@@ -450,8 +450,10 @@
             <word>Amaya</word>
             <word>autolaunch</word>
             <word>BioVision</word>
+            <word>boolean</word>
             <word>bvh</word>
             <word>Canonicalization</word>
+            <word>channelsEnabled</word>
             <word>ClassicVRML</word>
             <word>classpath</word>
             <word>Collada</word>
@@ -468,14 +470,20 @@
             <word>DOCTYPE</word>
             <word>DTD</word>
             <word>ElevationGrid</word>
+            <word>endFrame</word>
             <word>EnvironmentLight</word>
             <word>FillProperties</word>
+            <word>frameCount</word>
+            <word>frameDuration</word>
             <word>frameIncrement</word>
+            <word>frameIndex</word>
+            <word>geoSystem</word>
             <word>glTF</word>
             <word>gzip</word>
             <word>gzipped</word>
             <word>HAnim</word>
             <word>HAnimHumanoid</word>
+            <word>HAnimMotion</word>
             <word>html</word>
             <word>htmlcolorcodes</word>
             <word>http</word>
@@ -488,6 +496,7 @@
             <word>keystore</word>
             <word>LineProperties</word>
             <word>LineSet</word>
+            <word>loa</word>
             <word>localhost</word>
             <word>mailto</word>
             <word>MeshLab</word>
@@ -512,8 +521,10 @@
             <word>SavageDefense</word>
             <word>Schematron</word>
             <word>SIGGRAPH</word>
+            <word>skeletalConfiguration</word>
             <word>SourceForge</word>
             <word>stackoverflow</word>
+            <word>startFrame</word>
             <word>strictfp</word>
             <word>stylesheet</word>
             <word>svg</word>
@@ -530,10 +541,12 @@
             <word>TwoSidedMaterial</word>
             <word>UltraEdit</word>
             <word>UnlitMaterial</word>
+            <word>url</word>
             <word>Validator</word>
             <word>VRML</word>
             <word>WHATWG</word>
             <word>WhiteDune</word>
+            <word>whitespace</word>
             <word>wrl</word>
             <word>xDimension</word>
             <word>xhtml</word>
