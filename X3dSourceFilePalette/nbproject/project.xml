@@ -493,6 +493,7 @@
             <word>IndexedLineSet</word>
             <word>javadoc</word>
             <word>JSON</word>
+            <word>jwebserver</word>
             <word>keystore</word>
             <word>LineProperties</word>
             <word>LineSet</word>
@@ -508,6 +509,7 @@
             <word>NetBeans</word>
             <word>NuGraf</word>
             <word>Okino</word>
+            <word>openjdk</word>
             <word>Paraview</word>
             <word>PhysicalMaterial</word>
             <word>PixelTexture</word>
