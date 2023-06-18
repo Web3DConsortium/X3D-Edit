@@ -667,10 +667,10 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     }
 
     /**
-     * @param player the player to set
+     * @param newPlayer the player to set
      */
-    public void setPlayer(String player) {
-        this.player = player;
+    public void setPlayer(String newPlayer) {
+        X3dToXhtmlDomConversionAction.player = newPlayer;
     }
 
     /**

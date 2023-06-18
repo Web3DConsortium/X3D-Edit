@@ -71,4 +71,13 @@ public final class XhtmlX_iteAction extends X3dToXhtmlDomConversionAction {
         setPreferredTab(X_ITE_TAB);
         super.initialize(); // last, following setup
     }
+
+  @Override
+  protected String iconResource()
+  {
+      ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as XHTML with X_ITE via XSLT");
+    
+      return "org/web3d/x3d/resources/cobweb-logo32.png";
+  }
+  // see org.openide.util.actions.SystemAction.iconResource() Javadoc for more details
 }

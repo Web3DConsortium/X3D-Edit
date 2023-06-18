@@ -2145,7 +2145,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 startAuthorModelsServerButton.setText(HTTP_RUNNING);
                 startAuthorModelsServerButton.setForeground(darkgreen);
                 startAuthorModelsServerButton.setFont(boldFont);
-                startAuthorModelsServerButton.setEnabled(true);
+                startAuthorModelsServerButton.setEnabled(false);
 
                   stopAuthorModelsServerButton.setEnabled(true);
                   stopAuthorModelsServerButton.setText(HTTP_STOP);
@@ -2310,13 +2310,13 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         startExampleArchivesServer ();
         if (isAliveExampleArchivesServer || isPortBound(Integer.parseInt(X3dEditUserPreferences.getExampleArchivesServerPort())))
         {
-     autolaunchExampleArchivesServerCheckBox.setSelected(X3dEditUserPreferences.isExampleArchivesServerAutolaunch());
+            autolaunchExampleArchivesServerCheckBox.setSelected(X3dEditUserPreferences.isExampleArchivesServerAutolaunch());
             if (exampleArchivesHttpServerProcess != null)
             {
                 startExampleArchivesServerButton.setText(HTTP_RUNNING);
                 startExampleArchivesServerButton.setForeground(darkgreen);
                 startExampleArchivesServerButton.setFont(boldFont);
-                startExampleArchivesServerButton.setEnabled(true);
+                startExampleArchivesServerButton.setEnabled(false);
                 
                  stopExampleArchivesServerButton.setEnabled(true);
                  stopExampleArchivesServerButton.setText(HTTP_STOP);
@@ -2346,7 +2346,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         
         stopExampleArchivesServerButton.setEnabled(false);
         stopExampleArchivesServerButton.setForeground(black);
-        updateIndicationsPortsBoundOnServers();
+        updateIndicationsPortsBoundOnServers(); // TODO delay invocation since shutdown takes time
         portExampleArchivesServerTextField.setBackground(Color.white);
          exampleArchivesDirectoryTextField.setBackground(Color.white);
     }//GEN-LAST:event_stopExampleArchivesServerButtonActionPerformed
@@ -2531,6 +2531,10 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     private void transformModelButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_transformModelButtonActionPerformed
     {//GEN-HEADEREND:event_transformModelButtonActionPerformed
         // invoke file conversion
+        if      (pageIntegrationTabbedPane.getSelectedIndex() == X3DOM_TAB)
+                 x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X3DOM);
+        else if (pageIntegrationTabbedPane.getSelectedIndex() == X_ITE_TAB)
+                 x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
         x3dToXhtmlDomConversionAction.setReadyForConversion(true);
         x3dToXhtmlDomConversionAction.performAction(); // transform, load/launch result
         x3dToXhtmlDomConversionAction.setReadyForConversion(false); // all done, prevent unintended reinitiation
@@ -3127,7 +3131,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         commands.add("--port");
         commands.add(X3dEditUserPreferences.getAuthorModelsServerPort());
         commands.add("--output");
-//      commands.add("verbose"); // not an allowed parameter
+        commands.add("verbose"); // none | info | verbose
 
         isAliveAuthorModelsServer = startServer(AUTHOR_MODELS, commands, X3dEditUserPreferences.getAuthorModelsDirectory()); // authorModelsDirectoryTextField.getText());
     }
@@ -3159,7 +3163,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         commands.add("--port");
         commands.add(X3dEditUserPreferences.getExampleArchivesServerPort());
         commands.add("--output");
-//      commands.add("verbose"); // not an allowed parameter
+        commands.add("verbose"); // none | info | verbose
         isAliveExampleArchivesServer = startServer(EXAMPLE_ARCHIVES, commands, X3dEditUserPreferences.getExampleArchivesRootDirectory()); // exampleArchivesDirectoryTextField.getText());
     }
     /** build CLI invocation to start server
@@ -3185,7 +3189,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             commands.add("--port");
             commands.add(portActiveX3dModelServerTextField.getText());
             commands.add("--output");
-            commands.add("verbose");
+            commands.add("verbose"); // none | info | verbose
             isAliveActiveX3dModelServer = startServer(ACTIVE_X3D_MODEL, commands, 
                     exampleArchivesDirectoryTextField.getText()); // TODO adjust
             
@@ -3196,7 +3200,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                 startActiveX3dModelServerButton.setText(HTTP_RUNNING);
                 startActiveX3dModelServerButton.setForeground(darkgreen);
                 startActiveX3dModelServerButton.setFont(boldFont);
-                startActiveX3dModelServerButton.setEnabled(true);
+                startActiveX3dModelServerButton.setEnabled(false);
             
                  stopActiveX3dModelServerButton.setEnabled(true);
                  stopActiveX3dModelServerButton.setText(HTTP_STOP);
@@ -3232,15 +3236,16 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
          exampleArchivesDirectoryTextField.setText    (X3dEditUserPreferences.getExampleArchivesRootDirectory());
             authorModelsDirectoryTextField.setText    (X3dEditUserPreferences.getAuthorModelsDirectory());
             
+        sleep(200l); // pause in case shutdown/startup in progress
         if (isAliveAuthorModelsServer || isPortBound(Integer.parseInt(X3dEditUserPreferences.getAuthorModelsServerPort())))
         {
-     autolaunchAuthorModelsServerCheckBox.setSelected(X3dEditUserPreferences.isAuthorModelsServerAutolaunch());
+            autolaunchAuthorModelsServerCheckBox.setSelected(X3dEditUserPreferences.isAuthorModelsServerAutolaunch());
             if (authorModelsHttpServerProcess != null)
             {
                 startAuthorModelsServerButton.setText(HTTP_RUNNING);
                 startAuthorModelsServerButton.setForeground(darkgreen);
                 startAuthorModelsServerButton.setFont(boldFont);
-                startAuthorModelsServerButton.setEnabled(true);
+                startAuthorModelsServerButton.setEnabled(false);
 
                   stopAuthorModelsServerButton.setEnabled(true);
                   stopAuthorModelsServerButton.setText(HTTP_STOP);
@@ -3255,23 +3260,26 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                  stopAuthorModelsServerButton.setForeground(Color.BLACK);
             }
         }
+        // now double-check whether bound
         if (!isPortBound(Integer.parseInt(X3dEditUserPreferences.getAuthorModelsServerPort())))
         {
                 startAuthorModelsServerButton.setText(HTTP_START);
                 startAuthorModelsServerButton.setForeground(Color.BLACK);
                 startAuthorModelsServerButton.setEnabled(true);
                 startAuthorModelsServerButton.setFont(plainFont);
+                 stopAuthorModelsServerButton.setEnabled(false);
+                 stopAuthorModelsServerButton.setForeground(Color.BLACK);
         }
         
         if (isAliveExampleArchivesServer || isPortBound(Integer.parseInt(X3dEditUserPreferences.getExampleArchivesServerPort())))
         {
-     autolaunchExampleArchivesServerCheckBox.setSelected(X3dEditUserPreferences.isExampleArchivesServerAutolaunch());
+            autolaunchExampleArchivesServerCheckBox.setSelected(X3dEditUserPreferences.isExampleArchivesServerAutolaunch());
             if (exampleArchivesHttpServerProcess != null)
             {
                 startExampleArchivesServerButton.setText(HTTP_RUNNING);
                 startExampleArchivesServerButton.setForeground(darkgreen);
                 startExampleArchivesServerButton.setFont(boldFont);
-                startExampleArchivesServerButton.setEnabled(true);
+                startExampleArchivesServerButton.setEnabled(false);
                 
                  stopExampleArchivesServerButton.setEnabled(true);
                  stopExampleArchivesServerButton.setText(HTTP_STOP);
@@ -3286,12 +3294,15 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
                  stopExampleArchivesServerButton.setForeground(Color.BLACK);
             }
         }
+        // now double-check whether bound
         if (!isPortBound(Integer.parseInt(X3dEditUserPreferences.getExampleArchivesServerPort())))
         {
                 startExampleArchivesServerButton.setText(HTTP_START);
                 startExampleArchivesServerButton.setForeground(Color.BLACK);
                 startExampleArchivesServerButton.setEnabled(true);
                 startExampleArchivesServerButton.setFont(plainFont);
+                 stopExampleArchivesServerButton.setEnabled(false);
+                 stopExampleArchivesServerButton.setForeground(Color.BLACK);
         }
         
         // TODO give indication if any examples are in archives
@@ -3449,7 +3460,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
             startActiveX3dModelServerButton.setText(HTTP_RUNNING);
             startActiveX3dModelServerButton.setForeground(darkgreen);
             startActiveX3dModelServerButton.setFont(boldFont);
-            startActiveX3dModelServerButton.setEnabled(true);
+            startActiveX3dModelServerButton.setEnabled(false);
             
              stopActiveX3dModelServerButton.setEnabled(true);
              stopActiveX3dModelServerButton.setText(HTTP_STOP);
@@ -4047,7 +4058,7 @@ class LocalFileHandlerOld implements HttpHandler {
         commands.add("--port");
         commands.add(String.valueOf(nextActiveX3dModelServerPort));
         commands.add("--output");
-        commands.add("verbose");
+        commands.add("verbose"); // none | info | verbose
         
         boolean isAliveNewModelServer = startServer(ACTIVE_X3D_MODEL, commands, modelDirectory);
         if (isAliveNewModelServer || isPortBound(nextActiveX3dModelServerPort))
@@ -4056,7 +4067,7 @@ class LocalFileHandlerOld implements HttpHandler {
             startActiveX3dModelServerButton.setText(HTTP_RUNNING);
             startActiveX3dModelServerButton.setForeground(darkgreen);
             startActiveX3dModelServerButton.setFont(boldFont);
-            startActiveX3dModelServerButton.setEnabled(true);
+            startActiveX3dModelServerButton.setEnabled(false);
             
              stopActiveX3dModelServerButton.setEnabled(true);
              stopActiveX3dModelServerButton.setText(HTTP_STOP);
