@@ -6,8 +6,21 @@
             <name>X3dEditModuleSuite</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>checkmark</word>
+            <word>ClassicVRML</word>
+            <word>Collada</word>
+            <word>draggable</word>
+            <word>encodings</word>
+            <word>MultiTexture</word>
+            <word>NetBeans</word>
             <word>Redistributions</word>
+            <word>Schematron</word>
+            <word>SFRotation</word>
+            <word>SourceForge</word>
             <word>TODO</word>
+            <word>Tooltips</word>
+            <word>Validator</word>
+            <word>VRML</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
