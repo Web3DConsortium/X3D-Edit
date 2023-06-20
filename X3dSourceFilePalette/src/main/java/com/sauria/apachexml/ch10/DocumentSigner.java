@@ -209,7 +209,7 @@ public class DocumentSigner
     signer.setPrivateKey(privateKey);
     signer.setCertificate(certificate);
     signer.setBaseURI(baseURI);
-    signer.setSignatureMethod( XMLSignature.ALGO_ID_SIGNATURE_DSA);
+    signer.setSignatureMethod(XMLSignature.ALGO_ID_SIGNATURE_DSA);
     signer.setDigestMethod(Constants.ALGO_ID_DIGEST_SHA1);
 
     SignatureProperties sps = signer.addSignatureProperties();
@@ -222,11 +222,7 @@ public class DocumentSigner
 
     try (FileOutputStream signatureStream = new FileOutputStream(signatureFile)) {
         signer.toC14N(signatureStream);
-    }
-    catch (FileNotFoundException fnfe) {
-      fnfe.printStackTrace(System.err);
-    }
-    catch (IOException ioe) {
+    } catch (IOException ioe) {
       ioe.printStackTrace(System.err);
     }
     return true;
