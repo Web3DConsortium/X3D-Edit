@@ -483,7 +483,7 @@ private void normalizeRotationValuesButtonActionPerformed(java.awt.event.ActionE
     checkMaxAngle(true);
     checkOffsetAngle(true);
 
-    angle = Double.valueOf(diskAngleTF.getText());
+    angle = Double.parseDouble(diskAngleTF.getText());
     if (angle == -0.0) {
         angle = 0.0;
     }
@@ -496,7 +496,7 @@ private void normalizeRotationValuesButtonActionPerformed(java.awt.event.ActionE
     diskAngleTF.setText(radiansFormat.format(angle));
     diskAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
 
-    angle = Double.valueOf(minAngleTF.getText());
+    angle = Double.parseDouble(minAngleTF.getText());
     if (angle == -0.0) {
         angle = 0.0;
     }
@@ -509,7 +509,7 @@ private void normalizeRotationValuesButtonActionPerformed(java.awt.event.ActionE
     minAngleTF.setText(radiansFormat.format(angle));
     minAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
 
-    angle = Double.valueOf(maxAngleTF.getText());
+    angle = Double.parseDouble(maxAngleTF.getText());
     if (angle == -0.0) {
         angle = 0.0;
     }
@@ -522,7 +522,7 @@ private void normalizeRotationValuesButtonActionPerformed(java.awt.event.ActionE
     maxAngleTF.setText(radiansFormat.format(angle));
     maxAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
 
-    angle = Double.valueOf(offsetAngleTF.getText());
+    angle = Double.parseDouble(offsetAngleTF.getText());
     if (angle == -0.0) {
         angle = 0.0;
     }
@@ -622,7 +622,7 @@ private void offsetAngleTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     {
       // indicate degree values in tooltips
       // usability note:  can enter degree values (-6..+6) as (354..366) to provoke this conversion check
-      double angle = Double.valueOf(diskAngleTF.getText());
+      double angle = Double.parseDouble(diskAngleTF.getText());
       diskAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
       if (Math.abs(angle) > 2.0 * Math.PI)
       {
@@ -647,7 +647,7 @@ private void offsetAngleTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN
   {
       // indicate degree values in tooltips
       // usability note:  can enter degree values (-6..+6) as (354..366) to provoke this conversion check
-      double angle = Double.valueOf(minAngleTF.getText());
+      double angle = Double.parseDouble(minAngleTF.getText());
       minAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
       if (Math.abs(angle) > 2.0 * Math.PI)
       {
@@ -672,7 +672,7 @@ private void offsetAngleTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN
   {
       // indicate degree values in tooltips
       // usability note:  can enter degree values (-6..+6) as (354..366) to provoke this conversion check
-      double angle = Double.valueOf(maxAngleTF.getText());
+      double angle = Double.parseDouble(maxAngleTF.getText());
       maxAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
       if (Math.abs(angle) > 2.0 * Math.PI)
       {
@@ -697,7 +697,7 @@ private void offsetAngleTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN
   {
       // indicate degree values in tooltips
       // usability note:  can enter degree values (-6..+6) as (354..366) to provoke this conversion check
-      double angle = Double.valueOf(offsetAngleTF.getText());
+      double angle = Double.parseDouble(offsetAngleTF.getText());
       offsetAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
       if (Math.abs(angle) > 2.0 * Math.PI)
       {

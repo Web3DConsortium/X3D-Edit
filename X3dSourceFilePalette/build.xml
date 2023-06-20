@@ -185,6 +185,11 @@
     </target>
     <!-- TODO target name="get.latest.Xj3D.jars.sourceforge" -->
 
+   <target name="get.latest.X3DJSAIL.jar" description="Download latest X3DJSAIL jar file from version control">
+        <get src="https://www.web3d.org/specifications/java/jars/X3DJSAIL.4.0.full.jar"
+            dest="release/modules/ext/X3DJSAIL.4.0.full.jar"             usetimestamp="true" verbose="true"/>
+    </target>
+
     <target name="get.latest.stylesheets" description="Download latest stylesheet files from version control">
 
         <get src="${x3d.sourceforge.site}/x3d/stylesheets/X3dToX3dvClassicVrmlEncoding.xslt"
@@ -225,7 +230,7 @@
              dest="${x3dStylesheets.dir}/X3dWrap.xslt"             usetimestamp="true" verbose="true"/>
     </target>
 
-    <target name="get.latest" depends="get.latest.DTDs,get.latest.schemas,get.latest.schematrons,get.latest.stylesheets"/>
+    <target name="get.latest" depends="get.latest.DTDs,get.latest.schemas,get.latest.schematrons,get.latest.stylesheets,get.latest.X3DJSAIL.jar"/>
 
     <!-- override -->
     <target name="-pre-compile" depends="projectized-common.-pre-compile">
@@ -256,8 +261,8 @@
     <target name="view.layers.local" description="view local layer files (Netbeans only)">
         <echo  message="build/classes/META-INF/generated-layer.xml" />
         <nbbrowse file="build/classes/META-INF/generated-layer.xml" />
-        <echo  message="src/org/web3d/x3d/layer.xml" />
-        <nbbrowse file="src/org/web3d/x3d/layer.xml" />
+        <echo  message="src/main/java/org/web3d/x3d/layer.xml" />
+        <nbbrowse file="src/main/java/org/web3d/x3d/layer.xml" />
         <!-- TODO implementation-independent approach if possible, but note that other Ant approaches usually have to be customized for each OS. -->
     </target>
 

@@ -39,6 +39,7 @@ import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.CORS_TAB;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X_ITE_TAB;
 
 /**
  * Utility class to make pane available within parent class
@@ -67,6 +68,10 @@ public final class CorsHttpPanelAction extends X3dToXhtmlDomConversionAction {
     @Override
     public String getName()
     {
+        setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
+        setPreferredTab(X_ITE_TAB);
+        setTransformModelButtonEnabled(false); // button might be null/ignored
+        setReadyForConversion(false);
         return NbBundle.getMessage(getClass(), "CTL_CorsHttpPanelAction");
     }
 
@@ -79,4 +84,11 @@ public final class CorsHttpPanelAction extends X3dToXhtmlDomConversionAction {
         setReadyForConversion(false);
         super.initialize(); // last, following setup
     }
+    
+    @Override
+    protected String iconResource()
+    {
+        return "org/web3d/x3d/resources/HTTP_logo.svg.32x16.png";
+    }
+    // see org.openide.util.actions.SystemAction.iconResource() Javadoc for more details
 }

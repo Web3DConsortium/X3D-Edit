@@ -777,7 +777,7 @@ public class EXTRUSIONCustomizer extends BaseCustomizer
 
         for (int i = 0; i < saa.length; i++)
         {
-            double angle = Double.valueOf(saa[i][3]);
+            double angle = Double.parseDouble(saa[i][3]);
             if (Math.abs(angle) > 2.0 * Math.PI)
             {
                 String message;
@@ -802,7 +802,7 @@ public class EXTRUSIONCustomizer extends BaseCustomizer
     {
         // indicate degree values in tooltips
         // usability note:  can enter degree values (-6..+6) as (354..366) to provoke this conversion check
-        double angle = Double.valueOf(creaseAngleTF.getText());
+        double angle = Double.parseDouble(creaseAngleTF.getText());
         creaseAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
         if (Math.abs(angle) > 2.0 * Math.PI)
         {

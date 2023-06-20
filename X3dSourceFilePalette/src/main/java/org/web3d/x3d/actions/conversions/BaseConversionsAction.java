@@ -199,11 +199,14 @@ import org.xml.sax.SAXParseException;
                     X3dToXhtmlDomConversionAction.isRunning = true;
 //                    conversionsWorkerRunnable.run();
                 }
-                if      (this instanceof CorsHttpPanelAction)
+                if      (X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase(X3dToXhtmlDomConversionAction.X3DOM))
+                         x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X3DOM_TAB);
+                else if (this instanceof CorsHttpPanelAction)
                          x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.CORS_TAB);
-                else if (this instanceof XhtmlX_iteAction)
+                else if (X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase(X3dToXhtmlDomConversionAction.X_ITE) || 
+                         X3dToXhtmlDomConversionAction.getPlayer().equalsIgnoreCase(X3dToXhtmlDomConversionAction.COBWEB))
                          x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
-                else     x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X3DOM_TAB); // default
+                
                 X3dToXhtmlDomConversionAction.x3dToXhtmlDomConversionFrame.toFront();
                 X3dToXhtmlDomConversionAction.x3dToXhtmlDomConversionFrame.setVisible(true);
             }
@@ -346,11 +349,13 @@ import org.xml.sax.SAXParseException;
     /**
      * Transform the currently open X3D disk file, putting the result into the passed destination disk file.
      * @param x3dEditor reference to X3dEditor
+     * @param outputFile for results
      * @param xsltFileResourcePath path to XSLT stylesheet
      * @param xsltIsOSFile whether stylesheet is an operating system file
      * @param parameterMap map of key=value pairs to provide to spreadsheet
      * @param goodFinishMessage message on successful finish
      * @return
+     * @throws java.io.FileNotFoundException if file problem occurs
      */
     public RequestProcessor.Task xsltOneFile(X3DEditorSupport.X3dEditor x3dEditor,
                                             File outputFile, 

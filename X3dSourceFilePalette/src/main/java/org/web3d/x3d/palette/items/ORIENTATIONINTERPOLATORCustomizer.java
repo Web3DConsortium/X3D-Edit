@@ -324,7 +324,7 @@ public class ORIENTATIONINTERPOLATORCustomizer extends BaseCustomizer
               finalOrientationTextField.setText("0.0");
         // indicate degree values in tooltips
         // usability note:  can enter degree values (-6..+6) as (354..366) to provoke this conversion check
-        double angle = Double.valueOf(initialOrientationTextField.getText());
+        double angle = Double.parseDouble(initialOrientationTextField.getText());
         initialOrientationTextField.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
         if ((Math.abs(angle) > 2.0 * Math.PI) && !largeRadianAnglesConfirmed)
         {
@@ -350,7 +350,7 @@ public class ORIENTATIONINTERPOLATORCustomizer extends BaseCustomizer
         }
         // do not comment on negative values
         
-        angle = Double.valueOf(finalOrientationTextField.getText());
+        angle = Double.parseDouble(finalOrientationTextField.getText());
         finalOrientationTextField.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
         if ((Math.abs(angle) > 2.0 * Math.PI) && !largeRadianAnglesConfirmed)
         {

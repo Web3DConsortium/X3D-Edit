@@ -3,7 +3,7 @@
 https://sourceforge.net/p/x3d/admin/files/badges/
 -->
 
-# X3D-Edit 4.0 Beta Distribution, 1 January 2023
+# X3D-Edit 4.0 Distribution, 20 June 2023
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
@@ -11,8 +11,8 @@ X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for 
 
 Prerequisite for operation: Java JDK 17 LTS (or later).  Suggested:
 
-* Oracle  jdk-19.0.1, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
-* OpenJDK jdk-19.0.1, latest versions available at [https://openjdk.org](https://openjdk.org) (but likely have to setup PATH, CLASSPATH)
+* Oracle  jdk-20.0.1, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
+* OpenJDK jdk-20.0.1, latest versions available at [https://openjdk.org](https://openjdk.org) (but likely have to setup PATH, CLASSPATH)
 
 *Directions.* Download and extract the .zip, use file properties to unblock file if necessary,  unzip.
 Then run appropriate operating-system binary in the <code>bin</code> directory.  Windows example:
@@ -23,7 +23,7 @@ Then run appropriate operating-system binary in the <code>bin</code> directory. 
 Once baseline stability is demonstrated on multiple platforms, we expect that further authoring support for 
 [X3D4](https://www.web3d.org/x3d4) nodes and features will be added steadily.
 
-[NetBeans 16](https://netbeans.apache.org) plugin tests satisfactory: use [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
+[NetBeans 18](https://netbeans.apache.org) plugin tests satisfactory: use [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
 
 ## How To Do It
 
@@ -47,7 +47,7 @@ For example, under Windows the following file requires modification.
 
 ... then look for <code><b>#</b>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
 
-* <code>jdkhome="C:\Program Files\Java\openjdk\jdk-19.0.1"</code> (for example)
+* <code>jdkhome="C:\Program Files\Java\openjdk\jdk-20.0.1"</code> (for example)
 
 Note: if you use default installation directory, then you may need administrator permissions to perform any such modifications.
 

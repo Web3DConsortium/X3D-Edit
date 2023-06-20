@@ -51,30 +51,30 @@ import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.ACT
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.AUTHOR_MODELS;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.CORS_TAB;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.EXAMPLE_ARCHIVES;
-import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.NO_CHANGE_IN_TAB;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X3DOM_TAB;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X_ITE_TAB;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.addressValue;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.message;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX3domAction", category = "X3D-Edit")
+//@ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX3domAction", category = "X3D-Edit")
+//
+//@ActionRegistration(
+//        iconBase = "org/web3d/x3d/resources/x3dom-whiteOnblue32.png",
+//     displayName = "#CTL_XhtmlX3domConversionAction",
+//             lazy=true) // don't do lazy=false since iconBase no longer gets registered
+//
+//@ActionReferences(value = {
+//  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 80),
+//  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 151),
+//  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 80),
+//  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 80),
+//  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 151),
+////@ActionReference(path = "Shortcuts", name = "CS-8"), // shortcut control-shift-8
+//  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
+//})
 
-@ActionRegistration(
-        iconBase = "org/web3d/x3d/resources/x3dom-whiteOnblue32.png",
-     displayName = "#CTL_XhtmlX3domAction",
-             lazy=true) // don't do lazy=false since iconBase no longer gets registered
-
-@ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 80),
-  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 151),
-  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 80),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 80),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 151),
-//@ActionReference(path = "Shortcuts", name = "CS-8"), // shortcut control-shift-8
-  // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
-})
-
-public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
+public abstract class X3dToXhtmlDomConversionAction extends BaseConversionsAction
 {
 
     /**
@@ -102,8 +102,9 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     
     public  static final String             X3DOM = "X3DOM";
     public  static final String             X_ITE = "X_ITE";
-    private              int         preferredTab = NO_CHANGE_IN_TAB;
-    private final String            playerDefault = X3DOM;  // otherwise setPlayer(X_ITE) via subclass initialization
+    public  static final String            COBWEB = "Cobweb";
+    private              int         preferredTab = X3DOM_TAB;
+    private final static String     playerDefault = X3DOM;  // otherwise setPlayer(X_ITE) via subclass initialization
     private final String      traceEnabledDefault = "true"; // development, debug mode for XSLT stylesheed
     // X3D
     private final String         x3dHeightDefault = "450";
@@ -119,7 +120,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
    
     private String         x3dHeight = x3dHeightDefault;
     private String          x3dWidth = x3dWidthDefault;
-    private String            player = playerDefault;
+    private static String     player = playerDefault;
     private boolean          showLog = showLogDefault;
     private boolean     showProgress = showProgressDefault;
     private boolean   showStatistics = showStatisticsDefault;
@@ -156,15 +157,13 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_XhtmlX3domAction");
+    return NbBundle.getMessage(getClass(), "CTL_XhtmlX3domConversionAction");
   }
 
   @Override
   protected String iconResource()
   {
-      ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as XHTML with X3DOM via XSLT");
-    
-      if (getPlayer().equalsIgnoreCase("Cobweb") || getPlayer().equalsIgnoreCase("X_ITE"))
+      if (getPlayer().equalsIgnoreCase(X_ITE) || getPlayer().equalsIgnoreCase(COBWEB))
            return "org/web3d/x3d/resources/cobweb-logo32.png";
       else return "org/web3d/x3d/resources/x3dom-whiteOnblue32.png";
   }
@@ -187,15 +186,24 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
             x3dToXhtmlDomConversionFrame = new X3dToXhtmlDomConversionFrame (this);
         }
         if      (getPreferredTab() == CORS_TAB)
-                 x3dToXhtmlDomConversionFrame.setPaneIndex(CORS_TAB);  
+        {
+                                      setPreferredTab(CORS_TAB);
+            x3dToXhtmlDomConversionFrame.setPaneIndex(CORS_TAB);
+        }  
         else if (getPlayer().equals(X3DOM))
-                 x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X3DOM_TAB);
+        {
+                                   setPreferredTab(X3dToXhtmlDomConversionFrame.X3DOM_TAB);
+            x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X3DOM_TAB);
+        }
         else if (getPlayer().equals(X_ITE))
-                 x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
+        {
+                                   setPreferredTab(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
+            x3dToXhtmlDomConversionFrame.setPaneIndex(X3dToXhtmlDomConversionFrame.X_ITE_TAB);
+        }
+        ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as HTML5 via XSLT, rendered with X3DOM or X_ITE");
         
         if(x3dToXhtmlDomConversionFrame != null)
            SwingUtilities.invokeLater(() -> {
-              
               // TODO problem, stray event/invocation immediately performing conversion task upon launch
               // hack prevents first-time fall through to processing xslt
               x3dToXhtmlDomConversionFrame.toFront();
@@ -361,7 +369,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
   
         String fileExtension;
         int    newModelPort;
-        if (getPlayer().equalsIgnoreCase("X_ITE") || getPlayer().equalsIgnoreCase("Cobweb"))
+        if (getPlayer().equalsIgnoreCase(X_ITE) || getPlayer().equalsIgnoreCase(COBWEB))
         {
             fileExtension = "X_ITE.html";
             switch (getCurrentServerType())
@@ -508,7 +516,7 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
   public JMenuItem getMenuPresenter()
   {
     JMenuItem mi = super.getMenuPresenter();
-    mi.setToolTipText(NbBundle.getMessage(getClass(), "CTL_XhtmlX3domAction_tt"));
+    mi.setToolTipText(NbBundle.getMessage(getClass(), "CTL_XhtmlX3domConversionAction_tt"));
     return mi;
   }
 
@@ -653,15 +661,15 @@ public class X3dToXhtmlDomConversionAction extends BaseConversionsAction
     /**
      * @return the player
      */
-    public String getPlayer() {
+    public static String getPlayer() {
         return player;
     }
 
     /**
-     * @param player the player to set
+     * @param newPlayer the player to set
      */
-    public void setPlayer(String player) {
-        this.player = player;
+    public void setPlayer(String newPlayer) {
+        X3dToXhtmlDomConversionAction.player = newPlayer;
     }
 
     /**

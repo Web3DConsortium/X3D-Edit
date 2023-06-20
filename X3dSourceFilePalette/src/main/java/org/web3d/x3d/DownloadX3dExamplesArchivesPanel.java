@@ -62,9 +62,9 @@ import org.openide.util.TaskListener;
 import static org.web3d.x3d.actions.BaseViewAction.sendBrowserTo;
 import org.web3d.x3d.actions.LaunchX3dExamplesAction;
 import org.web3d.x3d.actions.LocalExamplesFinder;
-import org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionAction;
 import org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.startExampleArchivesServer;
+import org.web3d.x3d.actions.conversions.XhtmlX3domConversionAction;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 import static org.web3d.x3d.options.X3dEditUserPreferences.EXAMPLES_ROOT_DIRECTORY_DEFAULT;
 
@@ -100,10 +100,9 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     private ExecutorTask executorTask;
     
     // create local X3dToXhtmlDomConversionFrame class, instantiated so that static methods can run
-    // TODO consider singleton pattern?
-    X3dToXhtmlDomConversionFrame x3dToXhtmlDomConversionFrame = new X3dToXhtmlDomConversionFrame(new X3dToXhtmlDomConversionAction());
+    X3dToXhtmlDomConversionFrame x3dToXhtmlDomConversionFrame = new X3dToXhtmlDomConversionFrame(new XhtmlX3domConversionAction());
   
-  /** Constructor that creates new form ExampleArchivesDownloadPanel */
+    /** Constructor that creates new form ExampleArchivesDownloadPanel */
   public DownloadX3dExamplesArchivesPanel()
   {
     initComponents();

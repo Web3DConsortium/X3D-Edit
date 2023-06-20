@@ -480,13 +480,13 @@ public class X3DPrimitiveTypes
       {
           try
           {
-              _d = Double.valueOf(delocalizeNumericValue(s.trim()));
+              _d = Double.parseDouble(delocalizeNumericValue(s.trim()));
           }
           catch (NumberFormatException ex)
           {
               System.out.println ("SFDouble constructor error: " + ex.getMessage());
               System.out.println ("   avoiding delocalization of value \"" + s.trim() + "\"");
-              _d = Double.valueOf(s.trim());
+              _d = Double.parseDouble(s.trim());
           }
       }
       if(!skipTest)

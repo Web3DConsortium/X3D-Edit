@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+ * Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -61,6 +61,7 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DXMLOutputter;
 import org.web3d.x3d.sai.X3DFieldDefinition;
+import org.web3d.x3d.sai.rendering.Coordinate;
 import org.web3d.x3d.types.*;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
@@ -102,6 +103,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
   private boolean insertCommas, insertLineBreaks, breakLinesAfterIndexSentinel = false;
 
+  private int     numberTuplesBetweenLineBreaks   = 1;
+  
   public BaseX3DElement()
   {
     // avoid internalization (I18N) localization (L10N) of decimal separator (decimal point)
@@ -336,13 +339,14 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   private String content = new String(); // default contained content for an element is empty string
 
   /** typically overridden to set child content, if any
-	* @param xmlFragment XML value of contained content: comment, node, etc.
-	*/
+    * @param xmlFragment XML value of contained content: comment, node, etc.
+    */
   public void setContent(String xmlFragment)
   {
     if  (xmlFragment == null)
          content = "";
     else content = xmlFragment;
+    // TODO consider rudimentary validation
   }
   /** typically overridden to get child content, if any
 	* @return value of contained xmlFragment content */
@@ -469,6 +473,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         sb.append(buildHtmlID());
         sb.append(buildCssClass());
         sb.append(buildCssStyle());
+        
+        // Handle block of contained content within node
           
         String containedContent = getContent();
         // watch out for null string, TODO figure out why initialization doesn't prevent this problem for fieldValue
@@ -2894,6 +2900,14 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         }
     }
     // =============================================================================================================================
+    // diagnostic comments in output
+    
+//////        if (getElementName().equals("Coordinate") && ((Coordinate)this).isEmpty())
+//////        {
+//////            sb.append ("\n    <!-- Coordinate parameters of interest -->\n");
+//////        }
+        
+    // =============================================================================================================================
     }
     catch (NumberFormatException ex)
     {
@@ -4123,6 +4137,14 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
       return BaseX3DElement.this.formatFloatArray(sffa);
   }
 
+  protected String formatFloatArray(SFFloat[] sffa, boolean newInsertCommas, boolean newInsertLineBreaks, int newNumberTuplesBetweenLineBreaks)
+  {
+      insertCommas     = newInsertCommas;
+      insertLineBreaks = newInsertLineBreaks;
+      numberTuplesBetweenLineBreaks = newNumberTuplesBetweenLineBreaks;
+      return BaseX3DElement.this.formatFloatArray(sffa);
+  }
+
   protected String formatFloatArray(SFFloat[] sffa)
   {
     StringBuilder sb = new StringBuilder();
@@ -4144,6 +4166,14 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   {
       insertCommas     = newInsertCommas;
       insertLineBreaks = newInsertLineBreaks;
+      return formatDoubleArray(sfdaa);
+  }
+  
+  protected String formatDoubleArray(SFDouble[] sfdaa, boolean newInsertCommas, boolean newInsertLineBreaks, int newNumberTuplesBetweenLineBreaks)
+  {
+      insertCommas     = newInsertCommas;
+      insertLineBreaks = newInsertLineBreaks;
+      numberTuplesBetweenLineBreaks = newNumberTuplesBetweenLineBreaks;
       return formatDoubleArray(sfdaa);
   }
 
@@ -4237,24 +4267,39 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
       return formatFloatArray(faa);
   }
 
+  protected String formatFloatArray(SFFloat[][] faa, boolean newInsertCommas, boolean newInsertLineBreaks, int newNumberTuplesBetweenLineBreaks)
+  {
+      insertCommas     = newInsertCommas;
+      insertLineBreaks = newInsertLineBreaks;
+      numberTuplesBetweenLineBreaks = newNumberTuplesBetweenLineBreaks;
+      return formatFloatArray(faa);
+  }
+
   protected String formatFloatArray(SFFloat[][] sffaa)
   {
     StringBuilder sb = new StringBuilder();
     if (sffaa.length == 0)
         return "";
-    int r = sffaa.length;
-    int c = sffaa[0].length;
+    int rowLength = sffaa.length;
+    int colLength = sffaa[0].length;
     int i = 0;
     if (insertLineBreaks) sb.append("\n");
-    for (int ir = 0; ir < r; ir++) {
-      for (int ic = 0; ic < c; ic++) {
-        sb.append(sffaa[ir][ic].toString()); // SFFloat handles formatting
+    for (int indexRow = 0; indexRow < rowLength; indexRow++)
+    {
+      for (int indexColumn = 0; indexColumn < colLength; indexColumn++)
+      {
+        sb.append(sffaa[indexRow][indexColumn].toString()); // SFFloat handles formatting
         sb.append(" ");
       }
       sb.setLength(sb.length() - 1); // lose sp, add , and sp
-      if ((ir < r-1) && insertCommas)     sb.append(",");
-      if (insertLineBreaks)               sb.append("\n");
-      else if (ir < r-1)                  sb.append(" ");
+      if      ((indexRow < rowLength-1) && insertCommas)
+               sb.append(",");
+      // add line-break tuple logic inside loop: each row is a tuple
+      if      (insertLineBreaks && 
+               ((numberTuplesBetweenLineBreaks <= 1) || ((indexRow+1) % numberTuplesBetweenLineBreaks) == 0))
+               sb.append("\n");
+      else if (indexRow < rowLength-1)
+               sb.append(" ");
       // no comma between array elements in canonicalization (C14N) form (though it is an author convenience and possible option)
     }
     return sb.toString();
@@ -4267,24 +4312,39 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
       return formatDoubleArray(sfdaa);
   }
 
+  protected String formatDoubleArray(SFDouble[][] sfdaa, boolean newInsertCommas, boolean newInsertLineBreaks, int newNumberTuplesBetweenLineBreaks)
+  {
+      insertCommas     = newInsertCommas;
+      insertLineBreaks = newInsertLineBreaks;
+      numberTuplesBetweenLineBreaks = newNumberTuplesBetweenLineBreaks;
+      return formatDoubleArray(sfdaa);
+  }
+
   protected String formatDoubleArray(SFDouble[][] sfdaa)
   {
     StringBuilder sb = new StringBuilder();
     if (sfdaa.length == 0)
         return "";
-    int r = sfdaa.length;
-    int c = sfdaa[0].length;
+    int rowLength = sfdaa.length;
+    int colLength = sfdaa[0].length;
     int i = 0;
     if (insertLineBreaks) sb.append("\n");
-    for (int ir = 0; ir < r; ir++) {
-      for (int ic = 0; ic < c; ic++) {
-        sb.append(sfdaa[ir][ic].toString()); // SFDouble handles formatting
+    for (int indexRow = 0; indexRow < rowLength; indexRow++)
+    {
+      for (int indexColumn = 0; indexColumn < colLength; indexColumn++)
+      {
+        sb.append(sfdaa[indexRow][indexColumn].toString()); // SFDouble handles formatting
         sb.append(" ");
       }
       sb.setLength(sb.length() - 1); // lose sp, add , and sp
-      if ((ir < r-1) && insertCommas)     sb.append(",");
-      if (insertLineBreaks)               sb.append("\n");
-      else if (ir < r-1)                  sb.append(" ");
+      if      ((indexRow < rowLength-1) && insertCommas)
+               sb.append(",");
+      // add line-break tuple logic inside loop: each row is a tuple
+      if      (insertLineBreaks && 
+               ((numberTuplesBetweenLineBreaks <= 1) || ((indexRow+1) % numberTuplesBetweenLineBreaks) == 0))
+               sb.append("\n");
+      else if (indexRow < rowLength-1)
+               sb.append(" ");
       // no comma between array elements in canonicalization (C14N) form (though it is an author convenience and possible option)
     }
     return sb.toString();
