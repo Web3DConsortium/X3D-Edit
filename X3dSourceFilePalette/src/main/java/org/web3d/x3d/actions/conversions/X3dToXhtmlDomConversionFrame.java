@@ -4089,7 +4089,8 @@ class LocalFileHandlerOld implements HttpHandler {
         else if (activeX3dModelDirectoryList.contains(modelDirectory))
         {
             activeX3dModelServerSelection = activeX3dModelDirectoryList.indexOf(modelDirectory);
-            activeX3dModelServerPort      = activeX3dModelPortList.get(activeX3dModelServerSelection - 1);
+            if (activeX3dModelServerSelection > 0)
+                activeX3dModelServerPort      = activeX3dModelPortList.get(activeX3dModelServerSelection - 1);
             if (isPortBound(activeX3dModelServerPort))
             {
                 System.out.println("*** launchNewActiveX3dModelServer() directory " + modelDirectory + 

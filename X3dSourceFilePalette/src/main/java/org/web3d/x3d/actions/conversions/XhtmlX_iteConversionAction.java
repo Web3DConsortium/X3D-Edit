@@ -40,11 +40,11 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
 import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X_ITE_TAB;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX_iteAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX_iteConversionAction", category = "X3D-Edit")
 
 @ActionRegistration(
         iconBase = "org/web3d/x3d/resources/cobweb-logo32.png",
-     displayName = "#CTL_XhtmlX_iteAction",
+     displayName = "#CTL_XhtmlX_iteConversionAction",
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 @ActionReferences(value = {
@@ -56,17 +56,21 @@ import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X_I
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
-public final class XhtmlX_iteAction extends X3dToXhtmlDomConversionAction {
+public final class XhtmlX_iteConversionAction extends X3dToXhtmlDomConversionAction {
 
     @Override
     public String getName()
     {
-        return NbBundle.getMessage(getClass(), "CTL_XhtmlX_iteAction");
+        // invoked when toolbar button is pressed
+        setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
+        setPreferredTab(X_ITE_TAB);
+        return NbBundle.getMessage(getClass(), "CTL_XhtmlX_iteConversionAction");
     }
 
     @Override
     protected void initialize()
     {
+        // invoked first time only
         setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
         setPreferredTab(X_ITE_TAB);
         super.initialize(); // last, following setup

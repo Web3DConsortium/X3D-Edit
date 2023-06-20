@@ -38,44 +38,49 @@ import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle;
-import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X_ITE_TAB;
+import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X3DOM_TAB;
 
-@ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX_iteAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.actions.conversions.XhtmlX3domConversionAction", category = "X3D-Edit")
 
 @ActionRegistration(
-        iconBase = "org/web3d/x3d/resources/cobweb-logo32.png",
-     displayName = "#CTL_XhtmlX_iteAction",
+        iconBase = "org/web3d/x3d/resources/x3dom-whiteOnblue32.png",
+     displayName = "#CTL_XhtmlX3domConversionAction",
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 90),
-  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 152),
-  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 90),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 90),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 152),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 80),
+  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 151),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 80),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 80),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 151),
+//@ActionReference(path = "Shortcuts", name = "CS-8"), // shortcut control-shift-8
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 
-public final class XhtmlX3domAction extends X3dToXhtmlDomConversionAction {
+public final class XhtmlX3domConversionAction extends X3dToXhtmlDomConversionAction {
 
     @Override
     public String getName()
     {
-        return NbBundle.getMessage(getClass(), "CTL_XhtmlX_iteAction");
+        // invoked when toolbar button is pressed
+        setPlayer(X3dToXhtmlDomConversionAction.X3DOM);
+        setPreferredTab(X3DOM_TAB);
+        return NbBundle.getMessage(getClass(), "CTL_XhtmlX3domConversionAction");
     }
 
     @Override
     protected void initialize()
     {
-        setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
-        setPreferredTab(X_ITE_TAB);
+        // invoked first time only
+        setPlayer(X3dToXhtmlDomConversionAction.X3DOM);
+        setPreferredTab(X3DOM_TAB);
         super.initialize(); // last, following setup
     }
 
     @Override
     protected String iconResource()
     {
-        return "org/web3d/x3d/resources/cobweb-logo32.png";
+        return "org/web3d/x3d/resources/x3dom-whiteOnblue32.png";
     }
     // see org.openide.util.actions.SystemAction.iconResource() Javadoc for more details
 }
