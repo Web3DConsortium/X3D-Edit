@@ -10,8 +10,6 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 This directory shares pre-release test files prior to [official X3D-Edit release](https://sourceforge.net/projects/x3d/files).
 Please see that page for installation instruction details.
 
-Initial tests satisfactory: [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
-
 The following files are available for X3D-Edit authoring:
 
 X3D-Edit Install File                                                                                       | Description                                       | Status                                                         | File size | Date        
@@ -31,6 +29,13 @@ The Zip installation is most reliable and popular, typically working without mod
 
 [Installation video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
 [<img align='right' width='400' src="https://savage.nps.edu/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
+
+## Source Code has Moved
+
+Note: SourceForge is great!  Nevertheless we have moved source code development to [https://github.com/Web3dConsortium/X3D-Edit](https://github.com/Web3dConsortium/X3D-Edit) 
+to conform with trusted-plugin requirements on the [Apache NetBeans Plugin Portal](https://plugins.netbeans.apache.org/catalogue/?id=90).
+
+* Previous tests satisfactory: [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify beta testing of module updates.
 
 ## Troubleshoot Netbeans
 
