@@ -447,6 +447,8 @@
             </class-path-extension>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>accessor</word>
+            <word>ACM</word>
             <word>Amaya</word>
             <word>autolaunch</word>
             <word>BioVision</word>
@@ -460,6 +462,7 @@
             <word>ColorRGBA</word>
             <word>ConformanceNist</word>
             <word>CoordinateDouble</word>
+            <word>CORS</word>
             <word>crossSection</word>
             <word>CSS</word>
             <word>customizer</word>
@@ -472,6 +475,7 @@
             <word>ElevationGrid</word>
             <word>endFrame</word>
             <word>EnvironmentLight</word>
+            <word>EXI</word>
             <word>FillProperties</word>
             <word>frameCount</word>
             <word>frameDuration</word>
@@ -489,12 +493,14 @@
             <word>http</word>
             <word>https</word>
             <word>ImageTexture</word>
+            <word>INCITS</word>
             <word>IndexedFaceSet</word>
             <word>IndexedLineSet</word>
             <word>javadoc</word>
             <word>JSON</word>
             <word>jwebserver</word>
             <word>keystore</word>
+            <word>Khronos</word>
             <word>LineProperties</word>
             <word>LineSet</word>
             <word>loa</word>
@@ -507,6 +513,7 @@
             <word>MultiTextureCoordinate</word>
             <word>MultiTextureTransform</word>
             <word>NetBeans</word>
+            <word>NPS</word>
             <word>NuGraf</word>
             <word>Okino</word>
             <word>openjdk</word>
@@ -516,6 +523,7 @@
             <word>PointSet</word>
             <word>PolyTrans</word>
             <word>Portecle</word>
+            <word>PyPI</word>
             <word>Quickstart</word>
             <word>README</word>
             <word>Redistributions</word>
@@ -523,6 +531,7 @@
             <word>SavageDefense</word>
             <word>Schematron</word>
             <word>SIGGRAPH</word>
+            <word>SISO</word>
             <word>skeletalConfiguration</word>
             <word>SourceForge</word>
             <word>stackoverflow</word>
