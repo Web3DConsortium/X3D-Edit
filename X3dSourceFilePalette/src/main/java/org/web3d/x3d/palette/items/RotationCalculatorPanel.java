@@ -50,7 +50,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
 
 /**
  *
- * @author  Don Brutzman <brutzman@nps.edu>
+ * @author  Don Brutzman brutzman@nps.edu
  */
 public class RotationCalculatorPanel extends javax.swing.JPanel
 {

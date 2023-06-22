@@ -38,7 +38,7 @@ import javax.swing.JCheckBox;
 
 /**
  * Utility widget
- * @author  Mike Bailey <jmbailey@nps.edu> and Don Brutzman <brutzman@nps.edu>
+ * @author  Mike Bailey jmbailey@nps.edu and Don Brutzman brutzman@nps.edu
  */
 public class OpenResultInEditorChooserAccessory extends javax.swing.JPanel
 {

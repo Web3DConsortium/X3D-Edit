@@ -49,8 +49,8 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
  * Naval Postgraduate School, Monterey, CA, USA
  * www.nps.edu
  *
- * @author Mike Bailey <jmbailey@nps.edu>
- * @author Don Brutzman <jmbailey@nps.edu>
+ * @author Mike Bailey jmbailey@nps.edu
+ * @author Don Brutzman jmbailey@nps.edu
  * @version $Id$
  */
 public class LocalExamplesFinder

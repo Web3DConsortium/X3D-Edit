@@ -43,23 +43,23 @@ import org.openide.util.NbPreferences;
 
 /**
  * X3dEditUserPreferences.java
- Created on Apr 17, 2008
- 
- Note X3D-Edit options persistence: 
- www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/build/testuserdir/config/Preferences/org/web3d/x3d/palette.properties
-
- MOVES Institute
- Naval Postgraduate School, Monterey, CA, USA
- www.nps.edu
+ * Created on Apr 17, 2008
+ * 
+ * Note X3D-Edit options persistence: 
+ * www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/build/testuserdir/config/Preferences/org/web3d/x3d/palette.properties
  *
- * @author Mike Bailey <jmbailey@nps.edu>
+ * MOVES Institute
+ * Naval Postgraduate School, Monterey, CA, USA
+ * www.nps.edu
+ *
+ * @author Mike Bailey jmbailey@nps.edu
  * @version $Id$
  */
-@SuppressWarnings("StaticNonFinalUsedInInitialization")
+// @SuppressWarnings("StaticNonFinalUsedInInitialization")
 public class X3dEditUserPreferences
 {
-  public  static final String AUTHOR_NAME_TOKEN = "__AUTHOR-NAME__";
-  public static        String X3D_EDIT_PATH  = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
+  public static final String AUTHOR_NAME_TOKEN = "__AUTHOR-NAME__";
+  public static       String X3D_EDIT_PATH  = System.getProperty("user.dir"); // _path_/X3DEdit4.0/X3dEditModuleSuite
 
   static {
 //    String homeDir = System.getProperty("user.home");

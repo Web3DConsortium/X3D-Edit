@@ -51,7 +51,7 @@ import org.openide.util.HelpCtx;
 
 /**
  *
- * @author  Mike Bailey <jmbailey@nps.edu>
+ * @author  Mike Bailey jmbailey@nps.edu
  */
 public class BOOLEANSEQUENCERCustomizer extends BaseCustomizer
 {  

@@ -282,7 +282,10 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     return null;
   }
 
-  abstract public void initialize();
+    /**
+     * required method for subclasses
+     */
+    abstract public void initialize();
 
   /**
    * This is called before an insert;  a comment or ExternProtoDeclare might need prior insertion
@@ -295,7 +298,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
   /**
    * This is called after a good insert;  subclasses may wish to be informed (e.g., X3D)
-   * @param component
+   * @param component of interest
    */
   public void postInsert(JTextComponent component)
   {
@@ -2922,21 +2925,21 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
   /**
    * Does not rebuild JDOM document
-   * @param targ
-   * @param excludeList
-   * @return
+   * @param targetComponent of interest
+   * @param excludeList of interest
+   * @return node map
    */
-  protected Map<String,Vector<Element>> getNodeMap(JTextComponent targ, Vector<String> excludeList)
+  protected Map<String,Vector<Element>> getNodeMap(JTextComponent targetComponent, Vector<String> excludeList)
   {
-    org.jdom.Document doc = X3DPaletteUtilitiesJdom.getJdom(targ); //getJdomDoc(targ);
+    org.jdom.Document doc = X3DPaletteUtilitiesJdom.getJdom(targetComponent); //getJdomDoc(targ);
     Map<String,Vector<Element>> hashMap = new HashMap<>();
     addMappedElems(doc.getRootElement(),hashMap, false, excludeList);
     return hashMap;
   }
 
-  protected Map<String,Vector<Element>> getNodeMap(JTextComponent targ)
+  protected Map<String,Vector<Element>> getNodeMap(JTextComponent targetComponent)
   {
-    return getNodeMap(targ,null);
+    return getNodeMap(targetComponent,null);
   }
 
   @SuppressWarnings("unchecked")
@@ -3095,11 +3098,11 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
    * Return all nodes either beneath a node in the marker list, if the current location
    * lies beneath, or from the root, if the current location is not within a marker element.
    * Used for finding legal routes within/without a ProtoBody.
-   * @param targ
-   * @param markerList
-   * @return
+   * @param targetComponent of interest
+   * @param markerList of interest
+   * @return special node list
    */
-  protected Vector<Element> getSpecialNodeList(JTextComponent targ, Vector<String> markerList)
+  protected Vector<Element> getSpecialNodeList(JTextComponent targetComponent, Vector<String> markerList)
   {
     Vector<Element> v = new Vector<>();
     Element localroot = null;
@@ -3122,13 +3125,13 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
  /**
    * Get a complete list, except for branches whose names are in the list
    * Does not rebuild JDOM document
-   * @param excludeList
-   * @param targ
+   * @param excludeList of interest
+   * @param targetComponent of interest
    * @return list
    */
-  protected Vector<Element> getNodeList(JTextComponent targ, Vector<String> excludeList)
+  protected Vector<Element> getNodeList(JTextComponent targetComponent, Vector<String> excludeList)
   {
-    org.jdom.Document doc = X3DPaletteUtilitiesJdom.getJdom(targ); //getJdomDoc(targ);
+    org.jdom.Document doc = X3DPaletteUtilitiesJdom.getJdom(targetComponent); //getJdomDoc(targ);
     Vector<Element> v = new Vector<>();
     addElems(doc.getRootElement(),v,false,excludeList);
     return v;
@@ -3176,8 +3179,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
    * Else use all nodes outside of all protobodies
    * enclosed, return
    * @param target Swing component of interest
-   * @param limits
-   * @return
+   * @param limits of interest
+   * @return list of limited nodes
    */
   protected Vector<Element> getLimitedNodeList(JTextComponent target, String [] limits)
   {
@@ -3200,7 +3203,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   {
 
   }
-  //public void initializeFromJdom(org.jdom.Document doc, JTextComponent comp)
+
   public void initializeFromJdom(org.jdom.Element root, JTextComponent comp)
   {
     initialize();  //by default, set defaults
@@ -3287,7 +3290,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   }
 
   /** set indication that this is a DEF node
-    * @param boolean to set whether value is DEF or USE */
+    * @param isDef boolean to set whether value is DEF or USE */
   public void setDEF(boolean isDef)
   {
     hasDEF = isDef;

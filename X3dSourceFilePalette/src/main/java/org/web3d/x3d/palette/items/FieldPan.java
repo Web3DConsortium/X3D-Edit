@@ -38,7 +38,7 @@ import java.awt.Color;
 
 /**
  *
- * @author  Mike Bailey <jmbailey@nps.edu>
+ * @author  Mike Bailey jmbailey@nps.edu
  */
 public class FieldPan extends javax.swing.JPanel
 {  

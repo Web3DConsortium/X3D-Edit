@@ -691,7 +691,7 @@ public final class BvhToX3dConversionAction extends CallableSystemAction
    * Test if string is numeric
    * @param value string of interest
    * @return whether string is a numeric value or not
-   * @see https://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
+   * @see <a href="https://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java">https://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java</a>
    */
   public static boolean isNumeric(String value)  
 {  

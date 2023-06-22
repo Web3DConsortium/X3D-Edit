@@ -52,7 +52,7 @@ import org.web3d.x3d.config.util.FindPath;
  Naval Postgraduate School, Monterey, CA, USA
  www.nps.edu
  </p>
- * @author Mike Bailey <jmbailey@nps.edu>
+ * @author Mike Bailey jmbailey@nps.edu
  * @version $Id$
  */
 @OnStart

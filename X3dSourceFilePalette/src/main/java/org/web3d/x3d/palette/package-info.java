@@ -8,6 +8,8 @@
 //         name = "New Comment",
 //         tooltip = "/* new comment */")
         
+/** X3D-Edit palette package */
+
 package org.web3d.x3d.palette;
 
 // import org.netbeans.spi.palette.PaletteItemRegistration;

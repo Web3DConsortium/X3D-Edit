@@ -70,7 +70,7 @@ import static org.web3d.x3d.options.X3dEditUserPreferences.EXAMPLES_ROOT_DIRECTO
 
 /**
  *
- * @author  Mike Bailey <jmbailey@nps.edu>
+ * @author  Mike Bailey jmbailey@nps.edu
  */
 public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
 {

@@ -63,18 +63,27 @@ public class ACOUSTICPROPERTIES extends X3DAppearanceChildNode // needs new X3D*
   {
   }
 
+    /**
+     * accessor method for field
+     */
   @Override
   public String getDefaultContainerField()
   {
     return "acousticProperties";        // Should be handled in the X3D*Node hierarchy
   }
 
+    /**
+     * "AcousticProperties"
+     */
   @Override
   public String getElementName()
   {
     return ACOUSTICPROPERTIES_ELNAME;
   }
 
+    /**
+     * initialize values suing defaults
+     */
   @Override
   public void initialize()
   {
@@ -93,6 +102,11 @@ public class ACOUSTICPROPERTIES extends X3DAppearanceChildNode // needs new X3D*
     return ACOUSTICPROPERTIESCustomizer.class;
   }
 
+    /**
+     * initialize values suing defaults
+     * @param root root element
+     * @param comp component
+     */
   @Override
   public void initializeFromJdom(org.jdom.Element root, JTextComponent comp)
   {
@@ -118,6 +132,10 @@ public class ACOUSTICPROPERTIES extends X3DAppearanceChildNode // needs new X3D*
       specular = new SFFloat(attr.getValue(), 0.0f, 1.0f);
   }
   
+    /**
+     * create xml attributes
+     * @return non-default values
+     */
   @Override
   public String createAttributes()
   {
@@ -168,62 +186,110 @@ public class ACOUSTICPROPERTIES extends X3DAppearanceChildNode // needs new X3D*
     return sb.toString();
   }
 
+    /**
+     * accessor method for field
+     * @return value
+     */
   public boolean isEnabled()
   {
     return enabled;
   }
 
+    /**
+     * accessor method for field
+     * @param enabled value of interest
+     */
   public void setEnabled(boolean enabled)
   {
     this.enabled = enabled;
   }
   
+    /**
+     * accessor method for field
+     * @return value
+     */
   public String getDescription()
   {
     return description;
   }
 
+    /**
+     * accessor method for field
+     * @param newDescription value of interest
+     */
   public void setDescription(String newDescription)
   {
     this.description = newDescription;
   }
   
-  public SFFloat getAbsorption()
+    /**
+     * accessor method for field
+     * @return value
+     */
+    public SFFloat getAbsorption()
   {
     return absorption;
   } 
 
+    /**
+     * accessor method for field
+     * @param newAbsorption
+     */
   public void setAbsorption(SFFloat newAbsorption)
   {
     this.absorption = newAbsorption;
   }
 
-  
+    /**
+     * accessor method for field
+     * @return value
+     */
   public SFFloat getDiffuse()
   {
     return diffuse;
   }
 
+    /**
+     * accessor method for field
+     * @param newDiffuse value of interest
+     */
   public void setDiffuse(SFFloat newDiffuse)
   {
     this.diffuse = newDiffuse;
   }
   
+  
+    /**
+     * accessor method for field
+     * @return  value of interest
+     */
   public SFFloat getRefraction()
   {
     return refraction;
   }
 
+    /**
+     * accessor method for field
+     * @param newRefraction
+     */
   public void setRefraction(SFFloat newRefraction)
   {
     this.refraction = newRefraction;
   }
   
+    /**
+     * accessor method for field
+     * @return value
+     */
   public SFFloat getSpecular()
   {
     return specular;
   }
-
+  
+    /**
+     * accessor method for field
+     * @param newSpecular value of interest
+     */
   public void setSpecular(SFFloat newSpecular)
   {
     this.specular = newSpecular;

@@ -58,7 +58,12 @@ public abstract class X3DNode extends BaseX3DElement
   {
       setContainerField(this.getDefaultContainerField());
   }
-  abstract public String getDefaultContainerField();
+
+    /**
+     * required method
+     * @return default value from X3D XML Schema
+     */
+    abstract public String getDefaultContainerField();
   
   @Override
   abstract public String getElementName();

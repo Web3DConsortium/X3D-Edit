@@ -65,6 +65,7 @@ import javax.net.ssl.TrustManager;
  *
  * <p>
  * Example of using custom protocol socket factory for a specific host:
+ * </p>
  *     <pre>
  *     Protocol easyhttps = new Protocol("https", new EasySSLProtocolSocketFactory(), 443);
  *
@@ -74,9 +75,9 @@ import javax.net.ssl.TrustManager;
  *     GetMethod httpget = new GetMethod("/");
  *     client.executeMethod(httpget);
  *     </pre>
- * </p>
  * <p>
  * Example of using custom protocol socket factory per default instead of the standard one:
+ * </p>
  *     <pre>
  *     Protocol easyhttps = new Protocol("https", new EasySSLProtocolSocketFactory(), 443);
  *     Protocol.registerProtocol("https", easyhttps);
@@ -85,9 +86,8 @@ import javax.net.ssl.TrustManager;
  *     GetMethod httpget = new GetMethod("https://localhost/");
  *     client.executeMethod(httpget);
  *     </pre>
- * </p>
  * 
- * @author <a href="mailto:oleg -at- ural.ru">Oleg Kalnichevski</a>
+ * @author <a href="mailto:oleg-at-ural.ru">Oleg Kalnichevski</a>
  * 
  * <p>
  * DISCLAIMER: HttpClient developers DO NOT actively support this component.

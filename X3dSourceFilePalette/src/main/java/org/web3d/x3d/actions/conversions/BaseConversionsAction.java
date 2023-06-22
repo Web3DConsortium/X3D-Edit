@@ -96,7 +96,7 @@ import org.xml.sax.SAXParseException;
      * Naval Postgraduate School, Monterey, CA, USA
      * www.nps.edu
      *
-     * @author Mike Bailey <jmbailey@nps.edu>
+     * @author Mike Bailey jmbailey@nps.edu
      * @version $Id: BaseConversionsAction.java 31811 2021-05-08 04:32:33Z brutzman $
      */
     public abstract class BaseConversionsAction extends CallableSystemAction

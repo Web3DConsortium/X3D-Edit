@@ -56,7 +56,7 @@ import javax.swing.WindowConstants;
  * component will fire changes in PROP_COLOR along with actin events, when the
  * user selects a color.  PROP_COLOR changes are fired both in response to
  * use actions and programmatic changes to the color property.
- * <P>
+ * 
  * @author  Tim Boudreau
  */
 public final class ColorChooser extends JComponent {

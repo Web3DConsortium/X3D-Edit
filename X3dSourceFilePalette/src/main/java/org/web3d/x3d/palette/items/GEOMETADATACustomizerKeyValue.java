@@ -10,7 +10,7 @@ import javax.swing.border.TitledBorder;
 
 /**
  *
- * @author  Mike Bailey <jmbailey@nps.edu>
+ * @author  Mike Bailey jmbailey@nps.edu
  */
 public class GEOMETADATACustomizerKeyValue extends javax.swing.JPanel
 {

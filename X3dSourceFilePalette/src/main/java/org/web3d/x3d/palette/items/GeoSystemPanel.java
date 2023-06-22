@@ -48,7 +48,7 @@ import static org.web3d.x3d.types.X3DSchemaData.GEO_EARTH_GEOIDS;
 
 /**
  *
- * @author  Mike Bailey <jmbailey@nps.edu>
+ * @author  Mike Bailey jmbailey@nps.edu
  */
 public class GeoSystemPanel extends javax.swing.JPanel
 {

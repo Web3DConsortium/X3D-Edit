@@ -22,7 +22,11 @@ public class AcknowledgePduDisplayPanel extends javax.swing.JPanel
     initComponents();
   }
 
-  public void setData(AcknowledgePdu pdu)
+    /**
+     * Set pdu of interest
+     * @param pdu of interest
+     */
+    public void setData(AcknowledgePdu pdu)
   {
     pduHeaderDisplayPanel1.setData(pdu);
     

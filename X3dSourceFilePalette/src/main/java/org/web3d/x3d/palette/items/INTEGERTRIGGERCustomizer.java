@@ -11,7 +11,7 @@ import org.openide.util.HelpCtx;
 
 /**
  *
- * @author  Mike Bailey <jmbailey@nps.edu>, Don Brutzman
+ * @author  Mike Bailey jmbailey@nps.edu, Don Brutzman
  */
 public class INTEGERTRIGGERCustomizer extends BaseCustomizer
 {  
