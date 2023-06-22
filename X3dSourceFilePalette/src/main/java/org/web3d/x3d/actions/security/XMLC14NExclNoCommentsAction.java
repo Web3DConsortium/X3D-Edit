@@ -11,7 +11,7 @@ are met:
       notice, this list of conditions and the following disclaimer
       in the documentation and/or other materials provided with the
       distribution.
-    * Neither the name of the Web3D Consortium (http://www.web3D.org)
+    * Neither the name of the Web3D Consortium (https://www.web3d.org)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.

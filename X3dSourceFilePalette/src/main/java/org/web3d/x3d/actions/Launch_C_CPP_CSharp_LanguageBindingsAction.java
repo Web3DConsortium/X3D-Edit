@@ -67,11 +67,11 @@ public final class Launch_C_CPP_CSharp_LanguageBindingsAction extends CallableSy
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
 
-// X3D SAI for C    http://www.web3d.org/specifications/ISO-IEC19777/ISO-IEC19777-3v3.3-DIS 
+// X3D SAI for C    https://www.web3d.org/specifications/ISO-IEC19777/ISO-IEC19777-3v3.3-DIS 
 
-// X3D SAI for C++  http://www.web3d.org/specifications/ISO-IEC19777/ISO-IEC19777-4v3.3-DIS 
+// X3D SAI for C++  https://www.web3d.org/specifications/ISO-IEC19777/ISO-IEC19777-4v3.3-DIS 
 
-// X3D SAI for C#   http://www.web3d.org/specifications/ISO-IEC19777/ISO-IEC19777-5v3.3-DIS 
+// X3D SAI for C#   https://www.web3d.org/specifications/ISO-IEC19777/ISO-IEC19777-5v3.3-DIS 
 
     BaseViewAction.sendBrowserTo(X3D_C_LANGUAGE_BINDING_SAI   );
     
