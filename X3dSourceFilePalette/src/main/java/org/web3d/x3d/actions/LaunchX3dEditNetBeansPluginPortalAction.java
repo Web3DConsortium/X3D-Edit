@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -41,29 +41,33 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.SOURCEFORGE_RELEASE_INSTALLERS;
+import static org.web3d.x3d.actions.BaseViewAction.NETBEANS_PLUGIN_PORTAL_X3DEDIT;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchX3dEditSourceForgeReleaseAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/SourceForge-logo-32x32.png",
-                    displayName = "#CTL_LaunchX3dEditSourceForgeReleaseAction", 
+@ActionID(id = "org.web3d.x3d.actions.LaunchX3dEditNetBeansPluginPortalAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/netbeans-favicon-32x32.png",
+                    displayName = "#CTL_LaunchX3dEditNetBeansPluginPortalAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/&X3D-Edit/X3D-Edit &Information", position = 500),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit &Information", position = 500),
+  @ActionReference(path = "Menu/&X3D-Edit/X3D-Edit &Information", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit &Information", position = 300),
 })
 
-public final class LaunchX3dEditSourceForgeReleaseAction extends CallableSystemAction
+public final class LaunchX3dEditNetBeansPluginPortalAction extends CallableSystemAction
 {
   @Override
   public void performAction()
   {
-    BaseViewAction.sendBrowserTo(SOURCEFORGE_RELEASE_INSTALLERS);
+    // looking for javahelp
+    // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
+    // hlp.showHelp(HelpCtx.findHelp(this));
+      
+    BaseViewAction.sendBrowserTo(NETBEANS_PLUGIN_PORTAL_X3DEDIT);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchX3dEditSourceForgeReleaseAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchX3dEditNetBeansPluginPortalAction");
   }
 
   @Override
@@ -77,7 +81,7 @@ public final class LaunchX3dEditSourceForgeReleaseAction extends CallableSystemA
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("SourceForgeRelease");
+    return new HelpCtx("X3dResourcesExamples");
   }
 
   @Override

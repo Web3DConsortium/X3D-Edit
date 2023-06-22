@@ -47,10 +47,11 @@ import static org.web3d.x3d.actions.BaseViewAction.SOURCEFORGE_X3DEDIT_SOURCE;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/SourceForge-logo-32x32.png",
                     displayName = "#CTL_LaunchX3dEditSourceForgeSourceCodeAction", 
                             lazy=true)
-@ActionReferences( value = {
-  @ActionReference(path = "Menu/&X3D-Edit/X3D-Edit &Information", position = 310),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit &Information", position = 310),
-})
+// Hidden, no longer active on menues
+//@ActionReferences( value = {
+//  @ActionReference(path = "Menu/&X3D-Edit/X3D-Edit &Information", position = 510),
+//  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit &Information", position = 510),
+//})
 
 public final class LaunchX3dEditSourceForgeSourceCodeAction extends CallableSystemAction
 {
