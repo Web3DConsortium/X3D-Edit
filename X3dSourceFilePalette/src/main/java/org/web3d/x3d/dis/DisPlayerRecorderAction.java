@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -60,7 +60,7 @@ public class DisPlayerRecorderAction extends AbstractAction
   public DisPlayerRecorderAction()
   {
     super(NbBundle.getMessage(DisPlayerRecorderAction.class, "CTL_DisPlayerRecorderAction"));
-    putValue(SMALL_ICON, new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/siso_logo_lg_32x32.png", true)));
+    putValue(SMALL_ICON, new ImageIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/OpenDisSurferDude.32x32.png", true)));
   }
 
   @Override
@@ -68,7 +68,7 @@ public class DisPlayerRecorderAction extends AbstractAction
   { 
     TopComponent window = DisPlayerRecorderTopComponent.findInstance();
     window.open();
-    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/siso_logo_lg_32x32.png"));
+    window.setIcon(ImageUtilities.loadImage("org/web3d/x3d/resources/OpenDisSurferDude.32x32.png"));
     window.requestActive();
   }
 }

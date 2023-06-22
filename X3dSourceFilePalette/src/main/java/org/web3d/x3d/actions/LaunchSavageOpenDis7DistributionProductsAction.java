@@ -41,18 +41,18 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.SAVAGE_DEVELOPERS_GUIDE;
+import static org.web3d.x3d.actions.BaseViewAction.SAVAGE_OPENDIS7_DISTRIBUTION_PRODUCTS;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchSavageDevelopersGuideDISAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/SavageLogo27x32.png",
-                    displayName = "#CTL_LaunchSavageDevelopersGuideDISAction",
+@ActionID(id = "org.web3d.x3d.actions.LaunchSavageOpenDis7DistributionProductsAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/OpenDisSurferDude.32x32.png",
+                    displayName = "#CTL_LaunchSavageOpenDis7DistributionProductsAction",
                             lazy=true)
 @ActionReferences( value = {
   @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", position = 400),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 400),
 })
 
-public final class LaunchSavageDevelopersGuideDISAction extends CallableSystemAction
+public final class LaunchSavageOpenDis7DistributionProductsAction extends CallableSystemAction
 {
   @Override
   public void performAction()
@@ -61,13 +61,13 @@ public final class LaunchSavageDevelopersGuideDISAction extends CallableSystemAc
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    BaseViewAction.sendBrowserTo(SAVAGE_DEVELOPERS_GUIDE + "#DIS");
+    BaseViewAction.sendBrowserTo(SAVAGE_OPENDIS7_DISTRIBUTION_PRODUCTS);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchSavageDevelopersGuideDISAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchSavageOpenDis7DistributionProductsAction");
   }
 
   @Override

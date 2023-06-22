@@ -94,6 +94,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_SCHEMATRON                         ="https://www.web3d.org/x3d/tools/schematron/X3dSchematron.html";
   public final static String X3D_X3DUOM                             ="https://www.web3d.org/specifications/X3DUOM.html";
   public final static String SAVAGE_DEVELOPERS_GUIDE                ="https://savage.nps.edu/Savage/developers.html";
+  public final static String SAVAGE_OPENDIS7_DISTRIBUTION_PRODUCTS  ="https://savage.nps.edu/opendis7-java";
   public final static String SISO_DIS_RPR_FOM_PRODUCT_SUPPORT_GROUP ="https://www.sisostds.org/StandardsActivities/SupportGroups/DISRPRFOMPSG.aspx";
   
   public final static String ACM_SIGGRAPH                           ="https://siggraph.acm.org";
