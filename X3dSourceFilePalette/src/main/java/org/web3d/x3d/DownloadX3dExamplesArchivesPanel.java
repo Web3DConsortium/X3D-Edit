@@ -1828,7 +1828,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
         {
             NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
                     "<html><p align='center'>Localhost http server is necessary to view local examples using X_ITE." +
-                    "</p><br /><p align='center'>Turn on autolaunch for local Example Archives server?</p></html>", 
+                    "</p><br /><p align='center'>Turn on http autolaunch for local Example Archives server?</p></html>", 
                     "Autolaunch http server?", NotifyDescriptor.YES_NO_OPTION);
             if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
             {
