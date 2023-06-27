@@ -9,8 +9,11 @@
             <word>checkmark</word>
             <word>ClassicVRML</word>
             <word>Collada</word>
+            <word>CORS</word>
             <word>draggable</word>
             <word>encodings</word>
+            <word>http</word>
+            <word>localhost</word>
             <word>MultiTexture</word>
             <word>NetBeans</word>
             <word>Redistributions</word>
@@ -21,6 +24,7 @@
             <word>TODO</word>
             <word>Tooltips</word>
             <word>Validator</word>
+            <word>url</word>
             <word>VRML</word>
         </spellchecker-wordlist>
     </configuration>
