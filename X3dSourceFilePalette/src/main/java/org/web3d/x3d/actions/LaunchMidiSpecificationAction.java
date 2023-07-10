@@ -42,6 +42,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.MIDI_2_0_SPECIFICATION;
+import static org.web3d.x3d.actions.BaseViewAction.MIDI_SPECIFICATIONS;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchMidiSpecificationAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/midi_favicon.png",
@@ -58,6 +59,7 @@ public final class LaunchMidiSpecificationAction extends CallableSystemAction
   @Override
   public void performAction()
   {
+    BaseViewAction.sendBrowserTo(MIDI_SPECIFICATIONS);
     BaseViewAction.sendBrowserTo(MIDI_2_0_SPECIFICATION);
   }
 

@@ -41,6 +41,7 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+import static org.web3d.x3d.actions.BaseViewAction.W3C_WHATWG_HTML5_RELATIONSHIPS;
 import static org.web3d.x3d.actions.BaseViewAction.W3C_WHATWG_HTML5_STANDARD;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchW3cWhatwgHtml5Action", category = "X3D-Edit")
@@ -48,8 +49,8 @@ import static org.web3d.x3d.actions.BaseViewAction.W3C_WHATWG_HTML5_STANDARD;
                     displayName = "#CTL_LaunchW3cWhatwgHtml5Action",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/W3C &Standards", position = 700),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C &Standards", position = 700)
+  @ActionReference(path = "Menu/&X3D-Edit/W3C &Standards", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C &Standards", position = 50)
 })
 
 public final class LaunchW3cWhatwgHtml5Action extends CallableSystemAction
@@ -61,6 +62,7 @@ public final class LaunchW3cWhatwgHtml5Action extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
+    BaseViewAction.sendBrowserTo(W3C_WHATWG_HTML5_RELATIONSHIPS);
     BaseViewAction.sendBrowserTo(W3C_WHATWG_HTML5_STANDARD);
   }
 

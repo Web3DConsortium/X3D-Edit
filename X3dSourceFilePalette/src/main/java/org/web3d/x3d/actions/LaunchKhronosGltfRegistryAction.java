@@ -41,6 +41,7 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+import static org.web3d.x3d.actions.BaseViewAction.KHRONOS_GLTF_2_0_SPECIFICATION;
 import static org.web3d.x3d.actions.BaseViewAction.KHRONOS_GLTF_REGISTRY;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchKhronosGltfRegistryAction", category = "X3D-Edit")
@@ -59,6 +60,7 @@ public final class LaunchKhronosGltfRegistryAction extends CallableSystemAction
   public void performAction()
   {
     BaseViewAction.sendBrowserTo(KHRONOS_GLTF_REGISTRY);
+    BaseViewAction.sendBrowserTo(KHRONOS_GLTF_2_0_SPECIFICATION);
   }
 
   @Override

@@ -60,8 +60,8 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String CONFORMEXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/ConformanceNist";
   public final static String HANIMEXAMPLESURL                       ="https://www.web3d.org/x3d/content/examples/HumanoidAnimation";
   public final static String VRMLEXAMPLESURL                        ="https://www.web3d.org/x3d/content/examples/Vrml2Sourcebook";
-  public final static String X3D4WA_EXAMPLESURL                     ="https://www.x3dGraphics.com/examples/X3dForWebAuthors";
-  public final static String X3D4AM_EXAMPLESURL                     ="https://www.x3dGraphics.com/examples/X3dForAdvancedModeling";
+  public final static String X3D4WA_EXAMPLESURL                     ="https://www.https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors";
+  public final static String X3D4AM_EXAMPLESURL                     ="https://www.https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling";
   public final static String SAVAGEEXAMPLESURL                      ="https://savage.nps.edu/Savage";
   public final static String SAVAGEDEFENSEEXAMPLESURL               ="https://SavageDefense.nps.navy.mil/SavageDefense";
   public final static String X3D_CANONICALIZATION_C14N              ="https://www.web3d.org/x3d/tools/canonical/doc/x3dTools.htm";
@@ -83,10 +83,12 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_SCENE_AUTHORING_HINTS              ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html";
   public final static String ECMASCRIPT_SPECIFICATION               ="https://262.ecma-international.org/13.0";
   public final static String KHRONOS_GLTF_REGISTRY                  ="https://registry.khronos.org/glTF";
-  public final static String MIDI_2_0_SPECIFICATION                 ="https://www.midi.org/specifications";
+  public final static String KHRONOS_GLTF_2_0_SPECIFICATION         ="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html";
+  public final static String MIDI_SPECIFICATIONS                    ="https://www.midi.org/specifications";
+  public final static String MIDI_2_0_SPECIFICATION                 ="https://www.midi.org/specifications/midi-2-0-specifications";
   public final static String X3D_SCENE_AUTHORING_HINTS_CORS         ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#CORS";
   public final static String X3D_TOOLTIPS                           ="https://www.web3d.org/x3d/tooltips/X3dTooltips.html";
-  public final static String X3D_COURSE                             ="https://x3dgraphics.com/slidesets";
+  public final static String X3D_COURSE                             ="https://www.web3d.org/x3d/content/examples/slidesets";
   public final static String X3D_COURSE_VIDEOS                      ="https://www.youtube.com/channel/UCSOnGlgAFxkWg8ilg-JEbAQ";
   public final static String X3D_QUICKSTART_TUTORIAL                ="https://www.web3d.org/news-story/x3d-quickstart-tutorial-video-online";
            
@@ -150,6 +152,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String W3C_XPATH_RECOMMENDATION               ="https://www.w3.org/TR/xpath";
   public final static String W3C_XSLT_RECOMMENDATION                ="https://www.w3.org/TR/xslt";
   public final static String W3C_SEMANTIC_WEB                       ="https://www.w3.org/standards/semanticweb";
+  public final static String W3C_WHATWG_HTML5_RELATIONSHIPS         ="https://www.w3.org/html";
   public final static String W3C_WHATWG_HTML5_STANDARD              ="https://html.spec.whatwg.org/multipage";
   public final static String W3CX_FREE_ONLINE_COURSES               ="https://www.edx.org/school/w3cx";
   
