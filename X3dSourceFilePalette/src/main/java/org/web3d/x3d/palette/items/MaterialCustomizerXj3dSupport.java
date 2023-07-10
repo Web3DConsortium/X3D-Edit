@@ -236,7 +236,7 @@ public class MaterialCustomizerXj3dSupport
         // ever so tedious and error prone using Xj3D API
         if ((xj3dIndexedFaceSet == null) || (xj3dCoordinate == null))
         {
-            // https://x3dgraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/Teapot.x3d
+            // https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling/GeometricShapes/Teapot.x3d
             xj3dIndexedFaceSet = (IndexedFaceSet) xj3dScene.createNode("IndexedFaceSet");
             xj3dIndexedFaceSet.setCcw(false);
             xj3dIndexedFaceSet.setColorPerVertex(false);

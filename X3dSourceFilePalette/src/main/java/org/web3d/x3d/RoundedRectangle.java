@@ -39,8 +39,8 @@ POSSIBILITY OF SUCH DAMAGE.
  * Identifier:  NsidedPolygon.java
  * Created:     1 January 2002
  * Revised:     14 January 2011
- * Identifier:  https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLines.java
- * Reference:   https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLinesExample.x3d
+ * Identifier:  https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLines.java
+ * Reference:   https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLinesExample.x3d
  * License:     ../license.html
  */
 

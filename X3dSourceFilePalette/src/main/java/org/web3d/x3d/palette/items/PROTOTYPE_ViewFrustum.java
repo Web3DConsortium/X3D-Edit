@@ -73,9 +73,9 @@ public class PROTOTYPE_ViewFrustum extends SceneGraphStructureNodeType
             "    <ExternProtoDeclare name='ViewFrustum'\n" +
             "        appinfo='Display view frustum associated with a given pair of Viewpoint NavigationInfo nodes'\n" +
             "        url='\"../../../X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.x3d#ViewFrustum\"\n" +
-            "             \"https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.x3d#ViewFrustum\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.x3d#ViewFrustum\"\n" +
             "             \"../../../X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.wrl#ViewFrustum\"\n" +
-            "             \"https://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.wrl#ViewFrustum\"'>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.wrl#ViewFrustum\"'>\n" +
             "      <field name='ViewpointNode' type='SFNode' accessType='initializeOnly' appinfo='required: insert Viewpoint DEF or USE node for view of interest'/>\n" +
             "      <field name='NavigationInfoNode' type='SFNode' accessType='initializeOnly' appinfo='required: insert NavigationInfo DEF or USE node of interest'/>\n" +
             "      <field name='visible' type='SFBool' accessType='inputOutput' appinfo='whether or not frustum geometry is rendered'/>\n" +
@@ -103,7 +103,7 @@ public class PROTOTYPE_ViewFrustum extends SceneGraphStructureNodeType
             "      <fieldValue name='transparency' value='0.5'/>\n" +
             "      <fieldValue name='aspectRatio' value='0.75'/>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://www.x3dgraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumExample.x3d -->\n" +
+            "    <!-- Example use: https://www.https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
  

@@ -38,8 +38,8 @@ POSSIBILITY OF SUCH DAMAGE.
  * @author      Don Brutzman
  * Identifier:  NsidedCapsule.java
  * Created:     1 November 2014
- * Reference:   https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.x3d 
- * Reference:   https://x3dGraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.js
+ * Reference:   https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.x3d 
+ * Reference:   https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.js
  */
 
 package org.web3d.x3d;
