@@ -250,11 +250,13 @@ public abstract class BaseCustomizer extends JPanel
     appendTraceEventsCB.setSelected(false);
     appendTraceEventsCB.setToolTipText(this.getBaseX3DElement().getTraceEventsTooltip());
     appendTraceEventsCB.setHorizontalAlignment(SwingConstants.RIGHT);
+//  appendTraceEventsCB.setHorizontalTextPosition(SwingConstants.CENTER);
 
     appendVisualizationCB.setVisible(this.getBaseX3DElement().isVisualizationSelectionAvailable());
     appendVisualizationCB.setSelected(false);
     appendVisualizationCB.setToolTipText(this.getBaseX3DElement().getVisualizationTooltip());
     appendVisualizationCB.setHorizontalAlignment(SwingConstants.RIGHT);
+//  appendVisualizationCB.setHorizontalTextPosition(SwingConstants.CENTER);
 
     String name = NbBundle.getMessage(getClass(),getNameKey()); // getNameKey comes from the implementing customizer subclass
 
@@ -352,21 +354,21 @@ public abstract class BaseCustomizer extends JPanel
         helpButton.setToolTipText("Show X3D Tooltip or related help page");
         helpButton.addActionListener(helpActionListener);
         helpButton.setVisible(true);
-        helpButton.setHorizontalAlignment(SwingConstants.LEFT);
+        helpButton.setHorizontalAlignment(SwingConstants.CENTER);
     }
     
-    final JButton reportButton = findButton(buttonsDialogDisplayer, "Feedback");
-    final ActionListener emailFeedbackActionListener = (ActionEvent event) ->
+    final JButton emailFeedbackReportButton = findButton(buttonsDialogDisplayer, "Feedback");
+    final ActionListener emailFeedbackReportButtonActionListener = (ActionEvent event) ->
     {
        LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + ", " + currentX3dElement.getElementName());
     };
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
-    if (reportButton != null)
+    if (emailFeedbackReportButton != null)
     {
-        reportButton.setToolTipText(MAILTO_TOOLTIP);
-        reportButton.addActionListener(emailFeedbackActionListener);
-        reportButton.setVisible(true);
-        reportButton.setHorizontalAlignment(SwingConstants.LEFT);
+        emailFeedbackReportButton.setToolTipText(MAILTO_TOOLTIP);
+        emailFeedbackReportButton.addActionListener(emailFeedbackReportButtonActionListener);
+        emailFeedbackReportButton.setVisible(true);
+        emailFeedbackReportButton.setHorizontalAlignment(SwingConstants.CENTER);
     }
 
     if (buttonsDialogDisplayer instanceof JDialog jDialog) {
