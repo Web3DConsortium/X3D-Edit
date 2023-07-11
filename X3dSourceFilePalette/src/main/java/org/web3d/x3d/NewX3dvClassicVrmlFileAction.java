@@ -55,27 +55,27 @@ import org.openide.util.actions.CallableSystemAction;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /**
- * Create new X3D scene source file .x3d for editing
+ * Create new X3D scene source file .x3dv for editing
  */
-@ActionID(id = "org.web3d.x3d.NewX3dFileAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.NewX3dvClassicVrmlFileAction", category = "X3D-Edit")
 
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/x3d32x32.png",
-                    displayName = "#CTL_NewX3dFileAction",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/vrml32x32.png",
+                    displayName = "#CTL_NewX3dvClassicVrmlFileAction",
                            lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/X3D-Edit New File Templates", name = "org-web3d-x3d-NewX3DFileAction", position = 310),
-  @ActionReference(path = "Menu/&X3D-Edit/&New File Templates", position = 310),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&New File Templates", position = 310),
+  @ActionReference(path = "Toolbars/X3D-Edit New File Templates", name = "org-web3d-x3d-NewX3dvClassicVrmlFileAction", position = 315),
+  @ActionReference(path = "Menu/&X3D-Edit/&New File Templates", position = 315),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&New File Templates", position = 315), // TODO x3d-vrml MIME type?
 })
 
-public final class NewX3dFileAction extends CallableSystemAction
+public final class NewX3dvClassicVrmlFileAction extends CallableSystemAction
 {
   @Override
   public void performAction()
   {
     try {
       // Look in the "filesystem" to find the registered template (through classpath)
-      String path = "Templates/Other/newScene.x3d";
+      String path = "Templates/Other/newScene.x3dv";
       FileObject x3dTmplFo = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
       if (x3dTmplFo == null)
       {
@@ -91,7 +91,7 @@ public final class NewX3dFileAction extends CallableSystemAction
       FileObject homeFo = FileUtil.createFolder(homeDirectory);
       
       // Find a free name
-      String freename = FileUtil.findFreeFileName(homeFo, "newSceneGraph", "x3d");
+      String freename = FileUtil.findFreeFileName(homeFo, "newSceneGraph", "x3dv");
       DataObject newDo = templ.createFromTemplate(DataFolder.findFolder(homeFo),freename);
       
       // The above method calls into X3DDataObject.handleCreateFromTemplate(), which copies the template
@@ -121,13 +121,13 @@ public final class NewX3dFileAction extends CallableSystemAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(NewX3dFileAction.class, "CTL_NewX3dFileAction");
+    return NbBundle.getMessage(NewX3dvClassicVrmlFileAction.class, "CTL_NewX3dvClassicVrmlFileAction");
   }
   
   @Override
   protected String iconResource()
   {
-    return "org/web3d/x3d/resources/X3D.png";
+    return "org/web3d/x3d/resources/vrml32x32.png";
   }
   
   @Override

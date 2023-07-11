@@ -478,6 +478,7 @@ POSSIBILITY OF SUCH DAMAGE.
     <folder name="Templates">
         <file name="Classes_hidden"/>
         <folder name="Other">
+            <!-- TODO the following files are not automatically updated from master versions -->
             <file name="HelloWorldX3D4.x3d" url="nbresloc:/org/web3d/x3d/templates/HelloWorldX3D4.x3d">
                 <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/HelloWorldX3D4.x3d"/>
                 <attr name="template" boolvalue="true"/>
@@ -486,6 +487,12 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
             <file name="newScene.x3d" url="nbresloc:/org/web3d/x3d/templates/newScene.x3d">
                 <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newScene.x3d"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
+                <attr name="templateCategory" stringvalue="simple-files"/>
+            </file>
+            <file name="newScene.x3dv" url="nbresloc:/org/web3d/x3d/templates/newScene.x3dv">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newScene.x3dv"/>
                 <attr name="template" boolvalue="true"/>
                 <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
                 <attr name="templateCategory" stringvalue="simple-files"/>
