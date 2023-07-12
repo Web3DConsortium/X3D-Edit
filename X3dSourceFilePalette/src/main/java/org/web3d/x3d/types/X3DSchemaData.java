@@ -143,7 +143,7 @@ public interface X3DSchemaData
   String  META_ATTR_HTTPEQUIV_DFLT  = "";
   String  META_ATTR_HTTPEQUIV_REFERENCE = "http://www.w3.org/TR/html4/struct/global.html#adef-http-equiv";
   String  META_ATTR_HTTPEQUIV_LOOKUP    = "http://reference.sitepoint.com/html/meta/http-equiv";
-                                                           // "http://www.w3schools.com/tags/att_meta_http_equiv.asp";
+                                       // "http://www.w3schools.com/tags/att_meta_http_equiv.asp";
 
   String  META_ATTR_LANG_NAME       = "lang"; // superceding xml:lang
   boolean META_ATTR_LANG_REQD       = false;
@@ -156,7 +156,6 @@ public interface X3DSchemaData
   boolean META_ATTR_SCHEME_REQD      = false;
   String  META_ATTR_SCHEME_DFLT      = "";
   String  META_ATTR_SCHEME_REFERENCE = "http://www.w3.org/TR/html4/struct/global.html#idx-scheme";
-
   String[]META_ATTR_NAME_CHOICES  = {
       "accessRights",
       "contributor",
@@ -194,7 +193,9 @@ public interface X3DSchemaData
       "version",
       "warning"
   };
+  
   // also used in X3dToXhtml.xslt tooltips
+  
   String[]META_ATTR_NAME_CHOICES_TOOLTIPS  = {
       "permission required to access resource or security status", // accessRights
       "name of individual contributing to this resource", // contributor
@@ -209,8 +210,9 @@ public interface X3DSchemaData
       "url address or unique Uniform Resource Identifier (URI) for resource", // identifier
       "name or reference link to supporting image file", // image
       "additional information of interest", // info
+//    "keyword", // do not use
       "content or software license", // license
-//      "", // metacard
+//    "metacard", // do not use
       "date of modified version", // modified
       "name or reference link to supporting movie", // MovingImage
       "name or reference link to supporting photograph", // photo
@@ -218,10 +220,11 @@ public interface X3DSchemaData
       "prerequisites for operation or viewing", // requires
       "intellectual property rights (IPR)", // rights
       "search engine and web-spider guidance:  noindex to block page indexing, nofollow to block following links", // robots
-			// https://www.w3.org/TR/html5/links.html#linkTypes 
-			// https://support.google.com/webmasters/answer/96569?hl=en
-			// https://support.google.com/webmasters/answer/93710?hl=en
-			// https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag?csw=1
+        // https://www.w3.org/TR/html5/links.html#linkTypes 
+        // https://support.google.com/webmasters/answer/96569?hl=en
+        // https://support.google.com/webmasters/answer/93710?hl=en
+        // https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag?csw=1
+      "related resource from which the described resource is derived", // source
       "name or reference link to supporting sound file", // Sound
       "title of relevant specification section", // specificationSection
       "url for relevant specification section", // specificationUrl
