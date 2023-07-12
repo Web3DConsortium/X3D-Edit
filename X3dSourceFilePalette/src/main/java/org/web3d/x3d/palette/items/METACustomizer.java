@@ -871,8 +871,16 @@ public class METACustomizer extends BaseCustomizer
         {
             if (nameComboBox.getSelectedItem().toString().equalsIgnoreCase(META_ATTR_NAME_CHOICES[index])) 
             {
-                nameComboBox.setToolTipText(META_ATTR_NAME_CHOICES_TOOLTIPS[index]);
-                nameTooltipLabel.setText(   META_ATTR_NAME_CHOICES_TOOLTIPS[index]);
+                String tooltip = new String(); // ensure arrays are similarly sized to avoid unexpected out0of-bounds index error
+                if (META_ATTR_NAME_CHOICES_TOOLTIPS.length < index)
+                {
+                    System.err.println ("*** X3D-Edit internal error, insufficient META_ATTR_NAME_CHOICES_TOOLTIPS for " +
+                            "META_ATTR_NAME_CHOICES[" + index + "]=" + META_ATTR_NAME_CHOICES[index]);
+                }
+                else tooltip = META_ATTR_NAME_CHOICES_TOOLTIPS[index];
+
+                    nameComboBox.setToolTipText(tooltip);
+                nameTooltipLabel.setToolTipText(tooltip);
                 break;
             }
         }
