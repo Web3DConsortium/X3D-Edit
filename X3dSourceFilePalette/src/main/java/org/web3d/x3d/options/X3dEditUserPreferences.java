@@ -679,8 +679,8 @@ public class X3dEditUserPreferences
   private static final String otherOperaPathDefault                = "";
   private static final String otherSafariPathDefault               = "";
 
-  private static final String downloadSiteContact                  = "https://www.bitmanagement.de/en";
-  private static final String downloadSiteContactGeo               = "https://www.bitmanagement.de/en";
+  private static final String downloadSiteContact                  = "https://www.bitmanagement.com/en";
+  private static final String downloadSiteContactGeo               = "https://www.bitmanagement.com/en";
   private static final String downloadSiteFreeWrl                  = "https://sourceforge.net/projects/freewrl"; 
                                                          // versions: https://sourceforge.net/projects/freewrl/files/
                                                          // formerly "https://www.crc.ca/FreeWRL"; 
@@ -844,7 +844,7 @@ public class X3dEditUserPreferences
  
   private static final String downloadSiteAltovaXMLSpy                   = "https://www.altova.com/download";
   private static final String downloadSiteBlender                        = "https://www.blender.org";
-  private static final String downloadSiteBsContentStudio                = "https://www.bitmanagement.de/en/download/studio";
+  private static final String downloadSiteBsContentStudio                = "https://www.bitmanagement.com/en/download/studio";
   private static final String downloadSiteCura                           = "https://ultimaker.com/software/ultimaker-cura";
   private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
@@ -873,8 +873,8 @@ public class X3dEditUserPreferences
   protected static final String helpSiteKeystoreExplorer                 = "https://keystore-explorer.org/doc/5.5/overview.html";
   
   protected static final String helpSiteAltovaXMLSpy                     = "https://www.altova.com/library";
-  protected static final String helpSiteBlender                          = "https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
-  protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.de/en/download/studio";
+  protected static final String helpSiteBlender                          = "https://www.blender.org/support"; // https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
+  protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.com/en/download/studio";
   protected static final String helpSiteCura                             = "https://ultimaker.com/learn"; 
   protected static final String helpSiteMeshLab                          = "https://www.meshlab.net"; // https://sourceforge.net/apps/mediawiki/meshlab";
   protected static final String helpSiteParaview                         = "https://www.paraview.org";
