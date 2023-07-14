@@ -142,11 +142,12 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="org-netbeans-modules-project-ui-OpenProject.shadow_hidden"/>
         </folder>
         -->
+        <!-- intentionally hide Profile buttons which NetBeans places (by default) adjacent to Memory button -->
+        <!-- now that we are a trusted plugin, it is better not to touch this at all and let user configuration remain untouched
         <folder name="Memory">
-            <!-- intentionally hide Profile buttons which NetBeans places (by default) adjacent to Memory button -->
             <file name="org-netbeans-modules-masterfs-ui-suspend-PauseAction.shadow_hidden"/>
             <file name="org-netbeans-modules-profiler-actions-SelfSamplerAction.shadow_hidden"/>
-        </folder>
+        </folder> -->
         <folder name="X3D-Edit Author Workflow">
             <!-- include X3D-Edit in name in order to provide context for toolbar entries -->
             <attr name="position" intvalue="184"/>
@@ -162,7 +163,7 @@ POSSIBILITY OF SUCH DAMAGE.
         <folder name="X3D-Edit New File Templates">
             <!-- include X3D-Edit in name in order to provide context for toolbar entries -->
             <attr name="position" intvalue="185"/>
-            <!-- TODO hide by default? -->
+            <!-- TODO how to hide by default, while still allowing user selection? -->
             <!--<file name="edu-nps-moves-kmleditor-actions-NewKmlFileAction.instance"/>-->
         </folder>
     </folder>
