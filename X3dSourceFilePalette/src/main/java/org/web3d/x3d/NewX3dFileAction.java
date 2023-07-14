@@ -127,7 +127,7 @@ public final class NewX3dFileAction extends CallableSystemAction
   @Override
   protected String iconResource()
   {
-    return "org/web3d/x3d/resources/X3D.png";
+    return "org/web3d/x3d/resources/X3D.png"; // 16x16 smaller icons for new-file templates
   }
   
   @Override

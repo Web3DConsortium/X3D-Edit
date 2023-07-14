@@ -59,7 +59,7 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
  */
 @ActionID(id = "org.web3d.x3d.NewX3dvClassicVrmlFileAction", category = "X3D-Edit")
 
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/vrml32x32.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/vrml16x16.png",
                     displayName = "#CTL_NewX3dvClassicVrmlFileAction",
                            lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
@@ -127,7 +127,7 @@ public final class NewX3dvClassicVrmlFileAction extends CallableSystemAction
   @Override
   protected String iconResource()
   {
-    return "org/web3d/x3d/resources/vrml32x32.png";
+    return "org/web3d/x3d/resources/vrml16x16.png"; // 16x16 smaller icons for new-file templates
   }
   
   @Override

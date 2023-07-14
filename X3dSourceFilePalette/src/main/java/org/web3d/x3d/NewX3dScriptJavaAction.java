@@ -129,7 +129,7 @@ public final class NewX3dScriptJavaAction extends CallableSystemAction
   @Override
   protected String iconResource()
   {
-      return "org/web3d/x3d/resources/java-icon32x32.png";
+      return "org/web3d/x3d/resources/java-icon16x16.png"; // 16x16 smaller icons for new-file templates
     // alternate Java logo from https://www.java.com/en/about/brand/buttons/   org/web3d/x3d/resources/java_get_powered_sm.jpg
   }
   
