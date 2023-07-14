@@ -438,6 +438,7 @@ public class X3dEditUserPreferences
   public static String            ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY =            "ITKSNAP_AUTOLAUNCH";
   public static String              SEG3D_EXECUTABLE_AUTOLAUNCH_KEY =              "SEG3D_AUTOLAUNCH";
   public static String           SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY =           "SLICER3D_AUTOLAUNCH";
+  public static String           INKSCAPE_EXECUTABLE_AUTOLAUNCH_KEY =           "INKSCAPE_AUTOLAUNCH";
   public static String           SVG_EDIT_EXECUTABLE_AUTOLAUNCH_KEY =           "SVG_EDIT_AUTOLAUNCH";
   public static String          WHITEDUNE_EXECUTABLE_AUTOLAUNCH_KEY =          "WHITEDUNE_AUTOLAUNCH";
   public static String            WINGS3D_EXECUTABLE_AUTOLAUNCH_KEY =            "WINGS3D_AUTOLAUNCH";
@@ -479,6 +480,7 @@ public class X3dEditUserPreferences
   public static String  ITKSNAP_VOLUME_EDITOR_PATH_KEY          =    "ITKSNAP_X3D_EDITOR_PATH";
   public static String    SEG3D_VOLUME_EDITOR_PATH_KEY          =      "SEG3D_X3D_EDITOR_PATH";
   public static String SLICER3D_VOLUME_EDITOR_PATH_KEY          =   "SLICER3D_X3D_EDITOR_PATH";
+  public static String INKSCAPE_VOLUME_EDITOR_PATH_KEY          =   "INKSCAPE_X3D_EDITOR_PATH";
   public static String SVG_EDIT_VOLUME_EDITOR_PATH_KEY          =   "SVG_EDIT_X3D_EDITOR_PATH";
   public static String   WHITEDUNE_X3D_EDITOR_PATH_KEY          =  "WHITEDUNE_X3D_EDITOR_PATH";
   public static String     WINGS3D_X3D_EDITOR_PATH_KEY          =    "WINGS3D_X3D_EDITOR_PATH";
@@ -553,6 +555,7 @@ public class X3dEditUserPreferences
   public static String     ITKSNAP_X3D_EDITOR_PATH_DEFAULT;
   public static String       SEG3D_X3D_EDITOR_PATH_DEFAULT;
   public static String    SLICER3D_X3D_EDITOR_PATH_DEFAULT;
+  public static String    INKSCAPE_X3D_EDITOR_PATH_DEFAULT;
   public static String    SVG_EDIT_X3D_EDITOR_PATH_DEFAULT;
   public static String   WHITEDUNE_X3D_EDITOR_PATH_DEFAULT;
   public static String     WINGS3D_X3D_EDITOR_PATH_DEFAULT;
@@ -730,6 +733,7 @@ public class X3dEditUserPreferences
   private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 3.8\\bin\\ITK-SNAP.exe";
   private static final String winxpSeg3dEditorPathDefault                = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String winxpSlicer3dEditorPathDefault             = "C:\\Program Files\\Slicer 4.3.1\\Slicer.exe";
+  private static final String winxpInkscapeEditorPathDefault             = "";
   private static final String winxpSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String winxpWhiteDuneX3dEditorPathDefault         = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
   private static final String winxpWingsX3dEditorPathDefault             = "C:\\Program Files\\wings3d_2.2.9\\Wings3D.exe";
@@ -756,6 +760,7 @@ public class X3dEditUserPreferences
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 3.8\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String windows64Slicer3dEditorPathDefault         = "C:\\Program Files\\Slicer 5.0.3\\Slicer.exe";
+  private static final String windows64InkscapeEditorPathDefault         = "C:\\Program Files\\Inkscape\\bin\\inkscape.exe";
   private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String windows64WhiteDuneX3dEditorPathDefault     = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
   private static final String windows64WingsX3dEditorPathDefault         = "C:\\Program Files\\wings3d_2.2.9\\Wings3D.exe";
@@ -782,6 +787,7 @@ public class X3dEditUserPreferences
   private static final String macosxItksnapEditorPathDefault             = "Itksnap";        // TODO insert correct value
   private static final String macosxSeg3dEditorPathDefault               = "Seg3d";          // TODO insert correct value
   private static final String macosxSlicer3dEditorPathDefault            = "Slicer3d";       // TODO insert correct value
+  private static final String macosxInkscapeEditorPathDefault            = "Inkscape";       // TODO insert correct value
   private static final String macosxSvgeditEditorPathDefault             = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String macosxWhiteDuneX3dEditorPathDefault        = "WhiteDune";      // TODO insert correct value
   private static final String macosxWingsX3dEditorPathDefault            = "Wings3d";        // TODO insert correct value
@@ -807,6 +813,7 @@ public class X3dEditUserPreferences
   private static final String otherItksnapEditorPathDefault              = "Itksnap";        // TODO insert correct value
   private static final String otherSeg3dEditorPathDefault                = "Seg3d";          // TODO insert correct value
   private static final String otherSlicer3dEditorPathDefault             = "Slicer3d";       // TODO insert correct value
+  private static final String otherInkscapeEditorPathDefault             = "Inkscape";       // TODO insert correct value
   private static final String otherSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String otherWhiteDuneX3dEditorPathDefault         = "WhiteDune";      // TODO insert correct value
   private static final String otherWingsX3dEditorPathDefault             = "Wings3d";        // TODO insert correct value
@@ -852,6 +859,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteItksnap                        = "http://www.itksnap.org"; // http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
   private static final String downloadSiteSeg3d                          = "https://www.sci.utah.edu/cibc-software/seg3d.html";
   private static final String downloadSiteSlicer3d                       = "https://www.slicer.org";
+  private static final String downloadSiteInkscape                       = "https://www.inkscape.org";
   private static final String downloadSiteSvgedit                        = "https://github.com/SVG-Edit"; // https://code.google.com/p/svg-edit";
   private static final String downloadSiteWhiteDune                      = "https://wdune.ourproject.org";
   private static final String downloadSiteWings3d                        = "http://www.wings3d.com"; // http://www.wings3d.com/?page_id=84";
@@ -883,6 +891,7 @@ public class X3dEditUserPreferences
   protected static final String helpSiteItksnap                          = "http://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.SNAP3"; // http://www.itksnap.org/pmwiki/pmwiki.php";
   protected static final String helpSiteSeg3d                            = "https://www.sci.utah.edu/cibc-software/seg3d.html";
   protected static final String helpSiteSlicer3d                         = "https://www.slicer.org/slicerWiki/index.php/Documentation/Release";
+  protected static final String helpSiteInkscape                         = "https://www.inkscape.org/learn";
   protected static final String helpSiteSvgedit                          = "https://en.wikipedia.org/wiki/SVG-edit"; // https://code.google.com/p/svg-edit";
   protected static final String helpSiteWhiteDune                        = "https://wdune.ourproject.org/docs";
   protected static final String helpSiteWings3d                          = "http://www.wings3d.com/?page_id=87";
@@ -924,6 +933,7 @@ public class X3dEditUserPreferences
   public static String getDownloadSiteItksnap()        {return downloadSiteItksnap;}
   public static String getDownloadSiteSeg3d()          {return downloadSiteSeg3d;}
   public static String getDownloadSiteSlicer3d()       {return downloadSiteSlicer3d;}
+  public static String getDownloadSiteInkscape()       {return downloadSiteInkscape;}
   public static String getDownloadSiteSvgedit()        {return downloadSiteSvgedit;}
   public static String getDownloadSiteWhiteDune()      {return downloadSiteWhiteDune;}
   public static String getDownloadSiteWings3d()        {return downloadSiteWings3d;}
@@ -986,6 +996,7 @@ public class X3dEditUserPreferences
       ITKSNAP_X3D_EDITOR_PATH_DEFAULT        = toks(     macosxItksnapEditorPathDefault);
         SEG3D_X3D_EDITOR_PATH_DEFAULT        = toks(       macosxSeg3dEditorPathDefault);
      SLICER3D_X3D_EDITOR_PATH_DEFAULT        = toks(    macosxSlicer3dEditorPathDefault);
+     INKSCAPE_X3D_EDITOR_PATH_DEFAULT        = toks (   macosxInkscapeEditorPathDefault);
      SVG_EDIT_X3D_EDITOR_PATH_DEFAULT        = toks (    macosxSvgeditEditorPathDefault);
     WHITEDUNE_X3D_EDITOR_PATH_DEFAULT        = toks(macosxWhiteDuneX3dEditorPathDefault);
       WINGS3D_X3D_EDITOR_PATH_DEFAULT        = toks(    macosxWingsX3dEditorPathDefault);
@@ -1038,6 +1049,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dE
       ITKSNAP_X3D_EDITOR_PATH_DEFAULT        = toks(     windows64ItksnapEditorPathDefault);
         SEG3D_X3D_EDITOR_PATH_DEFAULT        = toks(       windows64Seg3dEditorPathDefault);
      SLICER3D_X3D_EDITOR_PATH_DEFAULT        = toks(    windows64Slicer3dEditorPathDefault);
+     INKSCAPE_X3D_EDITOR_PATH_DEFAULT        = toks(    windows64InkscapeEditorPathDefault);
      SVG_EDIT_X3D_EDITOR_PATH_DEFAULT        = toks(     windows64SvgeditEditorPathDefault);
     WHITEDUNE_X3D_EDITOR_PATH_DEFAULT        = toks(windows64WhiteDuneX3dEditorPathDefault);
       WINGS3D_X3D_EDITOR_PATH_DEFAULT        = toks(    windows64WingsX3dEditorPathDefault);
@@ -1088,6 +1100,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEdito
       ITKSNAP_X3D_EDITOR_PATH_DEFAULT        = toks(     winxpItksnapEditorPathDefault);
         SEG3D_X3D_EDITOR_PATH_DEFAULT        = toks(       winxpSeg3dEditorPathDefault);
      SLICER3D_X3D_EDITOR_PATH_DEFAULT        = toks(    winxpSlicer3dEditorPathDefault);
+     INKSCAPE_X3D_EDITOR_PATH_DEFAULT        = toks(    winxpInkscapeEditorPathDefault);
      SVG_EDIT_X3D_EDITOR_PATH_DEFAULT        = toks(     winxpSvgeditEditorPathDefault);
     WHITEDUNE_X3D_EDITOR_PATH_DEFAULT        = toks(winxpWhiteDuneX3dEditorPathDefault);
       WINGS3D_X3D_EDITOR_PATH_DEFAULT        = toks(    winxpWingsX3dEditorPathDefault);
@@ -1138,6 +1151,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
       ITKSNAP_X3D_EDITOR_PATH_DEFAULT        = toks(     otherItksnapEditorPathDefault);
         SEG3D_X3D_EDITOR_PATH_DEFAULT        = toks(       otherSeg3dEditorPathDefault);
      SLICER3D_X3D_EDITOR_PATH_DEFAULT        = toks(    otherSlicer3dEditorPathDefault);
+     INKSCAPE_X3D_EDITOR_PATH_DEFAULT        = toks(    otherInkscapeEditorPathDefault);
      SVG_EDIT_X3D_EDITOR_PATH_DEFAULT        = toks(     otherSvgeditEditorPathDefault);
     WHITEDUNE_X3D_EDITOR_PATH_DEFAULT        = toks(otherWhiteDuneX3dEditorPathDefault);
       WINGS3D_X3D_EDITOR_PATH_DEFAULT        = toks(    otherWingsX3dEditorPathDefault);
@@ -1213,6 +1227,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String      getItksnapEditorPathDefault()   {return     ITKSNAP_X3D_EDITOR_PATH_DEFAULT;}
   public static String        getSeg3dEditorPathDefault()   {return       SEG3D_X3D_EDITOR_PATH_DEFAULT;}
   public static String     getSlicer3dEditorPathDefault()   {return    SLICER3D_X3D_EDITOR_PATH_DEFAULT;}
+  public static String      getInkscapeEditorPathDefault()   {return   INKSCAPE_X3D_EDITOR_PATH_DEFAULT;}
   public static String      getSvgeditEditorPathDefault()   {return    SVG_EDIT_X3D_EDITOR_PATH_DEFAULT;}
   public static String getWhiteDuneX3dEditorPathDefault()   {return   WHITEDUNE_X3D_EDITOR_PATH_DEFAULT;}
   public static String     getWingsX3dEditorPathDefault()   {return     WINGS3D_X3D_EDITOR_PATH_DEFAULT;}
@@ -1279,6 +1294,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void      setItksnapEditorPath    (String path){commonStringSet(ITKSNAP_VOLUME_EDITOR_PATH_KEY, path);}
   public static void        setSeg3dEditorPath    (String path){commonStringSet(  SEG3D_VOLUME_EDITOR_PATH_KEY, path);}
   public static void     setSlicer3dEditorPath    (String path){commonStringSet(SLICER3D_VOLUME_EDITOR_PATH_KEY,path);}
+  public static void     setInkscapeEditorPath    (String path){commonStringSet(INKSCAPE_VOLUME_EDITOR_PATH_KEY,path);}
   public static void      setSvgeditEditorPath    (String path){commonStringSet(SVG_EDIT_VOLUME_EDITOR_PATH_KEY,path);}
   public static void setWhiteDuneX3dEditorPath    (String path){commonStringSet( WHITEDUNE_X3D_EDITOR_PATH_KEY, path);}
   public static void     setWingsX3dEditorPath    (String path){commonStringSet(   WINGS3D_X3D_EDITOR_PATH_KEY, path);}
@@ -1344,6 +1360,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void          setItksnapAutoLaunch (String autoLaunch){commonStringSet(           ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void            setSeg3dAutoLaunch (String autoLaunch){commonStringSet(             SEG3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void         setSlicer3dAutoLaunch (String autoLaunch){commonStringSet(          SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setInkscapeAutoLaunch (String autoLaunch){commonStringSet(          INKSCAPE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setSvgeditAutoLaunch (String autoLaunch){commonStringSet(          SVG_EDIT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void        setWhiteDuneAutoLaunch (String autoLaunch){commonStringSet(         WHITEDUNE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setWings3dAutoLaunch (String autoLaunch){commonStringSet(           WINGS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1397,6 +1414,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String      getItksnapEditorPath()       {return commonStringGet(ITKSNAP_VOLUME_EDITOR_PATH_KEY,   ITKSNAP_X3D_EDITOR_PATH_DEFAULT);}
   public static String        getSeg3dEditorPath()       {return commonStringGet(  SEG3D_VOLUME_EDITOR_PATH_KEY,     SEG3D_X3D_EDITOR_PATH_DEFAULT);}
   public static String     getSlicer3dEditorPath()       {return commonStringGet(SLICER3D_VOLUME_EDITOR_PATH_KEY, SLICER3D_X3D_EDITOR_PATH_DEFAULT);}
+  public static String      getInkscapeEditorPath()      {return commonStringGet(INKSCAPE_VOLUME_EDITOR_PATH_KEY, INKSCAPE_X3D_EDITOR_PATH_DEFAULT);}
   public static String      getSvgeditEditorPath()       {return commonStringGet(SVG_EDIT_VOLUME_EDITOR_PATH_KEY, SVG_EDIT_X3D_EDITOR_PATH_DEFAULT);}
   public static String getWhiteDuneX3dEditorPath()       {return commonStringGet( WHITEDUNE_X3D_EDITOR_PATH_KEY, WHITEDUNE_X3D_EDITOR_PATH_DEFAULT);}
   public static String     getWingsX3dEditorPath()       {return commonStringGet(   WINGS3D_X3D_EDITOR_PATH_KEY,   WINGS3D_X3D_EDITOR_PATH_DEFAULT);}
@@ -1451,6 +1469,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String           isItksnapAutoLaunch() {return commonStringGet(            ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String             isSeg3dAutoLaunch() {return commonStringGet(              SEG3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String          isSlicer3dAutoLaunch() {return commonStringGet(           SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String          isInkscapeAutoLaunch() {return commonStringGet(           INKSCAPE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isSvgeditAutoLaunch() {return commonStringGet(           SVG_EDIT_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String         isWhiteDuneAutoLaunch() {return commonStringGet(          WHITEDUNE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isWings3dAutoLaunch() {return commonStringGet(            WINGS3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
@@ -1509,6 +1528,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void      resetItksnapEditorPath() {commonReset( ITKSNAP_VOLUME_EDITOR_PATH_KEY);}
   public static void        resetSeg3dEditorPath() {commonReset(   SEG3D_VOLUME_EDITOR_PATH_KEY);}
   public static void     resetSlicer3dEditorPath() {commonReset(SLICER3D_VOLUME_EDITOR_PATH_KEY);}
+  public static void     resetInkscapeEditorPath() {commonReset(INKSCAPE_VOLUME_EDITOR_PATH_KEY);}
   public static void      resetSvgeditEditorPath() {commonReset(SVG_EDIT_VOLUME_EDITOR_PATH_KEY);}
   public static void resetWhiteDuneX3dEditorPath() {commonReset(  WHITEDUNE_X3D_EDITOR_PATH_KEY);}
   public static void     resetWingsX3dEditorPath() {commonReset(    WINGS3D_X3D_EDITOR_PATH_KEY);}

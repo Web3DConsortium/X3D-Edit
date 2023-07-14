@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -75,7 +75,7 @@ public interface X3DSchemaData
   String  X3D_ATTR_VERSION_DFLT     = "4.0";
   String  X3D_ATTR_XMLNSXSD_NAME    = "xmlns:xsd";
   boolean X3D_ATTR_XMLNSXSD_REQD    = true;
-  String  X3D_ATTR_XMLNSXSD_DFLT    = "http://www.w3.org/2001/XMLSchema-instance";
+  String  X3D_ATTR_XMLNSXSD_DFLT    = "https://www.w3.org/2001/XMLSchema-instance";
   String  X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_NAME    = "xsd:noNamespaceSchemaLocation";
   boolean X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_REQD    = true;
   String  X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_DFLT    = "https://www.web3d.org/specifications/x3d-3.3.xsd";
@@ -120,7 +120,7 @@ public interface X3DSchemaData
   String  META_ATTR_NAME_NAME     = "name";
   boolean META_ATTR_NAME_REQD     = false;
   String  META_ATTR_NAME_DFLT     = "";
-  String  META_ATTR_NAME_REFERENCE= "http://www.dublincore.org/documents/dcmi-terms"; // TODO local url
+  String  META_ATTR_NAME_REFERENCE= "https://www.dublincore.org/documents/dcmi-terms";          // TODO local url
   String  META_ATTR_NAME_EXAMPLES = "https://www.web3d.org/x3d/content/examples/newScene.html"; // TODO local url
   String  META_ATTR_CONTENT_NAME  = "content";
   boolean META_ATTR_CONTENT_REQD  = true;
@@ -131,7 +131,7 @@ public interface X3DSchemaData
   String  META_ATTR_DIR_NAME        = "dir";
   boolean META_ATTR_DIR_REQD        = false;
   String  META_ATTR_DIR_DFLT        = "";
-  String  META_ATTR_DIR_REFERENCE   = "http://www.w3.org/TR/html4/struct/dirlang.html#adef-dir";
+  String  META_ATTR_DIR_REFERENCE   = "https://www.w3.org/TR/html4/struct/dirlang.html#adef-dir";
   String[]META_ATTR_DIR_CHOICES  = {
       "(none)",
       "ltr",
@@ -141,35 +141,35 @@ public interface X3DSchemaData
   String  META_ATTR_HTTPEQUIV_NAME  = "http-equiv";
   boolean META_ATTR_HTTPEQUIV_REQD  = false;
   String  META_ATTR_HTTPEQUIV_DFLT  = "";
-  String  META_ATTR_HTTPEQUIV_REFERENCE = "http://www.w3.org/TR/html4/struct/global.html#adef-http-equiv";
-  String  META_ATTR_HTTPEQUIV_LOOKUP    = "http://reference.sitepoint.com/html/meta/http-equiv";
-                                       // "http://www.w3schools.com/tags/att_meta_http_equiv.asp";
+  String  META_ATTR_HTTPEQUIV_REFERENCE = "https://www.w3.org/TR/html4/struct/global.html#adef-http-equiv";
+  String  META_ATTR_HTTPEQUIV_LOOKUP    = "https://reference.sitepoint.com/html/meta/http-equiv";
+                                       // "https://www.w3schools.com/tags/att_meta_http_equiv.asp";
 
   String  META_ATTR_LANG_NAME       = "lang"; // superceding xml:lang
   boolean META_ATTR_LANG_REQD       = false;
   String  META_ATTR_LANG_DFLT       = "";
-  String  META_ATTR_LANG_REFERENCE  = "http://www.w3.org/TR/html4/struct/dirlang.html#h-8.1.1";
-                                                        // http://www.w3.org/International/articles/language-tags";
-  String  META_ATTR_LANG_LOOKUP     = "http://people.w3.org/rishida/utils/subtags"; // Language Subtag Lookup by Richard Ishida
+  String  META_ATTR_LANG_REFERENCE  = "https://www.w3.org/TR/html4/struct/dirlang.html#h-8.1.1";
+                                      // https://www.w3.org/International/articles/language-tags";
+  String  META_ATTR_LANG_LOOKUP     = "https://people.w3.org/rishida/utils/subtags"; // Language Subtag Lookup by Richard Ishida
 
   String  META_ATTR_SCHEME_NAME      = "scheme";
   boolean META_ATTR_SCHEME_REQD      = false;
   String  META_ATTR_SCHEME_DFLT      = "";
-  String  META_ATTR_SCHEME_REFERENCE = "http://www.w3.org/TR/html4/struct/global.html#idx-scheme";
+  String  META_ATTR_SCHEME_REFERENCE = "https://www.w3.org/TR/html4/struct/global.html#idx-scheme";
   String[]META_ATTR_NAME_CHOICES  = {
-      "accessRights",
-      "contributor",
-      "created",
-      "creator",
-      "description",
-      "documentation",
-      "drawing",
-      "error",
-      "generator",
-      "hint",
-      "identifier",
-      "Image",
-      "info",
+      "accessRights",   
+      "contributor",  
+      "created",  
+      "creator",  
+      "description",  
+      "documentation",  
+      "drawing",  
+      "error",  
+      "generator",  
+      "hint",  
+      "identifier",  
+      "Image",  
+      "info",  
 //    "keyword", // do not use
       "license",
 //      "metacard",
@@ -253,56 +253,61 @@ public interface X3DSchemaData
 
   String[] META_ATTR_TODO_CHOICES =
   {
-      "TODO: select an issue tracker...",              // 0
-      "TODO X3D Specification Comment (public)",       // 1
-      "TODO X3D Specification Mantis Issue (member)",  // 2
-      "TODO X3D example scene archive Bugzilla Issue", // 3
-      "TODO X3D-Edit authoring tool Bugzilla Issue",   // 4
-      "TODO X3DOM Player Issue",                       // 5
-      "TODO X_ITE Player Issue",                       // 6
-      "TODO BS Contact BitManagement Bug Report",      // 7
-      "TODO FreeWrl SourceForge Bugtracker Issue",     // 8
-      "TODO instantReality Forum Issue",               // 9
-      "TODO issues@instantReality.org",                //10
-      "TODO Swirl Bug Report",                         //11
-      "TODO Xj3D Player Bugzilla Issue",               //12
-      "TODO"                                           //13, new item, must be last
-  };
-
-  String[] META_ATTR_TODO_CHOICES_TOOLTIPS =
-  {
-      "Option:  select a TODO issue tracker...",                     // 0
-      "Enter url/number of X3D Specification Comment",               // 1
-      "Enter url/number of X3D Specification Mantis Issue",          // 2
-      "Enter url/number of X3D example scene Bugzilla Issue",        // 3
-      "Enter url/number of X3D-Edit authoring tool Bugzilla Issue",  // 4
-      "Note details of BS Contact bug-report message",               // 5
-      "Note details of BS Contact bug-report message",               // 6
-      "Note details of BS Contact bug-report message",               // 7
-      "Enter url/number of FreeWrl SourceForge Bugtracker Issue",    // 8
-      "Enter url/number of instantReality Forum Issue",              // 9
-      "Send mail to InstantReality team",                            //10
-      "Note details of Swirl bug-report message",                    //11
-      "Enter url/number of Xj3D Player Bugzilla Issue",              //12
-      "Enter new item TODO"                                          //13, new item, must be last
+      "TODO: select an issue tracker...",                             // 0
+      "TODO X3D Standards Comment (public)",                          // 1
+      "TODO X3D Specification Mantis Issue (member)",                 // 2
+      "TODO X3D example scene archive SourceForge Issue",             // 3
+      "TODO X3D-Edit authoring tool GitHub Issue",                    // 4
+      "TODO X3DOM Player Issue",                                      // 5
+      "TODO X_ITE Player Issue",                                      // 6
+      "TODO BS Contact BitManagement Bug Report",                     // 7
+      "TODO FreeWrl SourceForge Bugtracker Issue",                    // 8
+      "TODO instantReality Forum Issue",                              // 9
+      "TODO issues@instantReality.org",                               //10
+//    "TODO Swirl Bug Report",                                        //
+      "TODO Xj3D Player SourceForge Issue",                           //11
+      "TODO"                                                          //12, new item, must be last
+  }; 
+ 
+  String[] META_ATTR_TODO_CHOICES_TOOLTIPS = 
+  { 
+      "Option:  select a TODO issue tracker...",                      // 0
+      "Enter url/number of X3D Standards Comment",                    // 1
+      "Enter url/number of X3D Specification Mantis Issue",           // 2
+      "Enter url/number of X3D example scene SourceForge Issue",      // 3
+      "Enter url/number of X3D-Edit authoring tool GitHub Issue",     // 4
+      "Note details of X3DOM bug-report message",                     // 5
+      "Note details of X_ITE bug-report message",                     // 6
+      "Note details of BS Contact bug-report message",                // 7
+      "Enter url/number of FreeWrl SourceForge Bugtracker Issue",     // 8
+      "Enter url/number of instantReality Forum Issue",               // 9
+      "Send mail to InstantReality team",                             //10
+//    "Note details of Swirl bug-report message",                     //  
+      "Enter url/number of Xj3D Player SourceForge Issue",            //11
+      "Enter new item TODO"                                           //12, new item, must be last
   };
 
   String[] META_ATTR_TODO_URLS  = // issue trackers
   {
-      "", // intentionally unused                                    // 0
+      "", // intentionally unused                                     // 0
       "https://www.web3d.org/standards/comment",                      // 1
       "https://www.web3d.org/member-only/mantis/my_view_page.php",    // 2
-      "https://www.movesinstitute.org/bugzilla/buglist.cgi?quicksearch=example+archives", // 3
-      "https://www.movesinstitute.org/bugzilla/buglist.cgi?quicksearch=X3D-Edit",         // 4
-      "https://github.com/x3dom/x3dom/issues",                       // 5
-      "https://github.com/create3000/x_ite/issues",                  // 6
-      "http://www.bitmanagement.com/contact",                        // 7
-      "http://sourceforge.net/tracker/?group_id=9120&atid=109120",   // 8
-      "http://forum.instantreality.org",                             // 9
-      "mailto:issues@instantreality.org",                            //10
-      "http://www.pinecoast.com/support.php",                        //11
-      "http://bugzilla.xj3d.org",                                    //12
-      ""                                                             //13, must be last
+      
+      "https://sourceforge.net/p/x3d/examples/",                      // 3
+//    "https://www.movesinstitute.org/bugzilla/buglist.cgi?quicksearch=example+archives", // 3
+      
+      "https://github.com/Web3DConsortium/X3D-Edit/issues",           // 4
+//    "https://www.movesinstitute.org/bugzilla/buglist.cgi?quicksearch=X3D-Edit",         // 4
+      
+      "https://github.com/x3dom/x3dom/issues",                        // 5
+      "https://github.com/create3000/x_ite/issues",                   // 6
+      "https://www.bitmanagement.com/encontact",                      // 7
+      "https://sourceforge.net/freewrl/tickets",                      // 8
+      "http://forum.instantreality.org",                              // 9
+      "mailto:issues@instantreality.org",                             //10
+//    "https://www.pinecoast.com/support.php",                        //
+      "https://sourceforge.net/p/xj3d/tickets",                       //11
+      ""                                                              //12, must be last
   };
   
 //  int      META_ATTR_GENERATOR_X3D_EDIT                = 2;
@@ -314,45 +319,46 @@ public interface X3DSchemaData
 //  int      META_ATTR_GENERATOR_SEG3D                   = 7;
 //  int      META_ATTR_GENERATOR_SLICER                  = 8;
 //  int      META_ATTR_GENERATOR_WINGS3D                 = 9;
-  int      META_ATTR_GENERATOR_RESET                     = 31; // GENERATOR_RESET must be last
   
   String[] META_ATTR_GENERATOR_CHOICES =
   {
-    "generator: select an authoring tool...",                                   // 0
-    "generator ===== 3D Graphics Editors ==================",               // 1
-    "generator X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit",              // 2
-    "generator AUV Workbench, https://savage.nps.edu/AuvWorkbench",         // 3
-    "generator Blender, http://www.blender.org",                            // 4
-    "generator BS Content Studio, http://www.bitmanagement.org",            // 5
-    "generator ITK-SNAP, http://www.itksnap.org/pmwiki/pmwiki.php",         // 6
-    "generator Mathematica, http://www.wolfram.com",                        // 7
-    "generator Matlab, http://www.mathworks.org",                           // 8
-    "generator Meshlab, http://www.meshlab.org",                            // 9
-    "generator Paraview, http://www.kitware.com/opensource/paraview.html",  // 10
-    "generator Savage Studio, https://savage.nps.edu/Savage/developers.html#DES", // 11
-    "generator Seamless3D, http://www.seamless3d.com",                      // 12
-    "generator Seg3D, http://www.sci.utah.edu/cibc-software/seg3d.html",    // 13
-    "generator Slicer, http://www.slicer.org",                              // 14
-    "generator Titania, https://github.com/create3000/titania/wiki",        // 15
-    "generator Wings3D, http://www.wings3d.com",                            // 16
-    "generator X3DJSAIL, X3D Java Scene Access Interface Library https://www.web3d.org/specifications/java/X3DJSAIL.html", // 17
-    "generator X3DPSAIL xd.py, X3D Python Scene Access Interface Library https://pypi.org/project/x3d", // 18
-    "generator X3DJSONLD Loader, http://coderextreme.net/X3DJSONLD",        // 19
-    "generator ===== Audio Editors ========================",               // 20
-    "generator Audacity, http://audacity.sourceforge.net",                  // 21
-    "generator MuseScore, http://musescore.org",                            // 22
-    "generator ===== Image and Video Editors ==============",               // 23
-    "generator GIMP Gnu Image Manipulation Program, http://www.gimp.org",   // 24
-    "generator FIJI is Just ImageJ, http://fiji.sc/Downloads",              // 25
-    "generator ImageJ, http://rsbweb.nih.gov/ij/download.html",             // 26
-    "generator ImageMagick, http://www.imagemagick.org",                    // 27
-    "generator avidemux, http://avidemux.sourceforge.net",                  // 28
-    "generator ===== Text and XML Editors =================",               // 29
-    "generator Netbeans, https://www.netbeans.org",                         // 30
-    "generator UltraEdit, http://www.UltraEdit.com",                        // 31
-    "generator XML Spy, http://www.altova.com",                             // 32
-    "generator"                                                             // 33, new item, must be last
+    "generator: select an authoring tool...",                                        // 0
+    "generator ===== 3D Graphics Editors ==================",                        // 1
+    "generator X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit",                       // 2
+    "generator AUV Workbench, https://savage.nps.edu/AuvWorkbench",                  // 3
+    "generator Blender, https://www.blender.org",                                    // 4
+    "generator BS Content Studio, https://www.bitmanagement.com/en/download/studio", // 5
+    "generator Cinema 4D, https://www.maxon.net/en/cinema-4d",                       // 6
+    "generator ITK-SNAP, https://www.itksnap.org/pmwiki/pmwiki.php",                 // 7
+    "generator Mathematica, https://www.wolfram.com",                                // 8
+    "generator Matlab, https://www.mathworks.org",                                   // 9
+    "generator Meshlab, https://www.meshlab.org",                                    // 10
+    "generator Paraview, https://www.kitware.com/opensource/paraview.html",          // 11
+    "generator Savage Studio, https://savage.nps.edu/Savage/developers.html#DES",    // 12
+    "generator Seamless3D, https://www.seamless3d.com",                              // 13
+    "generator Seg3D, https://www.sci.utah.edu/cibc-software/seg3d.html",            // 14
+    "generator Slicer, https://www.slicer.org",                                      // 15
+    "generator Titania, https://github.com/create3000/titania/wiki",                 // 16
+    "generator Wings3D, https://www.wings3d.com",                                    // 17
+    "generator X3DJSAIL, X3D Java Scene Access Interface Library https://www.web3d.org/specifications/java/X3DJSAIL.html", // 18
+    "generator X3DPSAIL xd.py, X3D Python Scene Access Interface Library https://pypi.org/project/x3d",                    // 19
+    "generator X3DJSONLD Loader, https://coderextreme.net/X3DJSONLD",                // 20
+    "generator ===== Audio Editors ========================",                        // 21
+    "generator Audacity, https://audacity.sourceforge.net",                          // 22
+    "generator MuseScore, https://musescore.org",                                    // 23
+    "generator ===== Image and Video Editors ==============",                        // 24
+    "generator GIMP Gnu Image Manipulation Program, https://www.gimp.org",           // 25
+    "generator FIJI is Just ImageJ, https://fiji.sc/Downloads",                      // 26
+    "generator ImageJ, https://rsbweb.nih.gov/ij/download.html",                     // 27
+    "generator ImageMagick, https://www.imagemagick.org",                            // 28
+    "generator avidemux, https://avidemux.sourceforge.net",                          // 29
+    "generator ===== Text and XML Editors =================",                        // 30
+    "generator Netbeans, https://www.NetBeans.org",                                  // 31
+    "generator UltraEdit, https://www.UltraEdit.com",                                // 32
+    "generator XML Spy, https://www.altova.com",                                     // 33
+    "generator"                                                                      // 34, new item, must be last
   };
+  int      META_ATTR_GENERATOR_RESET                                                  = 34; // GENERATOR_RESET must be last
   
   String[] META_ATTR_GENERATOR_CHOICES_TOOLTIPS =
   {
@@ -362,76 +368,78 @@ public interface X3DSchemaData
     "generator Autonomous Underwater Vehicle (AUV) Workbench",              // 3
     "generator Blender 3D Graphics Editor",                                 // 4
     "generator BS Content Studio, 3D Graphics Editor",                      // 5
-    "generator ITK-SNAP, Volume Editor",                                    // 6
-    "generator Mathematica, Modeling Tool",                                 // 7
-    "generator Matlab, Modeling Tool",                                      // 8
-    "generator Meshlab 3D Graphics Editor",                                 // 9
-    "generator Paraview 3D Graphics Editor",                                // 10
-    "generator Savage Studio, Discrete Event Simulation Scenario Builder",  // 11
-    "generator Seamless3D Graphics Editor",                                 // 12
-    "generator Seg3D, Volume Editor",                                       // 13
-    "generator Slicer, Volume Editor",                                      // 14
-    "generator Titania X3D Editor, bring colours to your life!",            // 15
-    "generator Wings3D, 3D Graphics Editor",                                // 16
-    "generator X3DJSAIL, X3D Java Scene Access Interface Library",          // 17
-    "generator X3DPSAIL x3d.py, X3D Python Scene Access Interface Library", // 18
-    "generator X3DJSONLD, X3D JSON Loader Library",                         // 19
-    "generator ===== Audio Editors ========================",               // 20
-    "generator Audacity, Audio Editor",                                     // 21
-    "generator MuseScore, Audio Editor",                                    // 22
-    "generator ===== Image and Video Editors ==============",               // 23
-    "generator GIMP Gnu Image Manipulation Program",                        // 24
-    "generator FIJI is Just ImageJ, http://fiji.sc/Downloads",              // 25
-    "generator ImageJ, Image Editor",                                       // 26
-    "generator ImageMagick, Image Editor",                                  // 27
-    "generator avidemux, Video Editor",                                     // 28
-    "generator ===== Text and XML Editors =================",               // 29
-    "generator Netbeans, Integrated Developer Environment (IDE)",           // 30
-    "generator UltraEdit, Text Editor",                                     // 31
-    "generator XML Spy, XML Editor",                                        // 32
-    "Enter new generator name"                                              // 33, must be last
+    "generator Cinema 4D, animation, modeling, simulation, and rendering software", // 6
+    "generator ITK-SNAP, Volume Editor",                                    // 7
+    "generator Mathematica, Modeling Tool",                                 // 8
+    "generator Matlab, Modeling Tool",                                      // 9
+    "generator Meshlab 3D Graphics Editor",                                 // 10
+    "generator Paraview 3D Graphics Editor",                                // 11
+    "generator Savage Studio, Discrete Event Simulation Scenario Builder",  // 12
+    "generator Seamless3D Graphics Editor",                                 // 13
+    "generator Seg3D, Volume Editor",                                       // 14
+    "generator Slicer, Volume Editor",                                      // 15
+    "generator Titania X3D Editor, bring colours to your life!",            // 16
+    "generator Wings3D, 3D Graphics Editor",                                // 17
+    "generator X3DJSAIL, X3D Java Scene Access Interface Library",          // 18
+    "generator X3DPSAIL x3d.py, X3D Python Scene Access Interface Library", // 19
+    "generator X3DJSONLD, X3D JSON Loader Library",                         // 20
+    "generator ===== Audio Editors ========================",               // 21
+    "generator Audacity, Audio Editor",                                     // 22
+    "generator MuseScore, Audio Editor",                                    // 23
+    "generator ===== Image and Video Editors ==============",               // 24
+    "generator GIMP Gnu Image Manipulation Program",                        // 25
+    "generator FIJI is Just ImageJ, https://fiji.sc/Downloads",             // 26
+    "generator ImageJ, Image Editor",                                       // 27
+    "generator ImageMagick, Image Editor",                                  // 28
+    "generator avidemux, Video Editor",                                     // 29
+    "generator ===== Text and XML Editors =================",               // 30
+    "generator Netbeans, Integrated Developer Environment (IDE)",           // 31
+    "generator UltraEdit, Text Editor",                                     // 32
+    "generator XML Spy, XML Editor",                                        // 33
+    "Enter new generator name"                                              // 34, must be last
   };
   
   String[] META_ATTR_GENERATOR_URLS  =
   {
-    "", // intentionally unused                                         // 0
-    "", // intentionally unused                                         // 1
-    "X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit",                    // 2
-    "AUV Workbench, https://savage.nps.edu/AuvWorkbench",               // 3
-    "Blender, http://www.blender.org",                                  // 4
-    "BS Content Studio, http://www.bitmanagement.com/download/studio",  // 5
-    "ITK-SNAP, http://www.itksnap.org/pmwiki/pmwiki.php",               // 6
-    "Mathematica, http://www.wolfram.com",                              // 7
-    "Matlab, http://www.mathworks.org",                                 // 8
-    "Meshlab, http://www.meshlab.org",                                  // 9
-    "Paraview, http://www.kitware.com/opensource/paraview.html",        // 10
-    "Savage Studio, https://savage.nps.edu/Savage/developers.html#DES", // 11
-    "Seamless 3D, http://www.seamless3d.com",                           // 12
-    "Seg3D, http://www.sci.utah.edu/cibc-software/seg3d.html",          // 13
-    "Slicer, http://www.slicer.org",                                    // 14
-    "Titania, http://create3000.de",                                    // 15
-    "Wings3D, http://www.wings3d.com",                                  // 16
-    "X3DJSAIL, https://www.web3d.org/specifications/java/X3DJSAIL.html",// 17
-    "X3DPSAIL x3d.py, https://pypi.org/project/x3d",                    // 18
-    "X3DJSONLD Loader, http://coderextreme.net/X3DJSONLD",              // 19
-    "", // intentionally unused                                         // 20
-    "Audacity, http://audacity.sourceforge.net",                        // 21
-    "MuseScore, http://musescore.org",                                  // 22
-    "", // intentionally unused                                         // 23
-    "GIMP Gnu Image Manipulation Program, http://www.gimp.org",         // 24
-    "FIJI is Just ImageJ, http://fiji.sc/Downloads",                    // 25
-    "ImageJ, http://rsbweb.nih.gov/ij/download.html",                   // 26
-    "ImageMagick, http://www.imagemagick.org",                          // 27
-    "avidemux, http://avidemux.sourceforge.net",                        // 28
-    "", // intentionally unused                                         // 29
-    "Netbeans, https://www.netbeans.org",                               // 30
-    "UltraEdit, http://www.UltraEdit.com",                              // 31
-    "XML Spy, http://www.altova.com",                                   // 32
-    ""                                                                  // 33, must be last
+    "", // intentionally unused                                          // 0
+    "", // intentionally unused                                          // 1
+    "X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit",                     // 2
+    "AUV Workbench, https://savage.nps.edu/AuvWorkbench",                // 3
+    "Blender, https://www.blender.org",                                  // 4
+    "BS Content Studio, https://www.bitmanagement.com/en/download/studio",  // 5
+    "Cinema 4D, https://www.maxon.net/en/cinema-4d",                     // 6
+    "ITK-SNAP, https://www.itksnap.org/pmwiki/pmwiki.php",               // 7
+    "Mathematica, https://www.wolfram.com",                              // 8
+    "Matlab, https://www.mathworks.org",                                 // 9
+    "Meshlab, https://www.meshlab.org",                                  // 10
+    "Paraview, https://www.kitware.com/opensource/paraview.html",        // 11
+    "Savage Studio, https://savage.nps.edu/Savage/developers.html#DES",  // 12
+    "Seamless 3D, https://www.seamless3d.com",                           // 13
+    "Seg3D, https://www.sci.utah.edu/cibc-software/seg3d.html",          // 14
+    "Slicer, https://www.slicer.org",                                    // 15
+    "Titania, https://create3000.de",                                    // 16
+    "Wings3D, https://www.wings3d.com",                                  // 17
+    "X3DJSAIL, https://www.web3d.org/specifications/java/X3DJSAIL.html", // 18
+    "X3DPSAIL x3d.py, https://pypi.org/project/x3d",                     // 19
+    "X3DJSONLD Loader, https://coderextreme.net/X3DJSONLD",              // 20
+    "", // intentionally unused                                          // 21
+    "Audacity, https://audacity.sourceforge.net",                        // 22
+    "MuseScore, https://musescore.org",                                  // 23
+    "", // intentionally unused                                          // 24
+    "GIMP Gnu Image Manipulation Program, https://www.gimp.org",         // 25
+    "FIJI is Just ImageJ, https://fiji.sc/Downloads",                    // 26
+    "ImageJ, https://rsbweb.nih.gov/ij/download.html",                   // 27
+    "ImageMagick, https://www.imagemagick.org",                          // 28
+    "avidemux, https://avidemux.sourceforge.net",                        // 29
+    "", // intentionally unused                                          // 30
+    "NetBeans, https://www.NetBeans.org",                                // 31
+    "UltraEdit, https://www.UltraEdit.com",                              // 32
+    "XML Spy, https://www.altova.com",                                   // 33
+    ""                                                                   // 34, must be last
   };
 
   // component element
-  String  COMPONENT_ELNAME            = "component"; // not a mistake, must use lower case
+  String  COMPONENT_ELNAME            = "component"; // not a mistaken capitalization, must use lower case
   String  COMPONENT_ATTR_NAME_NAME    = "name";
   boolean COMPONENT_ATTR_NAME_REQD    = true;
   String  COMPONENT_ATTR_NAME_DFLT    = "";
@@ -443,11 +451,11 @@ public interface X3DSchemaData
       "Grouping","HAnim","Interpolation","KeyDeviceSensor","Layering","Layout","Lighting","Navigation","Networking","NURBS","ParticleSystems","PickingSensor",
       "PointDeviceSensor","Shaders","Rendering","RigidBodyPhysics","Scripting","Shape","Sound","Text","TextureProjection","Texturing","Texturing3D","Time","VolumeRendering"
   };
-  // Xj3D components from   http://www.xj3d.org/extensions/index.html
+  // Xj3D components from   https://www.xj3d.org/extensions/index.html
   String[]COMPONENT_ATTR_NAME_CHOICES_XJ3D = {
       "xj3d_Clipping","xj3d_IODevice","xj3d_DIS",
   };
-  // Avalon components from http://www.instant-reality.org/documentation/component/?sortby=standard.name
+  // Avalon components from https://www.instant-reality.org/documentation/component/?sortby=standard.name
   String[]COMPONENT_ATTR_NAME_CHOICES_AVALON = {
       "BehaviorController","CollisionSensor","Combiner","DirectSensor","Engine",
       "Layer","Physics","Morphing","Operator","RayTracing","Simulator",
@@ -476,10 +484,10 @@ public interface X3DSchemaData
   String  UNIT_ATTR_NAME_DFLT     = "";
 
   // provide correct names and values for common conversion factors via convenience menu, following TransformCustomizer pattern
-  // http://www.unit-conversion.info
-  // http://en.wikipedia.org/wiki/Newton_%28unit%29#Conversion_factors
-  // http://www.unitsconversion.com.ar
-  // http://www.unitsconversion.com.ar/massunitsconversion/index.htm
+  // https://www.unit-conversion.info
+  // https://en.wikipedia.org/wiki/Newton_%28unit%29#Conversion_factors
+  // https://www.unitsconversion.com.ar
+  // https://www.unitsconversion.com.ar/massunitsconversion/index.htm
 
   String[]UNIT_ATTR_NAME_ANGLE_CHOICES    = { "",                       "Degrees",            "Radians",  "FullCircle",             "Grads" };
   String[]UNIT_ATTR_NAME_ANGLE_TOOLTIPS   = { "Insert scale factor...", "Degrees to Radians", "Identity", "Full Circle to Radians", "Grads to Radians" };
