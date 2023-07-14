@@ -88,6 +88,7 @@ public class METACustomizer extends BaseCustomizer
     dummyUrlList.setMasterDocumentLocation(xObj.getPrimaryFile());
 
     nameComboBox.setSelectedItem(meta.getName());
+    checkMetaNameContentCombinations();
     nameComboBoxTooltipReset ();
     contentTA.setText(meta.getContentAttribute());
     contentTA.selectAll(); // open with all text selected
@@ -163,6 +164,7 @@ public class METACustomizer extends BaseCustomizer
         {
             nameComboBox.setSelectedItem(metaName.trim());
             metaName = metaName.trim();
+            nameComboBoxTooltipReset();
         }
     }
     
@@ -238,13 +240,13 @@ public class METACustomizer extends BaseCustomizer
         if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
         {
             nameComboBox.setSelectedItem("creator");
+            nameComboBoxTooltipReset();
         }
    }
    // apply user preferences
-   if ((metaName.equalsIgnoreCase("creator")    || metaName.equalsIgnoreCase("author") || 
-        metaName.equalsIgnoreCase("translator") || metaName.equalsIgnoreCase("modeler") || 
-        metaName.equalsIgnoreCase("contribu || \n" +
-"        metaName.equalsIgnoreCase(\"translator\")tor")) &&
+   if ((metaName.equalsIgnoreCase("creator")     || metaName.equalsIgnoreCase("author") || 
+        metaName.equalsIgnoreCase("translator")  || metaName.equalsIgnoreCase("modeler") || 
+        metaName.equalsIgnoreCase("contributor") || metaName.equalsIgnoreCase("translator")) && 
        (content.isBlank() || 
         content.equalsIgnoreCase("*enter name of original author here*") || 
         content.equalsIgnoreCase("*if manually translating VRML-to-X3D, enter name of person translating here*")) &&
@@ -860,6 +862,7 @@ public class METACustomizer extends BaseCustomizer
     private void nameComboBoxActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_nameComboBoxActionPerformed
     {//GEN-HEADEREND:event_nameComboBoxActionPerformed
         nameHttpEquivalentTextWarningCheck ();
+        checkMetaNameContentCombinations();
         nameComboBoxTooltipReset ();
         nameHelpButton.setEnabled(!nameHelpReference().isEmpty());
         enableUrlButtons ();
@@ -872,7 +875,7 @@ public class METACustomizer extends BaseCustomizer
             if (nameComboBox.getSelectedItem().toString().equalsIgnoreCase(META_ATTR_NAME_CHOICES[index])) 
             {
                 String tooltip = new String(); // ensure arrays are similarly sized to avoid unexpected out0of-bounds index error
-                if (META_ATTR_NAME_CHOICES_TOOLTIPS.length < index)
+                if (META_ATTR_NAME_CHOICES_TOOLTIPS.length <= index)
                 {
                     System.err.println ("*** X3D-Edit internal error, insufficient META_ATTR_NAME_CHOICES_TOOLTIPS for " +
                             "META_ATTR_NAME_CHOICES[" + index + "]=" + META_ATTR_NAME_CHOICES[index]);
@@ -899,6 +902,7 @@ public class METACustomizer extends BaseCustomizer
             nameComboBox.setToolTipText (META_ATTR_TODO_CHOICES_TOOLTIPS[selection]);
                contentTA.setText        (META_ATTR_TODO_URLS[selection]);
         }
+        checkMetaNameContentCombinations();
         nameComboBoxTooltipReset ();
         enableUrlButtons ();
     }//GEN-LAST:event_todoQuickSelectComboBoxActionPerformed
@@ -1086,10 +1090,12 @@ public class METACustomizer extends BaseCustomizer
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void nameComboBoxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameComboBoxKeyReleased
+        checkMetaNameContentCombinations();
         nameComboBoxTooltipReset (); // TODO not responding
     }//GEN-LAST:event_nameComboBoxKeyReleased
 
     private void nameComboBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameComboBoxKeyTyped
+        checkMetaNameContentCombinations();
         nameComboBoxTooltipReset (); // TODO not responding
     }//GEN-LAST:event_nameComboBoxKeyTyped
 
@@ -1245,9 +1251,9 @@ public class METACustomizer extends BaseCustomizer
                contentTA.setText        (META_ATTR_GENERATOR_URLS[selection]);
                contentTA.setToolTipText (META_ATTR_GENERATOR_CHOICES_TOOLTIPS[selection]);
         }
+        checkMetaNameContentCombinations();
         nameComboBoxTooltipReset ();
         enableUrlButtons ();
-
     }//GEN-LAST:event_generatorSelectComboBoxActionPerformed
 
     private void prependHttpsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prependHttpsButtonActionPerformed
