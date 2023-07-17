@@ -67,7 +67,7 @@ public class ORIENTATIONINTERPOLATORCustomizer extends BaseCustomizer
     initComponents();
 
     expandableListOrientations.setTitle("key, keyValue arrays");
-    expandableListOrientations.setColumnTitles  (new String[]{"#","key","axis-x","axis-y","axis-z","angle"});
+    expandableListOrientations.setColumnTitles  (new String[]{"#","key","keyValue axis-x","keyValue axis-y","keyValue axis-z","keyValue angle"});
     expandableListOrientations.setColumnToolTips(new String[]{"index","key fraction input","rotation axis-x value","rotation axis-y value","rotation axis-z value","rotation angle"});
     expandableListOrientations.setHeaderTooltip ("Interpolator key/keyValue pairs define the output function");
     expandableListOrientations.setNewRowData(new Object[]{"0","0","1","0","0"}); //  key=0, values for zero-degree rotation about Y axis

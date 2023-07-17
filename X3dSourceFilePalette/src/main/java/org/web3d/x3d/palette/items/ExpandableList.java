@@ -538,7 +538,7 @@ numberTuplesBetweenLineBreaksComboBox.setSelectedItem(String.valueOf(numberTuple
       column.setHeaderValue(columnTitles[c]);
       // set text alignment for header cells
       if(headerRenderer instanceof JLabel)
-      ((JLabel)headerRenderer).setHorizontalAlignment(JLabel.CENTER);
+        ((JLabel)headerRenderer).setHorizontalAlignment(textAlignment);
     }
   }
   
@@ -726,7 +726,7 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
       Component comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
       if(comp instanceof JLabel) {
         if(isSelected) {   // treat like row selection
-          ((JLabel)comp).setHorizontalAlignment(JLabel.TRAILING);
+          ((JLabel)comp).setHorizontalAlignment(textAlignment);
           return comp;
         }
         else if(table.getSelectedRow() == row) {
@@ -747,7 +747,7 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
         setBorder(BorderFactory.createMatteBorder(0,0,1,0, getBackground()));
       setOpaque(true);
       setBackground(new Color(0.85f,0.85f,0.85f));
-      setHorizontalAlignment(JLabel.TRAILING);
+      setHorizontalAlignment(textAlignment);
     }
     GreyBackgroundRendererComponent()
     {
@@ -773,7 +773,7 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
       if(comp instanceof JLabel) {
         if(isSelected || jTable.getSelectedRow() == row) {
           comp = super.getTableCellRendererComponent(table, value, true /*force*/, hasFocus, row, column);
-          ((JLabel)comp).setHorizontalAlignment(JLabel.TRAILING);
+          ((JLabel)comp).setHorizontalAlignment(textAlignment);
         }
         else
           comp = indexLabel;
@@ -1340,7 +1340,7 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
     // set text alignment for header cells
     TableCellRenderer hdrRend = jTable.getTableHeader().getDefaultRenderer();
     if(hdrRend instanceof JLabel)
-      ((JLabel)hdrRend).setHorizontalAlignment(JLabel.CENTER);
+      ((JLabel)hdrRend).setHorizontalAlignment(textAlignment);
     
     // text alignment, flipped-row italics for value columns
     TableCellRenderer cr = jTable.getDefaultRenderer(String.class);

@@ -70,7 +70,7 @@ public class GEOPOSITIONINTERPOLATORCustomizer extends BaseCustomizer
 
     expandableList1.setTitle("key, keyValue arrays");
     //expandableList1.setNumColumns(4);
-    expandableList1.setColumnTitles  (new String[]{"#","key","x","y","z"});
+    expandableList1.setColumnTitles  (new String[]{"#","key","keyValue x","keyValue y","keyValue z"});
     expandableList1.setColumnToolTips(new String[]{"index","key fraction input","geoposition x","geoposition y","geoposition z"});
     expandableList1.setHeaderTooltip ("Interpolator key/keyValue pairs define the output function");
     expandableList1.setNewRowData(new Object[]{"0","0","0","0"});  //  key=0, values 0

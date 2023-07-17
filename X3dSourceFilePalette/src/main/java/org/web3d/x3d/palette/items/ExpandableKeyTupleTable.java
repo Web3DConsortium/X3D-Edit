@@ -449,9 +449,9 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
         sortByKeyButton = new JButton();
         uniformKeyIntervalsButton = new JButton();
         editCellsPanel = new JPanel();
-        operationComboBox = new JComboBox<String>();
+        operationComboBox = new JComboBox<>();
         editFactorTextField = new JTextField();
-        cellSelectionComboBox = new JComboBox<String>();
+        cellSelectionComboBox = new JComboBox<>();
         applyCellFactorButton = new JButton();
         appendPanel = new JPanel();
         appendLabel = new JLabel();
@@ -482,6 +482,7 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
         editColumnsPanel.add(numberColumnsTagLabel, gridBagConstraints);
 
         editColumnButtonsPanel.setBorder(BorderFactory.createTitledBorder(null, NbBundle.getMessage(ExpandableKeyTupleTable.class, "ExpandableKeyTupleTable.editColumnButtonsPanel.border.title"), TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION)); // NOI18N
+        editColumnButtonsPanel.setToolTipText(NbBundle.getMessage(ExpandableKeyTupleTable.class, "ExpandableKeyTupleTable.editColumnButtonsPanel.toolTipText")); // NOI18N
         editColumnButtonsPanel.setLayout(new GridBagLayout());
 
         appendColumnButton.setText(NbBundle.getMessage(getClass(), "ExpandableKeyTupleTable.appendColumnButton.text")); // NOI18N
@@ -686,8 +687,9 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
             }
         });
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = GridBagConstraints.EAST;
         gridBagConstraints.insets = new Insets(13, 3, 3, 3);
         editRowsPanel.add(sortByKeyButton, gridBagConstraints);
 
@@ -699,9 +701,8 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
             }
         });
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = GridBagConstraints.WEST;
         gridBagConstraints.insets = new Insets(13, 3, 3, 3);
         editRowsPanel.add(uniformKeyIntervalsButton, gridBagConstraints);
 

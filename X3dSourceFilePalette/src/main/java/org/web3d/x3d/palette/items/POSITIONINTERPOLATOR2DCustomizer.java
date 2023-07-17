@@ -65,7 +65,7 @@ public class POSITIONINTERPOLATOR2DCustomizer extends BaseCustomizer
     initComponents();
 
     expandableList1.setTitle("key, keyValue arrays");
-    expandableList1.setColumnTitles  (new String[]{"#","key","x","y"});
+    expandableList1.setColumnTitles  (new String[]{"#","key","keyValue x","keyValue y"});
     expandableList1.setColumnToolTips(new String[]{"index","key fraction input","keyValue output x","keyValue output y"});
     expandableList1.setHeaderTooltip ("Interpolator key/keyValue pairs define the output function");
     expandableList1.setNewRowData(new Object[]{"0","0","0"});  //  key=0, values 0

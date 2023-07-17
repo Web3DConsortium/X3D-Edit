@@ -63,7 +63,7 @@ public class COLORINTERPOLATORCustomizer extends BaseCustomizer
     initComponents();
 
     expandableList1.setTitle("key, keyValue arrays");
-    expandableList1.setColumnTitles  (new String[]{"#","key","r","g","b","color"});
+    expandableList1.setColumnTitles  (new String[]{"#","key","keyValue r","keyValue g","keyValue b","color"});
     expandableList1.setColumnToolTips(new String[]{"index","key fraction input","keyValue output red","keyValue output green","keyValue output blue","color chooser"});
     expandableList1.setHeaderTooltip ("Interpolator key/keyValue pairs define the output function");
     expandableList1.setNewRowData(new Object[]{"0","0.8","0.8","0.8"});  //  key=0, X3D default grey

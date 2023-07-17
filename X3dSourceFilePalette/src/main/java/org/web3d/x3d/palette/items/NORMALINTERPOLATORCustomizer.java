@@ -70,13 +70,13 @@ public class NORMALINTERPOLATORCustomizer extends BaseCustomizer
     
     initComponents();
     
-    keyTupleTable.setTitle("Normal lists");
-    keyTupleTable.setAddColumnButtonTooltip   ("Add column of normal triplets");
+    keyTupleTable.setTitle("Normal vector lists");
+    keyTupleTable.setAddColumnButtonTooltip   ("Add a column of normal triplets");
     keyTupleTable.setRemoveColumnButtonTooltip("Remove column of normal triplets");
-    keyTupleTable.setAddRowButtonTooltip      ("Add row of keyed normal triplets");
-    keyTupleTable.setRemoveRowButtonTooltip   ("Remove row of keyed normal triplets");
-    keyTupleTable.setColumnsLabelText("columns of normal-vector triplets");
-    keyTupleTable.setRowsLabelText   ("rows of keyed normal-vector triplets");
+    keyTupleTable.setAddRowButtonTooltip      ("Add a row of keyValue normal triplets");
+    keyTupleTable.setRemoveRowButtonTooltip   ("Remove row of keyValue normal triplets");
+    keyTupleTable.setColumnsLabelText("triplet columns for normal vectors in keyValue array");
+    keyTupleTable.setRowsLabelText   ("rows for singleton values in key array");
     keyTupleTable.setDefaultTupleValues(new String[]{"0","1","0"}); // 3-tuple
     keyTupleTable.setColumnWidthAndResizeStrategy(true, 50);
     keyTupleTable.setDoNormals(true);
