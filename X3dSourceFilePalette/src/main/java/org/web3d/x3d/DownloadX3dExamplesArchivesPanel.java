@@ -1517,7 +1517,8 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     
     updateStatusPropertiesLocalArchivesPresent();
     updatePanelLocalArchivesPresent();
-    if (!anyArchivePresentInitially && isAnyArchivePresent())
+    if (!anyArchivePresentInitially && isAnyArchivePresent() &&
+        !X3dEditUserPreferences.isExampleArchivesServerAutolaunch())
     {
         // initial installation complete, support user with autolaunch
         X3dEditUserPreferences.setExampleArchivesServerAutolaunch(true);
