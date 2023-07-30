@@ -593,9 +593,10 @@ public class X3dEditUserPreferences
                                                                    // C:\\Program Files\\Bitmanagement Software\\BS Contact\\BSContact.exe
   private static final String winxpContactPathDefault              = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
   private static final String winxpContactGeoPathDefault           = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
-  private static final String winxpFreeWrlPathDefault              = "C:\\Program Files\\freewrl_inw_x64_470\\freeWRL.exe";
-//private static final String winxpFreeWrlPathDefault              = "C:\\Program Files\\freeWRL\\freeWRL.3\\launchdir\\freeWRL_Launcher.exe"; // alternative
-  private static final String winxpH3dPathDefault                  = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin32\\H3DViewer.exe"; // TODO 32
+  private static final String winxpFreeWrlPathDefault              = "C:\\Program Files\\freeWRL\\freeWRL.4\\freeWRL.exe";
+//private static final String winxpFreeWrlPathDefault              = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\launchdir\\freeWRL_Launcher.exe"; // alternative
+  private 
+          static final String winxpH3dPathDefault                  = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin32\\H3DViewer.exe"; // TODO 32
   private static final String winxpHeilanPathDefault               = "C:\\Program Files\\HeilanBrowser-0.15\\HeilanBrowser.exe";
   private static final String winxpInstantRealityPathDefault       = "C:\\Program Files\\Instant Reality\\bin\\InstantPlayer.exe";
   private static final String winxpPolyTransNuGrafPathDefault      = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
@@ -723,14 +724,14 @@ public class X3dEditUserPreferences
   private static final String winxpGimpEditorPathDefault                 = "C:\\Program Files\\GIMP 2\\bin\\gimp-2.10.exe";
   private static final String winxpFijiEditorPathDefault                 = "C:\\Program Files\\Fiji.app\\ImageJ-win32.exe";
   private static final String winxpImageJEditorPathDefault               = "C:\\Program Files\\ImageJ\\ImageJ.exe";
-  private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
+  private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\imdisplay.exe";
   private static final String winxpVlcPlayerPathDefault                  = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
   private static final String winxpProtegePlayerPathDefault              = "C:\\Program Files\\Protege-5.5.0\\Protege.exe";
   private static final String winxpPorteclePlayerPathDefault             = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
   private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
-  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 3.3\\blender.exe";
+  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 3.6\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.4.0\\Ultimaker-Cura.exe";
   private static final String winxpMeshLabX3dEditorPathDefault           = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
@@ -739,8 +740,8 @@ public class X3dEditUserPreferences
   private static final String winxpTitaniaX3dEditorPathDefault           = "(only available in Linux)";
   private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 3.8\\bin\\ITK-SNAP.exe";
   private static final String winxpSeg3dEditorPathDefault                = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
-  private static final String winxpSlicer3dEditorPathDefault             = "C:\\Program Files\\Slicer 4.3.1\\Slicer.exe";
-  private static final String winxpBatikEditorPathDefault             = "C:\\languages\\java\\batik-1.16\\batik-squiggle.jar";
+  private static final String winxpSlicer3dEditorPathDefault             = "C:\\ProgramData\\Slicer 4.3.1\\Slicer.exe";
+  private static final String winxpBatikEditorPathDefault                = "C:\\languages\\java\\batik-1.16\\batik-squiggle.jar";
   private static final String winxpInkscapeEditorPathDefault             = "C:\\Program Files\\Inkscape\\Inkscape";
   private static final String winxpSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String winxpWhiteDuneX3dEditorPathDefault         = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
@@ -748,27 +749,27 @@ public class X3dEditUserPreferences
   private static final String winxpUltraEditX3dEditorPathDefault         = "C:\\Program Files\\IDM Computer Solutions\\UltraEdit\\uedit32.exe";
 
   private static final String windows64AudacityEditorPathDefault         = "C:\\Program Files\\Audacity\\audacity.exe";
-  private static final String windows64MuseScoreEditorPathDefault        = "C:\\Program Files\\MuseScore 3\\bin\\MuseScore3.exe";
+  private static final String windows64MuseScoreEditorPathDefault        = "C:\\Program Files\\MuseScore 4\\bin\\MuseScore4.exe";
   private static final String windows64GimpEditorPathDefault             = "C:\\Program Files\\GIMP 2\\bin\\gimp-2.10.exe";
   private static final String windows64FijiEditorPathDefault             = "C:\\Program Files\\Fiji.app\\ImageJ-win64.exe";
   private static final String windows64ImageJEditorPathDefault           = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
   private static final String windows64VlcPlayerPathDefault              = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
-  private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege-5.5.0\\Protege.exe";
+  private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege-5.6.1\\Protege.exe";
   private static final String windows64PorteclePlayerPathDefault         = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
   private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
-  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 3.3\\blender.exe";
+  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 3.6\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.4.0\\Ultimaker-Cura.exe";
   private static final String windows64MeshLabX3dEditorPathDefault       = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
   private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.11.1\\bin\\paraview.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String windows64TitaniaX3dEditorPathDefault       = "(only available in Linux)";
-  private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 3.8\\bin\\ITK-SNAP.exe";
+  private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
-  private static final String windows64Slicer3dEditorPathDefault         = "C:\\Program Files\\Slicer 5.0.3\\Slicer.exe";
+  private static final String windows64Slicer3dEditorPathDefault         = "C:\\Program Files\\NA-MIC\\Slicer 5.2.2\\Slicer.exe";
   private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.16\\batik-squiggle.jar";
   private static final String windows64InkscapeEditorPathDefault         = "C:\\Program Files\\Inkscape\\bin\\inkscape.exe";
   private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app/editor/index.html"; // online editor
@@ -860,7 +861,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteImageMagick                    = "https://imagemagick.org/script/download.php";
   private static final String downloadSiteVlc                            = "https://www.videolan.org";
   private static final String downloadSiteProtege                        = "https://protege.stanford.edu";
-  private static final String downloadSitePortecle                       = "https://portecle.sourceforge.net";
+  private static final String downloadSitePortecle                       = "https://sourceforge.net/projects/portecleinstall";
   private static final String downloadSiteKeystoreExplorer               = "https://keystore-explorer.org";
  
   private static final String downloadSiteAltovaXMLSpy                   = "https://www.altova.com/download";
@@ -925,7 +926,7 @@ public class X3dEditUserPreferences
   public static String getDownloadSiteOctaga()         {return downloadSiteOctaga;}
   public static String getDownloadSiteSwirlX3D()       {return downloadSiteSwirlX3DPlayer;}
   public static String getDownloadSiteView3dScene()    {return downloadSiteView3dScene;}
-  public static String getDownloadSiteVivatyPlayer()   {return downloadSiteVivatyPlayer;}
+  public static String getDownloadSiteVivaty()         {return downloadSiteVivatyPlayer;}
   public static String getDownloadSiteXj3D()           {return downloadSiteXj3D;}
   public static String getDownloadSiteOtherX3dPlayer() {return downloadSiteOtherX3dPlayer;}
   
@@ -1362,9 +1363,9 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void setHeilanAutoLaunch         (String autoLaunch){commonStringSet(HEILAN_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setInstantRealityAutoLaunch (String autoLaunch){commonStringSet(INSTANTREALITY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setOctagaAutoLaunch         (String autoLaunch){commonStringSet(OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setSwirlX3dAutoLaunch       (String autoLaunch){commonStringSet(SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setSwirlx3dAutoLaunch       (String autoLaunch){commonStringSet(SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setView3dSceneAutoLaunch    (String autoLaunch){commonStringSet(VIEW3DSCENE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setVivatyPlayerAutoLaunch   (String autoLaunch){commonStringSet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setVivatyAutoLaunch         (String autoLaunch){commonStringSet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setXj3dAutoLaunch           (String autoLaunch){commonStringSet(XJ3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setOtherX3dPlayerAutoLaunch (String autoLaunch){commonStringSet(OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setOtherX3dEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_X3D_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1417,7 +1418,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String getOctagaPath()           {return commonStringGet(OCTAGA_EXECUTABLE_PATH_KEY,         OCTAGA_EXECUTABLE_PATH_DEFAULT);}
   public static String getSwirlX3DPath()         {return commonStringGet(SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY, SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT);}
   public static String getView3dScenePath()      {return commonStringGet(VIEW3DSCENE_EXECUTABLE_PATH_KEY,    VIEW3DSCENE_EXECUTABLE_PATH_DEFAULT);}
-  public static String getVivatyPlayerPath()     {return commonStringGet(VIVATYPLAYER_EXECUTABLE_PATH_KEY,   VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT);}
+  public static String getVivatyPath()           {return commonStringGet(VIVATYPLAYER_EXECUTABLE_PATH_KEY,   VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT);}
   public static String getXj3DPath()             {return commonStringGet(XJ3D_EXECUTABLE_PATH_KEY,           XJ3D_EXECUTABLE_PATH_DEFAULT);}
   public static String getOtherX3dPlayerName()   {return commonStringGet(OTHER_X3D_PLAYER_EXECUTABLE_NAME_KEY,   OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT);}
   public static String getOtherX3dPlayerPath()   {return commonStringGet(OTHER_X3D_PLAYER_EXECUTABLE_PATH_KEY,   OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT);}
@@ -1477,7 +1478,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String isOctagaAutoLaunch()         {return commonStringGet(OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY,                AUTOLAUNCH_DEFAULT);}
   public static String isSwirlX3DAutoLaunch()       {return commonStringGet(SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY,        AUTOLAUNCH_DEFAULT);}
   public static String isView3dSceneAutoLaunch()    {return commonStringGet(VIEW3DSCENE_EXECUTABLE_AUTOLAUNCH_KEY,           AUTOLAUNCH_DEFAULT);}
-  public static String isVivatyPlayerAutoLaunch()   {return commonStringGet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY,          AUTOLAUNCH_DEFAULT);}
+  public static String isVivatyAutoLaunch()         {return commonStringGet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY,          AUTOLAUNCH_DEFAULT);}
   public static String isXj3dAutoLaunch()           {return commonStringGet(XJ3D_EXECUTABLE_AUTOLAUNCH_KEY,                  AUTOLAUNCH_DEFAULT);}
   public static String isOtherX3dPlayerAutoLaunch() {return commonStringGet(OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY,      AUTOLAUNCH_DEFAULT);}
   public static String isOtherX3dEditorAutoLaunch() {return commonStringGet(OTHER_X3D_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY,      AUTOLAUNCH_DEFAULT);}
@@ -1533,7 +1534,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void resetOctagaPath()           {commonReset(OCTAGA_EXECUTABLE_PATH_KEY);}
   public static void resetSwirlX3DPath()         {commonReset(SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY);}
   public static void resetView3dScenePath()      {commonReset(VIEW3DSCENE_EXECUTABLE_PATH_KEY);}
-  public static void resetVivatyPlayerPath()     {commonReset(VIVATYPLAYER_EXECUTABLE_PATH_KEY);}
+  public static void resetVivatyPath()           {commonReset(VIVATYPLAYER_EXECUTABLE_PATH_KEY);}
   public static void resetXj3DPath()             {commonReset(XJ3D_EXECUTABLE_PATH_KEY);}
   public static void resetOtherX3dPlayerPath()   {commonReset(OTHER_X3D_PLAYER_EXECUTABLE_PATH_KEY);}
   public static void resetOtherX3dPlayerName()   {commonReset(OTHER_X3D_PLAYER_EXECUTABLE_NAME_KEY);}

@@ -67,7 +67,7 @@ public final class ViewInVivatyPlayerAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dEditUserPreferences.getVivatyPlayerPath();
+    return X3dEditUserPreferences.getVivatyPath();
   }
 
   @Override
@@ -79,7 +79,7 @@ public final class ViewInVivatyPlayerAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dEditUserPreferences.isVivatyPlayerAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isVivatyAutoLaunch());
   }
 
   @Override
