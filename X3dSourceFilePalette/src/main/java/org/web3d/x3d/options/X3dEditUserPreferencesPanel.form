@@ -379,7 +379,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="1" gridY="16" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="21" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="1" gridY="16" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="21" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -434,7 +434,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="BSContactLabel">
+            <Component class="javax.swing.JLabel" name="contactLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
                 <Property name="text" type="java.lang.String" value="BS Contact"/>
@@ -453,7 +453,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="BSContactGeoLabel">
+            <Component class="javax.swing.JLabel" name="contactGeoLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
                 <Property name="text" type="java.lang.String" value="BS Contact Geo"/>
@@ -472,7 +472,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="FreeWrlLabel">
+            <Component class="javax.swing.JLabel" name="freeWrlLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
                 <Property name="text" type="java.lang.String" value="FreeWrl"/>
@@ -508,7 +508,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="InstantRealityLabel">
+            <Component class="javax.swing.JLabel" name="instantRealityLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
                 <Property name="text" type="java.lang.String" value=" InstantReality"/>
@@ -526,7 +526,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="OctagaLabel">
+            <Component class="javax.swing.JLabel" name="octagaLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
                 <Property name="text" type="java.lang.String" value="Octaga"/>
@@ -544,7 +544,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="swirlX3DLabel">
+            <Component class="javax.swing.JLabel" name="swirlx3dLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
                 <Property name="text" type="java.lang.String" value="SwirlX3D"/>
@@ -580,7 +580,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="VivatyLabel">
+            <Component class="javax.swing.JLabel" name="vivatyLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
                 <Property name="text" type="java.lang.String" value="Vivaty"/>
@@ -598,7 +598,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="Xj3DLabel">
+            <Component class="javax.swing.JLabel" name="xj3dLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
                 <Property name="text" type="java.lang.String" value="Xj3D"/>
@@ -770,13 +770,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="swirlX3dCheckBox">
+            <Component class="javax.swing.JCheckBox" name="swirlx3dCheckBox">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Include when autolaunching all browsers"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swirlX3dCheckBoxActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swirlx3dCheckBoxActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -801,7 +801,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="otherX3dPlayerCheckBox">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="toolTipText" type="java.lang.String" value="Include when autolaunching all browsers"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
@@ -932,7 +931,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="swirlX3dTF">
+            <Component class="javax.swing.JTextField" name="swirlx3dTF">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Local file location"/>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -943,7 +942,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swirlX3dTFActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swirlx3dTFActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -989,7 +988,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="xj3DTF">
+            <Component class="javax.swing.JTextField" name="xj3dTF">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Local file location"/>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1000,7 +999,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xj3DTFActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xj3dTFActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1132,13 +1131,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="SwirlX3DChooserButton">
+            <Component class="javax.swing.JButton" name="swirlx3dChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
                 <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SwirlX3DChooserButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swirlx3dChooserButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1174,13 +1173,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="xj3DChooserButton">
+            <Component class="javax.swing.JButton" name="xj3dChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
                 <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xj3DChooserButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xj3dChooserButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1305,7 +1304,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="SwirlX3DDefaultButton">
+            <Component class="javax.swing.JButton" name="swirlx3dDefaultButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
@@ -1314,7 +1313,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SwirlX3DDefaultButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swirlx3dDefaultButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1356,7 +1355,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="xj3DDefaultButton">
+            <Component class="javax.swing.JButton" name="xj3dDefaultButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
@@ -1365,7 +1364,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xj3DDefaultButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xj3dDefaultButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1475,13 +1474,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="SwirlX3DDownloadButton">
+            <Component class="javax.swing.JButton" name="swirlx3dDownloadButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="get"/>
                 <Property name="toolTipText" type="java.lang.String" value="Download player from website"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SwirlX3DDownloadButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swirlx3dDownloadButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1517,13 +1516,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="xj3DDownloadButton">
+            <Component class="javax.swing.JButton" name="xj3dDownloadButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="get"/>
                 <Property name="toolTipText" type="java.lang.String" value="Download player from website"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xj3DDownloadButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xj3dDownloadButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1654,7 +1653,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="SwirlX3DLaunchButton">
+            <Component class="javax.swing.JButton" name="swirlx3dLaunchButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="launch"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
@@ -1708,7 +1707,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="xj3DLaunchButton">
+            <Component class="javax.swing.JButton" name="xj3dLaunchButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="launch"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
@@ -2054,9 +2053,9 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="altovaXMLSpyTextField">
+            <Component class="javax.swing.JTextField" name="altovaXMLSpyTF">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="altovaXMLSpyTextFieldActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="altovaXMLSpyTFActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -3494,7 +3493,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="otherX3dEditorCheckBox">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="toolTipText" type="java.lang.String" value="Include when autolaunching tools"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
@@ -4170,7 +4168,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="otherImageEditorCheckBox">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="toolTipText" type="java.lang.String" value="Include when autolaunching tools"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
@@ -4682,7 +4679,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="otherVolumeEditorCheckBox">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="toolTipText" type="java.lang.String" value="Include when autolaunching tools"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
@@ -5117,7 +5113,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="otherAudioEditorCheckBox">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="toolTipText" type="java.lang.String" value="Include when autolaunching tools"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
@@ -5741,7 +5736,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="otherHtml5EditorCheckBox">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="toolTipText" type="java.lang.String" value="Include when autolaunching tools"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
@@ -6256,7 +6250,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="otherSemanticWebEditorCheckBox">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="toolTipText" type="java.lang.String" value="Include when autolaunching tools"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>

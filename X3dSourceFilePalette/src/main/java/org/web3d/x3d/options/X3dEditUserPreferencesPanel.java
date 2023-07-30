@@ -35,6 +35,7 @@ package org.web3d.x3d.options;
 
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.Window;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,11 +43,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileFilter;
@@ -92,7 +97,8 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
   private static String  launcherExampleScenePath = "X3dExamples/LauncherTestScene.x3d";    // This path is setup in X3D layer.xml
   private static File    launcherExampleSceneFile = null;
   private        File    checkExistingFile;
-  private        boolean executableFile;
+  private        boolean isExecutableFile;
+  private        boolean isReachableWebsite;
   private final X3dOptionsPanelController controller;
   
   public static final int AUTHOR_INFO_PANE               = 0;
@@ -128,9 +134,55 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
     this.controller = controller;
     initComponents();
     
+    // adjust to match, if needed
+    panelFontName = newX3dModelsDirectoryDescriptionLabel2.getFont().getFontName();
+    panelFontSize = newX3dModelsDirectoryDescriptionLabel2.getFont().getSize();
+    panelFontPlain          = new Font (panelFontName, Font.PLAIN, panelFontSize); 
+    panelFontBold      = new Font (panelFontName, Font.BOLD,  panelFontSize);
+    
     hideBSContactGeoComponents (); // superfluous, duplicative
 
     load ();  // restore saved defaults to panel
+    autoLaunchChecks ();
+  }
+  
+  public static String panelFontName = "Segoe UI";
+  public static int    panelFontSize = 12;
+  public static Font   panelFontPlain     = new Font ("Segoe UI", Font.PLAIN, 12);
+  public static Font   panelFontBold = new Font ("Segoe UI", Font.BOLD,  12);
+  // https://www.colorhexa.com/2e8b57
+  public static final Color colorSeaGreen  = new Color (18,55,34);
+  public static final Color colorPaleGreen = new Color (235,255,245);
+  
+  private void showFound (boolean found, JLabel label, JTextField textField)
+  {
+      if (found)
+      {
+        label.setForeground(colorSeaGreen);
+        textField.setBackground(colorPaleGreen);
+        label.setFont(panelFontBold);
+      }
+      else
+      {
+            label.setForeground(Color.BLACK);
+        textField.setBackground(Color.WHITE);
+             label.setFont(panelFontPlain);
+      }
+  }
+  private void showFound (boolean found, JTextField textField)
+  {
+      if (found)
+      {
+        textField.setForeground(colorSeaGreen);
+        textField.setBackground(colorPaleGreen);
+        textField.setFont(panelFontBold);
+      }
+      else
+      {
+        textField.setForeground(Color.BLACK);
+        textField.setBackground(Color.WHITE);
+        textField.setFont(panelFontPlain);
+      }
   }
 
   private void hideHeilanComponents ()
@@ -146,7 +198,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 
   private void hideBSContactGeoComponents ()
   {
-             BSContactGeoLabel.setVisible(false);
+             contactGeoLabel.setVisible(false);
             contactGeoCheckBox.setVisible(false);
        contactGeoChooserButton.setVisible(false);
        contactGeoDefaultButton.setVisible(false);
@@ -193,16 +245,16 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         verticalSpacerLabel19 = new javax.swing.JLabel();
         reportAuthorButton = new javax.swing.JButton();
         x3dPlayerPathsPanel = new javax.swing.JPanel();
-        BSContactLabel = new javax.swing.JLabel();
-        BSContactGeoLabel = new javax.swing.JLabel();
-        FreeWrlLabel = new javax.swing.JLabel();
+        contactLabel = new javax.swing.JLabel();
+        contactGeoLabel = new javax.swing.JLabel();
+        freeWrlLabel = new javax.swing.JLabel();
         heilanLabel = new javax.swing.JLabel();
-        InstantRealityLabel = new javax.swing.JLabel();
-        OctagaLabel = new javax.swing.JLabel();
-        swirlX3DLabel = new javax.swing.JLabel();
+        instantRealityLabel = new javax.swing.JLabel();
+        octagaLabel = new javax.swing.JLabel();
+        swirlx3dLabel = new javax.swing.JLabel();
         view3dsceneLabel = new javax.swing.JLabel();
-        VivatyLabel = new javax.swing.JLabel();
-        Xj3DLabel = new javax.swing.JLabel();
+        vivatyLabel = new javax.swing.JLabel();
+        xj3dLabel = new javax.swing.JLabel();
         otherPlayerLabel = new javax.swing.JLabel();
         otherPlayerNameLabel = new javax.swing.JLabel();
         contactCheckBox = new javax.swing.JCheckBox();
@@ -213,7 +265,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         octagaCheckBox = new javax.swing.JCheckBox();
         view3dsceneCheckBox = new javax.swing.JCheckBox();
         vivatyCheckBox = new javax.swing.JCheckBox();
-        swirlX3dCheckBox = new javax.swing.JCheckBox();
+        swirlx3dCheckBox = new javax.swing.JCheckBox();
         xj3dCheckBox = new javax.swing.JCheckBox();
         otherX3dPlayerCheckBox = new javax.swing.JCheckBox();
         contactTF = new javax.swing.JTextField();
@@ -222,10 +274,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         heilanTF = new javax.swing.JTextField();
         instantRealityTF = new javax.swing.JTextField();
         octagaTF = new javax.swing.JTextField();
-        swirlX3dTF = new javax.swing.JTextField();
+        swirlx3dTF = new javax.swing.JTextField();
         view3dsceneTF = new javax.swing.JTextField();
         vivatyTF = new javax.swing.JTextField();
-        xj3DTF = new javax.swing.JTextField();
+        xj3dTF = new javax.swing.JTextField();
         otherX3dPlayerPathTF = new javax.swing.JTextField();
         otherX3dPlayerNameTF = new javax.swing.JTextField();
         contactChooserButton = new javax.swing.JButton();
@@ -234,10 +286,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         heilanChooserButton = new javax.swing.JButton();
         instRealChooserButton = new javax.swing.JButton();
         octagaChooserButton = new javax.swing.JButton();
-        SwirlX3DChooserButton = new javax.swing.JButton();
+        swirlx3dChooserButton = new javax.swing.JButton();
         view3dsceneChooserButton = new javax.swing.JButton();
         vivatyChooserButton = new javax.swing.JButton();
-        xj3DChooserButton = new javax.swing.JButton();
+        xj3dChooserButton = new javax.swing.JButton();
         otherChooserButton = new javax.swing.JButton();
         contactDefaultButton = new javax.swing.JButton();
         contactGeoDefaultButton = new javax.swing.JButton();
@@ -245,10 +297,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         heilanDefaultButton = new javax.swing.JButton();
         instRealDefaultButton = new javax.swing.JButton();
         octagaDefaultButton = new javax.swing.JButton();
-        SwirlX3DDefaultButton = new javax.swing.JButton();
+        swirlx3dDefaultButton = new javax.swing.JButton();
         view3dsceneDefaultButton = new javax.swing.JButton();
         vivatyDefaultButton = new javax.swing.JButton();
-        xj3DDefaultButton = new javax.swing.JButton();
+        xj3dDefaultButton = new javax.swing.JButton();
         otherX3dPlayerClearButton = new javax.swing.JButton();
         contactDownloadButton = new javax.swing.JButton();
         contactGeoDownloadButton = new javax.swing.JButton();
@@ -256,10 +308,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         heilanDownloadButton = new javax.swing.JButton();
         instantRealityDownloadButton = new javax.swing.JButton();
         octagaDownloadButton = new javax.swing.JButton();
-        SwirlX3DDownloadButton = new javax.swing.JButton();
+        swirlx3dDownloadButton = new javax.swing.JButton();
         view3dsceneDownloadButton = new javax.swing.JButton();
         vivatyDownloadButton = new javax.swing.JButton();
-        xj3DDownloadButton = new javax.swing.JButton();
+        xj3dDownloadButton = new javax.swing.JButton();
         otherX3dPlayerDownloadButton = new javax.swing.JButton();
         contactLaunchButton = new javax.swing.JButton();
         contactGeoLaunchButton = new javax.swing.JButton();
@@ -267,10 +319,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         heilanLaunchButton = new javax.swing.JButton();
         instantRealityLaunchButton = new javax.swing.JButton();
         octagaLaunchButton = new javax.swing.JButton();
-        SwirlX3DLaunchButton = new javax.swing.JButton();
+        swirlx3dLaunchButton = new javax.swing.JButton();
         view3dsceneLaunchButton = new javax.swing.JButton();
         vivatyLaunchButton = new javax.swing.JButton();
-        xj3DLaunchButton = new javax.swing.JButton();
+        xj3dLaunchButton = new javax.swing.JButton();
         otherX3dPlayerLaunchButton = new javax.swing.JButton();
         h3dLabel = new javax.swing.JLabel();
         h3dCheckBox = new javax.swing.JCheckBox();
@@ -293,7 +345,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         verticalSpacerLabel9 = new javax.swing.JLabel();
         altovaXMLSpyLabel = new javax.swing.JLabel();
         altovaXMLSpyCheckBox = new javax.swing.JCheckBox();
-        altovaXMLSpyTextField = new javax.swing.JTextField();
+        altovaXMLSpyTF = new javax.swing.JTextField();
         altovaXMLSpyChooserButton = new javax.swing.JButton();
         altovaXMLSpyDefaultButton = new javax.swing.JButton();
         altovaXMLSpyLaunchButton = new javax.swing.JButton();
@@ -1040,7 +1092,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
         authorSettingsPanel.add(downloadLocalExamplesArchivesButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel19, "   ");
@@ -1076,46 +1128,46 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dPlayerPathsPanel.setPreferredSize(new java.awt.Dimension(825, 600));
         x3dPlayerPathsPanel.setLayout(new java.awt.GridBagLayout());
 
-        BSContactLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(BSContactLabel, "BS Contact");
-        BSContactLabel.setToolTipText("Bitmanagement BS Contact Player");
-        BSContactLabel.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        BSContactLabel.setMinimumSize(new java.awt.Dimension(120, 20));
-        BSContactLabel.setPreferredSize(new java.awt.Dimension(120, 20));
+        contactLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        org.openide.awt.Mnemonics.setLocalizedText(contactLabel, "BS Contact");
+        contactLabel.setToolTipText("Bitmanagement BS Contact Player");
+        contactLabel.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        contactLabel.setMinimumSize(new java.awt.Dimension(120, 20));
+        contactLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(BSContactLabel, gridBagConstraints);
+        x3dPlayerPathsPanel.add(contactLabel, gridBagConstraints);
 
-        BSContactGeoLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(BSContactGeoLabel, "BS Contact Geo");
-        BSContactGeoLabel.setToolTipText("Bitmanagement BS Contact Player");
-        BSContactGeoLabel.setEnabled(false);
-        BSContactGeoLabel.setMinimumSize(new java.awt.Dimension(120, 20));
-        BSContactGeoLabel.setPreferredSize(new java.awt.Dimension(120, 20));
+        contactGeoLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        org.openide.awt.Mnemonics.setLocalizedText(contactGeoLabel, "BS Contact Geo");
+        contactGeoLabel.setToolTipText("Bitmanagement BS Contact Player");
+        contactGeoLabel.setEnabled(false);
+        contactGeoLabel.setMinimumSize(new java.awt.Dimension(120, 20));
+        contactGeoLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(BSContactGeoLabel, gridBagConstraints);
+        x3dPlayerPathsPanel.add(contactGeoLabel, gridBagConstraints);
 
-        FreeWrlLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(FreeWrlLabel, "FreeWrl");
-        FreeWrlLabel.setToolTipText("FreeWrl (Mac, Linux Windows)");
-        FreeWrlLabel.setMinimumSize(new java.awt.Dimension(120, 20));
-        FreeWrlLabel.setPreferredSize(new java.awt.Dimension(120, 20));
+        freeWrlLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        org.openide.awt.Mnemonics.setLocalizedText(freeWrlLabel, "FreeWrl");
+        freeWrlLabel.setToolTipText("FreeWrl (Mac, Linux Windows)");
+        freeWrlLabel.setMinimumSize(new java.awt.Dimension(120, 20));
+        freeWrlLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(FreeWrlLabel, gridBagConstraints);
+        x3dPlayerPathsPanel.add(freeWrlLabel, gridBagConstraints);
 
         heilanLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         org.openide.awt.Mnemonics.setLocalizedText(heilanLabel, "Heilan");
@@ -1130,44 +1182,44 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(heilanLabel, gridBagConstraints);
 
-        InstantRealityLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(InstantRealityLabel, " InstantReality");
-        InstantRealityLabel.setToolTipText("Fraunhofer Instant Reality player");
-        InstantRealityLabel.setMinimumSize(new java.awt.Dimension(120, 20));
-        InstantRealityLabel.setPreferredSize(new java.awt.Dimension(120, 20));
+        instantRealityLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        org.openide.awt.Mnemonics.setLocalizedText(instantRealityLabel, " InstantReality");
+        instantRealityLabel.setToolTipText("Fraunhofer Instant Reality player");
+        instantRealityLabel.setMinimumSize(new java.awt.Dimension(120, 20));
+        instantRealityLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(InstantRealityLabel, gridBagConstraints);
+        x3dPlayerPathsPanel.add(instantRealityLabel, gridBagConstraints);
 
-        OctagaLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(OctagaLabel, "Octaga");
-        OctagaLabel.setToolTipText("Octaga player");
-        OctagaLabel.setMinimumSize(new java.awt.Dimension(120, 20));
-        OctagaLabel.setPreferredSize(new java.awt.Dimension(120, 20));
+        octagaLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        org.openide.awt.Mnemonics.setLocalizedText(octagaLabel, "Octaga");
+        octagaLabel.setToolTipText("Octaga player");
+        octagaLabel.setMinimumSize(new java.awt.Dimension(120, 20));
+        octagaLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(OctagaLabel, gridBagConstraints);
+        x3dPlayerPathsPanel.add(octagaLabel, gridBagConstraints);
 
-        swirlX3DLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(swirlX3DLabel, "SwirlX3D");
-        swirlX3DLabel.setToolTipText("SwirlX3D player");
-        swirlX3DLabel.setMinimumSize(new java.awt.Dimension(120, 20));
-        swirlX3DLabel.setPreferredSize(new java.awt.Dimension(120, 20));
+        swirlx3dLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        org.openide.awt.Mnemonics.setLocalizedText(swirlx3dLabel, "SwirlX3D");
+        swirlx3dLabel.setToolTipText("SwirlX3D player");
+        swirlx3dLabel.setMinimumSize(new java.awt.Dimension(120, 20));
+        swirlx3dLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(swirlX3DLabel, gridBagConstraints);
+        x3dPlayerPathsPanel.add(swirlx3dLabel, gridBagConstraints);
 
         view3dsceneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         org.openide.awt.Mnemonics.setLocalizedText(view3dsceneLabel, "view3dscene");
@@ -1182,31 +1234,31 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(view3dsceneLabel, gridBagConstraints);
 
-        VivatyLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(VivatyLabel, "Vivaty");
-        VivatyLabel.setToolTipText("Vivaty Player (formerly MediaMachines Flux)");
-        VivatyLabel.setMinimumSize(new java.awt.Dimension(120, 20));
-        VivatyLabel.setPreferredSize(new java.awt.Dimension(120, 20));
+        vivatyLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        org.openide.awt.Mnemonics.setLocalizedText(vivatyLabel, "Vivaty");
+        vivatyLabel.setToolTipText("Vivaty Player (formerly MediaMachines Flux)");
+        vivatyLabel.setMinimumSize(new java.awt.Dimension(120, 20));
+        vivatyLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(VivatyLabel, gridBagConstraints);
+        x3dPlayerPathsPanel.add(vivatyLabel, gridBagConstraints);
 
-        Xj3DLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(Xj3DLabel, "Xj3D");
-        Xj3DLabel.setToolTipText("Xj3D player (external application)");
-        Xj3DLabel.setMinimumSize(new java.awt.Dimension(120, 20));
-        Xj3DLabel.setPreferredSize(new java.awt.Dimension(120, 20));
+        xj3dLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        org.openide.awt.Mnemonics.setLocalizedText(xj3dLabel, "Xj3D");
+        xj3dLabel.setToolTipText("Xj3D player (external application)");
+        xj3dLabel.setMinimumSize(new java.awt.Dimension(120, 20));
+        xj3dLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(Xj3DLabel, gridBagConstraints);
+        x3dPlayerPathsPanel.add(xj3dLabel, gridBagConstraints);
 
         otherPlayerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         org.openide.awt.Mnemonics.setLocalizedText(otherPlayerLabel, "Other player path");
@@ -1353,11 +1405,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(vivatyCheckBox, gridBagConstraints);
 
-        swirlX3dCheckBox.setToolTipText("Include when autolaunching all browsers");
-        swirlX3dCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        swirlX3dCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        swirlx3dCheckBox.setToolTipText("Include when autolaunching all browsers");
+        swirlx3dCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        swirlx3dCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                swirlX3dCheckBoxActionPerformed(evt);
+                swirlx3dCheckBoxActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1365,7 +1417,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
-        x3dPlayerPathsPanel.add(swirlX3dCheckBox, gridBagConstraints);
+        x3dPlayerPathsPanel.add(swirlx3dCheckBox, gridBagConstraints);
 
         xj3dCheckBox.setSelected(true);
         xj3dCheckBox.setToolTipText("Include when autolaunching all browsers");
@@ -1382,7 +1434,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(xj3dCheckBox, gridBagConstraints);
 
-        otherX3dPlayerCheckBox.setSelected(true);
         otherX3dPlayerCheckBox.setToolTipText("Include when autolaunching all browsers");
         otherX3dPlayerCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         otherX3dPlayerCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -1505,12 +1556,12 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(octagaTF, gridBagConstraints);
 
-        swirlX3dTF.setToolTipText("Local file location");
-        swirlX3dTF.setMinimumSize(new java.awt.Dimension(100, 20));
-        swirlX3dTF.setPreferredSize(new java.awt.Dimension(100, 20));
-        swirlX3dTF.addActionListener(new java.awt.event.ActionListener() {
+        swirlx3dTF.setToolTipText("Local file location");
+        swirlx3dTF.setMinimumSize(new java.awt.Dimension(100, 20));
+        swirlx3dTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        swirlx3dTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                swirlX3dTFActionPerformed(evt);
+                swirlx3dTFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1521,7 +1572,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(swirlX3dTF, gridBagConstraints);
+        x3dPlayerPathsPanel.add(swirlx3dTF, gridBagConstraints);
 
         view3dsceneTF.setToolTipText("Local file location");
         view3dsceneTF.setMinimumSize(new java.awt.Dimension(100, 20));
@@ -1559,12 +1610,12 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(vivatyTF, gridBagConstraints);
 
-        xj3DTF.setToolTipText("Local file location");
-        xj3DTF.setMinimumSize(new java.awt.Dimension(100, 20));
-        xj3DTF.setPreferredSize(new java.awt.Dimension(100, 20));
-        xj3DTF.addActionListener(new java.awt.event.ActionListener() {
+        xj3dTF.setToolTipText("Local file location");
+        xj3dTF.setMinimumSize(new java.awt.Dimension(100, 20));
+        xj3dTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        xj3dTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                xj3DTFActionPerformed(evt);
+                xj3dTFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1575,7 +1626,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(xj3DTF, gridBagConstraints);
+        x3dPlayerPathsPanel.add(xj3dTF, gridBagConstraints);
 
         otherX3dPlayerPathTF.setToolTipText("Local file location of additional X3D player");
         otherX3dPlayerPathTF.setMinimumSize(new java.awt.Dimension(100, 20));
@@ -1709,11 +1760,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(octagaChooserButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(SwirlX3DChooserButton, "...");
-        SwirlX3DChooserButton.setToolTipText("Find local file location");
-        SwirlX3DChooserButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(swirlx3dChooserButton, "...");
+        swirlx3dChooserButton.setToolTipText("Find local file location");
+        swirlx3dChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SwirlX3DChooserButtonActionPerformed(evt);
+                swirlx3dChooserButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1722,7 +1773,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(SwirlX3DChooserButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(swirlx3dChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(view3dsceneChooserButton, "...");
         view3dsceneChooserButton.setToolTipText("Find local file location");
@@ -1753,11 +1804,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(vivatyChooserButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(xj3DChooserButton, "...");
-        xj3DChooserButton.setToolTipText("Find local file location");
-        xj3DChooserButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(xj3dChooserButton, "...");
+        xj3dChooserButton.setToolTipText("Find local file location");
+        xj3dChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                xj3DChooserButtonActionPerformed(evt);
+                xj3dChooserButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1766,7 +1817,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(xj3DChooserButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(xj3dChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherChooserButton, "...");
         otherChooserButton.setToolTipText("Find local file location");
@@ -1880,12 +1931,12 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(octagaDefaultButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(SwirlX3DDefaultButton, "default");
-        SwirlX3DDefaultButton.setToolTipText("Reset default file location");
-        SwirlX3DDefaultButton.setActionCommand(org.web3d.x3d.options.X3dEditUserPreferences.getSwirlX3DPathDefault());
-        SwirlX3DDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(swirlx3dDefaultButton, "default");
+        swirlx3dDefaultButton.setToolTipText("Reset default file location");
+        swirlx3dDefaultButton.setActionCommand(org.web3d.x3d.options.X3dEditUserPreferences.getSwirlX3DPathDefault());
+        swirlx3dDefaultButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SwirlX3DDefaultButtonActionPerformed(evt);
+                swirlx3dDefaultButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1894,7 +1945,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(SwirlX3DDefaultButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(swirlx3dDefaultButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(view3dsceneDefaultButton, "default");
         view3dsceneDefaultButton.setToolTipText("Reset default file location");
@@ -1928,12 +1979,12 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(vivatyDefaultButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(xj3DDefaultButton, "default");
-        xj3DDefaultButton.setToolTipText("Reset default file location");
-        xj3DDefaultButton.setActionCommand(org.web3d.x3d.options.X3dEditUserPreferences.getXj3DPathDefault());
-        xj3DDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(xj3dDefaultButton, "default");
+        xj3dDefaultButton.setToolTipText("Reset default file location");
+        xj3dDefaultButton.setActionCommand(org.web3d.x3d.options.X3dEditUserPreferences.getXj3DPathDefault());
+        xj3dDefaultButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                xj3DDefaultButtonActionPerformed(evt);
+                xj3dDefaultButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1942,7 +1993,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(xj3DDefaultButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(xj3dDefaultButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherX3dPlayerClearButton, "clear");
         otherX3dPlayerClearButton.setToolTipText("reset default file location");
@@ -2051,11 +2102,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(octagaDownloadButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(SwirlX3DDownloadButton, "get");
-        SwirlX3DDownloadButton.setToolTipText("Download player from website");
-        SwirlX3DDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(swirlx3dDownloadButton, "get");
+        swirlx3dDownloadButton.setToolTipText("Download player from website");
+        swirlx3dDownloadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SwirlX3DDownloadButtonActionPerformed(evt);
+                swirlx3dDownloadButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2064,7 +2115,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(SwirlX3DDownloadButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(swirlx3dDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(view3dsceneDownloadButton, "get");
         view3dsceneDownloadButton.setToolTipText("Download player from website");
@@ -2095,11 +2146,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(vivatyDownloadButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(xj3DDownloadButton, "get");
-        xj3DDownloadButton.setToolTipText("Download player from website");
-        xj3DDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(xj3dDownloadButton, "get");
+        xj3dDownloadButton.setToolTipText("Download player from website");
+        xj3dDownloadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                xj3DDownloadButtonActionPerformed(evt);
+                xj3dDownloadButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2108,7 +2159,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(xj3DDownloadButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(xj3dDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherX3dPlayerDownloadButton, "find");
         otherX3dPlayerDownloadButton.setToolTipText("Download player from website");
@@ -2220,10 +2271,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(octagaLaunchButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(SwirlX3DLaunchButton, "launch");
-        SwirlX3DLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        SwirlX3DLaunchButton.setActionCommand("SwirlX3DTF");
-        SwirlX3DLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(swirlx3dLaunchButton, "launch");
+        swirlx3dLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        swirlx3dLaunchButton.setActionCommand("SwirlX3DTF");
+        swirlx3dLaunchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 commonLauncher(evt);
             }
@@ -2234,7 +2285,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(SwirlX3DLaunchButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(swirlx3dLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(view3dsceneLaunchButton, "launch");
         view3dsceneLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -2268,10 +2319,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(vivatyLaunchButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(xj3DLaunchButton, "launch");
-        xj3DLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        xj3DLaunchButton.setActionCommand("xj3DTF");
-        xj3DLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(xj3dLaunchButton, "launch");
+        xj3dLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        xj3dLaunchButton.setActionCommand("xj3DTF");
+        xj3dLaunchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 commonLauncher(evt);
             }
@@ -2282,7 +2333,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(xj3DLaunchButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(xj3dLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherX3dPlayerLaunchButton, "launch");
         otherX3dPlayerLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -2569,9 +2620,9 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(altovaXMLSpyCheckBox, gridBagConstraints);
 
-        altovaXMLSpyTextField.addActionListener(new java.awt.event.ActionListener() {
+        altovaXMLSpyTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                altovaXMLSpyTextFieldActionPerformed(evt);
+                altovaXMLSpyTFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2581,7 +2632,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(altovaXMLSpyTextField, gridBagConstraints);
+        x3dModelingToolsPanel.add(altovaXMLSpyTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyChooserButton, "...");
         altovaXMLSpyChooserButton.addActionListener(new java.awt.event.ActionListener() {
@@ -4019,7 +4070,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherX3dEditorNameTF, gridBagConstraints);
 
-        otherX3dEditorCheckBox.setSelected(true);
         otherX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
         otherX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         otherX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -4680,7 +4730,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(otherImageEditorNameTF, gridBagConstraints);
 
-        otherImageEditorCheckBox.setSelected(true);
         otherImageEditorCheckBox.setToolTipText("Include when autolaunching tools");
         otherImageEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         otherImageEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -5194,7 +5243,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(otherVolumeEditorNameTF, gridBagConstraints);
 
-        otherVolumeEditorCheckBox.setSelected(true);
         otherVolumeEditorCheckBox.setToolTipText("Include when autolaunching tools");
         otherVolumeEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         otherVolumeEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -5619,7 +5667,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(otherAudioEditorNameTF, gridBagConstraints);
 
-        otherAudioEditorCheckBox.setSelected(true);
         otherAudioEditorCheckBox.setToolTipText("Include when autolaunching tools");
         otherAudioEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         otherAudioEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -6249,7 +6296,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(otherHtml5EditorNameTF, gridBagConstraints);
 
-        otherHtml5EditorCheckBox.setSelected(true);
         otherHtml5EditorCheckBox.setToolTipText("Include when autolaunching tools");
         otherHtml5EditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         otherHtml5EditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -6770,7 +6816,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(otherSemanticWebEditorNameTF, gridBagConstraints);
 
-        otherSemanticWebEditorCheckBox.setSelected(true);
         otherSemanticWebEditorCheckBox.setToolTipText("Include when autolaunching tools");
         otherSemanticWebEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         otherSemanticWebEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -8423,16 +8468,16 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
     X3dEditUserPreferences.setOctagaPath(octagaTF.getText().trim());
 }//GEN-LAST:event_octagaDefaultButtonActionPerformed
 
-  private void xj3DChooserButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_xj3DChooserButtonActionPerformed
-  {//GEN-HEADEREND:event_xj3DChooserButtonActionPerformed
-    commonChooser(xj3DTF, "Find Xj3D Player Executable", evt);
-}//GEN-LAST:event_xj3DChooserButtonActionPerformed
+  private void xj3dChooserButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_xj3dChooserButtonActionPerformed
+  {//GEN-HEADEREND:event_xj3dChooserButtonActionPerformed
+    commonChooser(xj3dTF, "Find Xj3D Player Executable", evt);
+}//GEN-LAST:event_xj3dChooserButtonActionPerformed
 
-  private void xj3DDefaultButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_xj3DDefaultButtonActionPerformed
-  {//GEN-HEADEREND:event_xj3DDefaultButtonActionPerformed
-    xj3DTF.setText(X3dEditUserPreferences.getXj3DPathDefault());
-    X3dEditUserPreferences.setXj3DPath(xj3DTF.getText().trim());
-}//GEN-LAST:event_xj3DDefaultButtonActionPerformed
+  private void xj3dDefaultButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_xj3dDefaultButtonActionPerformed
+  {//GEN-HEADEREND:event_xj3dDefaultButtonActionPerformed
+    xj3dTF.setText(X3dEditUserPreferences.getXj3DPathDefault());
+    X3dEditUserPreferences.setXj3DPath(xj3dTF.getText().trim());
+}//GEN-LAST:event_xj3dDefaultButtonActionPerformed
 
   private void contactDefaultButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_contactDefaultButtonActionPerformed
   {//GEN-HEADEREND:event_contactDefaultButtonActionPerformed
@@ -8458,7 +8503,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 
   private void vivatyDownloadButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_vivatyDownloadButtonActionPerformed
   {//GEN-HEADEREND:event_vivatyDownloadButtonActionPerformed
-    openInBrowser(X3dEditUserPreferences.getDownloadSiteVivatyPlayer());
+    openInBrowser(X3dEditUserPreferences.getDownloadSiteVivaty());
 }//GEN-LAST:event_vivatyDownloadButtonActionPerformed
 
   private void freeWrlDownloadButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_freeWrlDownloadButtonActionPerformed
@@ -8476,10 +8521,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
     openInBrowser(X3dEditUserPreferences.getDownloadSiteOctaga());
 }//GEN-LAST:event_octagaDownloadButtonActionPerformed
 
-  private void xj3DDownloadButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_xj3DDownloadButtonActionPerformed
-  {//GEN-HEADEREND:event_xj3DDownloadButtonActionPerformed
+  private void xj3dDownloadButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_xj3dDownloadButtonActionPerformed
+  {//GEN-HEADEREND:event_xj3dDownloadButtonActionPerformed
     openInBrowser(X3dEditUserPreferences.getDownloadSiteXj3D());
-}//GEN-LAST:event_xj3DDownloadButtonActionPerformed
+}//GEN-LAST:event_xj3dDownloadButtonActionPerformed
 
   private void otherChooserButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_otherChooserButtonActionPerformed
   {//GEN-HEADEREND:event_otherChooserButtonActionPerformed
@@ -8499,30 +8544,33 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 
 private void keystoreDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreDirectoryButtonActionPerformed
     commonChooser(keystoreDirectoryTF, "Choose XML Keystore directory and file", evt);
-    // TODO split
     X3dEditUserPreferences.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
     setKeystoreFileName(keystoreFileNameTF.getText());
     keystorePathLabel2.setText(getKeystorePath());
+    keystoreDirectoryCheck ();
+    keystoreFilePathCheck();
 }//GEN-LAST:event_keystoreDirectoryButtonActionPerformed
 
 private void keystoreDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreDefaultButtonActionPerformed
     keystoreDirectoryTF.setText(X3dEditUserPreferences.getKeystorePathDefault().replace("\\", "/"));
     X3dEditUserPreferences.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
     keystorePathLabel2.setText(getKeystorePath());
+    keystoreDirectoryCheck ();
+    keystoreFilePathCheck();
 }//GEN-LAST:event_keystoreDefaultButtonActionPerformed
 
-private void SwirlX3DChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SwirlX3DChooserButtonActionPerformed
-  commonChooser(swirlX3dTF, "Find SwirlX3D Executable", evt);
-}//GEN-LAST:event_SwirlX3DChooserButtonActionPerformed
+private void swirlx3dChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swirlx3dChooserButtonActionPerformed
+  commonChooser(swirlx3dTF, "Find SwirlX3D Executable", evt);
+}//GEN-LAST:event_swirlx3dChooserButtonActionPerformed
 
-private void SwirlX3DDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SwirlX3DDefaultButtonActionPerformed
-  swirlX3dTF.setText(X3dEditUserPreferences.getSwirlX3DPathDefault());
-    X3dEditUserPreferences.setSwirlX3DPath(swirlX3dTF.getText().trim());
-}//GEN-LAST:event_SwirlX3DDefaultButtonActionPerformed
+private void swirlx3dDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swirlx3dDefaultButtonActionPerformed
+  swirlx3dTF.setText(X3dEditUserPreferences.getSwirlX3DPathDefault());
+    X3dEditUserPreferences.setSwirlX3DPath(swirlx3dTF.getText().trim());
+}//GEN-LAST:event_swirlx3dDefaultButtonActionPerformed
 
-private void SwirlX3DDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SwirlX3DDownloadButtonActionPerformed
+private void swirlx3dDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swirlx3dDownloadButtonActionPerformed
     openInBrowser(X3dEditUserPreferences.getDownloadSiteSwirlX3D());
-}//GEN-LAST:event_SwirlX3DDownloadButtonActionPerformed
+}//GEN-LAST:event_swirlx3dDownloadButtonActionPerformed
 
 private void commonLauncher(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commonLauncher
   try {
@@ -8583,6 +8631,7 @@ private void launchIntervalTFActionPerformed(java.awt.event.ActionEvent evt)//GE
         X3dEditUserPreferences.resetLaunchInterval();
         System.err.println (new StringBuilder().append("newLaunchInterval=").append(newLaunchInterval).append("is illegal, resetting to default value ").append(X3dEditUserPreferences.getLaunchIntervalDefault()).toString());
     }
+    // TODO set value?
 }//GEN-LAST:event_launchIntervalTFActionPerformed
 
 private void contactCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_contactCheckBoxActionPerformed
@@ -8616,16 +8665,16 @@ private void octagaCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-
 private void vivatyCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_vivatyCheckBoxActionPerformed
 {//GEN-HEADEREND:event_vivatyCheckBoxActionPerformed
     if (vivatyCheckBox.isSelected())
-         X3dEditUserPreferences.setVivatyPlayerAutoLaunch("true");
-    else X3dEditUserPreferences.setVivatyPlayerAutoLaunch("false");
+         X3dEditUserPreferences.setVivatyAutoLaunch("true");
+    else X3dEditUserPreferences.setVivatyAutoLaunch("false");
 }//GEN-LAST:event_vivatyCheckBoxActionPerformed
 
-private void swirlX3dCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_swirlX3dCheckBoxActionPerformed
-{//GEN-HEADEREND:event_swirlX3dCheckBoxActionPerformed
-    if (swirlX3dCheckBox.isSelected())
-         X3dEditUserPreferences.setSwirlX3dAutoLaunch("true");
-    else X3dEditUserPreferences.setSwirlX3dAutoLaunch("false");
-}//GEN-LAST:event_swirlX3dCheckBoxActionPerformed
+private void swirlx3dCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_swirlx3dCheckBoxActionPerformed
+{//GEN-HEADEREND:event_swirlx3dCheckBoxActionPerformed
+    if (swirlx3dCheckBox.isSelected())
+         X3dEditUserPreferences.setSwirlx3dAutoLaunch("true");
+    else X3dEditUserPreferences.setSwirlx3dAutoLaunch("false");
+}//GEN-LAST:event_swirlx3dCheckBoxActionPerformed
 
 private void xj3dCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_xj3dCheckBoxActionPerformed
 {//GEN-HEADEREND:event_xj3dCheckBoxActionPerformed
@@ -8641,19 +8690,22 @@ private void otherX3dPlayerCheckBoxActionPerformed(java.awt.event.ActionEvent ev
     else X3dEditUserPreferences.setOtherX3dPlayerAutoLaunch("false");
 }//GEN-LAST:event_otherX3dPlayerCheckBoxActionPerformed
 
-private void xj3DTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_xj3DTFActionPerformed
-{//GEN-HEADEREND:event_xj3DTFActionPerformed
-    X3dEditUserPreferences.setXj3DPath(xj3DTF.getText().trim());
-}//GEN-LAST:event_xj3DTFActionPerformed
+private void xj3dTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_xj3dTFActionPerformed
+{//GEN-HEADEREND:event_xj3dTFActionPerformed
+    X3dEditUserPreferences.setXj3DPath(xj3dTF.getText().trim());
+    xj3dAutoLaunchCheck();
+}//GEN-LAST:event_xj3dTFActionPerformed
 
 private void vivatyTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_vivatyTFActionPerformed
 {//GEN-HEADEREND:event_vivatyTFActionPerformed
     X3dEditUserPreferences.setVivatyPlayerPath(vivatyTF.getText().trim());
+    vivatyAutoLaunchCheck();
 }//GEN-LAST:event_vivatyTFActionPerformed
 
 private void otherX3dPlayerNameTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_otherX3dPlayerNameTFActionPerformed
 {//GEN-HEADEREND:event_otherX3dPlayerNameTFActionPerformed
     X3dEditUserPreferences.setOtherX3dPlayerName(otherX3dPlayerNameTF.getText().trim());
+    otherX3dPlayerAutoLaunchCheck();
 }//GEN-LAST:event_otherX3dPlayerNameTFActionPerformed
 
 private void heilanChooserButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_heilanChooserButtonActionPerformed
@@ -8710,7 +8762,18 @@ private void lineColorChooserActionPerformed(java.awt.event.ActionEvent evt) {//
 }//GEN-LAST:event_lineColorChooserActionPerformed
 
 private void transparencyTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transparencyTFActionPerformed
-    // TODO add your handling code here:
+    float newTransparency = Float.parseFloat(transparencyTF.getText().trim());
+    if ((newTransparency >= 0.0f) && (newTransparency <= 1.0f))
+    {
+        X3dEditUserPreferences.setVisualizeTransparency(transparencyTF.getText().trim());
+    }
+    else
+    {
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
+                "Illegal transparency value=" + transparencyTF.getText() + ", ignored", 
+                "Illegal transparency value", NotifyDescriptor.PLAIN_MESSAGE);
+        DialogDisplayer.getDefault().notify(notifyDescriptor);
+    }
 }//GEN-LAST:event_transparencyTFActionPerformed
 
 private void lineColorGreenTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineColorGreenTFActionPerformed
@@ -8818,6 +8881,7 @@ private void contactGeoChooserButtonActionPerformed(java.awt.event.ActionEvent e
 private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_contactTFActionPerformed
 {//GEN-HEADEREND:event_contactTFActionPerformed
     X3dEditUserPreferences.setContactPath(contactTF.getText().trim());
+    contactAutoLaunchCheck();
 }//GEN-LAST:event_contactTFActionPerformed
 
     private void view3dsceneCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneCheckBoxActionPerformed
@@ -8828,6 +8892,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void view3dsceneTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneTFActionPerformed
         X3dEditUserPreferences.setView3dScenePath(view3dsceneTF.getText().trim());
+        view3dsceneAutoLaunchCheck();
     }//GEN-LAST:event_view3dsceneTFActionPerformed
 
     private void view3dsceneChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneChooserButtonActionPerformed
@@ -8864,10 +8929,12 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void h3dTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3dTFActionPerformed
         X3dEditUserPreferences.setH3dPath(h3dTF.getText().trim());
+        h3dAutoLaunchCheck();
     }//GEN-LAST:event_h3dTFActionPerformed
 
     private void contactGeoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactGeoTFActionPerformed
         X3dEditUserPreferences.setContactGeoPath(contactGeoTF.getText().trim());
+        contactGeoAutoLaunchCheck();
     }//GEN-LAST:event_contactGeoTFActionPerformed
 
     private void freeWrlTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freeWrlTFActionPerformed
@@ -8880,18 +8947,22 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void instantRealityTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instantRealityTFActionPerformed
         X3dEditUserPreferences.setInstantRealityPath(instantRealityTF.getText().trim());
+        instantRealityAutoLaunchCheck();
     }//GEN-LAST:event_instantRealityTFActionPerformed
 
     private void octagaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_octagaTFActionPerformed
         X3dEditUserPreferences.setOctagaPath(octagaTF.getText().trim());
+        octagaAutoLaunchCheck();
     }//GEN-LAST:event_octagaTFActionPerformed
 
-    private void swirlX3dTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swirlX3dTFActionPerformed
-        X3dEditUserPreferences.setSwirlX3DPath(swirlX3dTF.getText().trim());
-    }//GEN-LAST:event_swirlX3dTFActionPerformed
+    private void swirlx3dTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swirlx3dTFActionPerformed
+        X3dEditUserPreferences.setSwirlX3DPath(swirlx3dTF.getText().trim());
+        swirlx3dAutoLaunchCheck();
+    }//GEN-LAST:event_swirlx3dTFActionPerformed
 
     private void otherX3dPlayerPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherX3dPlayerPathTFActionPerformed
         X3dEditUserPreferences.setOtherX3dPlayerPath(otherX3dPlayerPathTF.getText().trim());
+        otherX3dPlayerAutoLaunchCheck();
     }//GEN-LAST:event_otherX3dPlayerPathTFActionPerformed
 
     private void hAnimJointColorRedTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hAnimJointColorRedTFActionPerformed
@@ -8951,7 +9022,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_hAnimSegmentColorChooserActionPerformed
 
     private void hAnimDefaultVisualizationSettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hAnimDefaultVisualizationSettingsButtonActionPerformed
-        // TODO add your handling code here:
+        initializeHAnimVisualizationDefaultValues ();
     }//GEN-LAST:event_hAnimDefaultVisualizationSettingsButtonActionPerformed
 
     private void hAnimSiteColorRedTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hAnimSiteColorRedTFActionPerformed
@@ -9253,6 +9324,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherX3dEditorNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherX3dEditorNameTFActionPerformed
     X3dEditUserPreferences.setOtherX3dEditorName(otherX3dEditorNameTF.getText().trim());
+    otherX3dEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherX3dEditorNameTFActionPerformed
 
   private void blenderX3dEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blenderX3dEditorCheckBoxActionPerformed
@@ -9300,6 +9372,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherImageEditorNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherImageEditorNameTFActionPerformed
     X3dEditUserPreferences.setOtherImageEditorName(otherImageEditorNameTF.getText().trim());
+    otherImageEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherImageEditorNameTFActionPerformed
 
   private void otherImageEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherImageEditorCheckBoxActionPerformed
@@ -9342,6 +9415,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherAudioEditorNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherAudioEditorNameTFActionPerformed
     X3dEditUserPreferences.setOtherAudioEditorName(otherAudioEditorNameTF.getText().trim());
+    otherAudioEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherAudioEditorNameTFActionPerformed
 
   private void otherAudioEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherAudioEditorCheckBoxActionPerformed
@@ -9384,6 +9458,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherVideoEditorNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVideoEditorNameTFActionPerformed
     X3dEditUserPreferences.setOtherVideoEditorName(otherVideoEditorNameTF.getText().trim());
+    otherVideoEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherVideoEditorNameTFActionPerformed
 
   private void otherVideoEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVideoEditorCheckBoxActionPerformed
@@ -9706,6 +9781,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherHtml5EditorNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherHtml5EditorNameTFActionPerformed
     X3dEditUserPreferences.setOtherHtml5EditorName(otherHtml5EditorNameTF.getText().trim());
+    otherHtml5EditorAutoLaunchCheck();
   }//GEN-LAST:event_otherHtml5EditorNameTFActionPerformed
 
   private void otherHtml5EditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherHtml5EditorCheckBoxActionPerformed
@@ -9748,6 +9824,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherVolumeEditorNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVolumeEditorNameTFActionPerformed
     X3dEditUserPreferences.setOtherVolumeEditorName(otherVolumeEditorNameTF.getText().trim());
+    otherVolumeEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherVolumeEditorNameTFActionPerformed
 
   private void otherVolumeEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVolumeEditorCheckBoxActionPerformed
@@ -10126,20 +10203,20 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         }
     }//GEN-LAST:event_altovaXMLSpyCheckBoxActionPerformed
 
-    private void altovaXMLSpyTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyTextFieldActionPerformed
-        X3dEditUserPreferences.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTextField.getText().trim());
+    private void altovaXMLSpyTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyTFActionPerformed
+        X3dEditUserPreferences.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTF.getText().trim());
         altovaXMLSpyAutoLaunchCheck ();
-    }//GEN-LAST:event_altovaXMLSpyTextFieldActionPerformed
+    }//GEN-LAST:event_altovaXMLSpyTFActionPerformed
 
     private void altovaXMLSpyChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyChooserButtonActionPerformed
-        commonChooser(altovaXMLSpyTextField, "Find Altova XMLSpy authoring tool", evt);
-        X3dEditUserPreferences.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTextField.getText().trim());
+        commonChooser(altovaXMLSpyTF, "Find Altova XMLSpy authoring tool", evt);
+        X3dEditUserPreferences.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTF.getText().trim());
         altovaXMLSpyAutoLaunchCheck ();
     }//GEN-LAST:event_altovaXMLSpyChooserButtonActionPerformed
 
     private void altovaXMLSpyDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyDefaultButtonActionPerformed
-        altovaXMLSpyTextField.setText(X3dEditUserPreferences.getAltovaXMLSpyX3dEditorPathDefault());
-        X3dEditUserPreferences.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTextField.getText().trim());
+        altovaXMLSpyTF.setText(X3dEditUserPreferences.getAltovaXMLSpyX3dEditorPathDefault());
+        X3dEditUserPreferences.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTF.getText().trim());
         curaAutoLaunchCheck ();
     }//GEN-LAST:event_altovaXMLSpyDefaultButtonActionPerformed
 
@@ -10197,6 +10274,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void otherSemanticWebEditorNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherSemanticWebEditorNameTFActionPerformed
         X3dEditUserPreferences.setOtherSemanticWebEditorName(otherSemanticWebEditorNameTF.getText().trim());
+        otherSemanticWebEditorAutoLaunchCheck();
     }//GEN-LAST:event_otherSemanticWebEditorNameTFActionPerformed
 
     private void otherSemanticWebEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherSemanticWebEditorCheckBoxActionPerformed
@@ -10390,11 +10468,15 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         checkSplitKeystoreDirectoryFilename ();
         X3dEditUserPreferences.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
         keystorePathLabel2.setText(getKeystorePath());
+        keystoreDirectoryCheck ();
+        keystoreFilePathCheck();
     }//GEN-LAST:event_keystoreDirectoryTFActionPerformed
 
     private void keystoreDirectoryTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_keystoreDirectoryTFFocusLost
         checkSplitKeystoreDirectoryFilename ();
         X3dEditUserPreferences.setKeystoreDirectory(keystoreDirectoryTF.getText().trim());
+        keystoreDirectoryCheck ();
+        keystoreFilePathCheck();
     }//GEN-LAST:event_keystoreDirectoryTFFocusLost
 
     private void keystoreExplorerPlayerPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_keystoreExplorerPlayerPathTFFocusLost
@@ -10412,6 +10494,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         keystoreDirectoryTF.setText("");
         setKeystoreFileName(keystoreFileNameTF.getText());
         keystorePathLabel2.setText(getKeystorePath());
+        keystoreDirectoryCheck ();
+        keystoreFilePathCheck();
     }//GEN-LAST:event_keystoreDirectoryTFClearButtonActionPerformed
 
     private void authorExamplesDirectoryTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryTFActionPerformed
@@ -10429,6 +10513,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         catch(Throwable t) {}// Forget about it, if any errors
         
         X3dEditUserPreferences.setExampleArchivesRootDirectory (authorExamplesDirectoryTF.getText());
+        authorExamplesDirectoryCheck ();
     }//GEN-LAST:event_authorExamplesDirectoryTFActionPerformed
 
     private void authorExamplesDirectoryClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryClearButtonActionPerformed
@@ -10436,6 +10521,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         authorExamplesDirectoryTF.setText("");
         authorExamplesDirectoryTF.setText(      authorExamplesDirectoryTF.getText().trim());
         X3dEditUserPreferences.setExampleArchivesRootDirectory (authorExamplesDirectoryTF.getText());
+        authorExamplesDirectoryCheck ();
     }//GEN-LAST:event_authorExamplesDirectoryClearButtonActionPerformed
 
     private void authorExamplesDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryButtonActionPerformed
@@ -10444,17 +10530,19 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         commonChooser(authorExamplesDirectoryTF, "Choose local examples root directory", evt);
         authorExamplesDirectoryTF.setText(      authorExamplesDirectoryTF.getText().trim());
         X3dEditUserPreferences.setExampleArchivesRootDirectory (authorExamplesDirectoryTF.getText());
+        authorExamplesDirectoryCheck ();
     }//GEN-LAST:event_authorExamplesDirectoryButtonActionPerformed
 
     private void authorExamplesDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryDefaultButtonActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryDefaultButtonActionPerformed
         authorExamplesDirectoryTF.setText(EXAMPLES_ROOT_DIRECTORY_DEFAULT); // user.home
         X3dEditUserPreferences.setExampleArchivesRootDirectory(authorExamplesDirectoryTF.getText());
+        authorExamplesDirectoryCheck ();
     }//GEN-LAST:event_authorExamplesDirectoryDefaultButtonActionPerformed
 
     private void keystorePasswordTFFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_keystorePasswordTFFocusLost
     {//GEN-HEADEREND:event_keystorePasswordTFFocusLost
-        // TODO add your handling code here:
+        setKeystorePassword(keystorePasswordTF.getText());
     }//GEN-LAST:event_keystorePasswordTFFocusLost
 
     private void keystorePasswordTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystorePasswordTFActionPerformed
@@ -10524,13 +10612,16 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void keystoreFileNameTFFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_keystoreFileNameTFFocusLost
     {//GEN-HEADEREND:event_keystoreFileNameTFFocusLost
-        // TODO add your handling code here:
+        setKeystoreFileName(keystoreFileNameTF.getText());
+        keystorePathLabel2.setText(getKeystorePath());
+        keystoreFilePathCheck ();
     }//GEN-LAST:event_keystoreFileNameTFFocusLost
 
     private void keystoreFileNameTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystoreFileNameTFActionPerformed
     {//GEN-HEADEREND:event_keystoreFileNameTFActionPerformed
         setKeystoreFileName(keystoreFileNameTF.getText());
         keystorePathLabel2.setText(getKeystorePath());
+        keystoreFilePathCheck ();
     }//GEN-LAST:event_keystoreFileNameTFActionPerformed
 
     private void keystoreFileNameTFClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystoreFileNameTFClearButtonActionPerformed
@@ -10538,6 +10629,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         keystoreFileNameTF.setText("");
         setKeystoreFileName(keystoreFileNameTF.getText());
         keystorePathLabel2.setText(getKeystorePath());
+        keystoreFilePathCheck ();
     }//GEN-LAST:event_keystoreFileNameTFClearButtonActionPerformed
 
     private void keystorePasswordDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_keystorePasswordDefaultButtonActionPerformed
@@ -10550,6 +10642,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         keystoreFileNameTF.setText(getKeystoreFileNameDefault());
         X3dEditUserPreferences.setKeystoreFileName(keystoreFileNameTF.getText());
         keystorePathLabel2.setText(getKeystorePath());
+        keystoreFilePathCheck ();
     }//GEN-LAST:event_keystoreFileNameDefaultButtonActionPerformed
 
     private void reportAuthorButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_reportAuthorButtonActionPerformed
@@ -10560,16 +10653,19 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void newX3dModelsDirectoryTFFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryTFFocusLost
     {//GEN-HEADEREND:event_newX3dModelsDirectoryTFFocusLost
         X3dEditUserPreferences.setNewX3dModelsDirectory(newX3dModelsDirectoryTF.getText());
+        newX3dModelsDirectoryCheck ();
     }//GEN-LAST:event_newX3dModelsDirectoryTFFocusLost
 
     private void newX3dModelsDirectoryTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryTFActionPerformed
     {//GEN-HEADEREND:event_newX3dModelsDirectoryTFActionPerformed
-        initializeNewModelsDirectory();
+        initializeNewX3dModelsDirectory();
+        newX3dModelsDirectoryCheck ();
     }//GEN-LAST:event_newX3dModelsDirectoryTFActionPerformed
 
     private void newX3dModelsDirectoryClearButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryClearButtonActionPerformed
     {//GEN-HEADEREND:event_newX3dModelsDirectoryClearButtonActionPerformed
         newX3dModelsDirectoryTF.setText("");
+        newX3dModelsDirectoryCheck ();
     }//GEN-LAST:event_newX3dModelsDirectoryClearButtonActionPerformed
 
     private void newX3dModelsDirectoryButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryButtonActionPerformed
@@ -10578,13 +10674,14 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         commonChooser(newX3dModelsDirectoryTF, "Choose directory for creating new X3D example files", evt);
         newX3dModelsDirectoryTF.setText(       newX3dModelsDirectoryTF.getText().trim());
         X3dEditUserPreferences.setNewX3dModelsDirectory(newX3dModelsDirectoryTF.getText());
-        initializeNewModelsDirectory();
+        initializeNewX3dModelsDirectory();
+        newX3dModelsDirectoryCheck ();
     }//GEN-LAST:event_newX3dModelsDirectoryButtonActionPerformed
 
     private void newX3dModelsDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryDefaultButtonActionPerformed
     {//GEN-HEADEREND:event_newX3dModelsDirectoryDefaultButtonActionPerformed
        newX3dModelsDirectoryTF.setText(X3dEditUserPreferences.NEW_X3D_MODELS_DIRECTORY_DEFAULT);
-       initializeNewModelsDirectory();
+       initializeNewX3dModelsDirectory();
     }//GEN-LAST:event_newX3dModelsDirectoryDefaultButtonActionPerformed
 
     private void viewX3dCanonicalizationC14nReadmeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_viewX3dCanonicalizationC14nReadmeButtonActionPerformed
@@ -10729,10 +10826,11 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         }
     }
     /** Include information so that directory purpose is evident. */
-    private void initializeNewModelsDirectory()
+    private void initializeNewX3dModelsDirectory()
     {
         // set autolaunch if appropriate
-        if (newX3dModelsDirectoryTF.getText().trim().equals(X3dEditUserPreferences.getAuthorModelsDirectory()))
+        if (newX3dModelsDirectoryTF.getText().trim().equals(X3dEditUserPreferences.getAuthorModelsDirectory()) &&
+            !X3dEditUserPreferences.isExampleArchivesServerAutolaunch())
         {
             X3dEditUserPreferences.setExampleArchivesServerAutolaunch(true);
             
@@ -10792,311 +10890,490 @@ for Extensible 3D (X3D) Graphics International Standard.
             Exceptions.printStackTrace(ex);
         }
     }
+  private void contactAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(contactTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setContactAutoLaunch(Boolean.toString(isExecutableFile));
+    contactCheckBox.setSelected(isExecutableFile);
+    contactLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, contactLabel, contactTF);
+  }
+  private void contactGeoAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(contactGeoTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setContactGeoAutoLaunch(Boolean.toString(isExecutableFile));
+    contactGeoCheckBox.setSelected(isExecutableFile);
+    contactGeoLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, contactGeoLabel, contactGeoTF);
+  }
+  private void freeWrlAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(freeWrlTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setFreeWrlAutoLaunch(Boolean.toString(isExecutableFile));
+    freeWrlCheckBox.setSelected(isExecutableFile);
+    freeWrlLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, freeWrlLabel, freeWrlTF);
+  }
+  private void h3dAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(h3dTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setH3dAutoLaunch(Boolean.toString(isExecutableFile));
+    h3dCheckBox.setSelected(isExecutableFile);
+    h3dLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, h3dLabel, h3dTF);
+  }
+  private void instantRealityAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(instantRealityTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setInstantRealityAutoLaunch(Boolean.toString(isExecutableFile));
+    instantRealityCheckBox.setSelected(isExecutableFile);
+    instantRealityLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, instantRealityLabel, instantRealityTF);
+  }
+  private void octagaAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(octagaTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setOctagaAutoLaunch(Boolean.toString(isExecutableFile));
+    octagaCheckBox.setSelected(isExecutableFile);
+    octagaLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, octagaLabel, octagaTF);
+  }
+  private void view3dsceneAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(view3dsceneTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setView3dSceneAutoLaunch(Boolean.toString(isExecutableFile));
+    view3dsceneCheckBox.setSelected(isExecutableFile);
+    view3dsceneLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, view3dsceneLabel, view3dsceneTF);
+  }
+  private void xj3dAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(xj3dTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setXj3dAutoLaunch(Boolean.toString(isExecutableFile));
+    xj3dCheckBox.setSelected(isExecutableFile);
+    xj3dLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, xj3dLabel, xj3dTF);
+  }
+  private void heilanAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(heilanTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setHeilanAutoLaunch(Boolean.toString(isExecutableFile));
+    heilanCheckBox.setSelected(isExecutableFile);
+    heilanLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, heilanLabel, heilanTF);
+  }
+  private void swirlx3dAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(swirlx3dTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setSwirlx3dAutoLaunch(Boolean.toString(isExecutableFile));
+    swirlx3dCheckBox.setSelected(isExecutableFile);
+    swirlx3dLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, swirlx3dLabel, swirlx3dTF);
+  }
+  private void vivatyAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(vivatyTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setVivatyAutoLaunch(Boolean.toString(isExecutableFile));
+    vivatyCheckBox.setSelected(isExecutableFile);
+    vivatyLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, vivatyLabel, vivatyTF);
+  }
   private void amayaAutoLaunchCheck ()
   {
     checkExistingFile = new File(amayaEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setAmayaAutoLaunch(Boolean.toString(executableFile));
-    amayaEditorCheckBox.setSelected(executableFile);
-    amayaEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setAmayaAutoLaunch(Boolean.toString(isExecutableFile));
+    amayaEditorCheckBox.setSelected(isExecutableFile);
+    amayaEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, amayaEditorLabel, amayaEditorPathTF);
   }
   private void batikAutoLaunchCheck ()
   {
     checkExistingFile = new File(batikEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setBatikAutoLaunch(Boolean.toString(executableFile));
-    batikEditorCheckBox.setSelected(executableFile);
-    batikEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setBatikAutoLaunch(Boolean.toString(isExecutableFile));
+    batikEditorCheckBox.setSelected(isExecutableFile);
+    batikEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, batikEditorLabel, batikEditorPathTF);
   }
   private void titaniaAutoLaunchCheck ()
   {
     checkExistingFile = new File(titaniaX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setTitaniaAutoLaunch(Boolean.toString(executableFile));
-    titaniaX3dEditorCheckBox.setSelected(executableFile);
-    titaniaX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setTitaniaAutoLaunch(Boolean.toString(isExecutableFile));
+    titaniaX3dEditorCheckBox.setSelected(isExecutableFile);
+    titaniaX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, titaniaX3dEditorLabel, titaniaX3dEditorPathTF);
   }
   private void audacityAutoLaunchCheck ()
   {
     checkExistingFile = new File(audacityEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setAudacityAutoLaunch(Boolean.toString(executableFile));
-    audacityEditorCheckBox.setSelected(executableFile);
-    audacityEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setAudacityAutoLaunch(Boolean.toString(isExecutableFile));
+    audacityEditorCheckBox.setSelected(isExecutableFile);
+    audacityEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, audacityEditorLabel, audacityEditorPathTF);
   }
   private void museScoreAutoLaunchCheck ()
   {
     checkExistingFile = new File(museScoreEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setMuseScoreAutoLaunch(Boolean.toString(executableFile));
-    museScoreCheckBox.setSelected(executableFile);
-    museScoreEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setMuseScoreAutoLaunch(Boolean.toString(isExecutableFile));
+    museScoreCheckBox.setSelected(isExecutableFile);
+    museScoreEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, museScoreEditorLabel, museScoreEditorPathTF);
   }
   private void gimpAutoLaunchCheck ()
   {
     checkExistingFile = new File(gimpEditorTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setGimpAutoLaunch(Boolean.toString(executableFile));
-    gimpCheckBox.setSelected(executableFile);
-    gimpEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setGimpAutoLaunch(Boolean.toString(isExecutableFile));
+    gimpCheckBox.setSelected(isExecutableFile);
+    gimpEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, gimpEditorLabel, gimpEditorTF);
   }
   private void fijiAutoLaunchCheck ()
   {
     checkExistingFile = new File(fijiEditorTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setFijiAutoLaunch(Boolean.toString(executableFile));
-    fijiCheckBox.setSelected(executableFile);
-    fijiEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setFijiAutoLaunch(Boolean.toString(isExecutableFile));
+    fijiCheckBox.setSelected(isExecutableFile);
+    fijiEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, fijiEditorLabel, fijiEditorTF);
   }
   private void imageJAutoLaunchCheck ()
   {
     checkExistingFile = new File(imageJEditorTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setImageJAutoLaunch(Boolean.toString(executableFile));
-    imageJCheckBox.setSelected(executableFile);
-    imageJEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setImageJAutoLaunch(Boolean.toString(isExecutableFile));
+    imageJCheckBox.setSelected(isExecutableFile);
+    imageJEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, imageJEditorLabel, imageJEditorTF);
   }
   private void imageMagickAutoLaunchCheck ()
   {
     checkExistingFile = new File(imageMagickEditorTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setImageMagickAutoLaunch(Boolean.toString(executableFile));
-    imageMagickCheckBox.setSelected(executableFile);
-    imageMagickEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setImageMagickAutoLaunch(Boolean.toString(isExecutableFile));
+    imageMagickCheckBox.setSelected(isExecutableFile);
+    imageMagickEditorLaunchButton.setEnabled(isExecutableFile);
+         showFound (isExecutableFile, imageMagickEditorLabel, imageMagickEditorTF);
   }
   private void vlcAutoLaunchCheck ()
   {
     checkExistingFile = new File(vlcPlayerPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setVlcAutoLaunch(Boolean.toString(executableFile));
-    vlcPlayerCheckBox.setSelected(executableFile);
-    vlcPlayerLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setVlcAutoLaunch(Boolean.toString(isExecutableFile));
+    vlcPlayerCheckBox.setSelected(isExecutableFile);
+    vlcPlayerLaunchButton.setEnabled(isExecutableFile);
+         showFound (isExecutableFile, vlcPlayerLabel, vlcPlayerPathTF);
   }
   private void protegeAutoLaunchCheck ()
   {
     checkExistingFile = new File(protegePlayerPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setProtegeAutoLaunch(Boolean.toString(executableFile));
-    protegePlayerCheckBox.setSelected(executableFile);
-    protegePlayerLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setProtegeAutoLaunch(Boolean.toString(isExecutableFile));
+    protegePlayerCheckBox.setSelected(isExecutableFile);
+    protegePlayerLaunchButton.setEnabled(isExecutableFile);
+         showFound (isExecutableFile, protegePlayerLabel, protegePlayerPathTF);
   }
   private void portecleAutoLaunchCheck ()
   {
     checkExistingFile = new File(porteclePlayerPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setPortecleAutoLaunch(Boolean.toString(executableFile));
-    porteclePlayerLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setPortecleAutoLaunch(Boolean.toString(isExecutableFile));
+    porteclePlayerLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, porteclePlayerLabel, porteclePlayerPathTF);
   }
   private void keystoreExplorerAutoLaunchCheck ()
   {
     checkExistingFile = new File(keystoreExplorerPlayerPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setKeystoreExplorerAutoLaunch(Boolean.toString(executableFile));
-    keystoreExplorerPlayerLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setKeystoreExplorerAutoLaunch(Boolean.toString(isExecutableFile));
+    keystoreExplorerPlayerLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, keystoreExplorerPlayerLabel, keystoreExplorerPlayerPathTF);
   }
   private void altovaXMLSpyAutoLaunchCheck ()
   {
-    checkExistingFile = new File(altovaXMLSpyTextField.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setAltovaXMLSpyAutoLaunch(Boolean.toString(executableFile));
-    altovaXMLSpyCheckBox.setSelected(executableFile);
-    altovaXMLSpyLaunchButton.setEnabled(executableFile);
+    checkExistingFile = new File(altovaXMLSpyTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setAltovaXMLSpyAutoLaunch(Boolean.toString(isExecutableFile));
+    altovaXMLSpyCheckBox.setSelected(isExecutableFile);
+    altovaXMLSpyLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, altovaXMLSpyLabel, altovaXMLSpyTF);
   }
   private void blenderAutoLaunchCheck ()
   {
     checkExistingFile = new File(blenderX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setBlenderAutoLaunch(Boolean.toString(executableFile));
-    blenderX3dEditorCheckBox.setSelected(executableFile);
-    blenderX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setBlenderAutoLaunch(Boolean.toString(isExecutableFile));
+    blenderX3dEditorCheckBox.setSelected(isExecutableFile);
+    blenderX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, blenderX3dEditorLabel, blenderX3dEditorPathTF);
   }
   private void bsContentStudioAutoLaunchCheck ()
   {
     checkExistingFile = new File(bsContentStudioX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setBsContentStudioAutoLaunch(Boolean.toString(executableFile));
-    bsContentStudioX3dEditorCheckBox.setSelected(executableFile);
-    bsContentStudioX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setBsContentStudioAutoLaunch(Boolean.toString(isExecutableFile));
+    bsContentStudioX3dEditorCheckBox.setSelected(isExecutableFile);
+    bsContentStudioX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, bsContentStudioX3dEditorLabel, bsContentStudioX3dEditorPathTF);
   }
   private void curaAutoLaunchCheck ()
   {
     checkExistingFile = new File(curaX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setCuraAutoLaunch(Boolean.toString(executableFile));
-    curaX3dEditorCheckBox.setSelected(executableFile);
-    curaX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setCuraAutoLaunch(Boolean.toString(isExecutableFile));
+    curaX3dEditorCheckBox.setSelected(isExecutableFile);
+    curaX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, curaX3dEditorLabel, curaX3dEditorPathTF);
   }
   private void meshLabAutoLaunchCheck ()
   {
     checkExistingFile = new File(meshLabX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setMeshLabAutoLaunch(Boolean.toString(executableFile));
-    meshLabX3dEditorCheckBox.setSelected(executableFile);
-    meshLabX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setMeshLabAutoLaunch(Boolean.toString(isExecutableFile));
+    meshLabX3dEditorCheckBox.setSelected(isExecutableFile);
+    meshLabX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, meshLabX3dEditorLabel, meshLabX3dEditorPathTF);
   }
   private void paraviewAutoLaunchCheck ()
   {
     checkExistingFile = new File(paraviewX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setParaviewAutoLaunch(Boolean.toString(executableFile));
-    paraviewX3dEditorCheckBox.setSelected(executableFile);
-    paraviewX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setParaviewAutoLaunch(Boolean.toString(isExecutableFile));
+    paraviewX3dEditorCheckBox.setSelected(isExecutableFile);
+    paraviewX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, paraviewX3dEditorLabel, paraviewX3dEditorPathTF);
   }
   private void polyTransNuGrafAutoLaunchCheck ()
   {
     checkExistingFile = new File(polyTransNuGrafEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setPolyTransNuGrafAutoLaunch(Boolean.toString(executableFile));
-    polyTransNuGrafEditorCheckBox.setSelected(executableFile);
-    polyTransNuGrafEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setPolyTransNuGrafAutoLaunch(Boolean.toString(isExecutableFile));
+    polyTransNuGrafEditorCheckBox.setSelected(isExecutableFile);
+    polyTransNuGrafEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, polyTransNuGrafEditorLabel, polyTransNuGrafEditorPathTF);
   }
   private void seamless3dAutoLaunchCheck ()
   {
     checkExistingFile = new File(seamless3dX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setSeamless3dAutoLaunch(Boolean.toString(executableFile));
-    seamless3dX3dEditorCheckBox.setSelected(executableFile);
-    seamless3dX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setSeamless3dAutoLaunch(Boolean.toString(isExecutableFile));
+    seamless3dX3dEditorCheckBox.setSelected(isExecutableFile);
+    seamless3dX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, seamless3dX3dEditorLabel, seamless3dX3dEditorPathTF);
   }
   private void itksnapVolumeAutoLaunchCheck ()
   {
     checkExistingFile = new File(itksnapVolumeEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setItksnapAutoLaunch(Boolean.toString(executableFile));
-    itksnapVolumeEditorCheckBox.setSelected(executableFile);
-    itksnapVolumeEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setItksnapAutoLaunch(Boolean.toString(isExecutableFile));
+    itksnapVolumeEditorCheckBox.setSelected(isExecutableFile);
+    itksnapVolumeEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, itksnapVolumeEditorLabel, itksnapVolumeEditorPathTF);
   }
   private void seg3dVolumeAutoLaunchCheck ()
   {
     checkExistingFile = new File(seg3dVolumeEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setSeg3dAutoLaunch(Boolean.toString(executableFile));
-    seg3dVolumeEditorCheckBox.setSelected(executableFile);
-    seg3dVolumeEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setSeg3dAutoLaunch(Boolean.toString(isExecutableFile));
+    seg3dVolumeEditorCheckBox.setSelected(isExecutableFile);
+    seg3dVolumeEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, seg3dVolumeEditorLabel, seg3dVolumeEditorPathTF);
   }
   private void slicer3dVolumeAutoLaunchCheck ()
   {
     checkExistingFile = new File(slicer3dVolumeEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setSlicer3dAutoLaunch(Boolean.toString(executableFile));
-    slicer3dVolumeEditorCheckBox.setSelected(executableFile);
-    slicer3dVolumeEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setSlicer3dAutoLaunch(Boolean.toString(isExecutableFile));
+    slicer3dVolumeEditorCheckBox.setSelected(isExecutableFile);
+    slicer3dVolumeEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, slicer3dVolumeEditorLabel, slicer3dVolumeEditorPathTF);
   }
   private void ultraEditAutoLaunchCheck ()
   {
     checkExistingFile = new File(ultraEditX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setUltraEditAutoLaunch(Boolean.toString(executableFile));
-    ultraEditX3dEditorCheckBox.setSelected(executableFile);
-    ultraEditX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setUltraEditAutoLaunch(Boolean.toString(isExecutableFile));
+    ultraEditX3dEditorCheckBox.setSelected(isExecutableFile);
+    ultraEditX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, ultraEditX3dEditorLabel, ultraEditX3dEditorPathTF);
   }
   private void wings3dAutoLaunchCheck ()
   {
     checkExistingFile = new File(wings3dX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setWings3dAutoLaunch(Boolean.toString(executableFile));
-    wings3dX3dEditorCheckBox.setSelected(executableFile);
-    wings3dX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setWings3dAutoLaunch(Boolean.toString(isExecutableFile));
+    wings3dX3dEditorCheckBox.setSelected(isExecutableFile);
+    wings3dX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, wings3dX3dEditorLabel, wings3dX3dEditorPathTF);
   }
   private void whiteDuneAutoLaunchCheck ()
   {
     checkExistingFile = new File(whiteDuneX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setWhiteDuneAutoLaunch(Boolean.toString(executableFile));
-    whiteDuneX3dEditorCheckBox.setSelected(executableFile);
-    whiteDuneX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setWhiteDuneAutoLaunch(Boolean.toString(isExecutableFile));
+    whiteDuneX3dEditorCheckBox.setSelected(isExecutableFile);
+    whiteDuneX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, whiteDuneX3dEditorLabel, whiteDuneX3dEditorPathTF);
   }
   private void otherAudioEditorAutoLaunchCheck ()
   {
     checkExistingFile = new File(otherAudioEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setOtherAudioEditorAutoLaunch(Boolean.toString(executableFile));
-    otherAudioEditorCheckBox.setSelected(executableFile);
-    otherAudioEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setOtherAudioEditorAutoLaunch(Boolean.toString(isExecutableFile));
+    otherAudioEditorCheckBox.setSelected(isExecutableFile);
+    otherAudioEditorLaunchButton.setEnabled(isExecutableFile);
     otherAudioEditorClearButton.setEnabled(otherAudioEditorPathTF.getText().trim().length() > 0);
+    showFound (isExecutableFile, otherAudioEditorNameTF);
   }
   private void otherHtml5EditorAutoLaunchCheck ()
   {
     checkExistingFile = new File(otherHtml5EditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setOtherHtml5EditorAutoLaunch(Boolean.toString(executableFile));
-    otherHtml5EditorCheckBox.setSelected(executableFile);
-    otherHtml5EditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setOtherHtml5EditorAutoLaunch(Boolean.toString(isExecutableFile));
+    otherHtml5EditorCheckBox.setSelected(isExecutableFile);
+    otherHtml5EditorLaunchButton.setEnabled(isExecutableFile);
     otherHtml5EditorClearButton.setEnabled(otherHtml5EditorPathTF.getText().trim().length() > 0);
+    showFound (isExecutableFile, otherHtml5EditorNameTF);
   }
   private void otherImageEditorAutoLaunchCheck ()
   {
     checkExistingFile = new File(otherImageEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setOtherImageEditorAutoLaunch(Boolean.toString(executableFile));
-    otherImageEditorCheckBox.setSelected(executableFile);
-    otherImageEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setOtherImageEditorAutoLaunch(Boolean.toString(isExecutableFile));
+    otherImageEditorCheckBox.setSelected(isExecutableFile);
+    otherImageEditorLaunchButton.setEnabled(isExecutableFile);
     otherImageEditorClearButton.setEnabled(otherImageEditorPathTF.getText().trim().length() > 0);
+    showFound (isExecutableFile, otherImageEditorNameTF);
   }
   private void otherVideoEditorAutoLaunchCheck ()
   {
     checkExistingFile = new File(otherVideoEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setOtherVideoEditorAutoLaunch(Boolean.toString(executableFile));
-    otherVideoEditorCheckBox.setSelected(executableFile);
-    otherVideoEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setOtherVideoEditorAutoLaunch(Boolean.toString(isExecutableFile));
+    otherVideoEditorCheckBox.setSelected(isExecutableFile);
+    otherVideoEditorLaunchButton.setEnabled(isExecutableFile);
     otherVideoEditorClearButton.setEnabled(otherVideoEditorPathTF.getText().trim().length() > 0);
+    showFound (isExecutableFile, otherVideoEditorNameTF);
   }
   private void otherVolumeEditorAutoLaunchCheck ()
   {
     checkExistingFile = new File(otherVolumeEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setOtherVolumeEditorAutoLaunch(Boolean.toString(executableFile));
-    otherVolumeEditorCheckBox.setSelected(executableFile);
-    otherVolumeEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setOtherVolumeEditorAutoLaunch(Boolean.toString(isExecutableFile));
+    otherVolumeEditorCheckBox.setSelected(isExecutableFile);
+    otherVolumeEditorLaunchButton.setEnabled(isExecutableFile);
     otherVolumeEditorClearButton.setEnabled(otherVolumeEditorPathTF.getText().trim().length() > 0);
+    showFound (isExecutableFile, otherVolumeEditorNameTF);
   }
   private void otherSemanticWebEditorAutoLaunchCheck ()
   {
     checkExistingFile = new File(otherSemanticWebEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setOtherSemanticWebEditorAutoLaunch(Boolean.toString(executableFile));
-    otherSemanticWebEditorCheckBox.setSelected(executableFile);
-    otherSemanticWebEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setOtherSemanticWebEditorAutoLaunch(Boolean.toString(isExecutableFile));
+    otherSemanticWebEditorCheckBox.setSelected(isExecutableFile);
+    otherSemanticWebEditorLaunchButton.setEnabled(isExecutableFile);
     otherSemanticWebEditorClearButton.setEnabled(otherSemanticWebEditorPathTF.getText().trim().length() > 0);
+    showFound (isExecutableFile, otherSemanticWebEditorNameTF);
   }
   private void otherX3dEditorAutoLaunchCheck ()
   {
     checkExistingFile = new File(otherX3dEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setOtherX3dEditorAutoLaunch(Boolean.toString(executableFile));
-    otherX3dEditorCheckBox.setSelected(executableFile);
-    otherX3dEditorLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setOtherX3dEditorAutoLaunch(Boolean.toString(isExecutableFile));
+    otherX3dEditorCheckBox.setSelected(isExecutableFile);
+    otherX3dEditorLaunchButton.setEnabled(isExecutableFile);
     otherX3dEditorClearButton.setEnabled(otherX3dEditorPathTF.getText().trim().length() > 0); // keep the clear button enabled
+    showFound (isExecutableFile, otherX3dEditorNameTF);
   }
   private void otherX3dPlayerAutoLaunchCheck ()
   {
     checkExistingFile = new File(otherX3dPlayerPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setOtherX3dPlayerAutoLaunch(Boolean.toString(executableFile));
-    otherX3dPlayerCheckBox.setSelected(executableFile);
-    otherX3dPlayerLaunchButton.setEnabled(executableFile);
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setOtherX3dPlayerAutoLaunch(Boolean.toString(isExecutableFile));
+    otherX3dPlayerCheckBox.setSelected(isExecutableFile);
+    otherX3dPlayerLaunchButton.setEnabled(isExecutableFile);
     otherX3dPlayerClearButton.setEnabled(otherX3dPlayerPathTF.getText().trim().length() > 0); // keep the clear button enabled
+    showFound (isExecutableFile, otherX3dPlayerNameTF);
+  }
+  private void inkscapeEditorAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(inkscapeEditorPathTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setInkscapeAutoLaunch(Boolean.toString(isExecutableFile));
+    inkscapeEditorCheckBox.setSelected(isExecutableFile);
+    inkscapeEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, inkscapeEditorLabel, inkscapeEditorPathTF);
+  }
+  private void newX3dModelsDirectoryCheck ()
+  {
+    checkExistingFile = new File(newX3dModelsDirectoryTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isDirectory() && checkExistingFile.canExecute();
+    showFound (isExecutableFile, newX3dModelsDirectoryTF);
+  }
+  private void authorExamplesDirectoryCheck ()
+  {
+    checkExistingFile = new File(authorExamplesDirectoryTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isDirectory() && checkExistingFile.canExecute();
+    showFound (isExecutableFile, authorExamplesDirectoryTF);
+  }
+  private void keystoreDirectoryCheck ()
+  {
+    checkExistingFile = new File(keystoreDirectoryTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isDirectory() && checkExistingFile.canExecute();
+    showFound (isExecutableFile, keystoreDirectoryTF);
+  }
+  private void keystoreFilePathCheck ()
+  {
+    checkExistingFile = new File(keystoreDirectoryTF.getText().trim() + File.separatorChar + keystoreFileNameTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && 
+                       !keystoreFileNameTF.getText().contains("\\") && !keystoreFileNameTF.getText().contains("//");
+    showFound (isExecutableFile, keystoreFileNameTF);
   }
   private void svgeditEditorAutoLaunchCheck ()
   {
     // SVG-Edit is an online tool
-//    checkExistingFile = new File(svgeditEditorPathTF.getText().trim());
-//    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setSvgeditAutoLaunch("true"); // Boolean.toString(executableFile));
+    isReachableWebsite = isSiteUp (svgeditEditorPathTF.getText().trim());
+    X3dEditUserPreferences.setSvgeditAutoLaunch(Boolean.toString(isReachableWebsite)); // "true"
       
     svgeditEditorChooserButton.setEnabled(false); // local launch not supported
     svgeditEditorCheckBox.setSelected   (true); // executableFile);
     svgeditEditorLaunchButton.setEnabled(true); // executableFile);
+    showFound (isReachableWebsite, svgeditEditorLabel, svgeditEditorPathTF);
   }
-  private void inkscapeEditorAutoLaunchCheck ()
+  
+  // https://stackoverflow.com/questions/13778635/checking-status-of-website-in-java
+  public static boolean isSiteUp(String address)
   {
-        checkExistingFile = new File(inkscapeEditorPathTF.getText().trim());
-    executableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setInkscapeAutoLaunch(Boolean.toString(executableFile));
-    inkscapeEditorCheckBox.setSelected(executableFile);
-    inkscapeEditorLaunchButton.setEnabled(executableFile);
-  }
+        try {
+            URL site = new URI (address).toURL(); 
+            HttpURLConnection httpURLConnection = (HttpURLConnection) site.openConnection();
+            httpURLConnection.getContent();
+            if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                return true;
+            }
+            return false;
+        } catch (SocketTimeoutException tout) {
+            return false;
+        } catch (IOException | URISyntaxException ioex) {
+            // You may decide on more specific behaviour...
+            return false;
+        }
+      }
 
   public static void browserLaunch(String pageUrl)
   {
@@ -11215,13 +11492,27 @@ for Extensible 3D (X3D) Graphics International Standard.
     // https://stackoverflow.com/questions/25666642/jfilechooser-to-pick-a-directory-or-a-single-file
     fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES) ; // prevents user from seeing what is present: DIRECTORIES_ONLY);
     
-    if (title.toLowerCase().contains("keystore"))
+    // https://stackoverflow.com/questions/4850315/how-to-change-text-in-jfilechooser
+    fileChooser.setApproveButtonText("Select");
+    
+    if (title.toLowerCase().contains("keystore") && !title.toLowerCase().contains("manager"))
     {
         fileChooser.setFileFilter(new keyStoreFileTypeFilter());
     }
     // TODO special handling for any other file types?
     
-////    File newX3dModelDirectory = new File(fileChooser.getCurrentDirectory())
+    // initally point chooser at prior directory, if any
+    if ((textField != null) && !textField.getText().trim().isEmpty())
+    {
+        File priorFile = new File(textField.getText().trim());
+        if (priorFile.exists())
+        {
+           // unnecesary
+//            if (newDirectory.isFile())
+//                newDirectory = newDirectory.getParentFile(); // directory actually
+            fileChooser.setSelectedFile(priorFile);
+        }
+    }    
 
     int returnValue = fileChooser.showOpenDialog(this); // blocks to display and choose
     if (returnValue == JFileChooser.APPROVE_OPTION)
@@ -11242,7 +11533,7 @@ for Extensible 3D (X3D) Graphics International Standard.
   /**
    * Retrieve default or saved values and initialize panels
    */
-  void load()
+  void load ()
   {
        authorNameTextField.setText(X3dEditUserPreferences.getAuthorName());
       authorEmailTextField.setText(X3dEditUserPreferences.getAuthorEmail());
@@ -11261,10 +11552,10 @@ for Extensible 3D (X3D) Graphics International Standard.
                   heilanTF.setText(X3dEditUserPreferences.getHeilanPath());
           instantRealityTF.setText(X3dEditUserPreferences.getInstantRealityPath());
                   octagaTF.setText(X3dEditUserPreferences.getOctagaPath());
-                swirlX3dTF.setText(X3dEditUserPreferences.getSwirlX3DPath());
+                swirlx3dTF.setText(X3dEditUserPreferences.getSwirlX3DPath());
              view3dsceneTF.setText(X3dEditUserPreferences.getView3dScenePath());
-                  vivatyTF.setText(X3dEditUserPreferences.getVivatyPlayerPath());
-                    xj3DTF.setText(X3dEditUserPreferences.getXj3DPath());
+                  vivatyTF.setText(X3dEditUserPreferences.getVivatyPath());
+                    xj3dTF.setText(X3dEditUserPreferences.getXj3DPath());
       otherX3dPlayerNameTF.setText(X3dEditUserPreferences.getOtherX3dPlayerName());
       otherX3dPlayerPathTF.setText(X3dEditUserPreferences.getOtherX3dPlayerPath());
       otherX3dEditorNameTF.setText(X3dEditUserPreferences.getOtherX3dEditorName());
@@ -11284,7 +11575,7 @@ for Extensible 3D (X3D) Graphics International Standard.
        porteclePlayerPathTF.setText(X3dEditUserPreferences.getPorteclePlayerPath());
         keystoreDirectoryTF.setText(X3dEditUserPreferences.getKeystoreDirectory());
 keystoreExplorerPlayerPathTF.setText(X3dEditUserPreferences.getKeystoreExplorerPlayerPath());
-      altovaXMLSpyTextField.setText(X3dEditUserPreferences.getAltovaXMLSpyX3dEditorPath());
+      altovaXMLSpyTF.setText(X3dEditUserPreferences.getAltovaXMLSpyX3dEditorPath());
      blenderX3dEditorPathTF.setText(X3dEditUserPreferences.getBlenderX3dEditorPath());
 bsContentStudioX3dEditorPathTF.setText(X3dEditUserPreferences.getBsContentStudioX3dEditorPath());
      meshLabX3dEditorPathTF.setText(X3dEditUserPreferences.getMeshLabX3dEditorPath());
@@ -11313,14 +11604,16 @@ polyTransNuGrafEditorPathTF.setText(X3dEditUserPreferences.getPolyTransNuGrafEdi
   otherSemanticWebEditorPathTF.setText(X3dEditUserPreferences.getOtherSemanticWebEditorPath());
 
               contactCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isContactAutoLaunch()));
+           contactGeoCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isContactGeoAutoLaunch()));
               freeWrlCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isFreeWrlAutoLaunch()));
                   h3dCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isH3dAutoLaunch()));
                heilanCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isHeilanAutoLaunch()));
        instantRealityCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isInstantRealityAutoLaunch()));
-             swirlX3dCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSwirlX3DAutoLaunch()));
+               octagaCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOctagaAutoLaunch()));
           view3dsceneCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isView3dSceneAutoLaunch()));
-               vivatyCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isVivatyPlayerAutoLaunch()));
                  xj3dCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isXj3dAutoLaunch()));
+             swirlx3dCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSwirlX3DAutoLaunch()));
+               vivatyCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isVivatyAutoLaunch()));
        otherX3dPlayerCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOtherX3dPlayerAutoLaunch()));
        otherX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOtherX3dEditorAutoLaunch()));
 
@@ -11356,44 +11649,6 @@ slicer3dVolumeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPrefere
     otherVideoEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOtherVideoEditorAutoLaunch()));
    otherVolumeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOtherVolumeEditorAutoLaunch()));
 otherSemanticWebEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOtherSemanticWebEditorAutoLaunch()));
-
-       audacityAutoLaunchCheck ();
-          batikAutoLaunchCheck ();
- inkscapeEditorAutoLaunchCheck ();
-      museScoreAutoLaunchCheck ();
-           gimpAutoLaunchCheck ();
-           fijiAutoLaunchCheck ();
-         imageJAutoLaunchCheck ();
-    imageMagickAutoLaunchCheck ();
-            vlcAutoLaunchCheck ();
-        protegeAutoLaunchCheck ();
-        portecleAutoLaunchCheck ();
-        keystoreExplorerAutoLaunchCheck ();
-   altovaXMLSpyAutoLaunchCheck ();
-        blenderAutoLaunchCheck ();
-bsContentStudioAutoLaunchCheck ();
-        meshLabAutoLaunchCheck ();
-       paraviewAutoLaunchCheck ();
-polyTransNuGrafAutoLaunchCheck ();
-     seamless3dAutoLaunchCheck ();
-        titaniaAutoLaunchCheck ();
-  itksnapVolumeAutoLaunchCheck ();
-    seg3dVolumeAutoLaunchCheck ();
- slicer3dVolumeAutoLaunchCheck ();
- inkscapeEditorAutoLaunchCheck ();
-  svgeditEditorAutoLaunchCheck ();
-      whiteDuneAutoLaunchCheck ();
-        wings3dAutoLaunchCheck ();
-      ultraEditAutoLaunchCheck ();
-
-      otherAudioEditorAutoLaunchCheck();
-      otherHtml5EditorAutoLaunchCheck ();
-      otherImageEditorAutoLaunchCheck ();
-      otherVideoEditorAutoLaunchCheck ();
-     otherVolumeEditorAutoLaunchCheck ();
-otherSemanticWebEditorAutoLaunchCheck();
-      //otherX3dPlayerAutoLaunchCheck (); // TODO?
-        otherX3dEditorAutoLaunchCheck();
         
        launchIntervalTF.setText(X3dEditUserPreferences.getLaunchInterval());
        keystoreDirectoryTF.setText(X3dEditUserPreferences.getKeystoreDirectory());
@@ -11421,7 +11676,21 @@ otherSemanticWebEditorAutoLaunchCheck();
                          shapeColorGreenTF.getText(),
                          shapeColorBlueTF.getText())).getColor());
         transparencyTF.setText(X3dEditUserPreferences.getVisualizeTransparency());
-
+        
+        initializeHAnimVisualizationDefaultValues ();
+        
+    // override previous settings if tool is unavailable on current operating system
+    String os = System.getProperty("os.name");
+    if (!os.contains("Linux"))
+    {
+             titaniaX3dEditorCheckBox.setEnabled(false);
+        titaniaX3dEditorChooserButton.setEnabled(false);
+        titaniaX3dEditorDefaultButton.setEnabled(false);
+         titaniaX3dEditorLaunchButton.setEnabled(false);
+    }
+  }
+  private void initializeHAnimVisualizationDefaultValues ()
+  {
           hAnimVisualizeCoordinateAxesCheckBox.setSelected(X3dEditUserPreferences.getVisualizeHanimCoordinateAxes());
           hAnimJointColorRedTF.setText(X3dEditUserPreferences.getVisualizeHanimJointColorRed());
         hAnimJointColorGreenTF.setText(X3dEditUserPreferences.getVisualizeHanimJointColorGreen());
@@ -11444,16 +11713,67 @@ otherSemanticWebEditorAutoLaunchCheck();
             (new SFColor(hAnimSiteColorRedTF.getText(),
                          hAnimSiteColorGreenTF.getText(),
                          hAnimSiteColorBlueTF.getText())).getColor());
+  }
+  private void autoLaunchChecks ()
+  {
+    newX3dModelsDirectoryCheck ();
+  authorExamplesDirectoryCheck ();
+        keystoreDirectoryCheck ();
+         keystoreFilePathCheck ();
+        contactAutoLaunchCheck ();
+     contactGeoAutoLaunchCheck ();
+        freeWrlAutoLaunchCheck ();
+            h3dAutoLaunchCheck ();
+ instantRealityAutoLaunchCheck ();
+         octagaAutoLaunchCheck ();
+    view3dsceneAutoLaunchCheck ();
+           xj3dAutoLaunchCheck ();
+         heilanAutoLaunchCheck ();
+       swirlx3dAutoLaunchCheck ();
+         vivatyAutoLaunchCheck ();
+      
+       audacityAutoLaunchCheck ();
+      museScoreAutoLaunchCheck ();
+          amayaAutoLaunchCheck ();
+          batikAutoLaunchCheck ();
+ inkscapeEditorAutoLaunchCheck ();
+  svgeditEditorAutoLaunchCheck ();
+            vlcAutoLaunchCheck ();
+        protegeAutoLaunchCheck ();
         
-    // override previous settings if tool is unavailable on current operating system
-    String os = System.getProperty("os.name");
-    if (!os.contains("Linux"))
-    {
-             titaniaX3dEditorCheckBox.setEnabled(false);
-        titaniaX3dEditorChooserButton.setEnabled(false);
-        titaniaX3dEditorDefaultButton.setEnabled(false);
-         titaniaX3dEditorLaunchButton.setEnabled(false);
-    }
+           gimpAutoLaunchCheck ();
+           fijiAutoLaunchCheck ();
+         imageJAutoLaunchCheck ();
+    imageMagickAutoLaunchCheck ();
+  itksnapVolumeAutoLaunchCheck ();
+    seg3dVolumeAutoLaunchCheck ();
+ slicer3dVolumeAutoLaunchCheck ();
+
+// not exposed
+keystoreExplorerAutoLaunchCheck();
+       portecleAutoLaunchCheck ();
+        
+   altovaXMLSpyAutoLaunchCheck ();
+        blenderAutoLaunchCheck ();
+bsContentStudioAutoLaunchCheck ();
+        meshLabAutoLaunchCheck ();
+polyTransNuGrafAutoLaunchCheck (); // okino
+       paraviewAutoLaunchCheck ();
+     seamless3dAutoLaunchCheck ();
+        titaniaAutoLaunchCheck ();
+      ultraEditAutoLaunchCheck ();
+           curaAutoLaunchCheck (); // ultimaker
+      whiteDuneAutoLaunchCheck ();
+        wings3dAutoLaunchCheck ();
+
+      otherAudioEditorAutoLaunchCheck();
+      otherHtml5EditorAutoLaunchCheck ();
+      otherImageEditorAutoLaunchCheck ();
+      otherVideoEditorAutoLaunchCheck ();
+     otherVolumeEditorAutoLaunchCheck ();
+otherSemanticWebEditorAutoLaunchCheck();
+      //otherX3dPlayerAutoLaunchCheck (); // TODO?
+        otherX3dEditorAutoLaunchCheck();
   }
 
   void store() // TODO needed? seems superfluous since interface performs saving...
@@ -11491,7 +11811,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     else
       X3dEditUserPreferences.setOctagaPath(path);
 
-    path = swirlX3dTF.getText().trim();
+    path = swirlx3dTF.getText().trim();
     if(path.equals(X3dEditUserPreferences.getSwirlX3DPathDefault()))
       X3dEditUserPreferences.resetSwirlX3DPath();
     else
@@ -11505,11 +11825,11 @@ otherSemanticWebEditorAutoLaunchCheck();
 
     path = vivatyTF.getText().trim();
     if(path.equals(X3dEditUserPreferences.getVivatyPlayerPathDefault()))
-      X3dEditUserPreferences.resetVivatyPlayerPath();
+      X3dEditUserPreferences.resetVivatyPath();
     else
       X3dEditUserPreferences.setVivatyPlayerPath(path);
 
-    path = xj3DTF.getText().trim();
+    path = xj3dTF.getText().trim();
     if(path.equals(X3dEditUserPreferences.getXj3DPathDefault()))
       X3dEditUserPreferences.resetXj3DPath();
     else
@@ -11556,9 +11876,9 @@ otherSemanticWebEditorAutoLaunchCheck();
     X3dEditUserPreferences.setFreeWrlAutoLaunch       (String.valueOf(freeWrlCheckBox.isSelected()));
     X3dEditUserPreferences.setInstantRealityAutoLaunch(String.valueOf(instantRealityCheckBox.isSelected()));
     X3dEditUserPreferences.setOctagaAutoLaunch        (String.valueOf(octagaCheckBox.isSelected()));
-    X3dEditUserPreferences.setSwirlX3dAutoLaunch      (String.valueOf(swirlX3dCheckBox.isSelected()));
+    X3dEditUserPreferences.setSwirlx3dAutoLaunch      (String.valueOf(swirlx3dCheckBox.isSelected()));
     X3dEditUserPreferences.setView3dSceneAutoLaunch   (String.valueOf(view3dsceneCheckBox.isSelected()));
-    X3dEditUserPreferences.setVivatyPlayerAutoLaunch  (String.valueOf(vivatyCheckBox.isSelected()));
+    X3dEditUserPreferences.setVivatyAutoLaunch  (String.valueOf(vivatyCheckBox.isSelected()));
     X3dEditUserPreferences.setOtherX3dPlayerAutoLaunch(String.valueOf(otherX3dPlayerCheckBox.isSelected()));
     X3dEditUserPreferences.setOtherX3dEditorAutoLaunch(String.valueOf(otherX3dEditorCheckBox.isSelected()));
 
@@ -11628,17 +11948,6 @@ otherSemanticWebEditorAutoLaunchCheck();
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BSContactGeoLabel;
-    private javax.swing.JLabel BSContactLabel;
-    private javax.swing.JLabel FreeWrlLabel;
-    private javax.swing.JLabel InstantRealityLabel;
-    private javax.swing.JLabel OctagaLabel;
-    private javax.swing.JButton SwirlX3DChooserButton;
-    private javax.swing.JButton SwirlX3DDefaultButton;
-    private javax.swing.JButton SwirlX3DDownloadButton;
-    private javax.swing.JButton SwirlX3DLaunchButton;
-    private javax.swing.JLabel VivatyLabel;
-    private javax.swing.JLabel Xj3DLabel;
     private javax.swing.JLabel additionalKeystoreManagersLabel;
     private javax.swing.JCheckBox altovaXMLSpyCheckBox;
     private javax.swing.JButton altovaXMLSpyChooserButton;
@@ -11647,7 +11956,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton altovaXMLSpyHelpButton;
     private javax.swing.JLabel altovaXMLSpyLabel;
     private javax.swing.JButton altovaXMLSpyLaunchButton;
-    private javax.swing.JTextField altovaXMLSpyTextField;
+    private javax.swing.JTextField altovaXMLSpyTF;
     private javax.swing.JCheckBox amayaEditorCheckBox;
     private javax.swing.JButton amayaEditorChooserButton;
     private javax.swing.JButton amayaEditorDefaultButton;
@@ -11718,8 +12027,10 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton contactGeoChooserButton;
     private javax.swing.JButton contactGeoDefaultButton;
     private javax.swing.JButton contactGeoDownloadButton;
+    private javax.swing.JLabel contactGeoLabel;
     private javax.swing.JButton contactGeoLaunchButton;
     private javax.swing.JTextField contactGeoTF;
+    private javax.swing.JLabel contactLabel;
     private javax.swing.JButton contactLaunchButton;
     private javax.swing.JTextField contactTF;
     private javax.swing.JCheckBox coordinateAxesCheckBox;
@@ -11753,6 +12064,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton freeWrlChooserButton;
     private javax.swing.JButton freeWrlDefaultButton;
     private javax.swing.JButton freeWrlDownloadButton;
+    private javax.swing.JLabel freeWrlLabel;
     private javax.swing.JButton freeWrlLaunchButton;
     private javax.swing.JTextField freeWrlTF;
     private javax.swing.JCheckBox gimpCheckBox;
@@ -11828,6 +12140,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton instRealDefaultButton;
     private javax.swing.JCheckBox instantRealityCheckBox;
     private javax.swing.JButton instantRealityDownloadButton;
+    private javax.swing.JLabel instantRealityLabel;
     private javax.swing.JButton instantRealityLaunchButton;
     private javax.swing.JTextField instantRealityTF;
     private javax.swing.JCheckBox itksnapVolumeEditorCheckBox;
@@ -11905,6 +12218,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton octagaChooserButton;
     private javax.swing.JButton octagaDefaultButton;
     private javax.swing.JButton octagaDownloadButton;
+    private javax.swing.JLabel octagaLabel;
     private javax.swing.JButton octagaLaunchButton;
     private javax.swing.JTextField octagaTF;
     private javax.swing.JCheckBox otherAudioEditorCheckBox;
@@ -12048,9 +12362,13 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel svgeditEditorLabel;
     private javax.swing.JButton svgeditEditorLaunchButton;
     private javax.swing.JTextField svgeditEditorPathTF;
-    private javax.swing.JLabel swirlX3DLabel;
-    private javax.swing.JCheckBox swirlX3dCheckBox;
-    private javax.swing.JTextField swirlX3dTF;
+    private javax.swing.JCheckBox swirlx3dCheckBox;
+    private javax.swing.JButton swirlx3dChooserButton;
+    private javax.swing.JButton swirlx3dDefaultButton;
+    private javax.swing.JButton swirlx3dDownloadButton;
+    private javax.swing.JLabel swirlx3dLabel;
+    private javax.swing.JButton swirlx3dLaunchButton;
+    private javax.swing.JTextField swirlx3dTF;
     private javax.swing.JCheckBox titaniaX3dEditorCheckBox;
     private javax.swing.JButton titaniaX3dEditorChooserButton;
     private javax.swing.JButton titaniaX3dEditorDefaultButton;
@@ -12111,6 +12429,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton vivatyChooserButton;
     private javax.swing.JButton vivatyDefaultButton;
     private javax.swing.JButton vivatyDownloadButton;
+    private javax.swing.JLabel vivatyLabel;
     private javax.swing.JButton vivatyLaunchButton;
     private javax.swing.JTextField vivatyTF;
     private javax.swing.JCheckBox vlcPlayerCheckBox;
@@ -12143,13 +12462,14 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JTabbedPane x3dOptionsTabbedPane;
     private javax.swing.JPanel x3dPlayerPathsPanel;
     private javax.swing.JPanel x3dSecurityPanel;
-    private javax.swing.JButton xj3DChooserButton;
-    private javax.swing.JButton xj3DDefaultButton;
-    private javax.swing.JButton xj3DDownloadButton;
-    private javax.swing.JButton xj3DLaunchButton;
-    private javax.swing.JTextField xj3DTF;
     private org.web3d.x3d.options.Xj3dCadFilterOptionsPanel xj3dCadFilterOptionsPanel;
     private javax.swing.JCheckBox xj3dCheckBox;
+    private javax.swing.JButton xj3dChooserButton;
+    private javax.swing.JButton xj3dDefaultButton;
+    private javax.swing.JButton xj3dDownloadButton;
+    private javax.swing.JLabel xj3dLabel;
+    private javax.swing.JButton xj3dLaunchButton;
+    private javax.swing.JTextField xj3dTF;
     // End of variables declaration//GEN-END:variables
 
     /**
