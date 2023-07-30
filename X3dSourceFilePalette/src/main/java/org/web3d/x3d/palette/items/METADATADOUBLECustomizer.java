@@ -66,12 +66,20 @@ public class METADATADOUBLECustomizer extends BaseCustomizer
     
     initComponents();
     
-    super.getDEFUSEpanel().setContainerFieldChoices (METADATA_CONTAINERFIELD_CHOICES, METADATA_CONTAINERFIELD_TOOLTIPS);
-    super.getDEFUSEpanel().setContainerField(metadataDouble.getContainerField()); // reset value to match updated JComboBox data model
-    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
-    
-    if (super.getDEFUSEpanel().getContainerField().equals("metadata"))
-        super.getDEFUSEpanel().setUseContainerField(false);
+    // TODO the following safety check is likely unnecessary, but likely other checks are (first child, containerField, etc.)
+    if ((super.getDEFUSEpanel() != null) && (super.getDEFUSEpanel().getContainerField()) != null) // TODO should this check be in other Metadata* nodes?
+    {
+        super.getDEFUSEpanel().setContainerFieldChoices (METADATA_CONTAINERFIELD_CHOICES, METADATA_CONTAINERFIELD_TOOLTIPS);
+        super.getDEFUSEpanel().setContainerField(metadataDouble.getContainerField()); // reset value to match updated JComboBox data model
+        // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
+
+        if (super.getDEFUSEpanel().getContainerField().equals("metadata"))
+            super.getDEFUSEpanel().setUseContainerField(false);
+    }
+    else
+    {
+            System.out.println("*** METADATADOUBLECustomizer problem");
+    }
     
          nameTextField.setText(metadataDouble.getName());
     referenceTextField.setText(metadataDouble.getReference());
