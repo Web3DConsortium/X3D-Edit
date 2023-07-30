@@ -351,12 +351,13 @@ public interface X3DSchemaData
     "generator FIJI is Just ImageJ, https://fiji.sc/Downloads",                      // 26
     "generator ImageJ, https://rsbweb.nih.gov/ij/download.html",                     // 27
     "generator ImageMagick, https://www.imagemagick.org",                            // 28
-    "generator avidemux, https://avidemux.sourceforge.net",                          // 29
-    "generator ===== Text and XML Editors =================",                        // 30
-    "generator Netbeans, https://www.NetBeans.org",                                  // 31
-    "generator UltraEdit, https://www.UltraEdit.com",                                // 32
-    "generator XML Spy, https://www.altova.com",                                     // 33
-    "generator"                                                                      // 34, new item, must be last
+    "generator Inkscape, https://www.inkscape.org",                                  // 29
+    "generator avidemux, https://avidemux.sourceforge.net",                          // 30
+    "generator ===== Text and XML Editors =================",                        // 31
+    "generator Netbeans, https://www.NetBeans.org",                                  // 32
+    "generator UltraEdit, https://www.UltraEdit.com",                                // 33
+    "generator XML Spy, https://www.altova.com",                                     // 34
+    "generator"                                                                      // 35, new item, must be last
   };
   int      META_ATTR_GENERATOR_RESET                                                  = 34; // GENERATOR_RESET must be last
   
@@ -388,15 +389,16 @@ public interface X3DSchemaData
     "generator MuseScore, Audio Editor",                                    // 23
     "generator ===== Image and Video Editors ==============",               // 24
     "generator GIMP Gnu Image Manipulation Program",                        // 25
-    "generator FIJI is Just ImageJ, https://fiji.sc/Downloads",             // 26
+    "generator FIJI is Just ImageJ, Image Editor",                          // 26
     "generator ImageJ, Image Editor",                                       // 27
     "generator ImageMagick, Image Editor",                                  // 28
-    "generator avidemux, Video Editor",                                     // 29
-    "generator ===== Text and XML Editors =================",               // 30
-    "generator Netbeans, Integrated Developer Environment (IDE)",           // 31
-    "generator UltraEdit, Text Editor",                                     // 32
-    "generator XML Spy, XML Editor",                                        // 33
-    "Enter new generator name"                                              // 34, must be last
+    "generator Inkscape, Drawing and Design Tool",                          // 29
+    "generator avidemux, Video Editor",                                     // 30
+    "generator ===== Text and XML Editors =================",               // 31
+    "generator Netbeans, Integrated Developer Environment (IDE)",           // 32
+    "generator UltraEdit, Text Editor",                                     // 33
+    "generator XML Spy, XML Editor",                                        // 34
+    "Enter new generator name"                                              // 35, must be last
   };
   
   String[] META_ATTR_GENERATOR_URLS  =
@@ -430,12 +432,13 @@ public interface X3DSchemaData
     "FIJI is Just ImageJ, https://fiji.sc/Downloads",                    // 26
     "ImageJ, https://rsbweb.nih.gov/ij/download.html",                   // 27
     "ImageMagick, https://www.imagemagick.org",                          // 28
-    "avidemux, https://avidemux.sourceforge.net",                        // 29
-    "", // intentionally unused                                          // 30
-    "NetBeans, https://www.NetBeans.org",                                // 31
-    "UltraEdit, https://www.UltraEdit.com",                              // 32
-    "XML Spy, https://www.altova.com",                                   // 33
-    ""                                                                   // 34, must be last
+    "Inkscape, https://www.inkscape.org",                                // 29
+    "avidemux, https://avidemux.sourceforge.net",                        // 30
+    "", // intentionally unused                                          // 31
+    "NetBeans, https://www.NetBeans.org",                                // 32
+    "UltraEdit, https://www.UltraEdit.com",                              // 33
+    "XML Spy, https://www.altova.com",                                   // 34
+    ""                                                                   // 35, must be last
   };
 
   // component element
