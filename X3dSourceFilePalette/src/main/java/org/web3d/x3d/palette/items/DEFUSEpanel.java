@@ -115,13 +115,23 @@ public class DEFUSEpanel extends javax.swing.JPanel
 
     protected String getContainerField()
     {
-        if(containerFieldCheckBox.isSelected())
-          return (String)containerFieldCombo.getSelectedItem();
-        return null;
+        if      ((containerFieldCheckBox != null) && (containerFieldCombo != null) && containerFieldCheckBox.isSelected())
+                  return (String)containerFieldCombo.getSelectedItem();
+        else if ((containerFieldCheckBox == null) || (containerFieldCombo == null))
+        {   
+                  System.out.println("*** DEFUSEpanel.getContainerField() " + getCurrentNodeName() + " cannot be retrieved due to null interface");
+                  return ""; // was originally null
+        }
+        else      return ""; // was originally null
     }
 
     protected void setContainerField(String newContainerField)
     {
+        if ((containerFieldCheckBox == null) || (containerFieldCombo == null))
+        {
+            System.out.println("*** DEFUSEpanel.setContainerField() " + getCurrentNodeName() + " containerField=" + newContainerField + " cannot be set");
+            return;
+        }
         containerFieldCombo.setEnabled(true);  // ensure that combo box is turned on
         containerFieldCombo.setEditable(true); // and editable
         
