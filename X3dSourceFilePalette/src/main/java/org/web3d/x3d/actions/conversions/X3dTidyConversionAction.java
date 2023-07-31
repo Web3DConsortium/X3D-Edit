@@ -85,6 +85,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
     private final String fixHAnimHumanoidMetadataDefault      = "true";
     private final String fixMetaNamesMatchDublinCoreDefault   = "true";
     private final String replaceBlackEmissiveColorDefault     = "true";
+    private final String omitNegativeScaleValuesDefault       = "true";
 
     private final String fixUrlAdditionHttpAddressesDefault   = "true"; // expand local url array to include online addresses
 
@@ -118,6 +119,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
     private String fixGeoSystemMetadata;
     private String fixMetaNamesMatchDublinCore;
     private String replaceBlackEmissiveColor;
+    private String omitNegativeScaleValues;
 
     private String fixUrlAdditionHttpAddresses;
 
@@ -143,7 +145,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
   
     private DialogDescriptor descriptor;
     private Dialog dialog;
-    private JButton continueButton, resetButton, cancelButton;
+    private JButton transformButton, resetButton, cancelButton;
 
     @Override
     protected void initialize()
@@ -161,10 +163,10 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
             x3dTidyConversionPanel = new X3dTidyConversionPanel (this);
     
             // pattern from Xj3dCadFilterOptionsPanel to launch and exit the panel
-             continueButton = new JButton(NbBundle.getMessage(getClass(),"MSG_TransformModel"));
+            transformButton = new JButton(NbBundle.getMessage(getClass(),"MSG_TransformModel"));
                 resetButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Reset"));
                cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_CONTINUE"));
-            continueButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
+            transformButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
                resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
               cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Cancel"));
             HelpCtx.setHelpIDString(x3dTidyConversionPanel, X3D_TIDY_URL);
@@ -173,8 +175,8 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
                 x3dTidyConversionPanel, // inner pane object
                 NbBundle.getMessage(getClass(),"X3dTidyConversionPanel.DialogTitle"),
                 true, // modal
-                new Object[]{continueButton, resetButton, cancelButton},  // buttons
-                continueButton,                            // default
+                new Object[]{transformButton, resetButton, cancelButton},  // buttons
+                transformButton,                            // default
                 DialogDescriptor.DEFAULT_ALIGN,
                 getHelpCtx(), // HelpCtx.DEFAULT_HELP, // TODO fix linking
                 null); // action listener
@@ -197,6 +199,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
         setFixGeoSystemMetadata(fixGeoSystemMetadataDefault);
         setFixMetaNamesMatchDublinCore(fixMetaNamesMatchDublinCoreDefault);
         setReplaceBlackEmissiveColor(replaceBlackEmissiveColorDefault);
+        setOmitNegativeScaleValues(omitNegativeScaleValuesDefault);
 
         setFixUrlAdditionHttpAddresses(fixUrlAdditionHttpAddressesDefault);
         setAppendWrlAfterX3dAddresses(appendWrlAfterX3dAddressesDefault); 
@@ -248,7 +251,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
                 x3dTidyConversionPanel.loadValuesInPanel ();
                 // continue looping
             }
-            else if (descriptor.getValue() == continueButton)
+            else if (descriptor.getValue() == transformButton)
             {
                 saveParametersHashMap (); // save new values from panel to hash map
                 conversionPanelSettingsReady = true;
@@ -258,8 +261,8 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
                 return null;
             }
         }
-      
-        ConversionsHelper.setSaveChooserDialogTitle("Cleanup X3D Model using X3dTidy via XSLT conversion");
+        // TODO actively avoid overwriting
+        ConversionsHelper.setSaveChooserDialogTitle("Do not overwrite! Cleanup X3D Model using X3dTidy via XSLT conversion");
         ConversionsHelper.setOpenInBrowserSetting(false);
         ConversionsHelper.setOpenInEditorSetting (true);
         ConversionsHelper.saveFilePack filePack;
@@ -293,6 +296,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
         x3dTidyParametersHashMap.put("fixGeoSystemMetadata", getFixGeoSystemMetadata());
         x3dTidyParametersHashMap.put("fixMetaNamesMatchDublinCore", getFixMetaNamesMatchDublinCore());
         x3dTidyParametersHashMap.put("replaceBlackEmissiveColor", getReplaceBlackEmissiveColor());
+        x3dTidyParametersHashMap.put("omitNegativeScaleValues", getOmitNegativeScaleValues());
         x3dTidyParametersHashMap.put("fixUrlAdditionHttpAddresses", getFixUrlAdditionHttpAddresses());
         x3dTidyParametersHashMap.put("appendWrlAfterX3dAddresses", getAppendWrlAfterX3dAddresses());
         x3dTidyParametersHashMap.put("prependX3dBeforeWrlAddresses", getPrependX3dBeforeWrlAddresses());
@@ -480,6 +484,19 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
         this.replaceBlackEmissiveColor = replaceBlackEmissiveColor;
     }
 
+    /**
+     * @param omitNegativeScaleValues the omitNegativeScaleValues to set
+     */
+    public void setOmitNegativeScaleValues(String omitNegativeScaleValues) {
+        this.omitNegativeScaleValues = omitNegativeScaleValues;
+    }
+    
+    /**
+     * @return the omitNegativeScaleValues
+     */
+    public String getOmitNegativeScaleValues() {
+        return omitNegativeScaleValues;
+    }
     /**
      * @return the fixUrlAdditionHttpAddresses
      */

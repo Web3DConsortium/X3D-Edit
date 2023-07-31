@@ -71,6 +71,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         // TODO fixHAnimHumanoidMetadataDefault
         fixMetaNamesMatchDublinCoreCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getFixMetaNamesMatchDublinCore()));
         replaceBlackEmissiveColorCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getReplaceBlackEmissiveColor()));
+        omitNegativeScaleValuesCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getOmitNegativeScaleValues()));
   
         fixUrlAdditionHttpAddressesCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getFixUrlAdditionHttpAddresses()));
   
@@ -155,6 +156,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         fixMFStringQuotesCheckBox = new javax.swing.JCheckBox();
         fixMetaNamesMatchDublinCoreCheckBox = new javax.swing.JCheckBox();
         replaceBlackEmissiveColorCheckBox = new javax.swing.JCheckBox();
+        omitNegativeScaleValuesCheckBox = new javax.swing.JCheckBox();
         horizontalSeparator1 = new javax.swing.JSeparator();
         changeJavascriptEcmascriptCheckBox = new javax.swing.JCheckBox();
         insertMissingEcmascriptCheckBox = new javax.swing.JCheckBox();
@@ -198,6 +200,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         conversionPanel.setLayout(new java.awt.GridBagLayout());
 
         org.openide.awt.Mnemonics.setLocalizedText(conversionRequiredCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.conversionRequiredCheckBox.text")); // NOI18N
+        conversionRequiredCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.conversionRequiredCheckBox.toolTipText")); // NOI18N
         conversionRequiredCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         conversionRequiredCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +218,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         conversionPanel.add(conversionRequiredCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(modifyX3dVersionCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.modifyX3dVersionCheckBox.text")); // NOI18N
+        modifyX3dVersionCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.modifyX3dVersionCheckBox.toolTipText")); // NOI18N
         modifyX3dVersionCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         modifyX3dVersionCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,6 +248,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         conversionPanel.add(revisedX3dVersionComboBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(fixDateFormatsCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.fixDateFormatsCheckBox.text")); // NOI18N
+        fixDateFormatsCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.fixDateFormatsCheckBox.toolTipText")); // NOI18N
         fixDateFormatsCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fixDateFormatsCheckBoxActionPerformed(evt);
@@ -258,6 +263,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         conversionPanel.add(fixDateFormatsCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(fixMFStringQuotesCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.fixMFStringQuotesCheckBox.text")); // NOI18N
+        fixMFStringQuotesCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.fixMFStringQuotesCheckBox.toolTipText")); // NOI18N
         fixMFStringQuotesCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fixMFStringQuotesCheckBoxActionPerformed(evt);
@@ -272,6 +278,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         conversionPanel.add(fixMFStringQuotesCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(fixMetaNamesMatchDublinCoreCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.fixMetaNamesMatchDublinCoreCheckBox.text")); // NOI18N
+        fixMetaNamesMatchDublinCoreCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.fixMetaNamesMatchDublinCoreCheckBox.toolTipText")); // NOI18N
         fixMetaNamesMatchDublinCoreCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fixMetaNamesMatchDublinCoreCheckBoxActionPerformed(evt);
@@ -286,6 +293,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         conversionPanel.add(fixMetaNamesMatchDublinCoreCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(replaceBlackEmissiveColorCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.replaceBlackEmissiveColorCheckBox.text")); // NOI18N
+        replaceBlackEmissiveColorCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.replaceBlackEmissiveColorCheckBox.toolTipText")); // NOI18N
         replaceBlackEmissiveColorCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 replaceBlackEmissiveColorCheckBoxActionPerformed(evt);
@@ -299,16 +307,32 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         conversionPanel.add(replaceBlackEmissiveColorCheckBox, gridBagConstraints);
 
+        org.openide.awt.Mnemonics.setLocalizedText(omitNegativeScaleValuesCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.omitNegativeScaleValuesCheckBox.text")); // NOI18N
+        omitNegativeScaleValuesCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.omitNegativeScaleValuesCheckBox.toolTipText")); // NOI18N
+        omitNegativeScaleValuesCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                omitNegativeScaleValuesCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        conversionPanel.add(omitNegativeScaleValuesCheckBox, gridBagConstraints);
+
         horizontalSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.gridheight = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         conversionPanel.add(horizontalSeparator1, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(changeJavascriptEcmascriptCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.changeJavascriptEcmascriptCheckBox.text")); // NOI18N
+        changeJavascriptEcmascriptCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.changeJavascriptEcmascriptCheckBox.toolTipText")); // NOI18N
         changeJavascriptEcmascriptCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeJavascriptEcmascriptCheckBoxActionPerformed(evt);
@@ -323,6 +347,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         conversionPanel.add(changeJavascriptEcmascriptCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(insertMissingEcmascriptCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.insertMissingEcmascriptCheckBox.text")); // NOI18N
+        insertMissingEcmascriptCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.insertMissingEcmascriptCheckBox.toolTipText")); // NOI18N
         insertMissingEcmascriptCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertMissingEcmascriptCheckBoxActionPerformed(evt);
@@ -348,6 +373,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         addressesPanel.setLayout(new java.awt.GridBagLayout());
 
         org.openide.awt.Mnemonics.setLocalizedText(fixUrlAdditionHttpAddressesCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.fixUrlAdditionHttpAddressesCheckBox.text")); // NOI18N
+        fixUrlAdditionHttpAddressesCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.fixUrlAdditionHttpAddressesCheckBox.toolTipText")); // NOI18N
         fixUrlAdditionHttpAddressesCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fixUrlAdditionHttpAddressesCheckBoxActionPerformed(evt);
@@ -364,6 +390,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         addressesPanel.add(fixUrlAdditionHttpAddressesCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(appendWrlAfterX3dAddressesCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.appendWrlAfterX3dAddressesCheckBox.text")); // NOI18N
+        appendWrlAfterX3dAddressesCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.appendWrlAfterX3dAddressesCheckBox.toolTipText")); // NOI18N
         appendWrlAfterX3dAddressesCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 appendWrlAfterX3dAddressesCheckBoxActionPerformed(evt);
@@ -380,6 +407,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         addressesPanel.add(appendWrlAfterX3dAddressesCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(prependX3dBeforeWrlAddressesCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.prependX3dBeforeWrlAddressesCheckBox.text")); // NOI18N
+        prependX3dBeforeWrlAddressesCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.prependX3dBeforeWrlAddressesCheckBox.toolTipText")); // NOI18N
         prependX3dBeforeWrlAddressesCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prependX3dBeforeWrlAddressesCheckBoxActionPerformed(evt);
@@ -410,6 +438,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         addressesPanel.add(defaultUrlAddressTextField, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(insertMissingMetaLicenseCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.insertMissingMetaLicenseCheckBox.text")); // NOI18N
+        insertMissingMetaLicenseCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.insertMissingMetaLicenseCheckBox.toolTipText")); // NOI18N
         insertMissingMetaLicenseCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertMissingMetaLicenseCheckBoxActionPerformed(evt);
@@ -425,6 +454,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         addressesPanel.add(insertMissingMetaLicenseCheckBox, gridBagConstraints);
 
         licenseLinkTextField.setText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.licenseLinkTextField.text")); // NOI18N
+        licenseLinkTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.licenseLinkTextField.toolTipText")); // NOI18N
         licenseLinkTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 licenseLinkTextFieldActionPerformed(evt);
@@ -450,6 +480,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         geospatialPanel.setLayout(new java.awt.GridBagLayout());
 
         org.openide.awt.Mnemonics.setLocalizedText(fixGeoSystemMetadataCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.fixGeoSystemMetadataCheckBox.text")); // NOI18N
+        fixGeoSystemMetadataCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.fixGeoSystemMetadataCheckBox.toolTipText")); // NOI18N
         fixGeoSystemMetadataCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fixGeoSystemMetadataCheckBoxActionPerformed(evt);
@@ -475,6 +506,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         hanimPanel.setLayout(new java.awt.GridBagLayout());
 
         org.openide.awt.Mnemonics.setLocalizedText(HAnimGeometryRemoveCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.HAnimGeometryRemoveCheckBox.text")); // NOI18N
+        HAnimGeometryRemoveCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.HAnimGeometryRemoveCheckBox.toolTipText")); // NOI18N
         HAnimGeometryRemoveCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HAnimGeometryRemoveCheckBoxActionPerformed(evt);
@@ -490,6 +522,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         hanimPanel.add(HAnimGeometryRemoveCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(HAnimSkeletonIllustrateCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.HAnimSkeletonIllustrateCheckBox.text")); // NOI18N
+        HAnimSkeletonIllustrateCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.HAnimSkeletonIllustrateCheckBox.toolTipText")); // NOI18N
         HAnimSkeletonIllustrateCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HAnimSkeletonIllustrateCheckBoxActionPerformed(evt);
@@ -505,6 +538,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         hanimPanel.add(HAnimSkeletonIllustrateCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(HAnimSiteIllustrateCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.HAnimSiteIllustrateCheckBox.text")); // NOI18N
+        HAnimSiteIllustrateCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.HAnimSiteIllustrateCheckBox.toolTipText")); // NOI18N
         HAnimSiteIllustrateCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HAnimSiteIllustrateCheckBoxActionPerformed(evt);
@@ -520,6 +554,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         hanimPanel.add(HAnimSiteIllustrateCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(HAnimViewpointIllustrateCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.HAnimViewpointIllustrateCheckBox.text")); // NOI18N
+        HAnimViewpointIllustrateCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.HAnimViewpointIllustrateCheckBox.toolTipText")); // NOI18N
         HAnimViewpointIllustrateCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HAnimViewpointIllustrateCheckBoxActionPerformed(evt);
@@ -570,6 +605,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
 
         jointColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(jointColorLabel, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.jointColorLabel.text")); // NOI18N
+        jointColorLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.jointColorLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -578,6 +614,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         hanimPanel.add(jointColorLabel, gridBagConstraints);
 
         jointColorTextField.setText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.siteColorTextField.text")); // NOI18N
+        jointColorTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.jointColorTextField.toolTipText")); // NOI18N
         jointColorTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jointColorTextFieldActionPerformed(evt);
@@ -635,6 +672,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
 
         segmentColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(segmentColorLabel, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.segmentColorLabel.text")); // NOI18N
+        segmentColorLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.segmentColorLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
@@ -643,6 +681,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         hanimPanel.add(segmentColorLabel, gridBagConstraints);
 
         segmentColorTextField.setText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.segmentColorTextField.text")); // NOI18N
+        segmentColorTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.segmentColorTextField.toolTipText")); // NOI18N
         segmentColorTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 segmentColorTextFieldActionPerformed(evt);
@@ -700,6 +739,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
 
         siteColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(siteColorLabel, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.siteColorLabel.text")); // NOI18N
+        siteColorLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.siteColorLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
@@ -708,6 +748,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         hanimPanel.add(siteColorLabel, gridBagConstraints);
 
         siteColorTextField.setText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.siteColorTextField.text")); // NOI18N
+        siteColorTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.siteColorTextField.toolTipText")); // NOI18N
         siteColorTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 siteColorTextFieldActionPerformed(evt);
@@ -765,6 +806,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
 
         viewpointColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(viewpointColorLabel, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.viewpointColorLabel.text")); // NOI18N
+        viewpointColorLabel.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.viewpointColorLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
@@ -773,6 +815,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         hanimPanel.add(viewpointColorLabel, gridBagConstraints);
 
         viewpointColorTextField.setText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.siteColorTextField.text")); // NOI18N
+        viewpointColorTextField.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.viewpointColorTextField.toolTipText")); // NOI18N
         viewpointColorTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewpointColorTextFieldActionPerformed(evt);
@@ -1042,6 +1085,10 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         viewpointColorChooser.setColor(c);
     }//GEN-LAST:event_viewpointColorHexTextFieldActionPerformed
 
+    private void omitNegativeScaleValuesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omitNegativeScaleValuesCheckBoxActionPerformed
+        x3dTidyConversionAction.setOmitNegativeScaleValues(Boolean.toString(omitNegativeScaleValuesCheckBox.isSelected()));
+    }//GEN-LAST:event_omitNegativeScaleValuesCheckBoxActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox HAnimAddBoneSegmentsCheckBox;
     private javax.swing.JCheckBox HAnimGeometryRemoveCheckBox;
@@ -1072,6 +1119,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jointColorTextField;
     private javax.swing.JTextField licenseLinkTextField;
     private javax.swing.JCheckBox modifyX3dVersionCheckBox;
+    private javax.swing.JCheckBox omitNegativeScaleValuesCheckBox;
     private javax.swing.JCheckBox prependX3dBeforeWrlAddressesCheckBox;
     private javax.swing.JCheckBox replaceBlackEmissiveColorCheckBox;
     private javax.swing.JComboBox revisedX3dVersionComboBox;
