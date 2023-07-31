@@ -119,6 +119,19 @@ public class METACustomizer extends BaseCustomizer
     String metaName = nameComboBox.getSelectedItem().toString().trim();
     String  content = contentTA.getText().trim();
     
+    if (metaName.equals("changed") || metaName.equals("revised") || metaName.equals("updated"))
+    {
+        NotifyDescriptor d = new NotifyDescriptor.Confirmation(
+           "<html><p align='center'>Modify meta name <b>" + metaName + "</b> as Dublin Core <b>modified</b>?</p>",
+           "Confirm", NotifyDescriptor.YES_NO_OPTION);
+        if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.YES_OPTION)
+        {
+            metaName = metaName.trim();
+            nameComboBox.setSelectedItem(metaName);
+            nameComboBoxTooltipReset();
+        } 
+    }
+    
     if (metaName.equals("created")  || 
         metaName.equals("imported") || 
         metaName.equals("modified") || 
@@ -162,8 +175,8 @@ public class METACustomizer extends BaseCustomizer
            "Confirm", NotifyDescriptor.YES_NO_OPTION);
         if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.YES_OPTION)
         {
-            nameComboBox.setSelectedItem(metaName.trim());
             metaName = metaName.trim();
+            nameComboBox.setSelectedItem(metaName);
             nameComboBoxTooltipReset();
         }
     }
