@@ -134,6 +134,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
     this.controller = controller;
     initComponents();
     
+    // MuseHub - What does it do and can it really cause harm? In search of facts. jimfoster - Jan 6, 2023 
+    // https://musescore.org/en/node/341517
+    // MuseHub removed 31 JUL 2023 due to untrustworthy unadvertised dependency on BitTorrent P2P
+    
     // adjust to match, if needed
     panelFontName = newX3dModelsDirectoryDescriptionLabel2.getFont().getFontName();
     panelFontSize = newX3dModelsDirectoryDescriptionLabel2.getFont().getSize();
@@ -543,14 +547,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         audacityEditorLaunchButton = new javax.swing.JButton();
         audacityEditorDownloadButton = new javax.swing.JButton();
         audacityEditorHelpButton = new javax.swing.JButton();
-        museScoreEditorLabel = new javax.swing.JLabel();
-        museScoreCheckBox = new javax.swing.JCheckBox();
-        museScoreEditorPathTF = new javax.swing.JTextField();
-        museScoreEditorChooserButton = new javax.swing.JButton();
-        museScoreEditorDefaultButton = new javax.swing.JButton();
-        museScoreEditorLaunchButton = new javax.swing.JButton();
-        museScoreEditorDownloadButton = new javax.swing.JButton();
-        museScoreEditorHelpButton = new javax.swing.JButton();
         otherAudioEditorNameTF = new javax.swing.JTextField();
         otherAudioEditorCheckBox = new javax.swing.JCheckBox();
         otherAudioEditorPathTF = new javax.swing.JTextField();
@@ -5526,126 +5522,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(audacityEditorHelpButton, gridBagConstraints);
 
-        museScoreEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorLabel, "MuseScore");
-        museScoreEditorLabel.setToolTipText("Music Score midi and audio composition");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(museScoreEditorLabel, gridBagConstraints);
-
-        museScoreCheckBox.setSelected(true);
-        museScoreCheckBox.setToolTipText("Include when autolaunching tools");
-        museScoreCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        museScoreCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                museScoreCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(museScoreCheckBox, gridBagConstraints);
-
-        museScoreEditorPathTF.setToolTipText("File location for local application");
-        museScoreEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                museScoreEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(museScoreEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorChooserButton, "...");
-        museScoreEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        museScoreEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                museScoreEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(museScoreEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorDefaultButton, "default");
-        museScoreEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        museScoreEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                museScoreEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(museScoreEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorLaunchButton, "launch");
-        museScoreEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        museScoreEditorLaunchButton.setActionCommand("contactTF");
-        museScoreEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                museScoreEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(museScoreEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorDownloadButton, "get");
-        museScoreEditorDownloadButton.setToolTipText("Download tool from website");
-        museScoreEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        museScoreEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                museScoreEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(museScoreEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(museScoreEditorHelpButton, "help");
-        museScoreEditorHelpButton.setToolTipText("Display tool help page");
-        museScoreEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        museScoreEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                museScoreEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(museScoreEditorHelpButton, gridBagConstraints);
-
         otherAudioEditorNameTF.setBackground(new java.awt.Color(242, 242, 242));
         otherAudioEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         otherAudioEditorNameTF.setText("Other audio tool");
@@ -9499,46 +9375,6 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     browserLaunch(X3dEditUserPreferences.getDownloadSiteOtherVideoEditor());
   }//GEN-LAST:event_otherVideoEditorDownloadButtonActionPerformed
 
-  private void museScoreCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_museScoreCheckBoxActionPerformed
-    if (museScoreCheckBox.isSelected())
-    {
-      X3dEditUserPreferences.setMuseScoreAutoLaunch("true");
-    }
-    else
-    {
-      X3dEditUserPreferences.setMuseScoreAutoLaunch("false");
-    }
-  }//GEN-LAST:event_museScoreCheckBoxActionPerformed
-
-  private void museScoreEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_museScoreEditorPathTFActionPerformed
-    X3dEditUserPreferences.setMuseScoreEditorPath(museScoreEditorPathTF.getText().trim());
-    museScoreAutoLaunchCheck ();
-  }//GEN-LAST:event_museScoreEditorPathTFActionPerformed
-
-  private void museScoreEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_museScoreEditorChooserButtonActionPerformed
-    commonChooser(museScoreEditorPathTF, "Find MuseScore audio editor", evt);
-    X3dEditUserPreferences.setMuseScoreEditorPath(museScoreEditorPathTF.getText().trim());
-    museScoreAutoLaunchCheck ();
-  }//GEN-LAST:event_museScoreEditorChooserButtonActionPerformed
-
-  private void museScoreEditorDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_museScoreEditorDefaultButtonActionPerformed
-    museScoreEditorPathTF.setText(X3dEditUserPreferences.getMuseScoreEditorPathDefault());
-    X3dEditUserPreferences.setMuseScoreEditorPath(museScoreEditorPathTF.getText().trim());
-    museScoreAutoLaunchCheck ();
-  }//GEN-LAST:event_museScoreEditorDefaultButtonActionPerformed
-
-  private void museScoreEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_museScoreEditorLaunchButtonActionPerformed
-    externalProcessLaunch(X3dEditUserPreferences.getMuseScoreEditorPath());
-  }//GEN-LAST:event_museScoreEditorLaunchButtonActionPerformed
-
-  private void museScoreEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_museScoreEditorDownloadButtonActionPerformed
-    browserLaunch(X3dEditUserPreferences.getDownloadSiteMuseScore ());
-  }//GEN-LAST:event_museScoreEditorDownloadButtonActionPerformed
-
-  private void museScoreEditorHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_museScoreEditorHelpButtonActionPerformed
-    browserLaunch(X3dEditUserPreferences.helpSiteMuseScore);
-  }//GEN-LAST:event_museScoreEditorHelpButtonActionPerformed
-
   private void vlcPlayerCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vlcPlayerCheckBoxActionPerformed
     if (vlcPlayerCheckBox.isSelected())
     {
@@ -11025,15 +10861,6 @@ for Extensible 3D (X3D) Graphics International Standard.
     audacityEditorLaunchButton.setEnabled(isExecutableFile);
     showFound (isExecutableFile, audacityEditorLabel, audacityEditorPathTF);
   }
-  private void museScoreAutoLaunchCheck ()
-  {
-    checkExistingFile = new File(museScoreEditorPathTF.getText().trim());
-    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setMuseScoreAutoLaunch(Boolean.toString(isExecutableFile));
-    museScoreCheckBox.setSelected(isExecutableFile);
-    museScoreEditorLaunchButton.setEnabled(isExecutableFile);
-    showFound (isExecutableFile, museScoreEditorLabel, museScoreEditorPathTF);
-  }
   private void gimpAutoLaunchCheck ()
   {
     checkExistingFile = new File(gimpEditorTF.getText().trim());
@@ -11565,7 +11392,6 @@ for Extensible 3D (X3D) Graphics International Standard.
        audacityEditorPathTF.setText(X3dEditUserPreferences.getAudacityEditorPath());
           batikEditorPathTF.setText(X3dEditUserPreferences.getBatikEditorPath());
        inkscapeEditorPathTF.setText(X3dEditUserPreferences.getInkscapeEditorPath());
-      museScoreEditorPathTF.setText(X3dEditUserPreferences.getMuseScoreEditorPath());
                gimpEditorTF.setText(X3dEditUserPreferences.getGimpImageEditorPath());
                fijiEditorTF.setText(X3dEditUserPreferences.getFijiImageEditorPath());
              imageJEditorTF.setText(X3dEditUserPreferences.getImageJEditorPath());
@@ -11621,7 +11447,6 @@ polyTransNuGrafEditorPathTF.setText(X3dEditUserPreferences.getPolyTransNuGrafEdi
       audacityEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isAudacityAutoLaunch()));
          batikEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isBatikAutoLaunch()));
       inkscapeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isInkscapeAutoLaunch()));
-           museScoreCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isMuseScoreAutoLaunch()));
                 gimpCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isGimpAutoLaunch()));
                 fijiCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isFijiAutoLaunch()));
               imageJCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isImageJAutoLaunch()));
@@ -11733,7 +11558,6 @@ otherSemanticWebEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPrefe
          vivatyAutoLaunchCheck ();
       
        audacityAutoLaunchCheck ();
-      museScoreAutoLaunchCheck ();
           amayaAutoLaunchCheck ();
           batikAutoLaunchCheck ();
  inkscapeEditorAutoLaunchCheck ();
@@ -12198,14 +12022,6 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel meshLabX3dEditorLabel;
     private javax.swing.JButton meshLabX3dEditorLaunchButton;
     private javax.swing.JTextField meshLabX3dEditorPathTF;
-    private javax.swing.JCheckBox museScoreCheckBox;
-    private javax.swing.JButton museScoreEditorChooserButton;
-    private javax.swing.JButton museScoreEditorDefaultButton;
-    private javax.swing.JButton museScoreEditorDownloadButton;
-    private javax.swing.JButton museScoreEditorHelpButton;
-    private javax.swing.JLabel museScoreEditorLabel;
-    private javax.swing.JButton museScoreEditorLaunchButton;
-    private javax.swing.JTextField museScoreEditorPathTF;
     private javax.swing.JButton newX3dModelsDirectoryButton;
     private javax.swing.JButton newX3dModelsDirectoryClearButton;
     private javax.swing.JButton newX3dModelsDirectoryDefaultButton;
