@@ -12,7 +12,7 @@
 // Reference:   http://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Scripts
 // Reference:   http://www.web3d.org/x3d/specifications/ISO-IEC-FDIS-19775-1.2-X3D-AbstractSpecification/Part01/components/scripting.html
 // Reference:   http://www.web3d.org/x3d/specifications/ISO-IEC-19777-1-X3DLanguageBindings-ECMAScript/Part1/X3D_ECMAScript.html
-// Reference:   http://https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/newECMAscriptTest.x3d
+// Reference:   http://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/newECMAscriptTest.x3d
 // License:     http://www.web3d.org/x3d/content/examples/license.html
 
 function initialize () // no parameters allowed

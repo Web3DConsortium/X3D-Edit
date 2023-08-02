@@ -5,7 +5,7 @@
     <meta content='*TODO rename* HelloWorldExample.x3d' name='title'/>
     <meta content='Test X3D-Edit with simple X3D model example: Hello World!' name='description'/>
     <meta content='10 June 2021' name='created'/>
-    <meta content='25 November 2022' name='modified'/>
+    <meta content='2 August 2023' name='modified'/>
     <meta content='Don Brutzman' name='creator'/>
     <meta content='https://www.web3d.org/x3d/content/examples/HelloWorld.tall.png' name='Image'/>
     <meta content='https://en.wikipedia.org/wiki/Hello_world' name='reference'/>
@@ -16,10 +16,10 @@
     <meta content='https://www.web3d.org' name='reference'/>
     <meta content='https://www.web3d.org/realtime-3d/news/internationalization-x3d' name='reference'/>
     <meta content='https://www.web3d.org/x3d/content/examples/HelloWorld.x3d' name='reference'/>
-    <meta content='https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorld.x3d' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorld.x3d' name='reference'/>
     <meta content='https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-IS.proof/Part01/htmlGuidelines.html' name='reference'/>
-    <meta content='https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d' name='reference'/>
-    <meta content='https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4Index.html' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4Index.html' name='reference'/>
     <meta content='https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/X3dSourceFilePalette/src/org/web3d/x3d/templates/HelloWorldX3D4.x3d' name='identifier'/>
     <meta content='X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit' name='generator'/>
     <meta content='https://www.web3d.org/x3d/content/examples/license.html' name='license'/>
