@@ -288,7 +288,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         contactGeoChooserButton = new javax.swing.JButton();
         freeWrlChooserButton = new javax.swing.JButton();
         heilanChooserButton = new javax.swing.JButton();
-        instRealChooserButton = new javax.swing.JButton();
+        instantRealityChooserButton = new javax.swing.JButton();
         octagaChooserButton = new javax.swing.JButton();
         swirlx3dChooserButton = new javax.swing.JButton();
         view3dsceneChooserButton = new javax.swing.JButton();
@@ -299,7 +299,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         contactGeoDefaultButton = new javax.swing.JButton();
         freeWrlDefaultButton = new javax.swing.JButton();
         heilanDefaultButton = new javax.swing.JButton();
-        instRealDefaultButton = new javax.swing.JButton();
+        instantRealityDefaultButton = new javax.swing.JButton();
         octagaDefaultButton = new javax.swing.JButton();
         swirlx3dDefaultButton = new javax.swing.JButton();
         view3dsceneDefaultButton = new javax.swing.JButton();
@@ -1726,11 +1726,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(heilanChooserButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(instRealChooserButton, "...");
-        instRealChooserButton.setToolTipText("Find local file location");
-        instRealChooserButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(instantRealityChooserButton, "...");
+        instantRealityChooserButton.setToolTipText("Find local file location");
+        instantRealityChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                instRealChooserButtonActionPerformed(evt);
+                instantRealityChooserButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1739,7 +1739,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(instRealChooserButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(instantRealityChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(octagaChooserButton, "...");
         octagaChooserButton.setToolTipText("Find local file location");
@@ -1895,12 +1895,12 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(heilanDefaultButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(instRealDefaultButton, "default");
-        instRealDefaultButton.setToolTipText("Reset default file location");
-        instRealDefaultButton.setActionCommand(org.web3d.x3d.options.X3dEditUserPreferences.getInstantRealityPathDefault());
-        instRealDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(instantRealityDefaultButton, "default");
+        instantRealityDefaultButton.setToolTipText("Reset default file location");
+        instantRealityDefaultButton.setActionCommand(org.web3d.x3d.options.X3dEditUserPreferences.getInstantRealityPathDefault());
+        instantRealityDefaultButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                instRealDefaultButtonActionPerformed(evt);
+                instantRealityDefaultButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1909,7 +1909,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(instRealDefaultButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(instantRealityDefaultButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(octagaDefaultButton, "default");
         octagaDefaultButton.setToolTipText("Reset default file location");
@@ -8316,10 +8316,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
       commonChooser(freeWrlTF, "Find FreeWrl Player Executable", evt);
 }//GEN-LAST:event_freeWrlChooserButtonActionPerformed
 
-  private void instRealChooserButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_instRealChooserButtonActionPerformed
-  {//GEN-HEADEREND:event_instRealChooserButtonActionPerformed
+  private void instantRealityChooserButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_instantRealityChooserButtonActionPerformed
+  {//GEN-HEADEREND:event_instantRealityChooserButtonActionPerformed
     commonChooser(instantRealityTF, "Find Intant Reality Executable", evt);
-}//GEN-LAST:event_instRealChooserButtonActionPerformed
+}//GEN-LAST:event_instantRealityChooserButtonActionPerformed
 
   private void freeWrlDefaultButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_freeWrlDefaultButtonActionPerformed
   {//GEN-HEADEREND:event_freeWrlDefaultButtonActionPerformed
@@ -8327,11 +8327,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
     X3dEditUserPreferences.setFreeWrlPath(freeWrlTF.getText().trim());
 }//GEN-LAST:event_freeWrlDefaultButtonActionPerformed
 
-  private void instRealDefaultButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_instRealDefaultButtonActionPerformed
-  {//GEN-HEADEREND:event_instRealDefaultButtonActionPerformed
+  private void instantRealityDefaultButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_instantRealityDefaultButtonActionPerformed
+  {//GEN-HEADEREND:event_instantRealityDefaultButtonActionPerformed
     instantRealityTF.setText(X3dEditUserPreferences.getInstantRealityPathDefault());
     X3dEditUserPreferences.setInstantRealityPath(instantRealityTF.getText().trim());
-}//GEN-LAST:event_instRealDefaultButtonActionPerformed
+}//GEN-LAST:event_instantRealityDefaultButtonActionPerformed
 
   private void octagaChooserButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_octagaChooserButtonActionPerformed
   {//GEN-HEADEREND:event_octagaChooserButtonActionPerformed
@@ -8731,17 +8731,20 @@ private void contactGeoCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//
     if (contactGeoCheckBox.isSelected())
          X3dEditUserPreferences.setContactGeoAutoLaunch("true");
     else X3dEditUserPreferences.setContactGeoAutoLaunch("false");
+    contactGeoAutoLaunchCheck();
 }//GEN-LAST:event_contactGeoCheckBoxActionPerformed
 
 private void contactChooserButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_contactChooserButtonActionPerformed
 {//GEN-HEADEREND:event_contactChooserButtonActionPerformed
     commonChooser(contactTF, "Find Contact Player Executable", evt);
+    contactAutoLaunchCheck();
 }//GEN-LAST:event_contactChooserButtonActionPerformed
 
 private void contactGeoDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_contactGeoDefaultButtonActionPerformed
 {//GEN-HEADEREND:event_contactGeoDefaultButtonActionPerformed
     contactGeoTF.setText(X3dEditUserPreferences.getContactGeoPathDefault());
     X3dEditUserPreferences.setContactGeoPath(contactGeoTF.getText().trim());
+    contactGeoAutoLaunchCheck();
 }//GEN-LAST:event_contactGeoDefaultButtonActionPerformed
 
 private void contactGeoDownloadButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_contactGeoDownloadButtonActionPerformed
@@ -8752,6 +8755,7 @@ private void contactGeoDownloadButtonActionPerformed(java.awt.event.ActionEvent 
 private void contactGeoChooserButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_contactGeoChooserButtonActionPerformed
 {//GEN-HEADEREND:event_contactGeoChooserButtonActionPerformed
     commonChooser(contactGeoTF, "Find Contact Geo Player Executable", evt);
+    contactGeoAutoLaunchCheck();
 }//GEN-LAST:event_contactGeoChooserButtonActionPerformed
 
 private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_contactTFActionPerformed
@@ -8761,9 +8765,10 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 }//GEN-LAST:event_contactTFActionPerformed
 
     private void view3dsceneCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneCheckBoxActionPerformed
-         if (view3dsceneCheckBox.isSelected())
-         X3dEditUserPreferences.setView3dSceneAutoLaunch("true");
-    else X3dEditUserPreferences.setView3dSceneAutoLaunch("false");
+       if (view3dsceneCheckBox.isSelected())
+            X3dEditUserPreferences.setView3dSceneAutoLaunch("true");
+       else X3dEditUserPreferences.setView3dSceneAutoLaunch("false");
+       view3dsceneAutoLaunchCheck();
     }//GEN-LAST:event_view3dsceneCheckBoxActionPerformed
 
     private void view3dsceneTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneTFActionPerformed
@@ -8773,11 +8778,13 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void view3dsceneChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneChooserButtonActionPerformed
         commonChooser(view3dsceneTF, "Find view3dScene Executable", evt);
+       view3dsceneAutoLaunchCheck();
     }//GEN-LAST:event_view3dsceneChooserButtonActionPerformed
 
     private void view3dsceneDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneDefaultButtonActionPerformed
         view3dsceneTF.setText(X3dEditUserPreferences.getView3dScenePathDefault());
         X3dEditUserPreferences.setView3dScenePath(view3dsceneTF.getText().trim());
+        view3dsceneAutoLaunchCheck();
     }//GEN-LAST:event_view3dsceneDefaultButtonActionPerformed
 
     private void view3dsceneDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneDownloadButtonActionPerformed
@@ -8785,18 +8792,21 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_view3dsceneDownloadButtonActionPerformed
 
     private void h3dCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3dCheckBoxActionPerformed
-                 if (h3dCheckBox.isSelected())
-         X3dEditUserPreferences.setH3dAutoLaunch("true");
-    else X3dEditUserPreferences.setH3dAutoLaunch("false");
+        if (h3dCheckBox.isSelected())
+             X3dEditUserPreferences.setH3dAutoLaunch("true");
+        else X3dEditUserPreferences.setH3dAutoLaunch("false");
+        h3dAutoLaunchCheck();
     }//GEN-LAST:event_h3dCheckBoxActionPerformed
 
     private void h3dChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3dChooserButtonActionPerformed
         commonChooser(h3dTF, "Find H3D Executable", evt);
+        h3dAutoLaunchCheck();
     }//GEN-LAST:event_h3dChooserButtonActionPerformed
 
     private void h3dDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3dDefaultButtonActionPerformed
         h3dTF.setText(X3dEditUserPreferences.getH3dPathDefault());
         X3dEditUserPreferences.setH3dPath(h3dTF.getText().trim());
+        h3dAutoLaunchCheck();
     }//GEN-LAST:event_h3dDefaultButtonActionPerformed
 
     private void h3dDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3dDownloadButtonActionPerformed
@@ -8815,10 +8825,12 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void freeWrlTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freeWrlTFActionPerformed
         X3dEditUserPreferences.setFreeWrlPath(freeWrlTF.getText().trim());
+        freeWrlAutoLaunchCheck();
     }//GEN-LAST:event_freeWrlTFActionPerformed
 
     private void heilanTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heilanTFActionPerformed
         X3dEditUserPreferences.setHeilanPath(heilanTF.getText().trim());
+        heilanAutoLaunchCheck();
     }//GEN-LAST:event_heilanTFActionPerformed
 
     private void instantRealityTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instantRealityTFActionPerformed
@@ -8971,30 +8983,35 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_ultraEditX3dEditorDefaultButtonActionPerformed
 
   private void ultraEditX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultraEditX3dEditorDownloadButtonActionPerformed
-    openInBrowser(X3dEditUserPreferences.getDownloadSiteUltraEdit());
+        openInBrowser(X3dEditUserPreferences.getDownloadSiteUltraEdit());
+        ultraEditAutoLaunchCheck();
   }//GEN-LAST:event_ultraEditX3dEditorDownloadButtonActionPerformed
 
   private void audacityEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_audacityEditorLaunchButtonActionPerformed
-    externalProcessLaunch(X3dEditUserPreferences.getAudacityEditorPath());
+        externalProcessLaunch(X3dEditUserPreferences.getAudacityEditorPath());
+        audacityAutoLaunchCheck();
   }//GEN-LAST:event_audacityEditorLaunchButtonActionPerformed
 
   private void imageJEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageJEditorLaunchButtonActionPerformed
-    externalProcessLaunch(X3dEditUserPreferences.getImageJEditorPath());
+        externalProcessLaunch(X3dEditUserPreferences.getImageJEditorPath());
+        imageJAutoLaunchCheck();
   }//GEN-LAST:event_imageJEditorLaunchButtonActionPerformed
 
   private void ultraEditX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultraEditX3dEditorLaunchButtonActionPerformed
-    externalProcessLaunch(X3dEditUserPreferences.getUltraEditX3dEditorPath());
+        externalProcessLaunch(X3dEditUserPreferences.getUltraEditX3dEditorPath());
+        ultraEditAutoLaunchCheck();
   }//GEN-LAST:event_ultraEditX3dEditorLaunchButtonActionPerformed
 
   private void audacityEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_audacityEditorCheckBoxActionPerformed
-    if (audacityEditorCheckBox.isSelected())
-    {
-      X3dEditUserPreferences.setAudacityAutoLaunch("true");
-    }
-    else
-    {
-      X3dEditUserPreferences.setAudacityAutoLaunch("false");
-    }
+        if (audacityEditorCheckBox.isSelected())
+        {
+          X3dEditUserPreferences.setAudacityAutoLaunch("true");
+        }
+        else
+        {
+          X3dEditUserPreferences.setAudacityAutoLaunch("false");
+        }
+        audacityAutoLaunchCheck();
   }//GEN-LAST:event_audacityEditorCheckBoxActionPerformed
 
   private void gimpEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gimpEditorChooserButtonActionPerformed
@@ -9010,6 +9027,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void gimpEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gimpEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getGimpImageEditorPath());
+    gimpAutoLaunchCheck ();
   }//GEN-LAST:event_gimpEditorLaunchButtonActionPerformed
 
   private void gimpEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gimpEditorDownloadButtonActionPerformed
@@ -9029,6 +9047,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void fijiEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fijiEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getFijiImageEditorPath());
+    fijiAutoLaunchCheck ();
   }//GEN-LAST:event_fijiEditorLaunchButtonActionPerformed
 
   private void fijiEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fijiEditorDownloadButtonActionPerformed
@@ -9069,6 +9088,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setGimpAutoLaunch("false");
     }
+    gimpAutoLaunchCheck ();
   }//GEN-LAST:event_gimpCheckBoxActionPerformed
 
   private void fijiCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fijiCheckBoxActionPerformed
@@ -9080,6 +9100,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setFijiAutoLaunch("false");
     }
+    fijiAutoLaunchCheck ();
   }//GEN-LAST:event_fijiCheckBoxActionPerformed
 
   private void imageJCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageJCheckBoxActionPerformed
@@ -9091,6 +9112,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setImageJAutoLaunch("false");
     }
+    imageJAutoLaunchCheck ();
   }//GEN-LAST:event_imageJCheckBoxActionPerformed
 
   private void ultraEditX3dEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultraEditX3dEditorCheckBoxActionPerformed
@@ -9102,6 +9124,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setUltraEditAutoLaunch("false");
     }
+    ultraEditAutoLaunchCheck ();
   }//GEN-LAST:event_ultraEditX3dEditorCheckBoxActionPerformed
 
   private void gimpHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gimpHelpButtonActionPerformed
@@ -9138,6 +9161,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setImageMagickAutoLaunch("false");
     }
+    imageMagickAutoLaunchCheck ();
   }//GEN-LAST:event_imageMagickCheckBoxActionPerformed
 
   private void imageMagickEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageMagickEditorChooserButtonActionPerformed
@@ -9154,6 +9178,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void imageMagickEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageMagickEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getImageMagickEditorPath());
+    imageMagickAutoLaunchCheck ();
   }//GEN-LAST:event_imageMagickEditorLaunchButtonActionPerformed
 
   private void imageMagickEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageMagickEditorDownloadButtonActionPerformed
@@ -9173,6 +9198,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setOtherX3dEditorAutoLaunch("false");
     }
+    otherX3dEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherX3dEditorCheckBoxActionPerformed
 
   private void otherX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherX3dEditorPathTFActionPerformed
@@ -9212,6 +9238,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setBlenderAutoLaunch("false");
     }
+    blenderAutoLaunchCheck();
   }//GEN-LAST:event_blenderX3dEditorCheckBoxActionPerformed
 
   private void blenderX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blenderX3dEditorPathTFActionPerformed
@@ -9232,6 +9259,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void blenderX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blenderX3dEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getBlenderX3dEditorPath());
+    blenderAutoLaunchCheck();
   }//GEN-LAST:event_blenderX3dEditorLaunchButtonActionPerformed
 
   private void blenderX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blenderX3dEditorDownloadButtonActionPerformed
@@ -9260,6 +9288,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setOtherImageEditorAutoLaunch("false");
     }
+    otherImageEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherImageEditorCheckBoxActionPerformed
 
   private void otherImageEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherImageEditorPathTFActionPerformed
@@ -9283,6 +9312,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherImageEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherImageEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getOtherImageEditorPath());
+    otherImageEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherImageEditorLaunchButtonActionPerformed
 
   private void otherImageEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherImageEditorDownloadButtonActionPerformed
@@ -9303,6 +9333,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setOtherAudioEditorAutoLaunch("false");
     }
+    otherAudioEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherAudioEditorCheckBoxActionPerformed
 
   private void otherAudioEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherAudioEditorPathTFActionPerformed
@@ -9326,6 +9357,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherAudioEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherAudioEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getOtherAudioEditorPath());
+    otherAudioEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherAudioEditorLaunchButtonActionPerformed
 
   private void otherAudioEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherAudioEditorDownloadButtonActionPerformed
@@ -9346,6 +9378,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setOtherVideoEditorAutoLaunch("false");
     }
+    otherVideoEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherVideoEditorCheckBoxActionPerformed
 
   private void otherVideoEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVideoEditorPathTFActionPerformed
@@ -9369,6 +9402,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherVideoEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVideoEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getOtherVideoEditorPath());
+    otherVideoEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherVideoEditorLaunchButtonActionPerformed
 
   private void otherVideoEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVideoEditorDownloadButtonActionPerformed
@@ -9384,6 +9418,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setVlcAutoLaunch("false");
     }
+    vlcAutoLaunchCheck ();
   }//GEN-LAST:event_vlcPlayerCheckBoxActionPerformed
 
   private void vlcPlayerPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vlcPlayerPathTFActionPerformed
@@ -9405,6 +9440,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void vlcPlayerLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vlcPlayerLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getVlcPlayerPath());
+    vlcAutoLaunchCheck ();
   }//GEN-LAST:event_vlcPlayerLaunchButtonActionPerformed
 
   private void vlcPlayerDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vlcPlayerDownloadButtonActionPerformed
@@ -9424,6 +9460,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setMeshLabAutoLaunch("false");
     }
+    meshLabAutoLaunchCheck ();
   }//GEN-LAST:event_meshLabX3dEditorCheckBoxActionPerformed
 
   private void meshLabX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meshLabX3dEditorPathTFActionPerformed
@@ -9445,6 +9482,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void meshLabX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meshLabX3dEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getMeshLabX3dEditorPath());
+    meshLabAutoLaunchCheck ();
   }//GEN-LAST:event_meshLabX3dEditorLaunchButtonActionPerformed
 
   private void meshLabX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meshLabX3dEditorDownloadButtonActionPerformed
@@ -9464,6 +9502,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setSeamless3dAutoLaunch("false");
     }
+    seamless3dAutoLaunchCheck ();
   }//GEN-LAST:event_seamless3dX3dEditorCheckBoxActionPerformed
 
   private void seamless3dX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seamless3dX3dEditorPathTFActionPerformed
@@ -9485,6 +9524,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void seamless3dX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seamless3dX3dEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getSeamlessX3dEditorPath());
+    seamless3dAutoLaunchCheck ();
   }//GEN-LAST:event_seamless3dX3dEditorLaunchButtonActionPerformed
 
   private void seamless3dX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seamless3dX3dEditorDownloadButtonActionPerformed
@@ -9504,6 +9544,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setWings3dAutoLaunch("false");
     }
+    wings3dAutoLaunchCheck ();
   }//GEN-LAST:event_wings3dX3dEditorCheckBoxActionPerformed
 
   private void wings3dX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wings3dX3dEditorPathTFActionPerformed
@@ -9525,6 +9566,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void wings3dX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wings3dX3dEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getWingsX3dEditorPath());
+    wings3dAutoLaunchCheck ();
   }//GEN-LAST:event_wings3dX3dEditorLaunchButtonActionPerformed
 
   private void wings3dX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wings3dX3dEditorDownloadButtonActionPerformed
@@ -9544,6 +9586,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setParaviewAutoLaunch("false");
     }
+    paraviewAutoLaunchCheck ();
   }//GEN-LAST:event_paraviewX3dEditorCheckBoxActionPerformed
 
   private void paraviewX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paraviewX3dEditorPathTFActionPerformed
@@ -9565,6 +9608,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void paraviewX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paraviewX3dEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getParaviewX3dEditorPath());
+    paraviewAutoLaunchCheck ();
   }//GEN-LAST:event_paraviewX3dEditorLaunchButtonActionPerformed
 
   private void paraviewX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paraviewX3dEditorDownloadButtonActionPerformed
@@ -9589,6 +9633,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setAmayaAutoLaunch("false");
     }
+    amayaAutoLaunchCheck ();
   }//GEN-LAST:event_amayaEditorCheckBoxActionPerformed
 
   private void amayaEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amayaEditorChooserButtonActionPerformed
@@ -9605,6 +9650,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void amayaEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amayaEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getAmayaEditorPath());
+    amayaAutoLaunchCheck ();
   }//GEN-LAST:event_amayaEditorLaunchButtonActionPerformed
 
   private void amayaEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amayaEditorDownloadButtonActionPerformed
@@ -9629,6 +9675,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setOtherHtml5EditorAutoLaunch("false");
     }
+    otherHtml5EditorAutoLaunchCheck();
   }//GEN-LAST:event_otherHtml5EditorCheckBoxActionPerformed
 
   private void otherHtml5EditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherHtml5EditorPathTFActionPerformed
@@ -9652,6 +9699,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherHtml5EditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherHtml5EditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getOtherHtml5EditorPath());
+    otherHtml5EditorAutoLaunchCheck();
   }//GEN-LAST:event_otherHtml5EditorLaunchButtonActionPerformed
 
   private void otherHtml5EditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherHtml5EditorDownloadButtonActionPerformed
@@ -9672,6 +9720,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setOtherVolumeEditorAutoLaunch("false");
     }
+    otherVolumeEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherVolumeEditorCheckBoxActionPerformed
 
   private void otherVolumeEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVolumeEditorPathTFActionPerformed
@@ -9695,6 +9744,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void otherVolumeEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVolumeEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getOtherVolumeEditorPath());
+    otherVolumeEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherVolumeEditorLaunchButtonActionPerformed
 
   private void otherVolumeEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVolumeEditorDownloadButtonActionPerformed
@@ -9710,6 +9760,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setSeg3dAutoLaunch("false");
     }
+    seg3dVolumeAutoLaunchCheck ();
   }//GEN-LAST:event_seg3dVolumeEditorCheckBoxActionPerformed
 
   private void seg3dVolumeEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seg3dVolumeEditorPathTFActionPerformed
@@ -9731,6 +9782,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void seg3dVolumeEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seg3dVolumeEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getSeg3dEditorPath());
+    seg3dVolumeAutoLaunchCheck ();
   }//GEN-LAST:event_seg3dVolumeEditorLaunchButtonActionPerformed
 
   private void seg3dVolumeEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seg3dVolumeEditorDownloadButtonActionPerformed
@@ -9750,6 +9802,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setSlicer3dAutoLaunch("false");
     }
+    slicer3dVolumeAutoLaunchCheck ();
   }//GEN-LAST:event_slicer3dVolumeEditorCheckBoxActionPerformed
 
   private void slicer3dVolumeEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slicer3dVolumeEditorPathTFActionPerformed
@@ -9771,6 +9824,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void slicer3dVolumeEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slicer3dVolumeEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getSlicer3dEditorPath());
+    slicer3dVolumeAutoLaunchCheck ();
   }//GEN-LAST:event_slicer3dVolumeEditorLaunchButtonActionPerformed
 
   private void slicer3dVolumeEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slicer3dVolumeEditorDownloadButtonActionPerformed
@@ -9790,6 +9844,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setItksnapAutoLaunch("false");
     }
+    itksnapVolumeAutoLaunchCheck ();
   }//GEN-LAST:event_itksnapVolumeEditorCheckBoxActionPerformed
 
   private void itksnapVolumeEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itksnapVolumeEditorPathTFActionPerformed
@@ -9811,6 +9866,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
   private void itksnapVolumeEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itksnapVolumeEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getItksnapEditorPath());
+    itksnapVolumeAutoLaunchCheck ();
   }//GEN-LAST:event_itksnapVolumeEditorLaunchButtonActionPerformed
 
   private void itksnapVolumeEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itksnapVolumeEditorDownloadButtonActionPerformed
@@ -9830,6 +9886,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
           X3dEditUserPreferences.setBsContentStudioAutoLaunch("false");
         }
+        bsContentStudioAutoLaunchCheck ();
     }//GEN-LAST:event_bsContentStudioX3dEditorCheckBoxActionPerformed
 
     private void bsContentStudioX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsContentStudioX3dEditorPathTFActionPerformed
@@ -9850,6 +9907,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void bsContentStudioX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsContentStudioX3dEditorLaunchButtonActionPerformed
         externalProcessLaunch(X3dEditUserPreferences.getBsContentStudioX3dEditorPath());
+        bsContentStudioAutoLaunchCheck ();
     }//GEN-LAST:event_bsContentStudioX3dEditorLaunchButtonActionPerformed
 
     private void bsContentStudioX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsContentStudioX3dEditorDownloadButtonActionPerformed
@@ -9874,6 +9932,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
           X3dEditUserPreferences.setSvgeditAutoLaunch("false");
         }
+        svgeditEditorAutoLaunchCheck ();
     }//GEN-LAST:event_svgeditEditorCheckBoxActionPerformed
 
     private void svgeditEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svgeditEditorChooserButtonActionPerformed
@@ -9894,6 +9953,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
              svgeditUrl = "file://" + svgeditUrl; // prepend
         }
         openInBrowser(svgeditUrl); // browser-based execution using javascript
+        svgeditEditorAutoLaunchCheck ();
     }//GEN-LAST:event_svgeditEditorLaunchButtonActionPerformed
 
     private void svgeditEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svgeditEditorDownloadButtonActionPerformed
@@ -9917,6 +9977,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     {
       X3dEditUserPreferences.setPolyTransNuGrafAutoLaunch("false");
     }
+        polyTransNuGrafAutoLaunchCheck ();
     }//GEN-LAST:event_polyTransNuGrafEditorCheckBoxActionPerformed
 
     private void polyTransNuGrafEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_polyTransNuGrafEditorPathTFActionPerformed
@@ -9938,6 +9999,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void polyTransNuGrafEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_polyTransNuGrafEditorLaunchButtonActionPerformed
         externalProcessLaunch(X3dEditUserPreferences.getPolyTransNuGrafEditorPath());
+        polyTransNuGrafAutoLaunchCheck ();
     }//GEN-LAST:event_polyTransNuGrafEditorLaunchButtonActionPerformed
 
     private void polyTransNuGrafEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_polyTransNuGrafEditorDownloadButtonActionPerformed
@@ -9957,6 +10019,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
           X3dEditUserPreferences.setWhiteDuneAutoLaunch("false");
         }
+        whiteDuneAutoLaunchCheck ();
     }//GEN-LAST:event_whiteDuneX3dEditorCheckBoxActionPerformed
 
     private void whiteDuneX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whiteDuneX3dEditorPathTFActionPerformed
@@ -9978,6 +10041,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void whiteDuneX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whiteDuneX3dEditorLaunchButtonActionPerformed
         externalProcessLaunch(X3dEditUserPreferences.getWhiteDuneX3dEditorPath());
+        whiteDuneAutoLaunchCheck ();
     }//GEN-LAST:event_whiteDuneX3dEditorLaunchButtonActionPerformed
 
     private void whiteDuneX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whiteDuneX3dEditorDownloadButtonActionPerformed
@@ -9997,6 +10061,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
           X3dEditUserPreferences.setCuraAutoLaunch("false");
         }
+        curaAutoLaunchCheck ();
     }//GEN-LAST:event_curaX3dEditorCheckBoxActionPerformed
 
     private void curaX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_curaX3dEditorPathTFActionPerformed
@@ -10018,6 +10083,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void curaX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_curaX3dEditorLaunchButtonActionPerformed
         externalProcessLaunch(X3dEditUserPreferences.getCuraX3dEditorPath());
+        curaAutoLaunchCheck ();
     }//GEN-LAST:event_curaX3dEditorLaunchButtonActionPerformed
 
     private void curaX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_curaX3dEditorDownloadButtonActionPerformed
@@ -10037,6 +10103,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
           X3dEditUserPreferences.setAltovaXMLSpyAutoLaunch("false");
         }
+        altovaXMLSpyAutoLaunchCheck ();
     }//GEN-LAST:event_altovaXMLSpyCheckBoxActionPerformed
 
     private void altovaXMLSpyTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyTFActionPerformed
@@ -10053,11 +10120,12 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void altovaXMLSpyDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyDefaultButtonActionPerformed
         altovaXMLSpyTF.setText(X3dEditUserPreferences.getAltovaXMLSpyX3dEditorPathDefault());
         X3dEditUserPreferences.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTF.getText().trim());
-        curaAutoLaunchCheck ();
+        altovaXMLSpyAutoLaunchCheck ();
     }//GEN-LAST:event_altovaXMLSpyDefaultButtonActionPerformed
 
     private void altovaXMLSpyLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyLaunchButtonActionPerformed
         externalProcessLaunch(X3dEditUserPreferences.getAltovaXMLSpyX3dEditorPath());
+        altovaXMLSpyAutoLaunchCheck ();
     }//GEN-LAST:event_altovaXMLSpyLaunchButtonActionPerformed
 
     private void altovaXMLSpyDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaXMLSpyDownloadButtonActionPerformed
@@ -10077,6 +10145,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
           X3dEditUserPreferences.setProtegeAutoLaunch("false");
         }
+        protegeAutoLaunchCheck ();
     }//GEN-LAST:event_protegePlayerCheckBoxActionPerformed
 
     private void protegePlayerPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_protegePlayerPathTFActionPerformed
@@ -10098,6 +10167,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void protegePlayerLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_protegePlayerLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getProtegePlayerPath());
+        protegeAutoLaunchCheck ();
     }//GEN-LAST:event_protegePlayerLaunchButtonActionPerformed
 
     private void protegePlayerDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_protegePlayerDownloadButtonActionPerformed
@@ -10122,6 +10192,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
           X3dEditUserPreferences.setOtherSemanticWebEditorAutoLaunch("false");
         }
+        otherSemanticWebEditorAutoLaunchCheck();
     }//GEN-LAST:event_otherSemanticWebEditorCheckBoxActionPerformed
 
     private void otherSemanticWebEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherSemanticWebEditorPathTFActionPerformed
@@ -10145,6 +10216,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void otherSemanticWebEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherSemanticWebEditorLaunchButtonActionPerformed
     externalProcessLaunch(X3dEditUserPreferences.getOtherSemanticWebEditorPath());
+        otherSemanticWebEditorAutoLaunchCheck();
     }//GEN-LAST:event_otherSemanticWebEditorLaunchButtonActionPerformed
 
     private void otherSemanticWebEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherSemanticWebEditorDownloadButtonActionPerformed
@@ -10239,6 +10311,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void porteclePlayerLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_porteclePlayerLaunchButtonActionPerformed
         externalProcessLaunch(X3dEditUserPreferences.getPorteclePlayerPath());
+        portecleAutoLaunchCheck ();
     }//GEN-LAST:event_porteclePlayerLaunchButtonActionPerformed
 
     private void porteclePlayerDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_porteclePlayerDownloadButtonActionPerformed
@@ -10268,6 +10341,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void keystoreExplorerPlayerLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreExplorerPlayerLaunchButtonActionPerformed
         externalProcessLaunch(X3dEditUserPreferences.getKeystoreExplorerPlayerPath());
+        keystoreExplorerAutoLaunchCheck ();
     }//GEN-LAST:event_keystoreExplorerPlayerLaunchButtonActionPerformed
 
     private void keystoreExplorerPlayerDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreExplorerPlayerDownloadButtonActionPerformed
@@ -10299,6 +10373,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
             keystoreFileNameTF.setText(newFileName);
             keystoreDirectoryTF.setText(newValue.substring(0, newFileNameIndex));
         }
+        keystoreExplorerAutoLaunchCheck ();
     }
     private void keystoreDirectoryTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreDirectoryTFActionPerformed
         checkSplitKeystoreDirectoryFilename ();
@@ -10516,8 +10591,9 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void newX3dModelsDirectoryDefaultButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryDefaultButtonActionPerformed
     {//GEN-HEADEREND:event_newX3dModelsDirectoryDefaultButtonActionPerformed
-       newX3dModelsDirectoryTF.setText(X3dEditUserPreferences.NEW_X3D_MODELS_DIRECTORY_DEFAULT);
-       initializeNewX3dModelsDirectory();
+        newX3dModelsDirectoryTF.setText(X3dEditUserPreferences.NEW_X3D_MODELS_DIRECTORY_DEFAULT);
+        initializeNewX3dModelsDirectory();
+        newX3dModelsDirectoryCheck ();
     }//GEN-LAST:event_newX3dModelsDirectoryDefaultButtonActionPerformed
 
     private void viewX3dCanonicalizationC14nReadmeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_viewX3dCanonicalizationC14nReadmeButtonActionPerformed
@@ -10541,6 +10617,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
           X3dEditUserPreferences.setInkscapeAutoLaunch("false");
         }
+        inkscapeEditorAutoLaunchCheck ();
     }//GEN-LAST:event_inkscapeEditorCheckBoxActionPerformed
 
     private void inkscapeEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inkscapeEditorChooserButtonActionPerformed
@@ -10559,6 +10636,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void inkscapeEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inkscapeEditorLaunchButtonActionPerformed
         externalProcessLaunch(X3dEditUserPreferences.getInkscapeEditorPath());
+        inkscapeEditorAutoLaunchCheck ();
     }//GEN-LAST:event_inkscapeEditorLaunchButtonActionPerformed
 
     private void inkscapeEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inkscapeEditorDownloadButtonActionPerformed
@@ -10579,6 +10657,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
           X3dEditUserPreferences.setTitaniaAutoLaunch("false");
         }
+        titaniaAutoLaunchCheck ();
     }//GEN-LAST:event_titaniaX3dEditorCheckBoxActionPerformed
 
     private void titaniaX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaX3dEditorPathTFActionPerformed
@@ -10600,6 +10679,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void titaniaX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaX3dEditorLaunchButtonActionPerformed
         externalProcessLaunch(X3dEditUserPreferences.getTitaniaX3dEditorPath());
+        titaniaAutoLaunchCheck ();
     }//GEN-LAST:event_titaniaX3dEditorLaunchButtonActionPerformed
 
     private void titaniaX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaX3dEditorDownloadButtonActionPerformed
@@ -10624,6 +10704,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         {
           X3dEditUserPreferences.setBatikAutoLaunch("false");
         }
+        batikAutoLaunchCheck ();
     }//GEN-LAST:event_batikEditorCheckBoxActionPerformed
 
     private void batikEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batikEditorChooserButtonActionPerformed
@@ -10640,6 +10721,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void batikEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batikEditorLaunchButtonActionPerformed
         externalProcessLaunch(X3dEditUserPreferences.getBatikEditorPath());
+        batikAutoLaunchCheck ();
     }//GEN-LAST:event_batikEditorLaunchButtonActionPerformed
 
     private void batikEditorHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batikEditorHelpButtonActionPerformed
@@ -10708,6 +10790,7 @@ for Extensible 3D (X3D) Graphics International Standard.
 * https://web3d.org/x3d
 """);
         readmeWriter.close();
+        newX3dModelsDirectoryCheck();
     }
 
     public static void feedbackButtonSend (String panelName)
@@ -11960,9 +12043,9 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel inkscapeEditorLabel;
     private javax.swing.JButton inkscapeEditorLaunchButton;
     private javax.swing.JTextField inkscapeEditorPathTF;
-    private javax.swing.JButton instRealChooserButton;
-    private javax.swing.JButton instRealDefaultButton;
     private javax.swing.JCheckBox instantRealityCheckBox;
+    private javax.swing.JButton instantRealityChooserButton;
+    private javax.swing.JButton instantRealityDefaultButton;
     private javax.swing.JButton instantRealityDownloadButton;
     private javax.swing.JLabel instantRealityLabel;
     private javax.swing.JButton instantRealityLaunchButton;
