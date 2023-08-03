@@ -606,9 +606,9 @@ public class X3dEditUserPreferences
   private static final String winxpVivatyPlayerPathDefault         = "C:\\Program Files\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
   private static final String winxpXj3DPathDefault                 = "C:\\Program Files\\Xj3D\\browser.bat";
   private static final String winxpOtherX3dPlayerPathDefault       = ""; // user configured
-  private static final String winxpOtherX3dPlayerNameDefault       = "(Add another player using X3D-Edit Preferences Panels)"; // user configured
+  private static final String winxpOtherX3dPlayerNameDefault       = "(Add another player using X3D-Edit User Preferences Panel)"; // user configured
   private static final String winxpOtherX3dEditorPathDefault       = ""; // user configured
-  private static final String winxpOtherX3dEditorNameDefault       = "(Add another modeling tool using X3D-Edit Preferences Panels)"; // user configured
+  private static final String winxpOtherX3dEditorNameDefault       = "(Add another modeling tool using X3D-Edit User Preferences Panel)"; // user configured
   private static final String winxpAmayaPathDefault                = "C:\\Program Files\\Amaya\\WindowsWX\\bin\\amaya.exe";
   private static final String winxpChromePathDefault               = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
   private static final String winxpFirefoxPathDefault              = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
