@@ -753,7 +753,7 @@ public class X3dEditUserPreferences
   private static final String windows64GimpEditorPathDefault             = "C:\\Program Files\\GIMP 2\\bin\\gimp-2.10.exe";
   private static final String windows64FijiEditorPathDefault             = "C:\\Program Files\\Fiji.app\\ImageJ-win64.exe";
   private static final String windows64ImageJEditorPathDefault           = "C:\\Program Files\\ImageJ\\ImageJ.exe";
-  private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.0-Q16-HDRI\\imdisplay.exe";
+  private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\imdisplay.exe";
   private static final String windows64VlcPlayerPathDefault              = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
   private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege-5.6.1\\Protege.exe";
   private static final String windows64PorteclePlayerPathDefault         = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
@@ -769,7 +769,7 @@ public class X3dEditUserPreferences
   private static final String windows64TitaniaX3dEditorPathDefault       = "(only available in Linux)";
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
-  private static final String windows64Slicer3dEditorPathDefault         = "C:\\Program Files\\NA-MIC\\Slicer 5.2.2\\Slicer.exe";
+  private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\NA-MIC\\Slicer 5.2.2\\Slicer.exe";
   private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.16\\batik-squiggle.jar";
   private static final String windows64InkscapeEditorPathDefault         = "C:\\Program Files\\Inkscape\\bin\\inkscape.exe";
   private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app/editor/index.html"; // online editor
