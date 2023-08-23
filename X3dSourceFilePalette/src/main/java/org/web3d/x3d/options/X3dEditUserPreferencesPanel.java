@@ -97,7 +97,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
   private static String  launcherExampleScenePath = "X3dExamples/LauncherTestScene.x3d";    // This path is setup in X3D layer.xml
   private static File    launcherExampleSceneFile = null;
   private        File    checkExistingFile;
-  private        boolean isExecutableFile;
+  private        boolean isExecutableFile;  // might be directory, depending on the check
   private        boolean isReachableWebsite;
   private final X3dOptionsPanelController controller;
   
@@ -1484,6 +1484,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         freeWrlTF.setToolTipText("Local file location");
         freeWrlTF.setMinimumSize(new java.awt.Dimension(100, 20));
         freeWrlTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        freeWrlTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                freeWrlTFFocusLost(evt);
+            }
+        });
         freeWrlTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 freeWrlTFActionPerformed(evt);
@@ -1502,6 +1507,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         heilanTF.setToolTipText("Local file location");
         heilanTF.setMinimumSize(new java.awt.Dimension(100, 20));
         heilanTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        heilanTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                heilanTFFocusLost(evt);
+            }
+        });
         heilanTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 heilanTFActionPerformed(evt);
@@ -1519,6 +1529,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         instantRealityTF.setToolTipText("Local file location");
         instantRealityTF.setMinimumSize(new java.awt.Dimension(100, 20));
         instantRealityTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        instantRealityTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                instantRealityTFFocusLost(evt);
+            }
+        });
         instantRealityTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 instantRealityTFActionPerformed(evt);
@@ -1537,6 +1552,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         octagaTF.setToolTipText("Local file location");
         octagaTF.setMinimumSize(new java.awt.Dimension(100, 20));
         octagaTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        octagaTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                octagaTFFocusLost(evt);
+            }
+        });
         octagaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 octagaTFActionPerformed(evt);
@@ -1555,6 +1575,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         swirlx3dTF.setToolTipText("Local file location");
         swirlx3dTF.setMinimumSize(new java.awt.Dimension(100, 20));
         swirlx3dTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        swirlx3dTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                swirlx3dTFFocusLost(evt);
+            }
+        });
         swirlx3dTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swirlx3dTFActionPerformed(evt);
@@ -1573,6 +1598,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         view3dsceneTF.setToolTipText("Local file location");
         view3dsceneTF.setMinimumSize(new java.awt.Dimension(100, 20));
         view3dsceneTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        view3dsceneTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                view3dsceneTFFocusLost(evt);
+            }
+        });
         view3dsceneTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 view3dsceneTFActionPerformed(evt);
@@ -1591,6 +1621,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         vivatyTF.setToolTipText("Local file location");
         vivatyTF.setMinimumSize(new java.awt.Dimension(100, 20));
         vivatyTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        vivatyTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                vivatyTFFocusLost(evt);
+            }
+        });
         vivatyTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vivatyTFActionPerformed(evt);
@@ -1609,6 +1644,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         xj3dTF.setToolTipText("Local file location");
         xj3dTF.setMinimumSize(new java.awt.Dimension(100, 20));
         xj3dTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        xj3dTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                xj3dTFFocusLost(evt);
+            }
+        });
         xj3dTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xj3dTFActionPerformed(evt);
@@ -2378,6 +2418,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         h3dTF.setToolTipText("Local file location");
         h3dTF.setMinimumSize(new java.awt.Dimension(100, 20));
         h3dTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        h3dTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                h3dTFFocusLost(evt);
+            }
+        });
         h3dTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h3dTFActionPerformed(evt);
@@ -10244,6 +10289,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_otherX3dEditorPathTFFocusLost
 
     private void otherX3dPlayerPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherX3dPlayerPathTFFocusLost
+        X3dEditUserPreferences.setOtherX3dPlayerPath(otherX3dPlayerPathTF.getText().trim());
         otherX3dPlayerAutoLaunchCheck();
     }//GEN-LAST:event_otherX3dPlayerPathTFFocusLost
 
@@ -10411,7 +10457,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void authorExamplesDirectoryTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_authorExamplesDirectoryTFActionPerformed
     {//GEN-HEADEREND:event_authorExamplesDirectoryTFActionPerformed
-        // check valid directory before allowing
+        // check valid directory rather than file
         authorExamplesDirectoryTF.setText(authorExamplesDirectoryTF.getText().trim()); // normalize
         try {
           File file = new File(authorExamplesDirectoryTF.getText());
@@ -10569,6 +10615,18 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void newX3dModelsDirectoryTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryTFActionPerformed
     {//GEN-HEADEREND:event_newX3dModelsDirectoryTFActionPerformed
+        // check valid directory rather than file
+        newX3dModelsDirectoryTF.setText(newX3dModelsDirectoryTF.getText().trim()); // normalize
+        try {
+          File file = new File(newX3dModelsDirectoryTF.getText());
+          if  (file.exists() && !file.isDirectory())
+          {
+              file = file.getParentFile(); // ensure directory
+              newX3dModelsDirectoryTF.setText(file.getPath());
+          }
+        }
+        catch(Throwable t) {}// Forget about it, if any errors
+        
         initializeNewX3dModelsDirectory();
         newX3dModelsDirectoryCheck ();
     }//GEN-LAST:event_newX3dModelsDirectoryTFActionPerformed
@@ -10732,6 +10790,51 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         browserLaunch(X3dEditUserPreferences.getDownloadSiteBatik());
     }//GEN-LAST:event_batikEditorDownloadButtonActionPerformed
 
+    private void view3dsceneTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_view3dsceneTFFocusLost
+        X3dEditUserPreferences.setView3dScenePath(view3dsceneTF.getText().trim());
+        view3dsceneAutoLaunchCheck();
+    }//GEN-LAST:event_view3dsceneTFFocusLost
+
+    private void freeWrlTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_freeWrlTFFocusLost
+        X3dEditUserPreferences.setFreeWrlPath(freeWrlTF.getText().trim());
+        freeWrlAutoLaunchCheck();
+    }//GEN-LAST:event_freeWrlTFFocusLost
+
+    private void h3dTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_h3dTFFocusLost
+        X3dEditUserPreferences.setFreeWrlPath(h3dTF.getText().trim());
+        h3dAutoLaunchCheck();
+    }//GEN-LAST:event_h3dTFFocusLost
+
+    private void instantRealityTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_instantRealityTFFocusLost
+        X3dEditUserPreferences.setInstantRealityPath(instantRealityTF.getText().trim());
+        instantRealityAutoLaunchCheck();
+    }//GEN-LAST:event_instantRealityTFFocusLost
+
+    private void octagaTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_octagaTFFocusLost
+        X3dEditUserPreferences.setOctagaPath(octagaTF.getText().trim());
+        octagaAutoLaunchCheck();
+    }//GEN-LAST:event_octagaTFFocusLost
+
+    private void xj3dTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_xj3dTFFocusLost
+        X3dEditUserPreferences.setXj3DPath(xj3dTF.getText().trim());
+        xj3dAutoLaunchCheck();
+    }//GEN-LAST:event_xj3dTFFocusLost
+
+    private void heilanTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_heilanTFFocusLost
+        X3dEditUserPreferences.setHeilanPath(heilanTF.getText().trim());
+        heilanAutoLaunchCheck();
+    }//GEN-LAST:event_heilanTFFocusLost
+
+    private void swirlx3dTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_swirlx3dTFFocusLost
+        X3dEditUserPreferences.setSwirlX3DPath(swirlx3dTF.getText().trim());
+        swirlx3dAutoLaunchCheck();
+    }//GEN-LAST:event_swirlx3dTFFocusLost
+
+    private void vivatyTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_vivatyTFFocusLost
+        X3dEditUserPreferences.setVivatyPlayerPath(vivatyTF.getText().trim());
+        vivatyAutoLaunchCheck();
+    }//GEN-LAST:event_vivatyTFFocusLost
+
     public void sleep (long msecDuration)
     {
         try
@@ -10754,7 +10857,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
             
             NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
                     "Enabling autolaunch of localhost HTTP server for author X3D New Models directory", 
-                    "Enabling autolaunch", NotifyDescriptor.PLAIN_MESSAGE);
+                    "Enabling autolaunch of localhost HTTP server", NotifyDescriptor.PLAIN_MESSAGE);
             DialogDisplayer.getDefault().notify(notifyDescriptor);
         }
         // TODO refactor/combine with checkAuthorModelsDirectoryAutolaunch ();
