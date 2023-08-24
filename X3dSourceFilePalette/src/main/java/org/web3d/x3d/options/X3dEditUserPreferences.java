@@ -593,7 +593,7 @@ public class X3dEditUserPreferences
                                                                    // C:\\Program Files\\Bitmanagement Software\\BS Contact\\BSContact.exe
   private static final String winxpContactPathDefault              = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
   private static final String winxpContactGeoPathDefault           = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
-  private static final String winxpFreeWrlPathDefault              = "C:\\Program Files\\freeWRL\\freeWRL.4\\freeWRL.exe";
+  private static final String winxpFreeWrlPathDefault              = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\freeWRL.exe";
 //private static final String winxpFreeWrlPathDefault              = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\launchdir\\freeWRL_Launcher.exe"; // alternative
   private 
           static final String winxpH3dPathDefault                  = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin32\\H3DViewer.exe"; // TODO 32
@@ -619,7 +619,7 @@ public class X3dEditUserPreferences
                                                                    // C:\\Program Files (x86)\\Bitmanagement Software\\BS Contact\\BSContact.exe
   private static final String windows64ContactPathDefault          = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
   private static final String windows64ContactGeoPathDefault       = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
-  private static final String windows64FreeWrlPathDefault          = "C:\\Program Files\\freewrl_inw_x64_470\\freeWRL.exe";
+  private static final String windows64FreeWrlPathDefault          = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\freeWRL.exe";
 //private static final String windows64FreeWrlPathDefault          = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\launchdir\\freeWRL_launcher.exe"; // alternative
   private static final String windows64H3dPathDefault              = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin64\\H3DViewer.exe";
   private static final String windows64HeilanPathDefault           = "C:\\Program Files (x86)\\HeilanBrowser-0.15\\HeilanBrowser.exe";
@@ -741,7 +741,7 @@ public class X3dEditUserPreferences
   private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 3.8\\bin\\ITK-SNAP.exe";
   private static final String winxpSeg3dEditorPathDefault                = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String winxpSlicer3dEditorPathDefault             = "C:\\ProgramData\\Slicer 4.3.1\\Slicer.exe";
-  private static final String winxpBatikEditorPathDefault                = "C:\\languages\\java\\batik-1.16\\batik-squiggle.jar";
+  private static final String winxpBatikEditorPathDefault                = "C:\\languages\\java\\batik-1.16\\batik-squiggle-1.16.jar";
   private static final String winxpInkscapeEditorPathDefault             = "C:\\Program Files\\Inkscape\\Inkscape";
   private static final String winxpSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String winxpWhiteDuneX3dEditorPathDefault         = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
@@ -770,7 +770,7 @@ public class X3dEditUserPreferences
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\NA-MIC\\Slicer 5.2.2\\Slicer.exe";
-  private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.16\\batik-squiggle.jar";
+  private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.16\\batik-squiggle-1.16.jar";
   private static final String windows64InkscapeEditorPathDefault         = "C:\\Program Files\\Inkscape\\bin\\inkscape.exe";
   private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String windows64WhiteDuneX3dEditorPathDefault     = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
