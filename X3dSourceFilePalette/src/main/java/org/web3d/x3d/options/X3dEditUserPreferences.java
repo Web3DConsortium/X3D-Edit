@@ -689,8 +689,8 @@ public class X3dEditUserPreferences
   private static final String otherOperaPathDefault                = "";
   private static final String otherSafariPathDefault               = "";
 
-  private static final String downloadSiteContact                  = "https://www.bitmanagement.com/en";
-  private static final String downloadSiteContactGeo               = "https://www.bitmanagement.com/en";
+  private static final String downloadSiteBSContact                = "https://www.bitmanagement.de/en";
+  private static final String downloadSiteBSContactGeo             = "https://www.bitmanagement.de/en";
   private static final String downloadSiteFreeWrl                  = "https://sourceforge.net/projects/freewrl"; 
                                                          // versions: https://sourceforge.net/projects/freewrl/files/
                                                          // formerly "https://www.crc.ca/FreeWRL"; 
@@ -866,7 +866,7 @@ public class X3dEditUserPreferences
  
   private static final String downloadSiteAltovaXMLSpy                   = "https://www.altova.com/download";
   private static final String downloadSiteBlender                        = "https://www.blender.org";
-  private static final String downloadSiteBsContentStudio                = "https://www.bitmanagement.com/en/download/studio";
+  private static final String downloadSiteBsContentStudio                = "https://www.bitmanagement.de/en/download/studio";
   private static final String downloadSiteCura                           = "https://ultimaker.com/software/ultimaker-cura";
   private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
@@ -899,7 +899,7 @@ public class X3dEditUserPreferences
   
   protected static final String helpSiteAltovaXMLSpy                     = "https://www.altova.com/library";
   protected static final String helpSiteBlender                          = "https://www.blender.org/support"; // https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
-  protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.com/en/download/studio";
+  protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.de/en/download/studio";
   protected static final String helpSiteCura                             = "https://ultimaker.com/learn"; 
   protected static final String helpSiteMeshLab                          = "https://www.meshlab.net"; // https://sourceforge.net/apps/mediawiki/meshlab";
   protected static final String helpSiteParaview                         = "https://www.paraview.org";
@@ -916,8 +916,8 @@ public class X3dEditUserPreferences
   protected static final String helpSiteWings3d                          = "http://www.wings3d.com/?page_id=87";
   protected static final String helpSiteUltraEdit                        = "https://www.ultraedit.com/wiki/Main_Page"; // https://www.UltraEdit.com/help/category/ultraedit-uestudio";
 
-  public static String getDownloadSiteContact()        {return downloadSiteContact;}
-  public static String getDownloadSiteContactGeo()     {return downloadSiteContactGeo;}
+  public static String getDownloadSiteContact()        {return downloadSiteBSContact;}
+  public static String getDownloadSiteContactGeo()     {return downloadSiteBSContactGeo;}
   public static String getDownloadSiteFreeWrl()        {return downloadSiteFreeWrl;}
   public static String getDownloadSiteH3d()            {return downloadSiteH3d;}
   public static String getDownloadSiteHeilan()         {return downloadSiteHeilan;}
