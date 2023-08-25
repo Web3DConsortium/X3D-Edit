@@ -301,7 +301,7 @@ public interface X3DSchemaData
       
       "https://github.com/x3dom/x3dom/issues",                        // 5
       "https://github.com/create3000/x_ite/issues",                   // 6
-      "https://www.bitmanagement.com/encontact",                      // 7
+      "https://www.bitmanagement.de/encontact",                      // 7
       "https://sourceforge.net/freewrl/tickets",                      // 8
       "http://forum.instantreality.org",                              // 9
       "mailto:issues@instantreality.org",                             //10
@@ -327,7 +327,7 @@ public interface X3DSchemaData
     "generator X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit",                       // 2
     "generator AUV Workbench, https://savage.nps.edu/AuvWorkbench",                  // 3
     "generator Blender, https://www.blender.org",                                    // 4
-    "generator BS Content Studio, https://www.bitmanagement.com/en/download/studio", // 5
+    "generator BS Content Studio, https://www.bitmanagement.de/en/download/studio", // 5
     "generator Cinema 4D, https://www.maxon.net/en/cinema-4d",                       // 6
     "generator ITK-SNAP, https://www.itksnap.org/pmwiki/pmwiki.php",                 // 7
     "generator Mathematica, https://www.wolfram.com",                                // 8
@@ -408,7 +408,7 @@ public interface X3DSchemaData
     "X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit",                     // 2
     "AUV Workbench, https://savage.nps.edu/AuvWorkbench",                // 3
     "Blender, https://www.blender.org",                                  // 4
-    "BS Content Studio, https://www.bitmanagement.com/en/download/studio",  // 5
+    "BS Content Studio, https://www.bitmanagement.de/en/download/studio",  // 5
     "Cinema 4D, https://www.maxon.net/en/cinema-4d",                     // 6
     "ITK-SNAP, https://www.itksnap.org/pmwiki/pmwiki.php",               // 7
     "Mathematica, https://www.wolfram.com",                              // 8
