@@ -71,6 +71,7 @@ public class METACustomizer extends BaseCustomizer
   private final UrlExpandableList2 urlExpandableList = new UrlExpandableList2();
   private final String localDirectory;
   private final String generatorValueX3dEdit = "X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit";
+  private       boolean contentInitialized = false;
 
   public METACustomizer(META meta, JTextComponent target, X3DDataObject xObj)
   {
@@ -88,9 +89,9 @@ public class METACustomizer extends BaseCustomizer
     dummyUrlList.setMasterDocumentLocation(xObj.getPrimaryFile());
 
     nameComboBox.setSelectedItem(meta.getName());
-    checkMetaNameContentCombinations();
-    nameComboBoxTooltipReset ();
     contentTA.setText(meta.getContentAttribute());
+    contentInitialized = true; // avoid launching diagnostic during initialization callbacks
+    String debug = contentTA.getText();
     contentTA.selectAll(); // open with all text selected
     
     // handle case sensitivity or empty/null values
@@ -110,6 +111,7 @@ public class METACustomizer extends BaseCustomizer
     enableUrlButtons ();
     
     checkMetaNameContentCombinations();
+    nameComboBoxTooltipReset ();
   }
   
   /** Check and offer to correct mismatched meta name=content combinations */
@@ -142,7 +144,7 @@ public class METACustomizer extends BaseCustomizer
                 !content.equals(getTodaysDate ()))
        {
             NotifyDescriptor d = new NotifyDescriptor.Confirmation(
-               "<html><p align='center'>Set today's date?</p><p>&nbsp;</p><p align='center'>\"<b>" + content + "</b>\" to \"<b>" + getTodaysDate () + "</b>\"</p>",
+               "<html><p align='center'>Change to match today's date?</p><p>&nbsp;</p><p align='center'>\"<b>" + content + "</b>\" to \"<b>" + getTodaysDate () + "</b>\"</p>",
                "Confirm", NotifyDescriptor.YES_NO_OPTION);
             if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.YES_OPTION)
             {
@@ -875,8 +877,12 @@ public class METACustomizer extends BaseCustomizer
     private void nameComboBoxActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_nameComboBoxActionPerformed
     {//GEN-HEADEREND:event_nameComboBoxActionPerformed
         nameHttpEquivalentTextWarningCheck ();
-        checkMetaNameContentCombinations();
-        nameComboBoxTooltipReset ();
+        // avoid launching diagnostic during initialization callbacks
+        if (contentInitialized) 
+        {
+            checkMetaNameContentCombinations();
+            nameComboBoxTooltipReset ();
+        }
         nameHelpButton.setEnabled(!nameHelpReference().isEmpty());
         enableUrlButtons ();
     }//GEN-LAST:event_nameComboBoxActionPerformed
