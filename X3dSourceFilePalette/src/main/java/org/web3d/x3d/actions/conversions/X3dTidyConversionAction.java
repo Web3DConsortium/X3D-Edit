@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -77,12 +77,12 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
 
     private final String conversionRequiredDefault            = "true";
     private final String titleDefault                         = "";     // default title value for file name is empty
-    private final String modifyX3dVersionDefault              = "true";
+    private final String modifyX3dVersionDefault              = "false";// keep under author control
     private final String revisedX3dVersionDefault             = "4.0";
     private final String fixDateFormatsDefault                = "true";
     private final String fixMFStringQuotesDefault             = "true";
     private final String fixGeoSystemMetadataDefault          = "true";
-    private final String fixHAnimHumanoidMetadataDefault      = "true";
+    private final String fixHAnimHumanoidMetadataDefault      = "true"; // TODO
     private final String fixMetaNamesMatchDublinCoreDefault   = "true";
     private final String replaceBlackEmissiveColorDefault     = "true";
     private final String omitNegativeScaleValuesDefault       = "true";
