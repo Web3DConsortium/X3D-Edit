@@ -3142,6 +3142,34 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   {
     return getNodeList(targ,null);
   }
+  
+  /** Find expected title (filename) of this model from corresponding X3D/head/meta element
+    * @return title (filename) of model, if X3D/head/meta element is found */
+  protected String getMetaTitle()
+  {
+        String metaTitle = new String(); // empty string if not found
+        Element el = this.elementLocation.element;
+        while ((el != null) && (el.getParentElement() != null) && (el.getName() != null) && !el.getName().equals("X3D"))
+        {
+            el = el.getParentElement();
+        }
+        if ((el == null) || !el.getName().equals("X3D"))
+            return ""; // no X3D element found
+        Element headElement = el.getChild("head");
+        if (headElement == null)
+            return ""; // no head element found
+        List<Element> metaList =  headElement.getChildren("meta");
+        // https://stackoverflow.com/questions/18410035/ways-to-iterate-over-a-list-in-java
+        for (Element metaElement : metaList)
+        {
+            if (metaElement.getAttribute("name").getValue().equals("title"))
+            {
+                metaTitle = metaElement.getAttribute("content").getValue();
+                break;
+            }
+        }
+        return metaTitle;
+  }
 
   @SuppressWarnings("unchecked")
   private void addElems(Element par, Vector<Element> v, boolean includeParent, Vector<String> excludeList )
