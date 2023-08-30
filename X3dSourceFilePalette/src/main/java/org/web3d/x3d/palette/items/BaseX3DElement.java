@@ -3158,7 +3158,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         Element headElement = el.getChild("head");
         if (headElement == null)
             return ""; // no head element found
-        List<Element> metaList =  headElement.getChildren("meta");
+        // how to handle unchecked cast? should return List<Element> of DOM Element
+        List<Element> metaList = (List<Element>) headElement.getChildren("meta");
         // https://stackoverflow.com/questions/18410035/ways-to-iterate-over-a-list-in-java
         for (Element metaElement : metaList)
         {
