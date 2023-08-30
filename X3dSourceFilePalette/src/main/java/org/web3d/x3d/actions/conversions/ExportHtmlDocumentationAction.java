@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+ * Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  *  
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -50,14 +50,14 @@ import org.web3d.x3d.X3DEditorSupport;
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 50),
+  @ActionReference(path = "Menu/&X3D-Edit/&Export X3D Model to File", position = 60),
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 150, separatorBefore = 149),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 150),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 150),
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 50),
-  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 50),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 60),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 60),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 60),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Export X3D Model to File", position = 60),
   @ActionReference(path = "Shortcuts", name = "CS-5"), // shortcut control-shift-5
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
@@ -70,7 +70,7 @@ public final class ExportHtmlDocumentationAction extends BaseConversionsAction
   @Override
   public String transformSingleFile(X3DEditorSupport.X3dEditor ed)
   {
-    ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as HTML Documentation via XSLT");
+    ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as HTML5 pretty-print model documentation via XSLT");
     ConversionsHelper.saveFilePack fp;
   //  if (BaseConversionsAction.xsltFilesRoot == null)
       fp = xsltOneFile(ed, "X3dTransforms/" + X3dToXhtmlXsltStylesheet, ".html", true, false, null);

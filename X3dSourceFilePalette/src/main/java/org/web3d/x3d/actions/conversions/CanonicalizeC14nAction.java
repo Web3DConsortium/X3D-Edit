@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+ * Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -61,11 +61,11 @@ import org.web3d.x3d.tools.x3db.X3dCanonicalizer;
                     displayName = "#CTL_CanonicalizeC14nAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 40),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 20),
   @ActionReference(path = "Menu/&X3D-Edit/&Compression", position = 100),
   @ActionReference(path = "Menu/&X3D-Edit/XML &Security", position = 250),
-  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 40),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 40),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 20),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 20),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Compression", position = 100),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/XML &Security", position = 250),
   @ActionReference(path = "Shortcuts", name = "CS-4"), // shortcut control-shift-4

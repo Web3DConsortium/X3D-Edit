@@ -71,9 +71,9 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/ThreeArrowsDrei_Pfeile.svg.32x32.png",
                     displayName = "#CTL_ViewInAllAction", lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 60, separatorAfter = 61),
-  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 60),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 60, separatorAfter = 61),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 70, separatorAfter = 71),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 70),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 70, separatorAfter = 71),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 110, separatorBefore = 109), // 
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 110, separatorBefore = 109),
   @ActionReference(path = "Shortcuts", name = "CS-9"), // shortcut control-shift-0 (L and F10 and 0 not working, A already taken by About X3D-Edit)

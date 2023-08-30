@@ -58,9 +58,9 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_TIDY_URL;
                     displayName = "#CTL_X3dTidyXsltAction",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 70),
-  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 70),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 70),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 50),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 50),
 //@ActionReference(path = "Shortcuts", name = "CS-7"), // shortcut control-shift-7
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
