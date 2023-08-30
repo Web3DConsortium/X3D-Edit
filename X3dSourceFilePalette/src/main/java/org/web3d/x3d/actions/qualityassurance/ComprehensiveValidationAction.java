@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+ * Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -72,9 +72,9 @@ import org.web3d.x3d.tools.X3dValuesRegexChecker;
                     displayName = "#CTL_ComprehensiveValidationAction",
                            lazy = true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 30),
-  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 30),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 30),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 40),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 40),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 40),
   @ActionReference(path = "Menu/&X3D-Edit/&Quality Assurance (QA)", position = 300),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&Quality Assurance (QA)", position = 300),
   @ActionReference(path = "Shortcuts", name = "CS-Q"), // shortcut control-shift-Q
