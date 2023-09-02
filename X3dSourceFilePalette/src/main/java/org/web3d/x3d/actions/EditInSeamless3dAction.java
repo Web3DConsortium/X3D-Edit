@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/seamless3d_favicon.png", // ico
                     displayName = "#CTL_EditInSeamless3dAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 160),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 160),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved X3D Model", position = 160),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved X3D Model", position = 160),
 })
 
 public final class EditInSeamless3dAction extends ViewInBaseAction

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -53,8 +53,8 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/paraview-cropped-favicon-32x32.png", 
                     displayName = "#CTL_EditInParaviewAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved Model", position = 140),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved Model", position = 140),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved X3D Model", position = 140),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved X3D Model", position = 140),
 })
 
 public final class EditInParaviewAction extends ViewInBaseAction
