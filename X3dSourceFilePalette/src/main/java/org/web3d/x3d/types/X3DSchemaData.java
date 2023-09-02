@@ -260,7 +260,8 @@ public interface X3DSchemaData
       "TODO X3D-Edit authoring tool GitHub Issue",                    // 4
       "TODO X3DOM Player Issue",                                      // 5
       "TODO X_ITE Player Issue",                                      // 6
-      "TODO BS Contact BitManagement Bug Report",                     // 7
+//    "TODO BS Contact BitManagement Bug Report",                     //
+      "TODO Castle Game Engine view3dscene Issue",                    // 7
       "TODO FreeWrl SourceForge Bugtracker Issue",                    // 8
       "TODO instantReality Forum Issue",                              // 9
       "TODO issues@instantReality.org",                               //10
@@ -276,9 +277,10 @@ public interface X3DSchemaData
       "Enter url/number of X3D Specification Mantis Issue",           // 2
       "Enter url/number of X3D example scene SourceForge Issue",      // 3
       "Enter url/number of X3D-Edit authoring tool GitHub Issue",     // 4
-      "Note details of X3DOM bug-report message",                     // 5
-      "Note details of X_ITE bug-report message",                     // 6
-      "Note details of BS Contact bug-report message",                // 7
+      "Enter details of X3DOM bug-report message",                    // 5
+      "Enter details of X_ITE bug-report message",                    // 6
+//    "Note details of BS Contact bug-report message",                //  
+      "Enter url/number of view3dscene issue-tracker message",        // 7
       "Enter url/number of FreeWrl SourceForge Bugtracker Issue",     // 8
       "Enter url/number of instantReality Forum Issue",               // 9
       "Send mail to InstantReality team",                             //10
@@ -293,15 +295,16 @@ public interface X3DSchemaData
       "https://www.web3d.org/standards/comment",                      // 1
       "https://www.web3d.org/member-only/mantis/my_view_page.php",    // 2
       
-      "https://sourceforge.net/p/x3d/examples/",                      // 3
+      "https://sourceforge.net/p/x3d/examples/",                                          // 3
 //    "https://www.movesinstitute.org/bugzilla/buglist.cgi?quicksearch=example+archives", // 3
       
-      "https://github.com/Web3DConsortium/X3D-Edit/issues",           // 4
+      "https://github.com/Web3DConsortium/X3D-Edit/issues",                               // 4
 //    "https://www.movesinstitute.org/bugzilla/buglist.cgi?quicksearch=X3D-Edit",         // 4
       
       "https://github.com/x3dom/x3dom/issues",                        // 5
       "https://github.com/create3000/x_ite/issues",                   // 6
-      "https://www.bitmanagement.de/encontact",                      // 7
+//    "https://www.bitmanagement.de/en/contact",                      //
+      "https://github.com/castle-engine/view3dscene/issues",          // 7
       "https://sourceforge.net/freewrl/tickets",                      // 8
       "http://forum.instantreality.org",                              // 9
       "mailto:issues@instantreality.org",                             //10
