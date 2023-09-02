@@ -371,6 +371,14 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         bsContentStudioX3dEditorLaunchButton = new javax.swing.JButton();
         bsContentStudioX3dEditorDownloadButton = new javax.swing.JButton();
         bsContentStudioX3dEditorHelpButton = new javax.swing.JButton();
+        bvhackerEditorLabel = new javax.swing.JLabel();
+        bvhackerEditorCheckBox = new javax.swing.JCheckBox();
+        bvhackerEditorPathTF = new javax.swing.JTextField();
+        bvhackerEditorChooserButton = new javax.swing.JButton();
+        bvhackerEditorDefaultButton = new javax.swing.JButton();
+        bvhackerEditorLaunchButton = new javax.swing.JButton();
+        bvhackerEditorDownloadButton = new javax.swing.JButton();
+        bvhackerEditorHelpButton = new javax.swing.JButton();
         curaX3dEditorLabel = new javax.swing.JLabel();
         curaX3dEditorCheckBox = new javax.swing.JCheckBox();
         curaX3dEditorPathTF = new javax.swing.JTextField();
@@ -3013,12 +3021,137 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(bsContentStudioX3dEditorHelpButton, gridBagConstraints);
 
+        bvhackerEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorLabel, "bvhacker");
+        bvhackerEditorLabel.setToolTipText("free bvh file editing tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorLabel, gridBagConstraints);
+
+        bvhackerEditorCheckBox.setSelected(true);
+        bvhackerEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        bvhackerEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bvhackerEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorCheckBox, gridBagConstraints);
+
+        bvhackerEditorPathTF.setToolTipText("File location for local application");
+        bvhackerEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                bvhackerEditorPathTFFocusLost(evt);
+            }
+        });
+        bvhackerEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorChooserButton, "...");
+        bvhackerEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        bvhackerEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorDefaultButton, "default");
+        bvhackerEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        bvhackerEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorLaunchButton, "launch");
+        bvhackerEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        bvhackerEditorLaunchButton.setActionCommand("contactTF");
+        bvhackerEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorDownloadButton, "get");
+        bvhackerEditorDownloadButton.setToolTipText("Download tool from website");
+        bvhackerEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        bvhackerEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorHelpButton, "help");
+        bvhackerEditorHelpButton.setToolTipText("Display tool help page");
+        bvhackerEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        bvhackerEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorHelpButton, gridBagConstraints);
+
         curaX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorLabel, "Ultimaker Cura");
         curaX3dEditorLabel.setToolTipText("Ultimaker Cura printing tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3034,7 +3167,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3053,7 +3186,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3069,7 +3202,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3084,7 +3217,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3100,7 +3233,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3116,7 +3249,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3132,7 +3265,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3143,7 +3276,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         meshLabX3dEditorLabel.setToolTipText("MeshLab 3D graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3159,7 +3292,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3178,7 +3311,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3194,7 +3327,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3209,7 +3342,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3225,7 +3358,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3241,7 +3374,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3257,7 +3390,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3268,7 +3401,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         paraviewX3dEditorLabel.setToolTipText("Paraview 3D graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3284,7 +3417,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3303,7 +3436,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3319,7 +3452,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3334,7 +3467,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3350,7 +3483,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3366,7 +3499,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3382,7 +3515,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3393,7 +3526,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         polyTransNuGrafEditorLabel.setToolTipText("Okino PolyTrans NuGraf 3D authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3409,7 +3542,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3428,7 +3561,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3444,7 +3577,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3459,7 +3592,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3475,7 +3608,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3491,7 +3624,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3507,7 +3640,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3518,7 +3651,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         titaniaX3dEditorLabel.setToolTipText("Titania X3D Editor (Linux only)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3534,7 +3667,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3553,7 +3686,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3569,7 +3702,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3584,7 +3717,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3600,7 +3733,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3616,7 +3749,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3632,7 +3765,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3643,7 +3776,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         seamless3dX3dEditorLabel.setToolTipText("Seamless3d graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3659,7 +3792,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3678,7 +3811,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3694,7 +3827,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3709,7 +3842,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3725,7 +3858,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3741,7 +3874,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3757,7 +3890,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3768,7 +3901,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         ultraEditX3dEditorLabel.setToolTipText("UltraEdit Text Editor");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3784,7 +3917,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3803,7 +3936,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3819,7 +3952,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3834,7 +3967,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3850,7 +3983,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3866,7 +3999,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3882,7 +4015,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3893,7 +4026,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         whiteDuneX3dEditorLabel.setToolTipText("White Dune graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3909,7 +4042,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3928,7 +4061,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3944,7 +4077,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3959,7 +4092,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3975,7 +4108,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3991,7 +4124,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4007,7 +4140,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4018,7 +4151,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         wings3dX3dEditorLabel.setToolTipText("Wings 3D graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4034,7 +4167,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4053,7 +4186,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -4069,7 +4202,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4084,7 +4217,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4100,7 +4233,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4116,7 +4249,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4132,7 +4265,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4141,7 +4274,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel16, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
@@ -4152,7 +4285,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(otherEditorNameLabel, "Other tool name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherEditorNameLabel, gridBagConstraints);
@@ -4161,7 +4294,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(otherEditorPathLabel, "Other tool path:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherEditorPathLabel, gridBagConstraints);
@@ -4180,7 +4313,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4195,7 +4328,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4214,7 +4347,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -4231,7 +4364,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4246,7 +4379,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherX3dEditorClearButton, gridBagConstraints);
@@ -4261,7 +4394,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherX3dEditorLaunchButton, gridBagConstraints);
@@ -4276,7 +4409,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -4286,7 +4419,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(leftMarginSpacerLabel1, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridheight = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 0.1;
@@ -4295,7 +4428,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel12, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridy = 31;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -4312,7 +4445,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 31;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
@@ -9654,8 +9787,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_meshLabX3dEditorCheckBoxActionPerformed
 
   private void meshLabX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meshLabX3dEditorPathTFActionPerformed
-    X3dEditUserPreferences.setMeshLabX3dEditorPath(meshLabX3dEditorPathTF.getText().trim());
-    meshLabAutoLaunchCheck ();
+        X3dEditUserPreferences.setMeshLabX3dEditorPath(meshLabX3dEditorPathTF.getText().trim());
+        meshLabAutoLaunchCheck ();
   }//GEN-LAST:event_meshLabX3dEditorPathTFActionPerformed
 
   private void meshLabX3dEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meshLabX3dEditorChooserButtonActionPerformed
@@ -9665,9 +9798,9 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_meshLabX3dEditorChooserButtonActionPerformed
 
   private void meshLabX3dEditorDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meshLabX3dEditorDefaultButtonActionPerformed
-    meshLabX3dEditorPathTF.setText(X3dEditUserPreferences.getMeshLabX3dEditorPathDefault());
-    X3dEditUserPreferences.setMeshLabX3dEditorPath(meshLabX3dEditorPathTF.getText().trim());
-    meshLabAutoLaunchCheck ();
+        meshLabX3dEditorPathTF.setText(X3dEditUserPreferences.getMeshLabX3dEditorPathDefault());
+        X3dEditUserPreferences.setMeshLabX3dEditorPath(meshLabX3dEditorPathTF.getText().trim());
+        meshLabAutoLaunchCheck ();
   }//GEN-LAST:event_meshLabX3dEditorDefaultButtonActionPerformed
 
   private void meshLabX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meshLabX3dEditorLaunchButtonActionPerformed
@@ -9676,7 +9809,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_meshLabX3dEditorLaunchButtonActionPerformed
 
   private void meshLabX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meshLabX3dEditorDownloadButtonActionPerformed
-    browserLaunch(X3dEditUserPreferences.getDownloadSiteMeshLab());
+        browserLaunch(X3dEditUserPreferences.getDownloadSiteMeshLab());
   }//GEN-LAST:event_meshLabX3dEditorDownloadButtonActionPerformed
 
   private void meshLabX3dEditorHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meshLabX3dEditorHelpButtonActionPerformed
@@ -11132,6 +11265,53 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         slicer3dVolumeAutoLaunchCheck ();
     }//GEN-LAST:event_slicer3dVolumeEditorPathTFFocusLost
 
+    private void bvhackerEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bvhackerEditorCheckBoxActionPerformed
+        if (bvhackerEditorCheckBox.isSelected())
+        {
+          X3dEditUserPreferences.setBvhackerAutoLaunch("true");
+        }
+        else
+        {
+          X3dEditUserPreferences.setBvhackerAutoLaunch("false");
+        }
+        bvhackerAutoLaunchCheck ();
+    }//GEN-LAST:event_bvhackerEditorCheckBoxActionPerformed
+
+    private void bvhackerEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bvhackerEditorPathTFFocusLost
+        X3dEditUserPreferences.setBvhackerEditorPath(bvhackerEditorPathTF.getText().trim());
+        bvhackerAutoLaunchCheck ();  
+    }//GEN-LAST:event_bvhackerEditorPathTFFocusLost
+
+    private void bvhackerEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bvhackerEditorPathTFActionPerformed
+        X3dEditUserPreferences.setBvhackerEditorPath(bvhackerEditorPathTF.getText().trim());
+        bvhackerAutoLaunchCheck ();  
+    }//GEN-LAST:event_bvhackerEditorPathTFActionPerformed
+
+    private void bvhackerEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bvhackerEditorChooserButtonActionPerformed
+        commonChooser(bvhackerEditorPathTF, "Find bvhacker BVH motion animation authoring tool", evt);
+        X3dEditUserPreferences.setBvhackerEditorPath(bvhackerEditorPathTF.getText().trim());
+        bvhackerAutoLaunchCheck ();
+    }//GEN-LAST:event_bvhackerEditorChooserButtonActionPerformed
+
+    private void bvhackerEditorDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bvhackerEditorDefaultButtonActionPerformed
+        bvhackerEditorPathTF.setText(X3dEditUserPreferences.getBvhackerEditorPathDefault());
+        X3dEditUserPreferences.setBvhackerEditorPath(bvhackerEditorPathTF.getText().trim());
+        bvhackerAutoLaunchCheck ();
+    }//GEN-LAST:event_bvhackerEditorDefaultButtonActionPerformed
+
+    private void bvhackerEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bvhackerEditorLaunchButtonActionPerformed
+        externalProcessLaunch(X3dEditUserPreferences.getBvhackerEditorPath());
+        bvhackerAutoLaunchCheck ();
+    }//GEN-LAST:event_bvhackerEditorLaunchButtonActionPerformed
+
+    private void bvhackerEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bvhackerEditorDownloadButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.getDownloadSiteBvhacker());
+    }//GEN-LAST:event_bvhackerEditorDownloadButtonActionPerformed
+
+    private void bvhackerEditorHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bvhackerEditorHelpButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.helpSiteBvhacker);
+    }//GEN-LAST:event_bvhackerEditorHelpButtonActionPerformed
+
     public void sleep (long msecDuration)
     {
         try
@@ -11440,6 +11620,15 @@ for Extensible 3D (X3D) Graphics International Standard.
     bsContentStudioX3dEditorCheckBox.setSelected(isExecutableFile);
     bsContentStudioX3dEditorLaunchButton.setEnabled(isExecutableFile);
     showFound (isExecutableFile, bsContentStudioX3dEditorLabel, bsContentStudioX3dEditorPathTF);
+  }
+  private void bvhackerAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(bvhackerEditorPathTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setBvhackerAutoLaunch(Boolean.toString(isExecutableFile));
+    bvhackerEditorCheckBox.setSelected(isExecutableFile);
+    bvhackerEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, bvhackerEditorLabel, bvhackerEditorPathTF);
   }
   private void curaAutoLaunchCheck ()
   {
@@ -11887,6 +12076,8 @@ keystoreExplorerPlayerPathTF.setText(X3dEditUserPreferences.getKeystoreExplorerP
       altovaXMLSpyTF.setText(X3dEditUserPreferences.getAltovaXMLSpyX3dEditorPath());
      blenderX3dEditorPathTF.setText(X3dEditUserPreferences.getBlenderX3dEditorPath());
 bsContentStudioX3dEditorPathTF.setText(X3dEditUserPreferences.getBsContentStudioX3dEditorPath());
+       bvhackerEditorPathTF.setText(X3dEditUserPreferences.getBvhackerEditorPath());
+        curaX3dEditorPathTF.setText(X3dEditUserPreferences.getCuraX3dEditorPath());
      meshLabX3dEditorPathTF.setText(X3dEditUserPreferences.getMeshLabX3dEditorPath());
     paraviewX3dEditorPathTF.setText(X3dEditUserPreferences.getParaviewX3dEditorPath());
 polyTransNuGrafEditorPathTF.setText(X3dEditUserPreferences.getPolyTransNuGrafEditorPath());
@@ -11939,9 +12130,11 @@ polyTransNuGrafEditorPathTF.setText(X3dEditUserPreferences.getPolyTransNuGrafEdi
         altovaXMLSpyCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isAltovaXMLSpyAutoLaunch()));
     blenderX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isBlenderAutoLaunch()));
 bsContentStudioX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isBsContentStudioAutoLaunch()));
+      bvhackerEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isBvhackerAutoLaunch()));
+       curaX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isCuraAutoLaunch())); // ultimaker
     meshLabX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isMeshLabAutoLaunch()));
    paraviewX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isParaviewAutoLaunch()));
-   polyTransNuGrafEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isPolyTransNuGrafAutoLaunch()));
+polyTransNuGrafEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isPolyTransNuGrafAutoLaunch()));
  seamless3dX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSeamless3dAutoLaunch()));
  itksnapVolumeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isItksnapAutoLaunch()));
    seg3dVolumeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSeg3dAutoLaunch()));
@@ -12063,6 +12256,7 @@ keystoreExplorerAutoLaunchCheck();
    altovaXMLSpyAutoLaunchCheck ();
         blenderAutoLaunchCheck ();
 bsContentStudioAutoLaunchCheck ();
+       bvhackerAutoLaunchCheck ();
         meshLabAutoLaunchCheck ();
 polyTransNuGrafAutoLaunchCheck (); // okino
        paraviewAutoLaunchCheck ();
@@ -12322,6 +12516,14 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel bsContentStudioX3dEditorLabel;
     private javax.swing.JButton bsContentStudioX3dEditorLaunchButton;
     private javax.swing.JTextField bsContentStudioX3dEditorPathTF;
+    private javax.swing.JCheckBox bvhackerEditorCheckBox;
+    private javax.swing.JButton bvhackerEditorChooserButton;
+    private javax.swing.JButton bvhackerEditorDefaultButton;
+    private javax.swing.JButton bvhackerEditorDownloadButton;
+    private javax.swing.JButton bvhackerEditorHelpButton;
+    private javax.swing.JLabel bvhackerEditorLabel;
+    private javax.swing.JButton bvhackerEditorLaunchButton;
+    private javax.swing.JTextField bvhackerEditorPathTF;
     private javax.swing.JCheckBox coneCenterLineCheckBox;
     private javax.swing.JLabel coneLabel;
     private javax.swing.JComboBox<String> coneLinesComboBox;
@@ -12808,7 +13010,7 @@ otherSemanticWebEditorAutoLaunchCheck();
         @Override
         public String getDescription()
         {
-            return ".ks KeyStore files";
+            return "X3D-Edit User Preferences";
         }
     }
 }

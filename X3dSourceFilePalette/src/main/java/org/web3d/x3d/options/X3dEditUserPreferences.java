@@ -430,6 +430,7 @@ public class X3dEditUserPreferences
   public static String      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY =      "ALTOVA_XMLSPY_AUTOLAUNCH";
   public static String            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY =            "BLENDER_AUTOLAUNCH";
   public static String    BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY =    "BSCONTENTSTUDIO_AUTOLAUNCH";
+  public static String           BVHACKER_EXECUTABLE_AUTOLAUNCH_KEY =           "BVHACKER_AUTOLAUNCH";
   public static String               CURA_EXECUTABLE_AUTOLAUNCH_KEY =               "CURA_AUTOLAUNCH";
   public static String            MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY =            "MESHLAB_AUTOLAUNCH";
   public static String           PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY =           "PARAVIEW_AUTOLAUNCH";
@@ -475,6 +476,7 @@ public class X3dEditUserPreferences
   public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY        = "ALTOVA_XMLSPY_X3D_EDITOR_PATH";
   public static String     BLENDER_X3D_EDITOR_PATH_KEY          =    "BLENDER_X3D_EDITOR_PATH";
   public static String BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY      = "BSCONTENTSTUDIO_X3D_EDITOR_PATH";
+  public static String        BVHACKER_EDITOR_PATH_KEY          =       "BVHACKER_EDITOR_PATH";
   public static String        CURA_X3D_EDITOR_PATH_KEY          =       "CURA_X3D_EDITOR_PATH";
   public static String     MESHLAB_X3D_EDITOR_PATH_KEY          =    "MESHLAB_X3D_EDITOR_PATH";
   public static String    PARAVIEW_X3D_EDITOR_PATH_KEY          =   "PARAVIEW_X3D_EDITOR_PATH";
@@ -551,6 +553,7 @@ public class X3dEditUserPreferences
   public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT;
   public static String     BLENDER_X3D_EDITOR_PATH_DEFAULT;
   public static String BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT;
+  public static String        BVHACKER_EDITOR_PATH_DEFAULT;
   public static String        CURA_X3D_EDITOR_PATH_DEFAULT;
   public static String     MESHLAB_X3D_EDITOR_PATH_DEFAULT;
   public static String    PARAVIEW_X3D_EDITOR_PATH_DEFAULT;
@@ -733,6 +736,7 @@ public class X3dEditUserPreferences
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
   private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 3.6\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
+  private static final String winxpBvhackerEditorPathDefault             = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
   private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.4.0\\Ultimaker-Cura.exe";
   private static final String winxpMeshLabX3dEditorPathDefault           = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
   private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.11.1\\bin\\paraview.exe";
@@ -762,6 +766,7 @@ public class X3dEditUserPreferences
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
   private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 3.6\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
+  private static final String windows64BvhackerEditorPathDefault         = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
   private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.4.0\\Ultimaker-Cura.exe";
   private static final String windows64MeshLabX3dEditorPathDefault       = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
   private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.11.1\\bin\\paraview.exe";
@@ -791,6 +796,7 @@ public class X3dEditUserPreferences
   private static final String macosxAltovaXMLSpyX3dEditorPathDefault     = "xmlspy";         // TODO insert correct value
   private static final String macosxBlenderX3dEditorPathDefault          = "blender";        // TODO insert correct value
   private static final String macosxBsContentStudioX3dEditorPathDefault  = "bscomposer";     // TODO insert correct value
+  private static final String macosxBvhackerEditorPathDefault            = "bvhacker";        // TODO insert correct value
   private static final String macosxCuraX3dEditorPathDefault             = "Cura";           // TODO insert correct value
   private static final String macosxMeshLabX3dEditorPathDefault          = "MeshLab";        // TODO insert correct value
   private static final String macosxParaviewX3dEditorPathDefault         = "Paraview";       // TODO insert correct value
@@ -819,6 +825,7 @@ public class X3dEditUserPreferences
   
   private static final String otherBlenderX3dEditorPathDefault           = "blender";        // TODO insert correct value
   private static final String otherBsContentStudioX3dEditorPathDefault   = "bscomposer";     // TODO insert correct value
+  private static final String otherBvhackerEditorPathDefault             = "bvhacker";        // TODO insert correct value
   private static final String otherCuraX3dEditorPathDefault              = "Cura";           // TODO insert correct value
   private static final String otherMeshLabX3dEditorPathDefault           = "MeshLab";        // TODO insert correct value
   private static final String otherParaviewX3dEditorPathDefault          = "Paraview";       // TODO insert correct value
@@ -867,6 +874,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteAltovaXMLSpy                   = "https://www.altova.com/download";
   private static final String downloadSiteBlender                        = "https://www.blender.org";
   private static final String downloadSiteBsContentStudio                = "https://www.bitmanagement.de/en/download/studio";
+  private static final String downloadSiteBvhacker                       = "https://www.bvhacker.com";
   private static final String downloadSiteCura                           = "https://ultimaker.com/software/ultimaker-cura";
   private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
@@ -900,6 +908,7 @@ public class X3dEditUserPreferences
   protected static final String helpSiteAltovaXMLSpy                     = "https://www.altova.com/library";
   protected static final String helpSiteBlender                          = "https://www.blender.org/support"; // https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
   protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.de/en/download/studio";
+  protected static final String helpSiteBvhacker                         = "https://www.bvhacker.com/help.html";
   protected static final String helpSiteCura                             = "https://ultimaker.com/learn"; 
   protected static final String helpSiteMeshLab                          = "https://www.meshlab.net"; // https://sourceforge.net/apps/mediawiki/meshlab";
   protected static final String helpSiteParaview                         = "https://www.paraview.org";
@@ -945,6 +954,7 @@ public class X3dEditUserPreferences
   public static String getDownloadSiteAltovaXMLSpy()   {return downloadSiteAltovaXMLSpy;}
   public static String getDownloadSiteBlender()        {return downloadSiteBlender;}
   public static String getDownloadSiteBsContentStudio(){return downloadSiteBsContentStudio;}
+  public static String getDownloadSiteBvhacker()       {return downloadSiteBvhacker;}
   public static String getDownloadSiteCura()           {return downloadSiteCura;}
   public static String getDownloadSiteMeshLab()        {return downloadSiteMeshLab;}
   public static String getDownloadSiteParaview()       {return downloadSiteParaview;}
@@ -1009,6 +1019,7 @@ public class X3dEditUserPreferences
  
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxBlenderX3dEditorPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(macosxBsContentStudioX3dEditorPathDefault);
+         BVHACKER_EDITOR_PATH_DEFAULT        = toks(  macosxBvhackerEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     macosxCuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxMeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( macosxParaviewX3dEditorPathDefault);
@@ -1064,6 +1075,7 @@ public class X3dEditUserPreferences
 ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64AltovaXMLSpyX3dEditorPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64BlenderX3dEditorPathDefault);
 BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dEditorPathDefault);
+         BVHACKER_EDITOR_PATH_DEFAULT        = toks(    windows64BvhackerEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     windows64CuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64MeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( windows64ParaviewX3dEditorPathDefault);
@@ -1117,6 +1129,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dE
   
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpBlenderX3dEditorPathDefault);
 BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEditorPathDefault);
+         BVHACKER_EDITOR_PATH_DEFAULT        = toks(    winxpBvhackerEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     winxpCuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpMeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( winxpParaviewX3dEditorPathDefault);
@@ -1170,6 +1183,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEdito
   
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  otherBlenderX3dEditorPathDefault);
 BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEditorPathDefault);
+         BVHACKER_EDITOR_PATH_DEFAULT        = toks(    otherBvhackerEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     otherCuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  otherMeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( otherParaviewX3dEditorPathDefault);
@@ -1248,6 +1262,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String getAltovaXMLSpyX3dEditorPathDefault() {return ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getBlenderX3dEditorPathDefault()   {return     BLENDER_X3D_EDITOR_PATH_DEFAULT;}
   public static String getBsContentStudioX3dEditorPathDefault() {return BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT;}
+  public static String     getBvhackerEditorPathDefault()   {return        BVHACKER_EDITOR_PATH_DEFAULT;}
   public static String      getCuraX3dEditorPathDefault()   {return        CURA_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getMeshLabX3dEditorPathDefault()   {return     MESHLAB_X3D_EDITOR_PATH_DEFAULT;}
   public static String  getParaviewX3dEditorPathDefault()   {return    PARAVIEW_X3D_EDITOR_PATH_DEFAULT;}
@@ -1317,6 +1332,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void setAltovaXMLSpyX3dEditorPath (String path){commonStringSet(  ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY, path);}
   public static void   setBlenderX3dEditorPath    (String path){commonStringSet(   BLENDER_X3D_EDITOR_PATH_KEY, path);}
   public static void setBsContentStudioX3dEditorPath(String path){commonStringSet(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY, path);}
+  public static void     setBvhackerEditorPath    (String path){commonStringSet(      BVHACKER_EDITOR_PATH_KEY, path);}
   public static void      setCuraX3dEditorPath    (String path){commonStringSet(      CURA_X3D_EDITOR_PATH_KEY, path);}
   public static void   setMeshLabX3dEditorPath    (String path){commonStringSet(   MESHLAB_X3D_EDITOR_PATH_KEY, path);}
   public static void  setParaviewX3dEditorPath    (String path){commonStringSet(  PARAVIEW_X3D_EDITOR_PATH_KEY, path);}
@@ -1385,6 +1401,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void     setAltovaXMLSpyAutoLaunch (String autoLaunch){commonStringSet(     ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setBlenderAutoLaunch (String autoLaunch){commonStringSet(           BLENDER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void  setBsContentStudioAutoLaunch (String autoLaunch){commonStringSet(   BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setBvhackerAutoLaunch (String autoLaunch){commonStringSet(          BVHACKER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void             setCuraAutoLaunch (String autoLaunch){commonStringSet(              CURA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setMeshLabAutoLaunch (String autoLaunch){commonStringSet(           MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void         setParaviewAutoLaunch (String autoLaunch){commonStringSet(          PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1441,6 +1458,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String getAltovaXMLSpyX3dEditorPath()    {return commonStringGet(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY,ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT);}
   public static String   getBlenderX3dEditorPath()       {return commonStringGet(   BLENDER_X3D_EDITOR_PATH_KEY,   BLENDER_X3D_EDITOR_PATH_DEFAULT);}
   public static String getBsContentStudioX3dEditorPath() {return commonStringGet(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY,  BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT);}
+  public static String     getBvhackerEditorPath()       {return commonStringGet(      BVHACKER_EDITOR_PATH_KEY,      BVHACKER_EDITOR_PATH_DEFAULT);}
   public static String      getCuraX3dEditorPath()       {return commonStringGet(      CURA_X3D_EDITOR_PATH_KEY,      CURA_X3D_EDITOR_PATH_DEFAULT);}
   public static String   getMeshLabX3dEditorPath()       {return commonStringGet(   MESHLAB_X3D_EDITOR_PATH_KEY,   MESHLAB_X3D_EDITOR_PATH_DEFAULT);}
   public static String  getParaviewX3dEditorPath()       {return commonStringGet(  PARAVIEW_X3D_EDITOR_PATH_KEY,  PARAVIEW_X3D_EDITOR_PATH_DEFAULT);}
@@ -1450,9 +1468,9 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String      getItksnapEditorPath()       {return commonStringGet(ITKSNAP_VOLUME_EDITOR_PATH_KEY,   ITKSNAP_X3D_EDITOR_PATH_DEFAULT);}
   public static String        getSeg3dEditorPath()       {return commonStringGet(  SEG3D_VOLUME_EDITOR_PATH_KEY,     SEG3D_X3D_EDITOR_PATH_DEFAULT);}
   public static String     getSlicer3dEditorPath()       {return commonStringGet(SLICER3D_VOLUME_EDITOR_PATH_KEY, SLICER3D_X3D_EDITOR_PATH_DEFAULT);}
-  public static String         getBatikEditorPath()      {return commonStringGet(BATIK_SVG_EDITOR_PATH_KEY,    BATIK_SVG_EDITOR_PATH_DEFAULT);}
-  public static String      getInkscapeEditorPath()      {return commonStringGet(INKSCAPE_SVG_EDITOR_PATH_KEY, INKSCAPE_SVG_EDITOR_PATH_DEFAULT);}
-  public static String      getSvgeditEditorPath()       {return commonStringGet(SVG_EDIT_SVG_EDITOR_PATH_KEY, SVG_EDIT_SVG_EDITOR_PATH_DEFAULT);}
+  public static String         getBatikEditorPath()      {return commonStringGet(     BATIK_SVG_EDITOR_PATH_KEY,    BATIK_SVG_EDITOR_PATH_DEFAULT);}
+  public static String      getInkscapeEditorPath()      {return commonStringGet(  INKSCAPE_SVG_EDITOR_PATH_KEY, INKSCAPE_SVG_EDITOR_PATH_DEFAULT);}
+  public static String      getSvgeditEditorPath()       {return commonStringGet(  SVG_EDIT_SVG_EDITOR_PATH_KEY, SVG_EDIT_SVG_EDITOR_PATH_DEFAULT);}
   public static String getWhiteDuneX3dEditorPath()       {return commonStringGet( WHITEDUNE_X3D_EDITOR_PATH_KEY, WHITEDUNE_X3D_EDITOR_PATH_DEFAULT);}
   public static String     getWingsX3dEditorPath()       {return commonStringGet(   WINGS3D_X3D_EDITOR_PATH_KEY,   WINGS3D_X3D_EDITOR_PATH_DEFAULT);}
   public static String getUltraEditX3dEditorPath()       {return commonStringGet( ULTRAEDIT_X3D_EDITOR_PATH_KEY, ULTRAEDIT_X3D_EDITOR_PATH_DEFAULT);}
@@ -1498,6 +1516,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String      isAltovaXMLSpyAutoLaunch() {return commonStringGet(      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isBlenderAutoLaunch() {return commonStringGet(            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String   isBsContentStudioAutoLaunch() {return commonStringGet(    BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String          isBvhackerAutoLaunch() {return commonStringGet(           BVHACKER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String              isCuraAutoLaunch() {return commonStringGet(               CURA_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isMeshLabAutoLaunch() {return commonStringGet(            MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String          isParaviewAutoLaunch() {return commonStringGet(           PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
@@ -1559,6 +1578,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void   resetAltovaXMLSpyX3dEditorPath() {commonReset(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY);}
   public static void   resetBlenderX3dEditorPath()      {commonReset(    BLENDER_X3D_EDITOR_PATH_KEY);}
   public static void resetBsContentStudioX3dEditorPath(){commonReset(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY);}
+  public static void     resetBvhackerEditorPath() {commonReset(       BVHACKER_EDITOR_PATH_KEY);}
   public static void      resetCuraX3dEditorPath() {commonReset(       CURA_X3D_EDITOR_PATH_KEY);}
   public static void   resetMeshLabX3dEditorPath() {commonReset(    MESHLAB_X3D_EDITOR_PATH_KEY);}
   public static void  resetParaviewX3dEditorPath() {commonReset(   PARAVIEW_X3D_EDITOR_PATH_KEY);}
