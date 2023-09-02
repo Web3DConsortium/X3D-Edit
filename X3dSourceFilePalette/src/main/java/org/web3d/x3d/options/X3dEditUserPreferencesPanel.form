@@ -824,6 +824,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="contactTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contactTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -1046,6 +1047,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="otherX3dPlayerNameTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherX3dPlayerNameTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -2064,6 +2066,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="altovaXMLSpyTF">
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="altovaXMLSpyTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="altovaXMLSpyTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -2177,6 +2180,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="blenderX3dEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="blenderX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -2296,6 +2300,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="bsContentStudioX3dEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bsContentStudioX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -2415,6 +2420,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="curaX3dEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="curaX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -2534,6 +2540,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="meshLabX3dEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="meshLabX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -2653,6 +2660,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="paraviewX3dEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paraviewX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -2772,6 +2780,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="polyTransNuGrafEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="polyTransNuGrafEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -2891,6 +2900,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="titaniaX3dEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titaniaX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -3010,6 +3020,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="seamless3dX3dEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seamless3dX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -3129,6 +3140,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ultraEditX3dEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ultraEditX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -3248,6 +3260,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="whiteDuneX3dEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="whiteDuneX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -3367,6 +3380,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="wings3dX3dEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wings3dX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -3492,6 +3506,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="Enter name of alternate tool"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="otherX3dEditorNameTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherX3dEditorNameTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -3694,6 +3709,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="gimpEditorTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gimpEditorTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -3813,6 +3829,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="fijiEditorTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fijiEditorTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -3917,6 +3934,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="imageJEditorTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imageJEditorTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -4051,6 +4069,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="imageMagickEditorTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imageMagickEditorTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -4330,6 +4349,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="itksnapVolumeEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itksnapVolumeEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -4449,6 +4469,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="seg3dVolumeEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seg3dVolumeEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -4568,6 +4589,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="slicer3dVolumeEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="slicer3dVolumeEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -4890,6 +4912,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="audacityEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="audacityEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -5140,6 +5163,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="amayaEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="amayaEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -5259,6 +5283,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="batikEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="batikEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -5378,6 +5403,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="inkscapeEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inkscapeEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -5497,6 +5523,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="svgeditEditorPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="svgeditEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -5778,6 +5805,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="vlcPlayerPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vlcPlayerPathTFActionPerformed"/>
               </Events>
               <Constraints>
@@ -6027,6 +6055,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="protegePlayerPathTFFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="protegePlayerPathTFActionPerformed"/>
               </Events>
               <Constraints>

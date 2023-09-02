@@ -1447,6 +1447,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         contactTF.setToolTipText("Local file location");
         contactTF.setMinimumSize(new java.awt.Dimension(100, 20));
         contactTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        contactTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                contactTFFocusLost(evt);
+            }
+        });
         contactTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contactTFActionPerformed(evt);
@@ -1690,6 +1695,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         otherX3dPlayerNameTF.setToolTipText("Name of additional X3D player");
         otherX3dPlayerNameTF.setMinimumSize(new java.awt.Dimension(100, 20));
         otherX3dPlayerNameTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        otherX3dPlayerNameTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otherX3dPlayerNameTFFocusLost(evt);
+            }
+        });
         otherX3dPlayerNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otherX3dPlayerNameTFActionPerformed(evt);
@@ -2661,6 +2671,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(altovaXMLSpyCheckBox, gridBagConstraints);
 
+        altovaXMLSpyTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                altovaXMLSpyTFFocusLost(evt);
+            }
+        });
         altovaXMLSpyTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 altovaXMLSpyTFActionPerformed(evt);
@@ -2776,6 +2791,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(blenderX3dEditorCheckBox, gridBagConstraints);
 
         blenderX3dEditorPathTF.setToolTipText("File location for local application");
+        blenderX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                blenderX3dEditorPathTFFocusLost(evt);
+            }
+        });
         blenderX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 blenderX3dEditorPathTFActionPerformed(evt);
@@ -2896,6 +2916,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(bsContentStudioX3dEditorCheckBox, gridBagConstraints);
 
         bsContentStudioX3dEditorPathTF.setToolTipText("File location for local application");
+        bsContentStudioX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                bsContentStudioX3dEditorPathTFFocusLost(evt);
+            }
+        });
         bsContentStudioX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bsContentStudioX3dEditorPathTFActionPerformed(evt);
@@ -3016,6 +3041,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(curaX3dEditorCheckBox, gridBagConstraints);
 
         curaX3dEditorPathTF.setToolTipText("File location for local application");
+        curaX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                curaX3dEditorPathTFFocusLost(evt);
+            }
+        });
         curaX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 curaX3dEditorPathTFActionPerformed(evt);
@@ -3136,6 +3166,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(meshLabX3dEditorCheckBox, gridBagConstraints);
 
         meshLabX3dEditorPathTF.setToolTipText("File location for local application");
+        meshLabX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                meshLabX3dEditorPathTFFocusLost(evt);
+            }
+        });
         meshLabX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 meshLabX3dEditorPathTFActionPerformed(evt);
@@ -3256,6 +3291,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(paraviewX3dEditorCheckBox, gridBagConstraints);
 
         paraviewX3dEditorPathTF.setToolTipText("File location for local application");
+        paraviewX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                paraviewX3dEditorPathTFFocusLost(evt);
+            }
+        });
         paraviewX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 paraviewX3dEditorPathTFActionPerformed(evt);
@@ -3376,6 +3416,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(polyTransNuGrafEditorCheckBox, gridBagConstraints);
 
         polyTransNuGrafEditorPathTF.setToolTipText("File location for local application");
+        polyTransNuGrafEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                polyTransNuGrafEditorPathTFFocusLost(evt);
+            }
+        });
         polyTransNuGrafEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 polyTransNuGrafEditorPathTFActionPerformed(evt);
@@ -3496,6 +3541,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(titaniaX3dEditorCheckBox, gridBagConstraints);
 
         titaniaX3dEditorPathTF.setToolTipText("File location for local application");
+        titaniaX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                titaniaX3dEditorPathTFFocusLost(evt);
+            }
+        });
         titaniaX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 titaniaX3dEditorPathTFActionPerformed(evt);
@@ -3616,6 +3666,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(seamless3dX3dEditorCheckBox, gridBagConstraints);
 
         seamless3dX3dEditorPathTF.setToolTipText("File location for local application");
+        seamless3dX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                seamless3dX3dEditorPathTFFocusLost(evt);
+            }
+        });
         seamless3dX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seamless3dX3dEditorPathTFActionPerformed(evt);
@@ -3736,6 +3791,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(ultraEditX3dEditorCheckBox, gridBagConstraints);
 
         ultraEditX3dEditorPathTF.setToolTipText("File location for local application");
+        ultraEditX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ultraEditX3dEditorPathTFFocusLost(evt);
+            }
+        });
         ultraEditX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ultraEditX3dEditorPathTFActionPerformed(evt);
@@ -3856,6 +3916,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(whiteDuneX3dEditorCheckBox, gridBagConstraints);
 
         whiteDuneX3dEditorPathTF.setToolTipText("File location for local application");
+        whiteDuneX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                whiteDuneX3dEditorPathTFFocusLost(evt);
+            }
+        });
         whiteDuneX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 whiteDuneX3dEditorPathTFActionPerformed(evt);
@@ -3976,6 +4041,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dModelingToolsPanel.add(wings3dX3dEditorCheckBox, gridBagConstraints);
 
         wings3dX3dEditorPathTF.setToolTipText("File location for local application");
+        wings3dX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                wings3dX3dEditorPathTFFocusLost(evt);
+            }
+        });
         wings3dX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wings3dX3dEditorPathTFActionPerformed(evt);
@@ -4098,6 +4168,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 
         otherX3dEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         otherX3dEditorNameTF.setToolTipText("Enter name of alternate tool");
+        otherX3dEditorNameTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otherX3dEditorNameTFFocusLost(evt);
+            }
+        });
         otherX3dEditorNameTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otherX3dEditorNameTFActionPerformed(evt);
@@ -4291,6 +4366,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         imageVolumeToolsPanel.add(gimpCheckBox, gridBagConstraints);
 
         gimpEditorTF.setToolTipText("File location for local application");
+        gimpEditorTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                gimpEditorTFFocusLost(evt);
+            }
+        });
         gimpEditorTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gimpEditorTFActionPerformed(evt);
@@ -4410,6 +4490,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         imageVolumeToolsPanel.add(fijiCheckBox, gridBagConstraints);
 
         fijiEditorTF.setToolTipText("File location for local application");
+        fijiEditorTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fijiEditorTFFocusLost(evt);
+            }
+        });
         fijiEditorTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fijiEditorTFActionPerformed(evt);
@@ -4513,6 +4598,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         imageVolumeToolsPanel.add(imageJEditorLabel, gridBagConstraints);
 
         imageJEditorTF.setToolTipText("File location for local application");
+        imageJEditorTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                imageJEditorTFFocusLost(evt);
+            }
+        });
         imageJEditorTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imageJEditorTFActionPerformed(evt);
@@ -4648,6 +4738,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         imageVolumeToolsPanel.add(imageMagickCheckBox, gridBagConstraints);
 
         imageMagickEditorTF.setToolTipText("File location for local application");
+        imageMagickEditorTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                imageMagickEditorTFFocusLost(evt);
+            }
+        });
         imageMagickEditorTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imageMagickEditorTFActionPerformed(evt);
@@ -4926,6 +5021,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         imageVolumeToolsPanel.add(itksnapVolumeEditorCheckBox, gridBagConstraints);
 
         itksnapVolumeEditorPathTF.setToolTipText("File location for local application");
+        itksnapVolumeEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                itksnapVolumeEditorPathTFFocusLost(evt);
+            }
+        });
         itksnapVolumeEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itksnapVolumeEditorPathTFActionPerformed(evt);
@@ -5045,6 +5145,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         imageVolumeToolsPanel.add(seg3dVolumeEditorCheckBox, gridBagConstraints);
 
         seg3dVolumeEditorPathTF.setToolTipText("File location for local application");
+        seg3dVolumeEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                seg3dVolumeEditorPathTFFocusLost(evt);
+            }
+        });
         seg3dVolumeEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seg3dVolumeEditorPathTFActionPerformed(evt);
@@ -5164,6 +5269,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         imageVolumeToolsPanel.add(slicer3dVolumeEditorCheckBox, gridBagConstraints);
 
         slicer3dVolumeEditorPathTF.setToolTipText("File location for local application");
+        slicer3dVolumeEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                slicer3dVolumeEditorPathTFFocusLost(evt);
+            }
+        });
         slicer3dVolumeEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 slicer3dVolumeEditorPathTFActionPerformed(evt);
@@ -5476,6 +5586,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         webMultimediaToolsPanel.add(audacityEditorCheckBox, gridBagConstraints);
 
         audacityEditorPathTF.setToolTipText("File location for local application");
+        audacityEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                audacityEditorPathTFFocusLost(evt);
+            }
+        });
         audacityEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 audacityEditorPathTFActionPerformed(evt);
@@ -5728,6 +5843,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         webMultimediaToolsPanel.add(amayaEditorLabel, gridBagConstraints);
 
         amayaEditorPathTF.setToolTipText("File location for local application");
+        amayaEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                amayaEditorPathTFFocusLost(evt);
+            }
+        });
         amayaEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 amayaEditorPathTFActionPerformed(evt);
@@ -5848,6 +5968,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         webMultimediaToolsPanel.add(batikEditorLabel, gridBagConstraints);
 
         batikEditorPathTF.setToolTipText("File location for local application");
+        batikEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                batikEditorPathTFFocusLost(evt);
+            }
+        });
         batikEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 batikEditorPathTFActionPerformed(evt);
@@ -5968,6 +6093,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         webMultimediaToolsPanel.add(inkscapeEditorLabel, gridBagConstraints);
 
         inkscapeEditorPathTF.setToolTipText("File location for local application");
+        inkscapeEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inkscapeEditorPathTFFocusLost(evt);
+            }
+        });
         inkscapeEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inkscapeEditorPathTFActionPerformed(evt);
@@ -6088,6 +6218,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         webMultimediaToolsPanel.add(svgeditEditorLabel, gridBagConstraints);
 
         svgeditEditorPathTF.setToolTipText("File location for local application");
+        svgeditEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                svgeditEditorPathTFFocusLost(evt);
+            }
+        });
         svgeditEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 svgeditEditorPathTFActionPerformed(evt);
@@ -6373,6 +6508,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         webMultimediaToolsPanel.add(vlcPlayerCheckBox, gridBagConstraints);
 
         vlcPlayerPathTF.setToolTipText("File location for local application");
+        vlcPlayerPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                vlcPlayerPathTFFocusLost(evt);
+            }
+        });
         vlcPlayerPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vlcPlayerPathTFActionPerformed(evt);
@@ -6625,6 +6765,11 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         webMultimediaToolsPanel.add(protegePlayerCheckBox, gridBagConstraints);
 
         protegePlayerPathTF.setToolTipText("File location for local application");
+        protegePlayerPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                protegePlayerPathTFFocusLost(evt);
+            }
+        });
         protegePlayerPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 protegePlayerPathTFActionPerformed(evt);
@@ -9105,23 +9250,23 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_ultraEditX3dEditorPathTFActionPerformed
 
   private void gimpEditorTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gimpEditorTFActionPerformed
-    X3dEditUserPreferences.setGimpImageEditorPath(gimpEditorTF.getText().trim());
-    gimpAutoLaunchCheck ();
+        X3dEditUserPreferences.setGimpImageEditorPath(gimpEditorTF.getText().trim());
+        gimpAutoLaunchCheck ();
   }//GEN-LAST:event_gimpEditorTFActionPerformed
 
   private void audacityEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_audacityEditorPathTFActionPerformed
-    X3dEditUserPreferences.setAudacityEditorPath(audacityEditorPathTF.getText().trim());
-    audacityAutoLaunchCheck ();
+        X3dEditUserPreferences.setAudacityEditorPath(audacityEditorPathTF.getText().trim());
+        audacityAutoLaunchCheck ();
   }//GEN-LAST:event_audacityEditorPathTFActionPerformed
 
   private void fijiEditorTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fijiEditorTFActionPerformed
-    X3dEditUserPreferences.setFijiEditorPath(fijiEditorTF.getText().trim());
-    fijiAutoLaunchCheck ();
+        X3dEditUserPreferences.setFijiEditorPath(fijiEditorTF.getText().trim());
+        fijiAutoLaunchCheck ();
   }//GEN-LAST:event_fijiEditorTFActionPerformed
 
   private void imageJEditorTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageJEditorTFActionPerformed
-    X3dEditUserPreferences.setImageJEditorPath(imageJEditorTF.getText().trim());
-    imageJAutoLaunchCheck ();
+        X3dEditUserPreferences.setImageJEditorPath(imageJEditorTF.getText().trim());
+        imageJAutoLaunchCheck ();
   }//GEN-LAST:event_imageJEditorTFActionPerformed
 
   private void gimpCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gimpCheckBoxActionPerformed
@@ -9193,8 +9338,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_ultraEditHelpButtonActionPerformed
 
   private void imageMagickEditorTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageMagickEditorTFActionPerformed
-    X3dEditUserPreferences.setImageMagickEditorPath(imageMagickEditorTF.getText().trim());
-    imageMagickAutoLaunchCheck ();
+        X3dEditUserPreferences.setImageMagickEditorPath(imageMagickEditorTF.getText().trim());
+        imageMagickAutoLaunchCheck ();
   }//GEN-LAST:event_imageMagickEditorTFActionPerformed
 
   private void imageMagickCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageMagickCheckBoxActionPerformed
@@ -9247,8 +9392,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_otherX3dEditorCheckBoxActionPerformed
 
   private void otherX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherX3dEditorPathTFActionPerformed
-    X3dEditUserPreferences.setOtherX3dEditorPath(otherX3dEditorPathTF.getText().trim());
-    otherX3dEditorAutoLaunchCheck();
+        X3dEditUserPreferences.setOtherX3dEditorPath(otherX3dEditorPathTF.getText().trim());
+        otherX3dEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherX3dEditorPathTFActionPerformed
 
   private void otherX3dEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherX3dEditorChooserButtonActionPerformed
@@ -9270,8 +9415,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_otherX3dEditorLaunchButtonActionPerformed
 
   private void otherX3dEditorNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherX3dEditorNameTFActionPerformed
-    X3dEditUserPreferences.setOtherX3dEditorName(otherX3dEditorNameTF.getText().trim());
-    otherX3dEditorAutoLaunchCheck();
+        X3dEditUserPreferences.setOtherX3dEditorName(otherX3dEditorNameTF.getText().trim());
+        otherX3dEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherX3dEditorNameTFActionPerformed
 
   private void blenderX3dEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blenderX3dEditorCheckBoxActionPerformed
@@ -9337,8 +9482,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_otherImageEditorCheckBoxActionPerformed
 
   private void otherImageEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherImageEditorPathTFActionPerformed
-    X3dEditUserPreferences.setOtherImageEditorPath(otherImageEditorPathTF.getText().trim());
-    otherImageEditorAutoLaunchCheck ();
+        X3dEditUserPreferences.setOtherImageEditorPath(otherImageEditorPathTF.getText().trim());
+        otherImageEditorAutoLaunchCheck ();
   }//GEN-LAST:event_otherImageEditorPathTFActionPerformed
 
   private void otherImageEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherImageEditorChooserButtonActionPerformed
@@ -9427,8 +9572,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_otherVideoEditorCheckBoxActionPerformed
 
   private void otherVideoEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVideoEditorPathTFActionPerformed
-    X3dEditUserPreferences.setOtherVideoEditorPath(otherVideoEditorPathTF.getText().trim());
-    otherVideoEditorAutoLaunchCheck();
+        X3dEditUserPreferences.setOtherVideoEditorPath(otherVideoEditorPathTF.getText().trim());
+        otherVideoEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherVideoEditorPathTFActionPerformed
 
   private void otherVideoChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVideoChooserButtonActionPerformed
@@ -9467,8 +9612,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_vlcPlayerCheckBoxActionPerformed
 
   private void vlcPlayerPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vlcPlayerPathTFActionPerformed
-    X3dEditUserPreferences.setVlcPlayerPath(vlcPlayerPathTF.getText().trim());
-    vlcAutoLaunchCheck ();
+        X3dEditUserPreferences.setVlcPlayerPath(vlcPlayerPathTF.getText().trim());
+        vlcAutoLaunchCheck ();
   }//GEN-LAST:event_vlcPlayerPathTFActionPerformed
 
   private void vlcPlayerChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vlcPlayerChooserButtonActionPerformed
@@ -9551,8 +9696,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_seamless3dX3dEditorCheckBoxActionPerformed
 
   private void seamless3dX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seamless3dX3dEditorPathTFActionPerformed
-    X3dEditUserPreferences.setSeamlessX3dEditorPath(seamless3dX3dEditorPathTF.getText().trim());
-    seamless3dAutoLaunchCheck ();
+        X3dEditUserPreferences.setSeamlessX3dEditorPath(seamless3dX3dEditorPathTF.getText().trim());
+        seamless3dAutoLaunchCheck ();
   }//GEN-LAST:event_seamless3dX3dEditorPathTFActionPerformed
 
   private void seamless3dX3dEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seamless3dX3dEditorChooserButtonActionPerformed
@@ -9593,8 +9738,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_wings3dX3dEditorCheckBoxActionPerformed
 
   private void wings3dX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wings3dX3dEditorPathTFActionPerformed
-    X3dEditUserPreferences.setWingsX3dEditorPath(wings3dX3dEditorPathTF.getText().trim());
-    wings3dAutoLaunchCheck ();
+        X3dEditUserPreferences.setWingsX3dEditorPath(wings3dX3dEditorPathTF.getText().trim());
+        wings3dAutoLaunchCheck ();
   }//GEN-LAST:event_wings3dX3dEditorPathTFActionPerformed
 
   private void wings3dX3dEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wings3dX3dEditorChooserButtonActionPerformed
@@ -9635,8 +9780,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_paraviewX3dEditorCheckBoxActionPerformed
 
   private void paraviewX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paraviewX3dEditorPathTFActionPerformed
-    X3dEditUserPreferences.setParaviewX3dEditorPath(paraviewX3dEditorPathTF.getText().trim());
-    paraviewAutoLaunchCheck ();
+        X3dEditUserPreferences.setParaviewX3dEditorPath(paraviewX3dEditorPathTF.getText().trim());
+        paraviewAutoLaunchCheck ();
   }//GEN-LAST:event_paraviewX3dEditorPathTFActionPerformed
 
   private void paraviewX3dEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paraviewX3dEditorChooserButtonActionPerformed
@@ -9665,8 +9810,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_paraviewX3dEditorHelpButtonActionPerformed
 
   private void amayaEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amayaEditorPathTFActionPerformed
-    X3dEditUserPreferences.setAmayaEditorPath(amayaEditorPathTF.getText().trim());
-    amayaAutoLaunchCheck ();
+        X3dEditUserPreferences.setAmayaEditorPath(amayaEditorPathTF.getText().trim());
+        amayaAutoLaunchCheck ();
   }//GEN-LAST:event_amayaEditorPathTFActionPerformed
 
   private void amayaEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amayaEditorCheckBoxActionPerformed
@@ -9724,8 +9869,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_otherHtml5EditorCheckBoxActionPerformed
 
   private void otherHtml5EditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherHtml5EditorPathTFActionPerformed
-    X3dEditUserPreferences.setOtherHtml5EditorPath(otherHtml5EditorPathTF.getText().trim());
-    otherHtml5EditorAutoLaunchCheck();
+        X3dEditUserPreferences.setOtherHtml5EditorPath(otherHtml5EditorPathTF.getText().trim());
+        otherHtml5EditorAutoLaunchCheck();
   }//GEN-LAST:event_otherHtml5EditorPathTFActionPerformed
 
   private void otherHtml5EditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherHtml5EditorChooserButtonActionPerformed
@@ -9752,8 +9897,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_otherHtml5EditorDownloadButtonActionPerformed
 
   private void otherVolumeEditorNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVolumeEditorNameTFActionPerformed
-    X3dEditUserPreferences.setOtherVolumeEditorName(otherVolumeEditorNameTF.getText().trim());
-    otherVolumeEditorAutoLaunchCheck();
+        X3dEditUserPreferences.setOtherVolumeEditorName(otherVolumeEditorNameTF.getText().trim());
+        otherVolumeEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherVolumeEditorNameTFActionPerformed
 
   private void otherVolumeEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVolumeEditorCheckBoxActionPerformed
@@ -9769,8 +9914,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_otherVolumeEditorCheckBoxActionPerformed
 
   private void otherVolumeEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVolumeEditorPathTFActionPerformed
-    X3dEditUserPreferences.setOtherVolumeEditorPath(otherVolumeEditorPathTF.getText().trim());
-    otherVolumeEditorAutoLaunchCheck();
+        X3dEditUserPreferences.setOtherVolumeEditorPath(otherVolumeEditorPathTF.getText().trim());
+        otherVolumeEditorAutoLaunchCheck();
   }//GEN-LAST:event_otherVolumeEditorPathTFActionPerformed
 
   private void otherVolumeChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherVolumeChooserButtonActionPerformed
@@ -9809,8 +9954,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_seg3dVolumeEditorCheckBoxActionPerformed
 
   private void seg3dVolumeEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seg3dVolumeEditorPathTFActionPerformed
-    X3dEditUserPreferences.setSeg3dEditorPath(seg3dVolumeEditorPathTF.getText().trim());
-    seg3dVolumeAutoLaunchCheck ();
+        X3dEditUserPreferences.setSeg3dEditorPath(seg3dVolumeEditorPathTF.getText().trim());
+        seg3dVolumeAutoLaunchCheck ();
   }//GEN-LAST:event_seg3dVolumeEditorPathTFActionPerformed
 
   private void seg3dVolumeEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seg3dVolumeEditorChooserButtonActionPerformed
@@ -9851,8 +9996,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_slicer3dVolumeEditorCheckBoxActionPerformed
 
   private void slicer3dVolumeEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slicer3dVolumeEditorPathTFActionPerformed
-    X3dEditUserPreferences.setSlicer3dEditorPath(slicer3dVolumeEditorPathTF.getText().trim());
-    slicer3dVolumeAutoLaunchCheck ();
+        X3dEditUserPreferences.setSlicer3dEditorPath(slicer3dVolumeEditorPathTF.getText().trim());
+        slicer3dVolumeAutoLaunchCheck ();
   }//GEN-LAST:event_slicer3dVolumeEditorPathTFActionPerformed
 
   private void slicer3dVolumeEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slicer3dVolumeEditorChooserButtonActionPerformed
@@ -9893,8 +10038,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
   }//GEN-LAST:event_itksnapVolumeEditorCheckBoxActionPerformed
 
   private void itksnapVolumeEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itksnapVolumeEditorPathTFActionPerformed
-    X3dEditUserPreferences.setItksnapEditorPath(itksnapVolumeEditorPathTF.getText().trim());
-    itksnapVolumeAutoLaunchCheck ();
+        X3dEditUserPreferences.setItksnapEditorPath(itksnapVolumeEditorPathTF.getText().trim());
+        itksnapVolumeAutoLaunchCheck ();
   }//GEN-LAST:event_itksnapVolumeEditorPathTFActionPerformed
 
   private void itksnapVolumeEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itksnapVolumeEditorChooserButtonActionPerformed
@@ -10269,22 +10414,27 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_otherSemanticWebEditorDownloadButtonActionPerformed
 
     private void otherSemanticWebEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherSemanticWebEditorPathTFFocusLost
+        X3dEditUserPreferences.setOtherSemanticWebEditorPath(otherSemanticWebEditorPathTF.getText().trim());
         otherSemanticWebEditorAutoLaunchCheck();
     }//GEN-LAST:event_otherSemanticWebEditorPathTFFocusLost
 
     private void otherVideoEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherVideoEditorPathTFFocusLost
+        X3dEditUserPreferences.setOtherVideoEditorPath(otherVideoEditorPathTF.getText().trim());
         otherVideoEditorAutoLaunchCheck();
     }//GEN-LAST:event_otherVideoEditorPathTFFocusLost
 
     private void otherHtml5EditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherHtml5EditorPathTFFocusLost
+        X3dEditUserPreferences.setOtherHtml5EditorPath(otherHtml5EditorPathTF.getText().trim());
         otherHtml5EditorAutoLaunchCheck();
     }//GEN-LAST:event_otherHtml5EditorPathTFFocusLost
 
     private void otherAudioEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherAudioEditorPathTFFocusLost
+        X3dEditUserPreferences.setOtherAudioEditorPath(otherAudioEditorPathTF.getText().trim());
         otherAudioEditorAutoLaunchCheck();
     }//GEN-LAST:event_otherAudioEditorPathTFFocusLost
 
     private void otherX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setOtherX3dEditorPath(otherX3dEditorPathTF.getText().trim());
         otherX3dEditorAutoLaunchCheck();
     }//GEN-LAST:event_otherX3dEditorPathTFFocusLost
 
@@ -10294,10 +10444,12 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_otherX3dPlayerPathTFFocusLost
 
     private void otherImageEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherImageEditorPathTFFocusLost
+        X3dEditUserPreferences.setOtherImageEditorPath(otherImageEditorPathTF.getText().trim());
         otherImageEditorAutoLaunchCheck ();
     }//GEN-LAST:event_otherImageEditorPathTFFocusLost
 
     private void otherVolumeEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherVolumeEditorPathTFFocusLost
+        X3dEditUserPreferences.setOtherVolumeEditorPath(otherVolumeEditorPathTF.getText().trim());
         otherVolumeEditorAutoLaunchCheck();
     }//GEN-LAST:event_otherVolumeEditorPathTFFocusLost
 
@@ -10834,6 +10986,151 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         X3dEditUserPreferences.setVivatyPlayerPath(vivatyTF.getText().trim());
         vivatyAutoLaunchCheck();
     }//GEN-LAST:event_vivatyTFFocusLost
+
+    private void contactTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contactTFFocusLost
+        X3dEditUserPreferences.setContactPath(contactTF.getText().trim());
+        contactAutoLaunchCheck();
+    }//GEN-LAST:event_contactTFFocusLost
+
+    private void otherX3dPlayerNameTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherX3dPlayerNameTFFocusLost
+        X3dEditUserPreferences.setOtherX3dPlayerName(otherX3dPlayerNameTF.getText().trim());
+        otherX3dPlayerAutoLaunchCheck();
+    }//GEN-LAST:event_otherX3dPlayerNameTFFocusLost
+
+    private void altovaXMLSpyTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_altovaXMLSpyTFFocusLost
+        X3dEditUserPreferences.setAltovaXMLSpyX3dEditorPath(altovaXMLSpyTF.getText().trim());
+        altovaXMLSpyAutoLaunchCheck ();
+    }//GEN-LAST:event_altovaXMLSpyTFFocusLost
+
+    private void blenderX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_blenderX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setBlenderX3dEditorPath(blenderX3dEditorPathTF.getText().trim());
+        blenderAutoLaunchCheck ();
+    }//GEN-LAST:event_blenderX3dEditorPathTFFocusLost
+
+    private void bsContentStudioX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bsContentStudioX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setBsContentStudioX3dEditorPath(bsContentStudioX3dEditorPathTF.getText().trim());
+        bsContentStudioAutoLaunchCheck ();
+    }//GEN-LAST:event_bsContentStudioX3dEditorPathTFFocusLost
+
+    private void meshLabX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_meshLabX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setMeshLabX3dEditorPath(meshLabX3dEditorPathTF.getText().trim());
+        meshLabAutoLaunchCheck ();
+    }//GEN-LAST:event_meshLabX3dEditorPathTFFocusLost
+
+    private void polyTransNuGrafEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_polyTransNuGrafEditorPathTFFocusLost
+        X3dEditUserPreferences.setPolyTransNuGrafEditorPath(polyTransNuGrafEditorPathTF.getText().trim());
+        polyTransNuGrafAutoLaunchCheck ();
+    }//GEN-LAST:event_polyTransNuGrafEditorPathTFFocusLost
+
+    private void paraviewX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_paraviewX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setParaviewX3dEditorPath(paraviewX3dEditorPathTF.getText().trim());
+        paraviewAutoLaunchCheck ();
+    }//GEN-LAST:event_paraviewX3dEditorPathTFFocusLost
+
+    private void seamless3dX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_seamless3dX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setSeamlessX3dEditorPath(seamless3dX3dEditorPathTF.getText().trim());
+        seamless3dAutoLaunchCheck ();
+    }//GEN-LAST:event_seamless3dX3dEditorPathTFFocusLost
+
+    private void titaniaX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_titaniaX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setTitaniaX3dEditorPath(titaniaX3dEditorPathTF.getText().trim());
+        titaniaAutoLaunchCheck ();
+    }//GEN-LAST:event_titaniaX3dEditorPathTFFocusLost
+
+    private void curaX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_curaX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setCuraX3dEditorPath(curaX3dEditorPathTF.getText().trim());
+        curaAutoLaunchCheck ();
+    }//GEN-LAST:event_curaX3dEditorPathTFFocusLost
+
+    private void ultraEditX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ultraEditX3dEditorPathTFFocusLost
+    X3dEditUserPreferences.setUltraEditX3dEditorPath(ultraEditX3dEditorPathTF.getText().trim());
+    ultraEditAutoLaunchCheck ();
+    }//GEN-LAST:event_ultraEditX3dEditorPathTFFocusLost
+
+    private void whiteDuneX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_whiteDuneX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setWhiteDuneX3dEditorPath(whiteDuneX3dEditorPathTF.getText().trim());
+        whiteDuneAutoLaunchCheck ();
+    }//GEN-LAST:event_whiteDuneX3dEditorPathTFFocusLost
+
+    private void wings3dX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_wings3dX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setWingsX3dEditorPath(wings3dX3dEditorPathTF.getText().trim());
+        wings3dAutoLaunchCheck ();
+    }//GEN-LAST:event_wings3dX3dEditorPathTFFocusLost
+
+    private void otherX3dEditorNameTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_otherX3dEditorNameTFFocusLost
+        X3dEditUserPreferences.setOtherX3dEditorName(otherX3dEditorNameTF.getText().trim());
+        otherX3dEditorAutoLaunchCheck();
+    }//GEN-LAST:event_otherX3dEditorNameTFFocusLost
+
+    private void audacityEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_audacityEditorPathTFFocusLost
+        X3dEditUserPreferences.setAudacityEditorPath(audacityEditorPathTF.getText().trim());
+        audacityAutoLaunchCheck ();
+    }//GEN-LAST:event_audacityEditorPathTFFocusLost
+
+    private void amayaEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_amayaEditorPathTFFocusLost
+        X3dEditUserPreferences.setAmayaEditorPath(amayaEditorPathTF.getText().trim());
+        amayaAutoLaunchCheck ();
+    }//GEN-LAST:event_amayaEditorPathTFFocusLost
+
+    private void batikEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_batikEditorPathTFFocusLost
+        X3dEditUserPreferences.setBatikEditorPath(batikEditorPathTF.getText().trim());
+        batikAutoLaunchCheck ();
+    }//GEN-LAST:event_batikEditorPathTFFocusLost
+
+    private void inkscapeEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inkscapeEditorPathTFFocusLost
+        X3dEditUserPreferences.setInkscapeEditorPath(inkscapeEditorPathTF.getText().trim());
+        inkscapeEditorAutoLaunchCheck ();
+    }//GEN-LAST:event_inkscapeEditorPathTFFocusLost
+
+    private void svgeditEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_svgeditEditorPathTFFocusLost
+        X3dEditUserPreferences.setSvgeditEditorPath(svgeditEditorPathTF.getText().trim());
+        svgeditEditorAutoLaunchCheck ();
+    }//GEN-LAST:event_svgeditEditorPathTFFocusLost
+
+    private void vlcPlayerPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_vlcPlayerPathTFFocusLost
+        X3dEditUserPreferences.setVlcPlayerPath(vlcPlayerPathTF.getText().trim());
+        vlcAutoLaunchCheck ();
+    }//GEN-LAST:event_vlcPlayerPathTFFocusLost
+
+    private void protegePlayerPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_protegePlayerPathTFFocusLost
+        X3dEditUserPreferences.setProtegePlayerPath(protegePlayerPathTF.getText().trim());
+        protegeAutoLaunchCheck ();
+    }//GEN-LAST:event_protegePlayerPathTFFocusLost
+
+    private void gimpEditorTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_gimpEditorTFFocusLost
+        X3dEditUserPreferences.setGimpImageEditorPath(gimpEditorTF.getText().trim());
+        gimpAutoLaunchCheck ();
+    }//GEN-LAST:event_gimpEditorTFFocusLost
+
+    private void fijiEditorTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fijiEditorTFFocusLost
+        X3dEditUserPreferences.setFijiEditorPath(fijiEditorTF.getText().trim());
+        fijiAutoLaunchCheck ();
+    }//GEN-LAST:event_fijiEditorTFFocusLost
+
+    private void imageJEditorTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_imageJEditorTFFocusLost
+        X3dEditUserPreferences.setImageJEditorPath(imageJEditorTF.getText().trim());
+        imageJAutoLaunchCheck ();
+    }//GEN-LAST:event_imageJEditorTFFocusLost
+
+    private void imageMagickEditorTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_imageMagickEditorTFFocusLost
+        X3dEditUserPreferences.setImageMagickEditorPath(imageMagickEditorTF.getText().trim());
+        imageMagickAutoLaunchCheck ();
+    }//GEN-LAST:event_imageMagickEditorTFFocusLost
+
+    private void itksnapVolumeEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_itksnapVolumeEditorPathTFFocusLost
+        X3dEditUserPreferences.setItksnapEditorPath(itksnapVolumeEditorPathTF.getText().trim());
+        itksnapVolumeAutoLaunchCheck ();
+    }//GEN-LAST:event_itksnapVolumeEditorPathTFFocusLost
+
+    private void seg3dVolumeEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_seg3dVolumeEditorPathTFFocusLost
+        X3dEditUserPreferences.setSeg3dEditorPath(seg3dVolumeEditorPathTF.getText().trim());
+        seg3dVolumeAutoLaunchCheck ();
+    }//GEN-LAST:event_seg3dVolumeEditorPathTFFocusLost
+
+    private void slicer3dVolumeEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_slicer3dVolumeEditorPathTFFocusLost
+        X3dEditUserPreferences.setSlicer3dEditorPath(slicer3dVolumeEditorPathTF.getText().trim());
+        slicer3dVolumeAutoLaunchCheck ();
+    }//GEN-LAST:event_slicer3dVolumeEditorPathTFFocusLost
 
     public void sleep (long msecDuration)
     {
