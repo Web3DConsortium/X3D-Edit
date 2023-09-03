@@ -133,15 +133,31 @@ public class METACustomizer extends BaseCustomizer
             nameComboBoxTooltipReset();
         } 
     }
-    
-    if (metaName.equals("created")  || 
-        metaName.equals("imported") || 
-        metaName.equals("modified") || 
-        metaName.equals("translated")) 
+    // meta name author -> creator
+    if (metaName.equalsIgnoreCase("author"))
     {
+        NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+              "<html><p align='center'>Usual Dublin Core term for " + metaName + " is 'creator', change it?</p>", 
+              "Update meta name?",
+              NotifyDescriptor.YES_NO_OPTION);
+        if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
+        {
+            nameComboBox.setSelectedItem("creator");
+            nameComboBoxTooltipReset();
+        }
+    }
+    
+    if (metaName.equalsIgnoreCase("created")   || 
+        metaName.equalsIgnoreCase("imported")  || 
+        metaName.equalsIgnoreCase("translated")|| 
+        metaName.equalsIgnoreCase("modified")  ) 
+    {
+        metaName = metaName.toLowerCase();
        // insert date if missing occurs later
-       if (metaName.equals("modified") &&
-                !content.equals(getTodaysDate ()))
+       if ((metaName.equals("created")    && (!content.equals(getTodaysDate()) || content.equals("*enter date of initial version here*"))) ||
+           (metaName.equals("imported")   && (!content.equals(getTodaysDate()) || content.equals("*enter date of translation here*"    ))) ||
+           (metaName.equals("translated") && (!content.equals(getTodaysDate()) || content.equals("*enter date of translation here*"    ))) ||
+           (metaName.equals("modified")   && (!content.equals(getTodaysDate()) || content.equals("*enter date of latest revision here*"))))
        {
             NotifyDescriptor d = new NotifyDescriptor.Confirmation(
                "<html><p align='center'>Change to match today's date?</p><p>&nbsp;</p><p align='center'>\"<b>" + content + "</b>\" to \"<b>" + getTodaysDate () + "</b>\"</p>",
@@ -153,6 +169,45 @@ public class METACustomizer extends BaseCustomizer
        }
        contentTA.selectAll(); // ensure open with all text selected
 //         todaysDateButton.setEnabled(true); // unneeded, stays active throughout
+    }
+    // duplicative
+   // apply user preferences
+//   if ((metaName.equalsIgnoreCase("creator")     || metaName.equalsIgnoreCase("author") || 
+//        metaName.equalsIgnoreCase("translator")  || metaName.equalsIgnoreCase("modeler") || 
+//        metaName.equalsIgnoreCase("contributor") || metaName.equalsIgnoreCase("translator")) && 
+//       (content.isBlank() || 
+//        content.equalsIgnoreCase("*enter name of original author here*") || 
+//        content.equalsIgnoreCase("*if manually translating VRML-to-X3D, enter name of person translating here*")) &&
+//        !X3dEditUserPreferences.getAuthorName().isBlank())
+//   {
+//       String contentString = (X3dEditUserPreferences.getAuthorName() + " " + X3dEditUserPreferences.getAuthorEmail()).trim();
+//        NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+//              "<html><p align='center'>" + metaName + " is blank, use your Author preference '" + contentString + "' ?</p>", 
+//              "Use author name/email from X3D-Edit Preferences?",
+//              NotifyDescriptor.YES_NO_OPTION);
+//        if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
+//        {
+//            contentTA.setText(contentString);
+//        }
+//   }
+    else  if ((metaName.equalsIgnoreCase("creator")    || 
+               metaName.equalsIgnoreCase("translator") || 
+               metaName.equalsIgnoreCase("author")     || 
+               metaName.equalsIgnoreCase("modeler")    || 
+               metaName.equalsIgnoreCase("contributor")) && 
+              (content.isBlank() || content.equals("*enter name of original author here*") ||
+                                    content.startsWith("*enter name of ")                    ||
+                                    content.equals("*if manually translating VRML-to-X3D, enter name of person translating here*")) &&
+              !X3dEditUserPreferences.getAuthorName().isBlank())
+    {
+            NotifyDescriptor d = new NotifyDescriptor.Confirmation(
+               "<html><p align='center'>Change " + metaName + " to match your name from X3D-Edit User Preferences?</p><p>&nbsp;</p><p align='center'>\"<b>" + content + "</b>\" to \"<b>" + X3dEditUserPreferences.getAuthorName() + "</b>\"</p>",
+               "Confirm", NotifyDescriptor.YES_NO_OPTION);
+            if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.YES_OPTION)
+            {
+                contentTA.setText(X3dEditUserPreferences.getAuthorName());
+            }
+       contentTA.selectAll(); // ensure open with all text selected
     }
     else  if (metaName.equals("generator") &&
               content.trim().isEmpty())
@@ -243,38 +298,6 @@ public class METACustomizer extends BaseCustomizer
         if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
         {
             contentTA.setText(content.replace("http://", "https://"));
-        }
-   }
-   // meta name author -> creator
-   if (metaName.equalsIgnoreCase("author"))
-   {
-        NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-              "<html><p align='center'>Usual Dublin Core term for " + metaName + " is 'creator', change it?</p>", 
-              "Update meta name?",
-              NotifyDescriptor.YES_NO_OPTION);
-        if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
-        {
-            nameComboBox.setSelectedItem("creator");
-            nameComboBoxTooltipReset();
-        }
-   }
-   // apply user preferences
-   if ((metaName.equalsIgnoreCase("creator")     || metaName.equalsIgnoreCase("author") || 
-        metaName.equalsIgnoreCase("translator")  || metaName.equalsIgnoreCase("modeler") || 
-        metaName.equalsIgnoreCase("contributor") || metaName.equalsIgnoreCase("translator")) && 
-       (content.isBlank() || 
-        content.equalsIgnoreCase("*enter name of original author here*") || 
-        content.equalsIgnoreCase("*if manually translating VRML-to-X3D, enter name of person translating here*")) &&
-        !X3dEditUserPreferences.getAuthorName().isBlank())
-   {
-       String contentString = (X3dEditUserPreferences.getAuthorName() + " " + X3dEditUserPreferences.getAuthorEmail()).trim();
-        NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-              "<html><p align='center'>" + metaName + " is blank, use your Author preference '" + contentString + "' ?</p>", 
-              "Use author name/email from X3D-Edit Preferences?",
-              NotifyDescriptor.YES_NO_OPTION);
-        if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
-        {
-            contentTA.setText(contentString);
         }
    }
    enableUrlButtons (); // initialize 
