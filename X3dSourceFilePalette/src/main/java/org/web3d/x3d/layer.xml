@@ -180,7 +180,7 @@ POSSIBILITY OF SUCH DAMAGE.
                     <folder name="&amp;New File Templates">
                         <attr name="position" intvalue="40"/>
                     </folder>
-                    <folder name="&amp;Tool Editing of Saved Model">
+                    <folder name="&amp;Tool Editing of Saved X3D Model">
                         <attr name="position" intvalue="50"/>
                     </folder>
                     <folder name="&amp;View Saved X3D Model">
@@ -657,7 +657,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <folder name="&amp;New File Templates">
                 <attr name="position" intvalue="40"/>
             </folder>
-            <folder name="&amp;Tool Editing of Saved Model">
+            <folder name="&amp;Tool Editing of Saved X3D Model">
                 <attr name="position" intvalue="50"/>
             </folder>
             <folder name="&amp;View Saved X3D Model">
