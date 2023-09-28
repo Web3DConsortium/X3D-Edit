@@ -48,6 +48,7 @@ import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DDataObject;
+import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_DIS;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.tools.usage.DateTimeGroupStamp;
 import static org.web3d.x3d.types.X3DSchemaData.*;
@@ -288,9 +289,40 @@ public class METACustomizer extends BaseCustomizer
         {
            contentTA.setText(getTodaysDate ().trim());
         } 
-   }
-   if (content.startsWith("http://"))
-   {              
+    }
+    if (metaName.equals("specificationUrl") && contentLowerCase.isEmpty())
+    {
+        NotifyDescriptor d = new NotifyDescriptor.Confirmation(
+           "<html><p align='center'>Also add meta content to match X3D 4.0 Architecture specification url?</p>\n" +
+                   "<br /> <p>Precise adjustment to match relevant section will help further.</p>",
+           "Confirm", NotifyDescriptor.YES_NO_OPTION);
+        if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.YES_OPTION)
+        {
+            contentTA.setText(X3D4_ARCHITECTURE_STANDARD_DIS);
+            try 
+            {            
+                UrlExpandableList2.launchInBrowser(getUrlString(X3D4_ARCHITECTURE_STANDARD_DIS));
+            }
+            catch (Exception e)
+            {
+                System.err.println ("METACustomizer: failed attempt to use UrlExpandableList launchInBrowser " + X3D4_ARCHITECTURE_STANDARD_DIS);
+                System.err.println (e);
+            }
+        } 
+    }
+    else if (metaName.equals("specificationSection") && contentLowerCase.isEmpty())
+    {              
+        NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+           "<html><p align='center'>Also add meta content to begin with title of X3D 4.0 Architecture specification?</p>\n" + 
+                   "<br /> <p>Precise adjustment to match relevant section will help further.</p>",
+              NotifyDescriptor.YES_NO_OPTION);
+        if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
+        {
+            contentTA.setText("X3D 4.0 Architecture, ISO/IEC 19775-1:2023");
+        }
+    }
+    if (content.startsWith("http://"))
+    {              
         NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
               "<html><p align='center'>url address is insecure, http:// instead of https:// - fix it?</p><br/><p align='center'>" + content + "</p>", 
               "Insecure http address found",
@@ -299,8 +331,8 @@ public class METACustomizer extends BaseCustomizer
         {
             contentTA.setText(content.replace("http://", "https://"));
         }
-   }
-   enableUrlButtons (); // initialize 
+    }
+    enableUrlButtons (); // initialize 
   }
   
   /** This method is called from within the constructor to
@@ -987,7 +1019,7 @@ public class METACustomizer extends BaseCustomizer
         }
         catch (Exception e)
         {
-            System.err.println ("MetaCustomizer: failed attempt to use UrlExpandableList launchInBrowser " + urlString);
+            System.err.println ("METACustomizer: failed attempt to use UrlExpandableList launchInBrowser " + urlString);
             System.err.println (e);
         }
     }//GEN-LAST:event_openContentButtonActionPerformed
@@ -1085,7 +1117,7 @@ public class METACustomizer extends BaseCustomizer
         }
         catch (Exception e)
         {
-            System.err.println ("MetaCustomizer: failed attempt to use UrlExpandableList openInX3dEdit " + urlString);
+            System.err.println ("METACustomizer: failed attempt to use UrlExpandableList openInX3dEdit " + urlString);
             System.err.println (e);
         }
     }//GEN-LAST:event_loadContentButtonActionPerformed
@@ -1109,7 +1141,7 @@ public class METACustomizer extends BaseCustomizer
         }
         catch (Exception e)
         {
-            System.err.println ("MetaCustomizer: failed attempt to use UrlExpandableList chooser " + urlString);
+            System.err.println ("METACustomizer: failed attempt to use UrlExpandableList chooser " + urlString);
             System.err.println (e);
         }
         enableUrlButtons ();
