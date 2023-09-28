@@ -5,6 +5,8 @@
     <description>X3D-Edit module: builds, tests, and runs the project org.web3d.x3d.palette.</description>
     <import file="nbproject/build-impl.xml"/>
 
+    <property file="nbproject/project.properties"/>
+
     <taskdef uri="antlib:org.apache.maven.resolver.ant" 
              resource="org/apache/maven/resolver/ant/antlib.xml"
              classpath="lib/maven-resolver-ant-tasks-1.4.0-uber.jar"/>
