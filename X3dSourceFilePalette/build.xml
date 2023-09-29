@@ -331,11 +331,11 @@
         </exec>
     </target>
 
-    <target name="inspect.nbm.self.signing.cert" depends="init" description="Lists the ${nbm_alias} of (NBM self-signing cert) within release/modules/ext/server-cert-keystore.jks">
+<!--    <target name="inspect.nbm.self.signing.cert" depends="init" description="Lists the ${nbm_alias} of (NBM self-signing cert) within release/modules/ext/server-cert-keystore.jks">
         <exec executable="keytool" dir="release/modules/ext">
             <arg line="-list -v -keystore server-cert-keystore.jks -storepass ${storepass} -alias ${nbm_alias}"/>
         </exec>
-    </target>
+    </target>-->
     
     <!-- Maven deploy/release targets -->
     
