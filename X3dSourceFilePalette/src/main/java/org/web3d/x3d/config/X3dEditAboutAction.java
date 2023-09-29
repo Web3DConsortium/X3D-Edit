@@ -67,10 +67,10 @@ public final class X3dEditAboutAction extends CallableSystemAction
   {
   }
 
-    /**
-     * create and present panel
-     */
-    @Override
+  /**
+   * create and present panel
+   */
+  @Override
   public void performAction()
   {
       // https://bits.netbeans.org/16/javadoc/org-openide-util/org/openide/util/NbBundle.html
@@ -89,7 +89,14 @@ public final class X3dEditAboutAction extends CallableSystemAction
       String  implementationVersion = moduleInfo.getImplementationVersion();
       SpecificationVersion specificationVersion = moduleInfo.getSpecificationVersion();
       String x3dMajorVersion = specificationVersion.toString().substring(0, specificationVersion.toString().lastIndexOf("."));
-      
+
+      // Since the module does not bundle the locale.jar that the full standalone 
+      // suite contains, we have to build our mainWindowTitle from the module 
+      // info contained in the pallette{module}.jar
+      // X3D-Edit 4.0 Authoring Tool, build 20230929, module 4.0.31
+      if (!mainWindowTitle.contains(displayName.substring(0, 7))) // X3D-Edit
+          mainWindowTitle = displayName.substring(0, 12) + " Authoring Tool, build " + buildVersion + ", module " + specificationVersion;
+          
       System.out.println ("*** About X3D-Edit: " + mainWindowTitle);
       
       String aboutHtmlMessage = "<html>" +

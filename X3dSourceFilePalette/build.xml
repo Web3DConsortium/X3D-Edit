@@ -418,6 +418,9 @@
        </delete>
     </target>
     
+    <!-- 
+         *** Make sure to comply with src/doc/ReadMe for Version preparation first *** 
+    -->
     <!-- Example for deploying .asc files from here: https://github.com/vigna/dsiutils/blob/master/build.xml -->
     <target name="stage.release" depends="prepare.repositories,package,sign" 
             description="Generate and deploy a Release NBM and artifacts to Sonatype Open Source Software (OSS) Repository Hosting (OSSRH) staging repo for synching to Maven Central">
