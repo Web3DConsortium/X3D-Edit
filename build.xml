@@ -248,14 +248,17 @@
                      
                      This is benign and will not occur on the next gen. of the self signed cert
                 -->
-                <exec executable="keytool">
+<!--                <exec executable="keytool">
                     <arg line="-delete -alias ${keystore.alias} -storepass ${keystore.password} -keystore @{cur}/release/modules/ext/server-cert-keystore.jks"/>
                 </exec>
                 
-                <!-- Import newly generated self-signed cert -->
+                 Import newly generated self-signed cert 
                 <exec executable="keytool">
                     <arg line="-importkeystore -v -srckeystore ${keystore.location}${keystore.name} -srcstorepass ${keystore.password} -storepass ${keystore.password} -destkeystore @{cur}/release/modules/ext/server-cert-keystore.jks"/>
-                </exec>
+                </exec>-->
+                <!-- Keep the above, however, not likely we need this step as the
+                     self signing certificate is only for generating an NBM that
+                     will be hosted on the Apache Netbeans Plugin Portal -->
             </sequential>
         </for>
     </target>
