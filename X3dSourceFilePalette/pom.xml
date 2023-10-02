@@ -7,7 +7,7 @@
     <description>X3D-Edit supports creation, authoring, validation and viewing of X3D graphics model files</description>
     <url>https://github.com/Web3DConsortium/X3D-Edit/</url>
     <inceptionYear>1999</inceptionYear>
-    <version>4.0.29</version>
+    <version>4.0.31</version>
     <packaging>nbm</packaging>
     <organization>
         <name>Web3D Consortium</name>
@@ -95,7 +95,7 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>RELEASE170</version>
+            <version>RELEASE190</version>
         </dependency>
         <!-- TODO: put all other module dependencies here. Mimic project.xml -->
         <!-- NOTE: Some dependencies like OpenDIS and Xj3D aren't in the central
