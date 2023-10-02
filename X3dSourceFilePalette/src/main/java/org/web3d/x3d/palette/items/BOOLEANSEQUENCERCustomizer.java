@@ -134,7 +134,7 @@ public class BOOLEANSEQUENCERCustomizer extends BaseCustomizer
         eventHintPanel.setLayout(new java.awt.GridBagLayout());
 
         eventLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventLabel.setText("<html><b>BooleanSequencer</b> sends boolean events based on <b>TimeSensor</b> <i>fraction_changed</i> events or <i>next/previous</i> events");
+        eventLabel.setText(org.openide.util.NbBundle.getMessage(BOOLEANSEQUENCERCustomizer.class, "BOOLEANSEQUENCERCustomizer.eventLabel.text")); // NOI18N
         eventLabel.setToolTipText(org.openide.util.NbBundle.getMessage(BOOLEANSEQUENCERCustomizer.class, "BOOLEANSEQUENCERCustomizer.eventLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

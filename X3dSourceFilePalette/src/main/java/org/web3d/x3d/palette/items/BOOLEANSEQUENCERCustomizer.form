@@ -81,7 +81,9 @@
         <Component class="javax.swing.JLabel" name="eventLabel">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;b&gt;BooleanSequencer&lt;/b&gt; sends boolean events based on &lt;b&gt;TimeSensor&lt;/b&gt; &lt;i&gt;fraction_changed&lt;/i&gt; events or &lt;i&gt;next/previous&lt;/i&gt; events"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/web3d/x3d/palette/items/Bundle.properties" key="BOOLEANSEQUENCERCustomizer.eventLabel.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="org/web3d/x3d/palette/items/Bundle.properties" key="BOOLEANSEQUENCERCustomizer.eventLabel.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
