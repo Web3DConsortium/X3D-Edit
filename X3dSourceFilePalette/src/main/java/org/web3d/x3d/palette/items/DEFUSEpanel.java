@@ -243,7 +243,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
             message = "Warning, DEF='" + getDEF() + "' contains . (period character) which can thwart VRML97 .wrl and ClassicVRML .x3dv ROUTE statements.";
             System.err.println ("*** " + message);
             NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
-                    message + "   Replace . period with _ underscore character?", 
+                    "<html><p>" + message + "</p><br /><p>" + "Replace . period with _ underscore character?" + "</p></html>", 
                      "Problem with DEF name", NotifyDescriptor.YES_NO_OPTION);
             if (DialogDisplayer.getDefault().notify(notifyDescriptor) == NotifyDescriptor.YES_OPTION)
             {
