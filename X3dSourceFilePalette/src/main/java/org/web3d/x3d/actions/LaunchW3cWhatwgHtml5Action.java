@@ -45,12 +45,12 @@ import static org.web3d.x3d.actions.BaseViewAction.W3C_WHATWG_HTML5_RELATIONSHIP
 import static org.web3d.x3d.actions.BaseViewAction.W3C_WHATWG_HTML5_STANDARD;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchW3cWhatwgHtml5Action", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/W3cLogoFromSvg32x32.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/whatwg_logo32x32.png",
                     displayName = "#CTL_LaunchW3cWhatwgHtml5Action",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/W3C &Standards", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C &Standards", position = 50)
+  @ActionReference(path = "Menu/&X3D-Edit/W3C &Standards", position = 125),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C &Standards", position = 125)
 })
 
 public final class LaunchW3cWhatwgHtml5Action extends CallableSystemAction

@@ -46,7 +46,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_JOIN;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumJoinAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/web3d16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Web3dIcon32x32.png",
                     displayName = "#CTL_LaunchWeb3DConsortiumJoinAction", 
                             lazy=true)
 @ActionReferences(value = {

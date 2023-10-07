@@ -44,7 +44,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_QUICKSTART_TUTORIAL;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dQuickstartTutorialAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/web3d16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Web3dIcon32x32.png",
                     displayName = "#CTL_LaunchX3dQuickstartTutorialAction",
                             lazy=true)
 @ActionReferences( value = {

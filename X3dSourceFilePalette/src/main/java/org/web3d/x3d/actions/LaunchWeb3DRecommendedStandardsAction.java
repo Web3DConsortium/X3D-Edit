@@ -43,24 +43,24 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.INCITS_H3;
+import static org.web3d.x3d.actions.BaseViewAction.WEB3D_STANDARDS;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchIncitsH3ComputerGraphicsCommitteeAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/INCITS_logo32x32.png",
-                    displayName = "#CTL_LaunchIncitsH3ComputerGraphicsCommitteeAction", 
+@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DRecommendedStandardsAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Web3dIcon32x32.png",
+                    displayName = "#CTL_LaunchWeb3DRecommendedStandardsAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 850),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 850)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 50),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 50)
 })
 
 @SuppressWarnings("serial")
-public final class LaunchIncitsH3ComputerGraphicsCommitteeAction extends CallableSystemAction
+public final class LaunchWeb3DRecommendedStandardsAction extends CallableSystemAction
 {
   @Override
   public void performAction()
   {
-    sendBrowserTo(INCITS_H3);
+    sendBrowserTo(WEB3D_STANDARDS);
   }
   
   protected static void sendBrowserTo(String urlString)
@@ -84,7 +84,7 @@ public final class LaunchIncitsH3ComputerGraphicsCommitteeAction extends Callabl
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchIncitsH3ComputerGraphicsCommitteeAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchWeb3DRecommendedStandardsAction");
   }
 
   @Override
@@ -98,7 +98,7 @@ public final class LaunchIncitsH3ComputerGraphicsCommitteeAction extends Callabl
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("Web3DConsortiumMantisIssuesA");
+    return new HelpCtx("X3dResourcesExamples");
   }
 
   @Override

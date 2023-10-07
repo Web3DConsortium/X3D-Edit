@@ -82,7 +82,8 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_RESOURCES_SECURITY                 = X3D_RESOURCES + "#Security";
   public final static String X3D_RESOURCES_SECURITY_VULNERABILITIES =X3D_RESOURCES + "#Vulnerabilities";
   public final static String X3D_SCENE_AUTHORING_HINTS              ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html";
-  public final static String ECMASCRIPT_SPECIFICATION               ="https://262.ecma-international.org/13.0";
+  public final static String ECMASCRIPT_SPECIFICATION_DISTRIBUTION  ="https://www.ecma-international.org/publications-and-standards/ecma-262";
+  public final static String ECMASCRIPT_SPECIFICATION               ="https://262.ecma-international.org/14.0";
   public final static String KHRONOS_GLTF_REGISTRY                  ="https://registry.khronos.org/glTF";
   public final static String KHRONOS_GLTF_2_0_SPECIFICATION         ="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html";
   public final static String MIDI_SPECIFICATIONS                    ="https://www.midi.org/specifications";
@@ -116,9 +117,10 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String WEB3D_FACEBOOK                         ="https://www.facebook.com/people/Web3D-Consortium/100057066266099/";
   public final static String WEB3D_TWITTER                          ="https://twitter.com/Web3Dconsortium";
   public final static String WEB3D_YOUTUBE                          ="https://www.youtube.com/Web3DConsortium";
-  public final static String WEB3D_EXAMPLES                         ="https://web3D.org/example"; // mistakenly named website page
-  public final static String WEB3D_STANDARDS                        ="https://web3D.org/standards";
-  public final static String X3D_GRAPHICS_STANDARDS_RELATIONSHIPS   ="https://web3D.org/specifications/X3dGraphicsStandardsRelationships.png";
+  public final static String WEB3D_EXAMPLES                         ="https://www.web3D.org/example"; // mistakenly named website url
+  public final static String WEB3D_STANDARDS                        ="https://www.web3D.org/standards";
+  public final static String X3D_SPECIFICATIONS_SCHEMA_DOCTYPE      ="https://www.web3d.org/specifications";
+  public final static String X3D_GRAPHICS_STANDARDS_RELATIONSHIPS   ="https://www.web3D.org/specifications/X3dGraphicsStandardsRelationships.png";
   public final static String HANIM2_STANDARD                        ="https://www.web3d.org/documents/specifications/19774/V2.0/index.html";
   public final static String X3D4_ARCHITECTURE_STANDARD_CD1         ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-CD1/Part01/Architecture.html";
   public final static String X3D4_ARCHITECTURE_STANDARD_DIS         ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-IS.proof/Part01/Architecture.html";

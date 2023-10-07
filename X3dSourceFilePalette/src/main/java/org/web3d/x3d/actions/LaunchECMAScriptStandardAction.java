@@ -34,8 +34,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.actions;
 
-import java.awt.Desktop;
-import java.net.URI;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
@@ -43,48 +41,35 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.INCITS_H3;
+import static org.web3d.x3d.actions.BaseViewAction.ECMASCRIPT_SPECIFICATION_DISTRIBUTION;
+import static org.web3d.x3d.actions.BaseViewAction.ECMASCRIPT_SPECIFICATION;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchIncitsH3ComputerGraphicsCommitteeAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/INCITS_logo32x32.png",
-                    displayName = "#CTL_LaunchIncitsH3ComputerGraphicsCommitteeAction", 
+@ActionID(id = "org.web3d.x3d.actions.LaunchECMAScriptStandardAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ECMA_favicon32x32.png",
+                    displayName = "#CTL_LaunchECMAScriptStandardAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 850),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 850)
+  @ActionReference(path = "Menu/&X3D-Edit/W3C &Standards", position = 150),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/W3C &Standards", position = 150)
 })
 
-@SuppressWarnings("serial")
-public final class LaunchIncitsH3ComputerGraphicsCommitteeAction extends CallableSystemAction
+public final class LaunchECMAScriptStandardAction extends CallableSystemAction
 {
   @Override
   public void performAction()
   {
-    sendBrowserTo(INCITS_H3);
-  }
-  
-  protected static void sendBrowserTo(String urlString)
-  {
-     try {
-       showInBrowser(urlString);
-     }
-     catch(Exception e) {
-       System.err.println("Trying to display "+urlString+" in HtmlBrowser: "+e.getLocalizedMessage());
-     }    
-  }
-  protected static void showInBrowser(String urlString) throws Exception
-  {
-    // HtmlBrowser.URLDisplayer.getDefault().showURL(new URL(urlString));
+    // looking for javahelp
+    // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
+    // hlp.showHelp(HelpCtx.findHelp(this));
       
-    // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
-    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
-        Desktop.getDesktop().browse(new URI(urlString));
+    BaseViewAction.sendBrowserTo(ECMASCRIPT_SPECIFICATION_DISTRIBUTION);
+    BaseViewAction.sendBrowserTo(ECMASCRIPT_SPECIFICATION);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchIncitsH3ComputerGraphicsCommitteeAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchECMAScriptStandardAction");
   }
 
   @Override
@@ -98,7 +83,7 @@ public final class LaunchIncitsH3ComputerGraphicsCommitteeAction extends Callabl
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("Web3DConsortiumMantisIssuesA");
+    return new HelpCtx("CTL_LaunchECMAScriptStandardAction");
   }
 
   @Override

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -46,7 +46,7 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_HOME;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DConsortiumHomeAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/web3d16.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Web3dIcon32x32.png",
                     displayName = "#CTL_LaunchWeb3DConsortiumHomeAction", 
                             lazy=true)
 @ActionReferences(value = {
