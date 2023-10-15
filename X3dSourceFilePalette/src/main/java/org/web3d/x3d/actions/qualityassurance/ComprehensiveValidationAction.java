@@ -296,7 +296,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                     }
                     outputWriterPlain.println();
                     outputWriterPlain.println("--------- X3D Validator checks complete for " + x3dDataObject.getPrimaryFile().getNameExt() + " ---------");
-                    outputWriterPlain.println("--------- X3D Validator online at https://savage.nps.edu/X3dValidator ---------");
+// TODO restore     outputWriterPlain.println("--------- X3D Validator online at https://savage.nps.edu/X3dValidator ---------");
                     outputWriterPlain.println();
                     // removes asterisk
                 }
