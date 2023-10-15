@@ -272,7 +272,7 @@
     <Component class="javax.swing.JLabel" name="hintLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;ProtoDeclare&lt;/b&gt;  is a Prototype Declaration, defining a new node made up of other node(s).&lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; &lt;b&gt;ProtoDeclare&lt;/b&gt; contains &lt;b&gt;ProtoInterface&lt;/b&gt; and &lt;b&gt;ProtoBody&lt;/b&gt;  statements. &lt;/p&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;ProtoDeclare&lt;/b&gt;  is a Prototype Declaration, defining a new node made up of other node(s) and&#xa;enabling the creation of corresponding &lt;b&gt;ProtoInstance&lt;/b nodes&gt; nodes in a scene.&#xa;Adding new nodes to a language vocabulary is a powerful Extensibility capability, the &quot;X&quot; in X3D.&lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; &lt;b&gt;ProtoDeclare&lt;/b&gt; contains &lt;b&gt;ProtoInterface&lt;/b&gt; and &lt;b&gt;ProtoBody&lt;/b&gt;  statements. &lt;/p&gt;"/>
         <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="org/web3d/x3d/palette/items/Bundle.properties" key="INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>

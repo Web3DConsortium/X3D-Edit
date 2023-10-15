@@ -733,9 +733,9 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -749,13 +749,13 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 11, 0, 5);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(authorAssistLabel, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>ExternProtoDeclare</b>refers to a <b>ProtoDeclare</b> node declaration provided in another file.</p>\n<br />\n<p align=\"center\"> <b>ExternProtoDeclare</b> interfaces are defined by <b>field</b> statements (without <b>IS</b>/<b>connect</b> statements). </p>");
+        hintLabel.setText("<html><p align=\"center\"><b>ExternProtoDeclare</b> statements retrieve a <b>ProtoDeclare</b> node declaration from another file,\nenabling the creation of corresponding <b>ProtoInstance</b nodes> nodes in a scene.\nAdding new nodes to a language vocabulary is a powerful Extensibility capability, the \"X\" in X3D.</p>\n<br />\n<p align=\"center\"> <b>ExternProtoDeclare</b> interfaces are defined by <b>field</b> statements \n(without no contained elements) matching the original ProtoDeclare <b>field</b> statements. \nNote that <b>ExternProtoDeclare</b> cannot modify or override any of the <b>ProtoDeclare</b> definitions, each <b>field</b> statement must match.</p>");
         hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(EXTERNPROTODECLARECustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setPreferredSize(new java.awt.Dimension(770, 620));

@@ -412,7 +412,7 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         add(spacerLabel, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>ProtoDeclare</b>  is a Prototype Declaration, defining a new node made up of other node(s).</p>\n<br />\n<p align=\"center\"> <b>ProtoDeclare</b> contains <b>ProtoInterface</b> and <b>ProtoBody</b>  statements. </p>");
+        hintLabel.setText("<html><p align=\"center\"><b>ProtoDeclare</b>  is a Prototype Declaration, defining a new node made up of other node(s) and\nenabling the creation of corresponding <b>ProtoInstance</b nodes> nodes in a scene.\nAdding new nodes to a language vocabulary is a powerful Extensibility capability, the \"X\" in X3D.</p>\n<br />\n<p align=\"center\"> <b>ProtoDeclare</b> contains <b>ProtoInterface</b> and <b>ProtoBody</b>  statements. </p>");
         hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(PROTODECLARECustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
