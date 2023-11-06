@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -47,10 +47,12 @@ import org.web3d.x3d.actions.*;
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark.png",
                     displayName = "#CTL_X3dValidatorOnlineAction",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
-@ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Quality Assurance (QA)",  position = 1000),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Quality Assurance (QA)", position = 1000),
-})
+
+// TODO do not advertise online X3D Validator until restored
+//@ActionReferences(value = {
+//  @ActionReference(path = "Menu/&X3D-Edit/&Quality Assurance (QA)",  position = 1000),
+//  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Quality Assurance (QA)", position = 1000),
+//})
 
 public final class X3dValidatorOnlineAction extends BaseViewAction
 {
