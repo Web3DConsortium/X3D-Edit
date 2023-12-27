@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -108,7 +108,7 @@ public final class X3dEditAboutAction extends CallableSystemAction
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'><b>" + mainWindowTitle + "</b> " + rightMargin + " </p>" +
               "<p align='center'>&nbsp;</p>" +
-              "<p align='center'>Original installer compilation date <b>" + buildVersion + "</b> " + rightMargin + " </p>" +
+              "<p align='center'>Module compilation date <b>" + buildVersion + "</b> " + rightMargin + " </p>" +
               "<p align='center'>&nbsp;</p>" +
               "<p align='center'><hr />" +
 //              "<p align='center'>&nbsp;</p>" +
