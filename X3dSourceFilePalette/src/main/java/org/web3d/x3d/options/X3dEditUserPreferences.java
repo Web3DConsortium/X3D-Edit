@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -598,8 +598,8 @@ public class X3dEditUserPreferences
   private static final String winxpContactGeoPathDefault           = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\";
   private static final String winxpFreeWrlPathDefault              = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\freeWRL.exe";
 //private static final String winxpFreeWrlPathDefault              = "C:\\Program Files (x86)\\freeWRL\\freeWRL.4\\launchdir\\freeWRL_Launcher.exe"; // alternative
-  private 
-          static final String winxpH3dPathDefault                  = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin32\\H3DViewer.exe"; // TODO 32
+   
+  private static final String winxpH3dPathDefault                  = "C:\\Program Files\\SenseGraphics\\H3DViewer\\bin32\\H3DViewer.exe"; // TODO 32
   private static final String winxpHeilanPathDefault               = "C:\\Program Files\\HeilanBrowser-0.15\\HeilanBrowser.exe";
   private static final String winxpInstantRealityPathDefault       = "C:\\Program Files\\Instant Reality\\bin\\InstantPlayer.exe";
   private static final String winxpPolyTransNuGrafPathDefault      = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
@@ -729,23 +729,23 @@ public class X3dEditUserPreferences
   private static final String winxpImageJEditorPathDefault               = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\imdisplay.exe";
   private static final String winxpVlcPlayerPathDefault                  = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
-  private static final String winxpProtegePlayerPathDefault              = "C:\\Program Files\\Protege-5.5.0\\Protege.exe";
+  private static final String winxpProtegePlayerPathDefault              = "C:\\Program Files\\Protege-5.6.3\\Protege.exe";
   private static final String winxpPorteclePlayerPathDefault             = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
   private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
-  private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
-  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 3.6\\blender.exe";
+  private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2024\\XMLSpy.exe";
+  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String winxpBvhackerEditorPathDefault             = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
-  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.4.0\\Ultimaker-Cura.exe";
+  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";
   private static final String winxpMeshLabX3dEditorPathDefault           = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.11.1\\bin\\paraview.exe";
+  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.12.0\\bin\\paraview.exe";
   private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String winxpTitaniaX3dEditorPathDefault           = "(only available in Linux)";
-  private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 3.8\\bin\\ITK-SNAP.exe";
+  private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String winxpSeg3dEditorPathDefault                = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
-  private static final String winxpSlicer3dEditorPathDefault             = "C:\\ProgramData\\Slicer 4.3.1\\Slicer.exe";
-  private static final String winxpBatikEditorPathDefault                = "C:\\languages\\java\\batik-1.16\\batik-squiggle-1.16.jar";
+  private static final String winxpSlicer3dEditorPathDefault             = "C:\\ProgramData\\slicer.org\\Slicer 5.6.1\\Slicer.exe";
+  private static final String winxpBatikEditorPathDefault                = "C:\\languages\\java\\batik-1.17\\batik-squiggle-1.17.jar";
   private static final String winxpInkscapeEditorPathDefault             = "C:\\Program Files\\Inkscape\\Inkscape";
   private static final String winxpSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String winxpWhiteDuneX3dEditorPathDefault         = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
@@ -763,19 +763,19 @@ public class X3dEditUserPreferences
   private static final String windows64PorteclePlayerPathDefault         = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
   private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
-  private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2023\\XMLSpy.exe";
-  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 3.6\\blender.exe";
+  private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2024\\XMLSpy.exe";
+  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String windows64BvhackerEditorPathDefault         = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
-  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.4.0\\Ultimaker-Cura.exe";
+  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";
   private static final String windows64MeshLabX3dEditorPathDefault       = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.11.1\\bin\\paraview.exe";
+  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.12.0\\bin\\paraview.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String windows64TitaniaX3dEditorPathDefault       = "(only available in Linux)";
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
-  private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\NA-MIC\\Slicer 5.2.2\\Slicer.exe";
-  private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.16\\batik-squiggle-1.16.jar";
+  private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\slicer.org\\Slicer 5.6.1\\Slicer.exe";
+  private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.17\\batik-squiggle-1.17.jar";
   private static final String windows64InkscapeEditorPathDefault         = "C:\\Program Files\\Inkscape\\bin\\inkscape.exe";
   private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String windows64WhiteDuneX3dEditorPathDefault     = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
