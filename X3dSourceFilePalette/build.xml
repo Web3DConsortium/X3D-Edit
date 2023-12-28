@@ -187,6 +187,13 @@
     </target>
     <!-- TODO target name="get.latest.Xj3D.jars.sourceforge" -->
 
+    <!-- TODO is this needed or is latest Xj3D jar used? -->
+   <target name="get.latest.opendis7.full.jar" description="Download latest opendis7.full.jar file from Savage distribution">
+    <!--<get src="https://savage.nps.edu/opendis7-java/opendis7-full.jar" -->
+        <get src="https://gitlab.nps.edu/Savage/NetworkedGraphicsMV3500/-/raw/master/lib/opendis7-full.jar?ref_type=heads"
+            dest="release/modules/ext/opendis7-full.jar"             usetimestamp="true" verbose="true"/>
+    </target>
+
    <target name="get.latest.X3DJSAIL.jar" description="Download latest X3DJSAIL jar file from version control">
         <get src="https://www.web3d.org/specifications/java/jars/X3DJSAIL.4.0.full.jar"
             dest="release/modules/ext/X3DJSAIL.4.0.full.jar"             usetimestamp="true" verbose="true"/>
@@ -232,7 +239,7 @@
              dest="${x3dStylesheets.dir}/X3dWrap.xslt"             usetimestamp="true" verbose="true"/>
     </target>
 
-    <target name="get.latest" depends="get.latest.DTDs,get.latest.schemas,get.latest.schematrons,get.latest.stylesheets,get.latest.X3DJSAIL.jar"/>
+    <target name="get.latest" depends="get.latest.DTDs,get.latest.schemas,get.latest.schematrons,get.latest.stylesheets,get.latest.opendis7.full.jar,get.latest.X3DJSAIL.jar"/>
 
     <!-- override -->
     <target name="-pre-compile" depends="projectized-common.-pre-compile">
