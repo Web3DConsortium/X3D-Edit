@@ -148,6 +148,29 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 
     load ();  // restore saved defaults to panel
     autoLaunchChecks ();
+    
+                  gimpCheckBox.setVisible(false);
+                  fijiCheckBox.setVisible(false);
+                imageJCheckBox.setVisible(false);
+           imageMagickCheckBox.setVisible(false);
+      otherImageEditorCheckBox.setVisible(false);
+   itksnapVolumeEditorCheckBox.setVisible(false);
+     seg3dVolumeEditorCheckBox.setVisible(false);
+  slicer3dVolumeEditorCheckBox.setVisible(false);
+     otherVolumeEditorCheckBox.setVisible(false);
+    
+        audacityEditorCheckBox.setVisible(false);
+      otherAudioEditorCheckBox.setVisible(false);
+             vlcPlayerCheckBox.setVisible(false);
+      otherVideoEditorCheckBox.setVisible(false);
+           amayaEditorCheckBox.setVisible(false);
+           batikEditorCheckBox.setVisible(false);
+        inkscapeEditorCheckBox.setVisible(false);
+         svgeditEditorCheckBox.setVisible(false);
+             wiresharkCheckBox.setVisible(false);
+      otherHtml5EditorCheckBox.setVisible(false);
+         protegePlayerCheckBox.setVisible(false);
+otherSemanticWebEditorCheckBox.setVisible(false);
   }
   
   public static String panelFontName = "Segoe UI";
@@ -752,12 +775,12 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         wiresharkDownloadButton = new javax.swing.JButton();
         wiresharkHelpButton = new javax.swing.JButton();
 
-        setMinimumSize(new java.awt.Dimension(850, 600));
+        setMinimumSize(new java.awt.Dimension(850, 620));
         setPreferredSize(new java.awt.Dimension(850, 600));
         setLayout(new java.awt.GridBagLayout());
 
         x3dOptionsTabbedPane.setToolTipText("Set X3D-Edit preference values");
-        x3dOptionsTabbedPane.setMinimumSize(new java.awt.Dimension(825, 600));
+        x3dOptionsTabbedPane.setMinimumSize(new java.awt.Dimension(825, 620));
         x3dOptionsTabbedPane.setPreferredSize(new java.awt.Dimension(850, 600));
 
         authorSettingsPanel.setToolTipText("");
@@ -1119,7 +1142,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         authorSettingsPanel.add(verticalSpacerLabel19, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(reportAuthorButton, "Report");
+        org.openide.awt.Mnemonics.setLocalizedText(reportAuthorButton, "Feedback");
         reportAuthorButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportAuthorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2620,7 +2643,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(10, 6, 10, 3);
         x3dPlayerPathsPanel.add(defunctX3dEditorLabel, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(reportPlayerButton, "Report");
+        org.openide.awt.Mnemonics.setLocalizedText(reportPlayerButton, "Feedback");
         reportPlayerButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportPlayerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4445,7 +4468,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(verticalSpacerLabel12, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(reportModelingToolsButton, "Report");
+        org.openide.awt.Mnemonics.setLocalizedText(reportModelingToolsButton, "Feedback");
         reportModelingToolsButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportModelingToolsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -5645,7 +5668,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(verticalSpacerLabel14, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(reportImageVolumeToolsButton, "Report");
+        org.openide.awt.Mnemonics.setLocalizedText(reportImageVolumeToolsButton, "Feedback");
         reportImageVolumeToolsButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportImageVolumeToolsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -6431,7 +6454,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.weighty = 1.0;
         x3dEditVisualizationPreferencesPanel.add(verticalSpacerLabel5, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(reportVisualizationPreferencesButton, "Report");
+        org.openide.awt.Mnemonics.setLocalizedText(reportVisualizationPreferencesButton, "Feedback");
         reportVisualizationPreferencesButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportVisualizationPreferencesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -8623,7 +8646,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(verticalSpacerLabel6, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(reportWebMultimediaToolsButton, "Report");
+        org.openide.awt.Mnemonics.setLocalizedText(reportWebMultimediaToolsButton, "Feedback");
         reportWebMultimediaToolsButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
         reportWebMultimediaToolsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -8772,7 +8795,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(wiresharkHelpButton, gridBagConstraints);
 
-        x3dOptionsTabbedPane.addTab("Multimedia, Web and Networking Tools", webMultimediaToolsPanel);
+        x3dOptionsTabbedPane.addTab("Multimedia, Web, and Networking Tools", webMultimediaToolsPanel);
 
         add(x3dOptionsTabbedPane, new java.awt.GridBagConstraints());
     }// </editor-fold>//GEN-END:initComponents
