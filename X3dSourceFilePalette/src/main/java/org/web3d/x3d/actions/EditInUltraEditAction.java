@@ -51,7 +51,8 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.EditInUltraEditAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/ultraedit_favicon_32x32.png", // ico
-                    displayName = "#CTL_EditInUltraEditAction", lazy=true)
+                    displayName = "#CTL_EditInUltraEditAction", 
+                            lazy=true)
 @ActionReferences( value = {
     @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved X3D Model", position = 170),
     @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved X3D Model", position = 170),
