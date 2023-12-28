@@ -544,103 +544,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         verticalSpacerLabel14 = new javax.swing.JLabel();
         reportImageVolumeToolsButton = new javax.swing.JButton();
         svgToolHintLabel = new javax.swing.JLabel();
-        webMultimediaToolsPanel = new javax.swing.JPanel();
-        verticalSpacerLabel7 = new javax.swing.JLabel();
-        audioToolsLabel = new javax.swing.JLabel();
-        audacityEditorLabel = new javax.swing.JLabel();
-        audacityEditorCheckBox = new javax.swing.JCheckBox();
-        audacityEditorPathTF = new javax.swing.JTextField();
-        audacityEditorChooserButton = new javax.swing.JButton();
-        audacityEditorDefaultButton = new javax.swing.JButton();
-        audacityEditorLaunchButton = new javax.swing.JButton();
-        audacityEditorDownloadButton = new javax.swing.JButton();
-        audacityEditorHelpButton = new javax.swing.JButton();
-        otherAudioEditorNameTF = new javax.swing.JTextField();
-        otherAudioEditorCheckBox = new javax.swing.JCheckBox();
-        otherAudioEditorPathTF = new javax.swing.JTextField();
-        otherAudioEditorChooserButton = new javax.swing.JButton();
-        otherAudioEditorClearButton = new javax.swing.JButton();
-        otherAudioEditorLaunchButton = new javax.swing.JButton();
-        otherAudioEditorDownloadButton = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JSeparator();
-        verticalSpacerLabel13 = new javax.swing.JLabel();
-        htmlToolsLabel = new javax.swing.JLabel();
-        amayaEditorLabel = new javax.swing.JLabel();
-        amayaEditorPathTF = new javax.swing.JTextField();
-        amayaEditorCheckBox = new javax.swing.JCheckBox();
-        amayaEditorChooserButton = new javax.swing.JButton();
-        amayaEditorDefaultButton = new javax.swing.JButton();
-        amayaEditorLaunchButton = new javax.swing.JButton();
-        amayaEditorDownloadButton = new javax.swing.JButton();
-        amayaEditorHelpButton = new javax.swing.JButton();
-        batikEditorLabel = new javax.swing.JLabel();
-        batikEditorPathTF = new javax.swing.JTextField();
-        batikEditorCheckBox = new javax.swing.JCheckBox();
-        batikEditorChooserButton = new javax.swing.JButton();
-        batikEditorDefaultButton = new javax.swing.JButton();
-        batikEditorLaunchButton = new javax.swing.JButton();
-        batikEditorHelpButton = new javax.swing.JButton();
-        batikEditorDownloadButton = new javax.swing.JButton();
-        inkscapeEditorLabel = new javax.swing.JLabel();
-        inkscapeEditorPathTF = new javax.swing.JTextField();
-        inkscapeEditorCheckBox = new javax.swing.JCheckBox();
-        inkscapeEditorChooserButton = new javax.swing.JButton();
-        inkscapeEditorDefaultButton = new javax.swing.JButton();
-        inkscapeEditorLaunchButton = new javax.swing.JButton();
-        inkscapeEditorHelpButton = new javax.swing.JButton();
-        inkscapeEditorDownloadButton = new javax.swing.JButton();
-        svgeditEditorLabel = new javax.swing.JLabel();
-        svgeditEditorPathTF = new javax.swing.JTextField();
-        svgeditEditorCheckBox = new javax.swing.JCheckBox();
-        svgeditEditorChooserButton = new javax.swing.JButton();
-        svgeditEditorDefaultButton = new javax.swing.JButton();
-        svgeditEditorLaunchButton = new javax.swing.JButton();
-        svgeditEditorDownloadButton = new javax.swing.JButton();
-        svgeditEditorHelpButton = new javax.swing.JButton();
-        otherHtml5EditorNameTF = new javax.swing.JTextField();
-        otherHtml5EditorCheckBox = new javax.swing.JCheckBox();
-        otherHtml5EditorPathTF = new javax.swing.JTextField();
-        otherHtml5EditorChooserButton = new javax.swing.JButton();
-        otherHtml5EditorClearButton = new javax.swing.JButton();
-        otherHtml5EditorLaunchButton = new javax.swing.JButton();
-        otherHtml5EditorDownloadButton = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
-        externalVideoEditorLabel = new javax.swing.JLabel();
-        verticalSpacerLabel11 = new javax.swing.JLabel();
-        vlcPlayerLabel = new javax.swing.JLabel();
-        vlcPlayerCheckBox = new javax.swing.JCheckBox();
-        vlcPlayerPathTF = new javax.swing.JTextField();
-        vlcPlayerChooserButton = new javax.swing.JButton();
-        vlcPlayerDefaultButton = new javax.swing.JButton();
-        vlcPlayerLaunchButton = new javax.swing.JButton();
-        vlcPlayerDownloadButton = new javax.swing.JButton();
-        vlcPlayerHelpButton = new javax.swing.JButton();
-        otherVideoEditorNameTF = new javax.swing.JTextField();
-        otherVideoEditorCheckBox = new javax.swing.JCheckBox();
-        otherVideoEditorPathTF = new javax.swing.JTextField();
-        otherVideoChooserButton = new javax.swing.JButton();
-        otherVideoEditorClearButton = new javax.swing.JButton();
-        otherVideoEditorLaunchButton = new javax.swing.JButton();
-        otherVideoEditorDownloadButton = new javax.swing.JButton();
-        externalOntologyEditorLabel = new javax.swing.JLabel();
-        protegePlayerLabel = new javax.swing.JLabel();
-        protegePlayerCheckBox = new javax.swing.JCheckBox();
-        protegePlayerPathTF = new javax.swing.JTextField();
-        protegePlayerChooserButton = new javax.swing.JButton();
-        protegePlayerDefaultButton = new javax.swing.JButton();
-        protegePlayerLaunchButton = new javax.swing.JButton();
-        protegePlayerDownloadButton = new javax.swing.JButton();
-        protegePlayerHelpButton = new javax.swing.JButton();
-        otherSemanticWebEditorNameTF = new javax.swing.JTextField();
-        otherSemanticWebEditorCheckBox = new javax.swing.JCheckBox();
-        otherSemanticWebEditorPathTF = new javax.swing.JTextField();
-        otherSemanticWebEditorChooserButton = new javax.swing.JButton();
-        otherSemanticWebEditorClearButton = new javax.swing.JButton();
-        otherSemanticWebEditorLaunchButton = new javax.swing.JButton();
-        otherSemanticWebEditorDownloadButton = new javax.swing.JButton();
-        leftMarginSpacerLabel = new javax.swing.JLabel();
-        verticalSpacerLabel6 = new javax.swing.JLabel();
-        reportWebMultimediaToolsButton = new javax.swing.JButton();
         x3dEditVisualizationPreferencesPanel = new javax.swing.JPanel();
         verticalSpacerLabel2 = new javax.swing.JLabel();
         nodeEditingOptionsPanel = new javax.swing.JPanel();
@@ -742,6 +645,112 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         keystoreManagerDescription2Label2 = new javax.swing.JLabel();
         viewX3dCanonicalizationC14nReadmeButton = new javax.swing.JButton();
         viewX3dCanonicalizationC14nReadmeLabel = new javax.swing.JLabel();
+        webMultimediaToolsPanel = new javax.swing.JPanel();
+        verticalSpacerLabel7 = new javax.swing.JLabel();
+        audioToolsLabel = new javax.swing.JLabel();
+        audacityEditorLabel = new javax.swing.JLabel();
+        audacityEditorCheckBox = new javax.swing.JCheckBox();
+        audacityEditorPathTF = new javax.swing.JTextField();
+        audacityEditorChooserButton = new javax.swing.JButton();
+        audacityEditorDefaultButton = new javax.swing.JButton();
+        audacityEditorLaunchButton = new javax.swing.JButton();
+        audacityEditorDownloadButton = new javax.swing.JButton();
+        audacityEditorHelpButton = new javax.swing.JButton();
+        otherAudioEditorNameTF = new javax.swing.JTextField();
+        otherAudioEditorCheckBox = new javax.swing.JCheckBox();
+        otherAudioEditorPathTF = new javax.swing.JTextField();
+        otherAudioEditorChooserButton = new javax.swing.JButton();
+        otherAudioEditorClearButton = new javax.swing.JButton();
+        otherAudioEditorLaunchButton = new javax.swing.JButton();
+        otherAudioEditorDownloadButton = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JSeparator();
+        verticalSpacerLabel13 = new javax.swing.JLabel();
+        htmlToolsLabel = new javax.swing.JLabel();
+        amayaEditorLabel = new javax.swing.JLabel();
+        amayaEditorCheckBox = new javax.swing.JCheckBox();
+        amayaEditorPathTF = new javax.swing.JTextField();
+        amayaEditorChooserButton = new javax.swing.JButton();
+        amayaEditorDefaultButton = new javax.swing.JButton();
+        amayaEditorLaunchButton = new javax.swing.JButton();
+        amayaEditorDownloadButton = new javax.swing.JButton();
+        amayaEditorHelpButton = new javax.swing.JButton();
+        batikEditorLabel = new javax.swing.JLabel();
+        batikEditorPathTF = new javax.swing.JTextField();
+        batikEditorCheckBox = new javax.swing.JCheckBox();
+        batikEditorChooserButton = new javax.swing.JButton();
+        batikEditorDefaultButton = new javax.swing.JButton();
+        batikEditorLaunchButton = new javax.swing.JButton();
+        batikEditorHelpButton = new javax.swing.JButton();
+        batikEditorDownloadButton = new javax.swing.JButton();
+        inkscapeEditorLabel = new javax.swing.JLabel();
+        inkscapeEditorPathTF = new javax.swing.JTextField();
+        inkscapeEditorCheckBox = new javax.swing.JCheckBox();
+        inkscapeEditorChooserButton = new javax.swing.JButton();
+        inkscapeEditorDefaultButton = new javax.swing.JButton();
+        inkscapeEditorLaunchButton = new javax.swing.JButton();
+        inkscapeEditorHelpButton = new javax.swing.JButton();
+        inkscapeEditorDownloadButton = new javax.swing.JButton();
+        svgeditEditorLabel = new javax.swing.JLabel();
+        svgeditEditorPathTF = new javax.swing.JTextField();
+        svgeditEditorCheckBox = new javax.swing.JCheckBox();
+        svgeditEditorChooserButton = new javax.swing.JButton();
+        svgeditEditorDefaultButton = new javax.swing.JButton();
+        svgeditEditorLaunchButton = new javax.swing.JButton();
+        svgeditEditorDownloadButton = new javax.swing.JButton();
+        svgeditEditorHelpButton = new javax.swing.JButton();
+        otherHtml5EditorNameTF = new javax.swing.JTextField();
+        otherHtml5EditorCheckBox = new javax.swing.JCheckBox();
+        otherHtml5EditorPathTF = new javax.swing.JTextField();
+        otherHtml5EditorChooserButton = new javax.swing.JButton();
+        otherHtml5EditorClearButton = new javax.swing.JButton();
+        otherHtml5EditorLaunchButton = new javax.swing.JButton();
+        otherHtml5EditorDownloadButton = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        externalVideoEditorLabel = new javax.swing.JLabel();
+        verticalSpacerLabel11 = new javax.swing.JLabel();
+        vlcPlayerLabel = new javax.swing.JLabel();
+        vlcPlayerCheckBox = new javax.swing.JCheckBox();
+        vlcPlayerPathTF = new javax.swing.JTextField();
+        vlcPlayerChooserButton = new javax.swing.JButton();
+        vlcPlayerDefaultButton = new javax.swing.JButton();
+        vlcPlayerLaunchButton = new javax.swing.JButton();
+        vlcPlayerDownloadButton = new javax.swing.JButton();
+        vlcPlayerHelpButton = new javax.swing.JButton();
+        otherVideoEditorNameTF = new javax.swing.JTextField();
+        otherVideoEditorCheckBox = new javax.swing.JCheckBox();
+        otherVideoEditorPathTF = new javax.swing.JTextField();
+        otherVideoChooserButton = new javax.swing.JButton();
+        otherVideoEditorClearButton = new javax.swing.JButton();
+        otherVideoEditorLaunchButton = new javax.swing.JButton();
+        otherVideoEditorDownloadButton = new javax.swing.JButton();
+        externalOntologyEditorLabel = new javax.swing.JLabel();
+        protegePlayerLabel = new javax.swing.JLabel();
+        protegePlayerCheckBox = new javax.swing.JCheckBox();
+        protegePlayerPathTF = new javax.swing.JTextField();
+        protegePlayerChooserButton = new javax.swing.JButton();
+        protegePlayerDefaultButton = new javax.swing.JButton();
+        protegePlayerLaunchButton = new javax.swing.JButton();
+        protegePlayerDownloadButton = new javax.swing.JButton();
+        protegePlayerHelpButton = new javax.swing.JButton();
+        otherSemanticWebEditorNameTF = new javax.swing.JTextField();
+        otherSemanticWebEditorCheckBox = new javax.swing.JCheckBox();
+        otherSemanticWebEditorPathTF = new javax.swing.JTextField();
+        otherSemanticWebEditorChooserButton = new javax.swing.JButton();
+        otherSemanticWebEditorClearButton = new javax.swing.JButton();
+        otherSemanticWebEditorLaunchButton = new javax.swing.JButton();
+        otherSemanticWebEditorDownloadButton = new javax.swing.JButton();
+        leftMarginSpacerLabel = new javax.swing.JLabel();
+        verticalSpacerLabel6 = new javax.swing.JLabel();
+        reportWebMultimediaToolsButton = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
+        wiresharkLabel = new javax.swing.JLabel();
+        wiresharkCheckBox = new javax.swing.JCheckBox();
+        wiresharkPathTF = new javax.swing.JTextField();
+        wiresharkChooserButton = new javax.swing.JButton();
+        wiresharkDefaultButton = new javax.swing.JButton();
+        wiresharkLaunchButton = new javax.swing.JButton();
+        wiresharkDownloadButton = new javax.swing.JButton();
+        wiresharkHelpButton = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(850, 600));
         setPreferredSize(new java.awt.Dimension(850, 600));
@@ -5665,1492 +5674,6 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 
         x3dOptionsTabbedPane.addTab("Image and Volume Tools", imageVolumeToolsPanel);
 
-        webMultimediaToolsPanel.setMinimumSize(new java.awt.Dimension(825, 600));
-        webMultimediaToolsPanel.setPreferredSize(new java.awt.Dimension(825, 600));
-        webMultimediaToolsPanel.setLayout(new java.awt.GridBagLayout());
-
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel7, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
-        webMultimediaToolsPanel.add(verticalSpacerLabel7, gridBagConstraints);
-
-        audioToolsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(audioToolsLabel, "Audio Tools");
-        audioToolsLabel.setToolTipText("External tools for modifying audio recordings and files");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 6, 3, 3);
-        webMultimediaToolsPanel.add(audioToolsLabel, gridBagConstraints);
-
-        audacityEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorLabel, "Audacity");
-        audacityEditorLabel.setToolTipText("Audacity Audio Recording Editor");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(audacityEditorLabel, gridBagConstraints);
-
-        audacityEditorCheckBox.setSelected(true);
-        audacityEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        audacityEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        audacityEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                audacityEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(audacityEditorCheckBox, gridBagConstraints);
-
-        audacityEditorPathTF.setToolTipText("File location for local application");
-        audacityEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                audacityEditorPathTFFocusLost(evt);
-            }
-        });
-        audacityEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                audacityEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(audacityEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorChooserButton, "...");
-        audacityEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        audacityEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                audacityEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(audacityEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorDefaultButton, "default");
-        audacityEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        audacityEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                audacityEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(audacityEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorLaunchButton, "launch");
-        audacityEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        audacityEditorLaunchButton.setActionCommand("contactTF");
-        audacityEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                audacityEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(audacityEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorDownloadButton, "get");
-        audacityEditorDownloadButton.setToolTipText("Download tool from website");
-        audacityEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        audacityEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                audacityEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
-        webMultimediaToolsPanel.add(audacityEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorHelpButton, "help");
-        audacityEditorHelpButton.setToolTipText("Display tool help page");
-        audacityEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        audacityEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                audacityEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(audacityEditorHelpButton, gridBagConstraints);
-
-        otherAudioEditorNameTF.setBackground(new java.awt.Color(242, 242, 242));
-        otherAudioEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        otherAudioEditorNameTF.setText("Other audio tool");
-        otherAudioEditorNameTF.setToolTipText("Enter name of alternate tool");
-        otherAudioEditorNameTF.setMinimumSize(new java.awt.Dimension(6, 24));
-        otherAudioEditorNameTF.setPreferredSize(new java.awt.Dimension(6, 24));
-        otherAudioEditorNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherAudioEditorNameTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 160;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherAudioEditorNameTF, gridBagConstraints);
-
-        otherAudioEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        otherAudioEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherAudioEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherAudioEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherAudioEditorCheckBox, gridBagConstraints);
-
-        otherAudioEditorPathTF.setToolTipText("Enter file location for local application");
-        otherAudioEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                otherAudioEditorPathTFFocusLost(evt);
-            }
-        });
-        otherAudioEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherAudioEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherAudioEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorChooserButton, "...");
-        otherAudioEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        otherAudioEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherAudioEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherAudioEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorClearButton, "clear");
-        otherAudioEditorClearButton.setToolTipText("Reset default file location for local application");
-        otherAudioEditorClearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherAudioEditorClearButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherAudioEditorClearButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorLaunchButton, "launch");
-        otherAudioEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        otherAudioEditorLaunchButton.setActionCommand("contactTF");
-        otherAudioEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherAudioEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherAudioEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorDownloadButton, "find");
-        otherAudioEditorDownloadButton.setToolTipText("Find other audio tools using X3D Scene Authoring Hints");
-        otherAudioEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        otherAudioEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherAudioEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherAudioEditorDownloadButton, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
-        webMultimediaToolsPanel.add(jSeparator4, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel13, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(verticalSpacerLabel13, gridBagConstraints);
-
-        htmlToolsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        htmlToolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        org.openide.awt.Mnemonics.setLocalizedText(htmlToolsLabel, "HTML, CSS, and SVG Tools");
-        htmlToolsLabel.setToolTipText("External tools for modifying image files");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
-        webMultimediaToolsPanel.add(htmlToolsLabel, gridBagConstraints);
-
-        amayaEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorLabel, "Amaya");
-        amayaEditorLabel.setToolTipText("Web document editor by W3C");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(amayaEditorLabel, gridBagConstraints);
-
-        amayaEditorPathTF.setToolTipText("File location for local application");
-        amayaEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                amayaEditorPathTFFocusLost(evt);
-            }
-        });
-        amayaEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amayaEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(amayaEditorPathTF, gridBagConstraints);
-
-        amayaEditorCheckBox.setSelected(true);
-        amayaEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        amayaEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        amayaEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amayaEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(amayaEditorCheckBox, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorChooserButton, "...");
-        amayaEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        amayaEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amayaEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(amayaEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorDefaultButton, "default");
-        amayaEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        amayaEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amayaEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(amayaEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorLaunchButton, "launch");
-        amayaEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        amayaEditorLaunchButton.setActionCommand("contactTF");
-        amayaEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amayaEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(amayaEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorDownloadButton, "get");
-        amayaEditorDownloadButton.setToolTipText("Download tool from website");
-        amayaEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        amayaEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amayaEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(amayaEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorHelpButton, "help");
-        amayaEditorHelpButton.setToolTipText("Display tool help page");
-        amayaEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        amayaEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amayaEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(amayaEditorHelpButton, gridBagConstraints);
-
-        batikEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(batikEditorLabel, "Batik");
-        batikEditorLabel.setToolTipText("Apache Batik SVG Toolkit");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(batikEditorLabel, gridBagConstraints);
-
-        batikEditorPathTF.setToolTipText("File location for local application");
-        batikEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                batikEditorPathTFFocusLost(evt);
-            }
-        });
-        batikEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                batikEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(batikEditorPathTF, gridBagConstraints);
-
-        batikEditorCheckBox.setSelected(true);
-        batikEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        batikEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        batikEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                batikEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(batikEditorCheckBox, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(batikEditorChooserButton, "...");
-        batikEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        batikEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                batikEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(batikEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(batikEditorDefaultButton, "default");
-        batikEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        batikEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                batikEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(batikEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(batikEditorLaunchButton, "launch");
-        batikEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        batikEditorLaunchButton.setActionCommand("contactTF");
-        batikEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                batikEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(batikEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(batikEditorHelpButton, "help");
-        batikEditorHelpButton.setToolTipText("Display tool help page");
-        batikEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        batikEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                batikEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(batikEditorHelpButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(batikEditorDownloadButton, "get");
-        batikEditorDownloadButton.setToolTipText("Download tool from website");
-        batikEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        batikEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                batikEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(batikEditorDownloadButton, gridBagConstraints);
-
-        inkscapeEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorLabel, "Inkscape");
-        inkscapeEditorLabel.setToolTipText("Draw freely with Inkscpae design tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(inkscapeEditorLabel, gridBagConstraints);
-
-        inkscapeEditorPathTF.setToolTipText("File location for local application");
-        inkscapeEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                inkscapeEditorPathTFFocusLost(evt);
-            }
-        });
-        inkscapeEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inkscapeEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(inkscapeEditorPathTF, gridBagConstraints);
-
-        inkscapeEditorCheckBox.setSelected(true);
-        inkscapeEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        inkscapeEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        inkscapeEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inkscapeEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(inkscapeEditorCheckBox, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorChooserButton, "...");
-        inkscapeEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        inkscapeEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inkscapeEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(inkscapeEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorDefaultButton, "default");
-        inkscapeEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        inkscapeEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inkscapeEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(inkscapeEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorLaunchButton, "launch");
-        inkscapeEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        inkscapeEditorLaunchButton.setActionCommand("contactTF");
-        inkscapeEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inkscapeEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(inkscapeEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorHelpButton, "help");
-        inkscapeEditorHelpButton.setToolTipText("Display tool help page");
-        inkscapeEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        inkscapeEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inkscapeEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(inkscapeEditorHelpButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorDownloadButton, "get");
-        inkscapeEditorDownloadButton.setToolTipText("Download tool from website");
-        inkscapeEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        inkscapeEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inkscapeEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(inkscapeEditorDownloadButton, gridBagConstraints);
-
-        svgeditEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorLabel, "svg-edit");
-        svgeditEditorLabel.setToolTipText("Web-based, JavaScript-driven SVG drawing editor");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(svgeditEditorLabel, gridBagConstraints);
-
-        svgeditEditorPathTF.setToolTipText("File location for local application");
-        svgeditEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                svgeditEditorPathTFFocusLost(evt);
-            }
-        });
-        svgeditEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                svgeditEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(svgeditEditorPathTF, gridBagConstraints);
-
-        svgeditEditorCheckBox.setSelected(true);
-        svgeditEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        svgeditEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        svgeditEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                svgeditEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(svgeditEditorCheckBox, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorChooserButton, "...");
-        svgeditEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        svgeditEditorChooserButton.setEnabled(false);
-        svgeditEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                svgeditEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(svgeditEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorDefaultButton, "default");
-        svgeditEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        svgeditEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                svgeditEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(svgeditEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorLaunchButton, "launch");
-        svgeditEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        svgeditEditorLaunchButton.setActionCommand("contactTF");
-        svgeditEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                svgeditEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(svgeditEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorDownloadButton, "get");
-        svgeditEditorDownloadButton.setToolTipText("Download tool from website");
-        svgeditEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        svgeditEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                svgeditEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(svgeditEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorHelpButton, "help");
-        svgeditEditorHelpButton.setToolTipText("Display tool help page");
-        svgeditEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        svgeditEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                svgeditEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(svgeditEditorHelpButton, gridBagConstraints);
-
-        otherHtml5EditorNameTF.setBackground(new java.awt.Color(242, 242, 242));
-        otherHtml5EditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        otherHtml5EditorNameTF.setText("Other tool");
-        otherHtml5EditorNameTF.setToolTipText("Enter name of alternate tool");
-        otherHtml5EditorNameTF.setMinimumSize(new java.awt.Dimension(6, 24));
-        otherHtml5EditorNameTF.setPreferredSize(new java.awt.Dimension(6, 24));
-        otherHtml5EditorNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherHtml5EditorNameTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 160;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherHtml5EditorNameTF, gridBagConstraints);
-
-        otherHtml5EditorCheckBox.setToolTipText("Include when autolaunching tools");
-        otherHtml5EditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherHtml5EditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherHtml5EditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherHtml5EditorCheckBox, gridBagConstraints);
-
-        otherHtml5EditorPathTF.setToolTipText("Enter file location for local application");
-        otherHtml5EditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                otherHtml5EditorPathTFFocusLost(evt);
-            }
-        });
-        otherHtml5EditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherHtml5EditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherHtml5EditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorChooserButton, "...");
-        otherHtml5EditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        otherHtml5EditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherHtml5EditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherHtml5EditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorClearButton, "clear");
-        otherHtml5EditorClearButton.setToolTipText("Reset default file location for local application");
-        otherHtml5EditorClearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherHtml5EditorClearButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherHtml5EditorClearButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorLaunchButton, "launch");
-        otherHtml5EditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        otherHtml5EditorLaunchButton.setActionCommand("contactTF");
-        otherHtml5EditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherHtml5EditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherHtml5EditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorDownloadButton, "find");
-        otherHtml5EditorDownloadButton.setToolTipText("Find other image tools using X3D Scene Authoring Hints");
-        otherHtml5EditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        otherHtml5EditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherHtml5EditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherHtml5EditorDownloadButton, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
-        webMultimediaToolsPanel.add(jSeparator2, gridBagConstraints);
-
-        externalVideoEditorLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        externalVideoEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        org.openide.awt.Mnemonics.setLocalizedText(externalVideoEditorLabel, "Video Tools");
-        externalVideoEditorLabel.setToolTipText("External tools for modifying X3D scenes");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
-        webMultimediaToolsPanel.add(externalVideoEditorLabel, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel11, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(verticalSpacerLabel11, gridBagConstraints);
-
-        vlcPlayerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerLabel, "vlc");
-        vlcPlayerLabel.setToolTipText("vlc video player");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(vlcPlayerLabel, gridBagConstraints);
-
-        vlcPlayerCheckBox.setSelected(true);
-        vlcPlayerCheckBox.setToolTipText("Include when autolaunching tools");
-        vlcPlayerCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        vlcPlayerCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vlcPlayerCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(vlcPlayerCheckBox, gridBagConstraints);
-
-        vlcPlayerPathTF.setToolTipText("File location for local application");
-        vlcPlayerPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                vlcPlayerPathTFFocusLost(evt);
-            }
-        });
-        vlcPlayerPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vlcPlayerPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(vlcPlayerPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerChooserButton, "...");
-        vlcPlayerChooserButton.setToolTipText("Browse to select file location for local keystore");
-        vlcPlayerChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vlcPlayerChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(vlcPlayerChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerDefaultButton, "default");
-        vlcPlayerDefaultButton.setToolTipText("Reset default file location for local application");
-        vlcPlayerDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vlcPlayerDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(vlcPlayerDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerLaunchButton, "launch");
-        vlcPlayerLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        vlcPlayerLaunchButton.setActionCommand("contactTF");
-        vlcPlayerLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vlcPlayerLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(vlcPlayerLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerDownloadButton, "get");
-        vlcPlayerDownloadButton.setToolTipText("Download tool from website");
-        vlcPlayerDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        vlcPlayerDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vlcPlayerDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(vlcPlayerDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerHelpButton, "help");
-        vlcPlayerHelpButton.setToolTipText("Display tool help page");
-        vlcPlayerHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        vlcPlayerHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vlcPlayerHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(vlcPlayerHelpButton, gridBagConstraints);
-
-        otherVideoEditorNameTF.setBackground(new java.awt.Color(242, 242, 242));
-        otherVideoEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        otherVideoEditorNameTF.setText("Other video tool");
-        otherVideoEditorNameTF.setToolTipText("Enter name of alternate tool");
-        otherVideoEditorNameTF.setMinimumSize(new java.awt.Dimension(6, 24));
-        otherVideoEditorNameTF.setPreferredSize(new java.awt.Dimension(6, 24));
-        otherVideoEditorNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherVideoEditorNameTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 160;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherVideoEditorNameTF, gridBagConstraints);
-
-        otherVideoEditorCheckBox.setSelected(true);
-        otherVideoEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        otherVideoEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherVideoEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherVideoEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherVideoEditorCheckBox, gridBagConstraints);
-
-        otherVideoEditorPathTF.setToolTipText("Enter file location for local application");
-        otherVideoEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                otherVideoEditorPathTFFocusLost(evt);
-            }
-        });
-        otherVideoEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherVideoEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherVideoEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherVideoChooserButton, "...");
-        otherVideoChooserButton.setToolTipText("Browse to select file location for local keystore");
-        otherVideoChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherVideoChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherVideoChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherVideoEditorClearButton, "clear");
-        otherVideoEditorClearButton.setToolTipText("Reset default file location for local application");
-        otherVideoEditorClearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherVideoEditorClearButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherVideoEditorClearButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherVideoEditorLaunchButton, "launch");
-        otherVideoEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        otherVideoEditorLaunchButton.setActionCommand("contactTF");
-        otherVideoEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherVideoEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherVideoEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherVideoEditorDownloadButton, "find");
-        otherVideoEditorDownloadButton.setToolTipText("Find other video tools using X3D Scene Authoring Hints");
-        otherVideoEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        otherVideoEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherVideoEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherVideoEditorDownloadButton, gridBagConstraints);
-
-        externalOntologyEditorLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        externalOntologyEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        org.openide.awt.Mnemonics.setLocalizedText(externalOntologyEditorLabel, "Semantic Web Ontology Tools");
-        externalOntologyEditorLabel.setToolTipText("External tools for modifying X3D scenes");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
-        webMultimediaToolsPanel.add(externalOntologyEditorLabel, gridBagConstraints);
-
-        protegePlayerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerLabel, "Protege");
-        protegePlayerLabel.setToolTipText("Protege Ontology Editor");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(protegePlayerLabel, gridBagConstraints);
-
-        protegePlayerCheckBox.setSelected(true);
-        protegePlayerCheckBox.setToolTipText("Include when autolaunching tools");
-        protegePlayerCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        protegePlayerCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                protegePlayerCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(protegePlayerCheckBox, gridBagConstraints);
-
-        protegePlayerPathTF.setToolTipText("File location for local application");
-        protegePlayerPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                protegePlayerPathTFFocusLost(evt);
-            }
-        });
-        protegePlayerPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                protegePlayerPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(protegePlayerPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerChooserButton, "...");
-        protegePlayerChooserButton.setToolTipText("Browse to select file location for local keystore");
-        protegePlayerChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                protegePlayerChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(protegePlayerChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerDefaultButton, "default");
-        protegePlayerDefaultButton.setToolTipText("Reset default file location for local application");
-        protegePlayerDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                protegePlayerDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(protegePlayerDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerLaunchButton, "launch");
-        protegePlayerLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        protegePlayerLaunchButton.setActionCommand("contactTF");
-        protegePlayerLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                protegePlayerLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(protegePlayerLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerDownloadButton, "get");
-        protegePlayerDownloadButton.setToolTipText("Download tool from website");
-        protegePlayerDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        protegePlayerDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                protegePlayerDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(protegePlayerDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerHelpButton, "help");
-        protegePlayerHelpButton.setToolTipText("Display tool help page");
-        protegePlayerHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        protegePlayerHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                protegePlayerHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(protegePlayerHelpButton, gridBagConstraints);
-
-        otherSemanticWebEditorNameTF.setBackground(new java.awt.Color(242, 242, 242));
-        otherSemanticWebEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        otherSemanticWebEditorNameTF.setText("Other semantic tool");
-        otherSemanticWebEditorNameTF.setToolTipText("Enter name of alternate tool");
-        otherSemanticWebEditorNameTF.setMinimumSize(new java.awt.Dimension(6, 24));
-        otherSemanticWebEditorNameTF.setPreferredSize(new java.awt.Dimension(6, 24));
-        otherSemanticWebEditorNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherSemanticWebEditorNameTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 160;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherSemanticWebEditorNameTF, gridBagConstraints);
-
-        otherSemanticWebEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        otherSemanticWebEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherSemanticWebEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherSemanticWebEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherSemanticWebEditorCheckBox, gridBagConstraints);
-
-        otherSemanticWebEditorPathTF.setToolTipText("Enter file location for local application");
-        otherSemanticWebEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                otherSemanticWebEditorPathTFFocusLost(evt);
-            }
-        });
-        otherSemanticWebEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherSemanticWebEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherSemanticWebEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherSemanticWebEditorChooserButton, "...");
-        otherSemanticWebEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        otherSemanticWebEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherSemanticWebEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherSemanticWebEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherSemanticWebEditorClearButton, "clear");
-        otherSemanticWebEditorClearButton.setToolTipText("Reset default file location for local application");
-        otherSemanticWebEditorClearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherSemanticWebEditorClearButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherSemanticWebEditorClearButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherSemanticWebEditorLaunchButton, "launch");
-        otherSemanticWebEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        otherSemanticWebEditorLaunchButton.setActionCommand("contactTF");
-        otherSemanticWebEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherSemanticWebEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherSemanticWebEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherSemanticWebEditorDownloadButton, "find");
-        otherSemanticWebEditorDownloadButton.setToolTipText("Find other video tools using X3D Scene Authoring Hints");
-        otherSemanticWebEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        otherSemanticWebEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherSemanticWebEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(otherSemanticWebEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(leftMarginSpacerLabel, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 29;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weighty = 0.1;
-        webMultimediaToolsPanel.add(leftMarginSpacerLabel, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel6, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 27;
-        gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(verticalSpacerLabel6, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(reportWebMultimediaToolsButton, "Report");
-        reportWebMultimediaToolsButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
-        reportWebMultimediaToolsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reportWebMultimediaToolsButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 29;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        webMultimediaToolsPanel.add(reportWebMultimediaToolsButton, gridBagConstraints);
-
-        x3dOptionsTabbedPane.addTab("Web and Multimedia Tools", webMultimediaToolsPanel);
-
         x3dEditVisualizationPreferencesPanel.setToolTipText("Editing and visualization options");
         x3dEditVisualizationPreferencesPanel.setMinimumSize(new java.awt.Dimension(825, 600));
         x3dEditVisualizationPreferencesPanel.setPreferredSize(new java.awt.Dimension(825, 600));
@@ -8631,6 +7154,1625 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
         x3dSecurityPanel.add(viewX3dCanonicalizationC14nReadmeLabel, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab(NbBundle.getMessage(getClass(), "Security_Tab_Title"), x3dSecurityPanel); // NOI18N
+
+        webMultimediaToolsPanel.setMinimumSize(new java.awt.Dimension(825, 600));
+        webMultimediaToolsPanel.setPreferredSize(new java.awt.Dimension(825, 600));
+        webMultimediaToolsPanel.setLayout(new java.awt.GridBagLayout());
+
+        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel7, "   ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
+        webMultimediaToolsPanel.add(verticalSpacerLabel7, gridBagConstraints);
+
+        audioToolsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(audioToolsLabel, "Audio Tools");
+        audioToolsLabel.setToolTipText("External tools for modifying audio recordings and files");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 6, 3, 3);
+        webMultimediaToolsPanel.add(audioToolsLabel, gridBagConstraints);
+
+        audacityEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorLabel, "Audacity");
+        audacityEditorLabel.setToolTipText("Audacity Audio Recording Editor");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(audacityEditorLabel, gridBagConstraints);
+
+        audacityEditorCheckBox.setSelected(true);
+        audacityEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        audacityEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        audacityEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                audacityEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(audacityEditorCheckBox, gridBagConstraints);
+
+        audacityEditorPathTF.setToolTipText("File location for local application");
+        audacityEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                audacityEditorPathTFFocusLost(evt);
+            }
+        });
+        audacityEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                audacityEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(audacityEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorChooserButton, "...");
+        audacityEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        audacityEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                audacityEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(audacityEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorDefaultButton, "default");
+        audacityEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        audacityEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                audacityEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(audacityEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorLaunchButton, "launch");
+        audacityEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        audacityEditorLaunchButton.setActionCommand("contactTF");
+        audacityEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                audacityEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(audacityEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorDownloadButton, "get");
+        audacityEditorDownloadButton.setToolTipText("Download tool from website");
+        audacityEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        audacityEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                audacityEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
+        webMultimediaToolsPanel.add(audacityEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorHelpButton, "help");
+        audacityEditorHelpButton.setToolTipText("Display tool help page");
+        audacityEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        audacityEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                audacityEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(audacityEditorHelpButton, gridBagConstraints);
+
+        otherAudioEditorNameTF.setBackground(new java.awt.Color(242, 242, 242));
+        otherAudioEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        otherAudioEditorNameTF.setText("Other audio tool");
+        otherAudioEditorNameTF.setToolTipText("Enter name of alternate tool");
+        otherAudioEditorNameTF.setMinimumSize(new java.awt.Dimension(6, 24));
+        otherAudioEditorNameTF.setPreferredSize(new java.awt.Dimension(6, 24));
+        otherAudioEditorNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherAudioEditorNameTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 160;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherAudioEditorNameTF, gridBagConstraints);
+
+        otherAudioEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        otherAudioEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherAudioEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherAudioEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherAudioEditorCheckBox, gridBagConstraints);
+
+        otherAudioEditorPathTF.setToolTipText("Enter file location for local application");
+        otherAudioEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otherAudioEditorPathTFFocusLost(evt);
+            }
+        });
+        otherAudioEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherAudioEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherAudioEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorChooserButton, "...");
+        otherAudioEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherAudioEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherAudioEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherAudioEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorClearButton, "clear");
+        otherAudioEditorClearButton.setToolTipText("Reset default file location for local application");
+        otherAudioEditorClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherAudioEditorClearButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherAudioEditorClearButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorLaunchButton, "launch");
+        otherAudioEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        otherAudioEditorLaunchButton.setActionCommand("contactTF");
+        otherAudioEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherAudioEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherAudioEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorDownloadButton, "find");
+        otherAudioEditorDownloadButton.setToolTipText("Find other audio tools using X3D Scene Authoring Hints");
+        otherAudioEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        otherAudioEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherAudioEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherAudioEditorDownloadButton, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
+        webMultimediaToolsPanel.add(jSeparator4, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel13, "   ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(verticalSpacerLabel13, gridBagConstraints);
+
+        htmlToolsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        htmlToolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        org.openide.awt.Mnemonics.setLocalizedText(htmlToolsLabel, "HTML, SVG, and Networking Tools");
+        htmlToolsLabel.setToolTipText("External tools for modifying image files");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
+        webMultimediaToolsPanel.add(htmlToolsLabel, gridBagConstraints);
+
+        amayaEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorLabel, "Amaya");
+        amayaEditorLabel.setToolTipText("Web document editor by W3C");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(amayaEditorLabel, gridBagConstraints);
+
+        amayaEditorCheckBox.setSelected(true);
+        amayaEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        amayaEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        amayaEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amayaEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(amayaEditorCheckBox, gridBagConstraints);
+
+        amayaEditorPathTF.setToolTipText("File location for local application");
+        amayaEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                amayaEditorPathTFFocusLost(evt);
+            }
+        });
+        amayaEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amayaEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(amayaEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorChooserButton, "...");
+        amayaEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        amayaEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amayaEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(amayaEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorDefaultButton, "default");
+        amayaEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        amayaEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amayaEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(amayaEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorLaunchButton, "launch");
+        amayaEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        amayaEditorLaunchButton.setActionCommand("contactTF");
+        amayaEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amayaEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(amayaEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorDownloadButton, "get");
+        amayaEditorDownloadButton.setToolTipText("Download tool from website");
+        amayaEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        amayaEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amayaEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(amayaEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorHelpButton, "help");
+        amayaEditorHelpButton.setToolTipText("Display tool help page");
+        amayaEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        amayaEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amayaEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(amayaEditorHelpButton, gridBagConstraints);
+
+        batikEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(batikEditorLabel, "Batik");
+        batikEditorLabel.setToolTipText("Apache Batik SVG Toolkit");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(batikEditorLabel, gridBagConstraints);
+
+        batikEditorPathTF.setToolTipText("File location for local application");
+        batikEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                batikEditorPathTFFocusLost(evt);
+            }
+        });
+        batikEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batikEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(batikEditorPathTF, gridBagConstraints);
+
+        batikEditorCheckBox.setSelected(true);
+        batikEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        batikEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        batikEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batikEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(batikEditorCheckBox, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(batikEditorChooserButton, "...");
+        batikEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        batikEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batikEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(batikEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(batikEditorDefaultButton, "default");
+        batikEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        batikEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batikEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(batikEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(batikEditorLaunchButton, "launch");
+        batikEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        batikEditorLaunchButton.setActionCommand("contactTF");
+        batikEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batikEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(batikEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(batikEditorHelpButton, "help");
+        batikEditorHelpButton.setToolTipText("Display tool help page");
+        batikEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        batikEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batikEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(batikEditorHelpButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(batikEditorDownloadButton, "get");
+        batikEditorDownloadButton.setToolTipText("Download tool from website");
+        batikEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        batikEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batikEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(batikEditorDownloadButton, gridBagConstraints);
+
+        inkscapeEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorLabel, "Inkscape");
+        inkscapeEditorLabel.setToolTipText("Draw freely with Inkscpae design tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(inkscapeEditorLabel, gridBagConstraints);
+
+        inkscapeEditorPathTF.setToolTipText("File location for local application");
+        inkscapeEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inkscapeEditorPathTFFocusLost(evt);
+            }
+        });
+        inkscapeEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inkscapeEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(inkscapeEditorPathTF, gridBagConstraints);
+
+        inkscapeEditorCheckBox.setSelected(true);
+        inkscapeEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        inkscapeEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        inkscapeEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inkscapeEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(inkscapeEditorCheckBox, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorChooserButton, "...");
+        inkscapeEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        inkscapeEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inkscapeEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(inkscapeEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorDefaultButton, "default");
+        inkscapeEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        inkscapeEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inkscapeEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(inkscapeEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorLaunchButton, "launch");
+        inkscapeEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        inkscapeEditorLaunchButton.setActionCommand("contactTF");
+        inkscapeEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inkscapeEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(inkscapeEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorHelpButton, "help");
+        inkscapeEditorHelpButton.setToolTipText("Display tool help page");
+        inkscapeEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        inkscapeEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inkscapeEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(inkscapeEditorHelpButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorDownloadButton, "get");
+        inkscapeEditorDownloadButton.setToolTipText("Download tool from website");
+        inkscapeEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        inkscapeEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inkscapeEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(inkscapeEditorDownloadButton, gridBagConstraints);
+
+        svgeditEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorLabel, "svg-edit");
+        svgeditEditorLabel.setToolTipText("Web-based, JavaScript-driven SVG drawing editor");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(svgeditEditorLabel, gridBagConstraints);
+
+        svgeditEditorPathTF.setToolTipText("File location for local application");
+        svgeditEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                svgeditEditorPathTFFocusLost(evt);
+            }
+        });
+        svgeditEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                svgeditEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(svgeditEditorPathTF, gridBagConstraints);
+
+        svgeditEditorCheckBox.setSelected(true);
+        svgeditEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        svgeditEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        svgeditEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                svgeditEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(svgeditEditorCheckBox, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorChooserButton, "...");
+        svgeditEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        svgeditEditorChooserButton.setEnabled(false);
+        svgeditEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                svgeditEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(svgeditEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorDefaultButton, "default");
+        svgeditEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        svgeditEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                svgeditEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(svgeditEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorLaunchButton, "launch");
+        svgeditEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        svgeditEditorLaunchButton.setActionCommand("contactTF");
+        svgeditEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                svgeditEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(svgeditEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorDownloadButton, "get");
+        svgeditEditorDownloadButton.setToolTipText("Download tool from website");
+        svgeditEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        svgeditEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                svgeditEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(svgeditEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorHelpButton, "help");
+        svgeditEditorHelpButton.setToolTipText("Display tool help page");
+        svgeditEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        svgeditEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                svgeditEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(svgeditEditorHelpButton, gridBagConstraints);
+
+        otherHtml5EditorNameTF.setBackground(new java.awt.Color(242, 242, 242));
+        otherHtml5EditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        otherHtml5EditorNameTF.setText("Other tool");
+        otherHtml5EditorNameTF.setToolTipText("Enter name of alternate tool");
+        otherHtml5EditorNameTF.setMinimumSize(new java.awt.Dimension(6, 24));
+        otherHtml5EditorNameTF.setPreferredSize(new java.awt.Dimension(6, 24));
+        otherHtml5EditorNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherHtml5EditorNameTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 160;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherHtml5EditorNameTF, gridBagConstraints);
+
+        otherHtml5EditorCheckBox.setToolTipText("Include when autolaunching tools");
+        otherHtml5EditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherHtml5EditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherHtml5EditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherHtml5EditorCheckBox, gridBagConstraints);
+
+        otherHtml5EditorPathTF.setToolTipText("Enter file location for local application");
+        otherHtml5EditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otherHtml5EditorPathTFFocusLost(evt);
+            }
+        });
+        otherHtml5EditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherHtml5EditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherHtml5EditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorChooserButton, "...");
+        otherHtml5EditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherHtml5EditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherHtml5EditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherHtml5EditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorClearButton, "clear");
+        otherHtml5EditorClearButton.setToolTipText("Reset default file location for local application");
+        otherHtml5EditorClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherHtml5EditorClearButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherHtml5EditorClearButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorLaunchButton, "launch");
+        otherHtml5EditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        otherHtml5EditorLaunchButton.setActionCommand("contactTF");
+        otherHtml5EditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherHtml5EditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherHtml5EditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorDownloadButton, "find");
+        otherHtml5EditorDownloadButton.setToolTipText("Find other image tools using X3D Scene Authoring Hints");
+        otherHtml5EditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        otherHtml5EditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherHtml5EditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherHtml5EditorDownloadButton, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
+        webMultimediaToolsPanel.add(jSeparator2, gridBagConstraints);
+
+        externalVideoEditorLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        externalVideoEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        org.openide.awt.Mnemonics.setLocalizedText(externalVideoEditorLabel, "Video Tools");
+        externalVideoEditorLabel.setToolTipText("External tools for modifying X3D scenes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
+        webMultimediaToolsPanel.add(externalVideoEditorLabel, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel11, "   ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(verticalSpacerLabel11, gridBagConstraints);
+
+        vlcPlayerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerLabel, "vlc");
+        vlcPlayerLabel.setToolTipText("vlc video player");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(vlcPlayerLabel, gridBagConstraints);
+
+        vlcPlayerCheckBox.setSelected(true);
+        vlcPlayerCheckBox.setToolTipText("Include when autolaunching tools");
+        vlcPlayerCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vlcPlayerCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vlcPlayerCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(vlcPlayerCheckBox, gridBagConstraints);
+
+        vlcPlayerPathTF.setToolTipText("File location for local application");
+        vlcPlayerPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                vlcPlayerPathTFFocusLost(evt);
+            }
+        });
+        vlcPlayerPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vlcPlayerPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(vlcPlayerPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerChooserButton, "...");
+        vlcPlayerChooserButton.setToolTipText("Browse to select file location for local keystore");
+        vlcPlayerChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vlcPlayerChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(vlcPlayerChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerDefaultButton, "default");
+        vlcPlayerDefaultButton.setToolTipText("Reset default file location for local application");
+        vlcPlayerDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vlcPlayerDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(vlcPlayerDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerLaunchButton, "launch");
+        vlcPlayerLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        vlcPlayerLaunchButton.setActionCommand("contactTF");
+        vlcPlayerLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vlcPlayerLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(vlcPlayerLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerDownloadButton, "get");
+        vlcPlayerDownloadButton.setToolTipText("Download tool from website");
+        vlcPlayerDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        vlcPlayerDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vlcPlayerDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(vlcPlayerDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerHelpButton, "help");
+        vlcPlayerHelpButton.setToolTipText("Display tool help page");
+        vlcPlayerHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        vlcPlayerHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vlcPlayerHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(vlcPlayerHelpButton, gridBagConstraints);
+
+        otherVideoEditorNameTF.setBackground(new java.awt.Color(242, 242, 242));
+        otherVideoEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        otherVideoEditorNameTF.setText("Other video tool");
+        otherVideoEditorNameTF.setToolTipText("Enter name of alternate tool");
+        otherVideoEditorNameTF.setMinimumSize(new java.awt.Dimension(6, 24));
+        otherVideoEditorNameTF.setPreferredSize(new java.awt.Dimension(6, 24));
+        otherVideoEditorNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherVideoEditorNameTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 160;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherVideoEditorNameTF, gridBagConstraints);
+
+        otherVideoEditorCheckBox.setSelected(true);
+        otherVideoEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        otherVideoEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherVideoEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherVideoEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherVideoEditorCheckBox, gridBagConstraints);
+
+        otherVideoEditorPathTF.setToolTipText("Enter file location for local application");
+        otherVideoEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otherVideoEditorPathTFFocusLost(evt);
+            }
+        });
+        otherVideoEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherVideoEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherVideoEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherVideoChooserButton, "...");
+        otherVideoChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherVideoChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherVideoChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherVideoChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherVideoEditorClearButton, "clear");
+        otherVideoEditorClearButton.setToolTipText("Reset default file location for local application");
+        otherVideoEditorClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherVideoEditorClearButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherVideoEditorClearButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherVideoEditorLaunchButton, "launch");
+        otherVideoEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        otherVideoEditorLaunchButton.setActionCommand("contactTF");
+        otherVideoEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherVideoEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherVideoEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherVideoEditorDownloadButton, "find");
+        otherVideoEditorDownloadButton.setToolTipText("Find other video tools using X3D Scene Authoring Hints");
+        otherVideoEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        otherVideoEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherVideoEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherVideoEditorDownloadButton, gridBagConstraints);
+
+        externalOntologyEditorLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        externalOntologyEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        org.openide.awt.Mnemonics.setLocalizedText(externalOntologyEditorLabel, "Semantic Web Ontology Tools");
+        externalOntologyEditorLabel.setToolTipText("External tools for modifying X3D scenes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
+        webMultimediaToolsPanel.add(externalOntologyEditorLabel, gridBagConstraints);
+
+        protegePlayerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerLabel, "Protege");
+        protegePlayerLabel.setToolTipText("Protege Ontology Editor");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(protegePlayerLabel, gridBagConstraints);
+
+        protegePlayerCheckBox.setSelected(true);
+        protegePlayerCheckBox.setToolTipText("Include when autolaunching tools");
+        protegePlayerCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        protegePlayerCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                protegePlayerCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(protegePlayerCheckBox, gridBagConstraints);
+
+        protegePlayerPathTF.setToolTipText("File location for local application");
+        protegePlayerPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                protegePlayerPathTFFocusLost(evt);
+            }
+        });
+        protegePlayerPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                protegePlayerPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(protegePlayerPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerChooserButton, "...");
+        protegePlayerChooserButton.setToolTipText("Browse to select file location for local keystore");
+        protegePlayerChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                protegePlayerChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(protegePlayerChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerDefaultButton, "default");
+        protegePlayerDefaultButton.setToolTipText("Reset default file location for local application");
+        protegePlayerDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                protegePlayerDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(protegePlayerDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerLaunchButton, "launch");
+        protegePlayerLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        protegePlayerLaunchButton.setActionCommand("contactTF");
+        protegePlayerLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                protegePlayerLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(protegePlayerLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerDownloadButton, "get");
+        protegePlayerDownloadButton.setToolTipText("Download tool from website");
+        protegePlayerDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        protegePlayerDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                protegePlayerDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(protegePlayerDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerHelpButton, "help");
+        protegePlayerHelpButton.setToolTipText("Display tool help page");
+        protegePlayerHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        protegePlayerHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                protegePlayerHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(protegePlayerHelpButton, gridBagConstraints);
+
+        otherSemanticWebEditorNameTF.setBackground(new java.awt.Color(242, 242, 242));
+        otherSemanticWebEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        otherSemanticWebEditorNameTF.setText("Other semantic tool");
+        otherSemanticWebEditorNameTF.setToolTipText("Enter name of alternate tool");
+        otherSemanticWebEditorNameTF.setMinimumSize(new java.awt.Dimension(6, 24));
+        otherSemanticWebEditorNameTF.setPreferredSize(new java.awt.Dimension(6, 24));
+        otherSemanticWebEditorNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherSemanticWebEditorNameTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 25;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 160;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherSemanticWebEditorNameTF, gridBagConstraints);
+
+        otherSemanticWebEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        otherSemanticWebEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherSemanticWebEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherSemanticWebEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 25;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherSemanticWebEditorCheckBox, gridBagConstraints);
+
+        otherSemanticWebEditorPathTF.setToolTipText("Enter file location for local application");
+        otherSemanticWebEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otherSemanticWebEditorPathTFFocusLost(evt);
+            }
+        });
+        otherSemanticWebEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherSemanticWebEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 25;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherSemanticWebEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherSemanticWebEditorChooserButton, "...");
+        otherSemanticWebEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherSemanticWebEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherSemanticWebEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 25;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherSemanticWebEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherSemanticWebEditorClearButton, "clear");
+        otherSemanticWebEditorClearButton.setToolTipText("Reset default file location for local application");
+        otherSemanticWebEditorClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherSemanticWebEditorClearButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 25;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherSemanticWebEditorClearButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherSemanticWebEditorLaunchButton, "launch");
+        otherSemanticWebEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        otherSemanticWebEditorLaunchButton.setActionCommand("contactTF");
+        otherSemanticWebEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherSemanticWebEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 25;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherSemanticWebEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherSemanticWebEditorDownloadButton, "find");
+        otherSemanticWebEditorDownloadButton.setToolTipText("Find other video tools using X3D Scene Authoring Hints");
+        otherSemanticWebEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        otherSemanticWebEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherSemanticWebEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(otherSemanticWebEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(leftMarginSpacerLabel, "   ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 29;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weighty = 0.1;
+        webMultimediaToolsPanel.add(leftMarginSpacerLabel, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel6, "   ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(verticalSpacerLabel6, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(reportWebMultimediaToolsButton, "Report");
+        reportWebMultimediaToolsButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
+        reportWebMultimediaToolsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportWebMultimediaToolsButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(reportWebMultimediaToolsButton, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
+        webMultimediaToolsPanel.add(jSeparator6, gridBagConstraints);
+
+        wiresharkLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(wiresharkLabel, "Wireshark");
+        wiresharkLabel.setToolTipText("Free open0source network monitoring tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(wiresharkLabel, gridBagConstraints);
+
+        wiresharkCheckBox.setSelected(true);
+        wiresharkCheckBox.setToolTipText("Include when autolaunching tools");
+        wiresharkCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        wiresharkCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wiresharkCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(wiresharkCheckBox, gridBagConstraints);
+
+        wiresharkPathTF.setToolTipText("File location for local application");
+        wiresharkPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                wiresharkPathTFFocusLost(evt);
+            }
+        });
+        wiresharkPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wiresharkPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(wiresharkPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wiresharkChooserButton, "...");
+        wiresharkChooserButton.setToolTipText("Browse to select file location for local keystore");
+        wiresharkChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wiresharkChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(wiresharkChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wiresharkDefaultButton, "default");
+        wiresharkDefaultButton.setToolTipText("Reset default file location for local application");
+        wiresharkDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wiresharkDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(wiresharkDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wiresharkLaunchButton, "launch");
+        wiresharkLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        wiresharkLaunchButton.setActionCommand("contactTF");
+        wiresharkLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wiresharkLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(wiresharkLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wiresharkDownloadButton, "get");
+        wiresharkDownloadButton.setToolTipText("Download tool from website");
+        wiresharkDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        wiresharkDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wiresharkDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(wiresharkDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wiresharkHelpButton, "help");
+        wiresharkHelpButton.setToolTipText("Display tool help page");
+        wiresharkHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        wiresharkHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wiresharkHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(wiresharkHelpButton, gridBagConstraints);
+
+        x3dOptionsTabbedPane.addTab("Multimedia, Web and Networking Tools", webMultimediaToolsPanel);
 
         add(x3dOptionsTabbedPane, new java.awt.GridBagConstraints());
     }// </editor-fold>//GEN-END:initComponents
@@ -11312,6 +11454,53 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         browserLaunch(X3dEditUserPreferences.helpSiteBvhacker);
     }//GEN-LAST:event_bvhackerEditorHelpButtonActionPerformed
 
+    private void wiresharkCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkCheckBoxActionPerformed
+        if (wiresharkCheckBox.isSelected())
+        {
+          X3dEditUserPreferences.setWiresharkAutoLaunch("true");
+        }
+        else
+        {
+          X3dEditUserPreferences.setWiresharkAutoLaunch("false");
+        }
+        wiresharkAutoLaunchCheck ();
+    }//GEN-LAST:event_wiresharkCheckBoxActionPerformed
+
+    private void wiresharkPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_wiresharkPathTFFocusLost
+        X3dEditUserPreferences.setWiresharkPath(wiresharkPathTF.getText().trim());
+        wiresharkAutoLaunchCheck ();
+    }//GEN-LAST:event_wiresharkPathTFFocusLost
+
+    private void wiresharkPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkPathTFActionPerformed
+        X3dEditUserPreferences.setWiresharkPath(wiresharkPathTF.getText().trim());
+        wiresharkAutoLaunchCheck ();
+    }//GEN-LAST:event_wiresharkPathTFActionPerformed
+
+    private void wiresharkChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkChooserButtonActionPerformed
+        wiresharkPathTF.setText(X3dEditUserPreferences.getWiresharkPathDefault());
+        X3dEditUserPreferences.setWiresharkPath(wiresharkPathTF.getText().trim());
+        wiresharkAutoLaunchCheck ();
+    }//GEN-LAST:event_wiresharkChooserButtonActionPerformed
+
+    private void wiresharkDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkDefaultButtonActionPerformed
+        wiresharkPathTF.setText(X3dEditUserPreferences.getWiresharkPathDefault());
+        X3dEditUserPreferences.setWiresharkPath(wiresharkPathTF.getText().trim());
+        wiresharkAutoLaunchCheck ();
+    }//GEN-LAST:event_wiresharkDefaultButtonActionPerformed
+
+    private void wiresharkLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkLaunchButtonActionPerformed
+        externalProcessLaunch(X3dEditUserPreferences.getWiresharkPath());
+        wiresharkAutoLaunchCheck ();
+    }//GEN-LAST:event_wiresharkLaunchButtonActionPerformed
+
+    private void wiresharkDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkDownloadButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.getDownloadSiteWireshark());
+    }//GEN-LAST:event_wiresharkDownloadButtonActionPerformed
+
+    private void wiresharkHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkHelpButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.getDownloadSiteWireshark());
+    }//GEN-LAST:event_wiresharkHelpButtonActionPerformed
+
     public void sleep (long msecDuration)
     {
         try
@@ -11496,6 +11685,15 @@ for Extensible 3D (X3D) Graphics International Standard.
     amayaEditorCheckBox.setSelected(isExecutableFile);
     amayaEditorLaunchButton.setEnabled(isExecutableFile);
     showFound (isExecutableFile, amayaEditorLabel, amayaEditorPathTF);
+  }
+  private void wiresharkAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(wiresharkPathTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setWiresharkAutoLaunch(Boolean.toString(isExecutableFile));
+    wiresharkCheckBox.setSelected(isExecutableFile);
+    wiresharkLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, wiresharkLabel, wiresharkPathTF);
   }
   private void batikAutoLaunchCheck ()
   {
@@ -12088,9 +12286,10 @@ polyTransNuGrafEditorPathTF.setText(X3dEditUserPreferences.getPolyTransNuGrafEdi
  slicer3dVolumeEditorPathTF.setText(X3dEditUserPreferences.getSlicer3dEditorPath());
        inkscapeEditorPathTF.setText(X3dEditUserPreferences.getInkscapeEditorPath());
         svgeditEditorPathTF.setText(X3dEditUserPreferences.getSvgeditEditorPath());
+   ultraEditX3dEditorPathTF.setText(X3dEditUserPreferences.getUltraEditX3dEditorPath());
+            wiresharkPathTF.setText(X3dEditUserPreferences.getWiresharkPath());
    whiteDuneX3dEditorPathTF.setText(X3dEditUserPreferences.getWhiteDuneX3dEditorPath());
      wings3dX3dEditorPathTF.setText(X3dEditUserPreferences.getWingsX3dEditorPath());
-   ultraEditX3dEditorPathTF.setText(X3dEditUserPreferences.getUltraEditX3dEditorPath());
 
    otherAudioEditorNameTF.setText(X3dEditUserPreferences.getOtherAudioEditorName());
    otherHtml5EditorNameTF.setText(X3dEditUserPreferences.getOtherHtml5EditorName());
@@ -12141,9 +12340,10 @@ polyTransNuGrafEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPrefer
 slicer3dVolumeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSlicer3dAutoLaunch()));
       inkscapeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isInkscapeAutoLaunch()));
        svgeditEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSvgeditAutoLaunch()));
+  ultraEditX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isUltraEditAutoLaunch()));
+           wiresharkCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isWiresharkAutoLaunch()));
   whiteDuneX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isWhiteDuneAutoLaunch()));
     wings3dX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isWings3dAutoLaunch()));
-  ultraEditX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isUltraEditAutoLaunch()));
     otherAudioEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOtherAudioEditorAutoLaunch()));
     otherHtml5EditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOtherHtml5EditorAutoLaunch()));
     otherImageEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOtherImageEditorAutoLaunch()));
@@ -12236,10 +12436,12 @@ otherSemanticWebEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPrefe
        audacityAutoLaunchCheck ();
           amayaAutoLaunchCheck ();
           batikAutoLaunchCheck ();
+       bvhackerAutoLaunchCheck ();
  inkscapeEditorAutoLaunchCheck ();
   svgeditEditorAutoLaunchCheck ();
             vlcAutoLaunchCheck ();
         protegeAutoLaunchCheck ();
+      wiresharkAutoLaunchCheck ();
         
            gimpAutoLaunchCheck ();
            fijiAutoLaunchCheck ();
@@ -12664,6 +12866,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JButton keystoreDefaultButton;
     private javax.swing.JButton keystoreDirectoryButton;
     private javax.swing.JLabel keystoreDirectoryLabel;
@@ -12958,6 +13161,14 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel wings3dX3dEditorLabel;
     private javax.swing.JButton wings3dX3dEditorLaunchButton;
     private javax.swing.JTextField wings3dX3dEditorPathTF;
+    private javax.swing.JCheckBox wiresharkCheckBox;
+    private javax.swing.JButton wiresharkChooserButton;
+    private javax.swing.JButton wiresharkDefaultButton;
+    private javax.swing.JButton wiresharkDownloadButton;
+    private javax.swing.JButton wiresharkHelpButton;
+    private javax.swing.JLabel wiresharkLabel;
+    private javax.swing.JButton wiresharkLaunchButton;
+    private javax.swing.JTextField wiresharkPathTF;
     private javax.swing.JPanel x3dEditVisualizationPreferencesPanel;
     private javax.swing.JPanel x3dModelingToolsPanel;
     private javax.swing.JTabbedPane x3dOptionsTabbedPane;

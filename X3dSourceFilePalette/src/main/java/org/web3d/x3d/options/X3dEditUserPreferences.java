@@ -426,6 +426,7 @@ public class X3dEditUserPreferences
   public static String            PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY =            "PROTEGE_AUTOLAUNCH";
   public static String           PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY =           "PORTECLE_AUTOLAUNCH";
   public static String   KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY =   "KEYSTOREEXPLORER_AUTOLAUNCH";
+  public static String          WIRESHARK_EXECUTABLE_AUTOLAUNCH_KEY =          "WIRESHARK_AUTOLAUNCH";
   
   public static String      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY =      "ALTOVA_XMLSPY_AUTOLAUNCH";
   public static String            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY =            "BLENDER_AUTOLAUNCH";
@@ -472,6 +473,7 @@ public class X3dEditUserPreferences
   public static String         PROTEGE_PLAYER_PATH_KEY          =        "PROTEGE_PLAYER_PATH";
   public static String        PORTECLE_PLAYER_PATH_KEY          =       "PORTECLE_PLAYER_PATH";
   public static String KEYSTOREEXPLORER_PLAYER_PATH_KEY         = "KEYSTOREEXPLORER_PLAYER_PATH";
+  public static String               WIRESHARK_PATH_KEY          =              "WIRESHARK_PATH";
   
   public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY        = "ALTOVA_XMLSPY_X3D_EDITOR_PATH";
   public static String     BLENDER_X3D_EDITOR_PATH_KEY          =    "BLENDER_X3D_EDITOR_PATH";
@@ -549,6 +551,7 @@ public class X3dEditUserPreferences
   public static String         PROTEGE_PLAYER_PATH_DEFAULT;
   public static String        PORTECLE_PLAYER_PATH_DEFAULT;
   public static String KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT;
+  public static String               WIRESHARK_PATH_DEFAULT;
   
   public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT;
   public static String     BLENDER_X3D_EDITOR_PATH_DEFAULT;
@@ -618,6 +621,7 @@ public class X3dEditUserPreferences
   private static final String winxpInternetExplorerPathDefault     = "C:\\Program Files\\Internet Explorer\\iexplore.exe";
   private static final String winxpOperaPathDefault                = "C:\\Program Files\\Opera\\opera.exe";
   private static final String winxpSafariPathDefault               = "C:\\Program Files\\Safari\\Safari.exe";
+  private static final String winxpWiresharkPathDefault            = "C:\\Program Files\\Wireshark\\Wireshark.exe";
  
                                                                    // C:\\Program Files (x86)\\Bitmanagement Software\\BS Contact\\BSContact.exe
   private static final String windows64ContactPathDefault          = "C:\\Users\\"+AUTHOR_NAME_TOKEN+"\\AppData\\Local\\Bitmanagement Software\\BS Contact\\BSContact.exe";
@@ -643,6 +647,7 @@ public class X3dEditUserPreferences
   private static final String windows64InternetExplorerPathDefault = "C:\\Program Files\\Internet Explorer (x86)\\iexplore.exe";
   private static final String windows64OperaPathDefault            = "C:\\Program Files\\Opera (x86)\\opera.exe";
   private static final String windows64SafariPathDefault           = "C:\\Program Files\\Safari (x86)\\Safari.exe";
+  private static final String windows64WiresharkPathDefault        = "C:\\Program Files\\Wireshark\\Wireshark.exe";
 
   private static final String macosxContactPathDefault             = "/Applications/BS Contact.app";      // TODO verify BitManagement handled install path problem
   private static final String macosxContactGeoPathDefault          = "/Applications/BS Contact Geo.app";  // TODO verify BitManagement handled install path problem
@@ -666,6 +671,7 @@ public class X3dEditUserPreferences
   private static final String macosxInternetExplorerPathDefault    = "";
   private static final String macosxOperaPathDefault               = "";
   private static final String macosxSafariPathDefault              = "";
+  private static final String macosxWiresharkPathDefault           = "";
 
   private static final String otherContactPathDefault              = "ContactPlayer";
   private static final String otherContactGeoPathDefault           = "ContactGeoPlayer";
@@ -721,6 +727,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteOtherVolumeEditor        = "https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Volumes";
   private static final String downloadSiteOtherSemanticWebEditor   = "https://www.web3d.org/x3d/content/semantics/semantics.html#Tools";
   private static final String downloadSiteOtherX3dEditor           = "https://www.web3d.org/x3d/content/examples/X3dResources.html#AuthoringSoftware";
+  private static final String downloadSiteWireshark                = "https://www.wireshark.org";
   
   private static final String winxpAudacityEditorPathDefault             = "C:\\Program Files\\Audacity\\audacity.exe";
   private static final String winxpMuseScoreEditorPathDefault            = "C:\\Program Files\\MuseScore 3\\bin\\MuseScore3.exe";
@@ -904,6 +911,7 @@ public class X3dEditUserPreferences
   protected static final String helpSiteProtege                          = "https://protege.stanford.edu/support.php#documentationSupport";
   protected static final String helpSitePortecle                         = "https://portecle.sourceforge.net/howtos.html";
   protected static final String helpSiteKeystoreExplorer                 = "https://keystore-explorer.org/doc/5.5/overview.html";
+  protected static final String helpSiteWireshark                        = "https://www.wireshark.org/faq.html";
   
   protected static final String helpSiteAltovaXMLSpy                     = "https://www.altova.com/library";
   protected static final String helpSiteBlender                          = "https://www.blender.org/support"; // https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
@@ -950,6 +958,7 @@ public class X3dEditUserPreferences
   public static String getDownloadSiteProtege()        {return downloadSiteProtege;}
   public static String getDownloadSitePortecle()       {return downloadSitePortecle;}
   public static String getDownloadSiteKeystoreExplorer() {return downloadSiteKeystoreExplorer;}
+  public static String getDownloadSiteWireshark()      {return downloadSiteWireshark;}
   
   public static String getDownloadSiteAltovaXMLSpy()   {return downloadSiteAltovaXMLSpy;}
   public static String getDownloadSiteBlender()        {return downloadSiteBlender;}
@@ -1005,6 +1014,7 @@ public class X3dEditUserPreferences
      INTERNETEXPLORER_EXECUTABLE_PATH_DEFAULT= toks(macosxInternetExplorerPathDefault);
      OPERA_EXECUTABLE_PATH_DEFAULT           = toks(macosxOperaPathDefault);
      SAFARI_EXECUTABLE_PATH_DEFAULT          = toks(macosxSafariPathDefault);
+     WIRESHARK_PATH_DEFAULT                  = toks(macosxWiresharkPathDefault);
      
          AUDACITY_EDITOR_PATH_DEFAULT        = toks(    macosxAudacityEditorPathDefault);
         MUSESCORE_EDITOR_PATH_DEFAULT        = toks(   macosxMuseScoreEditorPathDefault);
@@ -1060,6 +1070,7 @@ public class X3dEditUserPreferences
      INTERNETEXPLORER_EXECUTABLE_PATH_DEFAULT= toks(windows64InternetExplorerPathDefault);
      OPERA_EXECUTABLE_PATH_DEFAULT           = toks(windows64OperaPathDefault);
      SAFARI_EXECUTABLE_PATH_DEFAULT          = toks(windows64SafariPathDefault);
+     WIRESHARK_PATH_DEFAULT                  = toks(windows64WiresharkPathDefault);
      
          AUDACITY_EDITOR_PATH_DEFAULT        = toks(    windows64AudacityEditorPathDefault);
          MUSESCORE_EDITOR_PATH_DEFAULT       = toks(   windows64MuseScoreEditorPathDefault);
@@ -1115,6 +1126,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dE
      INTERNETEXPLORER_EXECUTABLE_PATH_DEFAULT= toks(winxpInternetExplorerPathDefault);
      OPERA_EXECUTABLE_PATH_DEFAULT           = toks(winxpOperaPathDefault);
      SAFARI_EXECUTABLE_PATH_DEFAULT          = toks(winxpSafariPathDefault);
+     WIRESHARK_PATH_DEFAULT                  = toks(winxpWiresharkPathDefault);
      
          AUDACITY_EDITOR_PATH_DEFAULT        = toks(    winxpAudacityEditorPathDefault);
          MUSESCORE_EDITOR_PATH_DEFAULT       = toks(   winxpMuseScoreEditorPathDefault);
@@ -1258,6 +1270,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String      getProtegePlayerPathDefault()   {return         PROTEGE_PLAYER_PATH_DEFAULT;}
   public static String     getPorteclePlayerPathDefault()   {return        PORTECLE_PLAYER_PATH_DEFAULT;}
   public static String getKeystoreExplorerPlayerPathDefault() {return KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT;}
+  public static String        getWiresharkPathDefault()     {return               WIRESHARK_PATH_DEFAULT;}
   
   public static String getAltovaXMLSpyX3dEditorPathDefault() {return ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getBlenderX3dEditorPathDefault()   {return     BLENDER_X3D_EDITOR_PATH_DEFAULT;}
@@ -1328,6 +1341,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void      setProtegePlayerPath    (String path){commonStringSet(       PROTEGE_PLAYER_PATH_KEY, path);}
   public static void     setPorteclePlayerPath    (String path){commonStringSet(      PORTECLE_PLAYER_PATH_KEY, path);}
   public static void setKeystoreExplorerPlayerPath(String path){commonStringSet(KEYSTOREEXPLORER_PLAYER_PATH_KEY, path);}
+  public static void          setWiresharkPath    (String path){commonStringSet(            WIRESHARK_PATH_KEY, path);}
   
   public static void setAltovaXMLSpyX3dEditorPath (String path){commonStringSet(  ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY, path);}
   public static void   setBlenderX3dEditorPath    (String path){commonStringSet(   BLENDER_X3D_EDITOR_PATH_KEY, path);}
@@ -1397,6 +1411,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void          setProtegeAutoLaunch (String autoLaunch){commonStringSet(           PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void         setPortecleAutoLaunch (String autoLaunch){commonStringSet(          PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setKeystoreExplorerAutoLaunch (String autoLaunch){commonStringSet(  KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void        setWiresharkAutoLaunch (String autoLaunch){commonStringSet(         WIRESHARK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   
   public static void     setAltovaXMLSpyAutoLaunch (String autoLaunch){commonStringSet(     ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setBlenderAutoLaunch (String autoLaunch){commonStringSet(           BLENDER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1454,6 +1469,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String      getProtegePlayerPath()       {return commonStringGet(       PROTEGE_PLAYER_PATH_KEY,       PROTEGE_PLAYER_PATH_DEFAULT);}
   public static String     getPorteclePlayerPath()       {return commonStringGet(      PORTECLE_PLAYER_PATH_KEY,      PORTECLE_PLAYER_PATH_DEFAULT);}
   public static String getKeystoreExplorerPlayerPath()   {return commonStringGet(KEYSTOREEXPLORER_PLAYER_PATH_KEY,KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT);}
+  public static String          getWiresharkPath()       {return commonStringGet(            WIRESHARK_PATH_KEY,            WIRESHARK_PATH_DEFAULT);}
   
   public static String getAltovaXMLSpyX3dEditorPath()    {return commonStringGet(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY,ALTOVA_XMLSPY_X3D_EDITOR_PATH_DEFAULT);}
   public static String   getBlenderX3dEditorPath()       {return commonStringGet(   BLENDER_X3D_EDITOR_PATH_KEY,   BLENDER_X3D_EDITOR_PATH_DEFAULT);}
@@ -1512,6 +1528,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String           isProtegeAutoLaunch() {return commonStringGet(            PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String          isPortecleAutoLaunch() {return commonStringGet(           PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String  isKeystoreExplorerAutoLaunch() {return commonStringGet(   KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String         isWiresharkAutoLaunch() {return commonStringGet(          WIRESHARK_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   
   public static String      isAltovaXMLSpyAutoLaunch() {return commonStringGet(      ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isBlenderAutoLaunch() {return commonStringGet(            BLENDER_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
@@ -1574,6 +1591,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void      resetProtegePlayerPath()     {commonReset(        PROTEGE_PLAYER_PATH_KEY);}
   public static void     resetPorteclePlayerPath()     {commonReset(       PORTECLE_PLAYER_PATH_KEY);}
   public static void resetKeystoreExplorerPlayerPath() {commonReset(KEYSTOREEXPLORER_PLAYER_PATH_KEY);}
+  public static void          resetWiresharkPath()     {commonReset(              WIRESHARK_PATH_KEY);}
   
   public static void   resetAltovaXMLSpyX3dEditorPath() {commonReset(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY);}
   public static void   resetBlenderX3dEditorPath()      {commonReset(    BLENDER_X3D_EDITOR_PATH_KEY);}
