@@ -43,14 +43,19 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /**
  * Action which launches WIreshark network monitoring tool.
+ * 
+ * Curious problem TODO:  a file needs to be selected or else a strange exception appears on IDE log:
+ * "WARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.java"
  */
-@ActionID(id = "org.web3d.x3d.dis.WiresharkAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.actions.WiresharkAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/Wireshark_favicon.png",
-                    displayName = "#CTL_LaunchWiresharkAction", lazy = true)
-@ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", name = "LaunchWiresharkAction", position = 600),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 600)
+                    displayName = "#CTL_LaunchWiresharkAction", 
+                            lazy=true)
+@ActionReferences( value = {
+    @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", position = 600),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 600)
 })
+
 public class LaunchWiresharkAction extends ViewInBaseAction
 {
   @Override
@@ -68,7 +73,7 @@ public class LaunchWiresharkAction extends ViewInBaseAction
   @Override
   protected String getStatusString()
   {
-    return NbBundle.getMessage(this.getClass(), "STATUSLINE_LaunchWiresharkAction");
+    return NbBundle.getMessage(getClass(), "STATUSLINE_LaunchWiresharkAction");
   }
 
   @Override

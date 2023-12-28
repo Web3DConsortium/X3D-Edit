@@ -60,10 +60,14 @@ public abstract class ViewInBaseAction extends CookieAction
   @Override
   protected boolean enable(Node[] activatedNodes)
   {
-        if ((activatedNodes ==  null) || (activatedNodes.length == 0))
-        {
-            return false;
-        }
+//    TODO launch Wireshark even if no file is selected
+//    if (this.getClass().toString().endsWith("LaunchWiresharkAction"))
+//        return true; // no editor file needs to be activated for launching Wireshark
+    
+    if ((activatedNodes ==  null) || (activatedNodes.length == 0))
+    {
+        return false;
+    }
     boolean localEnabled = false;
     String path = getExePath();
     if(path != null && path.length()>0) {
@@ -79,18 +83,31 @@ public abstract class ViewInBaseAction extends CookieAction
     return super.enable(activatedNodes) && localEnabled;
   }
 
+  /** TODO launch Wireshark even if no file is selected
+    * @param activatedNodes what file tree is selected in editor*/
   @Override
   protected void performAction(Node[] activatedNodes)
   {
-    X3DDataObject x3DDataObject = activatedNodes[0].getLookup().lookup(X3DDataObject.class);
+    X3DDataObject x3DDataObject = null;
+    FileObject    fo            = null;
+    File          tempFile      = null;
+    String        tempFilePath  = "";
+    
+    // no editor file needs to be activated for launching Wireshark
+    boolean isFileSelectionNeeded = !this.getClass().toString().endsWith("LaunchWiresharkAction");
+    
+    if ((activatedNodes != null) && (activatedNodes.length >= 1))
+        x3DDataObject = activatedNodes[0].getLookup().lookup(X3DDataObject.class);
 
-    FileObject fo = x3DDataObject.getPrimaryFile();
-    if ((fo == null) || !fo.canRead())
+    if   (x3DDataObject != null)
+          fo = x3DDataObject.getPrimaryFile();
+    if (isFileSelectionNeeded && ((fo == null) || !fo.canRead()))
     {
-        String message = "File not available, please open a file first";
+        String message = "File not available, please open and select a file first";
         System.out.println("*** " + message);
         NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
         DialogDisplayer.getDefault().notify(msg);
+        return;
     }
     try {
       String statusString = getStatusString();
@@ -104,23 +121,28 @@ public abstract class ViewInBaseAction extends CookieAction
       //tempF.deleteOnExit();
       //FileUtil.copy(is,new FileOutputStream(tempF));
       
-      // Method 2: use original file
-      File tempF = FileUtil.toFile(fo);
-      String path = tempF.getAbsolutePath();
-      if(getEscapeSpaces())
-        path = path.replace(" ", "%20");
-      path = getPrependScheme() + path;
+      if (isFileSelectionNeeded || (fo != null))
+      {
+        // Method 2: use original file
+        tempFile     = FileUtil.toFile(fo);
+        tempFilePath = tempFile.getAbsolutePath();
+        if(getEscapeSpaces())
+          tempFilePath = tempFilePath.replace(" ", "%20");
+        tempFilePath = getPrependScheme() + tempFilePath;
+      }
       
       String[] execStringArray = CommandExecutionScripts.getCommandExecutionScript();
-      execStringArray[CommandExecutionScripts.getExecutablePathIndex()] = getExePath();
-      execStringArray[CommandExecutionScripts.getArgumentPathIndex()]   = path;
+      execStringArray[CommandExecutionScripts.getExecutablePathIndex()] = getExePath(); // .replace(" ", "%20")
+      execStringArray[CommandExecutionScripts.getArgumentPathIndex()]   = tempFilePath;
       
       ProcessBuilder pb = new ProcessBuilder(execStringArray);
-      pb.directory(tempF.getParentFile());
+      if  (tempFile != null)
+           pb.directory(tempFile.getParentFile());
+      else pb.directory(null); // user.dir
       pb.start();
     }
-    catch(IOException e) {
-      Exceptions.printStackTrace(e);
+    catch(IOException ioe) {
+      Exceptions.printStackTrace(ioe);
     }
   }
 
