@@ -100,7 +100,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_X3DUOM                             ="https://www.web3d.org/specifications/X3DUOM.html";
   public final static String SAVAGE_DEVELOPERS_GUIDE                ="https://savage.nps.edu/Savage/developers.html";
   public final static String SAVAGE_OPENDIS7_DISTRIBUTION_PRODUCTS  ="https://savage.nps.edu/opendis7-java";
-  public final static String SISO_DIS_RPR_FOM_PRODUCT_SUPPORT_GROUP ="https://www.sisostds.org/StandardsActivities/SupportGroups/DISRPRFOMPSG.aspx";
+  public final static String SISO_DIS_RPR_FOM_PRODUCT_SUPPORT_GROUP ="https://sisostandards.connectedcommunity.org/communities/community-home?CommunityKey=7026aa59-9e7a-49f7-a371-57e56c780ae3";
   
   public final static String ACM_SIGGRAPH                           ="https://siggraph.acm.org";
   public final static String WEB3D_CONSORTIUM_HOME                  ="https://web3D.org";
