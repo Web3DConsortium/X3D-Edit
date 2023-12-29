@@ -12083,7 +12083,8 @@ for Extensible 3D (X3D) Graphics International Standard.
             URL site = new URI (address).toURL(); 
             HttpURLConnection httpURLConnection = (HttpURLConnection) site.openConnection();
             httpURLConnection.getContent();
-            if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) 
+            {
                 return true;
             }
             return false;
