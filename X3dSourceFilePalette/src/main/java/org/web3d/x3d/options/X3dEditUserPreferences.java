@@ -107,34 +107,34 @@ public class X3dEditUserPreferences
   public static String  VISUALIZE_HANIMSITECOLOR_GREEN_KEY    = "VISUALIZE_HANIMSITECOLOR_GREEN";
   public static String  VISUALIZE_HANIMSITECOLOR_BLUE_KEY     = "VISUALIZE_HANIMSITECOLOR_BLUE";
   
-  private static String AUTHOR_NAME_KEY                       = "AUTHOR_NAME";
-  private static String AUTHOR_EMAIL_KEY                      = "AUTHOR_EMAIL";
-  private static String EXAMPLES_ROOT_DIRECTORY_KEY           = "EXAMPLES_ROOT_DIRECTORY";
+  private static final String AUTHOR_NAME_KEY                       = "AUTHOR_NAME";
+  private static final String AUTHOR_EMAIL_KEY                      = "AUTHOR_EMAIL";
+  private static final String EXAMPLES_ROOT_DIRECTORY_KEY           = "EXAMPLES_ROOT_DIRECTORY";
   
-  private static String AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY  = "AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY";
-  private static String AUTHOR_PREFERENCE_HTML_WIDTH_KEY      = "AUTHOR_PREFERENCE_HTML_WIDTH_KEY";
-  private static String AUTHOR_PREFERENCE_HTML_HEIGHT_KEY     = "AUTHOR_PREFERENCE_HTML_HEIGHT_KEY";
+  private static final String AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY  = "AUTHOR_PREFERENCE_CORS_DIRECTORY_KEY";
+  private static final String AUTHOR_PREFERENCE_HTML_WIDTH_KEY      = "AUTHOR_PREFERENCE_HTML_WIDTH_KEY";
+  private static final String AUTHOR_PREFERENCE_HTML_HEIGHT_KEY     = "AUTHOR_PREFERENCE_HTML_HEIGHT_KEY";
   
-  private static String AUTHOR_MODELS_DIRECTORY_KEY           = "AUTHOR_MODELS_DIRECTORY_KEY";
-  private static String AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY   = "AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY";
-  private static String EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY= "EXAMPLE_ARCHIVES_AUTOLAUNCH_KEY";
-  private static String ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY= "ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY";
-  private static String AUTHOR_MODELS_SERVER_PORT_KEY         = "AUTHOR_MODELS_SERVER_PORT_KEY";
-  private static String EXAMPLE_ARCHIVES_SERVER_PORT_KEY      = "EXAMPLE_ARCHIVES_SERVER_PORT_KEY";
-  private static String NEW_X3D_MODELS_DIRECTORY_KEY          = "NEW_X3D_MODELS_DIRECTORY_KEY";
+  private static final String AUTHOR_MODELS_DIRECTORY_KEY           = "AUTHOR_MODELS_DIRECTORY_KEY";
+  private static final String AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY   = "AUTHOR_MODELS_SERVER_AUTOLAUNCH_KEY";
+  private static final String EXAMPLE_ARCHIVES_SERVER_AUTOLAUNCH_KEY= "EXAMPLE_ARCHIVES_AUTOLAUNCH_KEY";
+  private static final String ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY= "ACTIVE_X3D_MODEL_SERVER_AUTOLAUNCH_KEY";
+  private static final String AUTHOR_MODELS_SERVER_PORT_KEY         = "AUTHOR_MODELS_SERVER_PORT_KEY";
+  private static final String EXAMPLE_ARCHIVES_SERVER_PORT_KEY      = "EXAMPLE_ARCHIVES_SERVER_PORT_KEY";
+  private static final String NEW_X3D_MODELS_DIRECTORY_KEY          = "NEW_X3D_MODELS_DIRECTORY_KEY";
   
-  private static String             BASIC_LOCALEXAMPLES_PRESENT_KEY =             "BASIC_LOCALEXAMPLES_PRESENT_KEY";
-  private static String   CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY =   "CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY";
-  private static String HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY = "HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY";
-  private static String    VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY =    "VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY";
-  private static String            SAVAGE_LOCALEXAMPLES_PRESENT_KEY =            "SAVAGE_LOCALEXAMPLES_PRESENT_KEY";
-  private static String            X3D4WA_LOCALEXAMPLES_PRESENT_KEY =            "X3D4WA_LOCALEXAMPLES_PRESENT_KEY";
-  private static String            X3D4AM_LOCALEXAMPLES_PRESENT_KEY =            "X3D4AM_LOCALEXAMPLES_PRESENT_KEY";
-  
-  private static String KEYSTORE_PASSWORD_KEY                 = "KEYSTORE_PASSWORD_KEY";
-  private static String KEYSTORE_FILENAME_KEY                 = "KEYSTORE_FILENAME_KEY";
-  private static String KEYSTORE_DIRECTORY_KEY                = "KEYSTORE_DIRECTORY_KEY";
-  private static String KEYSTORE_PATH_KEY                     = "KEYSTORE_PATH"; // path is directory+filename combination
+  private static final String             BASIC_LOCALEXAMPLES_PRESENT_KEY =             "BASIC_LOCALEXAMPLES_PRESENT_KEY";
+  private static final String   CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY =   "CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY";
+  private static final String HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY = "HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY";
+  private static final String    VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY =    "VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY";
+  private static final String            SAVAGE_LOCALEXAMPLES_PRESENT_KEY =            "SAVAGE_LOCALEXAMPLES_PRESENT_KEY";
+  private static final String            X3D4WA_LOCALEXAMPLES_PRESENT_KEY =            "X3D4WA_LOCALEXAMPLES_PRESENT_KEY";
+  private static final String            X3D4AM_LOCALEXAMPLES_PRESENT_KEY =            "X3D4AM_LOCALEXAMPLES_PRESENT_KEY";
+
+  private static final String KEYSTORE_PASSWORD_KEY                 = "KEYSTORE_PASSWORD_KEY";
+  private static final String KEYSTORE_FILENAME_KEY                 = "KEYSTORE_FILENAME_KEY";
+  private static final String KEYSTORE_DIRECTORY_KEY                = "KEYSTORE_DIRECTORY_KEY";
+  private static final String KEYSTORE_PATH_KEY                     = "KEYSTORE_PATH"; // path is directory+filename combination
   
   // default preference, can be overridden by user choices in X3D-Edit Preferences Panels (Tools > Options > Miscellaneous > X3D > Other Preferences panel)
   public static boolean SHOW_NEWLINE_OPTION_DEFAULT = false;
