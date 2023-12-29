@@ -1278,7 +1278,7 @@ private void joystickCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//
 
     timestamp++;
     espdu.setTimestamp(timestamp); // TODO: fix the timestamp estimation to match elapsed time. NPS Time?
-    distni.send(espdu);
+    distni.sendPDU(espdu);
   }
 
   /**
@@ -1407,6 +1407,7 @@ private void joystickCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//
 
   /**
    * Obtain the DisEspduSenderControlPanel instance. Never call {@link #getDefault} directly!
+   * @return panel of interest
    */
   public static synchronized DisEspduSenderControlPanel findInstance()
   {
