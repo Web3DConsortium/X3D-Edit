@@ -254,6 +254,9 @@ public class X3dEditUserPreferences
                        setAuthorEmail (AUTHOR_EMAIL_DEFAULT);
       setExampleArchivesRootDirectory (EXAMPLES_ROOT_DIRECTORY_DEFAULT);
      setAuthorPreferenceCorsDirectory (AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT);
+     
+      if (getAuthorName().equals("brutzman") && getAuthorEmail().isBlank())
+          setAuthorEmail("brutzman@nps.edu");
   }
   public static void             setBasicLocalExamplesPresent (boolean value)  { commonBooleanSet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, value);}
   public static void   setConformanceNistLocalExamplesPresent (boolean value)  { commonBooleanSet(  CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY, value);}
