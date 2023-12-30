@@ -2,6 +2,11 @@
 <!--
 https://sourceforge.net/p/x3d/admin/files/badges/
 -->
+<!--
+* [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
+-->
+
+*TODO*.  Development has moved to [github](https://github.com/Web3DConsortium/X3D-Edit) and this page will be updated as part of the initial 2024 release.
 
 # X3D-Edit 4.0 Distribution, 2 August 2023
 
