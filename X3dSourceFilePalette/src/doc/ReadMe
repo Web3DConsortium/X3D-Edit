@@ -6,14 +6,15 @@ work w/ ssh keys. Test by:
 If no keys are loaded, then:
 
 > eval "$(ssh-agent -s)"
-> ssh-add ~/.ssh/id_github_rsa
+> ssh-add ~/.my_keys/id_github_rsa
 
-To access snapshot dependencies, place this excerpt in a pom.xml:
+To access snapshot dependencies, place this excerpt in a pom.xml where XX is the
+version #:
 <dependencies>
     <dependency>
         <groupId>org.web3d.x3d.tools</groupId>
         <artifactId>x3dedit</artifactId>
-        <version>4.0.27-SNAPSHOT</version>
+        <version>4.0.XX-SNAPSHOT</version>
         <type>nbm</type>
     </dependency>
 </dependencies>

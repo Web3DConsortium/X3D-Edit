@@ -216,16 +216,20 @@
                 keystore="${keystore.location}${keystore.name}"/>
         
         <!-- Now show the signing certificate -->
-        <exec executable="keytool">
-            <arg line="-list -v -keystore ${keystore.location}${keystore.name} -storepass ${keystore.password}"/>
-        </exec>
+        <antcall target="inspect.signing.cert"/>
         
         <!--Update keystore info in projects-->
         <antcall target="update-keystore-info"/>
     </target>
+    
+    <target name="inspect.signing.cert" depends="-init">
+        <exec executable="keytool">
+            <arg line="-list -v -keystore ${keystore.location}${keystore.name} -storepass ${keystore.password}"/>
+        </exec>
+    </target>
 
     <!-- Don't run alone, invoke by the above task only -->
-    <target name="update-keystore-info">
+    <target name="update-keystore-info" description="Run generate.nbm.signing.cert first!! Ensures proper keystore names, locations, aliases and passwords are recorded">
         <for list="${modules}" delimiter=":" param="cur" trim="true">
             <sequential>
                 <mkdir dir="@{cur}/nbproject/"/>
