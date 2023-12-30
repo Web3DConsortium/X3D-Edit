@@ -10,8 +10,8 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 This directory shares pre-release test files prior to [official X3D-Edit applications release](https://sourceforge.net/projects/x3d/files).
 Please see that README page for installation instruction details.
 
-Software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
-with primary software deployment occurring via [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) auto-update support.
+X3D-Edit software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
+with primary software deployment occurring via [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.
 These SourceForge pages are used for distributing X3D-Edit application installers.
 
 The following files are available for X3D-Edit installation and authoring:
