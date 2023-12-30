@@ -1,10 +1,12 @@
 # README for X3D-Edit 4.0 Development
 
+<!-- https://github.com/Web3DConsortium/X3D-Edit/blob/master/README.md -->
+
 This file is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 
 * [README.md](https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.md)
 * [README.md source](https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.md)
-* [SourceFOrge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
+* [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 
 * [Tutorial Contribution Guidelines](https://netbeans.apache.org/kb/docs/contributing.html)
 * [AsciiDoc](https://asciidoc.org) is a plain text markup language for writing technical content
@@ -20,8 +22,8 @@ This file is the developers' documentation page for creation of X3D-Edit 4.0 sui
 ----
 ## Work in Progress
 
-* Don: MIME type registry within NetBeans for X3D
-  [File Type Integration Tutorial](https://netbeans.apache.org/tutorials/nbm-filetype.html)
+* MIME type registry within NetBeans for X3D
+  [File Type Integration Tutorial](https://netbeans.apache.org/tutorial/main/tutorials/nbm-filetype/)
 
 TODO: Found NetBeans feature *Tools > DTDS and XML Schemas* which allows substitution of local DTDs/schemas for online versions.  Need to similarly add to X3D-Edit configuration.
 
