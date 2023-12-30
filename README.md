@@ -4,9 +4,12 @@
 
 This file is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 
-* [README.md](https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.md)
-* [README.md source](https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.md)
-* [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
+*TODO*.  A number of the following issues are resolved, we will check them closely before clearing.
+We expect to begin using the [Github X3D-Edit Issues](https://github.com/Web3DConsortium/X3D-Edit/issues) 
+for support in tracking future efforts.
+
+
+----
 
 * [Tutorial Contribution Guidelines](https://netbeans.apache.org/kb/docs/contributing.html)
 * [AsciiDoc](https://asciidoc.org) is a plain text markup language for writing technical content
@@ -20,12 +23,14 @@ This file is the developers' documentation page for creation of X3D-Edit 4.0 sui
 * StackOverflow: [How to debug multiple threads/runnables at the same time in netbeans](https://stackoverflow.com/questions/26952986/how-to-debug-multiple-threads-runnables-at-the-same-time-in-netbeans/26960526)
 
 ----
+
 ## Work in Progress
 
 * MIME type registry within NetBeans for X3D
   [File Type Integration Tutorial](https://netbeans.apache.org/tutorial/main/tutorials/nbm-filetype/)
 
-TODO: Found NetBeans feature *Tools > DTDS and XML Schemas* which allows substitution of local DTDs/schemas for online versions.  Need to similarly add to X3D-Edit configuration.
+TODO: Found NetBeans feature *Tools > DTDS and XML Schemas* which allows substitution of local DTDs/schemas for online versions.  
+Need to similarly add to X3D-Edit configuration.
 
 
 ----

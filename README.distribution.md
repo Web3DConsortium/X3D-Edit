@@ -6,7 +6,14 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-*TODO*.  Development has moved to [github](https://github.com/Web3DConsortium/X3D-Edit) and this page will be updated as part of the initial 2024 release.
+This directory shares pre-release test files prior to [official X3D-Edit applications release](https://sourceforge.net/projects/x3d/files).
+Please see that README page for installation instruction details.
+
+Software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
+with primary software deployment occurring via [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) auto-update support.
+These SourceForge pages are used for distributing X3D-Edit application installers.
+
+*TODO*.  Now that software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit), this page will be updated as part of the initial 2024 release.
 
 # X3D-Edit 4.0 Distribution, 2 August 2023
 
@@ -14,10 +21,10 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 
 X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
 
-Prerequisite for operation: Java JDK 17 LTS (or later).  Suggested:
+Prerequisite for operation: Java JDK 21 (or later).  
 
-* Oracle  jdk-20.0.1, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
-* OpenJDK jdk-20.0.1, latest versions available at [https://openjdk.org](https://openjdk.org) (but likely have to setup PATH, CLASSPATH)
+* Recommended Java version:         OpenJDK jdk-21.0.1, latest versions available at [https://openjdk.org](https://openjdk.org) (but likely have to setup PATH, CLASSPATH)
+* Alternative, infrequently tested: Oracle  jdk-21, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
 
 *Directions.* Download and extract the .zip, use file properties to unblock file if necessary,  unzip.
 Then run appropriate operating-system binary in the <code>bin</code> directory.  Windows example:
