@@ -4608,7 +4608,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(gimpEditorDownloadButton, gridBagConstraints);
 
@@ -4623,7 +4623,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(gimpHelpButton, gridBagConstraints);
 
@@ -4732,7 +4732,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(fijiEditorDownloadButton, gridBagConstraints);
 
@@ -4747,7 +4747,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(fijiHelpButton, gridBagConstraints);
 
@@ -4856,7 +4856,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(imageJEditorDownloadButton, gridBagConstraints);
 
@@ -4871,7 +4871,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(imageJHelpButton, gridBagConstraints);
 
@@ -4980,7 +4980,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(imageMagickEditorDownloadButton, gridBagConstraints);
 
@@ -4995,7 +4995,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(imageMagickHelpButton, gridBagConstraints);
 
@@ -5263,7 +5263,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(itksnapVolumeEditorDownloadButton, gridBagConstraints);
 
@@ -5278,7 +5278,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 19;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(itksnapVolumeEditorHelpButton, gridBagConstraints);
 
@@ -5387,7 +5387,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 21;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(seg3dVolumeEditorDownloadButton, gridBagConstraints);
 
@@ -5402,7 +5402,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 21;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(seg3dVolumeEditorHelpButton, gridBagConstraints);
 
@@ -5511,7 +5511,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(slicer3dVolumeEditorDownloadButton, gridBagConstraints);
 
@@ -5526,7 +5526,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         imageVolumeToolsPanel.add(slicer3dVolumeEditorHelpButtonslicer3dVolume, gridBagConstraints);
 
