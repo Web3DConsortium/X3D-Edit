@@ -4179,7 +4179,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(whiteDuneX3dEditorHelpButton, gridBagConstraints);
 
         wings3dX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorLabel, "Wings 3D");
+        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorLabel, "Wings3D");
         wings3dX3dEditorLabel.setToolTipText("Wings 3D graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

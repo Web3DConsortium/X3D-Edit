@@ -3471,7 +3471,7 @@
             <Component class="javax.swing.JLabel" name="wings3dX3dEditorLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="Wings 3D"/>
+                <Property name="text" type="java.lang.String" value="Wings3D"/>
                 <Property name="toolTipText" type="java.lang.String" value="Wings 3D graphics authoring tool"/>
               </Properties>
               <Constraints>
