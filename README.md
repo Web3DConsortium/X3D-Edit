@@ -2,6 +2,14 @@
 
 <!-- https://github.com/Web3DConsortium/X3D-Edit/blob/master/README.md -->
 
+Got X3D-Edit?
+
+- Application details are found on the [X3D-Edit home page](https://savage.nps.edu/X3D-Edit).
+
+- Primary distribution is via [Apache NetBeans X3D-Edit Plugin](https://plugins.netbeans.apache.org/catalogue/?id=90).
+
+- Executable installers are at [SourceForge X3D-Edit Distribution](https://sourceforge.net/projects/x3d/files).
+
 This file is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 
 ----
