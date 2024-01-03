@@ -6,81 +6,58 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-X3D-Edit software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
-with primary software deployment occurring via [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.
-These SourceForge pages are used for distributing X3D-Edit application installers.
-
-*TODO*.  Now that software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit), this page will be updated as part of the initial 2024 release.
-
-# X3D-Edit 4.0 Distribution, 2 August 2023
+# X3D-Edit 4.0 Distribution, 29 December 2023
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
-X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
 
-Prerequisite for operation: Java JDK 21 (or later).  
+Primary software deployment occurring via [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.
 
-* Recommended Java version:         OpenJDK jdk-21.0.1, latest versions available at [https://openjdk.org](https://openjdk.org) (but likely have to setup PATH, CLASSPATH)
-* Alternative, infrequently tested: Oracle  jdk-21, latest versions available at [https://www.oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads)
+These SourceForge pages are used for distributing X3D-Edit application installers.
 
-*Directions.* Download and extract the .zip, use file properties to unblock file if necessary,  unzip.
-Then run appropriate operating-system binary in the <code>bin</code> directory.  Windows example:
+X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
+-------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system       |  433.0 MB | 29 DEC 2023
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;20. tested satisfactorily, any operating system |  305.7 MB | 29 DEC 2023
+[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | See installation workaround below                              |  433.1 MB | 29 DEC 2023
+[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  432.7 MB | 29 DEC 2023
+[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  432.7 MB | 29 DEC 2023
 
-* *[install directory]/x3deditmodulesuite\bin\x3deditmodulesuite64.exe* 
-
-*User expectations.* Please note that this beta release is initially focused on restoring original X3D-Edit 3.3 functionality.
-Once baseline stability is demonstrated on multiple platforms, we expect that further authoring support for 
-[X3D4](https://www.web3d.org/x3d4) nodes and features will be added steadily.
-
-[NetBeans 18](https://netbeans.apache.org) plugin tests satisfactory: use [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify module updates once installed.
+SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
 
 ## How To Do It
 
-The Zip installation is most reliable and popular, typically working without modifications.
-
+Please see our
 [Installation video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
 [<img align='right' width='400' src="https://savage.nps.edu/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
 
+**Windows users**: there is an issue in both the zip and [X3D-Edit Windows installer](https://github.com/Web3DConsortium/X3D-Edit/issues/3).
+Please note that you will manually need to edit the configuration files to point to your local JDK installation.  For example:
+
+- Using _localadmin_ permissions, set `jdkhome` permissions in configuration file:
+- `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
+- `jdkhome="C:\Program Files\Java\openjdk\jdk-21.0.1"`
+
 ## Source Code has Moved
 
-Note: SourceForge is great!  Nevertheless we have moved source code development to [https://github.com/Web3dConsortium/X3D-Edit](https://github.com/Web3dConsortium/X3D-Edit) 
-to conform with trusted-plugin requirements on the [Apache NetBeans Plugin Portal](https://plugins.netbeans.apache.org/catalogue/?id=90).
+X3D-Edit software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
 
-* Previous tests satisfactory: [X3D-Edit Update Center](https://savage.nps.edu/X3D-Edit/#Downloads) to simplify beta testing of module updates.
+Note: SourceForge is excellent!  Nevertheless, in order to conform with trusted-plugin requirements on the 
+[Apache NetBeans Plugin Portal](https://plugins.netbeans.apache.org/catalogue/?id=90).
+we have moved source code development to [GitHub](https://github.com/Web3dConsortium/X3D-Edit) and 
+[Maven central repository](https://central.sonatype.com/artifact/org.web3d.x3d.tools/x3dedit).
 
-## Troubleshooting the ZIP
+## Troubleshoot Netbeans
 
-If things don't work "out of the box" for you, here are some further tips.
+If things don't work "out of the box" for you, please let us know.
 
-If you have an X3D-Edit build installed earlier than 16 December 2022, please reinstall your zip.
-
-Following installation, a modification might be needed to point to your locally installed Java JDK.
-For example, under Windows the following file requires modification.
-
-* Zip installation:  <br /><b><code>C:\downloads\x3deditmodulesuite\etc\x3deditmodulesuite.conf</code></b> (for example)
-
-* Windows installer: <br /><b><code>C:\Program Files\x3deditmodules\etc\x3deditmodulesuite.conf</code></b> (for example)
-
-... then look for <code><b>#</b>jdkhome="/path/to/jdk"</code> in that file and add the following, using your actual local path:
-
-* <code>jdkhome="C:\Program Files\Java\openjdk\jdk-20.0.1"</code> (for example)
-
-Note: if you use default installation directory, then you may need administrator permissions to perform any such modifications.
-
-----
-
-## TODO
-
-* NetBeans-produced Windoes installers need a better solution that needs to bundle Java or else include a properly configured JDK CLASSPATH.
-* We plan to setup a NetBeans plugin update capability that might work for all versions. Step by step...
-
-[Changelog](https://sourceforge.net/p/x3d/code/HEAD/log/?path=/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.distribution.md) provides progress details.
+[Changelog](https://sourceforge.net/p/x3d/code/HEAD/log/?path=/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.prerelease.md) provides progress details.
 Test reports and feedback welcome.  Please send email to
-[Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20Beta%20Testing%20feedback).
+[Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20pre-release%20testing%20feedback).
 
 Have fun with [X3D-Edit 4.0](https://savage.nps.edu/X3D-Edit)!
 
-[![Download x3d](https://img.shields.io/sourceforge/dt/x3d.svg)](https://sourceforge.net/projects/x3d/files/stats/timeline)
+[![Download x3d](https://img.shields.io/sourceforge/dm/x3d.svg)](https://sourceforge.net/projects/x3d/files/stats/timeline)
 <!--
-[![Download x3d](https://img.shields.io/sourceforge/dt/x3d.svg)](https://sourceforge.net/projects/x3d/files/latest/download)
+[![Download x3d](https://img.shields.io/sourceforge/dm/x3d.svg)](https://sourceforge.net/projects/x3d/files/latest/download)
 -->
