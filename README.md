@@ -4,17 +4,17 @@
 
 Got X3D-Edit?
 
-- Application details are found on the [X3D-Edit home page](https://savage.nps.edu/X3D-Edit).
+- [X3D-Edit home page](https://savage.nps.edu/X3D-Edit) documents this authoring tool for X3D Graphics models.
 
-- Primary distribution is via [Apache NetBeans X3D-Edit Plugin](https://plugins.netbeans.apache.org/catalogue/?id=90).
+- [Apache NetBeans X3D-Edit Plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) is our primary distribution.
 
-- Executable installers are at [SourceForge X3D-Edit Distribution](https://sourceforge.net/projects/x3d/files).
+- [SourceForge X3D-Edit Distribution](https://sourceforge.net/projects/x3d/files) offers executable installers.
 
 This file is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 
 ----
 
-## Work in Progress
+## Developer Work in Progress
 
 X3D-Edit is now stable and successfully transitioned as part of the NetBeans plugin architecture.
 
