@@ -4,12 +4,19 @@
 
 This file is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 
-*TODO*.  A number of the following issues are resolved, we will check them closely before clearing.
-We expect to begin using the [Github X3D-Edit Issues](https://github.com/Web3DConsortium/X3D-Edit/issues) 
-for support in tracking future efforts.
+----
 
+## Work in Progress
+
+X3D-Edit is now stable and successfully transitioned as part of the NetBeans plugin architecture.
+
+The coming year will see most work focused on implementing addition nodes for [X3D version 4](https://www.web3D.org/x3d4).
+
+We are now tracking work items at [GitHub Issues for X3D-Edit](https://github.com/Web3DConsortium/X3D-Edit/issues).
 
 ----
+
+## Resources
 
 * [Tutorial Contribution Guidelines](https://netbeans.apache.org/kb/docs/contributing.html)
 * [AsciiDoc](https://asciidoc.org) is a plain text markup language for writing technical content
@@ -24,69 +31,10 @@ for support in tracking future efforts.
 
 ----
 
-## Work in Progress
-
-* MIME type registry within NetBeans for X3D
-  [File Type Integration Tutorial](https://netbeans.apache.org/tutorial/main/tutorials/nbm-filetype/)
-
-TODO: Found NetBeans feature *Tools > DTDS and XML Schemas* which allows substitution of local DTDs/schemas for online versions.  
-Need to similarly add to X3D-Edit configuration.
+## NetBeans Resources
 
 
-----
-## Problems
-
-### Splash Screen caused launch exception - fixed, but exception occasionally occurring nevertheless:
-
-X3dEditorModuleSuite Project Properties > Application: selecting Create "Standalone Application" enables splashscreen but triggers bizarre URL error
-
-* org.netbeans.ProxyURLStreamHandlerFactory register, SEVERE: No way to find original stream handler for jar protocol
-
-* java.lang.Error: factory already defined at java.base/java.net.URL.setURLStreamHandlerFactory(URL.java:1228)
-
-Terry reports possibility of setting a parameter exposing `java.base` in `netbeans.conf` file, this helped.
-Startup messages and progress bar (in Branding panel) now work correctly.
-* `-J--add-opens=java.base/java.lang=ALL-UNNAMED`
-
-Cause: running the Module instead of the Module Suite.  Stick to Module Suite for run/debug.
-
-
-### XSLT transformations: FEATURE_SECURE_PROCESSING
-
-FEATURE_SECURE_PROCESSING
-
-* JAXP0801001: the compiler encountered an XPath expression containing '17' groups that exceeds the '10' limit set by 'FEATURE_SECURE_PROCESSING'.
-
-* Source-code workaround https://stackoverflow.com/questions/72401149/limit-set-by-feature-secure-processing
-
-* `-Djdk.xml.xpathExprGrpLimit=0 -Djdk.xml.xpathExprOpLimit=0 -Djdk.xml.xpathTotalOpLimit=0`
-
-Adapting and ading those settings to `netbeans.conf` file helped,
-
-* `-J-Djdk.xml.xpathExprGrpLimit=0 -J-Djdk.xml.xpathExprOpLimit=0 -J-Djdk.xml.xpathTotalOpLimit=0`
-
-but (new exception) JAXP still has a problem with native XSLT handling:
-
-    Starting file:/C:/x3d-code/www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d by file:/C:/x3d-code/www.web3d.org/x3d/stylesheets/X3dToXhtml.xslt transformation...
-    
-    `Error checking type of the expression \`funcall(ends-with, [funcall(local-name, [step("parent", -1)]), literal-expr(Material)])\`.
-    Transformation finished.`
-
-
-## [NetBeans Platform Plugin Quick Start](https://netbeans.apache.org/tutorials/nbm-google.html)
-
-"Welcome to Apache NetBeans plugin development!"  Important starter tutorial.  Initial problems: missing images links, at first appears old but tests OK.
-
-* [Netbeans website source in github](https://github.com/apache/netbeans-website)
-
-* [Tutorial source](https://github.com/apache/netbeans-website/blob/master/netbeans.apache.org/src/content/tutorials/nbm-google.asciidoc)
-
-* Issue 4491 [Website tutorial on modules missing images](https://github.com/apache/netbeans/issues/4491)
-
- TODO: retest tutorial once images are restored, provide feedback.
-
-
-## [NetBeans Platform Learning Trail](https://netbeans.apache.org/kb/docs/platform.html)
+### [NetBeans Platform Learning Trail](https://netbeans.apache.org/kb/docs/platform.html)
 
 "Comprehensive tutorials that highlight a wide range of Apache NetBeans APIs for a variety of application types."
 
@@ -146,15 +94,14 @@ Note problem failing when turned on by Project setting for X3D-Edit module suite
 
 TODO.  Consider if this will help create projects of interest - might be superfluous.
 
-## Using the NetBeans IDE created installer for Windows
+### Using the NetBeans IDE created installer for Windows
 
 Desktop shortcut for Windows. Assumes JAVA_HOME areadly defined in Environment Variables
 Right click on shortcut properties and set:
 * Target: x3deditmodulesuite64 --jdkhome "%JAVA_HOME%" --console new
 * Start in: "C:\Program Files\x3deditmodulesuite\bin"
 
-----
-## Creating standalone installers
+### Creating standalone installers
 
 Once the X3D-Edit 4.0 module suite is working as a Netbeans plugin, this tutorial shows how to create installer executables.
 
