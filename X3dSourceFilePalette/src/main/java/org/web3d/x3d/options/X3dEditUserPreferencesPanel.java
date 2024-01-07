@@ -73,6 +73,7 @@ import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
 import org.web3d.x3d.actions.ViewX3dSecurityExamplesOnlineAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction;
 import static org.web3d.x3d.options.X3dEditUserPreferences.EXAMPLES_ROOT_DIRECTORY_DEFAULT;
+import static org.web3d.x3d.options.X3dEditUserPreferences.OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT;
 import static org.web3d.x3d.options.X3dEditUserPreferences.OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT;
 import static org.web3d.x3d.options.X3dEditUserPreferences.getKeystoreFileNameDefault;
 import static org.web3d.x3d.options.X3dEditUserPreferences.getKeystorePassword;
@@ -174,6 +175,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
 otherSemanticWebEditorCheckBox.setVisible(false);
 
     otherX3dPlayerNvdSecurityCheckButton.setEnabled(!otherX3dPlayerNameTF.getText().equals(OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT));
+    otherX3dEditorNvdSecurityCheckButton.setEnabled(!otherX3dEditorNameTF.getText().equals(OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT));
   }
   
   public static String panelFontName = "Segoe UI";
@@ -503,6 +505,20 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         leftMarginSpacerLabel1 = new javax.swing.JLabel();
         verticalSpacerLabel12 = new javax.swing.JLabel();
         reportModelingToolsButton = new javax.swing.JButton();
+        altovaNvdSecurityCheckButton = new javax.swing.JButton();
+        blenderNvdSecurityCheckButton = new javax.swing.JButton();
+        bsContentStudioNvdSecurityCheckButton = new javax.swing.JButton();
+        bvhackerNvdSecurityCheckButton = new javax.swing.JButton();
+        meshlabNvdSecurityCheckButton = new javax.swing.JButton();
+        okinoNugrafNvdSecurityCheckButton = new javax.swing.JButton();
+        paraviewNvdSecurityCheckButton = new javax.swing.JButton();
+        seamless3dNvdSecurityCheckButton = new javax.swing.JButton();
+        titaniaNvdSecurityCheckButton = new javax.swing.JButton();
+        ultimakerCuraNvdSecurityCheckButton = new javax.swing.JButton();
+        ultraeditNvdSecurityCheckButton = new javax.swing.JButton();
+        whiteduneNvdSecurityCheckButton = new javax.swing.JButton();
+        wings3dNvdSecurityCheckButton = new javax.swing.JButton();
+        otherX3dEditorNvdSecurityCheckButton = new javax.swing.JButton();
         imageVolumeToolsPanel = new javax.swing.JPanel();
         imageToolsLabel = new javax.swing.JLabel();
         gimpEditorLabel = new javax.swing.JLabel();
@@ -4680,6 +4696,216 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(reportModelingToolsButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaNvdSecurityCheckButton, "!");
+        altovaNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        altovaNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(blenderNvdSecurityCheckButton, "!");
+        blenderNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        blenderNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blenderNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(blenderNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioNvdSecurityCheckButton, "!");
+        bsContentStudioNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        bsContentStudioNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsContentStudioNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bsContentStudioNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerNvdSecurityCheckButton, "!");
+        bvhackerNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        bvhackerNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(meshlabNvdSecurityCheckButton, "!");
+        meshlabNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        meshlabNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meshlabNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(meshlabNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(okinoNugrafNvdSecurityCheckButton, "!");
+        okinoNugrafNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        okinoNugrafNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okinoNugrafNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(okinoNugrafNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(paraviewNvdSecurityCheckButton, "!");
+        paraviewNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        paraviewNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraviewNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(paraviewNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(seamless3dNvdSecurityCheckButton, "!");
+        seamless3dNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        seamless3dNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seamless3dNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(seamless3dNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(titaniaNvdSecurityCheckButton, "!");
+        titaniaNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        titaniaNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                titaniaNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(titaniaNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(ultimakerCuraNvdSecurityCheckButton, "!");
+        ultimakerCuraNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        ultimakerCuraNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultimakerCuraNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultimakerCuraNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(ultraeditNvdSecurityCheckButton, "!");
+        ultraeditNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        ultraeditNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraeditNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultraeditNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(whiteduneNvdSecurityCheckButton, "!");
+        whiteduneNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        whiteduneNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                whiteduneNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(whiteduneNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wings3dNvdSecurityCheckButton, "!");
+        wings3dNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        wings3dNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wings3dNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(wings3dNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorNvdSecurityCheckButton, "!");
+        otherX3dEditorNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        otherX3dEditorNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherX3dEditorNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherX3dEditorNvdSecurityCheckButton, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab("X3D Modeling Tools", x3dModelingToolsPanel);
 
@@ -11784,6 +12010,81 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
                       X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + swirlx3dLabel.getText());
     }//GEN-LAST:event_swirlx3dNvdSecurityCheckButtonActionPerformed
 
+    private void altovaNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altovaNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + "XMLSpy"); // altovaXMLSpyLabel.getText());
+        
+    }//GEN-LAST:event_altovaNvdSecurityCheckButtonActionPerformed
+
+    private void otherX3dEditorNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherX3dEditorNvdSecurityCheckButtonActionPerformed
+        if (!otherX3dEditorNameTF.getText().equals(OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT))
+        {
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + otherX3dEditorNameTF.getText()); // empty text field OK
+        }
+        // TODO enable on/off
+    }//GEN-LAST:event_otherX3dEditorNvdSecurityCheckButtonActionPerformed
+
+    private void blenderNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blenderNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + blenderX3dEditorLabel.getText());
+    }//GEN-LAST:event_blenderNvdSecurityCheckButtonActionPerformed
+
+    private void bsContentStudioNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsContentStudioNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + bsContentStudioX3dEditorLabel.getText());
+    }//GEN-LAST:event_bsContentStudioNvdSecurityCheckButtonActionPerformed
+
+    private void bvhackerNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bvhackerNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + bvhackerEditorLabel.getText());
+    }//GEN-LAST:event_bvhackerNvdSecurityCheckButtonActionPerformed
+
+    private void meshlabNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meshlabNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + meshLabX3dEditorLabel.getText());
+    }//GEN-LAST:event_meshlabNvdSecurityCheckButtonActionPerformed
+
+    private void okinoNugrafNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okinoNugrafNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + polyTransNuGrafEditorLabel.getText());
+    }//GEN-LAST:event_okinoNugrafNvdSecurityCheckButtonActionPerformed
+
+    private void paraviewNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paraviewNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + paraviewX3dEditorLabel.getText());
+    }//GEN-LAST:event_paraviewNvdSecurityCheckButtonActionPerformed
+
+    private void seamless3dNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seamless3dNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + seamless3dX3dEditorLabel.getText());
+    }//GEN-LAST:event_seamless3dNvdSecurityCheckButtonActionPerformed
+
+    private void titaniaNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + titaniaX3dEditorLabel.getText());
+    }//GEN-LAST:event_titaniaNvdSecurityCheckButtonActionPerformed
+
+    private void ultimakerCuraNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimakerCuraNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + "Cura&cpe_vendor=cpe%3A%2F%3AUltimaker"); // curaX3dEditorLabel.getText());
+    }//GEN-LAST:event_ultimakerCuraNvdSecurityCheckButtonActionPerformed
+
+    private void ultraeditNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultraeditNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + ultraEditX3dEditorLabel.getText());
+    }//GEN-LAST:event_ultraeditNvdSecurityCheckButtonActionPerformed
+
+    private void whiteduneNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whiteduneNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + whiteDuneX3dEditorLabel.getText());
+    }//GEN-LAST:event_whiteduneNvdSecurityCheckButtonActionPerformed
+
+    private void wings3dNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wings3dNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + wings3dX3dEditorLabel.getText());
+    }//GEN-LAST:event_wings3dNvdSecurityCheckButtonActionPerformed
+
     public void sleep (long msecDuration)
     {
         try
@@ -12279,6 +12580,7 @@ for Extensible 3D (X3D) Graphics International Standard.
     otherX3dEditorLaunchButton.setEnabled(isExecutableFile);
     otherX3dEditorClearButton.setEnabled(otherX3dEditorPathTF.getText().trim().length() > 0); // keep the clear button enabled
     showFound (isExecutableFile, otherX3dEditorNameTF);
+    otherX3dEditorNvdSecurityCheckButton.setEnabled(!otherX3dEditorNameTF.getText().equals(OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT));
   }
   private void otherX3dPlayerAutoLaunchCheck ()
   {
@@ -12940,6 +13242,7 @@ otherSemanticWebEditorAutoLaunchCheck();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel additionalKeystoreManagersLabel;
+    private javax.swing.JButton altovaNvdSecurityCheckButton;
     private javax.swing.JCheckBox altovaXMLSpyCheckBox;
     private javax.swing.JButton altovaXMLSpyChooserButton;
     private javax.swing.JButton altovaXMLSpyDefaultButton;
@@ -12990,6 +13293,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel batikEditorLabel;
     private javax.swing.JButton batikEditorLaunchButton;
     private javax.swing.JTextField batikEditorPathTF;
+    private javax.swing.JButton blenderNvdSecurityCheckButton;
     private javax.swing.JCheckBox blenderX3dEditorCheckBox;
     private javax.swing.JButton blenderX3dEditorChooserButton;
     private javax.swing.JButton blenderX3dEditorDefaultButton;
@@ -12998,6 +13302,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel blenderX3dEditorLabel;
     private javax.swing.JButton blenderX3dEditorLaunchButton;
     private javax.swing.JTextField blenderX3dEditorPathTF;
+    private javax.swing.JButton bsContentStudioNvdSecurityCheckButton;
     private javax.swing.JCheckBox bsContentStudioX3dEditorCheckBox;
     private javax.swing.JButton bsContentStudioX3dEditorChooserButton;
     private javax.swing.JButton bsContentStudioX3dEditorDefaultButton;
@@ -13014,6 +13319,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel bvhackerEditorLabel;
     private javax.swing.JButton bvhackerEditorLaunchButton;
     private javax.swing.JTextField bvhackerEditorPathTF;
+    private javax.swing.JButton bvhackerNvdSecurityCheckButton;
     private javax.swing.JCheckBox coneCenterLineCheckBox;
     private javax.swing.JLabel coneLabel;
     private javax.swing.JComboBox<String> coneLinesComboBox;
@@ -13204,6 +13510,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel meshLabX3dEditorLabel;
     private javax.swing.JButton meshLabX3dEditorLaunchButton;
     private javax.swing.JTextField meshLabX3dEditorPathTF;
+    private javax.swing.JButton meshlabNvdSecurityCheckButton;
     private javax.swing.JButton newX3dModelsDirectoryButton;
     private javax.swing.JButton newX3dModelsDirectoryClearButton;
     private javax.swing.JButton newX3dModelsDirectoryDefaultButton;
@@ -13220,6 +13527,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton octagaLaunchButton;
     private javax.swing.JButton octagaNvdSecurityCheckButton;
     private javax.swing.JTextField octagaTF;
+    private javax.swing.JButton okinoNugrafNvdSecurityCheckButton;
     private javax.swing.JCheckBox otherAudioEditorCheckBox;
     private javax.swing.JButton otherAudioEditorChooserButton;
     private javax.swing.JButton otherAudioEditorClearButton;
@@ -13273,6 +13581,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton otherX3dEditorDownloadButton;
     private javax.swing.JButton otherX3dEditorLaunchButton;
     private javax.swing.JTextField otherX3dEditorNameTF;
+    private javax.swing.JButton otherX3dEditorNvdSecurityCheckButton;
     private javax.swing.JTextField otherX3dEditorPathTF;
     private javax.swing.JCheckBox otherX3dPlayerCheckBox;
     private javax.swing.JButton otherX3dPlayerClearButton;
@@ -13281,6 +13590,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JTextField otherX3dPlayerNameTF;
     private javax.swing.JButton otherX3dPlayerNvdSecurityCheckButton;
     private javax.swing.JTextField otherX3dPlayerPathTF;
+    private javax.swing.JButton paraviewNvdSecurityCheckButton;
     private javax.swing.JCheckBox paraviewX3dEditorCheckBox;
     private javax.swing.JButton paraviewX3dEditorChooserButton;
     private javax.swing.JButton paraviewX3dEditorDefaultButton;
@@ -13320,6 +13630,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton reportSecurityPanelButton;
     private javax.swing.JButton reportVisualizationPreferencesButton;
     private javax.swing.JButton reportWebMultimediaToolsButton;
+    private javax.swing.JButton seamless3dNvdSecurityCheckButton;
     private javax.swing.JCheckBox seamless3dX3dEditorCheckBox;
     private javax.swing.JButton seamless3dX3dEditorChooserButton;
     private javax.swing.JButton seamless3dX3dEditorDefaultButton;
@@ -13370,6 +13681,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton swirlx3dLaunchButton;
     private javax.swing.JButton swirlx3dNvdSecurityCheckButton;
     private javax.swing.JTextField swirlx3dTF;
+    private javax.swing.JButton titaniaNvdSecurityCheckButton;
     private javax.swing.JCheckBox titaniaX3dEditorCheckBox;
     private javax.swing.JButton titaniaX3dEditorChooserButton;
     private javax.swing.JButton titaniaX3dEditorDefaultButton;
@@ -13380,6 +13692,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JTextField titaniaX3dEditorPathTF;
     private javax.swing.JLabel transparencyLabel;
     private javax.swing.JTextField transparencyTF;
+    private javax.swing.JButton ultimakerCuraNvdSecurityCheckButton;
     private javax.swing.JButton ultraEditHelpButton;
     private javax.swing.JCheckBox ultraEditX3dEditorCheckBox;
     private javax.swing.JButton ultraEditX3dEditorChooserButton;
@@ -13388,6 +13701,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel ultraEditX3dEditorLabel;
     private javax.swing.JButton ultraEditX3dEditorLaunchButton;
     private javax.swing.JTextField ultraEditX3dEditorPathTF;
+    private javax.swing.JButton ultraeditNvdSecurityCheckButton;
     private javax.swing.JLabel verticalSpacerLabel;
     private javax.swing.JLabel verticalSpacerLabel1;
     private javax.swing.JLabel verticalSpacerLabel10;
@@ -13452,6 +13766,8 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel whiteDuneX3dEditorLabel;
     private javax.swing.JButton whiteDuneX3dEditorLaunchButton;
     private javax.swing.JTextField whiteDuneX3dEditorPathTF;
+    private javax.swing.JButton whiteduneNvdSecurityCheckButton;
+    private javax.swing.JButton wings3dNvdSecurityCheckButton;
     private javax.swing.JCheckBox wings3dX3dEditorCheckBox;
     private javax.swing.JButton wings3dX3dEditorChooserButton;
     private javax.swing.JButton wings3dX3dEditorDefaultButton;
