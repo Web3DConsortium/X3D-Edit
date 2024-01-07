@@ -707,6 +707,8 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         keystoreManagerDescription2Label2 = new javax.swing.JLabel();
         viewX3dCanonicalizationC14nReadmeButton = new javax.swing.JButton();
         viewX3dCanonicalizationC14nReadmeLabel = new javax.swing.JLabel();
+        keystoreExplorerNvdSecurityCheckButton = new javax.swing.JButton();
+        portecleNvdSecurityCheckButton = new javax.swing.JButton();
         webMultimediaToolsPanel = new javax.swing.JPanel();
         verticalSpacerLabel7 = new javax.swing.JLabel();
         audioToolsLabel = new javax.swing.JLabel();
@@ -7274,12 +7276,13 @@ otherSemanticWebEditorCheckBox.setVisible(false);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.ipadx = 120;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -7358,6 +7361,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -7369,7 +7373,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridwidth = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
@@ -7719,6 +7723,36 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dSecurityPanel.add(viewX3dCanonicalizationC14nReadmeLabel, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(keystoreExplorerNvdSecurityCheckButton, "!");
+        keystoreExplorerNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        keystoreExplorerNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keystoreExplorerNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dSecurityPanel.add(keystoreExplorerNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(portecleNvdSecurityCheckButton, "!");
+        portecleNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        portecleNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                portecleNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dSecurityPanel.add(portecleNvdSecurityCheckButton, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab(NbBundle.getMessage(getClass(), "Security_Tab_Title"), x3dSecurityPanel); // NOI18N
 
@@ -12241,6 +12275,16 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
                       X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + slicer3dVolumeEditorLabel.getText());
     }//GEN-LAST:event_slicerNvdSecurityCheckButtonActionPerformed
 
+    private void keystoreExplorerNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keystoreExplorerNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + keystoreExplorerPlayerLabel.getText());
+    }//GEN-LAST:event_keystoreExplorerNvdSecurityCheckButtonActionPerformed
+
+    private void portecleNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portecleNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + porteclePlayerLabel.getText());
+    }//GEN-LAST:event_portecleNvdSecurityCheckButtonActionPerformed
+
     public void sleep (long msecDuration)
     {
         try
@@ -13633,6 +13677,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel keystoreDirectoryLabel;
     private javax.swing.JTextField keystoreDirectoryTF;
     private javax.swing.JButton keystoreDirectoryTFClearButton;
+    private javax.swing.JButton keystoreExplorerNvdSecurityCheckButton;
     private javax.swing.JButton keystoreExplorerPlayerChooserButton;
     private javax.swing.JButton keystoreExplorerPlayerDefaultButton;
     private javax.swing.JButton keystoreExplorerPlayerDownloadButton;
@@ -13768,6 +13813,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel polyTransNuGrafEditorLabel;
     private javax.swing.JButton polyTransNuGrafEditorLaunchButton;
     private javax.swing.JTextField polyTransNuGrafEditorPathTF;
+    private javax.swing.JButton portecleNvdSecurityCheckButton;
     private javax.swing.JButton porteclePlayerChooserButton;
     private javax.swing.JButton porteclePlayerDefaultButton;
     private javax.swing.JButton porteclePlayerDownloadButton;
