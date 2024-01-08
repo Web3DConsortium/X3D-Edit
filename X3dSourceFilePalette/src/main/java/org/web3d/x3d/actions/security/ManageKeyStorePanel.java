@@ -209,6 +209,7 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
             "</html>";
         NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
         DialogDisplayer.getDefault().notify(notifyDescriptor);
+        // TODO if panel already open, this step is not needed
         X3dEditUserPreferencesPanelAction optionsMiscellaneousX3dPanelAction = new X3dEditUserPreferencesPanelAction();
         optionsMiscellaneousX3dPanelAction.setPreferredPane(X3dEditUserPreferencesPanel.XML_SECURITY_PANE);
         optionsMiscellaneousX3dPanelAction.actionPerformed(null); // show panel
