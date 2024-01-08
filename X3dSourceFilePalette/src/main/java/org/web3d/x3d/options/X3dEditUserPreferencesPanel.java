@@ -107,10 +107,10 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
   public static final int X3D_PLAYERS_PANE               = 1;
   public static final int X3D_MODELING_TOOLS_PANE        = 2;
   public static final int IMAGE_VOLUME_TOOLS_PANE        = 3;
-  public static final int WEB_MULTIMEDIA_TOOLS_PANE      = 4;
-  public static final int VISUALIZATION_PREFERENCES_PANE = 5;
-  public static final int CAD_FILTER_OPTIONS_PANE        = 6;
-  public static final int XML_SECURITY_PANE              = 7;
+  public static final int VISUALIZATION_PREFERENCES_PANE = 4;
+  public static final int CAD_FILTER_OPTIONS_PANE        = 5;
+  public static final int XML_SECURITY_PANE              = 6;
+  public static final int WEB_MULTIMEDIA_TOOLS_PANE      = 7;
     
   // https://docs.oracle.com/en/java/javase/19/docs/api/java.desktop/javax/swing/JTabbedPane.html#setSelectedIndex(int)
   private int preferredPaneIndex = -1; // initial pane at at launch, does existing class remember prior setting?
@@ -176,6 +176,10 @@ otherSemanticWebEditorCheckBox.setVisible(false);
 
     otherX3dPlayerNvdSecurityCheckButton.setEnabled(!otherX3dPlayerNameTF.getText().equals(OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT));
     otherX3dEditorNvdSecurityCheckButton.setEnabled(!otherX3dEditorNameTF.getText().equals(OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT));
+    
+      if (org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("brutzman") && 
+          org.web3d.x3d.options.X3dEditUserPreferences.getAuthorEmail().isBlank())
+          org.web3d.x3d.options.X3dEditUserPreferences.setAuthorEmail("brutzman@nps.edu");
   }
   
   public static String panelFontName = "Segoe UI";
@@ -249,6 +253,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jScrollBar1 = new javax.swing.JScrollBar();
         x3dOptionsTabbedPane = new javax.swing.JTabbedPane();
         authorSettingsPanel = new javax.swing.JPanel();
         verticalSpacerLabel20 = new javax.swing.JLabel();
@@ -815,6 +820,14 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         wiresharkLaunchButton = new javax.swing.JButton();
         wiresharkDownloadButton = new javax.swing.JButton();
         wiresharkHelpButton = new javax.swing.JButton();
+        audacityEditorNvdSecurityCheckButton = new javax.swing.JButton();
+        vlcPlayerNvdSecurityCheckButton = new javax.swing.JButton();
+        amayaEditorNvdSecurityCheckButton = new javax.swing.JButton();
+        batikEditorNvdSecurityCheckButton = new javax.swing.JButton();
+        inkscapeEditorNvdSecurityCheckButton = new javax.swing.JButton();
+        svgeditEditorNvdSecurityCheckButton = new javax.swing.JButton();
+        wiresharkNvdSecurityCheckButton = new javax.swing.JButton();
+        protegePlayerNvdSecurityCheckButton = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(850, 620));
         setPreferredSize(new java.awt.Dimension(850, 600));
@@ -7764,7 +7777,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
         webMultimediaToolsPanel.add(verticalSpacerLabel7, gridBagConstraints);
@@ -8018,7 +8031,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -8026,7 +8039,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
@@ -8036,7 +8049,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(verticalSpacerLabel13, gridBagConstraints);
@@ -8667,7 +8680,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 19;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -8675,7 +8688,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 21;
-        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
@@ -8698,7 +8711,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 23;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(verticalSpacerLabel11, gridBagConstraints);
@@ -8941,7 +8954,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -9197,7 +9210,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 25;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -9217,7 +9230,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 27;
-        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 1.0;
@@ -9234,7 +9247,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 29;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -9242,7 +9255,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
@@ -9372,6 +9385,126 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         webMultimediaToolsPanel.add(wiresharkHelpButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(audacityEditorNvdSecurityCheckButton, "!");
+        audacityEditorNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        audacityEditorNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                audacityEditorNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(audacityEditorNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerNvdSecurityCheckButton, "!");
+        vlcPlayerNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        vlcPlayerNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vlcPlayerNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(vlcPlayerNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(amayaEditorNvdSecurityCheckButton, "!");
+        amayaEditorNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        amayaEditorNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amayaEditorNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(amayaEditorNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(batikEditorNvdSecurityCheckButton, "!");
+        batikEditorNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        batikEditorNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batikEditorNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(batikEditorNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorNvdSecurityCheckButton, "!");
+        inkscapeEditorNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        inkscapeEditorNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inkscapeEditorNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(inkscapeEditorNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorNvdSecurityCheckButton, "!");
+        svgeditEditorNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        svgeditEditorNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                svgeditEditorNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(svgeditEditorNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wiresharkNvdSecurityCheckButton, "!");
+        wiresharkNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        wiresharkNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wiresharkNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(wiresharkNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(protegePlayerNvdSecurityCheckButton, "!");
+        protegePlayerNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        protegePlayerNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                protegePlayerNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        webMultimediaToolsPanel.add(protegePlayerNvdSecurityCheckButton, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab("Multimedia, Web, and Networking Tools", webMultimediaToolsPanel);
 
@@ -12285,6 +12418,46 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
                       X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + porteclePlayerLabel.getText());
     }//GEN-LAST:event_portecleNvdSecurityCheckButtonActionPerformed
 
+    private void audacityEditorNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_audacityEditorNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + audacityEditorLabel.getText());
+    }//GEN-LAST:event_audacityEditorNvdSecurityCheckButtonActionPerformed
+
+    private void vlcPlayerNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vlcPlayerNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + vlcPlayerLabel.getText());
+    }//GEN-LAST:event_vlcPlayerNvdSecurityCheckButtonActionPerformed
+
+    private void amayaEditorNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amayaEditorNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + amayaEditorLabel.getText());
+    }//GEN-LAST:event_amayaEditorNvdSecurityCheckButtonActionPerformed
+
+    private void batikEditorNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batikEditorNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + batikEditorLabel.getText());
+    }//GEN-LAST:event_batikEditorNvdSecurityCheckButtonActionPerformed
+
+    private void inkscapeEditorNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inkscapeEditorNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + inkscapeEditorLabel.getText());
+    }//GEN-LAST:event_inkscapeEditorNvdSecurityCheckButtonActionPerformed
+
+    private void svgeditEditorNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svgeditEditorNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + svgeditEditorLabel.getText());
+    }//GEN-LAST:event_svgeditEditorNvdSecurityCheckButtonActionPerformed
+
+    private void wiresharkNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + wiresharkLabel.getText());
+    }//GEN-LAST:event_wiresharkNvdSecurityCheckButtonActionPerformed
+
+    private void protegePlayerNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_protegePlayerNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + protegePlayerLabel.getText());
+    }//GEN-LAST:event_protegePlayerNvdSecurityCheckButtonActionPerformed
+
     public void sleep (long msecDuration)
     {
         try
@@ -13458,6 +13631,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton amayaEditorHelpButton;
     private javax.swing.JLabel amayaEditorLabel;
     private javax.swing.JButton amayaEditorLaunchButton;
+    private javax.swing.JButton amayaEditorNvdSecurityCheckButton;
     private javax.swing.JTextField amayaEditorPathTF;
     private javax.swing.JCheckBox appendNewLineCheckBox;
     private javax.swing.JCheckBox audacityEditorCheckBox;
@@ -13467,6 +13641,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton audacityEditorHelpButton;
     private javax.swing.JLabel audacityEditorLabel;
     private javax.swing.JButton audacityEditorLaunchButton;
+    private javax.swing.JButton audacityEditorNvdSecurityCheckButton;
     private javax.swing.JTextField audacityEditorPathTF;
     private javax.swing.JLabel audioToolsLabel;
     private javax.swing.JButton authorEmailClearButton;
@@ -13492,6 +13667,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton batikEditorHelpButton;
     private javax.swing.JLabel batikEditorLabel;
     private javax.swing.JButton batikEditorLaunchButton;
+    private javax.swing.JButton batikEditorNvdSecurityCheckButton;
     private javax.swing.JTextField batikEditorPathTF;
     private javax.swing.JButton blenderNvdSecurityCheckButton;
     private javax.swing.JCheckBox blenderX3dEditorCheckBox;
@@ -13649,6 +13825,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton inkscapeEditorHelpButton;
     private javax.swing.JLabel inkscapeEditorLabel;
     private javax.swing.JButton inkscapeEditorLaunchButton;
+    private javax.swing.JButton inkscapeEditorNvdSecurityCheckButton;
     private javax.swing.JTextField inkscapeEditorPathTF;
     private javax.swing.JCheckBox instantRealityCheckBox;
     private javax.swing.JButton instantRealityChooserButton;
@@ -13667,6 +13844,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel itksnapVolumeEditorLabel;
     private javax.swing.JButton itksnapVolumeEditorLaunchButton;
     private javax.swing.JTextField itksnapVolumeEditorPathTF;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -13829,6 +14007,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton protegePlayerHelpButton;
     private javax.swing.JLabel protegePlayerLabel;
     private javax.swing.JButton protegePlayerLaunchButton;
+    private javax.swing.JButton protegePlayerNvdSecurityCheckButton;
     private javax.swing.JTextField protegePlayerPathTF;
     private javax.swing.JButton reportAuthorButton;
     private javax.swing.JButton reportImageVolumeToolsButton;
@@ -13881,6 +14060,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton svgeditEditorHelpButton;
     private javax.swing.JLabel svgeditEditorLabel;
     private javax.swing.JButton svgeditEditorLaunchButton;
+    private javax.swing.JButton svgeditEditorNvdSecurityCheckButton;
     private javax.swing.JTextField svgeditEditorPathTF;
     private javax.swing.JCheckBox swirlx3dCheckBox;
     private javax.swing.JButton swirlx3dChooserButton;
@@ -13965,6 +14145,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton vlcPlayerHelpButton;
     private javax.swing.JLabel vlcPlayerLabel;
     private javax.swing.JButton vlcPlayerLaunchButton;
+    private javax.swing.JButton vlcPlayerNvdSecurityCheckButton;
     private javax.swing.JTextField vlcPlayerPathTF;
     private javax.swing.JPanel webMultimediaToolsPanel;
     private javax.swing.JCheckBox whiteDuneX3dEditorCheckBox;
@@ -13992,6 +14173,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton wiresharkHelpButton;
     private javax.swing.JLabel wiresharkLabel;
     private javax.swing.JButton wiresharkLaunchButton;
+    private javax.swing.JButton wiresharkNvdSecurityCheckButton;
     private javax.swing.JTextField wiresharkPathTF;
     private javax.swing.JPanel x3dEditVisualizationPreferencesPanel;
     private javax.swing.JPanel x3dModelingToolsPanel;
