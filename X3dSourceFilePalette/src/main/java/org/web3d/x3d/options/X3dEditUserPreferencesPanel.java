@@ -524,6 +524,15 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         whiteduneNvdSecurityCheckButton = new javax.swing.JButton();
         wings3dNvdSecurityCheckButton = new javax.swing.JButton();
         otherX3dEditorNvdSecurityCheckButton = new javax.swing.JButton();
+        rhino3DX3dEditorLabel = new javax.swing.JLabel();
+        rhino3DX3dEditorCheckBox = new javax.swing.JCheckBox();
+        rhino3DX3dEditorPathTF = new javax.swing.JTextField();
+        rhino3DX3dEditorChooserButton = new javax.swing.JButton();
+        rhino3DX3dEditorDefaultButton = new javax.swing.JButton();
+        rhino3DX3dEditorLaunchButton = new javax.swing.JButton();
+        rhino3DX3dEditorDownloadButton = new javax.swing.JButton();
+        rhino3DX3dEditorHelpButton = new javax.swing.JButton();
+        rhino3DNvdSecurityCheckButton = new javax.swing.JButton();
         imageVolumeToolsPanel = new javax.swing.JPanel();
         imageToolsLabel = new javax.swing.JLabel();
         gimpEditorLabel = new javax.swing.JLabel();
@@ -829,7 +838,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         wiresharkNvdSecurityCheckButton = new javax.swing.JButton();
         protegePlayerNvdSecurityCheckButton = new javax.swing.JButton();
 
-        setMinimumSize(new java.awt.Dimension(850, 620));
+        setMinimumSize(new java.awt.Dimension(850, 680));
         setPreferredSize(new java.awt.Dimension(850, 600));
         setLayout(new java.awt.GridBagLayout());
 
@@ -2896,7 +2905,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dOptionsTabbedPane.addTab(org.openide.util.NbBundle.getMessage(X3dEditUserPreferencesPanel.class, "Paths_Tab_Title"), null, x3dPlayerPathsPanel, "Set directories for launching external browsers"); // NOI18N
 
         x3dModelingToolsPanel.setMinimumSize(new java.awt.Dimension(825, 600));
-        x3dModelingToolsPanel.setPreferredSize(new java.awt.Dimension(825, 600));
+        x3dModelingToolsPanel.setPreferredSize(new java.awt.Dimension(825, 640));
         x3dModelingToolsPanel.setLayout(new java.awt.GridBagLayout());
 
         externalX3dEditorLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -3418,7 +3427,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         curaX3dEditorLabel.setToolTipText("Ultimaker Cura printing tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3434,7 +3443,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3453,7 +3462,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3469,7 +3478,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3484,7 +3493,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3500,7 +3509,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3516,7 +3525,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3532,7 +3541,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3918,7 +3927,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         titaniaX3dEditorLabel.setToolTipText("Titania X3D Editor (Linux only)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3934,7 +3943,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3953,7 +3962,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3969,7 +3978,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -3984,7 +3993,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4000,7 +4009,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4016,7 +4025,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4032,7 +4041,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4043,7 +4052,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         seamless3dX3dEditorLabel.setToolTipText("Seamless3d graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4059,7 +4068,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4078,7 +4087,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -4094,7 +4103,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4109,7 +4118,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4125,7 +4134,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4141,7 +4150,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4157,7 +4166,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4168,7 +4177,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         ultraEditX3dEditorLabel.setToolTipText("UltraEdit Text Editor");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4184,7 +4193,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4203,7 +4212,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -4219,7 +4228,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4234,7 +4243,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4250,7 +4259,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4266,7 +4275,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4282,7 +4291,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4293,7 +4302,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         whiteDuneX3dEditorLabel.setToolTipText("White Dune graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4309,7 +4318,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4328,7 +4337,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -4344,7 +4353,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4359,7 +4368,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4375,7 +4384,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4391,7 +4400,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4407,7 +4416,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4418,7 +4427,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         wings3dX3dEditorLabel.setToolTipText("Wings 3D graphics authoring tool");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4434,7 +4443,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4453,7 +4462,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -4469,7 +4478,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4484,7 +4493,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4500,7 +4509,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4516,7 +4525,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4532,7 +4541,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4541,7 +4550,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel16, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 31;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
@@ -4552,7 +4561,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         org.openide.awt.Mnemonics.setLocalizedText(otherEditorNameLabel, "Other tool name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 28;
+        gridBagConstraints.gridy = 32;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherEditorNameLabel, gridBagConstraints);
@@ -4561,7 +4570,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         org.openide.awt.Mnemonics.setLocalizedText(otherEditorPathLabel, "Other tool path:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherEditorPathLabel, gridBagConstraints);
@@ -4580,7 +4589,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 28;
+        gridBagConstraints.gridy = 32;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4595,7 +4604,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4614,7 +4623,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -4631,7 +4640,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4646,7 +4655,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherX3dEditorClearButton, gridBagConstraints);
@@ -4661,7 +4670,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherX3dEditorLaunchButton, gridBagConstraints);
@@ -4676,7 +4685,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 29;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -4686,7 +4695,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         org.openide.awt.Mnemonics.setLocalizedText(leftMarginSpacerLabel1, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.gridheight = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 0.1;
@@ -4695,7 +4704,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel12, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 31;
+        gridBagConstraints.gridy = 35;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -4712,7 +4721,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 33;
+        gridBagConstraints.gridy = 37;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
@@ -4833,7 +4842,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4848,7 +4857,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4863,7 +4872,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4878,7 +4887,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4893,7 +4902,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4908,7 +4917,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 28;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -4923,11 +4932,151 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 28;
+        gridBagConstraints.gridy = 32;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(otherX3dEditorNvdSecurityCheckButton, gridBagConstraints);
+
+        rhino3DX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorLabel, "Rhino3D");
+        rhino3DX3dEditorLabel.setToolTipText("Paraview 3D graphics authoring tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorLabel, gridBagConstraints);
+
+        rhino3DX3dEditorCheckBox.setSelected(true);
+        rhino3DX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        rhino3DX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rhino3DX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorCheckBox, gridBagConstraints);
+
+        rhino3DX3dEditorPathTF.setToolTipText("File location for local application");
+        rhino3DX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                rhino3DX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        rhino3DX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorChooserButton, "...");
+        rhino3DX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        rhino3DX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorDefaultButton, "default");
+        rhino3DX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        rhino3DX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorLaunchButton, "launch");
+        rhino3DX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        rhino3DX3dEditorLaunchButton.setActionCommand("contactTF");
+        rhino3DX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorDownloadButton, "get");
+        rhino3DX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        rhino3DX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        rhino3DX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorHelpButton, "help");
+        rhino3DX3dEditorHelpButton.setToolTipText("Display tool help page");
+        rhino3DX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        rhino3DX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorHelpButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DNvdSecurityCheckButton, "!");
+        rhino3DNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        rhino3DNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DNvdSecurityCheckButton, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab("X3D Modeling Tools", x3dModelingToolsPanel);
 
@@ -12458,6 +12607,58 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
                       X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + protegePlayerLabel.getText());
     }//GEN-LAST:event_protegePlayerNvdSecurityCheckButtonActionPerformed
 
+    private void rhino3DX3dEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rhino3DX3dEditorCheckBoxActionPerformed
+    if (ultraEditX3dEditorCheckBox.isSelected())
+    {
+      X3dEditUserPreferences.setUltraEditAutoLaunch("true");
+    }
+    else
+    {
+      X3dEditUserPreferences.setUltraEditAutoLaunch("false");
+    }
+    ultraEditAutoLaunchCheck ();
+    }//GEN-LAST:event_rhino3DX3dEditorCheckBoxActionPerformed
+
+    private void rhino3DX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rhino3DX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setRhino3DX3dEditorPath(rhino3DX3dEditorPathTF.getText().trim());
+        rhino3DAutoLaunchCheck ();
+    }//GEN-LAST:event_rhino3DX3dEditorPathTFFocusLost
+
+    private void rhino3DX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rhino3DX3dEditorPathTFActionPerformed
+        X3dEditUserPreferences.setRhino3DX3dEditorPath(rhino3DX3dEditorPathTF.getText().trim());
+        rhino3DAutoLaunchCheck ();
+    }//GEN-LAST:event_rhino3DX3dEditorPathTFActionPerformed
+
+    private void rhino3DX3dEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rhino3DX3dEditorChooserButtonActionPerformed
+        commonChooser(rhino3DX3dEditorPathTF, "Find Rhino3D authoring tool", evt);
+        X3dEditUserPreferences.setRhino3DX3dEditorPath(rhino3DX3dEditorPathTF.getText().trim());
+        rhino3DAutoLaunchCheck ();
+    }//GEN-LAST:event_rhino3DX3dEditorChooserButtonActionPerformed
+
+    private void rhino3DX3dEditorDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rhino3DX3dEditorDefaultButtonActionPerformed
+        rhino3DX3dEditorPathTF.setText(X3dEditUserPreferences.getRhino3DX3dEditorPathDefault());
+        X3dEditUserPreferences.setRhino3DX3dEditorPath(rhino3DX3dEditorPathTF.getText().trim());
+        rhino3DAutoLaunchCheck ();
+    }//GEN-LAST:event_rhino3DX3dEditorDefaultButtonActionPerformed
+
+    private void rhino3DX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rhino3DX3dEditorLaunchButtonActionPerformed
+        externalProcessLaunch(X3dEditUserPreferences.getRhino3DX3dEditorPath());
+        rhino3DAutoLaunchCheck ();
+    }//GEN-LAST:event_rhino3DX3dEditorLaunchButtonActionPerformed
+
+    private void rhino3DX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rhino3DX3dEditorDownloadButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.getDownloadSiteRhino3D());
+    }//GEN-LAST:event_rhino3DX3dEditorDownloadButtonActionPerformed
+
+    private void rhino3DX3dEditorHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rhino3DX3dEditorHelpButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.helpSiteRhino3D);
+    }//GEN-LAST:event_rhino3DX3dEditorHelpButtonActionPerformed
+
+    private void rhino3DNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rhino3DNvdSecurityCheckButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + rhino3DX3dEditorLabel.getText());
+    }//GEN-LAST:event_rhino3DNvdSecurityCheckButtonActionPerformed
+
     public void sleep (long msecDuration)
     {
         try
@@ -12811,6 +13012,15 @@ for Extensible 3D (X3D) Graphics International Standard.
     paraviewX3dEditorCheckBox.setSelected(isExecutableFile);
     paraviewX3dEditorLaunchButton.setEnabled(isExecutableFile);
     showFound (isExecutableFile, paraviewX3dEditorLabel, paraviewX3dEditorPathTF);
+  }
+  private void rhino3DAutoLaunchCheck ()
+  {
+    checkExistingFile = new File(rhino3DX3dEditorPathTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setParaviewAutoLaunch(Boolean.toString(isExecutableFile));
+    rhino3DX3dEditorCheckBox.setSelected(isExecutableFile);
+    rhino3DX3dEditorLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, rhino3DX3dEditorLabel, rhino3DX3dEditorPathTF);
   }
   private void polyTransNuGrafAutoLaunchCheck ()
   {
@@ -14016,6 +14226,15 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton reportSecurityPanelButton;
     private javax.swing.JButton reportVisualizationPreferencesButton;
     private javax.swing.JButton reportWebMultimediaToolsButton;
+    private javax.swing.JButton rhino3DNvdSecurityCheckButton;
+    private javax.swing.JCheckBox rhino3DX3dEditorCheckBox;
+    private javax.swing.JButton rhino3DX3dEditorChooserButton;
+    private javax.swing.JButton rhino3DX3dEditorDefaultButton;
+    private javax.swing.JButton rhino3DX3dEditorDownloadButton;
+    private javax.swing.JButton rhino3DX3dEditorHelpButton;
+    private javax.swing.JLabel rhino3DX3dEditorLabel;
+    private javax.swing.JButton rhino3DX3dEditorLaunchButton;
+    private javax.swing.JTextField rhino3DX3dEditorPathTF;
     private javax.swing.JButton seamless3dNvdSecurityCheckButton;
     private javax.swing.JCheckBox seamless3dX3dEditorCheckBox;
     private javax.swing.JButton seamless3dX3dEditorChooserButton;

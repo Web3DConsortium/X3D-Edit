@@ -441,6 +441,7 @@ public class X3dEditUserPreferences
   public static String               CURA_EXECUTABLE_AUTOLAUNCH_KEY =               "CURA_AUTOLAUNCH";
   public static String            MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY =            "MESHLAB_AUTOLAUNCH";
   public static String           PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY =           "PARAVIEW_AUTOLAUNCH";
+  public static String            RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY =            "RHINO3D_AUTOLAUNCH";
   public static String        POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY =    "POLYTRANSNUGRAF_AUTOLAUNCH";
   public static String         SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY =         "SEAMLESS3D_AUTOLAUNCH";
   public static String            TITANIA_EXECUTABLE_AUTOLAUNCH_KEY =            "TITANIA_AUTOLAUNCH";
@@ -488,6 +489,7 @@ public class X3dEditUserPreferences
   public static String        CURA_X3D_EDITOR_PATH_KEY          =       "CURA_X3D_EDITOR_PATH";
   public static String     MESHLAB_X3D_EDITOR_PATH_KEY          =    "MESHLAB_X3D_EDITOR_PATH";
   public static String    PARAVIEW_X3D_EDITOR_PATH_KEY          =   "PARAVIEW_X3D_EDITOR_PATH";
+  public static String     RHINO3D_X3D_EDITOR_PATH_KEY          =    "RHINO3D_X3D_EDITOR_PATH";
   public static String  SEAMLESS3D_X3D_EDITOR_PATH_KEY          = "SEAMLESS3D_X3D_EDITOR_PATH";
   public static String     TITANIA_X3D_EDITOR_PATH_KEY          =    "TITANIA_X3D_EDITOR_PATH";
   public static String  ITKSNAP_VOLUME_EDITOR_PATH_KEY          =    "ITKSNAP_X3D_EDITOR_PATH";
@@ -566,6 +568,7 @@ public class X3dEditUserPreferences
   public static String        CURA_X3D_EDITOR_PATH_DEFAULT;
   public static String     MESHLAB_X3D_EDITOR_PATH_DEFAULT;
   public static String    PARAVIEW_X3D_EDITOR_PATH_DEFAULT;
+  public static String     RHINO3D_X3D_EDITOR_PATH_DEFAULT;
   public static String POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT;
   public static String  SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT;
   public static String     TITANIA_X3D_EDITOR_PATH_DEFAULT;
@@ -753,6 +756,7 @@ public class X3dEditUserPreferences
   private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";
   private static final String winxpMeshLabX3dEditorPathDefault           = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
   private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.12.0\\bin\\paraview.exe";
+  private static final String winxpRhino3DX3dEditorPathDefault           = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String winxpTitaniaX3dEditorPathDefault           = "(only available in Linux)";
   private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
@@ -783,6 +787,7 @@ public class X3dEditUserPreferences
   private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";
   private static final String windows64MeshLabX3dEditorPathDefault       = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
   private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.12.0\\bin\\paraview.exe";
+  private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String windows64TitaniaX3dEditorPathDefault       = "(only available in Linux)";
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
@@ -813,6 +818,7 @@ public class X3dEditUserPreferences
   private static final String macosxCuraX3dEditorPathDefault             = "Cura";           // TODO insert correct value
   private static final String macosxMeshLabX3dEditorPathDefault          = "MeshLab";        // TODO insert correct value
   private static final String macosxParaviewX3dEditorPathDefault         = "Paraview";       // TODO insert correct value
+  private static final String macosxRhino3DX3dEditorPathDefault          = "Rhino3D";        // TODO insert correct value
   private static final String macosxSeamlessX3dEditorPathDefault         = "Seamless3d";     // TODO insert correct value
   private static final String macosxTitaniaX3dEditorPathDefault          = "(only available in Linux)";
   private static final String macosxItksnapEditorPathDefault             = "Itksnap";        // TODO insert correct value
@@ -842,6 +848,7 @@ public class X3dEditUserPreferences
   private static final String otherCuraX3dEditorPathDefault              = "Cura";           // TODO insert correct value
   private static final String otherMeshLabX3dEditorPathDefault           = "MeshLab";        // TODO insert correct value
   private static final String otherParaviewX3dEditorPathDefault          = "Paraview";       // TODO insert correct value
+  private static final String otherRhino3DX3dEditorPathDefault           = "Rhino3D";        // TODO insert correct value
   private static final String otherSeamlessX3dEditorPathDefault          = "Seamless3d";     // TODO insert correct value
   private static final String otherTitaniaX3dEditorPathDefault           = "(only available in Linux)";
   private static final String otherItksnapEditorPathDefault              = "Itksnap";        // TODO insert correct value
@@ -891,6 +898,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteCura                           = "https://ultimaker.com/software/ultimaker-cura";
   private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
+  private static final String downloadSiteRhino3D                        = "https://www.rhino3d.com/download";
   private static final String downloadSiteSeamless3d                     = "https://www.seamless3d.com";
   private static final String downloadSiteTitania                        = "https://github.com/create3000/titania#readme";
   private static final String downloadSiteItksnap                        = "http://www.itksnap.org"; // http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
@@ -926,6 +934,7 @@ public class X3dEditUserPreferences
   protected static final String helpSiteCura                             = "https://ultimaker.com/learn"; 
   protected static final String helpSiteMeshLab                          = "https://www.meshlab.net"; // https://sourceforge.net/apps/mediawiki/meshlab";
   protected static final String helpSiteParaview                         = "https://www.paraview.org";
+  protected static final String helpSiteRhino3D                          = "https://www.rhino3d.com/learn";
   protected static final String helpSitePolyTransNuGraf                  = "https://www.okino.com/nrs/nrs.htm";
   protected static final String helpSiteSeamless3d                       = "https://www.seamless3d.com/faq.html";
   protected static final String helpSiteTitania                          = "https://github.com/create3000/titania#readme";
@@ -973,6 +982,7 @@ public class X3dEditUserPreferences
   public static String getDownloadSiteCura()           {return downloadSiteCura;}
   public static String getDownloadSiteMeshLab()        {return downloadSiteMeshLab;}
   public static String getDownloadSiteParaview()       {return downloadSiteParaview;}
+  public static String getDownloadSiteRhino3D()        {return downloadSiteRhino3D;}
   public static String getDownloadSiteSeamless3d()     {return downloadSiteSeamless3d;}
   public static String getDownloadSiteTitania()        {return downloadSiteTitania;}
   public static String getDownloadSiteItksnap()        {return downloadSiteItksnap;}
@@ -1035,10 +1045,11 @@ public class X3dEditUserPreferences
  
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxBlenderX3dEditorPathDefault);
       BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(macosxBsContentStudioX3dEditorPathDefault);
-         BVHACKER_EDITOR_PATH_DEFAULT        = toks(  macosxBvhackerEditorPathDefault);
+         BVHACKER_EDITOR_PATH_DEFAULT        = toks(    macosxBvhackerEditorPathDefault);
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     macosxCuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxMeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( macosxParaviewX3dEditorPathDefault);
+      RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxRhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   macosxPolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( macosxSeamlessX3dEditorPathDefault);
       TITANIA_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxTitaniaX3dEditorPathDefault);
@@ -1096,6 +1107,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dE
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     windows64CuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64MeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( windows64ParaviewX3dEditorPathDefault);
+      RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64Rhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   windows64PolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( windows64SeamlessX3dEditorPathDefault);
       TITANIA_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64TitaniaX3dEditorPathDefault);
@@ -1151,6 +1163,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEdito
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     winxpCuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpMeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( winxpParaviewX3dEditorPathDefault);
+      RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpRhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   winxpPolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( winxpSeamlessX3dEditorPathDefault);
       TITANIA_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpTitaniaX3dEditorPathDefault);
@@ -1205,6 +1218,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     otherCuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  otherMeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( otherParaviewX3dEditorPathDefault);
+      RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  otherRhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   otherPolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( otherSeamlessX3dEditorPathDefault);
       TITANIA_X3D_EDITOR_PATH_DEFAULT        = toks(  otherTitaniaX3dEditorPathDefault);
@@ -1285,6 +1299,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String      getCuraX3dEditorPathDefault()   {return        CURA_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getMeshLabX3dEditorPathDefault()   {return     MESHLAB_X3D_EDITOR_PATH_DEFAULT;}
   public static String  getParaviewX3dEditorPathDefault()   {return    PARAVIEW_X3D_EDITOR_PATH_DEFAULT;}
+  public static String   getRhino3DX3dEditorPathDefault()   {return     RHINO3D_X3D_EDITOR_PATH_DEFAULT;}
   public static String getPolyTransNuGrafEditorPathDefault(){return POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT;}
   public static String  getSeamlessX3dEditorPathDefault()   {return  SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getTitaniaX3dEditorPathDefault()   {return     TITANIA_X3D_EDITOR_PATH_DEFAULT;}
@@ -1349,25 +1364,26 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void setKeystoreExplorerPlayerPath(String path){commonStringSet(KEYSTOREEXPLORER_PLAYER_PATH_KEY, path);}
   public static void          setWiresharkPath    (String path){commonStringSet(            WIRESHARK_PATH_KEY, path);}
   
-  public static void setAltovaXMLSpyX3dEditorPath (String path){commonStringSet(  ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY, path);}
-  public static void   setBlenderX3dEditorPath    (String path){commonStringSet(   BLENDER_X3D_EDITOR_PATH_KEY, path);}
+  public static void setAltovaXMLSpyX3dEditorPath   (String path){commonStringSet(ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY, path);}
+  public static void   setBlenderX3dEditorPath      (String path){commonStringSet(      BLENDER_X3D_EDITOR_PATH_KEY, path);}
   public static void setBsContentStudioX3dEditorPath(String path){commonStringSet(BSCONTENTSTUDIO_X3D_EDITOR_PATH_KEY, path);}
-  public static void     setBvhackerEditorPath    (String path){commonStringSet(      BVHACKER_EDITOR_PATH_KEY, path);}
-  public static void      setCuraX3dEditorPath    (String path){commonStringSet(      CURA_X3D_EDITOR_PATH_KEY, path);}
-  public static void   setMeshLabX3dEditorPath    (String path){commonStringSet(   MESHLAB_X3D_EDITOR_PATH_KEY, path);}
-  public static void  setParaviewX3dEditorPath    (String path){commonStringSet(  PARAVIEW_X3D_EDITOR_PATH_KEY, path);}
-  public static void setPolyTransNuGrafEditorPath (String path){commonStringSet(POLYTRANSNUGRAF_EDITOR_PATH_KEY, path);}
-  public static void  setSeamlessX3dEditorPath    (String path){commonStringSet(SEAMLESS3D_X3D_EDITOR_PATH_KEY, path);}
-  public static void   setTitaniaX3dEditorPath    (String path){commonStringSet(   TITANIA_X3D_EDITOR_PATH_KEY, path);}
-  public static void      setItksnapEditorPath    (String path){commonStringSet(ITKSNAP_VOLUME_EDITOR_PATH_KEY, path);}
-  public static void        setSeg3dEditorPath    (String path){commonStringSet(  SEG3D_VOLUME_EDITOR_PATH_KEY, path);}
-  public static void     setSlicer3dEditorPath    (String path){commonStringSet(SLICER3D_VOLUME_EDITOR_PATH_KEY,path);}
-  public static void        setBatikEditorPath    (String path){commonStringSet(BATIK_SVG_EDITOR_PATH_KEY,path);}
-  public static void     setInkscapeEditorPath    (String path){commonStringSet(INKSCAPE_SVG_EDITOR_PATH_KEY,path);}
-  public static void      setSvgeditEditorPath    (String path){commonStringSet(SVG_EDIT_SVG_EDITOR_PATH_KEY,path);}
-  public static void setWhiteDuneX3dEditorPath    (String path){commonStringSet( WHITEDUNE_X3D_EDITOR_PATH_KEY, path);}
-  public static void     setWingsX3dEditorPath    (String path){commonStringSet(   WINGS3D_X3D_EDITOR_PATH_KEY, path);}
-  public static void setUltraEditX3dEditorPath    (String path){commonStringSet( ULTRAEDIT_X3D_EDITOR_PATH_KEY, path);}
+  public static void     setBvhackerEditorPath      (String path){commonStringSet(         BVHACKER_EDITOR_PATH_KEY, path);}
+  public static void      setCuraX3dEditorPath      (String path){commonStringSet(         CURA_X3D_EDITOR_PATH_KEY, path);}
+  public static void   setMeshLabX3dEditorPath      (String path){commonStringSet(      MESHLAB_X3D_EDITOR_PATH_KEY, path);}
+  public static void  setParaviewX3dEditorPath      (String path){commonStringSet(     PARAVIEW_X3D_EDITOR_PATH_KEY, path);}
+  public static void  setRhino3DX3dEditorPath       (String path){commonStringSet(      RHINO3D_X3D_EDITOR_PATH_KEY, path);}
+  public static void setPolyTransNuGrafEditorPath   (String path){commonStringSet(  POLYTRANSNUGRAF_EDITOR_PATH_KEY, path);}
+  public static void  setSeamlessX3dEditorPath      (String path){commonStringSet(   SEAMLESS3D_X3D_EDITOR_PATH_KEY, path);}
+  public static void   setTitaniaX3dEditorPath      (String path){commonStringSet(      TITANIA_X3D_EDITOR_PATH_KEY, path);}
+  public static void      setItksnapEditorPath      (String path){commonStringSet(   ITKSNAP_VOLUME_EDITOR_PATH_KEY, path);}
+  public static void        setSeg3dEditorPath      (String path){commonStringSet(     SEG3D_VOLUME_EDITOR_PATH_KEY, path);}
+  public static void     setSlicer3dEditorPath      (String path){commonStringSet(   SLICER3D_VOLUME_EDITOR_PATH_KEY,path);}
+  public static void        setBatikEditorPath      (String path){commonStringSet(         BATIK_SVG_EDITOR_PATH_KEY,path);}
+  public static void     setInkscapeEditorPath      (String path){commonStringSet(      INKSCAPE_SVG_EDITOR_PATH_KEY,path);}
+  public static void      setSvgeditEditorPath      (String path){commonStringSet(      SVG_EDIT_SVG_EDITOR_PATH_KEY,path);}
+  public static void setWhiteDuneX3dEditorPath      (String path){commonStringSet(    WHITEDUNE_X3D_EDITOR_PATH_KEY, path);}
+  public static void     setWingsX3dEditorPath      (String path){commonStringSet(      WINGS3D_X3D_EDITOR_PATH_KEY, path);}
+  public static void setUltraEditX3dEditorPath      (String path){commonStringSet(    ULTRAEDIT_X3D_EDITOR_PATH_KEY, path);}
   
   public static void   setOtherAudioEditorName    (String name){commonStringSet(   OTHER_AUDIO_EDITOR_NAME_KEY, name);}
   public static void   setOtherHtml5EditorName    (String name){commonStringSet(   OTHER_HTML5_EDITOR_NAME_KEY, name);}
@@ -1426,6 +1442,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void             setCuraAutoLaunch (String autoLaunch){commonStringSet(              CURA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setMeshLabAutoLaunch (String autoLaunch){commonStringSet(           MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void         setParaviewAutoLaunch (String autoLaunch){commonStringSet(          PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setRhino3DAutoLaunch (String autoLaunch){commonStringSet(           RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void  setPolyTransNuGrafAutoLaunch (String autoLaunch){commonStringSet(       POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY, autoLaunch);}
   public static void       setSeamless3dAutoLaunch (String autoLaunch){commonStringSet(        SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setTitaniaAutoLaunch (String autoLaunch){commonStringSet(           TITANIA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1484,6 +1501,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String      getCuraX3dEditorPath()       {return commonStringGet(      CURA_X3D_EDITOR_PATH_KEY,      CURA_X3D_EDITOR_PATH_DEFAULT);}
   public static String   getMeshLabX3dEditorPath()       {return commonStringGet(   MESHLAB_X3D_EDITOR_PATH_KEY,   MESHLAB_X3D_EDITOR_PATH_DEFAULT);}
   public static String  getParaviewX3dEditorPath()       {return commonStringGet(  PARAVIEW_X3D_EDITOR_PATH_KEY,  PARAVIEW_X3D_EDITOR_PATH_DEFAULT);}
+  public static String   getRhino3DX3dEditorPath()       {return commonStringGet(   RHINO3D_X3D_EDITOR_PATH_KEY,   RHINO3D_X3D_EDITOR_PATH_DEFAULT);}
   public static String getPolyTransNuGrafEditorPath()    {return commonStringGet(POLYTRANSNUGRAF_EDITOR_PATH_KEY, POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT);}
   public static String  getSeamlessX3dEditorPath()       {return commonStringGet(SEAMLESS3D_X3D_EDITOR_PATH_KEY,SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT);}
   public static String   getTitaniaX3dEditorPath()       {return commonStringGet(   TITANIA_X3D_EDITOR_PATH_KEY,   TITANIA_X3D_EDITOR_PATH_DEFAULT);}
@@ -1543,6 +1561,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String              isCuraAutoLaunch() {return commonStringGet(               CURA_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isMeshLabAutoLaunch() {return commonStringGet(            MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String          isParaviewAutoLaunch() {return commonStringGet(           PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String           isRhino3DAutoLaunch() {return commonStringGet(            RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String   isPolyTransNuGrafAutoLaunch() {return commonStringGet(        POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String        isSeamless3dAutoLaunch() {return commonStringGet(         SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isTitaniaAutoLaunch() {return commonStringGet(            TITANIA_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
@@ -1606,6 +1625,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void      resetCuraX3dEditorPath() {commonReset(       CURA_X3D_EDITOR_PATH_KEY);}
   public static void   resetMeshLabX3dEditorPath() {commonReset(    MESHLAB_X3D_EDITOR_PATH_KEY);}
   public static void  resetParaviewX3dEditorPath() {commonReset(   PARAVIEW_X3D_EDITOR_PATH_KEY);}
+  public static void   resetRhino3DX3dEditorPath() {commonReset(    RHINO3D_X3D_EDITOR_PATH_KEY);}
   public static void    resetPolyTransNuGrafPath() {commonReset(POLYTRANSNUGRAF_EDITOR_PATH_KEY);}
   public static void  resetSeamlessX3dEditorPath() {commonReset( SEAMLESS3D_X3D_EDITOR_PATH_KEY);}
   public static void   resetTitaniaX3dEditorPath() {commonReset(    TITANIA_X3D_EDITOR_PATH_KEY);}
