@@ -12608,15 +12608,15 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_protegePlayerNvdSecurityCheckButtonActionPerformed
 
     private void rhino3DX3dEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rhino3DX3dEditorCheckBoxActionPerformed
-    if (ultraEditX3dEditorCheckBox.isSelected())
+    if (rhino3DX3dEditorCheckBox.isSelected())
     {
-      X3dEditUserPreferences.setUltraEditAutoLaunch("true");
+      X3dEditUserPreferences.setRhino3DAutoLaunch("true");
     }
     else
     {
-      X3dEditUserPreferences.setUltraEditAutoLaunch("false");
+      X3dEditUserPreferences.setRhino3DAutoLaunch("false");
     }
-    ultraEditAutoLaunchCheck ();
+    rhino3DAutoLaunchCheck ();
     }//GEN-LAST:event_rhino3DX3dEditorCheckBoxActionPerformed
 
     private void rhino3DX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rhino3DX3dEditorPathTFFocusLost
@@ -13017,7 +13017,7 @@ for Extensible 3D (X3D) Graphics International Standard.
   {
     checkExistingFile = new File(rhino3DX3dEditorPathTF.getText().trim());
     isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setParaviewAutoLaunch(Boolean.toString(isExecutableFile));
+    X3dEditUserPreferences.setRhino3DAutoLaunch(Boolean.toString(isExecutableFile));
     rhino3DX3dEditorCheckBox.setSelected(isExecutableFile);
     rhino3DX3dEditorLaunchButton.setEnabled(isExecutableFile);
     showFound (isExecutableFile, rhino3DX3dEditorLabel, rhino3DX3dEditorPathTF);
@@ -13350,9 +13350,10 @@ for Extensible 3D (X3D) Graphics International Standard.
       if  (!newX3dModelDirectory.exists() ||
            !newX3dModelDirectory.isDirectory()) // ensure directory works
       {
+          // first time looking at this particular directory, which could be for any of the tools
           newX3dModelDirectory.getParent();
           newX3dModelDirectoryPath = newX3dModelDirectory.getAbsolutePath();
-          X3dEditUserPreferences.setNewX3dModelsDirectory(newX3dModelDirectoryPath);
+//        X3dEditUserPreferences.setNewX3dModelsDirectory(newX3dModelDirectoryPath); // do not reset!
       }
       fileChooser = new JFileChooser(newX3dModelDirectoryPath);
       fileChooser.setMultiSelectionEnabled(false);
