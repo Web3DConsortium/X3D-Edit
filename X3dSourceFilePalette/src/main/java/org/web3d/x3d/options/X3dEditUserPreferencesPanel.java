@@ -37,9 +37,13 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.Window;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
@@ -112,7 +116,7 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
   public static final int XML_SECURITY_PANE              = 6;
   public static final int WEB_MULTIMEDIA_TOOLS_PANE      = 7;
     
-  // https://docs.oracle.com/en/java/javase/19/docs/api/java.desktop/javax/swing/JTabbedPane.html#setSelectedIndex(int)
+  // https://docs.oracle.com/en/java/javase/21/docs/api/java.desktop/javax/swing/JTabbedPane.html#setSelectedIndex(int)
   private int preferredPaneIndex = -1; // initial pane at at launch, does existing class remember prior setting?
   
   private final String EXAMPLES_DIRECTORY_TF_DEFAULT_MESSAGE = "(root directory of X3D Examples Archives, first initialized by example model archives download or user)";
@@ -457,14 +461,14 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         polyTransNuGrafEditorLaunchButton = new javax.swing.JButton();
         polyTransNuGrafEditorDownloadButton = new javax.swing.JButton();
         polyTransNuGrafEditorHelpButton = new javax.swing.JButton();
-        titaniaX3dEditorLabel = new javax.swing.JLabel();
-        titaniaX3dEditorCheckBox = new javax.swing.JCheckBox();
-        titaniaX3dEditorPathTF = new javax.swing.JTextField();
-        titaniaX3dEditorChooserButton = new javax.swing.JButton();
-        titaniaX3dEditorDefaultButton = new javax.swing.JButton();
-        titaniaX3dEditorLaunchButton = new javax.swing.JButton();
-        titaniaX3dEditorDownloadButton = new javax.swing.JButton();
-        titaniaX3dEditorHelpButton = new javax.swing.JButton();
+        sunrizeX3dEditorLabel = new javax.swing.JLabel();
+        sunrizeX3dEditorCheckBox = new javax.swing.JCheckBox();
+        sunrizeX3dEditorPathTF = new javax.swing.JTextField();
+        sunrizeX3dEditorChooserButton = new javax.swing.JButton();
+        sunrizeX3dEditorDefaultButton = new javax.swing.JButton();
+        sunrizeX3dEditorLaunchButton = new javax.swing.JButton();
+        sunrizeX3dEditorDownloadButton = new javax.swing.JButton();
+        sunrizeX3dEditorHelpButton = new javax.swing.JButton();
         seamless3dX3dEditorLabel = new javax.swing.JLabel();
         seamless3dX3dEditorCheckBox = new javax.swing.JCheckBox();
         seamless3dX3dEditorPathTF = new javax.swing.JTextField();
@@ -518,7 +522,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         okinoNugrafNvdSecurityCheckButton = new javax.swing.JButton();
         paraviewNvdSecurityCheckButton = new javax.swing.JButton();
         seamless3dNvdSecurityCheckButton = new javax.swing.JButton();
-        titaniaNvdSecurityCheckButton = new javax.swing.JButton();
+        sunrizeNvdSecurityCheckButton = new javax.swing.JButton();
         ultimakerCuraNvdSecurityCheckButton = new javax.swing.JButton();
         ultraeditNvdSecurityCheckButton = new javax.swing.JButton();
         whiteduneNvdSecurityCheckButton = new javax.swing.JButton();
@@ -839,11 +843,11 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         protegePlayerNvdSecurityCheckButton = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(850, 680));
-        setPreferredSize(new java.awt.Dimension(850, 600));
+        setPreferredSize(new java.awt.Dimension(850, 660));
         setLayout(new java.awt.GridBagLayout());
 
         x3dOptionsTabbedPane.setToolTipText("Set X3D-Edit preference values");
-        x3dOptionsTabbedPane.setMinimumSize(new java.awt.Dimension(825, 620));
+        x3dOptionsTabbedPane.setMinimumSize(new java.awt.Dimension(825, 650));
         x3dOptionsTabbedPane.setPreferredSize(new java.awt.Dimension(850, 600));
 
         authorSettingsPanel.setToolTipText("");
@@ -1819,7 +1823,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(otherX3dPlayerNameTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(contactChooserButton, "...");
-        contactChooserButton.setToolTipText("Find local file location");
+        contactChooserButton.setToolTipText("Browse to select file location for local launch");
         contactChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contactChooserButtonActionPerformed(evt);
@@ -1834,7 +1838,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(contactChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(contactGeoChooserButton, "...");
-        contactGeoChooserButton.setToolTipText("Find local file location");
+        contactGeoChooserButton.setToolTipText("Browse to select file location for local launch");
         contactGeoChooserButton.setEnabled(false);
         contactGeoChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1850,7 +1854,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(contactGeoChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(freeWrlChooserButton, "...");
-        freeWrlChooserButton.setToolTipText("Find local file location");
+        freeWrlChooserButton.setToolTipText("Browse to select file location for local launch");
         freeWrlChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 freeWrlChooserButtonActionPerformed(evt);
@@ -1865,7 +1869,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(freeWrlChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(heilanChooserButton, "...");
-        heilanChooserButton.setToolTipText("Find local file location");
+        heilanChooserButton.setToolTipText("Browse to select file location for local launch");
         heilanChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 heilanChooserButtonActionPerformed(evt);
@@ -1880,7 +1884,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(heilanChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(instantRealityChooserButton, "...");
-        instantRealityChooserButton.setToolTipText("Find local file location");
+        instantRealityChooserButton.setToolTipText("Browse to select file location for local launch");
         instantRealityChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 instantRealityChooserButtonActionPerformed(evt);
@@ -1895,7 +1899,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(instantRealityChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(octagaChooserButton, "...");
-        octagaChooserButton.setToolTipText("Find local file location");
+        octagaChooserButton.setToolTipText("Browse to select file location for local launch");
         octagaChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 octagaChooserButtonActionPerformed(evt);
@@ -1910,7 +1914,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(octagaChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(swirlx3dChooserButton, "...");
-        swirlx3dChooserButton.setToolTipText("Find local file location");
+        swirlx3dChooserButton.setToolTipText("Browse to select file location for local launch");
         swirlx3dChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swirlx3dChooserButtonActionPerformed(evt);
@@ -1925,7 +1929,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(swirlx3dChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(view3dsceneChooserButton, "...");
-        view3dsceneChooserButton.setToolTipText("Find local file location");
+        view3dsceneChooserButton.setToolTipText("Browse to select file location for local launch");
         view3dsceneChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 view3dsceneChooserButtonActionPerformed(evt);
@@ -1940,7 +1944,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(view3dsceneChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vivatyChooserButton, "...");
-        vivatyChooserButton.setToolTipText("Find local file location");
+        vivatyChooserButton.setToolTipText("Browse to select file location for local launch");
         vivatyChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vivatyChooserButtonActionPerformed(evt);
@@ -1954,7 +1958,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(vivatyChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(xj3dChooserButton, "...");
-        xj3dChooserButton.setToolTipText("Find local file location");
+        xj3dChooserButton.setToolTipText("Browse to select file location for local launch");
         xj3dChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xj3dChooserButtonActionPerformed(evt);
@@ -1969,7 +1973,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(xj3dChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherChooserButton, "...");
-        otherChooserButton.setToolTipText("Find local file location");
+        otherChooserButton.setToolTipText("Browse to select file location for local launch");
         otherChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otherChooserButtonActionPerformed(evt);
@@ -2552,7 +2556,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(h3dTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(h3dChooserButton, "...");
-        h3dChooserButton.setToolTipText("Find local file location");
+        h3dChooserButton.setToolTipText("Browse to select file location for local launch");
         h3dChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 h3dChooserButtonActionPerformed(evt);
@@ -2632,6 +2636,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
@@ -2648,7 +2653,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
@@ -2659,8 +2664,9 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         secondsLabel.setToolTipText("Wait interval when launching multiple players");
         secondsLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
@@ -2686,7 +2692,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 21;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 1.0;
@@ -2714,8 +2720,9 @@ otherSemanticWebEditorCheckBox.setVisible(false);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2975,6 +2982,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(altovaXMLSpyTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyChooserButton, "...");
+        altovaXMLSpyChooserButton.setToolTipText("Browse to select file location for local launch");
         altovaXMLSpyChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 altovaXMLSpyChooserButtonActionPerformed(evt);
@@ -3095,7 +3103,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(blenderX3dEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorChooserButton, "...");
-        blenderX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        blenderX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         blenderX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 blenderX3dEditorChooserButtonActionPerformed(evt);
@@ -3220,7 +3228,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(bsContentStudioX3dEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorChooserButton, "...");
-        bsContentStudioX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        bsContentStudioX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         bsContentStudioX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bsContentStudioX3dEditorChooserButtonActionPerformed(evt);
@@ -3345,7 +3353,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(bvhackerEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorChooserButton, "...");
-        bvhackerEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        bvhackerEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         bvhackerEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bvhackerEditorChooserButtonActionPerformed(evt);
@@ -3470,7 +3478,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(curaX3dEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorChooserButton, "...");
-        curaX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        curaX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         curaX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 curaX3dEditorChooserButtonActionPerformed(evt);
@@ -3595,7 +3603,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(meshLabX3dEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorChooserButton, "...");
-        meshLabX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        meshLabX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         meshLabX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 meshLabX3dEditorChooserButtonActionPerformed(evt);
@@ -3720,7 +3728,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(paraviewX3dEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorChooserButton, "...");
-        paraviewX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        paraviewX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         paraviewX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 paraviewX3dEditorChooserButtonActionPerformed(evt);
@@ -3845,7 +3853,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(polyTransNuGrafEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorChooserButton, "...");
-        polyTransNuGrafEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        polyTransNuGrafEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         polyTransNuGrafEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 polyTransNuGrafEditorChooserButtonActionPerformed(evt);
@@ -3922,23 +3930,23 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(polyTransNuGrafEditorHelpButton, gridBagConstraints);
 
-        titaniaX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(titaniaX3dEditorLabel, "Titania");
-        titaniaX3dEditorLabel.setToolTipText("Titania X3D Editor (Linux only)");
+        sunrizeX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorLabel, "Sunrize");
+        sunrizeX3dEditorLabel.setToolTipText("Sunrize X3D Editor is launched using node.js");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(titaniaX3dEditorLabel, gridBagConstraints);
+        x3dModelingToolsPanel.add(sunrizeX3dEditorLabel, gridBagConstraints);
 
-        titaniaX3dEditorCheckBox.setSelected(true);
-        titaniaX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        titaniaX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titaniaX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        sunrizeX3dEditorCheckBox.setSelected(true);
+        sunrizeX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        sunrizeX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sunrizeX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titaniaX3dEditorCheckBoxActionPerformed(evt);
+                sunrizeX3dEditorCheckBoxActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3947,17 +3955,17 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(titaniaX3dEditorCheckBox, gridBagConstraints);
+        x3dModelingToolsPanel.add(sunrizeX3dEditorCheckBox, gridBagConstraints);
 
-        titaniaX3dEditorPathTF.setToolTipText("File location for local application");
-        titaniaX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+        sunrizeX3dEditorPathTF.setToolTipText("Sunrize X3D Editor is launched using node.js");
+        sunrizeX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                titaniaX3dEditorPathTFFocusLost(evt);
+                sunrizeX3dEditorPathTFFocusLost(evt);
             }
         });
-        titaniaX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+        sunrizeX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titaniaX3dEditorPathTFActionPerformed(evt);
+                sunrizeX3dEditorPathTFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3967,13 +3975,14 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(titaniaX3dEditorPathTF, gridBagConstraints);
+        x3dModelingToolsPanel.add(sunrizeX3dEditorPathTF, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(titaniaX3dEditorChooserButton, "...");
-        titaniaX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        titaniaX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorChooserButton, "...");
+        sunrizeX3dEditorChooserButton.setToolTipText("Sunrize X3D Editor is launched using node.js");
+        sunrizeX3dEditorChooserButton.setEnabled(false);
+        sunrizeX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titaniaX3dEditorChooserButtonActionPerformed(evt);
+                sunrizeX3dEditorChooserButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3982,13 +3991,13 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(titaniaX3dEditorChooserButton, gridBagConstraints);
+        x3dModelingToolsPanel.add(sunrizeX3dEditorChooserButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(titaniaX3dEditorDefaultButton, "default");
-        titaniaX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        titaniaX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorDefaultButton, "default");
+        sunrizeX3dEditorDefaultButton.setToolTipText("Reset default invocation for local launch");
+        sunrizeX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titaniaX3dEditorDefaultButtonActionPerformed(evt);
+                sunrizeX3dEditorDefaultButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3997,14 +4006,14 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(titaniaX3dEditorDefaultButton, gridBagConstraints);
+        x3dModelingToolsPanel.add(sunrizeX3dEditorDefaultButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(titaniaX3dEditorLaunchButton, "launch");
-        titaniaX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        titaniaX3dEditorLaunchButton.setActionCommand("contactTF");
-        titaniaX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorLaunchButton, "launch");
+        sunrizeX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        sunrizeX3dEditorLaunchButton.setActionCommand("contactTF");
+        sunrizeX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titaniaX3dEditorLaunchButtonActionPerformed(evt);
+                sunrizeX3dEditorLaunchButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4013,14 +4022,14 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(titaniaX3dEditorLaunchButton, gridBagConstraints);
+        x3dModelingToolsPanel.add(sunrizeX3dEditorLaunchButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(titaniaX3dEditorDownloadButton, "get");
-        titaniaX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        titaniaX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        titaniaX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorDownloadButton, "get");
+        sunrizeX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        sunrizeX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        sunrizeX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titaniaX3dEditorDownloadButtonActionPerformed(evt);
+                sunrizeX3dEditorDownloadButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4029,14 +4038,14 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(titaniaX3dEditorDownloadButton, gridBagConstraints);
+        x3dModelingToolsPanel.add(sunrizeX3dEditorDownloadButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(titaniaX3dEditorHelpButton, "help");
-        titaniaX3dEditorHelpButton.setToolTipText("Display tool help page");
-        titaniaX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        titaniaX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorHelpButton, "help");
+        sunrizeX3dEditorHelpButton.setToolTipText("Display tool help page");
+        sunrizeX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        sunrizeX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titaniaX3dEditorHelpButtonActionPerformed(evt);
+                sunrizeX3dEditorHelpButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4045,7 +4054,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(titaniaX3dEditorHelpButton, gridBagConstraints);
+        x3dModelingToolsPanel.add(sunrizeX3dEditorHelpButton, gridBagConstraints);
 
         seamless3dX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorLabel, "Seamless3d");
@@ -4095,7 +4104,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(seamless3dX3dEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorChooserButton, "...");
-        seamless3dX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        seamless3dX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         seamless3dX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seamless3dX3dEditorChooserButtonActionPerformed(evt);
@@ -4220,7 +4229,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(ultraEditX3dEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorChooserButton, "...");
-        ultraEditX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        ultraEditX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         ultraEditX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ultraEditX3dEditorChooserButtonActionPerformed(evt);
@@ -4345,7 +4354,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(whiteDuneX3dEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorChooserButton, "...");
-        whiteDuneX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        whiteDuneX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         whiteDuneX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 whiteDuneX3dEditorChooserButtonActionPerformed(evt);
@@ -4470,7 +4479,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(wings3dX3dEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorChooserButton, "...");
-        wings3dX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        wings3dX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         wings3dX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wings3dX3dEditorChooserButtonActionPerformed(evt);
@@ -4554,7 +4563,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(1, 3, 1, 3);
         x3dModelingToolsPanel.add(verticalSpacerLabel16, gridBagConstraints);
 
         otherEditorNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -4848,11 +4857,11 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dModelingToolsPanel.add(seamless3dNvdSecurityCheckButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(titaniaNvdSecurityCheckButton, "!");
-        titaniaNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        titaniaNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeNvdSecurityCheckButton, "!");
+        sunrizeNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        sunrizeNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titaniaNvdSecurityCheckButtonActionPerformed(evt);
+                sunrizeNvdSecurityCheckButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4861,7 +4870,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(titaniaNvdSecurityCheckButton, gridBagConstraints);
+        x3dModelingToolsPanel.add(sunrizeNvdSecurityCheckButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(ultimakerCuraNvdSecurityCheckButton, "!");
         ultimakerCuraNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
@@ -4986,7 +4995,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(rhino3DX3dEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorChooserButton, "...");
-        rhino3DX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        rhino3DX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         rhino3DX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rhino3DX3dEditorChooserButtonActionPerformed(evt);
@@ -5146,7 +5155,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         imageVolumeToolsPanel.add(gimpEditorTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(gimpEditorChooserButton, "...");
-        gimpEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        gimpEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         gimpEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gimpEditorChooserButtonActionPerformed(evt);
@@ -5272,7 +5281,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         imageVolumeToolsPanel.add(fijiEditorTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(fijiEditorChooserButton, "...");
-        fijiEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        fijiEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         fijiEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fijiEditorChooserButtonActionPerformed(evt);
@@ -5398,7 +5407,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         imageVolumeToolsPanel.add(imageJCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(imageJEditorChooserButton, "...");
-        imageJEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        imageJEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         imageJEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imageJEditorChooserButtonActionPerformed(evt);
@@ -5524,7 +5533,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         imageVolumeToolsPanel.add(imageMagickEditorTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(imageMagickEditorChooserButton, "...");
-        imageMagickEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        imageMagickEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         imageMagickEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imageMagickEditorChooserButtonActionPerformed(evt);
@@ -5668,7 +5677,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         imageVolumeToolsPanel.add(otherImageEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherImageEditorChooserButton, "...");
-        otherImageEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherImageEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         otherImageEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otherImageEditorChooserButtonActionPerformed(evt);
@@ -5810,7 +5819,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         imageVolumeToolsPanel.add(itksnapVolumeEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(itksnapVolumeEditorChooserButton, "...");
-        itksnapVolumeEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        itksnapVolumeEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         itksnapVolumeEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itksnapVolumeEditorChooserButtonActionPerformed(evt);
@@ -5934,7 +5943,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         imageVolumeToolsPanel.add(seg3dVolumeEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(seg3dVolumeEditorChooserButton, "...");
-        seg3dVolumeEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        seg3dVolumeEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         seg3dVolumeEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seg3dVolumeEditorChooserButtonActionPerformed(evt);
@@ -6058,7 +6067,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         imageVolumeToolsPanel.add(slicer3dVolumeEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(slicer3dVolumeEditorChooserButton, "...");
-        slicer3dVolumeEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        slicer3dVolumeEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         slicer3dVolumeEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 slicer3dVolumeEditorChooserButtonActionPerformed(evt);
@@ -6199,7 +6208,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         imageVolumeToolsPanel.add(otherVolumeEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherVolumeChooserButton, "...");
-        otherVolumeChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherVolumeChooserButton.setToolTipText("Browse to select file location for local launch");
         otherVolumeChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otherVolumeChooserButtonActionPerformed(evt);
@@ -7521,9 +7530,9 @@ otherSemanticWebEditorCheckBox.setVisible(false);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 20;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -7622,7 +7631,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 20;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipady = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
@@ -7666,7 +7675,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dSecurityPanel.add(porteclePlayerPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(porteclePlayerChooserButton, "...");
-        porteclePlayerChooserButton.setToolTipText("Browse to select file location for local keystore");
+        porteclePlayerChooserButton.setToolTipText("Browse to select file location for local launch");
         porteclePlayerChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 porteclePlayerChooserButtonActionPerformed(evt);
@@ -7785,7 +7794,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dSecurityPanel.add(keystoreExplorerPlayerPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(keystoreExplorerPlayerChooserButton, "...");
-        keystoreExplorerPlayerChooserButton.setToolTipText("Browse to select file location for local keystore");
+        keystoreExplorerPlayerChooserButton.setToolTipText("Browse to select file location for local launch");
         keystoreExplorerPlayerChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 keystoreExplorerPlayerChooserButtonActionPerformed(evt);
@@ -7993,7 +8002,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(audacityEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(audacityEditorChooserButton, "...");
-        audacityEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        audacityEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         audacityEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 audacityEditorChooserButtonActionPerformed(evt);
@@ -8126,7 +8135,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(otherAudioEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherAudioEditorChooserButton, "...");
-        otherAudioEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherAudioEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         otherAudioEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otherAudioEditorChooserButtonActionPerformed(evt);
@@ -8266,7 +8275,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(amayaEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(amayaEditorChooserButton, "...");
-        amayaEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        amayaEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         amayaEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 amayaEditorChooserButtonActionPerformed(evt);
@@ -8391,7 +8400,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(batikEditorCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(batikEditorChooserButton, "...");
-        batikEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        batikEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         batikEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 batikEditorChooserButtonActionPerformed(evt);
@@ -8516,7 +8525,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(inkscapeEditorCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(inkscapeEditorChooserButton, "...");
-        inkscapeEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        inkscapeEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         inkscapeEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inkscapeEditorChooserButtonActionPerformed(evt);
@@ -8641,7 +8650,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(svgeditEditorCheckBox, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorChooserButton, "...");
-        svgeditEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        svgeditEditorChooserButton.setToolTipText("svg-edit is launched via Web browser");
         svgeditEditorChooserButton.setEnabled(false);
         svgeditEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -8657,7 +8666,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(svgeditEditorChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(svgeditEditorDefaultButton, "default");
-        svgeditEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        svgeditEditorDefaultButton.setToolTipText("Reset default invocation for browser launch");
         svgeditEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 svgeditEditorDefaultButtonActionPerformed(evt);
@@ -8775,7 +8784,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(otherHtml5EditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherHtml5EditorChooserButton, "...");
-        otherHtml5EditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherHtml5EditorChooserButton.setToolTipText("Browse to select file location for local launch");
         otherHtml5EditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otherHtml5EditorChooserButtonActionPerformed(evt);
@@ -8915,7 +8924,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(vlcPlayerPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vlcPlayerChooserButton, "...");
-        vlcPlayerChooserButton.setToolTipText("Browse to select file location for local keystore");
+        vlcPlayerChooserButton.setToolTipText("Browse to select file location for local launch");
         vlcPlayerChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vlcPlayerChooserButtonActionPerformed(evt);
@@ -9049,7 +9058,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(otherVideoEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherVideoChooserButton, "...");
-        otherVideoChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherVideoChooserButton.setToolTipText("Browse to select file location for local launch");
         otherVideoChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otherVideoChooserButtonActionPerformed(evt);
@@ -9172,7 +9181,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(protegePlayerPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(protegePlayerChooserButton, "...");
-        protegePlayerChooserButton.setToolTipText("Browse to select file location for local keystore");
+        protegePlayerChooserButton.setToolTipText("Browse to select file location for local launch");
         protegePlayerChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 protegePlayerChooserButtonActionPerformed(evt);
@@ -9305,7 +9314,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(otherSemanticWebEditorPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(otherSemanticWebEditorChooserButton, "...");
-        otherSemanticWebEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherSemanticWebEditorChooserButton.setToolTipText("Browse to select file location for local launch");
         otherSemanticWebEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otherSemanticWebEditorChooserButtonActionPerformed(evt);
@@ -9460,7 +9469,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         webMultimediaToolsPanel.add(wiresharkPathTF, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(wiresharkChooserButton, "...");
-        wiresharkChooserButton.setToolTipText("Browse to select file location for local keystore");
+        wiresharkChooserButton.setToolTipText("Browse to select file location for local launch");
         wiresharkChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wiresharkChooserButtonActionPerformed(evt);
@@ -11929,7 +11938,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         newX3dModelsDirectoryTF.setText(newX3dModelsDirectoryTF.getText().trim()); // normalize
         try {
           File file = new File(newX3dModelsDirectoryTF.getText());
-          if  (file.exists() && !file.isDirectory())
+          while  (file.exists() && !file.isDirectory())
           {
               file = file.getParentFile(); // ensure directory
               newX3dModelsDirectoryTF.setText(file.getPath());
@@ -12015,48 +12024,54 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         browserLaunch(X3dEditUserPreferences.helpSiteInkscape);
     }//GEN-LAST:event_inkscapeEditorHelpButtonActionPerformed
 
-    private void titaniaX3dEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaX3dEditorCheckBoxActionPerformed
-        String os = System.getProperty("os.name");
-        if (os.contains("Linux") && titaniaX3dEditorCheckBox.isSelected())
+    private void sunrizeX3dEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorCheckBoxActionPerformed
+        if (sunrizeX3dEditorCheckBox.isSelected())
         {
-          X3dEditUserPreferences.setTitaniaAutoLaunch("true");
+          X3dEditUserPreferences.setSunrizeAutoLaunch("true");
         }
         else
         {
-          X3dEditUserPreferences.setTitaniaAutoLaunch("false");
+          X3dEditUserPreferences.setSunrizeAutoLaunch("false");
         }
-        titaniaAutoLaunchCheck ();
-    }//GEN-LAST:event_titaniaX3dEditorCheckBoxActionPerformed
+        sunrizeAutoLaunchCheck ();
+    }//GEN-LAST:event_sunrizeX3dEditorCheckBoxActionPerformed
 
-    private void titaniaX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaX3dEditorPathTFActionPerformed
-        X3dEditUserPreferences.setTitaniaX3dEditorPath(titaniaX3dEditorPathTF.getText().trim());
-        titaniaAutoLaunchCheck ();
-    }//GEN-LAST:event_titaniaX3dEditorPathTFActionPerformed
+    private void sunrizeX3dEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorPathTFActionPerformed
+        X3dEditUserPreferences.setSunrizeX3dEditorPath(sunrizeX3dEditorPathTF.getText().trim());
+        sunrizeAutoLaunchCheck ();
+    }//GEN-LAST:event_sunrizeX3dEditorPathTFActionPerformed
 
-    private void titaniaX3dEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaX3dEditorChooserButtonActionPerformed
-        commonChooser(titaniaX3dEditorPathTF, "Find Titania graphics authoring tool", evt);
-        X3dEditUserPreferences.setTitaniaX3dEditorPath(titaniaX3dEditorPathTF.getText().trim());
-        titaniaAutoLaunchCheck ();
-    }//GEN-LAST:event_titaniaX3dEditorChooserButtonActionPerformed
+    private void sunrizeX3dEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorChooserButtonActionPerformed
+        commonChooser(sunrizeX3dEditorPathTF, "Find Sunrize graphics authoring tool", evt);
+        X3dEditUserPreferences.setSunrizeX3dEditorPath(sunrizeX3dEditorPathTF.getText().trim());
+        sunrizeAutoLaunchCheck ();
+    }//GEN-LAST:event_sunrizeX3dEditorChooserButtonActionPerformed
 
-    private void titaniaX3dEditorDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaX3dEditorDefaultButtonActionPerformed
-        titaniaX3dEditorPathTF.setText(X3dEditUserPreferences.getTitaniaX3dEditorPathDefault());
-        X3dEditUserPreferences.setTitaniaX3dEditorPath(titaniaX3dEditorPathTF.getText().trim());
-        titaniaAutoLaunchCheck ();
-    }//GEN-LAST:event_titaniaX3dEditorDefaultButtonActionPerformed
+    private void sunrizeX3dEditorDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorDefaultButtonActionPerformed
+        sunrizeX3dEditorPathTF.setText(X3dEditUserPreferences.getSunrizeX3dEditorPathDefault());
+        X3dEditUserPreferences.setSunrizeX3dEditorPath(sunrizeX3dEditorPathTF.getText().trim());
+        sunrizeAutoLaunchCheck ();
+    }//GEN-LAST:event_sunrizeX3dEditorDefaultButtonActionPerformed
 
-    private void titaniaX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaX3dEditorLaunchButtonActionPerformed
-        externalProcessLaunch(X3dEditUserPreferences.getTitaniaX3dEditorPath());
-        titaniaAutoLaunchCheck ();
-    }//GEN-LAST:event_titaniaX3dEditorLaunchButtonActionPerformed
+    private void sunrizeX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorLaunchButtonActionPerformed
+        System.out.println("[X3dEditUserPreferencesPanel] Confirm node.js installed, report npm version:");
+        runShellCommand("npm -v");
+        
+        boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
+        if  (false && isWindows)
+             runShellCommand("start /b " + X3dEditUserPreferences.getSunrizeX3dEditorPath()); // avoid blocking on invocation
+        else runShellCommand(        X3dEditUserPreferences.getSunrizeX3dEditorPath()); 
 
-    private void titaniaX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaX3dEditorDownloadButtonActionPerformed
-        browserLaunch(X3dEditUserPreferences.getDownloadSiteTitania());
-    }//GEN-LAST:event_titaniaX3dEditorDownloadButtonActionPerformed
+        sunrizeAutoLaunchCheck ();
+    }//GEN-LAST:event_sunrizeX3dEditorLaunchButtonActionPerformed
 
-    private void titaniaX3dEditorHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaX3dEditorHelpButtonActionPerformed
-        browserLaunch(X3dEditUserPreferences.helpSiteTitania);
-    }//GEN-LAST:event_titaniaX3dEditorHelpButtonActionPerformed
+    private void sunrizeX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorDownloadButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.getDownloadSiteSunrize());
+    }//GEN-LAST:event_sunrizeX3dEditorDownloadButtonActionPerformed
+
+    private void sunrizeX3dEditorHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorHelpButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.helpSiteSunrize);
+    }//GEN-LAST:event_sunrizeX3dEditorHelpButtonActionPerformed
 
     private void batikEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batikEditorPathTFActionPerformed
         X3dEditUserPreferences.setBatikEditorPath(batikEditorPathTF.getText().trim());
@@ -12190,10 +12205,10 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         seamless3dAutoLaunchCheck ();
     }//GEN-LAST:event_seamless3dX3dEditorPathTFFocusLost
 
-    private void titaniaX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_titaniaX3dEditorPathTFFocusLost
-        X3dEditUserPreferences.setTitaniaX3dEditorPath(titaniaX3dEditorPathTF.getText().trim());
-        titaniaAutoLaunchCheck ();
-    }//GEN-LAST:event_titaniaX3dEditorPathTFFocusLost
+    private void sunrizeX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorPathTFFocusLost
+        X3dEditUserPreferences.setSunrizeX3dEditorPath(sunrizeX3dEditorPathTF.getText().trim());
+        sunrizeAutoLaunchCheck ();
+    }//GEN-LAST:event_sunrizeX3dEditorPathTFFocusLost
 
     private void curaX3dEditorPathTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_curaX3dEditorPathTFFocusLost
         X3dEditUserPreferences.setCuraX3dEditorPath(curaX3dEditorPathTF.getText().trim());
@@ -12497,10 +12512,10 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
                       X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + seamless3dX3dEditorLabel.getText());
     }//GEN-LAST:event_seamless3dNvdSecurityCheckButtonActionPerformed
 
-    private void titaniaNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titaniaNvdSecurityCheckButtonActionPerformed
+    private void sunrizeNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeNvdSecurityCheckButtonActionPerformed
         browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
-                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + titaniaX3dEditorLabel.getText());
-    }//GEN-LAST:event_titaniaNvdSecurityCheckButtonActionPerformed
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + sunrizeX3dEditorLabel.getText());
+    }//GEN-LAST:event_sunrizeNvdSecurityCheckButtonActionPerformed
 
     private void ultimakerCuraNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimakerCuraNvdSecurityCheckButtonActionPerformed
         browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
@@ -12862,14 +12877,13 @@ for Extensible 3D (X3D) Graphics International Standard.
     batikEditorLaunchButton.setEnabled(isExecutableFile);
     showFound (isExecutableFile, batikEditorLabel, batikEditorPathTF);
   }
-  private void titaniaAutoLaunchCheck ()
+  private void sunrizeAutoLaunchCheck ()
   {
-    checkExistingFile = new File(titaniaX3dEditorPathTF.getText().trim());
-    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setTitaniaAutoLaunch(Boolean.toString(isExecutableFile));
-    titaniaX3dEditorCheckBox.setSelected(isExecutableFile);
-    titaniaX3dEditorLaunchButton.setEnabled(isExecutableFile);
-    showFound (isExecutableFile, titaniaX3dEditorLabel, titaniaX3dEditorPathTF);
+    boolean isNodejsInstalled = true; // TODO how to check programmatically?
+    X3dEditUserPreferences.setSunrizeAutoLaunch(Boolean.toString(isNodejsInstalled));
+    sunrizeX3dEditorCheckBox.setSelected(isNodejsInstalled);
+    sunrizeX3dEditorLaunchButton.setEnabled(isNodejsInstalled); // based on node.js installed and sunrize retrievable
+    showFound (isExecutableFile, sunrizeX3dEditorLabel, sunrizeX3dEditorPathTF);
   }
   private void audacityAutoLaunchCheck ()
   {
@@ -13268,7 +13282,7 @@ for Extensible 3D (X3D) Graphics International Standard.
     /**
      * Launch application in local operating system, no passed parameters.
      * @param applicationPath local executable of interest
-     * @see https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/ProcessBuilder.html
+     * @see https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ProcessBuilder.html
      */
     public static void externalProcessLaunch(String applicationPath) {
         ProcessBuilder processBuilder;
@@ -13294,26 +13308,32 @@ for Extensible 3D (X3D) Graphics International Standard.
     }
     /**
      * Launch application in local operating system, with passed parameters.
-     * @param applicationInvocation local executable of interest
-     * @param parameters additional parameters, if any
-     * @see https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/ProcessBuilder.html
+     * @param applicationInvocationPath local executable of interest (or launch directory for system command)
+     * @param parameters additional parameters (or launch invocation for system command)
+     * @see https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ProcessBuilder.html
      */
-    public static void externalProcessLaunch(String applicationInvocation, String parameters)
+    public static void externalProcessLaunch(String applicationInvocationPath, String parameters)
     {
         String[] parameterArray = parameters.split("\\s");
         String[] launchArray    = new String[1 + parameterArray.length];
-        launchArray[0] = applicationInvocation;
-        System.arraycopy(launchArray, 1, parameterArray, 0, parameterArray.length);
         
+        if  (applicationInvocationPath.equals("."))
+        {
+            launchArray = parameterArray; // no path provided
+        }
+        else 
+        {
+            launchArray[0] = applicationInvocationPath;
+            System.arraycopy(parameterArray, 0, launchArray, 1, parameterArray.length);
+        }
         ProcessBuilder processBuilder;
         try
         {
-            String[] commandLine = applicationInvocation.split("\\s");
-            processBuilder = new ProcessBuilder(commandLine);
+            processBuilder = new ProcessBuilder(launchArray);
             // check if application apparently needs to start in its own directory
-            if (applicationInvocation.toLowerCase().contains("portecle"))
+            if (applicationInvocationPath.toLowerCase().contains("portecle"))
             {
-                File applicationDirectory = (new File(applicationInvocation)).getParentFile();
+                File applicationDirectory = (new File(applicationInvocationPath)).getParentFile();
                 if (applicationDirectory.isDirectory())
                     processBuilder.directory(applicationDirectory); // set initial directory
             }
@@ -13323,7 +13343,57 @@ for Extensible 3D (X3D) Graphics International Standard.
         catch (IOException ex) {
           InputOutput io = IOProvider.getDefault().getIO("Output", false);
           io.select();
-          io.getOut().println(new StringBuilder().append("Error launching external editor: ").append(ex.getLocalizedMessage()).toString());
+          io.getOut().println(new StringBuilder().append("[X3dEditUserPreferencesPanel] Error launching external editor, ")
+                  .append("\"").append(applicationInvocationPath).append("\" \"").append(parameters).append("\", ")
+                  .append(ex.getLocalizedMessage()).toString());
+        }
+    }
+    /**
+     * Run command in local operating system, includes passed parameters.
+     * TODO consider moving this method to more global class
+     * @param command launch invocation for system command, with parameters
+     * @see <a href="https://stackoverflow.com/questions/3062305/executing-shell-commands-from-java" target="_blank">https://stackoverflow.com/questions/3062305/executing-shell-commands-from-java</a>
+     * @see <a href="https://www.baeldung.com/run-shell-command-in-java" target="_blank">https://www.baeldung.com/run-shell-command-in-java</a>
+     * @return process exit value
+     */
+    public static int runShellCommand(String command)
+    {
+        String os = System.getProperty("os.name");
+        boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
+        try
+        {
+            Process process;
+            if (isWindows)
+            {
+//              process = Runtime.getRuntime().exec(("cmd.exe /c " + command).split("\\s")); // blocks
+                // https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/start  start /b 
+                process = Runtime.getRuntime().exec(("cmd.exe /c " + command).split("\\s"));
+            }
+            else
+            {
+               process = Runtime.getRuntime().exec(String.format("/bin/sh -c %s", command).split("\\s"));
+            }
+            
+            System.out.println("[runShellCommand] " + command);
+            BufferedReader stdoutReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = stdoutReader.readLine()) != null)
+            {
+                if ((line != null) && !line.isEmpty())
+                    System.out.println("[runShellCommand] " + line);
+            }
+            BufferedReader stderrReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+            while ((line = stderrReader.readLine()) != null)
+            {
+               if ((line != null) && !line.isEmpty())
+                    System.out.println("[runShellCommand] " + line);
+            }
+            return process.exitValue();
+        }
+        catch (IOException ioe)
+        {
+             System.err.println("[X3dEditUserPreferencesPanel] [runShellCommand] \"" + command + "\", problem with Runtime.getRuntime().exe " + ioe.getLocalizedMessage());
+             return -1;
         }
     }
 
@@ -13453,8 +13523,9 @@ bsContentStudioX3dEditorPathTF.setText(X3dEditUserPreferences.getBsContentStudio
      meshLabX3dEditorPathTF.setText(X3dEditUserPreferences.getMeshLabX3dEditorPath());
     paraviewX3dEditorPathTF.setText(X3dEditUserPreferences.getParaviewX3dEditorPath());
 polyTransNuGrafEditorPathTF.setText(X3dEditUserPreferences.getPolyTransNuGrafEditorPath());
+     rhino3DX3dEditorPathTF.setText(X3dEditUserPreferences.getRhino3DX3dEditorPath());
   seamless3dX3dEditorPathTF.setText(X3dEditUserPreferences.getSeamlessX3dEditorPath());
-     titaniaX3dEditorPathTF.setText(X3dEditUserPreferences.getTitaniaX3dEditorPath());
+     sunrizeX3dEditorPathTF.setText(X3dEditUserPreferences.getSunrizeX3dEditorPath());
   itksnapVolumeEditorPathTF.setText(X3dEditUserPreferences.getItksnapEditorPath());
     seg3dVolumeEditorPathTF.setText(X3dEditUserPreferences.getSeg3dEditorPath());
  slicer3dVolumeEditorPathTF.setText(X3dEditUserPreferences.getSlicer3dEditorPath());
@@ -13513,6 +13584,7 @@ polyTransNuGrafEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPrefer
    seg3dVolumeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSeg3dAutoLaunch()));
 slicer3dVolumeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSlicer3dAutoLaunch()));
       inkscapeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isInkscapeAutoLaunch()));
+    rhino3DX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isRhino3DAutoLaunch()));
        svgeditEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSvgeditAutoLaunch()));
   ultraEditX3dEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isUltraEditAutoLaunch()));
            wiresharkCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isWiresharkAutoLaunch()));
@@ -13558,10 +13630,7 @@ otherSemanticWebEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPrefe
     String os = System.getProperty("os.name");
     if (!os.contains("Linux"))
     {
-             titaniaX3dEditorCheckBox.setEnabled(false);
-        titaniaX3dEditorChooserButton.setEnabled(false);
-        titaniaX3dEditorDefaultButton.setEnabled(false);
-         titaniaX3dEditorLaunchButton.setEnabled(false);
+        // currently no special dependencies
     }
   }
   private void initializeHAnimVisualizationDefaultValues ()
@@ -13612,8 +13681,8 @@ otherSemanticWebEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPrefe
           batikAutoLaunchCheck ();
        bvhackerAutoLaunchCheck ();
  inkscapeEditorAutoLaunchCheck ();
+        rhino3DAutoLaunchCheck ();
   svgeditEditorAutoLaunchCheck ();
-            vlcAutoLaunchCheck ();
         protegeAutoLaunchCheck ();
       wiresharkAutoLaunchCheck ();
         
@@ -13637,7 +13706,7 @@ bsContentStudioAutoLaunchCheck ();
 polyTransNuGrafAutoLaunchCheck (); // okino
        paraviewAutoLaunchCheck ();
      seamless3dAutoLaunchCheck ();
-        titaniaAutoLaunchCheck ();
+        sunrizeAutoLaunchCheck ();
       ultraEditAutoLaunchCheck ();
            curaAutoLaunchCheck (); // ultimaker
       whiteDuneAutoLaunchCheck ();
@@ -14272,6 +14341,15 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton slicer3dVolumeEditorLaunchButton;
     private javax.swing.JTextField slicer3dVolumeEditorPathTF;
     private javax.swing.JButton slicerNvdSecurityCheckButton;
+    private javax.swing.JButton sunrizeNvdSecurityCheckButton;
+    private javax.swing.JCheckBox sunrizeX3dEditorCheckBox;
+    private javax.swing.JButton sunrizeX3dEditorChooserButton;
+    private javax.swing.JButton sunrizeX3dEditorDefaultButton;
+    private javax.swing.JButton sunrizeX3dEditorDownloadButton;
+    private javax.swing.JButton sunrizeX3dEditorHelpButton;
+    private javax.swing.JLabel sunrizeX3dEditorLabel;
+    private javax.swing.JButton sunrizeX3dEditorLaunchButton;
+    private javax.swing.JTextField sunrizeX3dEditorPathTF;
     private javax.swing.JLabel svgToolHintLabel;
     private javax.swing.JCheckBox svgeditEditorCheckBox;
     private javax.swing.JButton svgeditEditorChooserButton;
@@ -14290,15 +14368,6 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton swirlx3dLaunchButton;
     private javax.swing.JButton swirlx3dNvdSecurityCheckButton;
     private javax.swing.JTextField swirlx3dTF;
-    private javax.swing.JButton titaniaNvdSecurityCheckButton;
-    private javax.swing.JCheckBox titaniaX3dEditorCheckBox;
-    private javax.swing.JButton titaniaX3dEditorChooserButton;
-    private javax.swing.JButton titaniaX3dEditorDefaultButton;
-    private javax.swing.JButton titaniaX3dEditorDownloadButton;
-    private javax.swing.JButton titaniaX3dEditorHelpButton;
-    private javax.swing.JLabel titaniaX3dEditorLabel;
-    private javax.swing.JButton titaniaX3dEditorLaunchButton;
-    private javax.swing.JTextField titaniaX3dEditorPathTF;
     private javax.swing.JLabel transparencyLabel;
     private javax.swing.JTextField transparencyTF;
     private javax.swing.JButton ultimakerCuraNvdSecurityCheckButton;

@@ -128,6 +128,7 @@ public class X3dEditUserPreferences
   private static final String HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY = "HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY";
   private static final String    VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY =    "VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY";
   private static final String            SAVAGE_LOCALEXAMPLES_PRESENT_KEY =            "SAVAGE_LOCALEXAMPLES_PRESENT_KEY";
+  private static final String     SAVAGEDEFENSE_LOCALEXAMPLES_PRESENT_KEY =     "SAVAGEDEFENSE_LOCALEXAMPLES_PRESENT_KEY";
   private static final String            X3D4WA_LOCALEXAMPLES_PRESENT_KEY =            "X3D4WA_LOCALEXAMPLES_PRESENT_KEY";
   private static final String            X3D4AM_LOCALEXAMPLES_PRESENT_KEY =            "X3D4AM_LOCALEXAMPLES_PRESENT_KEY";
 
@@ -266,6 +267,7 @@ public class X3dEditUserPreferences
   public static void setHumanoidAnimationLocalExamplesPresent (boolean value)  { commonBooleanSet(HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY, value);}
   public static void    setVrmlSourcebookLocalExamplesPresent (boolean value)  { commonBooleanSet(   VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY, value);}
   public static void            setSavageLocalExamplesPresent (boolean value)  { commonBooleanSet(           SAVAGE_LOCALEXAMPLES_PRESENT_KEY, value);}
+  public static void     setSavageDefenseLocalExamplesPresent (boolean value)  { commonBooleanSet(    SAVAGEDEFENSE_LOCALEXAMPLES_PRESENT_KEY, value);}
   public static void            setX3d4waLocalExamplesPresent (boolean value)  { commonBooleanSet(           X3D4WA_LOCALEXAMPLES_PRESENT_KEY, value);}
   public static void            setX3d4amLocalExamplesPresent (boolean value)  { commonBooleanSet(           X3D4AM_LOCALEXAMPLES_PRESENT_KEY, value);}
   
@@ -310,6 +312,7 @@ public class X3dEditUserPreferences
   public static boolean getHumanoidAnimationLocalExamplesPresent () { return commonBooleanGet(HUMANOIDANIMATION_LOCALEXAMPLES_PRESENT_KEY, false);}
   public static boolean    getVrmlSourcebookLocalExamplesPresent () { return commonBooleanGet(   VRMLSOURCEBOOK_LOCALEXAMPLES_PRESENT_KEY, false);}
   public static boolean            getSavageLocalExamplesPresent () { return commonBooleanGet(           SAVAGE_LOCALEXAMPLES_PRESENT_KEY, false);}
+  public static boolean     getSavageDefenseLocalExamplesPresent () { return commonBooleanGet(    SAVAGEDEFENSE_LOCALEXAMPLES_PRESENT_KEY, false);}
   public static boolean            getX3d4waLocalExamplesPresent () { return commonBooleanGet(           X3D4WA_LOCALEXAMPLES_PRESENT_KEY, false);}
   public static boolean            getX3d4amLocalExamplesPresent () { return commonBooleanGet(           X3D4AM_LOCALEXAMPLES_PRESENT_KEY, false);}
   
@@ -444,7 +447,7 @@ public class X3dEditUserPreferences
   public static String            RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY =            "RHINO3D_AUTOLAUNCH";
   public static String        POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY =    "POLYTRANSNUGRAF_AUTOLAUNCH";
   public static String         SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY =         "SEAMLESS3D_AUTOLAUNCH";
-  public static String            TITANIA_EXECUTABLE_AUTOLAUNCH_KEY =            "TITANIA_AUTOLAUNCH";
+  public static String            SUNRIZE_EXECUTABLE_AUTOLAUNCH_KEY =            "SUNRIZE_AUTOLAUNCH";
   public static String            ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY =            "ITKSNAP_AUTOLAUNCH";
   public static String              SEG3D_EXECUTABLE_AUTOLAUNCH_KEY =              "SEG3D_AUTOLAUNCH";
   public static String           SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY =           "SLICER3D_AUTOLAUNCH";
@@ -491,7 +494,7 @@ public class X3dEditUserPreferences
   public static String    PARAVIEW_X3D_EDITOR_PATH_KEY          =   "PARAVIEW_X3D_EDITOR_PATH";
   public static String     RHINO3D_X3D_EDITOR_PATH_KEY          =    "RHINO3D_X3D_EDITOR_PATH";
   public static String  SEAMLESS3D_X3D_EDITOR_PATH_KEY          = "SEAMLESS3D_X3D_EDITOR_PATH";
-  public static String     TITANIA_X3D_EDITOR_PATH_KEY          =    "TITANIA_X3D_EDITOR_PATH";
+  public static String     SUNRIZE_X3D_EDITOR_PATH_KEY          =    "SUNRIZE_X3D_EDITOR_PATH";
   public static String  ITKSNAP_VOLUME_EDITOR_PATH_KEY          =    "ITKSNAP_X3D_EDITOR_PATH";
   public static String    SEG3D_VOLUME_EDITOR_PATH_KEY          =      "SEG3D_X3D_EDITOR_PATH";
   public static String SLICER3D_VOLUME_EDITOR_PATH_KEY          =   "SLICER3D_X3D_EDITOR_PATH";
@@ -571,7 +574,7 @@ public class X3dEditUserPreferences
   public static String     RHINO3D_X3D_EDITOR_PATH_DEFAULT;
   public static String POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT;
   public static String  SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT;
-  public static String     TITANIA_X3D_EDITOR_PATH_DEFAULT;
+  public static String     SUNRIZE_X3D_EDITOR_PATH_DEFAULT;
   public static String     ITKSNAP_X3D_EDITOR_PATH_DEFAULT;
   public static String       SEG3D_X3D_EDITOR_PATH_DEFAULT;
   public static String    SLICER3D_X3D_EDITOR_PATH_DEFAULT;
@@ -758,7 +761,7 @@ public class X3dEditUserPreferences
   private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.12.0\\bin\\paraview.exe";
   private static final String winxpRhino3DX3dEditorPathDefault           = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
-  private static final String winxpTitaniaX3dEditorPathDefault           = "(only available in Linux)";
+  private static final String winxpSunrizeX3dEditorPathDefault           = "npx sunrize"; // node.js
   private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String winxpSeg3dEditorPathDefault                = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String winxpSlicer3dEditorPathDefault             = "C:\\ProgramData\\slicer.org\\Slicer 5.6.1\\Slicer.exe";
@@ -789,7 +792,7 @@ public class X3dEditUserPreferences
   private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.12.0\\bin\\paraview.exe";
   private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
-  private static final String windows64TitaniaX3dEditorPathDefault       = "(only available in Linux)";
+  private static final String windows64SunrizeX3dEditorPathDefault       = "npx sunrize"; // node.js
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\slicer.org\\Slicer 5.6.1\\Slicer.exe";
@@ -820,7 +823,7 @@ public class X3dEditUserPreferences
   private static final String macosxParaviewX3dEditorPathDefault         = "Paraview";       // TODO insert correct value
   private static final String macosxRhino3DX3dEditorPathDefault          = "Rhino3D";        // TODO insert correct value
   private static final String macosxSeamlessX3dEditorPathDefault         = "Seamless3d";     // TODO insert correct value
-  private static final String macosxTitaniaX3dEditorPathDefault          = "(only available in Linux)";
+  private static final String macosxSunrizeX3dEditorPathDefault          = "npx sunrize"; // node.js
   private static final String macosxItksnapEditorPathDefault             = "Itksnap";        // TODO insert correct value
   private static final String macosxSeg3dEditorPathDefault               = "Seg3d";          // TODO insert correct value
   private static final String macosxSlicer3dEditorPathDefault            = "Slicer3d";       // TODO insert correct value
@@ -850,7 +853,7 @@ public class X3dEditUserPreferences
   private static final String otherParaviewX3dEditorPathDefault          = "Paraview";       // TODO insert correct value
   private static final String otherRhino3DX3dEditorPathDefault           = "Rhino3D";        // TODO insert correct value
   private static final String otherSeamlessX3dEditorPathDefault          = "Seamless3d";     // TODO insert correct value
-  private static final String otherTitaniaX3dEditorPathDefault           = "(only available in Linux)";
+  private static final String otherSunrizeX3dEditorPathDefault           = "npx sunrize"; // node.js
   private static final String otherItksnapEditorPathDefault              = "Itksnap";        // TODO insert correct value
   private static final String otherSeg3dEditorPathDefault                = "Seg3d";          // TODO insert correct value
   private static final String otherSlicer3dEditorPathDefault             = "Slicer3d";       // TODO insert correct value
@@ -900,7 +903,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
   private static final String downloadSiteRhino3D                        = "https://www.rhino3d.com/download";
   private static final String downloadSiteSeamless3d                     = "https://www.seamless3d.com";
-  private static final String downloadSiteTitania                        = "https://github.com/create3000/titania#readme";
+  private static final String downloadSiteSunrize                        = "https://create3000.github.io/sunrize";
   private static final String downloadSiteItksnap                        = "http://www.itksnap.org"; // http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
   private static final String downloadSiteSeg3d                          = "https://www.sci.utah.edu/cibc-software/seg3d.html";
   private static final String downloadSiteSlicer3d                       = "https://www.slicer.org";
@@ -937,7 +940,7 @@ public class X3dEditUserPreferences
   protected static final String helpSiteRhino3D                          = "https://www.rhino3d.com/learn";
   protected static final String helpSitePolyTransNuGraf                  = "https://www.okino.com/nrs/nrs.htm";
   protected static final String helpSiteSeamless3d                       = "https://www.seamless3d.com/faq.html";
-  protected static final String helpSiteTitania                          = "https://github.com/create3000/titania#readme";
+  protected static final String helpSiteSunrize                          = "https://create3000.github.io/x_ite";
   protected static final String helpSiteItksnap                          = "http://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.SNAP3"; // http://www.itksnap.org/pmwiki/pmwiki.php";
   protected static final String helpSiteSeg3d                            = "https://www.sci.utah.edu/cibc-software/seg3d.html";
   protected static final String helpSiteSlicer3d                         = "https://www.slicer.org/slicerWiki/index.php/Documentation/Release";
@@ -984,7 +987,7 @@ public class X3dEditUserPreferences
   public static String getDownloadSiteParaview()       {return downloadSiteParaview;}
   public static String getDownloadSiteRhino3D()        {return downloadSiteRhino3D;}
   public static String getDownloadSiteSeamless3d()     {return downloadSiteSeamless3d;}
-  public static String getDownloadSiteTitania()        {return downloadSiteTitania;}
+  public static String getDownloadSiteSunrize()        {return downloadSiteSunrize;}
   public static String getDownloadSiteItksnap()        {return downloadSiteItksnap;}
   public static String getDownloadSiteSeg3d()          {return downloadSiteSeg3d;}
   public static String getDownloadSiteSlicer3d()       {return downloadSiteSlicer3d;}
@@ -1052,7 +1055,7 @@ public class X3dEditUserPreferences
       RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxRhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   macosxPolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( macosxSeamlessX3dEditorPathDefault);
-      TITANIA_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxTitaniaX3dEditorPathDefault);
+      SUNRIZE_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxSunrizeX3dEditorPathDefault);
       ITKSNAP_X3D_EDITOR_PATH_DEFAULT        = toks(     macosxItksnapEditorPathDefault);
         SEG3D_X3D_EDITOR_PATH_DEFAULT        = toks(       macosxSeg3dEditorPathDefault);
      SLICER3D_X3D_EDITOR_PATH_DEFAULT        = toks(    macosxSlicer3dEditorPathDefault);
@@ -1110,7 +1113,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dE
       RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64Rhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   windows64PolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( windows64SeamlessX3dEditorPathDefault);
-      TITANIA_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64TitaniaX3dEditorPathDefault);
+      SUNRIZE_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64SunrizeX3dEditorPathDefault);
       ITKSNAP_X3D_EDITOR_PATH_DEFAULT        = toks(     windows64ItksnapEditorPathDefault);
         SEG3D_X3D_EDITOR_PATH_DEFAULT        = toks(       windows64Seg3dEditorPathDefault);
      SLICER3D_X3D_EDITOR_PATH_DEFAULT        = toks(    windows64Slicer3dEditorPathDefault);
@@ -1166,7 +1169,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEdito
       RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpRhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   winxpPolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( winxpSeamlessX3dEditorPathDefault);
-      TITANIA_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpTitaniaX3dEditorPathDefault);
+      SUNRIZE_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpSunrizeX3dEditorPathDefault);
       ITKSNAP_X3D_EDITOR_PATH_DEFAULT        = toks(     winxpItksnapEditorPathDefault);
         SEG3D_X3D_EDITOR_PATH_DEFAULT        = toks(       winxpSeg3dEditorPathDefault);
      SLICER3D_X3D_EDITOR_PATH_DEFAULT        = toks(    winxpSlicer3dEditorPathDefault);
@@ -1221,7 +1224,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
       RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  otherRhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   otherPolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( otherSeamlessX3dEditorPathDefault);
-      TITANIA_X3D_EDITOR_PATH_DEFAULT        = toks(  otherTitaniaX3dEditorPathDefault);
+      SUNRIZE_X3D_EDITOR_PATH_DEFAULT        = toks(  otherSunrizeX3dEditorPathDefault);
       ITKSNAP_X3D_EDITOR_PATH_DEFAULT        = toks(     otherItksnapEditorPathDefault);
         SEG3D_X3D_EDITOR_PATH_DEFAULT        = toks(       otherSeg3dEditorPathDefault);
      SLICER3D_X3D_EDITOR_PATH_DEFAULT        = toks(    otherSlicer3dEditorPathDefault);
@@ -1302,7 +1305,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String   getRhino3DX3dEditorPathDefault()   {return     RHINO3D_X3D_EDITOR_PATH_DEFAULT;}
   public static String getPolyTransNuGrafEditorPathDefault(){return POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT;}
   public static String  getSeamlessX3dEditorPathDefault()   {return  SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT;}
-  public static String   getTitaniaX3dEditorPathDefault()   {return     TITANIA_X3D_EDITOR_PATH_DEFAULT;}
+  public static String   getSunrizeX3dEditorPathDefault()   {return     SUNRIZE_X3D_EDITOR_PATH_DEFAULT;}
   public static String      getItksnapEditorPathDefault()   {return     ITKSNAP_X3D_EDITOR_PATH_DEFAULT;}
   public static String        getSeg3dEditorPathDefault()   {return       SEG3D_X3D_EDITOR_PATH_DEFAULT;}
   public static String     getSlicer3dEditorPathDefault()   {return    SLICER3D_X3D_EDITOR_PATH_DEFAULT;}
@@ -1374,7 +1377,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void  setRhino3DX3dEditorPath       (String path){commonStringSet(      RHINO3D_X3D_EDITOR_PATH_KEY, path);}
   public static void setPolyTransNuGrafEditorPath   (String path){commonStringSet(  POLYTRANSNUGRAF_EDITOR_PATH_KEY, path);}
   public static void  setSeamlessX3dEditorPath      (String path){commonStringSet(   SEAMLESS3D_X3D_EDITOR_PATH_KEY, path);}
-  public static void   setTitaniaX3dEditorPath      (String path){commonStringSet(      TITANIA_X3D_EDITOR_PATH_KEY, path);}
+  public static void   setSunrizeX3dEditorPath      (String path){commonStringSet(      SUNRIZE_X3D_EDITOR_PATH_KEY, path);}
   public static void      setItksnapEditorPath      (String path){commonStringSet(   ITKSNAP_VOLUME_EDITOR_PATH_KEY, path);}
   public static void        setSeg3dEditorPath      (String path){commonStringSet(     SEG3D_VOLUME_EDITOR_PATH_KEY, path);}
   public static void     setSlicer3dEditorPath      (String path){commonStringSet(   SLICER3D_VOLUME_EDITOR_PATH_KEY,path);}
@@ -1445,7 +1448,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void          setRhino3DAutoLaunch (String autoLaunch){commonStringSet(           RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void  setPolyTransNuGrafAutoLaunch (String autoLaunch){commonStringSet(       POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY, autoLaunch);}
   public static void       setSeamless3dAutoLaunch (String autoLaunch){commonStringSet(        SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setTitaniaAutoLaunch (String autoLaunch){commonStringSet(           TITANIA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setSunrizeAutoLaunch (String autoLaunch){commonStringSet(           SUNRIZE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setItksnapAutoLaunch (String autoLaunch){commonStringSet(           ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void            setSeg3dAutoLaunch (String autoLaunch){commonStringSet(             SEG3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void         setSlicer3dAutoLaunch (String autoLaunch){commonStringSet(          SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1504,7 +1507,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String   getRhino3DX3dEditorPath()       {return commonStringGet(   RHINO3D_X3D_EDITOR_PATH_KEY,   RHINO3D_X3D_EDITOR_PATH_DEFAULT);}
   public static String getPolyTransNuGrafEditorPath()    {return commonStringGet(POLYTRANSNUGRAF_EDITOR_PATH_KEY, POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT);}
   public static String  getSeamlessX3dEditorPath()       {return commonStringGet(SEAMLESS3D_X3D_EDITOR_PATH_KEY,SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT);}
-  public static String   getTitaniaX3dEditorPath()       {return commonStringGet(   TITANIA_X3D_EDITOR_PATH_KEY,   TITANIA_X3D_EDITOR_PATH_DEFAULT);}
+  public static String   getSunrizeX3dEditorPath()       {return commonStringGet(   SUNRIZE_X3D_EDITOR_PATH_KEY,   SUNRIZE_X3D_EDITOR_PATH_DEFAULT);}
   public static String      getItksnapEditorPath()       {return commonStringGet(ITKSNAP_VOLUME_EDITOR_PATH_KEY,   ITKSNAP_X3D_EDITOR_PATH_DEFAULT);}
   public static String        getSeg3dEditorPath()       {return commonStringGet(  SEG3D_VOLUME_EDITOR_PATH_KEY,     SEG3D_X3D_EDITOR_PATH_DEFAULT);}
   public static String     getSlicer3dEditorPath()       {return commonStringGet(SLICER3D_VOLUME_EDITOR_PATH_KEY, SLICER3D_X3D_EDITOR_PATH_DEFAULT);}
@@ -1564,7 +1567,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String           isRhino3DAutoLaunch() {return commonStringGet(            RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String   isPolyTransNuGrafAutoLaunch() {return commonStringGet(        POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String        isSeamless3dAutoLaunch() {return commonStringGet(         SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
-  public static String           isTitaniaAutoLaunch() {return commonStringGet(            TITANIA_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String           isSunrizeAutoLaunch() {return commonStringGet(            SUNRIZE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isItksnapAutoLaunch() {return commonStringGet(            ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String             isSeg3dAutoLaunch() {return commonStringGet(              SEG3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String          isSlicer3dAutoLaunch() {return commonStringGet(           SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
@@ -1628,7 +1631,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void   resetRhino3DX3dEditorPath() {commonReset(    RHINO3D_X3D_EDITOR_PATH_KEY);}
   public static void    resetPolyTransNuGrafPath() {commonReset(POLYTRANSNUGRAF_EDITOR_PATH_KEY);}
   public static void  resetSeamlessX3dEditorPath() {commonReset( SEAMLESS3D_X3D_EDITOR_PATH_KEY);}
-  public static void   resetTitaniaX3dEditorPath() {commonReset(    TITANIA_X3D_EDITOR_PATH_KEY);}
+  public static void   resetSunrizeX3dEditorPath() {commonReset(    SUNRIZE_X3D_EDITOR_PATH_KEY);}
   public static void      resetItksnapEditorPath() {commonReset( ITKSNAP_VOLUME_EDITOR_PATH_KEY);}
   public static void        resetSeg3dEditorPath() {commonReset(   SEG3D_VOLUME_EDITOR_PATH_KEY);}
   public static void     resetSlicer3dEditorPath() {commonReset(SLICER3D_VOLUME_EDITOR_PATH_KEY);}

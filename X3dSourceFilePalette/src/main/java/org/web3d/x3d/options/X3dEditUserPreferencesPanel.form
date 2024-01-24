@@ -10,7 +10,7 @@
       <Dimension value="[850, 680]"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[850, 600]"/>
+      <Dimension value="[850, 660]"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -32,7 +32,7 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Set X3D-Edit preference values"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[825, 620]"/>
+          <Dimension value="[825, 650]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[850, 600]"/>
@@ -1063,7 +1063,7 @@
             <Component class="javax.swing.JButton" name="contactChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contactChooserButtonActionPerformed"/>
@@ -1077,7 +1077,7 @@
             <Component class="javax.swing.JButton" name="contactGeoChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
@@ -1092,7 +1092,7 @@
             <Component class="javax.swing.JButton" name="freeWrlChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="freeWrlChooserButtonActionPerformed"/>
@@ -1106,7 +1106,7 @@
             <Component class="javax.swing.JButton" name="heilanChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="heilanChooserButtonActionPerformed"/>
@@ -1120,7 +1120,7 @@
             <Component class="javax.swing.JButton" name="instantRealityChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="instantRealityChooserButtonActionPerformed"/>
@@ -1134,7 +1134,7 @@
             <Component class="javax.swing.JButton" name="octagaChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="octagaChooserButtonActionPerformed"/>
@@ -1148,7 +1148,7 @@
             <Component class="javax.swing.JButton" name="swirlx3dChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swirlx3dChooserButtonActionPerformed"/>
@@ -1162,7 +1162,7 @@
             <Component class="javax.swing.JButton" name="view3dsceneChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view3dsceneChooserButtonActionPerformed"/>
@@ -1176,7 +1176,7 @@
             <Component class="javax.swing.JButton" name="vivatyChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vivatyChooserButtonActionPerformed"/>
@@ -1190,7 +1190,7 @@
             <Component class="javax.swing.JButton" name="xj3dChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xj3dChooserButtonActionPerformed"/>
@@ -1204,7 +1204,7 @@
             <Component class="javax.swing.JButton" name="otherChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherChooserButtonActionPerformed"/>
@@ -1811,7 +1811,7 @@
             <Component class="javax.swing.JButton" name="h3dChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Find local file location"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="h3dChooserButtonActionPerformed"/>
@@ -1898,7 +1898,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="2" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="100" ipadY="0" insetsTop="10" insetsLeft="3" insetsBottom="10" insetsRight="3" anchor="12" weightX="0.25" weightY="0.0"/>
+                  <GridBagConstraints gridX="2" gridY="0" gridWidth="2" gridHeight="1" fill="1" ipadX="100" ipadY="0" insetsTop="10" insetsLeft="3" insetsBottom="10" insetsRight="3" anchor="12" weightX="0.25" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1913,7 +1913,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="3" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="3" insetsBottom="10" insetsRight="3" anchor="12" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="4" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="3" insetsBottom="10" insetsRight="3" anchor="12" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1925,7 +1925,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="4" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="3" insetsBottom="10" insetsRight="3" anchor="12" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="5" gridY="0" gridWidth="2" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="3" insetsBottom="10" insetsRight="3" anchor="12" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1960,7 +1960,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="0" gridY="21" gridWidth="7" gridHeight="2" fill="1" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="10" weightX="0.0" weightY="1.0"/>
+                  <GridBagConstraints gridX="0" gridY="21" gridWidth="8" gridHeight="2" fill="1" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="10" weightX="0.0" weightY="1.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1991,7 +1991,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="6" gridY="23" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="14" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="5" gridY="23" gridWidth="3" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="14" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -2251,6 +2251,7 @@
             <Component class="javax.swing.JButton" name="altovaXMLSpyChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="altovaXMLSpyChooserButtonActionPerformed"/>
@@ -2365,7 +2366,7 @@
             <Component class="javax.swing.JButton" name="blenderX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="blenderX3dEditorChooserButtonActionPerformed"/>
@@ -2485,7 +2486,7 @@
             <Component class="javax.swing.JButton" name="bsContentStudioX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bsContentStudioX3dEditorChooserButtonActionPerformed"/>
@@ -2605,7 +2606,7 @@
             <Component class="javax.swing.JButton" name="bvhackerEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bvhackerEditorChooserButtonActionPerformed"/>
@@ -2725,7 +2726,7 @@
             <Component class="javax.swing.JButton" name="curaX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="curaX3dEditorChooserButtonActionPerformed"/>
@@ -2845,7 +2846,7 @@
             <Component class="javax.swing.JButton" name="meshLabX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="meshLabX3dEditorChooserButtonActionPerformed"/>
@@ -2965,7 +2966,7 @@
             <Component class="javax.swing.JButton" name="paraviewX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paraviewX3dEditorChooserButtonActionPerformed"/>
@@ -3085,7 +3086,7 @@
             <Component class="javax.swing.JButton" name="polyTransNuGrafEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="polyTransNuGrafEditorChooserButtonActionPerformed"/>
@@ -3161,11 +3162,11 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="titaniaX3dEditorLabel">
+            <Component class="javax.swing.JLabel" name="sunrizeX3dEditorLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="Titania"/>
-                <Property name="toolTipText" type="java.lang.String" value="Titania X3D Editor (Linux only)"/>
+                <Property name="text" type="java.lang.String" value="Sunrize"/>
+                <Property name="toolTipText" type="java.lang.String" value="Sunrize X3D Editor is launched using node.js"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -3173,14 +3174,14 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="titaniaX3dEditorCheckBox">
+            <Component class="javax.swing.JCheckBox" name="sunrizeX3dEditorCheckBox">
               <Properties>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="toolTipText" type="java.lang.String" value="Include when autolaunching tools"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titaniaX3dEditorCheckBoxActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sunrizeX3dEditorCheckBoxActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -3188,13 +3189,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="titaniaX3dEditorPathTF">
+            <Component class="javax.swing.JTextField" name="sunrizeX3dEditorPathTF">
               <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="File location for local application"/>
+                <Property name="toolTipText" type="java.lang.String" value="Sunrize X3D Editor is launched using node.js"/>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="titaniaX3dEditorPathTFFocusLost"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titaniaX3dEditorPathTFActionPerformed"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="sunrizeX3dEditorPathTFFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sunrizeX3dEditorPathTFActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -3202,13 +3203,14 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="titaniaX3dEditorChooserButton">
+            <Component class="javax.swing.JButton" name="sunrizeX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Sunrize X3D Editor is launched using node.js"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titaniaX3dEditorChooserButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sunrizeX3dEditorChooserButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -3216,13 +3218,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="titaniaX3dEditorDefaultButton">
+            <Component class="javax.swing.JButton" name="sunrizeX3dEditorDefaultButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="default"/>
-                <Property name="toolTipText" type="java.lang.String" value="Reset default file location for local application"/>
+                <Property name="toolTipText" type="java.lang.String" value="Reset default invocation for local launch"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titaniaX3dEditorDefaultButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sunrizeX3dEditorDefaultButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -3230,7 +3232,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="titaniaX3dEditorLaunchButton">
+            <Component class="javax.swing.JButton" name="sunrizeX3dEditorLaunchButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="launch"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
@@ -3239,7 +3241,7 @@
                 <Property name="actionCommand" type="java.lang.String" value="contactTF"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titaniaX3dEditorLaunchButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sunrizeX3dEditorLaunchButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -3247,7 +3249,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="titaniaX3dEditorDownloadButton">
+            <Component class="javax.swing.JButton" name="sunrizeX3dEditorDownloadButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="get"/>
                 <Property name="toolTipText" type="java.lang.String" value="Download tool from website"/>
@@ -3256,7 +3258,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titaniaX3dEditorDownloadButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sunrizeX3dEditorDownloadButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -3264,7 +3266,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="titaniaX3dEditorHelpButton">
+            <Component class="javax.swing.JButton" name="sunrizeX3dEditorHelpButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="help"/>
                 <Property name="toolTipText" type="java.lang.String" value="Display tool help page"/>
@@ -3273,7 +3275,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titaniaX3dEditorHelpButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sunrizeX3dEditorHelpButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -3325,7 +3327,7 @@
             <Component class="javax.swing.JButton" name="seamless3dX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seamless3dX3dEditorChooserButtonActionPerformed"/>
@@ -3445,7 +3447,7 @@
             <Component class="javax.swing.JButton" name="ultraEditX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ultraEditX3dEditorChooserButtonActionPerformed"/>
@@ -3565,7 +3567,7 @@
             <Component class="javax.swing.JButton" name="whiteDuneX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="whiteDuneX3dEditorChooserButtonActionPerformed"/>
@@ -3685,7 +3687,7 @@
             <Component class="javax.swing.JButton" name="wings3dX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wings3dX3dEditorChooserButtonActionPerformed"/>
@@ -3767,7 +3769,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="1" gridY="31" gridWidth="8" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="19" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="1" gridY="31" gridWidth="8" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="1" insetsLeft="3" insetsBottom="1" insetsRight="3" anchor="19" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -4046,13 +4048,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="titaniaNvdSecurityCheckButton">
+            <Component class="javax.swing.JButton" name="sunrizeNvdSecurityCheckButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="!"/>
                 <Property name="toolTipText" type="java.lang.String" value="NIST National Vulnerabilities Database NVD check"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titaniaNvdSecurityCheckButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sunrizeNvdSecurityCheckButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -4174,7 +4176,7 @@
             <Component class="javax.swing.JButton" name="rhino3DX3dEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rhino3DX3dEditorChooserButtonActionPerformed"/>
@@ -4344,7 +4346,7 @@
             <Component class="javax.swing.JButton" name="gimpEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gimpEditorChooserButtonActionPerformed"/>
@@ -4464,7 +4466,7 @@
             <Component class="javax.swing.JButton" name="fijiEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fijiEditorChooserButtonActionPerformed"/>
@@ -4584,7 +4586,7 @@
             <Component class="javax.swing.JButton" name="imageJEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imageJEditorChooserButtonActionPerformed"/>
@@ -4704,7 +4706,7 @@
             <Component class="javax.swing.JButton" name="imageMagickEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imageMagickEditorChooserButtonActionPerformed"/>
@@ -4848,7 +4850,7 @@
             <Component class="javax.swing.JButton" name="otherImageEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherImageEditorChooserButtonActionPerformed"/>
@@ -4984,7 +4986,7 @@
             <Component class="javax.swing.JButton" name="itksnapVolumeEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itksnapVolumeEditorChooserButtonActionPerformed"/>
@@ -5104,7 +5106,7 @@
             <Component class="javax.swing.JButton" name="seg3dVolumeEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seg3dVolumeEditorChooserButtonActionPerformed"/>
@@ -5224,7 +5226,7 @@
             <Component class="javax.swing.JButton" name="slicer3dVolumeEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="slicer3dVolumeEditorChooserButtonActionPerformed"/>
@@ -5362,7 +5364,7 @@
             <Component class="javax.swing.JButton" name="otherVolumeChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherVolumeChooserButtonActionPerformed"/>
@@ -6832,7 +6834,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="9" gridY="20" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="14" weightX="1.0" weightY="1.0"/>
+                  <GridBagConstraints gridX="7" gridY="20" gridWidth="4" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="14" weightX="1.0" weightY="1.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -6927,7 +6929,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="0" gridY="20" gridWidth="9" gridHeight="1" fill="1" ipadX="0" ipadY="20" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="11" weightX="0.0" weightY="100.0"/>
+                  <GridBagConstraints gridX="0" gridY="20" gridWidth="7" gridHeight="1" fill="1" ipadX="0" ipadY="20" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="11" weightX="0.0" weightY="100.0"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -6960,7 +6962,7 @@
             <Component class="javax.swing.JButton" name="porteclePlayerChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="porteclePlayerChooserButtonActionPerformed"/>
@@ -7065,7 +7067,7 @@
             <Component class="javax.swing.JButton" name="keystoreExplorerPlayerChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="keystoreExplorerPlayerChooserButtonActionPerformed"/>
@@ -7276,7 +7278,7 @@
             <Component class="javax.swing.JButton" name="audacityEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="audacityEditorChooserButtonActionPerformed"/>
@@ -7407,7 +7409,7 @@
             <Component class="javax.swing.JButton" name="otherAudioEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherAudioEditorChooserButtonActionPerformed"/>
@@ -7542,7 +7544,7 @@
             <Component class="javax.swing.JButton" name="amayaEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="amayaEditorChooserButtonActionPerformed"/>
@@ -7662,7 +7664,7 @@
             <Component class="javax.swing.JButton" name="batikEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="batikEditorChooserButtonActionPerformed"/>
@@ -7782,7 +7784,7 @@
             <Component class="javax.swing.JButton" name="inkscapeEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inkscapeEditorChooserButtonActionPerformed"/>
@@ -7902,7 +7904,7 @@
             <Component class="javax.swing.JButton" name="svgeditEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="svg-edit is launched via Web browser"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
@@ -7917,7 +7919,7 @@
             <Component class="javax.swing.JButton" name="svgeditEditorDefaultButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="default"/>
-                <Property name="toolTipText" type="java.lang.String" value="Reset default file location for local application"/>
+                <Property name="toolTipText" type="java.lang.String" value="Reset default invocation for browser launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="svgeditEditorDefaultButtonActionPerformed"/>
@@ -8034,7 +8036,7 @@
             <Component class="javax.swing.JButton" name="otherHtml5EditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherHtml5EditorChooserButtonActionPerformed"/>
@@ -8169,7 +8171,7 @@
             <Component class="javax.swing.JButton" name="vlcPlayerChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vlcPlayerChooserButtonActionPerformed"/>
@@ -8301,7 +8303,7 @@
             <Component class="javax.swing.JButton" name="otherVideoChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherVideoChooserButtonActionPerformed"/>
@@ -8419,7 +8421,7 @@
             <Component class="javax.swing.JButton" name="protegePlayerChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="protegePlayerChooserButtonActionPerformed"/>
@@ -8550,7 +8552,7 @@
             <Component class="javax.swing.JButton" name="otherSemanticWebEditorChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="otherSemanticWebEditorChooserButtonActionPerformed"/>
@@ -8696,7 +8698,7 @@
             <Component class="javax.swing.JButton" name="wiresharkChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
-                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local keystore"/>
+                <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wiresharkChooserButtonActionPerformed"/>
