@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -29,7 +29,7 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- * ViewInPolyTransNuGrafAction.java
+ * EditInSunrizeAction.java
  * Created on 4 May 2008
  *
  * MOVES Institute
@@ -49,15 +49,15 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 
-@ActionID(id = "org.web3d.x3d.actions.EditInPolyTransNuGrafAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/okino-nugraf-apple-touch-icon-120x120-precomposed-32x32.png", // ico
-                    displayName = "#CTL_EditInPolyTransNuGrafAction", lazy=true)
+@ActionID(id = "org.web3d.x3d.actions.EditInSunrizeAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/x_ite_logo32x32.png", // ico
+                    displayName = "#CTL_EditInSunrizeAction", lazy=true)
 @ActionReferences( value = {
-    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved X3D Model", position = 135),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved X3D Model", position = 135),
+    @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved X3D Model", position = 165),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved X3D Model", position = 165),
 })
 
-public final class EditInPolyTransNuGrafAction extends ViewInBaseAction
+public final class EditInSunrizeAction extends ViewInBaseAction
 {
   @Override
   protected boolean getEscapeSpaces()
@@ -68,25 +68,25 @@ public final class EditInPolyTransNuGrafAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dEditUserPreferences.getPolyTransNuGrafEditorPath();
+    return X3dEditUserPreferences.getSunrizeX3dEditorPath();
   }
 
   @Override
   protected String getStatusString()
   {
-    return NbBundle.getMessage(getClass(), "STATUSLINE_EditingPolyTransNuGraf");
+    return NbBundle.getMessage(getClass(), "STATUSLINE_EditingSunrize");
   }
 
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dEditUserPreferences.isPolyTransNuGrafAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isSunrizeAutoLaunch());
   }
     
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_EditInPolyTransNuGrafAction");
+    return NbBundle.getMessage(getClass(), "CTL_EditInSunrizeAction");
   }
 
   @Override

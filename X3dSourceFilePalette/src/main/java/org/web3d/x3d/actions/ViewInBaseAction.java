@@ -41,8 +41,11 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d.actions;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.StatusDisplayer;
@@ -70,10 +73,16 @@ public abstract class ViewInBaseAction extends CookieAction
     }
     boolean localEnabled = false;
     String path = getExePath();
-    if(path != null && path.length()>0) {
-      File f = new File(path);
-      if(f.exists())
-        localEnabled = true;
+    if((path != null) && (path.length() > 0))
+    {
+        if (path.contains("sunrize")) // actually an invocation, not a path
+            localEnabled = true; // assumes node.js installed
+        else
+        {
+            File f = new File(path);
+            if(f.exists())
+               localEnabled = true;
+        }
     }
     else if ((path != null) &&  (X3dEditUserPreferences.getOtherX3dPlayerNameDefault() != null) && 
               path.equals(X3dEditUserPreferences.getOtherX3dPlayerNameDefault()))
@@ -83,7 +92,7 @@ public abstract class ViewInBaseAction extends CookieAction
     return super.enable(activatedNodes) && localEnabled;
   }
 
-  /** TODO launch Wireshark even if no file is selected
+  /** View using subclass application
     * @param activatedNodes what file tree is selected in editor*/
   @Override
   protected void performAction(Node[] activatedNodes)
@@ -135,11 +144,27 @@ public abstract class ViewInBaseAction extends CookieAction
       execStringArray[CommandExecutionScripts.getExecutablePathIndex()] = getExePath(); // .replace(" ", "%20")
       execStringArray[CommandExecutionScripts.getArgumentPathIndex()]   = tempFilePath;
       
-      ProcessBuilder pb = new ProcessBuilder(execStringArray);
+      if (getExePath().toLowerCase().contains("blender"))
+      {
+          // https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html
+          System.out.println("TODO blender launch invocation to import X3D file... " + tempFilePath);
+          execStringArray[CommandExecutionScripts.getArgumentPathIndex()]  = "--window-border"; // simple substitution rather than empty string
+      }
+      String prefix = "[" + this.getClass().getName() + "] ";
+      System.out.println(prefix + Arrays.toString(execStringArray).replace(",",""));
+      ProcessBuilder processBuilder = new ProcessBuilder(execStringArray);
       if  (tempFile != null)
-           pb.directory(tempFile.getParentFile());
-      else pb.directory(null); // user.dir
-      pb.start();
+           processBuilder.directory(tempFile.getParentFile());
+      else processBuilder.directory(null); // user.dir
+      Process process = processBuilder.start();
+// TODO blocks, fix that
+//      BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+//      String line;
+//      while ((line = reader.readLine()) != null)
+//      {
+//          if (!line.isEmpty())
+//              System.out.println(prefix + line);
+//      }
     }
     catch(IOException ioe) {
       Exceptions.printStackTrace(ioe);
