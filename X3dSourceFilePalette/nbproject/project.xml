@@ -449,6 +449,7 @@
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
             <word>accessor</word>
             <word>ACM</word>
+            <word>Altova</word>
             <word>Amaya</word>
             <word>autolaunch</word>
             <word>BioVision</word>
@@ -481,6 +482,7 @@
             <word>frameDuration</word>
             <word>frameIncrement</word>
             <word>frameIndex</word>
+            <word>FreeWrl</word>
             <word>geoSystem</word>
             <word>glTF</word>
             <word>gzip</word>
@@ -488,6 +490,7 @@
             <word>HAnim</word>
             <word>HAnimHumanoid</word>
             <word>HAnimMotion</word>
+            <word>Heilan</word>
             <word>html</word>
             <word>htmlcolorcodes</word>
             <word>http</word>
@@ -516,6 +519,7 @@
             <word>NetBeans</word>
             <word>NPS</word>
             <word>NuGraf</word>
+            <word>Octaga</word>
             <word>Okino</word>
             <word>opendis</word>
             <word>openjdk</word>
@@ -540,6 +544,7 @@
             <word>startFrame</word>
             <word>strictfp</word>
             <word>stylesheet</word>
+            <word>Sunrize</word>
             <word>svg</word>
             <word>TextureCoordinate</word>
             <word>TextureCoordinateGenerator</word>
@@ -556,6 +561,7 @@
             <word>UnlitMaterial</word>
             <word>url</word>
             <word>Validator</word>
+            <word>Vivaty</word>
             <word>VRML</word>
             <word>WHATWG</word>
             <word>WhiteDune</word>
@@ -564,6 +570,7 @@
             <word>wrl</word>
             <word>xDimension</word>
             <word>xhtml</word>
+            <word>XMLSpy</word>
             <word>XSLT</word>
             <word>zDimension</word>
         </spellchecker-wordlist>
