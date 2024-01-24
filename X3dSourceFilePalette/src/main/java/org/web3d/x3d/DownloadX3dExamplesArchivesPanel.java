@@ -236,6 +236,8 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
     humanoidAnimationExamplesDirectoryOpenButton.setEnabled(X3dEditUserPreferences.getHumanoidAnimationLocalExamplesPresent());
                  savageExamplesBrowserViewButton.setEnabled(X3dEditUserPreferences.getSavageLocalExamplesPresent());
                savageExamplesDirectoryOpenButton.setEnabled(X3dEditUserPreferences.getSavageLocalExamplesPresent());
+//        savageDefenseExamplesBrowserViewButton.setEnabled(X3dEditUserPreferences.getSavageLocalExamplesPresent());
+//      savageDefenseExamplesDirectoryOpenButton.setEnabled(X3dEditUserPreferences.getSavageLocalExamplesPresent());
   }
   
   /* Update status of all local archives */
@@ -294,6 +296,13 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
           archivePresent = ((new File(X3dEditUserPreferences.getExampleArchivesRootDirectory() + File.separator + 
                             SAVAGETARGET + File.separator + "HelloWorld.x3d")).exists());
           X3dEditUserPreferences.setSavageLocalExamplesPresent(archivePresent);
+          return archivePresent;
+      }
+      else if (archiveName.equals(SAVAGEDEFENSETARGET))
+      {
+          archivePresent = ((new File(X3dEditUserPreferences.getExampleArchivesRootDirectory() + File.separator + 
+                            SAVAGEDEFENSETARGET + File.separator + "HelloWorld.x3d")).exists());
+          X3dEditUserPreferences.setSavageDefenseLocalExamplesPresent(archivePresent);
           return archivePresent;
       }
       else if (archiveName.equals(X3D4WA_EXAMPLESTARGET))
