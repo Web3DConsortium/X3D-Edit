@@ -1690,6 +1690,13 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
           pb.start();
           Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
         }
+        if (X3dEditUserPreferences.isRhino3DAutoLaunch().equalsIgnoreCase("true"))
+        {
+          toolFound = true;
+          pb = new ProcessBuilder(X3dEditUserPreferences.getRhino3DX3dEditorPath(), fullPath);
+          pb.start();
+          Thread.sleep(X3dEditUserPreferences.getLaunchIntervalMilliseconds());
+        }
         if (X3dEditUserPreferences.isSeamless3dAutoLaunch().equalsIgnoreCase("true"))
         {
           toolFound = true;
