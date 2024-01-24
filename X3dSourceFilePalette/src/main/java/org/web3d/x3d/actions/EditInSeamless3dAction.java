@@ -29,7 +29,7 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- * ViewInSeamless3dAction.java
+ * EditInSeamless3dAction.java
  * Created on 4 May 2008
  *
  * MOVES Institute
