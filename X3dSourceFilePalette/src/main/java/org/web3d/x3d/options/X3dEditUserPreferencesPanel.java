@@ -9162,7 +9162,13 @@ otherSemanticWebEditorCheckBox.setVisible(false);
                 otherX3dEditorNameTFActionPerformed(evt);
             }
         });
-        x3dModelingToolsPanel.add(otherX3dEditorNameTF, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 32;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherX3dEditorNameTF, gridBagConstraints);
 
         otherX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
         otherX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -12042,6 +12048,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         System.out.println("[X3dEditUserPreferencesPanel] Confirm node.js installed, report npm version:");
         runShellCommand("npm -v");
         
+        // TODO clean up
         boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
         if  (false && isWindows)
              runShellCommand("start /b " + X3dEditUserPreferences.getSunrizeX3dEditorPath()); // avoid blocking on invocation
@@ -12500,6 +12507,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void sunrizeNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeNvdSecurityCheckButtonActionPerformed
         browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
                       X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + sunrizeX3dEditorLabel.getText());
+        browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + "node.js");
     }//GEN-LAST:event_sunrizeNvdSecurityCheckButtonActionPerformed
 
     private void ultimakerCuraNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimakerCuraNvdSecurityCheckButtonActionPerformed
