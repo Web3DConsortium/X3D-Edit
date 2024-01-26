@@ -189,7 +189,7 @@ public class X3dEditUserPreferences
   
   // there is no unique best default path as a user could store examples anywhere on their local machine
   // thus user.dir property persistence will allow a path to be remembered
-  public  static String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; 
+  public  static String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; // TODO final?
 //private static String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeystoreNameExtension()).toString();
 
   public static String  KEYSTORE_PASSWORD_DEFAULT       = "test";
@@ -753,7 +753,7 @@ public class X3dEditUserPreferences
   private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2024\\XMLSpy.exe";
-  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender.exe";
+  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\blender-3.6.8-windows-x64\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String winxpBvhackerEditorPathDefault             = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
   private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";
@@ -784,7 +784,7 @@ public class X3dEditUserPreferences
   private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2024\\XMLSpy.exe";
-  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 4.0\\blender.exe";
+  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\blender-3.6.8-windows-x64\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String windows64BvhackerEditorPathDefault         = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
   private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";
@@ -895,7 +895,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteKeystoreExplorer               = "https://keystore-explorer.org";
  
   private static final String downloadSiteAltovaXMLSpy                   = "https://www.altova.com/download";
-  private static final String downloadSiteBlender                        = "https://www.blender.org";
+  private static final String downloadSiteBlender                        = "https://www.blender.org/download/lts/3-6"; // https://www.blender.org";
   private static final String downloadSiteBsContentStudio                = "https://www.bitmanagement.de/en/download/studio";
   private static final String downloadSiteBvhacker                       = "https://www.bvhacker.com";
   private static final String downloadSiteCura                           = "https://ultimaker.com/software/ultimaker-cura";
@@ -903,7 +903,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
   private static final String downloadSiteRhino3D                        = "https://www.rhino3d.com/download";
   private static final String downloadSiteSeamless3d                     = "https://www.seamless3d.com";
-  private static final String downloadSiteSunrize                        = "https://create3000.github.io/sunrize";
+  private static final String downloadSiteSunrize                        = "https://nodejs.org/en/download";
   private static final String downloadSiteItksnap                        = "http://www.itksnap.org"; // http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
   private static final String downloadSiteSeg3d                          = "https://www.sci.utah.edu/cibc-software/seg3d.html";
   private static final String downloadSiteSlicer3d                       = "https://www.slicer.org";
@@ -931,7 +931,9 @@ public class X3dEditUserPreferences
   protected static final String helpSiteWireshark                        = "https://www.wireshark.org/faq.html";
   
   protected static final String helpSiteAltovaXMLSpy                     = "https://www.altova.com/library";
-  protected static final String helpSiteBlender                          = "https://www.blender.org/support"; // https://www.blender.org/get-involved/documentation/"; // https://www.blender.org/education-help";
+  protected static final String helpSiteBlender1                         = "https://www.blender.org/support";
+  protected static final String helpSiteBlender2                         = "https://www.blender.org/get-involved/documentation";
+  protected static final String helpSiteBlender3                         = "https://www.blender.org/education-help";
   protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.de/en/download/studio";
   protected static final String helpSiteBvhacker                         = "https://www.bvhacker.com/help.html";
   protected static final String helpSiteCura                             = "https://ultimaker.com/learn"; 
@@ -940,7 +942,7 @@ public class X3dEditUserPreferences
   protected static final String helpSiteRhino3D                          = "https://www.rhino3d.com/learn";
   protected static final String helpSitePolyTransNuGraf                  = "https://www.okino.com/nrs/nrs.htm";
   protected static final String helpSiteSeamless3d                       = "https://www.seamless3d.com/faq.html";
-  protected static final String helpSiteSunrize                          = "https://create3000.github.io/x_ite";
+  protected static final String helpSiteSunrize                          = "https://create3000.github.io/sunrize";
   protected static final String helpSiteItksnap                          = "http://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.SNAP3"; // http://www.itksnap.org/pmwiki/pmwiki.php";
   protected static final String helpSiteSeg3d                            = "https://www.sci.utah.edu/cibc-software/seg3d.html";
   protected static final String helpSiteSlicer3d                         = "https://www.slicer.org/slicerWiki/index.php/Documentation/Release";
