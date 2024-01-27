@@ -286,7 +286,7 @@
 
     <!-- Perform this task whenever the Savage server cert has changed/updated.
          As per the server-cert-keystore-readme.txt in release/modules/ext, this
-         process is now automated -->
+         process is now automated. TODO: remove this construct. -->
     <target name="update.server.cert" description="To be accomplished anytime there is a certificate change/update, or change in server configuration">
 
         <echo message="openssl pull down the new/updated server cert"/>
