@@ -20,11 +20,11 @@ These SourceForge pages are used for distributing X3D-Edit application installer
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite.zip/download)        | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system       |  433.0 MB | 29 DEC 2023
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;20. tested satisfactorily, any operating system |  305.7 MB | 29 DEC 2023
-[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-windows.exe) | Windows installer                                 | See installation workaround below                              |  433.1 MB | 29 DEC 2023
-[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  432.7 MB | 29 DEC 2023
-[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  432.7 MB | 29 DEC 2023
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite.zip/download)        | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system       |  205.9 MB | 27 JAN 2024
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;21. tested satisfactorily, any operating system |   73.3 MB | 27 JAN 2024
+[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-windows.exe) | Windows installer                                 | See installation workaround below                              |  205.9 MB | 27 JAN 2024
+[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  205.4 MB | 27 JAN 2024
+[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  205.5 MB | 27 JAN 2024
 
 SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
 
@@ -43,7 +43,7 @@ Please note that you will manually need to edit the configuration files to point
 
 ## Source Code is Public on GitHub
 
-X3D-Edit software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
+X3D-Edit software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit).
 
 Note: SourceForge is excellent!  Nevertheless, in order to conform with trusted-plugin requirements on the 
 [Apache NetBeans Plugin Portal](https://plugins.netbeans.apache.org/catalogue/?id=90).
