@@ -3350,7 +3350,7 @@
             <Component class="javax.swing.JLabel" name="svgToolHintLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt; See &lt;b&gt;Web and Multipmedia Tools&lt;/b&gt; tab (above) for SVG authoring tools."/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt; See &lt;b&gt;Multimedia, Web, and  Networking Tools&lt;/b&gt; tab (above) for SVG authoring tools."/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

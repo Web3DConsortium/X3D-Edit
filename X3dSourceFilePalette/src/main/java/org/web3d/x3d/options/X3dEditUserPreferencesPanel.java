@@ -4118,7 +4118,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         imageVolumeToolsPanel.add(reportImageVolumeToolsButton, gridBagConstraints);
 
         svgToolHintLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        org.openide.awt.Mnemonics.setLocalizedText(svgToolHintLabel, "<html> See <b>Web and Multipmedia Tools</b> tab (above) for SVG authoring tools.");
+        org.openide.awt.Mnemonics.setLocalizedText(svgToolHintLabel, "<html> See <b>Multimedia, Web, and  Networking Tools</b> tab (above) for SVG authoring tools.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
