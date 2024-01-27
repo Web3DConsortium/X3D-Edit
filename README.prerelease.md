@@ -6,13 +6,15 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Prerelease, 29 December 2023
+# X3D-Edit 4.0 Prerelease, 27 January 2024
 
 <!-- posted at https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/ -->
 
 This directory shares **pre-release test files** prior to [official X3D-Edit applications release](https://sourceforge.net/projects/x3d/files).
 
-Primary software deployment occurring via [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.
+Primary software deployment is found in [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.
+
+Backup software deployment is found in  [Maven Central Repository](https://central.sonatype.com/artifact/org.web3d.x3d.tools/x3dedit) distribution support.
 
 These SourceForge pages are used for distributing X3D-Edit application installers.
 
@@ -39,7 +41,7 @@ Please note that you will manually need to edit the configuration files to point
 - `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
 - `jdkhome="C:\Program Files\Java\openjdk\jdk-21.0.1"`
 
-## Source Code has Moved
+## Source Code is Public on GitHub
 
 X3D-Edit software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
 

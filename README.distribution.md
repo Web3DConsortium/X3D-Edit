@@ -11,7 +11,9 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
 
-Primary software deployment occurring via [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.
+Primary software deployment is found in [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.
+
+Backup software deployment is found in  [Maven Central Repository](https://central.sonatype.com/artifact/org.web3d.x3d.tools/x3dedit) distribution support.
 
 These SourceForge pages are used for distributing X3D-Edit application installers.
 
