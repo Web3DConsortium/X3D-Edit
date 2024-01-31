@@ -395,9 +395,11 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
   @SuppressWarnings("NonPublicExported")
   /** FileFilter subclass supporting VRML97 wrl file extension */
   public final WRLFilter    wrlFilter    = new WRLFilter();
-  /** FileFilter subclass supporting VRML97 wrl file extension */
+  @SuppressWarnings("NonPublicExported")
+  /** FileFilter subclass supporting VRML97 glTF file extension */
   public final GltfFilter   gltfFilter   = new GltfFilter();
-  /** FileFilter subclass supporting VRML97 wrl file extension */
+  @SuppressWarnings("NonPublicExported")
+  /** FileFilter subclass supporting glb (glTF binary) file extension */
   public final GlbFilter    glbFilter    = new GlbFilter();
   @SuppressWarnings("NonPublicExported")
   /** FileFilter subclass supporting all X3D file extensions: x3d x3dv x3db wrl */
