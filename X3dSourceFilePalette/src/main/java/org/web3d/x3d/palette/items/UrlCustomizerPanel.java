@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -395,6 +395,10 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
   @SuppressWarnings("NonPublicExported")
   /** FileFilter subclass supporting VRML97 wrl file extension */
   public final WRLFilter    wrlFilter    = new WRLFilter();
+  /** FileFilter subclass supporting VRML97 wrl file extension */
+  public final GltfFilter   gltfFilter   = new GltfFilter();
+  /** FileFilter subclass supporting VRML97 wrl file extension */
+  public final GlbFilter    glbFilter    = new GlbFilter();
   @SuppressWarnings("NonPublicExported")
   /** FileFilter subclass supporting all X3D file extensions: x3d x3dv x3db wrl */
   public final X3dAllFilter allX3dFilter = new X3dAllFilter();
@@ -534,6 +538,10 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         fileChooser.addChoosableFileFilter(x3dvFilter);
         fileChooser.addChoosableFileFilter(x3dbFilter);
         fileChooser.addChoosableFileFilter(wrlFilter);
+        fileChooser.addChoosableFileFilter(gltfFilter);
+
+        fileChooser.addChoosableFileFilter(glbFilter);
+
 
         fileChooser.setAcceptAllFileFilterUsed(true);
         fileChooser.setFileFilter(allX3dFilter);
@@ -774,11 +782,26 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     @Override
     public String getDescription(){ return NbBundle.getMessage(getClass(), "UrlCustomizerPanel.wrl_file_description.text"); }
   }
+  class GltfFilter extends FileFilter
+  {
+    @Override
+    public boolean accept(File f) { return commonAccept(f,"gltf"); }
+    @Override
+    public String getDescription(){ return NbBundle.getMessage(getClass(), "UrlCustomizerPanel.gltf_file_description.text"); }
+  }
+  class GlbFilter extends FileFilter
+  {
+    @Override
+    public boolean accept(File f) { return commonAccept(f,"glb"); }
+    @Override
+    public String getDescription(){ return NbBundle.getMessage(getClass(), "UrlCustomizerPanel.glb_file_description.text"); }
+  }
   class X3dAllFilter extends FileFilter
   {
     @Override
     public boolean accept(File f) { return x3dFilter.accept(f) || x3dvFilter.accept(f) ||
-                                          x3dbFilter.accept(f) || wrlFilter.accept(f); }
+                                          x3dbFilter.accept(f) || wrlFilter.accept(f) ||
+                                          gltfFilter.accept(f) || glbFilter.accept(f); }
     @Override
     public String getDescription(){return NbBundle.getMessage(getClass(), "UrlCustomizerPanel.allx3d_file_description.text");}
   }

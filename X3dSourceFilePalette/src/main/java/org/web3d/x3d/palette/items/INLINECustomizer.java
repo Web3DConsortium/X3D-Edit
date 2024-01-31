@@ -89,6 +89,7 @@ public class INLINECustomizer extends BaseCustomizer
     urlList.setTarget(target); // enable urlList to reach back into jdom tree to getHeaderIdentifierPath()
     urlList.setFileChooserX3d();
     urlList.checkUrlValues();
+    // TODO check X3D version 4.0+ for gltf/glb file extensions urls, Netowrking component level 4 as well
     
     loadCB.setSelected(inline.isLoad());
     bboxCenterXTF.setText(inline.getBboxCenterX());
@@ -557,6 +558,7 @@ public class INLINECustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     urlList.checkUrlValues();
+    // TODO check X3D version 4.0+ for gltf/glb file extensions urls, Netowrking component level 4 as well
     
     if (!descriptionTF.getText().isBlank())
     {

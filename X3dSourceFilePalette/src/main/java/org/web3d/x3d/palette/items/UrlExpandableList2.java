@@ -1023,22 +1023,25 @@ private void alignLeftButtonActionPerformed(java.awt.event.ActionEvent evt) {//G
     private final int    LOCAL_WRL     = 10;
     private final int RELATIVE_WRL     = 11;
     private final int   REMOTE_WRL     = 12;
-    private final int    LOCAL_IMAGE   = 13; // don't sort further (e.g. .png preferred to .gif) since author might sort by image quality
-    private final int RELATIVE_IMAGE   = 14;
-    private final int   REMOTE_IMAGE   = 15;
-    private final int    LOCAL_AUDIO   = 16;
-    private final int RELATIVE_AUDIO   = 17;
-    private final int   REMOTE_AUDIO   = 18;
-    private final int    LOCAL_MOVIE   = 19;
-    private final int RELATIVE_MOVIE   = 20;
-    private final int   REMOTE_MOVIE   = 21;
-    private final int    LOCAL_SCRIPT  = 22;
-    private final int RELATIVE_SCRIPT  = 23;
-    private final int   REMOTE_SCRIPT  = 24;
-    private final int    LOCAL_UNKNOWN = 25;
-    private final int RELATIVE_UNKNOWN = 26;
-    private final int   REMOTE_UNKNOWN = 27;
-    private final int LOCAL_FILE_COLON = 28;
+    private final int    LOCAL_GLTF    = 13;
+    private final int RELATIVE_GLTF    = 14;
+    private final int   REMOTE_GLTF    = 15;
+    private final int    LOCAL_IMAGE   = 16; // don't sort further (e.g. .png preferred to .gif) since author might sort by image quality
+    private final int RELATIVE_IMAGE   = 17;
+    private final int   REMOTE_IMAGE   = 18;
+    private final int    LOCAL_AUDIO   = 19;
+    private final int RELATIVE_AUDIO   = 20;
+    private final int   REMOTE_AUDIO   = 21;
+    private final int    LOCAL_MOVIE   = 22;
+    private final int RELATIVE_MOVIE   = 23;
+    private final int   REMOTE_MOVIE   = 24;
+    private final int    LOCAL_SCRIPT  = 25;
+    private final int RELATIVE_SCRIPT  = 26;
+    private final int   REMOTE_SCRIPT  = 27;
+    private final int    LOCAL_UNKNOWN = 28;
+    private final int RELATIVE_UNKNOWN = 29;
+    private final int   REMOTE_UNKNOWN = 30;
+    private final int LOCAL_FILE_COLON = 31;
 
 private int urlRank (String urlInput)
 {
@@ -1081,6 +1084,14 @@ private int urlRank (String urlInput)
             return RELATIVE_WRL;
     else if  (url.endsWith(".wrl") || url.endsWith(".wrz") || url.endsWith(".wrl.gz") || url.contains(".wrl#"))
             return LOCAL_WRL;
+    else if ((url.endsWith(".gltf") || url.endsWith(".glb"))
+                                   && (url.startsWith("http://") || url.startsWith("https://") || url.contains("ftp://")))
+            return REMOTE_GLTF;
+    else if ((url.endsWith(".gltf") || url.endsWith(".glb"))
+                                   && url.contains("../"))
+            return RELATIVE_GLTF;
+    else if  (url.endsWith(".gltf") || url.endsWith(".glb"))
+            return LOCAL_GLTF;
     else if ((url.endsWith(".png") || url.endsWith(".jpg") || url.endsWith(".gif") || url.endsWith(".tif") || url.endsWith(".tiff") || url.endsWith(".rgb") || url.endsWith(".rgba"))
                                    && (url.startsWith("http://") || url.startsWith("https://") || url.contains("ftp://")))
             return REMOTE_IMAGE;
@@ -2187,7 +2198,8 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
       return (extension.equalsIgnoreCase(".x3d")    || extension.equalsIgnoreCase(".x3dv")    ||
               extension.equalsIgnoreCase(".x3d.gz") || extension.equalsIgnoreCase(".x3dv.gz") ||
               extension.equalsIgnoreCase(".x3db")   || extension.equalsIgnoreCase(".wrl")     ||
-              extension.equalsIgnoreCase(".wrz")    || extension.equalsIgnoreCase(".wrl.gz")     );
+              extension.equalsIgnoreCase(".wrz")    || extension.equalsIgnoreCase(".wrl.gz")  ||
+              extension.equalsIgnoreCase(".gltf")   || extension.equalsIgnoreCase(".glb")     );
   }
   protected boolean isImageSupportedExtension (String extension)
   {
