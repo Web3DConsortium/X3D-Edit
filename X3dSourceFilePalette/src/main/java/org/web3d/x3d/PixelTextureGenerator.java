@@ -302,9 +302,9 @@ public final class PixelTextureGenerator extends Frame
             out.write("    <meta content='https://*enter online url address for this file here*/" + outputFileName + "' name='identifier'/>\n");
             out.write("    <meta content='https://web.nps.navy.mil/~brutzman/Savage/Tools/Authoring/PixelTextureGenerator.java' name='generator'/>\n");
             out.write("    <meta content='https://java.sun.com/j2se/1.4.2/docs/api/java/awt/image/PixelGrabber.html' name='reference'/>\n");
-            out.write("    <meta content='https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-IS.proof/Part0/fieldsDef.html#SFImage' name='reference'/>\n");
-            out.write("    <meta content='https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-IS.proof/Part0/components/texturing.html#Texturecoordinates' name='reference'/>\n");
-            out.write("    <meta content='https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-IS.proof/Part0/components/texturing.html#PixelTexture' name='reference'/>\n");
+            out.write("    <meta content='https://www.web3d.org/specifications/X3Dv4/ISO-IEC19775-1v4-IS/Part0/fieldsDef.html#SFImage' name='reference'/>\n");
+            out.write("    <meta content='https://www.web3d.org/specifications/X3Dv4/ISO-IEC19775-1v4-IS/Part0/components/texturing.html#Texturecoordinates' name='reference'/>\n");
+            out.write("    <meta content='https://www.web3d.org/specifications/X3Dv4/ISO-IEC19775-1v4-IS/Part0/components/texturing.html#PixelTexture' name='reference'/>\n");
             out.write("    <meta content='https://www.web3d.org/x3d/content/examples/Vrml2Sourcebook/Chapter17-Textures/_pages/page13.html' name='reference'/>\n");
             out.write("  </head>\n");
             out.write("  <Scene>\n");

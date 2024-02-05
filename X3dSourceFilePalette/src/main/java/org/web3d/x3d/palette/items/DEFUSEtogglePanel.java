@@ -37,7 +37,7 @@ package org.web3d.x3d.palette.items;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 import org.web3d.x3d.actions.BaseViewAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_DIS;
+import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_IS;
 
 /**
  * DEFUSEpanel.java
@@ -600,7 +600,7 @@ public class DEFUSEtogglePanel extends javax.swing.JPanel
     private void htmlHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_htmlHelpButtonActionPerformed
 
         // launch appropriate X3D help
-        BaseViewAction.sendBrowserTo(X3D4_ARCHITECTURE_STANDARD_DIS.replace("Architecture", "htmlGuidelines"));
+        BaseViewAction.sendBrowserTo(X3D4_ARCHITECTURE_STANDARD_IS.replace("Architecture", "htmlGuidelines"));
     }//GEN-LAST:event_htmlHelpButtonActionPerformed
 
     private void htmlIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_htmlIdTextFieldActionPerformed

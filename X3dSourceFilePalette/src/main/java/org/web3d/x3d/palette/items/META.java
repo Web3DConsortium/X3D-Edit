@@ -48,7 +48,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 //    itemid = "6_META",
 //    icon32 = "org/web3d/x3d/palette/items/resources/META32.png",
 //    icon16 = "org/web3d/x3d/palette/items/resources/META16.png",
-//    body = "<meta name='reference' content='https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-IS.proof/Part01/Architecture.html'/>",
+//    body = "<meta name='reference' content='https://www.web3d.org/specifications/X3Dv4/ISO-IEC19775-1v4-IS/Part01/Architecture.html'/>",
 //    name = "meta",
 //    tooltip = "Valid comments are found between XML elements"
 //)

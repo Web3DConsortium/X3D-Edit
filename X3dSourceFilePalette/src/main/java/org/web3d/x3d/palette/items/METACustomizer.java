@@ -48,10 +48,10 @@ import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.X3DDataObject;
-import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_DIS;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.tools.usage.DateTimeGroupStamp;
 import static org.web3d.x3d.types.X3DSchemaData.*;
+import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_IS;
 
 /**
  * METACustomizer.java
@@ -298,14 +298,14 @@ public class METACustomizer extends BaseCustomizer
            "Confirm", NotifyDescriptor.YES_NO_OPTION);
         if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.YES_OPTION)
         {
-            contentTA.setText(X3D4_ARCHITECTURE_STANDARD_DIS);
+            contentTA.setText(X3D4_ARCHITECTURE_STANDARD_IS);
             try 
             {            
-                UrlExpandableList2.launchInBrowser(getUrlString(X3D4_ARCHITECTURE_STANDARD_DIS));
+                UrlExpandableList2.launchInBrowser(getUrlString(X3D4_ARCHITECTURE_STANDARD_IS));
             }
             catch (Exception e)
             {
-                System.err.println ("METACustomizer: failed attempt to use UrlExpandableList launchInBrowser " + X3D4_ARCHITECTURE_STANDARD_DIS);
+                System.err.println ("METACustomizer: failed attempt to use UrlExpandableList launchInBrowser " + X3D4_ARCHITECTURE_STANDARD_IS);
                 System.err.println (e);
             }
         } 

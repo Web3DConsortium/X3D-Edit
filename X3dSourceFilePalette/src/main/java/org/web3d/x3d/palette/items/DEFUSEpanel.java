@@ -42,9 +42,9 @@ import javax.swing.SwingUtilities;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.web3d.x3d.actions.BaseViewAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_DIS;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS;
 import org.web3d.x3d.types.X3DSchemaData;
+import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_IS;
 
 /**
  * DEFUSEpanel.java
@@ -743,7 +743,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
     private void htmlHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_htmlHelpButtonActionPerformed
 
         // launch appropriate X3D help
-        BaseViewAction.sendBrowserTo(X3D4_ARCHITECTURE_STANDARD_DIS.replace("Architecture", "htmlGuidelines"));
+        BaseViewAction.sendBrowserTo(X3D4_ARCHITECTURE_STANDARD_IS.replace("Architecture", "htmlGuidelines"));
     }//GEN-LAST:event_htmlHelpButtonActionPerformed
 
     private void htmlIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_htmlIdTextFieldActionPerformed
