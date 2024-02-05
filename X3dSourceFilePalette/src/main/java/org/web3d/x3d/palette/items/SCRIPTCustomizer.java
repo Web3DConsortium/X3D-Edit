@@ -560,7 +560,7 @@ public class SCRIPTCustomizer extends BaseCustomizer implements TableModelListen
                       if (!ECMAScriptSourceTextArea.getText().contains("function " + sa[NAME_COLUMN]))
                       {
                           ECMAScriptSourceTextArea.append("\nfunction " + sa[NAME_COLUMN] + " (" + parameterName + ")\n" +
-                                  "{\n   // input " + parameterName + " received for inputOnly field\n   // do something with input " + parameterName + ";\n}\n");
+                                  "{\n    // input " + parameterName + " received for inputOnly field\n   // do something with input " + parameterName + ";\n}\n");
                           changed = true;
                       }
                   }
@@ -570,7 +570,7 @@ public class SCRIPTCustomizer extends BaseCustomizer implements TableModelListen
                       if (!ECMAScriptSourceTextArea.getText().contains("function set_" + sa[NAME_COLUMN]))
                       {
                           ECMAScriptSourceTextArea.append("\nfunction set_" + sa[NAME_COLUMN] + " (" + parameterName + ")\n" +
-                                  "{\n   // input " + parameterName + " received for inputOutput field\n    " + sa[NAME_COLUMN] + " = " + parameterName + ";\n}\n");
+                                  "{\n    // input " + parameterName + " received for inputOutput field\n    " + sa[NAME_COLUMN] + " = " + parameterName + ";\n}\n");
                           changed = true;
                       }
                   }
