@@ -20,11 +20,11 @@ These SourceForge pages are used for distributing X3D-Edit application installer
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite.zip/download)        | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system       |  204.6 MB | 27 JAN 2024
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;21. tested satisfactorily, any operating system |   73.3 MB | 27 JAN 2024
-[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-windows.exe) | Windows installer                                 | See installation workaround below                              |  204.6 MB | 27 JAN 2024
-[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  204.2 MB | 27 JAN 2024
-[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  204.2 MB | 27 JAN 2024
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite.zip/download)        | Zip archive for [Java](https://openjdk.java.net)  | Recommended, tested satisfactorily, any operating system       |  200.4 MB | 24 FEB 2024
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;21. tested satisfactorily, any operating system |   73.3 MB | 24 FEB 2024
+[x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-windows.exe) | Windows installer                                 | See installation workaround below                              |  200.5 MB | 24 FEB 2024
+[x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  200.0 MB | 24 FEB 2024
+[x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  200.5 MB | 24 FEB 2024
 
 SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
 
@@ -39,7 +39,7 @@ Please note that you will manually need to edit the configuration files to point
 
 - Using _localadmin_ permissions, set `jdkhome` permissions in configuration file:
 - `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
-- `jdkhome="C:\Program Files\Java\openjdk\jdk-21.0.1"`
+- `jdkhome="C:\Program Files\Java\openjdk\jdk-21.0.2"`
 
 ## Source Code is Public on GitHub
 
