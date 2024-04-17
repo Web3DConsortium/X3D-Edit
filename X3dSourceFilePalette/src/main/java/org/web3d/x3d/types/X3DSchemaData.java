@@ -1013,6 +1013,16 @@ public interface X3DSchemaData
       "child of a GeoLOD node"
   };
 
+  // Also used by Shape, LOD
+  String[]INLINE_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode","watchList"};
+  String[]INLINE_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'children' for typical use as child node",
+      "'proxy' field for a Collision child node",
+      "'rootNode' child of a GeoLOD node",
+      "'watchList' child of LoadSensor (X3D version 3 only)"
+  };
+
   // element Transform
   String  TRANSFORM_ELNAME                     = "Transform";
   String  TRANSFORM_ATTR_TRANSLATION_NAME      = "translation";
@@ -1590,7 +1600,7 @@ public interface X3DSchemaData
   String  IMAGETEXTURE_ATTR_DESCRIPTION_DFLT = "";
 
   String[]IMAGETEXTURE_ATTR_CONTAINERFIELD_CHOICES = {
-    "texture", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture"};
+    "texture", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children"};
   String  IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIP =
     "texture if parent is Shape or ComposedTexture3D, otherTexture if parent is TextureBackground";
   String[]IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS = {
@@ -1600,7 +1610,9 @@ public interface X3DSchemaData
     "backTexture if parent is TextureBackground",
     "frontTexture if parent is TextureBackground",
     "topTexture if parent is TextureBackground",
-    "bottomTexture if parent is TextureBackground"};
+    "bottomTexture if parent is TextureBackground",
+    "child of LoadSensor (X3D version 3 only)",
+    "child of LoadSensor (X3D version 4)"};
 
   // Element MovieTexture
   String  MOVIETEXTURE_ELNAME               = "MovieTexture";
@@ -1636,7 +1648,7 @@ public interface X3DSchemaData
   String  MOVIETEXTURE_ATTR_URL_DFLT        = "";
 
   String[]MOVIETEXTURE_ATTR_CONTAINERFIELD_CHOICES = {
-    "texture", "source", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture"};
+    "texture", "source", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children"};
   String  MOVIETEXTURE_ATTR_CONTAINERFIELD_TOOLTIP =
     "texture if parent is Shape or ComposedTexture3D, source of parent is Sound, or backTexture/frontTexture/etc. if parent is TextureBackground";
   String[]MOVIETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS = {
@@ -1647,7 +1659,9 @@ public interface X3DSchemaData
     "backTexture if parent is TextureBackground",
     "frontTexture if parent is TextureBackground",
     "topTexture if parent is TextureBackground",
-    "bottomTexture if parent is TextureBackground"};
+    "bottomTexture if parent is TextureBackground",
+    "child of LoadSensor (X3D version 3 only)",
+    "child of LoadSensor (X3D version 4)"};
 
   // Element PixelTexture
   String  PIXELTEXTURE_ELNAME             = "PixelTexture";
@@ -4436,7 +4450,7 @@ public interface X3DSchemaData
 
   // containerfield arrays also used by ImageTexture3D and PixelTexture3D
   String[]COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_CHOICES = {
-    "texture", "gradients","segmentIdentifiers","surfaceNormals","transferFunction","voxels"};
+    "texture", "gradients","segmentIdentifiers","surfaceNormals","transferFunction","voxels","watchList","children"};
   String  COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_TOOLTIP =
     "texture if parent is Shape or ComposedTexture3D, or other value if parent is a volume node";
   String[]COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_TOOLTIPS = {
@@ -4446,6 +4460,8 @@ public interface X3DSchemaData
     "surfaceNormals if parent is Cartoon*, EdgeEnhancement*, Shaded*, SilhouetteEnhancement* or ToneMapped* *VolumeStyle",
     "transferFunction if parent is OpacityMapVolumeStyle",
     "voxels if parent is VolumeData, IsoSurfaceVolumeData, SegmentedVolumeData or BlendedVolumeStyle",
+    "child of LoadSensor (X3D version 3 only)",
+    "child of LoadSensor (X3D version 4)"
     };
 
   // Element ImageTexture3D
