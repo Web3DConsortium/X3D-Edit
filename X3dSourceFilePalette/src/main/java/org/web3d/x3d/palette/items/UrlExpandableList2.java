@@ -194,6 +194,25 @@ public class UrlExpandableList2 extends JPanel implements ListSelectionListener
     {
       String address = urlListModel.elementAt(i);
       
+      // look for duplicate url values, ignoring case
+      for (int j = 0; j < i; j++)
+      {
+          if (address.equalsIgnoreCase(urlListModel.elementAt(j)))
+          {
+            NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+                  "<html><p align='center'>duplicate url[" + i + "] matches url[" + j + "] - remove it?</p><br/>\n" +
+                   "<p align='center'>url[" + i + "] " + urlListModel.elementAt(j) + "</p><br/>\n" +
+"                   <p align='center'>url[" + j + "] " + address + "</p>", 
+                                  NotifyDescriptor.YES_NO_OPTION);
+            if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
+            {
+                urlListModel.remove(i);
+                urlJList.setModel(urlListModel);
+                urlJList.repaint();
+            }
+          }
+      }
+      
       if (address.contains("https:/") && !address.contains("https://"))
       {              
           NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
@@ -1806,10 +1825,12 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
   protected void openInX3dEdit(String urlString)
   {
     URL url = buildUrl(urlString);
-    if (url != null && url.getProtocol().equalsIgnoreCase("file"))
-      ConversionsHelper.openInEditor(url.getPath());
-    else
-      ConversionsHelper.openInEditor(url.getPath());
+    if ((url != null) && (url.getPath() != null))
+    {
+        if  (url.getProtocol().equalsIgnoreCase("file"))
+             ConversionsHelper.openInEditor(url.getPath()); // ?? missing something?
+        else ConversionsHelper.openInEditor(url.getPath());
+    }
 //      ConversionsHelper.openInEditor(urlString);     // Try this way      
   }
 
