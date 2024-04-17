@@ -60,8 +60,8 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String CONFORMEXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/ConformanceNist";
   public final static String HANIMEXAMPLESURL                       ="https://www.web3d.org/x3d/content/examples/HumanoidAnimation";
   public final static String VRMLEXAMPLESURL                        ="https://www.web3d.org/x3d/content/examples/Vrml2Sourcebook";
-  public final static String X3D4WA_EXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors";
-  public final static String X3D4AM_EXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling";
+  public final static String X3D4WA_EXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/X3dForWebAuthors";
+  public final static String X3D4AM_EXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling";
   public final static String SAVAGEEXAMPLESURL                      ="https://savage.nps.edu/Savage";
   public final static String SAVAGEDEFENSEEXAMPLESURL               ="https://SavageDefense.nps.navy.mil/SavageDefense";
   public final static String X3D_CANONICALIZATION_C14N              ="https://www.web3d.org/x3d/tools/canonical/doc/x3dTools.htm";
