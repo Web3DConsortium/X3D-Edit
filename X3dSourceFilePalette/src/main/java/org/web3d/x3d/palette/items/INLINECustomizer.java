@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -59,7 +59,10 @@ public class INLINECustomizer extends BaseCustomizer
   private String   originalContent = "";
   private final String INLINE_PROFILE_METADATA_PREFIX = "<MetadataString name='profile' value='\"";
   
-  /** Creates new form INLINECustomizer */
+  /** Creates new form INLINECustomizer
+     * @param inline INLINE node
+     * @param target component
+     * @param x3DDataObject scene data object */
   public INLINECustomizer(INLINE inline, JTextComponent target, X3DDataObject x3DDataObject)
   {
     super(inline);
@@ -75,7 +78,7 @@ public class INLINECustomizer extends BaseCustomizer
     initComponents();
     
     // can be the proxy field of a Collision node
-    super.getDEFUSEpanel().setContainerFieldChoices(GROUP_CONTAINERFIELD_CHOICES, GROUP_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerFieldChoices(INLINE_CONTAINERFIELD_CHOICES, INLINE_CONTAINERFIELD_TOOLTIPS);
     super.getDEFUSEpanel().setContainerField(inline.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
