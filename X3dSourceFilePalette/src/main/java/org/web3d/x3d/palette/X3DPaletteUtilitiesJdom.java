@@ -95,6 +95,16 @@ public final class X3DPaletteUtilitiesJdom
     static X3DEditorSupport.X3dEditor x3dEditor;
     static X3DEditorSupport           x3dEditorSupport;
     static X3DDataObject              x3dDataObject;
+
+//    public X3DPaletteUtilitiesJdom()
+//    {
+//        if (x3dEditor == null)
+//        {
+//            x3dEditor        = ((X3DEditorSupport.X3dEditor) getTopComponent(thisTarget));
+//            x3dEditorSupport =  x3dEditor.getX3dEditorSupport();
+//            x3dDataObject    = (X3DDataObject)x3dEditorSupport.getDataObject();
+//        }
+//    }
     
   public static int insert(String lineFeedText, JTextComponent target, BaseX3DElement baseX3DElement) throws BadLocationException
   {
@@ -196,7 +206,7 @@ public final class X3DPaletteUtilitiesJdom
   {
       String            x3dVersion = "not found by X3DPaletteUtilities";
       
-      if (x3dEditor != null) // proceed carefully, TODO problems with prior initialization
+      if (x3dEditor != null) // proceed carefully, TODO problems with sequencing of prior initialization
       {
             org.jdom.Document currentDocument = x3dEditor.getJdomDoc();
             if  (currentDocument != null)
@@ -220,6 +230,8 @@ public final class X3DPaletteUtilitiesJdom
      */
     public static void setCurrentDocumentX3dVersion (String newVersion)
   {
+        System.err.println ("*** Application error, X3DPaletteUtilities.setCurrentDocumentX3dVersion() not yet implemented");
+
 //      if ((x3dEditor != null) && (x3dEditor.getJdomDoc() != null) && (x3dEditor.getJdomDoc().getRootElement() != null))
 //      {
 //        org.jdom.Document currentDocument = x3dEditor.getJdomDoc();
@@ -262,6 +274,7 @@ public final class X3DPaletteUtilitiesJdom
 
       is.setSystemId(thisFilename);
 
+      // perhaps duplicative (if already initialized) but ensures x3dDataObject remains current...
       x3dEditor        = ((X3DEditorSupport.X3dEditor) getTopComponent(thisTarget));
       x3dEditorSupport =  x3dEditor.getX3dEditorSupport();
       x3dDataObject    = (X3DDataObject)x3dEditorSupport.getDataObject();
@@ -473,6 +486,12 @@ public final class X3DPaletteUtilitiesJdom
    */
   public static org.jdom.Document buildJdom(JTextComponent target) throws IOException, JDOMException
   {
+    if (x3dEditor == null) // ensure initialization
+    {
+        x3dEditor        = ((X3DEditorSupport.X3dEditor) getTopComponent(target));
+        x3dEditorSupport =  x3dEditor.getX3dEditorSupport();
+        x3dDataObject    = (X3DDataObject)x3dEditorSupport.getDataObject();
+    }
     jDOMresults res = _buildJdom(target.getText());
     X3DEditorSupport.X3dEditor myEd = (X3DEditorSupport.X3dEditor) getTopComponent(target);
     myEd.setJdomDoc(res.doc);
