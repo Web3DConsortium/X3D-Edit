@@ -126,8 +126,12 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D4_ARCHITECTURE_STANDARD_IS_PROOF    ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-IS.proof/Part01/Architecture.html";
   public final static String X3D4_ARCHITECTURE_STANDARD_IS          ="https://www.web3d.org/specifications/X3Dv4/ISO-IEC19775-1v4-IS/Part01/Architecture.html";
   public final static String X3D4_HTML_AUTHORING_GUIDELINES         = X3D4_ARCHITECTURE_STANDARD_IS.replace("Architecture.html", "htmlGuidelines.html");
-  public final static String X3D_XML_ENCODING_STANDARD              ="https://www.web3d.org/documents/specifications/19776-1/V3.3/Part01/X3D_XML.html";
+//public final static String X3D4_SCENEACCESSINTERFACE_SAI_STANDARD ="https://web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-2v4.0-WD1/Part02/X3D_SAI.html";
+  public final static String X3D4_SCENEACCESSINTERFACE_SAI_STANDARD ="https://web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-2v4.0-WD1/Part02/X3D_SAI.html";
+//public final static String X3D_XML_ENCODING_STANDARD              ="https://www.web3d.org/documents/specifications/19776-1/V3.3/Part01/X3D_XML.html";
+  public final static String X3D_XML_ENCODING_STANDARD              ="https://web3d.org/specifications/X3Dv4Draft/ISO-IEC19776-1v4.0-WD1/Part01/X3D_XML.html";
   public final static String X3D_CLASSICVRML_ENCODING_STANDARD      ="https://www.web3d.org/documents/specifications/19776-2/V3.3/Part02/X3D_ClassicVRML.html";
+//public final static String X3D_CLASSICVRML_ENCODING_STANDARD      ="https://www.web3d.org/specifications/X3Dv4Draft/19776-2v4.0-WD1/Part02/X3D_ClassicVRML.html";
   public final static String X3D_COMPRESSED_BINARY_ENCODING_STANDARD="https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/X3D_Binary.html";
   public final static String X3D_JSON_ENCODING_GUIDELINES           ="https://www.web3d.org/x3d/stylesheets/X3dToJson.html"; // TODO standard
   public final static String VRML97_STANDARD                        ="https://www.web3d.org/documents/specifications/14772/V2.0/index.html";

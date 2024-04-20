@@ -50,8 +50,8 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_STANDARDS;
                     displayName = "#CTL_LaunchWeb3DRecommendedStandardsAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 200)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 100)
 })
 
 @SuppressWarnings("serial")

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -41,19 +41,18 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.VRML97_STANDARD;
-import static org.web3d.x3d.actions.BaseViewAction.VRML97_STANDARD_AMENDMENT_1;
+import static org.web3d.x3d.actions.BaseViewAction.X3D4_SCENEACCESSINTERFACE_SAI_STANDARD;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchVrml97StandardsAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ISO_favicon32x32.png",
-                    displayName = "#CTL_LaunchVrml97StandardsAction",
+@ActionID(id = "org.web3d.x3d.actions.LaunchX3D4SceneAccessInterfaceStandardAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Web3dIcon32x32.png",
+                    displayName = "#CTL_LaunchX3D4SceneAccessInterfaceStandardAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 750),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 750)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 450),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 450)
 })
 
-public final class LaunchVrml97StandardsAction extends CallableSystemAction
+public final class LaunchX3D4SceneAccessInterfaceStandardAction extends CallableSystemAction
 {
   @Override
   public void performAction()
@@ -62,17 +61,13 @@ public final class LaunchVrml97StandardsAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    BaseViewAction.sendBrowserTo(VRML97_STANDARD_AMENDMENT_1);
-    
-    LaunchX3dExamplesAction.sleepSeconds(1); // give user time to notice first page, then second
-    
-    BaseViewAction.sendBrowserTo(VRML97_STANDARD); // launch second so that most recently visible to user
+    BaseViewAction.sendBrowserTo(X3D4_SCENEACCESSINTERFACE_SAI_STANDARD);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchVrml97StandardsAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchX3D4SceneAccessInterfaceStandardAction");
   }
 
   @Override
@@ -86,7 +81,7 @@ public final class LaunchVrml97StandardsAction extends CallableSystemAction
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("CTL_LaunchVrml97StandardsAction");
+    return new HelpCtx("X3dLaunchX3D4SceneAccessInterfaceStandardAction");
   }
 
   @Override

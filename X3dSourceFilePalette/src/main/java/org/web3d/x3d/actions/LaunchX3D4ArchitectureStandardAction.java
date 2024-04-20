@@ -44,12 +44,12 @@ import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_IS;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3D4ArchitectureStandardAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Web3dIcon32x32.png",
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ISO_favicon32x32.png",
                     displayName = "#CTL_LaunchX3D4ArchitectureStandardAction",
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 100)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 300),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 300)
 })
 
 public final class LaunchX3D4ArchitectureStandardAction extends CallableSystemAction
