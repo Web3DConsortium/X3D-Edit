@@ -112,6 +112,7 @@ abstract public class BaseViewAction extends CallableSystemAction
 //public final static String WEB3D_CONSORTIUM_MANTIS_ISSUES         ="https://www.web3d.org/member-only/mantis/login_page.php";
   public final static String WEB3D_CONFERENCE                       ="https://web3d.siggraph.org";
   public final static String INCITS_H3                              ="https://www.incits.org/committees/h3";
+  public final static String ISOIEC_SC24                            ="https://www.iso.org/committee/45252.html";
   public final static String WEB3D_CONFERENCE_ACM_DIGITAL_LIBRARY   ="https://dl.acm.org/conference/web3d";
   public final static String WEB3D_CONFERENCE_YOUTUBE               ="https://www.youtube.com/channel/UCxg1RdwicxPHgRT0QQbuGFQ";
   public final static String WEB3D_FACEBOOK                         ="https://www.facebook.com/people/Web3D-Consortium/100057066266099/";
@@ -126,12 +127,12 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D4_ARCHITECTURE_STANDARD_IS_PROOF    ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-IS.proof/Part01/Architecture.html";
   public final static String X3D4_ARCHITECTURE_STANDARD_IS          ="https://www.web3d.org/specifications/X3Dv4/ISO-IEC19775-1v4-IS/Part01/Architecture.html";
   public final static String X3D4_HTML_AUTHORING_GUIDELINES         = X3D4_ARCHITECTURE_STANDARD_IS.replace("Architecture.html", "htmlGuidelines.html");
-//public final static String X3D4_SCENEACCESSINTERFACE_SAI_STANDARD ="https://web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-2v4.0-WD1/Part02/X3D_SAI.html";
-  public final static String X3D4_SCENEACCESSINTERFACE_SAI_STANDARD ="https://web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-2v4.0-WD1/Part02/X3D_SAI.html";
+//public final static String X3D4_SCENEACCESSINTERFACE_SAI_STANDARD ="https://www.web3d.org/documents/specifications/19775-2/V3.3/Part02/X3D_SAI.html";
 //public final static String X3D_XML_ENCODING_STANDARD              ="https://www.web3d.org/documents/specifications/19776-1/V3.3/Part01/X3D_XML.html";
-  public final static String X3D_XML_ENCODING_STANDARD              ="https://web3d.org/specifications/X3Dv4Draft/ISO-IEC19776-1v4.0-WD1/Part01/X3D_XML.html";
-  public final static String X3D_CLASSICVRML_ENCODING_STANDARD      ="https://www.web3d.org/documents/specifications/19776-2/V3.3/Part02/X3D_ClassicVRML.html";
-//public final static String X3D_CLASSICVRML_ENCODING_STANDARD      ="https://www.web3d.org/specifications/X3Dv4Draft/19776-2v4.0-WD1/Part02/X3D_ClassicVRML.html";
+//public final static String X3D_CLASSICVRML_ENCODING_STANDARD      ="https://www.web3d.org/documents/specifications/19776-2/V3.3/Part02/X3D_ClassicVRML.html";
+  public final static String X3D4_SCENEACCESSINTERFACE_SAI_STANDARD ="https://web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-2v4.0-WD1/Part02/X3D_SAI.html";
+  public final static String X3D_XML_ENCODING_STANDARD              ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19776-1v4.0-WD1/Part01/X3D_XML.html";
+  public final static String X3D_CLASSICVRML_ENCODING_STANDARD      ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19776-2v4.0-WD1/Part02/X3D_ClassicVRML.html";
   public final static String X3D_COMPRESSED_BINARY_ENCODING_STANDARD="https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/X3D_Binary.html";
   public final static String X3D_JSON_ENCODING_GUIDELINES           ="https://www.web3d.org/x3d/stylesheets/X3dToJson.html"; // TODO standard
   public final static String VRML97_STANDARD                        ="https://www.web3d.org/documents/specifications/14772/V2.0/index.html";
