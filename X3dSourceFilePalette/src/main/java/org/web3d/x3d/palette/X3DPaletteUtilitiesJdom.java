@@ -538,33 +538,47 @@ public final class X3DPaletteUtilitiesJdom
     return myEd.getJdomDoc();
   }
 
-  public static Vector<String> getUSEvector(JTextComponent target, String type)
+  /** utility method for all DEF names
+     * @param target component
+     * @return list of all candidate USE names */
+  public static Vector<String> getUSEvector(JTextComponent target)
+  {
+      return getUSEvector(target, "");
+  }
+
+  public static Vector<String> getUSEvector(JTextComponent target, String nodeType)
   {
     Vector<String> v = new Vector<>();
     org.jdom.Document doc = getJdom(target);
     if(doc == null)
       return v;
 
-    return collectDefs(doc.getRootElement(), type, v);
+    // returns all DEF names if nodeType is blank
+    return collectDefs(doc.getRootElement(), nodeType, v);
   }
-
+  
+  /** Collect DEF names for elements of a given type, otherwise return all DEF names if no elementName is given */
   @SuppressWarnings(value = "unchecked")
-  static Vector<String> collectDefs(org.jdom.Element el, String nm, Vector<String> v)
+  static Vector<String> collectDefs(org.jdom.Element element, String elementName, Vector<String> vectorOfStrings)
   {
-    if (el.getName().equalsIgnoreCase(nm)) {
-      org.jdom.Attribute attr = el.getAttribute("DEF");
-      if (attr != null) {
-        String val = attr.getValue();
-        if (val != null && val.length() > 0)
-          v.add(val);
-      }
-    }
-    List<org.jdom.Element> lis = el.getChildren();
-    for (org.jdom.Element e : lis)
-    {
-      collectDefs(e, nm, v);
-    }
-    return v;
+      if (elementName == null)
+          elementName = new String();
+      
+        if (element.getName().equalsIgnoreCase(elementName) || elementName.isBlank())
+        {
+          org.jdom.Attribute attr = element.getAttribute("DEF");
+          if (attr != null) {
+            String DEFname = attr.getValue();
+            if (DEFname != null && DEFname.length() > 0)
+                vectorOfStrings.add(DEFname);
+          }
+        }
+        List<org.jdom.Element> lis = element.getChildren();
+        for (org.jdom.Element e : lis)
+        {
+          collectDefs(e, elementName, vectorOfStrings);
+        }
+        return vectorOfStrings;
   }
 
   enum ValidationErrorResponse {
