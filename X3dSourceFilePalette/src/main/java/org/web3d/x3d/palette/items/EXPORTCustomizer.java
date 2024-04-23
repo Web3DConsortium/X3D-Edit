@@ -33,8 +33,13 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d.palette.items;
 
+import java.awt.Color;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 
 /**
  * EXPORTCustomizer.java
@@ -62,20 +67,25 @@ public class EXPORTCustomizer extends BaseCustomizer
     
     initComponents();
     
+    // warning due to JDOM?
+    Vector<String> USEvector = X3DPaletteUtilitiesJdom.getUSEvector(target); // all potential USE values, no filter
+    localDEFComboBox.setModel(new DefaultComboBoxModel<>(USEvector));
+
+    localDEFComboBox.setSelectedItem(export.getLocalDEF());
+    
     // must complete comboBox initializations before setting any values via callbacks to avoid NPE
     // name choices correspond to category value
     reconfigureLocalDEFComboBox();
-    
-    localDEFComboBox.setSelectedItem(export.getLocalDEF());
     
     AS_TextField.setText(export.getAS());
   }
   /**
    * Optional user choices for localDEFComboBox correspond to built-in conversions for current category.
+   * TODO consider adding other IMPORT values.
    */
   private void reconfigureLocalDEFComboBox ()
   {
-      
+      updateLocalDEFComboBoxBackground();
   }
   
   /** This method is called from within the constructor to
@@ -97,11 +107,13 @@ public class EXPORTCustomizer extends BaseCustomizer
         AS_ExplanationLabel = new javax.swing.JLabel();
         hint2Label = new javax.swing.JLabel();
         hint3Label = new javax.swing.JLabel();
+        hint4Label = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(484, 200));
         setLayout(new java.awt.GridBagLayout());
 
         hint1Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        hint1Label.setText("EXPORT identifies DEF nodes that can send/receive events ");
+        hint1Label.setText("EXPORT identifies DEF nodes that can send/receive external events ");
         hint1Label.setToolTipText("unit is only valid in X3D version 3.3+");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -113,17 +125,19 @@ public class EXPORTCustomizer extends BaseCustomizer
         outlinePanel.setLayout(new java.awt.GridBagLayout());
 
         localDEFLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        localDEFLabel.setText("localDEF");
+        localDEFLabel.setText("(required)   localDEF");
         localDEFLabel.setToolTipText("user-defined name for conversion factor");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(13, 60, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(13, 10, 3, 3);
         outlinePanel.add(localDEFLabel, gridBagConstraints);
 
         localDEFComboBox.setEditable(true);
         localDEFComboBox.setToolTipText("enter or choose standard component name");
+        localDEFComboBox.setMinimumSize(new java.awt.Dimension(300, 22));
+        localDEFComboBox.setPreferredSize(new java.awt.Dimension(300, 22));
         localDEFComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 localDEFComboBoxActionPerformed(evt);
@@ -141,20 +155,22 @@ public class EXPORTCustomizer extends BaseCustomizer
         localDEF_ExplanationLabel.setText(" DEF name internal to this scene");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 3, 3, 40);
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 3, 10);
         outlinePanel.add(localDEF_ExplanationLabel, gridBagConstraints);
 
         AS_Label.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        AS_Label.setText("AS");
+        AS_Label.setText("(optional)            AS");
         AS_Label.setToolTipText("optional name change provided to external scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 60, 13, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 10, 13, 3);
         outlinePanel.add(AS_Label, gridBagConstraints);
 
         AS_TextField.setToolTipText("optional name change provided to external scenes");
+        AS_TextField.setMinimumSize(new java.awt.Dimension(300, 22));
+        AS_TextField.setPreferredSize(new java.awt.Dimension(300, 22));
         AS_TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AS_TextFieldActionPerformed(evt);
@@ -173,7 +189,7 @@ public class EXPORTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 13, 40);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 13, 10);
         outlinePanel.add(AS_ExplanationLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -182,7 +198,7 @@ public class EXPORTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 13, 3, 13);
         add(outlinePanel, gridBagConstraints);
 
-        hint2Label.setText("A parent X3D scene loads this scene via Inline");
+        hint2Label.setText("A parent X3D scene loads this scene via Inline and");
         hint2Label.setToolTipText("unit is only valid in X3D version 3.3+");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -190,23 +206,43 @@ public class EXPORTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(10, 6, 3, 6);
         add(hint2Label, gridBagConstraints);
 
-        hint3Label.setText("and must also IMPORT this EXPORTED localDEF-AS node label");
+        hint3Label.setText("can then IMPORT the exported localDEF-AS node label.");
         hint3Label.setToolTipText("unit is only valid in X3D version 3.3+");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 10, 6);
+        gridBagConstraints.insets = new java.awt.Insets(3, 6, 6, 6);
         add(hint3Label, gridBagConstraints);
+
+        hint4Label.setText("Hint: use a new EXPORT statement for each new EXPORT node.");
+        hint4Label.setToolTipText("unit is only valid in X3D version 3.3+");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(3, 6, 10, 6);
+        add(hint4Label, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void localDEFComboBoxActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_localDEFComboBoxActionPerformed
     {//GEN-HEADEREND:event_localDEFComboBoxActionPerformed
-      
-        
+        updateLocalDEFComboBoxBackground();
     }//GEN-LAST:event_localDEFComboBoxActionPerformed
 
+    private void updateLocalDEFComboBoxBackground()
+    {
+        // https://stackoverflow.com/questions/10258224/change-background-color-editable-jcombobox
+        JTextField textField = ((JTextField) localDEFComboBox.getEditor().getEditorComponent());
+        if ((localDEFComboBox.getSelectedIndex() < 0) || 
+            (localDEFComboBox.getSelectedItem() == null) ||
+            ((String) localDEFComboBox.getSelectedItem()).isBlank() ||
+            ((String) localDEFComboBox.getSelectedItem()).equalsIgnoreCase(TODO_PROVIDE_EXPORTABLE_DEF))
+        {
+             textField.setBackground(Color.ORANGE);
+        }
+        else textField.setBackground(Color.WHITE);
+    }
 private void AS_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AS_TextFieldActionPerformed
-// TODO if zero or negative, throw warning dialog
+
 }//GEN-LAST:event_AS_TextFieldActionPerformed
   
   
@@ -217,6 +253,7 @@ private void AS_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JLabel hint1Label;
     private javax.swing.JLabel hint2Label;
     private javax.swing.JLabel hint3Label;
+    private javax.swing.JLabel hint4Label;
     private javax.swing.JComboBox localDEFComboBox;
     private javax.swing.JLabel localDEFLabel;
     private javax.swing.JLabel localDEF_ExplanationLabel;
@@ -229,14 +266,17 @@ private void AS_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     return "NAME_X3D_EXPORT";
   }
 
+  private final String TODO_PROVIDE_EXPORTABLE_DEF = "TODO_PROVIDE_EXPORTABLE_DEF";
   @Override
   public void unloadInput()
-  {     
-     if     ((localDEFComboBox.getSelectedIndex() >= 0) || (localDEFComboBox.getSelectedItem() != null)) // editable
+  {
+     if     ((localDEFComboBox.getSelectedIndex() >= 0)   &&
+             ( (        localDEFComboBox.getSelectedItem() != null) ||
+              !((String)localDEFComboBox.getSelectedItem()).isBlank())) // editable
      {
           export.setLocalDEF(((String)localDEFComboBox.getSelectedItem()).trim());
      }
-     else export.setLocalDEF("");
+     else export.setLocalDEF(TODO_PROVIDE_EXPORTABLE_DEF); // prompt author
      
      export.setAS(AS_TextField.getText().trim());
   }  
