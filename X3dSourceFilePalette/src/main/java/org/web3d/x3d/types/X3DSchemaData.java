@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -149,7 +149,7 @@ public interface X3DSchemaData
   boolean META_ATTR_LANG_REQD       = false;
   String  META_ATTR_LANG_DFLT       = "";
   String  META_ATTR_LANG_REFERENCE  = "https://www.w3.org/TR/html4/struct/dirlang.html#h-8.1.1";
-                                      // https://www.w3.org/International/articles/language-tags";
+                                    // https://www.w3.org/International/articles/language-tags";
   String  META_ATTR_LANG_LOOKUP     = "https://people.w3.org/rishida/utils/subtags"; // Language Subtag Lookup by Richard Ishida
 
   String  META_ATTR_SCHEME_NAME      = "scheme";
