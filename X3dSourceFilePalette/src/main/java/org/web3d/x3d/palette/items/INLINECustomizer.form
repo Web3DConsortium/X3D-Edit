@@ -303,7 +303,7 @@
         <Component class="javax.swing.JLabel" name="descriptionLabel">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;Inline&lt;/b&gt; can load content from another X3D scene via the url list of local and online file addresses, sorted by availability. &lt;/p&gt; &#xa;&lt;p align=&apos;center&apos;&gt;Hint: multiple links usually provide alternate addresses or encodings for the same content.&lt;/p&gt;&#xa;&lt;p align=&apos;center&apos;&gt;Hint: Schematron warnings for X3D profile are silenced by inserting a MetadataString node.&lt;/p&gt;&#xa;&lt;p align=&apos;center&apos;&gt;Hint: &lt;i&gt;description&lt;/i&gt; field requires X3D version=&apos;4.0&apos; &lt;/p&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;Inline&lt;/b&gt; can load content from another X3D scene via the url list of local and online file addresses, sorted by availability. &lt;/p&gt;  &lt;p align=&apos;center&apos;&gt;Hint: multiple links usually provide alternate addresses or encodings for the same content.&lt;/p&gt; &lt;p align=&apos;center&apos;&gt;Hint: Schematron warnings regarding X3D profile are silenced by inserting a MetadataString node.&lt;/p&gt; &lt;p align=&apos;center&apos;&gt;Hint: &lt;i&gt;description&lt;/i&gt; field requires X3D version=&apos;4.0&apos; &lt;/p&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value="Inline can load other X3D scenes"/>
           </Properties>
           <Constraints>
