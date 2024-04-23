@@ -3159,7 +3159,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         if (headElement == null)
             return ""; // no head element found
         
-        // TODO how to handle unchecked cast warning? should return List<Element> of DOM Element; new JDOM perhaps?
+        // TODO how to handle unchecked cast warning? should return List<Element> of DOM Element; new JDOM needed to fix it
         // https://stackoverflow.com/questions/509076/how-do-i-address-unchecked-cast-warnings
         List<Element> metaList = (List<Element>) headElement.getChildren("meta");
         
