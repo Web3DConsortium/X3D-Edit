@@ -347,9 +347,13 @@ POSSIBILITY OF SUCH DAMAGE.
                         <attr name="position" intvalue="1025"/>
                         <!-- various pages of interest to Web developers -->
                     </folder>
-                    <folder name="X3D &amp;Work in Progress">
+                    <folder name="X3D &amp;Programming Libraries">
                         <attr name="position" intvalue="1050"/>
-                        <!-- X3D Unified Object Model (X3DUOM)      X3duomAction                             position 1030 -->
+                        <!-- X3D Unified Object Model (X3DUOM)      LaunchX3duomAction                       position 1000 -->
+                        <!-- various pages of interest to Web developers -->
+                    </folder>
+                    <folder name="X3D &amp;Work in Progress">
+                        <attr name="position" intvalue="1075"/>
                         <!-- X3D Validation: Schema DOCTYPE X3DUOM  LaunchX3dSchemaDoctypeValidationAction   position 1040 -->
                     </folder>
                     <file name="org-web3d-popup-5.instance">
@@ -843,8 +847,13 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="position" intvalue="1025"/>
                 <!-- various pages of interest to Web developers -->
             </folder>
-            <folder name="X3D &amp;Work in Progress">
+            <folder name="X3D &amp;Programming Libraries">
                 <attr name="position" intvalue="1050"/>
+                <!-- X3D Unified Object Model (X3DUOM)      LaunchX3duomAction                       position 1000 -->
+                <!-- various pages of interest to Web developers -->
+            </folder>
+            <folder name="X3D &amp;Work in Progress">
+                <attr name="position" intvalue="1075"/>
             </folder>
             <file name="org-web3d-menu-5.instance">
                 <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
