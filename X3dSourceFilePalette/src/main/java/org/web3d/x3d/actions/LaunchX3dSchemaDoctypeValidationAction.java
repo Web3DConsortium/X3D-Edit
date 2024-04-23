@@ -41,7 +41,9 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_DOCTYPE_DOCUMENTATION;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_SCHEMA_DOCTYPE_VALIDATION;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_SCHEMA_DOCUMENTATION;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dSchemaDoctypeValidationAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/CheckMark.png",
@@ -61,6 +63,10 @@ public final class LaunchX3dSchemaDoctypeValidationAction extends CallableSystem
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
+    BaseViewAction.sendBrowserTo(X3D_SCHEMA_DOCUMENTATION);
+    LaunchX3dExamplesAction.sleepSeconds(1); // give user time to notice first page, then second
+    BaseViewAction.sendBrowserTo(X3D_DOCTYPE_DOCUMENTATION);
+    LaunchX3dExamplesAction.sleepSeconds(1); // give user time to notice first page, then second
     BaseViewAction.sendBrowserTo(X3D_SCHEMA_DOCTYPE_VALIDATION);
   }
 
