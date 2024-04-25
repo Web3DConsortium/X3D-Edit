@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -33,8 +33,11 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d.palette.items;
 
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 
 /**
  * IMPORTCustomizer.java
@@ -62,18 +65,26 @@ public class IMPORTCustomizer extends BaseCustomizer
     
     initComponents();
     
+    // warning due to JDOM?
+    Vector<String> DEFvector = X3DPaletteUtilitiesJdom.getUSEvector(target, "Inline"); // all potential USE values, no filter
+    inlineDEFComboBox.setModel(new DefaultComboBoxModel<>(DEFvector));
+
+    inlineDEFComboBox.setSelectedItem(importNode.getInlineDEF());
     // must complete comboBox initializations before setting any values via callbacks to avoid NPE
     // name choices correspond to category value
-    reconfigureLocalDEFComboBox();
+    reconfigureInlineDEFComboBox();
     
-    inlineDEFComboBox.setSelectedItem(importNode.getInlineDEF());
+    if      (!importNode.getInlineDEF().isBlank())
+             inlineDEFComboBox.setSelectedItem(importNode.getInlineDEF());
+    else if (inlineDEFComboBox.getModel().getSize() > 0)
+             inlineDEFComboBox.setSelectedIndex(0); // if not already chosen, prompt first one available
     
     AS_TextField.setText(importNode.getAS());
   }
   /**
    * Optional user choices for inlineDEFComboBox correspond to built-in conversions for current category.
    */
-  private void reconfigureLocalDEFComboBox ()
+  private void reconfigureInlineDEFComboBox ()
   {
       
   }
@@ -100,6 +111,7 @@ public class IMPORTCustomizer extends BaseCustomizer
         AS_ExplanationLabel = new javax.swing.JLabel();
         hint2Label = new javax.swing.JLabel();
         hint3Label = new javax.swing.JLabel();
+        hint4Label = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -122,11 +134,13 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(13, 60, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(13, 12, 3, 3);
         outlinePanel.add(inlinelDEFLabel, gridBagConstraints);
 
         inlineDEFComboBox.setEditable(true);
         inlineDEFComboBox.setToolTipText("enter or choose standard component name");
+        inlineDEFComboBox.setMinimumSize(new java.awt.Dimension(120, 22));
+        inlineDEFComboBox.setPreferredSize(new java.awt.Dimension(120, 22));
         inlineDEFComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inlineDEFComboBoxActionPerformed(evt);
@@ -156,11 +170,13 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(13, 60, 13, 3);
+        gridBagConstraints.insets = new java.awt.Insets(13, 12, 13, 3);
         outlinePanel.add(importedlDEFLabel, gridBagConstraints);
 
         importedDEFComboBox.setEditable(true);
         importedDEFComboBox.setToolTipText("enter or choose standard component name");
+        importedDEFComboBox.setMinimumSize(new java.awt.Dimension(120, 22));
+        importedDEFComboBox.setPreferredSize(new java.awt.Dimension(120, 22));
         importedDEFComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 importedDEFComboBoxActionPerformed(evt);
@@ -175,12 +191,12 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
         outlinePanel.add(importedDEFComboBox, gridBagConstraints);
 
-        importedDEF_ExplanationLabel.setText(" DEF name of imported node external to this scene");
+        importedDEF_ExplanationLabel.setText(" DEF name of imported node external to this scene (from EXPORT AS)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 40);
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 12);
         outlinePanel.add(importedDEF_ExplanationLabel, gridBagConstraints);
 
         AS_Label.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -190,10 +206,12 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 60, 13, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 12, 13, 3);
         outlinePanel.add(AS_Label, gridBagConstraints);
 
         AS_TextField.setToolTipText("optional name change provided to external scenes");
+        AS_TextField.setMinimumSize(new java.awt.Dimension(120, 22));
+        AS_TextField.setPreferredSize(new java.awt.Dimension(120, 22));
         AS_TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AS_TextFieldActionPerformed(evt);
@@ -229,13 +247,21 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(10, 6, 3, 6);
         add(hint2Label, gridBagConstraints);
 
-        hint3Label.setText("and must also IMPORT this EXPORTED localDEF-AS node label.  TODO:  Trace box");
+        hint3Label.setText("must also IMPORT this EXPORTED localDEF-AS node label.");
         hint3Label.setToolTipText("unit is only valid in X3D version 3.3+");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 10, 6);
         add(hint3Label, gridBagConstraints);
+
+        hint4Label.setText("Hint: use a new IMPORT statement for each new IMPORT node.");
+        hint4Label.setToolTipText("unit is only valid in X3D version 3.3+");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(3, 6, 10, 6);
+        add(hint4Label, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void inlineDEFComboBoxActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_inlineDEFComboBoxActionPerformed
@@ -260,6 +286,7 @@ private void AS_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JLabel hint1Label;
     private javax.swing.JLabel hint2Label;
     private javax.swing.JLabel hint3Label;
+    private javax.swing.JLabel hint4Label;
     private javax.swing.JComboBox importedDEFComboBox;
     private javax.swing.JLabel importedDEF_ExplanationLabel;
     private javax.swing.JLabel importedlDEFLabel;

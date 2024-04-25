@@ -71,7 +71,10 @@ public class EXPORTCustomizer extends BaseCustomizer
     Vector<String> USEvector = X3DPaletteUtilitiesJdom.getUSEvector(target); // all potential USE values, no filter
     localDEFComboBox.setModel(new DefaultComboBoxModel<>(USEvector));
 
-    localDEFComboBox.setSelectedItem(export.getLocalDEF());
+    if      (!export.getLocalDEF().isBlank())
+             localDEFComboBox.setSelectedItem(export.getLocalDEF());
+    else if (localDEFComboBox.getModel().getSize() > 0)
+             localDEFComboBox.setSelectedIndex(0); // if not already chosen, prompt first one available
     
     // must complete comboBox initializations before setting any values via callbacks to avoid NPE
     // name choices correspond to category value
