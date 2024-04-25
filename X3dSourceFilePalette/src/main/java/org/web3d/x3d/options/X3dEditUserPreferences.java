@@ -753,7 +753,7 @@ public class X3dEditUserPreferences
   private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2024\\XMLSpy.exe";
-  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\blender-3.6.8-windows-x64\\blender.exe";
+  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\blender-3.6.11-windows-x64\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String winxpBvhackerEditorPathDefault             = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
   private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";
@@ -779,12 +779,12 @@ public class X3dEditUserPreferences
   private static final String windows64ImageJEditorPathDefault           = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\imdisplay.exe";
   private static final String windows64VlcPlayerPathDefault              = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
-  private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege-5.6.1\\Protege.exe";
+  private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege-5.6.3\\Protege.exe";
   private static final String windows64PorteclePlayerPathDefault         = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
   private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2024\\XMLSpy.exe";
-  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\blender-3.6.8-windows-x64\\blender.exe";
+  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\blender-3.6.11-windows-x64\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String windows64BvhackerEditorPathDefault         = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
   private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";

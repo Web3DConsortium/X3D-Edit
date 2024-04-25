@@ -12388,7 +12388,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_wiresharkDownloadButtonActionPerformed
 
     private void wiresharkHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkHelpButtonActionPerformed
-        browserLaunch(X3dEditUserPreferences.getDownloadSiteWireshark());
+        browserLaunch(X3dEditUserPreferences.helpSiteWireshark);
     }//GEN-LAST:event_wiresharkHelpButtonActionPerformed
 
     private void xj3dNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xj3dNvdSecurityCheckButtonActionPerformed
