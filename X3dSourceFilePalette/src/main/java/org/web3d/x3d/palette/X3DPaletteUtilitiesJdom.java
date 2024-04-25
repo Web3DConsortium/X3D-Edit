@@ -551,7 +551,7 @@ public final class X3DPaletteUtilitiesJdom
     Vector<String> v = new Vector<>();
     org.jdom.Document doc = getJdom(target);
     if(doc == null)
-      return v;
+       return v; // missing document, empty vector
 
     // returns all DEF names if nodeType is blank
     return collectDefs(doc.getRootElement(), nodeType, v);
@@ -573,12 +573,12 @@ public final class X3DPaletteUtilitiesJdom
                 vectorOfStrings.add(DEFname);
           }
         }
-        List<org.jdom.Element> lis = element.getChildren();
-        for (org.jdom.Element e : lis)
+        List<org.jdom.Element> childList = element.getChildren();
+        for (org.jdom.Element e : childList)
         {
-          collectDefs(e, elementName, vectorOfStrings);
+          collectDefs(e, elementName, vectorOfStrings); // recurse down the tree, collecting DEFs
         }
-        return vectorOfStrings;
+        return vectorOfStrings; // tail recursion
   }
 
   enum ValidationErrorResponse {
