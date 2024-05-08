@@ -358,8 +358,8 @@
                 <binary-origin>release/modules/ext/xalan.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/xmlresolver-4.4.3.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/xmlresolver-4.4.3.jar</binary-origin>
+                <runtime-relative-path>ext/saxon-he-12.4.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/saxon-he-12.4.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/log4j-core-2.19.0.jar</runtime-relative-path>
@@ -394,6 +394,10 @@
                 <binary-origin>release/modules/ext/slf4j-simple-1.7.30.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
+                <runtime-relative-path>ext/xmlresolver-5.2.2-data.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xmlresolver-5.2.2-data.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
                 <runtime-relative-path>ext/xj3d.browser_2.3.0-nps.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xj3d.browser_2.3.0-nps.jar</binary-origin>
             </class-path-extension>
@@ -402,16 +406,12 @@
                 <binary-origin>release/modules/ext/xmlsec-2.1.4.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/saxon-he-11.4.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/saxon-he-11.4.jar</binary-origin>
+                <runtime-relative-path>ext/xmlresolver-5.2.2.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xmlresolver-5.2.2.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/Vrml97ToX3dNist.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/Vrml97ToX3dNist.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/xmlresolver-4.4.3-data.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/xmlresolver-4.4.3-data.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/slf4j-api-1.7.30.jar</runtime-relative-path>
