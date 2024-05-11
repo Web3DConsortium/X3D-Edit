@@ -226,7 +226,7 @@ public class UrlExpandableList2 extends JPanel implements ListSelectionListener
               urlJList.repaint();
           }
       }
-      if (address.contains("http:/") && !address.contains("http://"))
+      if (address.contains("http:/") && !address.contains("https://"))
       {              
           NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
                 "<html><p align='center'>url[" + i + "] starts with http:/ instead of http:// - fix it?</p><br/><p align='center'>" + address + "</p>", 
@@ -319,7 +319,7 @@ public class UrlExpandableList2 extends JPanel implements ListSelectionListener
   }
 
   /**
-   * Check head section of X3D scene for <meta name='identifier' content='http://onlinePathToScene/sceneName.x3d'/>
+   * Check head section of X3D scene for <meta name='identifier' content='https://onlinePathToScene/sceneName.x3d'/>
    * @return
    */
   private String getHeaderIdentifierPath()
@@ -521,10 +521,10 @@ externalEditorButton.setEnabled(indexSelected);
     checkUrlValuesMatchType ();
   }
   
-  // http://stackoverflow.com/questions/10786042/java-url-encoding-of-query-string-parameters (second solution)
-  // http://blog.lunatech.com/2009/02/03/what-every-web-developer-must-know-about-url-encoding
+  // https://stackoverflow.com/questions/10786042/java-url-encoding-of-query-string-parameters (second solution)
+  // https://blog.lunatech.com/2009/02/03/what-every-web-developer-must-know-about-url-encoding
   // https://en.wikipedia.org/wiki/Percent-encoding
-  // http://stackoverflow.com/questions/5330104/encoding-url-query-parameters-in-java
+  // https://stackoverflow.com/questions/5330104/encoding-url-query-parameters-in-java
   
   /** 
    * HTTP URL Address Encoding 

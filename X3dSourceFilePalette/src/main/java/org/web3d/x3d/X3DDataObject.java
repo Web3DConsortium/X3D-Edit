@@ -318,8 +318,8 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     {
       XMLReader rdr =  super.createParser(arg0);
       try {
-        rdr.setFeature("http://xml.org/sax/features/validation", true);
-        rdr.setFeature("http://apache.org/xml/features/validation/schema",false);
+        rdr.setFeature("https://xml.org/sax/features/validation", true);
+        rdr.setFeature("https://apache.org/xml/features/validation/schema",false);
       }
       catch ( SAXNotRecognizedException | SAXNotSupportedException ex) {
         System.err.println("Can't customize DTD parser in X3DDataObject: "+ex.getClass().getSimpleName()+" "+ex.getLocalizedMessage());
@@ -340,8 +340,8 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     {
       XMLReader rdr =  super.createParser(arg0);
       try {
-        rdr.setFeature("http://xml.org/sax/features/validation", true);
-        rdr.setFeature("http://apache.org/xml/features/validation/schema",true);
+        rdr.setFeature("https://xml.org/sax/features/validation", true);
+        rdr.setFeature("https://apache.org/xml/features/validation/schema",true);
       }
       catch ( SAXNotRecognizedException | SAXNotSupportedException ex) {
         System.err.println(new StringBuilder().append("Can't customize Schema parser in X3DDataObject: ").append(ex.getClass().getSimpleName()).append(" ").append(ex.getLocalizedMessage()).toString());

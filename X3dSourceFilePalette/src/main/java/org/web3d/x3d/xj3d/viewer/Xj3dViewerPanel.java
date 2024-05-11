@@ -13,7 +13,7 @@ are met:
       distribution.
  * Neither the names of the Naval Postgraduate School (NPS)
       Modeling Virtual Environments and Simulation (MOVES) Institute
-      (http://www.nps.edu and https://MovesInstitute.nps.edu)
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
@@ -140,7 +140,7 @@ public class Xj3dViewerPanel extends JPanel implements BrowserListener
     // Xj3D external pane to render saved modeler xj3d.browser.Xj3DBrowser
 
     // Xj3D initialization parameters, set for highest rendering quality
-    // http://www.xj3d.org/tutorials/xj3d_application.html
+    // https://www.xj3d.org/tutorials/xj3d_application.html
     // https://www.web3d.org/files/specifications/19775-1/V3.2/Part01/components/networking.html#t-BrowserProperties
 
     // Using JOGL's NEWT (Native Windowing Toolkit) is the best for performance.

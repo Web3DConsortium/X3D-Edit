@@ -104,7 +104,7 @@ public class GEOLOCATIONCustomizer extends BaseCustomizer
 
         dEFUSEpanel1 = getDEFUSEpanel();
         geoSystemLabel = new javax.swing.JLabel();
-        geoSystemCB = new javax.swing.JComboBox<String>();
+        geoSystemCB = new javax.swing.JComboBox<>();
         geoSystemPanelButton = new javax.swing.JButton();
         geoCoordsLab = new javax.swing.JLabel();
         geoCoordsTF0 = new javax.swing.JTextField();

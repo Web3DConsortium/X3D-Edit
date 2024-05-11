@@ -13,7 +13,7 @@
  *       distribution.
  *  Neither the names of the Naval Postgraduate School (NPS)
  *       Modeling Virtual Environments and Simulation (MOVES) Institute
- *       (http://www.nps.edu and https://MovesInstitute.nps.edu)
+ *       (https://www.nps.edu and https://MovesInstitute.nps.edu)
  *       nor the names of its contributors may be used to endorse or
  *       promote products derived from this software without specific
  *       prior written permission.
@@ -101,7 +101,7 @@ public final class Xj3dTopComponent extends TopComponent
   void writeProperties(java.util.Properties p)
   {
     // better to version settings since initial version as advocated at
-    // http://wiki.apidesign.org/wiki/PropertyFiles
+    // https://wiki.apidesign.org/wiki/PropertyFiles
     p.setProperty("version", "1.0");
     // TODO store your settings
   }

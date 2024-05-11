@@ -53,7 +53,7 @@ public class EncryptionMain
     cipher.init(XMLCipher.DECRYPT_MODE, key);
 
     Element encryptedDataElement = (Element) documentToDecrypt.getElementsByTagNameNS(
-        "http://www.w3.org/2001/04/xmlenc#",
+        "https://www.w3.org/2001/04/xmlenc#",
         "EncryptedData").item(0);
 
     return cipher.doFinal(documentToDecrypt, encryptedDataElement);
@@ -102,7 +102,7 @@ public class EncryptionMain
   public static boolean test() throws Exception
   {
     String xmlFile = "book.xml";
-    String bookNS = "http://sauria.com/schemas/apache-xml-book/book";
+    String bookNS = "https://sauria.com/schemas/apache-xml-book/book";
 
     Document contextDoc = loadDocument(xmlFile);
     Element elementToEncrypt = (Element) contextDoc.getElementsByTagNameNS(bookNS, "author").item(0);

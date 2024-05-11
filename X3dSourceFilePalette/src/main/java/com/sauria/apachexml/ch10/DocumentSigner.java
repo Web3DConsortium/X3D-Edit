@@ -214,7 +214,7 @@ public class DocumentSigner
 
     SignatureProperties sps = signer.addSignatureProperties();
     SignatureProperty sp = new SignatureProperty(sps.getDocument(),
-          "http://www.sauria.com",
+          "https://www.sauria.com",
           "hardware");
     sp.addText("smartcard");
     sps.addSignatureProperty(sp);

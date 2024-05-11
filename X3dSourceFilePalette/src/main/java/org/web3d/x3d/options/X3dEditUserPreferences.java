@@ -911,7 +911,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteInkscape                       = "https://www.inkscape.org";
   private static final String downloadSiteSvgedit                        = "https://github.com/SVG-Edit"; // https://code.google.com/p/svg-edit";
   private static final String downloadSiteWhiteDune                      = "https://wdune.ourproject.org";
-  private static final String downloadSiteWings3d                        = "http://www.wings3d.com"; // http://www.wings3d.com/?page_id=84";
+  private static final String downloadSiteWings3d                        = "https://www.wings3d.com"; // https://www.wings3d.com/?page_id=84";
   private static final String downloadSiteUltraEdit                      = "https://www.UltraEdit.com";
   
   // no command line options found to hand off the import of an X3D file, TODO provide local help
@@ -950,7 +950,7 @@ public class X3dEditUserPreferences
   protected static final String helpSiteInkscape                         = "https://www.inkscape.org/learn";
   protected static final String helpSiteSvgedit                          = "https://en.wikipedia.org/wiki/SVG-edit"; // https://code.google.com/p/svg-edit";
   protected static final String helpSiteWhiteDune                        = "https://wdune.ourproject.org/docs";
-  protected static final String helpSiteWings3d                          = "http://www.wings3d.com/?page_id=87";
+  protected static final String helpSiteWings3d                          = "https://www.wings3d.com/?page_id=87";
   protected static final String helpSiteUltraEdit                        = "https://www.ultraedit.com/wiki/Main_Page"; // https://www.UltraEdit.com/help/category/ultraedit-uestudio";
 
   public static String getDownloadSiteContact()        {return downloadSiteBSContact;}

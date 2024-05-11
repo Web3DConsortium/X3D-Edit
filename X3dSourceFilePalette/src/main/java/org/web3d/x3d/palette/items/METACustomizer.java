@@ -1276,9 +1276,9 @@ public class METACustomizer extends BaseCustomizer
         {
             if (url.contains("https://") || url.contains("sftp://"))  // check https certificate
             {
-                UrlExpandableList2.launchInBrowser("http://www.digicert.com/help?host=" + host);
+                UrlExpandableList2.launchInBrowser("https://www.digicert.com/help?host=" + host);
             }
-            UrlExpandableList2.launchInBrowser("http://centralops.net/co/DomainDossier.aspx?addr=" + host +
+            UrlExpandableList2.launchInBrowser("https//centralops.net/co/DomainDossier.aspx?addr=" + host +
                     "&dom_whois=true&dom_dns=true&traceroute=true&net_whois=true&svc_scan=true");
         }
     }//GEN-LAST:event_domainButtonActionPerformed
@@ -1287,7 +1287,7 @@ public class METACustomizer extends BaseCustomizer
         // similarly implemented in UrlExpandableList2 and METACustomizer, keep these code blocks consistent
         String host = urlExpandableList.getHost(contentTA.getText().trim());
         if (host.length() > 4)
-        UrlExpandableList2.launchInBrowser("http://centralops.net/co/Ping.aspx?addr=" + host);
+        UrlExpandableList2.launchInBrowser("https://centralops.net/co/Ping.aspx?addr=" + host);
     }//GEN-LAST:event_pingButtonActionPerformed
 
   private void externalEditorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_externalEditorButtonActionPerformed

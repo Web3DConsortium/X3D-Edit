@@ -306,7 +306,7 @@ public interface X3DSchemaData
 //    "https://www.bitmanagement.de/en/contact",                      //
       "https://github.com/castle-engine/view3dscene/issues",          // 7
       "https://sourceforge.net/freewrl/tickets",                      // 8
-      "http://forum.instantreality.org",                              // 9
+      "https://forum.instantreality.org",                              // 9
       "mailto:issues@instantreality.org",                             //10
 //    "https://www.pinecoast.com/support.php",                        //
       "https://sourceforge.net/p/xj3d/tickets",                       //11

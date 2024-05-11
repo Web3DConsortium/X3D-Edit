@@ -121,6 +121,12 @@ public abstract class BaseCustomizer extends JPanel
     else hasDEFUSEpanel = 
         !currentBaseX3DElement.getElementName().equals("XML") &&
         !currentBaseX3DElement.getElementName().equals("DOCTYPE") &&
+        !currentBaseX3DElement.getElementName().equals("X3D") &&
+        !currentBaseX3DElement.getElementName().equals("head") &&
+        !currentBaseX3DElement.getElementName().equals("component") &&
+        !currentBaseX3DElement.getElementName().equals("unit") &&
+        !currentBaseX3DElement.getElementName().equals("meta") &&
+        !currentBaseX3DElement.getElementName().equals("Scene") &&
         !currentBaseX3DElement.getElementName().equals("COMMENT") &&
         !currentBaseX3DElement.getElementName().equals("ROUTE") &&
         !currentBaseX3DElement.getElementName().equals("PROTODECLARE") &&
