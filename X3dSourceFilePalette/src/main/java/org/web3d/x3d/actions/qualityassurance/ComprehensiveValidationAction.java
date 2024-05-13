@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+ * Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -33,15 +33,18 @@
  */
 package org.web3d.x3d.actions.qualityassurance;
 
+import net.sf.saxon.s9api.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JMenuItem;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import static org.apache.tools.ant.util.ScriptManager.javax;
 import org.netbeans.api.xml.cookies.CookieMessage;
 import org.netbeans.api.xml.cookies.CookieObserver;
 import org.netbeans.spi.xml.cookies.CheckXMLSupport;
@@ -52,8 +55,10 @@ import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.filesystems.FileObject;
+import org.openide.filesystems.FileStateInvalidException;
 import org.openide.filesystems.FileSystem;
 import org.openide.filesystems.FileUtil;
+import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.RequestProcessor;
@@ -116,15 +121,15 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
 
   private class ComprehensiveValidationTask implements Runnable
   {
-    private final String sourcePath;
-    private       String validationLog;
-    private final X3DDataObject x3dDataObject;
+        private final String sourcePath;
+        private       String validationLog;
+        private final X3DDataObject x3dDataObject;
 
-    ComprehensiveValidationTask(String pathToFile, X3DDataObject x3dDataObject)
-    {
-      sourcePath = pathToFile;
-      this.x3dDataObject = x3dDataObject;
-    }
+        ComprehensiveValidationTask(String pathToFile, X3DDataObject x3dDataObject)
+        {
+          sourcePath = pathToFile;
+          this.x3dDataObject = x3dDataObject;
+        }
 
         @Override
         public void run()
@@ -136,13 +141,13 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                 try (OutputWriter outputWriterError = io.getErr()) {
                     outputWriterPlain.println("--------- X3D Validator checks commenced for " + x3dDataObject.getPrimaryFile().getNameExt() + " ---------");
                     
-                    CookieObserver coo = new MyCookieObserver(null, false, outputWriterError, outputWriterPlain);
+                    CookieObserver myCookieObserver = new MyCookieObserver(null, false, outputWriterError, outputWriterPlain);
 
                     // Well-formed XML check
                     outputWriterPlain.println();
                     outputWriterPlain.println("Performing well-formed XML check...");
                     CheckXMLSupport checker = x3dDataObject.getCheckXmlHelper();
-                    if (checker.checkXML(coo)) {//observerSilent)) {
+                    if (checker.checkXML(myCookieObserver)) { //observerSilent)) {
                         outputWriterPlain.println("Well-formed XML check: pass");
                     } else {
                         outputWriterError.println("Well-formed XML check: fail!");
@@ -166,7 +171,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                     outputWriterPlain.println();
                     outputWriterPlain.println("Performing DTD validation...");
                     ValidateXMLSupport dtdValidator = x3dDataObject.getDtdValidator();
-                    if (dtdValidator.validateXML(coo)) { //observerSilent)) {
+                    if (dtdValidator.validateXML(myCookieObserver)) { //observerSilent)) {
                         outputWriterPlain.println("XML DTD validation: pass");
                     } else {
                         outputWriterError.println("XML DTD validation: fail!");
@@ -176,16 +181,11 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
 
                     // XML Schema validation
                     ValidateXMLSupport schemaValidator = x3dDataObject.getSchemaValidator(); //dob.getValidateHelper();
-                    if (schemaValidator.validateXML(coo)) { //observerSilent)) {
+                    if (schemaValidator.validateXML(myCookieObserver)) { //observerSilent)) {
                         outputWriterPlain.println("XML schema validation: pass");
                     } else {
                         outputWriterError.println("XML schema validation: fail!");
                     }
-                    FileSystem fs;
-                    FileObject fo;
-                    File classicVrmlOutput, schematronOutput, schematronOutput2;
-                    Result result;
-                    BufferedReader rdr;
 
                     // continue with regex checker
                     outputWriterPlain.println();
@@ -199,9 +199,67 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                         }
                     }
                     outputWriterPlain.println("X3D regex check: complete");
-
-                    // continue with XSLT transformation (depends on saxon)
+                    
+                    // shared objects for conversions
+                    FileSystem fileSystem;
+                    FileObject fileObject;
+                    File classicVrmlOutputFile, schematronOutputFile, schematronOutputFile2; // schematron is two-pass process
+                    Result result;
+                    BufferedReader rdr;
                     TransformableSupport transformer = x3dDataObject.getTransformXmlHelper();
+                    
+                if (false) // skip this test
+                {
+                    // X3dToX3dvClassicVrmlEncoding
+                    try {
+                        fileSystem = FileUtil.getConfigRoot().getFileSystem();
+                        fileObject = fileSystem.findResource("Schematron/X3dToX3dvClassicVrmlEncoding.xslt");
+                        
+                        Source stylesheetStreamSource = new StreamSource(fileObject.getInputStream());
+                        classicVrmlOutputFile = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_classicVrmlOutput.txt");
+                        classicVrmlOutputFile.deleteOnExit();
+                        result = new StreamResult(classicVrmlOutputFile);
+                        
+                        outputWriterPlain.println();
+                        outputWriterPlain.println("Performing X3dToX3dvClassicVrmlEncoding.xslt conversion check...");
+
+                        // continue with XSLT transformation (depends on saxon, not JAXB since XSLT 2.0)
+                        // Example code from saxon-resources he.S9APIExamples TransformA public void run() throws SaxonApiException {
+                        Processor processor = new Processor(false);
+                        XsltCompiler compiler = processor.newXsltCompiler();
+                        XsltExecutable stylesheet = compiler.compile(stylesheetStreamSource); // new File("styles/books.xsl")));
+                        Serializer out = processor.newSerializer(classicVrmlOutputFile); // new File("books.html"));
+                        out.setOutputProperty(Serializer.Property.METHOD, "html");
+                        out.setOutputProperty(Serializer.Property.INDENT, "yes");
+                        Xslt30Transformer xslt30Transformer = stylesheet.load30();
+                        xslt30Transformer.transform(new StreamSource(classicVrmlOutputFile /*new File("data/books.xml")*/), out);
+                        
+                        outputWriterPlain.println("ClassicVrml output written to " + classicVrmlOutputFile.getPath()); // books.html");
+                        outputWriterPlain.println("TODO how to report conversion log?  Looking for diagnostic messages as output of interest...");
+                    }
+                    catch (SaxonApiException sae)
+                    {
+                        System.out.println ("SaxonApiException " + sae.getMessage());
+                        Exceptions.printStackTrace(sae);
+                    } 
+                    catch (FileStateInvalidException fsie) 
+                    {
+                        System.out.println ("FileStateInvalidException " + fsie.getMessage());
+                        Exceptions.printStackTrace(fsie);
+                    }
+                    catch (FileNotFoundException fnf) 
+                    {
+                        System.out.println ("FileNotFoundException " + fnf.getMessage());
+                        Exceptions.printStackTrace(fnf);
+                    }
+                    catch (IOException ioe) 
+                    {
+                        System.out.println ("IOException " + ioe.getMessage());
+                        Exceptions.printStackTrace(ioe);
+                    }
+                } // hide
+                    
+/* Xalan, fails on XSLT 2.0
                     try {
                         fs = FileUtil.getConfigRoot().getFileSystem();
 
@@ -227,25 +285,26 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                             outputWriterPlain.println("No errors or warnings found.");
                         }
                     }
+*/
 
-                    // continue with X3D Schematron
+                    // continue with X3D Schematron, a two-pass process
                     try {
-                        fs = FileUtil.getConfigRoot().getFileSystem(); // repeat
+                        fileSystem = FileUtil.getConfigRoot().getFileSystem(); // repeat
                         outputWriterPlain.println();
                         outputWriterPlain.println("Performing X3D Schematron check...");
                         SkipIfStartsWithUsing usingFilter = new SkipIfStartsWithUsing();
                         final CookieObserver myCo = new MyCookieObserver(usingFilter, true, outputWriterError, outputWriterPlain);
                         // X3D Schematron 1
-                        fo = fs.findResource("Schematron/X3dSchematronValidityChecks.xslt");
-                        Source src = new StreamSource(fo.getInputStream());
-                        schematronOutput = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_schematronOutput_1.txt");
-                        schematronOutput.deleteOnExit();
-                        result = new StreamResult(schematronOutput);
+                        fileObject = fileSystem.findResource("Schematron/X3dSchematronValidityChecks.xslt");
+                        Source inputStreamSource = new StreamSource(fileObject.getInputStream());
+                        schematronOutputFile = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_schematronOutput_1.txt");
+                        schematronOutputFile.deleteOnExit();
+                        result = new StreamResult(schematronOutputFile);
 
                         /* do this because I can't find a way to substitute saxon for xalan in TransformableSupport, xalan is needed for other things. */
                         /* The large validitychecks style sheet includes some xslt 2.0 statements */
-                        TransformerFactory saxonFact = new net.sf.saxon.TransformerFactoryImpl();
-                        Transformer saxonTransformer = saxonFact.newTransformer(src);
+                        TransformerFactory saxonTransformerFactory = new net.sf.saxon.TransformerFactoryImpl();
+                        Transformer        saxonTransformer = saxonTransformerFactory.newTransformer(inputStreamSource);
                         saxonTransformer.setErrorListener(new ErrorListener() {
                             @Override
                             public void warning(TransformerException exception) throws TransformerException {
@@ -266,16 +325,16 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
 
                         // X3D Schematron 2
                         // replace the transformer with one based on the output from the last check
-                        transformer = new TransformableSupport(new StreamSource(new FileInputStream(schematronOutput)));  // Use output from last
-                        fo = fs.findResource("Schematron/SvrlReportText.xslt");
-                        src = new StreamSource(fo.getInputStream());
-                        schematronOutput2 = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_schematronOutput_2.txt");
-                        schematronOutput2.deleteOnExit();
-                        result = new StreamResult(schematronOutput2);
+                        transformer = new TransformableSupport(new StreamSource(new FileInputStream(schematronOutputFile)));  // Use output from last
+                        fileObject = fileSystem.findResource("Schematron/SvrlReportText.xslt");
+                        inputStreamSource = new StreamSource(fileObject.getInputStream());
+                        schematronOutputFile2 = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_schematronOutput_2.txt");
+                        schematronOutputFile2.deleteOnExit();
+                        result = new StreamResult(schematronOutputFile2);
 
-                        transformer.transform(src, result, myCo);
+                        transformer.transform(inputStreamSource, result, myCo);
                         // Any output is an error
-                        rdr = new BufferedReader(new FileReader(schematronOutput2));
+                        rdr = new BufferedReader(new FileReader(schematronOutputFile2));
                         while (rdr.ready()) {
                             String s = usingFilter.filter(rdr.readLine());
                             if (s != null) {
