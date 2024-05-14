@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -54,8 +54,8 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
                     displayName = "#CTL_ViewInView3dSceneAction",
                             lazy=true)
 @ActionReferences(value={
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 136),
-  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 136)
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 120),
+  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 120)
 })
 public final class ViewInView3dSceneAction extends ViewInBaseAction
 {
