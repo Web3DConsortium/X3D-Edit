@@ -566,11 +566,11 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="view3dsceneLabel">
+            <Component class="javax.swing.JLabel" name="castleModelViewerLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
-                <Property name="text" type="java.lang.String" value="view3dscene"/>
-                <Property name="toolTipText" type="java.lang.String" value="view3dscene (Castle Game Engine) player"/>
+                <Property name="text" type="java.lang.String" value="castle-model-viewer"/>
+                <Property name="toolTipText" type="java.lang.String" value="Castle Model Viewer (formerly view3dscene)"/>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[120, 20]"/>
                 </Property>
@@ -745,14 +745,14 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="view3dsceneCheckBox">
+            <Component class="javax.swing.JCheckBox" name="castleModelViewerCheckBox">
               <Properties>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="toolTipText" type="java.lang.String" value="Include when autolaunching all browsers"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view3dsceneCheckBoxActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="castleModelViewerCheckBoxActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -960,7 +960,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="view3dsceneTF">
+            <Component class="javax.swing.JTextField" name="castleModelViewerTF">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Local file location"/>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -971,8 +971,8 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="view3dsceneTFFocusLost"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view3dsceneTFActionPerformed"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="castleModelViewerTFFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="castleModelViewerTFActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1159,13 +1159,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="view3dsceneChooserButton">
+            <Component class="javax.swing.JButton" name="castleModelViewerChooserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
                 <Property name="toolTipText" type="java.lang.String" value="Browse to select file location for local launch"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view3dsceneChooserButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="castleModelViewerChooserButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1335,7 +1335,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="view3dsceneDefaultButton">
+            <Component class="javax.swing.JButton" name="castleModelViewerDefaultButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="default"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset default file location"/>
@@ -1344,7 +1344,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view3dsceneDefaultButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="castleModelViewerDefaultButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1502,13 +1502,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="view3dsceneDownloadButton">
+            <Component class="javax.swing.JButton" name="castleModelViewerDownloadButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="get"/>
                 <Property name="toolTipText" type="java.lang.String" value="Download player from website"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view3dsceneDownloadButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="castleModelViewerDownloadButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1687,7 +1687,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="view3dsceneLaunchButton">
+            <Component class="javax.swing.JButton" name="castleModelViewerLaunchButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="launch"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
@@ -2108,13 +2108,13 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="view3dsceneNvdSecurityCheckButton">
+            <Component class="javax.swing.JButton" name="castleModelViewerNvdSecurityCheckButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="!"/>
                 <Property name="toolTipText" type="java.lang.String" value="NIST National Vulnerabilities Database NVD check"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view3dsceneNvdSecurityCheckButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="castleModelViewerNvdSecurityCheckButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

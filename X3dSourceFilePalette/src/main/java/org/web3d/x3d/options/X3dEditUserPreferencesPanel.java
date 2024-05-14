@@ -294,7 +294,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         instantRealityLabel = new javax.swing.JLabel();
         octagaLabel = new javax.swing.JLabel();
         swirlx3dLabel = new javax.swing.JLabel();
-        view3dsceneLabel = new javax.swing.JLabel();
+        castleModelViewerLabel = new javax.swing.JLabel();
         vivatyLabel = new javax.swing.JLabel();
         xj3dLabel = new javax.swing.JLabel();
         otherPlayerLabel = new javax.swing.JLabel();
@@ -305,7 +305,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         heilanCheckBox = new javax.swing.JCheckBox();
         instantRealityCheckBox = new javax.swing.JCheckBox();
         octagaCheckBox = new javax.swing.JCheckBox();
-        view3dsceneCheckBox = new javax.swing.JCheckBox();
+        castleModelViewerCheckBox = new javax.swing.JCheckBox();
         vivatyCheckBox = new javax.swing.JCheckBox();
         swirlx3dCheckBox = new javax.swing.JCheckBox();
         xj3dCheckBox = new javax.swing.JCheckBox();
@@ -317,7 +317,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         instantRealityTF = new javax.swing.JTextField();
         octagaTF = new javax.swing.JTextField();
         swirlx3dTF = new javax.swing.JTextField();
-        view3dsceneTF = new javax.swing.JTextField();
+        castleModelViewerTF = new javax.swing.JTextField();
         vivatyTF = new javax.swing.JTextField();
         xj3dTF = new javax.swing.JTextField();
         otherX3dPlayerPathTF = new javax.swing.JTextField();
@@ -329,7 +329,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         instantRealityChooserButton = new javax.swing.JButton();
         octagaChooserButton = new javax.swing.JButton();
         swirlx3dChooserButton = new javax.swing.JButton();
-        view3dsceneChooserButton = new javax.swing.JButton();
+        castleModelViewerChooserButton = new javax.swing.JButton();
         vivatyChooserButton = new javax.swing.JButton();
         xj3dChooserButton = new javax.swing.JButton();
         otherChooserButton = new javax.swing.JButton();
@@ -340,7 +340,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         instantRealityDefaultButton = new javax.swing.JButton();
         octagaDefaultButton = new javax.swing.JButton();
         swirlx3dDefaultButton = new javax.swing.JButton();
-        view3dsceneDefaultButton = new javax.swing.JButton();
+        castleModelViewerDefaultButton = new javax.swing.JButton();
         vivatyDefaultButton = new javax.swing.JButton();
         xj3dDefaultButton = new javax.swing.JButton();
         otherX3dPlayerClearButton = new javax.swing.JButton();
@@ -351,7 +351,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         instantRealityDownloadButton = new javax.swing.JButton();
         octagaDownloadButton = new javax.swing.JButton();
         swirlx3dDownloadButton = new javax.swing.JButton();
-        view3dsceneDownloadButton = new javax.swing.JButton();
+        castleModelViewerDownloadButton = new javax.swing.JButton();
         vivatyDownloadButton = new javax.swing.JButton();
         xj3dDownloadButton = new javax.swing.JButton();
         otherX3dPlayerDownloadButton = new javax.swing.JButton();
@@ -362,7 +362,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         instantRealityLaunchButton = new javax.swing.JButton();
         octagaLaunchButton = new javax.swing.JButton();
         swirlx3dLaunchButton = new javax.swing.JButton();
-        view3dsceneLaunchButton = new javax.swing.JButton();
+        castleModelViewerLaunchButton = new javax.swing.JButton();
         vivatyLaunchButton = new javax.swing.JButton();
         xj3dLaunchButton = new javax.swing.JButton();
         otherX3dPlayerLaunchButton = new javax.swing.JButton();
@@ -390,7 +390,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         instantRealityNvdSecurityCheckButton = new javax.swing.JButton();
         octagaNvdSecurityCheckButton = new javax.swing.JButton();
         swirlx3dNvdSecurityCheckButton = new javax.swing.JButton();
-        view3dsceneNvdSecurityCheckButton = new javax.swing.JButton();
+        castleModelViewerNvdSecurityCheckButton = new javax.swing.JButton();
         vivatyNvdSecurityCheckButton = new javax.swing.JButton();
         xj3dNvdSecurityCheckButton = new javax.swing.JButton();
         otherX3dPlayerNvdSecurityCheckButton = new javax.swing.JButton();
@@ -1323,18 +1323,18 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(swirlx3dLabel, gridBagConstraints);
 
-        view3dsceneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneLabel, "view3dscene");
-        view3dsceneLabel.setToolTipText("view3dscene (Castle Game Engine) player");
-        view3dsceneLabel.setMinimumSize(new java.awt.Dimension(120, 20));
-        view3dsceneLabel.setPreferredSize(new java.awt.Dimension(120, 20));
+        castleModelViewerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        org.openide.awt.Mnemonics.setLocalizedText(castleModelViewerLabel, "castle-model-viewer");
+        castleModelViewerLabel.setToolTipText("Castle Model Viewer (formerly view3dscene)");
+        castleModelViewerLabel.setMinimumSize(new java.awt.Dimension(120, 20));
+        castleModelViewerLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dsceneLabel, gridBagConstraints);
+        x3dPlayerPathsPanel.add(castleModelViewerLabel, gridBagConstraints);
 
         vivatyLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         org.openide.awt.Mnemonics.setLocalizedText(vivatyLabel, "Vivaty");
@@ -1478,12 +1478,12 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(octagaCheckBox, gridBagConstraints);
 
-        view3dsceneCheckBox.setSelected(true);
-        view3dsceneCheckBox.setToolTipText("Include when autolaunching all browsers");
-        view3dsceneCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        view3dsceneCheckBox.addActionListener(new java.awt.event.ActionListener() {
+        castleModelViewerCheckBox.setSelected(true);
+        castleModelViewerCheckBox.setToolTipText("Include when autolaunching all browsers");
+        castleModelViewerCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        castleModelViewerCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view3dsceneCheckBoxActionPerformed(evt);
+                castleModelViewerCheckBoxActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1491,7 +1491,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
-        x3dPlayerPathsPanel.add(view3dsceneCheckBox, gridBagConstraints);
+        x3dPlayerPathsPanel.add(castleModelViewerCheckBox, gridBagConstraints);
 
         vivatyCheckBox.setToolTipText("Include when autolaunching all browsers");
         vivatyCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1706,17 +1706,17 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(swirlx3dTF, gridBagConstraints);
 
-        view3dsceneTF.setToolTipText("Local file location");
-        view3dsceneTF.setMinimumSize(new java.awt.Dimension(100, 20));
-        view3dsceneTF.setPreferredSize(new java.awt.Dimension(100, 20));
-        view3dsceneTF.addFocusListener(new java.awt.event.FocusAdapter() {
+        castleModelViewerTF.setToolTipText("Local file location");
+        castleModelViewerTF.setMinimumSize(new java.awt.Dimension(100, 20));
+        castleModelViewerTF.setPreferredSize(new java.awt.Dimension(100, 20));
+        castleModelViewerTF.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                view3dsceneTFFocusLost(evt);
+                castleModelViewerTFFocusLost(evt);
             }
         });
-        view3dsceneTF.addActionListener(new java.awt.event.ActionListener() {
+        castleModelViewerTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view3dsceneTFActionPerformed(evt);
+                castleModelViewerTFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1727,7 +1727,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dsceneTF, gridBagConstraints);
+        x3dPlayerPathsPanel.add(castleModelViewerTF, gridBagConstraints);
 
         vivatyTF.setToolTipText("Local file location");
         vivatyTF.setMinimumSize(new java.awt.Dimension(100, 20));
@@ -1927,11 +1927,11 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(swirlx3dChooserButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneChooserButton, "...");
-        view3dsceneChooserButton.setToolTipText("Browse to select file location for local launch");
-        view3dsceneChooserButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(castleModelViewerChooserButton, "...");
+        castleModelViewerChooserButton.setToolTipText("Browse to select file location for local launch");
+        castleModelViewerChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view3dsceneChooserButtonActionPerformed(evt);
+                castleModelViewerChooserButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1940,7 +1940,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dsceneChooserButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(castleModelViewerChooserButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vivatyChooserButton, "...");
         vivatyChooserButton.setToolTipText("Browse to select file location for local launch");
@@ -2099,12 +2099,12 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(swirlx3dDefaultButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneDefaultButton, "default");
-        view3dsceneDefaultButton.setToolTipText("Reset default file location");
-        view3dsceneDefaultButton.setActionCommand(org.web3d.x3d.options.X3dEditUserPreferences.getVivatyPlayerPathDefault());
-        view3dsceneDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(castleModelViewerDefaultButton, "default");
+        castleModelViewerDefaultButton.setToolTipText("Reset default file location");
+        castleModelViewerDefaultButton.setActionCommand(org.web3d.x3d.options.X3dEditUserPreferences.getVivatyPlayerPathDefault());
+        castleModelViewerDefaultButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view3dsceneDefaultButtonActionPerformed(evt);
+                castleModelViewerDefaultButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2113,7 +2113,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dsceneDefaultButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(castleModelViewerDefaultButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vivatyDefaultButton, "default");
         vivatyDefaultButton.setToolTipText("Reset default file location");
@@ -2269,11 +2269,11 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(swirlx3dDownloadButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneDownloadButton, "get");
-        view3dsceneDownloadButton.setToolTipText("Download player from website");
-        view3dsceneDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(castleModelViewerDownloadButton, "get");
+        castleModelViewerDownloadButton.setToolTipText("Download player from website");
+        castleModelViewerDownloadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view3dsceneDownloadButtonActionPerformed(evt);
+                castleModelViewerDownloadButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2282,7 +2282,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dsceneDownloadButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(castleModelViewerDownloadButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vivatyDownloadButton, "get");
         vivatyDownloadButton.setToolTipText("Download player from website");
@@ -2439,10 +2439,10 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(swirlx3dLaunchButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneLaunchButton, "launch");
-        view3dsceneLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        view3dsceneLaunchButton.setActionCommand("vivatyTF");
-        view3dsceneLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(castleModelViewerLaunchButton, "launch");
+        castleModelViewerLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        castleModelViewerLaunchButton.setActionCommand("vivatyTF");
+        castleModelViewerLaunchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 commonLauncher(evt);
             }
@@ -2453,7 +2453,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dsceneLaunchButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(castleModelViewerLaunchButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vivatyLaunchButton, "launch");
         vivatyLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
@@ -2848,11 +2848,11 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(swirlx3dNvdSecurityCheckButton, gridBagConstraints);
 
-        org.openide.awt.Mnemonics.setLocalizedText(view3dsceneNvdSecurityCheckButton, "!");
-        view3dsceneNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        view3dsceneNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(castleModelViewerNvdSecurityCheckButton, "!");
+        castleModelViewerNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        castleModelViewerNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view3dsceneNvdSecurityCheckButtonActionPerformed(evt);
+                castleModelViewerNvdSecurityCheckButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2861,7 +2861,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dPlayerPathsPanel.add(view3dsceneNvdSecurityCheckButton, gridBagConstraints);
+        x3dPlayerPathsPanel.add(castleModelViewerNvdSecurityCheckButton, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(vivatyNvdSecurityCheckButton, "!");
         vivatyNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
@@ -10110,32 +10110,32 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     contactAutoLaunchCheck();
 }//GEN-LAST:event_contactTFActionPerformed
 
-    private void view3dsceneCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneCheckBoxActionPerformed
-       if (view3dsceneCheckBox.isSelected())
+    private void castleModelViewerCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerCheckBoxActionPerformed
+       if (castleModelViewerCheckBox.isSelected())
             X3dEditUserPreferences.setView3dSceneAutoLaunch("true");
        else X3dEditUserPreferences.setView3dSceneAutoLaunch("false");
        view3dsceneAutoLaunchCheck();
-    }//GEN-LAST:event_view3dsceneCheckBoxActionPerformed
+    }//GEN-LAST:event_castleModelViewerCheckBoxActionPerformed
 
-    private void view3dsceneTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneTFActionPerformed
-        X3dEditUserPreferences.setView3dScenePath(view3dsceneTF.getText().trim());
+    private void castleModelViewerTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerTFActionPerformed
+        X3dEditUserPreferences.setView3dScenePath(castleModelViewerTF.getText().trim());
         view3dsceneAutoLaunchCheck();
-    }//GEN-LAST:event_view3dsceneTFActionPerformed
+    }//GEN-LAST:event_castleModelViewerTFActionPerformed
 
-    private void view3dsceneChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneChooserButtonActionPerformed
-        commonChooser(view3dsceneTF, "Find view3dScene Executable", evt);
+    private void castleModelViewerChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerChooserButtonActionPerformed
+        commonChooser(castleModelViewerTF, "Find view3dScene Executable", evt);
        view3dsceneAutoLaunchCheck();
-    }//GEN-LAST:event_view3dsceneChooserButtonActionPerformed
+    }//GEN-LAST:event_castleModelViewerChooserButtonActionPerformed
 
-    private void view3dsceneDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneDefaultButtonActionPerformed
-        view3dsceneTF.setText(X3dEditUserPreferences.getView3dScenePathDefault());
-        X3dEditUserPreferences.setView3dScenePath(view3dsceneTF.getText().trim());
+    private void castleModelViewerDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerDefaultButtonActionPerformed
+        castleModelViewerTF.setText(X3dEditUserPreferences.getView3dScenePathDefault());
+        X3dEditUserPreferences.setView3dScenePath(castleModelViewerTF.getText().trim());
         view3dsceneAutoLaunchCheck();
-    }//GEN-LAST:event_view3dsceneDefaultButtonActionPerformed
+    }//GEN-LAST:event_castleModelViewerDefaultButtonActionPerformed
 
-    private void view3dsceneDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneDownloadButtonActionPerformed
+    private void castleModelViewerDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerDownloadButtonActionPerformed
         openInBrowser(X3dEditUserPreferences.getDownloadSiteView3dScene());
-    }//GEN-LAST:event_view3dsceneDownloadButtonActionPerformed
+    }//GEN-LAST:event_castleModelViewerDownloadButtonActionPerformed
 
     private void h3dCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3dCheckBoxActionPerformed
         if (h3dCheckBox.isSelected())
@@ -12107,10 +12107,10 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         browserLaunch(X3dEditUserPreferences.getDownloadSiteBatik());
     }//GEN-LAST:event_batikEditorDownloadButtonActionPerformed
 
-    private void view3dsceneTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_view3dsceneTFFocusLost
-        X3dEditUserPreferences.setView3dScenePath(view3dsceneTF.getText().trim());
+    private void castleModelViewerTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_castleModelViewerTFFocusLost
+        X3dEditUserPreferences.setView3dScenePath(castleModelViewerTF.getText().trim());
         view3dsceneAutoLaunchCheck();
-    }//GEN-LAST:event_view3dsceneTFFocusLost
+    }//GEN-LAST:event_castleModelViewerTFFocusLost
 
     private void freeWrlTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_freeWrlTFFocusLost
         X3dEditUserPreferences.setFreeWrlPath(freeWrlTF.getText().trim());
@@ -12434,10 +12434,10 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
                       X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + octagaLabel.getText());
     }//GEN-LAST:event_octagaNvdSecurityCheckButtonActionPerformed
 
-    private void view3dsceneNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3dsceneNvdSecurityCheckButtonActionPerformed
+    private void castleModelViewerNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerNvdSecurityCheckButtonActionPerformed
         browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
-                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + view3dsceneLabel.getText());
-    }//GEN-LAST:event_view3dsceneNvdSecurityCheckButtonActionPerformed
+                      X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + castleModelViewerLabel.getText());
+    }//GEN-LAST:event_castleModelViewerNvdSecurityCheckButtonActionPerformed
 
     private void heilanNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heilanNvdSecurityCheckButtonActionPerformed
         browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
@@ -12801,12 +12801,12 @@ for Extensible 3D (X3D) Graphics International Standard.
   }
   private void view3dsceneAutoLaunchCheck ()
   {
-    checkExistingFile = new File(view3dsceneTF.getText().trim());
+    checkExistingFile = new File(castleModelViewerTF.getText().trim());
     isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
     X3dEditUserPreferences.setView3dSceneAutoLaunch(Boolean.toString(isExecutableFile));
-    view3dsceneCheckBox.setSelected(isExecutableFile);
-    view3dsceneLaunchButton.setEnabled(isExecutableFile);
-    showFound (isExecutableFile, view3dsceneLabel, view3dsceneTF);
+    castleModelViewerCheckBox.setSelected(isExecutableFile);
+    castleModelViewerLaunchButton.setEnabled(isExecutableFile);
+    showFound (isExecutableFile, castleModelViewerLabel, castleModelViewerTF);
   }
   private void xj3dAutoLaunchCheck ()
   {
@@ -13488,7 +13488,7 @@ for Extensible 3D (X3D) Graphics International Standard.
           instantRealityTF.setText(X3dEditUserPreferences.getInstantRealityPath());
                   octagaTF.setText(X3dEditUserPreferences.getOctagaPath());
                 swirlx3dTF.setText(X3dEditUserPreferences.getSwirlX3DPath());
-             view3dsceneTF.setText(X3dEditUserPreferences.getView3dScenePath());
+             castleModelViewerTF.setText(X3dEditUserPreferences.getView3dScenePath());
                   vivatyTF.setText(X3dEditUserPreferences.getVivatyPath());
                     xj3dTF.setText(X3dEditUserPreferences.getXj3DPath());
       otherX3dPlayerNameTF.setText(X3dEditUserPreferences.getOtherX3dPlayerName());
@@ -13548,7 +13548,7 @@ polyTransNuGrafEditorPathTF.setText(X3dEditUserPreferences.getPolyTransNuGrafEdi
                heilanCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isHeilanAutoLaunch()));
        instantRealityCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isInstantRealityAutoLaunch()));
                octagaCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOctagaAutoLaunch()));
-          view3dsceneCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isView3dSceneAutoLaunch()));
+          castleModelViewerCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isView3dSceneAutoLaunch()));
                  xj3dCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isXj3dAutoLaunch()));
              swirlx3dCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSwirlX3DAutoLaunch()));
                vivatyCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isVivatyAutoLaunch()));
@@ -13757,7 +13757,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     else
       X3dEditUserPreferences.setSwirlX3DPath(path);
 
-    path = view3dsceneTF.getText().trim();
+    path = castleModelViewerTF.getText().trim();
     if(path.equals(X3dEditUserPreferences.getView3dScenePathDefault()))
       X3dEditUserPreferences.resetView3dScenePath();
     else
@@ -13817,7 +13817,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     X3dEditUserPreferences.setInstantRealityAutoLaunch(String.valueOf(instantRealityCheckBox.isSelected()));
     X3dEditUserPreferences.setOctagaAutoLaunch        (String.valueOf(octagaCheckBox.isSelected()));
     X3dEditUserPreferences.setSwirlx3dAutoLaunch      (String.valueOf(swirlx3dCheckBox.isSelected()));
-    X3dEditUserPreferences.setView3dSceneAutoLaunch   (String.valueOf(view3dsceneCheckBox.isSelected()));
+    X3dEditUserPreferences.setView3dSceneAutoLaunch   (String.valueOf(castleModelViewerCheckBox.isSelected()));
     X3dEditUserPreferences.setVivatyAutoLaunch  (String.valueOf(vivatyCheckBox.isSelected()));
     X3dEditUserPreferences.setOtherX3dPlayerAutoLaunch(String.valueOf(otherX3dPlayerCheckBox.isSelected()));
     X3dEditUserPreferences.setOtherX3dEditorAutoLaunch(String.valueOf(otherX3dEditorCheckBox.isSelected()));
@@ -13970,6 +13970,14 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton bvhackerEditorLaunchButton;
     private javax.swing.JTextField bvhackerEditorPathTF;
     private javax.swing.JButton bvhackerNvdSecurityCheckButton;
+    private javax.swing.JCheckBox castleModelViewerCheckBox;
+    private javax.swing.JButton castleModelViewerChooserButton;
+    private javax.swing.JButton castleModelViewerDefaultButton;
+    private javax.swing.JButton castleModelViewerDownloadButton;
+    private javax.swing.JLabel castleModelViewerLabel;
+    private javax.swing.JButton castleModelViewerLaunchButton;
+    private javax.swing.JButton castleModelViewerNvdSecurityCheckButton;
+    private javax.swing.JTextField castleModelViewerTF;
     private javax.swing.JCheckBox coneCenterLineCheckBox;
     private javax.swing.JLabel coneLabel;
     private javax.swing.JComboBox<String> coneLinesComboBox;
@@ -14395,14 +14403,6 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JLabel verticalSpacerLabel7;
     private javax.swing.JLabel verticalSpacerLabel8;
     private javax.swing.JLabel verticalSpacerLabel9;
-    private javax.swing.JCheckBox view3dsceneCheckBox;
-    private javax.swing.JButton view3dsceneChooserButton;
-    private javax.swing.JButton view3dsceneDefaultButton;
-    private javax.swing.JButton view3dsceneDownloadButton;
-    private javax.swing.JLabel view3dsceneLabel;
-    private javax.swing.JButton view3dsceneLaunchButton;
-    private javax.swing.JButton view3dsceneNvdSecurityCheckButton;
-    private javax.swing.JTextField view3dsceneTF;
     private javax.swing.JButton viewSecurityExamplesReadmeButton;
     private javax.swing.JLabel viewSecurityExamplesReadmeLabel;
     private javax.swing.JButton viewX3dCanonicalizationC14nReadmeButton;
