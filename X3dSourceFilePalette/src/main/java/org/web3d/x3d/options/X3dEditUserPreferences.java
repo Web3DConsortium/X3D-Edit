@@ -620,7 +620,7 @@ public class X3dEditUserPreferences
   private static final String winxpPolyTransNuGrafPathDefault      = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
   private static final String winxpOctagaPathDefault               = "C:\\Program Files\\Octaga Visual Solutions\\Octaga Player 5.0 (64 bit)\\OctagaPlayer.exe";
   private static final String winxpSwirlX3DPlayerPathDefault       = "C:\\Program Files\\Pinecoast\\SwirlViewer\\SwView.exe";
-  private static final String winxpView3dScenePathDefault          = "C:\\Program Files\\view3dscene\\view3dscene.exe";
+  private static final String winxpView3dScenePathDefault          = "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
   private static final String winxpVivatyPlayerPathDefault         = "C:\\Program Files\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
   private static final String winxpXj3DPathDefault                 = "C:\\Program Files\\Xj3D\\browser.bat";
   private static final String winxpOtherX3dPlayerPathDefault       = ""; // user configured
@@ -646,7 +646,7 @@ public class X3dEditUserPreferences
   private static final String windows64PolyTransNuGrafPathDefault  = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
   private static final String windows64OctagaPathDefault           = "C:\\Program Files\\Octaga Visual Solutions\\Octaga Player 5.0 (64 bit)\\OctagaPlayer.exe";
   private static final String windows64SwirlX3DPlayerPathDefault   = "C:\\Program Files (x86)\\Pinecoast\\SwirlViewer\\SwView.exe";
-  private static final String windows64View3dScenePathDefault      = "C:\\Program Files\\view3dscene\\view3dscene.exe";
+  private static final String windows64View3dScenePathDefault      = "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
   private static final String windows64VivatyPlayerPathDefault     = "C:\\Program Files (x86)\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
   private static final String windows64Xj3DPathDefault             = "C:\\Program Files (x86)\\Xj3D\\browser.bat";
   private static final String windows64OtherX3dPlayerPathDefault   = ""; // user configured
@@ -722,7 +722,7 @@ public class X3dEditUserPreferences
   private static final String downloadSitePolyTransNuGraf          = "https://www.okino.com";
   private static final String downloadSiteOctaga                   = "https://www.octagavs.com";
   private static final String downloadSiteSwirlX3DPlayer           = "https://www.pinecoast.com"; // defunct
-  private static final String downloadSiteView3dScene              = "https://castle-engine.io/view3dscene.php"; // "https://castle-engine.sourceforge.net";
+  private static final String downloadSiteView3dScene              = "https://castle-engine.io/castle-model-viewer"; // https://castle-engine.io/view3dscene.php"; // "https://castle-engine.sourceforge.net";
   private static final String downloadSiteVivatyPlayer             = "https://www.web3d.org/projects/vivaty-studio"; // https://www.vivaty.com";
   private static final String downloadSiteXj3D                     = "https://savage.nps.edu/Savage/developers.html#Xj3D"; // "https://sourceforge.net/projects/xj3d"; // "https://www.Xj3D.org";
   private static final String downloadSiteOtherX3dPlayer           = "https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications";
