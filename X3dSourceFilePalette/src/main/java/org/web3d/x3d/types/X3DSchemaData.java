@@ -261,7 +261,7 @@ public interface X3DSchemaData
       "TODO X3DOM Player Issue",                                      // 5
       "TODO X_ITE Player Issue",                                      // 6
 //    "TODO BS Contact BitManagement Bug Report",                     //
-      "TODO Castle Game Engine view3dscene Issue",                    // 7
+      "TODO Castle Model Viewer (formerly castle-model-viewer) Issue",        // 7
       "TODO FreeWrl SourceForge Bugtracker Issue",                    // 8
       "TODO instantReality Forum Issue",                              // 9
       "TODO issues@instantReality.org",                               //10
@@ -280,7 +280,7 @@ public interface X3DSchemaData
       "Enter details of X3DOM bug-report message",                    // 5
       "Enter details of X_ITE bug-report message",                    // 6
 //    "Note details of BS Contact bug-report message",                //  
-      "Enter url/number of view3dscene issue-tracker message",        // 7
+      "Enter url/number of castle-model-viewer issue-tracker message",// 7
       "Enter url/number of FreeWrl SourceForge Bugtracker Issue",     // 8
       "Enter url/number of instantReality Forum Issue",               // 9
       "Send mail to InstantReality team",                             //10
@@ -304,9 +304,9 @@ public interface X3DSchemaData
       "https://github.com/x3dom/x3dom/issues",                        // 5
       "https://github.com/create3000/x_ite/issues",                   // 6
 //    "https://www.bitmanagement.de/en/contact",                      //
-      "https://github.com/castle-engine/view3dscene/issues",          // 7
+      "https://github.com/castle-engine/castle-model-viewer/issues",  // 7
       "https://sourceforge.net/freewrl/tickets",                      // 8
-      "https://forum.instantreality.org",                              // 9
+      "https://forum.instantreality.org",                             // 9
       "mailto:issues@instantreality.org",                             //10
 //    "https://www.pinecoast.com/support.php",                        //
       "https://sourceforge.net/p/xj3d/tickets",                       //11
