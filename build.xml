@@ -122,10 +122,9 @@
             description="Run the 3D Simulation Viewer App">
       
         <!-- first look on command line, otherwise use ${scene} property from build.properties -->
-        <property name="scene2" location="X3dSourceFilePalette/src/main/java/org/web3d/x3d/templates/HelloWorld.x3d"/>
         <property name="args" location="${scene}"/>
 
-        <echo message="Xj3D launching file:/${scene2}"/>
+        <echo message="Xj3D launching ${args}"/>
         <echo message="main.class=${main.class}"/>
         <echo message="app.browser.args=${app.browser.args}"/>
         <echo message="run.xj3d.args=${run.xj3d.args}"/>
@@ -153,7 +152,7 @@
             
             <!-- ${args} should be the full path to an X3D file -->
             <!-- commandline given/supplied arguments args=%1 etc -->
-            <arg line="${app.browser.args} file:/${scene2}"/>
+            <arg line="${app.browser.args} ${args}"/>
 
         </java>
 
