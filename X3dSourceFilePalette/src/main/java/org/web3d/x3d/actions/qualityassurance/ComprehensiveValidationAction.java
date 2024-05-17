@@ -44,7 +44,6 @@ import javax.swing.JMenuItem;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import static org.apache.tools.ant.util.ScriptManager.javax;
 import org.netbeans.api.xml.cookies.CookieMessage;
 import org.netbeans.api.xml.cookies.CookieObserver;
 import org.netbeans.spi.xml.cookies.CheckXMLSupport;
