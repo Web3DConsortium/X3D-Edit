@@ -260,7 +260,10 @@ public class X3dEditUserPreferences
      setAuthorPreferenceCorsDirectory (AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT);
      
       if (getAuthorName().equals("brutzman") && getAuthorEmail().isBlank())
+      {
+          setAuthorName ("Don Brutzman");
           setAuthorEmail("brutzman@nps.edu");
+      }
   }
   public static void             setBasicLocalExamplesPresent (boolean value)  { commonBooleanSet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, value);}
   public static void   setConformanceNistLocalExamplesPresent (boolean value)  { commonBooleanSet(  CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY, value);}
