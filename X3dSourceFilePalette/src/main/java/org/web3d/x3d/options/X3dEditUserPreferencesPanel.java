@@ -9133,7 +9133,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dModelingToolsPanel.add(wings3dX3dEditorHelpButton, gridBagConstraints);
 
         otherEditorNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(otherEditorNameLabel, "Other tool name");
+        org.openide.awt.Mnemonics.setLocalizedText(otherEditorNameLabel, "Other tool name:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 32;
@@ -9280,7 +9280,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 35;
-        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 1.0;
@@ -9507,7 +9507,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 32;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -13171,6 +13171,7 @@ for Extensible 3D (X3D) Graphics International Standard.
     otherX3dEditorLaunchButton.setEnabled(isExecutableFile);
     otherX3dEditorClearButton.setEnabled(otherX3dEditorPathTF.getText().trim().length() > 0); // keep the clear button enabled
     showFound (isExecutableFile, otherX3dEditorNameTF);
+    showFound (isExecutableFile, otherX3dEditorPathTF);
     otherX3dEditorNvdSecurityCheckButton.setEnabled(!otherX3dEditorNameTF.getText().equals(OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT));
   }
   private void otherX3dPlayerAutoLaunchCheck ()
@@ -13182,6 +13183,7 @@ for Extensible 3D (X3D) Graphics International Standard.
     otherX3dPlayerLaunchButton.setEnabled(isExecutableFile);
     otherX3dPlayerClearButton.setEnabled(otherX3dPlayerPathTF.getText().trim().length() > 0); // keep the clear button enabled
     showFound (isExecutableFile, otherX3dPlayerNameTF);
+    showFound (isExecutableFile, otherX3dPlayerPathTF);
     otherX3dPlayerNvdSecurityCheckButton.setEnabled(!otherX3dPlayerNameTF.getText().equals(OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT));
   }
   private void inkscapeEditorAutoLaunchCheck ()
@@ -13282,7 +13284,13 @@ for Extensible 3D (X3D) Graphics International Standard.
         ProcessBuilder processBuilder;
         try
         {
-            processBuilder = new ProcessBuilder(applicationPath);
+            applicationPath = applicationPath.trim();
+            if (applicationPath.endsWith(".lnk"))
+            {
+                 // https://stackoverflow.com/questions/4749660/execute-file-lnk-in-java
+                 processBuilder = new ProcessBuilder("cmd", "/c", applicationPath);
+            }
+            else processBuilder = new ProcessBuilder(applicationPath);
             // check if application apparently needs to start in its own directory
             if (applicationPath.toLowerCase().contains("portecle"))
             {
@@ -13294,7 +13302,9 @@ for Extensible 3D (X3D) Graphics International Standard.
             processBuilder.start();
         } 
         catch (IOException ex)
-        {
+        {            
+            DialogDisplayer.getDefault().notify(new NotifyDescriptor.Message("externalProcessLaunch Exception:\n" + 
+                    "Problem launching " + applicationPath + "\n" + ex.getMessage(),NotifyDescriptor.ERROR_MESSAGE));
             InputOutput io = IOProvider.getDefault().getIO("Output", false);
             io.select();
             io.getOut().println(new StringBuilder().append("Error launching external editor: ").append(ex.getLocalizedMessage()).toString());
