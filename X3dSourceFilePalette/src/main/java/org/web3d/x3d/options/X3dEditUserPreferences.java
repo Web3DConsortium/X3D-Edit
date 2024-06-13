@@ -189,8 +189,8 @@ public class X3dEditUserPreferences
   
   // there is no unique best default path as a user could store examples anywhere on their local machine
   // thus user.dir property persistence will allow a path to be remembered
-  public  static String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; // TODO final?
-//private static String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeystoreNameExtension()).toString();
+  public  static final String KEYSTORE_FILENAME_DEFAULT = "X3D-EditKeystore.ks"; // TODO final?
+//private static final String KEYSTORE_FILENAME_DEFAULT = new StringBuilder().append("X3D-EditKeystore.").append(BouncyCastleHelper.getKeystoreNameExtension()).toString();
 
   public static String  KEYSTORE_PASSWORD_DEFAULT       = "test";
   public static String  KEYSTORE_DIRECTORY_DEFAULT      = System.getProperty("user.dir") + File.separatorChar; // otherwise user can define a local keystore path
@@ -260,7 +260,10 @@ public class X3dEditUserPreferences
      setAuthorPreferenceCorsDirectory (AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT);
      
       if (getAuthorName().equals("brutzman") && getAuthorEmail().isBlank())
+      {
+          setAuthorName ("Don Brutzman");
           setAuthorEmail("brutzman@nps.edu");
+      }
   }
   public static void             setBasicLocalExamplesPresent (boolean value)  { commonBooleanSet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, value);}
   public static void   setConformanceNistLocalExamplesPresent (boolean value)  { commonBooleanSet(  CONFORMANCENIST_LOCALEXAMPLES_PRESENT_KEY, value);}
@@ -753,7 +756,7 @@ public class X3dEditUserPreferences
   private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2024\\XMLSpy.exe";
-  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\blender-3.6.11-windows-x64\\blender.exe";
+  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 4.1\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String winxpBvhackerEditorPathDefault             = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
   private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";
@@ -784,7 +787,7 @@ public class X3dEditUserPreferences
   private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2024\\XMLSpy.exe";
-  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\blender-3.6.11-windows-x64\\blender.exe";
+  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 4.1\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String windows64BvhackerEditorPathDefault         = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
   private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";

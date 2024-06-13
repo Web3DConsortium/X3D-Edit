@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024  held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -183,9 +183,12 @@ public class MATERIALCustomizer extends BaseCustomizer
                   message, "X3D RGB values are [0..1]", NotifyDescriptor.YES_NO_OPTION);
           if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
           {
-              red   /= 255.0f;
-              green /= 255.0f;
-              blue  /= 255.0f;
+              if (red   > 1.0f)
+                  red   /= 255.0f;
+              if (green > 1.0f)
+                  green /= 255.0f;
+              if (blue  > 1.0f)
+                  blue  /= 255.0f;
               material.setDiffuseColor0(  red.toString());
               material.setDiffuseColor1(green.toString());
               material.setDiffuseColor2( blue.toString());
@@ -203,9 +206,12 @@ public class MATERIALCustomizer extends BaseCustomizer
                   message, "X3D RGB values are [0..1]", NotifyDescriptor.YES_NO_OPTION);
           if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
           {
-              red   /= 255.0f;
-              green /= 255.0f;
-              blue  /= 255.0f;
+              if (red > 1.0f)
+                  red   /= 255.0f;
+              if (green > 1.0f)
+                  green /= 255.0f;
+              if (blue  > 1.0f)
+                  blue  /= 255.0f;
               material.setEmissiveColor0(  red.toString());
               material.setEmissiveColor1(green.toString());
               material.setEmissiveColor2( blue.toString());
@@ -223,9 +229,12 @@ public class MATERIALCustomizer extends BaseCustomizer
                   message, "X3D RGB values are [0..1]", NotifyDescriptor.YES_NO_OPTION);
           if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
           {
-              red   /= 255.0f;
-              green /= 255.0f;
-              blue  /= 255.0f;
+              if (red > 1.0f)
+                  red   /= 255.0f;
+              if (green > 1.0f)
+                  green /= 255.0f;
+              if (blue  > 1.0f)
+                  blue  /= 255.0f;
               material.setSpecularColor0(  red.toString());
               material.setSpecularColor1(green.toString());
               material.setSpecularColor2( blue.toString());
