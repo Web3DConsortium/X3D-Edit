@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2008-2021 held by the author(s).  All rights reserved.
+Copyright (c) 2008-2024 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -39,8 +39,8 @@ POSSIBILITY OF SUCH DAMAGE.
  * Identifier:  NsidedPolygon.java
  * Created:     1 January 2002
  * Revised:     14 January 2011
- * Identifier:  https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLines.java
- * Reference:   https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLinesExample.x3d
+ * Identifier:  https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLines.java
+ * Reference:   https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter09-EventUtilitiesScripting/CircleLinesExample.x3d
  * License:     ../license.html
  */
 

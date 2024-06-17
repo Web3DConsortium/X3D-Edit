@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2008-2021 held by the author(s).  All rights reserved.
+Copyright (c) 2008-2024 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -38,8 +38,8 @@ POSSIBILITY OF SUCH DAMAGE.
  * @author      Don Brutzman
  * Identifier:  NsidedCapsule.java
  * Created:     1 November 2014
- * Reference:   https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.x3d 
- * Reference:   https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.js
+ * Reference:   https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.x3d 
+ * Reference:   https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/GeometricShapes/CapsuleGenerator.js
  */
 
 package org.web3d.x3d;
