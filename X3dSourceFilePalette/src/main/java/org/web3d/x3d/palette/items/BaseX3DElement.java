@@ -2256,7 +2256,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                 "          <!-- CoordinateAxes show local ").append(getElementName()).append(transformCenter).append(" in local coordinate system -->\n" +
                 "          <TouchSensor description=\"").append(getElementName()).append(DEFlabel).append(nameLabel).append(translationValue).append(transformCenter).append(" for rotation and scaling\"/>\n" +
                 // TODO dual locations for CoordinateAxes?
-                "          <Inline url='\"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\" \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\" \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\" \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n"
+                "          <Inline url='\"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\" \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n"
                         );
                         // compute rotation value from xAxis to rotationAxis using dot product (angle) and cross product (for axis of rotation)
                         // (code block adapted from ViewpointCustomizer)
@@ -2535,7 +2535,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             {
                 sb.append (
             "        <!-- here is local center of ").append( getElementName()).append(" coordinate system -->\n").append(
-            "        <Inline url='\"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\" \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\" \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\" \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n"
+            "        <Inline url='\"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\" \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n"
                 );
             }
             sb.append (
@@ -2605,7 +2605,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             sb.append (
             "\n" +
             "    <Switch whichChoice='0' class='visualization.").append( getElementName()).append("'>\n").append(
-            "      <!-- SpotLight outline, patterned after https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter11-LightingEnvironmentalEffects/LightOutlineGeometry.x3d -->\n").append(
+            "      <!-- SpotLight outline, patterned after https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter11-LightingEnvironmentalEffects/LightOutlineGeometry.x3d -->\n").append(
             "      <!-- Spotlight direction=").append(lightDirection).append(
                           ", horizontalAngle=").append(horizontalAngle).append(" radians=").append(singleDigitFormat.format(horizontalAngle * 180.0 / Math.PI)).append(" degrees").append(
                           ", pitchAngle=").append(pitchAngle).append(" radians=").append(pitchAngle * 180.0 / Math.PI).append(" degrees").append(" -->\n").append(
@@ -2616,7 +2616,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             {
                 sb.append (
             "          <!-- here is local center of ").append( getElementName()).append(" coordinate system, with local X axis pointed along direction vector -->\n").append(
-            "          <Inline url='\"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\" \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\" \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\" \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n"
+            "          <Inline url='\"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\" \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n"
                 );
             }
             sb.append (
@@ -2778,7 +2778,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             sb.append (
             "\n").append(
             "    <Switch whichChoice='0' class='visualization.").append( getElementName()).append("'>\n").append(
-            "      <!-- Sound outlines, patterned after https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter12-EnvironmentSensorSound/SoundAudioClip.x3d -->\n").append(
+            "      <!-- Sound outlines, patterned after https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter12-EnvironmentSensorSound/SoundAudioClip.x3d -->\n").append(
             "      <!-- Approximate ellipsoidal footprints and envelope using Cylinders and Spheres, respectively -->\n").append(
             "      <!-- Sound direction is along local x axis, so minLength = (minBack).append(minFront) and minRadius = minLength/2  -->\n").append(
             "      <!-- and so width, height dimensions ~= maximum-attenuation halfwidth = maxWidth ~= 45 along y, z axes -->\n").append(
@@ -2790,7 +2790,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             {
                 sb.append (
             "          <!-- here is local center of ").append( getElementName()).append(" coordinate system sound ellipse, with local X axis pointed along direction vector -->\n").append(
-            "          <Inline url='\"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\" \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\" \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\" \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n"
+            "          <Inline url='\"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\" \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n"
                 );
             }
             sb.append (
@@ -2856,7 +2856,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             {
                 sb.append (
             "      <!-- here is local center of ").append(getElementName()).append(" coordinate system, with local X axis pointed along direction vector -->\n").append(
-            "      <Inline url='\"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\" \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\" \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\" \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n"
+            "      <Inline url='\"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\" \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\" \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n"
                 );
             }
             sb.append (
@@ -2881,7 +2881,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "          </fieldValue>\n").append(
             "        -->\n").append(
             "      </ProtoInstance>\n").append(
-            "      <!-- Example use: https://www.https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter14-Prototypes/ViewFrustumExample.x3d -->\n").append(
+            "      <!-- Example use: https://www.https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14-Prototypes/ViewFrustumExample.x3d -->\n").append(
             "    </Switch>\n"
                 );
         }
