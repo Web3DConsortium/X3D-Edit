@@ -103,7 +103,7 @@ public interface X3DSchemaData
       "ISO Standard 2006",
       "ISO Standard 2008",
       "ISO Standard 2012",
-      "ISO Draft Standard 2023",
+      "ISO International Standard 2023",
   };
 
   // head element
