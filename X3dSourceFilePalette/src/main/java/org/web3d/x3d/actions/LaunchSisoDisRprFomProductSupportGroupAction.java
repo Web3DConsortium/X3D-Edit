@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.SISO_DIS_RPR_FOM_PRODUCT_SUPP
                     displayName = "#CTL_LaunchSisoDisRprFomProductSupportGroupAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", position = 500),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 500),
+  @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", position = 600),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 600),
 })
 
 public final class LaunchSisoDisRprFomProductSupportGroupAction extends CallableSystemAction
