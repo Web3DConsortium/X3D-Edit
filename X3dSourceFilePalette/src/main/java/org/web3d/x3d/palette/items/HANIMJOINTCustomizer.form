@@ -26,6 +26,7 @@
   <SubComponents>
     <Component class="org.web3d.x3d.palette.items.DEFUSEpanel" name="dEFUSEpanel">
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dEFUSEpanelMouseClicked"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dEFUSEpanelKeyReleased"/>
       </Events>
       <AuxValues>
@@ -39,9 +40,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="nameLabel">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="name"/>
         <Property name="toolTipText" type="java.lang.String" value="Must assign proper name for this HAnimJoint"/>
@@ -85,7 +83,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="name must have a legal value"/>
+        <Property name="text" type="java.lang.String" value="name must have a legal value. no name attribute is allowed for USE nodes."/>
         <Property name="toolTipText" type="java.lang.String" value="HAnim has strict rules for name and DEF"/>
       </Properties>
       <Events>
