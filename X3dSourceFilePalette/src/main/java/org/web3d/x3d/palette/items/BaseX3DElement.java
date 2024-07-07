@@ -41,6 +41,7 @@ import java.lang.reflect.Method;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -488,11 +489,12 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         {
           // no action
         }
-        else if(containedContent.length() <= 0)
-	    {
+        else if(!containedContent.isBlank() && !sb.toString().trim().endsWith(">"))
+	{
 	  	sb.append("/>");
         }
-        else {
+        else if(!containedContent.isBlank() && !sb.toString().trim().endsWith("/>"))
+        {
           sb.append(">");
           sb.append(containedContent.replace(" />","/>")); // remove excess space character from singleton elements in JDOM output
           sb.append("</");
@@ -500,7 +502,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
           sb.append(">");
         }
         sb.append (getAppendText());
-        setAppendText("");
+        setAppendText(""); // reset
     }
     // =============================================================================================================================
     // Trace traceEvent checks
@@ -3346,12 +3348,14 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
   public Vector<String> getUSEVector()
   {
-    return USEvector;
+      Collections.sort(USEvector);
+      return USEvector;
   }
 
   public void setUSEVector(Vector<String> v)
   {
-    USEvector = v;
+      Collections.sort(v);
+      USEvector = v;
   }
 
   public String buildDEF()
