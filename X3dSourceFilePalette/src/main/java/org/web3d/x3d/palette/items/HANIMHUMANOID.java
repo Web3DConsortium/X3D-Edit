@@ -146,7 +146,8 @@ public class HANIMHUMANOID extends X3DTransformNode
       sa = parseX(HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_DFLT);
     jointBindingScales = parseToSFFloatTable(sa,3); 
 
-    setContent("\n\t\t<!--TODO add children HAnimJoint, HAnimSegment, HAnimSite, Coordinate/CoordinateDouble, Normal, and Viewpoint nodes here -->\n\t");
+//    if (getContent().length() == 0)
+//        setContent("\n\t\t<!--TODO add child HAnimJoint, HAnimSegment, HAnimSite, Coordinate/CoordinateDouble, Normal, and Viewpoint nodes here -->\n\t");
   }
 
   @Override

@@ -110,10 +110,10 @@ public class HANIMSITE extends X3DTransformNode
     bboxSizeY = bboxSizeYDefault = new SFFloat(sa[1]);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(sa[2]);
 
-    if (getContent().trim().isEmpty()) // if there, don't clobber visualization
-    {
-        setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
-    }
+//    if (getContent().trim().isEmpty()) // if there, don't clobber visualization
+//    {
+//        setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
+//    }
   }
 
   @Override
