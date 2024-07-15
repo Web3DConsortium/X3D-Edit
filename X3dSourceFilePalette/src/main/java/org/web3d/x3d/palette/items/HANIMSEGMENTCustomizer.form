@@ -23,6 +23,7 @@
   <SubComponents>
     <Component class="org.web3d.x3d.palette.items.DEFUSEpanel" name="dEFUSEpanel1">
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dEFUSEpanel1MouseClicked"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dEFUSEpanel1KeyReleased"/>
       </Events>
       <AuxValues>
@@ -38,9 +39,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="nameLabel">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="name"/>
         <Property name="toolTipText" type="java.lang.String" value="Unique name attribute must be defined so that HAnimSegment node can be identified at runtime for animation purposes"/>
@@ -86,7 +84,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="name must have a legal value"/>
+        <Property name="text" type="java.lang.String" value="name must have a legal value. no name attribute is allowed for USE nodes."/>
         <Property name="toolTipText" type="java.lang.String" value="HAnim has strict rules for name and DEF"/>
       </Properties>
       <Events>
@@ -94,7 +92,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="1" gridY="1" gridWidth="4" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="21" weightX="0.0" weightY="0.0"/>
+          <GridBagConstraints gridX="1" gridY="1" gridWidth="4" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="21" weightX="1.0" weightY="1.0"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -345,7 +343,7 @@
         <Component class="javax.swing.JLabel" name="hintLabel">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;p align=&quot;center&quot;&gt;&lt;b&gt;HAnimSegment&lt;/b&gt; contains Shape geometry for each body segment, providing a visual representation of the skeleton segment.   Parent/child translation and rotation relationships are defined in ancestor/descendant &lt;b&gt;HAnimSegment&lt;/b&gt; nodes. &lt;/p&gt;   &#xa;&lt;br /&gt;  &#xa;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;HAnimSegment&lt;/b&gt; contains &lt;b&gt;Coordinate&lt;/b&gt; (or &lt;b&gt;CoordinateDouble&lt;/b&gt;) with containerField=&apos;coord&apos;,  &lt;b&gt;HAnimDisplacer&lt;/b&gt; with containerField=&apos;displacers&apos; and &lt;b&gt;Shape&lt;/b&gt; or grouping nodes with containerField=&apos;children&apos;. &lt;/p&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;p align=&quot;center&quot;&gt;&lt;b&gt;HAnimSegment&lt;/b&gt; holds Shape geometry for each body segment, showing a visual representation of a skeleton.  &#xa; Parent/child translation and rotation relationships are defined in ancestor/descendant &lt;b&gt;HAnimJoint&lt;/b&gt; nodes. &lt;/p&gt;   &#xa; &lt;br /&gt;   &#xa;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;HAnimSegment&lt;/b&gt; contains &lt;b&gt;Coordinate&lt;/b&gt; (or &lt;b&gt;CoordinateDouble&lt;/b&gt;) with containerField=&apos;coord&apos;, also can hold&#xa; &lt;br /&gt;&#xa;grouping nodes or &lt;b&gt;Shape&lt;/b&gt; with containerField=&apos;children&apos;  and &lt;b&gt;HAnimDisplacer&lt;/b&gt; with containerField=&apos;displacers&apos;. &lt;/p&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value="close this panel to add children nodes"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">

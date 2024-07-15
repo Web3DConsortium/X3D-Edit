@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -121,6 +121,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     }
     valuesTable.setInsertCommas(hanimMotion.isInsertCommas());
     valuesTable.setInsertLineBreaks(hanimMotion.isInsertLineBreaks());
+    nameWarningLabel.setText(""); // setup for initialization
   }
   private void setDefaultDEFname()
   {
@@ -202,6 +203,17 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
 
         setPreferredSize(new java.awt.Dimension(800, 520));
         setLayout(new java.awt.GridBagLayout());
+
+        dEFUSEpanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dEFUSEpanel1MouseClicked(evt);
+            }
+        });
+        dEFUSEpanel1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dEFUSEpanel1KeyReleased(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -235,14 +247,13 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
         fieldsPanel.add(nameWarningLabel, gridBagConstraints);
 
-        nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nameLabel.setText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.nameLabel.text")); // NOI18N
         nameLabel.setToolTipText(org.openide.util.NbBundle.getMessage(HANIMMOTIONCustomizer.class, "HANIMMOTIONCustomizer.nameLabel.toolTipText")); // NOI18N
@@ -824,6 +835,16 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
     {//GEN-HEADEREND:event_frameCountTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_frameCountTFActionPerformed
+
+    private void dEFUSEpanel1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dEFUSEpanel1KeyReleased
+        setDefaultDEFname ();
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_dEFUSEpanel1KeyReleased
+
+    private void dEFUSEpanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dEFUSEpanel1MouseClicked
+        setDefaultDEFname ();
+        checkNameDefMatchRules();
+    }//GEN-LAST:event_dEFUSEpanel1MouseClicked
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -886,7 +907,16 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         String DEF    = super.getDEFUSEpanel().getDEF();
         String name   = nameTextField.getText();
         
-        if (name.isBlank())
+        nameTextField.setEnabled(true); // default
+        if (getDEFUSEpanel().isUSE())
+        {
+            // no name for USE node
+            nameWarningLabel.setText("no name attribute is allowed for USE node");
+            nameWarningLabel.setForeground(Color.BLACK);
+            nameTextField.setBackground(Color.WHITE);
+            nameTextField.setEnabled(false);
+        }
+        else if (name.isBlank())
         {
             nameWarningLabel.setText(NAME_REQUIRED);
             nameWarningLabel.setForeground(darkorange);
@@ -896,7 +926,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
         }
         else if (DEF.isBlank()) // and name value is present
         {
-            nameWarningLabel.setText("");
+            nameWarningLabel.setText(NAME_REQUIRED);
             nameWarningLabel.setForeground(Color.BLACK);
             nameTextField.setBackground(Color.WHITE);
             super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
@@ -907,7 +937,7 @@ public class HANIMMOTIONCustomizer extends BaseCustomizer
             localPrefix = DEF.substring(0,DEF.lastIndexOf(name));
             // TODO compare to ancestor humanoid prefix if needed
             
-            nameWarningLabel.setText(NAME_RULE_MATCH + ", prefix=" + localPrefix);
+            nameWarningLabel.setText(NAME_RULE_MATCH + ", where prefix=" + localPrefix);
             nameWarningLabel.setForeground(darkgreen); // too bright: Color.GREEN
             nameTextField.setBackground(Color.WHITE);
             super.getDEFUSEpanel().selectX3dDEFUSEpane();

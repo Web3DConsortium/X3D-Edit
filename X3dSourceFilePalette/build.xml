@@ -287,15 +287,18 @@
     <!-- Perform this task whenever the Savage server cert has changed/updated.
          As per the server-cert-keystore-readme.txt in release/modules/ext, this
          process is now automated. TODO: remove this construct. -->
-    <target name="update.server.cert" description="To be accomplished anytime there is a certificate change/update, or change in server configuration">
-
+    <target name="update.server.cert" 
+            description="To be accomplished anytime there is a certificate change/update, or change in server configuration">
         <echo message="openssl pull down the new/updated server cert"/>
+        <!-- TODO obsolete?
+        <echo message="n.b. the savage server cert gets updated monthly so this task must be performed periodically,"/>
+        <echo message="     for a plugin distribution must have a cert.server.alias and pass entry in your privat properties."/> -->
         <!-- OpenSSL hack: https://serverfault.com/questions/139728/how-to-download-the-ssl-certificate-from-a-website -->
         <exec executable="zsh" dir="release/modules/ext" osfamily="mac">
             <arg value="-c"/>
             <arg value="openssl s_client -servername ${cert.server.alias} -connect ${cert.server.alias}:443 | openssl x509 &gt; ${cert.server.alias}.cer"/>
         </exec>
-        <exec executable="/cygwin/bin/bash" dir="release/modules/ext" osfamily="windows">
+        <exec executable="/cygwin64/bin/bash" dir="release/modules/ext" osfamily="windows">
             <arg value="-c"/>
             <arg value="openssl s_client -servername ${cert.server.alias} -connect ${cert.server.alias}:443 | openssl x509 &gt; ${cert.server.alias}.crt"/>
         </exec>

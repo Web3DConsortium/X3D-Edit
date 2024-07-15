@@ -157,8 +157,8 @@ public class HANIMJOINT extends X3DTransformNode
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1], null, null);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2], null, null);
 
-    if (getContent().length() == 0)
-        setContent("\n\t\t<!--TODO add children HAnimSegment, HAnimSite, HAnimJoint nodes here-->\n\t");
+//    if (getContent().length() == 0)
+//        setContent("\n\t\t<!--TODO add child HAnimSegment, HAnimSite, HAnimJoint nodes here-->\n\t");
   }
 
   @Override
@@ -261,8 +261,8 @@ public class HANIMJOINT extends X3DTransformNode
       bboxSizeY = new SFFloat(fa[1], null, null);
       bboxSizeZ = new SFFloat(fa[2], null, null);
     }
-    if (getContent().length() == 0)
-        setContent("\n\t\t<!--TODO add children HAnimSegment, HAnimSite, HAnimJoint nodes here-->\n\t");
+//    if (getContent().length() == 0)
+//        setContent("\n\t\t<!--TODO add child HAnimSegment, HAnimSite, HAnimJoint nodes here-->\n\t");
   }
   
   @Override

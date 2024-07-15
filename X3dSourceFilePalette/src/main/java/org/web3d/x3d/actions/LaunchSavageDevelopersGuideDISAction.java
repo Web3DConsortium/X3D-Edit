@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -48,8 +48,8 @@ import static org.web3d.x3d.actions.BaseViewAction.SAVAGE_DEVELOPERS_GUIDE;
                     displayName = "#CTL_LaunchSavageDevelopersGuideDISAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", position = 400),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 400),
+  @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", position = 500),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 500),
 })
 
 public final class LaunchSavageDevelopersGuideDISAction extends CallableSystemAction

@@ -97,8 +97,8 @@ public class HANIMSEGMENT extends X3DGroupingNode
     bboxSizeY = bboxSizeYDefault = new SFFloat(sa[1]);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(sa[2]);
 
-    if (getContent().length() == 0)
-        setContent("\n\t\t<!--TODO add child HAnimDisplacer, Coordinate, content nodes here-->\n\t");
+//    if (getContent().length() == 0)
+//        setContent("\n\t\t<!--TODO add child HAnimDisplacer, Coordinate, content nodes here-->\n\t");
   }
 
   @Override
@@ -143,8 +143,8 @@ public class HANIMSEGMENT extends X3DGroupingNode
       bboxSizeY = new SFFloat(sa[1]);
       bboxSizeZ = new SFFloat(sa[2]);
     }
-    if (getContent().length() == 0)
-        setContent("\n\t\t<!--TODO add child HAnimDisplacer, Coordinate, content nodes here-->\n\t");
+//    if (getContent().length() == 0)
+//        setContent("\n\t\t<!--TODO add child HAnimDisplacer, Coordinate, content nodes here-->\n\t");
   }
   
   @Override

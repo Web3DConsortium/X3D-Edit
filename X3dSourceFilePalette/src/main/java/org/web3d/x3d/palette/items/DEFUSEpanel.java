@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -84,6 +84,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
     protected void setDEF(String newDEF)
     {
         defTF.setText(newDEF.trim());
+        // do not attempt to reset USE, unintended side effects occur
     }
 
     protected String getUSE()
@@ -93,6 +94,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
 
     protected void setUSE(String newUSE)
     {
+        // do not attempt to reset DEF, unintended side effects occur
         useCB.setSelectedItem(newUSE.trim()); // TODO test
     }
 
@@ -114,6 +116,16 @@ public class DEFUSEpanel extends javax.swing.JPanel
     protected javax.swing.JComboBox<String> getUseCB()
     {
         return useCB;
+    }
+    
+    protected boolean isDEF()
+    {
+        return (defRB.isSelected() && !getDefTF().getText().isBlank());
+    }
+    
+    protected boolean isUSE()
+    {
+        return (useRB.isSelected() && !getUseCB().getSelectedItem().toString().isBlank());
     }
 
     protected String getContainerField()
@@ -344,7 +356,6 @@ public class DEFUSEpanel extends javax.swing.JPanel
         });
         setLayout(new java.awt.GridBagLayout());
 
-        x3dHtmlTabbedPane.setToolTipText("DEF, USE, id and style are common to all elements");
         x3dHtmlTabbedPane.setMinimumSize(new java.awt.Dimension(20, 20));
         x3dHtmlTabbedPane.setPreferredSize(new java.awt.Dimension(580, 90));
         x3dHtmlTabbedPane.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -353,6 +364,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
             }
         });
 
+        x3dDefUsePanel.setToolTipText("DEF and USE identifiers are common to all X3D nodes");
         x3dDefUsePanel.setMinimumSize(new java.awt.Dimension(513, 56));
         x3dDefUsePanel.setPreferredSize(new java.awt.Dimension(400, 54));
         x3dDefUsePanel.setLayout(new java.awt.GridBagLayout());
@@ -547,7 +559,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
 
         x3dHtmlTabbedPane.addTab("   X3D DEF USE containerField    ", null, x3dDefUsePanel, "X3D common attributes");
 
-        htmlCssPanel.setToolTipText("");
+        htmlCssPanel.setToolTipText("id, class, and style attributes are common to all X3D nodes and statements");
         htmlCssPanel.setPreferredSize(new java.awt.Dimension(400, 56));
         htmlCssPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -693,7 +705,9 @@ public class DEFUSEpanel extends javax.swing.JPanel
 
     private void useCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useCBActionPerformed
         if (useCB.hasFocus())
-            useRB.setSelected(true); // these callbacks don't work unless combobox is enabled, so auto-turnon doesn't appear to be possible
+        {
+            useRB.setSelected(true);
+        } // these callbacks don't work unless combobox is enabled, so auto-turnon doesn't appear to be possible
     }//GEN-LAST:event_useCBActionPerformed
 
     private void useCBFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_useCBFocusGained

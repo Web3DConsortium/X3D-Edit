@@ -107,14 +107,15 @@ final public class X3dEditUserPreferencesPanel extends javax.swing.JPanel
   private        boolean isReachableWebsite;
   private final X3dOptionsPanelController controller;
   
+  // X3dEditUserPreferencesPanel tabbed panes
   public static final int AUTHOR_INFO_PANE               = 0;
   public static final int X3D_PLAYERS_PANE               = 1;
-  public static final int X3D_MODELING_TOOLS_PANE        = 2;
-  public static final int IMAGE_VOLUME_TOOLS_PANE        = 3;
-  public static final int VISUALIZATION_PREFERENCES_PANE = 4;
-  public static final int CAD_FILTER_OPTIONS_PANE        = 5;
-  public static final int XML_SECURITY_PANE              = 6;
-  public static final int WEB_MULTIMEDIA_TOOLS_PANE      = 7;
+  public static final int IMAGE_VOLUME_TOOLS_PANE        = 2;
+  public static final int VISUALIZATION_PREFERENCES_PANE = 3;
+  public static final int CAD_FILTER_OPTIONS_PANE        = 4;
+  public static final int XML_SECURITY_PANE              = 5;
+  public static final int WEB_MULTIMEDIA_TOOLS_PANE      = 6;
+  public static final int X3D_MODELING_TOOLS_PANE        = 7;
     
   // https://docs.oracle.com/en/java/javase/21/docs/api/java.desktop/javax/swing/JTabbedPane.html#setSelectedIndex(int)
   private int preferredPaneIndex = -1; // initial pane at at launch, does existing class remember prior setting?
@@ -10112,13 +10113,13 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void castleModelViewerCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerCheckBoxActionPerformed
        if (castleModelViewerCheckBox.isSelected())
-            X3dEditUserPreferences.setView3dSceneAutoLaunch("true");
-       else X3dEditUserPreferences.setView3dSceneAutoLaunch("false");
+            X3dEditUserPreferences.setCastleModelViewerAutoLaunch("true");
+       else X3dEditUserPreferences.setCastleModelViewerAutoLaunch("false");
        view3dsceneAutoLaunchCheck();
     }//GEN-LAST:event_castleModelViewerCheckBoxActionPerformed
 
     private void castleModelViewerTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerTFActionPerformed
-        X3dEditUserPreferences.setView3dScenePath(castleModelViewerTF.getText().trim());
+        X3dEditUserPreferences.setCastleModelViewerPath(castleModelViewerTF.getText().trim());
         view3dsceneAutoLaunchCheck();
     }//GEN-LAST:event_castleModelViewerTFActionPerformed
 
@@ -10128,13 +10129,13 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_castleModelViewerChooserButtonActionPerformed
 
     private void castleModelViewerDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerDefaultButtonActionPerformed
-        castleModelViewerTF.setText(X3dEditUserPreferences.getView3dScenePathDefault());
-        X3dEditUserPreferences.setView3dScenePath(castleModelViewerTF.getText().trim());
+        castleModelViewerTF.setText(X3dEditUserPreferences.getCastleModelViewerPathDefault());
+        X3dEditUserPreferences.setCastleModelViewerPath(castleModelViewerTF.getText().trim());
         view3dsceneAutoLaunchCheck();
     }//GEN-LAST:event_castleModelViewerDefaultButtonActionPerformed
 
     private void castleModelViewerDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerDownloadButtonActionPerformed
-        openInBrowser(X3dEditUserPreferences.getDownloadSiteView3dScene());
+        openInBrowser(X3dEditUserPreferences.getDownloadSiteCastleModelViewer());
     }//GEN-LAST:event_castleModelViewerDownloadButtonActionPerformed
 
     private void h3dCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_h3dCheckBoxActionPerformed
@@ -12108,7 +12109,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_batikEditorDownloadButtonActionPerformed
 
     private void castleModelViewerTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_castleModelViewerTFFocusLost
-        X3dEditUserPreferences.setView3dScenePath(castleModelViewerTF.getText().trim());
+        X3dEditUserPreferences.setCastleModelViewerPath(castleModelViewerTF.getText().trim());
         view3dsceneAutoLaunchCheck();
     }//GEN-LAST:event_castleModelViewerTFFocusLost
 
@@ -12803,7 +12804,7 @@ for Extensible 3D (X3D) Graphics International Standard.
   {
     checkExistingFile = new File(castleModelViewerTF.getText().trim());
     isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
-    X3dEditUserPreferences.setView3dSceneAutoLaunch(Boolean.toString(isExecutableFile));
+    X3dEditUserPreferences.setCastleModelViewerAutoLaunch(Boolean.toString(isExecutableFile));
     castleModelViewerCheckBox.setSelected(isExecutableFile);
     castleModelViewerLaunchButton.setEnabled(isExecutableFile);
     showFound (isExecutableFile, castleModelViewerLabel, castleModelViewerTF);
@@ -13498,7 +13499,7 @@ for Extensible 3D (X3D) Graphics International Standard.
           instantRealityTF.setText(X3dEditUserPreferences.getInstantRealityPath());
                   octagaTF.setText(X3dEditUserPreferences.getOctagaPath());
                 swirlx3dTF.setText(X3dEditUserPreferences.getSwirlX3DPath());
-             castleModelViewerTF.setText(X3dEditUserPreferences.getView3dScenePath());
+             castleModelViewerTF.setText(X3dEditUserPreferences.getCastleModelViewerPath());
                   vivatyTF.setText(X3dEditUserPreferences.getVivatyPath());
                     xj3dTF.setText(X3dEditUserPreferences.getXj3DPath());
       otherX3dPlayerNameTF.setText(X3dEditUserPreferences.getOtherX3dPlayerName());
@@ -13558,7 +13559,7 @@ polyTransNuGrafEditorPathTF.setText(X3dEditUserPreferences.getPolyTransNuGrafEdi
                heilanCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isHeilanAutoLaunch()));
        instantRealityCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isInstantRealityAutoLaunch()));
                octagaCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOctagaAutoLaunch()));
-          castleModelViewerCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isView3dSceneAutoLaunch()));
+          castleModelViewerCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isCastleModelViewerAutoLaunch()));
                  xj3dCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isXj3dAutoLaunch()));
              swirlx3dCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSwirlX3DAutoLaunch()));
                vivatyCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isVivatyAutoLaunch()));
@@ -13768,8 +13769,8 @@ otherSemanticWebEditorAutoLaunchCheck();
       X3dEditUserPreferences.setSwirlX3DPath(path);
 
     path = castleModelViewerTF.getText().trim();
-    if(path.equals(X3dEditUserPreferences.getView3dScenePathDefault()))
-      X3dEditUserPreferences.resetView3dScenePath();
+    if(path.equals(X3dEditUserPreferences.getCastleModelViewerPathDefault()))
+      X3dEditUserPreferences.resetCastleModelViewerPath();
     else
       X3dEditUserPreferences.setVivatyPlayerPath(path);
 
@@ -13827,7 +13828,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     X3dEditUserPreferences.setInstantRealityAutoLaunch(String.valueOf(instantRealityCheckBox.isSelected()));
     X3dEditUserPreferences.setOctagaAutoLaunch        (String.valueOf(octagaCheckBox.isSelected()));
     X3dEditUserPreferences.setSwirlx3dAutoLaunch      (String.valueOf(swirlx3dCheckBox.isSelected()));
-    X3dEditUserPreferences.setView3dSceneAutoLaunch   (String.valueOf(castleModelViewerCheckBox.isSelected()));
+    X3dEditUserPreferences.setCastleModelViewerAutoLaunch   (String.valueOf(castleModelViewerCheckBox.isSelected()));
     X3dEditUserPreferences.setVivatyAutoLaunch  (String.valueOf(vivatyCheckBox.isSelected()));
     X3dEditUserPreferences.setOtherX3dPlayerAutoLaunch(String.valueOf(otherX3dPlayerCheckBox.isSelected()));
     X3dEditUserPreferences.setOtherX3dEditorAutoLaunch(String.valueOf(otherX3dEditorCheckBox.isSelected()));
