@@ -167,7 +167,7 @@ public class BouncyCastleHelper
   
   public static KeyStore getKeyStore() throws KeyStoreException,NoSuchProviderException
   {
-    return KeyStore.getInstance("BouncyCastle","BC");
+    return KeyStore.getInstance("BouncyCastle","BC"); // BouncyCastle == UBER
   }
   
   public static String getKeyStoreNameExtension()

@@ -168,7 +168,7 @@ public final class SignDocumentAction extends BaseX3DEditAction
       String signedXml = baos.toString("UTF-8");
       
       // During document signing by the Apache XML Security suite, the XML
-      // header and the X3D doctype element are stripped since the signing is
+      // header and the X3D doctype declaration are stripped out. Signing is
       // performed at the X3D (root) element.
       signedXml = insertDocTypeAndXmlHeader(signedXml);
       

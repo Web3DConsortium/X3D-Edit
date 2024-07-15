@@ -125,7 +125,7 @@ public final class X3DPaletteUtilitiesJdom
     if (doc == null)
       return 0;
     if (doc instanceof BaseDocument) {
-      BaseDocument baseDoc = (BaseDocument) doc;
+//      BaseDocument baseDoc = (BaseDocument) doc;
      // baseDoc.atomicLock();
     }
 
@@ -287,19 +287,6 @@ public final class X3DPaletteUtilitiesJdom
       lis.receive(null); // signal done
     }
 
-    class MyXMLValidateSupport extends ValidateXMLSupport
-    {
-      MyXMLValidateSupport(InputSource is)
-      {
-        super(is);
-      }
-
-      @Override
-      protected EntityResolver createEntityResolver()
-      {
-        return EntityCatalog.getDefault(); // This will find dtds and schemas in the local catalog, the default goes to UserCatalog
-      }
-    }
   }
 
   /**
@@ -407,13 +394,11 @@ public final class X3DPaletteUtilitiesJdom
         if (errorSeen && doDialog) {
           ValidationErrorResponse resp = showDialog();
             switch (resp) {
-                case UNDO:
-                    undoLastInsert(target);
-                    break;
-                case ACCEPT:
+                case UNDO -> undoLastInsert(target);
+                case ACCEPT -> {
                     ;
-                    break;
-                case REEDIT:
+                }
+                case REEDIT -> {
                     int selStart  = target.getSelectionStart();
                     String selStr = target.getSelectedText();
                     int i=0;
@@ -431,9 +416,10 @@ public final class X3DPaletteUtilitiesJdom
                             EditElementAction editAct = lu.lookup(EditElementAction.class);
                             editAct.publicPerformAction(edi.getActivatedNodes());
                         });
-                    }       break;
-                default:
-                    break;
+                    }
+                }
+                default -> {
+                }
             }
         }
         checkRouteForwardRefs(target);

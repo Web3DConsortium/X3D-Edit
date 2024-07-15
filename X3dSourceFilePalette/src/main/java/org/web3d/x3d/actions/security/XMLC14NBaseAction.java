@@ -31,7 +31,10 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.web3d.x3d.actions.security;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.MissingResourceException;
 import javax.swing.text.BadLocationException;
 import org.apache.xml.security.c14n.CanonicalizationException;
@@ -80,7 +83,9 @@ public abstract class XMLC14NBaseAction extends BaseX3DEditAction
       Document w3cDoc = getW3cDocument();
 
       Canonicalizer canner = Canonicalizer.getInstance(this.getAlgorithm());//canonicalizerAlgorithm);
-      byte[] outputba = canner.canonicalizeSubtree(w3cDoc);
+      ByteArrayOutputStream stream = new ByteArrayOutputStream();
+      canner.canonicalizeSubtree(w3cDoc, stream);
+      byte[] outputba = stream.toByteArray();
       String xmlString = new String(outputba);
 
       int len = abstractDocument.getLength();

@@ -9,7 +9,6 @@ package com.sauria.apachexml.ch10;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -114,9 +113,11 @@ public class DocumentSigner
       }
 
       if (objectList != null) {
+          SignatureElementProxy sep;
+          ObjectContainer oc;
         for (Iterator i = objectList.iterator(); i.hasNext(); ) {
-          SignatureElementProxy sep = (SignatureElementProxy) i.next();
-          ObjectContainer oc = new ObjectContainer(document);
+          sep = (SignatureElementProxy) i.next();
+          oc = new ObjectContainer(document);
           oc.appendChild(sep.getElement());
           sig.appendObject(oc);
         }
@@ -193,12 +194,13 @@ public class DocumentSigner
 
     PrivateKey privateKey = getPrivateKey(ks, "johndoe", "password");
 
-    X509Certificate certificate = null;
+    X509Certificate certificate;
     try {
       certificate = (X509Certificate) ks.getCertificate("johndoe");
     }
     catch (KeyStoreException kse) {
       kse.printStackTrace(System.err);
+      return false;
     }
 
     File signatureFile = new File(outputFile);
@@ -220,10 +222,11 @@ public class DocumentSigner
     sps.addSignatureProperty(sp);
     signer.sign();
 
-    try (FileOutputStream signatureStream = new FileOutputStream(signatureFile)) {
+    try (OutputStream signatureStream = new FileOutputStream(signatureFile)) {
         signer.toC14N(signatureStream);
     } catch (IOException ioe) {
       ioe.printStackTrace(System.err);
+      return false;
     }
     return true;
   }
@@ -278,15 +281,8 @@ public class DocumentSigner
       kse.printStackTrace(System.err);
     }
 
-    InputStream fis = null;
-    try {
-      fis = new FileInputStream(filename);
-    }
-    catch (FileNotFoundException fnfe) {
-      fnfe.printStackTrace(System.err);
-    }
-
-    try {
+    try (InputStream fis = new FileInputStream(filename)) { 
+    
       if (ks != null)
         ks.load(fis, keystorePassword.toCharArray());
     }
@@ -364,21 +360,6 @@ public class DocumentSigner
   public void setDocument(Document d)
   {
     document = d;
-  }
-
-  public List getObjectList()
-  {
-    return objectList;
-  }
-
-  public PublicKey getPublicKey()
-  {
-    return publicKey;
-  }
-
-  public void setObjectList(List list)
-  {
-    objectList = list;
   }
 
   public void setPublicKey(PublicKey key)

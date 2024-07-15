@@ -7,6 +7,14 @@
             <suite-component/>
             <module-dependencies>
                 <dependency>
+                    <code-name-base>bcprov</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>1.77</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
                     <code-name-base>org.apache.commons.httpclient</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
@@ -301,6 +309,14 @@
                         <specification-version>6.93</specification-version>
                     </run-dependency>
                 </dependency>
+                <dependency>
+                    <code-name-base>slf4j.api</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>1.7.36</specification-version>
+                    </run-dependency>
+                </dependency>
             </module-dependencies>
             <test-dependencies>
                 <test-type>
@@ -334,8 +350,8 @@
                 <package>xj3d.converter</package>
             </public-packages>
             <class-path-extension>
-                <runtime-relative-path>ext/bcprov.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/bcprov.jar</binary-origin>
+                <runtime-relative-path>ext/xmlsec-3.0.4.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xmlsec-3.0.4.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/xj3d-2.3-3rdparty-nps.jar</runtime-relative-path>
@@ -364,10 +380,6 @@
             <class-path-extension>
                 <runtime-relative-path>ext/log4j-core-2.19.0.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/log4j-core-2.19.0.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/commons-httpclient-3.1.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/commons-httpclient-3.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/htmlentities.jar</runtime-relative-path>
@@ -402,20 +414,12 @@
                 <binary-origin>release/modules/ext/xj3d.browser_2.3.0-nps.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/xmlsec-2.1.4.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/xmlsec-2.1.4.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/xmlresolver-5.2.2.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xmlresolver-5.2.2.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/Vrml97ToX3dNist.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/Vrml97ToX3dNist.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
-                <runtime-relative-path>ext/slf4j-api-1.7.30.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/slf4j-api-1.7.30.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/commons-lang-2.0.jar</runtime-relative-path>
