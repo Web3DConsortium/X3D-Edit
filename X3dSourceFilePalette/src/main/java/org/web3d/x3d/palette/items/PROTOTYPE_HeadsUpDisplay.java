@@ -66,9 +66,9 @@ public class PROTOTYPE_HeadsUpDisplay extends SceneGraphStructureNodeType
             "    <ExternProtoDeclare name='HeadsUpDisplay'\n" +
             "        appinfo='Heads-up display (HUD) keeps child geometry aligned on screen in a consistent location'\n" +
             "        url='\"../../../X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay\"\n" +
-            "             \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay\"\n" +
             "             \"../../../X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay\"\n" +
-            "             \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay\"'>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay\"'>\n" +
             "      <field accessType='inputOutput' appinfo='X3D content positioned at HUD offset' name='children' type='MFNode'/>\n" +
             "      <field accessType='inputOutput' appinfo='offset position for HUD relative to current view location, default 0 0 -5' name='screenOffset' type='SFVec3f'/>\n" +
             "      <field accessType='outputOnly' appinfo='HUD position update (in world coordinates) relative to original location' name='position_changed' type='SFVec3f'/>\n" +

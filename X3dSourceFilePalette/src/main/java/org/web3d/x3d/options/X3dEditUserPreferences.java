@@ -399,7 +399,7 @@ public class X3dEditUserPreferences
   public static String POLYTRANSNUGRAF_EDITOR_PATH_KEY        = "POLYTRANSNUGRAF_EDITOR_PATH";
   public static String OCTAGA_EXECUTABLE_PATH_KEY             = "OCTAGA_EXECUTABLE_PATH";
   public static String SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY     = "SWIRLX3DPLAYER_EXECUTABLE_PATH";
-  public static String VIEW3DSCENE_EXECUTABLE_PATH_KEY        = "VIEW3DSCENE_EXECUTABLE_PATH";
+  public static String CASTLEMODELVIEWER_EXECUTABLE_PATH_KEY        = "VIEW3DSCENE_EXECUTABLE_PATH";
   public static String VIVATYPLAYER_EXECUTABLE_PATH_KEY       = "VIVATYPLAYER_EXECUTABLE_PATH";
   public static String XJ3D_EXECUTABLE_PATH_KEY               = "XJ3D_EXECUTABLE_PATH";
   public static String OTHER_X3D_PLAYER_EXECUTABLE_NAME_KEY   = "OTHER_X3D_PLAYER_EXECUTABLE_NAME";
@@ -418,7 +418,7 @@ public class X3dEditUserPreferences
   public static String INSTANTREALITY_EXECUTABLE_AUTOLAUNCH_KEY     = "INSTANTREALITY_AUTOLAUNCH";
   public static String OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY             = "OCTAGA_AUTOLAUNCH";
   public static String SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY     = "SWIRLX3DPLAYER_AUTOLAUNCH";
-  public static String VIEW3DSCENE_EXECUTABLE_AUTOLAUNCH_KEY        = "VIEW3DSCENE_AUTOLAUNCH";
+  public static String CASTLEMODELVIEWER_EXECUTABLE_AUTOLAUNCH_KEY        = "VIEW3DSCENE_AUTOLAUNCH";
   public static String VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY       = "VIVATYPLAYER_AUTOLAUNCH";
   public static String XJ3D_EXECUTABLE_AUTOLAUNCH_KEY               = "XJ3D_AUTOLAUNCH";
   public static String OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY   = "OTHER_X3D_PLAYER_AUTOLAUNCH";
@@ -539,7 +539,7 @@ public class X3dEditUserPreferences
   public static String INSTANTREALITY_EXECUTABLE_PATH_DEFAULT;
   public static String OCTAGA_EXECUTABLE_PATH_DEFAULT;
   public static String SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT;
-  public static String VIEW3DSCENE_EXECUTABLE_PATH_DEFAULT;
+  public static String CASTLEMODELVIEWER_EXECUTABLE_PATH_DEFAULT;
   public static String VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT;
   public static String XJ3D_EXECUTABLE_PATH_DEFAULT;
   public static String OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT;
@@ -623,7 +623,7 @@ public class X3dEditUserPreferences
   private static final String winxpPolyTransNuGrafPathDefault      = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
   private static final String winxpOctagaPathDefault               = "C:\\Program Files\\Octaga Visual Solutions\\Octaga Player 5.0 (64 bit)\\OctagaPlayer.exe";
   private static final String winxpSwirlX3DPlayerPathDefault       = "C:\\Program Files\\Pinecoast\\SwirlViewer\\SwView.exe";
-  private static final String winxpView3dScenePathDefault          = "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
+  private static final String winxpCastleModelViewerPathDefault          = "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
   private static final String winxpVivatyPlayerPathDefault         = "C:\\Program Files\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
   private static final String winxpXj3DPathDefault                 = "C:\\Program Files\\Xj3D\\browser.bat";
   private static final String winxpOtherX3dPlayerPathDefault       = ""; // user configured
@@ -649,7 +649,7 @@ public class X3dEditUserPreferences
   private static final String windows64PolyTransNuGrafPathDefault  = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
   private static final String windows64OctagaPathDefault           = "C:\\Program Files\\Octaga Visual Solutions\\Octaga Player 5.0 (64 bit)\\OctagaPlayer.exe";
   private static final String windows64SwirlX3DPlayerPathDefault   = "C:\\Program Files (x86)\\Pinecoast\\SwirlViewer\\SwView.exe";
-  private static final String windows64View3dScenePathDefault      = "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
+  private static final String windows64CastleModelViewerPathDefault      = "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
   private static final String windows64VivatyPlayerPathDefault     = "C:\\Program Files (x86)\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
   private static final String windows64Xj3DPathDefault             = "C:\\Program Files (x86)\\Xj3D\\browser.bat";
   private static final String windows64OtherX3dPlayerPathDefault   = ""; // user configured
@@ -673,7 +673,7 @@ public class X3dEditUserPreferences
   private static final String macosxPolyTransNuGrafPathDefault     = "/Applications/NuGraf.app";
   private static final String macosxOctagaPathDefault              = "/Applications/Octaga Player.app";
   private static final String macosxSwirlX3DPlayerPathDefault      = ""; // No Mac version as of 17 July 2008
-  private static final String macosxView3dScenePathDefault         = "";
+  private static final String macosxCastleModelViewerPathDefault         = "";
   private static final String macosxVivatyPlayerPathDefault        = ""; // No Mac version as of 17 July 2008
   private static final String macosxXj3DPathDefault                = "/Applications/Xj3D/Xj3DBrowser.app";
   private static final String macosxOtherX3dPlayerPathDefault      = ""; // user configured
@@ -697,7 +697,7 @@ public class X3dEditUserPreferences
   private static final String otherPolyTransNuGrafPathDefault      = "NuGraf";
   private static final String otherOctagaPathDefault               = "OctagaPlayer";
   private static final String otherSwirlX3DPlayerPathDefault       = "SwirlX3DPlayer";
-  private static final String otherView3dScenePathDefault          = "View3dScene";
+  private static final String otherCastleModelViewerPathDefault    = "CastleModelViewer";
   private static final String otherVivatyPlayerPathDefault         = "VivatyPlayer";
   private static final String otherXj3DPathDefault                 = "Xj3DPlayer";
   private static final String otherX3dPlayerNameDefault            = winxpOtherX3dPlayerNameDefault; // user configured
@@ -725,7 +725,7 @@ public class X3dEditUserPreferences
   private static final String downloadSitePolyTransNuGraf          = "https://www.okino.com";
   private static final String downloadSiteOctaga                   = "https://www.octagavs.com";
   private static final String downloadSiteSwirlX3DPlayer           = "https://www.pinecoast.com"; // defunct
-  private static final String downloadSiteView3dScene              = "https://castle-engine.io/castle-model-viewer"; // https://castle-engine.io/view3dscene.php"; // "https://castle-engine.sourceforge.net";
+  private static final String downloadSiteCastleModelViewer        = "https://castle-engine.io/castle-model-viewer"; // https://castle-engine.io/view3dscene.php"; // "https://castle-engine.sourceforge.net";
   private static final String downloadSiteVivatyPlayer             = "https://www.web3d.org/projects/vivaty-studio"; // https://www.vivaty.com";
   private static final String downloadSiteXj3D                     = "https://savage.nps.edu/Savage/developers.html#Xj3D"; // "https://sourceforge.net/projects/xj3d"; // "https://www.Xj3D.org";
   private static final String downloadSiteOtherX3dPlayer           = "https://www.web3d.org/x3d/content/examples/X3dResources.html#Applications";
@@ -965,7 +965,7 @@ public class X3dEditUserPreferences
   public static String getDownloadSitePolyTransNuGraf(){return downloadSitePolyTransNuGraf;}
   public static String getDownloadSiteOctaga()         {return downloadSiteOctaga;}
   public static String getDownloadSiteSwirlX3D()       {return downloadSiteSwirlX3DPlayer;}
-  public static String getDownloadSiteView3dScene()    {return downloadSiteView3dScene;}
+  public static String getDownloadSiteCastleModelViewer() {return downloadSiteCastleModelViewer;}
   public static String getDownloadSiteVivaty()         {return downloadSiteVivatyPlayer;}
   public static String getDownloadSiteXj3D()           {return downloadSiteXj3D;}
   public static String getDownloadSiteOtherX3dPlayer() {return downloadSiteOtherX3dPlayer;}
@@ -1025,7 +1025,7 @@ public class X3dEditUserPreferences
      INSTANTREALITY_EXECUTABLE_PATH_DEFAULT  = toks(macosxInstantRealityPathDefault);
      OCTAGA_EXECUTABLE_PATH_DEFAULT          = toks(macosxOctagaPathDefault);
      SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT  = toks(macosxSwirlX3DPlayerPathDefault);
-     VIEW3DSCENE_EXECUTABLE_PATH_DEFAULT     = toks(macosxView3dScenePathDefault);
+     CASTLEMODELVIEWER_EXECUTABLE_PATH_DEFAULT = toks(macosxCastleModelViewerPathDefault);
      VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT    = toks(macosxVivatyPlayerPathDefault);
      XJ3D_EXECUTABLE_PATH_DEFAULT            = toks(macosxXj3DPathDefault);
  OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT    = toks(macosxOtherX3dPlayerPathDefault);
@@ -1082,7 +1082,7 @@ public class X3dEditUserPreferences
       INSTANTREALITY_EXECUTABLE_PATH_DEFAULT = toks(windows64InstantRealityPathDefault);
       OCTAGA_EXECUTABLE_PATH_DEFAULT         = toks(windows64OctagaPathDefault);
       SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT = toks(windows64SwirlX3DPlayerPathDefault);
-      VIEW3DSCENE_EXECUTABLE_PATH_DEFAULT    = toks(windows64View3dScenePathDefault);
+      CASTLEMODELVIEWER_EXECUTABLE_PATH_DEFAULT = toks(windows64CastleModelViewerPathDefault);
       VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT   = toks(windows64VivatyPlayerPathDefault);
       XJ3D_EXECUTABLE_PATH_DEFAULT           = toks(windows64Xj3DPathDefault);
   OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT   = toks(windows64OtherX3dPlayerPathDefault);
@@ -1139,7 +1139,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dE
       INSTANTREALITY_EXECUTABLE_PATH_DEFAULT = toks(winxpInstantRealityPathDefault);
       OCTAGA_EXECUTABLE_PATH_DEFAULT         = toks(winxpOctagaPathDefault);
       SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT = toks(winxpSwirlX3DPlayerPathDefault);
-      VIEW3DSCENE_EXECUTABLE_PATH_DEFAULT    = toks(winxpView3dScenePathDefault);
+      CASTLEMODELVIEWER_EXECUTABLE_PATH_DEFAULT    = toks(winxpCastleModelViewerPathDefault);
       VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT   = toks(winxpVivatyPlayerPathDefault);
       XJ3D_EXECUTABLE_PATH_DEFAULT           = toks(winxpXj3DPathDefault);
   OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT   = toks(winxpOtherX3dPlayerPathDefault);
@@ -1187,81 +1187,81 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEdito
     }
     else
     {
-      CONTACT_EXECUTABLE_PATH_DEFAULT         = toks(otherContactPathDefault);
-      CONTACT_GEO_EXECUTABLE_PATH_DEFAULT     = toks(otherContactGeoPathDefault);
-      FREEWRL_EXECUTABLE_PATH_DEFAULT         = toks(otherFreeWrlPathDefault);
-      H3D_EXECUTABLE_PATH_DEFAULT             = toks(otherH3dPathDefault);
-      HEILAN_EXECUTABLE_PATH_DEFAULT          = toks(otherHeilanPathDefault);
-      INSTANTREALITY_EXECUTABLE_PATH_DEFAULT  = toks(otherInstantRealityPathDefault);
-      OCTAGA_EXECUTABLE_PATH_DEFAULT          = toks(otherOctagaPathDefault);
-      SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT  = toks(otherSwirlX3DPlayerPathDefault);
-      VIEW3DSCENE_EXECUTABLE_PATH_DEFAULT     = toks(otherView3dScenePathDefault);
-      VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT    = toks(otherVivatyPlayerPathDefault);
-      XJ3D_EXECUTABLE_PATH_DEFAULT            = toks(otherXj3DPathDefault);
-      OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT= toks(otherX3dPlayerPathDefault);
-      OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT= toks(otherX3dPlayerNameDefault);
-      OTHER_X3D_EDITOR_EXECUTABLE_PATH_DEFAULT= toks(otherX3dEditorPathDefault);
-      OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT= toks(otherX3dEditorNameDefault);
-     AMAYA_EDITOR_PATH_DEFAULT                = toks(otherAmayaPathDefault);
-     CHROME_EXECUTABLE_PATH_DEFAULT           = toks(otherChromePathDefault);
-     FIREFOX_EXECUTABLE_PATH_DEFAULT          = toks(otherFirefoxPathDefault);
-     INTERNETEXPLORER_EXECUTABLE_PATH_DEFAULT = toks(otherInternetExplorerPathDefault);
-     OPERA_EXECUTABLE_PATH_DEFAULT            = toks(otherOperaPathDefault);
-     SAFARI_EXECUTABLE_PATH_DEFAULT           = toks(otherSafariPathDefault);
+      CONTACT_EXECUTABLE_PATH_DEFAULT           = toks(otherContactPathDefault);
+      CONTACT_GEO_EXECUTABLE_PATH_DEFAULT       = toks(otherContactGeoPathDefault);
+      FREEWRL_EXECUTABLE_PATH_DEFAULT           = toks(otherFreeWrlPathDefault);
+      H3D_EXECUTABLE_PATH_DEFAULT               = toks(otherH3dPathDefault);
+      HEILAN_EXECUTABLE_PATH_DEFAULT            = toks(otherHeilanPathDefault);
+      INSTANTREALITY_EXECUTABLE_PATH_DEFAULT    = toks(otherInstantRealityPathDefault);
+      OCTAGA_EXECUTABLE_PATH_DEFAULT            = toks(otherOctagaPathDefault);
+      SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT    = toks(otherSwirlX3DPlayerPathDefault);
+      CASTLEMODELVIEWER_EXECUTABLE_PATH_DEFAULT = toks(otherCastleModelViewerPathDefault);
+      VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT      = toks(otherVivatyPlayerPathDefault);
+      XJ3D_EXECUTABLE_PATH_DEFAULT              = toks(otherXj3DPathDefault);
+      OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT  = toks(otherX3dPlayerPathDefault);
+      OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT  = toks(otherX3dPlayerNameDefault);
+      OTHER_X3D_EDITOR_EXECUTABLE_PATH_DEFAULT  = toks(otherX3dEditorPathDefault);
+      OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT  = toks(otherX3dEditorNameDefault);
+     AMAYA_EDITOR_PATH_DEFAULT                  = toks(otherAmayaPathDefault);
+     CHROME_EXECUTABLE_PATH_DEFAULT             = toks(otherChromePathDefault);
+     FIREFOX_EXECUTABLE_PATH_DEFAULT            = toks(otherFirefoxPathDefault);
+     INTERNETEXPLORER_EXECUTABLE_PATH_DEFAULT   = toks(otherInternetExplorerPathDefault);
+     OPERA_EXECUTABLE_PATH_DEFAULT              = toks(otherOperaPathDefault);
+     SAFARI_EXECUTABLE_PATH_DEFAULT             = toks(otherSafariPathDefault);
      
-         AUDACITY_EDITOR_PATH_DEFAULT        = toks(    otherAudacityEditorPathDefault);
-         MUSESCORE_EDITOR_PATH_DEFAULT       = toks(   otherMuseScoreEditorPathDefault);
-             GIMP_EDITOR_PATH_DEFAULT        = toks(        otherGimpEditorPathDefault);
-             FIJI_EDITOR_PATH_DEFAULT        = toks(        otherFijiEditorPathDefault);
-           IMAGEJ_EDITOR_PATH_DEFAULT        = toks(      otherImageJEditorPathDefault);
-      IMAGEMAGICK_EDITOR_PATH_DEFAULT        = toks( otherImageMagickEditorPathDefault);
-              VLC_PLAYER_PATH_DEFAULT        = toks(         otherVlcPlayerPathDefault);
-          PROTEGE_PLAYER_PATH_DEFAULT        = toks(     otherProtegePlayerPathDefault);
-         PORTECLE_PLAYER_PATH_DEFAULT        = toks(    otherPorteclePlayerPathDefault);
-  KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT        = toks(otherKeystoreExplorerPlayerPathDefault);
+         AUDACITY_EDITOR_PATH_DEFAULT           = toks(    otherAudacityEditorPathDefault);
+         MUSESCORE_EDITOR_PATH_DEFAULT          = toks(   otherMuseScoreEditorPathDefault);
+             GIMP_EDITOR_PATH_DEFAULT           = toks(        otherGimpEditorPathDefault);
+             FIJI_EDITOR_PATH_DEFAULT           = toks(        otherFijiEditorPathDefault);
+           IMAGEJ_EDITOR_PATH_DEFAULT           = toks(      otherImageJEditorPathDefault);
+      IMAGEMAGICK_EDITOR_PATH_DEFAULT           = toks( otherImageMagickEditorPathDefault);
+              VLC_PLAYER_PATH_DEFAULT           = toks(         otherVlcPlayerPathDefault);
+          PROTEGE_PLAYER_PATH_DEFAULT           = toks(     otherProtegePlayerPathDefault);
+         PORTECLE_PLAYER_PATH_DEFAULT           = toks(    otherPorteclePlayerPathDefault);
+  KEYSTOREEXPLORER_PLAYER_PATH_DEFAULT          = toks(otherKeystoreExplorerPlayerPathDefault);
   
-      BLENDER_X3D_EDITOR_PATH_DEFAULT        = toks(  otherBlenderX3dEditorPathDefault);
-BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEditorPathDefault);
-         BVHACKER_EDITOR_PATH_DEFAULT        = toks(    otherBvhackerEditorPathDefault);
-         CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     otherCuraX3dEditorPathDefault);
-      MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  otherMeshLabX3dEditorPathDefault);
-     PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( otherParaviewX3dEditorPathDefault);
-      RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  otherRhino3DX3dEditorPathDefault);
-  POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   otherPolyTransNuGrafPathDefault);
-   SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( otherSeamlessX3dEditorPathDefault);
-      SUNRIZE_X3D_EDITOR_PATH_DEFAULT        = toks(  otherSunrizeX3dEditorPathDefault);
-      ITKSNAP_X3D_EDITOR_PATH_DEFAULT        = toks(     otherItksnapEditorPathDefault);
-        SEG3D_X3D_EDITOR_PATH_DEFAULT        = toks(       otherSeg3dEditorPathDefault);
-     SLICER3D_X3D_EDITOR_PATH_DEFAULT        = toks(    otherSlicer3dEditorPathDefault);
-        BATIK_SVG_EDITOR_PATH_DEFAULT        = toks(       otherBatikEditorPathDefault);
-     INKSCAPE_SVG_EDITOR_PATH_DEFAULT        = toks(    otherInkscapeEditorPathDefault);
-     SVG_EDIT_SVG_EDITOR_PATH_DEFAULT        = toks(     otherSvgeditEditorPathDefault);
-    WHITEDUNE_X3D_EDITOR_PATH_DEFAULT        = toks(otherWhiteDuneX3dEditorPathDefault);
-      WINGS3D_X3D_EDITOR_PATH_DEFAULT        = toks(    otherWingsX3dEditorPathDefault);
-    ULTRAEDIT_X3D_EDITOR_PATH_DEFAULT        = toks(otherUltraEditX3dEditorPathDefault);
+      BLENDER_X3D_EDITOR_PATH_DEFAULT           = toks(  otherBlenderX3dEditorPathDefault);
+BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT         = toks(otherBsContentStudioX3dEditorPathDefault);
+         BVHACKER_EDITOR_PATH_DEFAULT           = toks(    otherBvhackerEditorPathDefault);
+         CURA_X3D_EDITOR_PATH_DEFAULT           = toks(     otherCuraX3dEditorPathDefault);
+      MESHLAB_X3D_EDITOR_PATH_DEFAULT           = toks(  otherMeshLabX3dEditorPathDefault);
+     PARAVIEW_X3D_EDITOR_PATH_DEFAULT           = toks( otherParaviewX3dEditorPathDefault);
+      RHINO3D_X3D_EDITOR_PATH_DEFAULT           = toks(  otherRhino3DX3dEditorPathDefault);
+  POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT           = toks(   otherPolyTransNuGrafPathDefault);
+   SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT           = toks( otherSeamlessX3dEditorPathDefault);
+      SUNRIZE_X3D_EDITOR_PATH_DEFAULT           = toks(  otherSunrizeX3dEditorPathDefault);
+      ITKSNAP_X3D_EDITOR_PATH_DEFAULT           = toks(     otherItksnapEditorPathDefault);
+        SEG3D_X3D_EDITOR_PATH_DEFAULT           = toks(       otherSeg3dEditorPathDefault);
+     SLICER3D_X3D_EDITOR_PATH_DEFAULT           = toks(    otherSlicer3dEditorPathDefault);
+        BATIK_SVG_EDITOR_PATH_DEFAULT           = toks(       otherBatikEditorPathDefault);
+     INKSCAPE_SVG_EDITOR_PATH_DEFAULT           = toks(    otherInkscapeEditorPathDefault);
+     SVG_EDIT_SVG_EDITOR_PATH_DEFAULT           = toks(     otherSvgeditEditorPathDefault);
+    WHITEDUNE_X3D_EDITOR_PATH_DEFAULT           = toks(otherWhiteDuneX3dEditorPathDefault);
+      WINGS3D_X3D_EDITOR_PATH_DEFAULT           = toks(    otherWingsX3dEditorPathDefault);
+    ULTRAEDIT_X3D_EDITOR_PATH_DEFAULT           = toks(otherUltraEditX3dEditorPathDefault);
     }
    
-    OTHER_AUDIO_EDITOR_NAME_DEFAULT          = toks(        otherAudioEditorNameDefault);
-    OTHER_HTML5_EDITOR_NAME_DEFAULT          = toks(        otherHtml5EditorNameDefault);
-    OTHER_IMAGE_EDITOR_NAME_DEFAULT          = toks(        otherImageEditorNameDefault);
-    OTHER_VIDEO_EDITOR_NAME_DEFAULT          = toks(        otherVideoEditorNameDefault);
-   OTHER_VOLUME_EDITOR_NAME_DEFAULT          = toks(       otherVolumeEditorNameDefault);
-   OTHER_SEMANTICWEB_EDITOR_NAME_DEFAULT     = toks(  otherSemanticWebEditorNameDefault);
-    OTHER_X3D_EDITOR_NAME_DEFAULT            = toks(          otherX3dEditorNameDefault);
-    OTHER_AUDIO_EDITOR_PATH_DEFAULT          = toks(        otherAudioEditorPathDefault);
-    OTHER_HTML5_EDITOR_PATH_DEFAULT          = toks(        otherHtml5EditorPathDefault);
-    OTHER_IMAGE_EDITOR_PATH_DEFAULT          = toks(        otherImageEditorPathDefault);
-    OTHER_VIDEO_EDITOR_PATH_DEFAULT          = toks(        otherVideoEditorPathDefault);
-   OTHER_VOLUME_EDITOR_PATH_DEFAULT          = toks(       otherVolumeEditorPathDefault);
-   OTHER_SEMANTICWEB_EDITOR_PATH_DEFAULT     = toks(  otherSemanticWebEditorPathDefault);
-    OTHER_X3D_EDITOR_PATH_DEFAULT            = toks(          otherX3dEditorPathDefault);
-  OTHER_AUDIO_EDITOR_SWITCH_DEFAULT          = toks(      otherAudioEditorSwitchDefault);
-  OTHER_HTML5_EDITOR_SWITCH_DEFAULT          = toks(      otherHtml5EditorSwitchDefault);
-  OTHER_IMAGE_EDITOR_SWITCH_DEFAULT          = toks(      otherImageEditorSwitchDefault);
-  OTHER_VIDEO_EDITOR_SWITCH_DEFAULT          = toks(      otherVideoEditorSwitchDefault);
- OTHER_VOLUME_EDITOR_SWITCH_DEFAULT          = toks(     otherVolumeEditorSwitchDefault);
- OTHER_SEMANTICWEB_EDITOR_SWITCH_DEFAULT     = toks(otherSemanticWebEditorSwitchDefault);
-  OTHER_X3D_EDITOR_SWITCH_DEFAULT            = toks(        otherX3dEditorSwitchDefault);
+    OTHER_AUDIO_EDITOR_NAME_DEFAULT             = toks(        otherAudioEditorNameDefault);
+    OTHER_HTML5_EDITOR_NAME_DEFAULT             = toks(        otherHtml5EditorNameDefault);
+    OTHER_IMAGE_EDITOR_NAME_DEFAULT             = toks(        otherImageEditorNameDefault);
+    OTHER_VIDEO_EDITOR_NAME_DEFAULT             = toks(        otherVideoEditorNameDefault);
+   OTHER_VOLUME_EDITOR_NAME_DEFAULT             = toks(       otherVolumeEditorNameDefault);
+   OTHER_SEMANTICWEB_EDITOR_NAME_DEFAULT        = toks(  otherSemanticWebEditorNameDefault);
+    OTHER_X3D_EDITOR_NAME_DEFAULT               = toks(          otherX3dEditorNameDefault);
+    OTHER_AUDIO_EDITOR_PATH_DEFAULT             = toks(        otherAudioEditorPathDefault);
+    OTHER_HTML5_EDITOR_PATH_DEFAULT             = toks(        otherHtml5EditorPathDefault);
+    OTHER_IMAGE_EDITOR_PATH_DEFAULT             = toks(        otherImageEditorPathDefault);
+    OTHER_VIDEO_EDITOR_PATH_DEFAULT             = toks(        otherVideoEditorPathDefault);
+   OTHER_VOLUME_EDITOR_PATH_DEFAULT             = toks(       otherVolumeEditorPathDefault);
+   OTHER_SEMANTICWEB_EDITOR_PATH_DEFAULT        = toks(  otherSemanticWebEditorPathDefault);
+    OTHER_X3D_EDITOR_PATH_DEFAULT               = toks(          otherX3dEditorPathDefault);
+  OTHER_AUDIO_EDITOR_SWITCH_DEFAULT             = toks(      otherAudioEditorSwitchDefault);
+  OTHER_HTML5_EDITOR_SWITCH_DEFAULT             = toks(      otherHtml5EditorSwitchDefault);
+  OTHER_IMAGE_EDITOR_SWITCH_DEFAULT             = toks(      otherImageEditorSwitchDefault);
+  OTHER_VIDEO_EDITOR_SWITCH_DEFAULT             = toks(      otherVideoEditorSwitchDefault);
+ OTHER_VOLUME_EDITOR_SWITCH_DEFAULT             = toks(     otherVolumeEditorSwitchDefault);
+ OTHER_SEMANTICWEB_EDITOR_SWITCH_DEFAULT        = toks(otherSemanticWebEditorSwitchDefault);
+  OTHER_X3D_EDITOR_SWITCH_DEFAULT               = toks(        otherX3dEditorSwitchDefault);
   }
   private static String toks(String s)
   {
@@ -1269,23 +1269,23 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
     return s;
   }
   
-  public static String getContactPathDefault()        {return CONTACT_EXECUTABLE_PATH_DEFAULT;}
-  public static String getContactGeoPathDefault()     {return CONTACT_GEO_EXECUTABLE_PATH_DEFAULT;}
-  public static String getFreeWrlPathDefault()        {return FREEWRL_EXECUTABLE_PATH_DEFAULT;}
-  public static String getH3dPathDefault()            {return H3D_EXECUTABLE_PATH_DEFAULT;}
-  public static String getHeilanPathDefault()         {return HEILAN_EXECUTABLE_PATH_DEFAULT;}
-  public static String getInstantRealityPathDefault() {return INSTANTREALITY_EXECUTABLE_PATH_DEFAULT;}
-  public static String getOctagaPathDefault()         {return OCTAGA_EXECUTABLE_PATH_DEFAULT;}
-  public static String getSwirlX3DPathDefault()       {return SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT;}
-  public static String getView3dScenePathDefault()    {return VIEW3DSCENE_EXECUTABLE_PATH_DEFAULT;}
-  public static String getVivatyPlayerPathDefault()   {return VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT;}
-  public static String getXj3DPathDefault()           {return XJ3D_EXECUTABLE_PATH_DEFAULT;}
-  public static String getOtherX3dPlayerNameDefault() {return OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT;}
-  public static String getOtherX3dPlayerPathDefault() {return OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT;}
-  public static String getOtherX3dEditorNameDefault() {return OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT;}
-  public static String getOtherX3dEditorPathDefault() {return OTHER_X3D_EDITOR_EXECUTABLE_PATH_DEFAULT;}
+  public static String getContactPathDefault()           {return CONTACT_EXECUTABLE_PATH_DEFAULT;}
+  public static String getContactGeoPathDefault()        {return CONTACT_GEO_EXECUTABLE_PATH_DEFAULT;}
+  public static String getFreeWrlPathDefault()           {return FREEWRL_EXECUTABLE_PATH_DEFAULT;}
+  public static String getH3dPathDefault()               {return H3D_EXECUTABLE_PATH_DEFAULT;}
+  public static String getHeilanPathDefault()            {return HEILAN_EXECUTABLE_PATH_DEFAULT;}
+  public static String getInstantRealityPathDefault()    {return INSTANTREALITY_EXECUTABLE_PATH_DEFAULT;}
+  public static String getOctagaPathDefault()            {return OCTAGA_EXECUTABLE_PATH_DEFAULT;}
+  public static String getSwirlX3DPathDefault()          {return SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT;}
+  public static String getCastleModelViewerPathDefault() {return CASTLEMODELVIEWER_EXECUTABLE_PATH_DEFAULT;}
+  public static String getVivatyPlayerPathDefault()      {return VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT;}
+  public static String getXj3DPathDefault()              {return XJ3D_EXECUTABLE_PATH_DEFAULT;}
+  public static String getOtherX3dPlayerNameDefault()    {return OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT;}
+  public static String getOtherX3dPlayerPathDefault()    {return OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT;}
+  public static String getOtherX3dEditorNameDefault()    {return OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT;}
+  public static String getOtherX3dEditorPathDefault()    {return OTHER_X3D_EDITOR_EXECUTABLE_PATH_DEFAULT;}
 
-  public static String getLaunchIntervalDefault()     {return LAUNCH_INTERVAL_DEFAULT;}
+  public static String getLaunchIntervalDefault()        {return LAUNCH_INTERVAL_DEFAULT;}
 
   public static String        getAmayaEditorPathDefault()   {return           AMAYA_EDITOR_PATH_DEFAULT;}
   public static String     getAudacityEditorPathDefault()   {return        AUDACITY_EDITOR_PATH_DEFAULT;}
@@ -1350,7 +1350,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void setInstantRealityPath       (String path){commonStringSet(INSTANTREALITY_EXECUTABLE_PATH_KEY, path);}
   public static void setOctagaPath               (String path){commonStringSet(OCTAGA_EXECUTABLE_PATH_KEY, path);}
   public static void setSwirlX3DPath             (String path){commonStringSet(SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY, path);}
-  public static void setView3dScenePath          (String path){commonStringSet(VIEW3DSCENE_EXECUTABLE_PATH_KEY, path);}
+  public static void setCastleModelViewerPath    (String path){commonStringSet(CASTLEMODELVIEWER_EXECUTABLE_PATH_KEY, path);}
   public static void setVivatyPlayerPath         (String path){commonStringSet(VIVATYPLAYER_EXECUTABLE_PATH_KEY, path);}
   public static void setXj3DPath                 (String path){commonStringSet(XJ3D_EXECUTABLE_PATH_KEY, path);}
   public static void setOtherX3dPlayerName       (String name){commonStringSet(OTHER_X3D_PLAYER_EXECUTABLE_NAME_KEY, name);}
@@ -1416,61 +1416,61 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void setOtherSemanticWebEditorSwitch(String pswitch){commonStringSet(  OTHER_SEMANTICWEB_EDITOR_SWITCH_KEY, pswitch);}
   public static void setOtherSceneEditorSwitch (String pswitch){commonStringSet(OTHER_X3D_EDITOR_SWITCH_KEY, pswitch);}
 
-  public static void setContactAutoLaunch        (String autoLaunch){commonStringSet(CONTACT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setContactGeoAutoLaunch     (String autoLaunch){commonStringSet(CONTACT_GEO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setFreeWrlAutoLaunch        (String autoLaunch){commonStringSet(FREEWRL_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setH3dAutoLaunch            (String autoLaunch){commonStringSet(H3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setHeilanAutoLaunch         (String autoLaunch){commonStringSet(HEILAN_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setInstantRealityAutoLaunch (String autoLaunch){commonStringSet(INSTANTREALITY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOctagaAutoLaunch         (String autoLaunch){commonStringSet(OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setSwirlx3dAutoLaunch       (String autoLaunch){commonStringSet(SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setView3dSceneAutoLaunch    (String autoLaunch){commonStringSet(VIEW3DSCENE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setVivatyAutoLaunch         (String autoLaunch){commonStringSet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setXj3dAutoLaunch           (String autoLaunch){commonStringSet(XJ3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherX3dPlayerAutoLaunch (String autoLaunch){commonStringSet(OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherX3dEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_X3D_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setContactAutoLaunch           (String autoLaunch){commonStringSet(CONTACT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setContactGeoAutoLaunch        (String autoLaunch){commonStringSet(CONTACT_GEO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setFreeWrlAutoLaunch           (String autoLaunch){commonStringSet(FREEWRL_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setH3dAutoLaunch               (String autoLaunch){commonStringSet(H3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setHeilanAutoLaunch            (String autoLaunch){commonStringSet(HEILAN_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setInstantRealityAutoLaunch    (String autoLaunch){commonStringSet(INSTANTREALITY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOctagaAutoLaunch            (String autoLaunch){commonStringSet(OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setSwirlx3dAutoLaunch          (String autoLaunch){commonStringSet(SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setCastleModelViewerAutoLaunch (String autoLaunch){commonStringSet(CASTLEMODELVIEWER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setVivatyAutoLaunch            (String autoLaunch){commonStringSet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setXj3dAutoLaunch              (String autoLaunch){commonStringSet(XJ3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherX3dPlayerAutoLaunch    (String autoLaunch){commonStringSet(OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void setOtherX3dEditorAutoLaunch    (String autoLaunch){commonStringSet(OTHER_X3D_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   
-  public static void            setAmayaAutoLaunch (String autoLaunch){commonStringSet(             AMAYA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void         setAudacityAutoLaunch (String autoLaunch){commonStringSet(          AUDACITY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void        setMuseScoreAutoLaunch (String autoLaunch){commonStringSet(         MUSESCORE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void             setGimpAutoLaunch (String autoLaunch){commonStringSet(              GIMP_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void             setFijiAutoLaunch (String autoLaunch){commonStringSet(              FIJI_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void           setImageJAutoLaunch (String autoLaunch){commonStringSet(            IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void      setImageMagickAutoLaunch (String autoLaunch){commonStringSet(       IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void              setVlcAutoLaunch (String autoLaunch){commonStringSet(               VLC_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setProtegeAutoLaunch (String autoLaunch){commonStringSet(           PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void         setPortecleAutoLaunch (String autoLaunch){commonStringSet(          PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setKeystoreExplorerAutoLaunch (String autoLaunch){commonStringSet(  KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void        setWiresharkAutoLaunch (String autoLaunch){commonStringSet(         WIRESHARK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void             setAmayaAutoLaunch (String autoLaunch){commonStringSet(             AMAYA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setAudacityAutoLaunch (String autoLaunch){commonStringSet(          AUDACITY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setMuseScoreAutoLaunch (String autoLaunch){commonStringSet(         MUSESCORE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void              setGimpAutoLaunch (String autoLaunch){commonStringSet(              GIMP_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void              setFijiAutoLaunch (String autoLaunch){commonStringSet(              FIJI_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void            setImageJAutoLaunch (String autoLaunch){commonStringSet(            IMAGEJ_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void       setImageMagickAutoLaunch (String autoLaunch){commonStringSet(       IMAGEMAGICK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void               setVlcAutoLaunch (String autoLaunch){commonStringSet(               VLC_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void           setProtegeAutoLaunch (String autoLaunch){commonStringSet(           PROTEGE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setPortecleAutoLaunch (String autoLaunch){commonStringSet(          PORTECLE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void  setKeystoreExplorerAutoLaunch (String autoLaunch){commonStringSet(  KEYSTOREEXPLORER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setWiresharkAutoLaunch (String autoLaunch){commonStringSet(         WIRESHARK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   
-  public static void     setAltovaXMLSpyAutoLaunch (String autoLaunch){commonStringSet(     ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setBlenderAutoLaunch (String autoLaunch){commonStringSet(           BLENDER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void  setBsContentStudioAutoLaunch (String autoLaunch){commonStringSet(   BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void         setBvhackerAutoLaunch (String autoLaunch){commonStringSet(          BVHACKER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void             setCuraAutoLaunch (String autoLaunch){commonStringSet(              CURA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setMeshLabAutoLaunch (String autoLaunch){commonStringSet(           MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void         setParaviewAutoLaunch (String autoLaunch){commonStringSet(          PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setRhino3DAutoLaunch (String autoLaunch){commonStringSet(           RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void  setPolyTransNuGrafAutoLaunch (String autoLaunch){commonStringSet(       POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void       setSeamless3dAutoLaunch (String autoLaunch){commonStringSet(        SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setSunrizeAutoLaunch (String autoLaunch){commonStringSet(           SUNRIZE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setItksnapAutoLaunch (String autoLaunch){commonStringSet(           ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void            setSeg3dAutoLaunch (String autoLaunch){commonStringSet(             SEG3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void         setSlicer3dAutoLaunch (String autoLaunch){commonStringSet(          SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void            setBatikAutoLaunch (String autoLaunch){commonStringSet(             BATIK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void         setInkscapeAutoLaunch (String autoLaunch){commonStringSet(          INKSCAPE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setSvgeditAutoLaunch (String autoLaunch){commonStringSet(          SVG_EDIT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void        setWhiteDuneAutoLaunch (String autoLaunch){commonStringSet(         WHITEDUNE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void          setWings3dAutoLaunch (String autoLaunch){commonStringSet(           WINGS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void        setUltraEditAutoLaunch (String autoLaunch){commonStringSet(         ULTRAEDIT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherAudioEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_AUDIO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherHtml5EditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_HTML5_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherImageEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_IMAGE_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherVideoEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_VIDEO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
-  public static void setOtherVolumeEditorAutoLaunch(String autoLaunch){commonStringSet(OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void      setAltovaXMLSpyAutoLaunch (String autoLaunch){commonStringSet(     ALTOVA_XMLSPY_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void           setBlenderAutoLaunch (String autoLaunch){commonStringSet(           BLENDER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void   setBsContentStudioAutoLaunch (String autoLaunch){commonStringSet(   BSCONTENTSTUDIO_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setBvhackerAutoLaunch (String autoLaunch){commonStringSet(          BVHACKER_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void              setCuraAutoLaunch (String autoLaunch){commonStringSet(              CURA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void           setMeshLabAutoLaunch (String autoLaunch){commonStringSet(           MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setParaviewAutoLaunch (String autoLaunch){commonStringSet(          PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void           setRhino3DAutoLaunch (String autoLaunch){commonStringSet(           RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void   setPolyTransNuGrafAutoLaunch (String autoLaunch){commonStringSet(       POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void        setSeamless3dAutoLaunch (String autoLaunch){commonStringSet(        SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void           setSunrizeAutoLaunch (String autoLaunch){commonStringSet(           SUNRIZE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void           setItksnapAutoLaunch (String autoLaunch){commonStringSet(           ITKSNAP_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void             setSeg3dAutoLaunch (String autoLaunch){commonStringSet(             SEG3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setSlicer3dAutoLaunch (String autoLaunch){commonStringSet(          SLICER3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void             setBatikAutoLaunch (String autoLaunch){commonStringSet(             BATIK_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void          setInkscapeAutoLaunch (String autoLaunch){commonStringSet(          INKSCAPE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void           setSvgeditAutoLaunch (String autoLaunch){commonStringSet(          SVG_EDIT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setWhiteDuneAutoLaunch (String autoLaunch){commonStringSet(         WHITEDUNE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void           setWings3dAutoLaunch (String autoLaunch){commonStringSet(           WINGS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void         setUltraEditAutoLaunch (String autoLaunch){commonStringSet(         ULTRAEDIT_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void  setOtherAudioEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_AUDIO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void  setOtherHtml5EditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_HTML5_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void  setOtherImageEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_IMAGE_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void  setOtherVideoEditorAutoLaunch (String autoLaunch){commonStringSet(OTHER_VIDEO_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void  setOtherVolumeEditorAutoLaunch(String autoLaunch){commonStringSet(OTHER_VOLUME_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void setOtherSemanticWebEditorAutoLaunch(String autoLaunch){commonStringSet(OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
 
-  public static void setLaunchInterval             (String path){commonStringSet(LAUNCH_INTERVAL_KEY,path);}
+  public static void  setLaunchInterval             (String path){commonStringSet(LAUNCH_INTERVAL_KEY,path);}
 
   public static String getContactPath()          {return commonStringGet(CONTACT_EXECUTABLE_PATH_KEY,        CONTACT_EXECUTABLE_PATH_DEFAULT);}
   public static String getContactGeoPath()       {return commonStringGet(CONTACT_GEO_EXECUTABLE_PATH_KEY,    CONTACT_GEO_EXECUTABLE_PATH_DEFAULT);}
@@ -1480,7 +1480,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String getInstantRealityPath()   {return commonStringGet(INSTANTREALITY_EXECUTABLE_PATH_KEY, INSTANTREALITY_EXECUTABLE_PATH_DEFAULT);}
   public static String getOctagaPath()           {return commonStringGet(OCTAGA_EXECUTABLE_PATH_KEY,         OCTAGA_EXECUTABLE_PATH_DEFAULT);}
   public static String getSwirlX3DPath()         {return commonStringGet(SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY, SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT);}
-  public static String getView3dScenePath()      {return commonStringGet(VIEW3DSCENE_EXECUTABLE_PATH_KEY,    VIEW3DSCENE_EXECUTABLE_PATH_DEFAULT);}
+  public static String getCastleModelViewerPath(){return commonStringGet(CASTLEMODELVIEWER_EXECUTABLE_PATH_KEY,    CASTLEMODELVIEWER_EXECUTABLE_PATH_DEFAULT);}
   public static String getVivatyPath()           {return commonStringGet(VIVATYPLAYER_EXECUTABLE_PATH_KEY,   VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT);}
   public static String getXj3DPath()             {return commonStringGet(XJ3D_EXECUTABLE_PATH_KEY,           XJ3D_EXECUTABLE_PATH_DEFAULT);}
   public static String getOtherX3dPlayerName()   {return commonStringGet(OTHER_X3D_PLAYER_EXECUTABLE_NAME_KEY,   OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT);}
@@ -1543,7 +1543,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static String isInstantRealityAutoLaunch() {return commonStringGet(INSTANTREALITY_EXECUTABLE_AUTOLAUNCH_KEY,        AUTOLAUNCH_DEFAULT);}
   public static String isOctagaAutoLaunch()         {return commonStringGet(OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY,                AUTOLAUNCH_DEFAULT);}
   public static String isSwirlX3DAutoLaunch()       {return commonStringGet(SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY,        AUTOLAUNCH_DEFAULT);}
-  public static String isView3dSceneAutoLaunch()    {return commonStringGet(VIEW3DSCENE_EXECUTABLE_AUTOLAUNCH_KEY,           AUTOLAUNCH_DEFAULT);}
+  public static String isCastleModelViewerAutoLaunch()    {return commonStringGet(CASTLEMODELVIEWER_EXECUTABLE_AUTOLAUNCH_KEY,           AUTOLAUNCH_DEFAULT);}
   public static String isVivatyAutoLaunch()         {return commonStringGet(VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY,          AUTOLAUNCH_DEFAULT);}
   public static String isXj3dAutoLaunch()           {return commonStringGet(XJ3D_EXECUTABLE_AUTOLAUNCH_KEY,                  AUTOLAUNCH_DEFAULT);}
   public static String isOtherX3dPlayerAutoLaunch() {return commonStringGet(OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY,      AUTOLAUNCH_DEFAULT);}
@@ -1602,7 +1602,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(otherBsContentStudioX3dEdito
   public static void resetInstantRealityPath()   {commonReset(INSTANTREALITY_EXECUTABLE_PATH_KEY);}
   public static void resetOctagaPath()           {commonReset(OCTAGA_EXECUTABLE_PATH_KEY);}
   public static void resetSwirlX3DPath()         {commonReset(SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY);}
-  public static void resetView3dScenePath()      {commonReset(VIEW3DSCENE_EXECUTABLE_PATH_KEY);}
+  public static void resetCastleModelViewerPath(){commonReset(CASTLEMODELVIEWER_EXECUTABLE_PATH_KEY);}
   public static void resetVivatyPath()           {commonReset(VIVATYPLAYER_EXECUTABLE_PATH_KEY);}
   public static void resetXj3DPath()             {commonReset(XJ3D_EXECUTABLE_PATH_KEY);}
   public static void resetOtherX3dPlayerPath()   {commonReset(OTHER_X3D_PLAYER_EXECUTABLE_PATH_KEY);}

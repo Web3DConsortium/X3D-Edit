@@ -67,11 +67,11 @@ public class INLINE_CoordinateAxes extends SceneGraphStructureNodeType
             "       <Inline DEF='CoordinateAxes' url='\n" +
             "          \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\"\n" +
             "          \"../../../Savage/Tools/Authoring/CoordinateAxes.x3d\"\n" +
-            "          \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\"\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d\"\n" +
             "          \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d\"\n" +
             "          \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\"\n" +
             "          \"../../../Savage/Tools/Authoring/CoordinateAxes.wrl\"\n" +
-            "          \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\"\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl\"\n" +
             "          \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.wrl\"'/>\n" +
             "    </Transform>\n";
   }

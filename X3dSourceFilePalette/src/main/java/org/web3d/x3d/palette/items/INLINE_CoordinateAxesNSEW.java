@@ -67,11 +67,11 @@ public class INLINE_CoordinateAxesNSEW extends SceneGraphStructureNodeType
             "       <Inline DEF='CoordinateAxesNSEW' url='\n" +
             "          \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxesNSEW.x3d\"\n" +
             "          \"../../../Savage/Tools/Authoring/CoordinateAxesNSEW.x3d\"\n" +
-            "          \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxesNSEW.x3d\"\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxesNSEW.x3d\"\n" +
             "          \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxesNSEW.x3d\"\n" +
             "          \"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxesNSEW.wrl\"\n" +
             "          \"../../../Savage/Tools/Authoring/CoordinateAxesNSEW.wrl\"\n" +
-            "          \"https://www.web3d.org/x3d/content/examples/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxesNSEW.wrl\"\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxesNSEW.wrl\"\n" +
             "          \"https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxesNSEW.wrl\"'/>\n" +
             "    </Transform>\n";
   }
