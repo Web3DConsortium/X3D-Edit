@@ -69,7 +69,7 @@ public final class ViewInView3dSceneAction extends ViewInBaseAction
   @Override
   protected String getExePath()
   {
-    return X3dEditUserPreferences.getView3dScenePath();
+    return X3dEditUserPreferences.getCastleModelViewerPath();
   }
 
   @Override
@@ -81,7 +81,7 @@ public final class ViewInView3dSceneAction extends ViewInBaseAction
   @Override
   protected boolean isAutoLaunch()
   {
-      return Boolean.parseBoolean(X3dEditUserPreferences.isView3dSceneAutoLaunch());
+      return Boolean.parseBoolean(X3dEditUserPreferences.isCastleModelViewerAutoLaunch());
   }
 
   @Override

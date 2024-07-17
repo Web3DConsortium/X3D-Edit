@@ -955,7 +955,7 @@ public class Hierarchy extends BvhSkeletonParameters
 	}
 	/**
 	 * Test getAxisAngleRotation (phi, theta, psi) with test values from RotationTests.x3d
-	 * @see https://www.web3d.org/x3d/content/examples/examples/X3dForAdvancedModeling/HumanoidAnimation/RotationTestsIndex.html
+	 * @see https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HumanoidAnimation/RotationTestsIndex.html
 	 * @return String result suitable for output
 	 */
 	private String testAxisAngleRotation()
