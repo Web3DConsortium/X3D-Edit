@@ -44,6 +44,7 @@
  */
 package org.web3d.x3d.actions.security;
 
+import com.sauria.apachexml.ch10.EncryptionMain;
 import java.awt.Dialog;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -57,6 +58,8 @@ import javax.swing.filechooser.FileFilter;
 import org.apache.xml.security.encryption.XMLCipher;
 import org.apache.xml.security.utils.EncryptionConstants;
 import org.apache.xml.security.utils.XMLUtils;
+import org.jdom.Namespace;
+import org.jdom.output.XMLOutputter;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -72,12 +75,14 @@ import org.openide.util.actions.CallableSystemAction;
 import org.openide.windows.IOProvider;
 import org.openide.windows.InputOutput;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.bootstrap.DOMImplementationRegistry;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSParser;
 import org.web3d.x3d.actions.conversions.ConversionsHelper;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
+import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.types.X3DSchemaData;
 
 @ActionID(id = "org.web3d.x3d.actions.security.DecryptXmlAction", category = "X3D-Edit")
@@ -102,7 +107,6 @@ public final class DecryptXmlAction extends CallableSystemAction
     BouncyCastleHelper.setup();
     
     try {
-      DOMImplementationRegistry dreg = DOMImplementationRegistry.newInstance();
 
       if (fileChooser == null) {
         fileChooser = new JFileChooser();
@@ -150,6 +154,7 @@ public final class DecryptXmlAction extends CallableSystemAction
       if(descriptor.getValue() == DialogDescriptor.CANCEL_OPTION)
         return;
 
+      DOMImplementationRegistry dreg = DOMImplementationRegistry.newInstance();
       DOMImplementationLS dls = (DOMImplementationLS) dreg.getDOMImplementation("LS");
       LSParser parser = dls.createLSParser(DOMImplementationLS.MODE_SYNCHRONOUS, null);
       LSInput lsInp = dls.createLSInput();
@@ -160,22 +165,33 @@ public final class DecryptXmlAction extends CallableSystemAction
       
       Entry ent = keyPan.getSelectedEntry();
       if (ent instanceof KeyStore.SecretKeyEntry secKeyEnt) {
-        org.apache.xml.security.Init.init();
 
-        XMLCipher cipher = XMLCipher.getProviderInstance(XMLCipher.TRIPLEDES,"BC");
         String namespaceUrl = EncryptionConstants.EncryptionSpecNS;
-        org.w3c.dom.Element encyElem = (org.w3c.dom.Element)w3cDoc.getElementsByTagNameNS(namespaceUrl,"EncryptedData").item(0);
+        Element encyElem = (Element) w3cDoc.getElementsByTagNameNS(namespaceUrl,"EncryptedData").item(0);
         if(encyElem == null)
           throw new Exception(NbBundle.getMessage(getClass(), "MSG_EncryptedDataNotFound")); //"Encrypted data not found");
+          // caught below
         
-        cipher.init(XMLCipher.DECRYPT_MODE, secKeyEnt.getSecretKey());
-        Document newdoc = cipher.doFinal(w3cDoc, encyElem);
+        Document newdoc = EncryptionMain.decrypt(secKeyEnt.getSecretKey(), XMLCipher.TRIPLEDES, w3cDoc);
         
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         XMLUtils.outputDOMc14nWithComments(newdoc, baos);
         String xmlString = baos.toString("UTF-8");
         
         xmlString = insertDocTypeAndXmlHeader(xmlString);
+        
+        // remove xenc namespace
+        org.jdom.Document doc = X3DPaletteUtilitiesJdom.buildJdomFromString(xmlString);
+        org.jdom.Element elm = doc.getRootElement();
+        org.jdom.Namespace nmsp = elm.getNamespace("xenc");
+        if (nmsp == null)
+           if (elm.getAdditionalNamespaces().contains("xenc")) {
+               int ix = elm.getAdditionalNamespaces().indexOf("xenc");
+               nmsp = (Namespace) elm.getAdditionalNamespaces().get(ix);
+           }
+       
+        elm.removeNamespaceDeclaration(nmsp);
+        xmlString = new XMLOutputter().outputString(doc);
         
         if(saveChooser == null) {
           saveChooser = new JFileChooser();

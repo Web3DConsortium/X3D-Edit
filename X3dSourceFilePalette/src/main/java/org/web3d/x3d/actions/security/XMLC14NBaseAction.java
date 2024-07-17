@@ -32,9 +32,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.actions.security;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.MissingResourceException;
 import javax.swing.text.BadLocationException;
 import org.apache.xml.security.c14n.CanonicalizationException;

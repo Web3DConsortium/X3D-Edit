@@ -89,19 +89,19 @@ public class BouncyCastleHelper
   // password eraser code
   // idea:  want to keep the user from having to enter the pw repeated, but not keep it around forever
   // here, we clear it if it's not used for x 
-  private static int NULLINATOR_DELAY_IN_SECONDS = 60;
+  private static final int NULLINATOR_DELAY_IN_SECONDS = 60;
   
   private static char[] baby; // disguise name since we're holding onto it for a few seconds
   
-  private static AtomicBoolean babyLock = new AtomicBoolean(false);
-  private static boolean LOCKED = true;
-  private static boolean FREE   = false;
+  private static final AtomicBoolean BABY_LOCK = new AtomicBoolean(false);
+  private static final boolean LOCKED = true;
+  private static final boolean FREE   = false;
   
   public static void flushPassword()
   {
-    if(babyLock.compareAndSet(FREE,LOCKED)) {  // if not already locked  
+    if(BABY_LOCK.compareAndSet(FREE,LOCKED)) {  // if not already locked  
       baby = null;
-      babyLock.set(FREE); // release
+      BABY_LOCK.set(FREE); // release
     }
   }
   
@@ -111,7 +111,7 @@ public class BouncyCastleHelper
    */
   public static char[] getAPassword(String message)
   {
-    while(!babyLock.compareAndSet(FREE, LOCKED)) {
+    while(!BABY_LOCK.compareAndSet(FREE, LOCKED)) {
       Thread.yield();
     }
     char[] retPW = null;
@@ -140,11 +140,11 @@ public class BouncyCastleHelper
         baby = retPW;
       }
     }   
-    babyLock.set(FREE);
+    BABY_LOCK.set(FREE);
     return retPW;
   }
    
-  private static Timer nullinator = new Timer("nullinator", true); // daemon
+  private static final Timer NULLINATOR = new Timer("nullinator", true); // daemon
   private static TimerTask nuller;
   
   static class nullinatorTask extends TimerTask
@@ -160,7 +160,7 @@ public class BouncyCastleHelper
   {
     if(nuller != null)
       nuller.cancel();
-    nullinator.schedule(nuller = new nullinatorTask(),NULLINATOR_DELAY_IN_SECONDS*1000);
+    NULLINATOR.schedule(nuller = new nullinatorTask(),NULLINATOR_DELAY_IN_SECONDS*1000);
   }
   
   /////////////////////

@@ -41,6 +41,7 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d.actions.security;
 
+import com.sauria.apachexml.ch10.EncryptionMain;
 import java.awt.Dialog;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -144,20 +145,18 @@ public final class EncryptDocumentAction extends BaseX3DEditAction
       NodeList nlist = w3cDoc.getElementsByTagName("X3D");
       Element w3cElem = (org.w3c.dom.Element) nlist.item(0);
 
-      org.apache.xml.security.Init.init();
-      XMLCipher cipher = XMLCipher.getProviderInstance(XMLCipher.TRIPLEDES, "BC");
       Entry ent = keyPan.getSelectedEntry();
 
+      Document newdoc;
       if (ent instanceof KeyStore.SecretKeyEntry secKeyEnt) {
-        cipher.init(XMLCipher.ENCRYPT_MODE, secKeyEnt.getSecretKey());
+        newdoc = EncryptionMain.encrypt(secKeyEnt.getSecretKey(), XMLCipher.TRIPLEDES, w3cDoc, w3cElem);
       } else if (ent instanceof KeyStore.PrivateKeyEntry prKeyEnt) {
-        cipher.init(XMLCipher.ENCRYPT_MODE, prKeyEnt.getCertificate().getPublicKey());
+        newdoc = EncryptionMain.encrypt(prKeyEnt.getCertificate().getPublicKey(), XMLCipher.TRIPLEDES, w3cDoc, w3cElem);
       }
       else {
         throw new Exception(NbBundle.getMessage(getClass(), "MSG_SecretToEncrypt")); //"Use only secret (symmetric) keys to encrypt");
       }
 
-      Document newdoc = cipher.doFinal(w3cDoc, w3cElem);
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
       XMLUtils.outputDOMc14nWithComments(newdoc, baos);
       String xmlString = baos.toString("UTF-8");

@@ -112,6 +112,7 @@ public final class RemoveSignatureAction extends BaseX3DEditAction
            
      deleteLocatedElement(signatureLoc);
      
+     // remove ds namespace
      X3DPaletteUtilitiesJdom.buildJdom(documentEditorPane);
      ElementLocation rootLoc = X3DPaletteUtilitiesJdom.findNamedElement(documentEditorPane, "X3D", "");
      if(rootLoc != null) {

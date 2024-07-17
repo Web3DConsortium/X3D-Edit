@@ -41,6 +41,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.cert.X509Certificate;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import org.apache.xml.security.signature.XMLSignature;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
@@ -149,7 +150,8 @@ public final class SignDocumentAction extends BaseX3DEditAction
       
       Entry ent = keyPan.getSelectedEntry();
       if (!(ent instanceof PrivateKeyEntry)) {
-        throw new Exception(NbBundle.getMessage(getClass(), "MSG_PubPrivateToSign")); //"Use only public/private key pairs to sign");
+        JOptionPane.showMessageDialog(null, NbBundle.getMessage(getClass(), "MSG_PubPrivateToSign")); //"Use only public/private key pairs to sign");
+        return;
       }
 
       PrivateKeyEntry prKeyEnt = (PrivateKeyEntry) ent;
@@ -157,7 +159,7 @@ public final class SignDocumentAction extends BaseX3DEditAction
       PrivateKey privKey = prKeyEnt.getPrivateKey();
       X509Certificate cert = (X509Certificate) prKeyEnt.getCertificate();
       PublicKey pubKey = cert.getPublicKey();
-      String signatureMethod = XMLSignature.ALGO_ID_SIGNATURE_RSA;
+      String signatureMethod = XMLSignature.ALGO_ID_SIGNATURE_RSA_SHA1;
       String digestMethod = org.apache.xml.security.utils.Constants.ALGO_ID_DIGEST_SHA1;
 
       DocumentSigner signer = new DocumentSigner(w3cDoc, privKey, cert, pubKey, "", signatureMethod, digestMethod);
