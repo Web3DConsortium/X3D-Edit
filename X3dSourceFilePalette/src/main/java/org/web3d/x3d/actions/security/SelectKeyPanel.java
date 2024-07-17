@@ -78,7 +78,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
   private File keystoreFile;
   private FileInputStream keystoreFileInputStream;
   private char[] pw;
-  
+
   public static int ENCRYPTING_KEY_TYPE = 0;
   public static int SIGNING_KEY_TYPE = 1;
   private Integer beSelective = null;
@@ -90,13 +90,13 @@ public class SelectKeyPanel extends javax.swing.JPanel
   {
     this(null);
   }
-  
+
   public SelectKeyPanel(Integer keyType) throws Exception
   {
     // Will warn user to set a path to a keystore if not yet accomplished
     initializeKeyStore(); // also gets called from reloadTable()
     if (keystore == null) return;
-    
+
     beSelective = keyType;
     initComponents();
 
@@ -134,7 +134,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
     msg += keystoreFile.getName();
     if(keystoreFileInputStream == null)
       msg = NbBundle.getMessage(getClass(), "MSG_EnterPasswordForNewKeystore");
-    
+
     pw = getAPassword(msg); //"Enter " "keystore password"
     if (pw == null)
       throw new OperationCancelledException();
@@ -149,7 +149,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
     catch(IOException ioex) {
       throw new KeystorePasswordException(NbBundle.getMessage(getClass(), "MSG_BadPassword")); //"Password incorrect or file unreadable");
     }
-    
+
     Vector<Vector<String>> rows = new Vector<Vector<String>>();
     String initialSelection = null;
     if (keystore != null) {
@@ -173,7 +173,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
             vs.add(NbBundle.getMessage(getClass(), "MSG_PubPrivPair")); //"Public/private key pair");
             if(initialSelection == null && beSelective.equals(SelectKeyPanel.SIGNING_KEY_TYPE))
               initialSelection = s;
-            
+
           }
           else if (ent instanceof KeyStore.TrustedCertificateEntry) {
             vs.add(NbBundle.getMessage(getClass(), "MSG_TrustedPublic")); //"Trusted public key");
@@ -187,7 +187,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
     }
     Collections.sort(rows, dateSorter);
     ((DefaultTableModel) keyTable.getModel()).setDataVector(rows, titles);
-    
+
     if(!rows.isEmpty()) {
       if(initialSelection == null)
         keyTable.setRowSelectionInterval(0,0);
@@ -201,7 +201,7 @@ public class SelectKeyPanel extends javax.swing.JPanel
       }
     }
  }
-  
+
   private ByDateSorter dateSorter = new ByDateSorter();
 
   private class ByDateSorter implements Comparator<Vector<String>>
@@ -217,36 +217,36 @@ public class SelectKeyPanel extends javax.swing.JPanel
   private void initializeKeyStore() throws Exception
   {
     String keystorePath = X3dEditUserPreferences.getKeystorePath();
-    if ((keystorePath == null) || 
-         keystorePath.isBlank() || 
+    if ((keystorePath == null) ||
+         keystorePath.isBlank() ||
          keystorePath.equalsIgnoreCase(org.openide.util.NbBundle.getMessage(X3dEditUserPreferencesPanel.class, "KEYSTORE_DEFAULT_WARNING")))
     {
         // must initially set keystore to user-provided location
         String message = "<html>" +
               "<p>&nbsp;</p>" +
               "<h2 align='center'>First, Set a Path to a Keystore</h2>" +
-              "<p align='center'>" + 
-                "<i>X3D-Edit > X3D-Edit Preferences Panel > XML Security > X3D-Edit Keystore</i>" + 
+              "<p align='center'>" +
+                "<i>X3D-Edit > X3D-Edit Preferences Panel > XML Security > X3D-Edit Keystore</i>" +
               "</p>" +
               "<p>&nbsp;</p>" +
               "<p align='center'>" +
               "Next step: set keystore location" +
-              "</p>" + 
+              "</p>" +
             "</html>";
         NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message, NotifyDescriptor.INFORMATION_MESSAGE);
         DialogDisplayer.getDefault().notify(notifyDescriptor);
         X3dEditUserPreferencesPanelAction optionsMiscellaneousX3dPanelAction = new X3dEditUserPreferencesPanelAction();
         optionsMiscellaneousX3dPanelAction.setPreferredPane(X3dEditUserPreferencesPanel.XML_SECURITY_PANE);
         optionsMiscellaneousX3dPanelAction.actionPerformed(null); // show panel
-        keystorePath = X3dEditUserPreferences.getKeystorePath();  
-        if (keystorePath == null) return;   
+        keystorePath = X3dEditUserPreferences.getKeystorePath();
+        if (keystorePath == null) return;
     }
     keystore = BouncyCastleHelper.getKeyStore();//KeyStore.getInstance("JKS");
     keystoreFile = new File(keystorePath);
     if (keystoreFile.exists())
         keystoreFileInputStream = new FileInputStream(keystoreFile);
   }
-  
+
   private int defaultAliasColWidth = 135; //90;
   private int defaultTypeColWidth = 120; //130;
   private int defaultDateColWidth = 245; //235;
@@ -327,6 +327,8 @@ public class SelectKeyPanel extends javax.swing.JPanel
   }// </editor-fold>//GEN-END:initComponents
 
 private void manageKeystoreButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageKeystoreButtActionPerformed
+  if (ManageKeyStoreAction.instance == null)
+      ManageKeyStoreAction.instance = new ManageKeyStoreAction();
   ManageKeyStoreAction.instance.performAction(pw);
   try {
     saveColumnWidths();
