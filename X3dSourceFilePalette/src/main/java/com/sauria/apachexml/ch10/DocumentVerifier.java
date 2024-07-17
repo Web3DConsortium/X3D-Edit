@@ -74,7 +74,6 @@ public class DocumentVerifier
     Element namespaceContext = /*XMLUtils.*/createDSctx(doc, "ds", Constants.SignatureSpecNS);
     Element signatureElement = (Element) XPathAPI.selectSingleNode(doc, "//ds:Signature[1]", namespaceContext);
     
-    // TODO: Don't throw an exception, just warn user that the doc is not signed and return
     if (signatureElement == null)
       throw new Exception("No signature in document, integrity verification and authentication not possible");
 
@@ -86,13 +85,6 @@ public class DocumentVerifier
     XMLSignature signature = getSignature(doc,baseURI);
     List<XMLSignatureInput> result = new ArrayList<>();
     boolean coarseResult = false;
-//    Element namespaceContext = XMLUtils.createDSctx(doc, "ds", Constants.SignatureSpecNS);
-//    Element signatureElement = null;
-//    signatureElement = (Element) XPathAPI.selectSingleNode(doc, "//ds:Signature[1]", namespaceContext);
-//    if (signatureElement == null)
-//      throw new Exception("No signature in document");
-//
-//    myXMLSignature signature = new myXMLSignature(signatureElement, baseURI);
     KeyInfo ki = signature.getKeyInfo();
 
     if (ki != null) {
@@ -149,18 +141,17 @@ public class DocumentVerifier
     File signatureFile = new File(uri);
     String baseURI = getBaseURI(signatureFile);
     Document doc = getInputDocument(signatureFile);
-    List result = verifySignedDocument(doc, pkey, baseURI);
+    List<XMLSignatureInput> results = verifySignedDocument(doc, pkey, baseURI);
 
-    if (!result.isEmpty()) {
-      for (int i = 0; i < result.size(); i++) {
-        XMLSignatureInput xsi = (XMLSignatureInput) result.get(i);
-        System.out.println("Reference URI " + xsi.getSourceURI() + " did not verify.");
+    if (!results.isEmpty()) {
+      for (XMLSignatureInput result : results) {
+        System.out.println("Reference URI " + result.getSourceURI() + " did not verify.");
       }
     }
     else {
       System.out.println("Signature verified");
     }
-    return result.isEmpty();
+    return results.isEmpty();
   }
 
   public static String getBaseURI(File signatureFile) throws Exception
@@ -173,8 +164,6 @@ public class DocumentVerifier
     DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
     dbf.setNamespaceAware(true);
     DocumentBuilder db = dbf.newDocumentBuilder();
-    Document doc = db.parse(signatureFile);
-
-    return doc;
+    return db.parse(signatureFile);
   }
 }

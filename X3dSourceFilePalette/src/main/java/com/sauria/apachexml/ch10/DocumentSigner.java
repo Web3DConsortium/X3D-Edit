@@ -23,15 +23,14 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.xml.security.encryption.XMLCipherParameters;
 import org.apache.xml.security.exceptions.XMLSecurityException;
-import org.apache.xml.security.signature.Manifest;
 import org.apache.xml.security.signature.ObjectContainer;
 import org.apache.xml.security.signature.SignatureProperties;
 import org.apache.xml.security.signature.SignatureProperty;
@@ -40,8 +39,8 @@ import org.apache.xml.security.signature.XMLSignatureException;
 import org.apache.xml.security.transforms.TransformationException;
 import org.apache.xml.security.transforms.Transforms;
 import org.apache.xml.security.utils.Constants;
-import org.apache.xml.security.utils.SignatureElementProxy;
 import org.apache.xml.security.utils.XMLUtils;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
@@ -56,7 +55,7 @@ public class DocumentSigner
   protected String signatureMethod;
   protected String digestMethod;
   protected String transformArray[] = null;
-  protected List   objectList = null;
+  protected List<SignatureProperties> objectList = null;
   
   public DocumentSigner()
   {
@@ -82,7 +81,7 @@ public class DocumentSigner
   {
     XMLSignature sig = null;
     try {
-      sig = new XMLSignature(document, baseURI, signatureMethod);
+      sig = new XMLSignature(document, baseURI, signatureMethod, XMLCipherParameters.EXCL_XML_N14C);
     }
     catch (XMLSecurityException xse) {
       xse.printStackTrace(System.err);
@@ -113,12 +112,10 @@ public class DocumentSigner
       }
 
       if (objectList != null) {
-          SignatureElementProxy sep;
           ObjectContainer oc;
-        for (Iterator i = objectList.iterator(); i.hasNext(); ) {
-          sep = (SignatureElementProxy) i.next();
+        for (SignatureProperties sp : objectList) {
           oc = new ObjectContainer(document);
-          oc.appendChild(sep.getElement());
+          oc.appendChild(sp.getElement());
           sig.appendObject(oc);
         }
       }
@@ -157,22 +154,10 @@ public class DocumentSigner
     XMLUtils.outputDOMc14nWithComments(document, outputStream);
   }
 
-  @SuppressWarnings("unchecked")
-  public Manifest addManifest()
-  {
-    if (objectList == null) {
-      objectList = new ArrayList();
-    }
-    Manifest manifest = new Manifest(document);
-    objectList.add(manifest);
-    return manifest;
-  }
-
-  @SuppressWarnings("unchecked")
   public SignatureProperties addSignatureProperties()
   {
     if (objectList == null) {
-      objectList = new ArrayList();
+      objectList = new ArrayList<>();
     }
     SignatureProperties signatureProperties = new SignatureProperties(document);
     objectList.add(signatureProperties);

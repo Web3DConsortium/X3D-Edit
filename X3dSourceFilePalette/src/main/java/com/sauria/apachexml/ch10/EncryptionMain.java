@@ -24,6 +24,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.xml.security.encryption.XMLCipher; 
+import org.apache.xml.security.utils.EncryptionConstants;
 
 //import org.apache.xml.serialize.DOMSerializer;
 //import org.apache.xml.serialize.Method;
@@ -42,21 +43,21 @@ public class EncryptionMain
   public static Document encrypt(Key key, String cipherName, Document contextDocument,
                                  Element elementToEncrypt) throws Exception
   {
-    XMLCipher cipher = XMLCipher.getInstance(cipherName);
+    XMLCipher cipher = XMLCipher.getProviderInstance(cipherName, "BC");
     cipher.init(XMLCipher.ENCRYPT_MODE, key);
     return cipher.doFinal(contextDocument, elementToEncrypt);
   }
 
-  public static Document decrypt(Key key, String cipherName, Document documentToDecrypt) throws Exception
+  public static Document decrypt(Key key, String cipherName, Document contextDocument) throws Exception
   {
     XMLCipher cipher = XMLCipher.getInstance(cipherName);
     cipher.init(XMLCipher.DECRYPT_MODE, key);
 
-    Element encryptedDataElement = (Element) documentToDecrypt.getElementsByTagNameNS(
-        "https://www.w3.org/2001/04/xmlenc#",
+    Element encryptedDataElement = (Element) contextDocument.getElementsByTagNameNS(
+        EncryptionConstants.EncryptionSpecNS,
         "EncryptedData").item(0);
 
-    return cipher.doFinal(documentToDecrypt, encryptedDataElement);
+    return cipher.doFinal(contextDocument, encryptedDataElement);
   }
 
   public static SecretKey get3DESKey(String phrase) throws Exception
