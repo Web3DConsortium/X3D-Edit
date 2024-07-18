@@ -52,16 +52,14 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
  */
 public class IMPORTCustomizer extends BaseCustomizer
 {
-  private IMPORT importNode;
-  private JTextComponent target;
+  private final IMPORT importNode;
 
   public IMPORTCustomizer(IMPORT importNode, JTextComponent target)
   {
     super(importNode);
     this.importNode = importNode;
-    this.target = target;
    
-    HelpCtx.setHelpIDString(this, "IMPORT_ELEM_HELPID");
+    HelpCtx.setHelpIDString(IMPORTCustomizer.this, "IMPORT_ELEM_HELPID");
     
     initComponents();
     
@@ -101,7 +99,7 @@ public class IMPORTCustomizer extends BaseCustomizer
         hint1Label = new javax.swing.JLabel();
         outlinePanel = new javax.swing.JPanel();
         inlinelDEFLabel = new javax.swing.JLabel();
-        inlineDEFComboBox = new javax.swing.JComboBox();
+        inlineDEFComboBox = new javax.swing.JComboBox<>();
         inilneDEF_ExplanationLabel = new javax.swing.JLabel();
         importedlDEFLabel = new javax.swing.JLabel();
         importedDEFComboBox = new javax.swing.JComboBox();
@@ -291,7 +289,7 @@ private void AS_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JLabel importedDEF_ExplanationLabel;
     private javax.swing.JLabel importedlDEFLabel;
     private javax.swing.JLabel inilneDEF_ExplanationLabel;
-    private javax.swing.JComboBox inlineDEFComboBox;
+    private javax.swing.JComboBox<String> inlineDEFComboBox;
     private javax.swing.JLabel inlinelDEFLabel;
     private javax.swing.JPanel outlinePanel;
     // End of variables declaration//GEN-END:variables

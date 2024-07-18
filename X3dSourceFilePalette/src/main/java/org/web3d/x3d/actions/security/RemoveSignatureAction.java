@@ -47,8 +47,6 @@ import java.util.MissingResourceException;
 import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import org.jdom.JDOMException;
-import org.jdom.Namespace;
-import org.jdom.output.XMLOutputter;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
@@ -65,6 +63,7 @@ import org.w3c.dom.Document;
 import org.web3d.x3d.BaseX3DEditAction;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
+import org.web3d.x3d.palette.X3DXMLOutputter;
 
 @ActionID(id = "org.web3d.x3d.actions.security.RemoveSignatureAction", category = "X3D-Edit")
 // https://commons.wikimedia.org/wiki/File:Eraser-307519.svg
@@ -118,15 +117,8 @@ public final class RemoveSignatureAction extends BaseX3DEditAction
      if(rootLoc != null) {
        org.jdom.Element elm    = rootLoc.element;
        org.jdom.Namespace nmsp = elm.getNamespace("ds");
-       if (nmsp == null)
-           if (elm.getAdditionalNamespaces().contains("ds")) {
-               int ix = elm.getAdditionalNamespaces().indexOf("ds");
-               nmsp = (Namespace) elm.getAdditionalNamespaces().get(ix);
-           }
-       
-       elm.removeNamespaceDeclaration(nmsp);
-       
-       String newElem =  new XMLOutputter().outputString(elm);
+       elm.removeNamespaceDeclaration(nmsp);      
+       String newElem =  new X3DXMLOutputter().outputString(elm);
        replaceSelectedElement(rootLoc,newElem);
      }
     }

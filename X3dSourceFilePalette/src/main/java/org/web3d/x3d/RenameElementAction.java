@@ -37,6 +37,7 @@ import java.io.IOException;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.JTextComponent;
 import org.jdom.JDOMException;
+import org.jdom.output.XMLOutputter;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.awt.ActionID;
@@ -50,6 +51,7 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ValidateThread;
+import org.web3d.x3d.palette.X3DXMLOutputter;
 import org.web3d.x3d.palette.items.NodeListPanel;
 import org.xml.sax.SAXException;
 
@@ -127,7 +129,7 @@ public final class RenameElementAction extends BaseX3DEditAction //CookieAction
     if (nodeName.length() > 0)
     {
         root.setName(nodeName);
-        org.jdom.output.XMLOutputter renamedElementBlock = new org.jdom.output.XMLOutputter();
+        XMLOutputter renamedElementBlock = new X3DXMLOutputter();
         return renamedElementBlock.outputString(root);    
     }
     else return null;

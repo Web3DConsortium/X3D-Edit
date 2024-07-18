@@ -58,8 +58,6 @@ import javax.swing.filechooser.FileFilter;
 import org.apache.xml.security.encryption.XMLCipher;
 import org.apache.xml.security.utils.EncryptionConstants;
 import org.apache.xml.security.utils.XMLUtils;
-import org.jdom.Namespace;
-import org.jdom.output.XMLOutputter;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -83,6 +81,7 @@ import org.w3c.dom.ls.LSParser;
 import org.web3d.x3d.actions.conversions.ConversionsHelper;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
+import org.web3d.x3d.palette.X3DXMLOutputter;
 import org.web3d.x3d.types.X3DSchemaData;
 
 @ActionID(id = "org.web3d.x3d.actions.security.DecryptXmlAction", category = "X3D-Edit")
@@ -184,14 +183,8 @@ public final class DecryptXmlAction extends CallableSystemAction
         org.jdom.Document doc = X3DPaletteUtilitiesJdom.buildJdomFromString(xmlString);
         org.jdom.Element elm = doc.getRootElement();
         org.jdom.Namespace nmsp = elm.getNamespace("xenc");
-        if (nmsp == null)
-           if (elm.getAdditionalNamespaces().contains("xenc")) {
-               int ix = elm.getAdditionalNamespaces().indexOf("xenc");
-               nmsp = (Namespace) elm.getAdditionalNamespaces().get(ix);
-           }
-       
         elm.removeNamespaceDeclaration(nmsp);
-        xmlString = new XMLOutputter().outputString(doc);
+        xmlString = new X3DXMLOutputter().outputString(doc);
         
         if(saveChooser == null) {
           saveChooser = new JFileChooser();

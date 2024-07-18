@@ -54,16 +54,14 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
  */
 public class EXPORTCustomizer extends BaseCustomizer
 {
-  private EXPORT export;
-  private JTextComponent target;
+  private final EXPORT export;
 
   public EXPORTCustomizer(EXPORT export, JTextComponent target)
   {
     super(export);
     this.export = export;
-    this.target = target;
    
-    HelpCtx.setHelpIDString(this, "EXPORT_ELEM_HELPID");
+    HelpCtx.setHelpIDString(EXPORTCustomizer.this, "EXPORT_ELEM_HELPID");
     
     initComponents();
     
@@ -103,7 +101,7 @@ public class EXPORTCustomizer extends BaseCustomizer
         hint1Label = new javax.swing.JLabel();
         outlinePanel = new javax.swing.JPanel();
         localDEFLabel = new javax.swing.JLabel();
-        localDEFComboBox = new javax.swing.JComboBox();
+        localDEFComboBox = new javax.swing.JComboBox<>();
         localDEF_ExplanationLabel = new javax.swing.JLabel();
         AS_Label = new javax.swing.JLabel();
         AS_TextField = new javax.swing.JTextField();
@@ -257,7 +255,7 @@ private void AS_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JLabel hint2Label;
     private javax.swing.JLabel hint3Label;
     private javax.swing.JLabel hint4Label;
-    private javax.swing.JComboBox localDEFComboBox;
+    private javax.swing.JComboBox<String> localDEFComboBox;
     private javax.swing.JLabel localDEFLabel;
     private javax.swing.JLabel localDEF_ExplanationLabel;
     private javax.swing.JPanel outlinePanel;

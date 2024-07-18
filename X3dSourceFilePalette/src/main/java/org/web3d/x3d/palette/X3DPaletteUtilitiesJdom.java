@@ -806,6 +806,7 @@ public final class X3DPaletteUtilitiesJdom
       super(val);
       this.xmlReader = reader;
     }
+    
     @Override
     protected XMLReader createParser() throws JDOMException
     {
@@ -824,7 +825,7 @@ public final class X3DPaletteUtilitiesJdom
     }
   }
 
-  public static class mySaxHandler extends org.jdom.input.SAXHandler
+  public static class mySaxHandler extends SAXHandler
   {
     public Vector<ElementLocation> saxLocations = new Vector<>();
 

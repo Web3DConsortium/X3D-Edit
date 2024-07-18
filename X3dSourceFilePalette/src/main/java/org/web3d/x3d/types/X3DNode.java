@@ -105,37 +105,35 @@ private static X3DComponent component;
 
   /** Utility method to aid in return of field definitions */
   private static void createEmptyScene() {
-    component = BrowserFactory.createX3DComponent(new HashMap<String, Object>());
+    component = BrowserFactory.createX3DComponent(new HashMap<>());
     browser = component.getBrowser();
     scene = browser.createScene(null, browser.getSupportedComponents());
   }
 
   private static String tmpName = "__tempNode_";                 //noi18n
 
-  public static X3DFieldDefinition[] getNodeFields(String x3dNodeName)
-  {
-    createEmptyScene();
- 
-    X3DFieldDefinition[] defs = new X3DFieldDefinition[0];  // empty by default
-    synchronized (scene) {
-      try {
-        org.web3d.x3d.sai.X3DNode n = scene.createNode(x3dNodeName);
-        scene.updateNamedNode(tmpName, n);
-        defs = n.getFieldDefinitions();
-        scene.removeNamedNode(tmpName);
-      }
-      catch (InvalidNodeException ex) {
-          System.err.println(x3dNodeName + " not found by Xj3D");
-      } finally {
-        browser.dispose();
-        component.shutdown();
- 
-        // Cleanup
-        browser = null;
-        component = null;
-        scene = null;
-      }
+    public static X3DFieldDefinition[] getNodeFields(String x3dNodeName) {
+        createEmptyScene();
+
+        X3DFieldDefinition[] defs = new X3DFieldDefinition[0];  // empty by default
+        synchronized (scene) {
+            try {
+                org.web3d.x3d.sai.X3DNode n = scene.createNode(x3dNodeName);
+                scene.updateNamedNode(tmpName, n);
+                defs = n.getFieldDefinitions();
+                scene.removeNamedNode(tmpName);
+            } catch (InvalidNodeException ex) {
+                System.err.println(x3dNodeName + " not found by Xj3D");
+            } finally {
+                browser.dispose();
+                component.shutdown();
+
+                // Cleanup
+                browser = null;
+                component = null;
+                scene = null;
+            }
+        }
+        return defs;
     }
-    return defs;
-  }
-    }
+}

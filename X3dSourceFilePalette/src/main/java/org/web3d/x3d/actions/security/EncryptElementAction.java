@@ -45,7 +45,6 @@ import java.awt.Dialog;
 import java.security.KeyStore;
 import java.security.KeyStore.Entry;
 import org.apache.xml.security.encryption.XMLCipher;
-import org.jdom.adapters.XercesDOMAdapter;
 import org.jdom.input.DOMBuilder;
 import org.jdom.output.XMLOutputter;
 import org.openide.DialogDescriptor;
@@ -64,6 +63,7 @@ import org.web3d.x3d.BaseX3DEditAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction.OperationCancelledException;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
+import org.web3d.x3d.palette.X3DXMLOutputter;
 
 // TODO: This action does not seem to be exposed via and menu in X3D-Edit, unused?
 @ActionID(id = "org.web3d.x3d.actions.security.EncryptElementAction", category = "X3D-Edit")
@@ -123,7 +123,7 @@ public final class EncryptElementAction extends BaseX3DEditAction
       if(descriptor.getValue() == DialogDescriptor.CANCEL_OPTION)
         return;
 
-      org.w3c.dom.Document w3cDoc = new XercesDOMAdapter().getDocument(this.x3dEditorSupport.getInputStream(), false);
+      org.w3c.dom.Document w3cDoc = getW3cDocument();
       org.w3c.dom.NodeList nlist = w3cDoc.getElementsByTagName(selectedLocation.name);
       org.w3c.dom.Element w3cElem = (org.w3c.dom.Element)nlist.item(0);
       
@@ -140,7 +140,7 @@ public final class EncryptElementAction extends BaseX3DEditAction
       
       org.w3c.dom.Document newdoc = cipher.doFinal(w3cDoc, w3cElem);
       org.jdom.Document jdoc = new DOMBuilder().build(newdoc);
-      String signedXml = new XMLOutputter().outputString(jdoc);
+      String signedXml = new X3DXMLOutputter().outputString(jdoc);
       int len = abstractDocument.getLength();
       abstractDocument.replace(0, len, signedXml, null);
       

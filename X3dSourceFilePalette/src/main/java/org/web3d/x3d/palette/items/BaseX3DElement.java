@@ -49,6 +49,7 @@ import java.util.Vector;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.JTextComponent;
 import org.jdom.Attribute;
+import org.jdom.Content;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.output.XMLOutputter;
@@ -62,7 +63,6 @@ import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom.ElementLocation;
 import org.web3d.x3d.palette.X3DXMLOutputter;
 import org.web3d.x3d.sai.X3DFieldDefinition;
-import org.web3d.x3d.sai.rendering.Coordinate;
 import org.web3d.x3d.types.*;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
@@ -3282,8 +3282,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 
   protected void setupContent(org.jdom.Element root)
   {
-    @SuppressWarnings("unchecked")
-    List<Object> contentList = root.getContent();
+    List contentList = root.getContent();
 
     String contentText = null;
     if(!contentList.isEmpty()) {
@@ -3296,7 +3295,6 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         // todo add option to use canonalizer to format fragment before returning.
         xout.outputElementContent(root, sw);
         contentText = sw.toString();
-
       } catch (IOException ex) {
         Exceptions.printStackTrace(ex);
       }

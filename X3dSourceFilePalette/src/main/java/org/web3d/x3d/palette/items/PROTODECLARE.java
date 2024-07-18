@@ -115,7 +115,7 @@ public class PROTODECLARE extends X3DChildNode
     int pIFidx = -1;
     int pBidx = -1;
     
-    if (contentLis.size() > 0) {
+    if (!contentLis.isEmpty()) {
       int i=0;
       for (Content cnt : contentLis) {
         if (cnt instanceof Element) {
