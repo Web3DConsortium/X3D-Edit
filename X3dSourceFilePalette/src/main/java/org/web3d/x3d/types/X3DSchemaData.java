@@ -339,7 +339,7 @@ public interface X3DSchemaData
     "generator Matlab, https://www.mathworks.org",                                     // 11
     "generator Meshlab, https://www.meshlab.org",                                      // 12
     "generator Paraview, https://www.kitware.com/opensource/paraview.html",            // 13
-    "generator Rhino3D, https://www.rhino3d.com",                                      // 14
+    "generator Rhinoceros 3D, https://www.rhino3d.com",                                // 14
     "generator Savage Studio, https://savage.nps.edu/Savage/developers.html#DES",      // 15
     "generator Seamless3D, https://www.seamless3d.com",                                // 16
     "generator Seg3D, https://www.sci.utah.edu/cibc-software/seg3d.html",              // 17
