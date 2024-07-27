@@ -362,7 +362,7 @@ public interface X3DSchemaData
     "generator Inkscape, https://www.inkscape.org",                                    // 34
     "generator avidemux, https://avidemux.sourceforge.net",                            // 35
     "generator ===== Text and XML Editors =====",                                      // 36
-    "generator Netbeans, https://www.NetBeans.org",                                    // 37
+    "generator NetBeans, https://www.NetBeans.org",                                    // 37
     "generator UltraEdit, https://www.UltraEdit.com",                                  // 38
     "generator XML Spy, https://www.altova.com",                                       // 39
     "generator"                                                                        // 40, new item, must be last
@@ -408,7 +408,7 @@ public interface X3DSchemaData
     "generator Inkscape, Drawing and Design Tool",                                  // 34
     "generator avidemux, Video Editor",                                             // 35
     "generator ===== Text and XML Editors =====",                                   // 36
-    "generator Netbeans, Integrated Developer Environment (IDE)",                   // 37
+    "generator NetBeans, Integrated Developer Environment (IDE)",                   // 37
     "generator UltraEdit, Text Editor",                                             // 38
     "generator XML Spy, XML Editor",                                                // 39
     "Enter new generator name"                                                      // 40, must be last

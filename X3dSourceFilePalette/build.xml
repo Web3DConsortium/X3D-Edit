@@ -267,7 +267,7 @@
         <ant  antfile="${suite.dir}/build.xml" target="debug" useNativeBasedir="true" inheritAll="false"/>
     </target>
 
-    <target name="view.layers.local" description="view local layer files (Netbeans only)">
+    <target name="view.layers.local" description="view local layer files (NetBeans only)">
         <echo  message="build/classes/META-INF/generated-layer.xml" />
         <nbbrowse file="build/classes/META-INF/generated-layer.xml" />
         <echo  message="src/main/java/org/web3d/x3d/layer.xml" />

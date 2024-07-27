@@ -43,7 +43,7 @@ import org.openide.windows.OutputWriter;
  * NbSysOutFilter.java
  * Created on Jun 6, 2008
  *
- * Use as a PrintStream, ala System.out, to write instead to the given Netbeans output window
+ * Use as a PrintStream, ala System.out, to write instead to the given NetBeans output window
  * 
  * MOVES Institute
  * Naval Postgraduate School, Monterey, CA, USA

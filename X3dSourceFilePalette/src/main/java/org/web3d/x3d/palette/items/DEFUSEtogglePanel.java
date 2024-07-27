@@ -62,7 +62,7 @@ public class DEFUSEtogglePanel extends javax.swing.JPanel
   {
     initComponents();
     
-    // try to fix Netbeans warnings by proper boxing during combobox initialization
+    // try to fix NetBeans warnings by proper boxing during combobox initialization
 //    containerFieldCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "schema default" }));
 //    containerFieldCombo.setSelectedItem("schema default");
     

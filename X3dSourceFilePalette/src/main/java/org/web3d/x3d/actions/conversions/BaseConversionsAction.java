@@ -484,7 +484,7 @@ import org.xml.sax.SAXParseException;
                     });
                 }
 
-                // code from Netbeans Transformable Support
+                // code from NetBeans Transformable Support
                 // inform user about used implementation
                 ProtectionDomain protectionDomain = transformer.getClass().getProtectionDomain();
                 CodeSource codeSource = protectionDomain.getCodeSource();
@@ -641,7 +641,7 @@ import org.xml.sax.SAXParseException;
                     });
                 }
 
-                // code from Netbeans Transformable Support
+                // code from NetBeans Transformable Support
                 // inform user about used implementation
                 ProtectionDomain domain = saxonTransformer.getClass().getProtectionDomain();
                 CodeSource codeSource = domain.getCodeSource();
