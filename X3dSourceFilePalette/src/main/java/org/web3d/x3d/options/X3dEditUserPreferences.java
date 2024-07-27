@@ -762,7 +762,7 @@ public class X3dEditUserPreferences
   private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";
   private static final String winxpMeshLabX3dEditorPathDefault           = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
   private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.12.0\\bin\\paraview.exe";
-  private static final String winxpRhino3DX3dEditorPathDefault           = "C:\\Program Files\\Rhino 7\\System\\Rhino.exe";
+  private static final String winxpRhino3DX3dEditorPathDefault           = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String winxpSunrizeX3dEditorPathDefault           = "npx sunrize"; // node.js
   private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
@@ -793,7 +793,7 @@ public class X3dEditUserPreferences
   private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.6.0\\Ultimaker-Cura.exe";
   private static final String windows64MeshLabX3dEditorPathDefault       = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
   private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.12.0\\bin\\paraview.exe";
-  private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 7\\System\\Rhino.exe";
+  private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String windows64SunrizeX3dEditorPathDefault       = "npx sunrize"; // node.js
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
