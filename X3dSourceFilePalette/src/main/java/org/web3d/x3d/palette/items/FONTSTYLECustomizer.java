@@ -571,6 +571,8 @@ public class FONTSTYLECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(9, 2, 3, 3);
         add(defaultLabel, gridBagConstraints);
 
+        middleLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        middleLabel2.setForeground(new java.awt.Color(0, 153, 0));
         middleLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         middleLabel2.setText("MIDDLE");
         middleLabel2.setToolTipText("MIDDLE is usually the preferred horizontal justify value");
@@ -581,6 +583,8 @@ public class FONTSTYLECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 14);
         add(middleLabel2, gridBagConstraints);
 
+        middleLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        middleLabel.setForeground(new java.awt.Color(0, 153, 0));
         middleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         middleLabel.setText("MIDDLE");
         middleLabel.setToolTipText("MIDDLE is usually the preferred vertical justify value");
