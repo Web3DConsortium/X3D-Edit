@@ -402,7 +402,7 @@ public class SHADERPROGRAMCustomizer extends BaseCustomizer implements TableMode
           {
               if (sa[0] != null && sa[0].length() > 0)
               {
-                  // TODO use proper tab setting from Netbeans
+                  // TODO use proper tab setting from NetBeans
                   String parameterName;
               //  parameterName= "new" + sa[0].substring(0,1).toUpperCase() + sa[0].substring(1); // camel case
                   parameterName = "eventValue"; // also not adding timestamp to parameter list, usage is too infrequent/obscure

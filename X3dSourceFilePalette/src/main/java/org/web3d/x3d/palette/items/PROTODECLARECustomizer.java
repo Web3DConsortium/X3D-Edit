@@ -72,7 +72,7 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
 
   private boolean  insertTraceParameter = false;
   private boolean  hasInitialFields = false;
-  private String   tabSetting = "      "; // TODO use proper tab setting from Netbeans
+  private String   tabSetting = "      "; // TODO use proper tab setting from NetBeans
   
   private final int          NAME_COLUMN = 0;
   private final int          TYPE_COLUMN = 1;

@@ -2321,7 +2321,7 @@ public class SHAPECustomizer extends BaseCustomizer
           newContent.append   ("\n"  ).append(APPEARANCE_CONTENT_TEXT2).append("  ");
           
           shape.setPrependText("""
-                                   <!-- Selectable Text design pattern has transparent Box and TouchSensor description as a tooltip -->
+                                   <!-- X3D-Edit offers Selectable Text design pattern adds transparent Box and TouchSensor description as a user hint -->
                                    <Group>
                                      """);
           // Shape goes here
@@ -2333,7 +2333,7 @@ public class SHAPECustomizer extends BaseCustomizer
                               "\n        </Appearance>" + 
                               "\n      </Shape>" + 
                               "\n      <!-- Author TODO: for interactive scenes, the TouchSensor output is easily applied as an animation trigger by adding a DEF name and a connecting ROUTE. -->" + 
-                              "\n      <TouchSensor description='enter user-tooltip description of selectable text here'/>" + 
+                              "\n      <TouchSensor DEF='SelectableTextTouchSensorHint' description='TODO as a user hint, enter description of selectable text here'/>" + 
                               "\n    </Group>");
       }
       else if (axisLinesRgbRadioButton.isSelected())

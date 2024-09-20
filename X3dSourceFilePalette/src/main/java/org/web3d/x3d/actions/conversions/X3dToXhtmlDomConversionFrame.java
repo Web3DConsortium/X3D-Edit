@@ -3963,7 +3963,7 @@ class LocalFileHandlerOld implements HttpHandler {
         outputStream.close();
     }
 }
-    /* Avoid potential Netbeans/X3D-Edit error when using null (default) executor in same thread
+    /* Avoid potential NetBeans/X3D-Edit error when using null (default) executor in same thread
     * @see https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/concurrent/Executor.html
     */
     class ThreadPerTaskExecutor implements java.util.concurrent.Executor

@@ -329,43 +329,45 @@ public interface X3DSchemaData
     "generator ===== 3D Graphics Creation Tools =====",                                // 1
     "generator X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit",                         // 2
     "generator Autodesk Tinkercad, https://www.tinkercad.com",                         // 3
-    "generator AUV Workbench, https://savage.nps.edu/AuvWorkbench",                    // 3
-    "generator Blender, https://www.blender.org",                                      // 4
-    "generator BS Content Studio, https://www.bitmanagement.de/en/download/studio",    // 5
-    "Castle Engine: Convert everything to X3D, https://castle-engine.io/convert.php",  // 6
-    "generator Cinema 4D, https://www.maxon.net/en/cinema-4d",                         // 7
-    "generator ITK-SNAP, https://www.itksnap.org/pmwiki/pmwiki.php",                   // 8
-    "generator Mathematica, https://www.wolfram.com",                                  // 9
-    "generator Matlab, https://www.mathworks.org",                                     // 10
-    "generator Meshlab, https://www.meshlab.org",                                      // 11
-    "generator Paraview, https://www.kitware.com/opensource/paraview.html",            // 12
-    "generator Rhino3D, https://www.rhino3d.com",                                      // 13
-    "generator Savage Studio, https://savage.nps.edu/Savage/developers.html#DES",      // 14
-    "generator Seamless3D, https://www.seamless3d.com",                                // 15
-    "generator Seg3D, https://www.sci.utah.edu/cibc-software/seg3d.html",              // 16
-    "generator Slicer, https://www.slicer.org",                                        // 17
-    "generator Titania, https://github.com/create3000/titania/wiki",                   // 18
-    "generator Wings3D, https://www.wings3d.com",                                      // 19
-    "generator X3DJSAIL, X3D Java Scene Access Interface Library https://www.web3d.org/specifications/java/X3DJSAIL.html", // 20
-    "generator X3DPSAIL xd.py, X3D Python Scene Access Interface Library https://pypi.org/project/x3d",                    // 21
-    "generator X3DJSONLD Loader, https://coderextreme.net/X3DJSONLD",                  // 22
-    "generator ===== Audio Editors ========================",                          // 23
-    "generator Audacity, https://audacity.sourceforge.net",                            // 24
-    "generator MuseScore, https://musescore.org",                                      // 25
-    "generator ===== Image and Video Editors ==============",                          // 26
-    "generator GIMP Gnu Image Manipulation Program, https://www.gimp.org",             // 27
-    "generator FIJI is Just ImageJ, https://fiji.sc/Downloads",                        // 28
-    "generator ImageJ, https://rsbweb.nih.gov/ij/download.html",                       // 29
-    "generator ImageMagick, https://www.imagemagick.org",                              // 30
-    "generator Inkscape, https://www.inkscape.org",                                    // 31
-    "generator avidemux, https://avidemux.sourceforge.net",                            // 32
-    "generator ===== Text and XML Editors =====",                          // 33
-    "generator Netbeans, https://www.NetBeans.org",                                    // 34
-    "generator UltraEdit, https://www.UltraEdit.com",                                  // 35
-    "generator XML Spy, https://www.altova.com",                                       // 36
-    "generator"                                                                        // 37, new item, must be last
+    "generator AUV Workbench, https://savage.nps.edu/AuvWorkbench",                    // 4
+    "generator Blender, https://www.blender.org",                                      // 5
+    "generator BS Content Studio, https://www.bitmanagement.de/en/download/studio",    // 6
+    "Castle Online Generator: convert to X3D, https://castle-engine.io/convert.php",   // 7
+    "castle-model-converter: convert to X3D, https://castle-engine.io/castle-model-converter",  // 8
+    "generator Cinema 4D, https://www.maxon.net/en/cinema-4d",                         // 9
+    "generator ITK-SNAP, https://www.itksnap.org/pmwiki/pmwiki.php",                   // 10
+    "generator Mathematica, https://www.wolfram.com",                                  // 11
+    "generator Matlab, https://www.mathworks.org",                                     // 12
+    "generator Meshlab, https://www.meshlab.org",                                      // 13
+    "generator Paraview, https://www.kitware.com/opensource/paraview.html",            // 14
+    "generator Rhinoceros 3D, https://www.rhino3d.com",                                // 15
+    "generator Savage Studio, https://savage.nps.edu/Savage/developers.html#DES",      // 16
+    "generator Seamless3D, https://www.seamless3d.com",                                // 17
+    "generator Seg3D, https://www.sci.utah.edu/cibc-software/seg3d.html",              // 18
+    "generator Slicer, https://www.slicer.org",                                        // 19
+    "generator Titania, https://github.com/create3000/titania/wiki",                   // 20
+    "generator Wings3D, https://www.wings3d.com",                                      // 21
+    "generator X3DJSAIL, X3D Java Scene Access Interface Library https://www.web3d.org/specifications/java/X3DJSAIL.html", // 22
+    "generator X3DPSAIL xd.py, X3D Python Scene Access Interface Library https://pypi.org/project/x3d",                    // 23
+    "generator X3dTidy cleanup, https://www.web3d.org/x3d/stylesheets/X3dTidy.html",   // 24
+    "generator X3DJSONLD Loader, https://coderextreme.net/X3DJSONLD",                  // 25
+    "generator ===== Audio Editors ========================",                          // 26
+    "generator Audacity, https://audacity.sourceforge.net",                            // 27
+    "generator MuseScore, https://musescore.org",                                      // 28
+    "generator ===== Image and Video Editors ==============",                          // 29
+    "generator GIMP Gnu Image Manipulation Program, https://www.gimp.org",             // 30
+    "generator FIJI is Just ImageJ, https://fiji.sc/Downloads",                        // 31
+    "generator ImageJ, https://rsbweb.nih.gov/ij/download.html",                       // 32
+    "generator ImageMagick, https://www.imagemagick.org",                              // 33
+    "generator Inkscape, https://www.inkscape.org",                                    // 34
+    "generator avidemux, https://avidemux.sourceforge.net",                            // 35
+    "generator ===== Text and XML Editors =====",                                      // 36
+    "generator NetBeans, https://www.NetBeans.org",                                    // 37
+    "generator UltraEdit, https://www.UltraEdit.com",                                  // 38
+    "generator XML Spy, https://www.altova.com",                                       // 39
+    "generator"                                                                        // 40, new item, must be last
   };
-  int      META_ATTR_GENERATOR_RESET                                                  = 34; // GENERATOR_RESET must be last
+  int      META_ATTR_GENERATOR_RESET                                                    = 40; // GENERATOR_RESET must be last
   
   String[] META_ATTR_GENERATOR_CHOICES_TOOLTIPS =
   {
@@ -376,38 +378,40 @@ public interface X3DSchemaData
     "generator Autonomous Underwater Vehicle (AUV) Workbench",                      // 4
     "generator Blender 3D Graphics Editor",                                         // 5
     "generator BS Content Studio, 3D Graphics Editor",                              // 6
-    "Castle Engine: Convert everything to X3D",                                     // 7
-    "generator Cinema 4D, animation, modeling, simulation, and rendering software", // 8
-    "generator ITK-SNAP, Volume Editor",                                            // 9
-    "generator Mathematica, Modeling Tool",                                         // 10
-    "generator Matlab, Modeling Tool",                                              // 11
-    "generator Meshlab 3D Graphics Editor",                                         // 12
-    "generator Paraview 3D Graphics Editor",                                        // 13
-    "generator Rhino3D Graphics Editor",                                            // 14
-    "generator Savage Studio, Discrete Event Simulation Scenario Builder",          // 15
-    "generator Seamless3D Graphics Editor",                                         // 16
-    "generator Seg3D, Volume Editor",                                               // 17
-    "generator Slicer, Volume Editor",                                              // 18
-    "generator Titania X3D Editor, bring colours to your life!",                    // 19
-    "generator Wings3D, 3D Graphics Editor",                                        // 20
-    "generator X3DJSAIL, X3D Java Scene Access Interface Library",                  // 21
-    "generator X3DPSAIL x3d.py, X3D Python Scene Access Interface Library",         // 22
-    "generator X3DJSONLD, X3D JSON Loader Library",                                 // 23
-    "generator ===== Audio Editors =====",                       // 24
-    "generator Audacity, Audio Editor",                                             // 25
-    "generator MuseScore, Audio Editor",                                            // 26
-    "generator ===== Image and Video Editors =====",                       // 27
-    "generator GIMP Gnu Image Manipulation Program",                                // 28
-    "generator FIJI is Just ImageJ, Image Editor",                                  // 29
-    "generator ImageJ, Image Editor",                                               // 30
-    "generator ImageMagick, Image Editor",                                          // 31
-    "generator Inkscape, Drawing and Design Tool",                                  // 32
-    "generator avidemux, Video Editor",                                             // 33
-    "generator ===== Text and XML Editors =====",                       // 34
-    "generator Netbeans, Integrated Developer Environment (IDE)",                   // 35
-    "generator UltraEdit, Text Editor",                                             // 36
-    "generator XML Spy, XML Editor",                                                // 37
-    "Enter new generator name"                                                      // 38, must be last
+    "Castle Online Generator: convert to X3D",                                      // 7
+    "castle-model-converter: convert to X3D",                                       // 8
+    "generator Cinema 4D, animation, modeling, simulation, and rendering software", // 9
+    "generator ITK-SNAP, Volume Editor",                                            // 10
+    "generator Mathematica, Modeling Tool",                                         // 11
+    "generator Matlab, Modeling Tool",                                              // 12
+    "generator Meshlab 3D Graphics Editor",                                         // 13
+    "generator Paraview 3D Graphics Editor",                                        // 14
+    "generator Rhino3D Tool: design, model, present, analyze, realize",             // 15
+    "generator Savage Studio, Discrete Event Simulation Scenario Builder",          // 16
+    "generator Seamless3D Graphics Editor",                                         // 17
+    "generator Seg3D, Volume Editor",                                               // 18
+    "generator Slicer, Volume Editor",                                              // 19
+    "generator Titania X3D Editor, bring colours to your life!",                    // 20
+    "generator Wings3D, 3D Graphics Editor",                                        // 21
+    "generator X3DJSAIL, X3D Java Scene Access Interface Library",                  // 22
+    "generator X3DPSAIL x3d.py, X3D Python Scene Access Interface Library",         // 23
+    "generator X3dTidy for Scene Cleanup, Corrections and Modifications",           // 24
+    "generator X3DJSONLD, X3D JSON Loader Library",                                 // 25
+    "generator ===== Audio Editors =====",                                          // 26
+    "generator Audacity, Audio Editor",                                             // 27
+    "generator MuseScore, Audio Editor",                                            // 28
+    "generator ===== Image and Video Editors =====",                                // 29
+    "generator GIMP Gnu Image Manipulation Program",                                // 30
+    "generator FIJI is Just ImageJ, Image Editor",                                  // 31
+    "generator ImageJ, Image Editor",                                               // 32
+    "generator ImageMagick, Image Editor",                                          // 33
+    "generator Inkscape, Drawing and Design Tool",                                  // 34
+    "generator avidemux, Video Editor",                                             // 35
+    "generator ===== Text and XML Editors =====",                                   // 36
+    "generator NetBeans, Integrated Developer Environment (IDE)",                   // 37
+    "generator UltraEdit, Text Editor",                                             // 38
+    "generator XML Spy, XML Editor",                                                // 39
+    "Enter new generator name"                                                      // 40, must be last
   };
   
   String[] META_ATTR_GENERATOR_URLS  =
@@ -419,38 +423,39 @@ public interface X3DSchemaData
     "AUV Workbench, https://savage.nps.edu/AuvWorkbench",                              // 4
     "Blender, https://www.blender.org",                                                // 5
     "BS Content Studio, https://www.bitmanagement.de/en/download/studio",              // 6
-    "Castle Engine: Convert everything to X3D, https://castle-engine.io/convert.php",  // 7
-    "Cinema 4D, https://www.maxon.net/en/cinema-4d",                                   // 8
-    "ITK-SNAP, https://www.itksnap.org/pmwiki/pmwiki.php",                             // 9
-    "Mathematica, https://www.wolfram.com",                                            // 10
-    "Matlab, https://www.mathworks.org",                                               // 11
-    "Meshlab, https://www.meshlab.org",                                                // 12
-    "Paraview, https://www.kitware.com/opensource/paraview.html",                      // 13
-    "Rhino3D, https://www.rhino3d.com",                                                // 14
-    "Savage Studio, https://savage.nps.edu/Savage/developers.html#DES",                // 15
-    "Seamless 3D, https://www.seamless3d.com",                                         // 16
-    "Seg3D, https://www.sci.utah.edu/cibc-software/seg3d.html",                        // 17
-    "Slicer, https://www.slicer.org",                                                  // 18
-    "Titania, https://create3000.de",                                                  // 19
-    "Wings3D, https://www.wings3d.com",                                                // 20
-    "X3DJSAIL, https://www.web3d.org/specifications/java/X3DJSAIL.html",               // 21
-    "X3DPSAIL x3d.py, https://pypi.org/project/x3d",                                   // 22
-    "X3DJSONLD Loader, https://coderextreme.net/X3DJSONLD",                            // 23
-    "", // intentionally unused                                                        // 24
-    "Audacity, https://audacity.sourceforge.net",                                      // 25
-    "MuseScore, https://musescore.org",                                                // 26
-    "", // intentionally unused                                                        // 27
-    "GIMP Gnu Image Manipulation Program, https://www.gimp.org",                       // 28
-    "FIJI is Just ImageJ, https://fiji.sc/Downloads",                                  // 29
-    "ImageJ, https://rsbweb.nih.gov/ij/download.html",                                 // 30
-    "ImageMagick, https://www.imagemagick.org",                                        // 31
-    "Inkscape, https://www.inkscape.org",                                              // 32
-    "avidemux, https://avidemux.sourceforge.net",                                      // 33
-    "", // intentionally unused                                                        // 34
-    "NetBeans, https://www.NetBeans.org",                                              // 35
-    "UltraEdit, https://www.UltraEdit.com",                                            // 36
-    "XML Spy, https://www.altova.com",                                                 // 37
-    ""                                                                                 // 38, must be last
+    "Castle Online Generator: convert to X3D, https://castle-engine.io/convert.php",   // 7
+    "castle-model-converter: convert to X3D, https://castle-engine.io/castle-model-converter",  // 8
+    "Cinema 4D, https://www.maxon.net/en/cinema-4d",                                   // 9
+    "ITK-SNAP, https://www.itksnap.org/pmwiki/pmwiki.php",                             // 10
+    "Mathematica, https://www.wolfram.com",                                            // 11
+    "Matlab, https://www.mathworks.org",                                               // 12
+    "Meshlab, https://www.meshlab.org",                                                // 13
+    "Paraview, https://www.kitware.com/opensource/paraview.html",                      // 14
+    "Rhino3D, https://www.rhino3d.com",                                                // 15
+    "Savage Studio, https://savage.nps.edu/Savage/developers.html#DES",                // 16
+    "Seamless 3D, https://www.seamless3d.com",                                         // 17
+    "Seg3D, https://www.sci.utah.edu/cibc-software/seg3d.html",                        // 18
+    "Slicer, https://www.slicer.org",                                                  // 19
+    "Titania, https://create3000.de",                                                  // 20
+    "Wings3D, https://www.wings3d.com",                                                // 21
+    "X3DJSAIL, https://www.web3d.org/specifications/java/X3DJSAIL.html",               // 22
+    "X3DPSAIL x3d.py, https://pypi.org/project/x3d",                                   // 23
+    "X3DJSONLD Loader, https://coderextreme.net/X3DJSONLD",                            // 24
+    "", // intentionally unused                                                        // 25
+    "Audacity, https://audacity.sourceforge.net",                                      // 26
+    "MuseScore, https://musescore.org",                                                // 27
+    "", // intentionally unused                                                        // 28
+    "GIMP Gnu Image Manipulation Program, https://www.gimp.org",                       // 29
+    "FIJI is Just ImageJ, https://fiji.sc/Downloads",                                  // 30
+    "ImageJ, https://rsbweb.nih.gov/ij/download.html",                                 // 31
+    "ImageMagick, https://www.imagemagick.org",                                        // 32
+    "Inkscape, https://www.inkscape.org",                                              // 33
+    "avidemux, https://avidemux.sourceforge.net",                                      // 34
+    "", // intentionally unused                                                        // 35
+    "NetBeans, https://www.NetBeans.org",                                              // 36
+    "UltraEdit, https://www.UltraEdit.com",                                            // 37
+    "XML Spy, https://www.altova.com",                                                 // 38
+    ""                                                                                 // 39, must be last
   };
 
   // component element

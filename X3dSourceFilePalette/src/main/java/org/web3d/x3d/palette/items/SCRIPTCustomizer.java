@@ -550,7 +550,7 @@ public class SCRIPTCustomizer extends BaseCustomizer implements TableModelListen
           {
               if (sa[NAME_COLUMN] != null && sa[NAME_COLUMN].length() > 0)
               {
-                  // TODO use proper tab setting from Netbeans
+                  // TODO use proper tab setting from NetBeans
                   String parameterName;
               //  parameterName= "new" + sa[NAME_COLUMN].substring(0,1).toUpperCase() + sa[NAME_COLUMN].substring(1); // camel case
                   parameterName = "eventValue"; // also not adding timestamp to parameter list, usage is too infrequent/obscure

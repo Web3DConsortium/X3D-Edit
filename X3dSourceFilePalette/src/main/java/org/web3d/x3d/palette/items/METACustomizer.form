@@ -204,7 +204,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="openContentButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="open in browser"/>
+        <Property name="text" type="java.lang.String" value="open in system"/>
         <Property name="toolTipText" type="java.lang.String" value="open content reference in Web browser"/>
       </Properties>
       <Events>

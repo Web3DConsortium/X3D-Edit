@@ -1,3 +1,5 @@
+Web3D Consortium Open-Source License for Models and Software
+
 Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

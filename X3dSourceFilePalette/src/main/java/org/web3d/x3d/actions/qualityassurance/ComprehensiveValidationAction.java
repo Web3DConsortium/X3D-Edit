@@ -99,7 +99,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
 
     // ----------------------------------------------------------------------
     // performAction() algorithm:
-    // get active file in Netbeans editor
+    // get active file in NetBeans editor
     // locate schematron build.xml:    org/web3d/x3d/externals/schematron/build.xml
     // locate schematron stylesheet:   org/web3d/x3d/externals/schematron/X3dSchematronValidityChecks.xslt
     // locate svrl to text stylesheet: org/web3d/x3d/externals/schematron/SvrlReportText.xslt
@@ -107,7 +107,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
     // invoke stylesheets via build.xml, passing parameters as ant properties
     // ----------------------------------------------------------------------
 
-    // necessary file parameters are reflected in Netbeans X3D-Edit layer.xml, and set in XmlValidationAction.java plus schematron build.xml
+    // necessary file parameters are reflected in NetBeans X3D-Edit layer.xml, and set in XmlValidationAction.java plus schematron build.xml
 
     // performValidationAntTask("validateSceneAll"); // schematron build.xml
 

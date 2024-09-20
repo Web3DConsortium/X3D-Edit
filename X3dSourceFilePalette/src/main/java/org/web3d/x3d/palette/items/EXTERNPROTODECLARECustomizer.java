@@ -921,7 +921,7 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
       {
           StringBuilder protoInstance = new StringBuilder();
           protoInstance.append("\n");
-          protoInstance.append("    "); // TODO use proper tab setting from Netbeans
+          protoInstance.append("    "); // TODO use proper tab setting from NetBeans
           protoInstance.append("<ProtoInstance name='").append(externProtoDeclare.getName()).append("'");
           protoInstance.append(">\n");
 
@@ -932,7 +932,7 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
                  (sa[ACCESSTYPE_COLUMN].equals("initializeOnly") || sa[ACCESSTYPE_COLUMN].equals("inputOutput")) &&
                   sa[TYPE_COLUMN].startsWith("SF"))
               {
-                  protoInstance.append("      "); // TODO use proper tab setting from Netbeans
+                  protoInstance.append("      "); // TODO use proper tab setting from NetBeans
                   protoInstance.append("<fieldValue ").append("name='").append(sa[NAME_COLUMN]).append("' ").append("value='");
                   // default values not listed in ExternProtoDeclare, use type defaults instead
                   // TODO read Proto if available and use those defaults instead; that would be good feature for interface too
@@ -992,9 +992,9 @@ public class EXTERNPROTODECLARECustomizer extends BaseCustomizer implements Tabl
                   protoInstance.append("/>\n");
               }
           }
-          protoInstance.append("    "); // TODO use proper tab setting from Netbeans
+          protoInstance.append("    "); // TODO use proper tab setting from NetBeans
           protoInstance.append("</ProtoInstance>\n");
-          protoInstance.append("    "); // TODO use proper tab setting from Netbeans
+          protoInstance.append("    "); // TODO use proper tab setting from NetBeans
           protoInstance.append("<!-- Add any ROUTEs here that connect ProtoInstance to/from prior nodes in Scene (and outside of ProtoDeclare) -->\n");
           externProtoDeclare.setAppendedContent(protoInstance.toString()); // follows ProtoDeclare
       }

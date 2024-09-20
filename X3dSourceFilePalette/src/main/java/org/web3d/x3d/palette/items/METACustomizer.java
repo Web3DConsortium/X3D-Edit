@@ -564,7 +564,7 @@ public class METACustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loadContentButton, gridBagConstraints);
 
-        openContentButton.setText("open in browser");
+        openContentButton.setText("open in system");
         openContentButton.setToolTipText("open content reference in Web browser");
         openContentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
