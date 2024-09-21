@@ -114,7 +114,7 @@ Right click on shortcut properties and set:
 A full palette of problems emerge when creading standalone installers.
 We have decided that simply offering the NetBeans plugin is the most reliable approach.
 
-* Tutorial [Native Packaging in NetBeans IDE](https://netbeans.apache.org/kb/docs/java/native_pkg.html)
+* Tutorial [Native Packaging in NetBeans IDE](https://netbeans.apache.org/tutorial/main/kb/docs/java/native_pkg)
 
 <!--
 * [WiX Toolset](https://wixtoolset.org) to create Windows installation packages
