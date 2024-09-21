@@ -26,12 +26,12 @@ We also track work items at [GitHub Issues for X3D-Edit](https://github.com/Web3
 
 ## NetBeans Development Resources
 
-* [Tutorial Contribution Guidelines](https://netbeans.apache.org/kb/docs/contributing.html)
+* [Tutorial Contribution Guidelines](https://netbeans.apache.org/tutorial/main/kb/docs/contributing)
 * [AsciiDoc](https://asciidoc.org) is a plain text markup language for writing technical content
 
-* [Apache NetBeans Development Version Documentation | APIs Overview](https://bits.netbeans.org/dev/javadoc/index.html) provides online Javadoc for NetBeans IDE
-* [Apache NetBeans API Development](https://netbeans.apache.org/wiki/APIDevelopment.asciidoc)
-* [Apache NetBeans DevFaq wiki index](https://netbeans.apache.org/wiki/DevFaqIndex.asciidoc)
+* [Apache NetBeans Development Version Documentation | APIs Overview](https://bits.netbeans.org/dev/javadoc) provides online Javadoc for NetBeans IDE
+* [Apache NetBeans API Development](https://netbeans.apache.org/wiki/main/wiki/APIDevelopment)
+* [Apache NetBeans Developer FAQ](https://netbeans.apache.org/wiki/main/netbeansdevelopperfaq/DevFaqIndex) (index in left pane)
 
 * [List of NetBeans-based software](https://en.wikipedia.org/wiki/List_of_NetBeans-based_software) outdated?
 * StackOverflow: [How to debug multiple threads/runnables at the same time in netbeans](https://stackoverflow.com/questions/26952986/how-to-debug-multiple-threads-runnables-at-the-same-time-in-netbeans/26960526)
@@ -42,13 +42,13 @@ We also track work items at [GitHub Issues for X3D-Edit](https://github.com/Web3
 ## NetBeans Resources
 
 
-### [NetBeans Platform Learning Trail](https://netbeans.apache.org/kb/docs/platform.html)
+### [NetBeans Platform Learning Trail](https://netbeans.apache.org/tutorial/main/kb/docs/platform)
 
 "Comprehensive tutorials that highlight a wide range of Apache NetBeans APIs for a variety of application types."
 
 * [NetBeans Issues](https://github.com/apache/netbeans/issues)
 
-* [NetBeans API References](https://netbeans.apache.org/kb/docs/platform.html#API)
+* [NetBeans API References](https://netbeans.apache.org/tutorial/main/kb/docs/platform#API)
 
 * [Top 10 NetBeans APIs](https://www.youtube.com/watch?v=FF5fvHbZxpk) dated but some nuggets found
 
@@ -60,7 +60,7 @@ Tutorial section *Specifying the Module’s Dependencies*
 * Issue 4492 [XML Editor Extension Module Tutorial erratum](https://github.com/apache/netbeans/issues/4492)
 I/O APIs not found, (I/O APIs - Swing) worked, other is (I/O API and SPI)
 
-* Note that [multiple XML-related module dependencies](X3dEditModuleSuite/snapshots/XmlModuleDependencies.png) are provided by NetBeans
+* Note that [multiple XML-related module dependencies](https://github.com/Web3DConsortium/X3D-Edit/blob/master/images/XmlModuleDependencies.png) are provided by NetBeans
 
 Don used this to create initial code block for X3D-Edit Module Suite.
 
