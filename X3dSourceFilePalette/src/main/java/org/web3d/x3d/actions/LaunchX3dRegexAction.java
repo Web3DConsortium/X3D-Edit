@@ -41,6 +41,7 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+import static org.web3d.x3d.actions.BaseViewAction.REGEX_101;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_REGEX;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dRegexAction", category = "X3D-Edit")
@@ -61,6 +62,7 @@ public final class LaunchX3dRegexAction extends CallableSystemAction
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
+    BaseViewAction.sendBrowserTo(REGEX_101);
     BaseViewAction.sendBrowserTo(X3D_REGEX);
   }
 
