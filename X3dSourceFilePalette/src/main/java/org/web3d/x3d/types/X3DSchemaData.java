@@ -99,10 +99,10 @@ public interface X3DSchemaData
   };
   
   String[] X3D_ATTR_VERSION_HINTS = {
-      "ISO Standard 2004",
-      "ISO Standard 2006",
-      "ISO Standard 2008",
-      "ISO Standard 2012",
+      "ISO International Standard 2004",
+      "ISO International Standard 2006",
+      "ISO International Standard 2008",
+      "ISO International Standard 2012",
       "ISO International Standard 2023",
   };
 
