@@ -261,7 +261,13 @@ public final class X3DPaletteUtilitiesJdom
     public ValidateThread(JTextComponent target, String filename, boolean doDialog)
     {
       thisTarget = target;
-      thisFilename = filename;
+      if  (filename != null)
+           thisFilename = filename;
+      else 
+      {
+          thisFilename = "UnknownFileNameError";
+          System.err.println ("*** [X3D-Edit error] ValidateThread constructor not given filename, using " + thisFilename);
+      }
       thisDoDialog = doDialog;
     }
 
