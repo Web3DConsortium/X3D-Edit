@@ -64,7 +64,7 @@
     -->
     
     <target name="all" depends="clean, build">
-        <echo message="TODO update X3D-Edit.html prior to final release"/>
+        <echo message="*** Release preparations: update X3D-Edit.html prior to final release"/>
         <echo message="build all complete, release results maintained in build.all.log.txt"/>
     </target>
     
