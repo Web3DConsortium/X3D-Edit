@@ -56,24 +56,58 @@ import org.openide.util.actions.CallableSystemAction;
 
 public final class LaunchIssueReportEmailAction extends CallableSystemAction
 {
-  public static String MAILTO_REPORT_URL = "mailto://brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%20issue%20report";
-  // don't add body to email, since that clobbers user signature: body=Found%20a%20possible%20problem.%20&
+    // https://en.wikipedia.org/wiki/Mailto
+    // https://en.wikipedia.org/wiki/Percent-encoding
+    // https://stackoverflow.com/questions/3871729/transmitting-newline-character-n
+    
+  public static String MAILTO_REPORT_URL = "mailto:brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%20issue%20report";
 
+  // don't want to add body to email, since that clobbers user signature, but Outlook now blocks "To:" field
+  // %0A is newline character, parenthesis %28 { and %29 )
+  
+  public static String MAILTO_REPORT_URL_SUFFIX = 
+          "&body=Please%20send%20issue-report%20email%20to%20Don%20Brutzman%20%28brutzman@nps.edu%29%20-%20thanks!" +
+          "%0A%0A" + // newlines
+          "Issue%20description:%20";
+  
   private String elementName = new String();
+  
+  public static void sendMailtoFeedback (String itemName)
+  {
+      String mailtoReportUrl = MAILTO_REPORT_URL;
+      
+      if  (itemName == null)
+           itemName = new String();
+      if (!itemName.isBlank())
+      {
+          // also append url-escaped blank character to facilitate user editing
+          mailtoReportUrl+= ":%20" + itemName + "%20";
+      }
+      mailtoReportUrl+= MAILTO_REPORT_URL_SUFFIX;
+      
+      System.out.println ("LaunchIssueReportEmailAction sendMailtoFeedback() mailtoReportUrl=\n   " + mailtoReportUrl);
+      System.out.println ("   " + mailtoReportUrl.replace("%20", " ").replace("%28", "(").replace("%29", ")").replace("%0A", " "));
+      
+      sendBrowserTo(mailtoReportUrl); // redirects to user's mail application, if present
+  }
   
   @Override
   public void performAction()
   {
-      String mailtoReportUrl = MAILTO_REPORT_URL;
-      // TODO add node/statement name
-      if (!getElementName().isBlank())
-      {
-          mailtoReportUrl+= ":%20" + getElementName() + "%20";
-      } // append url-escaped blank character to facilitate user editing
+      sendMailtoFeedback (getElementName());
       
-      System.out.println ("LaunchIssueReportEmailAction performAction() mailtoReportUrl=" + mailtoReportUrl);
-      
-      sendBrowserTo(mailtoReportUrl);
+//      String mailtoReportUrl = MAILTO_REPORT_URL;
+//      // TODO add node/statement name
+//      if (!getElementName().isBlank())
+//      {
+//          // also append url-escaped blank character to facilitate user editing
+//          mailtoReportUrl+= ":%20" + getElementName() + "%20";
+//      }
+//      mailtoReportUrl+= MAILTO_REPORT_URL_SUFFIX;
+//      
+//      System.out.println ("LaunchIssueReportEmailAction performAction() mailtoReportUrl=\n   " + mailtoReportUrl);
+//      
+//      sendBrowserTo(mailtoReportUrl); // redirects to user's mail application, if present
   }
   
   public static void sendBrowserTo(String urlString)
