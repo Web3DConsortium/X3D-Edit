@@ -42,7 +42,7 @@ Please note that you will manually need to edit the configuration files to point
 
 - Using _localadmin_ permissions, set `jdkhome` permissions in configuration file:
 - `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
-- `jdkhome="C:\Program Files\Java\openjdk\jdk-22.0.1"`
+- `jdkhome="C:\Program Files\Java\openjdk\jdk-23.0.1"`
 
 ## Source Code is Public on GitHub
 
