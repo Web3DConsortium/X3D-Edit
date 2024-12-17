@@ -447,6 +447,7 @@ public class X3dEditUserPreferences
   public static String               CURA_EXECUTABLE_AUTOLAUNCH_KEY =               "CURA_AUTOLAUNCH";
   public static String            MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY =            "MESHLAB_AUTOLAUNCH";
   public static String           PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY =           "PARAVIEW_AUTOLAUNCH";
+  public static String         MAYARAWKEE_EXECUTABLE_AUTOLAUNCH_KEY =         "MAYARAWKEE_AUTOLAUNCH";
   public static String            RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY =            "RHINO3D_AUTOLAUNCH";
   public static String        POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY =    "POLYTRANSNUGRAF_AUTOLAUNCH";
   public static String         SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY =         "SEAMLESS3D_AUTOLAUNCH";
@@ -495,6 +496,7 @@ public class X3dEditUserPreferences
   public static String        CURA_X3D_EDITOR_PATH_KEY          =       "CURA_X3D_EDITOR_PATH";
   public static String     MESHLAB_X3D_EDITOR_PATH_KEY          =    "MESHLAB_X3D_EDITOR_PATH";
   public static String    PARAVIEW_X3D_EDITOR_PATH_KEY          =   "PARAVIEW_X3D_EDITOR_PATH";
+  public static String  MAYARAWKEE_X3D_EDITOR_PATH_KEY          = "MAYARAWKEE_X3D_EDITOR_PATH";
   public static String     RHINO3D_X3D_EDITOR_PATH_KEY          =    "RHINO3D_X3D_EDITOR_PATH";
   public static String  SEAMLESS3D_X3D_EDITOR_PATH_KEY          = "SEAMLESS3D_X3D_EDITOR_PATH";
   public static String     SUNRIZE_X3D_EDITOR_PATH_KEY          =    "SUNRIZE_X3D_EDITOR_PATH";
@@ -574,6 +576,7 @@ public class X3dEditUserPreferences
   public static String        CURA_X3D_EDITOR_PATH_DEFAULT;
   public static String     MESHLAB_X3D_EDITOR_PATH_DEFAULT;
   public static String    PARAVIEW_X3D_EDITOR_PATH_DEFAULT;
+  public static String  MAYARAWKEE_X3D_EDITOR_PATH_DEFAULT;
   public static String     RHINO3D_X3D_EDITOR_PATH_DEFAULT;
   public static String POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT;
   public static String  SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT;
@@ -759,15 +762,16 @@ public class X3dEditUserPreferences
   private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 4.2\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String winxpBvhackerEditorPathDefault             = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
-  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.8.1\\Ultimaker-Cura.exe";
+  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.9.0\\Ultimaker-Cura.exe";
   private static final String winxpMeshLabX3dEditorPathDefault           = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.12.0\\bin\\paraview.exe";
+  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.13.1\\bin\\paraview.exe";
+  private static final String winxpMayaRawkeeX3dEditorPathDefault        = "";
   private static final String winxpRhino3DX3dEditorPathDefault           = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String winxpSunrizeX3dEditorPathDefault           = "npx sunrize"; // node.js
   private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String winxpSeg3dEditorPathDefault                = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
-  private static final String winxpSlicer3dEditorPathDefault             = "C:\\ProgramData\\slicer.org\\Slicer 5.6.1\\Slicer.exe";
+  private static final String winxpSlicer3dEditorPathDefault             = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
   private static final String winxpBatikEditorPathDefault                = "C:\\languages\\java\\batik-1.17\\batik-squiggle-1.17.jar";
   private static final String winxpInkscapeEditorPathDefault             = "C:\\Program Files\\Inkscape\\Inkscape";
   private static final String winxpSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
@@ -790,15 +794,16 @@ public class X3dEditUserPreferences
   private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 4.2\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String windows64BvhackerEditorPathDefault         = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
-  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.8.1\\Ultimaker-Cura.exe";
+  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.9.0\\Ultimaker-Cura.exe";
   private static final String windows64MeshLabX3dEditorPathDefault       = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.12.0\\bin\\paraview.exe";
+  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.13.1\\bin\\paraview.exe";
+  private static final String windows64MayaRawkeeX3dEditorPathDefault    = "";
   private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String windows64SunrizeX3dEditorPathDefault       = "npx sunrize"; // node.js
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
-  private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\slicer.org\\Slicer 5.6.1\\Slicer.exe";
+  private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
   private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.17\\batik-squiggle-1.17.jar";
   private static final String windows64InkscapeEditorPathDefault         = "C:\\Program Files\\Inkscape\\bin\\inkscape.exe";
   private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app/editor/index.html"; // online editor
@@ -820,13 +825,14 @@ public class X3dEditUserPreferences
   private static final String macosxAltovaXMLSpyX3dEditorPathDefault     = "xmlspy";         // TODO insert correct value
   private static final String macosxBlenderX3dEditorPathDefault          = "blender";        // TODO insert correct value
   private static final String macosxBsContentStudioX3dEditorPathDefault  = "bscomposer";     // TODO insert correct value
-  private static final String macosxBvhackerEditorPathDefault            = "bvhacker";        // TODO insert correct value
+  private static final String macosxBvhackerEditorPathDefault            = "bvhacker";       // TODO insert correct value
   private static final String macosxCuraX3dEditorPathDefault             = "Cura";           // TODO insert correct value
   private static final String macosxMeshLabX3dEditorPathDefault          = "MeshLab";        // TODO insert correct value
   private static final String macosxParaviewX3dEditorPathDefault         = "Paraview";       // TODO insert correct value
+  private static final String macosxMayaRawkeeX3dEditorPathDefault       = "Maya";           // TODO insert correct value
   private static final String macosxRhino3DX3dEditorPathDefault          = "Rhino3D";        // TODO insert correct value
   private static final String macosxSeamlessX3dEditorPathDefault         = "Seamless3d";     // TODO insert correct value
-  private static final String macosxSunrizeX3dEditorPathDefault          = "npx sunrize"; // node.js
+  private static final String macosxSunrizeX3dEditorPathDefault          = "npx sunrize";    // node.js
   private static final String macosxItksnapEditorPathDefault             = "Itksnap";        // TODO insert correct value
   private static final String macosxSeg3dEditorPathDefault               = "Seg3d";          // TODO insert correct value
   private static final String macosxSlicer3dEditorPathDefault            = "Slicer3d";       // TODO insert correct value
@@ -854,9 +860,10 @@ public class X3dEditUserPreferences
   private static final String otherCuraX3dEditorPathDefault              = "Cura";           // TODO insert correct value
   private static final String otherMeshLabX3dEditorPathDefault           = "MeshLab";        // TODO insert correct value
   private static final String otherParaviewX3dEditorPathDefault          = "Paraview";       // TODO insert correct value
+  private static final String otherMayaRawkeeX3dEditorPathDefault        = "Maya";           // TODO insert correct value
   private static final String otherRhino3DX3dEditorPathDefault           = "Rhino3D";        // TODO insert correct value
   private static final String otherSeamlessX3dEditorPathDefault          = "Seamless3d";     // TODO insert correct value
-  private static final String otherSunrizeX3dEditorPathDefault           = "npx sunrize"; // node.js
+  private static final String otherSunrizeX3dEditorPathDefault           = "npx sunrize";    // node.js
   private static final String otherItksnapEditorPathDefault              = "Itksnap";        // TODO insert correct value
   private static final String otherSeg3dEditorPathDefault                = "Seg3d";          // TODO insert correct value
   private static final String otherSlicer3dEditorPathDefault             = "Slicer3d";       // TODO insert correct value
@@ -886,11 +893,14 @@ public class X3dEditUserPreferences
   private static final String otherVolumeEditorSwitchDefault              = ""; // User defined command-line launch switch
   private static final String otherSemanticWebEditorSwitchDefault         = ""; // User defined command-line launch switch
   
-  private static final String downloadSiteAudacity                       = "https://www.audacityteam.org/download"; // https://sourceforge.net/projects/audacity";
+  private static final String downloadSiteAudacity                       = "https://www.audacityteam.org"; // /download"; 
+                                                                         // https://sourceforge.net/projects/audacity";
   private static final String downloadSiteMuseScore                      = "https://musescore.org";
   private static final String downloadSiteGimp                           = "https://www.gimp.org";
   private static final String downloadSiteFiji                           = "https://imagej.github.io/software/fiji/downloads"; // "https://imagej.net/Fiji/Downloads";
-  private static final String downloadSiteImageJ                         = "https://imagej.nih.gov/ij/download.html"; // https://rsbweb.nih.gov/ij/download.html";
+  private static final String downloadSiteImageJ                         = "https://imagej.net/ij/download.html"; 
+                                                                         // https://imagej.nih.gov/ij/download.html;
+                                                                         // https://rsbweb.nih.gov/ij/download.html;
   private static final String downloadSiteImageMagick                    = "https://imagemagick.org/script/download.php";
   private static final String downloadSiteVlc                            = "https://www.videolan.org";
   private static final String downloadSiteProtege                        = "https://protege.stanford.edu";
@@ -904,11 +914,13 @@ public class X3dEditUserPreferences
   private static final String downloadSiteCura                           = "https://ultimaker.com/software/ultimaker-cura";
   private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
+  private static final String downloadSiteMayaRawkee                     = ""; // TODO two entries?
   private static final String downloadSiteRhino3D                        = "https://www.rhino3d.com/download";
   private static final String downloadSiteSeamless3d                     = "https://www.seamless3d.com";
   private static final String downloadSiteSunrize                        = "https://nodejs.org/en/download";
   private static final String downloadSiteItksnap                        = "http://www.itksnap.org"; // http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
-  private static final String downloadSiteSeg3d                          = "https://www.sci.utah.edu/cibc-software/seg3d.html";
+  private static final String downloadSiteSeg3d                          = "https://www.sci.utah.edu/software/seg3d.html";
+                                                                        // "https://www.sci.utah.edu/cibc-software/seg3d.html";
   private static final String downloadSiteSlicer3d                       = "https://www.slicer.org";
   private static final String downloadSiteBatik                          = "https://xmlgraphics.apache.org/batik";
   private static final String downloadSiteInkscape                       = "https://www.inkscape.org";
@@ -925,7 +937,8 @@ public class X3dEditUserPreferences
   protected static final String helpSiteMuseScore                        = "https://musescore.org/en/handbook";
   protected static final String helpSiteGimp                             = "https://www.gimp.org/docs";
   protected static final String helpSiteFiji                             = "https://fiji.sc/Documentation";
-  protected static final String helpSiteImageJ                           = "https://rsbweb.nih.gov/ij/docs";
+  protected static final String helpSiteImageJ                           = "https://imagej.net/ij/docs"; 
+                                                                         //"https://rsbweb.nih.gov/ij/docs";
   protected static final String helpSiteImageMagick                      = "https://www.imagemagick.org";
   protected static final String helpSiteVlc                              = "https://www.videolan.org/support/#documentation";
   protected static final String helpSiteProtege                          = "https://protege.stanford.edu/support.php#documentationSupport";
@@ -934,20 +947,20 @@ public class X3dEditUserPreferences
   protected static final String helpSiteWireshark                        = "https://www.wireshark.org/faq.html";
   
   protected static final String helpSiteAltovaXMLSpy                     = "https://www.altova.com/library";
-  protected static final String helpSiteBlender1                         = "https://www.blender.org/support";
-  protected static final String helpSiteBlender2                         = "https://www.blender.org/get-involved/documentation";
-  protected static final String helpSiteBlender3                         = "https://www.blender.org/education-help";
+  protected static final String helpSiteBlender                          = "https://www.blender.org/support";
   protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.de/en/download/studio";
   protected static final String helpSiteBvhacker                         = "https://www.bvhacker.com/help.html";
   protected static final String helpSiteCura                             = "https://ultimaker.com/learn"; 
   protected static final String helpSiteMeshLab                          = "https://www.meshlab.net"; // https://sourceforge.net/apps/mediawiki/meshlab";
   protected static final String helpSiteParaview                         = "https://www.paraview.org";
+  protected static final String helpSiteMayaRawkee                       = ""; // TODO two entries?
   protected static final String helpSiteRhino3D                          = "https://www.rhino3d.com/learn";
   protected static final String helpSitePolyTransNuGraf                  = "https://www.okino.com/nrs/nrs.htm";
   protected static final String helpSiteSeamless3d                       = "https://www.seamless3d.com/faq.html";
   protected static final String helpSiteSunrize                          = "https://create3000.github.io/sunrize";
   protected static final String helpSiteItksnap                          = "http://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.SNAP3"; // http://www.itksnap.org/pmwiki/pmwiki.php";
-  protected static final String helpSiteSeg3d                            = "https://www.sci.utah.edu/cibc-software/seg3d.html";
+  protected static final String helpSiteSeg3d                            = "http://sciinstitute.github.io/seg3d.pages";
+                                                                        // "https://www.sci.utah.edu/cibc-software/seg3d.html";
   protected static final String helpSiteSlicer3d                         = "https://www.slicer.org/slicerWiki/index.php/Documentation/Release";
   protected static final String helpSiteBatik                            = "https://xmlgraphics.apache.org/batik/faq.html";
   protected static final String helpSiteInkscape                         = "https://www.inkscape.org/learn";
@@ -990,6 +1003,7 @@ public class X3dEditUserPreferences
   public static String getDownloadSiteCura()           {return downloadSiteCura;}
   public static String getDownloadSiteMeshLab()        {return downloadSiteMeshLab;}
   public static String getDownloadSiteParaview()       {return downloadSiteParaview;}
+  public static String getDownloadSiteMayaRawkee()     {return downloadSiteMayaRawkee;}
   public static String getDownloadSiteRhino3D()        {return downloadSiteRhino3D;}
   public static String getDownloadSiteSeamless3d()     {return downloadSiteSeamless3d;}
   public static String getDownloadSiteSunrize()        {return downloadSiteSunrize;}
@@ -1057,6 +1071,7 @@ public class X3dEditUserPreferences
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     macosxCuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxMeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( macosxParaviewX3dEditorPathDefault);
+   MAYARAWKEE_X3D_EDITOR_PATH_DEFAULT        = toks(macosxMayaRawkeeX3dEditorPathDefault);
       RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  macosxRhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   macosxPolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( macosxSeamlessX3dEditorPathDefault);
@@ -1115,6 +1130,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dE
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     windows64CuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64MeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( windows64ParaviewX3dEditorPathDefault);
+   MAYARAWKEE_X3D_EDITOR_PATH_DEFAULT        = toks(windows64MayaRawkeeX3dEditorPathDefault);
       RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  windows64Rhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   windows64PolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( windows64SeamlessX3dEditorPathDefault);
@@ -1171,6 +1187,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(winxpBsContentStudioX3dEdito
          CURA_X3D_EDITOR_PATH_DEFAULT        = toks(     winxpCuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpMeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT        = toks( winxpParaviewX3dEditorPathDefault);
+   MAYARAWKEE_X3D_EDITOR_PATH_DEFAULT        = toks(winxpMayaRawkeeX3dEditorPathDefault);
       RHINO3D_X3D_EDITOR_PATH_DEFAULT        = toks(  winxpRhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT        = toks(   winxpPolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT        = toks( winxpSeamlessX3dEditorPathDefault);
@@ -1226,6 +1243,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT         = toks(otherBsContentStudioX3dEd
          CURA_X3D_EDITOR_PATH_DEFAULT           = toks(     otherCuraX3dEditorPathDefault);
       MESHLAB_X3D_EDITOR_PATH_DEFAULT           = toks(  otherMeshLabX3dEditorPathDefault);
      PARAVIEW_X3D_EDITOR_PATH_DEFAULT           = toks( otherParaviewX3dEditorPathDefault);
+   MAYARAWKEE_X3D_EDITOR_PATH_DEFAULT           = toks(otherMayaRawkeeX3dEditorPathDefault);
       RHINO3D_X3D_EDITOR_PATH_DEFAULT           = toks(  otherRhino3DX3dEditorPathDefault);
   POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT           = toks(   otherPolyTransNuGrafPathDefault);
    SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT           = toks( otherSeamlessX3dEditorPathDefault);
@@ -1307,6 +1325,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT         = toks(otherBsContentStudioX3dEd
   public static String      getCuraX3dEditorPathDefault()   {return        CURA_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getMeshLabX3dEditorPathDefault()   {return     MESHLAB_X3D_EDITOR_PATH_DEFAULT;}
   public static String  getParaviewX3dEditorPathDefault()   {return    PARAVIEW_X3D_EDITOR_PATH_DEFAULT;}
+  public static String getMayaRawkeeX3dEditorPathDefault()  {return  MAYARAWKEE_X3D_EDITOR_PATH_DEFAULT;}
   public static String   getRhino3DX3dEditorPathDefault()   {return     RHINO3D_X3D_EDITOR_PATH_DEFAULT;}
   public static String getPolyTransNuGrafEditorPathDefault(){return POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT;}
   public static String  getSeamlessX3dEditorPathDefault()   {return  SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT;}
@@ -1379,6 +1398,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT         = toks(otherBsContentStudioX3dEd
   public static void      setCuraX3dEditorPath      (String path){commonStringSet(         CURA_X3D_EDITOR_PATH_KEY, path);}
   public static void   setMeshLabX3dEditorPath      (String path){commonStringSet(      MESHLAB_X3D_EDITOR_PATH_KEY, path);}
   public static void  setParaviewX3dEditorPath      (String path){commonStringSet(     PARAVIEW_X3D_EDITOR_PATH_KEY, path);}
+  public static void setMayaRawkeeX3dEditorPath     (String path){commonStringSet(   MAYARAWKEE_X3D_EDITOR_PATH_KEY, path);}
   public static void  setRhino3DX3dEditorPath       (String path){commonStringSet(      RHINO3D_X3D_EDITOR_PATH_KEY, path);}
   public static void setPolyTransNuGrafEditorPath   (String path){commonStringSet(  POLYTRANSNUGRAF_EDITOR_PATH_KEY, path);}
   public static void  setSeamlessX3dEditorPath      (String path){commonStringSet(   SEAMLESS3D_X3D_EDITOR_PATH_KEY, path);}
@@ -1450,6 +1470,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT         = toks(otherBsContentStudioX3dEd
   public static void              setCuraAutoLaunch (String autoLaunch){commonStringSet(              CURA_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void           setMeshLabAutoLaunch (String autoLaunch){commonStringSet(           MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void          setParaviewAutoLaunch (String autoLaunch){commonStringSet(          PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
+  public static void        setMayaRawkeeAutoLaunch (String autoLaunch){commonStringSet(        MAYARAWKEE_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void           setRhino3DAutoLaunch (String autoLaunch){commonStringSet(           RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
   public static void   setPolyTransNuGrafAutoLaunch (String autoLaunch){commonStringSet(       POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY, autoLaunch);}
   public static void        setSeamless3dAutoLaunch (String autoLaunch){commonStringSet(        SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY, autoLaunch);}
@@ -1509,6 +1530,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT         = toks(otherBsContentStudioX3dEd
   public static String      getCuraX3dEditorPath()       {return commonStringGet(      CURA_X3D_EDITOR_PATH_KEY,      CURA_X3D_EDITOR_PATH_DEFAULT);}
   public static String   getMeshLabX3dEditorPath()       {return commonStringGet(   MESHLAB_X3D_EDITOR_PATH_KEY,   MESHLAB_X3D_EDITOR_PATH_DEFAULT);}
   public static String  getParaviewX3dEditorPath()       {return commonStringGet(  PARAVIEW_X3D_EDITOR_PATH_KEY,  PARAVIEW_X3D_EDITOR_PATH_DEFAULT);}
+  public static String getMayaRawkeeX3dEditorPath()      {return commonStringGet(MAYARAWKEE_X3D_EDITOR_PATH_KEY,   MAYARAWKEE_X3D_EDITOR_PATH_DEFAULT);}
   public static String   getRhino3DX3dEditorPath()       {return commonStringGet(   RHINO3D_X3D_EDITOR_PATH_KEY,   RHINO3D_X3D_EDITOR_PATH_DEFAULT);}
   public static String getPolyTransNuGrafEditorPath()    {return commonStringGet(POLYTRANSNUGRAF_EDITOR_PATH_KEY, POLYTRANSNUGRAF_EDITOR_PATH_DEFAULT);}
   public static String  getSeamlessX3dEditorPath()       {return commonStringGet(SEAMLESS3D_X3D_EDITOR_PATH_KEY,SEAMLESS3D_X3D_EDITOR_PATH_DEFAULT);}
@@ -1569,6 +1591,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT         = toks(otherBsContentStudioX3dEd
   public static String              isCuraAutoLaunch() {return commonStringGet(               CURA_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isMeshLabAutoLaunch() {return commonStringGet(            MESHLAB_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String          isParaviewAutoLaunch() {return commonStringGet(           PARAVIEW_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
+  public static String        isMayaRawkeeAutoLaunch() {return commonStringGet(         MAYARAWKEE_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String           isRhino3DAutoLaunch() {return commonStringGet(            RHINO3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String   isPolyTransNuGrafAutoLaunch() {return commonStringGet(        POLYTRANSNUGRAF_EDITOR_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
   public static String        isSeamless3dAutoLaunch() {return commonStringGet(         SEAMLESS3D_EXECUTABLE_AUTOLAUNCH_KEY,         AUTOLAUNCH_DEFAULT);}
@@ -1633,6 +1656,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT         = toks(otherBsContentStudioX3dEd
   public static void      resetCuraX3dEditorPath() {commonReset(       CURA_X3D_EDITOR_PATH_KEY);}
   public static void   resetMeshLabX3dEditorPath() {commonReset(    MESHLAB_X3D_EDITOR_PATH_KEY);}
   public static void  resetParaviewX3dEditorPath() {commonReset(   PARAVIEW_X3D_EDITOR_PATH_KEY);}
+  public static void resetMayaRawkeeX3dEditorPath(){commonReset( MAYARAWKEE_X3D_EDITOR_PATH_KEY);}
   public static void   resetRhino3DX3dEditorPath() {commonReset(    RHINO3D_X3D_EDITOR_PATH_KEY);}
   public static void    resetPolyTransNuGrafPath() {commonReset(POLYTRANSNUGRAF_EDITOR_PATH_KEY);}
   public static void  resetSeamlessX3dEditorPath() {commonReset( SEAMLESS3D_X3D_EDITOR_PATH_KEY);}
