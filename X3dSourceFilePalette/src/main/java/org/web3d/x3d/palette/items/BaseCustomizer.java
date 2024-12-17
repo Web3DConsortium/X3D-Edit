@@ -102,7 +102,7 @@ public abstract class BaseCustomizer extends JPanel
   private JCheckBox appendNewLineCB;
   private static boolean wantLeadingLineFeed  = false; // by default for in-place edits
   private static boolean wantTrailingLineFeed = false;
-  private        boolean hasDEFUSEpanel;
+  private final  boolean hasDEFUSEpanel;
 
   private final JCheckBox   appendTraceEventsCB = new JCheckBox("Trace", false);
   private final JCheckBox appendVisualizationCB = new JCheckBox("Visualize", false);
@@ -366,7 +366,7 @@ public abstract class BaseCustomizer extends JPanel
     final JButton emailFeedbackReportButton = findButton(buttonsDialogDisplayer, "Feedback");
     final ActionListener emailFeedbackReportButtonActionListener = (ActionEvent event) ->
     {
-       LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + ", " + currentX3dElement.getElementName());
+        LaunchIssueReportEmailAction.sendMailtoFeedback(currentX3dElement.getElementName());
     };
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
     if (emailFeedbackReportButton != null)
