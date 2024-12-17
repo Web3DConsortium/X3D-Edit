@@ -64,7 +64,7 @@
     -->
     
     <target name="all" depends="clean, build">
-        <echo message="build all complete"/>
+        <echo message="build all complete, release results maintained in build.all.log.txt"/>
     </target>
     
     <!-- override build to add a way to update branding -->
