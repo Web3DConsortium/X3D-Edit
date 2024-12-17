@@ -2,6 +2,7 @@
 <!-- You may freely edit this file. See harness/README in the NetBeans platform -->
 <!-- for some information on what you could do (e.g. targets to override). -->
 <!-- If you delete this file and reopen the project it will be recreated. -->
+
 <project name="X3dEdit Module Suite" basedir="." default="quick.run">
     <description>Builds the application module suite X3dEditModuleSuite.</description>
     
@@ -61,6 +62,10 @@
     BUILD SECTION
     =============
     -->
+    
+    <target name="all" depends="clean, build">
+        <echo message="build all complete"/>
+    </target>
     
     <!-- override build to add a way to update branding -->
     <target name="build" depends="build-brand,suite.build">
