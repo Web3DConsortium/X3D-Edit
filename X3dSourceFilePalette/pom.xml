@@ -7,7 +7,7 @@
     <description>X3D-Edit supports creation, authoring, validation and viewing of X3D graphics model files</description>
     <url>https://github.com/Web3DConsortium/X3D-Edit/</url>
     <inceptionYear>1999</inceptionYear>
-    <version>4.0.34</version>
+    <version>4.0.35</version>
     <packaging>nbm</packaging>
     <organization>
         <name>Web3D Consortium</name>
@@ -147,7 +147,7 @@
                         <id>nbm</id>
                         <phase>package</phase>
                         <configuration>
-                            <!-- Here is where we ask the Ant harness to build 
+                            <!-- Here is where we ask the Ant harness to build
                                  the NBM. CLI: mvn antrun:run@nbm -->
                             <target>
                                 <ant antfile="${basedir}/build.xml">
