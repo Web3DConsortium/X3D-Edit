@@ -569,5 +569,6 @@ X3D-Edit Module.netbeans:
 build:
 *** Release preparations: run target 'generate.nbm.signing.cert'
 all:
+*** Release preparations: update X3D-Edit.html prior to final release
 build all complete, release results maintained in build.all.log.txt
-BUILD SUCCESSFUL (total time: 1 minute 55 seconds)
+BUILD SUCCESSFUL (total time: 1 minute 23 seconds)
