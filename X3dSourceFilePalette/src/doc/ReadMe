@@ -20,17 +20,17 @@ version #:
 </dependencies>
 <repositories>
     <repository>
-        <id>maven-snapshots</id>
-        <name>Maven Snapshot Repo</name>
-        <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
-    </repository>
+            <id>staging-repo</id>
+            <name>Nexus Release Repository</name>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
 </repositories>
 
 Version preparation:
 Project Properties -> API Versioning -> Implementation Version
 pom.xml (version tag)
 
-Apparently, for a plugin to be valid on the Apache Netbeans Plugin Portal, it 
-must be double signed. GPG detached signed for Maven Central hosting, and at 
+Apparently, for a plugin to be valid on the Apache Netbeans Plugin Portal, it
+must be double signed. GPG detached signed for Maven Central hosting, and at
 least NBM self-signed for IDE validation on the portal.
 Source: https://www.mail-archive.com/dev@netbeans.apache.org/msg05712.html

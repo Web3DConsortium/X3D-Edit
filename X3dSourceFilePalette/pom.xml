@@ -95,7 +95,7 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-netbeans-api-annotations-common</artifactId>
-            <version>RELEASE210</version>
+            <version>RELEASE240</version>
         </dependency>
         <!-- TODO: put all other module dependencies here. Mimic project.xml -->
         <!-- NOTE: Some dependencies like OpenDIS and Xj3D aren't in the central
@@ -106,7 +106,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.13</version>
+                <version>1.7.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>staging-repo</serverId>
@@ -118,7 +118,7 @@
             <plugin>
                 <groupId>org.apache.netbeans.utilities</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
-                <version>14.0</version>
+                <version>14.2</version>
                 <extensions>true</extensions>
                 <executions>
                 <!-- TODO: Prep for total maven production of the NBM -->
@@ -171,14 +171,14 @@
             </plugin>
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.1</version>
+                <version>3.4.2</version>
                 <configuration>
                     <useDefaultManifestFile>true</useDefaultManifestFile>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.2.7</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -207,7 +207,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.6.3</version>
+                <version>3.11.2</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -219,7 +219,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>3.5.0</version>
+                <version>3.8.0</version>
             </plugin>
             <plugin>
                 <artifactId>maven-changes-plugin</artifactId>
@@ -227,12 +227,12 @@
             </plugin>
             <plugin>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.4.1</version>
+                <version>3.5.0</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>animal-sniffer-maven-plugin</artifactId>
-                <version>1.23</version>
+                <version>1.24</version>
             </plugin>
         </plugins>
     </build>
