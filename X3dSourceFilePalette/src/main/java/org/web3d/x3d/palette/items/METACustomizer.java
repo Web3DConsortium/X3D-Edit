@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -113,6 +113,30 @@ public class METACustomizer extends BaseCustomizer
     
     checkMetaNameContentCombinations();
     nameComboBoxTooltipReset ();
+    
+    // lengths of all three string arrays must match in X3DSchemaData configuration information
+    if ((META_ATTR_TODO_CHOICES.length          != META_ATTR_TODO_LIST_LENGTH) ||
+        (META_ATTR_TODO_CHOICES_TOOLTIPS.length != META_ATTR_TODO_LIST_LENGTH) ||
+        (META_ATTR_TODO_URLS.length             != META_ATTR_TODO_LIST_LENGTH))
+    {
+        System.err.println("*** [METACustomizer] Mismatched array lengths:");
+        System.err.println("    META_ATTR_TODO_LIST_LENGTH = "             + META_ATTR_TODO_LIST_LENGTH);
+        System.err.println("    META_ATTR_TODO_CHOICES.length = "          + META_ATTR_TODO_CHOICES.length);
+        System.err.println("    META_ATTR_TODO_CHOICES_TOOLTIPS.length = " + META_ATTR_TODO_CHOICES_TOOLTIPS.length);
+        System.err.println("    META_ATTR_TODO_URLS.length = "             + META_ATTR_TODO_URLS.length);
+    }
+    
+    // lengths of all three string arrays must match in X3DSchemaData configuration information
+    if ((META_ATTR_GENERATOR_CHOICES.length          != META_ATTR_GENERATOR_LIST_LENGTH) ||
+        (META_ATTR_GENERATOR_CHOICES_TOOLTIPS.length != META_ATTR_GENERATOR_LIST_LENGTH) ||
+        (META_ATTR_GENERATOR_URLS.length             != META_ATTR_GENERATOR_LIST_LENGTH))
+    {
+        System.err.println("*** [METACustomizer] Mismatched array lengths:");
+        System.err.println("    META_ATTR_GENERATOR_LIST_LENGTH = "             + META_ATTR_GENERATOR_LIST_LENGTH);
+        System.err.println("    META_ATTR_GENERATOR_CHOICES.length = "          + META_ATTR_GENERATOR_CHOICES.length);
+        System.err.println("    META_ATTR_GENERATOR_CHOICES_TOOLTIPS.length = " + META_ATTR_GENERATOR_CHOICES_TOOLTIPS.length);
+        System.err.println("    META_ATTR_GENERATOR_URLS.length = "             + META_ATTR_GENERATOR_URLS.length);
+    }
   }
   
   /** Check and offer to correct mismatched meta name=content combinations */
@@ -268,9 +292,9 @@ public class METACustomizer extends BaseCustomizer
     }
     String contentLowerCase = content.toLowerCase();
     if (metaName.equalsIgnoreCase("generator") &&
-        (  contentLowerCase.isEmpty() ||
-        ( (contentLowerCase.contains("X3D-Edit".toLowerCase()) || contentLowerCase.contains("X3DEdit".toLowerCase())) &&
-          !content.contains(generatorValueX3dEdit))))
+        (   contentLowerCase.isEmpty() ||
+        ( ((contentLowerCase.contains("X3D-Edit".toLowerCase()) || contentLowerCase.contains("X3DEdit".toLowerCase())) &&
+           !content.contains(generatorValueX3dEdit)))))
     {
         NotifyDescriptor d = new NotifyDescriptor.Confirmation(
            "<html><p align='center'>Update X3D-Edit generator value?</p><p>&nbsp;</p><p align='center'><b>" + generatorValueX3dEdit + "</b></p>",
@@ -970,7 +994,7 @@ public class METACustomizer extends BaseCustomizer
         {
             return;
         }
-        else if ((selection > 0) && (selection <= META_ATTR_TODO_RESET))
+        else if ((selection >= 0) && (selection < META_ATTR_TODO_LIST_LENGTH))
         {
             nameComboBox.setSelectedItem(selectionProse);
             nameComboBox.setToolTipText (META_ATTR_TODO_CHOICES_TOOLTIPS[selection]);
@@ -1319,7 +1343,7 @@ public class METACustomizer extends BaseCustomizer
         {
             return;
         }
-        else if ((selection > 0) && (selection <= META_ATTR_GENERATOR_RESET))
+        else if ((selection >= 0) && (selection < META_ATTR_GENERATOR_LIST_LENGTH))
         {
             nameComboBox.setSelectedItem("generator");
                contentTA.setText        (META_ATTR_GENERATOR_URLS[selection]);
