@@ -249,7 +249,6 @@ public interface X3DSchemaData
 //  int      META_ATTR_TODO_INSTANT_REALITY_EMAIL            =10;
 //  int      META_ATTR_TODO_SWIRL_VIEWER_REPORT              =11;
 //  int      META_ATTR_TODO_XJ3D_PLAYER_BUGZILLA             =12;
-  int      META_ATTR_TODO_RESET                            = 13; // TODO_RESET must be last
 
   String[] META_ATTR_TODO_CHOICES =
   {
@@ -261,7 +260,7 @@ public interface X3DSchemaData
       "TODO X3DOM Player Issue",                                      // 5
       "TODO X_ITE Player Issue",                                      // 6
 //    "TODO BS Contact BitManagement Bug Report",                     //
-      "TODO Castle Model Viewer (formerly castle-model-viewer) Issue",        // 7
+      "TODO Castle Model Viewer (formerly castle-model-viewer) Issue",// 7
       "TODO FreeWrl SourceForge Bugtracker Issue",                    // 8
       "TODO instantReality Forum Issue",                              // 9
       "TODO issues@instantReality.org",                               //10
@@ -269,6 +268,7 @@ public interface X3DSchemaData
       "TODO Xj3D Player SourceForge Issue",                           //11
       "TODO"                                                          //12, new item, must be last
   }; 
+  int      META_ATTR_TODO_LIST_LENGTH = META_ATTR_TODO_CHOICES.length; // must match _TOOLTIPS, _URLS
  
   String[] META_ATTR_TODO_CHOICES_TOOLTIPS = 
   { 
@@ -345,29 +345,30 @@ public interface X3DSchemaData
     "generator Seamless3D, https://www.seamless3d.com",                                // 17
     "generator Seg3D, https://www.sci.utah.edu/cibc-software/seg3d.html",              // 18
     "generator Slicer, https://www.slicer.org",                                        // 19
-    "generator Titania, https://github.com/create3000/titania/wiki",                   // 20
-    "generator Wings3D, https://www.wings3d.com",                                      // 21
-    "generator X3DJSAIL, X3D Java Scene Access Interface Library https://www.web3d.org/specifications/java/X3DJSAIL.html", // 22
-    "generator X3DPSAIL xd.py, X3D Python Scene Access Interface Library https://pypi.org/project/x3d",                    // 23
-    "generator X3dTidy cleanup, https://www.web3d.org/x3d/stylesheets/X3dTidy.html",   // 24
-    "generator X3DJSONLD Loader, https://coderextreme.net/X3DJSONLD",                  // 25
-    "generator ===== Audio Editors ========================",                          // 26
-    "generator Audacity, https://audacity.sourceforge.net",                            // 27
-    "generator MuseScore, https://musescore.org",                                      // 28
-    "generator ===== Image and Video Editors ==============",                          // 29
-    "generator GIMP Gnu Image Manipulation Program, https://www.gimp.org",             // 30
-    "generator FIJI is Just ImageJ, https://fiji.sc/Downloads",                        // 31
-    "generator ImageJ, https://rsbweb.nih.gov/ij/download.html",                       // 32
-    "generator ImageMagick, https://www.imagemagick.org",                              // 33
-    "generator Inkscape, https://www.inkscape.org",                                    // 34
-    "generator avidemux, https://avidemux.sourceforge.net",                            // 35
-    "generator ===== Text and XML Editors =====",                                      // 36
-    "generator NetBeans, https://www.NetBeans.org",                                    // 37
-    "generator UltraEdit, https://www.UltraEdit.com",                                  // 38
-    "generator XML Spy, https://www.altova.com",                                       // 39
-    "generator"                                                                        // 40, new item, must be last
+    "generator Sunrize, https://create3000.github.io/sunrize",                         // 20
+    "generator Titania, https://github.com/create3000/titania/wiki",                   // 21
+    "generator Wings3D, https://www.wings3d.com",                                      // 22
+    "generator X3DJSAIL, X3D Java Scene Access Interface Library https://www.web3d.org/specifications/java/X3DJSAIL.html", // 23
+    "generator X3DPSAIL xd.py, X3D Python Scene Access Interface Library https://pypi.org/project/x3d",                    // 24
+    "generator X3dTidy cleanup, https://www.web3d.org/x3d/stylesheets/X3dTidy.html",   // 25
+    "generator X3DJSONLD Loader, https://coderextreme.net/X3DJSONLD",                  // 26
+    "generator ===== Audio Editors ========================",                          // 27
+    "generator Audacity, https://audacity.sourceforge.net",                            // 28
+    "generator MuseScore, https://musescore.org",                                      // 29
+    "generator ===== Image and Video Editors ==============",                          // 30
+    "generator GIMP Gnu Image Manipulation Program, https://www.gimp.org",             // 31
+    "generator FIJI is Just ImageJ, https://fiji.sc/Downloads",                        // 32
+    "generator ImageJ, https://rsbweb.nih.gov/ij/download.html",                       // 33
+    "generator ImageMagick, https://www.imagemagick.org",                              // 34
+    "generator Inkscape, https://www.inkscape.org",                                    // 35
+    "generator avidemux, https://avidemux.sourceforge.net",                            // 36
+    "generator ===== Text and XML Editors =====",                                      // 37
+    "generator NetBeans, https://www.NetBeans.org",                                    // 38
+    "generator UltraEdit, https://www.UltraEdit.com",                                  // 39
+    "generator XML Spy, https://www.altova.com",                                       // 40
+    "generator"                                                                        // 41, new item, must be last
   };
-  int      META_ATTR_GENERATOR_RESET                                                    = 40; // GENERATOR_RESET must be last
+  int      META_ATTR_GENERATOR_LIST_LENGTH = META_ATTR_GENERATOR_CHOICES.length; // must match _TOOLTIPS and _URLS as well
   
   String[] META_ATTR_GENERATOR_CHOICES_TOOLTIPS =
   {
@@ -391,27 +392,28 @@ public interface X3DSchemaData
     "generator Seamless3D Graphics Editor",                                         // 17
     "generator Seg3D, Volume Editor",                                               // 18
     "generator Slicer, Volume Editor",                                              // 19
-    "generator Titania X3D Editor, bring colours to your life!",                    // 20
-    "generator Wings3D, 3D Graphics Editor",                                        // 21
-    "generator X3DJSAIL, X3D Java Scene Access Interface Library",                  // 22
-    "generator X3DPSAIL x3d.py, X3D Python Scene Access Interface Library",         // 23
-    "generator X3dTidy for Scene Cleanup, Corrections and Modifications",           // 24
-    "generator X3DJSONLD, X3D JSON Loader Library",                                 // 25
-    "generator ===== Audio Editors =====",                                          // 26
-    "generator Audacity, Audio Editor",                                             // 27
-    "generator MuseScore, Audio Editor",                                            // 28
-    "generator ===== Image and Video Editors =====",                                // 29
-    "generator GIMP Gnu Image Manipulation Program",                                // 30
-    "generator FIJI is Just ImageJ, Image Editor",                                  // 31
-    "generator ImageJ, Image Editor",                                               // 32
-    "generator ImageMagick, Image Editor",                                          // 33
-    "generator Inkscape, Drawing and Design Tool",                                  // 34
-    "generator avidemux, Video Editor",                                             // 35
-    "generator ===== Text and XML Editors =====",                                   // 36
-    "generator NetBeans, Integrated Developer Environment (IDE)",                   // 37
-    "generator UltraEdit, Text Editor",                                             // 38
-    "generator XML Spy, XML Editor",                                                // 39
-    "Enter new generator name"                                                      // 40, must be last
+    "generator Sunrize Multi-platform X3D Editor",                                  // 20
+    "generator Titania X3D Editor, bring colours to your life!",                    // 21
+    "generator Wings3D, 3D Graphics Editor",                                        // 22
+    "generator X3DJSAIL, X3D Java Scene Access Interface Library",                  // 23
+    "generator X3DPSAIL x3d.py, X3D Python Scene Access Interface Library",         // 24
+    "generator X3dTidy for Scene Cleanup, Corrections and Modifications",           // 25
+    "generator X3DJSONLD, X3D JSON Loader Library",                                 // 26
+    "generator ===== Audio Editors =====",                                          // 27
+    "generator Audacity, Audio Editor",                                             // 28
+    "generator MuseScore, Audio Editor",                                            // 29
+    "generator ===== Image and Video Editors =====",                                // 30
+    "generator GIMP Gnu Image Manipulation Program",                                // 31
+    "generator FIJI is Just ImageJ, Image Editor",                                  // 32
+    "generator ImageJ, Image Editor",                                               // 33
+    "generator ImageMagick, Image Editor",                                          // 34
+    "generator Inkscape, Drawing and Design Tool",                                  // 35
+    "generator avidemux, Video Editor",                                             // 36
+    "generator ===== Text and XML Editors =====",                                   // 37
+    "generator NetBeans, Integrated Developer Environment (IDE)",                   // 38
+    "generator UltraEdit, Text Editor",                                             // 39
+    "generator XML Spy, XML Editor",                                                // 40
+    "Enter new generator name"                                                      // 41, must be last
   };
   
   String[] META_ATTR_GENERATOR_URLS  =
@@ -436,26 +438,28 @@ public interface X3DSchemaData
     "Seamless 3D, https://www.seamless3d.com",                                         // 17
     "Seg3D, https://www.sci.utah.edu/cibc-software/seg3d.html",                        // 18
     "Slicer, https://www.slicer.org",                                                  // 19
-    "Titania, https://create3000.de",                                                  // 20
-    "Wings3D, https://www.wings3d.com",                                                // 21
-    "X3DJSAIL, https://www.web3d.org/specifications/java/X3DJSAIL.html",               // 22
-    "X3DPSAIL x3d.py, https://pypi.org/project/x3d",                                   // 23
-    "X3DJSONLD Loader, https://coderextreme.net/X3DJSONLD",                            // 24
-    "", // intentionally unused                                                        // 25
-    "Audacity, https://audacity.sourceforge.net",                                      // 26
-    "MuseScore, https://musescore.org",                                                // 27
-    "", // intentionally unused                                                        // 28
-    "GIMP Gnu Image Manipulation Program, https://www.gimp.org",                       // 29
-    "FIJI is Just ImageJ, https://fiji.sc/Downloads",                                  // 30
-    "ImageJ, https://rsbweb.nih.gov/ij/download.html",                                 // 31
-    "ImageMagick, https://www.imagemagick.org",                                        // 32
-    "Inkscape, https://www.inkscape.org",                                              // 33
-    "avidemux, https://avidemux.sourceforge.net",                                      // 34
-    "", // intentionally unused                                                        // 35
-    "NetBeans, https://www.NetBeans.org",                                              // 36
-    "UltraEdit, https://www.UltraEdit.com",                                            // 37
-    "XML Spy, https://www.altova.com",                                                 // 38
-    ""                                                                                 // 39, must be last
+    "Sunrize, https://create3000.github.io/sunrize",                                   // 20
+    "Titania, https://create3000.de",                                                  // 21
+    "Wings3D, https://www.wings3d.com",                                                // 22
+    "X3DJSAIL, https://www.web3d.org/specifications/java/X3DJSAIL.html",               // 23
+    "X3DPSAIL x3d.py, https://pypi.org/project/x3d",                                   // 24
+    "X3dTidy, https://www.web3d.org/x3d/stylesheets/X3dTidy.html",                     // 25
+    "X3DJSONLD Loader, https://coderextreme.net/X3DJSONLD",                            // 26
+    "", // intentionally unused                                                        // 27
+    "Audacity, https://audacity.sourceforge.net",                                      // 28
+    "MuseScore, https://musescore.org",                                                // 29
+    "", // intentionally unused                                                        // 30
+    "GIMP Gnu Image Manipulation Program, https://www.gimp.org",                       // 31
+    "FIJI is Just ImageJ, https://fiji.sc/Downloads",                                  // 32
+    "ImageJ, https://rsbweb.nih.gov/ij/download.html",                                 // 33
+    "ImageMagick, https://www.imagemagick.org",                                        // 34
+    "Inkscape, https://www.inkscape.org",                                              // 35
+    "avidemux, https://avidemux.sourceforge.net",                                      // 36
+    "", // intentionally unused                                                        // 37
+    "NetBeans, https://www.NetBeans.org",                                              // 38
+    "UltraEdit, https://www.UltraEdit.com",                                            // 39
+    "XML Spy, https://www.altova.com",                                                 // 40
+    ""                                                                                 // 41, must be last
   };
 
   // component element
