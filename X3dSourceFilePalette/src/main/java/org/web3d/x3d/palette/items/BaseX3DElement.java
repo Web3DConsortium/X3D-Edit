@@ -489,7 +489,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         {
           // no action
         }
-        else if(!containedContent.isBlank() && !sb.toString().trim().endsWith(">"))
+        else if(containedContent.isBlank() && !sb.toString().trim().endsWith(">"))
 	{
 	  	sb.append("/>");
         }
@@ -3163,6 +3163,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         
         // TODO how to handle unchecked cast warning? should return List<Element> of DOM Element; new JDOM needed to fix it
         // https://stackoverflow.com/questions/509076/how-do-i-address-unchecked-cast-warnings
+        @SuppressWarnings("unchecked")
         List<Element> metaList = (List<Element>) headElement.getChildren("meta");
         
         // https://stackoverflow.com/questions/18410035/ways-to-iterate-over-a-list-in-java
