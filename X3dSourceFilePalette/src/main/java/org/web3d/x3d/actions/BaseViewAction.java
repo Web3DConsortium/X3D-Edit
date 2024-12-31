@@ -86,7 +86,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String ECMASCRIPT_SPECIFICATION               ="https://262.ecma-international.org/14.0";
   public final static String KHRONOS_GLTF_REGISTRY                  ="https://registry.khronos.org/glTF";
   public final static String KHRONOS_GLTF_2_0_SPECIFICATION         ="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html";
-  public final static String MIDI_SPECIFICATIONS                    ="https://www.midi.org/specifications";
+  public final static String MIDI_SPECIFICATIONS                    ="https://www.midi.org/specs";
   public final static String MIDI_2_0_SPECIFICATION                 ="https://www.midi.org/specifications/midi-2-0-specifications";
   public final static String X3D_SCENE_AUTHORING_HINTS_CORS         ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#CORS";
   public final static String X3D_TOOLTIPS                           ="https://www.web3d.org/x3d/tooltips/X3dTooltips.html";
