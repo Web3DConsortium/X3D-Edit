@@ -312,6 +312,18 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     {
         return ""; // special cases outside of X3D
     }
+    else if (getElementName().equals("head") || getElementName().equals("Scene"))
+    {
+        sb.append("  "); // indent 2
+    }
+    else if (getElementName().equals("component") || getElementName().equals("unit") || getElementName().equals("meta"))
+    {
+        sb.append("    "); // indent 4
+    }
+    else // TODO calculate proper indent
+    {
+        sb.append("    "); // indent 4
+    }
     sb.append("<");
     sb.append(getElementName());
 
@@ -458,13 +470,12 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                 sb.append(postDoctype);
         }
     }
-    
-    if (!getElementName().equals("DOCTYPE"))
+    else if (!getElementName().equals("DOCTYPE"))
     {
         // DEF or USE (if any), containerField (if not default)
         sb.append(createElementNameCommonX3dAttributes());
     }
-    
+    // the next step is essential
     if (isDEF() || isUSE()) // equivalent to checking if X3D node (not statement)?
     {
         String attrs = createAttributes().trim();
