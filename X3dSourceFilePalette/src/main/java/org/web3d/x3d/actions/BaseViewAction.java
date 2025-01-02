@@ -89,6 +89,9 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String MIDI_SPECIFICATIONS                    ="https://www.midi.org/specs";
   public final static String MIDI_2_0_SPECIFICATION                 ="https://www.midi.org/specifications/midi-2-0-specifications";
   public final static String X3D_SCENE_AUTHORING_HINTS_CORS         ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#CORS";
+  public final static String X3D_RESOURCES_MIME                     ="https://www.web3d.org/x3d/content/examples/X3dResources.html#MIME";
+  public final static String X3D_MEDIA_TYPES_IANA                   ="https://www.iana.org/assignments/media-types/media-types.xhtml";
+  public final static String X_ITE_CONFIGURE_YOUR_WEB_SERVER        ="https://create3000.github.io/x_ite/how-to-configure-your-web-server";
   public final static String X3D_TOOLTIPS                           ="https://www.web3d.org/x3d/tooltips/X3dTooltips.html";
   public final static String X3D_COURSE                             ="https://www.web3d.org/x3d/content/examples/slidesets";
   public final static String X3D_COURSE_VIDEOS                      ="https://www.youtube.com/channel/UCSOnGlgAFxkWg8ilg-JEbAQ";
