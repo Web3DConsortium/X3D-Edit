@@ -42,6 +42,9 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_SCENE_AUTHORING_HINTS_CORS;
+//import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_MIME;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_MEDIA_TYPES_IANA;
+import static org.web3d.x3d.actions.BaseViewAction.X_ITE_CONFIGURE_YOUR_WEB_SERVER;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3dSceneAuthoringHintsCorsAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/HTML5_Logo_32.png",
@@ -58,6 +61,9 @@ public final class LaunchX3dSceneAuthoringHintsCorsAction extends CallableSystem
   @Override
   public void performAction()
   {
+//  BaseViewAction.sendBrowserTo(X3D_RESOURCES_MIME);
+    BaseViewAction.sendBrowserTo(X3D_MEDIA_TYPES_IANA);
+    BaseViewAction.sendBrowserTo(X_ITE_CONFIGURE_YOUR_WEB_SERVER);
     BaseViewAction.sendBrowserTo(X3D_SCENE_AUTHORING_HINTS_CORS);
   }
 
