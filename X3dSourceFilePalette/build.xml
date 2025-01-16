@@ -180,6 +180,7 @@
         <echo message="prerequisite: Xj3D build all"/>
         <copy todir="release/modules/ext/" preservelastmodified="true" overwrite="true" force="true" verbose="true">
             <fileset dir="${xj3d.dir}/jars/" includes="aviatrix3d-all_3.1.1-nps.jar"/>
+            <fileset dir="${xj3d.dir}/jars/" includes="jogamp-fat.jar"/>
             <fileset dir="${xj3d.dir}/jars/" includes="xj3d-2.3-3rdparty-nps.jar"/>
             <fileset dir="${xj3d.dir}/jars/" includes="xj3d-2.3-nps.jar"/>
             <fileset dir="${xj3d.dir}/jars/" includes="xj3d.browser_2.3.0-nps.jar"/>
