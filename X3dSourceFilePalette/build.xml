@@ -7,7 +7,7 @@
 
     <property file="nbproject/project.properties"/>
 
-    <taskdef uri="antlib:org.apache.maven.resolver.ant" 
+    <taskdef uri="antlib:org.apache.maven.resolver.ant"
              resource="org/apache/maven/resolver/ant/antlib.xml"
              classpath="lib/maven-resolver-ant-tasks-1.4.0-uber.jar"/>
 
@@ -288,7 +288,7 @@
     <!-- Perform this task whenever the Savage server cert has changed/updated.
          As per the server-cert-keystore-readme.txt in release/modules/ext, this
          process is now automated. TODO: remove this construct. -->
-    <target name="update.server.cert" 
+    <target name="update.server.cert"
             description="To be accomplished anytime there is a certificate change/update, or change in server configuration">
         <echo message="openssl pull down the new/updated server cert"/>
         <!-- TODO obsolete?
@@ -347,37 +347,37 @@
             <arg line="-list -v -keystore server-cert-keystore.jks -storepass ${storepass} -alias ${nbm_alias}"/>
         </exec>
     </target>-->
-    
+
     <!-- Maven deploy/release targets -->
-    
-    <!-- deploy.snapshot will prepare, sign and deploy a snapshot version of the 
+
+    <!-- deploy.snapshot will prepare, sign and deploy a snapshot version of the
          NBM to the Sonatype snapshot repository.
-    
-         stage.release will prepare, sign and deploy all release artifacts to 
-         the Sonatype staging repository where the packaged upload can then be 
+
+         stage.release will prepare, sign and deploy all release artifacts to
+         the Sonatype staging repository where the packaged upload can then be
          closed and released from https://s01.oss.sonatype.org
     -->
-    
+
     <target name="prepare.repositories" depends="init">
-    
+
         <!-- Can use ${pom.property} syntax with this -->
         <resolver:pom file="pom.xml" id="pom"/>
-        
+
         <property name="snapshot.nbm" value="${build.dir}/${pom.artifactId}-${pom.version}-SNAPSHOT.nbm"/>
         <property name="release.nbm" value="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
         <property name="sources.jar"  value="${build.dir}/${pom.artifactId}-${pom.version}-sources.jar"/>
         <property name="javadoc.jar"  value="${build.dir}/${pom.artifactId}-${pom.version}-javadoc.jar"/>
-    
-        <resolver:remoterepo id="snapshot-repo" url="${ossrh-snapshots-repository-url}" 
-                             type="default" releases="false" snapshots="true" 
+
+        <resolver:remoterepo id="snapshot-repo" url="${ossrh-snapshots-repository-url}"
+                             type="default" releases="false" snapshots="true"
                              updates="always" checksums="fail"/>
-    
-        <resolver:remoterepo id="staging-repo" url="${ossrh-staging-repository-url}" 
-                             type="default" releases="true" snapshots="false" 
+
+        <resolver:remoterepo id="staging-repo" url="${ossrh-staging-repository-url}"
+                             type="default" releases="true" snapshots="false"
                              updates="daily" checksums="warn"/>
     </target>
-    
-    <target name="deploy.snapshot" depends="clean,prepare.repositories,nbm" 
+
+    <target name="deploy.snapshot" depends="clean,prepare.repositories,nbm"
             description="Generate and deploy a SNAPSHOT NBM to Sonatype Open Source Software (OSS) Repository Hosting (OSSRH) snapshot repo">
         <move file="${build.dir}/${code-name-base}.nbm" toFile="${snapshot.nbm}"/>
         <resolver:artifacts id="snapshot">
@@ -387,10 +387,10 @@
             <remoteRepo refid="snapshot-repo"/>
         </resolver:deploy>
     </target>
-    
+
     <target name="package" depends="clean,nbm,javadoc" description="Prepare for a Maven release">
         <move file="${build.dir}/${code-name-base}.nbm" toFile="${release.nbm}"/>
-        
+
         <!-- build the javadoc jar -->
         <jar jarfile="${javadoc.jar}">
             <fileset dir="${netbeans.javadoc.dir}"/>
@@ -401,7 +401,7 @@
             <fileset dir="${src.dir}"/>
         </jar>
     </target>
-    
+
     <!-- Macrodef from: https://apache.googlesource.com/pig/+/e22fcb2967489388f07307e3de689a7c9cc9b6f8/build.xml -->
     <target name="sign" depends="clean.sign">
         <macrodef name="sign-artifact" description="GPG signs all artifacts">
@@ -421,19 +421,19 @@
         <sign-artifact input.file="${sources.jar}"/>
         <sign-artifact input.file="${javadoc.jar}"/>
     </target>
-    
+
     <target name="clean.sign" depends="init" description="Delete .asc files">
        <delete>
          <fileset dir="${build.dir}" includes="*.asc"/>
          <fileset dir="${basedir}" includes="*.asc"/>
        </delete>
     </target>
-    
-    <!-- 
-         *** Make sure to comply with src/doc/ReadMe for Version preparation first *** 
+
+    <!--
+         *** Make sure to comply with src/doc/ReadMe for Version preparation first ***
     -->
     <!-- Example for deploying .asc files from here: https://github.com/vigna/dsiutils/blob/master/build.xml -->
-    <target name="stage.release" depends="prepare.repositories,package,sign" 
+    <target name="stage.release" depends="prepare.repositories,package,sign"
             description="Generate and deploy a Release NBM and artifacts to Sonatype Open Source Software (OSS) Repository Hosting (OSSRH) staging repo for synching to Maven Central">
         <resolver:artifacts id="release">
             <!-- pom is automatically deployed -->
@@ -448,7 +448,7 @@
         <resolver:deploy artifactsref="release">
             <remoteRepo refid="staging-repo"/>
         </resolver:deploy>
-        <echo message="Ready to now close, then release artifacts from: https://s01.oss.sonatype.org"/>
+        <echo message="Ready now to close, then release artifacts from: https://s01.oss.sonatype.org"/>
         <nbbrowse url="https://s01.oss.sonatype.org"/>
     </target>
 
