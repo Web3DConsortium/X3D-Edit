@@ -6,14 +6,14 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Distribution, 2 January 2025
+# X3D-Edit 4.0 Distribution, 16 January 2025
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
 
 This directory shares **official release files** as part of official X3D-Edit applications release.
 
-Primary software deployment is found in [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.
+Primary software deployment is found in [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.    
 
 Backup software deployment is found in  [Maven Central Repository](https://central.sonatype.com/artifact/org.web3d.x3d.tools/x3dedit) distribution support.
 
