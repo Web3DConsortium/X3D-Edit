@@ -138,7 +138,7 @@ abstract public class BaseViewAction extends CallableSystemAction
 //public final static String X3D4_SCENEACCESSINTERFACE_SAI_STANDARD ="https://www.web3d.org/documents/specifications/19775-2/V3.3/Part02/X3D_SAI.html";
 //public final static String X3D_XML_ENCODING_STANDARD              ="https://www.web3d.org/documents/specifications/19776-1/V3.3/Part01/X3D_XML.html";
 //public final static String X3D_CLASSICVRML_ENCODING_STANDARD      ="https://www.web3d.org/documents/specifications/19776-2/V3.3/Part02/X3D_ClassicVRML.html";
-  public final static String X3D4_SCENEACCESSINTERFACE_SAI_STANDARD ="https://web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-2v4.0-WD1/Part02/X3D_SAI.html";
+  public final static String X3D4_SCENEACCESSINTERFACE_SAI_STANDARD ="https://web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-2v4.0-CD/Part02/X3D_SAI.html";
   public final static String X3D_XML_ENCODING_STANDARD              ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19776-1v4.0-WD1/Part01/X3D_XML.html";
   public final static String X3D_CLASSICVRML_ENCODING_STANDARD      ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19776-2v4.0-WD1/Part02/X3D_ClassicVRML.html";
   public final static String X3D_COMPRESSED_BINARY_ENCODING_STANDARD="https://www.web3d.org/documents/specifications/19776-3/V3.3/Part03/X3D_Binary.html";
