@@ -776,7 +776,7 @@ public class X3dEditUserPreferences
   private static final String winxpInkscapeEditorPathDefault             = "C:\\Program Files\\Inkscape\\Inkscape";
   private static final String winxpSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String winxpWhiteDuneX3dEditorPathDefault         = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
-  private static final String winxpWingsX3dEditorPathDefault             = "C:\\Program Files\\wings3d_2.2.9\\Wings3D.exe";
+  private static final String winxpWingsX3dEditorPathDefault             = "C:\\Program Files\\wings3d_2.4.1\\Wings3D.exe";
   private static final String winxpUltraEditX3dEditorPathDefault         = "C:\\Program Files\\IDM Computer Solutions\\UltraEdit\\uedit32.exe";
 
   private static final String windows64AudacityEditorPathDefault         = "C:\\Program Files\\Audacity\\audacity.exe";
@@ -808,7 +808,7 @@ public class X3dEditUserPreferences
   private static final String windows64InkscapeEditorPathDefault         = "C:\\Program Files\\Inkscape\\bin\\inkscape.exe";
   private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String windows64WhiteDuneX3dEditorPathDefault     = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
-  private static final String windows64WingsX3dEditorPathDefault         = "C:\\Program Files\\wings3d_2.2.9\\Wings3D.exe";
+  private static final String windows64WingsX3dEditorPathDefault         = "C:\\Program Files\\wings3d_2.4.1\\Wings3D.exe";
   private static final String windows64UltraEditX3dEditorPathDefault     = "C:\\Program Files\\IDM Computer Solutions\\UltraEdit\\uedit64.exe";
   
   private static final String macosxAudacityEditorPathDefault            = "audacity";       // TODO insert correct value
