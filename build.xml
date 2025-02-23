@@ -69,7 +69,7 @@
     </target>
     
     <!-- override build to add a way to update branding -->
-    <target name="build" depends="build-brand,suite.build">
+    <target name="build" depends="versions,build-brand,suite.build">
         <!-- TODO can we shift this message to become a dependency in a prerelease target? -->
         <echo message="*** Release preparations: run target 'generate.nbm.signing.cert'"/>
     </target>
@@ -294,6 +294,61 @@
     <target name="view.harness.readme" description="view the NetBeans harness README file">
         <loadfile property="message" srcFile="${harness.readme}"/>
         <echo message="${message}"/>
+    </target>
+
+    <target name="versions" description="show tool versions and environment values">
+        <echo>=============</echo>
+        <echo>ant -version</echo>
+        <exec executable="ant"     dir="." vmlauncher="false">
+            <arg value="-version"/>
+        </exec>
+        <echo message="NetBeans ant directory is set under Tools > Options > Java"/>
+        <echo>which ant</echo>
+        <exec executable="which"    dir="." vmlauncher="false">
+            <arg value="ant"/>
+        </exec>
+        <echo>ant xmlvalidate this build file, build.xml</echo>
+        <xmlvalidate file="build.xml" lenient="true"/>
+        <!-- no DTD or schema for build files so further validation not possible -->
+        <echo>=============</echo>
+        <echo>java -version</echo>
+        <exec executable="java"    dir="." vmlauncher="false">
+            <arg value="-version"/>
+        </exec>
+        <echo>which java</echo>
+        <exec executable="which"    dir="." vmlauncher="false">
+            <arg value="java"/>
+        </exec>
+        <echo>=============</echo>
+        <echo>python -version</echo>
+        <exec executable="${python}"  dir="." vmlauncher="false">
+            <arg value="--version"/>
+        </exec>
+        <echo>which python</echo>
+        <exec executable="which"    dir="." vmlauncher="false">
+            <arg value="python"/>
+        </exec>
+        <echo>=============</echo>
+        <!-- https://www.saxonica.com/documentation12/index.html#!using-xsl/commandline -->
+        <echo>saxon -? help</echo>
+        <java classname="net.sf.saxon.Transform" classpath="${saxon.classpath}" failonerror="true">
+        <arg value="-?" description="help information"/>
+        </java>
+        <echo>=============</echo>
+        <echo>System environment variables:</echo>
+        <!-- Ant environment variables https://ant.apache.org/manual/Tasks/property.html -->
+        <echo>  ANT_HOME=${env.ANT_HOME}</echo>
+        <echo> JAVA_HOME=${env.JAVA_HOME}</echo>
+        <echo>PYTHONPATH=${env.PYTHONPATH}</echo>
+    <!--<echo>USER      =${env.USER}</echo> -->
+        <!-- https://stackoverflow.com/questions/949678/ant-is-using-wrong-java-version -->
+        <echo>javac source version     $java.source=${java.source}</echo>
+        <echo>Java/JVM version    $ant.java.version=${ant.java.version}</echo>
+        <echo>Java/JVM detail version $java.version=${java.version}</echo>
+        <echo>Ant version              $ant.version=${ant.version}</echo>
+        <echo>=============</echo>
+        <!-- TODO NetBeans version -->
+        <!-- TODO NetBeans project version -->
     </target>
     
 </project>
