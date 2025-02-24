@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -43,24 +43,24 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.WEB3D_STANDARDS;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_STANDARDS_PROGRESS;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchWeb3DRecommendedStandardsAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.actions.LaunchX3DStandardsProgressAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/Web3dIcon32x32.png",
                     displayName = "#CTL_LaunchWeb3DRecommendedStandardsAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 50),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 50)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 100)
 })
 
 @SuppressWarnings("serial")
-public final class LaunchWeb3DRecommendedStandardsAction extends CallableSystemAction
+public final class LaunchX3DStandardsProgressAction extends CallableSystemAction
 {
   @Override
   public void performAction()
   {
-    sendBrowserTo(WEB3D_STANDARDS);
+    sendBrowserTo(X3D_STANDARDS_PROGRESS);
   }
   
   protected static void sendBrowserTo(String urlString)
@@ -84,7 +84,7 @@ public final class LaunchWeb3DRecommendedStandardsAction extends CallableSystemA
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchWeb3DRecommendedStandardsAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchX3DStandardsProgressAction");
   }
 
   @Override
