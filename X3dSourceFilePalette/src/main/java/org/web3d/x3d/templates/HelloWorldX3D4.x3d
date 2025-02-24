@@ -5,7 +5,7 @@
     <meta content='HelloWorldX3D4.x3d' name='title'/>
     <meta content='Test X3D version 4 with simple X3D model example: Hello World!' name='description'/>
     <meta content='10 June 2021' name='created'/>
-    <meta content='9 July 2023' name='modified'/>
+    <meta content='24 February 2025' name='modified'/>
     <meta content='Don Brutzman' name='creator'/>
     <meta content='HelloWorld.tall.png' name='Image'/>
     <meta content='https://en.wikipedia.org/wiki/Hello_world' name='reference'/>
@@ -33,7 +33,6 @@
     <WorldInfo DEF='WorldInfoSecondary' class='TestClass' id='TestID' style='TestStyle' title='test HTML CSS fields'/>
     <NavigationInfo/>
     <Group>
-      <PointLight shadows='true'/>
       <Viewpoint DEF='ViewUpClose' centerOfRotation='0 -1 0' description='Hello world!' position='0 -1 7'/>
       <Transform rotation='0 1 0 3'>
         <Shape>
