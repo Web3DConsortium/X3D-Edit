@@ -375,7 +375,7 @@
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/saxon-he-12.5.jar</runtime-relative-path>
-                <binary-origin>C:\x3d-github\X3D-Edit\X3dSourceFilePalette\release\modules\ext\saxon-he-12.5.jar</binary-origin>
+                <binary-origin>release/modules/ext/saxon-he-12.5.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/log4j-core-2.19.0.jar</runtime-relative-path>
