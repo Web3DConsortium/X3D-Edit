@@ -6,7 +6,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Distribution, 16 January 2025
+# X3D-Edit 4.0 Distribution, 25 February 2025
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
@@ -19,8 +19,8 @@ Backup software deployment is found in  [Maven Central Repository](https://centr
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Recommended, tested satisfactorily, any operating system       |  259.7 MB | 31 December 2024
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;24. tested satisfactorily, any operating system |   120.3 MB | 31 December 2024
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Recommended, tested satisfactorily, any operating system       |  260.7 MB | 25 February 2025
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;25. tested satisfactorily, any operating system |   129.8 MB | 25 February 2025
 
 <!---
 [x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | See installation workaround below                              |  206.2 MB | 7 July 2024, pending

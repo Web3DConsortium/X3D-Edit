@@ -33,15 +33,17 @@
  */
 package org.web3d.x3d.actions.qualityassurance;
 
-import net.sf.saxon.s9api.*;
+//import net.sf.saxon.s9api.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JMenuItem;
-import javax.xml.transform.*;
+import javax.xml.transform.ErrorListener;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import org.netbeans.api.xml.cookies.CookieMessage;
@@ -54,10 +56,8 @@ import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
 import org.openide.filesystems.FileObject;
-import org.openide.filesystems.FileStateInvalidException;
 import org.openide.filesystems.FileSystem;
 import org.openide.filesystems.FileUtil;
-import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.RequestProcessor;
@@ -203,60 +203,61 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                     FileSystem fileSystem;
                     FileObject fileObject;
                     File classicVrmlOutputFile, schematronOutputFile, schematronOutputFile2; // schematron is two-pass process
-                    Result result;
+                    
+                    StreamResult result;
                     BufferedReader rdr;
                     TransformableSupport transformer = x3dDataObject.getTransformXmlHelper();
                     
-                if (false) // skip this test
-                {
-                    // X3dToX3dvClassicVrmlEncoding
-                    try {
-                        fileSystem = FileUtil.getConfigRoot().getFileSystem();
-                        fileObject = fileSystem.findResource("Schematron/X3dToX3dvClassicVrmlEncoding.xslt");
-                        
-                        Source stylesheetStreamSource = new StreamSource(fileObject.getInputStream());
-                        classicVrmlOutputFile = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_classicVrmlOutput.txt");
-                        classicVrmlOutputFile.deleteOnExit();
-                        result = new StreamResult(classicVrmlOutputFile);
-                        
-                        outputWriterPlain.println();
-                        outputWriterPlain.println("Performing X3dToX3dvClassicVrmlEncoding.xslt conversion check...");
-
-                        // continue with XSLT transformation (depends on saxon, not JAXB since XSLT 2.0)
-                        // Example code from saxon-resources he.S9APIExamples TransformA public void run() throws SaxonApiException {
-                        Processor processor = new Processor(false);
-                        XsltCompiler compiler = processor.newXsltCompiler();
-                        XsltExecutable stylesheet = compiler.compile(stylesheetStreamSource); // new File("styles/books.xsl")));
-                        Serializer out = processor.newSerializer(classicVrmlOutputFile); // new File("books.html"));
-                        out.setOutputProperty(Serializer.Property.METHOD, "html");
-                        out.setOutputProperty(Serializer.Property.INDENT, "yes");
-                        Xslt30Transformer xslt30Transformer = stylesheet.load30();
-                        xslt30Transformer.transform(new StreamSource(classicVrmlOutputFile /*new File("data/books.xml")*/), out);
-                        
-                        outputWriterPlain.println("ClassicVrml output written to " + classicVrmlOutputFile.getPath()); // books.html");
-                        outputWriterPlain.println("TODO how to report conversion log?  Looking for diagnostic messages as output of interest...");
-                    }
-                    catch (SaxonApiException sae)
-                    {
-                        System.out.println ("SaxonApiException " + sae.getMessage());
-                        Exceptions.printStackTrace(sae);
-                    } 
-                    catch (FileStateInvalidException fsie) 
-                    {
-                        System.out.println ("FileStateInvalidException " + fsie.getMessage());
-                        Exceptions.printStackTrace(fsie);
-                    }
-                    catch (FileNotFoundException fnf) 
-                    {
-                        System.out.println ("FileNotFoundException " + fnf.getMessage());
-                        Exceptions.printStackTrace(fnf);
-                    }
-                    catch (IOException ioe) 
-                    {
-                        System.out.println ("IOException " + ioe.getMessage());
-                        Exceptions.printStackTrace(ioe);
-                    }
-                } // hide
+//////                if (false) // skip this test, code block uses obsolete version of saxon
+//////                {
+//////                    // X3dToX3dvClassicVrmlEncoding
+//////                    try {
+//////                        fileSystem = FileUtil.getConfigRoot().getFileSystem();
+//////                        fileObject = fileSystem.findResource("Schematron/X3dToX3dvClassicVrmlEncoding.xslt");
+//////                        
+//////                        Source stylesheetStreamSource = new StreamSource(fileObject.getInputStream());
+//////                        classicVrmlOutputFile = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_classicVrmlOutput.txt");
+//////                        classicVrmlOutputFile.deleteOnExit();
+//////                        result = new StreamResult(classicVrmlOutputFile);
+//////                        
+//////                        outputWriterPlain.println();
+//////                        outputWriterPlain.println("Performing X3dToX3dvClassicVrmlEncoding.xslt conversion check...");
+//////
+//////                        // continue with XSLT transformation (depends on saxon, not JAXB since XSLT 2.0)
+//////                        // Example code from saxon-resources he.S9APIExamples TransformA public void run() throws SaxonApiException {
+//////                        Processor processor = new Processor(false);
+//////                        XsltCompiler compiler = processor.newXsltCompiler();
+//////                        XsltExecutable stylesheet = compiler.compile(stylesheetStreamSource); // new File("styles/books.xsl")));
+//////                        Serializer out = processor.newSerializer(classicVrmlOutputFile); // new File("books.html"));
+//////                        out.setOutputProperty(Serializer.Property.METHOD, "html");
+//////                        out.setOutputProperty(Serializer.Property.INDENT, "yes");
+//////                        Xslt30Transformer xslt30Transformer = stylesheet.load30();
+//////                        xslt30Transformer.transform(new StreamSource(classicVrmlOutputFile /*new File("data/books.xml")*/), out);
+//////                        
+//////                        outputWriterPlain.println("ClassicVrml output written to " + classicVrmlOutputFile.getPath()); // books.html");
+//////                        outputWriterPlain.println("TODO how to report conversion log?  Looking for diagnostic messages as output of interest...");
+//////                    }
+//////                    catch (SaxonApiException sae)
+//////                    {
+//////                        System.out.println ("SaxonApiException " + sae.getMessage());
+//////                        Exceptions.printStackTrace(sae);
+//////                    } 
+//////                    catch (FileStateInvalidException fsie) 
+//////                    {
+//////                        System.out.println ("FileStateInvalidException " + fsie.getMessage());
+//////                        Exceptions.printStackTrace(fsie);
+//////                    }
+//////                    catch (FileNotFoundException fnf) 
+//////                    {
+//////                        System.out.println ("FileNotFoundException " + fnf.getMessage());
+//////                        Exceptions.printStackTrace(fnf);
+//////                    }
+//////                    catch (IOException ioe) 
+//////                    {
+//////                        System.out.println ("IOException " + ioe.getMessage());
+//////                        Exceptions.printStackTrace(ioe);
+//////                    }
+//////                } // hide
                     
 /* Xalan, fails on XSLT 2.0
                     try {
@@ -295,7 +296,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                         final CookieObserver myCo = new MyCookieObserver(usingFilter, true, outputWriterError, outputWriterPlain);
                         // X3D Schematron 1
                         fileObject = fileSystem.findResource("Schematron/X3dSchematronValidityChecks.xslt");
-                        Source inputStreamSource = new StreamSource(fileObject.getInputStream());
+                        StreamSource inputStreamSource = new StreamSource(fileObject.getInputStream());
                         schematronOutputFile = File.createTempFile(x3dDataObject.getPrimaryFile().getNameExt() + "_", "_schematronOutput_1.txt");
                         schematronOutputFile.deleteOnExit();
                         result = new StreamResult(schematronOutputFile);
