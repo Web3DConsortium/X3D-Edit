@@ -6,7 +6,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Prerelease, 24 February 2025
+# X3D-Edit 4.0 Prerelease, 25 February 2025
 
 <!-- posted at https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/ -->
 
@@ -18,7 +18,7 @@ Backup software deployment is found in  [Maven Central Repository](https://centr
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Recommended, tested satisfactorily, any operating system       |  260.7 MB | 24 February 2025
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Recommended, tested satisfactorily, any operating system       |  260.7 MB | 25 February 2025
 [org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;25. tested satisfactorily, any operating system |   129.8 MB | 24  February 2025
 
 <!---
