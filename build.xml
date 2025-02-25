@@ -63,7 +63,7 @@
     =============
     -->
     
-    <target name="all" depends="clean, build">
+    <target name="all" depends="clean,build,generate.nbm.signing.cert,update-keystore-info">
         <echo message="*** Release preparations: update X3D-Edit.html prior to final release"/>
         <echo message="build all complete, release results maintained in build.all.log.txt"/>
     </target>
@@ -298,6 +298,7 @@
 
     <target name="versions" description="show tool versions and environment values">
         <echo>=============</echo>
+        <echo>NetBeans can use internal (bundled) or external version of Ant</echo>
         <echo>ant -version</echo>
         <exec executable="ant"     dir="." vmlauncher="false">
             <arg value="-version"/>
@@ -319,21 +320,6 @@
         <exec executable="which"    dir="." vmlauncher="false">
             <arg value="java"/>
         </exec>
-        <echo>=============</echo>
-        <echo>python -version</echo>
-        <exec executable="${python}"  dir="." vmlauncher="false">
-            <arg value="--version"/>
-        </exec>
-        <echo>which python</echo>
-        <exec executable="which"    dir="." vmlauncher="false">
-            <arg value="python"/>
-        </exec>
-        <echo>=============</echo>
-        <!-- https://www.saxonica.com/documentation12/index.html#!using-xsl/commandline -->
-        <echo>saxon -? help</echo>
-        <java classname="net.sf.saxon.Transform" classpath="${saxon.classpath}" failonerror="true">
-        <arg value="-?" description="help information"/>
-        </java>
         <echo>=============</echo>
         <echo>System environment variables:</echo>
         <!-- Ant environment variables https://ant.apache.org/manual/Tasks/property.html -->
