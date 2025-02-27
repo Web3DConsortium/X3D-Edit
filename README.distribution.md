@@ -19,8 +19,8 @@ Backup software deployment is found in  [Maven Central Repository](https://centr
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Recommended, tested satisfactorily, any operating system       |  260.7 MB | 25 February 2025
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | NetbBeans&nbsp;25. tested satisfactorily, any operating system |   129.8 MB | 25 February 2025
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Requires NetbBeans&nbsp;25. Tested satisfactorily, any operating system |   129.8 MB | 25 February 2025
+[x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Must set jdkhome in netbeans.conf       |  260.7 MB | 25 February 2025
 
 <!---
 [x3deditmodulesuite-windows.exe](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-windows.exe) | Windows installer                                 | See installation workaround below                              |  206.2 MB | 7 July 2024, pending
@@ -35,16 +35,17 @@ Please see our
 [Installation video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
 [<img align='right' width='400' src="https://savage.nps.edu/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
 
-**Windows users**: there is an issue in both the zip and [X3D-Edit Windows installer](https://github.com/Web3DConsortium/X3D-Edit/issues/3).
-Please note that you will manually need to edit the configuration files to point to your local JDK installation.  For example:
+**Windows users**: there is an issue in both the zip and [X3D-Edit Windows installer](https://github.com/Web3DConsortium/X3D-Edit/issues/3) and our current testing shows this does not work.
+
+If you want to try on another system, please note that you will manually need to edit the configuration files to point to your local JDK installation.  For example:
 
 - Using _localadmin_ permissions, set `jdkhome` permissions in configuration file:
 - `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
-- `jdkhome="C:\Program Files\Java\openjdk\jdk-23.0.1"`
+- `jdkhome="C:\Program Files\Java\openjdk\jdk-23.0.2"`
 
 ## Source Code has Moved
 
-X3D-Edit software development has moved to [GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
+X3D-Edit software development is maintained at [Web3D Consortium GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
 
 Note: SourceForge is excellent!  Nevertheless, in order to conform with trusted-plugin requirements on the 
 [Apache NetBeans Plugin Portal](https://plugins.netbeans.apache.org/catalogue/?id=90).
