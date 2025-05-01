@@ -385,7 +385,7 @@
             <artifact file="${snapshot.nbm}"/>
         </resolver:artifacts>
         <resolver:deploy artifactsref="snapshot">
-            <remoteRepo refid="snapshot-repo"/>
+            <remoteRepo refid="central-snapshot"/>
         </resolver:deploy>
     </target>
 
@@ -447,10 +447,10 @@
             <artifact file="${javadoc.jar}.asc" type="jar.asc" classifier="javadoc"/>
         </resolver:artifacts>
         <resolver:deploy artifactsref="release">
-            <remoteRepo refid="staging-repo"/>
+            <remoteRepo refid="central"/>
         </resolver:deploy>
-        <echo message="Ready now to close, then release artifacts from: https://s01.oss.sonatype.org"/>
-        <nbbrowse url="https://s01.oss.sonatype.org"/>
+        <echo message="Ready now to close, then release artifacts from: https://central.sonatype.com/publishing/deployments"/>
+        <nbbrowse url="https://central.sonatype.com/publishing/deployments"/>
     </target>
 
 </project>
