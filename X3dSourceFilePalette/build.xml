@@ -369,11 +369,11 @@
         <property name="sources.jar"  value="${build.dir}/${pom.artifactId}-${pom.version}-sources.jar"/>
         <property name="javadoc.jar"  value="${build.dir}/${pom.artifactId}-${pom.version}-javadoc.jar"/>
 
-        <resolver:remoterepo id="snapshot-repo" url="${ossrh-snapshots-repository-url}"
+        <resolver:remoterepo id="central-snapshot" url="${ossrh-snapshots-repository-url}"
                              type="default" releases="false" snapshots="true"
                              updates="always" checksums="fail"/>
 
-        <resolver:remoterepo id="staging-repo" url="${ossrh-staging-repository-url}"
+        <resolver:remoterepo id="central" url="${ossrh-staging-repository-url}"
                              type="default" releases="true" snapshots="false"
                              updates="daily" checksums="warn"/>
     </target>
