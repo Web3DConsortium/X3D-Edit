@@ -6,13 +6,13 @@
     <import file="nbproject/build-impl.xml"/>
 
     <property file="nbproject/project.properties"/>
-    
+
   <taskdef uri="antlib:org.apache.maven.resolver.ant"
            resource="org/apache/maven/resolver/ant/antlib.xml"
-           classpath="lib/maven-resolver-ant-tasks-1.5.2.jar" /> <!-- was 1.4.0 TODO not maven-resolver-ant-tasks-1.5.2-uber.jar ?? -->
+           classpath="lib/maven-resolver-ant-tasks-1.5.2-uber.jar" /> <!-- was 1.4.0 -->
   <!-- instructions https://maven.apache.org/resolver-ant-tasks/https://maven.apache.org/resolver-ant-tasks/ -->
-  <!-- jar found at https://mvnrepository.com/artifact/org.apache.maven.resolver/maven-resolver-ant-tasks -->
-  
+  <!-- jar found at https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-ant-tasks/1.5.2/maven-resolver-ant-tasks-1.5.2-uber.jar -->
+
     <!-- override -->
     <target name="clean" depends="projectized-common.clean,-post-clean"/>
 
