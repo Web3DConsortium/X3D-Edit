@@ -8,7 +8,7 @@
     <url>https://github.com/Web3DConsortium/X3D-Edit/</url>
     <inceptionYear>1999</inceptionYear>
     <version>4.0.38</version>
-    <!-- maven requires nbm even though maven schema quacks -->
+    <!-- maven requires "nbm" even though netbeans-mediated maven schema quacks -->
     <packaging>nbm</packaging>
     <organization>
         <name>Web3D Consortium</name>
