@@ -367,14 +367,18 @@
         <resolver:pom file="pom.xml" id="pom"/>
 
         <property name="snapshot.nbm" value="${build.dir}/${pom.artifactId}-${pom.version}-SNAPSHOT.nbm"/>
-        <property name="release.nbm" value="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
+        <property name="release.nbm"  value="${build.dir}/${pom.artifactId}-${pom.version}.nbm"/>
         <property name="sources.jar"  value="${build.dir}/${pom.artifactId}-${pom.version}-sources.jar"/>
         <property name="javadoc.jar"  value="${build.dir}/${pom.artifactId}-${pom.version}-javadoc.jar"/>
+        
+        <echo message="$central-snapshots-repository-url=${central-snapshots-repository-url}"/>
 
         <resolver:remoterepo id="central-snapshot" url="${central-snapshots-repository-url}"
                              type="default" releases="false" snapshots="true"
                              updates="always" checksums="fail"/>
 
+        <echo message="$central-staging-repository-url=${central-staging-repository-url}"/>
+        
         <resolver:remoterepo id="central" url="${central-staging-repository-url}"
                              type="default" releases="true" snapshots="false"
                              updates="daily" checksums="warn"/>
