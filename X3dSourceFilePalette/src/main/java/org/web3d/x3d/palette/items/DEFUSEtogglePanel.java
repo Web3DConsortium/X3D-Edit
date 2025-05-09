@@ -683,7 +683,7 @@ public class DEFUSEtogglePanel extends javax.swing.JPanel
     }
 
     /**
-     * @param parentCustomizerPanel the parentPanel to set
+     * @param passedParentCustomizerPanel the parentPanel to set
      */
     public void setParentPanel(BaseCustomizer passedParentCustomizerPanel)
     {

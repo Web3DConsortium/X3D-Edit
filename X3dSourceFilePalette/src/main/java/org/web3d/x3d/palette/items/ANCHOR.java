@@ -60,6 +60,7 @@ public class ANCHOR extends X3DGroupingNode
   private String[] urls, urlsDefault;
   private String[] parameters;
 
+  /** Constructor */
   public ANCHOR()
   {
   }
@@ -190,16 +191,19 @@ public class ANCHOR extends X3DGroupingNode
     return sb.toString();
   }
 
+  /** attribute accessor method */
   public String getDescription()
   {
     return description;
   }
 
+  /** attribute accessor method */
   public void setDescription(String description)
   {
     this.description = description;
   }
 
+  /** attribute accessor method */
   public String[] getUrls()
   {
     String[] ret = new String[urls.length];
@@ -207,17 +211,21 @@ public class ANCHOR extends X3DGroupingNode
     return ret;
   }
 
+  /** attribute accessor method
+    * @param urlarray url array of interest */
   public void setUrls(String[] urlarray)
   {
     urls = new String[urlarray.length];
     System.arraycopy(urlarray, 0, this.urls, 0, urlarray.length);
   }
 
+  /** attribute accessor method */
   public String[] getParameters()
   {
     return parameters;
   }
 
+  /** attribute accessor method */
   public String getParameterString()
   {
     return formatStringArray(parameters); // includes XML character escaping
