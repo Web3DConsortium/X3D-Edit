@@ -3179,7 +3179,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     }
     
     /** build CLI invocation to start server
-     * @see https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html
+     * @see <a href="https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html" target="_blank">https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html</a>
      */
     public final static void startAuthorModelsServer ()
     {
@@ -3211,7 +3211,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
     }
     
     /** build CLI invocation to start server
-     * @see https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html
+     * @see <a href="https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html" target="_blank">https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html</a>
      */
     public final static void startExampleArchivesServer ()
     {
@@ -3241,7 +3241,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         isAliveExampleArchivesServer = startServer(EXAMPLE_ARCHIVES, commands, X3dEditUserPreferences.getExampleArchivesRootDirectory()); // exampleArchivesDirectoryTextField.getText());
     }
     /** build CLI invocation to start server
-     * @see https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html
+     * @see <a href="https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html" target="_blank">https://docs.oracle.com/en/java/javase/20/docs/specs/man/jwebserver.html</a>
      */
     public final void startActiveX3dModelServer ()
     {
@@ -3399,7 +3399,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
      * Check whether port on local host is bound (meaning another process has it, probably an http server)
      * @param port of interest
      * @return whether port is bound
-     * @see https://stackoverflow.com/questions/434718/sockets-discover-port-availability-using-java
+     * @see <a href="https://stackoverflow.com/questions/434718/sockets-discover-port-availability-using-java" target="_blank">https://stackoverflow.com/questions/434718/sockets-discover-port-availability-using-java</a>
      */
     public static boolean isPortBound (String port)
     {
@@ -3428,7 +3428,7 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
      * Check whether port on local host is bound (meaning another process has it, probably an http server)
      * @param port of interest
      * @return whether port is bound
-     * @see https://stackoverflow.com/questions/434718/sockets-discover-port-availability-using-java
+     * @see <a href="https://stackoverflow.com/questions/434718/sockets-discover-port-availability-using-java" target="_blank">https://stackoverflow.com/questions/434718/sockets-discover-port-availability-using-java</a>
      */
     public static boolean isPortBound (int port)
     {
