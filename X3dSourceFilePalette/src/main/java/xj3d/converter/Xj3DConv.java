@@ -282,7 +282,7 @@ public class Xj3DConv {
      * supplied is the name of the file to load initially. If not supplied it
      * will start with a blank document.
      *
-     * @param argv The list of arguments for this application.
+     * @param args The list of arguments for this application.
      */
     public static void main(String[] args) {
         Xj3DConv conv = new Xj3DConv();
