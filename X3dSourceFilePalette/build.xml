@@ -459,6 +459,7 @@
         <echo message="stage.release complete..."/>
         <echo message="Ready now to close, then release artifacts from: https://central.sonatype.com/publishing/deployments"/>
         <nbbrowse url="https://central.sonatype.com/publishing/deployments"/>
+        <!-- https://central.sonatype.org/publish/publish-portal-upload/ -->
     </target>
 
 </project>
