@@ -186,7 +186,7 @@ public class COORDINATEDAMPER extends X3DChildNode
         return tau.toString();
     }
     /**
-     * @param newTolerance the tau value to set
+     * @param newTau the tau value to set
      */
     public void setTau (String newTau)
     {

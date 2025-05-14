@@ -15,6 +15,8 @@ Scanning for modules in C:\Program Files\NetBeans-25\netbeans\webcommon
 Scanning for modules in suite C:\x3d-github\X3D-Edit
 init:
 prepare.repositories:
+$central-snapshots-repository-url=https://central.sonatype.com/repository/maven-snapshots/
+$central-staging-repository-url=https://central.sonatype.com
 testuserdir-delete:
 projectized-common.clean:
 Deleting: C:\x3d-github\X3D-Edit\build\cluster\update_tracking\org-web3d-x3d-palette.xml
@@ -713,24 +715,24 @@ C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\
   public final void checkRangeDiffuse()
 C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ACOUSTICPROPERTIESCustomizer.java:448: warning: no comment
   }  public final void checkRangeRefraction()
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ACOUSTICPROPERTIESCustomizer.java:504: warning: no comment
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ACOUSTICPROPERTIESCustomizer.java:506: warning: no comment
   public final void checkRanges()
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ACOUSTICPROPERTIESCustomizer.java:475: warning: no comment
-  }  public final void checkRangeSpecular()
 C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\BaseCustomizer.java:551: warning: no comment
   abstract public String getNameKey();
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\dis\playerrecorder\ActionRequestPduDisplayPanel.html...
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\dis\playerrecorder\ActionRequestPduDisplayPanel.java:24: warning: no comment
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\dis\playerrecorder\ActionRequestPduDisplayPanel.java:25: warning: no @param for pdu
   public void setData(ActionRequestPdu pdu)
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\dis\playerrecorder\ActionResponsePduDisplayPanel.html...
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\dis\playerrecorder\ActionResponsePduDisplayPanel.java:25: warning: no comment
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\dis\playerrecorder\ActionResponsePduDisplayPanel.java:26: warning: no @param for pdu
   public void setData(ActionResponsePdu pdu)
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\ANCHOR.html...
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ANCHOR.java:63: warning: no comment
-  public ANCHOR()
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ANCHOR.java:193: warning: no comment
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ANCHOR.java:195: warning: no @return
   public String getDescription()
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ANCHOR.java:216: warning: no comment
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ANCHOR.java:201: warning: no @param for description
+  public void setDescription(String description)
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ANCHOR.java:207: warning: no @return
+  public String[] getUrls()
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\ANCHOR.java:223: warning: no @return
   public String[] getParameters()
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\ANCHORCustomizer.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\APPEARANCE.html...
@@ -822,8 +824,6 @@ Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\net\java\dev\colorchooser\ColorChooserUI.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COLORCustomizer.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COLORDAMPER.html...
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\COLORDAMPER.java:201: error: @param name not found
-     * @param newTolerance the tau value to set
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COLORDAMPERCustomizer.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COLORINTERPOLATOR.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COLORINTERPOLATORCustomizer.html...
@@ -831,8 +831,6 @@ Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COLORRGBACustomizer.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\actions\CommandExecutionScripts.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COMMENT.html...
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\COMMENT.java:108: error: @param name not found
-     * @param target Swing component of interestComponent // TODO explain
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COMMENTCustomizer.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\dis\playerrecorder\CommentPduDisplayPanel.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\CommonPdu.html...
@@ -863,8 +861,6 @@ Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COORDINATECHASERCustomizer.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COORDINATECustomizer.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COORDINATEDAMPER.html...
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\COORDINATEDAMPER.java:189: error: @param name not found
-     * @param newTolerance the tau value to set
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COORDINATEDAMPERCustomizer.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COORDINATEDOUBLE.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\COORDINATEINTERPOLATOR.html...
@@ -884,8 +880,6 @@ Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\actions\security\DecryptXmlAction.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\DEFUSEpanel.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\palette\items\DEFUSEtogglePanel.html...
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\DEFUSEtogglePanel.java:686: error: @param name not found
-     * @param parentCustomizerPanel the parentPanel to set
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\DeleteElementAction.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\dis\playerrecorder\DesignatorPduDisplayPanel.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\org\web3d\x3d\dis\playerrecorder\DetonationPduDisplayPanel.html...
@@ -1741,7 +1735,7 @@ Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\overview-summary.html...
 Generating C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\javadoc\org-web3d-x3d-palette\help-doc.html...
 The generated documentation contains diagnostic markers for invalid input.
-21 errors
+17 errors
 100 warnings
 package:
 Moving 1 file to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build
@@ -1751,8 +1745,14 @@ clean.sign:
 sign:
 Signing pom.xml, Sig File: pom.xml.asc
 gpg: enabled compatibility flags:
+gpg: no running gpg-agent - starting '/usr/bin/gpg-agent'
+gpg: waiting for the agent to come up ... (8s)
+gpg: connection to the agent established
+gpg: no running keyboxd - starting '/usr/libexec/keyboxd'
+gpg: waiting for the keyboxd to come up ... (8s)
+gpg: connection to the keyboxd established
 gpg: writing to 'pom.xml.asc'
-gpg: pinentry launched (542 w32 1.1.1 - xterm-256color - - 1054322/1049089 0)
+gpg: pinentry launched (1826 w32 1.1.1 - xterm-256color - - 1054322/1049089 0)
 gpg: ECDSA/SHA384 signature from: "C8A95936B5A72195 Don Brutzman (X3D developer) <don.brutzman@gmail.com>"
 Signing build/x3dedit-4.0.38.nbm, Sig File: build/x3dedit-4.0.38.nbm.asc
 gpg: enabled compatibility flags:
@@ -1769,29 +1769,13 @@ gpg: ECDSA/SHA384 signature from: "C8A95936B5A72195 Don Brutzman (X3D developer)
 stage.release:
 stage.release start... build and upload to maven central repository for scanning, review, and accepting
 Using default POM (org.web3d.x3d.tools:x3dedit:4.0.38)
-Uploading https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.pom
-Uploaded https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.pom (10 KB at 25.0 KB/sec)
-Uploading https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.pom.asc
-Uploaded https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.pom.asc (273 B at 3.8 KB/sec)
-Uploading https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.nbm
-Uploaded https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.nbm (126785 KB at 8314.3 KB/sec)
-Uploading https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.nbm.asc
-Uploaded https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.nbm.asc (273 B at 4.2 KB/sec)
-Uploading https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-sources.jar
-Uploaded https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-sources.jar (11471 KB at 11704.8 KB/sec)
-Uploading https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-sources.jar.asc
-Uploaded https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-sources.jar.asc (273 B at 4.0 KB/sec)
-Uploading https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-javadoc.jar
-Uploaded https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-javadoc.jar (10687 KB at 12048.4 KB/sec)
-Uploading https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-javadoc.jar.asc
-Uploaded https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-javadoc.jar.asc (273 B at 3.8 KB/sec)
-Downloading https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/maven-metadata.xml
-Checksum validation failed, expected <!DOCTYPE but is 596ade4c4103dd3d4fb7a36c362cf2d77ca63886 for https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/maven-metadata.xml
-Checksum validation failed, expected <!DOCTYPE but is 596ade4c4103dd3d4fb7a36c362cf2d77ca63886 for https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/maven-metadata.xml
-Downloaded https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/maven-metadata.xml (12 KB at 23.6 KB/sec)
-Uploading https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/maven-metadata.xml
-Uploaded https://central.sonatype.com/publishing/deployments/org/web3d/x3d/tools/x3dedit/maven-metadata.xml (308 B at 0.8 KB/sec)
-stage.release complete...
-Ready now to close, then release artifacts from: https://central.sonatype.com/publishing/deployments
-Browsing: https://central.sonatype.com/publishing/deployments
-BUILD SUCCESSFUL (total time: 4 minutes 4 seconds)
+Uploading https://central.sonatype.com/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.pom
+Uploading https://central.sonatype.com/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.pom.asc
+Uploading https://central.sonatype.com/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.nbm
+Uploading https://central.sonatype.com/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38.nbm.asc
+Uploading https://central.sonatype.com/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-sources.jar
+Uploading https://central.sonatype.com/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-sources.jar.asc
+Uploading https://central.sonatype.com/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-javadoc.jar
+Uploading https://central.sonatype.com/org/web3d/x3d/tools/x3dedit/4.0.38/x3dedit-4.0.38-javadoc.jar.asc
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build.xml:456: Could not deploy artifacts: Failed to deploy artifacts: Could not find artifact org.web3d.x3d.tools:x3dedit:pom:4.0.38 in central (https://central.sonatype.com)
+BUILD FAILED (total time: 5 minutes 41 seconds)

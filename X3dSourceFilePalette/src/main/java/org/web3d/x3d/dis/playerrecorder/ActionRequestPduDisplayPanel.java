@@ -21,6 +21,7 @@ public class ActionRequestPduDisplayPanel extends javax.swing.JPanel
     initComponents();
   }
 
+  /** attribute accessor method */
   public void setData(ActionRequestPdu pdu)
   {
     pduHeaderDisplayPanel1       .setData(pdu);

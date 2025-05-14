@@ -472,7 +472,9 @@ public class ACOUSTICPROPERTIESCustomizer extends BaseCustomizer {
               refractionTF.setToolTipText(warningMessage + ", reset to " + newValue);
           }
       }
-  }  public final void checkRangeSpecular()
+  }
+  /** Test method for internal consistency */  
+  public final void checkRangeSpecular()
   {
       float    value = new SFFloat(specularTF.getText()).getValue();
       float newValue = 0.0f;

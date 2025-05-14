@@ -16,12 +16,13 @@ import org.openide.util.NbBundle;
  */
 public class ActionResponsePduDisplayPanel extends javax.swing.JPanel
 {
-  /** Creates new form ActionResponsePduDisplayPanel */
+  /** Constructor that creates new form ActionResponsePduDisplayPanel */
   public ActionResponsePduDisplayPanel()
   {
     initComponents();
   }
 
+  /** attribute accessor method */
   public void setData(ActionResponsePdu pdu)
   {
     pduHeaderDisplayPanel1.setData(pdu);
