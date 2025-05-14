@@ -27,7 +27,6 @@
             </roles>
         </developer>
         <developer>
-            <id>terry-norbraten</id>
             <name>Terry D. Norbraten</name>
             <email>terry.norbraten@gmail.com</email>
             <organization>Retired</organization>
@@ -83,7 +82,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.release>18</maven.compiler.release>
         <maven.javadoc.skip>true</maven.javadoc.skip>
     </properties>
     <dependencies>
