@@ -314,9 +314,9 @@
         </p>
         <p>
             We are now using
-            <a href="https://savage.nps.edu/Savage/developers.html#Java" target="_blank">Java&nbsp;OpenJDK&nbsp;23.0.2</a>
+            <a href="https://savage.nps.edu/Savage/developers.html#Java" target="_blank">Java&nbsp;OpenJDK&nbsp;24.0.1</a>
             and
-            <a href="https://savage.nps.edu/Savage/developers.html#NetBeans" target="_blank">Apache&nbsp;NetBeans&nbsp;25</a>.
+            <a href="https://savage.nps.edu/Savage/developers.html#NetBeans" target="_blank">Apache&nbsp;NetBeans&nbsp;26</a>.
             Minimum installation prerequisites:
             Java JDK 18 or better, NetBeans 18 or better.
         </p>
@@ -356,6 +356,21 @@
         -->
 
 
+        <p>
+            <b>New installation issue</b>.
+            If you are using OpenJDK&nbsp;24 or later, 
+            the large extensibility of the X3D XML DOCTYPE is now affected by 
+            <a href="https://bugs.openjdk.org/browse/JDK-8343022" target="_blank">restrictions on use of JAXP</a>.
+            The following setting must be applied to the <i>netbeans.conf</i> configuration file.
+            Please see
+            <a href="https://savage.nps.edu/Savage/developers.html#NetBeans" target="">Savage Developers Guide: NetBeans</a> 
+            for more details.
+        </p>
+        <ul>
+            <li>
+                <code>-J-Djdk.xml.entityExpansionLimit=5000</code>
+            </li>
+        </ul>
         <p>
             Additional download assets are also available online.
         </p>
@@ -1950,7 +1965,7 @@
             <a href="https://savage.nps.edu/X3D-Edit/X3D-Edit.html" target="_blank">https://savage.nps.edu/X3D-Edit/X3D-Edit.html</a>
         </p>
         <p>
-            Page revised <b>6 May 2025</b>
+            Page revised <b>24 May 2025</b>
         </p>
         <!-- TODO update disclaimer links -->
         <p>(<a href="https://nps.edu/copyright-and-accessibility" target="disclaimer">official disclaimer</a>) </p>
