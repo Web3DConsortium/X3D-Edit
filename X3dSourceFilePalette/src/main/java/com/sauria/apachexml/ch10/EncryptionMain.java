@@ -82,6 +82,8 @@ public class EncryptionMain
   {
     DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
     dbf.setNamespaceAware(true);
+    // https://bugs.openjdk.org/browse/JDK-8343022
+    dbf.setAttribute("jdk.xml.entityExpansionLimit", 5000);
     DocumentBuilder db = dbf.newDocumentBuilder();
     File f = new File(uri);
     return db.parse(f);

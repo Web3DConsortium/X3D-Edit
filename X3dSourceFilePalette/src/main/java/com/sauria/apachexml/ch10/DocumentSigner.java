@@ -232,6 +232,8 @@ public class DocumentSigner
   {
     DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
     dbf.setNamespaceAware(true);
+    // https://bugs.openjdk.org/browse/JDK-8343022
+    dbf.setAttribute("jdk.xml.entityExpansionLimit", 5000);
 
     Document doc = null;
     try {
