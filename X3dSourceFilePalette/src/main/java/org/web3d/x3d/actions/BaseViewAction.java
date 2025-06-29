@@ -130,7 +130,8 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_STANDARDS_PROGRESS                 ="https://www.web3D.org/x3d/progress";
   public final static String X3D_SPECIFICATIONS_SCHEMA_DOCTYPE      ="https://www.web3d.org/specifications";
   public final static String X3D_GRAPHICS_STANDARDS_RELATIONSHIPS   ="https://www.web3D.org/specifications/X3dGraphicsStandardsRelationships.png";
-  public final static String HANIM2_STANDARD                        ="https://www.web3d.org/documents/specifications/19774/V2.0/index.html";
+  public final static String HANIM20_STANDARD                       ="https://www.web3d.org/documents/specifications/19774/V2.0/index.html";
+  public final static String HANIM21_STANDARD                       ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19774";
   public final static String X3D4_ARCHITECTURE_STANDARD_CD1         ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-CD1/Part01/Architecture.html";
   public final static String X3D4_ARCHITECTURE_STANDARD_IS_PROOF    ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-IS.proof/Part01/Architecture.html";
   public final static String X3D4_ARCHITECTURE_STANDARD_IS          ="https://www.web3d.org/specifications/X3Dv4/ISO-IEC19775-1v4-IS/Part01/Architecture.html";

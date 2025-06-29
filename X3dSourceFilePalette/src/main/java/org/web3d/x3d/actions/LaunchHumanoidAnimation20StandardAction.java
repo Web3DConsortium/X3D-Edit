@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -41,7 +41,7 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.HANIM2_STANDARD;
+import static org.web3d.x3d.actions.BaseViewAction.HANIM20_STANDARD;
 
 /**
  * Launch HAnim2 standard
@@ -49,14 +49,14 @@ import static org.web3d.x3d.actions.BaseViewAction.HANIM2_STANDARD;
  */
 @ActionID(id = "org.web3d.x3d.actions.LaunchHumanoidAnimationStandardAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/ISO_favicon32x32.png",
-                    displayName = "#CTL_LaunchHumanoidAnimationStandardAction",
+                    displayName = "#CTL_LaunchHumanoidAnimation20StandardAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 200),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 200)
+  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 180),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 180)
 })
 
-public final class LaunchHumanoidAnimationStandardAction extends CallableSystemAction
+public final class LaunchHumanoidAnimation20StandardAction extends CallableSystemAction
 {
   @Override
   public void performAction()
@@ -65,13 +65,13 @@ public final class LaunchHumanoidAnimationStandardAction extends CallableSystemA
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    BaseViewAction.sendBrowserTo(HANIM2_STANDARD);
+    BaseViewAction.sendBrowserTo(HANIM20_STANDARD);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchHumanoidAnimationStandardAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchHumanoidAnimation20StandardAction");
   }
 
   @Override
@@ -85,7 +85,7 @@ public final class LaunchHumanoidAnimationStandardAction extends CallableSystemA
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("HumanoidAnimationStandardAction");
+    return new HelpCtx("HumanoidAnimation20StandardAction");
   }
 
   @Override

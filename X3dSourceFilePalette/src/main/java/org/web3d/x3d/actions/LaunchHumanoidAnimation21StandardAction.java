@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -41,18 +41,22 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_IS;
+import static org.web3d.x3d.actions.BaseViewAction.HANIM21_STANDARD;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchX3D4ArchitectureStandardAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/ISO_favicon32x32.png",
-                    displayName = "#CTL_LaunchX3D40ArchitectureStandardAction",
+/**
+ * Launch HAnim2 standard
+ * @author brutzman
+ */
+@ActionID(id = "org.web3d.x3d.actions.LaunchHumanoidAnimationStandardAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Web3dIcon32x32.png",
+                    displayName = "#CTL_LaunchHumanoidAnimation21StandardAction",
                             lazy=true)
-@ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 300),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/Web3D &Standards", position = 300)
+@ActionReferences( value = {
+  @ActionReference(path = "Menu/&X3D-Edit/X3D &Work in Progress", position = 100),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D &Work in Progress", position = 100)
 })
 
-public final class LaunchX3D4ArchitectureStandardAction extends CallableSystemAction
+public final class LaunchHumanoidAnimation21StandardAction extends CallableSystemAction
 {
   @Override
   public void performAction()
@@ -61,13 +65,13 @@ public final class LaunchX3D4ArchitectureStandardAction extends CallableSystemAc
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    BaseViewAction.sendBrowserTo(X3D4_ARCHITECTURE_STANDARD_IS);
+    BaseViewAction.sendBrowserTo(HANIM21_STANDARD);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchX3D40ArchitectureStandardAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchHumanoidAnimation21StandardAction");
   }
 
   @Override
@@ -81,7 +85,7 @@ public final class LaunchX3D4ArchitectureStandardAction extends CallableSystemAc
   @Override
   public HelpCtx getHelpCtx()
   {
-    return new HelpCtx("X3dLaunchX3D4ArchitectureStandardAction");
+    return new HelpCtx("HumanoidAnimation21StandardAction");
   }
 
   @Override

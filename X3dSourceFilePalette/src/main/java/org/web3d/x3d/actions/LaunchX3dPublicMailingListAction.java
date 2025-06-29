@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -50,8 +50,8 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_PUBLIC_MAILING_LIST;
                     displayName = "#CTL_LaunchX3dPublicMailingListAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/X3D &Work in Progress", position = 100),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D &Work in Progress", position = 100)
+  @ActionReference(path = "Menu/&X3D-Edit/X3D &Work in Progress", position = 160),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D &Work in Progress", position = 160)
 })
 
 @SuppressWarnings("serial")
