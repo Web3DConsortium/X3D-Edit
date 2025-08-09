@@ -312,6 +312,10 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     {
         return ""; // special cases outside of X3D
     }
+    else if (getElementName().equals("X3D"))
+    {
+        sb.append("");   // indent 0
+    }
     else if (getElementName().equals("head") || getElementName().equals("Scene"))
     {
         sb.append("  "); // indent 2
@@ -453,7 +457,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 //			if (xmlHead.contains("XML"))
 //				 sb.append(xmlHead);
 //			else
-        sb.append (X3DSchemaData.XML_HEADER).append("\n"); // ensure correct
+            sb.append (X3DSchemaData.XML_HEADER).append("\n"); // ensure correct
         String x3dRootAttributes = createAttributes();
         if      (x3dRootAttributes.contains("3.0"))
                 sb.append (X3DSchemaData.DOCTYPE_3_0).append("\n");
@@ -469,6 +473,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         {
                 sb.append(postDoctype);
         }
+        sb.append(createElementNameCommonX3dAttributes());
     }
     else if (!getElementName().equals("DOCTYPE"))
     {
