@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+      <title>Blender Export to X3D</title>
+      <meta name='title' content='BlenderExportToX3d.html'/>
+      <meta name='description' content='Guidance on how to export a Blender model to X3D'/>
+      <meta name='creator' content='Don Brutzman'/>
+      <meta name='created' content='19 February 2008'/>
+      <meta name='modified' content='19 February 2008'/>
+      <meta name='identifier' content='https://savage.nps.edu/X3D-Edit/BlenderExportToX3d.html'/>
+      <meta name='reference' content='http://www.blender.org'/>
+      <meta name='generator' content='HTML-Kit'/>
+      <meta name='license' content='../../license.html'/>
+
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" summary="" align="center">
+<tr align="center">
+		<td valign="middle"><a href="http://www.web3d.org/x3d"><img src="images/x3d2-s.gif" width="154" height="97" border="0" title="to X3D home page" alt="to X3D home page"></a></td>
+		<td><pre>   </pre></td>
+		<td valign="middle"><h2>Blender Model Export to X3D</h2></td>
+		<td><pre>    </pre></td>
+		<td valign="middle"><a href="http://www.web3d.org"><img src="images/web3d_logo2.png" width="120" height="60" border="0" title="to Web3D home page" alt="to Web3D home page"></a></td>
+</tr>
+</table>
+
+        <p align="center">
+            <a href="#ExampleFiles">Example Files</a> |
+            <a href="#Blender">Blender</a> |
+            <a href="#FileExport">File Export</a> |
+            <a href="#SaveAs">Save As</a> |
+            <a href="#X3D-Edit">X3D-Edit</a> |
+            <a href="#MetaTags">Meta Tags</a> |
+            <a href="#SceneCorrections">Scene Corrections</a> |
+            <a href="#IndexFaceSet">IndexFaceSet Corrections</a> |
+            <a href="#FinalModel">Final Model</a> |
+            <a href="#HtmlPage">HTML Page</a> |
+            <a href="#Acknowledgements">Acknowledgements</a> |
+            <a href="#Contact">Contact</a>
+        </p>
+
+<p align="center">
+    This authoring example shows how to export a
+    <a href="http://www.blender.org" target="_blank">Blender</a> model
+    as an
+    <a href="http://www.web3D.org/x3d" target="_blank">Extensible 3D (X3D) Graphics</a>
+    model, then make necessary improvements for the Web using
+		<a href="https://savage.nps.edu/X3D-Edit" target="_blank">X3D-Edit</a>.
+</p>
+
+	 <!-- =================================================== -->
+
+
+
+<ol>
+		<li>
+				 		<a name="ExampleFiles"><b>Example Files</b></a>.
+						Here are the Blender model and X3D-export files of interest for this tutorial.
+						<ul>
+								<li><a href="models/mod8_wong.blend">mod8_wong.blend</a></li>
+								<li><a href="models/mod8_wong_v245_unmodified_export.x3d" target="_blank">mod8_wong_v245_unmodified_export.x3d</a></li>
+								<li>
+										<a href="models/mod8_wong.x3d" target="_blank">mod8_wong.x3d</a>
+										(<a href="models/mod8_wong.html" target="_blank">.html</a>)
+								</li>
+								<li>
+										HTML page containing final model:
+										<a href="models/MyPetShark.html" target="_blank">MyPetShark.html</a>)
+								</li>
+						</ul>
+		</li>
+	  <p />
+
+	 <!-- =================================================== -->
+
+		<li>
+						<a name="Blender"><b>Blender</b></a>.
+						Here is the Blender entry screen showing the blender model of interest loaded.
+						<p>
+							 <a href="images/BlenderEntryScreen.png"><img src="images/BlenderEntryScreen.png" alt="Blender Entry Screen" width="792" height="612" border="0"/></a>
+						</p>
+		</li>
+	  <p />
+
+	 <!-- =================================================== -->
+
+
+		<li>
+						<a name="FileExport"><b>File Export</b></a>.  Here is the menu sequence to perform an export is <i>File &gt; Export &gt; X3D</i>:
+						<p>
+							 <a href="images/BlenderFileExportX3d.png"><img src="images/BlenderFileExportX3d.png" alt="Blender File Export X3D" width="792" height="612" border="0" /></a>
+						</p>
+		</li>
+	  <p />
+
+	 <!-- =================================================== -->
+
+
+		<li>
+						<a name="SaveAs"><b>Save As</b></a>.
+						Confirm or change the filename and directory selected for export:
+						<p>
+										<a href="images/BlenderFileExportX3dFileDialog.png"><img src="images/BlenderFileExportX3dFileDialog.png" alt="Blender FileExport X3D - File Dialog" width="792" height="150" border="0" /></a>
+						</p>
+		</li>
+	  <p />
+
+	 <!-- =================================================== -->
+
+
+		<li>
+						<a name="X3D-Edit"><b>X3D-Edit</b></a>.
+						Load the model in X3D-Edit.
+
+						The following views show original view, Scale-to-Fit view, and Wireframe view (Xj3D&nbsp;alt-shift-W).
+						<p>
+								<a href="images/BlenderSharkOriginalExport.png"><img src="images/BlenderSharkOriginalExport.png" alt="Original Blender export model" width="1048" height="256" border="0" /></a>
+						</p>
+		</li>
+	  <p />
+
+	 <!-- =================================================== -->
+
+
+		<li>
+            <a name="MetaTags"><b>Meta Tags</b></a>.
+						Insert additional file metadata
+						<ul>
+								<li>
+													Add relevant document metadata as meta tags:  name, description, author, translator, created, translated, modified, identifier, reference, license.
+								</li>
+								<li>
+													<a href="http://www.web3d.org/x3d/content/examples/HelloWorld.x3d">HelloWorld.x3d</a>
+												 	(<a href="http://www.web3d.org/x3d/content/examples/HelloWorld.html">.html</a>)
+													provides a good example of meta tags are desirable (don't forget to insert 'translated' date)
+								</li>
+								<li>
+													<a href="http://www.web3d.org/x3d/content/examples/newScene.x3d">newScene.x3d</a>
+												 	(<a href="http://www.web3d.org/x3d/content/examples/newScene.html">.html</a>)
+													lists (perhaps) all relevant meta tags
+								</li>
+						</ul>
+		</li>
+	  <p />
+
+	 <!-- =================================================== -->
+
+		<li>
+
+            <a name="SceneCorrections"><b>Scene Corrections</b></a>.
+						Some corrections to the exported X3D model.  These problems are submitted to the Blender community for correction and improvement.
+						<ul>
+								<li>
+													Fix boolean values to lowercase (e.g. <code>attribute='TRUE'</code> becomes <code>attribute='true'</code>, similarly <code>FALSE</code> becomes <code>false</code>.
+								</li>
+								<li>
+													Remove (or comment out) NavigationInfo element, the exported values have an error in the type value, and are not really that helpful.
+								</li>
+								<li>
+													Add <code>&lt;Appearance&gt;&lt;Material/&gt;&lt;/Appearance&gt;</code>
+													immediately following
+													the <code>&lt;/IndexedFaceSet&gt;</code> tag.  This lets you assign a
+													color to the object, default is grey.
+								</li>
+								<li>
+													Export problems can be checked via the
+													<a href="http://projects.blender.org/tracker/?group_id=9&atid=125">Blender bug tracker</a>.
+								</li>
+						</ul>
+		</li>
+	  <p />
+
+	 <!-- =================================================== -->
+
+		<li>
+            <a name="IndexFaceSet"><b>IndexFaceSet Corrections</b></a>.
+						Adjust IndexFaceSet parameters as follows to fix common export problems.
+						<ul>
+								<li>
+													To smooth the shading on polygonalized IndexedFaceSet geometry, set <code>creaseAngle="3.14159"</code>
+								</li>
+								<li>
+													To fix nonrendering IndexedFaceSet geometry from single-sided to double-sided polygons:
+													set&nbsp;<code>solid="false"</code>.
+								</li>
+								<li>
+													Complex shapes may include concave polygons, which might not render due to default graphics-hardware optimizations.
+													Set &nbsp;<code>convex="false"</code> to force rendering of all polygons, concave and convex.
+								</li>
+								<li>
+													Test whether reversing order via ccw="true" might work for some meshes.
+													If possible, go back into Blender and reverse the offending geometry.
+								</li>
+						</ul>
+             <p>
+                The following modified-model views show the camera view, Scale-to-Fit view, and Wireframe view (Xj3D&nbsp;alt-shift-W).
+                Note underlying problems with one-sided polygone (e.g. dorsal fin) and polygon creases that the above fixes address.
+             </p>
+             <p>
+                <a href="images/BlenderSharkModifiedModel.png"><img src="images/BlenderSharkModifiedModel.png" alt="Modified Blender export model" width="1048" height="256" border="0" /></a>
+             </p>
+		</li>
+	  <p />
+
+	  <!-- =================================================== -->
+
+		<li>
+            <a name="FinalModel"><b>Final Model</b></a>.
+            Here is how the final model looks, with creaseAngle smoothed.
+           <p>
+               <a href="images/BlenderSharkFinalModel.png"><img src="images/BlenderSharkFinalModel.png" alt="Final Blender export model" border="0" /></a>
+					 </p>
+    </li>
+	  <p />
+
+	  <!-- =================================================== -->
+
+		<li>
+						<a name="HtmlPage"><b>HTML Page</b></a>.
+    				<a href="http://www.web3d.org/x3d/content/examples/HtmlObjectTagForX3d.html">HTML Object Tag for X3D</a>
+    				shows how to place X3D&nbsp;objects within an HTML page, and
+						Modify, rename and edit a copy of
+    				<a href="http://www.web3d.org/x3d/content/examples/newHtmlPageWithX3dObject.html">newHtmlPageWithX3dObject.html</a>
+						to build an HTML page containing your scene.
+						<p>
+  						Here is the final web page:
+  					  <a href="models/MyPetShark.html" target="_blank">MyPetShark.html</a>.
+						</p>
+		</li>
+	  <p />
+
+	  <!-- =================================================== -->
+
+		<li>
+						<a name="Acknowledgements"><b>Acknowledgements</b></a>.
+						The
+            <a href="#ExampleFiles">original shark model</a>
+						was created by Teck Hwee Wong.
+						Numerous questions and ideas for improvements to this page were contributed by NPS MOVES MV3202 students, February 2008.
+		</li>
+
+</ol>
+
+        <!-- =================================================== -->
+
+        <hr />
+
+        <h3><a name="Contact">Contact</a></h3>
+
+        <p>
+            Questions, suggestions and comments about these resources are welcome.
+            Please send them to
+            <a href="http://web.nps.navy.mil/~brutzman" target="_blank">Don&nbsp;Brutzman</a>
+            (<a href="mailto:brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%203.2%20feedback:%20"><i>brutzman&nbsp;at&nbsp;nps.edu</i></a>)
+        </p>
+
+        <p>
+            Uniform Resource Locator (URL) for this page is
+						<a href="https://savage.nps.edu/X3D-Edit/BlenderExportToX3d.html">https://savage.nps.edu/X3D-Edit/BlenderExportToX3d.html</a>
+            <br />
+
+            Revised 5 March 2008.
+
+        </p>
+
+        <p>(<a href="http://www.nps.navy.mil/disclaimer" target="disclaimer">official disclaimer</a>) </p>
+        <pre>
+&quot;Material contained herein is made available for the purpose of
+peer review and discussion and does not necessarily reflect the
+views of the Department of the Navy or the Department of Defense.&quot;
+        </pre>
+
+</body>
+</html>
