@@ -749,7 +749,7 @@ public class X3dEditUserPreferences
   
   private static final String winxpAudacityEditorPathDefault             = "C:\\Program Files\\Audacity\\Audacity.exe";
   private static final String winxpMuseScoreEditorPathDefault            = "C:\\Program Files\\MuseScore 3\\bin\\MuseScore3.exe";
-  private static final String winxpGimpEditorPathDefault                 = "C:\\Program Files\\GIMP 2\\bin\\gimp-2.10.exe";
+  private static final String winxpGimpEditorPathDefault                 = "C:\\Program Files\\GIMP 3\\bin\\gimp-3.exe";
   private static final String winxpFijiEditorPathDefault                 = "C:\\Program Files\\Fiji.app\\ImageJ-win32.exe";
   private static final String winxpImageJEditorPathDefault               = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\imdisplay.exe";
@@ -781,7 +781,7 @@ public class X3dEditUserPreferences
 
   private static final String windows64AudacityEditorPathDefault         = "C:\\Program Files\\Audacity\\Audacity.exe";
   private static final String windows64MuseScoreEditorPathDefault        = "C:\\Program Files\\MuseScore 4\\bin\\MuseScore4.exe";
-  private static final String windows64GimpEditorPathDefault             = "C:\\Program Files\\GIMP 2\\bin\\gimp-2.10.exe";
+  private static final String windows64GimpEditorPathDefault             = "C:\\Program Files\\GIMP 3\\bin\\gimp-3.exe";
   private static final String windows64FijiEditorPathDefault             = "C:\\Program Files\\Fiji.app\\ImageJ-win64.exe";
   private static final String windows64ImageJEditorPathDefault           = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\imdisplay.exe";
@@ -813,7 +813,7 @@ public class X3dEditUserPreferences
   
   private static final String macosxAudacityEditorPathDefault            = "audacity";       // TODO insert correct value
   private static final String macosxMuseScoreEditorPathDefault           = "musescore";      // TODO insert correct value
-  private static final String macosxGimpImageEditorPathDefault           = "gimp-2.10";      // TODO insert correct value
+  private static final String macosxGimpImageEditorPathDefault           = "gimp-3";      // TODO insert correct value
   private static final String macosxFijiEditorPathDefault                = "Fiji";           // TODO insert correct value
   private static final String macosxImageJEditorPathDefault              = "ij.jar";         // TODO insert correct value
   private static final String macosxImageMagickEditorPathDefault         = "imageconverter"; // TODO insert correct value
@@ -845,7 +845,7 @@ public class X3dEditUserPreferences
   
   private static final String otherAudacityEditorPathDefault             = "audacity";       // TODO insert correct value
   private static final String otherMuseScoreEditorPathDefault            = "musescore";      // TODO insert correct value
-  private static final String otherGimpEditorPathDefault                 = "gimp-2.10";      // TODO insert correct value
+  private static final String otherGimpEditorPathDefault                 = "gimp-3";         // TODO insert correct value
   private static final String otherFijiEditorPathDefault                 = "ImageJ-linux64"; // or ImageJ-linux32
   private static final String otherImageJEditorPathDefault               = "ij.jar";         // TODO insert correct value
   private static final String otherImageMagickEditorPathDefault          = "imageconverter"; // TODO insert correct value
