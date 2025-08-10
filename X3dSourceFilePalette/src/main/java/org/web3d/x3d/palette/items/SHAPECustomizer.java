@@ -1075,16 +1075,16 @@ public class SHAPECustomizer extends BaseCustomizer
         add(geometryPanel, gridBagConstraints);
 
         eventHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        eventHintPanel.setMinimumSize(new java.awt.Dimension(50, 25));
+        eventHintPanel.setMinimumSize(new java.awt.Dimension(50, 48));
         eventHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hintLabel.setText("<html><p align=\"center\"><b>Shape</b> contains a single geometry node and a single <b>Appearance</b> node.<br/>Animation hint: replacement child nodes can be <b>ROUTE</b>d to <i>new_geometry</i> and <i>new_appearance</i>.</p>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        hintLabel.setMaximumSize(new java.awt.Dimension(2147483647, 40));
-        hintLabel.setMinimumSize(new java.awt.Dimension(117, 40));
-        hintLabel.setPreferredSize(new java.awt.Dimension(515, 40));
+        hintLabel.setMaximumSize(new java.awt.Dimension(2147483647, 64));
+        hintLabel.setMinimumSize(new java.awt.Dimension(117, 64));
+        hintLabel.setPreferredSize(new java.awt.Dimension(515, 64));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
