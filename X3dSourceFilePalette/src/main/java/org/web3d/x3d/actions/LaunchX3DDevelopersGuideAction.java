@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -41,18 +41,18 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import static org.web3d.x3d.actions.BaseViewAction.SAVAGE_DEVELOPERS_GUIDE;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_DEVELOPERS_GUIDE;
 
-@ActionID(id = "org.web3d.x3d.actions.LaunchSavageDevelopersGuideDISAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/SavageLogo27x32.png",
-                    displayName = "#CTL_LaunchSavageDevelopersGuideDISAction",
+@ActionID(id = "org.web3d.x3d.actions.LaunchX3DDevelopersGuideAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/X3Dicon32.png",
+                    displayName = "#CTL_LaunchX3DDevelopersGuideAction",
                             lazy=true)
 @ActionReferences( value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&DIS Networking", position = 500),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&DIS Networking", position = 500),
+  @ActionReference(path = "Menu/&X3D-Edit/&Help with X3D Graphics", position = 550),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Help with X3D Graphics", position = 550),
 })
 
-public final class LaunchSavageDevelopersGuideDISAction extends CallableSystemAction
+public final class LaunchX3DDevelopersGuideAction extends CallableSystemAction
 {
   @Override
   public void performAction()
@@ -61,13 +61,13 @@ public final class LaunchSavageDevelopersGuideDISAction extends CallableSystemAc
     // Help hlp = Lookup.getDefault().lookup(org.netbeans.api.javahelp.Help.class);
     // hlp.showHelp(HelpCtx.findHelp(this));
       
-    BaseViewAction.sendBrowserTo(SAVAGE_DEVELOPERS_GUIDE + "#DIS");
+    BaseViewAction.sendBrowserTo(X3D_DEVELOPERS_GUIDE);
   }
 
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchSavageDevelopersGuideDISAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchX3DDevelopersGuideAction");
   }
 
   @Override

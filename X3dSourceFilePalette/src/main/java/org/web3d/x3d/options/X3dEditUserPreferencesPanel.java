@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -83,6 +83,7 @@ import static org.web3d.x3d.options.X3dEditUserPreferences.getKeystoreFileNameDe
 import static org.web3d.x3d.options.X3dEditUserPreferences.getKeystorePassword;
 import static org.web3d.x3d.options.X3dEditUserPreferences.getKeystorePasswordDefault;
 import static org.web3d.x3d.options.X3dEditUserPreferences.getKeystorePath;
+import static org.web3d.x3d.options.X3dEditUserPreferences.resetUserOptions;
 import static org.web3d.x3d.options.X3dEditUserPreferences.setAuthorEmail;
 import static org.web3d.x3d.options.X3dEditUserPreferences.setAuthorName;
 import static org.web3d.x3d.options.X3dEditUserPreferences.setKeystoreFileName;
@@ -182,9 +183,12 @@ otherSemanticWebEditorCheckBox.setVisible(false);
     otherX3dPlayerNvdSecurityCheckButton.setEnabled(!otherX3dPlayerNameTF.getText().equals(OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT));
     otherX3dEditorNvdSecurityCheckButton.setEnabled(!otherX3dEditorNameTF.getText().equals(OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT));
     
-      if (org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("brutzman") && 
+      if ((org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("brutzman") || 
+           org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("donbr")) && 
           org.web3d.x3d.options.X3dEditUserPreferences.getAuthorEmail().isBlank())
-          org.web3d.x3d.options.X3dEditUserPreferences.setAuthorEmail("brutzman@nps.edu");
+          org.web3d.x3d.options.X3dEditUserPreferences.setAuthorEmail("don.brutzman@gmail.com");
+      
+      resetUserOptions(); // duplicative
   }
   
   public static String panelFontName = "Segoe UI";
@@ -12050,7 +12054,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
         if  (false && isWindows)
              runShellCommand("start /b " + X3dEditUserPreferences.getSunrizeX3dEditorPath()); // avoid blocking on invocation
-        else runShellCommand(        X3dEditUserPreferences.getSunrizeX3dEditorPath()); 
+        else runShellCommand(              X3dEditUserPreferences.getSunrizeX3dEditorPath()); 
 
         sunrizeAutoLaunchCheck ();
     }//GEN-LAST:event_sunrizeX3dEditorLaunchButtonActionPerformed

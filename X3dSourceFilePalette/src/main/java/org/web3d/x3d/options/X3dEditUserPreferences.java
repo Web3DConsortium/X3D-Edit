@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -259,10 +259,10 @@ public class X3dEditUserPreferences
       setExampleArchivesRootDirectory (EXAMPLES_ROOT_DIRECTORY_DEFAULT);
      setAuthorPreferenceCorsDirectory (AUTHOR_PREFERENCE_CORS_DIRECTORY_DEFAULT);
      
-      if (getAuthorName().equals("brutzman") && getAuthorEmail().isBlank())
+      if ((getAuthorName().equals("brutzman") || getAuthorName().equals("donbr")) && getAuthorEmail().isBlank())
       {
           setAuthorName ("Don Brutzman");
-          setAuthorEmail("brutzman@nps.edu");
+          setAuthorEmail("don.brutzman@gmail.com");
       }
   }
   public static void             setBasicLocalExamplesPresent (boolean value)  { commonBooleanSet(            BASIC_LOCALEXAMPLES_PRESENT_KEY, value);}
@@ -759,12 +759,12 @@ public class X3dEditUserPreferences
   private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2024\\XMLSpy.exe";
-  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 4.2\\blender.exe";
+  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 4.5\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String winxpBvhackerEditorPathDefault             = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
-  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.9.0\\Ultimaker-Cura.exe";
+  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.10.2\\Ultimaker-Cura.exe";
   private static final String winxpMeshLabX3dEditorPathDefault           = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 5.13.1\\bin\\paraview.exe";
+  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView-6.0.0-Windows-Python3.12-msvc2017-AMD64\\bin\\paraview.exe";
   private static final String winxpMayaRawkeeX3dEditorPathDefault        = "";
   private static final String winxpRhino3DX3dEditorPathDefault           = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
@@ -791,12 +791,12 @@ public class X3dEditUserPreferences
   private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2024\\XMLSpy.exe";
-  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 4.2\\blender.exe";
+  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 4.5\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String windows64BvhackerEditorPathDefault         = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
-  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.9.0\\Ultimaker-Cura.exe";
+  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.10.2\\Ultimaker-Cura.exe";
   private static final String windows64MeshLabX3dEditorPathDefault       = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 5.13.1\\bin\\paraview.exe";
+  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView-6.0.0-Windows-Python3.12-msvc2017-AMD64\\bin\\paraview.exe";
   private static final String windows64MayaRawkeeX3dEditorPathDefault    = "";
   private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
@@ -804,7 +804,7 @@ public class X3dEditUserPreferences
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
-  private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.17\\batik-squiggle-1.17.jar";
+  private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.19\\batik-squiggle-1.19.jar";
   private static final String windows64InkscapeEditorPathDefault         = "C:\\Program Files\\Inkscape\\bin\\inkscape.exe";
   private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String windows64WhiteDuneX3dEditorPathDefault     = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
@@ -813,7 +813,7 @@ public class X3dEditUserPreferences
   
   private static final String macosxAudacityEditorPathDefault            = "audacity";       // TODO insert correct value
   private static final String macosxMuseScoreEditorPathDefault           = "musescore";      // TODO insert correct value
-  private static final String macosxGimpImageEditorPathDefault           = "gimp-3";      // TODO insert correct value
+  private static final String macosxGimpImageEditorPathDefault           = "gimp-3";         // TODO insert correct value
   private static final String macosxFijiEditorPathDefault                = "Fiji";           // TODO insert correct value
   private static final String macosxImageJEditorPathDefault              = "ij.jar";         // TODO insert correct value
   private static final String macosxImageMagickEditorPathDefault         = "imageconverter"; // TODO insert correct value
@@ -867,7 +867,7 @@ public class X3dEditUserPreferences
   private static final String otherItksnapEditorPathDefault              = "Itksnap";        // TODO insert correct value
   private static final String otherSeg3dEditorPathDefault                = "Seg3d";          // TODO insert correct value
   private static final String otherSlicer3dEditorPathDefault             = "Slicer3d";       // TODO insert correct value
-  private static final String otherBatikEditorPathDefault                = "batik-squiggle";       // TODO insert correct value
+  private static final String otherBatikEditorPathDefault                = "batik-squiggle"; // TODO insert correct value
   private static final String otherInkscapeEditorPathDefault             = "Inkscape";       // TODO insert correct value
   private static final String otherSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
   private static final String otherWhiteDuneX3dEditorPathDefault         = "WhiteDune";      // TODO insert correct value
@@ -910,9 +910,10 @@ public class X3dEditUserPreferences
   private static final String downloadSiteAltovaXMLSpy                   = "https://www.altova.com/download";
   private static final String downloadSiteBlender                        = "https://www.blender.org/download"; // https://www.blender.org/download/lts/3-6";
   private static final String downloadSiteBsContentStudio                = "https://www.bitmanagement.de/en/download/studio";
-  private static final String downloadSiteBvhacker                       = "https://www.bvhacker.com";
+  private static final String downloadSiteBvhacker                       = "https://github.com/DaveDubUK/bvhacker/blob/master/bvhacker/Release/bvhacker.msi"; // "https://www.bvhacker.com";
   private static final String downloadSiteCura                           = "https://ultimaker.com/software/ultimaker-cura";
-  private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
+  private static final String downloadSiteMeshLab                        = "https://github.com/cnr-isti-vclab/meshlab/releases";
+//private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
   private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
   private static final String downloadSiteMayaRawkee                     = ""; // TODO two entries?
   private static final String downloadSiteRhino3D                        = "https://www.rhino3d.com/download";
@@ -951,7 +952,8 @@ public class X3dEditUserPreferences
   protected static final String helpSiteBsContentStudio                  = "https://www.bitmanagement.de/en/download/studio";
   protected static final String helpSiteBvhacker                         = "https://www.bvhacker.com/help.html";
   protected static final String helpSiteCura                             = "https://ultimaker.com/learn"; 
-  protected static final String helpSiteMeshLab                          = "https://www.meshlab.net"; // https://sourceforge.net/apps/mediawiki/meshlab";
+  protected static final String helpSiteMeshLab                          = "https://github.com/cnr-isti-vclab/meshlab";
+//protected static final String helpSiteMeshLab                          = "https://www.meshlab.net"; // https://sourceforge.net/apps/mediawiki/meshlab";
   protected static final String helpSiteParaview                         = "https://www.paraview.org";
   protected static final String helpSiteMayaRawkee                       = ""; // TODO two entries?
   protected static final String helpSiteRhino3D                          = "https://www.rhino3d.com/learn";
