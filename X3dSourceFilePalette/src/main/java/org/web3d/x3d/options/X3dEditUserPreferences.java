@@ -747,7 +747,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteOtherX3dEditor           = "https://www.web3d.org/x3d/content/examples/X3dResources.html#AuthoringSoftware";
   private static final String downloadSiteWireshark                = "https://www.wireshark.org";
   
-  private static final String winxpAudacityEditorPathDefault             = "C:\\Program Files\\Audacity\\audacity.exe";
+  private static final String winxpAudacityEditorPathDefault             = "C:\\Program Files\\Audacity\\Audacity.exe";
   private static final String winxpMuseScoreEditorPathDefault            = "C:\\Program Files\\MuseScore 3\\bin\\MuseScore3.exe";
   private static final String winxpGimpEditorPathDefault                 = "C:\\Program Files\\GIMP 2\\bin\\gimp-2.10.exe";
   private static final String winxpFijiEditorPathDefault                 = "C:\\Program Files\\Fiji.app\\ImageJ-win32.exe";
@@ -779,7 +779,7 @@ public class X3dEditUserPreferences
   private static final String winxpWingsX3dEditorPathDefault             = "C:\\Program Files\\wings3d_2.4.1\\Wings3D.exe";
   private static final String winxpUltraEditX3dEditorPathDefault         = "C:\\Program Files\\IDM Computer Solutions\\UltraEdit\\uedit32.exe";
 
-  private static final String windows64AudacityEditorPathDefault         = "C:\\Program Files\\Audacity\\audacity.exe";
+  private static final String windows64AudacityEditorPathDefault         = "C:\\Program Files\\Audacity\\Audacity.exe";
   private static final String windows64MuseScoreEditorPathDefault        = "C:\\Program Files\\MuseScore 4\\bin\\MuseScore4.exe";
   private static final String windows64GimpEditorPathDefault             = "C:\\Program Files\\GIMP 2\\bin\\gimp-2.10.exe";
   private static final String windows64FijiEditorPathDefault             = "C:\\Program Files\\Fiji.app\\ImageJ-win64.exe";
