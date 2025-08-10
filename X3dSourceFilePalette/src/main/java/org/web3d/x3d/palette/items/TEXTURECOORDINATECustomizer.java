@@ -99,6 +99,7 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
     
     initComponents();
     
+    super.getDEFUSEpanel().setContainerFieldChoices(TEXTURECOORDINATE_CONTAINERFIELD_CHOICES, TEXTURECOORDINATE_CONTAINERFIELD_TOOLTIPS);
     //pointTA.setText(textureCoordinate.getPoint());
     expandableListPoints.setTitle("point array");
     expandableListPoints.setColumnTitles  (new String[]{"<html>&nbsp;","s","t"});

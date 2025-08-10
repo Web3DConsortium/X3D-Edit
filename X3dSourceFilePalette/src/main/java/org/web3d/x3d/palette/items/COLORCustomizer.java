@@ -38,6 +38,8 @@ import javax.swing.text.JTextComponent;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
+import static org.web3d.x3d.types.X3DSchemaData.COLOR_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.COLOR_CONTAINERFIELD_TOOLTIPS;
 
 /**
  * COLORCustomizer.java
@@ -65,6 +67,7 @@ public class COLORCustomizer extends BaseCustomizer
     
     initComponents();
     
+    super.getDEFUSEpanel().setContainerFieldChoices(COLOR_CONTAINERFIELD_CHOICES, COLOR_CONTAINERFIELD_TOOLTIPS);
     expandableListColors.setTitle("color array");
     expandableListColors.setColumnTitles  (new String[]{"#","r","g","b","color"});
     expandableListColors.setColumnToolTips(new String[]{"index","red","green","blue","color chooser"});

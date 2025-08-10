@@ -39,6 +39,8 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
+import static org.web3d.x3d.types.X3DSchemaData.NORMAL_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.NORMAL_CONTAINERFIELD_TOOLTIPS;
 
 /**
  * SHAPECustomizer.java
@@ -70,6 +72,7 @@ public class NORMALCustomizer extends BaseCustomizer
     
     initComponents();
     
+    super.getDEFUSEpanel().setContainerFieldChoices(NORMAL_CONTAINERFIELD_CHOICES, NORMAL_CONTAINERFIELD_TOOLTIPS);
     expandableList1.setTitle("vector");
     expandableList1.setColumnTitles  (new String[]{"#","x","y","z"});
     expandableList1.setColumnToolTips(new String[]{"index","normal x value","normal y value","normal z value"});

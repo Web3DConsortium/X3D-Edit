@@ -44,6 +44,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
+import static org.web3d.x3d.types.X3DSchemaData.COLOR_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.COLOR_CONTAINERFIELD_TOOLTIPS;
 /**
  * COLORRGBACustomizer.java
  * Created on July 12, 2007, 3:05 PM
@@ -70,6 +72,7 @@ public class COLORRGBACustomizer extends BaseCustomizer
     
     initComponents();
 
+    super.getDEFUSEpanel().setContainerFieldChoices(COLOR_CONTAINERFIELD_CHOICES, COLOR_CONTAINERFIELD_TOOLTIPS);
     expandableList1.setTitle("color array");
     expandableList1.setColumnTitles  (new String[]{"#","r","g","b","a","color"});
     expandableList1.setColumnToolTips(new String[]{"index","red","green","blue","alpha opacity (1-transparency)","color chooser"});

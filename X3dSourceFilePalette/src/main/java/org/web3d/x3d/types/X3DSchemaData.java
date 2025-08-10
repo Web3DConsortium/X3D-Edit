@@ -535,12 +535,12 @@ public interface X3DSchemaData
   boolean UNIT_ATTR_CONVERSIONFACTOR_REQD = true;
   String  UNIT_ATTR_CONVERSIONFACTOR_DFLT = "1.0";
 
-  String[]CHILD_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode"};
+  String[]CHILD_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode"}; // TODO unused?
   String[]CHILD_CONTAINERFIELD_TOOLTIPS   =
   {
       "scene root node or child node",
       "only used as proxy geometry for parent Collision node",
-      "child of a GeoLOD node"
+      "rootNode field for a parent GeoLOD node",
   };
 
   // EXPORT element
@@ -569,8 +569,8 @@ public interface X3DSchemaData
   String  METADATA_CONTAINERFIELD_TOOLTIP    = "'metadata' when describing parent node, 'value' when used as part of MetadataSet";
   String[]METADATA_CONTAINERFIELD_TOOLTIPS   =
   {
-      "metadata describing parent node",
-      "value for parent MetadataSet node"
+      "metadata describing parent node (default in X3D version 3)",
+      "value for parent MetadataSet node (default in X3D version 4)"
   };
 
   String  METADATABOOLEAN_ELNAME              = "MetadataBoolean";
@@ -1014,22 +1014,23 @@ public interface X3DSchemaData
   String  GROUP_ATTR_BBOXSIZE_DFLT         = "-1 -1 -1";
 
   // Also used by Shape, LOD
-  String[]GROUP_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode"};
+  String[]GROUP_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode", "shape", "skin"};
   String[]GROUP_CONTAINERFIELD_TOOLTIPS   =
   {
       "'children' for typical use as child node",
-      "proxy field for a Collision child node",
-      "child of a GeoLOD node"
+      "proxy field for parent Collision node",
+      "rootNode field for a parent GeoLOD node",
+      "shape field for a parent CADFace or CollidableShape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
 
-  // Also used by Shape, LOD
   String[]INLINE_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode","watchList"};
   String[]INLINE_CONTAINERFIELD_TOOLTIPS   =
   {
       "'children' for typical use as child node",
-      "'proxy' field for a Collision child node",
-      "'rootNode' child of a GeoLOD node",
-      "'watchList' child of LoadSensor (X3D version 3 only)"
+      "'proxy' field for a parent Collision child node",
+      "'rootNode' child for a parent GeoLOD node",
+      "'watchList' child of a parent LoadSensor node (X3D version 3 only)"
   };
 
   // element Transform
@@ -1062,14 +1063,14 @@ public interface X3DSchemaData
   String  TRANSFORM_ATTR_BBOXSIZE_DFLT         = "-1 -1 -1";
 
   // similar versions used by Shape, LOD
-  String[]TRANSFORM_CONTAINERFIELD_CHOICES    = {"children", "proxy", "shape", "rootNode"};
+  String[]TRANSFORM_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode", "shape"};
   String  TRANSFORM_CONTAINERFIELD_TOOLTIP    = "'children' for typical use as child node, 'shape' when initial child of CADFace";
   String[]TRANSFORM_CONTAINERFIELD_TOOLTIPS   =
   {
       "'children' for typical use as child node",
-      "proxy field for a Collision child node",
-      "'shape' when initial child of CADFace",
-      "child of a GeoLOD node"
+      "proxy field for parent Collision node",
+      "child for a parent GeoLOD node",
+      "shape field for a parent CADFace or CollidableShape node",
   };
 
   // element Inline
@@ -1112,8 +1113,8 @@ public interface X3DSchemaData
   String[]LOD_ATTR_CONTAINERFIELD_TOOLTIPS   =
   {
       "child of a grouping node",
-      "proxy field for a Collision child node",
-      "shape field for a CADFace child node",
+      "proxy field for parent Collision node",
+      "shape field for a parent CADFace or CollidableShape node",
   };
 
   // element Shape
@@ -1125,14 +1126,14 @@ public interface X3DSchemaData
   boolean SHAPE_ATTR_BBOXSIZE_REQD   = false;
   String  SHAPE_ATTR_BBOXSIZE_DFLT   = "-1 -1 -1";
 
-  String[]SHAPE_ATTR_CONTAINERFIELD_CHOICES    = {"children", "proxy", "shape", "rootNode", "skin"};
+  String[]SHAPE_ATTR_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode", "shape", "skin"};
   String[]SHAPE_ATTR_CONTAINERFIELD_TOOLTIPS   =
   {
       "child of a grouping node",
-      "proxy field for a Collision child node",
-      "shape field for a CADFace child node",
-      "child of a GeoLOD node",
-      "'skin' of a HAnimHumanoid node",
+      "proxy field for parent Collision node",
+      "rootNode field for a parent GeoLOD node",
+      "shape field for a parent CADFace or CollidableShape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
 
   // element Sphere
@@ -1609,19 +1610,25 @@ public interface X3DSchemaData
   String  IMAGETEXTURE_ATTR_DESCRIPTION_DFLT = "";
 
   String[]IMAGETEXTURE_ATTR_CONTAINERFIELD_CHOICES = {
-    "texture", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children"};
+    "texture", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children","left","right","back","front","top","bottom"};
   String  IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIP =
-    "texture if parent is Shape or ComposedTexture3D, otherTexture if parent is TextureBackground";
+    "texture of parent Shape or ComposedTexture3D, otherTexture of parent TextureBackground";
   String[]IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "texture if parent is Shape or ComposedTexture3D",
-    "leftTexture if parent is TextureBackground",
-    "rightTexture if parent is TextureBackground",
-    "backTexture if parent is TextureBackground",
-    "frontTexture if parent is TextureBackground",
-    "topTexture if parent is TextureBackground",
-    "bottomTexture if parent is TextureBackground",
-    "child of LoadSensor (X3D version 3 only)",
-    "child of LoadSensor (X3D version 4)"};
+    "texture of parent Shape or ComposedTexture3D",
+    "leftTexture of parent TextureBackground",
+    "rightTexture of parent TextureBackground",
+    "backTexture of parent TextureBackground",
+    "frontTexture of parent TextureBackground",
+    "topTexture of parent TextureBackground",
+    "bottomTexture of parent TextureBackground",
+    "child of a parent LoadSensor node (X3D version 3 only)",
+    "child of a parent LoadSensor node (X3D version 4)",
+    "left of parent ComposedCubeMapTexture",
+    "right of parent ComposedCubeMapTexture",
+    "back of parent ComposedCubeMapTexture",
+    "front of parent ComposedCubeMapTexture",
+    "top of parent ComposedCubeMapTexture",
+    "bottom of parent ComposedCubeMapTexture"};
 
   // Element MovieTexture
   String  MOVIETEXTURE_ELNAME               = "MovieTexture";
@@ -1657,20 +1664,26 @@ public interface X3DSchemaData
   String  MOVIETEXTURE_ATTR_URL_DFLT        = "";
 
   String[]MOVIETEXTURE_ATTR_CONTAINERFIELD_CHOICES = {
-    "texture", "source", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children"};
+    "texture", "source", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children","left","right","back","front","top","bottom"};
   String  MOVIETEXTURE_ATTR_CONTAINERFIELD_TOOLTIP =
-    "texture if parent is Shape or ComposedTexture3D, source of parent is Sound, or backTexture/frontTexture/etc. if parent is TextureBackground";
+    "texture of parent Shape or ComposedTexture3D, source of parent is Sound, or backTexture/frontTexture/etc. of parent TextureBackground";
   String[]MOVIETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "texture if parent is Shape or ComposedTexture3D",
-    "source if parent is Sound",
-    "leftTexture if parent is TextureBackground",
-    "rightTexture if parent is TextureBackground",
-    "backTexture if parent is TextureBackground",
-    "frontTexture if parent is TextureBackground",
-    "topTexture if parent is TextureBackground",
-    "bottomTexture if parent is TextureBackground",
-    "child of LoadSensor (X3D version 3 only)",
-    "child of LoadSensor (X3D version 4)"};
+    "texture of parent Shape or ComposedTexture3D",
+    "source of parent Sound",
+    "leftTexture of parent TextureBackground",
+    "rightTexture of parent TextureBackground",
+    "backTexture of parent TextureBackground",
+    "frontTexture of parent TextureBackground",
+    "topTexture of parent TextureBackground",
+    "bottomTexture of parent TextureBackground",
+    "child of a parent LoadSensor node (X3D version 3 only)",
+    "child of a parent LoadSensor node (X3D version 4)",
+    "left of parent ComposedCubeMapTexture",
+    "right of parent ComposedCubeMapTexture",
+    "back of parent ComposedCubeMapTexture",
+    "front of parent ComposedCubeMapTexture",
+    "top of parent ComposedCubeMapTexture",
+    "bottom of parent ComposedCubeMapTexture"};
 
   // Element PixelTexture
   String  PIXELTEXTURE_ELNAME             = "PixelTexture";
@@ -1704,6 +1717,14 @@ public interface X3DSchemaData
   String  TEXTURECOORDINATE_ATTR_POINT_NAME = "point";
   boolean TEXTURECOORDINATE_ATTR_POINT_REQD = false;
   String  TEXTURECOORDINATE_ATTR_POINT_DFLT = "0 0, 1 0, 1 1, 0 1"; // override X3D spec to provide commonly used defaults for building interface
+  
+  // Also used by CoordinateDouble
+  String[]TEXTURECOORDINATE_CONTAINERFIELD_CHOICES    = {"texCoord", "texCoordRamp"};
+  String[]TEXTURECOORDINATE_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'texCoord' for typical use texturing mesh geometry",
+      "'texCoordRamp' for a parent ParticleSystem node (X3D version 3",
+  };
 
   // Element TextureCoordinateGenerator
   String  TEXTURECOORDINATEGENERATOR_ELNAME              = "TextureCoordinateGenerator";
@@ -1738,6 +1759,15 @@ public interface X3DSchemaData
   String  COLORRGBA_ATTR_COLOR_NAME = "color";
   boolean COLORRGBA_ATTR_COLOR_REQD = false;
   String  COLORRGBA_ATTR_COLOR_DFLT = "";
+  
+  // Also used by CoordinateDouble
+  String[]COLOR_CONTAINERFIELD_CHOICES    = {"color", "colorRamp"};
+  String[]COLOR_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'color' for typical use with mesh geometry",
+      "'colorRamp' for a parent ParticleSystem node (X3D version 3)",
+  };
+
 
   // Elements Coordinate and CoordinateDouble
   String  COORDINATE_ELNAME          = "Coordinate";
@@ -1745,6 +1775,16 @@ public interface X3DSchemaData
   String  COORDINATE_ATTR_POINT_NAME = "point";
   boolean COORDINATE_ATTR_POINT_REQD = false;
   String  COORDINATE_ATTR_POINT_DFLT = "";
+  
+  // Also used by CoordinateDouble
+  String[]COORDINATE_CONTAINERFIELD_CHOICES    = {"coord", "controlPoint", "skinCoord","skinBindingCoords"};
+  String[]COORDINATE_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'coord' for typical use as mesh geometry",
+      "'controlPoint' for a parent NURBS node",
+      "'skinCoord' for a parent HAnimHumanoid node",
+      "'skinBindingCoords' for a parent HAnimHumanoid node"
+  };
 
   // Geometry set choices are provided to ExpandableList to simplify populating coordinate array values
 
@@ -1891,8 +1931,8 @@ public interface X3DSchemaData
   String[]INDEXEDFACESET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
   String[]INDEXEDFACESET_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'geometry' for typical use within a Shape node",
-      "'skin' of a HAnimHumanoid node",
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
 
   // Element ElevationGrid
@@ -2417,6 +2457,14 @@ public interface X3DSchemaData
   String  NORMAL_ATTR_VECTOR_NAME ="vector";
   boolean NORMAL_ATTR_VECTOR_REQD = false;
   String  NORMAL_ATTR_VECTOR_DFLT = "";
+  
+  String[]NORMAL_CONTAINERFIELD_CHOICES    = {"normal","skinNormal","skinBindingNormals"};
+  String[]NORMAL_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'normal' field forparent geometry node",
+      "'skinNormal' field for a parent HAnimHumanoid node",
+      "'skinBindingNormals' field for a parent HAnimHumanoid node",
+  };
 
   // TriangleSet element
   String  TRIANGLESET_ELNAME                    = "TriangleSet";
@@ -2505,8 +2553,8 @@ public interface X3DSchemaData
   String[]INDEXEDTRIANGLESET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
   String[]INDEXEDTRIANGLESET_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'geometry' for typical use within a Shape node",
-      "'skin' of a HAnimHumanoid node",
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
 
   // IndexedTriangleFanSet element
@@ -2530,8 +2578,8 @@ public interface X3DSchemaData
   String[]INDEXEDTRIANGLEFANSET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
   String[]INDEXEDTRIANGLEFANSET_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'geometry' for typical use within a Shape node",
-      "'skin' of a HAnimHumanoid node",
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
   
   // IndexedTriangleStripSet element
@@ -2555,8 +2603,8 @@ public interface X3DSchemaData
   String[]INDEXEDTRIANGLESTRIPSET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
   String[]INDEXEDTRIANGLESTRIPSET_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'geometry' for typical use within a Shape node",
-      "'skin' of a HAnimHumanoid node",
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
   
    // IndexedQuadSet element
@@ -2580,8 +2628,8 @@ public interface X3DSchemaData
   String[]INDEXEDQUADSET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
   String[]INDEXEDQUADSET_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'geometry' for typical use within a Shape node",
-      "'skin' of a HAnimHumanoid node",
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
 
   // Element ROUTE
@@ -3286,9 +3334,9 @@ public interface X3DSchemaData
   String[]HANIMJOINT_CONTAINERFIELD_CHOICES    = {"children", "skeleton", "joints"};
   String[]HANIMJOINT_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'children' when part of another HAnimJoint",
-      "'skeleton' when primary child of HAnimHumanoid",
-      "'joints' when USE reference (following skeleton tree) in HAnimHumanoid"
+      "'children' when parent is another HAnimJoint",
+      "'skeleton' when parent is HAnimHumanoid",
+      "'joints' when USE reference (following skeleton tree) in parent HAnimHumanoid"
   };
 
   String[]HANIMJOINT_NAME_CHOICES   =
@@ -3475,8 +3523,8 @@ public interface X3DSchemaData
   String[]HANIMSEGMENT_CONTAINERFIELD_CHOICES    = {"children", "segments"};
   String[]HANIMSEGMENT_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'children' when part of HAnimJoint",
-      "'segments' when USE reference (following skeleton tree) in HAnimHumanoid"
+      "'children' when parent is HAnimJoint",
+      "'segments' when USE reference (following skeleton tree) in parent HAnimHumanoid"
   };
 
   String[]HANIMSEGMENT_NAME_CHOICES   =
@@ -3731,10 +3779,10 @@ public interface X3DSchemaData
   String[]HANIMSITE_CONTAINERFIELD_CHOICES    = {"children", "skeleton", "sites", "viewpoints"};
   String[]HANIMSITE_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'children' when part of HAnimJoint",
-      "'skeleton' when primary child of HAnimHumanoid",
-      "'sites' when USE reference (following skeleton tree) in HAnimHumanoid",
-      "'viewpoints' when USE reference (following skeleton tree) in HAnimHumanoid",
+      "'children' when parent is HAnimJoint",
+      "'skeleton' when parent is HAnimHumanoid",
+      "'sites' when USE reference (following skeleton tree) in parent HAnimHumanoid",
+      "'viewpoints' when USE reference (following skeleton tree) in parent HAnimHumanoid",
   };
 
   String[]HANIMSITE_NAME_CHOICES   = // TODO check
@@ -4645,16 +4693,16 @@ public interface X3DSchemaData
   String[]COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_CHOICES = {
     "texture", "gradients","segmentIdentifiers","surfaceNormals","transferFunction","voxels","watchList","children"};
   String  COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_TOOLTIP =
-    "texture if parent is Shape or ComposedTexture3D, or other value if parent is a volume node";
+    "texture of parent Shape or ComposedTexture3D, or other value of parent volume node";
   String[]COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "texture if parent is Shape or ComposedTexture3D",
-    "gradients if parent is IsoSurfaceVolumeData",
-    "segmentIdentifiers if parent is SegmentedVolumeData",
-    "surfaceNormals if parent is Cartoon*, EdgeEnhancement*, Shaded*, SilhouetteEnhancement* or ToneMapped* *VolumeStyle",
-    "transferFunction if parent is OpacityMapVolumeStyle",
-    "voxels if parent is VolumeData, IsoSurfaceVolumeData, SegmentedVolumeData or BlendedVolumeStyle",
-    "child of LoadSensor (X3D version 3 only)",
-    "child of LoadSensor (X3D version 4)"
+    "texture of parent Shape or ComposedTexture3D",
+    "gradients of parent IsoSurfaceVolumeData",
+    "segmentIdentifiers of parent SegmentedVolumeData",
+    "surfaceNormals of parent Cartoon*, EdgeEnhancement*, Shaded*, SilhouetteEnhancement* or ToneMapped* *VolumeStyle node",
+    "transferFunction of parent OpacityMapVolumeStyle",
+    "voxels of parent VolumeData, IsoSurfaceVolumeData, SegmentedVolumeData or BlendedVolumeStyle",
+    "child of a parent LoadSensor node (X3D version 3 only)",
+    "child of a parent LoadSensor node (X3D version 4)"
     };
 
   // Element ImageTexture3D
@@ -4747,13 +4795,13 @@ public interface X3DSchemaData
   String X3DNBodyCollidableNode_ATTR_CONTAINERFIELD_TOOLTIP = "see X3D Tooltips for selecting proper containerField";
   // TODO individual tooltips for each choice not yet implemented:
   String[]X3DNBodyCollidableNode_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "children if parent is a grouping node or X3D scene root",
-    "collidable if parent is CollidableOffset",
-    "collidables if parent is CollisionCollection",
-    "intersections if parent is CollisionSensor",
-    "geometry if parent is RigidBody",
-    "geometry1 if parent is Contact",
-    "geometry2 if parent is Contact"};
+    "children of parent grouping node or X3D scene root",
+    "collidable of parent CollidableOffset",
+    "collidables of parent CollisionCollection",
+    "intersections of parent CollisionSensor",
+    "geometry of parent RigidBody",
+    "geometry1 of parent Contact",
+    "geometry2 of parent Contact"};
 
   String  COLLIDABLEOFFSET_ELNAME                = "CollidableOffset";
   String  COLLIDABLEOFFSET_ATTR_ENABLED_NAME     = "enabled";
@@ -4792,11 +4840,11 @@ public interface X3DSchemaData
   String[]COLLISIONCOLLECTION_ATTR_CONTAINERFIELD_CHOICES = {
     "children", "collider"};
   String COLLISIONCOLLECTION_ATTR_CONTAINERFIELD_TOOLTIP  =
-    "'collider' if parent is CollisionSensor or RigidBodyCollection, otherwise 'children'";
+    "'collider' of parent CollisionSensor or RigidBodyCollection, otherwise 'children'";
     // TODO individual tooltips for each choice not yet implemented:
   String[]COLLISIONCOLLECTION_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "children if parent is a grouping node or X3D scene root",
-    "collider if parent is CollisionSensor or RigidBodyCollection"
+    "children of parent grouping node or X3D scene root",
+    "collider of parent CollisionSensor or RigidBodyCollection"
   };
   String  COLLISIONCOLLECTION_ELNAME                             = "CollisionCollection";
   String  COLLISIONCOLLECTION_ATTR_APPLIEDPARAMETERS_NAME        = "appliedParameters";
@@ -4837,10 +4885,10 @@ public interface X3DSchemaData
   // X3DNBodyCollisionSpaceNode only includes CollisionSpace
   String[]COLLISIONSPACE_ATTR_CONTAINERFIELD_CHOICES = {
     "children", "collidables"};
-  String  COLLISIONSPACE_ATTR_CONTAINERFIELD_TOOLTIP = "'collidables' if parent is CollisionCollection or CollisionSpace, otherwise 'children'";
+  String  COLLISIONSPACE_ATTR_CONTAINERFIELD_TOOLTIP = "'collidables' of parent CollisionCollection or CollisionSpace, otherwise 'children'";
   String[]COLLISIONSPACE_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "children if parent is a grouping node or X3D scene root",
-    "collidables if parent is CollisionCollection or CollisionSpace"
+    "children of parent grouping node or X3D scene root",
+    "collidables of parent CollisionCollection or CollisionSpace"
   };
   String  COLLISIONSPACE_ELNAME                     = "CollisionSpace";
   String  COLLISIONSPACE_ATTR_ENABLED_NAME          = "enabled";

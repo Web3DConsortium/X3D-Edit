@@ -79,6 +79,7 @@ public class COORDINATECustomizer extends BaseCustomizer
   {
     initComponents();
 
+    super.getDEFUSEpanel().setContainerFieldChoices(COORDINATE_CONTAINERFIELD_CHOICES, COORDINATE_CONTAINERFIELD_TOOLTIPS);
     expandableListPoints.setTitle("point array");
     expandableListPoints.setColumnTitles(new String[]{"#","x","y","z"});
     expandableListPoints.setColumnToolTips(new String[]{"index","point x value","point y value","point z value"});
