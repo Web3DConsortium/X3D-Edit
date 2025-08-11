@@ -2070,19 +2070,19 @@ public class X3dToXhtmlDomConversionFrame extends javax.swing.JFrame {
         switch (pageIntegrationTabbedPane.getSelectedIndex())
         {
             case HTML_LAYOUT_TAB: 
-                X3dEditUserPreferencesPanel.feedbackButtonSend ("X3D4 Model Integration in HTML5 Web Page: HTML page integration pane");
+                X3dEditUserPreferencesPanel.feedbackButtonReportIssue ("X3D4 Model Integration in HTML5 Web Page: HTML page integration pane");
                 // no change in player, might be either X3DOM or X_ITE
                 break;
             case X3DOM_TAB: 
-                X3dEditUserPreferencesPanel.feedbackButtonSend ("X3D4 Model Integration in HTML5 Web Page: X3DOM pane");
+                X3dEditUserPreferencesPanel.feedbackButtonReportIssue ("X3D4 Model Integration in HTML5 Web Page: X3DOM pane");
                 x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X3DOM);
                 break;
             case X_ITE_TAB: 
-                X3dEditUserPreferencesPanel.feedbackButtonSend ("X3D4 Model Integration in HTML5 Web Page: X_ITE pane");
+                X3dEditUserPreferencesPanel.feedbackButtonReportIssue ("X3D4 Model Integration in HTML5 Web Page: X_ITE pane");
                 x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X_ITE);
                 break;
             case CORS_TAB: 
-                X3dEditUserPreferencesPanel.feedbackButtonSend ("X3D4 Model Integration in HTML5 Web Page: CORS localhost http server pane");
+                X3dEditUserPreferencesPanel.feedbackButtonReportIssue ("X3D4 Model Integration in HTML5 Web Page: CORS localhost http server pane");
                 x3dToXhtmlDomConversionAction.setPlayer(X3dToXhtmlDomConversionAction.X_ITE); // X3DOM does not need CORS, but X_ITE does
                 break;
         }

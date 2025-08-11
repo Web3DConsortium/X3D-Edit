@@ -43,19 +43,24 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_EDIT_HOME;
+import static org.web3d.x3d.types.X3DSchemaData.X3D_EDIT_GITHUB_ISSUES;
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchIssueReportEmailAction", category = "X3D-Edit")
 // adapted email icon from https://creativecommons.org/website-icons
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/envelope32X24.png",
-                    displayName = "#CTL_LaunchIssueReportEmailAction", 
+                    displayName = "#CTL_LaunchIssueReportSourceForgeTicketAction", 
                             lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/X3D-Edit &Information", position = 1000),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D-Edit &Information", position = 1000)
 })
 
-public final class LaunchIssueReportEmailAction extends CallableSystemAction
+public final class LaunchIssueReportSourceForgeTicketAction extends CallableSystemAction
 {
+    // mailto typically no longer works via browsers, email programs block such invocation.
+    // use trouble ticket page instead
+    
     // https://en.wikipedia.org/wiki/Mailto
     // https://en.wikipedia.org/wiki/Percent-encoding
     // https://stackoverflow.com/questions/3871729/transmitting-newline-character-n
@@ -91,10 +96,27 @@ public final class LaunchIssueReportEmailAction extends CallableSystemAction
       sendBrowserTo(mailtoReportUrl); // redirects to user's mail application, if present
   }
   
+  public static void reportIssue(String troubleString)
+  {
+      System.out.println("*** trouble report issue: " + troubleString);
+      reportIssue();
+  }
+  
+  public static void reportIssue()
+  {
+      LaunchIssueReportSourceForgeTicketAction launcher = new LaunchIssueReportSourceForgeTicketAction();
+      launcher.performAction();
+  }
+  
   @Override
   public void performAction()
   {
-      sendMailtoFeedback (getElementName());
+      
+      sendBrowserTo(X3D_EDIT_GITHUB_ISSUES);
+      
+      sendBrowserTo(X3D_EDIT_HOME + "#Support");
+      
+//      sendMailtoFeedback (getElementName());
       
 //      String mailtoReportUrl = MAILTO_REPORT_URL;
 //      // TODO add node/statement name
@@ -105,7 +127,7 @@ public final class LaunchIssueReportEmailAction extends CallableSystemAction
 //      }
 //      mailtoReportUrl+= MAILTO_REPORT_URL_SUFFIX;
 //      
-//      System.out.println ("LaunchIssueReportEmailAction performAction() mailtoReportUrl=\n   " + mailtoReportUrl);
+//      System.out.println ("LaunchIssueReportSourceForgeTicketAction performAction() mailtoReportUrl=\n   " + mailtoReportUrl);
 //      
 //      sendBrowserTo(mailtoReportUrl); // redirects to user's mail application, if present
   }
@@ -134,7 +156,7 @@ public final class LaunchIssueReportEmailAction extends CallableSystemAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchIssueReportEmailAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchIssueReportSourceForgeTicketAction");
   }
 
   @Override

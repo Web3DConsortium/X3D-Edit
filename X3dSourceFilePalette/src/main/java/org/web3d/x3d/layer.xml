@@ -36,7 +36,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -->
 <!--https://platform.netbeans.org/tutorials/nbm-google.html-->
 <!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
-
 <!-- NetBeans tutorial      https://netbeans.apache.org/tutorials/nbm-palette-api2.html -->
 <!-- NetBeans documentation https://bits.netbeans.org/dev/javadoc/org-openide-filesystems/index.html?org/openide/filesystems/XMLFileSystem.html -->
 <filesystem>
@@ -116,7 +115,7 @@ POSSIBILITY OF SUCH DAMAGE.
     -->
     <folder name="Actions">
         <folder name="&amp;X3D-Edit"><!-- mnemonic -->
-            <file name="org-web3d-x3d-actions-LaunchIssueReportEmailAction.instance">
+            <file name="org-web3d-x3d-actions-LaunchIssueReportSourceForgeTicketAction.instance">
                 <attr name="delegate" newvalue="org.web3d.x3d.actions.LaunchEmailReportAction"/>
                 <attr name="displayName" stringvalue="X3D-Edit Issue Feedback Email"/>
                 <attr name="iconBase" stringvalue="org/web3d/x3d/palette/items/resources/envelope.png"/>

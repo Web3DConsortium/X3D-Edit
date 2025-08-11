@@ -288,6 +288,8 @@ public interface X3DSchemaData
       "Enter url/number of Xj3D Player SourceForge Issue",            //11
       "Enter new item TODO"                                           //12, new item, must be last
   };
+  
+  final String X3D_EDIT_GITHUB_ISSUES = "https://github.com/Web3DConsortium/X3D-Edit/issues";
 
   String[] META_ATTR_TODO_URLS  = // issue trackers
   {
@@ -298,7 +300,7 @@ public interface X3DSchemaData
       "https://sourceforge.net/p/x3d/examples/",                                          // 3
 //    "https://www.movesinstitute.org/bugzilla/buglist.cgi?quicksearch=example+archives", // 3
       
-      "https://github.com/Web3DConsortium/X3D-Edit/issues",                               // 4
+      X3D_EDIT_GITHUB_ISSUES,                                                             // 4
 //    "https://www.movesinstitute.org/bugzilla/buglist.cgi?quicksearch=X3D-Edit",         // 4
       
       "https://github.com/x3dom/x3dom/issues",                        // 5

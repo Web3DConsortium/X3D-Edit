@@ -185,7 +185,7 @@ public class X3dEditUserPreferences
   public static String  EXAMPLE_ARCHIVES_SERVER_PORT_DEFAULT       = "8002";
   
   public static String  NIST_NVD_SECURITY_CHECK_URL                = "https://nvd.nist.gov/vuln/search";
-  public static String  NIST_NVD_SEARCH_PREFIX                     = "/results?form_type=Basic&results_type=overview&search_type=all&query=";
+  public static String  NIST_NVD_SEARCH_PREFIX                     = "#/nvd/home?resultType=records&keyword=";
   
   // there is no unique best default path as a user could store examples anywhere on their local machine
   // thus user.dir property persistence will allow a path to be remembered

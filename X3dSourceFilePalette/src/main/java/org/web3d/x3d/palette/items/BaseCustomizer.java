@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023
+Copyright (c) 1995-2025
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -55,7 +55,7 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.actions.BaseViewAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_TOOLTIPS;
-import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
+import org.web3d.x3d.actions.LaunchIssueReportSourceForgeTicketAction;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.palette.BetterJTextField;
 import org.web3d.x3d.palette.X3DPaletteUtilitiesJdom;
@@ -364,15 +364,15 @@ public abstract class BaseCustomizer extends JPanel
     }
     
     final JButton emailFeedbackReportButton = findButton(buttonsDialogDisplayer, "Feedback");
-    final ActionListener emailFeedbackReportButtonActionListener = (ActionEvent event) ->
+    final ActionListener feedbackReportButtonActionListener = (ActionEvent event) ->
     {
-        LaunchIssueReportEmailAction.sendMailtoFeedback(currentX3dElement.getElementName());
+        LaunchIssueReportSourceForgeTicketAction.reportIssue(currentX3dElement.getElementName());
     };
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
     if (emailFeedbackReportButton != null)
     {
         emailFeedbackReportButton.setToolTipText(MAILTO_TOOLTIP);
-        emailFeedbackReportButton.addActionListener(emailFeedbackReportButtonActionListener);
+        emailFeedbackReportButton.addActionListener(feedbackReportButtonActionListener);
         emailFeedbackReportButton.setVisible(true);
         emailFeedbackReportButton.setHorizontalAlignment(SwingConstants.CENTER);
     }
