@@ -53,8 +53,8 @@ import org.openide.util.NbBundle;
     @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 30),
     @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 30),
     @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 30),
-    @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 30),
-    @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 30),
+    @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 230, separatorBefore = 220),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 230),
     @ActionReference(path = "Shortcuts", name = "CS-X"), // shortcut control-shift-X
     // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
