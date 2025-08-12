@@ -47,8 +47,12 @@ public class OpenResultInEditorChooserAccessory extends javax.swing.JPanel
   public OpenResultInEditorChooserAccessory()
   {
     initComponents();
-    setOpenInBrowserCheckBoxSelected(true); // ensure user-friendly initialization
-    setOpenInEditorCheckBoxSelected (true); // ensure user-friendly initialization
+    
+    if (!OpenInBrowserCheckBox.isSelected() && !OpenInEditorCheckBox.isSelected())
+    {
+        setOpenInBrowserCheckBoxSelected(true); // ensure user-friendly initialization
+        setOpenInEditorCheckBoxSelected (true); // ensure user-friendly initialization
+    }
   }
   
   /** This method is called from within the constructor to
