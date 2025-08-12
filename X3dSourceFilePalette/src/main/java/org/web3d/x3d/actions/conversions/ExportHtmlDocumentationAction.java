@@ -72,6 +72,7 @@ public final class ExportHtmlDocumentationAction extends BaseConversionsAction
   {
     ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as HTML5 pretty-print model documentation via XSLT");
     ConversionsHelper.saveFilePack fp;
+    ConversionsHelper.setOpenInEditorSetting(false);
   //  if (BaseConversionsAction.xsltFilesRoot == null)
       fp = xsltOneFile(ed, "X3dTransforms/" + X3dToXhtmlXsltStylesheet, ".html", true, false, null);
   //  else {
