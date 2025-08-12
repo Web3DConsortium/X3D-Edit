@@ -163,10 +163,10 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
             x3dTidyConversionPanel = new X3dTidyConversionPanel (this);
     
             // pattern from Xj3dCadFilterOptionsPanel to launch and exit the panel
-            transformButton = new JButton(NbBundle.getMessage(getClass(),"MSG_TransformModel"));
+            transformButton = new JButton(NbBundle.getMessage(getClass(),"MSG_TidyModel"));
                 resetButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Reset"));
                cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_CONTINUE"));
-            transformButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Continue"));
+            transformButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_TidyModel"));
                resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
               cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Cancel"));
             HelpCtx.setHelpIDString(x3dTidyConversionPanel, X3D_TIDY_URL);
