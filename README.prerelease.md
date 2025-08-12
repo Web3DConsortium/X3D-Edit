@@ -6,7 +6,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Prerelease, 10 August 2025
+# X3D-Edit 4.0 Prerelease, 11 August 2025
 
 <!-- posted at https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/ -->
 
@@ -32,7 +32,9 @@ are interesting.
 
 ## How To Do It
 
-Please see our
+The easiest way to use X3D-Edit is to install NetBeans and then the X3D-Edit plugin.
+
+For full details on updates, please see our
 [Installation video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
 [<img align='right' width='400' src="https://www.web3d.org/x3d/tools/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
 
