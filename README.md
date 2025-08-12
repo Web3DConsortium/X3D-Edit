@@ -4,7 +4,7 @@
 
 Got X3D-Edit? 	&#128512;
 
-- [X3D-Edit home page](https://savage.nps.edu/X3D-Edit) documents this authoring tool for X3D Graphics models.
+- [X3D-Edit home page](https://www.web3d.org/x3d/tools/X3D-Edit) documents this authoring tool for X3D Graphics models.
 
 - [Apache NetBeans Plugin Portal: X3D-Edit](https://plugins.netbeans.apache.org/catalogue/?id=90) is our primary distribution.
 
