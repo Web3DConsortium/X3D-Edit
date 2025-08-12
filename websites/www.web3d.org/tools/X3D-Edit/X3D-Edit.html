@@ -363,14 +363,20 @@
             If you are using OpenJDK&nbsp;24 or later, 
             the large extensibility of the X3D XML DOCTYPE is now affected by 
             <a href="https://bugs.openjdk.org/browse/JDK-8343022" target="_blank">restrictions on use of JAXP</a>.
-            The following setting must be applied to the <i>netbeans.conf</i> configuration file.
+            The following Java property settings must be applied to the <i>netbeans.conf</i> configuration file.
             Please see
             <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#NetBeans" target="_blank">X3D Developers Guide: NetBeans</a> 
             for more details.
         </p>
         <ul>
             <li>
-                <code>-J-Djdk.xml.entityExpansionLimit=5000</code>
+                <code>-J-Djdk.xml.entityExpansionLimit=120000</code>
+            </li>
+            <li>
+                <code>-J-Djdk.xml.totalEntitySizeLimit=50000000</code>
+            </li>
+            <li>
+                <code>-J-Djdk.xml.maxGeneralEntitySizeLimit=50000000</code>
             </li>
         </ul>
         <p>
@@ -1992,7 +1998,7 @@
             <a href="https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html" target="_blank">https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html</a>
         </p>
         <p>
-            Page revised <b>10 August 2025</b>
+            Page revised <b>11 August 2025</b>
         </p>
         <!-- TODO update disclaimer links
         <p>(<a href="https://nps.edu/copyright-and-accessibility" target="disclaimer">official disclaimer</a>) </p> -->
