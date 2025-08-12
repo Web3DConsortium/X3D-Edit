@@ -19,7 +19,7 @@ Backup software deployment is found in  [Maven Central Repository](https://centr
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetbBeans&nbsp;26. Tested satisfactorily, any operating system |   72.9 MB | 10 August 2025
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetbBeans&nbsp;26. Tested satisfactorily, any operating system |   72.9 MB | 11 August 2025
 [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Must set jdkhome in netbeans.conf       |  260.7 MB | 25 February 2025
 
 <!---
