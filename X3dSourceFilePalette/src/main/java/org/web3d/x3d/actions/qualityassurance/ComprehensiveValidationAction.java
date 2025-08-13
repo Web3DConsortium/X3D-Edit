@@ -318,20 +318,24 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                         saxonTransformer.setErrorListener(new ErrorListener() {
                             @Override
                             public void warning(TransformerException exception) throws TransformerException {
+                                System.err.println("*** saxonTransformer warning " + exception.getMessageAndLocation());
                                 myCo.receive(new CookieMessage(exception.getLocalizedMessage(), CookieMessage.WARNING_LEVEL));
                             }
 
                             @Override
                             public void error(TransformerException exception) throws TransformerException {
+                                System.err.println("*** saxonTransformer error( " + exception.getMessageAndLocation());
                                 myCo.receive(new CookieMessage(exception.getLocalizedMessage(), CookieMessage.ERROR_LEVEL));
                             }
 
                             @Override
                             public void fatalError(TransformerException exception) throws TransformerException {
+                                System.err.println("*** saxonTransformer fatalError( " + exception.getMessageAndLocation());
                                 myCo.receive(new CookieMessage(exception.getLocalizedMessage(), CookieMessage.FATAL_ERROR_LEVEL));
                             }
                         });
                         saxonTransformer.transform(x3dDataObject.getFreshSaxSource(), result);
+                        System.out.println("*** [debug] first scematron conversion complete");
 
                         // X3D Schematron 2
                         // replace the transformer with one based on the output from the last check
@@ -353,6 +357,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                                 outputWriterPlain.println("No errors or warnings found.");
                             }
                         }
+                        System.out.println("*** [debug] second scematron conversion complete");
 
                     // TODO also redo other validation actions to match
                     // future TODO:  figure out how to do Xj3D checks
