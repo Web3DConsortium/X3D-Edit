@@ -1373,6 +1373,9 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="MOVIETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MOVIETEXTURE.xml">
                 <attr name="position" intvalue="600"/>
             </file>
+            <file name="GAIN.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GAIN.xml">
+                <attr name="position" intvalue="2200"/>
+            </file>
             <file name="SOUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SOUND.xml">
                 <attr name="position" intvalue="2000"/>
             </file>
@@ -1406,9 +1409,6 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
             <file name="DYNAMICSCOMPRESSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DYNAMICSCOMPRESSOR.xml">
                 <attr name="position" intvalue="2190"/>
-            </file>
-            <file name="GAIN.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GAIN.xml">
-                <attr name="position" intvalue="2200"/>
             </file>
             <file name="LISTENERPOINTSOURCE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LISTENERPOINTSOURCE.xml">
                 <attr name="position" intvalue="2210"/>
