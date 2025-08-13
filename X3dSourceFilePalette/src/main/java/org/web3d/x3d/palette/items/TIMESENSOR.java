@@ -52,14 +52,8 @@ import org.web3d.x3d.types.X3DTimeDependentNode;
  */
 public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
 {
+  private boolean  loop;
   private SFDouble cycleInterval, cycleIntervalDefault;
-  private String   description, descriptionDefault;
-  private SFDouble startTime, startTimeDefault;
-  private SFDouble stopTime, stopTimeDefault;
-  
-  private SFDouble pauseTime, pauseTimeDefault;
-  private SFDouble resumeTime, resumeTimeDefault;
-  private boolean enabled, loop;
 
   public TIMESENSOR() 
   {
@@ -78,9 +72,9 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
   {
     cycleInterval = cycleIntervalDefault = new SFDouble(TIMESENSOR_ATTR_CYCLEINTERVAL_DFLT,0.0,null);
     description = descriptionDefault     = TIMESENSOR_ATTR_DESCRIPTION_DFLT; 
-    startTime = startTimeDefault         = new SFDouble(TIMESENSOR_ATTR_STARTTIME_DFLT,null,null);
-    stopTime = stopTimeDefault           = new SFDouble(TIMESENSOR_ATTR_STOPTIME_DFLT,null,null);  
-    pauseTime =  pauseTimeDefault        = new SFDouble(TIMESENSOR_ATTR_PAUSETIME_DFLT,null,null);
+    startTime  =  startTimeDefault       = new SFDouble(TIMESENSOR_ATTR_STARTTIME_DFLT,null,null);
+    stopTime   =   stopTimeDefault       = new SFDouble(TIMESENSOR_ATTR_STOPTIME_DFLT,null,null);  
+    pauseTime  =  pauseTimeDefault       = new SFDouble(TIMESENSOR_ATTR_PAUSETIME_DFLT,null,null);
     resumeTime = resumeTimeDefault       = new SFDouble(TIMESENSOR_ATTR_RESUMETIME_DFLT,null,null);
     enabled                              = Boolean.parseBoolean(TIMESENSOR_ATTR_ENABLED_DFLT);
     loop                                 = Boolean.parseBoolean(TIMESENSOR_ATTR_LOOP_DFLT);
@@ -202,34 +196,6 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
   {
     this.cycleInterval = new SFDouble(cycleInterval,0.0,null);
   }
-  
-    /**
-     * accessor method for field
-     * @return value
-     */
-  public String getDescription()
-  {
-    return description;
-  }
-
-    /**
-     * accessor method for field
-     * @param newDescription value of interest
-     */
-  public void setDescription(String newDescription)
-  {
-    this.description = newDescription;
-  }
-
-  public boolean isEnabled()
-  {
-    return enabled;
-  }
-
-  public void setEnabled(boolean enabled)
-  {
-    this.enabled = enabled;
-  }
 
   public boolean isLoop()
   {
@@ -239,46 +205,6 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
   public void setLoop(boolean loop)
   {
     this.loop = loop;
-  }
-
-  public String getPauseTime()
-  {
-    return pauseTime.toString();
-  }
-
-  public void setPauseTime(String pauseTime)
-  {
-    this.pauseTime = new SFDouble(pauseTime,null,null);
-  }
-
-  public String getResumeTime()
-  {
-    return resumeTime.toString();
-  }
-
-  public void setResumeTime(String resumeTime)
-  {
-    this.resumeTime = new SFDouble(resumeTime,null,null);
-  }
-
-  public String getStartTime()
-  {
-    return startTime.toString();
-  }
-
-  public void setStartTime(String startTime)
-  {
-    this.startTime = new SFDouble(startTime,null,null);
-  }
-
-  public String getStopTime()
-  {
-    return stopTime.toString();
-  }
-
-  public void setStopTime(String stopTime)
-  {
-    this.stopTime = new SFDouble(stopTime,null,null);
   }
 
 }

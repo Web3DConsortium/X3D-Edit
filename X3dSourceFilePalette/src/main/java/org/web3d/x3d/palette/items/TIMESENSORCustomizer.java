@@ -124,6 +124,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
 
         enabledLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         enabledLabel.setText("enabled");
+        enabledLabel.setToolTipText("enables/disables node operation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -131,6 +132,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledLabel, gridBagConstraints);
 
+        enabledCB.setToolTipText("enables/disables node operation");
         enabledCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -141,6 +143,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
 
         loopLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         loopLabel.setText("loop");
+        loopLabel.setToolTipText("repeat indefinitely when loop=true, repeat only once when loop=false");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -148,6 +151,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loopLabel, gridBagConstraints);
 
+        loopCB.setToolTipText("repeat indefinitely when loop=true, repeat only once when loop=false");
         loopCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -158,6 +162,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
 
         cycleIntervalLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         cycleIntervalLabel.setText("cycleInterval");
+        cycleIntervalLabel.setToolTipText("loop duration in seconds");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -165,6 +170,8 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(cycleIntervalLabel, gridBagConstraints);
+
+        cycleIntervalTF.setToolTipText("loop duration in seconds");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;

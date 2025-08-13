@@ -40,6 +40,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.types;
 
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+
 
 /**
  * X3DTimeDependentNode.java
@@ -57,4 +59,79 @@ package org.web3d.x3d.types;
  */
 public abstract class X3DTimeDependentNode extends X3DChildNode
 {
+  protected boolean  enabled;
+  protected String   description, descriptionDefault;
+  protected SFDouble startTime, startTimeDefault;
+  protected SFDouble stopTime, stopTimeDefault;
+  
+  protected SFDouble pauseTime, pauseTimeDefault;
+  protected SFDouble resumeTime, resumeTimeDefault;
+  
+/**
+ * accessor method for field
+ * @return value
+ */
+  public String getDescription()
+  {
+    return description;
+  }
+
+/**
+ * accessor method for field
+ * @param newDescription value of interest
+ */
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
+  }
+
+  public boolean isEnabled()
+  {
+    return enabled;
+  }
+
+  public void setEnabled(boolean enabled)
+  {
+    this.enabled = enabled;
+  }
+
+  public String getPauseTime()
+  {
+    return pauseTime.toString();
+  }
+
+  public void setPauseTime(String pauseTime)
+  {
+    this.pauseTime = new SFDouble(pauseTime,null,null);
+  }
+
+  public String getResumeTime()
+  {
+    return resumeTime.toString();
+  }
+
+  public void setResumeTime(String resumeTime)
+  {
+    this.resumeTime = new SFDouble(resumeTime,null,null);
+  }
+
+  public String getStartTime()
+  {
+    return startTime.toString();
+  }
+
+  public void setStartTime(String startTime)
+  {
+    this.startTime = new SFDouble(startTime,null,null);
+  }
+
+  public String getStopTime()
+  {
+    return stopTime.toString();
+  }
+
+  public void setStopTime(String stopTime)
+  {
+    this.stopTime = new SFDouble(stopTime,null,null);
+  }
 }

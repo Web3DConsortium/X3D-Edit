@@ -38,7 +38,7 @@ import javax.swing.text.JTextComponent;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
-import org.web3d.x3d.types.X3DTimeDependentNode;
+import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
  * GAIN.java
@@ -51,19 +51,8 @@ import org.web3d.x3d.types.X3DTimeDependentNode;
  * @author Mike Bailey
  * @version $Id$
  */
-public class GAIN extends X3DTimeDependentNode // and X3DSensorNode
+public class GAIN extends  X3DSoundProcessingNode // and X3DTimeDependentNode
 {
-  private String   channelCountMode, channelCountModeDefault;
-  private String   channelInterpretation, channelInterpretationDefault;
-  private String   description, descriptionDefault;
-  private boolean  enabled;
-  private SFFloat  gain;
-  private SFDouble startTime, startTimeDefault;
-  private SFDouble stopTime, stopTimeDefault;
-  private SFDouble pauseTime, pauseTimeDefault;
-  private SFDouble resumeTime, resumeTimeDefault;
-  private SFDouble tailTime, tailTimeDefault;
-
   public GAIN() 
   {
       this.setTraceEventsSelectionAvailable(true);
@@ -83,12 +72,12 @@ public class GAIN extends X3DTimeDependentNode // and X3DSensorNode
     channelInterpretation = channelInterpretationDefault = GAIN_ATTR_CHANNELINTERPRETATION_DFLT;
     description = descriptionDefault     = GAIN_ATTR_DESCRIPTION_DFLT;
     enabled                              = Boolean.parseBoolean(GAIN_ATTR_ENABLED_DFLT);
-    gain                                 = new SFFloat (GAIN_ATTR_GAIN_DFLT,null,null); 
+    gain       = gainDefault             = new SFFloat (GAIN_ATTR_GAIN_DFLT,null,null); 
     startTime  =  startTimeDefault       = new SFDouble(GAIN_ATTR_STARTTIME_DFLT,null,null);
     stopTime   =   stopTimeDefault       = new SFDouble(GAIN_ATTR_STOPTIME_DFLT,null,null);  
     pauseTime  = pauseTimeDefault        = new SFDouble(GAIN_ATTR_PAUSETIME_DFLT,null,null);
     resumeTime = resumeTimeDefault       = new SFDouble(GAIN_ATTR_RESUMETIME_DFLT,null,null);
-    tailTime   = tailTimeDefault         = new SFDouble(GAIN_ATTR_TAILTIME_DFLT,null,null);
+    tailTime   = tailTimeDefault         = new SFDouble(GAIN_ATTR_TAILTIME_DFLT,0.0,null);
   }
 
   @Override
@@ -172,6 +161,14 @@ public class GAIN extends X3DTimeDependentNode // and X3DSensorNode
       sb.append(enabled);
       sb.append("'");
     }
+      
+    if (GAIN_ATTR_GAIN_REQD || !gain.equals(gainDefault)) {
+      sb.append(" ");
+      sb.append(GAIN_ATTR_GAIN_NAME);
+      sb.append("='");
+      sb.append(gain);
+      sb.append("'");
+    }
 
     if (GAIN_ATTR_PAUSETIME_REQD || !pauseTime.equals(pauseTimeDefault)) {
       sb.append(" ");
@@ -211,103 +208,6 @@ public class GAIN extends X3DTimeDependentNode // and X3DSensorNode
     }
     
     return sb.toString();
-  }
-    
-  public String getChannelCountMode()
-  {
-    return channelCountMode;
-  }
-
-  public void setChannelCountMode(String newChannelCountMode)
-  {
-    channelCountMode = newChannelCountMode;
-  }
-    
-  public String getChannelInterpretation()
-  {
-    return channelInterpretation;
-  }
-
-  public void setChannelInterpretation(String newChannelInterpretation)
-  {
-    channelInterpretation = newChannelInterpretation;
-  }
-  
-    /**
-     * accessor method for field
-     * @return value
-     */
-  public String getDescription()
-  {
-    return description;
-  }
-
-    /**
-     * accessor method for field
-     * @param newDescription value of interest
-     */
-  public void setDescription(String newDescription)
-  {
-    this.description = newDescription;
-  }
-
-  public boolean isEnabled()
-  {
-    return enabled;
-  }
-
-  public void setEnabled(boolean enabled)
-  {
-    this.enabled = enabled;
-  }
-  public String getPauseTime()
-  {
-    return pauseTime.toString();
-  }
-
-  public void setPauseTime(String pauseTime)
-  {
-    this.pauseTime = new SFDouble(pauseTime,null,null);
-  }
-
-  public String getResumeTime()
-  {
-    return resumeTime.toString();
-  }
-
-  public void setResumeTime(String resumeTime)
-  {
-    this.resumeTime = new SFDouble(resumeTime,null,null);
-  }
-
-  public String getStartTime()
-  {
-    return startTime.toString();
-  }
-
-  public void setStartTime(String startTime)
-  {
-    this.startTime = new SFDouble(startTime,null,null);
-  }
-
-  public String getStopTime()
-  {
-    return stopTime.toString();
-  }
-
-  public void setStopTime(String stopTime)
-  {
-    this.stopTime = new SFDouble(stopTime,null,null);
-  }
-
-  public String getTailTime()
-  {
-    return tailTime.toString();
-  }
-
-  public void setTailTime(String newTailTime)
-  {
-    tailTime = new SFDouble(newTailTime,null,null);
   }
 
 }

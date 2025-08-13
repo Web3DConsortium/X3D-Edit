@@ -73,6 +73,7 @@ public class GAINCustomizer extends BaseCustomizer
     channelInterpretationComboBox.setSelectedItem(gain.getChannelInterpretation());
     
     descriptionTF.setText          (gain.getDescription());
+    gainTF.setText                 (gain.getGain());
     enabledCB.setSelected          (gain.isEnabled());
     startTimeTF.setText            (gain.getStartTime());
     stopTimeTF.setText             (gain.getStopTime());
@@ -112,6 +113,8 @@ public class GAINCustomizer extends BaseCustomizer
         channelCountModeComboBox = new javax.swing.JComboBox<>();
         channelInterpretationLabel = new javax.swing.JLabel();
         channelInterpretationComboBox = new javax.swing.JComboBox<>();
+        gainLabel = new javax.swing.JLabel();
+        gainTF = new javax.swing.JTextField();
 
         jTextField2.setText("jTextField2");
 
@@ -129,6 +132,7 @@ public class GAINCustomizer extends BaseCustomizer
 
         enabledLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         enabledLabel.setText("enabled");
+        enabledLabel.setToolTipText("enables/disables node operation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -136,6 +140,7 @@ public class GAINCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledLabel, gridBagConstraints);
 
+        enabledCB.setToolTipText("enables/disables node operation");
         enabledCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -148,7 +153,7 @@ public class GAINCustomizer extends BaseCustomizer
         tailTimeLabel.setText("tailTime");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -161,7 +166,7 @@ public class GAINCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -172,14 +177,14 @@ public class GAINCustomizer extends BaseCustomizer
         startTimeLabel.setText("startTime");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(startTimeLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -190,14 +195,14 @@ public class GAINCustomizer extends BaseCustomizer
         stopTimeLabel.setText("stopTime");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stopTimeLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -208,14 +213,14 @@ public class GAINCustomizer extends BaseCustomizer
         pauseTimeLabel.setText("pauseTime");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(pauseTimeLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -226,14 +231,14 @@ public class GAINCustomizer extends BaseCustomizer
         resumeTimeLabel.setText("resumeTime");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(resumeTimeLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -258,7 +263,7 @@ public class GAINCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
@@ -297,7 +302,7 @@ public class GAINCustomizer extends BaseCustomizer
         channelCountModeLabel.setText("channelCountMode");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -314,7 +319,7 @@ public class GAINCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -324,7 +329,7 @@ public class GAINCustomizer extends BaseCustomizer
         channelInterpretationLabel.setText("channelInterpretation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -341,11 +346,35 @@ public class GAINCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(channelInterpretationComboBox, gridBagConstraints);
+
+        gainLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        gainLabel.setText("gain");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(gainLabel, gridBagConstraints);
+
+        gainTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gainTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 25;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(gainTF, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
@@ -363,6 +392,10 @@ public class GAINCustomizer extends BaseCustomizer
     private void channelInterpretationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_channelInterpretationComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_channelInterpretationComboBoxActionPerformed
+
+    private void gainTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gainTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gainTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> channelCountModeComboBox;
@@ -376,6 +409,8 @@ public class GAINCustomizer extends BaseCustomizer
     private javax.swing.JLabel enabledLabel;
     private javax.swing.JPanel eventHelpPanel;
     private javax.swing.JLabel eventsLabel1;
+    private javax.swing.JLabel gainLabel;
+    private javax.swing.JTextField gainTF;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel pauseTimeLabel;
     private javax.swing.JTextField pauseTimeTF;
@@ -405,6 +440,7 @@ public class GAINCustomizer extends BaseCustomizer
     gain.setChannelInterpretation(channelInterpretationComboBox.getSelectedItem().toString());
     gain.setDescription          (descriptionTF.getText().trim());
     gain.setEnabled              (enabledCB.isSelected());
+    gain.setGain                 (gainTF.getText().trim());
     gain.setStartTime            (startTimeTF.getText().trim());
     gain.setStopTime             (stopTimeTF.getText().trim());
     gain.setPauseTime            (pauseTimeTF.getText().trim());
