@@ -1380,6 +1380,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="position" intvalue="2000"/>
             </file>
             <!--
+            -->
             <file name="SPATIALSOUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SPATIALSOUND.xml">
                 <attr name="position" intvalue="2100"/>
             </file>
@@ -1431,7 +1432,6 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="WAVESHAPER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/WAVESHAPER.xml">
                 <attr name="position" intvalue="2270"/>
             </file>
-            -->
             <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
                 <attr name="position" intvalue="2100"/>
             </file>

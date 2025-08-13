@@ -45,56 +45,72 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
  * @author Don Brutzman
  * @version $Id$
  */
-public abstract class X3DSoundProcessingNode extends X3DTimeDependentNode 
+public abstract class X3DSoundProcessingNode extends X3DTimeDependentNode
 {
-  protected String   channelCountMode, channelCountModeDefault;
-  protected String   channelInterpretation, channelInterpretationDefault;
-  protected SFFloat  gain, gainDefault;
+    protected String   channelCountMode, channelCountModeDefault;
+    protected String   channelInterpretation, channelInterpretationDefault;   
+    protected SFFloat  gain, gainDefault;
+    protected SFDouble tailTime, tailTimeDefault;
 
-  protected SFDouble tailTime, tailTimeDefault;
-  
-  public String getChannelCountMode()
-  {
-    return channelCountMode;
-  }
+    /**
+     * @return the channelCountMode
+     */
+    public String getChannelCountMode() {
+        return channelCountMode;
+    }
 
-  public void setChannelCountMode(String newChannelCountMode)
-  {
-    channelCountMode = newChannelCountMode;
-  }
-    
-  public String getChannelInterpretation()
-  {
-    return channelInterpretation;
-  }
+    /**
+     * @param channelCountMode the channelCountMode to set
+     */
+    public void setChannelCountMode(String channelCountMode) {
+        this.channelCountMode = channelCountMode;
+    }
 
-  public void setChannelInterpretation(String newChannelInterpretation)
-  {
-    channelInterpretation = newChannelInterpretation;
-  }
-  
-  public String getGain()
-  {
-    return gain.toString();
-  }
+    /**
+     * @return the channelInterpretation
+     */
+    public String getChannelInterpretation() {
+        return channelInterpretation;
+    }
 
-  public void setGain(String newGain)
-  {
-    gain = new SFFloat(newGain,null,null);
-  }
-  public String getTailTime()
-  {
-    return tailTime.toString();
-  }
+    /**
+     * @return the gain
+     */
+    public String getGain() {
+        return gain.toString();
+    }
 
-  public void setTailTime(String newTailTime)
-  {
-    tailTime = new SFDouble(newTailTime,null,null);
-  }
-  
+    /**
+     * @return the tailTime
+     */
+    public String getTailTime() {
+        return tailTime.toString();
+    }
+
+    /**
+     * @param newChannelInterpretation the channelInterpretation to set
+     */
+    public void setChannelInterpretation(String newChannelInterpretation) {
+        channelInterpretation = newChannelInterpretation;
+    }
+
+    /**
+     * @param newGain the gain to set
+     */
+    public void setGain(String newGain) {
+        gain = new SFFloat(newGain, null, null);
+    }
+
+    /**
+     * @param newTailTime the tailTime to set
+     */
+    public void setTailTime(String newTailTime) {
+        tailTime =  new SFDouble(newTailTime, null, null);
+    }
+      
   @Override
   public String getDefaultContainerField()
   {
-    return "source";
+    return "children";
   }
 }

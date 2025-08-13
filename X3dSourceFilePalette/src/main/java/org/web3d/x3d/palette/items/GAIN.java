@@ -51,7 +51,7 @@ import org.web3d.x3d.types.X3DSoundProcessingNode;
  * @author Mike Bailey
  * @version $Id$
  */
-public class GAIN extends  X3DSoundProcessingNode // and X3DTimeDependentNode
+public class GAIN extends X3DSoundProcessingNode // and X3DTimeDependentNode
 {
   public GAIN() 
   {
@@ -88,7 +88,7 @@ public class GAIN extends  X3DSoundProcessingNode // and X3DTimeDependentNode
 
     attr = root.getAttribute(GAIN_ATTR_CHANNELCOUNTMODE_NAME);
     if (attr != null)
-      channelCountMode = attr.getValue();
+      setChannelCountMode(attr.getValue());
     attr = root.getAttribute(GAIN_ATTR_CHANNELINTERPRETATION_NAME);
     if (attr != null)
       channelInterpretation = attr.getValue();
@@ -134,7 +134,7 @@ public class GAIN extends  X3DSoundProcessingNode // and X3DTimeDependentNode
       sb.append(" ");
       sb.append(GAIN_ATTR_CHANNELCOUNTMODE_NAME);
       sb.append("='");
-      sb.append(channelCountMode);
+      sb.append(getChannelCountMode());
       sb.append("'");
     }
     
@@ -142,7 +142,7 @@ public class GAIN extends  X3DSoundProcessingNode // and X3DTimeDependentNode
       sb.append(" ");
       sb.append(GAIN_ATTR_CHANNELINTERPRETATION_NAME);
       sb.append("='");
-      sb.append(channelInterpretation);
+      sb.append(getChannelInterpretation());
       sb.append("'");
     }
     
@@ -166,7 +166,7 @@ public class GAIN extends  X3DSoundProcessingNode // and X3DTimeDependentNode
       sb.append(" ");
       sb.append(GAIN_ATTR_GAIN_NAME);
       sb.append("='");
-      sb.append(gain);
+      sb.append(getGain());
       sb.append("'");
     }
 
@@ -203,7 +203,7 @@ public class GAIN extends  X3DSoundProcessingNode // and X3DTimeDependentNode
       sb.append(" ");
       sb.append(GAIN_ATTR_TAILTIME_NAME);
       sb.append("='");
-      sb.append(tailTime);
+      sb.append(getTailTime());
       sb.append("'");
     }
     
