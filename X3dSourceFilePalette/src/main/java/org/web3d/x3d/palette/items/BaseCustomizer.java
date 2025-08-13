@@ -963,13 +963,13 @@ public abstract class BaseCustomizer extends JPanel
     {
         if (!X3DPaletteUtilitiesJdom.isCurrentDocumentX3dVersion4() && !fieldName.isBlank())
         {
-            String message1 = elementName + " " + fieldName + " field requires X3D version='4.0'";
+            String message1 = elementName + " " + fieldName + " field requires X3D&nbsp;version='4.0'";
             String message2 = "Current document declares X3D version='" + X3DPaletteUtilitiesJdom.getCurrentDocumentX3dVersion() + "'";
-            System.out.println ("*** " + "Warning: " + message1 + "  " + message2); // ensure appearance on console
+            System.out.println ("*** " + "Warning: " + message1 + ", " + message2); // ensure appearance on console
             if (message2.startsWith("not found"))
                 return false;
             
-            NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message("<html><center><p>" + message1 + "</p> <br/> <p>" + message2 + "</p></html>");
+            NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message("<html><center><p>" + message1 + "</p> <p>" + message2 + "</p></html>");
             notifyDescriptor.setTitle("Warning, need X3D4"); // or higher, when available
             DialogDisplayer.getDefault().notify(notifyDescriptor);
             
