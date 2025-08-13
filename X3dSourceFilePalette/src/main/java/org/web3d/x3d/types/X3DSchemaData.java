@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -2009,6 +2009,9 @@ public interface X3DSchemaData
   String  TIMESENSOR_ATTR_CYCLEINTERVAL_NAME = "cycleInterval";
   boolean TIMESENSOR_ATTR_CYCLEINTERVAL_REQD = false;
   String  TIMESENSOR_ATTR_CYCLEINTERVAL_DFLT = "1";
+  String  TIMESENSOR_ATTR_DESCRIPTION_NAME   = "description";
+  boolean TIMESENSOR_ATTR_DESCRIPTION_REQD   = false;
+  String  TIMESENSOR_ATTR_DESCRIPTION_DFLT   = "";
   String  TIMESENSOR_ATTR_STARTTIME_NAME     = "startTime";
   boolean TIMESENSOR_ATTR_STARTTIME_REQD     = false;
   String  TIMESENSOR_ATTR_STARTTIME_DFLT     = "0";
@@ -2112,12 +2115,12 @@ public interface X3DSchemaData
 
  // Element TouchSensor
   String  TOUCHSENSOR_ELNAME                = "TouchSensor";
-  String  TOUCHSENSOR_ATTR_ENABLED_NAME     = "enabled";
-  boolean TOUCHSENSOR_ATTR_ENABLED_REQD     = false;
-  String  TOUCHSENSOR_ATTR_ENABLED_DFLT     = "true";
   String  TOUCHSENSOR_ATTR_DESCRIPTION_NAME = "description";
   boolean TOUCHSENSOR_ATTR_DESCRIPTION_REQD = false;
   String  TOUCHSENSOR_ATTR_DESCRIPTION_DFLT = "";
+  String  TOUCHSENSOR_ATTR_ENABLED_NAME     = "enabled";
+  boolean TOUCHSENSOR_ATTR_ENABLED_REQD     = false;
+  String  TOUCHSENSOR_ATTR_ENABLED_DFLT     = "true";
 
   // Element PlaneSensor
   String  PLANESENSOR_ELNAME                = "PlaneSensor";
@@ -2265,8 +2268,7 @@ public interface X3DSchemaData
 
   /* wrong...this is a X3DSoundSourceNode type */
 
-  String  LOADSENSOR_ATTR_DESCRIPTION_NAME  = "enabled";
-
+  String  LOADSENSOR_ATTR_DESCRIPTION_NAME  = "description";
   boolean LOADSENSOR_ATTR_DESCRIPTION_REQD  = false;
   String  LOADSENSOR_ATTR_DESCRIPTION_DFLT  = "";
   String  LOADSENSOR_ATTR_LOOP_NAME         = "loop";
@@ -2293,6 +2295,9 @@ public interface X3DSchemaData
 
   // ProximitySensor element
   String  PROXIMITYSENSOR_ELNAME            = "ProximitySensor";
+  String  PROXIMITYSENSOR_ATTR_DESCRIPTION_NAME  = "description";
+  boolean PROXIMITYSENSOR_ATTR_DESCRIPTION_REQD  = false;
+  String  PROXIMITYSENSOR_ATTR_DESCRIPTION_DFLT  = "";
   String  PROXIMITYSENSOR_ATTR_ENABLED_NAME = "enabled";
   boolean PROXIMITYSENSOR_ATTR_ENABLED_REQD = false;
   String  PROXIMITYSENSOR_ATTR_ENABLED_DFLT = "true";
@@ -2305,6 +2310,9 @@ public interface X3DSchemaData
 
   // VisibilitySensor element
   String  VISIBILITYSENSOR_ELNAME            = "VisibilitySensor";
+  String  VISIBILITYSENSOR_ATTR_DESCRIPTION_NAME  = "description";
+  boolean VISIBILITYSENSOR_ATTR_DESCRIPTION_REQD  = false;
+  String  VISIBILITYSENSOR_ATTR_DESCRIPTION_DFLT  = "";
   String  VISIBILITYSENSOR_ATTR_ENABLED_NAME = "enabled";
   boolean VISIBILITYSENSOR_ATTR_ENABLED_REQD = false;
   String  VISIBILITYSENSOR_ATTR_ENABLED_DFLT = "true";
@@ -2414,6 +2422,41 @@ public interface X3DSchemaData
   String  ANALYSER_ATTR_TAILTIME_NAME  = "tailTime";
   boolean ANALYSER_ATTR_TAILTIME_REQD  = false;
   String  ANALYSER_ATTR_TAILTIME_DFLT  = "0";
+
+  // Analyser element
+  String  GAIN_ELNAME                      = "Gain";
+  String  GAIN_ATTR_DESCRIPTION_NAME       = "description";
+  boolean GAIN_ATTR_DESCRIPTION_REQD       = false;
+  String  GAIN_ATTR_DESCRIPTION_DFLT       = "";
+  String  GAIN_ATTR_ENABLED_NAME           = "enabled";
+  boolean GAIN_ATTR_ENABLED_REQD           = false;
+  String  GAIN_ATTR_ENABLED_DFLT           = "true";
+  String  GAIN_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean GAIN_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  GAIN_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[] GAIN_ATTR_CHANNELCOUNTMODE_CHOICES      = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  GAIN_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean GAIN_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  GAIN_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[] GAIN_ATTR_CHANNELINTERPRETATION_CHOICES = {"SPEAKERS","DISCRETE"};
+  String  GAIN_ATTR_GAIN_NAME        = "gain";
+  boolean GAIN_ATTR_GAIN_REQD        = false;
+  String  GAIN_ATTR_GAIN_DFLT        = "1";
+  String  GAIN_ATTR_STARTTIME_NAME   = "startTime";
+  boolean GAIN_ATTR_STARTTIME_REQD   = false;
+  String  GAIN_ATTR_STARTTIME_DFLT   = "0";
+  String  GAIN_ATTR_STOPTIME_NAME    = "stopTime";
+  boolean GAIN_ATTR_STOPTIME_REQD    = false;
+  String  GAIN_ATTR_STOPTIME_DFLT    = "0";
+  String  GAIN_ATTR_PAUSETIME_NAME   = "pauseTime";
+  boolean GAIN_ATTR_PAUSETIME_REQD   = false;
+  String  GAIN_ATTR_PAUSETIME_DFLT  = "0";
+  String  GAIN_ATTR_RESUMETIME_NAME  = "resumeTime";
+  boolean GAIN_ATTR_RESUMETIME_REQD  = false;
+  String  GAIN_ATTR_RESUMETIME_DFLT  = "0";
+  String  GAIN_ATTR_TAILTIME_NAME    = "tailTime";
+  boolean GAIN_ATTR_TAILTIME_REQD    = false;
+  String  GAIN_ATTR_TAILTIME_DFLT    = "0";  
 
   // AudioClip element
   String  AUDIOCLIP_ELNAME                = "AudioClip";
@@ -3009,6 +3052,9 @@ public interface X3DSchemaData
   String  GEOPOSITIONINTERPOLATOR_ATTR_KEYVALUE_DFLT = "";
 
   String  GEOPROXIMITYSENSOR_ELNAME              = "GeoProximitySensor";
+  String  GEOPROXIMITYSENSOR_ATTR_DESCRIPTION_NAME  = "description";
+  boolean GEOPROXIMITYSENSOR_ATTR_DESCRIPTION_REQD  = false;
+  String  GEOPROXIMITYSENSOR_ATTR_DESCRIPTION_DFLT  = "";
   String  GEOPROXIMITYSENSOR_ATTR_GEOSYSTEM_NAME = "geoSystem";
   boolean GEOPROXIMITYSENSOR_ATTR_GEOSYSTEM_REQD = false;
   String[]GEOPROXIMITYSENSOR_ATTR_GEOSYSTEM_DFLT = GEOCOORDINATE_ATTR_GEOSYSTEM_DFLT;
@@ -4880,6 +4926,9 @@ public interface X3DSchemaData
   String  COLLISIONCOLLECTION_ATTR_SURFACESPEED_DFLT             = "0 0";
 
   String  COLLISIONSENSOR_ELNAME                    = "CollisionSensor";
+  String  COLLISIONSENSOR_ATTR_DESCRIPTION_NAME     = "description";
+  boolean COLLISIONSENSOR_ATTR_DESCRIPTION_REQD     = false;
+  String  COLLISIONSENSOR_ATTR_DESCRIPTION_DFLT     = "";
   String  COLLISIONSENSOR_ATTR_ENABLED_NAME         = "enabled";
   boolean COLLISIONSENSOR_ATTR_ENABLED_REQD         = false;
   String  COLLISIONSENSOR_ATTR_ENABLED_DFLT         = "true";
