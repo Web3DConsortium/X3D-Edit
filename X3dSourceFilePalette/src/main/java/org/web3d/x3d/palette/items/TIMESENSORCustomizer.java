@@ -35,7 +35,11 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
+import static org.web3d.x3d.types.X3DSchemaData.TIMESENSOR_ATTR_DESCRIPTION_NAME;
+import static org.web3d.x3d.types.X3DSchemaData.TIMESENSOR_ELNAME;
 
 /**
  * TIMESENSORCustomizer.java
@@ -67,12 +71,13 @@ public class TIMESENSORCustomizer extends BaseCustomizer
     initComponents();
     
     cycleIntervalTF.setText(timeSensor.getCycleInterval());
-    startTimeTF.setText(timeSensor.getStartTime());
-    stopTimeTF.setText(timeSensor.getStopTime());
-    pauseTimeTF.setText(timeSensor.getPauseTime());
-    resumeTimeTF.setText(timeSensor.getResumeTime());
-    enabledCB.setSelected(timeSensor.isEnabled());
-    loopCB.setSelected(timeSensor.isLoop());   
+    descriptionTF.setText  (timeSensor.getDescription());
+    startTimeTF.setText    (timeSensor.getStartTime());
+    stopTimeTF.setText     (timeSensor.getStopTime());
+    pauseTimeTF.setText    (timeSensor.getPauseTime());
+    resumeTimeTF.setText   (timeSensor.getResumeTime());
+    enabledCB.setSelected  (timeSensor.isEnabled());
+    loopCB.setSelected     (timeSensor.isLoop());   
   }
   
   /** This method is called from within the constructor to
@@ -92,7 +97,6 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         loopCB = new javax.swing.JCheckBox();
         cycleIntervalLabel = new javax.swing.JLabel();
         cycleIntervalTF = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         startTimeLabel = new javax.swing.JLabel();
         startTimeTF = new javax.swing.JTextField();
         stopTimeLabel = new javax.swing.JLabel();
@@ -101,13 +105,15 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         pauseTimeTF = new javax.swing.JTextField();
         resumeTimeLabel = new javax.swing.JLabel();
         resumeTimeTF = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
         eventHelpPanel = new javax.swing.JPanel();
         eventsLabel1 = new javax.swing.JLabel();
+        descriptionTF = new javax.swing.JTextField();
+        descriptionLabel = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
 
-        setPreferredSize(new java.awt.Dimension(800, 350));
+        setMinimumSize(new java.awt.Dimension(790, 362));
+        setPreferredSize(new java.awt.Dimension(800, 362));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 4;
@@ -139,7 +145,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         loopLabel.setText("loop");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loopLabel, gridBagConstraints);
@@ -147,7 +153,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         loopCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loopCB, gridBagConstraints);
@@ -156,41 +162,33 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         cycleIntervalLabel.setText("cycleInterval");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(cycleIntervalLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(cycleIntervalTF, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jSeparator1, gridBagConstraints);
 
         startTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         startTimeLabel.setText("startTime");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(startTimeLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -201,14 +199,14 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         stopTimeLabel.setText("stopTime");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stopTimeLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -219,14 +217,14 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         pauseTimeLabel.setText("pauseTime");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(pauseTimeLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -237,38 +235,33 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         resumeTimeLabel.setText("resumeTime");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(resumeTimeLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(resumeTimeTF, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jSeparator2, gridBagConstraints);
 
         eventHelpPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>TimeSensor</b> primary output event is <b>fraction_changed</b> \nwhich continuously sends values in range [0,1] showing time progress in the current cycle. </p>\n<br />\n<p align=\"center\"> Input events are <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b>.</p>\n<br />\n<p align=\"center\"> Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>cycleTime</b>, <b>elapsedTime</b>, <b>time</b>.</p>\n</html>");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>TimeSensor</b> primary output event is <b>fraction_changed</b> \nwhich continuously sends values in range [0,1] showing time progress in the current cycle. </p>\n<br />\n<p align=\"center\"> Input events are <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b>.</p>\n<br />\n<p align=\"center\"> Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>cycleTime</b>, <b>elapsedTime</b>, <b>time</b>.</p>\n<br />\n<p align='center'>Hint: <i>description</i> field requires X3D version='4.0' </p>\n</html>");
         eventsLabel1.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         eventHelpPanel.add(eventsLabel1, gridBagConstraints);
 
@@ -276,24 +269,56 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
         add(eventHelpPanel, gridBagConstraints);
+
+        descriptionTF.setToolTipText("Author-provided prose that describes intended purpose of the node");
+        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
+        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
+        descriptionTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(descriptionTF, gridBagConstraints);
+
+        descriptionLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionLabel.setText("description");
+        descriptionLabel.setToolTipText("Author-provided prose that describes intended purpose of the node (requires X3D v4)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
+        add(descriptionLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descriptionTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cycleIntervalLabel;
     private javax.swing.JTextField cycleIntervalTF;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
+    private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JTextField descriptionTF;
     private javax.swing.JCheckBox enabledCB;
     private javax.swing.JLabel enabledLabel;
     private javax.swing.JPanel eventHelpPanel;
     private javax.swing.JLabel eventsLabel1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JCheckBox loopCB;
     private javax.swing.JLabel loopLabel;
@@ -319,6 +344,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
+    timeSensor.setDescription(descriptionTF.getText().trim());
     timeSensor.setCycleInterval(cycleIntervalTF.getText().trim());
     timeSensor.setStartTime(startTimeTF.getText().trim());
     timeSensor.setStopTime(stopTimeTF.getText().trim());
@@ -326,5 +352,10 @@ public class TIMESENSORCustomizer extends BaseCustomizer
     timeSensor.setResumeTime(resumeTimeTF.getText().trim());
     timeSensor.setEnabled(enabledCB.isSelected());
     timeSensor.setLoop(loopCB.isSelected());  
+       
+    checkX3D4FieldSupportDialog(TIMESENSOR_ELNAME, TIMESENSOR_ATTR_DESCRIPTION_NAME);
+//    NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
+//            "TimeSensor description field requires X3D version 4", "Need X3D version 4 or higher", NotifyDescriptor.PLAIN_MESSAGE);
+//    DialogDisplayer.getDefault().notify(notifyDescriptor);
   }
 }

@@ -53,6 +53,7 @@ import org.web3d.x3d.types.X3DTimeDependentNode;
 public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
 {
   private SFDouble cycleInterval, cycleIntervalDefault;
+  private String   description, descriptionDefault;
   private SFDouble startTime, startTimeDefault;
   private SFDouble stopTime, stopTimeDefault;
   
@@ -78,6 +79,7 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
   public void initialize()
   {
     cycleInterval = cycleIntervalDefault = new SFDouble(TIMESENSOR_ATTR_CYCLEINTERVAL_DFLT,0.0,null);
+    description = descriptionDefault     = TIMESENSOR_ATTR_DESCRIPTION_DFLT; 
     startTime = startTimeDefault         = new SFDouble(TIMESENSOR_ATTR_STARTTIME_DFLT,null,null);
     stopTime = stopTimeDefault           = new SFDouble(TIMESENSOR_ATTR_STOPTIME_DFLT,null,null);  
     pauseTime =  pauseTimeDefault        = new SFDouble(TIMESENSOR_ATTR_PAUSETIME_DFLT,null,null);
@@ -95,6 +97,9 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
     attr = root.getAttribute(TIMESENSOR_ATTR_CYCLEINTERVAL_NAME);
     if (attr != null)
       cycleInterval = new SFDouble(attr.getValue(), 0.0, null);
+    attr = root.getAttribute(TIMESENSOR_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
     attr = root.getAttribute(TIMESENSOR_ATTR_STARTTIME_NAME);
     if (attr != null)
       startTime = new SFDouble(attr.getValue(), null, null);
@@ -125,11 +130,20 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
   public String createAttributes()
   {
     StringBuilder sb = new StringBuilder();
+    
     if (TIMESENSOR_ATTR_CYCLEINTERVAL_REQD || !cycleInterval.equals(cycleIntervalDefault)) {
       sb.append(" ");
       sb.append(TIMESENSOR_ATTR_CYCLEINTERVAL_NAME);
       sb.append("='");
       sb.append(cycleInterval);
+      sb.append("'");
+    }
+    
+    if (TIMESENSOR_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
+      sb.append(" ");
+      sb.append(TIMESENSOR_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(description);
       sb.append("'");
     }
 
@@ -189,6 +203,24 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
   public void setCycleInterval(String cycleInterval)
   {
     this.cycleInterval = new SFDouble(cycleInterval,0.0,null);
+  }
+  
+    /**
+     * accessor method for field
+     * @return value
+     */
+  public String getDescription()
+  {
+    return description;
+  }
+
+    /**
+     * accessor method for field
+     * @param newDescription value of interest
+     */
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
   }
 
   public boolean isEnabled()
