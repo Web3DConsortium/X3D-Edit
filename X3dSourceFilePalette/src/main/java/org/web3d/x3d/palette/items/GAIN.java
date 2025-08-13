@@ -78,6 +78,8 @@ public class GAIN extends X3DSoundProcessingNode // and X3DTimeDependentNode
     pauseTime  = pauseTimeDefault        = new SFDouble(GAIN_ATTR_PAUSETIME_DFLT,null,null);
     resumeTime = resumeTimeDefault       = new SFDouble(GAIN_ATTR_RESUMETIME_DFLT,null,null);
     tailTime   = tailTimeDefault         = new SFDouble(GAIN_ATTR_TAILTIME_DFLT,0.0,null);
+    
+    setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
 
   @Override

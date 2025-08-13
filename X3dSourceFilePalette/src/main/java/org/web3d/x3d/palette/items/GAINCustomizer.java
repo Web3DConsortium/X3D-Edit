@@ -65,7 +65,7 @@ public class GAINCustomizer extends BaseCustomizer
     this.gain = gain;
     this.target = target;
                            
-    HelpCtx.setHelpIDString(this, "GAIN_ELEM_HELPID");   
+    HelpCtx.setHelpIDString(GAINCustomizer.this, "GAIN_ELEM_HELPID");   
     
     initComponents();
     
