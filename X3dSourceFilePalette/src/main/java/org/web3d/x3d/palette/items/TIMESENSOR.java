@@ -60,8 +60,6 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
   private SFDouble pauseTime, pauseTimeDefault;
   private SFDouble resumeTime, resumeTimeDefault;
   private boolean enabled, loop;
-  
-  // TODO description, when added to specification
 
   public TIMESENSOR() 
   {
