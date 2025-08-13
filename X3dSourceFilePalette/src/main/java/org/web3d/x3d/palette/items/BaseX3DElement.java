@@ -305,6 +305,9 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   {
   }
 
+  /** Create element name and attribute name-value pairs, prepend line indentation
+   * @return serializable indented text for element name and attributes
+   */
   private String createElementNameCommonX3dAttributes()
   {
     StringBuilder sb = new StringBuilder();
