@@ -53,8 +53,10 @@ import org.web3d.x3d.types.X3DSoundProcessingNode;
  */
 public class DELAY extends X3DSoundProcessingNode // and X3DTimeDependentNode
 {
-    protected SFDouble delayTime,    delayTimeDefault;
-    protected SFDouble maxDelayTime, maxDelayTimeDefault;
+    private SFDouble delayTime;
+    protected SFDouble delayTimeDefault;
+    private SFDouble maxDelayTime;
+    protected SFDouble maxDelayTimeDefault;
     
   public DELAY() 
   {
@@ -71,20 +73,21 @@ public class DELAY extends X3DSoundProcessingNode // and X3DTimeDependentNode
   @Override
   public void initialize()
   {
+    delayTime  =  delayTimeDefault       = new SFDouble(DELAY_ATTR_DELAYTIME_DFLT,null,null);
+    maxDelayTime =  maxDelayTimeDefault  = new SFDouble(DELAY_ATTR_MAXDELAYTIME_DFLT,null,null);
+    
     channelCountMode      = channelCountModeDefault      = DELAY_ATTR_CHANNELCOUNTMODE_DFLT;
     channelInterpretation = channelInterpretationDefault = DELAY_ATTR_CHANNELINTERPRETATION_DFLT;
     description = descriptionDefault     = DELAY_ATTR_DESCRIPTION_DFLT;
-    delayTime  =  delayTimeDefault       = new SFDouble(DELAY_ATTR_DELAYTIME_DFLT,null,null);
     enabled                              = Boolean.parseBoolean(DELAY_ATTR_ENABLED_DFLT);
     gain       = gainDefault             = new SFFloat (DELAY_ATTR_GAIN_DFLT,null,null); 
-    maxDelayTime =  maxDelayTimeDefault  = new SFDouble(DELAY_ATTR_MAXDELAYTIME_DFLT,null,null);
     startTime  =  startTimeDefault       = new SFDouble(DELAY_ATTR_STARTTIME_DFLT,null,null);
     stopTime   =   stopTimeDefault       = new SFDouble(DELAY_ATTR_STOPTIME_DFLT,null,null);  
     pauseTime  = pauseTimeDefault        = new SFDouble(DELAY_ATTR_PAUSETIME_DFLT,null,null);
     resumeTime = resumeTimeDefault       = new SFDouble(DELAY_ATTR_RESUMETIME_DFLT,null,null);
     tailTime   = tailTimeDefault         = new SFDouble(DELAY_ATTR_TAILTIME_DFLT,0.0,null);
     
-    setContent("\n\t\t<!-- TODO add child sound-processing inupt nodes here -->\n\t");
+    setContent("\n\t\t<!-- TODO add child sound-processing input nodes here -->\n\t");
   }
 
   @Override
@@ -158,6 +161,14 @@ public class DELAY extends X3DSoundProcessingNode // and X3DTimeDependentNode
       sb.append(getChannelInterpretation());
       sb.append("'");
     }
+      
+    if (DELAY_ATTR_DELAYTIME_REQD || !delayTime.equals(delayTimeDefault)) {
+      sb.append(" ");
+      sb.append(DELAY_ATTR_DELAYTIME_NAME);
+      sb.append("='");
+      sb.append(getDelayTime());
+      sb.append("'");
+    }
     
     if (DELAY_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
       sb.append(" ");
@@ -180,6 +191,14 @@ public class DELAY extends X3DSoundProcessingNode // and X3DTimeDependentNode
       sb.append(DELAY_ATTR_GAIN_NAME);
       sb.append("='");
       sb.append(getGain());
+      sb.append("'");
+    }
+      
+    if (DELAY_ATTR_MAXDELAYTIME_REQD || !maxDelayTime.equals(maxDelayTimeDefault)) {
+      sb.append(" ");
+      sb.append(DELAY_ATTR_MAXDELAYTIME_NAME);
+      sb.append("='");
+      sb.append(getMaxDelayTime());
       sb.append("'");
     }
 
@@ -222,5 +241,33 @@ public class DELAY extends X3DSoundProcessingNode // and X3DTimeDependentNode
     
     return sb.toString();
   }
+
+    /**
+     * @return the delayTime
+     */
+    public String getDelayTime() {
+        return delayTime.toString();
+    }
+
+    /**
+     * @param newDelayTime the delayTime to set
+     */
+    public void setDelayTime(String newDelayTime) {
+        delayTime = new SFDouble(newDelayTime, null, null);
+    }
+
+    /**
+     * @return the maxDelayTime
+     */
+    public String getMaxDelayTime() {
+        return maxDelayTime.toString();
+    }
+
+    /**
+     * @param newMaxDelayTime the maxDelayTime to set
+     */
+    public void setMaxDelayTime(String newMaxDelayTime) {
+        maxDelayTime = new SFDouble(newMaxDelayTime, null, null);
+    }
 
 }

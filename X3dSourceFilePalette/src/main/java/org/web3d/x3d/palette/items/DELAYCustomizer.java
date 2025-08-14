@@ -42,13 +42,8 @@ import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELINTERPRETATION_
 
 /**
  * DELAYCustomizer.java
- * Created on Sep 13, 2007,10:07 AM
  *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Don Brutzman
  * @version $Id$
  */
 public class DELAYCustomizer extends BaseCustomizer
@@ -69,12 +64,15 @@ public class DELAYCustomizer extends BaseCustomizer
     
     initComponents();
     
+       delayTimeTF.setText         (delay.getDelayTime());
+    maxDelayTimeTF.setText         (delay.getMaxDelayTime());
+    
          channelCountModeComboBox.setSelectedItem(delay.getChannelCountMode());
     channelInterpretationComboBox.setSelectedItem(delay.getChannelInterpretation());
     
+    enabledCB.setSelected          (delay.isEnabled());
     descriptionTF.setText          (delay.getDescription());
     gainTF.setText                 (delay.getGain());
-    enabledCB.setSelected          (delay.isEnabled());
     startTimeTF.setText            (delay.getStartTime());
     stopTimeTF.setText             (delay.getStopTime());
     pauseTimeTF.setText            (delay.getPauseTime());
@@ -95,6 +93,18 @@ public class DELAYCustomizer extends BaseCustomizer
         dEFUSEpanel1 = getDEFUSEpanel();
         enabledLabel = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
+        delayTimeLabel = new javax.swing.JLabel();
+        delayTimeTF = new javax.swing.JTextField();
+        maxDelayTimeLabel = new javax.swing.JLabel();
+        maxDelayTimeTF = new javax.swing.JTextField();
+        descriptionTF = new javax.swing.JTextField();
+        descriptionLabel = new javax.swing.JLabel();
+        channelCountModeLabel = new javax.swing.JLabel();
+        channelCountModeComboBox = new javax.swing.JComboBox<>();
+        channelInterpretationLabel = new javax.swing.JLabel();
+        channelInterpretationComboBox = new javax.swing.JComboBox<>();
+        gainLabel = new javax.swing.JLabel();
+        gainTF = new javax.swing.JTextField();
         tailTimeLabel = new javax.swing.JLabel();
         tailTimeTF = new javax.swing.JTextField();
         startTimeLabel = new javax.swing.JLabel();
@@ -107,19 +117,11 @@ public class DELAYCustomizer extends BaseCustomizer
         resumeTimeTF = new javax.swing.JTextField();
         eventHelpPanel = new javax.swing.JPanel();
         eventsLabel1 = new javax.swing.JLabel();
-        descriptionTF = new javax.swing.JTextField();
-        descriptionLabel = new javax.swing.JLabel();
-        channelCountModeLabel = new javax.swing.JLabel();
-        channelCountModeComboBox = new javax.swing.JComboBox<>();
-        channelInterpretationLabel = new javax.swing.JLabel();
-        channelInterpretationComboBox = new javax.swing.JComboBox<>();
-        gainLabel = new javax.swing.JLabel();
-        gainTF = new javax.swing.JTextField();
 
         jTextField2.setText("jTextField2");
 
-        setMinimumSize(new java.awt.Dimension(790, 362));
-        setPreferredSize(new java.awt.Dimension(800, 362));
+        setMinimumSize(new java.awt.Dimension(620, 450));
+        setPreferredSize(new java.awt.Dimension(630, 470));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 4;
@@ -149,16 +151,180 @@ public class DELAYCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledCB, gridBagConstraints);
 
-        tailTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        tailTimeLabel.setText("tailTime");
+        delayTimeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        delayTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        delayTimeLabel.setText("delayTime");
+        delayTimeLabel.setToolTipText("duration of applied delay (in seconds)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(delayTimeLabel, gridBagConstraints);
+
+        delayTimeTF.setToolTipText("duration of applied delay (in seconds)");
+        delayTimeTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delayTimeTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 25;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(delayTimeTF, gridBagConstraints);
+
+        maxDelayTimeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        maxDelayTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        maxDelayTimeLabel.setText("maxDelayTime");
+        maxDelayTimeLabel.setToolTipText("duration of maximum amount of delay (in seconds)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(maxDelayTimeLabel, gridBagConstraints);
+
+        maxDelayTimeTF.setToolTipText("duration of maximum amount of delay (in seconds)");
+        maxDelayTimeTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maxDelayTimeTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 25;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(maxDelayTimeTF, gridBagConstraints);
+
+        descriptionTF.setToolTipText("Author-provided prose that describes intended purpose of the node");
+        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
+        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
+        descriptionTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(descriptionTF, gridBagConstraints);
+
+        descriptionLabel.setText("description");
+        descriptionLabel.setToolTipText("Author-provided prose that describes intended purpose of the node");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
+        add(descriptionLabel, gridBagConstraints);
+
+        channelCountModeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        channelCountModeLabel.setText("channelCountMode");
+        channelCountModeLabel.setToolTipText("how individual channels are counted when up-mixing and down-mixing connections to any inputs");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(channelCountModeLabel, gridBagConstraints);
+
+        channelCountModeComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELCOUNTMODE_CHOICES));
+        channelCountModeComboBox.setToolTipText("how individual channels are counted when up-mixing and down-mixing connections to any inputs");
+        channelCountModeComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
+        channelCountModeComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
+        channelCountModeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                channelCountModeComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(channelCountModeComboBox, gridBagConstraints);
+
+        channelInterpretationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        channelInterpretationLabel.setText("channelInterpretation");
+        channelInterpretationLabel.setToolTipText("how individual channels are treated when up-mixing and down-mixing connections to any inputs");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(channelInterpretationLabel, gridBagConstraints);
+
+        channelInterpretationComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELINTERPRETATION_CHOICES));
+        channelInterpretationComboBox.setToolTipText("how individual channels are treated when up-mixing and down-mixing connections to any inputs");
+        channelInterpretationComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
+        channelInterpretationComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
+        channelInterpretationComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                channelInterpretationComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(channelInterpretationComboBox, gridBagConstraints);
+
+        gainLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        gainLabel.setText("gain");
+        gainLabel.setToolTipText("factor for linear amplification, can also negate input signal");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(gainLabel, gridBagConstraints);
+
+        gainTF.setToolTipText("factor for linear amplification, can also negate input signal");
+        gainTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gainTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 25;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(gainTF, gridBagConstraints);
+
+        tailTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        tailTimeLabel.setText("tailTime");
+        tailTimeLabel.setToolTipText(" duration of time that output signal continues after input signal becomes silent");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(tailTimeLabel, gridBagConstraints);
 
+        tailTimeTF.setToolTipText(" duration of time that output signal continues after input signal becomes silent");
         tailTimeTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tailTimeTFActionPerformed(evt);
@@ -166,7 +332,7 @@ public class DELAYCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -175,16 +341,19 @@ public class DELAYCustomizer extends BaseCustomizer
 
         startTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         startTimeLabel.setText("startTime");
+        startTimeLabel.setToolTipText("System time when node starts");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(startTimeLabel, gridBagConstraints);
+
+        startTimeTF.setToolTipText("System time when node starts");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -193,16 +362,19 @@ public class DELAYCustomizer extends BaseCustomizer
 
         stopTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         stopTimeLabel.setText("stopTime");
+        stopTimeLabel.setToolTipText("System time when node stops");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stopTimeLabel, gridBagConstraints);
+
+        stopTimeTF.setToolTipText("System time when node stops");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -211,16 +383,19 @@ public class DELAYCustomizer extends BaseCustomizer
 
         pauseTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         pauseTimeLabel.setText("pauseTime");
+        pauseTimeLabel.setToolTipText("System time when node pauses");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(pauseTimeLabel, gridBagConstraints);
+
+        pauseTimeTF.setToolTipText("System time when node pauses");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -229,16 +404,19 @@ public class DELAYCustomizer extends BaseCustomizer
 
         resumeTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         resumeTimeLabel.setText("resumeTime");
+        resumeTimeLabel.setToolTipText("System time when node resumes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(resumeTimeLabel, gridBagConstraints);
+
+        resumeTimeTF.setToolTipText("System time when node resumes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -249,7 +427,7 @@ public class DELAYCustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>Gain</b> primary fields are <b>gain</b> and <b>tailTime</b> which amplify or deamplify the input signal. </p> <br /> <p align=\"center\"> Input events are <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b>.</p> <br /> <p align=\"center\"> Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>Delay</b> node has primary field <b>delayTime</b> to delay input signals up to <b>maxDelayTime</b> seconds. </p> <br /> \n<p align=\"center\">Gain <b>child nodes</b> provide input signals, and the <b>parent node</b> receuives the output signal. </p> <br />\n<p align=\"center\"> The <b>tailTime</b> event  defines duration of time that output signal continues after input signal becomes silent. </p> <br />\n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
         eventsLabel1.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -263,7 +441,7 @@ public class DELAYCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
@@ -271,110 +449,6 @@ public class DELAYCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
         add(eventHelpPanel, gridBagConstraints);
-
-        descriptionTF.setToolTipText("Author-provided prose that describes intended purpose of the node");
-        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
-        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
-        descriptionTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                descriptionTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(descriptionTF, gridBagConstraints);
-
-        descriptionLabel.setText("description");
-        descriptionLabel.setToolTipText("Author-provided prose that describes intended purpose of the node");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
-        add(descriptionLabel, gridBagConstraints);
-
-        channelCountModeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        channelCountModeLabel.setText("channelCountMode");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(channelCountModeLabel, gridBagConstraints);
-
-        channelCountModeComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELCOUNTMODE_CHOICES));
-        channelCountModeComboBox.setToolTipText("four different style values are supported");
-        channelCountModeComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
-        channelCountModeComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
-        channelCountModeComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                channelCountModeComboBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(channelCountModeComboBox, gridBagConstraints);
-
-        channelInterpretationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        channelInterpretationLabel.setText("channelInterpretation");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(channelInterpretationLabel, gridBagConstraints);
-
-        channelInterpretationComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELINTERPRETATION_CHOICES));
-        channelInterpretationComboBox.setToolTipText("four different style values are supported");
-        channelInterpretationComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
-        channelInterpretationComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
-        channelInterpretationComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                channelInterpretationComboBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(channelInterpretationComboBox, gridBagConstraints);
-
-        gainLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        gainLabel.setText("gain");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(gainLabel, gridBagConstraints);
-
-        gainTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gainTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 25;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(gainTF, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
@@ -396,6 +470,14 @@ public class DELAYCustomizer extends BaseCustomizer
     private void gainTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gainTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_gainTFActionPerformed
+
+    private void delayTimeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delayTimeTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_delayTimeTFActionPerformed
+
+    private void maxDelayTimeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxDelayTimeTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maxDelayTimeTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> channelCountModeComboBox;
@@ -403,6 +485,8 @@ public class DELAYCustomizer extends BaseCustomizer
     private javax.swing.JComboBox<String> channelInterpretationComboBox;
     private javax.swing.JLabel channelInterpretationLabel;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
+    private javax.swing.JLabel delayTimeLabel;
+    private javax.swing.JTextField delayTimeTF;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JTextField descriptionTF;
     private javax.swing.JCheckBox enabledCB;
@@ -412,6 +496,8 @@ public class DELAYCustomizer extends BaseCustomizer
     private javax.swing.JLabel gainLabel;
     private javax.swing.JTextField gainTF;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel maxDelayTimeLabel;
+    private javax.swing.JTextField maxDelayTimeTF;
     private javax.swing.JLabel pauseTimeLabel;
     private javax.swing.JTextField pauseTimeTF;
     private javax.swing.JLabel resumeTimeLabel;
@@ -436,6 +522,8 @@ public class DELAYCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
+    delay.setDelayTime            (delayTimeTF.getText().trim());
+    delay.setMaxDelayTime         (maxDelayTimeTF.getText().trim());
     delay.setChannelCountMode     (channelCountModeComboBox.getSelectedItem().toString());
     delay.setChannelInterpretation(channelInterpretationComboBox.getSelectedItem().toString());
     delay.setDescription          (descriptionTF.getText().trim());

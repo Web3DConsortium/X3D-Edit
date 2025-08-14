@@ -67,9 +67,9 @@ public class GAINCustomizer extends BaseCustomizer
          channelCountModeComboBox.setSelectedItem(gain.getChannelCountMode());
     channelInterpretationComboBox.setSelectedItem(gain.getChannelInterpretation());
     
+    enabledCB.setSelected          (gain.isEnabled());
     descriptionTF.setText          (gain.getDescription());
     gainTF.setText                 (gain.getGain());
-    enabledCB.setSelected          (gain.isEnabled());
     startTimeTF.setText            (gain.getStartTime());
     stopTimeTF.setText             (gain.getStopTime());
     pauseTimeTF.setText            (gain.getPauseTime());
@@ -90,6 +90,14 @@ public class GAINCustomizer extends BaseCustomizer
         dEFUSEpanel1 = getDEFUSEpanel();
         enabledLabel = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
+        descriptionTF = new javax.swing.JTextField();
+        descriptionLabel = new javax.swing.JLabel();
+        channelCountModeLabel = new javax.swing.JLabel();
+        channelCountModeComboBox = new javax.swing.JComboBox<>();
+        channelInterpretationLabel = new javax.swing.JLabel();
+        channelInterpretationComboBox = new javax.swing.JComboBox<>();
+        gainLabel = new javax.swing.JLabel();
+        gainTF = new javax.swing.JTextField();
         tailTimeLabel = new javax.swing.JLabel();
         tailTimeTF = new javax.swing.JTextField();
         startTimeLabel = new javax.swing.JLabel();
@@ -102,19 +110,11 @@ public class GAINCustomizer extends BaseCustomizer
         resumeTimeTF = new javax.swing.JTextField();
         eventHelpPanel = new javax.swing.JPanel();
         eventsLabel1 = new javax.swing.JLabel();
-        descriptionTF = new javax.swing.JTextField();
-        descriptionLabel = new javax.swing.JLabel();
-        channelCountModeLabel = new javax.swing.JLabel();
-        channelCountModeComboBox = new javax.swing.JComboBox<>();
-        channelInterpretationLabel = new javax.swing.JLabel();
-        channelInterpretationComboBox = new javax.swing.JComboBox<>();
-        gainLabel = new javax.swing.JLabel();
-        gainTF = new javax.swing.JTextField();
 
         jTextField2.setText("jTextField2");
 
-        setMinimumSize(new java.awt.Dimension(790, 362));
-        setPreferredSize(new java.awt.Dimension(800, 362));
+        setMinimumSize(new java.awt.Dimension(500, 430));
+        setPreferredSize(new java.awt.Dimension(600, 450));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 4;
@@ -144,16 +144,128 @@ public class GAINCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledCB, gridBagConstraints);
 
-        tailTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        tailTimeLabel.setText("tailTime");
+        descriptionTF.setToolTipText("Author-provided prose that describes intended purpose of the node");
+        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
+        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
+        descriptionTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(descriptionTF, gridBagConstraints);
+
+        descriptionLabel.setText("description");
+        descriptionLabel.setToolTipText("Author-provided prose that describes intended purpose of the node");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
+        add(descriptionLabel, gridBagConstraints);
+
+        channelCountModeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        channelCountModeLabel.setText("channelCountMode");
+        channelCountModeLabel.setToolTipText("how individual channels are counted when up-mixing and down-mixing connections to any inputs");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(channelCountModeLabel, gridBagConstraints);
+
+        channelCountModeComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELCOUNTMODE_CHOICES));
+        channelCountModeComboBox.setToolTipText("how individual channels are counted when up-mixing and down-mixing connections to any inputs");
+        channelCountModeComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
+        channelCountModeComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
+        channelCountModeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                channelCountModeComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(channelCountModeComboBox, gridBagConstraints);
+
+        channelInterpretationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        channelInterpretationLabel.setText("channelInterpretation");
+        channelInterpretationLabel.setToolTipText("how individual channels are treated when up-mixing and down-mixing connections to any inputs");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(channelInterpretationLabel, gridBagConstraints);
+
+        channelInterpretationComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELINTERPRETATION_CHOICES));
+        channelInterpretationComboBox.setToolTipText("how individual channels are treated when up-mixing and down-mixing connections to any inputs");
+        channelInterpretationComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
+        channelInterpretationComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
+        channelInterpretationComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                channelInterpretationComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(channelInterpretationComboBox, gridBagConstraints);
+
+        gainLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        gainLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        gainLabel.setText("gain");
+        gainLabel.setToolTipText("factor for linear amplification, can also negate input signal");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(gainLabel, gridBagConstraints);
+
+        gainTF.setToolTipText("factor for linear amplification, can also negate input signal");
+        gainTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gainTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 25;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(gainTF, gridBagConstraints);
+
+        tailTimeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tailTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        tailTimeLabel.setText("tailTime");
+        tailTimeLabel.setToolTipText(" duration of time that output signal continues after input signal becomes silent");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(tailTimeLabel, gridBagConstraints);
 
+        tailTimeTF.setToolTipText(" duration of time that output signal continues after input signal becomes silent");
         tailTimeTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tailTimeTFActionPerformed(evt);
@@ -161,7 +273,7 @@ public class GAINCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -170,6 +282,7 @@ public class GAINCustomizer extends BaseCustomizer
 
         startTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         startTimeLabel.setText("startTime");
+        startTimeLabel.setToolTipText("System time when node starts");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -177,6 +290,8 @@ public class GAINCustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(startTimeLabel, gridBagConstraints);
+
+        startTimeTF.setToolTipText("System time when node starts");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -188,6 +303,7 @@ public class GAINCustomizer extends BaseCustomizer
 
         stopTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         stopTimeLabel.setText("stopTime");
+        stopTimeLabel.setToolTipText("System time when node stops");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -195,6 +311,8 @@ public class GAINCustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stopTimeLabel, gridBagConstraints);
+
+        stopTimeTF.setToolTipText("System time when node stops");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -206,6 +324,7 @@ public class GAINCustomizer extends BaseCustomizer
 
         pauseTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         pauseTimeLabel.setText("pauseTime");
+        pauseTimeLabel.setToolTipText("System time when node pauses");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
@@ -213,6 +332,8 @@ public class GAINCustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(pauseTimeLabel, gridBagConstraints);
+
+        pauseTimeTF.setToolTipText("System time when node pauses");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
@@ -224,6 +345,7 @@ public class GAINCustomizer extends BaseCustomizer
 
         resumeTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         resumeTimeLabel.setText("resumeTime");
+        resumeTimeLabel.setToolTipText("System time when node resumes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
@@ -231,6 +353,8 @@ public class GAINCustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(resumeTimeLabel, gridBagConstraints);
+
+        resumeTimeTF.setToolTipText("System time when node resumes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 8;
@@ -244,7 +368,7 @@ public class GAINCustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>Gain</b> primary fields are <b>gain</b> and <b>tailTime</b> which amplify or deamplify the input signal. </p> <br /> <p align=\"center\"> Input events are <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b>.</p> <br /> <p align=\"center\"> Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>Gain</b> node has primary field <b>gain</b> which amplifies, deamplifies, or negates the input signal. </p> <br /> \n<p align=\"center\">Gain <b>child nodes</b> provide input signals, and the <b>parent node</b> receuives the output signal. </p> <br />\n<p align=\"center\"> The <b>tailTime</b> event  defines duration of time that output signal continues after input signal becomes silent. </p> <br />\n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
         eventsLabel1.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -266,110 +390,6 @@ public class GAINCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
         add(eventHelpPanel, gridBagConstraints);
-
-        descriptionTF.setToolTipText("Author-provided prose that describes intended purpose of the node");
-        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
-        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
-        descriptionTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                descriptionTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(descriptionTF, gridBagConstraints);
-
-        descriptionLabel.setText("description");
-        descriptionLabel.setToolTipText("Author-provided prose that describes intended purpose of the node");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
-        add(descriptionLabel, gridBagConstraints);
-
-        channelCountModeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        channelCountModeLabel.setText("channelCountMode");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(channelCountModeLabel, gridBagConstraints);
-
-        channelCountModeComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELCOUNTMODE_CHOICES));
-        channelCountModeComboBox.setToolTipText("four different style values are supported");
-        channelCountModeComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
-        channelCountModeComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
-        channelCountModeComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                channelCountModeComboBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(channelCountModeComboBox, gridBagConstraints);
-
-        channelInterpretationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        channelInterpretationLabel.setText("channelInterpretation");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(channelInterpretationLabel, gridBagConstraints);
-
-        channelInterpretationComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELINTERPRETATION_CHOICES));
-        channelInterpretationComboBox.setToolTipText("four different style values are supported");
-        channelInterpretationComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
-        channelInterpretationComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
-        channelInterpretationComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                channelInterpretationComboBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(channelInterpretationComboBox, gridBagConstraints);
-
-        gainLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        gainLabel.setText("gain");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(gainLabel, gridBagConstraints);
-
-        gainTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gainTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 25;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(gainTF, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
