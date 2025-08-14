@@ -96,6 +96,7 @@ public class X3DSchemaData4
 
   /**
    * parseX allows whitespace and/or punctuation to separate delimiters
+   * when creating a String[] array from a String
    * @param values input string holding token values
    * @return String array containing each value
    */
@@ -107,16 +108,17 @@ public class X3DSchemaData4
   }
 
   /**
-   * parse  parses count values into a String[] array
+   * parse  parses count values into a String[] array, throws exception if incorrect number of values found
    * @param values input string holding values
    * @param count number of token values expected
+   * @throws NumberFormatException if wrong number of tokens found
    * @return String array containing each value
    */
   static public String[] parse(String values, int count)
   {
      String[] sa = parseX(values);
      if(sa.length != count)
-      throw new NumberFormatException("Wrong number of tokens");
+       throw new NumberFormatException("Wrong number of tokens");
     return sa;
   }
 
