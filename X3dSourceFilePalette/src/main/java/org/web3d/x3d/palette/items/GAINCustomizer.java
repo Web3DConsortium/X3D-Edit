@@ -41,14 +41,9 @@ import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELCOUNTMODE_CHOIC
 import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
- * TIMESENSORCustomizer.java
- * Created on Sep 13, 2007,10:07 AM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * GAINCustomizer.java
+ * 
+ * @author Don Brutzman
  * @version $Id$
  */
 public class GAINCustomizer extends BaseCustomizer
