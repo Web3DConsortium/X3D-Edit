@@ -2462,7 +2462,7 @@ public interface X3DSchemaData
   String  DELAY_ATTR_RESUMETIME_DFLT    = "0";
   String  DELAY_ATTR_TAILTIME_NAME      = "tailTime";
   boolean DELAY_ATTR_TAILTIME_REQD      = false;
-  String  DELAY_ATTR_TAILTIME_DFLT      = "0";  
+  String  DELAY_ATTR_TAILTIME_DFLT      = "0";
 
   // Gain element
   String  GAIN_ELNAME                             = "Gain";
@@ -2498,6 +2498,48 @@ public interface X3DSchemaData
   String  GAIN_ATTR_TAILTIME_NAME    = "tailTime";
   boolean GAIN_ATTR_TAILTIME_REQD    = false;
   String  GAIN_ATTR_TAILTIME_DFLT    = "0";  
+
+  // WaveShaper element
+  String  WAVESHAPER_ELNAME                              = "WaveShaper";
+  String  WAVESHAPER_ATTR_ENABLED_DFLT                   = "true";
+  String  WAVESHAPER_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean WAVESHAPER_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  WAVESHAPER_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[]WAVESHAPER_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  WAVESHAPER_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean WAVESHAPER_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  WAVESHAPER_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[]WAVESHAPER_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
+  String  WAVESHAPER_ATTR_DESCRIPTION_NAME   = "description";
+  boolean WAVESHAPER_ATTR_DESCRIPTION_REQD   = false;
+  String  WAVESHAPER_ATTR_DESCRIPTION_DFLT   = "";
+  String  WAVESHAPER_ATTR_ENABLED_NAME       = "enabled";
+  boolean WAVESHAPER_ATTR_ENABLED_REQD       = false;
+  String  WAVESHAPER_ATTR_CURVE_NAME         = "curve";
+  boolean WAVESHAPER_ATTR_CURVE_REQD         = false;
+  String  WAVESHAPER_ATTR_CURVE_DFLT         = "";
+  String  WAVESHAPER_ATTR_GAIN_NAME          = "gain";
+  boolean WAVESHAPER_ATTR_GAIN_REQD          = false;
+  String  WAVESHAPER_ATTR_GAIN_DFLT          = "1";
+  String  WAVESHAPER_ATTR_OVERSAMPLE_NAME    = "oversample"; // all lower case to match W3C Web Audio API
+  boolean WAVESHAPER_ATTR_OVERSAMPLE_REQD    = false;
+  String  WAVESHAPER_ATTR_OVERSAMPLE_DFLT    = "1";
+  String[]WAVESHAPER_ATTR_OVERSAMPLE_CHOICES = {"NONE","2X","4X"};
+  String  WAVESHAPER_ATTR_STARTTIME_NAME     = "startTime";
+  boolean WAVESHAPER_ATTR_STARTTIME_REQD     = false;
+  String  WAVESHAPER_ATTR_STARTTIME_DFLT     = "0";
+  String  WAVESHAPER_ATTR_STOPTIME_NAME      = "stopTime";
+  boolean WAVESHAPER_ATTR_STOPTIME_REQD      = false;
+  String  WAVESHAPER_ATTR_STOPTIME_DFLT      = "0";
+  String  WAVESHAPER_ATTR_PAUSETIME_NAME     = "pauseTime";
+  boolean WAVESHAPER_ATTR_PAUSETIME_REQD     = false;
+  String  WAVESHAPER_ATTR_PAUSETIME_DFLT     = "0";
+  String  WAVESHAPER_ATTR_RESUMETIME_NAME    = "resumeTime";
+  boolean WAVESHAPER_ATTR_RESUMETIME_REQD    = false;
+  String  WAVESHAPER_ATTR_RESUMETIME_DFLT    = "0";
+  String  WAVESHAPER_ATTR_TAILTIME_NAME      = "tailTime";
+  boolean WAVESHAPER_ATTR_TAILTIME_REQD      = false;
+  String  WAVESHAPER_ATTR_TAILTIME_DFLT      = "0";
 
   // AudioClip element
   String  AUDIOCLIP_ELNAME                = "AudioClip";
