@@ -2423,6 +2423,47 @@ public interface X3DSchemaData
   boolean ANALYSER_ATTR_TAILTIME_REQD  = false;
   String  ANALYSER_ATTR_TAILTIME_DFLT  = "0";
 
+  // Convolver element
+  String  CONVOLVER_ELNAME                              = "Convolver";
+  String  CONVOLVER_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean CONVOLVER_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  CONVOLVER_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[]CONVOLVER_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  CONVOLVER_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean CONVOLVER_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  CONVOLVER_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[]CONVOLVER_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
+  String  CONVOLVER_ATTR_DESCRIPTION_NAME  = "description";
+  boolean CONVOLVER_ATTR_DESCRIPTION_REQD  = false;
+  String  CONVOLVER_ATTR_DESCRIPTION_DFLT  = "";
+  String  CONVOLVER_ATTR_ENABLED_DFLT      = "true";
+  String  CONVOLVER_ATTR_ENABLED_NAME      = "enabled";
+  boolean CONVOLVER_ATTR_ENABLED_REQD      = false;
+  String  CONVOLVER_ATTR_BUFFER_NAME       = "buffer";
+  boolean CONVOLVER_ATTR_BUFFER_REQD       = false;
+  String  CONVOLVER_ATTR_BUFFER_DFLT       = "";
+  String  CONVOLVER_ATTR_GAIN_NAME         = "gain";
+  boolean CONVOLVER_ATTR_GAIN_REQD         = false;
+  String  CONVOLVER_ATTR_GAIN_DFLT         = "1";
+  String  CONVOLVER_ATTR_NORMALIZE_NAME    = "normalize";
+  boolean CONVOLVER_ATTR_NORMALIZE_REQD    = false;
+  String  CONVOLVER_ATTR_NORMALIZE_DFLT    = "false";
+  String  CONVOLVER_ATTR_STARTTIME_NAME    = "startTime";
+  boolean CONVOLVER_ATTR_STARTTIME_REQD    = false;
+  String  CONVOLVER_ATTR_STARTTIME_DFLT    = "0";
+  String  CONVOLVER_ATTR_STOPTIME_NAME     = "stopTime";
+  boolean CONVOLVER_ATTR_STOPTIME_REQD     = false;
+  String  CONVOLVER_ATTR_STOPTIME_DFLT     = "0";
+  String  CONVOLVER_ATTR_PAUSETIME_NAME    = "pauseTime";
+  boolean CONVOLVER_ATTR_PAUSETIME_REQD    = false;
+  String  CONVOLVER_ATTR_PAUSETIME_DFLT    = "0";
+  String  CONVOLVER_ATTR_RESUMETIME_NAME   = "resumeTime";
+  boolean CONVOLVER_ATTR_RESUMETIME_REQD   = false;
+  String  CONVOLVER_ATTR_RESUMETIME_DFLT   = "0";
+  String  CONVOLVER_ATTR_TAILTIME_NAME     = "tailTime";
+  boolean CONVOLVER_ATTR_TAILTIME_REQD     = false;
+  String  CONVOLVER_ATTR_TAILTIME_DFLT     = "0";
+
   // DELAY element
   String  DELAY_ELNAME                              = "Delay";
   String  DELAY_ATTR_ENABLED_DFLT                   = "true";
@@ -2464,6 +2505,59 @@ public interface X3DSchemaData
   boolean DELAY_ATTR_TAILTIME_REQD      = false;
   String  DELAY_ATTR_TAILTIME_DFLT      = "0";
 
+  // DYNAMICSCOMPRESSOR element
+  String  DYNAMICSCOMPRESSOR_ELNAME                              = "DynamicsCompressor";
+  String  DYNAMICSCOMPRESSOR_ATTR_ENABLED_DFLT                   = "true";
+  String  DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[]DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[]DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
+  String  DYNAMICSCOMPRESSOR_ATTR_DESCRIPTION_NAME   = "description";
+  boolean DYNAMICSCOMPRESSOR_ATTR_DESCRIPTION_REQD   = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_DESCRIPTION_DFLT   = "";
+  String  DYNAMICSCOMPRESSOR_ATTR_ENABLED_NAME       = "enabled";
+  boolean DYNAMICSCOMPRESSOR_ATTR_ENABLED_REQD       = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_ATTACK_NAME        = "attack";
+  boolean DYNAMICSCOMPRESSOR_ATTR_ATTACK_REQD        = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_ATTACK_DFLT        = "0.003";
+  String  DYNAMICSCOMPRESSOR_ATTR_GAIN_NAME          = "gain";
+  boolean DYNAMICSCOMPRESSOR_ATTR_GAIN_REQD          = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_GAIN_DFLT          = "1";
+  String  DYNAMICSCOMPRESSOR_ATTR_KNEE_NAME          = "knee";
+  boolean DYNAMICSCOMPRESSOR_ATTR_KNEE_REQD          = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_KNEE_DFLT          = "30";
+  String  DYNAMICSCOMPRESSOR_ATTR_RATIO_NAME         = "ratio";
+  boolean DYNAMICSCOMPRESSOR_ATTR_RATIO_REQD         = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_RATIO_DFLT         = "12";
+  String  DYNAMICSCOMPRESSOR_ATTR_REDUCTION_NAME     = "reduction";
+  boolean DYNAMICSCOMPRESSOR_ATTR_REDUCTION_REQD     = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_REDUCTION_DFLT     = "30";
+  String  DYNAMICSCOMPRESSOR_ATTR_RELEASE_NAME       = "release";
+  boolean DYNAMICSCOMPRESSOR_ATTR_RELEASE_REQD       = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_RELEASE_DFLT       = "0.25";
+  String  DYNAMICSCOMPRESSOR_ATTR_THRESHOLD_NAME     = "threshold";
+  boolean DYNAMICSCOMPRESSOR_ATTR_THRESHOLD_REQD     = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_THRESHOLD_DFLT     = "-24";
+  String  DYNAMICSCOMPRESSOR_ATTR_STARTTIME_NAME     = "startTime";
+  boolean DYNAMICSCOMPRESSOR_ATTR_STARTTIME_REQD     = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_STARTTIME_DFLT     = "0";
+  String  DYNAMICSCOMPRESSOR_ATTR_STOPTIME_NAME      = "stopTime";
+  boolean DYNAMICSCOMPRESSOR_ATTR_STOPTIME_REQD      = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_STOPTIME_DFLT      = "0";
+  String  DYNAMICSCOMPRESSOR_ATTR_PAUSETIME_NAME     = "pauseTime";
+  boolean DYNAMICSCOMPRESSOR_ATTR_PAUSETIME_REQD     = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_PAUSETIME_DFLT     = "0";
+  String  DYNAMICSCOMPRESSOR_ATTR_RESUMETIME_NAME    = "resumeTime";
+  boolean DYNAMICSCOMPRESSOR_ATTR_RESUMETIME_REQD    = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_RESUMETIME_DFLT    = "0";
+  String  DYNAMICSCOMPRESSOR_ATTR_TAILTIME_NAME      = "tailTime";
+  boolean DYNAMICSCOMPRESSOR_ATTR_TAILTIME_REQD      = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_TAILTIME_DFLT      = "0";
+
   // Gain element
   String  GAIN_ELNAME                             = "Gain";
   String  GAIN_ATTR_CHANNELCOUNTMODE_NAME         = "channelCountMode";
@@ -2498,47 +2592,6 @@ public interface X3DSchemaData
   String  GAIN_ATTR_TAILTIME_NAME    = "tailTime";
   boolean GAIN_ATTR_TAILTIME_REQD    = false;
   String  GAIN_ATTR_TAILTIME_DFLT    = "0";
-
-  // Convolver element
-  String  CONVOLVER_ELNAME                              = "Convolver";
-  String  CONVOLVER_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
-  boolean CONVOLVER_ATTR_CHANNELCOUNTMODE_REQD          = false;
-  String  CONVOLVER_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
-  String[]CONVOLVER_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
-  String  CONVOLVER_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
-  boolean CONVOLVER_ATTR_CHANNELINTERPRETATION_REQD     = false;
-  String  CONVOLVER_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
-  String[]CONVOLVER_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
-  String  CONVOLVER_ATTR_DESCRIPTION_NAME  = "description";
-  boolean CONVOLVER_ATTR_DESCRIPTION_REQD  = false;
-  String  CONVOLVER_ATTR_DESCRIPTION_DFLT  = "";
-  String  CONVOLVER_ATTR_ENABLED_DFLT      = "true";
-  String  CONVOLVER_ATTR_ENABLED_NAME      = "enabled";
-  boolean CONVOLVER_ATTR_ENABLED_REQD      = false;
-  String  CONVOLVER_ATTR_BUFFER_NAME       = "buffer";
-  boolean CONVOLVER_ATTR_BUFFER_REQD       = false;
-  String  CONVOLVER_ATTR_BUFFER_DFLT       = "";
-  String  CONVOLVER_ATTR_GAIN_NAME         = "gain";
-  boolean CONVOLVER_ATTR_GAIN_REQD         = false;
-  String  CONVOLVER_ATTR_GAIN_DFLT         = "1";
-  String  CONVOLVER_ATTR_NORMALIZE_NAME    = "normalize";
-  boolean CONVOLVER_ATTR_NORMALIZE_REQD    = false;
-  String  CONVOLVER_ATTR_NORMALIZE_DFLT    = "false";
-  String  CONVOLVER_ATTR_STARTTIME_NAME    = "startTime";
-  boolean CONVOLVER_ATTR_STARTTIME_REQD    = false;
-  String  CONVOLVER_ATTR_STARTTIME_DFLT    = "0";
-  String  CONVOLVER_ATTR_STOPTIME_NAME     = "stopTime";
-  boolean CONVOLVER_ATTR_STOPTIME_REQD     = false;
-  String  CONVOLVER_ATTR_STOPTIME_DFLT     = "0";
-  String  CONVOLVER_ATTR_PAUSETIME_NAME    = "pauseTime";
-  boolean CONVOLVER_ATTR_PAUSETIME_REQD    = false;
-  String  CONVOLVER_ATTR_PAUSETIME_DFLT    = "0";
-  String  CONVOLVER_ATTR_RESUMETIME_NAME   = "resumeTime";
-  boolean CONVOLVER_ATTR_RESUMETIME_REQD   = false;
-  String  CONVOLVER_ATTR_RESUMETIME_DFLT   = "0";
-  String  CONVOLVER_ATTR_TAILTIME_NAME     = "tailTime";
-  boolean CONVOLVER_ATTR_TAILTIME_REQD     = false;
-  String  CONVOLVER_ATTR_TAILTIME_DFLT     = "0";
 
   // WaveShaper element
   String  WAVESHAPER_ELNAME                              = "WaveShaper";
