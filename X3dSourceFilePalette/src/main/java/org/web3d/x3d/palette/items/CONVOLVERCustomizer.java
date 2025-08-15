@@ -37,8 +37,8 @@ package org.web3d.x3d.palette.items;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
-import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELCOUNTMODE_CHOICES;
-import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELINTERPRETATION_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.CONVOLVER_ATTR_CHANNELCOUNTMODE_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.CONVOLVER_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
  * CONVOLVERCustomizer.java
@@ -237,7 +237,7 @@ public class CONVOLVERCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(channelCountModeLabel, gridBagConstraints);
 
-        channelCountModeComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELCOUNTMODE_CHOICES));
+        channelCountModeComboBox.setModel(new DefaultComboBoxModel<String>(CONVOLVER_ATTR_CHANNELCOUNTMODE_CHOICES));
         channelCountModeComboBox.setToolTipText("how individual channels are counted when up-mixing and down-mixing connections to any inputs");
         channelCountModeComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
         channelCountModeComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -265,7 +265,7 @@ public class CONVOLVERCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(channelInterpretationLabel, gridBagConstraints);
 
-        channelInterpretationComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELINTERPRETATION_CHOICES));
+        channelInterpretationComboBox.setModel(new DefaultComboBoxModel<String>(CONVOLVER_ATTR_CHANNELINTERPRETATION_CHOICES));
         channelInterpretationComboBox.setToolTipText("how individual channels are treated when up-mixing and down-mixing connections to any inputs");
         channelInterpretationComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
         channelInterpretationComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -424,7 +424,7 @@ public class CONVOLVERCustomizer extends BaseCustomizer
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         eventsLabel1.setText("<html><p align=\"center\"> <b>Convolver</b> node performs linear convolution on a <b>buffer</b> field to create a reverberation effect for an input signal. </p> <br /> \n<p align=\"center\">The <b>normalize</b> field controls whether impulse response from the buffer is scaled by equal-power normalization. </p> <br />\n<p align=\"center\">Gain <b>child nodes</b> provide input signals, and the <b>parent node</b> receuives the output signal from this node. </p> <br />\n<p align=\"center\"> The <b>tailTime</b> event  defines duration of time that output signal continues after input signal becomes silent. </p> <br />\n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>, <b>isPaused</b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
-        eventsLabel1.setToolTipText("Optionally can create a ROUTE to connect output events");
+        eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
         eventsLabel1.setMinimumSize(new java.awt.Dimension(550, 200));
         eventsLabel1.setPreferredSize(new java.awt.Dimension(559, 200));
         gridBagConstraints = new java.awt.GridBagConstraints();

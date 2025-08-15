@@ -167,7 +167,7 @@
     <Component class="javax.swing.JComboBox" name="channelCountModeComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new DefaultComboBoxModel&lt;String&gt;(GAIN_ATTR_CHANNELCOUNTMODE_CHOICES)" type="code"/>
+          <Connection code="new DefaultComboBoxModel&lt;String&gt;(CONVOLVER_ATTR_CHANNELCOUNTMODE_CHOICES)" type="code"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="how individual channels are counted when up-mixing and down-mixing connections to any inputs"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -204,7 +204,7 @@
     <Component class="javax.swing.JComboBox" name="channelInterpretationComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new DefaultComboBoxModel&lt;String&gt;(GAIN_ATTR_CHANNELINTERPRETATION_CHOICES)" type="code"/>
+          <Connection code="new DefaultComboBoxModel&lt;String&gt;(CONVOLVER_ATTR_CHANNELINTERPRETATION_CHOICES)" type="code"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="how individual channels are treated when up-mixing and down-mixing connections to any inputs"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -387,7 +387,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt; &lt;b&gt;Convolver&lt;/b&gt; node performs linear convolution on a &lt;b&gt;buffer&lt;/b&gt; field to create a reverberation effect for an input signal. &lt;/p&gt; &lt;br /&gt; &#xa;&lt;p align=&quot;center&quot;&gt;The &lt;b&gt;normalize&lt;/b&gt; field controls whether impulse response from the buffer is scaled by equal-power normalization. &lt;/p&gt; &lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt;Gain &lt;b&gt;child nodes&lt;/b&gt; provide input signals, and the &lt;b&gt;parent node&lt;/b&gt; receuives the output signal from this node. &lt;/p&gt; &lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; The &lt;b&gt;tailTime&lt;/b&gt; event  defines duration of time that output signal continues after input signal becomes silent. &lt;/p&gt; &lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; Timing control for the node is provided by &lt;b&gt;startTime&lt;/b&gt;, &lt;b&gt;stopTime&lt;/b&gt;, &lt;b&gt;pauseTime&lt;/b&gt;, &lt;b&gt;resumeTime&lt;/b&gt; fields.&lt;/p&gt; &lt;br /&gt; &#xa;&lt;p align=&quot;center&quot;&gt; Additional output events are &lt;b&gt;isActive&lt;/b&gt;, &lt;b&gt;isPaused&lt;/b&gt;, &lt;b&gt;channelCount&lt;/b&gt;, and &lt;b&gt;elapsedTime&lt;/b&gt;.&lt;/p&gt; "/>
-            <Property name="toolTipText" type="java.lang.String" value="Optionally can create a ROUTE to connect output events"/>
+            <Property name="toolTipText" type="java.lang.String" value="Optionally can create ROUTEs to connect input and output events"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[550, 200]"/>
             </Property>

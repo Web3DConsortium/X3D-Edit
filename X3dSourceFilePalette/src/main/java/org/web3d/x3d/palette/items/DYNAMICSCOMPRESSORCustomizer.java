@@ -37,8 +37,8 @@ package org.web3d.x3d.palette.items;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
-import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELCOUNTMODE_CHOICES;
-import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELINTERPRETATION_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
  * DYNAMICSCOMPRESSORCustomizer.java
@@ -251,7 +251,7 @@ public class DYNAMICSCOMPRESSORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(channelCountModeLabel, gridBagConstraints);
 
-        channelCountModeComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELCOUNTMODE_CHOICES));
+        channelCountModeComboBox.setModel(new DefaultComboBoxModel<String>(DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_CHOICES));
         channelCountModeComboBox.setToolTipText("how individual channels are counted when up-mixing and down-mixing connections to any inputs");
         channelCountModeComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
         channelCountModeComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -279,7 +279,7 @@ public class DYNAMICSCOMPRESSORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(channelInterpretationLabel, gridBagConstraints);
 
-        channelInterpretationComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELINTERPRETATION_CHOICES));
+        channelInterpretationComboBox.setModel(new DefaultComboBoxModel<String>(DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_CHOICES));
         channelInterpretationComboBox.setToolTipText("how individual channels are treated when up-mixing and down-mixing connections to any inputs");
         channelInterpretationComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
         channelInterpretationComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -437,7 +437,7 @@ public class DYNAMICSCOMPRESSORCustomizer extends BaseCustomizer
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         eventsLabel1.setText("<html><p align=\"center\"> <b>DynamicsCompressor</b> node lowering volume of loud signals and raising volume of soft signals. </p> <br />\n<p align=\"center\">Fields include <b>attack</b> time to reduce gain 10dB, <b>knee</b> for smooth curve transition, \n  <b>ratio</b> between input and output changes, <b>release</b> time to increase gain 10dB, and <b>threshold</b> level for compression. </p> <br /> \n<p align=\"center\">DynamicsCompressor <b>child nodes</b> provide input signals, and the <b>parent node</b> receuives the output signal from this node. </p> <br />\n<p align=\"center\"> The <b>tailTime</b> event  defines duration of time that output signal continues after input signal becomes silent. </p> <br />\n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>reduction</b>, <b>isActive</b>, <b>isPaused</b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
-        eventsLabel1.setToolTipText("Optionally can create a ROUTE to connect output events");
+        eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

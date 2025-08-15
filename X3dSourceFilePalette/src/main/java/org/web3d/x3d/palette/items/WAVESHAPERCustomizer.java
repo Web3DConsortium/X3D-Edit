@@ -37,8 +37,8 @@ package org.web3d.x3d.palette.items;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
-import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELCOUNTMODE_CHOICES;
-import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELINTERPRETATION_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.WAVESHAPER_ATTR_CHANNELCOUNTMODE_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.WAVESHAPER_ATTR_CHANNELINTERPRETATION_CHOICES;
 import static org.web3d.x3d.types.X3DSchemaData.WAVESHAPER_ATTR_OVERSAMPLE_CHOICES;
 
 /**
@@ -246,7 +246,7 @@ public class WAVESHAPERCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(channelCountModeLabel, gridBagConstraints);
 
-        channelCountModeComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELCOUNTMODE_CHOICES));
+        channelCountModeComboBox.setModel(new DefaultComboBoxModel<String>(WAVESHAPER_ATTR_CHANNELCOUNTMODE_CHOICES));
         channelCountModeComboBox.setToolTipText("how individual channels are counted when up-mixing and down-mixing connections to any inputs");
         channelCountModeComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
         channelCountModeComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -274,7 +274,7 @@ public class WAVESHAPERCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(channelInterpretationLabel, gridBagConstraints);
 
-        channelInterpretationComboBox.setModel(new DefaultComboBoxModel<String>(GAIN_ATTR_CHANNELINTERPRETATION_CHOICES));
+        channelInterpretationComboBox.setModel(new DefaultComboBoxModel<String>(WAVESHAPER_ATTR_CHANNELINTERPRETATION_CHOICES));
         channelInterpretationComboBox.setToolTipText("how individual channels are treated when up-mixing and down-mixing connections to any inputs");
         channelInterpretationComboBox.setMinimumSize(new java.awt.Dimension(100, 20));
         channelInterpretationComboBox.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -433,7 +433,7 @@ public class WAVESHAPERCustomizer extends BaseCustomizer
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         eventsLabel1.setText("<html><p align=\"center\"> <b>WaveShaper</b> node has primary field <b>curve</b> describing a non-linear distortion applied to input signal. </p> <br /> \n<p align=\"center\">The <b>oversample</b> field specifies what type of oversampling is used when applying the shaping <b>curve</b>. </p> <br />\n<p align=\"center\">Gain <b>child nodes</b> provide input signals, and the <b>parent node</b> receuives the output signal from this node. </p> <br />\n<p align=\"center\"> The <b>tailTime</b> event  defines duration of time that output signal continues after input signal becomes silent. </p> <br />\n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>, <b>isPaused</b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
-        eventsLabel1.setToolTipText("Optionally can create a ROUTE to connect output events");
+        eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
         eventsLabel1.setMinimumSize(new java.awt.Dimension(550, 200));
         eventsLabel1.setPreferredSize(new java.awt.Dimension(559, 200));
         gridBagConstraints = new java.awt.GridBagConstraints();
