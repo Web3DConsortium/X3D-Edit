@@ -248,12 +248,11 @@ public class WAVESHAPER extends X3DSoundProcessingNode // and X3DTimeDependentNo
      * @return the curve
      */
     public String getCurve() {
-        String value = new String();
-        for (int i = 0; i < curve.length; i++)
-        {
-            value += " " + curve[i].toString();
+        String values = new String();
+        for (SFFloat nextValue : curve) {
+            values += " " + nextValue.toString();
         }
-        return value.trim();
+        return values.trim();
     }
 
     /**
