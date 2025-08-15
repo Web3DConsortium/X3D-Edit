@@ -105,7 +105,7 @@ public abstract class X3DSoundProcessingNode extends X3DTimeDependentNode
      * @param newTailTime the tailTime to set
      */
     public void setTailTime(String newTailTime) {
-        tailTime =  new SFDouble(newTailTime, null, null);
+        tailTime =  new SFDouble(newTailTime, 0.0, null);
     }
       
   @Override
