@@ -48,10 +48,8 @@ import org.web3d.x3d.types.X3DSoundProcessingNode;
  */
 public class DELAY extends X3DSoundProcessingNode // and X3DTimeDependentNode
 {
-    private SFDouble delayTime;
-    protected SFDouble delayTimeDefault;
-    private SFDouble maxDelayTime;
-    protected SFDouble maxDelayTimeDefault;
+    private SFDouble delayTime,    delayTimeDefault;
+    private SFDouble maxDelayTime, maxDelayTimeDefault;
     
   public DELAY() 
   {
@@ -68,8 +66,8 @@ public class DELAY extends X3DSoundProcessingNode // and X3DTimeDependentNode
   @Override
   public void initialize()
   {
-    delayTime  =  delayTimeDefault       = new SFDouble(DELAY_ATTR_DELAYTIME_DFLT,null,null);
-    maxDelayTime =  maxDelayTimeDefault  = new SFDouble(DELAY_ATTR_MAXDELAYTIME_DFLT,null,null);
+    delayTime  =  delayTimeDefault       = new SFDouble(DELAY_ATTR_DELAYTIME_DFLT,0.0,null);
+    maxDelayTime =  maxDelayTimeDefault  = new SFDouble(DELAY_ATTR_MAXDELAYTIME_DFLT,0.0,null);
     
     channelCountMode      = channelCountModeDefault      = DELAY_ATTR_CHANNELCOUNTMODE_DFLT;
     channelInterpretation = channelInterpretationDefault = DELAY_ATTR_CHANNELINTERPRETATION_DFLT;
@@ -99,7 +97,7 @@ public class DELAY extends X3DSoundProcessingNode // and X3DTimeDependentNode
       channelInterpretation = attr.getValue();
     attr = root.getAttribute(DELAY_ATTR_DELAYTIME_NAME);
     if (attr != null)
-      delayTime = new SFDouble(attr.getValue(), null, null);
+      delayTime = new SFDouble(attr.getValue(), 0.0, null);
     attr = root.getAttribute(DELAY_ATTR_DESCRIPTION_NAME);
     if (attr != null)
       description = attr.getValue();
@@ -111,7 +109,7 @@ public class DELAY extends X3DSoundProcessingNode // and X3DTimeDependentNode
       gain = new SFFloat(attr.getValue(), null, null);
     attr = root.getAttribute(DELAY_ATTR_MAXDELAYTIME_NAME);
     if (attr != null)
-      maxDelayTime = new SFDouble(attr.getValue(), null, null);
+      maxDelayTime = new SFDouble(attr.getValue(), 0.0, null);
     
     attr = root.getAttribute(DELAY_ATTR_STARTTIME_NAME);
     if (attr != null)

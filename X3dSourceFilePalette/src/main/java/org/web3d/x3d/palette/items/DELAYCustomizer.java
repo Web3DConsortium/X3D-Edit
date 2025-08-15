@@ -427,8 +427,8 @@ public class DELAYCustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>Delay</b> node has primary field <b>delayTime</b> to delay input signals up to <b>maxDelayTime</b> seconds. </p> <br /> \n<p align=\"center\">Gain <b>child nodes</b> provide input signals, and the <b>parent node</b> receuives the output signal from this node. </p> <br />\n<p align=\"center\"> The <b>tailTime</b> event  defines duration of time that output signal continues after input signal becomes silent. </p> <br />\n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
-        eventsLabel1.setToolTipText("Create a ROUTE to connect output events");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>Delay</b> node has primary field <b>delayTime</b> to delay input signals up to <b>maxDelayTime</b> seconds. </p> <br /> \n<p align=\"center\">Delay <b>child nodes</b> provide input signals, and the <b>parent node</b> receuives the output signal from this node. </p> <br />\n<p align=\"center\"> The <b>tailTime</b> event  defines duration of time that output signal continues after input signal becomes silent. </p> <br />\n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>, <b>isPaused</b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
+        eventsLabel1.setToolTipText("Optionally can create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
