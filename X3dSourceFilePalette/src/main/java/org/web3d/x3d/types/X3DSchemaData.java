@@ -2497,11 +2497,51 @@ public interface X3DSchemaData
   String  GAIN_ATTR_RESUMETIME_DFLT  = "0";
   String  GAIN_ATTR_TAILTIME_NAME    = "tailTime";
   boolean GAIN_ATTR_TAILTIME_REQD    = false;
-  String  GAIN_ATTR_TAILTIME_DFLT    = "0";  
+  String  GAIN_ATTR_TAILTIME_DFLT    = "0";
+
+  // Convolver element
+  String  CONVOLVER_ELNAME                              = "Convolver";
+  String  CONVOLVER_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean CONVOLVER_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  CONVOLVER_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[]CONVOLVER_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  CONVOLVER_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean CONVOLVER_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  CONVOLVER_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[]CONVOLVER_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
+  String  CONVOLVER_ATTR_DESCRIPTION_NAME  = "description";
+  boolean CONVOLVER_ATTR_DESCRIPTION_REQD  = false;
+  String  CONVOLVER_ATTR_DESCRIPTION_DFLT  = "";
+  String  CONVOLVER_ATTR_ENABLED_DFLT      = "true";
+  String  CONVOLVER_ATTR_ENABLED_NAME      = "enabled";
+  boolean CONVOLVER_ATTR_ENABLED_REQD      = false;
+  String  CONVOLVER_ATTR_BUFFER_NAME       = "buffer";
+  boolean CONVOLVER_ATTR_BUFFER_REQD       = false;
+  String  CONVOLVER_ATTR_BUFFER_DFLT       = "";
+  String  CONVOLVER_ATTR_GAIN_NAME         = "gain";
+  boolean CONVOLVER_ATTR_GAIN_REQD         = false;
+  String  CONVOLVER_ATTR_GAIN_DFLT         = "1";
+  String  CONVOLVER_ATTR_NORMALIZE_NAME    = "normalize";
+  boolean CONVOLVER_ATTR_NORMALIZE_REQD    = false;
+  String  CONVOLVER_ATTR_NORMALIZE_DFLT    = "false";
+  String  CONVOLVER_ATTR_STARTTIME_NAME    = "startTime";
+  boolean CONVOLVER_ATTR_STARTTIME_REQD    = false;
+  String  CONVOLVER_ATTR_STARTTIME_DFLT    = "0";
+  String  CONVOLVER_ATTR_STOPTIME_NAME     = "stopTime";
+  boolean CONVOLVER_ATTR_STOPTIME_REQD     = false;
+  String  CONVOLVER_ATTR_STOPTIME_DFLT     = "0";
+  String  CONVOLVER_ATTR_PAUSETIME_NAME    = "pauseTime";
+  boolean CONVOLVER_ATTR_PAUSETIME_REQD    = false;
+  String  CONVOLVER_ATTR_PAUSETIME_DFLT    = "0";
+  String  CONVOLVER_ATTR_RESUMETIME_NAME   = "resumeTime";
+  boolean CONVOLVER_ATTR_RESUMETIME_REQD   = false;
+  String  CONVOLVER_ATTR_RESUMETIME_DFLT   = "0";
+  String  CONVOLVER_ATTR_TAILTIME_NAME     = "tailTime";
+  boolean CONVOLVER_ATTR_TAILTIME_REQD     = false;
+  String  CONVOLVER_ATTR_TAILTIME_DFLT     = "0";
 
   // WaveShaper element
   String  WAVESHAPER_ELNAME                              = "WaveShaper";
-  String  WAVESHAPER_ATTR_ENABLED_DFLT                   = "true";
   String  WAVESHAPER_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
   boolean WAVESHAPER_ATTR_CHANNELCOUNTMODE_REQD          = false;
   String  WAVESHAPER_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
@@ -2513,6 +2553,7 @@ public interface X3DSchemaData
   String  WAVESHAPER_ATTR_DESCRIPTION_NAME   = "description";
   boolean WAVESHAPER_ATTR_DESCRIPTION_REQD   = false;
   String  WAVESHAPER_ATTR_DESCRIPTION_DFLT   = "";
+  String  WAVESHAPER_ATTR_ENABLED_DFLT       = "true";
   String  WAVESHAPER_ATTR_ENABLED_NAME       = "enabled";
   boolean WAVESHAPER_ATTR_ENABLED_REQD       = false;
   String  WAVESHAPER_ATTR_CURVE_NAME         = "curve";
