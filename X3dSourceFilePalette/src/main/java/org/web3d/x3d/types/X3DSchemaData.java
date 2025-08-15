@@ -2423,6 +2423,54 @@ public interface X3DSchemaData
   boolean ANALYSER_ATTR_TAILTIME_REQD  = false;
   String  ANALYSER_ATTR_TAILTIME_DFLT  = "0";
 
+  // BiquadFilter element
+  String  BIQUADFILTER_ELNAME                              = "BiquadFilter";
+  String  BIQUADFILTER_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean BIQUADFILTER_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  BIQUADFILTER_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[]BIQUADFILTER_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  BIQUADFILTER_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean BIQUADFILTER_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  BIQUADFILTER_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[]BIQUADFILTER_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
+  String  BIQUADFILTER_ATTR_DESCRIPTION_NAME   = "description";
+  boolean BIQUADFILTER_ATTR_DESCRIPTION_REQD   = false;
+  String  BIQUADFILTER_ATTR_DESCRIPTION_DFLT   = "";
+  String  BIQUADFILTER_ATTR_DETUNE_NAME        = "detune";
+  boolean BIQUADFILTER_ATTR_DETUNE_REQD        = false;
+  String  BIQUADFILTER_ATTR_DETUNE_DFLT        = "0";
+  String  BIQUADFILTER_ATTR_ENABLED_NAME       = "enabled";
+  boolean BIQUADFILTER_ATTR_ENABLED_REQD       = false;
+  String  BIQUADFILTER_ATTR_ENABLED_DFLT       = "true";
+  String  BIQUADFILTER_ATTR_FREQUENCY_NAME     = "frequency";
+  boolean BIQUADFILTER_ATTR_FREQUENCY_REQD     = false;
+  String  BIQUADFILTER_ATTR_FREQUENCY_DFLT     = "350";
+  String  BIQUADFILTER_ATTR_GAIN_NAME          = "gain";
+  boolean BIQUADFILTER_ATTR_GAIN_REQD          = false;
+  String  BIQUADFILTER_ATTR_GAIN_DFLT          = "1";
+  String  BIQUADFILTER_ATTR_QUALITYFACTOR_NAME = "qualityFactor";
+  boolean BIQUADFILTER_ATTR_QUALITYFACTOR_REQD = false;
+  String  BIQUADFILTER_ATTR_QUALITYFACTOR_DFLT = "12";
+  String  BIQUADFILTER_ATTR_STARTTIME_NAME     = "startTime";
+  boolean BIQUADFILTER_ATTR_STARTTIME_REQD     = false;
+  String  BIQUADFILTER_ATTR_STARTTIME_DFLT     = "0";
+  String  BIQUADFILTER_ATTR_STOPTIME_NAME      = "stopTime";
+  boolean BIQUADFILTER_ATTR_STOPTIME_REQD      = false;
+  String  BIQUADFILTER_ATTR_STOPTIME_DFLT      = "0";
+  String  BIQUADFILTER_ATTR_PAUSETIME_NAME     = "pauseTime";
+  boolean BIQUADFILTER_ATTR_PAUSETIME_REQD     = false;
+  String  BIQUADFILTER_ATTR_PAUSETIME_DFLT     = "0";
+  String  BIQUADFILTER_ATTR_RESUMETIME_NAME    = "resumeTime";
+  boolean BIQUADFILTER_ATTR_RESUMETIME_REQD    = false;
+  String  BIQUADFILTER_ATTR_RESUMETIME_DFLT    = "0";
+  String  BIQUADFILTER_ATTR_TAILTIME_NAME      = "tailTime";
+  boolean BIQUADFILTER_ATTR_TAILTIME_REQD      = false;
+  String  BIQUADFILTER_ATTR_TAILTIME_DFLT      = "0";
+  String  BIQUADFILTER_ATTR_TYPE_NAME          = "type";
+  boolean BIQUADFILTER_ATTR_TYPE_REQD          = false;
+  String  BIQUADFILTER_ATTR_TYPE_DFLT          = "LOWPASS";
+  String[]BIQUADFILTER_ATTR_TYPE_CHOICES       = {"LOWPASS","HIGHPASS","BANDPASS","LOWSHELF","HIGHSHELF","PEAKING","NOTCH","ALLPASS"};
+
   // Convolver element
   String  CONVOLVER_ELNAME                              = "Convolver";
   String  CONVOLVER_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
@@ -2464,9 +2512,8 @@ public interface X3DSchemaData
   boolean CONVOLVER_ATTR_TAILTIME_REQD     = false;
   String  CONVOLVER_ATTR_TAILTIME_DFLT     = "0";
 
-  // DELAY element
+  // Delay element
   String  DELAY_ELNAME                              = "Delay";
-  String  DELAY_ATTR_ENABLED_DFLT                   = "true";
   String  DELAY_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
   boolean DELAY_ATTR_CHANNELCOUNTMODE_REQD          = false;
   String  DELAY_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
@@ -2480,6 +2527,7 @@ public interface X3DSchemaData
   String  DELAY_ATTR_DESCRIPTION_DFLT   = "";
   String  DELAY_ATTR_ENABLED_NAME       = "enabled";
   boolean DELAY_ATTR_ENABLED_REQD       = false;
+  String  DELAY_ATTR_ENABLED_DFLT       = "true";
   String  DELAY_ATTR_DELAYTIME_NAME     = "delayTime";
   boolean DELAY_ATTR_DELAYTIME_REQD     = false;
   String  DELAY_ATTR_DELAYTIME_DFLT     = "1";
@@ -2505,9 +2553,8 @@ public interface X3DSchemaData
   boolean DELAY_ATTR_TAILTIME_REQD      = false;
   String  DELAY_ATTR_TAILTIME_DFLT      = "0";
 
-  // DYNAMICSCOMPRESSOR element
+  // DynamicsCompressor element
   String  DYNAMICSCOMPRESSOR_ELNAME                              = "DynamicsCompressor";
-  String  DYNAMICSCOMPRESSOR_ATTR_ENABLED_DFLT                   = "true";
   String  DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
   boolean DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_REQD          = false;
   String  DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
@@ -2521,6 +2568,7 @@ public interface X3DSchemaData
   String  DYNAMICSCOMPRESSOR_ATTR_DESCRIPTION_DFLT   = "";
   String  DYNAMICSCOMPRESSOR_ATTR_ENABLED_NAME       = "enabled";
   boolean DYNAMICSCOMPRESSOR_ATTR_ENABLED_REQD       = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_ENABLED_DFLT       = "true";
   String  DYNAMICSCOMPRESSOR_ATTR_ATTACK_NAME        = "attack";
   boolean DYNAMICSCOMPRESSOR_ATTR_ATTACK_REQD        = false;
   String  DYNAMICSCOMPRESSOR_ATTR_ATTACK_DFLT        = "0.003";
