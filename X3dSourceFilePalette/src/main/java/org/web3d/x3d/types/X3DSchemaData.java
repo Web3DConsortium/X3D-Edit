@@ -2656,8 +2656,8 @@ public interface X3DSchemaData
   boolean CHANNELSELECTOR_ATTR_CHANNELSELECTION_REQD        = false;
   String  CHANNELSELECTOR_ATTR_CHANNELSELECTION_DFLT        = "0";
 
-  // ChannelSpitter element
-  String  CHANNELSPLITTER_ELNAME                             = "ChannelSpitter";
+  // ChannelSplitter element
+  String  CHANNELSPLITTER_ELNAME                             = "ChannelSplitter";
   String  CHANNELSPLITTER_ATTR_CHANNELCOUNTMODE_NAME         = "channelCountMode";
   boolean CHANNELSPLITTER_ATTR_CHANNELCOUNTMODE_REQD         = false;
   String  CHANNELSPLITTER_ATTR_CHANNELCOUNTMODE_DFLT         = "MAX";
