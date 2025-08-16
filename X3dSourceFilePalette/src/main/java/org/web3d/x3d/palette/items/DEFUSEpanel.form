@@ -222,6 +222,7 @@
             <Component class="javax.swing.JLabel" name="containerFieldLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="containerField"/>
+                <Property name="toolTipText" type="java.lang.String" value="containerField is field-label prefix indicating relationship to parent node"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

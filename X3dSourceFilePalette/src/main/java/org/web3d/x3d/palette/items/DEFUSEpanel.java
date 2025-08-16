@@ -498,6 +498,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         x3dDefUsePanel.add(defUseHelpButton, gridBagConstraints);
 
         containerFieldLabel.setText("containerField");
+        containerFieldLabel.setToolTipText("containerField is field-label prefix indicating relationship to parent node");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
