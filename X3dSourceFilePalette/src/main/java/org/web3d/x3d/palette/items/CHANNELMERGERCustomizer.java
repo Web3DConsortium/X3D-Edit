@@ -39,8 +39,6 @@ import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
 import static org.web3d.x3d.types.X3DSchemaData.CHANNELMERGER_ATTR_CHANNELCOUNTMODE_CHOICES;
 import static org.web3d.x3d.types.X3DSchemaData.CHANNELMERGER_ATTR_CHANNELINTERPRETATION_CHOICES;
-//import static org.web3d.x3d.types.X3DSchemaData.CHANNELMERGER_ATTR_CHANNELCOUNTMODE_CHOICES;
-//import static org.web3d.x3d.types.X3DSchemaData.CHANNELMERGER_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
  * CHANNELMERGERCustomizer.java
@@ -249,7 +247,7 @@ public class CHANNELMERGERCustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>ChannelMerger</b> node unites different input channels into a single output channel. </p> <br /> \n<p align=\"center\">Gain <b>child nodes</b> provide input signals, and the <b>parent node</b> receives the output signal from this node. </p>");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>ChannelMerger</b> node unites different input channels into a single output channel. </p> <br /> \n<p align=\"center\">ChannelMerger <b>child nodes</b> provide input signals, and the <b>parent node</b> receives the output signal from this node. </p>");
         eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

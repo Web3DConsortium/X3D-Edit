@@ -218,7 +218,7 @@
         <Component class="javax.swing.JLabel" name="eventsLabel1">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt; &lt;b&gt;ChannelMerger&lt;/b&gt; node unites different input channels into a single output channel. &lt;/p&gt; &lt;br /&gt; &#xa;&lt;p align=&quot;center&quot;&gt;Gain &lt;b&gt;child nodes&lt;/b&gt; provide input signals, and the &lt;b&gt;parent node&lt;/b&gt; receives the output signal from this node. &lt;/p&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt; &lt;b&gt;ChannelMerger&lt;/b&gt; node unites different input channels into a single output channel. &lt;/p&gt; &lt;br /&gt; &#xa;&lt;p align=&quot;center&quot;&gt;ChannelMerger &lt;b&gt;child nodes&lt;/b&gt; provide input signals, and the &lt;b&gt;parent node&lt;/b&gt; receives the output signal from this node. &lt;/p&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value="Optionally can create ROUTEs to connect input and output events"/>
           </Properties>
           <Constraints>
