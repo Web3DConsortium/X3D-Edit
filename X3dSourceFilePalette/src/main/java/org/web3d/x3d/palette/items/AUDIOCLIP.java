@@ -55,9 +55,14 @@ import static org.web3d.x3d.palette.X3DPaletteUtilities.*;
  */
 public class AUDIOCLIP extends X3DSoundSourceNode
 {
-  private boolean loop, loopDefault;
-  private SFFloat pitch, pitchDefault;
-    
+    private boolean loop, loopDefault;
+    private SFFloat pitch, pitchDefault;
+  
+    private boolean  load, loadDefault;
+    private SFDouble autoRefresh, autoRefreshDefault; // SFTime
+    private SFDouble autoRefreshTimeLimit, autoRefreshTimeLimitDefault; // SFTime
+    private String[] urls, urlsDefault;
+
   public AUDIOCLIP()
   {
   }
@@ -260,4 +265,59 @@ public class AUDIOCLIP extends X3DSoundSourceNode
   {
     this.pitch = new SFFloat(pitch,null,null);
   }
+
+    /**
+     * @return the load field
+     */
+    public boolean isLoad()
+    {
+      return load;
+    }
+
+    /**
+     * @param newLoad the load field to set
+     */
+    public void setLoad(boolean newLoad)
+    {
+      load = newLoad;
+    }
+
+    /**
+     * @param newAutoRefresh the autoRefresh to set
+     */
+    public void setAutoRefresh(String newAutoRefresh) {
+        autoRefresh = new SFDouble(newAutoRefresh, 0.0, null);
+    }
+    /**
+     * @return the autoRefresh
+     */
+    public String getAutoRefresh() {
+        return autoRefresh.toString();
+    }
+
+    /**
+     * @param newAutoRefreshTimeLimit the autoRefreshTimeLimit to set
+     */
+    public void setAutoRefreshTimeLimit(String newAutoRefreshTimeLimit) {
+        autoRefreshTimeLimit = new SFDouble(newAutoRefreshTimeLimit, 0.0, null);
+    }
+    /**
+     * @return the autoRefreshTimeLimit
+     */
+    public String getAutoRefreshTimeLimit() {
+        return autoRefreshTimeLimit.toString();
+    }
+
+    public String[] getUrls()
+    {
+      String[] urlArray = new String[urls.length];
+      System.arraycopy(urls, 0, urlArray, 0, urls.length);
+      return urlArray;
+    }
+
+    public void setUrls(String[] urlArray)
+    {
+      urls = new String[urlArray.length];
+      System.arraycopy(urlArray, 0, this.urls, 0, urlArray.length);
+    }
 }

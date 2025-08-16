@@ -88,6 +88,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         jTextField2 = new javax.swing.JTextField();
+        tEXTURETRANSFORMMATRIX3D1 = new org.web3d.x3d.palette.items.TEXTURETRANSFORMMATRIX3D();
         dEFUSEpanel1 = getDEFUSEpanel();
         enabledLabel = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
@@ -110,8 +111,8 @@ public class TIMESENSORCustomizer extends BaseCustomizer
 
         jTextField2.setText("jTextField2");
 
-        setMinimumSize(new java.awt.Dimension(790, 362));
-        setPreferredSize(new java.awt.Dimension(800, 362));
+        setMinimumSize(new java.awt.Dimension(610, 380));
+        setPreferredSize(new java.awt.Dimension(630, 400));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 4;
@@ -335,6 +336,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
     private javax.swing.JTextField startTimeTF;
     private javax.swing.JLabel stopTimeLabel;
     private javax.swing.JTextField stopTimeTF;
+    private org.web3d.x3d.palette.items.TEXTURETRANSFORMMATRIX3D tEXTURETRANSFORMMATRIX3D1;
     // End of variables declaration//GEN-END:variables
   
   
