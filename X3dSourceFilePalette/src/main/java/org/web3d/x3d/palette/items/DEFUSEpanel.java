@@ -613,7 +613,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
 
         cssStyleLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         cssStyleLabel.setText("style");
-        cssStyleLabel.setToolTipText("style field is only used for CSS styles");
+        cssStyleLabel.setToolTipText("CSS style field is used for styling and HTML5");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -621,7 +621,7 @@ public class DEFUSEpanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 16, 3, 0);
         htmlCssPanel.add(cssStyleLabel, gridBagConstraints);
 
-        cssStyleTextField.setToolTipText("CSS style information for HTML5 page");
+        cssStyleTextField.setToolTipText("CSS style field is used for styling and HTML5");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
