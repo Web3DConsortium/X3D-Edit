@@ -39,7 +39,10 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 /**
  * X3DSoundProcessingNode.java
  * 
- * Base node type for all sound processing nodes, which are used to enhance audio with filtering, delaying, changing gain, etc.
+ * Base node type for all sound destination nodes, which represent the final destination 
+ * of an audio signal and are what the user can ultimately hear. 
+ * Such nodes are often considered as audio output devices which are connected to speakers. 
+ * All rendered audio that is intended to be heard gets routed to these terminal nodes.
  *
  * @author Don Brutzman
  * @version $Id$
