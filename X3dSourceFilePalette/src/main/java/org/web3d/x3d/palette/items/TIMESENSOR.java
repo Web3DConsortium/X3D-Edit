@@ -139,19 +139,19 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
       sb.append("'");
     }
 
-    if (TIMESENSOR_ATTR_STARTTIME_REQD || !startTime.equals(startTimeDefault)) {
+    if (TIMESENSOR_ATTR_ENABLED_REQD || enabled != Boolean.parseBoolean(TIMESENSOR_ATTR_ENABLED_DFLT)) {
       sb.append(" ");
-      sb.append(TIMESENSOR_ATTR_STARTTIME_NAME);
+      sb.append(TIMESENSOR_ATTR_ENABLED_NAME);
       sb.append("='");
-      sb.append(startTime);
+      sb.append(enabled);
       sb.append("'");
     }
-
-    if (TIMESENSOR_ATTR_STOPTIME_REQD || !stopTime.equals(stopTimeDefault)) {
+    
+    if (TIMESENSOR_ATTR_LOOP_REQD || loop != Boolean.parseBoolean(TIMESENSOR_ATTR_LOOP_DFLT)) {
       sb.append(" ");
-      sb.append(TIMESENSOR_ATTR_STOPTIME_NAME);
+      sb.append(TIMESENSOR_ATTR_LOOP_NAME);
       sb.append("='");
-      sb.append(stopTime);
+      sb.append(loop);
       sb.append("'");
     }
 
@@ -169,19 +169,19 @@ public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
       sb.append(resumeTime);
       sb.append("'");
     }
-
-    if (TIMESENSOR_ATTR_ENABLED_REQD || enabled != Boolean.parseBoolean(TIMESENSOR_ATTR_ENABLED_DFLT)) {
+    if (TIMESENSOR_ATTR_STARTTIME_REQD || !startTime.equals(startTimeDefault)) {
       sb.append(" ");
-      sb.append(TIMESENSOR_ATTR_ENABLED_NAME);
+      sb.append(TIMESENSOR_ATTR_STARTTIME_NAME);
       sb.append("='");
-      sb.append(enabled);
+      sb.append(startTime);
       sb.append("'");
     }
-    if (TIMESENSOR_ATTR_LOOP_REQD || loop != Boolean.parseBoolean(TIMESENSOR_ATTR_LOOP_DFLT)) {
+
+    if (TIMESENSOR_ATTR_STOPTIME_REQD || !stopTime.equals(stopTimeDefault)) {
       sb.append(" ");
-      sb.append(TIMESENSOR_ATTR_LOOP_NAME);
+      sb.append(TIMESENSOR_ATTR_STOPTIME_NAME);
       sb.append("='");
-      sb.append(loop);
+      sb.append(stopTime);
       sb.append("'");
     }
     return sb.toString();
