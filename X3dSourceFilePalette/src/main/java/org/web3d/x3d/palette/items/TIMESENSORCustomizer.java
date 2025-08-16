@@ -258,7 +258,7 @@ public class TIMESENSORCustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>TimeSensor</b> primary output event is <b>fraction_changed</b> \nwhich continuously sends values in range [0,1] showing time progress in the current cycle. </p>\n<br />\n<p align=\"center\"> Input events are <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b>.</p>\n<br />\n<p align=\"center\"> Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>cycleTime</b>, <b>elapsedTime</b>, <b>time</b>.</p>\n<br />\n<p align='center'>Hint: <i>description</i> field requires X3D version='4.0' </p>\n</html>");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>TimeSensor</b> primary output event is <b>fraction_changed</b>  which continuously sends values in range [0,1] showing time progress in the current cycle. </p> <br /> \n<p align=\"center\"> Input events are <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b>.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>,<b>isPaused<b>, <b>cycleTime</b>, <b>elapsedTime</b>, <b>time</b>.</p> <br /> \n<p align='center'>Hint: <i>description</i> field requires X3D version='4.0' </p> </html>");
         eventsLabel1.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
