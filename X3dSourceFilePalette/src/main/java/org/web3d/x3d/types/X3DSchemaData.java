@@ -2323,7 +2323,6 @@ public interface X3DSchemaData
   boolean VISIBILITYSENSOR_ATTR_SIZE_REQD    = false;
   String  VISIBILITYSENSOR_ATTR_SIZE_DFLT    = "0 0 0";
 
-
   // Sound element
   String  SOUND_ELNAME               = "Sound";
   String  SOUND_ATTR_LOCATION_NAME   = "location";
@@ -2353,6 +2352,12 @@ public interface X3DSchemaData
   String  SOUND_ATTR_MAXBACK_NAME    = "maxBack";
   boolean SOUND_ATTR_MAXBACK_REQD    = false;
   String  SOUND_ATTR_MAXBACK_DFLT    = "10";
+  String  SOUND_ATTR_DESCRIPTION_NAME = "description"; // X3D 4.0
+  boolean SOUND_ATTR_DESCRIPTION_REQD = false;
+  String  SOUND_ATTR_DESCRIPTION_DFLT = "";
+  String  SOUND_ATTR_ENABLED_NAME     = "enabled";     // X3D 4.0
+  boolean SOUND_ATTR_ENABLED_REQD     = false;
+  String  SOUND_ATTR_ENABLED_DFLT     = "true";
 
   // AcousticProperties element
   String  ACOUSTICPROPERTIES_ELNAME                = "AcousticProperties";
@@ -2711,7 +2716,22 @@ public interface X3DSchemaData
   String  AUDIOCLIP_ATTR_URL_NAME         = "url";
   boolean AUDIOCLIP_ATTR_URL_REQD         = false;
   String  AUDIOCLIP_ATTR_URL_DFLT         = "";
-
+  String  AUDIOCLIP_ATTR_AUTOREFRESH_NAME = "autoRefresh"; // X3D 4.0
+  boolean AUDIOCLIP_ATTR_AUTOREFRESH_REQD = false;
+  String  AUDIOCLIP_ATTR_AUTOREFRESH_DFLT = "0";
+  String  AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_NAME = "autoRefreshTimeLimit";
+  boolean AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_REQD = false;
+  String  AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_DFLT = "3600";
+  String  AUDIOCLIP_ATTR_ENABLED_NAME     = "enabled";
+  boolean AUDIOCLIP_ATTR_ENABLED_REQD     = false;
+  String  AUDIOCLIP_ATTR_ENABLED_DFLT     = "true";
+  String  AUDIOCLIP_ATTR_GAIN_NAME        = "gain";
+  boolean AUDIOCLIP_ATTR_GAIN_REQD        = false;
+  String  AUDIOCLIP_ATTR_GAIN_DFLT        = "1.0";
+  String  AUDIOCLIP_ATTR_LOAD_NAME        = "loop";
+  boolean AUDIOCLIP_ATTR_LOAD_REQD        = false;
+  String  AUDIOCLIP_ATTR_LOAD_DFLT        = "false";
+  
   // Polyline2d element
   String  POLYLINE2D_ELNAME                 = "Polyline2D";
   String  POLYLINE2D_ATTR_LINESEGMENTS_NAME = "lineSegments";

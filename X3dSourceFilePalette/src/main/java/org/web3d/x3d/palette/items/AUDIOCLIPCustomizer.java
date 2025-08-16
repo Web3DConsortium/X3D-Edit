@@ -70,7 +70,10 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
     
     initComponents();
     
-    // TODO show properties of selected AudioClip file
+    autoRefreshTF.setText(audioClip.getAutoRefresh());
+    autoRefreshTimeLimitTF.setText(audioClip.getAutoRefreshTimeLimit());
+    gainTF.setText(audioClip.getGain());
+    loadCB.setSelected(audioClip.isLoad());
 
     urlList.setMasterDocumentLocation(xObj.getPrimaryFile());
     urlList.setUrlData(audioClip.getUrls());
@@ -79,12 +82,12 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
     urlList.checkUrlValues();
     
     descriptionTA.setText(audioClip.getDescription());
-    loopCB.setSelected(audioClip.isLoop());
-    pitchTF.setText(audioClip.getPitch());
-    pauseTimeTF.setText(audioClip.getPauseTime());
-    resumeTimeTF.setText(audioClip.getResumeTime());
-    startTimeTF.setText(audioClip.getStartTime());
-    stopTimeTF.setText(audioClip.getStopTime());
+           loopCB.setSelected(audioClip.isLoop());
+          pitchTF.setText(audioClip.getPitch());
+      pauseTimeTF.setText(audioClip.getPauseTime());
+     resumeTimeTF.setText(audioClip.getResumeTime());
+      startTimeTF.setText(audioClip.getStartTime());
+       stopTimeTF.setText(audioClip.getStopTime());
 
     setDefaultDEFname ();
   }
@@ -119,32 +122,39 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        enabledLabel = new javax.swing.JLabel();
+        enabledCB = new javax.swing.JCheckBox();
+        gainLabel = new javax.swing.JLabel();
+        gainTF = new javax.swing.JTextField();
+        descriptionLabel = new javax.swing.JLabel();
+        descriptionScrollPane = new javax.swing.JScrollPane();
         descriptionTA = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        loopLabel = new javax.swing.JLabel();
         loopCB = new javax.swing.JCheckBox();
+        loadLabel = new javax.swing.JLabel();
+        loadCB = new javax.swing.JCheckBox();
+        autoRefreshLabel = new javax.swing.JLabel();
+        autoRefreshTF = new javax.swing.JTextField();
+        autoRefreshTimeLimitLabel = new javax.swing.JLabel();
+        autoRefreshTimeLimitTF = new javax.swing.JTextField();
+        pitchLabel = new javax.swing.JLabel();
         pitchTF = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        pauseTimeLabel = new javax.swing.JLabel();
         pauseTimeTF = new javax.swing.JTextField();
+        resumeTimeLabel = new javax.swing.JLabel();
         resumeTimeTF = new javax.swing.JTextField();
+        startTimeLabel = new javax.swing.JLabel();
         startTimeTF = new javax.swing.JTextField();
+        stopTimeLabel = new javax.swing.JLabel();
         stopTimeTF = new javax.swing.JTextField();
+        urlLabel = new javax.swing.JLabel();
         urlList = new org.web3d.x3d.palette.items.UrlExpandableList2();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(1000, 360));
-        setPreferredSize(new java.awt.Dimension(700, 490));
+        setMinimumSize(new java.awt.Dimension(720, 600));
+        setPreferredSize(new java.awt.Dimension(730, 620));
         setLayout(new java.awt.GridBagLayout());
-
-        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(199, 79));
-        dEFUSEpanel1.setPreferredSize(new java.awt.Dimension(200, 79));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -156,25 +166,69 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel1.setText("description");
-        jLabel1.setToolTipText("text description to be displayed for action of this node");
+        enabledLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        enabledLabel.setForeground(new java.awt.Color(0, 153, 153));
+        enabledLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        enabledLabel.setText("enabled");
+        enabledLabel.setToolTipText("enables/disables node operation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel1, gridBagConstraints);
+        add(enabledLabel, gridBagConstraints);
+
+        enabledCB.setToolTipText("enables/disables node operation");
+        enabledCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(enabledCB, gridBagConstraints);
+
+        gainLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        gainLabel.setForeground(new java.awt.Color(0, 153, 153));
+        gainLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        gainLabel.setText("gain");
+        gainLabel.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 45;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(gainLabel, gridBagConstraints);
+
+        gainTF.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 117;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(gainTF, gridBagConstraints);
+
+        descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        descriptionLabel.setText("description");
+        descriptionLabel.setToolTipText("text description to be displayed for action of this node");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(descriptionLabel, gridBagConstraints);
 
         descriptionTA.setColumns(1);
         descriptionTA.setRows(3);
         descriptionTA.setToolTipText("text description to be displayed for action of this node");
-        jScrollPane1.setViewportView(descriptionTA);
+        descriptionScrollPane.setViewportView(descriptionTA);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -184,145 +238,210 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jScrollPane1, gridBagConstraints);
+        add(descriptionScrollPane, gridBagConstraints);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel2.setText("loop");
-        jLabel2.setToolTipText("repeat indefinitely when loop=true, repeat only once when loop=false. ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 48;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel2, gridBagConstraints);
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel3.setText("pitch");
-        jLabel3.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        loopLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        loopLabel.setText("loop");
+        loopLabel.setToolTipText("repeat indefinitely when loop=true, repeat only once when loop=false. ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 45;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 48;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel3, gridBagConstraints);
+        add(loopLabel, gridBagConstraints);
 
         loopCB.setToolTipText("repeat indefinitely when loop=true, repeat only once when loop=false. ");
         loopCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loopCB, gridBagConstraints);
+
+        loadLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        loadLabel.setForeground(new java.awt.Color(0, 153, 153));
+        loadLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        loadLabel.setText("load");
+        loadLabel.setToolTipText("repeat indefinitely when loop=true, repeat only once when loop=false. ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 48;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(loadLabel, gridBagConstraints);
+
+        loadCB.setToolTipText("repeat indefinitely when loop=true, repeat only once when loop=false. ");
+        loadCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(loadCB, gridBagConstraints);
+
+        autoRefreshLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        autoRefreshLabel.setForeground(new java.awt.Color(0, 153, 153));
+        autoRefreshLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        autoRefreshLabel.setText("autoRefresh");
+        autoRefreshLabel.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.ipadx = 45;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshLabel, gridBagConstraints);
+
+        autoRefreshTF.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 117;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshTF, gridBagConstraints);
+
+        autoRefreshTimeLimitLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        autoRefreshTimeLimitLabel.setText("pitch");
+        autoRefreshTimeLimitLabel.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 45;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshTimeLimitLabel, gridBagConstraints);
+
+        autoRefreshTimeLimitTF.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.ipadx = 117;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshTimeLimitTF, gridBagConstraints);
+
+        pitchLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pitchLabel.setForeground(new java.awt.Color(0, 153, 153));
+        pitchLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        pitchLabel.setText("autoRefreshTimeLimit");
+        pitchLabel.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.ipadx = 45;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(pitchLabel, gridBagConstraints);
 
         pitchTF.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 117;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(pitchTF, gridBagConstraints);
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel4.setText("pauseTime");
-        jLabel4.setToolTipText("When time now >= pauseTime, isPaused becomes true and AudioClip becomes paused");
+        pauseTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        pauseTimeLabel.setText("pauseTime");
+        pauseTimeLabel.setToolTipText("When time now >= pauseTime, isPaused becomes true and AudioClip becomes paused");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.ipadx = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel4, gridBagConstraints);
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel5.setText("resumeTime");
-        jLabel5.setToolTipText("When resumeTime becomes <= time now, isPaused becomes false and AudioClip becomes active");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel5, gridBagConstraints);
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel6.setText("startTime");
-        jLabel6.setToolTipText("Absolute time: number of seconds since Jan 1, 1970, 00:00:00 GMT");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel6, gridBagConstraints);
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel7.setText("stopTime");
-        jLabel7.setToolTipText("Absolute time: number of seconds since Jan 1, 1970, 00:00:00 GMT");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipadx = 19;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel7, gridBagConstraints);
-
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel8.setText("url");
-        jLabel8.setToolTipText("Address of audio file to load into current scene");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.ipadx = 57;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel8, gridBagConstraints);
+        add(pauseTimeLabel, gridBagConstraints);
 
         pauseTimeTF.setToolTipText("When time now >= pauseTime, isPaused becomes true and AudioClip becomes paused");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 117;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(pauseTimeTF, gridBagConstraints);
+
+        resumeTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        resumeTimeLabel.setText("resumeTime");
+        resumeTimeLabel.setToolTipText("When resumeTime becomes <= time now, isPaused becomes false and AudioClip becomes active");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(resumeTimeLabel, gridBagConstraints);
 
         resumeTimeTF.setToolTipText("When resumeTime becomes <= time now, isPaused becomes false and AudioClip becomes active");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 117;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(resumeTimeTF, gridBagConstraints);
+
+        startTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        startTimeLabel.setText("startTime");
+        startTimeLabel.setToolTipText("Absolute time: number of seconds since Jan 1, 1970, 00:00:00 GMT");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.ipadx = 17;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(startTimeLabel, gridBagConstraints);
 
         startTimeTF.setToolTipText("Absolute time: number of seconds since Jan 1, 1970, 00:00:00 GMT");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 117;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(startTimeTF, gridBagConstraints);
+
+        stopTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        stopTimeLabel.setText("stopTime");
+        stopTimeLabel.setToolTipText("Absolute time: number of seconds since Jan 1, 1970, 00:00:00 GMT");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.ipadx = 19;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(stopTimeLabel, gridBagConstraints);
 
         stopTimeTF.setToolTipText("Absolute time: number of seconds since Jan 1, 1970, 00:00:00 GMT");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = 117;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(stopTimeTF, gridBagConstraints);
+
+        urlLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        urlLabel.setText("url");
+        urlLabel.setToolTipText("Address of audio file to load into current scene");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.ipadx = 57;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(urlLabel, gridBagConstraints);
 
         urlList.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         urlList.setToolTipText("Address of audio file to load into current scene");
@@ -333,12 +452,12 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipady = 50;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -348,19 +467,19 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel1.setText("<html><p><b>AudioClip</b> provides audio data used by parent <b>Sound</b> nodes.</p><p>Either set loop='true' or ROUTE time events to control playback.</p>");
+        hintLabel1.setText("<html><p align='center'><b>AudioClip</b> provides audio data used by parent <b>Sound</b> nodes.</p> <br />\n<p align='center'>Either set loop='true' or ROUTE time events to control playback.</p> <br />\n<p align='center'>Hint: fields <i>autoRefresh</i>, <i>autoRefreshTimeLimit</i>, <i>enabled</i>, <i>gain</i>, and <i>load</i> are X3D version 4.</p>");
         hintLabel1.setToolTipText("close this panel to add children nodes");
         hintLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         nodeHintPanel.add(hintLabel1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
@@ -377,25 +496,35 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel autoRefreshLabel;
+    private javax.swing.JTextField autoRefreshTF;
+    private javax.swing.JLabel autoRefreshTimeLimitLabel;
+    private javax.swing.JTextField autoRefreshTimeLimitTF;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
+    private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JScrollPane descriptionScrollPane;
     private javax.swing.JTextArea descriptionTA;
+    private javax.swing.JCheckBox enabledCB;
+    private javax.swing.JLabel enabledLabel;
+    private javax.swing.JLabel gainLabel;
+    private javax.swing.JTextField gainTF;
     private javax.swing.JLabel hintLabel1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JCheckBox loadCB;
+    private javax.swing.JLabel loadLabel;
     private javax.swing.JCheckBox loopCB;
+    private javax.swing.JLabel loopLabel;
     private javax.swing.JPanel nodeHintPanel;
+    private javax.swing.JLabel pauseTimeLabel;
     private javax.swing.JTextField pauseTimeTF;
+    private javax.swing.JLabel pitchLabel;
     private javax.swing.JTextField pitchTF;
+    private javax.swing.JLabel resumeTimeLabel;
     private javax.swing.JTextField resumeTimeTF;
+    private javax.swing.JLabel startTimeLabel;
     private javax.swing.JTextField startTimeTF;
+    private javax.swing.JLabel stopTimeLabel;
     private javax.swing.JTextField stopTimeTF;
+    private javax.swing.JLabel urlLabel;
     private org.web3d.x3d.palette.items.UrlExpandableList2 urlList;
     // End of variables declaration//GEN-END:variables
 
@@ -411,7 +540,12 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
     unLoadDEFUSE();
     urlList.checkUrlValues();
 
+    audioClip.setAutoRefresh(autoRefreshTF.getText().trim());
+    audioClip.setAutoRefreshTimeLimit(autoRefreshTimeLimitTF.getText().trim());
     audioClip.setDescription(descriptionTA.getText().trim());
+    audioClip.setEnabled(enabledCB.isSelected());
+    audioClip.setGain(gainTF.getText().trim());
+    audioClip.setLoad(loadCB.isSelected());
     audioClip.setLoop(loopCB.isSelected());
     audioClip.setPitch(pitchTF.getText().trim());
     audioClip.setPauseTime(pauseTimeTF.getText().trim());

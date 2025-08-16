@@ -40,25 +40,91 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.types;
 
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
+
 /**
  * X3DSoundNode.java
  * 
- *  marker interface for Sound node
+ * Abstract node type used for node types that can emit audio data
  * 
- * Created on Sep 26, 2007, 4:00 PM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Don Brutzman
  * @version $Id$
  */
 public abstract class X3DSoundSourceNode extends X3DTimeDependentNode
 {
-  @Override
-  public String getDefaultContainerField()
-  {
-    return "source";
-  }
+    protected SFFloat  gain, gainDefault;
+    protected boolean  load, loadDefault;
+    protected SFDouble autoRefresh, autoRefreshDefault; // SFTime
+    protected SFDouble autoRefreshTimeLimit, autoRefreshTimeLimitDefault; // SFTime
+    protected String[] urls, urlsDefault;
+
+    @Override
+    public String getDefaultContainerField()
+    {
+      return "source";
+    }
+
+    /**
+     * @return the gain
+     */
+    public String getGain() {
+        return gain.toString();
+    }
+
+    /**
+     * @param newGain the gain to set
+     */
+    public void setGain(String newGain) {
+        gain = new SFFloat(newGain, null, null);
+    }
+
+    public boolean isLoad()
+    {
+      return load;
+    }
+
+    public void setLoad(boolean newLoad)
+    {
+      load = newLoad;
+    }
+
+    /**
+     * @param newAutoRefresh the autoRefresh to set
+     */
+    public void setAutoRefresh(String newAutoRefresh) {
+        autoRefresh = new SFDouble(newAutoRefresh, 0.0, null);
+    }
+    /**
+     * @return the autoRefresh
+     */
+    public String getAutoRefresh() {
+        return autoRefresh.toString();
+    }
+
+    /**
+     * @param newAutoRefreshTimeLimit the autoRefreshTimeLimit to set
+     */
+    public void setAutoRefreshTimeLimit(String newAutoRefreshTimeLimit) {
+        autoRefreshTimeLimit = new SFDouble(newAutoRefreshTimeLimit, 0.0, null);
+    }
+    /**
+     * @return the autoRefreshTimeLimit
+     */
+    public String getAutoRefreshTimeLimit() {
+        return autoRefreshTimeLimit.toString();
+    }
+
+    public String[] getUrls()
+    {
+      String[] urlArray = new String[urls.length];
+      System.arraycopy(urls, 0, urlArray, 0, urls.length);
+      return urlArray;
+    }
+
+    public void setUrls(String[] urlArray)
+    {
+      urls = new String[urlArray.length];
+      System.arraycopy(urlArray, 0, this.urls, 0, urlArray.length);
+    }
 }

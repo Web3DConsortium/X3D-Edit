@@ -202,25 +202,25 @@ public class ACOUSTICPROPERTIES extends X3DAppearanceChildNode // needs new X3D*
   public void setEnabled(boolean enabled)
   {
     this.enabled = enabled;
-  }
-  
-    /**
-     * accessor method for field
-     * @return value
-     */
-  public String getDescription()
-  {
-    return description;
-  }
+    }
 
     /**
-     * accessor method for field
+     * accessor method for field description
+     * @return description
+     */
+    public String getDescription()
+    {
+      return description;
+    }
+
+    /**
+     * accessor method for field description
      * @param newDescription value of interest
      */
-  public void setDescription(String newDescription)
-  {
-    this.description = newDescription;
-  }
+    public void setDescription(String newDescription)
+    {
+      this.description = newDescription;
+    }
   
     /**
      * accessor method for field

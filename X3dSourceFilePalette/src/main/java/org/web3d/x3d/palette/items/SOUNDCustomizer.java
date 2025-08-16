@@ -78,6 +78,8 @@ public class SOUNDCustomizer extends BaseCustomizer
     
     defaultForegroundColor = raiseButton.getForeground(); // save for reuse
 
+    enabledCB.setSelected(sound.isEnabled());
+    descriptionTF.setText(sound.getDescription());
     locationXTF.setText(sound.getLocationX());
     locationYTF.setText(sound.getLocationY());
     locationZTF.setText(sound.getLocationZ());
@@ -112,6 +114,10 @@ public class SOUNDCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
+        enabledLabel = new javax.swing.JLabel();
+        enabledCB = new javax.swing.JCheckBox();
+        descriptionLabel = new javax.swing.JLabel();
+        descriptionTF = new javax.swing.JTextField();
         locationLabel = new javax.swing.JLabel();
         locationXTF = new javax.swing.JTextField();
         locationYTF = new javax.swing.JTextField();
@@ -140,6 +146,8 @@ public class SOUNDCustomizer extends BaseCustomizer
         hintLabel1 = new javax.swing.JLabel();
 
         setToolTipText("normalize direction vector");
+        setMinimumSize(new java.awt.Dimension(606, 420));
+        setPreferredSize(new java.awt.Dimension(610, 440));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -150,6 +158,55 @@ public class SOUNDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        enabledLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        enabledLabel.setForeground(new java.awt.Color(0, 153, 153));
+        enabledLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        enabledLabel.setText("enabled");
+        enabledLabel.setToolTipText("enables/disables node operation");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(enabledLabel, gridBagConstraints);
+
+        enabledCB.setToolTipText("enables/disables node operation");
+        enabledCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(enabledCB, gridBagConstraints);
+
+        descriptionLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionLabel.setText("description");
+        descriptionLabel.setToolTipText("Author-provided prose that describes intended purpose of the node");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
+        add(descriptionLabel, gridBagConstraints);
+
+        descriptionTF.setToolTipText("Author-provided prose that describes intended purpose of the node");
+        descriptionTF.setMinimumSize(new java.awt.Dimension(50, 20));
+        descriptionTF.setPreferredSize(new java.awt.Dimension(50, 20));
+        descriptionTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(descriptionTF, gridBagConstraints);
+
         locationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         locationLabel.setText("location");
         locationLabel.setToolTipText("position of sound center, relative to local coordinate system");
@@ -159,7 +216,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         locationLabel.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -171,7 +228,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         locationXTF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -188,7 +245,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -200,7 +257,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         locationZTF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -215,7 +272,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(raiseButton, gridBagConstraints);
@@ -229,7 +286,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         directionLabel.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -241,7 +298,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         directionXTF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -253,7 +310,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         directionYTF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -265,7 +322,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         directionZTF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -279,7 +336,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         spatializeLabel.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -291,7 +348,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         spatializeCB.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -306,7 +363,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         intensityLabel.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -318,7 +375,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         intensityTF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -332,7 +389,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         priorityLabel.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 0.3333;
@@ -345,7 +402,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         priorityTF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -359,7 +416,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         minFrontLabel.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -374,7 +431,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         minBackLabel.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -387,7 +444,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         maxFrontLabel.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -401,7 +458,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         maxBackLabel.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -418,7 +475,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -435,7 +492,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -452,7 +509,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -469,7 +526,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -483,7 +540,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -493,19 +550,19 @@ public class SOUNDCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel1.setText("<html><p align=\"\"center\"><b>Sound</b> controls spatialized 3D sound playback for a child <b>AudioClip</b> or <b>MovieTexture</b> node.<br> Stereo support is included, intensity varies according to user location and direction. <br/> Multichannel audio sources are maintained during playback.</p>");
+        hintLabel1.setText("<html><p align=\"center\"><b>Sound</b> controls spatialized 3D sound playback for a child <b>AudioClip</b> or <b>MovieTexture</b> node.</p> <br /> \n<p align='center'>Stereo support is included, intensity varies according to user location and direction. <br/>\n Multichannel audio sources are maintained during playback.</p> <br /> \n<p align='center'>Hint: <i>enabled</i> and <i>description</i> fields require X3D version 4</p> </html>");
         hintLabel1.setToolTipText("close this panel to add children nodes");
         hintLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         nodeHintPanel.add(hintLabel1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -563,6 +620,10 @@ public class SOUNDCustomizer extends BaseCustomizer
     private void locationYTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locationYTFActionPerformed
         checkLocationAdjustmentNeeded();
     }//GEN-LAST:event_locationYTFActionPerformed
+
+    private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descriptionTFActionPerformed
     private void checkLocationAdjustmentNeeded ()
     {
         if (locationYTF.getText().trim().isEmpty() || locationYTF.getText().trim().equals("0") || locationYTF.getText().trim().equals("0.0"))
@@ -578,10 +639,14 @@ public class SOUNDCustomizer extends BaseCustomizer
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
+    private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JTextField descriptionTF;
     private javax.swing.JLabel directionLabel;
     private javax.swing.JTextField directionXTF;
     private javax.swing.JTextField directionYTF;
     private javax.swing.JTextField directionZTF;
+    private javax.swing.JCheckBox enabledCB;
+    private javax.swing.JLabel enabledLabel;
     private javax.swing.JLabel hintLabel1;
     private javax.swing.JLabel intensityLabel;
     private javax.swing.JTextField intensityTF;
@@ -650,6 +715,9 @@ public class SOUNDCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
 
+    sound.setDescription(descriptionTF.getText().trim());
+    sound.setEnabled(enabledCB.isSelected());
+    
     sound.setLocationX(locationXTF.getText().trim());
     sound.setLocationY(locationYTF.getText().trim());
     sound.setLocationZ(locationZTF.getText().trim());

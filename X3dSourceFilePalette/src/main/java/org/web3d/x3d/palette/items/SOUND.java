@@ -90,6 +90,9 @@ public class SOUND extends X3DSoundNode
   @Override
   public void initialize()
   {
+    description = descriptionDefault = SOUND_ATTR_DESCRIPTION_DFLT;                   // X3D 4.0
+    enabled                          = Boolean.parseBoolean(SOUND_ATTR_ENABLED_DFLT); // X3D 4.0
+
     spatialize   = spatializeDefault = Boolean.parseBoolean(SOUND_ATTR_SPATIALIZE_DFLT);
 
     String[] sa = parse3(SOUND_ATTR_LOCATION_DFLT);
@@ -117,18 +120,11 @@ public class SOUND extends X3DSoundNode
   {
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
-
-    attr = root.getAttribute(SOUND_ATTR_SPATIALIZE_NAME);
-    if (attr != null)
-      spatialize = Boolean.parseBoolean(attr.getValue());
     String[] sa;
-    attr = root.getAttribute(SOUND_ATTR_LOCATION_NAME);
-    if (attr != null) {
-      sa = parse3(attr.getValue());
-      location0 = new SFFloat(sa[0], null, null);
-      location1 = new SFFloat(sa[1], null, null);
-      location2 = new SFFloat(sa[2], null, null);
-    }
+
+    attr = root.getAttribute(SOUND_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
     attr = root.getAttribute(SOUND_ATTR_DIRECTION_NAME);
     if (attr != null) {
       sa = parse3(attr.getValue());
@@ -136,12 +132,19 @@ public class SOUND extends X3DSoundNode
       direction1 = new SFFloat(sa[1], null, null);
       direction2 = new SFFloat(sa[2], null, null);
     }
+    attr = root.getAttribute(SOUND_ATTR_ENABLED_NAME);
+    if (attr != null)
+      enabled = Boolean.parseBoolean(attr.getValue());
     attr = root.getAttribute(SOUND_ATTR_INTENSITY_NAME);
     if (attr != null)
       intensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
-    attr = root.getAttribute(SOUND_ATTR_PRIORITY_NAME);
-    if (attr != null)
-      priority = new SFFloat(attr.getValue(), 0.0f, 1.0f);
+    attr = root.getAttribute(SOUND_ATTR_LOCATION_NAME);
+    if (attr != null) {
+      sa = parse3(attr.getValue());
+      location0 = new SFFloat(sa[0], null, null);
+      location1 = new SFFloat(sa[1], null, null);
+      location2 = new SFFloat(sa[2], null, null);
+    }
     attr = root.getAttribute(SOUND_ATTR_MINFRONT_NAME);
     if (attr != null)
       minFront = new SFFloat(attr.getValue(), 0.0f, null);
@@ -154,12 +157,27 @@ public class SOUND extends X3DSoundNode
     attr = root.getAttribute(SOUND_ATTR_MAXBACK_NAME);
     if (attr != null)
       maxBack = new SFFloat(attr.getValue(), 0.0f, null);
+    attr = root.getAttribute(SOUND_ATTR_PRIORITY_NAME);
+    if (attr != null)
+      priority = new SFFloat(attr.getValue(), 0.0f, 1.0f);
+    attr = root.getAttribute(SOUND_ATTR_SPATIALIZE_NAME);
+    if (attr != null)
+      spatialize = Boolean.parseBoolean(attr.getValue());
   }
 
   @Override
   public String createAttributes()
   {
     StringBuilder sb = new StringBuilder();
+    
+    if (SOUND_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
+      sb.append(" ");
+      sb.append(SOUND_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(description);
+      sb.append("'");
+    }
+    
     if (SOUND_ATTR_DIRECTION_REQD ||
             (!direction0.equals(direction0Default)) ||
             (!direction1.equals(direction1Default)) ||
@@ -175,6 +193,15 @@ public class SOUND extends X3DSoundNode
       sb.append(direction2);
       sb.append("'");
     }
+
+    if (SOUND_ATTR_ENABLED_REQD || enabled != Boolean.parseBoolean(TIMESENSOR_ATTR_ENABLED_DFLT)) {
+      sb.append(" ");
+      sb.append(SOUND_ATTR_ENABLED_NAME);
+      sb.append("='");
+      sb.append(enabled);
+      sb.append("'");
+    }
+    
     if (SOUND_ATTR_INTENSITY_REQD || !intensity.equals(intensityDefault)) {
 
       sb.append(" ");

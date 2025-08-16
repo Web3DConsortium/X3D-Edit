@@ -81,6 +81,13 @@ public abstract class X3DSoundProcessingNode extends X3DTimeDependentNode
     }
 
     /**
+     * @param newGain the gain to set
+     */
+    public void setGain(String newGain) {
+        gain = new SFFloat(newGain, null, null);
+    }
+
+    /**
      * @return the tailTime
      */
     public String getTailTime() {
@@ -92,13 +99,6 @@ public abstract class X3DSoundProcessingNode extends X3DTimeDependentNode
      */
     public void setChannelInterpretation(String newChannelInterpretation) {
         channelInterpretation = newChannelInterpretation;
-    }
-
-    /**
-     * @param newGain the gain to set
-     */
-    public void setGain(String newGain) {
-        gain = new SFFloat(newGain, null, null);
     }
 
     /**

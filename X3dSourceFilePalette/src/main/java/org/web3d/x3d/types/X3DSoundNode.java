@@ -55,4 +55,34 @@ package org.web3d.x3d.types;
  */
 public abstract class X3DSoundNode extends X3DChildNode
 {
+  protected boolean  enabled;
+  protected String   description, descriptionDefault;
+  
+/**
+ * accessor method for field
+ * @return value
+ */
+  public String getDescription()
+  {
+    return description;
+  }
+
+/**
+ * accessor method for field
+ * @param newDescription value of interest
+ */
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
+  }
+
+  public boolean isEnabled()
+  {
+    return enabled;
+  }
+
+  public void setEnabled(boolean enabled)
+  {
+    this.enabled = enabled;
+  }
 }
