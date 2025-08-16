@@ -34,7 +34,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.types;
 
-import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
@@ -50,7 +49,6 @@ public abstract class X3DSoundChannelNode extends X3DSoundNode
     protected String   channelCountMode, channelCountModeDefault;
     protected String   channelInterpretation, channelInterpretationDefault;   
     protected SFFloat  gain, gainDefault;
-    protected SFDouble tailTime, tailTimeDefault;
 
     /**
      * @return the channelCountMode
@@ -81,13 +79,6 @@ public abstract class X3DSoundChannelNode extends X3DSoundNode
     }
 
     /**
-     * @return the tailTime
-     */
-    public String getTailTime() {
-        return tailTime.toString();
-    }
-
-    /**
      * @param newChannelInterpretation the channelInterpretation to set
      */
     public void setChannelInterpretation(String newChannelInterpretation) {
@@ -100,17 +91,11 @@ public abstract class X3DSoundChannelNode extends X3DSoundNode
     public void setGain(String newGain) {
         gain = new SFFloat(newGain, null, null);
     }
-
-    /**
-     * @param newTailTime the tailTime to set
-     */
-    public void setTailTime(String newTailTime) {
-        tailTime =  new SFDouble(newTailTime, 0.0, null);
-    }
       
   @Override
   public String getDefaultContainerField()
   {
     return "children";
   }
+  
 }
