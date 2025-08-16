@@ -42,15 +42,9 @@ package org.web3d.x3d.types;
 /**
  * X3DSoundNode.java
  * 
- *  marker interface for Sound node
- * 
- * Created on Sep 26, 2007, 4:00 PM
+ * Abstract interface is the base type for all sound nodes.
  *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Don Brutzman, Mike Bailey
  * @version $Id$
  */
 public abstract class X3DSoundNode extends X3DChildNode
