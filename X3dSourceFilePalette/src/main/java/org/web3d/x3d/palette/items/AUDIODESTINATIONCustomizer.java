@@ -48,30 +48,30 @@ import static org.web3d.x3d.types.X3DSchemaData.AUDIODESTINATION_ATTR_CHANNELINT
  */
 public class AUDIODESTINATIONCustomizer extends BaseCustomizer
 { 
-  private AUDIODESTINATION channelSelector;
+  private AUDIODESTINATION audioDestination;
   private JTextComponent target;
   
   /** Creates new form AUDIODESTINATIONCustomizer
-     * @param channelSelector data
+     * @param audioDestination data
      * @param target component of interest */
-  public AUDIODESTINATIONCustomizer(AUDIODESTINATION channelSelector, JTextComponent target)
+  public AUDIODESTINATIONCustomizer(AUDIODESTINATION audioDestination, JTextComponent target)
   {
-    super(channelSelector);
-    this.channelSelector = channelSelector;
+    super(audioDestination);
+    this.audioDestination = audioDestination;
     this.target = target;
                            
     HelpCtx.setHelpIDString(AUDIODESTINATIONCustomizer.this, "AUDIODESTINATION_ELEM_HELPID");   
     
     initComponents();
     
-         channelCountModeComboBox.setSelectedItem(channelSelector.getChannelCountMode());
-    channelInterpretationComboBox.setSelectedItem(channelSelector.getChannelInterpretation());
+         channelCountModeComboBox.setSelectedItem(audioDestination.getChannelCountMode());
+    channelInterpretationComboBox.setSelectedItem(audioDestination.getChannelInterpretation());
     
-    maxChannelCountTF.setText      (channelSelector.getMaxChannelCount());
-    mediaDeviceIDTF.setText        (channelSelector.getMediaDeviceID());
-    enabledCB.setSelected          (channelSelector.isEnabled());
-    descriptionTF.setText          (channelSelector.getDescription());
-    gainTF.setText                 (channelSelector.getGain());
+    maxChannelCountTF.setText      (audioDestination.getMaxChannelCount());
+    mediaDeviceIDTF.setText        (audioDestination.getMediaDeviceID());
+    enabledCB.setSelected          (audioDestination.isEnabled());
+    descriptionTF.setText          (audioDestination.getDescription());
+    gainTF.setText                 (audioDestination.getGain());
   }
   
   /** This method is called from within the constructor to
@@ -279,16 +279,16 @@ public class AUDIODESTINATIONCustomizer extends BaseCustomizer
         maxChannelCountLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         maxChannelCountLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         maxChannelCountLabel.setText("maxChannelCount");
-        maxChannelCountLabel.setToolTipText("which channel to select, with index values beginning at 0");
+        maxChannelCountLabel.setToolTipText("maximum number of channels that destination is capable of supporting");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(maxChannelCountLabel, gridBagConstraints);
 
-        maxChannelCountTF.setToolTipText("which channel to select, with index values beginning at 0");
+        maxChannelCountTF.setToolTipText("maximum number of channels that destination is capable of supporting");
         maxChannelCountTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 maxChannelCountTFActionPerformed(evt);
@@ -296,7 +296,7 @@ public class AUDIODESTINATIONCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -306,16 +306,16 @@ public class AUDIODESTINATIONCustomizer extends BaseCustomizer
         mediaDeviceIDLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mediaDeviceIDLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         mediaDeviceIDLabel.setText("mediaDeviceID");
-        mediaDeviceIDLabel.setToolTipText("which channel to select, with index values beginning at 0");
+        mediaDeviceIDLabel.setToolTipText("unique identifier for the active device");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(mediaDeviceIDLabel, gridBagConstraints);
 
-        mediaDeviceIDTF.setToolTipText("which channel to select, with index values beginning at 0");
+        mediaDeviceIDTF.setToolTipText("unique identifier for the active device");
         mediaDeviceIDTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mediaDeviceIDTFActionPerformed(evt);
@@ -323,7 +323,7 @@ public class AUDIODESTINATIONCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.weightx = 0.5;
@@ -388,12 +388,12 @@ public class AUDIODESTINATIONCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
-    channelSelector.setMaxChannelCount      (maxChannelCountTF.getText().trim());
-    channelSelector.setMediaDeviceID        (mediaDeviceIDTF.getText().trim());
-    channelSelector.setChannelCountMode     (channelCountModeComboBox.getSelectedItem().toString());
-    channelSelector.setChannelInterpretation(channelInterpretationComboBox.getSelectedItem().toString());
-    channelSelector.setDescription          (descriptionTF.getText().trim());
-    channelSelector.setEnabled              (enabledCB.isSelected());
-    channelSelector.setGain                 (gainTF.getText().trim());
+    audioDestination.setMaxChannelCount      (maxChannelCountTF.getText().trim());
+    audioDestination.setMediaDeviceID        (mediaDeviceIDTF.getText().trim());
+    audioDestination.setChannelCountMode     (channelCountModeComboBox.getSelectedItem().toString());
+    audioDestination.setChannelInterpretation(channelInterpretationComboBox.getSelectedItem().toString());
+    audioDestination.setDescription          (descriptionTF.getText().trim());
+    audioDestination.setEnabled              (enabledCB.isSelected());
+    audioDestination.setGain                 (gainTF.getText().trim());
   }
 }
