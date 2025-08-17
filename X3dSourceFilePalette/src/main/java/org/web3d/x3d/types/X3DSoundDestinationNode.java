@@ -37,7 +37,7 @@ package org.web3d.x3d.types;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
- * X3DSoundProcessingNode.java
+ * X3DSoundDestinationNode.java
  * 
  * Base node type for all sound destination nodes, which represent the final destination 
  * of an audio signal and are what the user can ultimately hear. 
@@ -62,17 +62,17 @@ public abstract class X3DSoundDestinationNode extends X3DSoundNode
     }
 
     /**
-     * @return the gain
-     */
-    public String getGain() {
-        return gain.toString();
-    }
-
-    /**
      * @param newChannelInterpretation the channelInterpretation to set
      */
     public void setChannelInterpretation(String newChannelInterpretation) {
         channelInterpretation = newChannelInterpretation;
+    }
+
+    /**
+     * @return the gain
+     */
+    public String getGain() {
+        return gain.toString();
     }
 
     /**
