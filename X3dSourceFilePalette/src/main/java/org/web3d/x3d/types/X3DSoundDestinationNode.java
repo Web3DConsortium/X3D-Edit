@@ -55,6 +55,20 @@ public abstract class X3DSoundDestinationNode extends X3DSoundNode
     protected String   mediaDeviceID, mediaDeviceIDDefault;
 
     /**
+     * @return the channelCountMode
+     */
+    public String getChannelCountMode() {
+        return channelCountMode;
+    }
+
+    /**
+     * @param newChannelCountMode the channelCountMode to set
+     */
+    public void setChannelCountMode(String newChannelCountMode) {
+        this.channelCountMode = newChannelCountMode;
+    }
+
+    /**
      * @return the channelInterpretation
      */
     public String getChannelInterpretation() {
