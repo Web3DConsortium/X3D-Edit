@@ -42,13 +42,9 @@ import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
  * GAIN.java
- * Created on August 16, 2007, 1:40 PM
+ * Gain node amplifies or deamplifies the input signal.
  *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Don Brutzman
  * @version $Id$
  */
 public class GAIN extends X3DSoundProcessingNode // and X3DTimeDependentNode
