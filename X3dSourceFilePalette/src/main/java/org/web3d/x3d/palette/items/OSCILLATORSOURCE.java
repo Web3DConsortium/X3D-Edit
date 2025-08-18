@@ -42,7 +42,7 @@ import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
  * OSCILLATORSOURCE:
- * MicrophoneSource captures input from a physical microphone in the real world.
+ * OscillatorSource node represents a virtual audio source generating a periodic waveform, providing a constant tone.
  *
  * @author Don Brutzman
  * @version $Id$
