@@ -2799,25 +2799,6 @@ public interface X3DSchemaData
   boolean MICROPHONESOURCE_ATTR_MEDIADEVICEID_REQD = false;
   String  MICROPHONESOURCE_ATTR_MEDIADEVICEID_DFLT = "";
 
-  // PeriodicWave element
-  String  PERIODICWAVE_ELNAME                       = "PeriodicWave";
-  String  PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_NAME = "description";
-  boolean PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_REQD = false;
-  String  PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_DFLT = "";
-  String  PERIODICWAVE_ATTR_ENABLED_NAME            = "enabled";
-  boolean PERIODICWAVE_ATTR_ENABLED_REQD            = false;
-  String  PERIODICWAVE_ATTR_ENABLED_DFLT            = "true";
-  String  PERIODICWAVE_ATTR_OPTIONSREAL_NAME        = "optionsReal";
-  boolean PERIODICWAVE_ATTR_OPTIONSREAL_REQD        = false;
-  String  PERIODICWAVE_ATTR_OPTIONSREAL_DFLT        = "";
-  String  PERIODICWAVE_ATTR_OPTIONSIMAG_NAME        = "optionsImag";
-  boolean PERIODICWAVE_ATTR_OPTIONSIMAG_REQD        = false;
-  String  PERIODICWAVE_ATTR_OPTIONSIMAG_DFLT        = "";
-  String  PERIODICWAVE_ATTR_TYPE_NAME               = "type";
-  boolean PERIODICWAVE_ATTR_TYPE_REQD               = false;
-  String  PERIODICWAVE_ATTR_TYPE_DFLT               = "SQUARE";
-  String[]PERIODICWAVE_ATTR_CTYPE_CHOICES           = {"SINE","SQUARE","SAWTOOTH","TRIANGLE","CUSTOM"};
-
   // OscillatorSource element
   String  OSCILLATORSOURCE_ELNAME                  = "OscillatorSource";
   String  OSCILLATORSOURCE_ATTR_DESCRIPTION_NAME   = "description";
@@ -2847,6 +2828,25 @@ public interface X3DSchemaData
   String  OSCILLATORSOURCE_ATTR_FREQUENCY_NAME     = "frequency";
   boolean OSCILLATORSOURCE_ATTR_FREQUENCY_REQD     = false;
   String  OSCILLATORSOURCE_ATTR_FREQUENCY_DFLT     = "440.0";
+
+  // PeriodicWave element
+  String  PERIODICWAVE_ELNAME                       = "PeriodicWave";
+  String  PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_NAME = "description";
+  boolean PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_REQD = false;
+  String  PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_DFLT = "";
+  String  PERIODICWAVE_ATTR_ENABLED_NAME            = "enabled";
+  boolean PERIODICWAVE_ATTR_ENABLED_REQD            = false;
+  String  PERIODICWAVE_ATTR_ENABLED_DFLT            = "true";
+  String  PERIODICWAVE_ATTR_OPTIONSREAL_NAME        = "optionsReal";
+  boolean PERIODICWAVE_ATTR_OPTIONSREAL_REQD        = false;
+  String  PERIODICWAVE_ATTR_OPTIONSREAL_DFLT        = "";
+  String  PERIODICWAVE_ATTR_OPTIONSIMAG_NAME        = "optionsImag";
+  boolean PERIODICWAVE_ATTR_OPTIONSIMAG_REQD        = false;
+  String  PERIODICWAVE_ATTR_OPTIONSIMAG_DFLT        = "";
+  String  PERIODICWAVE_ATTR_TYPE_NAME               = "type";
+  boolean PERIODICWAVE_ATTR_TYPE_REQD               = false;
+  String  PERIODICWAVE_ATTR_TYPE_DFLT               = "SQUARE";
+  String[]PERIODICWAVE_ATTR_CTYPE_CHOICES           = {"SINE","SQUARE","SAWTOOTH","TRIANGLE","CUSTOM"};
   
   // StreamAudioDestination element
   String  STREAMAUDIODESTINATION_ELNAME                             = "StreamAudioDestination";
@@ -2873,6 +2873,29 @@ public interface X3DSchemaData
   String  STREAMAUDIODESTINATION_ATTR_STREAMIDENTIFIER_NAME         = "streamIdentifier";
   boolean STREAMAUDIODESTINATION_ATTR_STREAMIDENTIFIER_REQD         = false;
   String  STREAMAUDIODESTINATION_ATTR_STREAMIDENTIFIER_DFLT         = "2";
+  
+  // StreamAudioSource element
+  String  STREAMAUDIOSOURCE_ELNAME                             = "StreamAudioSource";
+  String  STREAMAUDIOSOURCE_ATTR_CHANNELCOUNTMODE_NAME         = "channelCountMode";
+  boolean STREAMAUDIOSOURCE_ATTR_CHANNELCOUNTMODE_REQD         = false;
+  String  STREAMAUDIOSOURCE_ATTR_CHANNELCOUNTMODE_DFLT         = "MAX";
+  String[]STREAMAUDIOSOURCE_ATTR_CHANNELCOUNTMODE_CHOICES      = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  STREAMAUDIOSOURCE_ATTR_CHANNELINTERPRETATION_NAME    = "channelInterpretation";
+  boolean STREAMAUDIOSOURCE_ATTR_CHANNELINTERPRETATION_REQD    = false;
+  String  STREAMAUDIOSOURCE_ATTR_CHANNELINTERPRETATION_DFLT    = "SPEAKERS";
+  String[]STREAMAUDIOSOURCE_ATTR_CHANNELINTERPRETATION_CHOICES = {"SPEAKERS","DISCRETE"};
+  String  STREAMAUDIOSOURCE_ATTR_DESCRIPTION_NAME              = "description";
+  boolean STREAMAUDIOSOURCE_ATTR_DESCRIPTION_REQD              = false;
+  String  STREAMAUDIOSOURCE_ATTR_DESCRIPTION_DFLT              = "";
+  String  STREAMAUDIOSOURCE_ATTR_ENABLED_NAME                  = "enabled";
+  boolean STREAMAUDIOSOURCE_ATTR_ENABLED_REQD                  = false;
+  String  STREAMAUDIOSOURCE_ATTR_ENABLED_DFLT                  = "true";
+  String  STREAMAUDIOSOURCE_ATTR_GAIN_NAME                     = "gain";
+  boolean STREAMAUDIOSOURCE_ATTR_GAIN_REQD                     = false;
+  String  STREAMAUDIOSOURCE_ATTR_GAIN_DFLT                     = "1";
+  String  STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_NAME         = "streamIdentifier";
+  boolean STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_REQD         = false;
+  String  STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_DFLT         = "";
 
   // WaveShaper element
   String  WAVESHAPER_ELNAME                              = "WaveShaper";
