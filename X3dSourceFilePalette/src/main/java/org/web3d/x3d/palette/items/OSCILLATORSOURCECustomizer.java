@@ -39,7 +39,7 @@ import org.openide.util.HelpCtx;
 
 /**
  * OSCILLATORSOURCECustomizer:
- * OscillatorSource captures input from a physical microphone in the real world.
+ * OscillatorSource node represents a virtual audio source generating a periodic waveform, providing a constant tone.
  * 
  * @author Don Brutzman
  * @version $Id$
