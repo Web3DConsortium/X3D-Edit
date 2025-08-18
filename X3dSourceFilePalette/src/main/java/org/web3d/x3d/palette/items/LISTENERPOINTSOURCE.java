@@ -40,7 +40,7 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.parse3;
 import static org.web3d.x3d.types.X3DSchemaData4.parse4;
-import org.web3d.x3d.types.X3DSoundProcessingNode;
+import org.web3d.x3d.types.X3DSoundSourceNode;
 
 /**
  * LISTENERPOINTSOURCE:
@@ -52,7 +52,7 @@ import org.web3d.x3d.types.X3DSoundProcessingNode;
  * @author Don Brutzman
  * @version $Id$
  */
-public class LISTENERPOINTSOURCE extends X3DSoundProcessingNode // and X3DTimeDependentNode
+public class LISTENERPOINTSOURCE extends X3DSoundSourceNode // and X3DTimeDependentNode
 {
     private boolean dopplerEnabled, dopplerEnabledDefault;
     private SFFloat interauralDistance, interauralDistanceDefault;
@@ -135,13 +135,13 @@ public class LISTENERPOINTSOURCE extends X3DSoundProcessingNode // and X3DTimeDe
       resumeTime = new SFDouble(attr.getValue(), null, null);
     attr = root.getAttribute(LISTENERPOINTSOURCE_ATTR_DOPPLERENABLED_NAME);
     if (attr != null)
-      dopplerEnabled = Boolean.getBoolean(attr.getValue());
+      dopplerEnabled = Boolean.parseBoolean(attr.getValue());
     attr = root.getAttribute(LISTENERPOINTSOURCE_ATTR_INTERAURALDISTANCE_NAME);
     if (attr != null)
       interauralDistance = new SFFloat(attr.getValue(), 0.0f, null);
     attr = root.getAttribute(LISTENERPOINTSOURCE_ATTR_TRACKCURRENTVIEW_NAME);
     if (attr != null)
-      trackCurrentView = Boolean.getBoolean(attr.getValue());
+      trackCurrentView = Boolean.parseBoolean(attr.getValue());
 
     attr = root.getAttribute(LISTENERPOINTSOURCE_ATTR_POSITION_NAME);
     if (attr != null)
@@ -293,8 +293,8 @@ public class LISTENERPOINTSOURCE extends X3DSoundProcessingNode // and X3DTimeDe
     /**
      * @return the dopplerEnabled
      */
-    public String isDopplerEnabled() {
-        return Boolean.toString(dopplerEnabled);
+    public boolean isDopplerEnabled() {
+        return dopplerEnabled;
     }
 
     /** 
@@ -321,8 +321,8 @@ public class LISTENERPOINTSOURCE extends X3DSoundProcessingNode // and X3DTimeDe
     /**
      * @return the trackCurrentView
      */
-    public String isTrackCurrentView() {
-        return Boolean.toString(trackCurrentView);
+    public boolean isTrackCurrentView() {
+        return trackCurrentView;
     }
 
     /** 
