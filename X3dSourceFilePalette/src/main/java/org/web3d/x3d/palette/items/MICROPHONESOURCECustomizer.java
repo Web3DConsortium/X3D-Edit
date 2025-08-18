@@ -34,7 +34,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
 
@@ -46,30 +45,30 @@ import org.openide.util.HelpCtx;
  */
 public class MICROPHONESOURCECustomizer extends BaseCustomizer
 { 
-  private MICROPHONESOURCE gain;
+  private MICROPHONESOURCE microphoneSource;
   private JTextComponent target;
   
   /** Creates new form MICROPHONESOURCECustomizer
-     * @param gain data
+     * @param microphoneSource data
      * @param target component of interest */
-  public MICROPHONESOURCECustomizer(MICROPHONESOURCE gain, JTextComponent target)
+  public MICROPHONESOURCECustomizer(MICROPHONESOURCE microphoneSource, JTextComponent target)
   {
-    super(gain);
-    this.gain = gain;
+    super(microphoneSource);
+    this.microphoneSource = microphoneSource;
     this.target = target;
                            
     HelpCtx.setHelpIDString(MICROPHONESOURCECustomizer.this, "MICROPHONESOURCE_ELEM_HELPID");   
     
     initComponents();
     
-    enabledCB.setSelected          (gain.isEnabled());
-    descriptionTF.setText          (gain.getDescription());
-    gainTF.setText                 (gain.getGain());
-    startTimeTF.setText            (gain.getStartTime());
-    stopTimeTF.setText             (gain.getStopTime());
-    pauseTimeTF.setText            (gain.getPauseTime());
-    resumeTimeTF.setText           (gain.getResumeTime());
-    mediaDeviceIDTF.setText        (gain.getMediaDeviceID());
+    enabledCB.setSelected          (microphoneSource.isEnabled());
+    descriptionTF.setText          (microphoneSource.getDescription());
+    gainTF.setText                 (microphoneSource.getGain());
+    startTimeTF.setText            (microphoneSource.getStartTime());
+    stopTimeTF.setText             (microphoneSource.getStopTime());
+    pauseTimeTF.setText            (microphoneSource.getPauseTime());
+    resumeTimeTF.setText           (microphoneSource.getResumeTime());
+    mediaDeviceIDTF.setText        (microphoneSource.getMediaDeviceID());
   }
   
   /** This method is called from within the constructor to
@@ -374,13 +373,13 @@ public class MICROPHONESOURCECustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
-    gain.setDescription          (descriptionTF.getText().trim());
-    gain.setEnabled              (enabledCB.isSelected());
-    gain.setGain                 (gainTF.getText().trim());
-    gain.setStartTime            (startTimeTF.getText().trim());
-    gain.setStopTime             (stopTimeTF.getText().trim());
-    gain.setPauseTime            (pauseTimeTF.getText().trim());
-    gain.setResumeTime           (resumeTimeTF.getText().trim());
-    gain.setMediaDeviceID        (mediaDeviceIDTF.getText().trim());
+    microphoneSource.setDescription          (descriptionTF.getText().trim());
+    microphoneSource.setEnabled              (enabledCB.isSelected());
+    microphoneSource.setGain                 (gainTF.getText().trim());
+    microphoneSource.setStartTime            (startTimeTF.getText().trim());
+    microphoneSource.setStopTime             (stopTimeTF.getText().trim());
+    microphoneSource.setPauseTime            (pauseTimeTF.getText().trim());
+    microphoneSource.setResumeTime           (resumeTimeTF.getText().trim());
+    microphoneSource.setMediaDeviceID        (mediaDeviceIDTF.getText().trim());
   }
 }
