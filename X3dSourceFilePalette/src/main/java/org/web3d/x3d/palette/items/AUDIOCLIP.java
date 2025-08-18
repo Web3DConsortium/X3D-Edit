@@ -44,11 +44,6 @@ import static org.web3d.x3d.palette.X3DPaletteUtilities.*;
 
 /**
  * AUDIOCLIP.java
- * Created on Sep 12, 2007, 2:46 PM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
  *
  * @author Mike Bailey and Don Brutzman
  * @version $Id$
