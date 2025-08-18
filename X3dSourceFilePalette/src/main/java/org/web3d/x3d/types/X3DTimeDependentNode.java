@@ -57,9 +57,9 @@ public abstract class X3DTimeDependentNode extends X3DChildNode
 {
   protected boolean  enabled, enabledDefault;
   protected String   description, descriptionDefault;
-  protected SFDouble startTime, startTimeDefault;
-  protected SFDouble stopTime, stopTimeDefault;
   
+  protected SFDouble startTime, startTimeDefault; // SFTime
+  protected SFDouble stopTime, stopTimeDefault;
   protected SFDouble pauseTime, pauseTimeDefault;
   protected SFDouble resumeTime, resumeTimeDefault;
   
