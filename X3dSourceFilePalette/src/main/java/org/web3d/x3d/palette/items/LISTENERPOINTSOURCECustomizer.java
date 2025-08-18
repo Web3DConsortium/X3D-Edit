@@ -73,9 +73,9 @@ public class LISTENERPOINTSOURCECustomizer extends BaseCustomizer
     pauseTimeTF.setText            (listenerPointSource.getPauseTime());
     resumeTimeTF.setText           (listenerPointSource.getResumeTime());
     
-    dopplerEnabledCB.setSelected   (Boolean.parseBoolean(listenerPointSource.isDopplerEnabled()));
+    dopplerEnabledCB.setSelected   (listenerPointSource.isDopplerEnabled());
     interauralDistanceTF.setText   (listenerPointSource.getInterauralDistance());
-    trackCurrentViewCB.setSelected (Boolean.parseBoolean(listenerPointSource.isTrackCurrentView()));
+    trackCurrentViewCB.setSelected (listenerPointSource.isTrackCurrentView());
     
        position0TF.setText         (listenerPointSource.getPosition0());
        position1TF.setText         (listenerPointSource.getPosition1());
