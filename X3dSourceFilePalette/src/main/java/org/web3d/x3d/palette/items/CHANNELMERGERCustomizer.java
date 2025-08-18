@@ -41,7 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.CHANNELMERGER_ATTR_CHANNELCOUNTM
 import static org.web3d.x3d.types.X3DSchemaData.CHANNELMERGER_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
- * CHANNELMERGERCustomizer.java
+ * CHANNELMERGERCustomizer:
+ * ChannelMerger unites different input channels into a single output channel.
  * 
  * @author Don Brutzman
  * @version $Id$

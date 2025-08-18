@@ -41,7 +41,11 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
- * BIQUADFILTER.java
+ * BIQUADFILTER:
+ * BiquadFilter represents different kinds of filters, tone control devices, and graphic equalizers. 
+ * Low-order filters are the building blocks of basic tone controls (bass, mid, treble), graphic equalizers, and more advanced filters. 
+ * Multiple BiquadFilterNode filters can be combined to form more complex filters. 
+ * The filter parameters such as frequency can be changed over time for filter sweeps, etc.
  *
  * @author Don Brutzman
  * @version $Id$
@@ -55,8 +59,8 @@ public class BIQUADFILTER extends X3DSoundProcessingNode // and X3DTimeDependent
     
   public BIQUADFILTER() 
   {
-      this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Delay events on X3D browser console");
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace BiquadFilter events on X3D browser console");
   }
   
   @Override

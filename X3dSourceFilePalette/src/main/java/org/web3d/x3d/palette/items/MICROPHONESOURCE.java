@@ -41,8 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
- * MICROPHONESOURCE.java
- * Gain node amplifies or deamplifies the input signal.
+ * MICROPHONESOURCE:
+ * MicrophoneSource captures input from a physical microphone in the real world.
  *
  * @author Don Brutzman
  * @version $Id$
@@ -53,8 +53,8 @@ public class MICROPHONESOURCE extends X3DSoundProcessingNode // and X3DTimeDepen
     
   public MICROPHONESOURCE() 
   {
-      this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Gain events on X3D browser console");
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace MicrophoneSource events on X3D browser console");
   }
   
   @Override

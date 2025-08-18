@@ -41,7 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundDestinationNode;
 
 /**
- * STREAMAUDIODESTINATION.java
+ * STREAMAUDIODESTINATION:
+ * StreamAudioDestination is an audio destination representing a MediaStream with a single MediaStreamTrack whose kind is "audio".
  * 
  * @author Don Brutzman
  * @version $Id$
@@ -52,8 +53,8 @@ public class STREAMAUDIODESTINATION extends X3DSoundDestinationNode
     
   public STREAMAUDIODESTINATION() 
   {
-      this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Gain events on X3D browser console");
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace StreamAudioDestination events on X3D browser console");
   }
   
   @Override

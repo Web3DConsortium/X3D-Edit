@@ -42,8 +42,10 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
- * ANALYSER.java
- *
+ * ANALYSER:
+ * The Analyser node provides real-time frequency and time-domain analysis information, 
+ * without any signal-processing change to the audio stream which is passed unprocessed from input to output.
+ * 
  * @author Don Brutzman
  * @version $Id$
  */
@@ -57,8 +59,8 @@ public class ANALYSER extends X3DSoundProcessingNode // and X3DTimeDependentNode
     
   public ANALYSER() 
   {
-      this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Delay events on X3D browser console");
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace Analyser events on X3D browser console");
   }
   
   @Override

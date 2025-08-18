@@ -40,7 +40,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundChannelNode;
 
 /**
- * CHANNELSPLITTER.java
+ * CHANNELSPLITTER:
+ * ChannelSplitter separates the different channels of a single audio source into a set of monophonic output channels.
  * 
  * @author Don Brutzman
  * @version $Id$
@@ -49,8 +50,8 @@ public class CHANNELSPLITTER extends X3DSoundChannelNode
 {
   public CHANNELSPLITTER() 
   {
-      this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Gain events on X3D browser console");
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace ChannelSplitter events on X3D browser console");
   }
   
   @Override

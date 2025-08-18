@@ -42,8 +42,13 @@ import static org.web3d.x3d.types.X3DSchemaData4.parseX;
 import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
- * CONVOLVER.java
- *
+ * CONVOLVER:
+ * Convolver performs a linear convolution on a given AudioBuffer, often used to achieve a reverberation effect. 
+ * Potential modifications include chorus effects, reverberation, and telephone-like speech. 
+ * The idea for producing room effects is to play back a reference sound in a room, record it, 
+ * and then (metaphorically) take the difference between the original sound and the recorded one. 
+ * The result of this is an impulse response that captures the effect that the room has on a sound.
+ * 
  * @author Don Brutzman
  * @version $Id$
  */
@@ -54,8 +59,8 @@ public class CONVOLVER extends X3DSoundProcessingNode // and X3DTimeDependentNod
     
   public CONVOLVER() 
   {
-      this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Delay events on X3D browser console");
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace Convolver events on X3D browser console");
   }
   
   @Override

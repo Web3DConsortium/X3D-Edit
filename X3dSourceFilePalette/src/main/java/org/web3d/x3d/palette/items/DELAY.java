@@ -41,8 +41,9 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
- * DELAY.java
- *
+ * DELAY:
+ * Delay causes a time delay between the arrival of input data and subsequent propagation to the output.
+ * 
  * @author Don Brutzman
  * @version $Id$
  */
@@ -53,7 +54,7 @@ public class DELAY extends X3DSoundProcessingNode // and X3DTimeDependentNode
     
   public DELAY() 
   {
-      this.setTraceEventsSelectionAvailable(true);
+      this.setTraceEventsSelectionAvailable(false);
       this.setTraceEventsTooltip("Trace Delay events on X3D browser console");
   }
   

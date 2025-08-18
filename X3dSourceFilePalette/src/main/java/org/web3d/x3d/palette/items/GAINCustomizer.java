@@ -41,7 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELCOUNTMODE_CHOIC
 import static org.web3d.x3d.types.X3DSchemaData.GAIN_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
- * GAINCustomizer.java
+ * GAINCustomizer:
+ * Gain node amplifies or deamplifies the input signal.
  * 
  * @author Don Brutzman
  * @version $Id$

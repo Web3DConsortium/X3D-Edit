@@ -41,7 +41,9 @@ import static org.web3d.x3d.types.X3DSchemaData.CHANNELSELECTOR_ATTR_CHANNELCOUN
 import static org.web3d.x3d.types.X3DSchemaData.CHANNELSELECTOR_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
- * CHANNELSELECTORCustomizer.java
+ * CHANNELSELECTORCustomizer:
+ * ChannelSelector selects a single channel output from all input channels. 
+ * If the selected channel is not monophonic, further splitting remains feasible.
  * 
  * @author Don Brutzman
  * @version $Id$

@@ -38,7 +38,8 @@ import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
 
 /**
- * MICROPHONESOURCECustomizer.java
+ * MICROPHONESOURCECustomizer:
+ * MicrophoneSource captures input from a physical microphone in the real world.
  * 
  * @author Don Brutzman
  * @version $Id$

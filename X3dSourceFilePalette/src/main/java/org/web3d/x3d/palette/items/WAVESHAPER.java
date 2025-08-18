@@ -42,8 +42,11 @@ import static org.web3d.x3d.types.X3DSchemaData4.parseX;
 import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
- * WAVESHAPER.java
- *
+ * WAVESHAPER:
+ * WaveShaper represents a nonlinear distorter that applies a wave-shaping distortion curve to the signal. 
+ * Non-linear waveshaping distortion is commonly used for both subtle non-linear warming, or more obvious distortion effects. 
+ * Arbitrary non-linear shaping curves may be specified.
+ * 
  * @author Don Brutzman
  * @version $Id$
  */
@@ -54,8 +57,8 @@ public class WAVESHAPER extends X3DSoundProcessingNode // and X3DTimeDependentNo
     
   public WAVESHAPER() 
   {
-      this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Delay events on X3D browser console");
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace WaveShaper events on X3D browser console");
   }
   
   @Override

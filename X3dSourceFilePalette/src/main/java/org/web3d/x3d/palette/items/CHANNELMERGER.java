@@ -40,7 +40,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundChannelNode;
 
 /**
- * CHANNELMERGER.java
+ * CHANNELMERGER:
+ * ChannelMerger unites different input channels into a single output channel.
  * 
  * @author Don Brutzman
  * @version $Id$
@@ -49,8 +50,8 @@ public class CHANNELMERGER extends X3DSoundChannelNode
 {
   public CHANNELMERGER() 
   {
-      this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Gain events on X3D browser console");
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace ChannelMerger events on X3D browser console");
   }
   
   @Override

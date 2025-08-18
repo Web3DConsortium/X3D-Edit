@@ -42,7 +42,10 @@ import static org.web3d.x3d.types.X3DSchemaData.WAVESHAPER_ATTR_CHANNELINTERPRET
 import static org.web3d.x3d.types.X3DSchemaData.WAVESHAPER_ATTR_OVERSAMPLE_CHOICES;
 
 /**
- * WAVESHAPERCustomizer.java
+ * WAVESHAPERCustomizer:
+ * WaveShaper represents a nonlinear distorter that applies a wave-shaping distortion curve to the signal. 
+ * Non-linear waveshaping distortion is commonly used for both subtle non-linear warming, or more obvious distortion effects. 
+ * Arbitrary non-linear shaping curves may be specified.
  *
  * @author Don Brutzman
  * @version $Id$

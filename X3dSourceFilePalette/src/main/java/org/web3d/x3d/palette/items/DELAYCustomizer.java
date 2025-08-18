@@ -41,7 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.DELAY_ATTR_CHANNELCOUNTMODE_CHOI
 import static org.web3d.x3d.types.X3DSchemaData.DELAY_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
- * DELAYCustomizer.java
+ * DELAYCustomizer:
+ * Delay causes a time delay between the arrival of input data and subsequent propagation to the output.
  *
  * @author Don Brutzman
  * @version $Id$

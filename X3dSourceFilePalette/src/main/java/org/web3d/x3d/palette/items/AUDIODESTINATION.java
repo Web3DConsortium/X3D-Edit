@@ -41,7 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundDestinationNode;
 
 /**
- * AUDIODESTINATION.java
+ * AUDIODESTINATION:
+ * AudioDestination represents the final audio destination and is what user ultimately hears, typically from the speakers of user device.
  * 
  * @author Don Brutzman
  * @version $Id$
@@ -53,7 +54,7 @@ public class AUDIODESTINATION extends X3DSoundDestinationNode
   public AUDIODESTINATION() 
   {
       this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Gain events on X3D browser console");
+      this.setTraceEventsTooltip("Trace AudioDestination events on X3D browser console");
   }
   
   @Override

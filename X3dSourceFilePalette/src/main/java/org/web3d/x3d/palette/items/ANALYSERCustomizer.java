@@ -41,7 +41,9 @@ import static org.web3d.x3d.types.X3DSchemaData.ANALYSER_ATTR_CHANNELCOUNTMODE_C
 import static org.web3d.x3d.types.X3DSchemaData.ANALYSER_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
- * ANALYSERCustomizer.java
+ * ANALYSERCustomizer:
+ * The Analyser node provides real-time frequency and time-domain analysis information, 
+ * without any signal-processing change to the audio stream which is passed unprocessed from input to output.
  *
  * @author Don Brutzman
  * @version $Id$

@@ -41,7 +41,9 @@ import static org.web3d.x3d.types.X3DSchemaData.DYNAMICSCOMPRESSOR_ATTR_CHANNELC
 import static org.web3d.x3d.types.X3DSchemaData.DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
- * DYNAMICSCOMPRESSORCustomizer.java
+ * DYNAMICSCOMPRESSORCustomizer:
+ * DynamicsCompressor implements a dynamics compression effect, 
+ * lowering the volume of the loudest parts of the signal and raising the volume of the softest parts.
  *
  * @author Don Brutzman
  * @version $Id$

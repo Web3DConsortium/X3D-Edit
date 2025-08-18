@@ -41,7 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.CHANNELSPLITTER_ATTR_CHANNELCOUN
 import static org.web3d.x3d.types.X3DSchemaData.CHANNELSPLITTER_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
- * CHANNELSPLITTERCustomizer.java
+ * CHANNELSPLITTERCustomizer:
+ * ChannelSplitter separates the different channels of a single audio source into a set of monophonic output channels.
  * 
  * @author Don Brutzman
  * @version $Id$

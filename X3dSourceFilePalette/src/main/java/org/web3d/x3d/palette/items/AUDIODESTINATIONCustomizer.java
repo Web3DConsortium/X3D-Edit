@@ -41,7 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.AUDIODESTINATION_ATTR_CHANNELCOU
 import static org.web3d.x3d.types.X3DSchemaData.AUDIODESTINATION_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
- * AUDIODESTINATIONCustomizer.java
+ * AUDIODESTINATIONCustomizer:
+ * AudioDestination represents the final audio destination and is what user ultimately hears, typically from the speakers of user device.
  * 
  * @author Don Brutzman
  * @version $Id$

@@ -41,7 +41,9 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundChannelNode;
 
 /**
- * CHANNELSELECTOR.java
+ * CHANNELSELECTOR:
+ * ChannelSelector selects a single channel output from all input channels. 
+ * If the selected channel is not monophonic, further splitting remains feasible.
  * 
  * @author Don Brutzman
  * @version $Id$
@@ -52,8 +54,8 @@ public class CHANNELSELECTOR extends X3DSoundChannelNode
     
   public CHANNELSELECTOR() 
   {
-      this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Gain events on X3D browser console");
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace ChannelSelector events on X3D browser console");
   }
   
   @Override

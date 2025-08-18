@@ -41,7 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.STREAMAUDIODESTINATION_ATTR_CHAN
 import static org.web3d.x3d.types.X3DSchemaData.STREAMAUDIODESTINATION_ATTR_CHANNELINTERPRETATION_CHOICES;
 
 /**
- * STREAMAUDIODESTINATIONCustomizer.java
+ * STREAMAUDIODESTINATIONCustomizer:
+ * StreamAudioDestination is an audio destination representing a MediaStream with a single MediaStreamTrack whose kind is "audio".
  * 
  * @author Don Brutzman
  * @version $Id$

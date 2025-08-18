@@ -42,14 +42,9 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
 
 /**
- * SOUND.java
- * Created on Sep 12, 2007, 2:46 PM
+ * SOUND:
  *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Mike Bailey and Don Brutzman
  * @version $Id$
  */
 public class SOUND extends X3DSoundNode

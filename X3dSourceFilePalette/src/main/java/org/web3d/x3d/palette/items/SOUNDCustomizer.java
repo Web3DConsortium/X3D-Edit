@@ -43,13 +43,8 @@ import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 
 /**
  * SOUNDCustomizer.java
- * Created on August 15, 2007, 2:25 PM
  *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Mike Bailey and Don Brutzman
  * @version $Id$
  */
 public class SOUNDCustomizer extends BaseCustomizer

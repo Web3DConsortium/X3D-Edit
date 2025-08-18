@@ -41,7 +41,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
- * GAIN.java
+ * GAIN:
  * Gain node amplifies or deamplifies the input signal.
  *
  * @author Don Brutzman
@@ -51,7 +51,7 @@ public class GAIN extends X3DSoundProcessingNode // and X3DTimeDependentNode
 {
   public GAIN() 
   {
-      this.setTraceEventsSelectionAvailable(true);
+      this.setTraceEventsSelectionAvailable(false);
       this.setTraceEventsTooltip("Trace Gain events on X3D browser console");
   }
   

@@ -50,7 +50,7 @@ import static org.web3d.x3d.palette.X3DPaletteUtilities.*;
  * Naval Postgraduate School, Monterey, CA, USA
  * www.nps.edu
  *
- * @author Mike Bailey
+ * @author Mike Bailey and Don Brutzman
  * @version $Id$
  */
 public class AUDIOCLIP extends X3DSoundSourceNode

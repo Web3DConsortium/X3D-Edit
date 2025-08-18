@@ -40,13 +40,8 @@ import org.web3d.x3d.X3DDataObject;
 
 /**
  * AUDIOCLIPCustomizer.java
- * Created on August 15, 2007, 2:25 PM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * 
+ * @author Mike Bailey and Don Brutzman
  * @version $Id$
  */
 public class AUDIOCLIPCustomizer extends BaseCustomizer

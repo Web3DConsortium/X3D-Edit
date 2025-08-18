@@ -41,8 +41,10 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 import org.web3d.x3d.types.X3DSoundProcessingNode;
 
 /**
- * DYNAMICSCOMPRESSOR.java
- *
+ * DYNAMICSCOMPRESSOR:
+ * DynamicsCompressor implements a dynamics compression effect, 
+ * lowering the volume of the loudest parts of the signal and raising the volume of the softest parts.
+ * 
  * @author Don Brutzman
  * @version $Id$
  */
@@ -56,8 +58,8 @@ public class DYNAMICSCOMPRESSOR extends X3DSoundProcessingNode // and X3DTimeDep
     
   public DYNAMICSCOMPRESSOR() 
   {
-      this.setTraceEventsSelectionAvailable(true);
-      this.setTraceEventsTooltip("Trace Delay events on X3D browser console");
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace DynamicsCompressor events on X3D browser console");
   }
   
   @Override
