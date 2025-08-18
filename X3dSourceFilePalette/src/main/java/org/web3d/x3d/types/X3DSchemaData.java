@@ -2799,6 +2799,25 @@ public interface X3DSchemaData
   boolean MICROPHONESOURCE_ATTR_MEDIADEVICEID_REQD = false;
   String  MICROPHONESOURCE_ATTR_MEDIADEVICEID_DFLT = "";
 
+  // PeriodicWave element
+  String  PERIODICWAVE_ELNAME                       = "PeriodicWave";
+  String  PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_NAME = "description";
+  boolean PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_REQD = false;
+  String  PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_DFLT = "";
+  String  PERIODICWAVE_ATTR_ENABLED_NAME            = "enabled";
+  boolean PERIODICWAVE_ATTR_ENABLED_REQD            = false;
+  String  PERIODICWAVE_ATTR_ENABLED_DFLT            = "true";
+  String  PERIODICWAVE_ATTR_OPTIONSREAL_NAME        = "optionsReal";
+  boolean PERIODICWAVE_ATTR_OPTIONSREAL_REQD        = false;
+  String  PERIODICWAVE_ATTR_OPTIONSREAL_DFLT        = "";
+  String  PERIODICWAVE_ATTR_OPTIONSIMAG_NAME        = "optionsImag";
+  boolean PERIODICWAVE_ATTR_OPTIONSIMAG_REQD        = false;
+  String  PERIODICWAVE_ATTR_OPTIONSIMAG_DFLT        = "";
+  String  PERIODICWAVE_ATTR_TYPE_NAME               = "type";
+  boolean PERIODICWAVE_ATTR_TYPE_REQD               = false;
+  String  PERIODICWAVE_ATTR_TYPE_DFLT               = "SQUARE";
+  String[]PERIODICWAVE_ATTR_CTYPE_CHOICES           = {"SINE","SQUARE","SAWTOOTH","TRIANGLE","CUSTOM"};
+
   // OscillatorSource element
   String  OSCILLATORSOURCE_ELNAME                  = "OscillatorSource";
   String  OSCILLATORSOURCE_ATTR_DESCRIPTION_NAME   = "description";
