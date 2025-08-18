@@ -32,9 +32,10 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 */
 /*
- * X3DTimeDependentNode.java
+ * X3DTimeDependentNode:
  * 
- * Created on Sep 26, 2007, 3:46:32 PM
+ * @author Don Brutzman
+ * @version $Id$
  */
 
 package org.web3d.x3d.types;

@@ -37,7 +37,7 @@ package org.web3d.x3d.types;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
- * X3DSoundDestinationNode.java
+ * X3DSoundDestinationNode:
  * 
  * Base node type for all sound destination nodes, which represent the final destination 
  * of an audio signal and are what the user can ultimately hear. 

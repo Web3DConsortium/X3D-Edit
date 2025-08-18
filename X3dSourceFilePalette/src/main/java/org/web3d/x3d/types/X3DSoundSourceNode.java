@@ -32,20 +32,13 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 */
 
-/*
- * X3DTimeDependentNode.java
- * 
- * Created on Sep 26, 2007, 3:46:32 PM
- */
-
 package org.web3d.x3d.types;
 
 //import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
- * X3DSoundNode.java
- * 
+ * X3DSoundSourceNode:
  * Abstract node type used for node types that can emit audio data
  * 
  * @author Don Brutzman

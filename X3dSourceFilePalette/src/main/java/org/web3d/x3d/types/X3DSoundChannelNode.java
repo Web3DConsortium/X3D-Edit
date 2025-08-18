@@ -37,7 +37,7 @@ package org.web3d.x3d.types;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 /**
- * X3DSoundProcessingNode.java
+ * X3DSoundProcessingNode:
  * 
  * Base node type for all sound processing nodes, which are used to enhance audio with filtering, delaying, changing gain, etc.
  *

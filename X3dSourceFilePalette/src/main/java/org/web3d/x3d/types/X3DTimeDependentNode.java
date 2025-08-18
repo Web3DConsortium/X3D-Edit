@@ -33,9 +33,10 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 /*
- * X3DTimeDependentNode.java
+ * X3DTimeDependentNode:
  * 
- * Created on Sep 26, 2007, 3:46:32 PM
+ * @author Don Brutzman
+ * @version $Id$
  */
 
 package org.web3d.x3d.types;
@@ -44,17 +45,12 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 
 
 /**
- * X3DTimeDependentNode.java
+ * X3DTimeDependentNode:
  * 
  *  marker interface for AudioClip, MovieTexture, and TimeSensor
  * 
- * Created on Sep 26, 2007, 4:00 PM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Don Brutzman
+ * @version $Id$
  * @version $Id$
  */
 public abstract class X3DTimeDependentNode extends X3DChildNode
