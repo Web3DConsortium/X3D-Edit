@@ -34,12 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.types;
 
 /**
- * X3DSchemaData.java
- * Created on August 17, 2007, 9:26 AM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
+ * X3DSchemaData:
+ * names, configuration and initialization values for fields.
  *
  * @author Mike Bailey, Don Brutzman
  * @version $Id$
@@ -2736,6 +2732,45 @@ public interface X3DSchemaData
   String  GAIN_ATTR_TAILTIME_NAME    = "tailTime";
   boolean GAIN_ATTR_TAILTIME_REQD    = false;
   String  GAIN_ATTR_TAILTIME_DFLT    = "0";
+
+  // ListenerPointSource element
+  String  LISTENERPOINTSOURCE_ELNAME                       = "ListenerPointSource";
+  String  LISTENERPOINTSOURCE_ATTR_DESCRIPTION_NAME        = "description";
+  boolean LISTENERPOINTSOURCE_ATTR_DESCRIPTION_REQD        = false;
+  String  LISTENERPOINTSOURCE_ATTR_DESCRIPTION_DFLT        = "";
+  String  LISTENERPOINTSOURCE_ATTR_ENABLED_NAME            = "enabled";
+  boolean LISTENERPOINTSOURCE_ATTR_ENABLED_REQD            = false;
+  String  LISTENERPOINTSOURCE_ATTR_ENABLED_DFLT            = "true";
+  String  LISTENERPOINTSOURCE_ATTR_GAIN_NAME               = "gain";
+  boolean LISTENERPOINTSOURCE_ATTR_GAIN_REQD               = false;
+  String  LISTENERPOINTSOURCE_ATTR_GAIN_DFLT               = "1";
+  String  LISTENERPOINTSOURCE_ATTR_STARTTIME_NAME          = "startTime";
+  boolean LISTENERPOINTSOURCE_ATTR_STARTTIME_REQD          = false;
+  String  LISTENERPOINTSOURCE_ATTR_STARTTIME_DFLT          = "0";
+  String  LISTENERPOINTSOURCE_ATTR_STOPTIME_NAME           = "stopTime";
+  boolean LISTENERPOINTSOURCE_ATTR_STOPTIME_REQD           = false;
+  String  LISTENERPOINTSOURCE_ATTR_STOPTIME_DFLT           = "0";
+  String  LISTENERPOINTSOURCE_ATTR_PAUSETIME_NAME          = "pauseTime";
+  boolean LISTENERPOINTSOURCE_ATTR_PAUSETIME_REQD          = false;
+  String  LISTENERPOINTSOURCE_ATTR_PAUSETIME_DFLT          = "0";
+  String  LISTENERPOINTSOURCE_ATTR_RESUMETIME_NAME         = "resumeTime";
+  boolean LISTENERPOINTSOURCE_ATTR_RESUMETIME_REQD         = false;
+  String  LISTENERPOINTSOURCE_ATTR_RESUMETIME_DFLT         = "0";
+  String  LISTENERPOINTSOURCE_ATTR_DOPPLERENABLED_NAME     = "dopplerEnabled";
+  boolean LISTENERPOINTSOURCE_ATTR_DOPPLERENABLED_REQD     = false;
+  String  LISTENERPOINTSOURCE_ATTR_DOPPLERENABLED_DFLT     = "false";
+  String  LISTENERPOINTSOURCE_ATTR_INTERAURALDISTANCE_NAME = "interauralDistance";
+  boolean LISTENERPOINTSOURCE_ATTR_INTERAURALDISTANCE_REQD = false;
+  String  LISTENERPOINTSOURCE_ATTR_INTERAURALDISTANCE_DFLT = "0";
+  String  LISTENERPOINTSOURCE_ATTR_ORIENTATION_NAME        = "orientation";
+  boolean LISTENERPOINTSOURCE_ATTR_ORIENTATION_REQD        = false;
+  String  LISTENERPOINTSOURCE_ATTR_ORIENTATION_DFLT        = "0 0 1 0";
+  String  LISTENERPOINTSOURCE_ATTR_POSITION_NAME           = "position";
+  boolean LISTENERPOINTSOURCE_ATTR_POSITION_REQD           = false;
+  String  LISTENERPOINTSOURCE_ATTR_POSITION_DFLT           = "0 0 0";
+  String  LISTENERPOINTSOURCE_ATTR_TRACKCURRENTVIEW_NAME   = "trackCurrentView";
+  boolean LISTENERPOINTSOURCE_ATTR_TRACKCURRENTVIEW_REQD   = false;
+  String  LISTENERPOINTSOURCE_ATTR_TRACKCURRENTVIEW_DFLT   = "false";
 
   // MicrophoneSource element
   String  MICROPHONESOURCE_ELNAME                  = "MicrophoneSource";
