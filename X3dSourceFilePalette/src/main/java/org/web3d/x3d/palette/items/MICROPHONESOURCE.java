@@ -38,7 +38,7 @@ import javax.swing.text.JTextComponent;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
-import org.web3d.x3d.types.X3DSoundProcessingNode;
+import org.web3d.x3d.types.X3DSoundSourceNode;
 
 /**
  * MICROPHONESOURCE:
@@ -47,7 +47,7 @@ import org.web3d.x3d.types.X3DSoundProcessingNode;
  * @author Don Brutzman
  * @version $Id$
  */
-public class MICROPHONESOURCE extends X3DSoundProcessingNode // and X3DTimeDependentNode
+public class MICROPHONESOURCE extends X3DSoundSourceNode // and X3DTimeDependentNode
 {
     protected String   mediaDeviceID, mediaDeviceIDDefault;
     

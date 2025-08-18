@@ -38,7 +38,11 @@ import javax.swing.text.JTextComponent;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
-import org.web3d.x3d.types.X3DSoundProcessingNode;
+import org.web3d.x3d.types.X3DSoundSourceNode;
+
+/**
+ * OSCILLATORSOURCE:
+ * OscillatorSource node represents a virtual arocessingNode;
 
 /**
  * OSCILLATORSOURCE:
@@ -47,7 +51,7 @@ import org.web3d.x3d.types.X3DSoundProcessingNode;
  * @author Don Brutzman
  * @version $Id$
  */
-public class OSCILLATORSOURCE extends X3DSoundProcessingNode // and X3DTimeDependentNode
+public class OSCILLATORSOURCE extends X3DSoundSourceNode // and X3DTimeDependentNode
 {
     protected SFFloat detune, detuneDefault;
     protected SFFloat frequency, frequencyDefault;
