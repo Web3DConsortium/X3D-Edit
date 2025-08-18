@@ -95,7 +95,7 @@ public abstract class X3DSoundDestinationNode extends X3DSoundNode
     public void setGain(String newGain) {
         gain = new SFFloat(newGain, null, null);
     }
-
+      
     /**
      * @return the mediaDeviceID
      */
