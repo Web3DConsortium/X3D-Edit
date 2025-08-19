@@ -521,7 +521,7 @@ public class CONVOLVERCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     
-    convolver.setCurve                (bufferTF.getText().trim());
+    convolver.setBuffer               (bufferTF.getText().trim());
     convolver.setNormalize            (normalizeCB.isSelected());
     convolver.setChannelCountMode     (channelCountModeComboBox.getSelectedItem().toString());
     convolver.setChannelInterpretation(channelInterpretationComboBox.getSelectedItem().toString());

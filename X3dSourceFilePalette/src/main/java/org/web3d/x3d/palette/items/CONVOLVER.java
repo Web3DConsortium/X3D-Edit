@@ -54,8 +54,8 @@ import org.web3d.x3d.types.X3DSoundProcessingNode;
  */
 public class CONVOLVER extends X3DSoundProcessingNode // and X3DTimeDependentNode
 {
-    private SFFloat[]   buffer, bufferDefault;
-    private boolean  normalize, normalizeDefault;
+    private SFFloat[] buffer, bufferDefault; // MFFloat
+    private boolean   normalize, normalizeDefault;
     
   public CONVOLVER() 
   {
@@ -185,7 +185,7 @@ public class CONVOLVER extends X3DSoundProcessingNode // and X3DTimeDependentNod
       sb.append("'");
     }
 
-    if (CONVOLVER_ATTR_ENABLED_REQD || enabled != Boolean.parseBoolean(CONVOLVER_ATTR_ENABLED_DFLT)) {
+    if (CONVOLVER_ATTR_ENABLED_REQD || enabled != enabledDefault) {
       sb.append(" ");
       sb.append(CONVOLVER_ATTR_ENABLED_NAME);
       sb.append("='");
@@ -201,7 +201,7 @@ public class CONVOLVER extends X3DSoundProcessingNode // and X3DTimeDependentNod
       sb.append("'");
     }
       
-    if (CONVOLVER_ATTR_NORMALIZE_REQD || normalize!= Boolean.parseBoolean(CONVOLVER_ATTR_NORMALIZE_DFLT)) {
+    if (CONVOLVER_ATTR_NORMALIZE_REQD || normalize!= normalizeDefault) {
       sb.append(" ");
       sb.append(CONVOLVER_ATTR_NORMALIZE_NAME);
       sb.append("='");
@@ -261,12 +261,12 @@ public class CONVOLVER extends X3DSoundProcessingNode // and X3DTimeDependentNod
     }
 
     /**
-     * @param newCurve the buffer to set
+     * @param newBuffer the buffer to set
      */
-    public void setCurve(String newCurve) {
+    public void setBuffer(String newBuffer) {
         String[] sa;
-        if ((newCurve != null) && !newCurve.isBlank()) {
-          sa = parseX(newCurve);
+        if ((newBuffer != null) && !newBuffer.isBlank()) {
+          sa = parseX(newBuffer);
         }
         else sa = new String[]{}; // empty array
         buffer = parseToSFFloatArray(sa);
