@@ -49,8 +49,8 @@ import org.web3d.x3d.types.X3DSoundSourceNode;
  */
 public class OSCILLATORSOURCE extends X3DSoundSourceNode // and X3DTimeDependentNode
 {
-    protected SFFloat detune, detuneDefault;
-    protected SFFloat frequency, frequencyDefault;
+    private SFFloat detune, detuneDefault;
+    private SFFloat frequency, frequencyDefault;
     
   public OSCILLATORSOURCE() 
   {
@@ -207,7 +207,7 @@ public class OSCILLATORSOURCE extends X3DSoundSourceNode // and X3DTimeDependent
      * @param newDetune the detune to set
      */
     public void setDetune(String newDetune) {
-        detune = new SFFloat(newDetune, 0.0f, null);;
+        detune = new SFFloat(newDetune, 0.0f, null);
     }
 
     /**
@@ -221,7 +221,7 @@ public class OSCILLATORSOURCE extends X3DSoundSourceNode // and X3DTimeDependent
      * @param newFrequency the frequency to set
      */
     public void setFrequency(String newFrequency) {
-        frequency = new SFFloat(newFrequency, 0.0f, null);;
+        frequency = new SFFloat(newFrequency, 0.0f, null);
     }
 
 }
