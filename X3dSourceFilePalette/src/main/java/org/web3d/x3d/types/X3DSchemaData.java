@@ -2831,9 +2831,9 @@ public interface X3DSchemaData
 
   // PeriodicWave element
   String  PERIODICWAVE_ELNAME                       = "PeriodicWave";
-  String  PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_NAME = "description";
-  boolean PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_REQD = false;
-  String  PERIODICWAVE_ELNAME_ATTR_DESCRIPTION_DFLT = "";
+  String  PERIODICWAVE_ATTR_DESCRIPTION_NAME        = "description";
+  boolean PERIODICWAVE_ATTR_DESCRIPTION_REQD        = false;
+  String  PERIODICWAVE_ATTR_DESCRIPTION_DFLT        = "";
   String  PERIODICWAVE_ATTR_ENABLED_NAME            = "enabled";
   boolean PERIODICWAVE_ATTR_ENABLED_REQD            = false;
   String  PERIODICWAVE_ATTR_ENABLED_DFLT            = "true";
@@ -2846,7 +2846,7 @@ public interface X3DSchemaData
   String  PERIODICWAVE_ATTR_TYPE_NAME               = "type";
   boolean PERIODICWAVE_ATTR_TYPE_REQD               = false;
   String  PERIODICWAVE_ATTR_TYPE_DFLT               = "SQUARE";
-  String[]PERIODICWAVE_ATTR_CTYPE_CHOICES           = {"SINE","SQUARE","SAWTOOTH","TRIANGLE","CUSTOM"};
+  String[]PERIODICWAVE_ATTR_TYPE_CHOICES            = {"SINE","SQUARE","SAWTOOTH","TRIANGLE","CUSTOM"};
   
   // StreamAudioDestination element
   String  STREAMAUDIODESTINATION_ELNAME                             = "StreamAudioDestination";
