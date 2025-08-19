@@ -73,13 +73,17 @@ public class SCENECustomizer extends BaseCustomizer
 
         nodeHintPanel = new javax.swing.JPanel();
         nodeHintLabel = new javax.swing.JLabel();
+        eventHelpPanel = new javax.swing.JPanel();
+        eventsLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(350, 100));
+        setPreferredSize(new java.awt.Dimension(360, 110));
         setLayout(new java.awt.GridBagLayout());
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
-        nodeHintLabel.setText("<html><p><b>Scene</b> contains any number of X3D scene-graph nodes</p></html>");
+        nodeHintLabel.setText("<html><p><b>Scene</b> contains any number of X3D scene-graph nodes. </p></html>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -90,13 +94,41 @@ public class SCENECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
+
+        eventHelpPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        eventHelpPanel.setLayout(new java.awt.GridBagLayout());
+
+        eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eventsLabel1.setText("<html><p align=\"center\"> The <b>Scene</b> element is the root level of the X3D scene graph, <br />\nsimilar to the <i>body</i> element in an HTML document. </p> ");
+        eventsLabel1.setToolTipText("Scene element follows the X3D and head elements");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        eventHelpPanel.add(eventsLabel1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
+        add(eventHelpPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel eventHelpPanel;
+    private javax.swing.JLabel eventsLabel1;
     private javax.swing.JLabel nodeHintLabel;
     private javax.swing.JPanel nodeHintPanel;
     // End of variables declaration//GEN-END:variables
