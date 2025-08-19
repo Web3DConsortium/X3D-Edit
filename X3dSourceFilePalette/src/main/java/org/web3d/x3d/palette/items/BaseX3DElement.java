@@ -335,6 +335,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         sb.append("");     // indent 0
     }
     sb.append("<");
+    sb.append(getElementName()); // critical!!
 
     if(isDEF())
       sb.append(buildDEF());
