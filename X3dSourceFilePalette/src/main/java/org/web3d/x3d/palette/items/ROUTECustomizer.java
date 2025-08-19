@@ -254,8 +254,8 @@ public class ROUTECustomizer extends BaseCustomizer
         hintPanel = new javax.swing.JPanel();
         eventLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(385, 400));
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setMinimumSize(new java.awt.Dimension(600, 400));
+        setPreferredSize(new java.awt.Dimension(620, 420));
         setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Event Source", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 12))); // NOI18N

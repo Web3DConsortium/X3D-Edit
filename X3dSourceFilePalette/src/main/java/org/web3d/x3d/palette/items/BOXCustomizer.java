@@ -91,6 +91,8 @@ public class BOXCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(610, 190));
+        setPreferredSize(new java.awt.Dimension(630, 210));
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("size");
