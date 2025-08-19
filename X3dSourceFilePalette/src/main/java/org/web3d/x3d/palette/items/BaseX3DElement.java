@@ -321,18 +321,20 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     }
     else if (getElementName().equals("head") || getElementName().equals("Scene"))
     {
-        sb.append("  "); // indent 2
+//      sb.append("  "); // indent 2
+        sb.append("");   // indent 0
     }
     else if (getElementName().equals("component") || getElementName().equals("unit") || getElementName().equals("meta"))
     {
-        sb.append("    "); // indent 4
+//      sb.append("    "); // indent 4
+        sb.append("");     // indent 0
     }
-    else // TODO calculate proper indent
+    else // TODO if new element is being inserted, apply addition 2-character indent beyond that of getParent() element, otherwise depend on user C14N button
     {
-        sb.append("    "); // indent 4
+//      sb.append("    "); // indent 4
+        sb.append("");     // indent 0
     }
     sb.append("<");
-    sb.append(getElementName());
 
     if(isDEF())
       sb.append(buildDEF());
