@@ -48,7 +48,7 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 public abstract class X3DSoundProcessingNode extends X3DTimeDependentNode
 {
     protected String   channelCountMode, channelCountModeDefault;
-    protected String   channelInterpretation, channelInterpretationDefault;   
+    protected String   channelInterpretation, channelInterpretationDefault;
     protected SFFloat  gain, gainDefault;
     protected SFDouble tailTime, tailTimeDefault;
 
