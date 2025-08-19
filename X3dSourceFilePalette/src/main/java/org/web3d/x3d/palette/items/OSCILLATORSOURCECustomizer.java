@@ -107,8 +107,9 @@ public class OSCILLATORSOURCECustomizer extends BaseCustomizer
 
         jTextField2.setText("jTextField2");
 
-        setMinimumSize(new java.awt.Dimension(600, 440));
-        setPreferredSize(new java.awt.Dimension(620, 460));
+        setMinimumSize(new java.awt.Dimension(630, 480));
+        setPreferredSize(new java.awt.Dimension(640, 490));
+        setRequestFocusEnabled(false);
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 4;
@@ -306,7 +307,7 @@ public class OSCILLATORSOURCECustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>OscillatorSource</b> is a virtual audio source generating a periodic waveform, providing a constant tone. </p> <br /> \n<p align=\"center\">OscillatorSource has <b>no child nodes</b> as input signals, and the <b>parent node</b> receives the output signal. </p> <br />\n<p align=\"center\">The <b>detune</b> field is an a-rate AudioParam representing detuning of oscillation in cents. </p> <br /> \n<p align=\"center\">The <b>frequency</b> field represents oscillation in hertz. Default value 440 Hz is a standard middle-A note. </p> <br /> \n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>, <b>isPaused</b>, and <b>elapsedTime</b>.</p> ");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>OscillatorSource</b> is a virtual audio source generating a periodic waveform, providing a constant tone. </p> <br /> \n<p align=\"center\">OscillatorSource can contain a single optional <b>PeriodicWave</b> node, providing a regular or arbitrary waveform. </p> <br />\n<p align=\"center\">OscillatorSource has <b>no other child audio nodes</b> as input signals, and the <b>parent node</b> receives the output signal. </p> <br />\n<p align=\"center\">The <b>detune</b> field is an a-rate AudioParam representing detuning of oscillation in cents. </p> <br /> \n<p align=\"center\">The <b>frequency</b> field represents oscillation in hertz. Default value 440 Hz is a standard middle-A note. </p> <br /> \n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>, <b>isPaused</b>, and <b>elapsedTime</b>.</p> ");
         eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

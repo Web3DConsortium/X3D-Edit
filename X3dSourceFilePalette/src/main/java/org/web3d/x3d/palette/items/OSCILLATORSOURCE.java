@@ -42,10 +42,6 @@ import org.web3d.x3d.types.X3DSoundSourceNode;
 
 /**
  * OSCILLATORSOURCE:
- * OscillatorSource node represents a virtual arocessingNode;
-
-/**
- * OSCILLATORSOURCE:
  * OscillatorSource node represents a virtual audio source generating a periodic waveform, providing a constant tone.
  *
  * @author Don Brutzman
