@@ -6,7 +6,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Distribution, 25 February 2025
+# X3D-Edit 4.0 Distribution, 11 August 2025
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
@@ -19,7 +19,7 @@ Backup software deployment is found in  [Maven Central Repository](https://centr
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Requires NetbBeans&nbsp;25. Tested satisfactorily, any operating system |   129.8 MB | 25 February 2025
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetbBeans&nbsp;26. Tested satisfactorily, any operating system |   72.9 MB | 11 August 2025
 [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Must set jdkhome in netbeans.conf       |  260.7 MB | 25 February 2025
 
 <!---
@@ -31,9 +31,11 @@ SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/sta
 
 ## How To Do It
 
-Please see our
+The easiest way to use X3D-Edit is to install NetBeans and then the X3D-Edit plugin.
+
+For full details on updates, please see our
 [Installation video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
-[<img align='right' width='400' src="https://savage.nps.edu/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
+[<img align='right' width='400' src="https://www.web3d.org/x3d/tools/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
 
 **Windows users**: there is an issue in both the zip and [X3D-Edit Windows installer](https://github.com/Web3DConsortium/X3D-Edit/issues/3) and our current testing shows this does not work.
 
@@ -41,11 +43,11 @@ If you want to try on another system, please note that you will manually need to
 
 - Using _localadmin_ permissions, set `jdkhome` permissions in configuration file:
 - `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
-- `jdkhome="C:\Program Files\Java\openjdk\jdk-23.0.2"`
+- `jdkhome="C:\Program Files\Java\openjdk\jdk-24.0.2"`
 
-## Source Code has Moved
+## Source Code now on GitHUb
 
-X3D-Edit software development is maintained at [Web3D Consortium GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
+X3D-Edit software development is now maintained at [Web3D Consortium GitHub](https://github.com/Web3DConsortium/X3D-Edit) 
 
 Note: SourceForge is excellent!  Nevertheless, in order to conform with trusted-plugin requirements on the 
 [Apache NetBeans Plugin Portal](https://plugins.netbeans.apache.org/catalogue/?id=90).
@@ -60,7 +62,7 @@ If things don't work "out of the box" for you, please let us know.
 Test reports and feedback welcome.  Please send email to
 [Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20pre-release%20testing%20feedback).
 
-Have fun with [X3D-Edit 4.0](https://savage.nps.edu/X3D-Edit)!
+Have fun with [X3D-Edit 4.0](https://www.web3d.org/x3d/tools/X3D-Edit)!
 
 [![Download x3d](https://img.shields.io/sourceforge/dm/x3d.svg)](https://sourceforge.net/projects/x3d/files/stats/timeline)
 <!--

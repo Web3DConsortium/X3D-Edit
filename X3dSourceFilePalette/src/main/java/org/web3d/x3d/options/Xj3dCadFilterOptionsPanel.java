@@ -715,7 +715,7 @@ private void indexFilterCheckBoxActionPerformed(java.awt.event.ActionEvent evt) 
     }//GEN-LAST:event_logLevelCBActionPerformed
 
     private void feedbackXj3dCadFilterOptionsPanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedbackXj3dCadFilterOptionsPanelButtonActionPerformed
-        (new X3dEditUserPreferencesPanel()).feedbackButtonSend ("Panel Preferences: Xj3D CAD Filter Options tab");
+        (new X3dEditUserPreferencesPanel()).feedbackButtonReportIssue ("Panel Preferences: Xj3D CAD Filter Options tab");
     }//GEN-LAST:event_feedbackXj3dCadFilterOptionsPanelButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

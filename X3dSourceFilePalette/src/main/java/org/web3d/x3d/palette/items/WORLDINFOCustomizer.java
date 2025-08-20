@@ -103,10 +103,11 @@ public class WORLDINFOCustomizer extends BaseCustomizer
         // get model title
         String modelTitle = getBaseX3DElement().getMetaTitle();
         
-        if (displayTitle.contains(" "))
+        if ( displayTitle.contains(" ") && modelTitle.endsWith(".x3d") &&
+            (displayTitle.replace(" ","").equalsIgnoreCase(modelTitle)))
         {
             NotifyDescriptor d = new NotifyDescriptor.Confirmation(
-               "<html><p align='center'>Remove embedded whitespace from WorldInfo title (X3D file name)?</p><p>&nbsp;</p><p align='center'>\"<b>" + displayTitle + "</b>\" to \"<b>" + displayTitle.replace(" ","") + "</b>\"</p>",
+               "<html><p align='center'>Remove embedded whitespace from WorldInfo title?</p><p>&nbsp;</p><p align='center'>\"<b>" + displayTitle + "</b>\" to \"<b>" + displayTitle.replace(" ","") + "</b>\"</p>",
                "Confirm", NotifyDescriptor.YES_NO_OPTION);
             if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.YES_OPTION)
             {
@@ -115,7 +116,7 @@ public class WORLDINFOCustomizer extends BaseCustomizer
                 System.out.println ("*** WorldInfo title=" + displayTitle + "'");
             }
         }
-        if (displayTitle.endsWith(".x3d") && !displayTitle.equals(modelTitle))
+        if ((displayTitle.endsWith(".x3d") || displayTitle.isBlank()) && !displayTitle.equals(modelTitle))
         {
             NotifyDescriptor d = new NotifyDescriptor.Confirmation(
                "<html><p align='center'>Modify Worldinfo title <b>" + displayTitle + "</b> to match head/meta title <b>" + modelTitle + "</b>?</p>",

@@ -44,26 +44,20 @@ import static org.web3d.x3d.palette.X3DPaletteUtilities.*;
 
 /**
  * AUDIOCLIP.java
- * Created on Sep 12, 2007, 2:46 PM
  *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Mike Bailey and Don Brutzman
  * @version $Id$
  */
 public class AUDIOCLIP extends X3DSoundSourceNode
 {
-  private String description;
-  private boolean loop, loopDefault;;
-  private SFFloat pitch, pitchDefault;
-  private SFFloat pauseTime, pauseTimeDefault;
-  private SFFloat resumeTime, resumeTimeDefault;
-  private SFFloat startTime, startTimeDefault;
-  private SFFloat stopTime, stopTimeDefault;
-  private String[] urls, urlsDefault;
-    
+    private boolean loop, loopDefault;
+    private SFFloat pitch, pitchDefault;
+  
+    private boolean  load, loadDefault;
+    private SFDouble autoRefresh, autoRefreshDefault; // SFTime
+    private SFDouble autoRefreshTimeLimit, autoRefreshTimeLimitDefault; // SFTime
+    private String[] urls, urlsDefault;
+
   public AUDIOCLIP()
   {
   }
@@ -83,13 +77,18 @@ public class AUDIOCLIP extends X3DSoundSourceNode
   @Override
   public void initialize()
   {
+    autoRefresh= autoRefreshDefault                   = new SFDouble(AUDIOCLIP_ATTR_AUTOREFRESH_DFLT,0.0,null);
+    autoRefreshTimeLimit= autoRefreshTimeLimitDefault = new SFDouble(AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_DFLT,0.0,null);
     description = AUDIOCLIP_ATTR_DESCRIPTION_DFLT;
-    loop       = loopDefault       = Boolean.parseBoolean(AUDIOCLIP_ATTR_LOOP_DFLT);
-    pitch      = pitchDefault      = new SFFloat(AUDIOCLIP_ATTR_PITCH_DFLT,0.f,null);
-    pauseTime  = pauseTimeDefault  = new SFFloat(AUDIOCLIP_ATTR_PAUSETIME_DFLT,null,null);
-    resumeTime = resumeTimeDefault = new SFFloat(AUDIOCLIP_ATTR_RESUMETIME_DFLT,null,null);
-    startTime  = startTimeDefault  = new SFFloat(AUDIOCLIP_ATTR_STARTTIME_DFLT,null,null);
-    stopTime   = stopTimeDefault   = new SFFloat(AUDIOCLIP_ATTR_STOPTIME_DFLT,null,null);
+    enabled    = enabledDefault                       = Boolean.parseBoolean(AUDIOCLIP_ATTR_ENABLED_DFLT);
+    gain       = gainDefault                          = new SFFloat (AUDIOCLIP_ATTR_GAIN_DFLT,0.f,null);
+    load       = loadDefault                          = Boolean.parseBoolean(AUDIOCLIP_ATTR_LOAD_DFLT);
+    loop       = loopDefault                          = Boolean.parseBoolean(AUDIOCLIP_ATTR_LOOP_DFLT);
+    pitch      = pitchDefault                         = new SFFloat (AUDIOCLIP_ATTR_PITCH_DFLT,0.f,null);
+    pauseTime  = pauseTimeDefault                     = new SFDouble(AUDIOCLIP_ATTR_PAUSETIME_DFLT,null,null); // SFTime
+    resumeTime = resumeTimeDefault                    = new SFDouble(AUDIOCLIP_ATTR_RESUMETIME_DFLT,null,null);
+    startTime  = startTimeDefault                     = new SFDouble(AUDIOCLIP_ATTR_STARTTIME_DFLT,null,null);
+    stopTime   = stopTimeDefault                      = new SFDouble(AUDIOCLIP_ATTR_STOPTIME_DFLT,null,null);
     if(AUDIOCLIP_ATTR_URL_DFLT.length()>0)
       urls = urlsDefault = parseUrlsIntoStringArray(AUDIOCLIP_ATTR_URL_DFLT);
     else
@@ -102,9 +101,24 @@ public class AUDIOCLIP extends X3DSoundSourceNode
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
 
+    attr = root.getAttribute(AUDIOCLIP_ATTR_AUTOREFRESH_NAME);
+    if (attr != null)
+      autoRefresh = new SFDouble(attr.getValue(), 0.0, null);
+    attr = root.getAttribute(AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_NAME);
+    if (attr != null)
+      autoRefreshTimeLimit = new SFDouble(attr.getValue(), 0.0, null);
     attr = root.getAttribute(AUDIOCLIP_ATTR_DESCRIPTION_NAME);
     if (attr != null)
       description = attr.getValue();
+    attr = root.getAttribute(AUDIOCLIP_ATTR_ENABLED_NAME);
+    if (attr != null)
+      enabled = Boolean.parseBoolean(attr.getValue());
+    attr = root.getAttribute(AUDIOCLIP_ATTR_GAIN_NAME);
+    if (attr != null)
+      gain = new SFFloat(attr.getValue(), 0.f, null);
+    attr = root.getAttribute(AUDIOCLIP_ATTR_LOAD_NAME);
+    if (attr != null)
+      load = Boolean.parseBoolean(attr.getValue());
     attr = root.getAttribute(AUDIOCLIP_ATTR_LOOP_NAME);
     if (attr != null)
       loop = Boolean.parseBoolean(attr.getValue());
@@ -113,16 +127,16 @@ public class AUDIOCLIP extends X3DSoundSourceNode
       pitch = new SFFloat(attr.getValue(), 0.f, null);
     attr = root.getAttribute(AUDIOCLIP_ATTR_PAUSETIME_NAME);
     if (attr != null)
-      pauseTime = new SFFloat(attr.getValue(), null, null);
+      pauseTime = new SFDouble(attr.getValue(), null, null);
     attr = root.getAttribute(AUDIOCLIP_ATTR_RESUMETIME_NAME);
     if (attr != null)
-      resumeTime = new SFFloat(attr.getValue(), null, null);
+      resumeTime = new SFDouble(attr.getValue(), null, null);
     attr = root.getAttribute(AUDIOCLIP_ATTR_STARTTIME_NAME);
     if (attr != null)
-      startTime = new SFFloat(attr.getValue(), null, null);
+      startTime = new SFDouble(attr.getValue(), null, null);
     attr = root.getAttribute(AUDIOCLIP_ATTR_STOPTIME_NAME);
     if (attr != null)
-      stopTime = new SFFloat(attr.getValue(), null, null);
+      stopTime = new SFDouble(attr.getValue(), null, null);
     attr = root.getAttribute(AUDIOCLIP_ATTR_URL_NAME);
     if (attr != null)
       urls = parseUrlsIntoStringArray(attr.getValue());
@@ -132,11 +146,47 @@ public class AUDIOCLIP extends X3DSoundSourceNode
   public String createAttributes()
   {
     StringBuilder sb = new StringBuilder();
+    
+    if (AUDIOCLIP_ATTR_AUTOREFRESH_REQD || !autoRefresh.equals(autoRefreshDefault)) {
+      sb.append(" ");
+      sb.append(AUDIOCLIP_ATTR_AUTOREFRESH_NAME);
+      sb.append("='");
+      sb.append(autoRefresh);
+      sb.append("'");
+    }
+    if (AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_REQD || !autoRefreshTimeLimit.equals(autoRefreshTimeLimitDefault)) {
+      sb.append(" ");
+      sb.append(AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_NAME);
+      sb.append("='");
+      sb.append(autoRefreshTimeLimit);
+      sb.append("'");
+    }
     if (AUDIOCLIP_ATTR_DESCRIPTION_REQD || !description.equals(AUDIOCLIP_ATTR_DESCRIPTION_DFLT)) {
       sb.append(" ");
       sb.append(AUDIOCLIP_ATTR_DESCRIPTION_NAME);
       sb.append("='");
       sb.append(escapeXmlCharacters(description));
+      sb.append("'");
+    }
+    if (AUDIOCLIP_ATTR_ENABLED_REQD || enabled != enabledDefault) {
+      sb.append(" ");
+      sb.append(AUDIOCLIP_ATTR_ENABLED_NAME);
+      sb.append("='");
+      sb.append(enabled);
+      sb.append("'");
+    }
+    if (AUDIOCLIP_ATTR_GAIN_REQD || gain != gainDefault) {
+      sb.append(" ");
+      sb.append(AUDIOCLIP_ATTR_GAIN_NAME);
+      sb.append("='");
+      sb.append(gain);
+      sb.append("'");
+    }
+    if (AUDIOCLIP_ATTR_LOAD_REQD || load != loadDefault) {
+      sb.append(" ");
+      sb.append(AUDIOCLIP_ATTR_LOAD_NAME);
+      sb.append("='");
+      sb.append(load);
       sb.append("'");
     }
     if (AUDIOCLIP_ATTR_LOOP_REQD || loop != loopDefault) {
@@ -190,16 +240,6 @@ public class AUDIOCLIP extends X3DSoundSourceNode
     }
     return sb.toString();
   }
-  
-  public String getDescription()
-  {
-    return description;
-  }
-
-  public void setDescription(String description)
-  {
-    this.description = description;
-  }
 
   public boolean isLoop()
   {
@@ -209,16 +249,6 @@ public class AUDIOCLIP extends X3DSoundSourceNode
   public void setLoop(boolean loop)
   {
     this.loop = loop;
-  }
-
-  public String getPauseTime()
-  {
-    return pauseTime.toString();
-  }
-
-  public void setPauseTime(String pauseTime)
-  {
-    this.pauseTime = new SFFloat(pauseTime,null,null);
   }
 
   public String getPitch()
@@ -231,46 +261,58 @@ public class AUDIOCLIP extends X3DSoundSourceNode
     this.pitch = new SFFloat(pitch,null,null);
   }
 
-  public String getResumeTime()
-  {
-    return resumeTime.toString();
-  }
+    /**
+     * @return the load field
+     */
+    public boolean isLoad()
+    {
+      return load;
+    }
 
-  public void setResumeTime(String resumeTime)
-  {
-    this.resumeTime = new SFFloat(resumeTime,null,null);
-  }
+    /**
+     * @param newLoad the load field to set
+     */
+    public void setLoad(boolean newLoad)
+    {
+      load = newLoad;
+    }
 
-  public String getStartTime()
-  {
-    return startTime.toString();
-  }
+    /**
+     * @param newAutoRefresh the autoRefresh to set
+     */
+    public void setAutoRefresh(String newAutoRefresh) {
+        autoRefresh = new SFDouble(newAutoRefresh, 0.0, null);
+    }
+    /**
+     * @return the autoRefresh
+     */
+    public String getAutoRefresh() {
+        return autoRefresh.toString();
+    }
 
-  public void setStartTime(String startTime)
-  {
-    this.startTime = new SFFloat(startTime,null,null);
-  }
+    /**
+     * @param newAutoRefreshTimeLimit the autoRefreshTimeLimit to set
+     */
+    public void setAutoRefreshTimeLimit(String newAutoRefreshTimeLimit) {
+        autoRefreshTimeLimit = new SFDouble(newAutoRefreshTimeLimit, 0.0, null);
+    }
+    /**
+     * @return the autoRefreshTimeLimit
+     */
+    public String getAutoRefreshTimeLimit() {
+        return autoRefreshTimeLimit.toString();
+    }
 
-  public String getStopTime()
-  {
-    return stopTime.toString();
-  }
+    public String[] getUrls()
+    {
+      String[] urlArray = new String[urls.length];
+      System.arraycopy(urls, 0, urlArray, 0, urls.length);
+      return urlArray;
+    }
 
-  public void setStopTime(String stopTime)
-  {
-    this.stopTime = new SFFloat(stopTime,null,null);
-  }
-
-  public String[] getUrls()
-  {
-    String[] ret = new String[urls.length];
-    System.arraycopy(urls,0,ret,0,urls.length);
-    return ret;
-  }
-
-  public void setUrls(String[] urlarray)
-  {
-    urls = new String[urlarray.length];
-    System.arraycopy(urlarray, 0, this.urls, 0, urlarray.length);
-  }
+    public void setUrls(String[] urlArray)
+    {
+      urls = new String[urlArray.length];
+      System.arraycopy(urlArray, 0, this.urls, 0, urlArray.length);
+    }
 }

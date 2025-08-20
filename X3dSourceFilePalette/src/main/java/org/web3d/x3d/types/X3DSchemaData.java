@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -34,12 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.types;
 
 /**
- * X3DSchemaData.java
- * Created on August 17, 2007, 9:26 AM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
+ * X3DSchemaData:
+ * names, configuration and initialization values for fields.
  *
  * @author Mike Bailey, Don Brutzman
  * @version $Id$
@@ -288,6 +284,8 @@ public interface X3DSchemaData
       "Enter url/number of Xj3D Player SourceForge Issue",            //11
       "Enter new item TODO"                                           //12, new item, must be last
   };
+  
+  final String X3D_EDIT_GITHUB_ISSUES = "https://github.com/Web3DConsortium/X3D-Edit/issues";
 
   String[] META_ATTR_TODO_URLS  = // issue trackers
   {
@@ -298,7 +296,7 @@ public interface X3DSchemaData
       "https://sourceforge.net/p/x3d/examples/",                                          // 3
 //    "https://www.movesinstitute.org/bugzilla/buglist.cgi?quicksearch=example+archives", // 3
       
-      "https://github.com/Web3DConsortium/X3D-Edit/issues",                               // 4
+      X3D_EDIT_GITHUB_ISSUES,                                                             // 4
 //    "https://www.movesinstitute.org/bugzilla/buglist.cgi?quicksearch=X3D-Edit",         // 4
       
       "https://github.com/x3dom/x3dom/issues",                        // 5
@@ -535,12 +533,12 @@ public interface X3DSchemaData
   boolean UNIT_ATTR_CONVERSIONFACTOR_REQD = true;
   String  UNIT_ATTR_CONVERSIONFACTOR_DFLT = "1.0";
 
-  String[]CHILD_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode"};
+  String[]CHILD_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode"}; // TODO unused?
   String[]CHILD_CONTAINERFIELD_TOOLTIPS   =
   {
       "scene root node or child node",
       "only used as proxy geometry for parent Collision node",
-      "child of a GeoLOD node"
+      "rootNode field for a parent GeoLOD node",
   };
 
   // EXPORT element
@@ -569,8 +567,8 @@ public interface X3DSchemaData
   String  METADATA_CONTAINERFIELD_TOOLTIP    = "'metadata' when describing parent node, 'value' when used as part of MetadataSet";
   String[]METADATA_CONTAINERFIELD_TOOLTIPS   =
   {
-      "metadata describing parent node",
-      "value for parent MetadataSet node"
+      "metadata describing parent node (default in X3D version 3)",
+      "value for parent MetadataSet node (default in X3D version 4)"
   };
 
   String  METADATABOOLEAN_ELNAME              = "MetadataBoolean";
@@ -1014,22 +1012,23 @@ public interface X3DSchemaData
   String  GROUP_ATTR_BBOXSIZE_DFLT         = "-1 -1 -1";
 
   // Also used by Shape, LOD
-  String[]GROUP_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode"};
+  String[]GROUP_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode", "shape", "skin"};
   String[]GROUP_CONTAINERFIELD_TOOLTIPS   =
   {
       "'children' for typical use as child node",
-      "proxy field for a Collision child node",
-      "child of a GeoLOD node"
+      "proxy field for parent Collision node",
+      "rootNode field for a parent GeoLOD node",
+      "shape field for a parent CADFace or CollidableShape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
 
-  // Also used by Shape, LOD
   String[]INLINE_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode","watchList"};
   String[]INLINE_CONTAINERFIELD_TOOLTIPS   =
   {
       "'children' for typical use as child node",
-      "'proxy' field for a Collision child node",
-      "'rootNode' child of a GeoLOD node",
-      "'watchList' child of LoadSensor (X3D version 3 only)"
+      "'proxy' field for a parent Collision child node",
+      "'rootNode' child for a parent GeoLOD node",
+      "'watchList' child of a parent LoadSensor node (X3D version 3 only)"
   };
 
   // element Transform
@@ -1062,14 +1061,14 @@ public interface X3DSchemaData
   String  TRANSFORM_ATTR_BBOXSIZE_DFLT         = "-1 -1 -1";
 
   // similar versions used by Shape, LOD
-  String[]TRANSFORM_CONTAINERFIELD_CHOICES    = {"children", "proxy", "shape", "rootNode"};
+  String[]TRANSFORM_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode", "shape"};
   String  TRANSFORM_CONTAINERFIELD_TOOLTIP    = "'children' for typical use as child node, 'shape' when initial child of CADFace";
   String[]TRANSFORM_CONTAINERFIELD_TOOLTIPS   =
   {
       "'children' for typical use as child node",
-      "proxy field for a Collision child node",
-      "'shape' when initial child of CADFace",
-      "child of a GeoLOD node"
+      "proxy field for parent Collision node",
+      "child for a parent GeoLOD node",
+      "shape field for a parent CADFace or CollidableShape node",
   };
 
   // element Inline
@@ -1112,8 +1111,8 @@ public interface X3DSchemaData
   String[]LOD_ATTR_CONTAINERFIELD_TOOLTIPS   =
   {
       "child of a grouping node",
-      "proxy field for a Collision child node",
-      "shape field for a CADFace child node",
+      "proxy field for parent Collision node",
+      "shape field for a parent CADFace or CollidableShape node",
   };
 
   // element Shape
@@ -1125,14 +1124,14 @@ public interface X3DSchemaData
   boolean SHAPE_ATTR_BBOXSIZE_REQD   = false;
   String  SHAPE_ATTR_BBOXSIZE_DFLT   = "-1 -1 -1";
 
-  String[]SHAPE_ATTR_CONTAINERFIELD_CHOICES    = {"children", "proxy", "shape", "rootNode", "skin"};
+  String[]SHAPE_ATTR_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode", "shape", "skin"};
   String[]SHAPE_ATTR_CONTAINERFIELD_TOOLTIPS   =
   {
       "child of a grouping node",
-      "proxy field for a Collision child node",
-      "shape field for a CADFace child node",
-      "child of a GeoLOD node",
-      "'skin' of a HAnimHumanoid node",
+      "proxy field for parent Collision node",
+      "rootNode field for a parent GeoLOD node",
+      "shape field for a parent CADFace or CollidableShape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
 
   // element Sphere
@@ -1609,19 +1608,25 @@ public interface X3DSchemaData
   String  IMAGETEXTURE_ATTR_DESCRIPTION_DFLT = "";
 
   String[]IMAGETEXTURE_ATTR_CONTAINERFIELD_CHOICES = {
-    "texture", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children"};
+    "texture", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children","left","right","back","front","top","bottom"};
   String  IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIP =
-    "texture if parent is Shape or ComposedTexture3D, otherTexture if parent is TextureBackground";
+    "texture of parent Shape or ComposedTexture3D, otherTexture of parent TextureBackground";
   String[]IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "texture if parent is Shape or ComposedTexture3D",
-    "leftTexture if parent is TextureBackground",
-    "rightTexture if parent is TextureBackground",
-    "backTexture if parent is TextureBackground",
-    "frontTexture if parent is TextureBackground",
-    "topTexture if parent is TextureBackground",
-    "bottomTexture if parent is TextureBackground",
-    "child of LoadSensor (X3D version 3 only)",
-    "child of LoadSensor (X3D version 4)"};
+    "texture of parent Shape or ComposedTexture3D",
+    "leftTexture of parent TextureBackground",
+    "rightTexture of parent TextureBackground",
+    "backTexture of parent TextureBackground",
+    "frontTexture of parent TextureBackground",
+    "topTexture of parent TextureBackground",
+    "bottomTexture of parent TextureBackground",
+    "child of a parent LoadSensor node (X3D version 3 only)",
+    "child of a parent LoadSensor node (X3D version 4)",
+    "left of parent ComposedCubeMapTexture",
+    "right of parent ComposedCubeMapTexture",
+    "back of parent ComposedCubeMapTexture",
+    "front of parent ComposedCubeMapTexture",
+    "top of parent ComposedCubeMapTexture",
+    "bottom of parent ComposedCubeMapTexture"};
 
   // Element MovieTexture
   String  MOVIETEXTURE_ELNAME               = "MovieTexture";
@@ -1657,20 +1662,26 @@ public interface X3DSchemaData
   String  MOVIETEXTURE_ATTR_URL_DFLT        = "";
 
   String[]MOVIETEXTURE_ATTR_CONTAINERFIELD_CHOICES = {
-    "texture", "source", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children"};
+    "texture", "source", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children","left","right","back","front","top","bottom"};
   String  MOVIETEXTURE_ATTR_CONTAINERFIELD_TOOLTIP =
-    "texture if parent is Shape or ComposedTexture3D, source of parent is Sound, or backTexture/frontTexture/etc. if parent is TextureBackground";
+    "texture of parent Shape or ComposedTexture3D, source of parent is Sound, or backTexture/frontTexture/etc. of parent TextureBackground";
   String[]MOVIETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "texture if parent is Shape or ComposedTexture3D",
-    "source if parent is Sound",
-    "leftTexture if parent is TextureBackground",
-    "rightTexture if parent is TextureBackground",
-    "backTexture if parent is TextureBackground",
-    "frontTexture if parent is TextureBackground",
-    "topTexture if parent is TextureBackground",
-    "bottomTexture if parent is TextureBackground",
-    "child of LoadSensor (X3D version 3 only)",
-    "child of LoadSensor (X3D version 4)"};
+    "texture of parent Shape or ComposedTexture3D",
+    "source of parent Sound",
+    "leftTexture of parent TextureBackground",
+    "rightTexture of parent TextureBackground",
+    "backTexture of parent TextureBackground",
+    "frontTexture of parent TextureBackground",
+    "topTexture of parent TextureBackground",
+    "bottomTexture of parent TextureBackground",
+    "child of a parent LoadSensor node (X3D version 3 only)",
+    "child of a parent LoadSensor node (X3D version 4)",
+    "left of parent ComposedCubeMapTexture",
+    "right of parent ComposedCubeMapTexture",
+    "back of parent ComposedCubeMapTexture",
+    "front of parent ComposedCubeMapTexture",
+    "top of parent ComposedCubeMapTexture",
+    "bottom of parent ComposedCubeMapTexture"};
 
   // Element PixelTexture
   String  PIXELTEXTURE_ELNAME             = "PixelTexture";
@@ -1704,6 +1715,14 @@ public interface X3DSchemaData
   String  TEXTURECOORDINATE_ATTR_POINT_NAME = "point";
   boolean TEXTURECOORDINATE_ATTR_POINT_REQD = false;
   String  TEXTURECOORDINATE_ATTR_POINT_DFLT = "0 0, 1 0, 1 1, 0 1"; // override X3D spec to provide commonly used defaults for building interface
+  
+  // Also used by CoordinateDouble
+  String[]TEXTURECOORDINATE_CONTAINERFIELD_CHOICES    = {"texCoord", "texCoordRamp"};
+  String[]TEXTURECOORDINATE_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'texCoord' for typical use texturing mesh geometry",
+      "'texCoordRamp' for a parent ParticleSystem node (X3D version 3",
+  };
 
   // Element TextureCoordinateGenerator
   String  TEXTURECOORDINATEGENERATOR_ELNAME              = "TextureCoordinateGenerator";
@@ -1738,6 +1757,15 @@ public interface X3DSchemaData
   String  COLORRGBA_ATTR_COLOR_NAME = "color";
   boolean COLORRGBA_ATTR_COLOR_REQD = false;
   String  COLORRGBA_ATTR_COLOR_DFLT = "";
+  
+  // Also used by CoordinateDouble
+  String[]COLOR_CONTAINERFIELD_CHOICES    = {"color", "colorRamp"};
+  String[]COLOR_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'color' for typical use with mesh geometry",
+      "'colorRamp' for a parent ParticleSystem node (X3D version 3)",
+  };
+
 
   // Elements Coordinate and CoordinateDouble
   String  COORDINATE_ELNAME          = "Coordinate";
@@ -1745,6 +1773,16 @@ public interface X3DSchemaData
   String  COORDINATE_ATTR_POINT_NAME = "point";
   boolean COORDINATE_ATTR_POINT_REQD = false;
   String  COORDINATE_ATTR_POINT_DFLT = "";
+  
+  // Also used by CoordinateDouble
+  String[]COORDINATE_CONTAINERFIELD_CHOICES    = {"coord", "controlPoint", "skinCoord","skinBindingCoords"};
+  String[]COORDINATE_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'coord' for typical use as mesh geometry",
+      "'controlPoint' for a parent NURBS node",
+      "'skinCoord' for a parent HAnimHumanoid node",
+      "'skinBindingCoords' for a parent HAnimHumanoid node"
+  };
 
   // Geometry set choices are provided to ExpandableList to simplify populating coordinate array values
 
@@ -1891,8 +1929,8 @@ public interface X3DSchemaData
   String[]INDEXEDFACESET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
   String[]INDEXEDFACESET_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'geometry' for typical use within a Shape node",
-      "'skin' of a HAnimHumanoid node",
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
 
   // Element ElevationGrid
@@ -1967,6 +2005,9 @@ public interface X3DSchemaData
   String  TIMESENSOR_ATTR_CYCLEINTERVAL_NAME = "cycleInterval";
   boolean TIMESENSOR_ATTR_CYCLEINTERVAL_REQD = false;
   String  TIMESENSOR_ATTR_CYCLEINTERVAL_DFLT = "1";
+  String  TIMESENSOR_ATTR_DESCRIPTION_NAME   = "description";
+  boolean TIMESENSOR_ATTR_DESCRIPTION_REQD   = false;
+  String  TIMESENSOR_ATTR_DESCRIPTION_DFLT   = "";
   String  TIMESENSOR_ATTR_STARTTIME_NAME     = "startTime";
   boolean TIMESENSOR_ATTR_STARTTIME_REQD     = false;
   String  TIMESENSOR_ATTR_STARTTIME_DFLT     = "0";
@@ -2070,12 +2111,12 @@ public interface X3DSchemaData
 
  // Element TouchSensor
   String  TOUCHSENSOR_ELNAME                = "TouchSensor";
-  String  TOUCHSENSOR_ATTR_ENABLED_NAME     = "enabled";
-  boolean TOUCHSENSOR_ATTR_ENABLED_REQD     = false;
-  String  TOUCHSENSOR_ATTR_ENABLED_DFLT     = "true";
   String  TOUCHSENSOR_ATTR_DESCRIPTION_NAME = "description";
   boolean TOUCHSENSOR_ATTR_DESCRIPTION_REQD = false;
   String  TOUCHSENSOR_ATTR_DESCRIPTION_DFLT = "";
+  String  TOUCHSENSOR_ATTR_ENABLED_NAME     = "enabled";
+  boolean TOUCHSENSOR_ATTR_ENABLED_REQD     = false;
+  String  TOUCHSENSOR_ATTR_ENABLED_DFLT     = "true";
 
   // Element PlaneSensor
   String  PLANESENSOR_ELNAME                = "PlaneSensor";
@@ -2223,8 +2264,7 @@ public interface X3DSchemaData
 
   /* wrong...this is a X3DSoundSourceNode type */
 
-  String  LOADSENSOR_ATTR_DESCRIPTION_NAME  = "enabled";
-
+  String  LOADSENSOR_ATTR_DESCRIPTION_NAME  = "description";
   boolean LOADSENSOR_ATTR_DESCRIPTION_REQD  = false;
   String  LOADSENSOR_ATTR_DESCRIPTION_DFLT  = "";
   String  LOADSENSOR_ATTR_LOOP_NAME         = "loop";
@@ -2251,6 +2291,9 @@ public interface X3DSchemaData
 
   // ProximitySensor element
   String  PROXIMITYSENSOR_ELNAME            = "ProximitySensor";
+  String  PROXIMITYSENSOR_ATTR_DESCRIPTION_NAME  = "description";
+  boolean PROXIMITYSENSOR_ATTR_DESCRIPTION_REQD  = false;
+  String  PROXIMITYSENSOR_ATTR_DESCRIPTION_DFLT  = "";
   String  PROXIMITYSENSOR_ATTR_ENABLED_NAME = "enabled";
   boolean PROXIMITYSENSOR_ATTR_ENABLED_REQD = false;
   String  PROXIMITYSENSOR_ATTR_ENABLED_DFLT = "true";
@@ -2263,6 +2306,9 @@ public interface X3DSchemaData
 
   // VisibilitySensor element
   String  VISIBILITYSENSOR_ELNAME            = "VisibilitySensor";
+  String  VISIBILITYSENSOR_ATTR_DESCRIPTION_NAME  = "description";
+  boolean VISIBILITYSENSOR_ATTR_DESCRIPTION_REQD  = false;
+  String  VISIBILITYSENSOR_ATTR_DESCRIPTION_DFLT  = "";
   String  VISIBILITYSENSOR_ATTR_ENABLED_NAME = "enabled";
   boolean VISIBILITYSENSOR_ATTR_ENABLED_REQD = false;
   String  VISIBILITYSENSOR_ATTR_ENABLED_DFLT = "true";
@@ -2272,7 +2318,6 @@ public interface X3DSchemaData
   String  VISIBILITYSENSOR_ATTR_SIZE_NAME    = "size";
   boolean VISIBILITYSENSOR_ATTR_SIZE_REQD    = false;
   String  VISIBILITYSENSOR_ATTR_SIZE_DFLT    = "0 0 0";
-
 
   // Sound element
   String  SOUND_ELNAME               = "Sound";
@@ -2303,6 +2348,12 @@ public interface X3DSchemaData
   String  SOUND_ATTR_MAXBACK_NAME    = "maxBack";
   boolean SOUND_ATTR_MAXBACK_REQD    = false;
   String  SOUND_ATTR_MAXBACK_DFLT    = "10";
+  String  SOUND_ATTR_DESCRIPTION_NAME = "description"; // X3D 4.0
+  boolean SOUND_ATTR_DESCRIPTION_REQD = false;
+  String  SOUND_ATTR_DESCRIPTION_DFLT = "";
+  String  SOUND_ATTR_ENABLED_NAME     = "enabled";     // X3D 4.0
+  boolean SOUND_ATTR_ENABLED_REQD     = false;
+  String  SOUND_ATTR_ENABLED_DFLT     = "true";
 
   // AcousticProperties element
   String  ACOUSTICPROPERTIES_ELNAME                = "AcousticProperties";
@@ -2326,52 +2377,567 @@ public interface X3DSchemaData
   String  ACOUSTICPROPERTIES_ATTR_SPECULAR_DFLT    = "0";
 
   // Analyser element
-  String  ANALYSER_ELNAME                = "Analyser";
-  String  ANALYSER_ATTR_DESCRIPTION_NAME = "description";
-  boolean ANALYSER_ATTR_DESCRIPTION_REQD = false;
-  String  ANALYSER_ATTR_DESCRIPTION_DFLT = "";
-  String  ANALYSER_ATTR_ENABLED_NAME     = "enabled";
-  boolean ANALYSER_ATTR_ENABLED_REQD     = false;
-  String  ANALYSER_ATTR_ENABLED_DFLT     = "true";
-  String  ANALYSER_ATTR_CHANNELCOUNTMODE_NAME  = "channelCountMode";
-  boolean ANALYSER_ATTR_CHANNELCOUNTMODE_REQD  = false;
-  String  ANALYSER_ATTR_CHANNELCOUNTMODE_DFLT  = "max";
-  String  ANALYSER_ATTR_CHANNELINTERPRETATION_NAME  = "channelInterpretation";
-  boolean ANALYSER_ATTR_CHANNELINTERPRETATION_REQD  = false;
-  String  ANALYSER_ATTR_CHANNELINTERPRETATION_DFLT  = "speakers";
-  String  ANALYSER_ATTR_FFTSIZE_NAME  = "fftSize";
-  boolean ANALYSER_ATTR_FFTSIZE_REQD  = false;
-  String  ANALYSER_ATTR_FFTSIZE_DFLT  = "2048";
-  String  ANALYSER_ATTR_FREQUENCYBINCOUNT_NAME  = "frequencyBinCount";
-  boolean ANALYSER_ATTR_FREQUENCYBINCOUNT_REQD  = false;
-  String  ANALYSER_ATTR_FREQUENCYBINCOUNT_DFLT  = "1024";
-  String  ANALYSER_ATTR_GAIN_NAME  = "gain";
-  boolean ANALYSER_ATTR_GAIN_REQD  = false;
-  String  ANALYSER_ATTR_GAIN_DFLT  = "1";
-  String  ANALYSER_ATTR_MINDECIBELS_NAME  = "minDecibels";
-  boolean ANALYSER_ATTR_MINDECIBELS_REQD  = false;
-  String  ANALYSER_ATTR_MINDECIBELS_DFLT  = "-100";
-  String  ANALYSER_ATTR_MAXDECIBELS_NAME  = "maxDecibels";
-  boolean ANALYSER_ATTR_MAXDECIBELS_REQD  = false;
-  String  ANALYSER_ATTR_MAXDECIBELS_DFLT  = "-30";
-  String  ANALYSER_ATTR_PAUSETIME_NAME  = "pauseTime";
-  boolean ANALYSER_ATTR_PAUSETIME_REQD  = false;
-  String  ANALYSER_ATTR_PAUSETIME_DFLT  = "0";
-  String  ANALYSER_ATTR_RESUMETIME_NAME  = "resumeTime";
-  boolean ANALYSER_ATTR_RESUMETIME_REQD  = false;
-  String  ANALYSER_ATTR_RESUMETIME_DFLT  = "0";
+  String  ANALYSER_ELNAME                            = "Analyser";
+  String  ANALYSER_ATTR_DESCRIPTION_NAME             = "description";
+  boolean ANALYSER_ATTR_DESCRIPTION_REQD             = false;
+  String  ANALYSER_ATTR_DESCRIPTION_DFLT             = "";
+  String  ANALYSER_ATTR_ENABLED_NAME                 = "enabled";
+  boolean ANALYSER_ATTR_ENABLED_REQD                 = false;
+  String  ANALYSER_ATTR_ENABLED_DFLT                 = "true";
+  String  ANALYSER_ATTR_CHANNELCOUNTMODE_NAME        = "channelCountMode";
+  boolean ANALYSER_ATTR_CHANNELCOUNTMODE_REQD        = false;
+  String  ANALYSER_ATTR_CHANNELCOUNTMODE_DFLT        = "MAX";
+  String[]ANALYSER_ATTR_CHANNELCOUNTMODE_CHOICES     = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  ANALYSER_ATTR_CHANNELINTERPRETATION_NAME   = "channelInterpretation";
+  boolean ANALYSER_ATTR_CHANNELINTERPRETATION_REQD   = false;
+  String  ANALYSER_ATTR_CHANNELINTERPRETATION_DFLT   = "SPEAKERS";
+  String[]ANALYSER_ATTR_CHANNELINTERPRETATION_CHOICES= {"SPEAKERS","DISCRETE"};
+  String  ANALYSER_ATTR_FFTSIZE_NAME                 = "fftSize";
+  boolean ANALYSER_ATTR_FFTSIZE_REQD                 = false;
+  String  ANALYSER_ATTR_FFTSIZE_DFLT                 = "2048";
+  String  ANALYSER_ATTR_FREQUENCYBINCOUNT_NAME       = "frequencyBinCount";
+  boolean ANALYSER_ATTR_FREQUENCYBINCOUNT_REQD       = false;
+  String  ANALYSER_ATTR_FREQUENCYBINCOUNT_DFLT       = "1024";
+  String  ANALYSER_ATTR_GAIN_NAME                    = "gain";
+  boolean ANALYSER_ATTR_GAIN_REQD                    = false;
+  String  ANALYSER_ATTR_GAIN_DFLT                    = "1";
+  String  ANALYSER_ATTR_MINDECIBELS_NAME             = "minDecibels";
+  boolean ANALYSER_ATTR_MINDECIBELS_REQD             = false;
+  String  ANALYSER_ATTR_MINDECIBELS_DFLT             = "-100";
+  String  ANALYSER_ATTR_MAXDECIBELS_NAME             = "maxDecibels";
+  boolean ANALYSER_ATTR_MAXDECIBELS_REQD             = false;
+  String  ANALYSER_ATTR_MAXDECIBELS_DFLT             = "-30";
+  String  ANALYSER_ATTR_PAUSETIME_NAME               = "pauseTime";
+  boolean ANALYSER_ATTR_PAUSETIME_REQD               = false;
+  String  ANALYSER_ATTR_PAUSETIME_DFLT               = "0";
+  String  ANALYSER_ATTR_RESUMETIME_NAME              = "resumeTime";
+  boolean ANALYSER_ATTR_RESUMETIME_REQD              = false;
+  String  ANALYSER_ATTR_RESUMETIME_DFLT             = "0";
   String  ANALYSER_ATTR_SMOOTHINGTIMECONSTANT_NAME  = "smoothingTimeConstant";
   boolean ANALYSER_ATTR_SMOOTHINGTIMECONSTANT_REQD  = false;
   String  ANALYSER_ATTR_SMOOTHINGTIMECONSTANT_DFLT  = "0.8";
-  String  ANALYSER_ATTR_STARTTIME_NAME  = "startTime";
-  boolean ANALYSER_ATTR_STARTTIME_REQD  = false;
-  String  ANALYSER_ATTR_STARTTIME_DFLT  = "0";
-  String  ANALYSER_ATTR_STOPTIME_NAME  = "stopTime";
-  boolean ANALYSER_ATTR_STOPTIME_REQD  = false;
-  String  ANALYSER_ATTR_STOPTIME_DFLT  = "0";
-  String  ANALYSER_ATTR_TAILTIME_NAME  = "tailTime";
-  boolean ANALYSER_ATTR_TAILTIME_REQD  = false;
-  String  ANALYSER_ATTR_TAILTIME_DFLT  = "0";
+  String  ANALYSER_ATTR_STARTTIME_NAME              = "startTime";
+  boolean ANALYSER_ATTR_STARTTIME_REQD              = false;
+  String  ANALYSER_ATTR_STARTTIME_DFLT              = "0";
+  String  ANALYSER_ATTR_STOPTIME_NAME               = "stopTime";
+  boolean ANALYSER_ATTR_STOPTIME_REQD               = false;
+  String  ANALYSER_ATTR_STOPTIME_DFLT               = "0";
+  String  ANALYSER_ATTR_TAILTIME_NAME               = "tailTime";
+  boolean ANALYSER_ATTR_TAILTIME_REQD               = false;
+  String  ANALYSER_ATTR_TAILTIME_DFLT               = "0";
+
+  // AudioDestination element
+  String  AUDIODESTINATION_ELNAME                             = "AudioDestination";
+  String  AUDIODESTINATION_ATTR_CHANNELCOUNTMODE_NAME         = "channelCountMode";
+  boolean AUDIODESTINATION_ATTR_CHANNELCOUNTMODE_REQD         = false;
+  String  AUDIODESTINATION_ATTR_CHANNELCOUNTMODE_DFLT         = "MAX";
+  String[]AUDIODESTINATION_ATTR_CHANNELCOUNTMODE_CHOICES      = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  AUDIODESTINATION_ATTR_CHANNELINTERPRETATION_NAME    = "channelInterpretation";
+  boolean AUDIODESTINATION_ATTR_CHANNELINTERPRETATION_REQD    = false;
+  String  AUDIODESTINATION_ATTR_CHANNELINTERPRETATION_DFLT    = "SPEAKERS";
+  String[]AUDIODESTINATION_ATTR_CHANNELINTERPRETATION_CHOICES = {"SPEAKERS","DISCRETE"};
+  String  AUDIODESTINATION_ATTR_DESCRIPTION_NAME              = "description";
+  boolean AUDIODESTINATION_ATTR_DESCRIPTION_REQD              = false;
+  String  AUDIODESTINATION_ATTR_DESCRIPTION_DFLT              = "";
+  String  AUDIODESTINATION_ATTR_ENABLED_NAME                  = "enabled";
+  boolean AUDIODESTINATION_ATTR_ENABLED_REQD                  = false;
+  String  AUDIODESTINATION_ATTR_ENABLED_DFLT                  = "true";
+  String  AUDIODESTINATION_ATTR_GAIN_NAME                     = "gain";
+  boolean AUDIODESTINATION_ATTR_GAIN_REQD                     = false;
+  String  AUDIODESTINATION_ATTR_GAIN_DFLT                     = "1";
+  String  AUDIODESTINATION_ATTR_MEDIADEVICEID_NAME            = "mediaDeviceID";
+  boolean AUDIODESTINATION_ATTR_MEDIADEVICEID_REQD            = false;
+  String  AUDIODESTINATION_ATTR_MEDIADEVICEID_DFLT            = "";
+  String  AUDIODESTINATION_ATTR_MAXCHANNELCOUNT_NAME          = "maxChannelCount";
+  boolean AUDIODESTINATION_ATTR_MAXCHANNELCOUNT_REQD          = false;
+  String  AUDIODESTINATION_ATTR_MAXCHANNELCOUNT_DFLT          = "2";
+
+  // BiquadFilter element
+  String  BIQUADFILTER_ELNAME                              = "BiquadFilter";
+  String  BIQUADFILTER_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean BIQUADFILTER_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  BIQUADFILTER_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[]BIQUADFILTER_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  BIQUADFILTER_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean BIQUADFILTER_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  BIQUADFILTER_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[]BIQUADFILTER_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
+  String  BIQUADFILTER_ATTR_DESCRIPTION_NAME   = "description";
+  boolean BIQUADFILTER_ATTR_DESCRIPTION_REQD   = false;
+  String  BIQUADFILTER_ATTR_DESCRIPTION_DFLT   = "";
+  String  BIQUADFILTER_ATTR_DETUNE_NAME        = "detune";
+  boolean BIQUADFILTER_ATTR_DETUNE_REQD        = false;
+  String  BIQUADFILTER_ATTR_DETUNE_DFLT        = "0";
+  String  BIQUADFILTER_ATTR_ENABLED_NAME       = "enabled";
+  boolean BIQUADFILTER_ATTR_ENABLED_REQD       = false;
+  String  BIQUADFILTER_ATTR_ENABLED_DFLT       = "true";
+  String  BIQUADFILTER_ATTR_FREQUENCY_NAME     = "frequency";
+  boolean BIQUADFILTER_ATTR_FREQUENCY_REQD     = false;
+  String  BIQUADFILTER_ATTR_FREQUENCY_DFLT     = "350";
+  String  BIQUADFILTER_ATTR_GAIN_NAME          = "gain";
+  boolean BIQUADFILTER_ATTR_GAIN_REQD          = false;
+  String  BIQUADFILTER_ATTR_GAIN_DFLT          = "1";
+  String  BIQUADFILTER_ATTR_QUALITYFACTOR_NAME = "qualityFactor";
+  boolean BIQUADFILTER_ATTR_QUALITYFACTOR_REQD = false;
+  String  BIQUADFILTER_ATTR_QUALITYFACTOR_DFLT = "12";
+  String  BIQUADFILTER_ATTR_STARTTIME_NAME     = "startTime";
+  boolean BIQUADFILTER_ATTR_STARTTIME_REQD     = false;
+  String  BIQUADFILTER_ATTR_STARTTIME_DFLT     = "0";
+  String  BIQUADFILTER_ATTR_STOPTIME_NAME      = "stopTime";
+  boolean BIQUADFILTER_ATTR_STOPTIME_REQD      = false;
+  String  BIQUADFILTER_ATTR_STOPTIME_DFLT      = "0";
+  String  BIQUADFILTER_ATTR_PAUSETIME_NAME     = "pauseTime";
+  boolean BIQUADFILTER_ATTR_PAUSETIME_REQD     = false;
+  String  BIQUADFILTER_ATTR_PAUSETIME_DFLT     = "0";
+  String  BIQUADFILTER_ATTR_RESUMETIME_NAME    = "resumeTime";
+  boolean BIQUADFILTER_ATTR_RESUMETIME_REQD    = false;
+  String  BIQUADFILTER_ATTR_RESUMETIME_DFLT    = "0";
+  String  BIQUADFILTER_ATTR_TAILTIME_NAME      = "tailTime";
+  boolean BIQUADFILTER_ATTR_TAILTIME_REQD      = false;
+  String  BIQUADFILTER_ATTR_TAILTIME_DFLT      = "0";
+  String  BIQUADFILTER_ATTR_TYPE_NAME          = "type";
+  boolean BIQUADFILTER_ATTR_TYPE_REQD          = false;
+  String  BIQUADFILTER_ATTR_TYPE_DFLT          = "LOWPASS";
+  String[]BIQUADFILTER_ATTR_TYPE_CHOICES       = {"LOWPASS","HIGHPASS","BANDPASS","LOWSHELF","HIGHSHELF","PEAKING","NOTCH","ALLPASS"};
+
+  // Convolver element
+  String  CONVOLVER_ELNAME                              = "Convolver";
+  String  CONVOLVER_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean CONVOLVER_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  CONVOLVER_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[]CONVOLVER_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  CONVOLVER_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean CONVOLVER_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  CONVOLVER_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[]CONVOLVER_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
+  String  CONVOLVER_ATTR_DESCRIPTION_NAME  = "description";
+  boolean CONVOLVER_ATTR_DESCRIPTION_REQD  = false;
+  String  CONVOLVER_ATTR_DESCRIPTION_DFLT  = "";
+  String  CONVOLVER_ATTR_ENABLED_DFLT      = "true";
+  String  CONVOLVER_ATTR_ENABLED_NAME      = "enabled";
+  boolean CONVOLVER_ATTR_ENABLED_REQD      = false;
+  String  CONVOLVER_ATTR_BUFFER_NAME       = "buffer";
+  boolean CONVOLVER_ATTR_BUFFER_REQD       = false;
+  String  CONVOLVER_ATTR_BUFFER_DFLT       = "";
+  String  CONVOLVER_ATTR_GAIN_NAME         = "gain";
+  boolean CONVOLVER_ATTR_GAIN_REQD         = false;
+  String  CONVOLVER_ATTR_GAIN_DFLT         = "1";
+  String  CONVOLVER_ATTR_NORMALIZE_NAME    = "normalize";
+  boolean CONVOLVER_ATTR_NORMALIZE_REQD    = false;
+  String  CONVOLVER_ATTR_NORMALIZE_DFLT    = "false";
+  String  CONVOLVER_ATTR_STARTTIME_NAME    = "startTime";
+  boolean CONVOLVER_ATTR_STARTTIME_REQD    = false;
+  String  CONVOLVER_ATTR_STARTTIME_DFLT    = "0";
+  String  CONVOLVER_ATTR_STOPTIME_NAME     = "stopTime";
+  boolean CONVOLVER_ATTR_STOPTIME_REQD     = false;
+  String  CONVOLVER_ATTR_STOPTIME_DFLT     = "0";
+  String  CONVOLVER_ATTR_PAUSETIME_NAME    = "pauseTime";
+  boolean CONVOLVER_ATTR_PAUSETIME_REQD    = false;
+  String  CONVOLVER_ATTR_PAUSETIME_DFLT    = "0";
+  String  CONVOLVER_ATTR_RESUMETIME_NAME   = "resumeTime";
+  boolean CONVOLVER_ATTR_RESUMETIME_REQD   = false;
+  String  CONVOLVER_ATTR_RESUMETIME_DFLT   = "0";
+  String  CONVOLVER_ATTR_TAILTIME_NAME     = "tailTime";
+  boolean CONVOLVER_ATTR_TAILTIME_REQD     = false;
+  String  CONVOLVER_ATTR_TAILTIME_DFLT     = "0";
+
+  // Delay element
+  String  DELAY_ELNAME                              = "Delay";
+  String  DELAY_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean DELAY_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  DELAY_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[]DELAY_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  DELAY_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean DELAY_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  DELAY_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[]DELAY_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
+  String  DELAY_ATTR_DESCRIPTION_NAME   = "description";
+  boolean DELAY_ATTR_DESCRIPTION_REQD   = false;
+  String  DELAY_ATTR_DESCRIPTION_DFLT   = "";
+  String  DELAY_ATTR_ENABLED_NAME       = "enabled";
+  boolean DELAY_ATTR_ENABLED_REQD       = false;
+  String  DELAY_ATTR_ENABLED_DFLT       = "true";
+  String  DELAY_ATTR_DELAYTIME_NAME     = "delayTime";
+  boolean DELAY_ATTR_DELAYTIME_REQD     = false;
+  String  DELAY_ATTR_DELAYTIME_DFLT     = "1";
+  String  DELAY_ATTR_GAIN_NAME          = "gain";
+  boolean DELAY_ATTR_GAIN_REQD          = false;
+  String  DELAY_ATTR_GAIN_DFLT          = "1";
+  String  DELAY_ATTR_MAXDELAYTIME_NAME  = "maxDelayTime";
+  boolean DELAY_ATTR_MAXDELAYTIME_REQD  = false;
+  String  DELAY_ATTR_MAXDELAYTIME_DFLT  = "1";
+  String  DELAY_ATTR_STARTTIME_NAME     = "startTime";
+  boolean DELAY_ATTR_STARTTIME_REQD     = false;
+  String  DELAY_ATTR_STARTTIME_DFLT     = "0";
+  String  DELAY_ATTR_STOPTIME_NAME      = "stopTime";
+  boolean DELAY_ATTR_STOPTIME_REQD      = false;
+  String  DELAY_ATTR_STOPTIME_DFLT      = "0";
+  String  DELAY_ATTR_PAUSETIME_NAME     = "pauseTime";
+  boolean DELAY_ATTR_PAUSETIME_REQD     = false;
+  String  DELAY_ATTR_PAUSETIME_DFLT     = "0";
+  String  DELAY_ATTR_RESUMETIME_NAME    = "resumeTime";
+  boolean DELAY_ATTR_RESUMETIME_REQD    = false;
+  String  DELAY_ATTR_RESUMETIME_DFLT    = "0";
+  String  DELAY_ATTR_TAILTIME_NAME      = "tailTime";
+  boolean DELAY_ATTR_TAILTIME_REQD      = false;
+  String  DELAY_ATTR_TAILTIME_DFLT      = "0";
+
+  // DynamicsCompressor element
+  String  DYNAMICSCOMPRESSOR_ELNAME                              = "DynamicsCompressor";
+  String  DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[]DYNAMICSCOMPRESSOR_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[]DYNAMICSCOMPRESSOR_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
+  String  DYNAMICSCOMPRESSOR_ATTR_DESCRIPTION_NAME   = "description";
+  boolean DYNAMICSCOMPRESSOR_ATTR_DESCRIPTION_REQD   = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_DESCRIPTION_DFLT   = "";
+  String  DYNAMICSCOMPRESSOR_ATTR_ENABLED_NAME       = "enabled";
+  boolean DYNAMICSCOMPRESSOR_ATTR_ENABLED_REQD       = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_ENABLED_DFLT       = "true";
+  String  DYNAMICSCOMPRESSOR_ATTR_ATTACK_NAME        = "attack";
+  boolean DYNAMICSCOMPRESSOR_ATTR_ATTACK_REQD        = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_ATTACK_DFLT        = "0.003";
+  String  DYNAMICSCOMPRESSOR_ATTR_GAIN_NAME          = "gain";
+  boolean DYNAMICSCOMPRESSOR_ATTR_GAIN_REQD          = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_GAIN_DFLT          = "1";
+  String  DYNAMICSCOMPRESSOR_ATTR_KNEE_NAME          = "knee";
+  boolean DYNAMICSCOMPRESSOR_ATTR_KNEE_REQD          = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_KNEE_DFLT          = "30";
+  String  DYNAMICSCOMPRESSOR_ATTR_RATIO_NAME         = "ratio";
+  boolean DYNAMICSCOMPRESSOR_ATTR_RATIO_REQD         = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_RATIO_DFLT         = "12";
+  String  DYNAMICSCOMPRESSOR_ATTR_REDUCTION_NAME     = "reduction";
+  boolean DYNAMICSCOMPRESSOR_ATTR_REDUCTION_REQD     = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_REDUCTION_DFLT     = "30";
+  String  DYNAMICSCOMPRESSOR_ATTR_RELEASE_NAME       = "release";
+  boolean DYNAMICSCOMPRESSOR_ATTR_RELEASE_REQD       = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_RELEASE_DFLT       = "0.25";
+  String  DYNAMICSCOMPRESSOR_ATTR_THRESHOLD_NAME     = "threshold";
+  boolean DYNAMICSCOMPRESSOR_ATTR_THRESHOLD_REQD     = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_THRESHOLD_DFLT     = "-24";
+  String  DYNAMICSCOMPRESSOR_ATTR_STARTTIME_NAME     = "startTime";
+  boolean DYNAMICSCOMPRESSOR_ATTR_STARTTIME_REQD     = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_STARTTIME_DFLT     = "0";
+  String  DYNAMICSCOMPRESSOR_ATTR_STOPTIME_NAME      = "stopTime";
+  boolean DYNAMICSCOMPRESSOR_ATTR_STOPTIME_REQD      = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_STOPTIME_DFLT      = "0";
+  String  DYNAMICSCOMPRESSOR_ATTR_PAUSETIME_NAME     = "pauseTime";
+  boolean DYNAMICSCOMPRESSOR_ATTR_PAUSETIME_REQD     = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_PAUSETIME_DFLT     = "0";
+  String  DYNAMICSCOMPRESSOR_ATTR_RESUMETIME_NAME    = "resumeTime";
+  boolean DYNAMICSCOMPRESSOR_ATTR_RESUMETIME_REQD    = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_RESUMETIME_DFLT    = "0";
+  String  DYNAMICSCOMPRESSOR_ATTR_TAILTIME_NAME      = "tailTime";
+  boolean DYNAMICSCOMPRESSOR_ATTR_TAILTIME_REQD      = false;
+  String  DYNAMICSCOMPRESSOR_ATTR_TAILTIME_DFLT      = "0";
+
+  // ChannelMerger element
+  String  CHANNELMERGER_ELNAME                             = "ChannelMerger";
+  String  CHANNELMERGER_ATTR_CHANNELCOUNTMODE_NAME         = "channelCountMode";
+  boolean CHANNELMERGER_ATTR_CHANNELCOUNTMODE_REQD         = false;
+  String  CHANNELMERGER_ATTR_CHANNELCOUNTMODE_DFLT         = "MAX";
+  String[]CHANNELMERGER_ATTR_CHANNELCOUNTMODE_CHOICES      = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  CHANNELMERGER_ATTR_CHANNELINTERPRETATION_NAME    = "channelInterpretation";
+  boolean CHANNELMERGER_ATTR_CHANNELINTERPRETATION_REQD    = false;
+  String  CHANNELMERGER_ATTR_CHANNELINTERPRETATION_DFLT    = "SPEAKERS";
+  String[]CHANNELMERGER_ATTR_CHANNELINTERPRETATION_CHOICES = {"SPEAKERS","DISCRETE"};
+  String  CHANNELMERGER_ATTR_DESCRIPTION_NAME = "description";
+  boolean CHANNELMERGER_ATTR_DESCRIPTION_REQD = false;
+  String  CHANNELMERGER_ATTR_DESCRIPTION_DFLT = "";
+  String  CHANNELMERGER_ATTR_ENABLED_NAME     = "enabled";
+  boolean CHANNELMERGER_ATTR_ENABLED_REQD     = false;
+  String  CHANNELMERGER_ATTR_ENABLED_DFLT     = "true";
+  String  CHANNELMERGER_ATTR_GAIN_NAME        = "gain";
+  boolean CHANNELMERGER_ATTR_GAIN_REQD        = false;
+  String  CHANNELMERGER_ATTR_GAIN_DFLT        = "1";
+
+  // ChannelSelector element
+  String  CHANNELSELECTOR_ELNAME                             = "ChannelSelector";
+  String  CHANNELSELECTOR_ATTR_CHANNELCOUNTMODE_NAME         = "channelCountMode";
+  boolean CHANNELSELECTOR_ATTR_CHANNELCOUNTMODE_REQD         = false;
+  String  CHANNELSELECTOR_ATTR_CHANNELCOUNTMODE_DFLT         = "MAX";
+  String[]CHANNELSELECTOR_ATTR_CHANNELCOUNTMODE_CHOICES      = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  CHANNELSELECTOR_ATTR_CHANNELINTERPRETATION_NAME    = "channelInterpretation";
+  boolean CHANNELSELECTOR_ATTR_CHANNELINTERPRETATION_REQD    = false;
+  String  CHANNELSELECTOR_ATTR_CHANNELINTERPRETATION_DFLT    = "SPEAKERS";
+  String[]CHANNELSELECTOR_ATTR_CHANNELINTERPRETATION_CHOICES = {"SPEAKERS","DISCRETE"};
+  String  CHANNELSELECTOR_ATTR_DESCRIPTION_NAME = "description";
+  boolean CHANNELSELECTOR_ATTR_DESCRIPTION_REQD = false;
+  String  CHANNELSELECTOR_ATTR_DESCRIPTION_DFLT = "";
+  String  CHANNELSELECTOR_ATTR_ENABLED_NAME     = "enabled";
+  boolean CHANNELSELECTOR_ATTR_ENABLED_REQD     = false;
+  String  CHANNELSELECTOR_ATTR_ENABLED_DFLT     = "true";
+  String  CHANNELSELECTOR_ATTR_GAIN_NAME        = "gain";
+  boolean CHANNELSELECTOR_ATTR_GAIN_REQD        = false;
+  String  CHANNELSELECTOR_ATTR_GAIN_DFLT        = "1";
+  String  CHANNELSELECTOR_ATTR_CHANNELSELECTION_NAME        = "channelSelection";
+  boolean CHANNELSELECTOR_ATTR_CHANNELSELECTION_REQD        = false;
+  String  CHANNELSELECTOR_ATTR_CHANNELSELECTION_DFLT        = "0";
+
+  // ChannelSplitter element
+  String  CHANNELSPLITTER_ELNAME                             = "ChannelSplitter";
+  String  CHANNELSPLITTER_ATTR_CHANNELCOUNTMODE_NAME         = "channelCountMode";
+  boolean CHANNELSPLITTER_ATTR_CHANNELCOUNTMODE_REQD         = false;
+  String  CHANNELSPLITTER_ATTR_CHANNELCOUNTMODE_DFLT         = "MAX";
+  String[]CHANNELSPLITTER_ATTR_CHANNELCOUNTMODE_CHOICES      = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  CHANNELSPLITTER_ATTR_CHANNELINTERPRETATION_NAME    = "channelInterpretation";
+  boolean CHANNELSPLITTER_ATTR_CHANNELINTERPRETATION_REQD    = false;
+  String  CHANNELSPLITTER_ATTR_CHANNELINTERPRETATION_DFLT    = "SPEAKERS";
+  String[]CHANNELSPLITTER_ATTR_CHANNELINTERPRETATION_CHOICES = {"SPEAKERS","DISCRETE"};
+  String  CHANNELSPLITTER_ATTR_DESCRIPTION_NAME = "description";
+  boolean CHANNELSPLITTER_ATTR_DESCRIPTION_REQD = false;
+  String  CHANNELSPLITTER_ATTR_DESCRIPTION_DFLT = "";
+  String  CHANNELSPLITTER_ATTR_ENABLED_NAME     = "enabled";
+  boolean CHANNELSPLITTER_ATTR_ENABLED_REQD     = false;
+  String  CHANNELSPLITTER_ATTR_ENABLED_DFLT     = "true";
+  String  CHANNELSPLITTER_ATTR_GAIN_NAME        = "gain";
+  boolean CHANNELSPLITTER_ATTR_GAIN_REQD        = false;
+  String  CHANNELSPLITTER_ATTR_GAIN_DFLT        = "1";
+
+  // Gain element
+  String  GAIN_ELNAME                             = "Gain";
+  String  GAIN_ATTR_CHANNELCOUNTMODE_NAME         = "channelCountMode";
+  boolean GAIN_ATTR_CHANNELCOUNTMODE_REQD         = false;
+  String  GAIN_ATTR_CHANNELCOUNTMODE_DFLT         = "MAX";
+  String[]GAIN_ATTR_CHANNELCOUNTMODE_CHOICES      = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  GAIN_ATTR_CHANNELINTERPRETATION_NAME    = "channelInterpretation";
+  boolean GAIN_ATTR_CHANNELINTERPRETATION_REQD    = false;
+  String  GAIN_ATTR_CHANNELINTERPRETATION_DFLT    = "SPEAKERS";
+  String[]GAIN_ATTR_CHANNELINTERPRETATION_CHOICES = {"SPEAKERS","DISCRETE"};
+  String  GAIN_ATTR_DESCRIPTION_NAME = "description";
+  boolean GAIN_ATTR_DESCRIPTION_REQD = false;
+  String  GAIN_ATTR_DESCRIPTION_DFLT = "";
+  String  GAIN_ATTR_ENABLED_NAME     = "enabled";
+  boolean GAIN_ATTR_ENABLED_REQD     = false;
+  String  GAIN_ATTR_ENABLED_DFLT     = "true";
+  String  GAIN_ATTR_GAIN_NAME        = "gain";
+  boolean GAIN_ATTR_GAIN_REQD        = false;
+  String  GAIN_ATTR_GAIN_DFLT        = "1";
+  String  GAIN_ATTR_STARTTIME_NAME   = "startTime";
+  boolean GAIN_ATTR_STARTTIME_REQD   = false;
+  String  GAIN_ATTR_STARTTIME_DFLT   = "0";
+  String  GAIN_ATTR_STOPTIME_NAME    = "stopTime";
+  boolean GAIN_ATTR_STOPTIME_REQD    = false;
+  String  GAIN_ATTR_STOPTIME_DFLT    = "0";
+  String  GAIN_ATTR_PAUSETIME_NAME   = "pauseTime";
+  boolean GAIN_ATTR_PAUSETIME_REQD   = false;
+  String  GAIN_ATTR_PAUSETIME_DFLT   = "0";
+  String  GAIN_ATTR_RESUMETIME_NAME  = "resumeTime";
+  boolean GAIN_ATTR_RESUMETIME_REQD  = false;
+  String  GAIN_ATTR_RESUMETIME_DFLT  = "0";
+  String  GAIN_ATTR_TAILTIME_NAME    = "tailTime";
+  boolean GAIN_ATTR_TAILTIME_REQD    = false;
+  String  GAIN_ATTR_TAILTIME_DFLT    = "0";
+
+  // ListenerPointSource element
+  String  LISTENERPOINTSOURCE_ELNAME                       = "ListenerPointSource";
+  String  LISTENERPOINTSOURCE_ATTR_DESCRIPTION_NAME        = "description";
+  boolean LISTENERPOINTSOURCE_ATTR_DESCRIPTION_REQD        = false;
+  String  LISTENERPOINTSOURCE_ATTR_DESCRIPTION_DFLT        = "";
+  String  LISTENERPOINTSOURCE_ATTR_ENABLED_NAME            = "enabled";
+  boolean LISTENERPOINTSOURCE_ATTR_ENABLED_REQD            = false;
+  String  LISTENERPOINTSOURCE_ATTR_ENABLED_DFLT            = "true";
+  String  LISTENERPOINTSOURCE_ATTR_GAIN_NAME               = "gain";
+  boolean LISTENERPOINTSOURCE_ATTR_GAIN_REQD               = false;
+  String  LISTENERPOINTSOURCE_ATTR_GAIN_DFLT               = "1";
+  String  LISTENERPOINTSOURCE_ATTR_STARTTIME_NAME          = "startTime";
+  boolean LISTENERPOINTSOURCE_ATTR_STARTTIME_REQD          = false;
+  String  LISTENERPOINTSOURCE_ATTR_STARTTIME_DFLT          = "0";
+  String  LISTENERPOINTSOURCE_ATTR_STOPTIME_NAME           = "stopTime";
+  boolean LISTENERPOINTSOURCE_ATTR_STOPTIME_REQD           = false;
+  String  LISTENERPOINTSOURCE_ATTR_STOPTIME_DFLT           = "0";
+  String  LISTENERPOINTSOURCE_ATTR_PAUSETIME_NAME          = "pauseTime";
+  boolean LISTENERPOINTSOURCE_ATTR_PAUSETIME_REQD          = false;
+  String  LISTENERPOINTSOURCE_ATTR_PAUSETIME_DFLT          = "0";
+  String  LISTENERPOINTSOURCE_ATTR_RESUMETIME_NAME         = "resumeTime";
+  boolean LISTENERPOINTSOURCE_ATTR_RESUMETIME_REQD         = false;
+  String  LISTENERPOINTSOURCE_ATTR_RESUMETIME_DFLT         = "0";
+  String  LISTENERPOINTSOURCE_ATTR_DOPPLERENABLED_NAME     = "dopplerEnabled";
+  boolean LISTENERPOINTSOURCE_ATTR_DOPPLERENABLED_REQD     = false;
+  String  LISTENERPOINTSOURCE_ATTR_DOPPLERENABLED_DFLT     = "false";
+  String  LISTENERPOINTSOURCE_ATTR_INTERAURALDISTANCE_NAME = "interauralDistance";
+  boolean LISTENERPOINTSOURCE_ATTR_INTERAURALDISTANCE_REQD = false;
+  String  LISTENERPOINTSOURCE_ATTR_INTERAURALDISTANCE_DFLT = "0";
+  String  LISTENERPOINTSOURCE_ATTR_ORIENTATION_NAME        = "orientation";
+  boolean LISTENERPOINTSOURCE_ATTR_ORIENTATION_REQD        = false;
+  String  LISTENERPOINTSOURCE_ATTR_ORIENTATION_DFLT        = "0 0 1 0";
+  String  LISTENERPOINTSOURCE_ATTR_POSITION_NAME           = "position";
+  boolean LISTENERPOINTSOURCE_ATTR_POSITION_REQD           = false;
+  String  LISTENERPOINTSOURCE_ATTR_POSITION_DFLT           = "0 0 0";
+  String  LISTENERPOINTSOURCE_ATTR_TRACKCURRENTVIEW_NAME   = "trackCurrentView";
+  boolean LISTENERPOINTSOURCE_ATTR_TRACKCURRENTVIEW_REQD   = false;
+  String  LISTENERPOINTSOURCE_ATTR_TRACKCURRENTVIEW_DFLT   = "false";
+
+  // MicrophoneSource element
+  String  MICROPHONESOURCE_ELNAME                  = "MicrophoneSource";
+  String  MICROPHONESOURCE_ATTR_DESCRIPTION_NAME   = "description";
+  boolean MICROPHONESOURCE_ATTR_DESCRIPTION_REQD   = false;
+  String  MICROPHONESOURCE_ATTR_DESCRIPTION_DFLT   = "";
+  String  MICROPHONESOURCE_ATTR_ENABLED_NAME       = "enabled";
+  boolean MICROPHONESOURCE_ATTR_ENABLED_REQD       = false;
+  String  MICROPHONESOURCE_ATTR_ENABLED_DFLT       = "true";
+  String  MICROPHONESOURCE_ATTR_GAIN_NAME          = "gain";
+  boolean MICROPHONESOURCE_ATTR_GAIN_REQD          = false;
+  String  MICROPHONESOURCE_ATTR_GAIN_DFLT          = "1";
+  String  MICROPHONESOURCE_ATTR_STARTTIME_NAME     = "startTime";
+  boolean MICROPHONESOURCE_ATTR_STARTTIME_REQD     = false;
+  String  MICROPHONESOURCE_ATTR_STARTTIME_DFLT     = "0";
+  String  MICROPHONESOURCE_ATTR_STOPTIME_NAME      = "stopTime";
+  boolean MICROPHONESOURCE_ATTR_STOPTIME_REQD      = false;
+  String  MICROPHONESOURCE_ATTR_STOPTIME_DFLT      = "0";
+  String  MICROPHONESOURCE_ATTR_PAUSETIME_NAME     = "pauseTime";
+  boolean MICROPHONESOURCE_ATTR_PAUSETIME_REQD     = false;
+  String  MICROPHONESOURCE_ATTR_PAUSETIME_DFLT     = "0";
+  String  MICROPHONESOURCE_ATTR_RESUMETIME_NAME    = "resumeTime";
+  boolean MICROPHONESOURCE_ATTR_RESUMETIME_REQD    = false;
+  String  MICROPHONESOURCE_ATTR_RESUMETIME_DFLT    = "0";
+  String  MICROPHONESOURCE_ATTR_MEDIADEVICEID_NAME = "mediaDeviceID";
+  boolean MICROPHONESOURCE_ATTR_MEDIADEVICEID_REQD = false;
+  String  MICROPHONESOURCE_ATTR_MEDIADEVICEID_DFLT = "";
+
+  // OscillatorSource element
+  String  OSCILLATORSOURCE_ELNAME                  = "OscillatorSource";
+  String  OSCILLATORSOURCE_ATTR_DESCRIPTION_NAME   = "description";
+  boolean OSCILLATORSOURCE_ATTR_DESCRIPTION_REQD   = false;
+  String  OSCILLATORSOURCE_ATTR_DESCRIPTION_DFLT   = "";
+  String  OSCILLATORSOURCE_ATTR_ENABLED_NAME       = "enabled";
+  boolean OSCILLATORSOURCE_ATTR_ENABLED_REQD       = false;
+  String  OSCILLATORSOURCE_ATTR_ENABLED_DFLT       = "true";
+  String  OSCILLATORSOURCE_ATTR_GAIN_NAME          = "gain";
+  boolean OSCILLATORSOURCE_ATTR_GAIN_REQD          = false;
+  String  OSCILLATORSOURCE_ATTR_GAIN_DFLT          = "1";
+  String  OSCILLATORSOURCE_ATTR_STARTTIME_NAME     = "startTime";
+  boolean OSCILLATORSOURCE_ATTR_STARTTIME_REQD     = false;
+  String  OSCILLATORSOURCE_ATTR_STARTTIME_DFLT     = "0";
+  String  OSCILLATORSOURCE_ATTR_STOPTIME_NAME      = "stopTime";
+  boolean OSCILLATORSOURCE_ATTR_STOPTIME_REQD      = false;
+  String  OSCILLATORSOURCE_ATTR_STOPTIME_DFLT      = "0";
+  String  OSCILLATORSOURCE_ATTR_PAUSETIME_NAME     = "pauseTime";
+  boolean OSCILLATORSOURCE_ATTR_PAUSETIME_REQD     = false;
+  String  OSCILLATORSOURCE_ATTR_PAUSETIME_DFLT     = "0";
+  String  OSCILLATORSOURCE_ATTR_RESUMETIME_NAME    = "resumeTime";
+  boolean OSCILLATORSOURCE_ATTR_RESUMETIME_REQD    = false;
+  String  OSCILLATORSOURCE_ATTR_RESUMETIME_DFLT    = "0";
+  String  OSCILLATORSOURCE_ATTR_DETUNE_NAME        = "detune";
+  boolean OSCILLATORSOURCE_ATTR_DETUNE_REQD        = false;
+  String  OSCILLATORSOURCE_ATTR_DETUNE_DFLT        = "0";
+  String  OSCILLATORSOURCE_ATTR_FREQUENCY_NAME     = "frequency";
+  boolean OSCILLATORSOURCE_ATTR_FREQUENCY_REQD     = false;
+  String  OSCILLATORSOURCE_ATTR_FREQUENCY_DFLT     = "440.0";
+
+  // PeriodicWave element
+  String  PERIODICWAVE_ELNAME                       = "PeriodicWave";
+  String  PERIODICWAVE_ATTR_DESCRIPTION_NAME        = "description";
+  boolean PERIODICWAVE_ATTR_DESCRIPTION_REQD        = false;
+  String  PERIODICWAVE_ATTR_DESCRIPTION_DFLT        = "";
+  String  PERIODICWAVE_ATTR_ENABLED_NAME            = "enabled";
+  boolean PERIODICWAVE_ATTR_ENABLED_REQD            = false;
+  String  PERIODICWAVE_ATTR_ENABLED_DFLT            = "true";
+  String  PERIODICWAVE_ATTR_OPTIONSREAL_NAME        = "optionsReal";
+  boolean PERIODICWAVE_ATTR_OPTIONSREAL_REQD        = false;
+  String  PERIODICWAVE_ATTR_OPTIONSREAL_DFLT        = "";
+  String  PERIODICWAVE_ATTR_OPTIONSIMAG_NAME        = "optionsImag";
+  boolean PERIODICWAVE_ATTR_OPTIONSIMAG_REQD        = false;
+  String  PERIODICWAVE_ATTR_OPTIONSIMAG_DFLT        = "";
+  String  PERIODICWAVE_ATTR_TYPE_NAME               = "type";
+  boolean PERIODICWAVE_ATTR_TYPE_REQD               = false;
+  String  PERIODICWAVE_ATTR_TYPE_DFLT               = "SQUARE";
+  String[]PERIODICWAVE_ATTR_TYPE_CHOICES            = {"SINE","SQUARE","SAWTOOTH","TRIANGLE","CUSTOM"};
+  
+  // StreamAudioDestination element
+  String  STREAMAUDIODESTINATION_ELNAME                             = "StreamAudioDestination";
+  String  STREAMAUDIODESTINATION_ATTR_CHANNELCOUNTMODE_NAME         = "channelCountMode";
+  boolean STREAMAUDIODESTINATION_ATTR_CHANNELCOUNTMODE_REQD         = false;
+  String  STREAMAUDIODESTINATION_ATTR_CHANNELCOUNTMODE_DFLT         = "MAX";
+  String[]STREAMAUDIODESTINATION_ATTR_CHANNELCOUNTMODE_CHOICES      = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  STREAMAUDIODESTINATION_ATTR_CHANNELINTERPRETATION_NAME    = "channelInterpretation";
+  boolean STREAMAUDIODESTINATION_ATTR_CHANNELINTERPRETATION_REQD    = false;
+  String  STREAMAUDIODESTINATION_ATTR_CHANNELINTERPRETATION_DFLT    = "SPEAKERS";
+  String[]STREAMAUDIODESTINATION_ATTR_CHANNELINTERPRETATION_CHOICES = {"SPEAKERS","DISCRETE"};
+  String  STREAMAUDIODESTINATION_ATTR_DESCRIPTION_NAME              = "description";
+  boolean STREAMAUDIODESTINATION_ATTR_DESCRIPTION_REQD              = false;
+  String  STREAMAUDIODESTINATION_ATTR_DESCRIPTION_DFLT              = "";
+  String  STREAMAUDIODESTINATION_ATTR_ENABLED_NAME                  = "enabled";
+  boolean STREAMAUDIODESTINATION_ATTR_ENABLED_REQD                  = false;
+  String  STREAMAUDIODESTINATION_ATTR_ENABLED_DFLT                  = "true";
+  String  STREAMAUDIODESTINATION_ATTR_GAIN_NAME                     = "gain";
+  boolean STREAMAUDIODESTINATION_ATTR_GAIN_REQD                     = false;
+  String  STREAMAUDIODESTINATION_ATTR_GAIN_DFLT                     = "1";
+  String  STREAMAUDIODESTINATION_ATTR_MEDIADEVICEID_NAME            = "mediaDeviceID";
+  boolean STREAMAUDIODESTINATION_ATTR_MEDIADEVICEID_REQD            = false;
+  String  STREAMAUDIODESTINATION_ATTR_MEDIADEVICEID_DFLT            = "";
+  String  STREAMAUDIODESTINATION_ATTR_STREAMIDENTIFIER_NAME         = "streamIdentifier";
+  boolean STREAMAUDIODESTINATION_ATTR_STREAMIDENTIFIER_REQD         = false;
+  String  STREAMAUDIODESTINATION_ATTR_STREAMIDENTIFIER_DFLT         = "2";
+  
+  // StreamAudioSource element
+  String  STREAMAUDIOSOURCE_ELNAME                             = "StreamAudioSource";
+  String  STREAMAUDIOSOURCE_ATTR_CHANNELCOUNTMODE_NAME         = "channelCountMode";
+  boolean STREAMAUDIOSOURCE_ATTR_CHANNELCOUNTMODE_REQD         = false;
+  String  STREAMAUDIOSOURCE_ATTR_CHANNELCOUNTMODE_DFLT         = "MAX";
+  String[]STREAMAUDIOSOURCE_ATTR_CHANNELCOUNTMODE_CHOICES      = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  STREAMAUDIOSOURCE_ATTR_CHANNELINTERPRETATION_NAME    = "channelInterpretation";
+  boolean STREAMAUDIOSOURCE_ATTR_CHANNELINTERPRETATION_REQD    = false;
+  String  STREAMAUDIOSOURCE_ATTR_CHANNELINTERPRETATION_DFLT    = "SPEAKERS";
+  String[]STREAMAUDIOSOURCE_ATTR_CHANNELINTERPRETATION_CHOICES = {"SPEAKERS","DISCRETE"};
+  String  STREAMAUDIOSOURCE_ATTR_DESCRIPTION_NAME              = "description";
+  boolean STREAMAUDIOSOURCE_ATTR_DESCRIPTION_REQD              = false;
+  String  STREAMAUDIOSOURCE_ATTR_DESCRIPTION_DFLT              = "";
+  String  STREAMAUDIOSOURCE_ATTR_ENABLED_NAME                  = "enabled";
+  boolean STREAMAUDIOSOURCE_ATTR_ENABLED_REQD                  = false;
+  String  STREAMAUDIOSOURCE_ATTR_ENABLED_DFLT                  = "true";
+  String  STREAMAUDIOSOURCE_ATTR_GAIN_NAME                     = "gain";
+  boolean STREAMAUDIOSOURCE_ATTR_GAIN_REQD                     = false;
+  String  STREAMAUDIOSOURCE_ATTR_GAIN_DFLT                     = "1";
+  String  STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_NAME         = "streamIdentifier";
+  boolean STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_REQD         = false;
+  String  STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_DFLT         = "";
+
+  // WaveShaper element
+  String  WAVESHAPER_ELNAME                              = "WaveShaper";
+  String  WAVESHAPER_ATTR_CHANNELCOUNTMODE_NAME          = "channelCountMode";
+  boolean WAVESHAPER_ATTR_CHANNELCOUNTMODE_REQD          = false;
+  String  WAVESHAPER_ATTR_CHANNELCOUNTMODE_DFLT          = "MAX";
+  String[]WAVESHAPER_ATTR_CHANNELCOUNTMODE_CHOICES       = {"MAX","CLAMPED_MAX","EXPLICIT"};
+  String  WAVESHAPER_ATTR_CHANNELINTERPRETATION_NAME     = "channelInterpretation";
+  boolean WAVESHAPER_ATTR_CHANNELINTERPRETATION_REQD     = false;
+  String  WAVESHAPER_ATTR_CHANNELINTERPRETATION_DFLT     = "SPEAKERS";
+  String[]WAVESHAPER_ATTR_CHANNELINTERPRETATION_CHOICES  = {"SPEAKERS","DISCRETE"};
+  String  WAVESHAPER_ATTR_DESCRIPTION_NAME   = "description";
+  boolean WAVESHAPER_ATTR_DESCRIPTION_REQD   = false;
+  String  WAVESHAPER_ATTR_DESCRIPTION_DFLT   = "";
+  String  WAVESHAPER_ATTR_ENABLED_DFLT       = "true";
+  String  WAVESHAPER_ATTR_ENABLED_NAME       = "enabled";
+  boolean WAVESHAPER_ATTR_ENABLED_REQD       = false;
+  String  WAVESHAPER_ATTR_CURVE_NAME         = "curve";
+  boolean WAVESHAPER_ATTR_CURVE_REQD         = false;
+  String  WAVESHAPER_ATTR_CURVE_DFLT         = "";
+  String  WAVESHAPER_ATTR_GAIN_NAME          = "gain";
+  boolean WAVESHAPER_ATTR_GAIN_REQD          = false;
+  String  WAVESHAPER_ATTR_GAIN_DFLT          = "1";
+  String  WAVESHAPER_ATTR_OVERSAMPLE_NAME    = "oversample"; // all lower case to match W3C Web Audio API
+  boolean WAVESHAPER_ATTR_OVERSAMPLE_REQD    = false;
+  String  WAVESHAPER_ATTR_OVERSAMPLE_DFLT    = "1";
+  String[]WAVESHAPER_ATTR_OVERSAMPLE_CHOICES = {"NONE","2X","4X"};
+  String  WAVESHAPER_ATTR_STARTTIME_NAME     = "startTime";
+  boolean WAVESHAPER_ATTR_STARTTIME_REQD     = false;
+  String  WAVESHAPER_ATTR_STARTTIME_DFLT     = "0";
+  String  WAVESHAPER_ATTR_STOPTIME_NAME      = "stopTime";
+  boolean WAVESHAPER_ATTR_STOPTIME_REQD      = false;
+  String  WAVESHAPER_ATTR_STOPTIME_DFLT      = "0";
+  String  WAVESHAPER_ATTR_PAUSETIME_NAME     = "pauseTime";
+  boolean WAVESHAPER_ATTR_PAUSETIME_REQD     = false;
+  String  WAVESHAPER_ATTR_PAUSETIME_DFLT     = "0";
+  String  WAVESHAPER_ATTR_RESUMETIME_NAME    = "resumeTime";
+  boolean WAVESHAPER_ATTR_RESUMETIME_REQD    = false;
+  String  WAVESHAPER_ATTR_RESUMETIME_DFLT    = "0";
+  String  WAVESHAPER_ATTR_TAILTIME_NAME      = "tailTime";
+  boolean WAVESHAPER_ATTR_TAILTIME_REQD      = false;
+  String  WAVESHAPER_ATTR_TAILTIME_DFLT      = "0";
 
   // AudioClip element
   String  AUDIOCLIP_ELNAME                = "AudioClip";
@@ -2399,7 +2965,22 @@ public interface X3DSchemaData
   String  AUDIOCLIP_ATTR_URL_NAME         = "url";
   boolean AUDIOCLIP_ATTR_URL_REQD         = false;
   String  AUDIOCLIP_ATTR_URL_DFLT         = "";
-
+  String  AUDIOCLIP_ATTR_AUTOREFRESH_NAME = "autoRefresh"; // X3D 4.0
+  boolean AUDIOCLIP_ATTR_AUTOREFRESH_REQD = false;
+  String  AUDIOCLIP_ATTR_AUTOREFRESH_DFLT = "0";
+  String  AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_NAME = "autoRefreshTimeLimit";
+  boolean AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_REQD = false;
+  String  AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_DFLT = "3600";
+  String  AUDIOCLIP_ATTR_ENABLED_NAME     = "enabled";
+  boolean AUDIOCLIP_ATTR_ENABLED_REQD     = false;
+  String  AUDIOCLIP_ATTR_ENABLED_DFLT     = "true";
+  String  AUDIOCLIP_ATTR_GAIN_NAME        = "gain";
+  boolean AUDIOCLIP_ATTR_GAIN_REQD        = false;
+  String  AUDIOCLIP_ATTR_GAIN_DFLT        = "1.0";
+  String  AUDIOCLIP_ATTR_LOAD_NAME        = "loop";
+  boolean AUDIOCLIP_ATTR_LOAD_REQD        = false;
+  String  AUDIOCLIP_ATTR_LOAD_DFLT        = "false";
+  
   // Polyline2d element
   String  POLYLINE2D_ELNAME                 = "Polyline2D";
   String  POLYLINE2D_ATTR_LINESEGMENTS_NAME = "lineSegments";
@@ -2417,6 +2998,14 @@ public interface X3DSchemaData
   String  NORMAL_ATTR_VECTOR_NAME ="vector";
   boolean NORMAL_ATTR_VECTOR_REQD = false;
   String  NORMAL_ATTR_VECTOR_DFLT = "";
+  
+  String[]NORMAL_CONTAINERFIELD_CHOICES    = {"normal","skinNormal","skinBindingNormals"};
+  String[]NORMAL_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'normal' field forparent geometry node",
+      "'skinNormal' field for a parent HAnimHumanoid node",
+      "'skinBindingNormals' field for a parent HAnimHumanoid node",
+  };
 
   // TriangleSet element
   String  TRIANGLESET_ELNAME                    = "TriangleSet";
@@ -2505,8 +3094,8 @@ public interface X3DSchemaData
   String[]INDEXEDTRIANGLESET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
   String[]INDEXEDTRIANGLESET_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'geometry' for typical use within a Shape node",
-      "'skin' of a HAnimHumanoid node",
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
 
   // IndexedTriangleFanSet element
@@ -2530,8 +3119,8 @@ public interface X3DSchemaData
   String[]INDEXEDTRIANGLEFANSET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
   String[]INDEXEDTRIANGLEFANSET_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'geometry' for typical use within a Shape node",
-      "'skin' of a HAnimHumanoid node",
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
   
   // IndexedTriangleStripSet element
@@ -2555,8 +3144,8 @@ public interface X3DSchemaData
   String[]INDEXEDTRIANGLESTRIPSET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
   String[]INDEXEDTRIANGLESTRIPSET_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'geometry' for typical use within a Shape node",
-      "'skin' of a HAnimHumanoid node",
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
   
    // IndexedQuadSet element
@@ -2580,8 +3169,8 @@ public interface X3DSchemaData
   String[]INDEXEDQUADSET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
   String[]INDEXEDQUADSET_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'geometry' for typical use within a Shape node",
-      "'skin' of a HAnimHumanoid node",
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
   };
 
   // Element ROUTE
@@ -2959,6 +3548,9 @@ public interface X3DSchemaData
   String  GEOPOSITIONINTERPOLATOR_ATTR_KEYVALUE_DFLT = "";
 
   String  GEOPROXIMITYSENSOR_ELNAME              = "GeoProximitySensor";
+  String  GEOPROXIMITYSENSOR_ATTR_DESCRIPTION_NAME  = "description";
+  boolean GEOPROXIMITYSENSOR_ATTR_DESCRIPTION_REQD  = false;
+  String  GEOPROXIMITYSENSOR_ATTR_DESCRIPTION_DFLT  = "";
   String  GEOPROXIMITYSENSOR_ATTR_GEOSYSTEM_NAME = "geoSystem";
   boolean GEOPROXIMITYSENSOR_ATTR_GEOSYSTEM_REQD = false;
   String[]GEOPROXIMITYSENSOR_ATTR_GEOSYSTEM_DFLT = GEOCOORDINATE_ATTR_GEOSYSTEM_DFLT;
@@ -3286,9 +3878,9 @@ public interface X3DSchemaData
   String[]HANIMJOINT_CONTAINERFIELD_CHOICES    = {"children", "skeleton", "joints"};
   String[]HANIMJOINT_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'children' when part of another HAnimJoint",
-      "'skeleton' when primary child of HAnimHumanoid",
-      "'joints' when USE reference (following skeleton tree) in HAnimHumanoid"
+      "'children' when parent is another HAnimJoint",
+      "'skeleton' when parent is HAnimHumanoid",
+      "'joints' when USE reference (following skeleton tree) in parent HAnimHumanoid"
   };
 
   String[]HANIMJOINT_NAME_CHOICES   =
@@ -3475,8 +4067,8 @@ public interface X3DSchemaData
   String[]HANIMSEGMENT_CONTAINERFIELD_CHOICES    = {"children", "segments"};
   String[]HANIMSEGMENT_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'children' when part of HAnimJoint",
-      "'segments' when USE reference (following skeleton tree) in HAnimHumanoid"
+      "'children' when parent is HAnimJoint",
+      "'segments' when USE reference (following skeleton tree) in parent HAnimHumanoid"
   };
 
   String[]HANIMSEGMENT_NAME_CHOICES   =
@@ -3731,10 +4323,10 @@ public interface X3DSchemaData
   String[]HANIMSITE_CONTAINERFIELD_CHOICES    = {"children", "skeleton", "sites", "viewpoints"};
   String[]HANIMSITE_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'children' when part of HAnimJoint",
-      "'skeleton' when primary child of HAnimHumanoid",
-      "'sites' when USE reference (following skeleton tree) in HAnimHumanoid",
-      "'viewpoints' when USE reference (following skeleton tree) in HAnimHumanoid",
+      "'children' when parent is HAnimJoint",
+      "'skeleton' when parent is HAnimHumanoid",
+      "'sites' when USE reference (following skeleton tree) in parent HAnimHumanoid",
+      "'viewpoints' when USE reference (following skeleton tree) in parent HAnimHumanoid",
   };
 
   String[]HANIMSITE_NAME_CHOICES   = // TODO check
@@ -4645,16 +5237,16 @@ public interface X3DSchemaData
   String[]COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_CHOICES = {
     "texture", "gradients","segmentIdentifiers","surfaceNormals","transferFunction","voxels","watchList","children"};
   String  COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_TOOLTIP =
-    "texture if parent is Shape or ComposedTexture3D, or other value if parent is a volume node";
+    "texture of parent Shape or ComposedTexture3D, or other value of parent volume node";
   String[]COMPOSEDTEXTURE3D_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "texture if parent is Shape or ComposedTexture3D",
-    "gradients if parent is IsoSurfaceVolumeData",
-    "segmentIdentifiers if parent is SegmentedVolumeData",
-    "surfaceNormals if parent is Cartoon*, EdgeEnhancement*, Shaded*, SilhouetteEnhancement* or ToneMapped* *VolumeStyle",
-    "transferFunction if parent is OpacityMapVolumeStyle",
-    "voxels if parent is VolumeData, IsoSurfaceVolumeData, SegmentedVolumeData or BlendedVolumeStyle",
-    "child of LoadSensor (X3D version 3 only)",
-    "child of LoadSensor (X3D version 4)"
+    "texture of parent Shape or ComposedTexture3D",
+    "gradients of parent IsoSurfaceVolumeData",
+    "segmentIdentifiers of parent SegmentedVolumeData",
+    "surfaceNormals of parent Cartoon*, EdgeEnhancement*, Shaded*, SilhouetteEnhancement* or ToneMapped* *VolumeStyle node",
+    "transferFunction of parent OpacityMapVolumeStyle",
+    "voxels of parent VolumeData, IsoSurfaceVolumeData, SegmentedVolumeData or BlendedVolumeStyle",
+    "child of a parent LoadSensor node (X3D version 3 only)",
+    "child of a parent LoadSensor node (X3D version 4)"
     };
 
   // Element ImageTexture3D
@@ -4747,13 +5339,13 @@ public interface X3DSchemaData
   String X3DNBodyCollidableNode_ATTR_CONTAINERFIELD_TOOLTIP = "see X3D Tooltips for selecting proper containerField";
   // TODO individual tooltips for each choice not yet implemented:
   String[]X3DNBodyCollidableNode_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "children if parent is a grouping node or X3D scene root",
-    "collidable if parent is CollidableOffset",
-    "collidables if parent is CollisionCollection",
-    "intersections if parent is CollisionSensor",
-    "geometry if parent is RigidBody",
-    "geometry1 if parent is Contact",
-    "geometry2 if parent is Contact"};
+    "children of parent grouping node or X3D scene root",
+    "collidable of parent CollidableOffset",
+    "collidables of parent CollisionCollection",
+    "intersections of parent CollisionSensor",
+    "geometry of parent RigidBody",
+    "geometry1 of parent Contact",
+    "geometry2 of parent Contact"};
 
   String  COLLIDABLEOFFSET_ELNAME                = "CollidableOffset";
   String  COLLIDABLEOFFSET_ATTR_ENABLED_NAME     = "enabled";
@@ -4792,11 +5384,11 @@ public interface X3DSchemaData
   String[]COLLISIONCOLLECTION_ATTR_CONTAINERFIELD_CHOICES = {
     "children", "collider"};
   String COLLISIONCOLLECTION_ATTR_CONTAINERFIELD_TOOLTIP  =
-    "'collider' if parent is CollisionSensor or RigidBodyCollection, otherwise 'children'";
+    "'collider' of parent CollisionSensor or RigidBodyCollection, otherwise 'children'";
     // TODO individual tooltips for each choice not yet implemented:
   String[]COLLISIONCOLLECTION_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "children if parent is a grouping node or X3D scene root",
-    "collider if parent is CollisionSensor or RigidBodyCollection"
+    "children of parent grouping node or X3D scene root",
+    "collider of parent CollisionSensor or RigidBodyCollection"
   };
   String  COLLISIONCOLLECTION_ELNAME                             = "CollisionCollection";
   String  COLLISIONCOLLECTION_ATTR_APPLIEDPARAMETERS_NAME        = "appliedParameters";
@@ -4830,6 +5422,9 @@ public interface X3DSchemaData
   String  COLLISIONCOLLECTION_ATTR_SURFACESPEED_DFLT             = "0 0";
 
   String  COLLISIONSENSOR_ELNAME                    = "CollisionSensor";
+  String  COLLISIONSENSOR_ATTR_DESCRIPTION_NAME     = "description";
+  boolean COLLISIONSENSOR_ATTR_DESCRIPTION_REQD     = false;
+  String  COLLISIONSENSOR_ATTR_DESCRIPTION_DFLT     = "";
   String  COLLISIONSENSOR_ATTR_ENABLED_NAME         = "enabled";
   boolean COLLISIONSENSOR_ATTR_ENABLED_REQD         = false;
   String  COLLISIONSENSOR_ATTR_ENABLED_DFLT         = "true";
@@ -4837,10 +5432,10 @@ public interface X3DSchemaData
   // X3DNBodyCollisionSpaceNode only includes CollisionSpace
   String[]COLLISIONSPACE_ATTR_CONTAINERFIELD_CHOICES = {
     "children", "collidables"};
-  String  COLLISIONSPACE_ATTR_CONTAINERFIELD_TOOLTIP = "'collidables' if parent is CollisionCollection or CollisionSpace, otherwise 'children'";
+  String  COLLISIONSPACE_ATTR_CONTAINERFIELD_TOOLTIP = "'collidables' of parent CollisionCollection or CollisionSpace, otherwise 'children'";
   String[]COLLISIONSPACE_ATTR_CONTAINERFIELD_TOOLTIPS = {
-    "children if parent is a grouping node or X3D scene root",
-    "collidables if parent is CollisionCollection or CollisionSpace"
+    "children of parent grouping node or X3D scene root",
+    "collidables of parent CollisionCollection or CollisionSpace"
   };
   String  COLLISIONSPACE_ELNAME                     = "CollisionSpace";
   String  COLLISIONSPACE_ATTR_ENABLED_NAME          = "enabled";

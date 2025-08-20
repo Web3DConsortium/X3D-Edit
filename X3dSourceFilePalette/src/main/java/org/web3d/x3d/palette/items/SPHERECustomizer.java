@@ -86,10 +86,9 @@ public class SPHERECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setMaximumSize(null);
-        setMinimumSize(null);
+        setMinimumSize(new java.awt.Dimension(600, 185));
         setOpaque(false);
-        setPreferredSize(null);
+        setPreferredSize(new java.awt.Dimension(620, 200));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);

@@ -45,7 +45,7 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_IS
 
 @ActionID(id = "org.web3d.x3d.actions.LaunchX3D4ArchitectureStandardAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/ISO_favicon32x32.png",
-                    displayName = "#CTL_LaunchX3D4ArchitectureStandardAction",
+                    displayName = "#CTL_LaunchX3D40ArchitectureStandardAction",
                             lazy=true)
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/Web3D &Standards", position = 300),
@@ -67,7 +67,7 @@ public final class LaunchX3D4ArchitectureStandardAction extends CallableSystemAc
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchX3D4ArchitectureStandardAction");
+    return NbBundle.getMessage(getClass(), "CTL_LaunchX3D40ArchitectureStandardAction");
   }
 
   @Override

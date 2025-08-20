@@ -32,33 +32,39 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 */
 
-/*
- * X3DTimeDependentNode.java
- * 
- * Created on Sep 26, 2007, 3:46:32 PM
- */
-
 package org.web3d.x3d.types;
 
+//import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
+
 /**
- * X3DSoundNode.java
+ * X3DSoundSourceNode:
+ * Abstract node type used for node types that can emit audio data
  * 
- *  marker interface for Sound node
- * 
- * Created on Sep 26, 2007, 4:00 PM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Don Brutzman
  * @version $Id$
  */
 public abstract class X3DSoundSourceNode extends X3DTimeDependentNode
 {
-  @Override
-  public String getDefaultContainerField()
-  {
-    return "source";
-  }
+    protected SFFloat  gain, gainDefault;
+    
+    @Override
+    public String getDefaultContainerField()
+    {
+      return "source";
+    }
+
+    /**
+     * @return the gain
+     */
+    public String getGain() {
+        return gain.toString();
+    }
+
+    /**
+     * @param newGain the gain to set
+     */
+    public void setGain(String newGain) {
+        gain = new SFFloat(newGain, null, null);
+    }
 }

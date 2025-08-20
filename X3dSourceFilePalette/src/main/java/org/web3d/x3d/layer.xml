@@ -36,7 +36,6 @@ POSSIBILITY OF SUCH DAMAGE.
 -->
 <!--https://platform.netbeans.org/tutorials/nbm-google.html-->
 <!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
-
 <!-- NetBeans tutorial      https://netbeans.apache.org/tutorials/nbm-palette-api2.html -->
 <!-- NetBeans documentation https://bits.netbeans.org/dev/javadoc/org-openide-filesystems/index.html?org/openide/filesystems/XMLFileSystem.html -->
 <filesystem>
@@ -116,7 +115,7 @@ POSSIBILITY OF SUCH DAMAGE.
     -->
     <folder name="Actions">
         <folder name="&amp;X3D-Edit"><!-- mnemonic -->
-            <file name="org-web3d-x3d-actions-LaunchIssueReportEmailAction.instance">
+            <file name="org-web3d-x3d-actions-LaunchIssueReportSourceForgeTicketAction.instance">
                 <attr name="delegate" newvalue="org.web3d.x3d.actions.LaunchEmailReportAction"/>
                 <attr name="displayName" stringvalue="X3D-Edit Issue Feedback Email"/>
                 <attr name="iconBase" stringvalue="org/web3d/x3d/palette/items/resources/envelope.png"/>
@@ -1374,10 +1373,14 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="MOVIETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MOVIETEXTURE.xml">
                 <attr name="position" intvalue="600"/>
             </file>
+            <file name="GAIN.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GAIN.xml">
+                <attr name="position" intvalue="2200"/>
+            </file>
             <file name="SOUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SOUND.xml">
                 <attr name="position" intvalue="2000"/>
             </file>
             <!--
+            -->
             <file name="SPATIALSOUND.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SPATIALSOUND.xml">
                 <attr name="position" intvalue="2100"/>
             </file>
@@ -1408,9 +1411,6 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="DYNAMICSCOMPRESSOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DYNAMICSCOMPRESSOR.xml">
                 <attr name="position" intvalue="2190"/>
             </file>
-            <file name="GAIN.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/GAIN.xml">
-                <attr name="position" intvalue="2200"/>
-            </file>
             <file name="LISTENERPOINTSOURCE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LISTENERPOINTSOURCE.xml">
                 <attr name="position" intvalue="2210"/>
             </file>
@@ -1432,7 +1432,6 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="WAVESHAPER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/WAVESHAPER.xml">
                 <attr name="position" intvalue="2270"/>
             </file>
-            -->
             <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
                 <attr name="position" intvalue="2100"/>
             </file>

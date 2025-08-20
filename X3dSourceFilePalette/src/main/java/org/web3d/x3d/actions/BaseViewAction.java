@@ -62,13 +62,13 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String VRMLEXAMPLESURL                        ="https://www.web3d.org/x3d/content/examples/Vrml2Sourcebook";
   public final static String X3D4WA_EXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/X3dForWebAuthors";
   public final static String X3D4AM_EXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling";
-  public final static String SAVAGEEXAMPLESURL                      ="https://savage.nps.edu/Savage";
+  public final static String SAVAGEEXAMPLESURL                      ="https://savage.nps.edu/Savage"; // TODO migrate
   public final static String SAVAGEDEFENSEEXAMPLESURL               ="https://SavageDefense.nps.navy.mil/SavageDefense";
   public final static String X3D_CANONICALIZATION_C14N              ="https://www.web3d.org/x3d/tools/canonical/doc/x3dTools.htm";
   public final static String X3D_CANONICALIZATION_C14N_SPECIFICATION="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19776-3v4.0-WD1/Part03/concepts.html#X3DCanonicalForm";
   public final static String X3DSECURITYEXAMPLES                    ="https://www.web3d.org/x3d/content/examples/Basic/Security";
   public final static String X3DSECURITYREADME                      ="https://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html";
-  public final static String X3D_EDIT_HOME                          ="https://savage.nps.edu/X3D-Edit";
+  public final static String X3D_EDIT_HOME                          ="https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html"; // https://savage.nps.edu/X3D-Edit";
   public final static String X3D_EDIT_FEATURES                      = X3D_EDIT_HOME + "#Features";
   public final static String SOURCEFORGE_RELEASE_INSTALLERS         ="https://sourceforge.net/projects/x3d/files";
   public final static String SOURCEFORGE_X3DEDIT_SOURCE             ="https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit4.0";
@@ -80,7 +80,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_RESOURCES_EXAMPLES_ARCHIVES        = X3D_RESOURCES + "#Examples";
   public final static String X3D_RESOURCES_QUALITY_ASSURANCE        = X3D_RESOURCES + "#QualityAssurance";
   public final static String X3D_RESOURCES_SECURITY                 = X3D_RESOURCES + "#Security";
-  public final static String X3D_RESOURCES_SECURITY_VULNERABILITIES =X3D_RESOURCES + "#Vulnerabilities";
+  public final static String X3D_RESOURCES_SECURITY_VULNERABILITIES = X3D_RESOURCES + "#Vulnerabilities";
   public final static String X3D_SCENE_AUTHORING_HINTS              ="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html";
   public final static String ECMASCRIPT_SPECIFICATION_DISTRIBUTION  ="https://www.ecma-international.org/publications-and-standards/ecma-262";
   public final static String ECMASCRIPT_SPECIFICATION               ="https://262.ecma-international.org/14.0";
@@ -104,7 +104,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String REGEX_101                              ="https://regex101.com";
   public final static String X3D_SCHEMATRON                         ="https://www.web3d.org/x3d/tools/schematron/X3dSchematron.html";
   public final static String X3D_X3DUOM                             ="https://www.web3d.org/specifications/X3DUOM.html";
-  public final static String SAVAGE_DEVELOPERS_GUIDE                ="https://savage.nps.edu/Savage/developers.html";
+  public final static String X3D_DEVELOPERS_GUIDE                   ="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html";
   public final static String SAVAGE_OPENDIS7_DISTRIBUTION_PRODUCTS  ="https://savage.nps.edu/opendis7-java";
   public final static String SISO_DIS_RPR_FOM_PRODUCT_SUPPORT_GROUP ="https://sisostandards.connectedcommunity.org/communities/community-home?CommunityKey=7026aa59-9e7a-49f7-a371-57e56c780ae3";
   
@@ -130,7 +130,8 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_STANDARDS_PROGRESS                 ="https://www.web3D.org/x3d/progress";
   public final static String X3D_SPECIFICATIONS_SCHEMA_DOCTYPE      ="https://www.web3d.org/specifications";
   public final static String X3D_GRAPHICS_STANDARDS_RELATIONSHIPS   ="https://www.web3D.org/specifications/X3dGraphicsStandardsRelationships.png";
-  public final static String HANIM2_STANDARD                        ="https://www.web3d.org/documents/specifications/19774/V2.0/index.html";
+  public final static String HANIM20_STANDARD                       ="https://www.web3d.org/documents/specifications/19774/V2.0/index.html";
+  public final static String HANIM21_STANDARD                       ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19774";
   public final static String X3D4_ARCHITECTURE_STANDARD_CD1         ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-CD1/Part01/Architecture.html";
   public final static String X3D4_ARCHITECTURE_STANDARD_IS_PROOF    ="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19775-1v4-IS.proof/Part01/Architecture.html";
   public final static String X3D4_ARCHITECTURE_STANDARD_IS          ="https://www.web3d.org/specifications/X3Dv4/ISO-IEC19775-1v4-IS/Part01/Architecture.html";

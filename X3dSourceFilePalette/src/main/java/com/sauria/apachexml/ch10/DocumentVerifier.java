@@ -163,6 +163,12 @@ public class DocumentVerifier
   {
     DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
     dbf.setNamespaceAware(true);
+    // https://bugs.openjdk.org/browse/JDK-8343022
+    // https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#JAXP
+    dbf.setAttribute("jdk.xml.entityExpansionLimit", 120000);
+    dbf.setAttribute("jdk.xml.totalEntitySizeLimit", 50000000);
+    dbf.setAttribute("jdk.xml.maxGeneralEntitySizeLimit", 50000000);
+    
     DocumentBuilder db = dbf.newDocumentBuilder();
     return db.parse(signatureFile);
   }

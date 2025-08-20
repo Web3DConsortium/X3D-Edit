@@ -32,9 +32,10 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 */
 /*
- * X3DTimeDependentNode.java
+ * X3DTimeDependentNode:
  * 
- * Created on Sep 26, 2007, 3:46:32 PM
+ * @author Don Brutzman
+ * @version $Id$
  */
 
 package org.web3d.x3d.types;
@@ -42,17 +43,41 @@ package org.web3d.x3d.types;
 /**
  * X3DSoundNode.java
  * 
- *  marker interface for Sound node
- * 
- * Created on Sep 26, 2007, 4:00 PM
+ * Abstract interface is the base type for all sound nodes.
  *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Don Brutzman, Mike Bailey
  * @version $Id$
  */
 public abstract class X3DSoundNode extends X3DChildNode
 {
+  protected boolean  enabled;
+  protected String   description, descriptionDefault;
+  
+/**
+ * accessor method for field
+ * @return value
+ */
+  public String getDescription()
+  {
+    return description;
+  }
+
+/**
+ * accessor method for field
+ * @param newDescription value of interest
+ */
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
+  }
+
+  public boolean isEnabled()
+  {
+    return enabled;
+  }
+
+  public void setEnabled(boolean enabled)
+  {
+    this.enabled = enabled;
+  }
 }

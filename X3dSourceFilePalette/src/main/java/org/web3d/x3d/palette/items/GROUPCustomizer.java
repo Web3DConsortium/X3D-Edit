@@ -114,6 +114,8 @@ public class GROUPCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(610, 250));
+        setPreferredSize(new java.awt.Dimension(620, 260));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -226,10 +228,11 @@ public class GROUPCustomizer extends BaseCustomizer
         add(bboxSizeZTF, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel.setToolTipText("StaticGroup enables browser optimization of contained content.");
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><b>" + NbBundle.getMessage(getClass(),getNameKey()) + "</b> is a Grouping node that can contain most nodes.<br />Child nodes within a <b>Group</b> node can be modified,<br />but nodes within a <b>StaticGroup</b> node cannot be modified.");
+        hintLabel.setText("<html>\n<p align=\"center\"><b>Group</b> and <b>StaticGroup</b> are each grouping nodes that can contain most nodes. </p><br />\n<p align=\"center\">Child nodes within a <b>Group</b> node can be modified and send/receive events, but<br />\n child nodes within a <b>StaticGroup</b> node cannot be modified and cannot receive events.</p>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();

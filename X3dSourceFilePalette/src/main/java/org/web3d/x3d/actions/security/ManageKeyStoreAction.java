@@ -57,7 +57,7 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
-import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
+import org.web3d.x3d.actions.LaunchIssueReportSourceForgeTicketAction;
 import static org.web3d.x3d.palette.items.BaseCustomizer.MAILTO_TOOLTIP;
 
 @ActionID(id = "org.web3d.x3d.actions.security.ManageKeyStoreAction", category = "X3D-Edit")
@@ -75,7 +75,7 @@ public final class ManageKeyStoreAction extends CallableSystemAction
     final JButton feedbackButton = new JButton("Feedback");
     final ActionListener emailReportActionListener = (ActionEvent event) ->
     {
-       LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + ", X3D-Edit Manage KeyStore");
+       LaunchIssueReportSourceForgeTicketAction.sendBrowserTo(LaunchIssueReportSourceForgeTicketAction.MAILTO_REPORT_URL + ", X3D-Edit Manage KeyStore");
     };
   
     public ManageKeyStoreAction()

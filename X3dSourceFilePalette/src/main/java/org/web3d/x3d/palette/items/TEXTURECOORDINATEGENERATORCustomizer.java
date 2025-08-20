@@ -65,6 +65,7 @@ public class TEXTURECOORDINATEGENERATORCustomizer extends BaseCustomizer
     
     initComponents();
     
+    super.getDEFUSEpanel().setContainerFieldChoices(TEXTURECOORDINATE_CONTAINERFIELD_CHOICES, TEXTURECOORDINATE_CONTAINERFIELD_TOOLTIPS);
     modeCombo.setSelectedItem(textureCoordinateGenerator.getMode());
     parameterTextField.setText(textureCoordinateGenerator.getParameter());
    }

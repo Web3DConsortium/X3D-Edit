@@ -184,10 +184,11 @@ public class METACustomizer extends BaseCustomizer
            (metaName.equals("translated") && (!content.equals(getTodaysDate()) || content.equals("*enter date of translation here*"    ))) ||
            (metaName.equals("modified")   && (!content.equals(getTodaysDate()) || content.equals("*enter date of latest revision here*"))))
        {
-            NotifyDescriptor d = new NotifyDescriptor.Confirmation(
-               "<html><p align='center'>Change to match today's date?</p><p>&nbsp;</p><p align='center'>\"<b>" + content + "</b>\" to \"<b>" + getTodaysDate () + "</b>\"</p>",
-               "Confirm", NotifyDescriptor.YES_NO_OPTION);
-            if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.YES_OPTION)
+            NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
+               // difficulty resizing dialog, rearrange phrasing instead
+               "<html><p align='center'>Change to today? <b>" + getTodaysDate () + "</b></p></html>",
+               "Confirm meta change, " + content, NotifyDescriptor.YES_NO_OPTION);
+            if (DialogDisplayer.getDefault().notify(notifyDescriptor) == NotifyDescriptor.YES_OPTION)
             {
                 contentTA.setText(getTodaysDate ());
             }

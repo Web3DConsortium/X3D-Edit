@@ -222,6 +222,7 @@
             <Component class="javax.swing.JLabel" name="containerFieldLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="containerField"/>
+                <Property name="toolTipText" type="java.lang.String" value="containerField is field-label prefix indicating relationship to parent node"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -369,7 +370,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="style"/>
-                <Property name="toolTipText" type="java.lang.String" value="style field is only used for CSS styles"/>
+                <Property name="toolTipText" type="java.lang.String" value="CSS style field is used for styling and HTML5"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -379,7 +380,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="cssStyleTextField">
               <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="CSS style information for HTML5 page"/>
+                <Property name="toolTipText" type="java.lang.String" value="CSS style field is used for styling and HTML5"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

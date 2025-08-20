@@ -41,13 +41,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
  * ACOUSTICPROPERTIES.java
- * Created on July 12, 2007, 3:05 PM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * 
+ * @author Don Brutzman
  * @version $Id$
  */
 public class ACOUSTICPROPERTIES extends X3DAppearanceChildNode // needs new X3D*Node class
@@ -202,25 +197,25 @@ public class ACOUSTICPROPERTIES extends X3DAppearanceChildNode // needs new X3D*
   public void setEnabled(boolean enabled)
   {
     this.enabled = enabled;
-  }
-  
-    /**
-     * accessor method for field
-     * @return value
-     */
-  public String getDescription()
-  {
-    return description;
-  }
+    }
 
     /**
-     * accessor method for field
+     * accessor method for field description
+     * @return description
+     */
+    public String getDescription()
+    {
+      return description;
+    }
+
+    /**
+     * accessor method for field description
      * @param newDescription value of interest
      */
-  public void setDescription(String newDescription)
-  {
-    this.description = newDescription;
-  }
+    public void setDescription(String newDescription)
+    {
+      this.description = newDescription;
+    }
   
     /**
      * accessor method for field

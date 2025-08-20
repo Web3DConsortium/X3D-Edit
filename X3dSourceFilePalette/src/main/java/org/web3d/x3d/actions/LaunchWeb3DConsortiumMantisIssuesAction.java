@@ -50,8 +50,8 @@ import static org.web3d.x3d.actions.BaseViewAction.WEB3D_CONSORTIUM_MANTIS_ISSUE
                     displayName = "#CTL_LaunchWeb3DConsortiumMantisIssuesAction", 
                             lazy=true)
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/X3D &Work in Progress", position = 150),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D &Work in Progress", position = 150)
+  @ActionReference(path = "Menu/&X3D-Edit/X3D &Work in Progress", position = 140),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/X3D &Work in Progress", position = 140)
 })
 
 @SuppressWarnings("serial")

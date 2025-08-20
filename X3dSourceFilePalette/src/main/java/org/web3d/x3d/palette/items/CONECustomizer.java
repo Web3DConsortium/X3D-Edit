@@ -95,6 +95,9 @@ public class CONECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(606, 230));
+        setPreferredSize(new java.awt.Dimension(620, 240));
+        setRequestFocusEnabled(false);
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

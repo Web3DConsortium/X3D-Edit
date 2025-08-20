@@ -305,6 +305,9 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   {
   }
 
+  /** Create element name and attribute name-value pairs, prepend line indentation
+   * @return serializable indented text for element name and attributes
+   */
   private String createElementNameCommonX3dAttributes()
   {
     StringBuilder sb = new StringBuilder();
@@ -312,20 +315,27 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     {
         return ""; // special cases outside of X3D
     }
+    else if (getElementName().equals("X3D"))
+    {
+        sb.append("");   // indent 0
+    }
     else if (getElementName().equals("head") || getElementName().equals("Scene"))
     {
-        sb.append("  "); // indent 2
+//      sb.append("  "); // indent 2
+        sb.append("");   // indent 0
     }
     else if (getElementName().equals("component") || getElementName().equals("unit") || getElementName().equals("meta"))
     {
-        sb.append("    "); // indent 4
+//      sb.append("    "); // indent 4
+        sb.append("");     // indent 0
     }
-    else // TODO calculate proper indent
+    else // TODO if new element is being inserted, apply addition 2-character indent beyond that of getParent() element, otherwise depend on user C14N button
     {
-        sb.append("    "); // indent 4
+//      sb.append("    "); // indent 4
+        sb.append("");     // indent 0
     }
     sb.append("<");
-    sb.append(getElementName());
+    sb.append(getElementName()); // critical!!
 
     if(isDEF())
       sb.append(buildDEF());
@@ -453,7 +463,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 //			if (xmlHead.contains("XML"))
 //				 sb.append(xmlHead);
 //			else
-        sb.append (X3DSchemaData.XML_HEADER).append("\n"); // ensure correct
+            sb.append (X3DSchemaData.XML_HEADER).append("\n"); // ensure correct
         String x3dRootAttributes = createAttributes();
         if      (x3dRootAttributes.contains("3.0"))
                 sb.append (X3DSchemaData.DOCTYPE_3_0).append("\n");
@@ -469,6 +479,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         {
                 sb.append(postDoctype);
         }
+        sb.append(createElementNameCommonX3dAttributes());
     }
     else if (!getElementName().equals("DOCTYPE"))
     {

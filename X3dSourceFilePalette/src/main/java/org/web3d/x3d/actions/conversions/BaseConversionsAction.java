@@ -64,6 +64,8 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import net.sf.saxon.Configuration;
+import net.sf.saxon.s9api.Processor;
 import org.netbeans.api.xml.cookies.CookieMessage;
 import org.netbeans.api.xml.cookies.CookieObserver;
 import org.netbeans.spi.xml.cookies.DefaultXMLProcessorDetail;
@@ -610,7 +612,15 @@ import org.xml.sax.SAXParseException;
 
                 /* do this because I can't find a way to substitute saxon for xalan in TransformableSupport, xalan is needed for other things.*/
                 /* The large validitychecks style sheet includes some xslt 2.0 statements */
-                TransformerFactory saxonTransformerFactory = new net.sf.saxon.TransformerFactoryImpl();
+                
+                // https://saxonica.plan.io/issues/5980
+//              Processor processor = new Processor(false);
+                Configuration configuration = new Configuration();
+                configuration.setParseOptions(configuration.getParseOptions().withParserProperty("http://www.oracle.com/xml/jaxp/properties/" + "entityExpansionLimit", "120000"));
+                configuration.setParseOptions(configuration.getParseOptions().withParserProperty("http://www.oracle.com/xml/jaxp/properties/" + "totalEntitySizeLimit", "50000000"));
+                configuration.setParseOptions(configuration.getParseOptions().withParserProperty("http://www.oracle.com/xml/jaxp/properties/" + "maxGeneralEntitySizeLimit", "50000000"));
+                
+                TransformerFactory saxonTransformerFactory = new net.sf.saxon.TransformerFactoryImpl(configuration);
                 saxonTransformerFactory.setURIResolver(X3DCatalog.getInstance());
                 Transformer saxonTransformer = saxonTransformerFactory.newTransformer(xsltStreamSource);
                 saxonTransformer.setErrorListener(new ErrorListener() {

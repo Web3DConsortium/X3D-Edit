@@ -179,6 +179,8 @@ public class TRANSFORMCustomizer extends BaseCustomizer
         hintLabel = new javax.swing.JLabel();
         scaleOrientationCalculatorlButton = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(610, 450));
+        setPreferredSize(new java.awt.Dimension(625, 460));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

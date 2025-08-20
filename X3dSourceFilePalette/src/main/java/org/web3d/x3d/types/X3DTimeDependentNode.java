@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -33,28 +33,101 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 /*
- * X3DTimeDependentNode.java
+ * X3DTimeDependentNode:
  * 
- * Created on Sep 26, 2007, 3:46:32 PM
+ * @author Don Brutzman
+ * @version $Id$
  */
 
 package org.web3d.x3d.types;
 
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+
 
 /**
- * X3DTimeDependentNode.java
+ * X3DTimeDependentNode:
  * 
  *  marker interface for AudioClip, MovieTexture, and TimeSensor
  * 
- * Created on Sep 26, 2007, 4:00 PM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * @author Don Brutzman
+ * @version $Id$
  * @version $Id$
  */
 public abstract class X3DTimeDependentNode extends X3DChildNode
 {
+  protected boolean  enabled, enabledDefault;
+  protected String   description, descriptionDefault;
+  
+  protected SFDouble startTime, startTimeDefault; // SFTime
+  protected SFDouble stopTime, stopTimeDefault;
+  protected SFDouble pauseTime, pauseTimeDefault;
+  protected SFDouble resumeTime, resumeTimeDefault;
+  
+/**
+ * accessor method for field
+ * @return value
+ */
+  public String getDescription()
+  {
+    return description;
+  }
+
+/**
+ * accessor method for field
+ * @param newDescription value of interest
+ */
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
+  }
+
+  public boolean isEnabled()
+  {
+    return enabled;
+  }
+
+  public void setEnabled(boolean enabled)
+  {
+    this.enabled = enabled;
+  }
+
+  public String getPauseTime()
+  {
+    return pauseTime.toString();
+  }
+
+  public void setPauseTime(String pauseTime)
+  {
+    this.pauseTime = new SFDouble(pauseTime,null,null);
+  }
+
+  public String getResumeTime()
+  {
+    return resumeTime.toString();
+  }
+
+  public void setResumeTime(String resumeTime)
+  {
+    this.resumeTime = new SFDouble(resumeTime,null,null);
+  }
+
+  public String getStartTime()
+  {
+    return startTime.toString();
+  }
+
+  public void setStartTime(String startTime)
+  {
+    this.startTime = new SFDouble(startTime,null,null);
+  }
+
+  public String getStopTime()
+  {
+    return stopTime.toString();
+  }
+
+  public void setStopTime(String stopTime)
+  {
+    this.stopTime = new SFDouble(stopTime,null,null);
+  }
 }

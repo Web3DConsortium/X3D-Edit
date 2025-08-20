@@ -56,7 +56,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 import org.web3d.x3d.actions.BaseViewAction;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_EXAMPLES_ARCHIVES;
-import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
+import org.web3d.x3d.actions.LaunchIssueReportSourceForgeTicketAction;
 import static org.web3d.x3d.palette.items.BaseCustomizer.MAILTO_TOOLTIP;
 // no longer supported import org.netbeans.api.javahelp.Help;
 
@@ -129,8 +129,10 @@ public final class DownloadX3dExamplesArchivesAction extends CallableSystemActio
         
         final ActionListener reportActionListener = (ActionEvent e) ->
         {            
-           LaunchIssueReportEmailAction.sendBrowserTo(LaunchIssueReportEmailAction.MAILTO_REPORT_URL + 
-                   ", X3D-Edit " + NbBundle.getMessage(getClass(), "ExampleArchivesDownloadTitle"));
+           LaunchIssueReportSourceForgeTicketAction.reportIssue();
+           // email lauch is typically blocked
+//         LaunchIssueReportSourceForgeTicketAction.sendBrowserTo(LaunchIssueReportSourceForgeTicketAction.MAILTO_REPORT_URL + 
+//                 ", X3D-Edit " + NbBundle.getMessage(getClass(), "ExampleArchivesDownloadTitle"));
         };
         buttonBar.feedbackButton.addActionListener(reportActionListener);
         buttonBar.feedbackButton.setToolTipText(MAILTO_TOOLTIP);

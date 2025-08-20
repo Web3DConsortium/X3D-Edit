@@ -107,13 +107,12 @@ public class ACOUSTICPROPERTIESCustomizer extends BaseCustomizer {
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(600, 360));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(620, 360));
+        setPreferredSize(new java.awt.Dimension(620, 370));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
-        dEFUSEpanel1.setMinimumSize(null);
-        dEFUSEpanel1.setPreferredSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

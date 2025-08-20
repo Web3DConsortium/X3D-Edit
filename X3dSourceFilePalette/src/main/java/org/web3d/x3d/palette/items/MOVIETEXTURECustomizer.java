@@ -152,6 +152,8 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(680, 530));
+        setPreferredSize(new java.awt.Dimension(690, 540));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -420,7 +422,7 @@ public class MOVIETEXTURECustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        descriptionLabel.setText("<html><p align='center'><b>MovieTexture</b> is contained by <b>Appearance</b> to map an image onto peer geometry,<br/>or contained by <b>Sound</b> to provide audio</p>");
+        descriptionLabel.setText("<html><p align='center'><b>MovieTexture</b> is contained by an <b>Appearance</b> node to map an image onto peer geometry,<br/>\nand can also be contained by a <b>Sound</b> node to provide audio. </p>");
         descriptionLabel.setToolTipText("TextureProperties, TextureTransform and TextureCoordinate can further adjust texture application");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

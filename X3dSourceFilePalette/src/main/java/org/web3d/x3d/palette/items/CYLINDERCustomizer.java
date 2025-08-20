@@ -97,6 +97,8 @@ public class CYLINDERCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(605, 250));
+        setPreferredSize(new java.awt.Dimension(620, 260));
         setLayout(new java.awt.GridBagLayout());
 
         bottomLabel.setText("bottom");

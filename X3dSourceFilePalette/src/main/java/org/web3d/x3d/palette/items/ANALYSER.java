@@ -1,0 +1,347 @@
+/*
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+ 
+ * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer
+      in the documentation and/or other materials provided with the
+      distribution.
+ * Neither the names of the Naval Postgraduate School (NPS)
+      Modeling Virtual Environments and Simulation (MOVES) Institute
+      (https://www.nps.edu and https://MovesInstitute.nps.edu)
+      nor the names of its contributors may be used to endorse or
+      promote products derived from this software without specific
+      prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+ */
+
+package org.web3d.x3d.palette.items;
+
+import javax.swing.text.JTextComponent;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFDouble;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
+import static org.web3d.x3d.types.X3DSchemaData.*;
+import org.web3d.x3d.types.X3DSoundProcessingNode;
+
+/**
+ * ANALYSER:
+ * The Analyser node provides real-time frequency and time-domain analysis information, 
+ * without any signal-processing change to the audio stream which is passed unprocessed from input to output.
+ * 
+ * @author Don Brutzman
+ * @version $Id$
+ */
+public class ANALYSER extends X3DSoundProcessingNode // and X3DTimeDependentNode
+{
+    private SFInt32 fftSize, fftSizeDefault;
+    private SFInt32 frequencyBinCount, frequencyBinCountDefault;
+    private SFFloat minDecibels, minDecibelsDefault;
+    private SFFloat maxDecibels, maxDecibelsDefault; // SFTime
+    private SFFloat smoothingTimeConstant, smoothingTimeConstantDefault;
+    
+  public ANALYSER() 
+  {
+      this.setTraceEventsSelectionAvailable(false);
+      this.setTraceEventsTooltip("Trace Analyser events on X3D browser console");
+  }
+  
+  @Override
+  public String getElementName()
+  {
+    return ANALYSER_ELNAME;
+  }
+  
+  @Override
+  public void initialize()
+  {
+    fftSize               =  fftSizeDefault               = new SFInt32(ANALYSER_ATTR_FFTSIZE_DFLT,0,null);
+    frequencyBinCount     =  frequencyBinCount            = new SFInt32(ANALYSER_ATTR_FREQUENCYBINCOUNT_DFLT,0,null);
+    minDecibels           =  minDecibelsDefault           = new SFFloat(ANALYSER_ATTR_MINDECIBELS_DFLT,null,null);
+    maxDecibels           =  maxDecibelsDefault           = new SFFloat(ANALYSER_ATTR_MAXDECIBELS_DFLT,null,null);
+    smoothingTimeConstant =  smoothingTimeConstantDefault = new SFFloat(ANALYSER_ATTR_SMOOTHINGTIMECONSTANT_DFLT,0.0f,null);
+    
+    channelCountMode      = channelCountModeDefault      = ANALYSER_ATTR_CHANNELCOUNTMODE_DFLT;
+    channelInterpretation = channelInterpretationDefault = ANALYSER_ATTR_CHANNELINTERPRETATION_DFLT;
+    description = descriptionDefault     = ANALYSER_ATTR_DESCRIPTION_DFLT;
+    enabled                              = Boolean.parseBoolean(ANALYSER_ATTR_ENABLED_DFLT);
+    gain       = gainDefault             = new SFFloat (ANALYSER_ATTR_GAIN_DFLT,null,null); 
+    startTime  =  startTimeDefault       = new SFDouble(ANALYSER_ATTR_STARTTIME_DFLT,null,null);
+    stopTime   =   stopTimeDefault       = new SFDouble(ANALYSER_ATTR_STOPTIME_DFLT,null,null);  
+    pauseTime  = pauseTimeDefault        = new SFDouble(ANALYSER_ATTR_PAUSETIME_DFLT,null,null);
+    resumeTime = resumeTimeDefault       = new SFDouble(ANALYSER_ATTR_RESUMETIME_DFLT,null,null);
+    tailTime   = tailTimeDefault         = new SFDouble(ANALYSER_ATTR_TAILTIME_DFLT,0.0,null);
+    
+    setContent("\n\t\t<!-- TODO add child sound-processing input nodes here -->\n\t");
+  }
+
+  @Override
+  public void initializeFromJdom(org.jdom.Element root, JTextComponent comp)
+  {
+    super.initializeFromJdom(root, comp);
+    org.jdom.Attribute attr;
+
+    attr = root.getAttribute(ANALYSER_ATTR_CHANNELCOUNTMODE_NAME);
+    if (attr != null)
+      setChannelCountMode(attr.getValue());
+    attr = root.getAttribute(ANALYSER_ATTR_CHANNELINTERPRETATION_NAME);
+    if (attr != null)
+      channelInterpretation = attr.getValue();
+    attr = root.getAttribute(ANALYSER_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
+    attr = root.getAttribute(ANALYSER_ATTR_ENABLED_NAME);
+    if (attr != null)
+      enabled = Boolean.parseBoolean(attr.getValue());
+    attr = root.getAttribute(ANALYSER_ATTR_FFTSIZE_NAME);
+    if (attr != null)
+      fftSize = new SFInt32(attr.getValue(), 0, null);
+    attr = root.getAttribute(ANALYSER_ATTR_FREQUENCYBINCOUNT_NAME);
+    if (attr != null)
+      frequencyBinCount = new SFInt32(attr.getValue(), 0, null);
+    attr = root.getAttribute(ANALYSER_ATTR_GAIN_NAME);
+    if (attr != null)
+      gain = new SFFloat(attr.getValue(), null, null);
+    attr = root.getAttribute(ANALYSER_ATTR_MINDECIBELS_NAME);
+    if (attr != null)
+      minDecibels = new SFFloat(attr.getValue(), null, null);
+    attr = root.getAttribute(ANALYSER_ATTR_MAXDECIBELS_NAME);
+    if (attr != null)
+      maxDecibels = new SFFloat(attr.getValue(), null, null);
+    attr = root.getAttribute(ANALYSER_ATTR_SMOOTHINGTIMECONSTANT_NAME);
+    if (attr != null)
+      smoothingTimeConstant = new SFFloat(attr.getValue(), 0.0f, null);
+    
+    attr = root.getAttribute(ANALYSER_ATTR_STARTTIME_NAME);
+    if (attr != null)
+      startTime = new SFDouble(attr.getValue(), null, null);
+    attr = root.getAttribute(ANALYSER_ATTR_STOPTIME_NAME);
+    if (attr != null)
+      stopTime = new SFDouble(attr.getValue(), null, null);
+    attr = root.getAttribute(ANALYSER_ATTR_PAUSETIME_NAME);
+    if (attr != null)
+      pauseTime = new SFDouble(attr.getValue(), null, null);
+    attr = root.getAttribute(ANALYSER_ATTR_RESUMETIME_NAME);
+    if (attr != null)
+      resumeTime = new SFDouble(attr.getValue(), null, null);
+    attr = root.getAttribute(ANALYSER_ATTR_TAILTIME_NAME);
+    if (attr != null)
+      tailTime = new SFDouble(attr.getValue(), null, null);
+  }
+  
+  @Override
+  public Class<? extends BaseCustomizer> getCustomizer()
+  {
+    return ANALYSERCustomizer.class;
+  }
+  
+  @Override
+  public String createAttributes()
+  {
+    StringBuilder sb = new StringBuilder();
+    
+    if (ANALYSER_ATTR_CHANNELCOUNTMODE_REQD || !channelCountMode.equals(channelCountModeDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_CHANNELCOUNTMODE_NAME);
+      sb.append("='");
+      sb.append(getChannelCountMode());
+      sb.append("'");
+    }
+    
+    if (ANALYSER_ATTR_CHANNELINTERPRETATION_REQD || !channelInterpretation.equals(channelInterpretationDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_CHANNELINTERPRETATION_NAME);
+      sb.append("='");
+      sb.append(getChannelInterpretation());
+      sb.append("'");
+    }
+    
+    if (ANALYSER_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(description);
+      sb.append("'");
+    }
+
+    if (ANALYSER_ATTR_ENABLED_REQD || enabled != Boolean.parseBoolean(ANALYSER_ATTR_ENABLED_DFLT)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_ENABLED_NAME);
+      sb.append("='");
+      sb.append(enabled);
+      sb.append("'");
+    }
+      
+    if (ANALYSER_ATTR_FFTSIZE_REQD || !fftSize.equals(fftSizeDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_FFTSIZE_NAME);
+      sb.append("='");
+      sb.append(getFftSize());
+      sb.append("'");
+    }
+      
+    if (ANALYSER_ATTR_GAIN_REQD || !gain.equals(gainDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_GAIN_NAME);
+      sb.append("='");
+      sb.append(getGain());
+      sb.append("'");
+    }
+      
+    if (ANALYSER_ATTR_FREQUENCYBINCOUNT_REQD || !frequencyBinCount.equals(frequencyBinCount)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_FREQUENCYBINCOUNT_NAME);
+      sb.append("='");
+      sb.append(getFrequencyBinCount());
+      sb.append("'");
+    }
+
+    if (ANALYSER_ATTR_PAUSETIME_REQD || !pauseTime.equals(pauseTimeDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_PAUSETIME_NAME);
+      sb.append("='");
+      sb.append(pauseTime);
+      sb.append("'");
+    }
+    if (ANALYSER_ATTR_MINDECIBELS_REQD || !minDecibels.equals(minDecibelsDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_MINDECIBELS_NAME);
+      sb.append("='");
+      sb.append(getMinDecibels());
+      sb.append("'");
+    }
+    if (ANALYSER_ATTR_MAXDECIBELS_REQD || !maxDecibels.equals(maxDecibelsDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_MAXDECIBELS_NAME);
+      sb.append("='");
+      sb.append(getMaxDecibels());
+      sb.append("'");
+    }
+    if (ANALYSER_ATTR_RESUMETIME_REQD || !resumeTime.equals(resumeTimeDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_RESUMETIME_NAME);
+      sb.append("='");
+      sb.append(resumeTime);
+      sb.append("'");
+    }
+    if (ANALYSER_ATTR_SMOOTHINGTIMECONSTANT_REQD || !smoothingTimeConstant.equals(smoothingTimeConstantDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_SMOOTHINGTIMECONSTANT_NAME);
+      sb.append("='");
+      sb.append(smoothingTimeConstant);
+      sb.append("'");
+    }
+
+    if (ANALYSER_ATTR_STARTTIME_REQD || !startTime.equals(startTimeDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_STARTTIME_NAME);
+      sb.append("='");
+      sb.append(startTime);
+      sb.append("'");
+    }
+    if (ANALYSER_ATTR_STOPTIME_REQD || !stopTime.equals(stopTimeDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_STOPTIME_NAME);
+      sb.append("='");
+      sb.append(stopTime);
+      sb.append("'");
+    }
+    if (ANALYSER_ATTR_TAILTIME_REQD || !tailTime.equals(tailTimeDefault)) {
+      sb.append(" ");
+      sb.append(ANALYSER_ATTR_TAILTIME_NAME);
+      sb.append("='");
+      sb.append(getTailTime()); // should remain fixed at 0
+      sb.append("'");
+    }
+    
+    return sb.toString();
+  }
+
+    /**
+     * @return the fftSize
+     */
+    public String getFftSize() {
+        return fftSize.toString();
+    }
+
+    /**
+     * @param newFftSize the fftSize to set
+     */
+    public void setFftSize(String newFftSize) {
+        fftSize = new SFInt32(newFftSize, null, null);
+    }
+
+    /**
+     * @return the frequencyBinCount
+     */
+    public String getFrequencyBinCount() {
+        return frequencyBinCount.toString();
+    }
+
+    /**
+     * @param newFrequencyBinCount the frequencyBinCount to set
+     */
+    public void setFrequencyBinCount(String newFrequencyBinCount) {
+        frequencyBinCount = new SFInt32(newFrequencyBinCount, 0, null);
+    }
+
+    /**
+     * @return the minDecibels
+     */
+    public String getMinDecibels() {
+        return minDecibels.toString();
+    }
+
+    /**
+     * @param newMinDecibels the minDecibels to set
+     */
+    public void setMinDecibels(String newMinDecibels) {
+        minDecibels = new SFFloat(newMinDecibels, null, null);
+    }
+
+    /**
+     * @return the release
+     */
+    public String getMaxDecibels() {
+        return maxDecibels.toString();
+    }
+
+    /**
+     * @param newMaxDecibel the release to set
+     */
+    public void setMaxDecibel(String newMaxDecibel) {
+        maxDecibels = new SFFloat(newMaxDecibel, null, null);
+    }
+
+    /**
+     * @return the smoothingTimeConstant
+     */
+    public String getSmoothingTimeConstant() {
+        return smoothingTimeConstant.toString();
+    }
+
+    /**
+     * @param newSmoothingTimeConstant the smoothingTimeConstant to set
+     */
+    public void setSmoothingTimeConstant(String newSmoothingTimeConstant) {
+        smoothingTimeConstant = new SFFloat(newSmoothingTimeConstant, 0.0f, null);
+    }
+
+}

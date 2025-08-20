@@ -46,6 +46,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import net.sf.saxon.Configuration;
 import org.netbeans.api.xml.cookies.CookieMessage;
 import org.netbeans.api.xml.cookies.CookieObserver;
 import org.netbeans.spi.xml.cookies.CheckXMLSupport;
@@ -303,25 +304,38 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
 
                         /* do this because I can't find a way to substitute saxon for xalan in TransformableSupport, xalan is needed for other things. */
                         /* The large validitychecks style sheet includes some xslt 2.0 statements */
-                        TransformerFactory saxonTransformerFactory = new net.sf.saxon.TransformerFactoryImpl();
+                        
+                
+                // https://saxonica.plan.io/issues/5980
+//              Processor processor = new Processor(false);
+                Configuration configuration = new Configuration();
+                configuration.setParseOptions(configuration.getParseOptions().withParserProperty("http://www.oracle.com/xml/jaxp/properties/" + "entityExpansionLimit", "120000"));
+                configuration.setParseOptions(configuration.getParseOptions().withParserProperty("http://www.oracle.com/xml/jaxp/properties/" + "totalEntitySizeLimit", "50000000"));
+                configuration.setParseOptions(configuration.getParseOptions().withParserProperty("http://www.oracle.com/xml/jaxp/properties/" + "maxGeneralEntitySizeLimit", "50000000"));
+                
+                        TransformerFactory saxonTransformerFactory = new net.sf.saxon.TransformerFactoryImpl(configuration);
                         Transformer        saxonTransformer = saxonTransformerFactory.newTransformer(inputStreamSource);
                         saxonTransformer.setErrorListener(new ErrorListener() {
                             @Override
                             public void warning(TransformerException exception) throws TransformerException {
+                                System.err.println("*** saxonTransformer warning " + exception.getMessageAndLocation());
                                 myCo.receive(new CookieMessage(exception.getLocalizedMessage(), CookieMessage.WARNING_LEVEL));
                             }
 
                             @Override
                             public void error(TransformerException exception) throws TransformerException {
+                                System.err.println("*** saxonTransformer error( " + exception.getMessageAndLocation());
                                 myCo.receive(new CookieMessage(exception.getLocalizedMessage(), CookieMessage.ERROR_LEVEL));
                             }
 
                             @Override
                             public void fatalError(TransformerException exception) throws TransformerException {
+                                System.err.println("*** saxonTransformer fatalError( " + exception.getMessageAndLocation());
                                 myCo.receive(new CookieMessage(exception.getLocalizedMessage(), CookieMessage.FATAL_ERROR_LEVEL));
                             }
                         });
                         saxonTransformer.transform(x3dDataObject.getFreshSaxSource(), result);
+                        System.out.println("*** [debug] first scematron conversion complete");
 
                         // X3D Schematron 2
                         // replace the transformer with one based on the output from the last check
@@ -343,6 +357,7 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                                 outputWriterPlain.println("No errors or warnings found.");
                             }
                         }
+                        System.out.println("*** [debug] second scematron conversion complete");
 
                     // TODO also redo other validation actions to match
                     // future TODO:  figure out how to do Xj3D checks

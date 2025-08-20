@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -73,7 +73,7 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_CANONICALIZATION_C14N_SPE
 import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_SECURITY;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_SECURITY_VULNERABILITIES;
 import org.web3d.x3d.actions.CommandExecutionScripts;
-import org.web3d.x3d.actions.LaunchIssueReportEmailAction;
+import org.web3d.x3d.actions.LaunchIssueReportSourceForgeTicketAction;
 import org.web3d.x3d.actions.ViewX3dSecurityExamplesOnlineAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction;
 import static org.web3d.x3d.options.X3dEditUserPreferences.EXAMPLES_ROOT_DIRECTORY_DEFAULT;
@@ -83,6 +83,7 @@ import static org.web3d.x3d.options.X3dEditUserPreferences.getKeystoreFileNameDe
 import static org.web3d.x3d.options.X3dEditUserPreferences.getKeystorePassword;
 import static org.web3d.x3d.options.X3dEditUserPreferences.getKeystorePasswordDefault;
 import static org.web3d.x3d.options.X3dEditUserPreferences.getKeystorePath;
+import static org.web3d.x3d.options.X3dEditUserPreferences.resetUserOptions;
 import static org.web3d.x3d.options.X3dEditUserPreferences.setAuthorEmail;
 import static org.web3d.x3d.options.X3dEditUserPreferences.setAuthorName;
 import static org.web3d.x3d.options.X3dEditUserPreferences.setKeystoreFileName;
@@ -182,9 +183,12 @@ otherSemanticWebEditorCheckBox.setVisible(false);
     otherX3dPlayerNvdSecurityCheckButton.setEnabled(!otherX3dPlayerNameTF.getText().equals(OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT));
     otherX3dEditorNvdSecurityCheckButton.setEnabled(!otherX3dEditorNameTF.getText().equals(OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT));
     
-      if (org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("brutzman") && 
+      if ((org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("brutzman") || 
+           org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("donbr")) && 
           org.web3d.x3d.options.X3dEditUserPreferences.getAuthorEmail().isBlank())
-          org.web3d.x3d.options.X3dEditUserPreferences.setAuthorEmail("brutzman@nps.edu");
+          org.web3d.x3d.options.X3dEditUserPreferences.setAuthorEmail("don.brutzman@gmail.com");
+      
+      resetUserOptions(); // duplicative
   }
   
   public static String panelFontName = "Segoe UI";
@@ -11610,27 +11614,27 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_otherVolumeEditorPathTFFocusLost
 
     private void reportPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportPlayerButtonActionPerformed
-        feedbackButtonSend ("Panel Preferences: X3D Players tab");
+        feedbackButtonReportIssue ("Panel Preferences: X3D Players tab");
     }//GEN-LAST:event_reportPlayerButtonActionPerformed
 
     private void reportModelingToolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportModelingToolsButtonActionPerformed
-        feedbackButtonSend ("Panel Preferences: X3D Modeling Tools tab");
+        feedbackButtonReportIssue ("Panel Preferences: X3D Modeling Tools tab");
     }//GEN-LAST:event_reportModelingToolsButtonActionPerformed
 
     private void reportImageVolumeToolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportImageVolumeToolsButtonActionPerformed
-        feedbackButtonSend ("Panel Preferences: Image and Volume Tools tab");
+        feedbackButtonReportIssue ("Panel Preferences: Image and Volume Tools tab");
     }//GEN-LAST:event_reportImageVolumeToolsButtonActionPerformed
 
     private void reportWebMultimediaToolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportWebMultimediaToolsButtonActionPerformed
-        feedbackButtonSend ("Panel Preferences: Web and Multimedia Tools tab");
+        feedbackButtonReportIssue ("Panel Preferences: Web and Multimedia Tools tab");
     }//GEN-LAST:event_reportWebMultimediaToolsButtonActionPerformed
 
     private void reportVisualizationPreferencesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportVisualizationPreferencesButtonActionPerformed
-        feedbackButtonSend ("Panel Preferences: Visualization Settings tab");
+        feedbackButtonReportIssue ("Panel Preferences: Visualization Settings tab");
     }//GEN-LAST:event_reportVisualizationPreferencesButtonActionPerformed
 
     private void reportSecurityPanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportSecurityPanelButtonActionPerformed
-        feedbackButtonSend ("Panel Preferences: X3D Security tab");
+        feedbackButtonReportIssue ("Panel Preferences: X3D Security tab");
     }//GEN-LAST:event_reportSecurityPanelButtonActionPerformed
 
     private void viewX3dResourcesSecurityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewX3dResourcesSecurityButtonActionPerformed
@@ -11912,7 +11916,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void reportAuthorButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_reportAuthorButtonActionPerformed
     {//GEN-HEADEREND:event_reportAuthorButtonActionPerformed
-        feedbackButtonSend ("Panel Preferences: Author settings tab");
+        feedbackButtonReportIssue ("Panel Preferences: Author settings tab");
     }//GEN-LAST:event_reportAuthorButtonActionPerformed
 
     private void newX3dModelsDirectoryTFFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_newX3dModelsDirectoryTFFocusLost
@@ -12050,7 +12054,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
         if  (false && isWindows)
              runShellCommand("start /b " + X3dEditUserPreferences.getSunrizeX3dEditorPath()); // avoid blocking on invocation
-        else runShellCommand(        X3dEditUserPreferences.getSunrizeX3dEditorPath()); 
+        else runShellCommand(              X3dEditUserPreferences.getSunrizeX3dEditorPath()); 
 
         sunrizeAutoLaunchCheck ();
     }//GEN-LAST:event_sunrizeX3dEditorLaunchButtonActionPerformed
@@ -12727,12 +12731,14 @@ for Extensible 3D (X3D) Graphics International Standard.
         newX3dModelsDirectoryCheck();
     }
 
-    public static void feedbackButtonSend (String panelName)
+    public static void feedbackButtonReportIssue (String panelName)
     {
+        LaunchIssueReportSourceForgeTicketAction.reportIssue(panelName);
+           
         // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
         try {
-            String mailtoReportUrl = LaunchIssueReportEmailAction.MAILTO_REPORT_URL;
+            String mailtoReportUrl = LaunchIssueReportSourceForgeTicketAction.MAILTO_REPORT_URL;
             mailtoReportUrl  = mailtoReportUrl.replace("%20"," ").trim();
             mailtoReportUrl += ", " + panelName;
             mailtoReportUrl  = mailtoReportUrl.replace(" ","%20");
