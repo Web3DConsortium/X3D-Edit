@@ -78,12 +78,12 @@ public class STREAMAUDIOSOURCE extends X3DSoundSourceNode // includes X3DTimeDep
     description = descriptionDefault     = STREAMAUDIOSOURCE_ATTR_DESCRIPTION_DFLT;
     enabled                              = Boolean.parseBoolean(STREAMAUDIOSOURCE_ATTR_ENABLED_DFLT);
     gain       = gainDefault             = new SFFloat (STREAMAUDIOSOURCE_ATTR_GAIN_DFLT,null,null); 
-    pauseTime  = pauseTimeDefault        = new X3DPrimitiveTypes.SFDouble(AUDIOCLIP_ATTR_PAUSETIME_DFLT,null,null); // SFTime
-    resumeTime = resumeTimeDefault       = new X3DPrimitiveTypes.SFDouble(AUDIOCLIP_ATTR_RESUMETIME_DFLT,null,null);
-    startTime  = startTimeDefault        = new X3DPrimitiveTypes.SFDouble(AUDIOCLIP_ATTR_STARTTIME_DFLT,null,null);
-    stopTime   = stopTimeDefault         = new X3DPrimitiveTypes.SFDouble(AUDIOCLIP_ATTR_STOPTIME_DFLT,null,null);
+    pauseTime  = pauseTimeDefault        = new X3DPrimitiveTypes.SFDouble(STREAMAUDIOSOURCE_ATTR_PAUSETIME_DFLT,null,null); // SFTime
+    resumeTime = resumeTimeDefault       = new X3DPrimitiveTypes.SFDouble(STREAMAUDIOSOURCE_ATTR_RESUMETIME_DFLT,null,null);
+    startTime  = startTimeDefault        = new X3DPrimitiveTypes.SFDouble(STREAMAUDIOSOURCE_ATTR_STARTTIME_DFLT,null,null);
+    stopTime   = stopTimeDefault         = new X3DPrimitiveTypes.SFDouble(STREAMAUDIOSOURCE_ATTR_STOPTIME_DFLT,null,null);
     
-    if(AUDIOCLIP_ATTR_URL_DFLT.length()>0)
+    if(STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_DFLT.length()>0)
       streamIdentifier = streamIdentifierDefault = parseMFStringIntoStringArray(STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_DFLT, true); //removeQuotes
     else
       streamIdentifier = streamIdentifierDefault = new String[0];
@@ -113,16 +113,16 @@ public class STREAMAUDIOSOURCE extends X3DSoundSourceNode // includes X3DTimeDep
     attr = root.getAttribute(STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_NAME);
     if (attr != null)
       streamIdentifier = parseMFStringIntoStringArray(attr.getValue(), true); //removeQuotes
-    attr = root.getAttribute(AUDIOCLIP_ATTR_PAUSETIME_NAME);
+    attr = root.getAttribute(STREAMAUDIOSOURCE_ATTR_PAUSETIME_NAME);
     if (attr != null)
       pauseTime = new SFDouble(attr.getValue(), null, null);
-    attr = root.getAttribute(AUDIOCLIP_ATTR_RESUMETIME_NAME);
+    attr = root.getAttribute(STREAMAUDIOSOURCE_ATTR_RESUMETIME_NAME);
     if (attr != null)
       resumeTime = new SFDouble(attr.getValue(), null, null);
-    attr = root.getAttribute(AUDIOCLIP_ATTR_STARTTIME_NAME);
+    attr = root.getAttribute(STREAMAUDIOSOURCE_ATTR_STARTTIME_NAME);
     if (attr != null)
       startTime = new SFDouble(attr.getValue(), null, null);
-    attr = root.getAttribute(AUDIOCLIP_ATTR_STOPTIME_NAME);
+    attr = root.getAttribute(STREAMAUDIOSOURCE_ATTR_STOPTIME_NAME);
     if (attr != null)
       stopTime = new SFDouble(attr.getValue(), null, null);
   }
@@ -177,30 +177,30 @@ public class STREAMAUDIOSOURCE extends X3DSoundSourceNode // includes X3DTimeDep
       sb.append(getGain());
       sb.append("'");
     }
-    if (AUDIOCLIP_ATTR_PAUSETIME_REQD || !pauseTime.equals(pauseTimeDefault)) {
+    if (STREAMAUDIOSOURCE_ATTR_PAUSETIME_REQD || !pauseTime.equals(pauseTimeDefault)) {
       sb.append(" ");
-      sb.append(AUDIOCLIP_ATTR_PAUSETIME_NAME);
+      sb.append(STREAMAUDIOSOURCE_ATTR_PAUSETIME_NAME);
       sb.append("='");
       sb.append(pauseTime);
       sb.append("'");
     }
-    if (AUDIOCLIP_ATTR_RESUMETIME_REQD || !resumeTime.equals(resumeTimeDefault)) {
+    if (STREAMAUDIOSOURCE_ATTR_RESUMETIME_REQD || !resumeTime.equals(resumeTimeDefault)) {
       sb.append(" ");
-      sb.append(AUDIOCLIP_ATTR_RESUMETIME_NAME);
+      sb.append(STREAMAUDIOSOURCE_ATTR_RESUMETIME_NAME);
       sb.append("='");
       sb.append(resumeTime);
       sb.append("'");
     }
-    if (AUDIOCLIP_ATTR_STARTTIME_REQD || !startTime.equals(startTimeDefault)) {
+    if (STREAMAUDIOSOURCE_ATTR_STARTTIME_REQD || !startTime.equals(startTimeDefault)) {
       sb.append(" ");
-      sb.append(AUDIOCLIP_ATTR_STARTTIME_NAME);
+      sb.append(STREAMAUDIOSOURCE_ATTR_STARTTIME_NAME);
       sb.append("='");
       sb.append(startTime);
       sb.append("'");
     }
-    if (AUDIOCLIP_ATTR_STOPTIME_REQD || !stopTime.equals(stopTimeDefault)) {
+    if (STREAMAUDIOSOURCE_ATTR_STOPTIME_REQD || !stopTime.equals(stopTimeDefault)) {
       sb.append(" ");
-      sb.append(AUDIOCLIP_ATTR_STOPTIME_NAME);
+      sb.append(STREAMAUDIOSOURCE_ATTR_STOPTIME_NAME);
       sb.append("='");
       sb.append(stopTime);
       sb.append("'");
