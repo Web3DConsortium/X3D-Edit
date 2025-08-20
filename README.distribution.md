@@ -60,7 +60,7 @@ If things don't work "out of the box" for you, please let us know.
 
 [Changelog](https://sourceforge.net/p/x3d/code/HEAD/log/?path=/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.prerelease.md) provides progress details.
 Test reports and feedback welcome.  Please send email to
-[Don Brutzman, brutzman@nps.edu](mailto:brutzman at nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20pre-release%20testing%20feedback).
+[Don Brutzman, don.brutzman@gmail.com](mailto:don.brutzman at gmail.com%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20pre-release%20testing%20feedback).
 
 Have fun with [X3D-Edit 4.0](https://www.web3d.org/x3d/tools/X3D-Edit)!
 
