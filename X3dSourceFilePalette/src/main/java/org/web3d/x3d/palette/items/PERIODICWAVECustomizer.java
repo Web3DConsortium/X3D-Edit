@@ -36,6 +36,8 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import static org.web3d.x3d.types.X3DSchemaData.PERIODICWAVE_ATTR_TYPE_CHOICES;
 
@@ -69,7 +71,11 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
     
     optionsRealTF.setText          (periodicWave.getOptionsReal());
     optionsImagTF.setText          (periodicWave.getOptionsImag());
-  }
+    typeCombo.setSelectedItem      (periodicWave.getType());
+    
+    checkOptionsArrayLengths();
+    enableOptionsFields();
+}
   
   /** This method is called from within the constructor to
    * initialize the form.
@@ -94,11 +100,13 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
         optionsImagTF = new javax.swing.JTextField();
         typeLabel = new javax.swing.JLabel();
         typeCombo = new javax.swing.JComboBox<>();
+        typeInfoLabel = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
 
-        setMinimumSize(new java.awt.Dimension(620, 430));
-        setPreferredSize(new java.awt.Dimension(640, 460));
+        setToolTipText("waveform coefficients as defined in W3C Web Audio API");
+        setMinimumSize(new java.awt.Dimension(650, 400));
+        setPreferredSize(new java.awt.Dimension(660, 420));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 4;
@@ -158,8 +166,8 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>PeriodicWave</b> defines a periodic waveform that can be used to shape the output of a parent <b>Oscillator</b> node. </p> <br /> \n<p align=\"center\">PeriodicWave has <b>no child nodes</b> and <b>no other parent nodes</b. </p> <br />\n<p align=\"center\">The <b>optionsReal</b> field is an a-rate AudioParam representing detuning of oscillation in cents. </p> <br /> \n<p align=\"center\">The <b>optionsImag</b> field represents oscillation in hertz. Default value 440 Hz is a standard middle-A note. </p> <br /> \n<p align=\"center\">The <b>type</b> field represents specifies the shape of waveform to play, either predefined from list or else <br />\ncustomized by the combined <b>optionsReal</b> and <b>optionsImag</b> fields. </p> <br /> ");
-        eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>PeriodicWave</b> defines a periodic waveform that can be used to shape the output of a parent <b>Oscillator</b> node. </p> <br />  \n<p align=\"center\">PeriodicWave has <b>no child nodes</b> and <b>no other parent nodes</b. </p> <br />  \n<p align=\"center\">The <b>type</b> field represents specifies the shape of waveform to play, either one of predefined types or else<br />\n named and customized by the paired <b>optionsReal</b> and <b>optionsImag</b> coefficient fields. </p> <br /> \n<p align=\"center\">The <b>optionsReal</b> and <b>optionsImag</b> fields define custom waveform coefficients, real and imaginary. <br />\nSelect <b>type</b> CUSTOM or define another <b>type</b> name to enable editing of these two array fields. </p>");
+        eventsLabel1.setToolTipText("Optionally can create ROUTEs to change these values at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -183,7 +191,7 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
 
         optionsRealLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         optionsRealLabel.setText("optionsReal");
-        optionsRealLabel.setToolTipText("memory-resident audio asset (for one-shot sounds and other short audio clips)");
+        optionsRealLabel.setToolTipText("waveform coefficients as defined in W3C Web Audio API");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -192,12 +200,7 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(optionsRealLabel, gridBagConstraints);
 
-        optionsRealTF.setToolTipText("memory-resident audio asset (for one-shot sounds and other short audio clips)");
-        optionsRealTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optionsRealTFActionPerformed(evt);
-            }
-        });
+        optionsRealTF.setToolTipText("waveform coefficients as defined in W3C Web Audio API");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -210,7 +213,7 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
 
         optionsImagLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         optionsImagLabel.setText("optionsImag");
-        optionsImagLabel.setToolTipText("memory-resident audio asset (for one-shot sounds and other short audio clips)");
+        optionsImagLabel.setToolTipText("waveform coefficients as defined in W3C Web Audio API");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -219,7 +222,7 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(optionsImagLabel, gridBagConstraints);
 
-        optionsImagTF.setToolTipText("memory-resident audio asset (for one-shot sounds and other short audio clips)");
+        optionsImagTF.setToolTipText("waveform coefficients as defined in W3C Web Audio API");
         optionsImagTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 optionsImagTFActionPerformed(evt);
@@ -237,7 +240,7 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
 
         typeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         typeLabel.setText("type");
-        typeLabel.setToolTipText("select family or enter quoted font names, browsers use first supported family (e.g. \"Arial\" \"SANS\")");
+        typeLabel.setToolTipText("select a predefined waveform or provide real, imaginary options coefficients");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -247,29 +250,44 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
 
         typeCombo.setEditable(true);
         typeCombo.setModel(new DefaultComboBoxModel<String>(PERIODICWAVE_ATTR_TYPE_CHOICES));
-        typeCombo.setToolTipText("select family or enter quoted font names, browsers use first supported family (e.g. \"Arial\" \"SANS\")");
+        typeCombo.setToolTipText("select a predefined waveform or provide real, imaginary options coefficients");
         typeCombo.setMinimumSize(new java.awt.Dimension(100, 20));
         typeCombo.setPreferredSize(new java.awt.Dimension(100, 20));
+        typeCombo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                typeComboItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(typeCombo, gridBagConstraints);
+
+        typeInfoLabel.setText("select predefined waveform, otherwise provide custom options coefficients");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(typeInfoLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_descriptionTFActionPerformed
 
-    private void optionsRealTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsRealTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_optionsRealTFActionPerformed
-
     private void optionsImagTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsImagTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_optionsImagTFActionPerformed
+
+    private void typeComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_typeComboItemStateChanged
+        enableOptionsFields();
+    }//GEN-LAST:event_typeComboItemStateChanged
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
@@ -285,6 +303,7 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
     private javax.swing.JLabel optionsRealLabel;
     private javax.swing.JTextField optionsRealTF;
     private javax.swing.JComboBox<String> typeCombo;
+    private javax.swing.JLabel typeInfoLabel;
     private javax.swing.JLabel typeLabel;
     // End of variables declaration//GEN-END:variables
   
@@ -305,5 +324,39 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
     
     periodicWave.setOptionsReal          (optionsRealTF.getText().trim());
     periodicWave.setOptionsImag          (optionsImagTF.getText().trim());
+    
+    periodicWave.setType                 (typeCombo.getSelectedItem().toString());
+    
+    checkOptionsArrayLengths();
   }
+  
+    /** Check title for naming conventions */
+    private void checkOptionsArrayLengths()
+    {
+        String optionsRealString = optionsRealTF.getText().replace(","," ").trim();
+        String optionsImagString = optionsImagTF.getText().replace(","," ").trim();
+        int    optionsRealSize   = optionsRealString.split(" ").length;
+        int    optionsImagSize   = optionsImagString.split(" ").length;
+        
+        if (optionsRealSize != optionsImagSize)
+        {
+            NotifyDescriptor d = new NotifyDescriptor.Message(
+                "Mismatched options array sizes (" + optionsRealSize + ", " + optionsImagSize + ")",
+                NotifyDescriptor.WARNING_MESSAGE);
+            DialogDisplayer.getDefault().notify(d);
+            // no corrective action, that is up to author
+        }
+    }
+    private void enableOptionsFields()
+    {
+        String typeString = typeCombo.getSelectedItem().toString();
+        boolean isPredefinedType = (typeString.equals(PERIODICWAVE_ATTR_TYPE_CHOICES[0]) || // "SINE"
+                                    typeString.equals(PERIODICWAVE_ATTR_TYPE_CHOICES[1]) || // "SQUARE"
+                                    typeString.equals(PERIODICWAVE_ATTR_TYPE_CHOICES[2]) || // "SAWTOOTH"
+                                    typeString.equals(PERIODICWAVE_ATTR_TYPE_CHOICES[3]));  // "TRIANGLE"
+        optionsRealTF   .setEnabled(!isPredefinedType);
+        optionsImagTF   .setEnabled(!isPredefinedType);
+        optionsRealLabel.setEnabled(!isPredefinedType);
+        optionsImagLabel.setEnabled(!isPredefinedType);
+    }
 }
