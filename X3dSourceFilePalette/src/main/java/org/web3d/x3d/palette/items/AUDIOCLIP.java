@@ -241,25 +241,15 @@ public class AUDIOCLIP extends X3DSoundSourceNode
     return sb.toString();
   }
 
-  public boolean isLoop()
-  {
-    return loop;
-  }
+    public String getPitch()
+    {
+      return pitch.toString();
+    }
 
-  public void setLoop(boolean loop)
-  {
-    this.loop = loop;
-  }
-
-  public String getPitch()
-  {
-    return pitch.toString();
-  }
-
-  public void setPitch(String pitch)
-  {
-    this.pitch = new SFFloat(pitch,null,null);
-  }
+    public void setPitch(String pitch)
+    {
+      this.pitch = new SFFloat(pitch,null,null);
+    }
 
     /**
      * @return the load field
@@ -275,6 +265,22 @@ public class AUDIOCLIP extends X3DSoundSourceNode
     public void setLoad(boolean newLoad)
     {
       load = newLoad;
+    }
+
+    /**
+     * @return the loop field
+     */
+    public boolean isLoop()
+    {
+      return loop;
+    }
+
+    /**
+     * @param newLoop the loop field to set
+     */
+    public void setLoop(boolean newLoop)
+    {
+      loop = newLoop;
     }
 
     /**
