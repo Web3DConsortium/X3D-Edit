@@ -268,6 +268,7 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
         add(typeCombo, gridBagConstraints);
 
         typeInfoLabel.setText("select predefined waveform, otherwise provide custom options coefficients");
+        typeInfoLabel.setToolTipText("select a predefined waveform or provide real, imaginary options coefficients");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;

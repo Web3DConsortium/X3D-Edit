@@ -215,6 +215,7 @@
     <Component class="javax.swing.JLabel" name="typeInfoLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="select predefined waveform, otherwise provide custom options coefficients"/>
+        <Property name="toolTipText" type="java.lang.String" value="select a predefined waveform or provide real, imaginary options coefficients"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
