@@ -65,13 +65,13 @@ public final class LaunchIssueReportSourceForgeTicketAction extends CallableSyst
     // https://en.wikipedia.org/wiki/Percent-encoding
     // https://stackoverflow.com/questions/3871729/transmitting-newline-character-n
     
-  public static String MAILTO_REPORT_URL = "mailto:brutzman@nps.edu%20(Don%20Brutzman)?subject=X3D-Edit%20issue%20report";
+  public static String MAILTO_REPORT_URL = "mailto:don.brutzman@gmail.com%20(Don%20Brutzman)?subject=X3D-Edit%20issue%20report";
 
   // don't want to add body to email, since that clobbers user signature, but Outlook now blocks "To:" field
   // %0A is newline character, parenthesis %28 { and %29 )
   
   public static String MAILTO_REPORT_URL_SUFFIX = 
-          "&body=Please%20send%20issue-report%20email%20to%20Don%20Brutzman%20%28brutzman@nps.edu%29%20-%20thanks!" +
+          "&body=Please%20send%20issue-report%20email%20to%20Don%20Brutzman%20%28don.brutzman@gmail.com%29%20-%20thanks!" +
           "%0A%0A" + // newlines
           "Issue%20description:%20";
   
