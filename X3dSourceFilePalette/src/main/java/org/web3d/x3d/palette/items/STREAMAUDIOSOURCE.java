@@ -83,7 +83,7 @@ public class STREAMAUDIOSOURCE extends X3DSoundSourceNode // includes X3DTimeDep
     startTime  = startTimeDefault        = new X3DPrimitiveTypes.SFDouble(STREAMAUDIOSOURCE_ATTR_STARTTIME_DFLT,null,null);
     stopTime   = stopTimeDefault         = new X3DPrimitiveTypes.SFDouble(STREAMAUDIOSOURCE_ATTR_STOPTIME_DFLT,null,null);
     
-    if(STREAMAUDIOSOURCE_ATTR_URL_DFLT.length()>0)
+    if(STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_DFLT.length()>0)
       streamIdentifier = streamIdentifierDefault = parseMFStringIntoStringArray(STREAMAUDIOSOURCE_ATTR_STREAMIDENTIFIER_DFLT, true); //removeQuotes
     else
       streamIdentifier = streamIdentifierDefault = new String[0];
