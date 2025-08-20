@@ -44,7 +44,7 @@ import org.openide.util.NbBundle;
 /**
  * User interface to enter a new comment.
  * https://netbeans.apache.org/tutorials/nbm-palette-api1.html
- * @author Don Brutzman brutzman@nps.edu
+ * @author Don Brutzman
  */
 @SuppressWarnings("serial")
 public class COMMENTCustomizer extends BaseCustomizer // tutorial: javax.swing.JPanel 
