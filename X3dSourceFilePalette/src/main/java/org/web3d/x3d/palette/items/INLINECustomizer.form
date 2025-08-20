@@ -190,7 +190,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="load"/>
-        <Property name="toolTipText" type="java.lang.String" value="load=true means load immediately, load=false means defer loading or unload contained scene"/>
+        <Property name="toolTipText" type="java.lang.String" value="load=true means load immediately, load=false means defer loading or unload contained asset"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -201,7 +201,7 @@
     <Component class="javax.swing.JCheckBox" name="loadCB">
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="toolTipText" type="java.lang.String" value="load=true means load immediately, load=false means defer loading or unload contained scene"/>
+        <Property name="toolTipText" type="java.lang.String" value="load=true means load immediately, load=false means defer loading or unload contained asset"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

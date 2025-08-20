@@ -343,7 +343,7 @@ public class INLINECustomizer extends BaseCustomizer
 
         loadLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         loadLabel.setText("load");
-        loadLabel.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained scene");
+        loadLabel.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained asset");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -352,7 +352,7 @@ public class INLINECustomizer extends BaseCustomizer
         add(loadLabel, gridBagConstraints);
 
         loadCB.setSelected(true);
-        loadCB.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained scene");
+        loadCB.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained asset");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
