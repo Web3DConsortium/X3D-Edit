@@ -130,9 +130,9 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         loadCB = new javax.swing.JCheckBox();
         autoRefreshLabel = new javax.swing.JLabel();
         autoRefreshTF = new javax.swing.JTextField();
-        autoRefreshTimeLimitLabel = new javax.swing.JLabel();
-        autoRefreshTimeLimitTF = new javax.swing.JTextField();
         pitchLabel = new javax.swing.JLabel();
+        autoRefreshTimeLimitTF = new javax.swing.JTextField();
+        autoRefreshTimeLimitLabel = new javax.swing.JLabel();
         pitchTF = new javax.swing.JTextField();
         pauseTimeLabel = new javax.swing.JLabel();
         pauseTimeTF = new javax.swing.JTextField();
@@ -147,8 +147,8 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(720, 600));
-        setPreferredSize(new java.awt.Dimension(730, 620));
+        setMinimumSize(new java.awt.Dimension(680, 600));
+        setPreferredSize(new java.awt.Dimension(700, 620));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -300,16 +300,16 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(autoRefreshTF, gridBagConstraints);
 
-        autoRefreshTimeLimitLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        autoRefreshTimeLimitLabel.setText("pitch");
-        autoRefreshTimeLimitLabel.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        pitchLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        pitchLabel.setText("pitch");
+        pitchLabel.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.ipadx = 45;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(autoRefreshTimeLimitLabel, gridBagConstraints);
+        add(pitchLabel, gridBagConstraints);
 
         autoRefreshTimeLimitTF.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -320,18 +320,18 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(autoRefreshTimeLimitTF, gridBagConstraints);
 
-        pitchLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        pitchLabel.setForeground(new java.awt.Color(0, 153, 153));
-        pitchLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        pitchLabel.setText("autoRefreshTimeLimit");
-        pitchLabel.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        autoRefreshTimeLimitLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        autoRefreshTimeLimitLabel.setForeground(new java.awt.Color(0, 153, 153));
+        autoRefreshTimeLimitLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        autoRefreshTimeLimitLabel.setText("autoRefreshTimeLimit");
+        autoRefreshTimeLimitLabel.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.ipadx = 45;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(pitchLabel, gridBagConstraints);
+        add(autoRefreshTimeLimitLabel, gridBagConstraints);
 
         pitchTF.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
         gridBagConstraints = new java.awt.GridBagConstraints();
