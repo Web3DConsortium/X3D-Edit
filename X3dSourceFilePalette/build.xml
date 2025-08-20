@@ -466,7 +466,8 @@
         <echo message="stage.release complete..."/>
     </target>
 
-    <!-- OSSRH staging API: https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/#documentation-of-manual-api-endpoints -->
+    <!-- OSSRH staging API: https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/#documentation-of-manual-api-endpoints
+                            https://ossrh-staging-api.central.sonatype.com/swagger-ui/#/default/manual_upload_repository -->
     <target name="do.stage.post">
         <post to="${central-repository-url}/manual/upload/defaultRepository/org.web3d.x3d.tools?publishing_type=automatic&amp;deployment_name=latest"/>
     </target>

@@ -18,9 +18,9 @@
         <developer>
             <id>brutzman</id>
             <name>Don Brutzman, Ph.D.</name>
-            <email>brutzman@nps.edu</email>
-            <organization>MOVES Institute</organization>
-            <organizationUrl>https://my.nps.edu/web/moves/</organizationUrl>
+            <email>don.brutzman@gmail.com</email>
+            <organization>Retired</organization>
+            <organizationUrl>https://faculty.nps.edu/brutzman/brutzman.html</organizationUrl>
             <roles>
                 <role>architect</role>
                 <role>developer</role>
@@ -30,7 +30,7 @@
             <name>Terry D. Norbraten</name>
             <email>terry.norbraten@gmail.com</email>
             <organization>Retired</organization>
-            <organizationUrl></organizationUrl>
+            <organizationUrl>https://github.com/terry-norbraten</organizationUrl>
             <roles>
                 <role>developer</role>
             </roles>
@@ -79,6 +79,9 @@
         </site>
         <downloadUrl>https://github.com/Web3DConsortium/X3D-Edit/</downloadUrl>
     </distributionManagement>
+    <!-- Since we build the NBM via NetBeans using the project's build.xml with
+         Apache Ant, the rest of this POM is only a minimal framework for a pure
+         Maven process and not required for deployment at this time. -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -110,6 +113,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
                 </configuration>
             </plugin>
             <plugin>
