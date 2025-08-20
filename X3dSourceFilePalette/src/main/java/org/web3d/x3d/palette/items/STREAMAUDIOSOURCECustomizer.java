@@ -266,7 +266,7 @@ public class STREAMAUDIOSOURCECustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>StreamAudioSource</b> is audio destination representing a MediaStream with single MediaStreamTrack whose kind is \"audio\". </p> <br /> \n<p align=\"center\">The <b>streamIdentifier</b> field is defined by W3C Media Capture and Streams. </p> <br /> \n<p align=\"center\">StreamAudioSource<b> child nodes</b> provide input signals, and the <b>parent node</b> receives the unmodified output signal from this node. </p>");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>StreamAudioSource</b> is audio destination representing a MediaStream <br /> with a single MediaStreamTrack whose kind is \"audio\". </p> <br /> \n<p align=\"center\">The <b>streamIdentifier</b> field is defined by W3C Media Capture and Streams. </p> <br /> \n<p align=\"center\">StreamAudioSource has <b>no child nodes</b> as input signals, and <br /> the <b>parent node</b> receives the unmodified output signal from this node. </p>");
         eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
