@@ -259,7 +259,7 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         loadLabel.setForeground(new java.awt.Color(0, 153, 153));
         loadLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         loadLabel.setText("load");
-        loadLabel.setToolTipText("repeat indefinitely when loop=true, repeat only once when loop=false. ");
+        loadLabel.setToolTipText("load=true means load immediately, load=false means defer loading or else unload a previously loaded asset.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -268,7 +268,7 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loadLabel, gridBagConstraints);
 
-        loadCB.setToolTipText("repeat indefinitely when loop=true, repeat only once when loop=false. ");
+        loadCB.setToolTipText("load=true means load immediately, load=false means defer loading or else unload a previously loaded asset.");
         loadCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;

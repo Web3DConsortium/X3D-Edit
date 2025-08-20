@@ -161,7 +161,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="load"/>
-        <Property name="toolTipText" type="java.lang.String" value="repeat indefinitely when loop=true, repeat only once when loop=false. "/>
+        <Property name="toolTipText" type="java.lang.String" value="load=true means load immediately, load=false means defer loading or else unload a previously loaded asset."/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -171,7 +171,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="loadCB">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="repeat indefinitely when loop=true, repeat only once when loop=false. "/>
+        <Property name="toolTipText" type="java.lang.String" value="load=true means load immediately, load=false means defer loading or else unload a previously loaded asset."/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[0, 0, 0, 0]"/>
         </Property>
