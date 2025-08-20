@@ -2519,9 +2519,6 @@ public interface X3DSchemaData
   String  BUFFERAUDIOSOURCE_ATTR_GAIN_NAME                     = "gain";
   boolean BUFFERAUDIOSOURCE_ATTR_GAIN_REQD                     = false;
   String  BUFFERAUDIOSOURCE_ATTR_GAIN_DFLT                     = "1";
-  String  BUFFERAUDIOSOURCE_ATTR_STREAMIDENTIFIER_NAME         = "streamIdentifier";
-  boolean BUFFERAUDIOSOURCE_ATTR_STREAMIDENTIFIER_REQD         = false;
-  String  BUFFERAUDIOSOURCE_ATTR_STREAMIDENTIFIER_DFLT         = "";
   String  BUFFERAUDIOSOURCE_ATTR_PAUSETIME_NAME                = "pauseTime";
   boolean BUFFERAUDIOSOURCE_ATTR_PAUSETIME_REQD                = false;
   String  BUFFERAUDIOSOURCE_ATTR_PAUSETIME_DFLT                = "0";
@@ -2554,25 +2551,25 @@ public interface X3DSchemaData
   String  BUFFERAUDIOSOURCE_ATTR_DETUNE_DFLT                   = "0";
   String  BUFFERAUDIOSOURCE_ATTR_LOAD_NAME                     = "load";
   boolean BUFFERAUDIOSOURCE_ATTR_LOAD_REQD                     = false;
-  String  BUFFERAUDIOSOURCE_ATTR_LOAD_DFLT                     = "false";
+  String  BUFFERAUDIOSOURCE_ATTR_LOAD_DFLT                     = "true";
   String  BUFFERAUDIOSOURCE_ATTR_LOOP_NAME                     = "loop";
   boolean BUFFERAUDIOSOURCE_ATTR_LOOP_REQD                     = false;
   String  BUFFERAUDIOSOURCE_ATTR_LOOP_DFLT                     = "false";
   String  BUFFERAUDIOSOURCE_ATTR_LOOPEND_NAME                  = "loopEnd";
   boolean BUFFERAUDIOSOURCE_ATTR_LOOPEND_REQD                  = false;
-  String  BUFFERAUDIOSOURCE_ATTR_LOOPEND_DFLT                  = "false";
+  String  BUFFERAUDIOSOURCE_ATTR_LOOPEND_DFLT                  = "0";
   String  BUFFERAUDIOSOURCE_ATTR_LOOPSTART_NAME                = "loopStart";
   boolean BUFFERAUDIOSOURCE_ATTR_LOOPSTART_REQD                = false;
-  String  BUFFERAUDIOSOURCE_ATTR_LOOPSTART_DFLT                = "false";
+  String  BUFFERAUDIOSOURCE_ATTR_LOOPSTART_DFLT                = "0";
   String  BUFFERAUDIOSOURCE_ATTR_NUMBEROFCHANNELS_NAME         = "numberOfChannels";
   boolean BUFFERAUDIOSOURCE_ATTR_NUMBEROFCHANNELS_REQD         = false;
-  String  BUFFERAUDIOSOURCE_ATTR_NUMBEROFCHANNELS_DFLT         = "false";
+  String  BUFFERAUDIOSOURCE_ATTR_NUMBEROFCHANNELS_DFLT         = "0";
   String  BUFFERAUDIOSOURCE_ATTR_PLAYBACKRATE_NAME             = "playbackRate";
   boolean BUFFERAUDIOSOURCE_ATTR_PLAYBACKRATE_REQD             = false;
-  String  BUFFERAUDIOSOURCE_ATTR_PLAYBACKRATE_DFLT             = "false";
+  String  BUFFERAUDIOSOURCE_ATTR_PLAYBACKRATE_DFLT             = "1";
   String  BUFFERAUDIOSOURCE_ATTR_SAMPLERATE_NAME               = "sampleRate";
   boolean BUFFERAUDIOSOURCE_ATTR_SAMPLERATE_REQD               = false;
-  String  BUFFERAUDIOSOURCE_ATTR_SAMPLERATE_DFLT               = "false";
+  String  BUFFERAUDIOSOURCE_ATTR_SAMPLERATE_DFLT               = "0";
 
   // ChannelMerger element
   String  CHANNELMERGER_ELNAME                             = "ChannelMerger";
