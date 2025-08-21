@@ -528,6 +528,7 @@ public class SOUNDCustomizer extends BaseCustomizer
         add(maxBackTF, gridBagConstraints);
 
         normalizeButton.setText("normalize");
+        normalizeButton.setToolTipText("normalize direction vector to unit length");
         normalizeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 normalizeButtonActionPerformed(evt);
@@ -717,7 +718,8 @@ public class SOUNDCustomizer extends BaseCustomizer
     sound.setLocationY(locationYTF.getText().trim());
     sound.setLocationZ(locationZTF.getText().trim());
 
-    if (directionXTF.getText().equals("0") && directionYTF.getText().equals("0") && directionZTF.getText().equals("0")) normalizeButton.doClick();
+    if (directionXTF.getText().equals("0") && directionYTF.getText().equals("0") && directionZTF.getText().equals("0")) 
+        normalizeButton.doClick(); // avoid illegal value
     sound.setDirectionX(directionXTF.getText().trim());
     sound.setDirectionY(directionYTF.getText().trim());
     sound.setDirectionZ(directionZTF.getText().trim());
