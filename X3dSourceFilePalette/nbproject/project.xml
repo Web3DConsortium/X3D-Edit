@@ -455,28 +455,42 @@
             <word>ACM</word>
             <word>Altova</word>
             <word>Amaya</word>
+            <word>Analyser</word>
+            <word>AudioBuffer</word>
+            <word>AudioClip</word>
+            <word>AudioDestination</word>
+            <word>AudioNode</word>
             <word>autolaunch</word>
             <word>BioVision</word>
+            <word>BiquadFilter</word>
             <word>boolean</word>
+            <word>BufferAudioSource</word>
             <word>bvh</word>
             <word>Canonicalization</word>
+            <word>ChannelMerger</word>
+            <word>ChannelSelector</word>
             <word>channelsEnabled</word>
+            <word>ChannelSplitter</word>
             <word>ClassicVRML</word>
             <word>classpath</word>
             <word>Collada</word>
             <word>ColorRGBA</word>
             <word>ConformanceNist</word>
+            <word>Convolver</word>
             <word>CoordinateDouble</word>
             <word>CORS</word>
             <word>crossSection</word>
             <word>CSS</word>
             <word>customizer</word>
+            <word>deamplifies</word>
             <word>denormalization</word>
             <word>denormalized</word>
             <word>deserialization</word>
             <word>deserialized</word>
+            <word>detune</word>
             <word>DOCTYPE</word>
             <word>DTD</word>
+            <word>DynamicsCompressor</word>
             <word>ElevationGrid</word>
             <word>endFrame</word>
             <word>EnvironmentLight</word>
@@ -512,10 +526,19 @@
             <word>Khronos</word>
             <word>LineProperties</word>
             <word>LineSet</word>
+            <word>ListenerPointSource</word>
             <word>loa</word>
             <word>localhost</word>
             <word>mailto</word>
+            <word>MediaStream</word>
             <word>MeshLab</word>
+            <word>MetadataBoolean</word>
+            <word>MetadataDouble</word>
+            <word>MetadataFloat</word>
+            <word>MetadataInteger</word>
+            <word>MetadataSet</word>
+            <word>MetadataString</word>
+            <word>MicrophoneSource</word>
             <word>mocap</word>
             <word>MovieTexture</word>
             <word>MultiTexture</word>
@@ -528,12 +551,17 @@
             <word>Okino</word>
             <word>opendis</word>
             <word>openjdk</word>
+            <word>OscillatorSource</word>
+            <word>oversample</word>
+            <word>panner</word>
             <word>Paraview</word>
+            <word>PeriodicWave</word>
             <word>PhysicalMaterial</word>
             <word>PixelTexture</word>
             <word>PointSet</word>
             <word>PolyTrans</word>
             <word>Portecle</word>
+            <word>prepend</word>
             <word>PyPI</word>
             <word>Quickstart</word>
             <word>README</word>
@@ -545,8 +573,13 @@
             <word>SISO</word>
             <word>skeletalConfiguration</word>
             <word>SourceForge</word>
+            <word>spatialization</word>
+            <word>spatializes</word>
+            <word>SpatialSound</word>
             <word>stackoverflow</word>
             <word>startFrame</word>
+            <word>StreamAudioDestination</word>
+            <word>StreamAudioSource</word>
             <word>strictfp</word>
             <word>stylesheet</word>
             <word>Sunrize</word>
@@ -568,6 +601,8 @@
             <word>Validator</word>
             <word>Vivaty</word>
             <word>VRML</word>
+            <word>WaveShaper</word>
+            <word>WebRTC</word>
             <word>WHATWG</word>
             <word>WhiteDune</word>
             <word>whitespace</word>
