@@ -6,7 +6,9 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Prerelease, 20 August 2025
+# X3D-Edit 4.0 Prerelease, 22 August 2025
+
+Occasionally we use this directory for custom testing of special releases.
 
 <!-- posted at https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/ -->
 
@@ -18,7 +20,7 @@ Backup software deployment is found in  [Maven Central Repository](https://centr
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetbBeans&nbsp;26. Tested satisfactorily, any operating system |  73.1 MB | 20 August 2025
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetbBeans&nbsp;26. Tested satisfactorily, any operating system |  73.1 MB | 22 August 2025
 [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/X3D-Edit%20Pre-Release%20Testing/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Must set jdkhome in netbeans.conf      |  260.7 MB | 25 February 2025
 
 <!---
@@ -38,14 +40,6 @@ For full details on updates, please see our
 [Installation video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
 [<img align='right' width='400' src="https://www.web3d.org/x3d/tools/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
 
-**Windows users**: there is an issue in both the zip and [X3D-Edit Windows installer](https://github.com/Web3DConsortium/X3D-Edit/issues/3) and our current testing shows this does not work.
-
-If you want to try on another system, please note that you will manually need to edit the configuration files to point to your local JDK installation.  For example:
-
-- Using _localadmin_ permissions, set `jdkhome` permissions in configuration file:
-- `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
-- `jdkhome="C:\Program Files\Java\openjdk\jdk-24.0.2"`
-
 ## Source Code is Public on GitHub
 
 X3D-Edit software development is maintained at [Web3D Consortium GitHub](https://github.com/Web3DConsortium/X3D-Edit).
@@ -55,7 +49,17 @@ Note: SourceForge is excellent!  Nevertheless, in order to conform with trusted-
 we have moved source code development to [GitHub](https://github.com/Web3dConsortium/X3D-Edit) and 
 [Maven central repository](https://central.sonatype.com/artifact/org.web3d.x3d.tools/x3dedit).
 
-## Troubleshoot Netbeans
+## Standalone Application Currently Not Available
+
+For Windows users: there is an issue in both the zip and [X3D-Edit Windows installer](https://github.com/Web3DConsortium/X3D-Edit/issues/3) and our current testing shows this does not work.  We will track ongoing NetBeans progress to restore this capability.
+
+If you want to try the standalone application on another system, please note that you will manually need to edit the configuration files to point to your local JDK installation.  For example:
+
+- Using _localadmin_ permissions, set `jdkhome` permissions in configuration file:
+- `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
+- `jdkhome="C:\Program Files\Java\openjdk\jdk-24.0.2"`
+
+## Troubleshooting NetBeans
 
 If things don't work "out of the box" for you, please let us know.
 
