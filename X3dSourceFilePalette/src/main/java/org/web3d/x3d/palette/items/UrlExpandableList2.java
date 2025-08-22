@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(url).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(url).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -107,6 +107,8 @@ public class UrlExpandableList2 extends JPanel implements ListSelectionListener
   private JTextComponent target;
   
   private boolean alternateFormatsExpected = false;
+  
+  private boolean alternateFormatsWarningProvided = false; // first-time warning
   
   private DefaultListModel<String> urlListModel;
   
@@ -2405,13 +2407,14 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
           {
                 unknownFileExtensionFound = true;
 
-                if (!alternateFormatsExpected) // no warning needed for Anchor
+                if (!alternateFormatsWarningProvided && !alternateFormatsExpected) // no warning needed for Anchor
                 {
                     NotifyDescriptor descriptor = new NotifyDescriptor.Message(
                             "<html><p align='center'>Found unknown file extension " + fileExtension + " in url[" + i + "] </p>" +
                             "<p align='center'>" + url + "</p>" +
                             "<br/><p align='center'>Alternative file formats are allowed but results may be unsupported!</p>", NotifyDescriptor.WARNING_MESSAGE);
                     DialogDisplayer.getDefault().notify(descriptor);
+                    alternateFormatsWarningProvided = true; // this warning is annoying/disruptive if repeatedly delivered to user
                 }
           }
       }
