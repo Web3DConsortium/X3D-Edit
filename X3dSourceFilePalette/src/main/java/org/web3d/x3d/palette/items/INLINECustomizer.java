@@ -203,6 +203,7 @@ public class INLINECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        descriptionLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         descriptionLabel1.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel1.setText("description");
         descriptionLabel1.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
@@ -343,7 +344,7 @@ public class INLINECustomizer extends BaseCustomizer
 
         loadLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         loadLabel.setText("load");
-        loadLabel.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained scene");
+        loadLabel.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained asset");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -352,7 +353,7 @@ public class INLINECustomizer extends BaseCustomizer
         add(loadLabel, gridBagConstraints);
 
         loadCB.setSelected(true);
-        loadCB.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained scene");
+        loadCB.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained asset");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;

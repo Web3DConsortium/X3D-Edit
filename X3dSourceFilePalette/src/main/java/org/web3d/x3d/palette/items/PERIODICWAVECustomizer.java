@@ -166,7 +166,7 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>PeriodicWave</b> defines a periodic waveform that can be used to shape the output of a parent <b>Oscillator</b> node. </p> <br />  \n<p align=\"center\">PeriodicWave has <b>no child nodes</b> and <b>no other parent nodes</b. </p> <br />  \n<p align=\"center\">The <b>type</b> field represents specifies the shape of waveform to play, either one of predefined types or else<br />\n named and customized by the paired <b>optionsReal</b> and <b>optionsImag</b> coefficient fields. </p> <br /> \n<p align=\"center\">The <b>optionsReal</b> and <b>optionsImag</b> fields define custom waveform coefficients, real and imaginary. <br />\nSelect <b>type</b> CUSTOM or define another <b>type</b> name to enable editing of these two array fields. </p>");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>PeriodicWave</b> defines a periodic waveform that can be used to shape the output of a parent <b>Oscillator</b> node. </p> <br />   \n<p align=\"center\">PeriodicWave has <b>no child nodes</b> and <b>no other parent node</b> besides an Oscillator node. </p> <br />   \n<p align=\"center\">The <b>type</b> field represents specifies the shape of waveform to play, either one of predefined types or else<br /> \n named and customized by the paired <b>optionsReal</b> and <b>optionsImag</b> coefficient fields. </p> <br /> \n <p align=\"center\">The <b>optionsReal</b> and <b>optionsImag</b> fields define custom waveform coefficients, real and imaginary. <br />\n Select <b>type</b> CUSTOM or define another <b>type</b> name to enable editing of these two array fields. </p>");
         eventsLabel1.setToolTipText("Optionally can create ROUTEs to change these values at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -248,7 +248,6 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(typeLabel, gridBagConstraints);
 
-        typeCombo.setEditable(true);
         typeCombo.setModel(new DefaultComboBoxModel<String>(PERIODICWAVE_ATTR_TYPE_CHOICES));
         typeCombo.setToolTipText("select a predefined waveform or provide real, imaginary options coefficients");
         typeCombo.setMinimumSize(new java.awt.Dimension(100, 20));
@@ -267,7 +266,7 @@ public class PERIODICWAVECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(typeCombo, gridBagConstraints);
 
-        typeInfoLabel.setText("select predefined waveform, otherwise provide custom options coefficients");
+        typeInfoLabel.setText("select predefined waveform, otherwise provide CUSTOM options coefficients");
         typeInfoLabel.setToolTipText("select a predefined waveform or provide real, imaginary options coefficients");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;

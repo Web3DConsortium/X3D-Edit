@@ -116,7 +116,7 @@
         <Component class="javax.swing.JLabel" name="eventsLabel1">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt; &lt;b&gt;PeriodicWave&lt;/b&gt; defines a periodic waveform that can be used to shape the output of a parent &lt;b&gt;Oscillator&lt;/b&gt; node. &lt;/p&gt; &lt;br /&gt;  &#xa;&lt;p align=&quot;center&quot;&gt;PeriodicWave has &lt;b&gt;no child nodes&lt;/b&gt; and &lt;b&gt;no other parent nodes&lt;/b. &lt;/p&gt; &lt;br /&gt;  &#xa;&lt;p align=&quot;center&quot;&gt;The &lt;b&gt;type&lt;/b&gt; field represents specifies the shape of waveform to play, either one of predefined types or else&lt;br /&gt;&#xa; named and customized by the paired &lt;b&gt;optionsReal&lt;/b&gt; and &lt;b&gt;optionsImag&lt;/b&gt; coefficient fields. &lt;/p&gt; &lt;br /&gt; &#xa;&lt;p align=&quot;center&quot;&gt;The &lt;b&gt;optionsReal&lt;/b&gt; and &lt;b&gt;optionsImag&lt;/b&gt; fields define custom waveform coefficients, real and imaginary. &lt;br /&gt;&#xa;Select &lt;b&gt;type&lt;/b&gt; CUSTOM or define another &lt;b&gt;type&lt;/b&gt; name to enable editing of these two array fields. &lt;/p&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt; &lt;b&gt;PeriodicWave&lt;/b&gt; defines a periodic waveform that can be used to shape the output of a parent &lt;b&gt;Oscillator&lt;/b&gt; node. &lt;/p&gt; &lt;br /&gt;   &#xa;&lt;p align=&quot;center&quot;&gt;PeriodicWave has &lt;b&gt;no child nodes&lt;/b&gt; and &lt;b&gt;no other parent node&lt;/b&gt; besides an Oscillator node. &lt;/p&gt; &lt;br /&gt;   &#xa;&lt;p align=&quot;center&quot;&gt;The &lt;b&gt;type&lt;/b&gt; field represents specifies the shape of waveform to play, either one of predefined types or else&lt;br /&gt; &#xa; named and customized by the paired &lt;b&gt;optionsReal&lt;/b&gt; and &lt;b&gt;optionsImag&lt;/b&gt; coefficient fields. &lt;/p&gt; &lt;br /&gt; &#xa; &lt;p align=&quot;center&quot;&gt;The &lt;b&gt;optionsReal&lt;/b&gt; and &lt;b&gt;optionsImag&lt;/b&gt; fields define custom waveform coefficients, real and imaginary. &lt;br /&gt;&#xa; Select &lt;b&gt;type&lt;/b&gt; CUSTOM or define another &lt;b&gt;type&lt;/b&gt; name to enable editing of these two array fields. &lt;/p&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value="Optionally can create ROUTEs to change these values at run time"/>
           </Properties>
           <Constraints>
@@ -188,7 +188,6 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="typeCombo">
       <Properties>
-        <Property name="editable" type="boolean" value="true"/>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="new DefaultComboBoxModel&lt;String&gt;(PERIODICWAVE_ATTR_TYPE_CHOICES)" type="code"/>
         </Property>
@@ -214,7 +213,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="typeInfoLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="select predefined waveform, otherwise provide custom options coefficients"/>
+        <Property name="text" type="java.lang.String" value="select predefined waveform, otherwise provide CUSTOM options coefficients"/>
         <Property name="toolTipText" type="java.lang.String" value="select a predefined waveform or provide real, imaginary options coefficients"/>
       </Properties>
       <Constraints>

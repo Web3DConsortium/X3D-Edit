@@ -38,7 +38,7 @@ package org.web3d.x3d.palette;
  * X3D Palette for NetBeans
  * https://netbeans.apache.org/tutorials/nbm-palette-api1.html
  * https://netbeans.apache.org/tutorials/nbm-palette-api2.html
- * @author brutzman@nps.edu
+ * @author Don Brutzman
  */
 
 import java.io.IOException;

@@ -41,6 +41,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="descriptionLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
@@ -190,7 +193,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="load"/>
-        <Property name="toolTipText" type="java.lang.String" value="load=true means load immediately, load=false means defer loading or unload contained scene"/>
+        <Property name="toolTipText" type="java.lang.String" value="load=true means load immediately, load=false means defer loading or unload contained asset"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -201,7 +204,7 @@
     <Component class="javax.swing.JCheckBox" name="loadCB">
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="toolTipText" type="java.lang.String" value="load=true means load immediately, load=false means defer loading or unload contained scene"/>
+        <Property name="toolTipText" type="java.lang.String" value="load=true means load immediately, load=false means defer loading or unload contained asset"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

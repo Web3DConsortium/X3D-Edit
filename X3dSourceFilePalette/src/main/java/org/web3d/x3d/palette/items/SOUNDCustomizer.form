@@ -575,6 +575,7 @@
     <Component class="javax.swing.JButton" name="normalizeButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="normalize"/>
+        <Property name="toolTipText" type="java.lang.String" value="normalize direction vector to unit length"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="normalizeButtonActionPerformed"/>
