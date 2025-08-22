@@ -3107,7 +3107,7 @@ public interface X3DSchemaData
   boolean AUDIOCLIP_ATTR_URL_REQD         = false;
   String  AUDIOCLIP_ATTR_URL_DFLT         = "";
   String  AUDIOCLIP_ATTR_AUTOREFRESH_NAME = "autoRefresh"; // X3D 4.0
-  boolean AUDIOCLIP_ATTR_AUTOREFRESH_REQD = false;
+  boolean AUDIOCLIP_ATTR_AUTOREFRESH_REQD = false;AUDIOCLIP_ATTR_LOAD_NAME
   String  AUDIOCLIP_ATTR_AUTOREFRESH_DFLT = "0";
   String  AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_NAME = "autoRefreshTimeLimit";
   boolean AUDIOCLIP_ATTR_AUTOREFRESHTIMELIMIT_REQD = false;
@@ -3118,7 +3118,7 @@ public interface X3DSchemaData
   String  AUDIOCLIP_ATTR_GAIN_NAME        = "gain";
   boolean AUDIOCLIP_ATTR_GAIN_REQD        = false;
   String  AUDIOCLIP_ATTR_GAIN_DFLT        = "1.0";
-  String  AUDIOCLIP_ATTR_LOAD_NAME        = "loop";
+  String          = "load";
   boolean AUDIOCLIP_ATTR_LOAD_REQD        = false;
   String  AUDIOCLIP_ATTR_LOAD_DFLT        = "false";
   
