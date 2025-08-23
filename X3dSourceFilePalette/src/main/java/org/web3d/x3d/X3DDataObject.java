@@ -132,6 +132,15 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
     
     // Avoid JAXP0801002 which states that total operators are limited to 10000
     System.setProperty("jdk.xml.xpathTotalOpLimit", "0"); // A value less than or equal to 0 indicates no limit
+    
+    // see X3D Developers Guide for XAXP properties requiring larger settings as of OpenJDK 24
+    // https://bugs.openjdk.org/browse/JDK-8343022
+    // https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#NetBeans
+    // https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#Java
+    
+    System.setProperty("jdk.xml.entityExpansionLimit", "120000");
+    System.setProperty("jdk.xml.totalEntitySizeLimit", "50000000");
+    System.setProperty("jdk.xml.maxGeneralEntitySizeLimit", "50000000");
 
     // ***
     
