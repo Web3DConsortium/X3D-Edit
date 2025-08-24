@@ -1608,7 +1608,7 @@ public interface X3DSchemaData
   String  IMAGETEXTURE_ATTR_DESCRIPTION_DFLT = "";
 
   String[]IMAGETEXTURE_ATTR_CONTAINERFIELD_CHOICES = {
-    "texture", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","watchList","children","left","right","back","front","top","bottom"};
+    "texture","watchList", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","children","left","right","back","front","top","bottom","ambientTexture", "baseTexture", "diffuseTexture", "emissiveTexture", "metallicRoughnessTexture", "normalTexture", "occlusionTexture", "shininessTexture", "specularTexture"};
   String  IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIP =
     "texture of parent Shape or ComposedTexture3D, otherTexture of parent TextureBackground";
   String[]IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS = {
