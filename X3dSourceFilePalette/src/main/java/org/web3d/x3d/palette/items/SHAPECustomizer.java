@@ -268,7 +268,7 @@ public class SHAPECustomizer extends BaseCustomizer
         bboxSizeYTF = new javax.swing.JTextField();
         bboxSizeZTF = new javax.swing.JTextField();
 
-        setMinimumSize(new java.awt.Dimension(790, 580));
+        setMinimumSize(new java.awt.Dimension(790, 500));
         setPreferredSize(new java.awt.Dimension(802, 580));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
