@@ -46,6 +46,8 @@ import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.web3d.x3d.PixelTextureGenerator;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
+import static org.web3d.x3d.types.X3DSchemaData.IMAGETEXTURE_ATTR_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS;
 
 /**
  * PIXELTEXTURECustomizer.java
@@ -74,6 +76,11 @@ public class PIXELTEXTURECustomizer extends BaseCustomizer
     HelpCtx.setHelpIDString(this, "PIXELTEXTURE_ELEM_HELPID");
     
     initComponents();
+    super.getDEFUSEpanel().setContainerFieldChoices(
+            IMAGETEXTURE_ATTR_CONTAINERFIELD_CHOICES,
+            IMAGETEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(pixelTexture.getContainerField()); // reset value to match updated JComboBox data model
+    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
      
      numWidthTF.setText(pixelTexture.getNumWidth());
     numHeightTF.setText(pixelTexture.getNumHeight());
