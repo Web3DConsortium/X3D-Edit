@@ -1,3 +1,9 @@
+Version preparation:
+Project Properties -> API Versioning -> Implementation Version
+pom.xml (version tag)
+
+Additional deployment notes:
+
 If the ssh-agent drops identities, have to put them back for command line git to
 work w/ ssh keys. Test by:
 
@@ -25,10 +31,6 @@ version #:
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
 </repositories>
-
-Version preparation:
-Project Properties -> API Versioning -> Implementation Version
-pom.xml (version tag)
 
 Apparently, for a plugin to be valid on the Apache Netbeans Plugin Portal, it
 must be double signed. GPG detached signed for Maven Central hosting, and at
