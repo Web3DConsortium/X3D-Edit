@@ -7,19 +7,19 @@
     <description>X3D-Edit supports creation, authoring, validation and viewing of X3D graphics model files</description>
     <url>https://github.com/Web3DConsortium/X3D-Edit/</url>
     <inceptionYear>1999</inceptionYear>
-    <version>4.0.38</version>
+    <version>4.0.39</version>
     <!-- maven requires "nbm" even though netbeans-mediated maven schema quacks -->
     <packaging>nbm</packaging>
     <organization>
         <name>Web3D Consortium</name>
-        <url>https://www.web3d.org/</url>
+        <url>https://www.web3d.org</url>
     </organization>
     <developers>
         <developer>
             <id>brutzman</id>
             <name>Don Brutzman, Ph.D.</name>
             <email>don.brutzman@gmail.com</email>
-            <organization>Retired</organization>
+            <organization>Web3D Consortium</organization>
             <organizationUrl>https://faculty.nps.edu/brutzman/brutzman.html</organizationUrl>
             <roles>
                 <role>architect</role>
@@ -75,7 +75,7 @@
         </repository>
         <site>
             <name>${project.name} Website</name>
-            <url>https://savage.nps.edu/X3D-Edit/</url>
+            <url>https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html</url>
         </site>
         <downloadUrl>https://github.com/Web3DConsortium/X3D-Edit/</downloadUrl>
     </distributionManagement>
