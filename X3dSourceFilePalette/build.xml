@@ -356,7 +356,7 @@
     <!-- deploy.snapshot will prepare, sign and deploy a snapshot version of the
          NBM to the Sonatype snapshot repository.
 
-         stage.release will prepare, sign and deploy all release artifacts to
+         maven.central.stage.release will prepare, sign and deploy all release artifacts to
          the Sonatype staging repository where the packaged upload can then be
          closed and released from https://s01.oss.sonatype.org
     -->
@@ -443,9 +443,9 @@
          *** Make sure to comply with src/doc/ReadMe for Version preparation first ***
     -->
     <!-- Example for deploying .asc files from here: https://github.com/vigna/dsiutils/blob/master/build.xml -->
-    <target name="stage.release" depends="prepare.repositories,package,sign"
+    <target name="maven.central.stage.release" depends="prepare.repositories,package,sign"
             description="Generate and deploy a Release NBM and artifacts to Sonatype Open Source Software (OSS) Repository Hosting (OSSRH) staging repo for synching to Maven Central">
-        <echo message="stage.release start... build and upload to maven central repository for scanning, review, and accepting"/>
+        <echo message="maven.central.stage.release start... build and upload to maven central repository for scanning, review, and accepting"/>
         <resolver:artifacts id="release">
             <!-- pom is automatically deployed -->
             <artifact file="mvn/pom.xml.asc" type="pom.asc"/>
@@ -463,7 +463,7 @@
         <echo message="Ready now to close, then release artifacts from: https://central.sonatype.com/publishing/deployments"/>
         <nbbrowse url="https://central.sonatype.com/publishing/deployments"/>
         <!-- https://central.sonatype.org/publish/publish-portal-upload/ -->
-        <echo message="stage.release complete..."/>
+        <echo message="maven.central.stage.release complete..."/>
     </target>
 
     <!-- OSSRH staging API: https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/#documentation-of-manual-api-endpoints
