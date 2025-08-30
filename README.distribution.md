@@ -27,7 +27,8 @@ X3D-Edit Install File                                                           
 [x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  205.7 MB | 7 July 2024, pending
 [x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  205.8 MB | 7 July 2024, pending
 -->
-SourceForge [download statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting.
+SourceForge [update-version statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting (over 2,800), as are
+NetBeans Plugin Portal [deployment statistics](https://plugins.netbeans.apache.org/catalogue/?id=90) (over 27,000).
 
 ## How To Do It
 
