@@ -469,7 +469,7 @@
     <!-- OSSRH staging API: https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/#getting-started-for-maven-api-like-plugins
                             https://ossrh-staging-api.central.sonatype.com/swagger-ui/#/default/manual_upload_repository -->
     <target name="do.stage.post">
-        <post to="${central-repository-url}/manual/upload/defaultRepository/org.web3d.x3d.tools?publishing_type=automatic&amp;deployment_name=${ant.project.name}-v${mf.OpenIDE-Module-Implementation-Version}"/>
+        <post to="${central-repository-url}/manual/upload/defaultRepository/org.web3d.x3d.tools?publishing_type=automatic&amp;deployment_name=${pom.artifactId}-${pom.version}"/>
     </target>
 
 </project>
