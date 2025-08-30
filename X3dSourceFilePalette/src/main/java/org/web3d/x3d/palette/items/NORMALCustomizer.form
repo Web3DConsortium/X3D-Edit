@@ -45,8 +45,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="normalizeAxisValuesButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="unit length for normal values"/>
-        <Property name="toolTipText" type="java.lang.String" value="set unit-magnitude vector values for normals (unit length, ranges 0..1)"/>
+        <Property name="text" type="java.lang.String" value="Set unit length for normal values"/>
+        <Property name="toolTipText" type="java.lang.String" value="Set unit-magnitude vector values for normals (unit length, ranges 0..1) with illegal all-zero vectors changed to 0 1 0"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="normalizeAxisValuesButtonActionPerformed"/>
@@ -60,7 +60,7 @@
     <Component class="javax.swing.JLabel" name="hintLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;Normal&lt;/b&gt; node contains orthogonal vector values, applied either per-vertex or per-face. &lt;/p&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;Normal&lt;/b&gt; node contains orthogonal vector values, applied either per-vertex or per-face to a mesh. &lt;/p&gt;"/>
         <Property name="toolTipText" type="java.lang.String" value="Normal vector values are either for sibling Coordinate/CoordinateDouble or parent ElevationGrid node"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">

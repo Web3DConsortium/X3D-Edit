@@ -66,10 +66,10 @@ public class PROTOTYPE_CrossHair extends SceneGraphStructureNodeType
             "    <ExternProtoDeclare name='CrossHair' appinfo='CrossHair prototype provides a heads-up display (HUD) crosshair at the view center, which is useful for assessing NavigationInfo lookAt point'\n" +
             "      url='\"../../Savage/Tools/HeadsUpDisplays/CrossHairPrototype.x3d#CrossHair\"\n" +
             "           \"../../../Savage/Tools/HeadsUpDisplays/CrossHairPrototype.x3d#CrossHair\"\n" +
-            "           \"https://savage.nps.edu/Savage/Tools/HeadsUpDisplays/CrossHairPrototype.x3d#CrossHair\"\n" +
+            "           \"https://www.web3d.org/x3d/content/examples/Savage/Tools/HeadsUpDisplays/CrossHairPrototype.x3d#CrossHair\"\n" +
             "           \"../../Savage/Tools/HeadsUpDisplays/CrossHairPrototype.wrl#CrossHair\"\n" +
             "           \"../../../Savage/Tools/HeadsUpDisplays/CrossHairPrototype.wrl#CrossHair\"\n" +
-            "           \"https://savage.nps.edu/Savage/Tools/HeadsUpDisplays/CrossHairPrototype.wrl#CrossHair\"'>\n" +
+            "           \"https://www.web3d.org/x3d/content/examples/Savage/Tools/HeadsUpDisplays/CrossHairPrototype.wrl#CrossHair\"'>\n" +
             "      <field accessType='initializeOnly' appinfo='whether CrossHair prototype is enabled or not' name='enabled' type='SFBool'/>\n" +
             "      <field accessType='inputOnly' appinfo='control whether enabled/disabled' name='set_enabled' type='SFBool'/>\n" +
             "      <field accessType='inputOutput' appinfo='color of CrossHair marker' name='markerColor' type='SFColor'/>\n" +
@@ -83,7 +83,7 @@ public class PROTOTYPE_CrossHair extends SceneGraphStructureNodeType
             "      <fieldValue name='scale' value='1 1 1'/>\n" +
             "      <fieldValue name='positionOffsetFromCamera' value='0 0 -6'/>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/CrossHairExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/CrossHairExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

@@ -133,8 +133,8 @@ public class NORMALCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(expandableList1, gridBagConstraints);
 
-        normalizeAxisValuesButton.setText("unit length for normal values");
-        normalizeAxisValuesButton.setToolTipText("set unit-magnitude vector values for normals (unit length, ranges 0..1)");
+        normalizeAxisValuesButton.setText("Set unit length for normal values");
+        normalizeAxisValuesButton.setToolTipText("Set unit-magnitude vector values for normals (unit length, ranges 0..1) with illegal all-zero vectors changed to 0 1 0");
         normalizeAxisValuesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 normalizeAxisValuesButtonActionPerformed(evt);
@@ -148,7 +148,7 @@ public class NORMALCustomizer extends BaseCustomizer
         add(normalizeAxisValuesButton, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align='center'><b>Normal</b> node contains orthogonal vector values, applied either per-vertex or per-face. </p>");
+        hintLabel.setText("<html><p align='center'><b>Normal</b> node contains orthogonal vector values, applied either per-vertex or per-face to a mesh. </p>");
         hintLabel.setToolTipText("Normal vector values are either for sibling Coordinate/CoordinateDouble or parent ElevationGrid node");
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

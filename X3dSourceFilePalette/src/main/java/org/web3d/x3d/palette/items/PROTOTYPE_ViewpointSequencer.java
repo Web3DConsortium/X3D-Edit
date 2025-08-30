@@ -67,10 +67,10 @@ public class PROTOTYPE_ViewpointSequencer extends SceneGraphStructureNodeType
             "        appinfo='Sequentially binds each Viewpoint in a set of Viewpoint USE nodes, creating an automatic tour for a scene'\n" +
             "        url='\"../../Savage/Tools/Animation/ViewpointSequencerPrototype.x3d#ViewpointSequencer\"\n" +
             "             \"../../../Savage/Tools/Animation/ViewpointSequencerPrototype.x3d#ViewpointSequencer\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/ViewpointSequencerPrototype.x3d#ViewpointSequencer\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/ViewpointSequencerPrototype.x3d#ViewpointSequencer\"\n" +
             "             \"../../../Savage/Tools/Animation/ViewpointSequencerPrototype.wrl#ViewpointSequencer\"\n" +
             "             \"../../Savage/Tools/Animation/ViewpointSequencerPrototype.wrl#ViewpointSequencer\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/ViewpointSequencerPrototype.wrl#ViewpointSequencer\" '>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/ViewpointSequencerPrototype.wrl#ViewpointSequencer\" '>\n" +
             "      <field accessType='initializeOnly' appinfo='Viewpoint USE nodes that are sequentially bound' name='viewpoints' type='MFNode'>\n" +
             "         <!-- default value NULL node, overridden by ProtoInstance -->\n" +
             "      </field>\n" +
@@ -100,7 +100,7 @@ public class PROTOTYPE_ViewpointSequencer extends SceneGraphStructureNodeType
             "        <fieldValue name='enabled' value='false'/>\n" +
             "      </ProtoInstance>\n" +
             "    </Transform>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/ViewpointSequencerExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/ViewpointSequencerExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

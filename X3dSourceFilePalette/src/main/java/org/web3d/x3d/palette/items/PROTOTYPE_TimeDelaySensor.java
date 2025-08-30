@@ -67,10 +67,10 @@ public class PROTOTYPE_TimeDelaySensor extends SceneGraphStructureNodeType
             "        appinfo='TimeSensor functionality commences after delayInterval pause'\n" +
             "        url='\"../../Savage/Tools/Animation/TimeDelaySensorPrototype.x3d#TimeDelaySensor\"\n" +
             "             \"../../../Savage/Tools/Animation/TimeDelaySensorPrototype.x3d#TimeDelaySensor\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/TimeDelaySensorPrototype.x3d#TimeDelaySensor\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/TimeDelaySensorPrototype.x3d#TimeDelaySensor\"\n" +
             "             \"../../../Savage/Tools/Animation/TimeDelaySensorPrototype.wrl#TimeDelaySensor\"\n" +
             "             \"../../Savage/Tools/Animation/TimeDelaySensorPrototype.wrl#TimeDelaySensor\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/TimeDelaySensorPrototype.wrl#TimeDelaySensor\" '>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/TimeDelaySensorPrototype.wrl#TimeDelaySensor\" '>\n" +
             "      <field name='description' type='SFString' accessType='inputOutput' appinfo='describe the purpose of this sensor'/>\n" +
             "      <field name='startTime' type='SFTime' accessType='inputOutput'/>\n" +
             "      <field name='enabled' type='SFBool' accessType='inputOutput'/>\n" +
@@ -83,7 +83,7 @@ public class PROTOTYPE_TimeDelaySensor extends SceneGraphStructureNodeType
             "      <fieldValue name='description' value='double click to initiate time-delayed event'/>\n" +
             "      <fieldValue name='delayInterval' value='1'/>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/TimeDelaySensorExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/TimeDelaySensorExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

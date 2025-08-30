@@ -66,10 +66,10 @@ public class INLINE_GridYZFixed extends SceneGraphStructureNodeType
             "    <Transform DEF='GridYZ_20x20Fixed_AdjustScale' scale='1 1 1'>\n" +
             "       <Inline DEF='GridYZ_20x20Fixed' url='\"GridYZ_20x20Fixed.x3d\"\n" +
             "          \"../../../Savage/Tools/Authoring/GridYZ_20x20Fixed.x3d\"\n" +
-            "          \"https://savage.nps.edu/Savage/Tools/Authoring/GridYZ_20x20Fixed.x3d\"\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/GridYZ_20x20Fixed.x3d\"\n" +
             "          \"GridYZ_20x20Fixed.wrl\"\n" +
             "          \"../../../Savage/Tools/Authoring/GridYZ_20x20Fixed.wrl\"\n" +
-            "          \"https://savage.nps.edu/Savage/Tools/Authoring/GridYZ_20x20Fixed.wrl\"'/>\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/GridYZ_20x20Fixed.wrl\"'/>\n" +
             "    </Transform>\n";
   }
 

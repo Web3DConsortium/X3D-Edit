@@ -67,10 +67,10 @@ public class PROTOTYPE_MaterialToggle extends SceneGraphStructureNodeType
             "        appinfo='MaterialToggle selects one of two different Material values'\n" +
             "        url='\"../../Savage/Tools/Animation/MaterialTogglePrototype.x3d#MaterialToggle\"\n" +
             "             \"../../../Savage/Tools/Animation/MaterialTogglePrototype.x3d#MaterialToggle\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/MaterialTogglePrototype.x3d#MaterialToggle\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/MaterialTogglePrototype.x3d#MaterialToggle\"\n" +
             "             \"../../../Savage/Tools/Animation/MaterialTogglePrototype.wrl#MaterialToggle\"\n" +
             "             \"../../Savage/Tools/Animation/MaterialTogglePrototype.wrl#MaterialToggle\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/MaterialTogglePrototype.wrl#MaterialToggle\"'>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/MaterialTogglePrototype.wrl#MaterialToggle\"'>\n" +
             "            <field accessType='inputOnly' name='set_toggle' type='SFBool'/>\n" +
             "            <field accessType='initializeOnly' appinfo='whether to use DefaultMaterial or ToggleMaterial' name='toggle' type='SFBool'/>\n" +
             "            <field accessType='outputOnly' name='toggle_changed' type='SFBool'/>\n" +
@@ -98,7 +98,7 @@ public class PROTOTYPE_MaterialToggle extends SceneGraphStructureNodeType
             "        </ProtoInstance>\n" +
             "      </Appearance>\n" +
             "    </Shape>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/MaterialToggleExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/MaterialToggleExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

@@ -63,8 +63,8 @@ public class SMAL_TerrainMetadataTemplate extends SceneGraphStructureNodeType
   {
     return "\n" +
             "    <!-- ==================== -->\n" +
-            "    <WorldInfo info='\"https://savage.nps.edu/Savage/Tools/SMAL/SavageTerrainMetadataTemplate.x3d\"' title='SavageTerrainMetadataTemplate'>\n" +
-            "      <MetadataSet containerField='metadata' name='SMAL' reference='https://savage.nps.edu/Savage/Tools/SMAL/SMAL.html'>\n" +
+            "    <WorldInfo info='\"https://www.web3d.org/x3d/content/examples/Savage/Tools/SMAL/SavageTerrainMetadataTemplate.x3d\"' title='SavageTerrainMetadataTemplate'>\n" +
+            "      <MetadataSet containerField='metadata' name='SMAL' reference='https://www.web3d.org/x3d/content/examples/Savage/Tools/SMAL/SMAL.html'>\n" +
             "        <MetadataString containerField='value' name='version' value='1.0'>\n" +
             "          <MetadataString name='appinfo' value='This attribute is the SMAL version, not the model version.'/>\n" +
             "        </MetadataString>\n" +
@@ -151,7 +151,7 @@ public class SMAL_TerrainMetadataTemplate extends SceneGraphStructureNodeType
             "                  <MetadataString name='appinfo' value='The specific element which contains the information classifying this document.'/>\n" +
             "                </MetadataString>\n" +
             "              </MetadataSet>\n" +
-            "              <MetadataString containerField='value' name='fileLocationURL' value='https://savage.nps.edu/Savage/'>\n" +
+            "              <MetadataString containerField='value' name='fileLocationURL' value='https://www.web3d.org/x3d/content/examples/Savage/'>\n" +
             "                <MetadataString name='appinfo' value='The URL of the image file.'/>\n" +
             "              </MetadataString>\n" +
             "              <MetadataString containerField='value' name='centerPointLatitude' value='N00 0.0'>\n" +
@@ -186,7 +186,7 @@ public class SMAL_TerrainMetadataTemplate extends SceneGraphStructureNodeType
             "                  <MetadataString name='appinfo' value='The specific element which contains the information classifying this document.'/>\n" +
             "                </MetadataString>\n" +
             "              </MetadataSet>\n" +
-            "              <MetadataString containerField='value' name='fileLocationURL' value='https://savage.nps.edu/Savage/'>\n" +
+            "              <MetadataString containerField='value' name='fileLocationURL' value='https://www.web3d.org/x3d/content/examples/Savage/'>\n" +
             "                <MetadataString name='appinfo' value='The URL of the image file.'/>\n" +
             "              </MetadataString>\n" +
             "              <MetadataString containerField='value' name='centerPointLatitude' value='N00 0.0'>\n" +
@@ -221,7 +221,7 @@ public class SMAL_TerrainMetadataTemplate extends SceneGraphStructureNodeType
             "                  <MetadataString name='appinfo' value='The specific element which contains the information classifying this document.'/>\n" +
             "                </MetadataString>\n" +
             "              </MetadataSet>\n" +
-            "              <MetadataString containerField='value' name='fileLocationURL' value='https://savage.nps.edu/Savage/'>\n" +
+            "              <MetadataString containerField='value' name='fileLocationURL' value='https://www.web3d.org/x3d/content/examples/Savage/'>\n" +
             "                <MetadataString name='appinfo' value='The URL of the image file.'/>\n" +
             "              </MetadataString>\n" +
             "              <MetadataString containerField='value' name='centerPointLatitude' value='N00 0.0'>\n" +

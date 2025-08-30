@@ -67,10 +67,10 @@ public class PROTOTYPE_RelativeProximitySensor extends SceneGraphStructureNodeTy
             "        appinfo='TimeSensor functionality commences after delayInterval pause'\n" +
             "        url='\"../../Savage/Tools/Animation/RelativeProximitySensorPrototype.x3d#RelativeProximitySensor\"\n" +
             "             \"../../../Savage/Tools/Animation/RelativeProximitySensorPrototype.x3d#RelativeProximitySensor\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/RelativeProximitySensorPrototype.x3d#RelativeProximitySensor\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/RelativeProximitySensorPrototype.x3d#RelativeProximitySensor\"\n" +
             "             \"../../../Savage/Tools/Animation/RelativeProximitySensorPrototype.wrl#RelativeProximitySensor\"\n" +
             "             \"../../Savage/Tools/Animation/RelativeProximitySensorPrototype.wrl#RelativeProximitySensor\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/RelativeProximitySensorPrototype.wrl#RelativeProximitySensor\" '>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/RelativeProximitySensorPrototype.wrl#RelativeProximitySensor\" '>\n" +
             "      <field accessType='inputOutput' appinfo='describe the purpose of this sensor' name='description' type='SFString'/>\n" +
             "      <field accessType='initializeOnly' appinfo='where is the primary object' name='locationPrimary' type='SFVec3f'/>\n" +
             "      <field accessType='inputOnly' appinfo='update location of the primary object' name='set_locationPrimary' type='SFVec3f'/>\n" +
@@ -90,7 +90,7 @@ public class PROTOTYPE_RelativeProximitySensor extends SceneGraphStructureNodeTy
             "      <fieldValue name='locationPrimary' value='-10 0 0'/>\n" +
             "      <fieldValue name='locationSecondary' value='10 0 0'/>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/RelativeProximitySensorExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/RelativeProximitySensorExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

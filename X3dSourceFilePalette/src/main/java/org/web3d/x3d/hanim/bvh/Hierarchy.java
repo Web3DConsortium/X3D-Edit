@@ -236,7 +236,7 @@ public class Hierarchy extends BvhSkeletonParameters
         outputX3DHead.append(".bvh' name='reference'/>").append("\n");
         outputX3DHead.append("    <meta content='https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#MOCAP' name='reference'/>").append("\n");
         outputX3DHead.append("    <meta content='Java BVH to X3D Converter, org.web3d.x3d.hanim.bvh package' name='generator'/>").append("\n");
-        outputX3DHead.append("    <meta content='X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit' name='generator'/>").append("\n");
+        outputX3DHead.append("    <meta content='X3D-Edit 4.0, https://www.web3d.org/x3d/tools/X3D-Edit' name='generator'/>").append("\n");
         outputX3DHead.append("    <meta content='*enter online Uniform Resource Identifier (URI) or Uniform Resource Locator (URL) address for this file here*' name='identifier'/>").append("\n");
         outputX3DHead.append("    <meta content='../license.html' name='license'/>").append("\n");
         outputX3DHead.append("  </head>").append("\n");

@@ -67,10 +67,10 @@ public class PROTOTYPE_ColorSequencer extends SceneGraphStructureNodeType
             "        appinfo='ColorSequencer outputs a single color value by selecting an array index or simply sequencing next/previous'\n" +
             "        url='\"../../Savage/Tools/Animation/ColorSequencerPrototype.x3d#ColorSequencer\"\n" +
             "             \"../../../Savage/Tools/Animation/ColorSequencerPrototype.x3d#ColorSequencer\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/ColorSequencerPrototype.x3d#ColorSequencer\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/ColorSequencerPrototype.x3d#ColorSequencer\"\n" +
             "             \"../../../Savage/Tools/Animation/ColorSequencerPrototype.wrl#ColorSequencer\"\n" +
             "             \"../../Savage/Tools/Animation/ColorSequencerPrototype.wrl#ColorSequencer\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/ColorSequencerPrototype.wrl#ColorSequencer\" '>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/ColorSequencerPrototype.wrl#ColorSequencer\" '>\n" +
             "            <field accessType='inputOutput' appinfo='Whether or not this sequencer is active' name='enabled' type='SFBool'/>\n" +
             "            <field accessType='inputOutput' appinfo='Initial index is array element 0. Setting index past colors[max] uses final color value setting, while index less than 0 uses colors[0] value.' name='index' type='SFInt32'/>\n" +
             "            <field accessType='inputOutput' appinfo='Array of color values that are each the outputs of the sequencer. No interpolation occurs between values.' name='colors' type='MFColor'/>\n" +
@@ -86,7 +86,7 @@ public class PROTOTYPE_ColorSequencer extends SceneGraphStructureNodeType
             "      <!-- ROY G BIV = red orange yellow green blue indigo violet -->\n" +
             "      <fieldValue name='colors' value='1 0 0 1 0.5 0 1 1 0 0 1 0 0 0 1 0.2 0.2 0.2 0.4 0 0.4'/>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/ColorSequencerExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/ColorSequencerExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

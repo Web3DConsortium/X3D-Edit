@@ -63,7 +63,7 @@ public class PROTOTYPE_ArbitraryAxisCylinderSensor extends SceneGraphStructureNo
   {
     return "\n" +
             "    <!-- ==================== -->\n" +
-            "    <ExternProtoDeclare name='ArbitraryAxisCylinderSensor' appinfo='Modified CylinderSensor with children nodes oriented about an arbitrary axis. Warning: ArbitraryAxisCylinderSensor affects children, not peers.' url='\"../../../Savage/Tools/Animation/ArbitraryAxisCylinderSensorPrototype.x3d#ArbitraryAxisCylinderSensor\" \"https://savage.nps.edu/Savage/Tools/Animation/ArbitraryAxisCylinderSensorPrototype.x3d#ArbitraryAxisCylinderSensor\" \"../../../Savage/Tools/Animation/ArbitraryAxisCylinderSensorPrototype.wrl#ArbitraryAxisCylinderSensor\" \"https://savage.nps.edu/Savage/Tools/Animation/ArbitraryAxisCylinderSensorPrototype.wrl#ArbitraryAxisCylinderSensor\"'>\n" +
+            "    <ExternProtoDeclare name='ArbitraryAxisCylinderSensor' appinfo='Modified CylinderSensor with children nodes oriented about an arbitrary axis. Warning: ArbitraryAxisCylinderSensor affects children, not peers.' url='\"../../../Savage/Tools/Animation/ArbitraryAxisCylinderSensorPrototype.x3d#ArbitraryAxisCylinderSensor\" \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/ArbitraryAxisCylinderSensorPrototype.x3d#ArbitraryAxisCylinderSensor\" \"../../../Savage/Tools/Animation/ArbitraryAxisCylinderSensorPrototype.wrl#ArbitraryAxisCylinderSensor\" \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/ArbitraryAxisCylinderSensorPrototype.wrl#ArbitraryAxisCylinderSensor\"'>\n" +
             "      <field accessType='initializeOnly' appinfo='shifted axis of rotation from local vertical, default 1 0 0 0' name='shiftRotationAxis' type='SFRotation'/>\n" +
             "      <field accessType='initializeOnly' appinfo='local center for axis of rotation, default 0 0 0' name='center' type='SFVec3f'/>\n" +
             "      <field accessType='initializeOnly' appinfo='whether to show visualization shape to show orientation and cylindrical mapping of mouse movements by sensor, default true' name='showCylinderSensorShape' type='SFBool'/>\n" +
@@ -95,7 +95,7 @@ public class PROTOTYPE_ArbitraryAxisCylinderSensor extends SceneGraphStructureNo
             "         </Shape>\n" +
             "      </fieldValue>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/ArbitraryAxisCylinderSensorExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/ArbitraryAxisCylinderSensorExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
 
     // TODO:  instead use an Inline with push button start/stop?

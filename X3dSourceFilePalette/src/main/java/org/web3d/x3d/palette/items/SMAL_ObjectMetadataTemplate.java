@@ -63,8 +63,8 @@ public class SMAL_ObjectMetadataTemplate extends SceneGraphStructureNodeType
   {
     return "\n" +
             "    <!-- ==================== -->\n" +
-            "    <WorldInfo info='\"https://savage.nps.edu/Savage/Tools/SMAL/SavageObjectMetadataTemplate.x3d\"' title='SavageObjectMetadataTemplate'>\n" +
-            "      <MetadataSet containerField='metadata' name='SMAL' reference='https://savage.nps.edu/Savage/Tools/SMAL/SMAL.html'>\n" +
+            "    <WorldInfo info='\"https://www.web3d.org/x3d/content/examples/Savage/Tools/SMAL/SavageObjectMetadataTemplate.x3d\"' title='SavageObjectMetadataTemplate'>\n" +
+            "      <MetadataSet containerField='metadata' name='SMAL' reference='https://www.web3d.org/x3d/content/examples/Savage/Tools/SMAL/SMAL.html'>\n" +
             "        <MetadataString containerField='value' name='version' value='1.0'>\n" +
             "          <MetadataString name='appinfo' value='This attribute is the SMAL version, not the model version.'/>\n" +
             "        </MetadataString>\n" +

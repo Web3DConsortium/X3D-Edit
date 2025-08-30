@@ -89,7 +89,7 @@ public class PROTOTYPE_HeadsUpDisplay extends SceneGraphStructureNodeType
             "        </Shape>\n" +
             "      </fieldValue>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/HeadsUpDisplayExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/HeadsUpDisplayExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
  

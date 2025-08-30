@@ -137,8 +137,10 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
             // Display output to user via console
             InputOutput io = IOProvider.getDefault().getIO("X3D Quality Assurance (QA)", false); // (QA)", false);
             io.select();  // Bring to the front
-            try (OutputWriter outputWriterPlain = io.getOut()) {
-                try (OutputWriter outputWriterError = io.getErr()) {
+            try (OutputWriter outputWriterPlain = io.getOut()) 
+            {
+                try (OutputWriter outputWriterError = io.getErr()) 
+                {
                     outputWriterPlain.println("--------- X3D Validator checks commenced for " + x3dDataObject.getPrimaryFile().getNameExt() + " ---------");
                     
                     CookieObserver myCookieObserver = new MyCookieObserver(null, false, outputWriterError, outputWriterPlain);
@@ -149,7 +151,8 @@ public class ComprehensiveValidationAction extends BaseConversionsAction //XmlVa
                     CheckXMLSupport checker = x3dDataObject.getCheckXmlHelper();
                     if (checker.checkXML(myCookieObserver)) { //observerSilent)) {
                         outputWriterPlain.println("Well-formed XML check: pass");
-                    } else {
+                    }
+                    else {
                         outputWriterError.println("Well-formed XML check: fail!");
                     }
 

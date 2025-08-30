@@ -67,10 +67,10 @@ public class PROTOTYPE_DoubleClickTouchSensor extends SceneGraphStructureNodeTyp
             "        appinfo='TouchSensor functionality activates when user double clicks (or double selects) within maxDelayInterval'\n" +
             "        url='\"../../Savage/Tools/Animation/DoubleClickTouchSensorPrototype.x3d#DoubleClickTouchSensor\"\n" +
             "             \"../../../Savage/Tools/Animation/DoubleClickTouchSensorPrototype.x3d#DoubleClickTouchSensor\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/DoubleClickTouchSensorPrototype.x3d#DoubleClickTouchSensor\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/DoubleClickTouchSensorPrototype.x3d#DoubleClickTouchSensor\"\n" +
             "             \"../../../Savage/Tools/Animation/DoubleClickTouchSensorPrototype.wrl#DoubleClickTouchSensor\"\n" +
             "             \"../../Savage/Tools/Animation/DoubleClickTouchSensorPrototype.wrl#DoubleClickTouchSensor\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/DoubleClickTouchSensorPrototype.wrl#DoubleClickTouchSensor\" '>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/DoubleClickTouchSensorPrototype.wrl#DoubleClickTouchSensor\" '>\n" +
             "      <field name='description' type='SFString' accessType='inputOutput' appinfo='describe the purpose of this sensor'/>\n" +
             "      <field name='maxDelayInterval' type='SFTime' accessType='initializeOnly' appinfo='seconds'/>\n" +
             "      <field name='enabled' type='SFBool' accessType='inputOutput'/>\n" +
@@ -88,7 +88,7 @@ public class PROTOTYPE_DoubleClickTouchSensor extends SceneGraphStructureNodeTyp
             "      <fieldValue name='description' value='double click to initiate time-delayed event'/>\n" +
             "      <fieldValue name='maxDelayInterval' value='1'/>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/DoubleClickTouchSensorExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/DoubleClickTouchSensorExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

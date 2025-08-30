@@ -67,10 +67,10 @@ public class PROTOTYPE_HiddenViewpoint extends SceneGraphStructureNodeType
             "        appinfo='Hidden viewpoint becomes active (binds) upon pointer selection to reveal an interesting view with an optionally label'\n" +
             "        url='\"../../Savage/Tools/Animation/HiddenViewpointPrototype.x3d#HiddenViewpoint\"\n" +
             "             \"../../../Savage/Tools/Animation/HiddenViewpointPrototype.x3d#HiddenViewpoint\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/HiddenViewpointPrototype.x3d#HiddenViewpoint\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/HiddenViewpointPrototype.x3d#HiddenViewpoint\"\n" +
             "             \"../../../Savage/Tools/Animation/HiddenViewpointPrototype.wrl#HiddenViewpoint\"\n" +
             "             \"../../Savage/Tools/Animation/HiddenViewpointPrototype.wrl#HiddenViewpoint\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/HiddenViewpointPrototype.wrl#HiddenViewpoint\" '>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/HiddenViewpointPrototype.wrl#HiddenViewpoint\" '>\n" +
             "      <field name='position' type='SFVec3f' accessType='inputOutput'/>\n" +
             "      <field name='rotation' type='SFRotation' accessType='inputOutput'/>\n" +
             "      <field name='sensorRadius' type='SFFloat' accessType='initializeOnly'/>\n" +
@@ -90,7 +90,7 @@ public class PROTOTYPE_HiddenViewpoint extends SceneGraphStructureNodeType
             "      <fieldValue name='labelFontSize' value='0.4'/>\n" +
             "      <fieldValue name='labelColor' value='1 0 0'/>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/HiddenViewpointExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/HiddenViewpointExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

@@ -66,22 +66,22 @@ public class INLINE_GridsMovable extends SceneGraphStructureNodeType
             "    <Transform DEF='GridsMovable_AdjustScale' scale='1 1 1'>\n" +
             "       <Inline DEF='GridXY_20x20Movable' url='\"GridXY_20x20Movable.x3d\"\n" +
             "          \"../../../Savage/Tools/Authoring/GridXY_20x20Movable.x3d\"\n" +
-            "          \"https://savage.nps.edu/Savage/Tools/Authoring/GridXY_20x20Movable.x3d\"\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/GridXY_20x20Movable.x3d\"\n" +
             "          \"GridXY_20x20Movable.wrl\"\n" +
             "          \"../../../Savage/Tools/Authoring/GridXY_20x20Movable.wrl\"\n" +
-            "          \"https://savage.nps.edu/Savage/Tools/Authoring/GridXY_20x20Movable.wrl\"'/>\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/GridXY_20x20Movable.wrl\"'/>\n" +
             "       <Inline DEF='GridXZ_20x20Movable' url='\"GridXZ_20x20Movable.x3d\"\n" +
             "          \"../../../Savage/Tools/Authoring/GridXZ_20x20Movable.x3d\"\n" +
-            "          \"https://savage.nps.edu/Savage/Tools/Authoring/GridXZ_20x20Movable.x3d\"\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/GridXZ_20x20Movable.x3d\"\n" +
             "          \"GridXZ_20x20Movable.wrl\"\n" +
             "          \"../../../Savage/Tools/Authoring/GridXZ_20x20Movable.wrl\"\n" +
-            "          \"https://savage.nps.edu/Savage/Tools/Authoring/GridXZ_20x20Movable.wrl\"'/>\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/GridXZ_20x20Movable.wrl\"'/>\n" +
             "       <Inline DEF='GridYZ_20x20Movable' url='\"GridYZ_20x20Movable.x3d\"\n" +
             "          \"../../../Savage/Tools/Authoring/GridYZ_20x20Movable.x3d\"\n" +
-            "          \"https://savage.nps.edu/Savage/Tools/Authoring/GridYZ_20x20Movable.x3d\"\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/GridYZ_20x20Movable.x3d\"\n" +
             "          \"GridYZ_20x20Movable.wrl\"\n" +
             "          \"../../../Savage/Tools/Authoring/GridYZ_20x20Movable.wrl\"\n" +
-            "          \"https://savage.nps.edu/Savage/Tools/Authoring/GridYZ_20x20Movable.wrl\"'/>\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/GridYZ_20x20Movable.wrl\"'/>\n" +
             "    </Transform>\n";
   }
 

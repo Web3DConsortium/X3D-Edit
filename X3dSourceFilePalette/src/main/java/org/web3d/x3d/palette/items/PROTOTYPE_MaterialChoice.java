@@ -67,10 +67,10 @@ public class PROTOTYPE_MaterialChoice extends SceneGraphStructureNodeType
             "        appinfo='MaterialChoice selects one of several different Material values'\n" +
             "        url='\"../../Savage/Tools/Animation/MaterialChoicePrototype.x3d#MaterialChoice\"\n" +
             "             \"../../../Savage/Tools/Animation/MaterialChoicePrototype.x3d#MaterialChoice\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/MaterialChoicePrototype.x3d#MaterialChoice\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/MaterialChoicePrototype.x3d#MaterialChoice\"\n" +
             "             \"../../../Savage/Tools/Animation/MaterialChoicePrototype.wrl#MaterialChoice\"\n" +
             "             \"../../Savage/Tools/Animation/MaterialChoicePrototype.wrl#MaterialChoice\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/MaterialChoicePrototype.wrl#MaterialChoice\" '>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/MaterialChoicePrototype.wrl#MaterialChoice\" '>\n" +
             "            <field accessType='inputOnly' name='set_index' type='SFInt32'/>\n" +
             "            <field accessType='initializeOnly' name='index' type='SFInt32' appinfo='which Material node is chosen, with array index starting at 0'/>\n" +
             "            <field accessType='outputOnly' name='index_changed' type='SFInt32'/>\n" +
@@ -104,7 +104,7 @@ public class PROTOTYPE_MaterialChoice extends SceneGraphStructureNodeType
             "        </ProtoInstance>\n" +
             "        </Appearance>\n" +
             "    </Shape>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/MaterialChoiceExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/MaterialChoiceExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

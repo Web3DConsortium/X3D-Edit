@@ -62,13 +62,13 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String VRMLEXAMPLESURL                        ="https://www.web3d.org/x3d/content/examples/Vrml2Sourcebook";
   public final static String X3D4WA_EXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/X3dForWebAuthors";
   public final static String X3D4AM_EXAMPLESURL                     ="https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling";
-  public final static String SAVAGEEXAMPLESURL                      ="https://savage.nps.edu/Savage"; // TODO migrate
+  public final static String SAVAGEEXAMPLESURL                      ="https://www.web3d.org/x3d/content/examples/Savage"; // forked, migrated from savage.nps.edu
   public final static String SAVAGEDEFENSEEXAMPLESURL               ="https://SavageDefense.nps.navy.mil/SavageDefense";
   public final static String X3D_CANONICALIZATION_C14N              ="https://www.web3d.org/x3d/tools/canonical/doc/x3dTools.htm";
   public final static String X3D_CANONICALIZATION_C14N_SPECIFICATION="https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19776-3v4.0-WD1/Part03/concepts.html#X3DCanonicalForm";
   public final static String X3DSECURITYEXAMPLES                    ="https://www.web3d.org/x3d/content/examples/Basic/Security";
   public final static String X3DSECURITYREADME                      ="https://www.web3d.org/x3d/content/examples/Basic/Security/X3dSecurityReadMe.html";
-  public final static String X3D_EDIT_HOME                          ="https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html"; // https://savage.nps.edu/X3D-Edit";
+  public final static String X3D_EDIT_HOME                          ="https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html"; // https://www.web3d.org/x3d/content/examples/X3D-Edit";
   public final static String X3D_EDIT_FEATURES                      = X3D_EDIT_HOME + "#Features";
   public final static String SOURCEFORGE_RELEASE_INSTALLERS         ="https://sourceforge.net/projects/x3d/files";
   public final static String SOURCEFORGE_X3DEDIT_SOURCE             ="https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/tools/X3dEdit4.0";
@@ -105,7 +105,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String X3D_SCHEMATRON                         ="https://www.web3d.org/x3d/tools/schematron/X3dSchematron.html";
   public final static String X3D_X3DUOM                             ="https://www.web3d.org/specifications/X3DUOM.html";
   public final static String X3D_DEVELOPERS_GUIDE                   ="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html";
-  public final static String SAVAGE_OPENDIS7_DISTRIBUTION_PRODUCTS  ="https://savage.nps.edu/opendis7-java";
+  public final static String SAVAGE_OPENDIS7_DISTRIBUTION_PRODUCTS  ="https://savage.nps.edu/opendis7-java"; // TODO migrate
   public final static String SISO_DIS_RPR_FOM_PRODUCT_SUPPORT_GROUP ="https://sisostandards.connectedcommunity.org/communities/community-home?CommunityKey=7026aa59-9e7a-49f7-a371-57e56c780ae3";
   
   public final static String ACM_SIGGRAPH                           ="https://siggraph.acm.org";

@@ -65,9 +65,9 @@ public class PROTOTYPE_WaypointInterpolator extends SceneGraphStructureNodeType
             "     <!-- ==================== -->\n" +
             "     <ExternProtoDeclare appinfo='Reads waypoints and legSpeeds/legDurations/defaultSpeed to provide a customizable position/orientation interpolator.' name='WaypointInterpolator'"  +
             "          url=' \"../../../Savage/Tools/Animation/WaypointInterpolatorPrototype.x3d#WaypointInterpolator\"\n" +
-            "                \"https://savage.nps.edu/Savage/Tools/Animation/WaypointInterpolatorPrototype.x3d#WaypointInterpolator\"\n" +
+            "                \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/WaypointInterpolatorPrototype.x3d#WaypointInterpolator\"\n" +
             "                \"../../../Savage/Tools/Animation/WaypointInterpolatorPrototype.wrl#WaypointInterpolator\"\n" +
-            "                \"https://savage.nps.edu/Savage/Tools/Animation/WaypointInterpolatorPrototype.wrl#WaypointInterpolator\"'>\n" +
+            "                \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/WaypointInterpolatorPrototype.wrl#WaypointInterpolator\"'>\n" +
             "          <!-- Priority of use: legSpeeds (m/sec), legDurations (seconds), defaultSpeed (m/sec) -->\n" +
             "          <field accessType='initializeOnly' appinfo='Short description of what is animated by this WaypointInterpolator.' name='description' type='SFString'/>\n" +
             "          <field accessType='initializeOnly' appinfo='Waypoints being traversed with interpolation of intermediate positions and orientations.' name='waypoints' type='MFVec3f'/>\n" +
@@ -118,7 +118,7 @@ public class PROTOTYPE_WaypointInterpolator extends SceneGraphStructureNodeType
             "          <fieldValue name='traceEnabled' value='false'/>\n" +
             "          <fieldValue name='outputInitializationComputations' value='true'/>\n" +
             "     </ProtoInstance>\n" +
-            "     <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/WaypointInterpolatorExample.x3d -->\n" +
+            "     <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/WaypointInterpolatorExample.x3d -->\n" +
             "     <!-- ==================== -->";
   }
              

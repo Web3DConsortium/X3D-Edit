@@ -418,7 +418,7 @@ public interface X3DSchemaData
   {
     "", // intentionally unused                                                        // 0
     "", // intentionally unused                                                        // 1
-    "X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit",                                   // 2
+    "X3D-Edit 4.0, https://www.web3d.org/x3d/content/examples/X3D-Edit",               // 2
     "Autodesk Tinkercad, https://www.tinkercad.com",                                   // 3
     "AUV Workbench, https://savage.nps.edu/AuvWorkbench",                              // 4
     "Blender, https://www.blender.org",                                                // 5

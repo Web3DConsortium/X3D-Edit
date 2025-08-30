@@ -67,10 +67,10 @@ public class PROTOTYPE_ViewPositionOrientation extends SceneGraphStructureNodeTy
             "        appinfo='ViewPositionOrientation provides provides console output of local position and orientation as user navigates'\n" +
             "        url='\"../../Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation\"\n" +
             "             \"../../../Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d#ViewPositionOrientation\"\n" +
             "             \"../../Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation\"\n" +
             "             \"../../../Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation\"'>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/ViewPositionOrientationPrototype.wrl#ViewPositionOrientation\"'>\n" +
             "      <field accessType='inputOutput' appinfo='Whether or not ViewPositionOrientation sends output to console' name='enabled' type='SFBool'/>\n" +
             "      <field accessType='initializeOnly' appinfo='Output internal trace messages for debugging this node, intended for developer use only' name='traceEnabled' type='SFBool'/>\n" +
             "      <field accessType='inputOnly' appinfo='Ability to turn output tracing on/off at runtime' name='set_traceEnabled' type='SFBool'/>\n" +
@@ -83,7 +83,7 @@ public class PROTOTYPE_ViewPositionOrientation extends SceneGraphStructureNodeTy
             "    <ProtoInstance name='ViewPositionOrientation' DEF='ViewPositionOrientationExample'>\n" +
             "      <fieldValue name='enabled' value='true'/>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/ViewPositionOrientationExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/ViewPositionOrientationExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
  

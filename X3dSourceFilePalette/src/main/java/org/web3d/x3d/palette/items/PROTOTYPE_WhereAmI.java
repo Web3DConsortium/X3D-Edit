@@ -70,7 +70,7 @@ public class PROTOTYPE_WhereAmI extends SceneGraphStructureNodeType
             "            \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmI.wrl#WhereAmI\"'/>\n" +
             "    <ProtoInstance name='WhereAmI'/> \n" +
             "    <!-- Only one copy of a given ExternProtoDeclare is needed in a scene. Multiple ProtoInstance nodes can be created like the following: -->\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/WhereAmIExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/WhereAmIExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

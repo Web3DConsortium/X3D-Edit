@@ -67,10 +67,10 @@ public class PROTOTYPE_TimeSensorEaseInEaseOut extends SceneGraphStructureNodeTy
             "        appinfo='TimeSensor functionality commences after delayInterval pause'\n" +
             "        url='\"../../Savage/Tools/Animation/TimeSensorEaseInEaseOutPrototype.x3d#TimeSensorEaseInEaseOut\"\n" +
             "             \"../../../Savage/Tools/Animation/TimeSensorEaseInEaseOutPrototype.x3d#TimeSensorEaseInEaseOut\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/TimeSensorEaseInEaseOutPrototype.x3d#TimeSensorEaseInEaseOut\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/TimeSensorEaseInEaseOutPrototype.x3d#TimeSensorEaseInEaseOut\"\n" +
             "             \"../../../Savage/Tools/Animation/TimeSensorEaseInEaseOutPrototype.wrl#TimeSensorEaseInEaseOut\"\n" +
             "             \"../../Savage/Tools/Animation/TimeSensorEaseInEaseOutPrototype.wrl#TimeSensorEaseInEaseOut\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Animation/TimeSensorEaseInEaseOutPrototype.wrl#TimeSensorEaseInEaseOut\" '>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/TimeSensorEaseInEaseOutPrototype.wrl#TimeSensorEaseInEaseOut\" '>\n" +
             "      <field accessType='inputOutput' appinfo='whether sensor is active' name='enabled' type='SFBool'/>\n" +
             "      <field accessType='inputOutput' appinfo='loop duration in seconds' name='cycleInterval' type='SFTime'/>\n" +
             "      <field accessType='outputOnly' appinfo='fraction_changed sends values in range [0,1] showing time progress in the current cycle' name='fraction_changed' type='SFFloat'/>\n" +
@@ -89,7 +89,7 @@ public class PROTOTYPE_TimeSensorEaseInEaseOut extends SceneGraphStructureNodeTy
             "    <ProtoInstance name='TimeSensorEaseInEaseOut' DEF='TimeSensorEaseInEaseOutExample'>\n" +
             "      <fieldValue name='cycleInterval' value='3'/>\n" +
             "    </ProtoInstance>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/TimeSensorEaseInEaseOutExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/TimeSensorEaseInEaseOutExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
   }
 

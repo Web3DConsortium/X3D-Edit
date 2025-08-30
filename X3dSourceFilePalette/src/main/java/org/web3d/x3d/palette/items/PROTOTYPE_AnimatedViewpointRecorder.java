@@ -67,10 +67,10 @@ public class PROTOTYPE_AnimatedViewpointRecorder extends SceneGraphStructureNode
             "        appinfo='AnimatedViewpointRecorder captures view position and orientation tour to create a guided tour animation. The recording output goes to the browser console where the .x3d (or .x3dv) output can be cut/pasted for further use.'\n" +
             "        url='\"../../Savage/Tools/Authoring/AnimatedViewpointRecorderPrototype.x3d#AnimatedViewpointRecorder\"\n" +
             "             \"../../../Savage/Tools/Authoring/AnimatedViewpointRecorderPrototype.x3d#AnimatedViewpointRecorder\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Authoring/AnimatedViewpointRecorderPrototype.x3d#AnimatedViewpointRecorder\"\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/AnimatedViewpointRecorderPrototype.x3d#AnimatedViewpointRecorder\"\n" +
             "             \"../../../Savage/Tools/Authoring/AnimatedViewpointRecorderPrototype.wrl#AnimatedViewpointRecorder\"\n" +
             "             \"../../Savage/Tools/Authoring/AnimatedViewpointRecorderPrototype.wrl#AnimatedViewpointRecorder\"\n" +
-            "             \"https://savage.nps.edu/Savage/Tools/Authoring/AnimatedViewpointRecorderPrototype.wrl#AnimatedViewpointRecorder\" '>\n" +
+            "             \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/AnimatedViewpointRecorderPrototype.wrl#AnimatedViewpointRecorder\" '>\n" +
             "      <field accessType='inputOnly' appinfo='Set start=true to commence recording viewpoint position/orientation.' name='start' type='SFBool'/>\n" +
             "      <field accessType='inputOnly' appinfo='Set stop=true to finish recording viewpoint position/orientation. Resulting VRML is added to scene resulting X3D and VRML is output to console.' name='stop' type='SFBool'/>\n" +
             "      <field accessType='initializeOnly' appinfo='seconds' name='samplingInterval' type='SFTime'/>\n" +
@@ -111,7 +111,7 @@ public class PROTOTYPE_AnimatedViewpointRecorder extends SceneGraphStructureNode
             "        <ROUTE fromField='isActive' fromNode='StopTouch' toField='stop' toNode='AnimatedViewpointRecorderExample'/>\n" +
             "      </Transform>\n" +
             "    </Group>\n" +
-            "    <!-- Example use: https://savage.nps.edu/Savage/Tools/Animation/AnimatedViewpointRecorderExample.x3d -->\n" +
+            "    <!-- Example use: https://www.web3d.org/x3d/content/examples/Savage/Tools/Animation/AnimatedViewpointRecorderExample.x3d -->\n" +
             "    <!-- ==================== -->\n";
 
     // TODO:  instead use an Inline with push button start/stop?

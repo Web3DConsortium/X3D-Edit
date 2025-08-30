@@ -25,7 +25,7 @@
     <!-- warning, if downloaded to local downloads directory, this archive includes some .java that will prevent X3D-Edit compilation -->
     <!-- clarification: local downloads is temp dir, and so does not affect compilation -->
     <target name="Basic" depends="mkdir">
-        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesBasic.zip"             dest="downloads/X3dExamplesBasic.zip"            verbose="true"/>
+        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesBasic.zip"            dest="downloads/X3dExamplesBasic.zip"            verbose="true"/>
         <unzip                               src="downloads/X3dExamplesBasic.zip"             dest="${examplesRootDirectory}"  overwrite="true"/>
         <delete                             file="downloads/X3dExamplesBasic.zip" verbose="true"/>
         <echo message="X3D scenes for Basic example archive are installed in local directory:"/>
@@ -33,7 +33,7 @@
     </target>
 
     <target name="ConformanceNist" depends="mkdir">
-        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesConformanceNist.zip"   dest="downloads/X3dExamplesConformanceNist.zip"  verbose="true"/>
+        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesConformanceNist.zip"  dest="downloads/X3dExamplesConformanceNist.zip"  verbose="true"/>
         <unzip                               src="downloads/X3dExamplesConformanceNist.zip"   dest="${examplesRootDirectory}"  overwrite="true"/>
         <delete                             file="downloads/X3dExamplesConformanceNist.zip" verbose="true"/>
         <echo message="X3D scenes for ConformanceNist example archive are installed in local directory:"/>
@@ -41,7 +41,7 @@
     </target>
 
     <target name="HumanoidAnimation" depends="mkdir">
-        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesHumanoidAnimation.zip"   dest="downloads/X3dExamplesHumanoidAnimation.zip"  verbose="true"/>
+        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesHumanoidAnimation.zip"  dest="downloads/X3dExamplesHumanoidAnimation.zip"  verbose="true"/>
         <unzip                               src="downloads/X3dExamplesHumanoidAnimation.zip"   dest="${examplesRootDirectory}"  overwrite="true"/>
         <delete                             file="downloads/X3dExamplesHumanoidAnimation.zip" verbose="true"/>
         <echo message="X3D scenes for HAnim HumanoidAnimation example archive are installed in local directory:"/>
@@ -50,7 +50,7 @@
 
     <!-- TODO Ant get is not working with https:// need certificate setup-->
     <target name="Savage" depends="mkdir">
-        <get src="https://savage.nps.edu/X3dExamplesSavage.zip"                               dest="downloads/X3dExamplesSavage.zip"           verbose="true"/>
+        <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesSavage.zip"          dest="downloads/X3dExamplesSavage.zip"           verbose="true"/>
         <unzip            src="downloads/X3dExamplesSavage.zip"                               dest="${examplesRootDirectory}"  overwrite="true"/>
         <delete          file="downloads/X3dExamplesSavage.zip" verbose="true"/>
         <echo message="X3D scenes for Savage example archive are installed in local directory:"/>
@@ -67,7 +67,7 @@
 
     <target name="Vrml2Sourcebook" depends="mkdir">
         <get src="https://www.web3d.org/x3d/content/examples/X3dExamplesVrml2Sourcebook.zip" dest="downloads/X3dExamplesVrml2Sourcebook.zip" verbose="true"/>
-        <unzip                               src="downloads/X3dExamplesVrml2Sourcebook.zip" dest="${examplesRootDirectory}"  overwrite="true"/>
+        <unzip                               src="downloads/X3dExamplesVrml2Sourcebook.zip"  dest="${examplesRootDirectory}"  overwrite="true"/>
         <delete                             file="downloads/X3dExamplesVrml2Sourcebook.zip" verbose="true"/>
         <echo message="X3D scenes for Vrml2Sourcebook example archive are installed in local directory:"/>
         <echo message="  ${examplesRootDirectory}/www.web3d.org/x3d/content/examples/Vrml2Sourcebook"/>

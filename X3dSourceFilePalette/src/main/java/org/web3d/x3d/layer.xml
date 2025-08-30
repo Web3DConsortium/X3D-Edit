@@ -547,6 +547,7 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
         </folder>
     </folder>
+    <!--
     <folder name="Services">
         <folder name="AutoupdateType">
             <file name="org_web3d_x3d_update_center.instance">
@@ -555,13 +556,15 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="instanceCreate" methodvalue="org.netbeans.modules.autoupdate.updateprovider.AutoupdateCatalogFactory.createUpdateProvider"/>
                 <attr name="instanceOf" stringvalue="org.netbeans.spi.autoupdate.UpdateProvider"/>
                 <attr name="trusted" boolvalue="true"/>
-                <!-- Update mechanism did not work via SourceForge x3d Files directory, presumably due to url mangling. -->
-                <!-- Note dependency on certificate setups for savage.nps.edu -->
-                <!-- Note SSL Certificate Exception plugin https://plugins.netbeans.apache.org/catalogue/?id=20 -->
+                < ! - - Update mechanism did not work via SourceForge x3d Files directory, presumably due to url mangling. - - >
+                < ! - - Update mechanism did not work via SourceForge x3d Files directory, presumably due to url mangling. - - >
+                < ! - - Note dependency on certificate setups for savage.nps.edu - - >
+                < ! - - Note SSL Certificate Exception plugin https://plugins.netbeans.apache.org/catalogue/?id=20 - - >
                 <attr name="url" stringvalue="https://savage.nps.edu/X3D-Edit/netbeans_modules/updates.xml"/>
             </file>
         </folder>
     </folder>
+    -->
     <folder name="Loaders">
         <folder name="model">
             <folder name="x3d+xml">

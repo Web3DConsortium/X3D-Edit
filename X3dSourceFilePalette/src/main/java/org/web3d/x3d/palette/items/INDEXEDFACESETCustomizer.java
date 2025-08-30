@@ -936,7 +936,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
             for (int j=0; j < coordIndexArray[i].length; j++)
             {
               int value = new SFInt32(coordIndexArray[i][j]).getValue();
-              if     (value >= indexedFaceSet.getChildCoordArraySize()) // index value too large
+              if     (value >= indexedFaceSet.getChildCoordArraySize() && !cancelButtonSelected) // index value too large
               {
                   message = "<html><center>Large index value found for coordIndex[<b>" + (i) + "</b>][<b>" + (j) + "</b>]=<b>" + String.valueOf(value)
                           + "</b>, which is greater than maximum index value of " + (indexedFaceSet.getChildCoordArraySize() - 1)
@@ -957,7 +957,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
                       break; // no more checks
                   }
               }
-              else if (value < -1) // index value illegal
+              else if ((value < -1)  && !cancelButtonSelected) // index value illegal
               {
                     message = "<html><center>Incorrect value found for coordIndex[<b>" + (i) + "</b>][<b>" + (j) + "</b>]=<b>" + String.valueOf(value)
                               + "</b>, which is less than allowed sentinel value of -1"
@@ -978,7 +978,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
                       break; // no more checks
                   }
               }
-              else if ((j > 0) && (value == -1) && (previousValue == -1)) // doubled sentinel value
+              else if ((j > 0) && (value == -1) && (previousValue == -1) && !cancelButtonSelected) // doubled sentinel value
               {
                     message = "<html><center>Double <b>-1</b> sentinel values found for coordIndex[<b>" + (i) + "</b>][<b>" + (j-1) + "</b>] and coordIndex[<b>" + (i) + "</b>][<b>" + (j) + "</b>]"
                               + ".<br/><br/>Eliminate extra <b>-1</b> sentinel value?";
@@ -998,7 +998,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
                       break; // no more checks
                   }
               }
-              else if ((j > 0) && (value == previousValue)) // double index
+              else if ((j > 0) && (value == previousValue) && !cancelButtonSelected) // double index
               {
                     message = "<html><center>Double index values found for coordIndex[<b>" + (i) + "</b>][<b>" + (j-1) + "</b>]=<b>" + String.valueOf(previousValue) + "</b> and coordIndex[<b>" + (i) + "</b>][<b>" + (j) + "</b>]=<b>" + String.valueOf(value)
                               + "</b>.<br/><br/>Eliminate extra <b>" + value + "</b> value?";
@@ -1083,7 +1083,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
     // check if number of color indices is mismatch to coordIndexArray
     if ( colorPerVertexCB.isSelected() && 
         (expandableListColorIndex.getRowCount() != expandableListCoordIndex.getRowCount()) && 
-        (expandableListColorIndex.getRowCount() !=  0))
+        (expandableListColorIndex.getRowCount() !=  0) && !cancelButtonSelected)
     {
           message = "<html><center>colorIndex array length (<b>" + (expandableListColorIndex.getRowCount()) + "</b>) needs to match coordIndex array length (<b>" + (expandableListCoordIndex.getRowCount()) + "</b>) "
                     + " since colorPerVertex='" + colorPerVertexCB.isSelected() + "'"
@@ -1107,7 +1107,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
 //          for (int i=0; i < colorIndexArray.length; i++)
 //          {
 //              int value = new SFInt32(colorIndexArray[i]).getValue();
-              if     (value >= indexedFaceSet.getChildColorArraySize()) // index value too large
+              if     ((value >= indexedFaceSet.getChildColorArraySize()) && !cancelButtonSelected) // index value too large
               {
                   message = "<html><center>Large index value found for colorIndex[<b>" + i + "</b>]=<b>" + value
                           + "</b>, which is greater than maximum index value of " + (indexedFaceSet.getChildColorArraySize() - 1)
@@ -1127,7 +1127,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
                       break; // no more checks
                   }
               }
-              else if (new SFInt32(colorIndexArray[i][j]).getValue() < -1) // check if index value illegal, -1 sentinel value allowed
+              else if ((new SFInt32(colorIndexArray[i][j]).getValue() < -1) && !cancelButtonSelected) // check if index value illegal, -1 sentinel value allowed
               {
                     message = "<html><center>Incorrect value found for colorIndex[<b>" + i + "</b>]=<b>" + value
                               + "</b>, which is less than allowed index value of -1"
@@ -1154,7 +1154,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
               expandableListColorIndex.setData(colorIndexArray);
           }
             // check if number of color indices higher than number of polygons
-            if ((colorIndexArray.length > numberOfPolygons) && !colorPerVertexCB.isSelected()) // colorPerVertex='false'
+            if ((colorIndexArray.length > numberOfPolygons) && !colorPerVertexCB.isSelected() && !cancelButtonSelected) // colorPerVertex='false'
             {
                   message = "<html><center>Found excessive number of colorIndex values (<b>" + (colorIndexArray.length) + "</b>) <br />"
                             + " since colorPerVertex='" + colorPerVertexCB.isSelected() + "' and only <b>" + numberOfPolygons + "</b> polygons are defined"
@@ -1164,7 +1164,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
                 DialogDisplayer.getDefault().notify(descriptor);
             }
             // check if number of color indices higher than number of polygons
-            else if ((colorIndexArray.length < numberOfPolygons) && !colorPerVertexCB.isSelected()) // colorPerVertex='false'
+            else if ((colorIndexArray.length < numberOfPolygons) && !colorPerVertexCB.isSelected() && !cancelButtonSelected) // colorPerVertex='false'
             {
                   message = "<html><center>Found insufficient number of colorIndex values (<b>" + (colorIndexArray.length) + "</b>)"
                             + " since colorPerVertex='" + colorPerVertexCB.isSelected() + "' and <b>" + numberOfPolygons + "</b> polygons are defined"
@@ -1174,7 +1174,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
                 DialogDisplayer.getDefault().notify(descriptor);
             }
             // check if number of color indices higher than number of vertices
-            else if ((colorIndexArray.length > indexedFaceSet.getChildCoordArraySize()) && colorPerVertexCB.isSelected()) // colorPerVertex='true'
+            else if ((colorIndexArray.length > indexedFaceSet.getChildCoordArraySize()) && colorPerVertexCB.isSelected() && !cancelButtonSelected) // colorPerVertex='true'
             {
                   message = "<html><center>Found excessive number of colorIndex values (<b>" + (colorIndexArray.length) + "</b>) <br />"
                             + " since colorPerVertex='" + colorPerVertexCB.isSelected() + "' and only <b>" + indexedFaceSet.getChildCoordArraySize() + "</b> different <b>Coordinate</b> points are defined"
@@ -1228,7 +1228,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
 //          for (int i=0; i < normalIndexArray.length; i++)
 //          {
 //              int value = new SFInt32(normalIndexArray[i]).getValue();
-              if     (value >= indexedFaceSet.getChildNormalArraySize()) // index value too large
+              if     ((value >= indexedFaceSet.getChildNormalArraySize()) && !cancelButtonSelected) // index value too large
               {
                   message = "<html><center>Large index value found for normalIndex[<b>" + i + "</b>]=<b>" + value
                           + "</b>, which is greater than maximum index value of " + (indexedFaceSet.getChildNormalArraySize() - 1)
@@ -1248,7 +1248,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
                       break; // no more checks
                   }
               }
-              else if (new SFInt32(normalIndexArray[i][j]).getValue() < 0) // index value illegal
+              else if ((new SFInt32(normalIndexArray[i][j]).getValue() < 0) && !cancelButtonSelected) // index value illegal
               {
                     message = "<html><center>Incorrect value found for normalIndex[<b>" + i + "</b>]=<b>" + value
                               + "</b>, which is less than allowed index value of 0"
@@ -1275,7 +1275,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
               expandableListNormalIndex.setData(normalIndexArray);
           }
             // check if number of normal indices higher than number of polygons
-            if ((normalIndexArray.length > numberOfPolygons) && !normalPerVertexCB.isSelected()) // normalPerVertex='false'
+            if ((normalIndexArray.length > numberOfPolygons) && !normalPerVertexCB.isSelected() && !cancelButtonSelected) // normalPerVertex='false'
             {
                   message = "<html><center>Found excessive number of normalIndex values (<b>" + (normalIndexArray.length) + "</b>) <br />"
                             + " since normalPerVertex='" + normalPerVertexCB.isSelected() + "' and only <b>" + numberOfPolygons + "</b> polygons are defined"
@@ -1285,7 +1285,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
                 DialogDisplayer.getDefault().notify(descriptor);
             }
             // check if number of normal indices higher than number of polygons
-            else if ((normalIndexArray.length < numberOfPolygons) && !normalPerVertexCB.isSelected()) // normalPerVertex='false'
+            else if ((normalIndexArray.length < numberOfPolygons) && !normalPerVertexCB.isSelected() && !cancelButtonSelected) // normalPerVertex='false'
             {
                   message = "<html><center>Found insufficient number of normalIndex values (<b>" + (normalIndexArray.length) + "</b>)"
                             + " since normalPerVertex='" + normalPerVertexCB.isSelected() + "' and <b>" + numberOfPolygons + "</b> polygons are defined"
@@ -1295,7 +1295,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
                 DialogDisplayer.getDefault().notify(descriptor);
             }
             // check if number of normal indices higher than number of vertices
-            else if ((normalIndexArray.length > indexedFaceSet.getChildCoordArraySize()) && normalPerVertexCB.isSelected()) // normalPerVertex='true'
+            else if ((normalIndexArray.length > indexedFaceSet.getChildCoordArraySize()) && normalPerVertexCB.isSelected() && !cancelButtonSelected) // normalPerVertex='true'
             {
                   message = "<html><center>Found excessive number of normalIndex values (<b>" + (normalIndexArray.length) + "</b>) <br />"
                             + " since normalPerVertex='" + normalPerVertexCB.isSelected() + "' and only <b>" + indexedFaceSet.getChildCoordArraySize() + "</b> different <b>Coordinate</b> points are defined"
@@ -1354,7 +1354,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
 //          for (int i=0; i < texcoordIndexArray.length; i++)
 //          {
 //              int value = new SFInt32(texcoordIndexArray[i]).getValue();
-              if     (value >= indexedFaceSet.getChildTexCoordArraySize()) // index value too large
+              if     (value >= indexedFaceSet.getChildTexCoordArraySize() && !cancelButtonSelected) // index value too large
               {
                   message = "<html><center>Large index value found for texcoordIndex[<b>" + i + "</b>]=<b>" + value
                           + "</b>, which is greater than maximum index value of " + (indexedFaceSet.getChildTexCoordArraySize() - 1)
@@ -1374,7 +1374,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
                       break; // no more checks
                   }
               }
-              else if (new SFInt32(texcoordIndexArray[i][j]).getValue() < -1) // index value illegal
+              else if ((new SFInt32(texcoordIndexArray[i][j]).getValue() < -1) && !cancelButtonSelected) // index value illegal
               {
                     message = "<html><center>Incorrect value found for texcoordIndex[<b>" + i + "</b>]=<b>" + value
                               + "</b>, which is less than allowed index value of 0 (or -1 sentinel value)"
@@ -1410,7 +1410,7 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
         // usability note:  can enter degree values (-6..+6) as (354..366) to provoke this conversion check
         double angle = new SFDouble(creaseAngleTF.getText()).getValue();
         creaseAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
-        if (Math.abs(angle) > 2.0 * Math.PI)
+        if ((Math.abs(angle) > 2.0 * Math.PI) && !cancelButtonSelected)
         {
             String message;
             message = "<html><center>Large value found for <b>creaseAngle</b> angle, which is a radians value.<br/><br/>Convert <b>" + angle + " degrees</b> to <b>" +
@@ -1418,32 +1418,42 @@ public class INDEXEDFACESETCustomizer extends BaseCustomizer
             if (precedesNormalization)
                  message += " before normalization?";
             else message += "?";
-          NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-                  message, "X3D angles are in radians", NotifyDescriptor.YES_NO_OPTION);
-          Object userChoice = DialogDisplayer.getDefault().notify(descriptor);
-          if (userChoice == NotifyDescriptor.YES_OPTION)
-          {
-              angle = (angle % 360.0) * Math.PI / 180.0;
-              creaseAngleTF.setText(radiansFormat.format(angle));
-              creaseAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
-          }
+            NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+                    message, "X3D angles are in radians", NotifyDescriptor.YES_NO_CANCEL_OPTION);
+            Object userChoice = DialogDisplayer.getDefault().notify(descriptor);
+            if (userChoice == NotifyDescriptor.YES_OPTION)
+            {
+                angle = (angle % 360.0) * Math.PI / 180.0;
+                creaseAngleTF.setText(radiansFormat.format(angle));
+                creaseAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
+            }
+            else if (userChoice == NotifyDescriptor.CANCEL_OPTION)
+            {
+                cancelButtonSelected = true;
+                return; // no more checks
+            }
         }
-        if (angle < 0.0)
+        if ((angle < 0.0) && !cancelButtonSelected)
         {
             String message = "<html><center>Negative value found for <b>creaseAngle</b>.<br/><br/>Convert <b>" + angle + " radians</b> to <b>" +
                     (-angle) + " radians</b>";
             if (precedesNormalization)
                  message += " before normalization?";
             else message += "?";
-          NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-                  message, "creaseAngle must be nonnegative", NotifyDescriptor.YES_NO_OPTION);
-          Object userChoice = DialogDisplayer.getDefault().notify(descriptor);
-          if (userChoice == NotifyDescriptor.YES_OPTION)
-          {
-              angle = Math.abs(angle);
-              creaseAngleTF.setText(radiansFormat.format(angle));
-              creaseAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
-          }
+            NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+                    message, "creaseAngle must be nonnegative", NotifyDescriptor.YES_NO_CANCEL_OPTION);
+            Object userChoice = DialogDisplayer.getDefault().notify(descriptor);
+            if (userChoice == NotifyDescriptor.YES_OPTION)
+            {
+                angle = Math.abs(angle);
+                creaseAngleTF.setText(radiansFormat.format(angle));
+                creaseAngleTF.setToolTipText(radiansFormat.format(angle) + " radians = " + singleDigitFormat.format(angle * 180.0 / Math.PI) + " degrees");
+            }
+            else if (userChoice == NotifyDescriptor.CANCEL_OPTION)
+            {
+                cancelButtonSelected = true;
+//              return; // no more checks
+            }
         }
   }
 

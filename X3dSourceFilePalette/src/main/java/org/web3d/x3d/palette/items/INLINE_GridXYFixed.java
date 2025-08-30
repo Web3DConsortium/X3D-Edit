@@ -66,10 +66,10 @@ public class INLINE_GridXYFixed extends SceneGraphStructureNodeType
             "    <Transform DEF='GridXY_20x20Fixed_AdjustScale' scale='1 1 1'>\n" +
             "       <Inline DEF='GridXY_20x20Fixed' url='\"GridXY_20x20Fixed.x3d\"\n" +
             "          \"../../../Savage/Tools/Authoring/GridXY_20x20Fixed.x3d\"\n" +
-            "          \"https://savage.nps.edu/Savage/Tools/Authoring/GridXY_20x20Fixed.x3d\"\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/GridXY_20x20Fixed.x3d\"\n" +
             "          \"GridXY_20x20Fixed.wrl\"\n" +
             "          \"../../../Savage/Tools/Authoring/GridXY_20x20Fixed.wrl\"\n" +
-            "          \"https://savage.nps.edu/Savage/Tools/Authoring/GridXY_20x20Fixed.wrl\"'/>\n" +
+            "          \"https://www.web3d.org/x3d/content/examples/Savage/Tools/Authoring/GridXY_20x20Fixed.wrl\"'/>\n" +
             "    </Transform>\n";
   }
 

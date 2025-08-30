@@ -71,7 +71,7 @@ public class METACustomizer extends BaseCustomizer
   private Color  normalBackgroundColor, warningBackgroundColor;
   private final UrlExpandableList2 urlExpandableList = new UrlExpandableList2();
   private final String localDirectory;
-  private final String generatorValueX3dEdit = "X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit";
+  private final String generatorValueX3dEdit = "X3D-Edit 4.0, https://www.web3d.org/x3d/tools/X3D-Edit";
   private       boolean contentInitialized = false;
 
   public METACustomizer(META meta, JTextComponent target, X3DDataObject xObj)
@@ -238,7 +238,7 @@ public class METACustomizer extends BaseCustomizer
     else  if (metaName.equals("generator") &&
               content.trim().isEmpty())
     {
-        contentTA.setText("X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit");
+        contentTA.setText("X3D-Edit 4.0, https://www.web3d.org/x3d/tools/X3D-Edit");
     }
     else  if (metaName.equals("warning") &&
               content.trim().isEmpty())
