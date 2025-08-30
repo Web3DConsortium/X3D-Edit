@@ -358,7 +358,7 @@
 
          maven.central.stage.release will prepare, sign and deploy all release artifacts to
          the Sonatype staging repository where the packaged upload can then be
-         closed and released from https://s01.oss.sonatype.org
+         closed and released from https://central.sonatype.com/publishing/deployments
     -->
 
     <target name="prepare.repositories" depends="init">
@@ -466,10 +466,10 @@
         <echo message="maven.central.stage.release complete..."/>
     </target>
 
-    <!-- OSSRH staging API: https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/#documentation-of-manual-api-endpoints
+    <!-- OSSRH staging API: https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/#getting-started-for-maven-api-like-plugins
                             https://ossrh-staging-api.central.sonatype.com/swagger-ui/#/default/manual_upload_repository -->
     <target name="do.stage.post">
-        <post to="${central-repository-url}/manual/upload/defaultRepository/org.web3d.x3d.tools?publishing_type=automatic&amp;deployment_name=latest"/>
+        <post to="${central-repository-url}/manual/upload/defaultRepository/org.web3d.x3d.tools?publishing_type=automatic&amp;deployment_name=${pom.artifactId}-${pom.version}"/>
     </target>
 
 </project>
