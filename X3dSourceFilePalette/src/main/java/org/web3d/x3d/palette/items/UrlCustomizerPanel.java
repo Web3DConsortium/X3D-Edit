@@ -471,6 +471,9 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
   /** FileFilter subclass supporting mp4 audio file extension */
   public final AudioMp4Filter  audioMp4Filter  = new AudioMp4Filter();
   @SuppressWarnings("NonPublicExported")
+  /** FileFilter subclass supporting mp4 audio file extension */
+  public final AudioM4aFilter  audioM4aFilter  = new AudioM4aFilter();
+  @SuppressWarnings("NonPublicExported")
   /** FileFilter subclass supporting oga audio file extension */
   public final AudioOgaFilter  audioOgaFilter  = new AudioOgaFilter();
   @SuppressWarnings("NonPublicExported")
@@ -588,6 +591,7 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         fileChooser.addChoosableFileFilter(movieMovFilter);
         fileChooser.addChoosableFileFilter(audioMp3Filter);
         fileChooser.addChoosableFileFilter(audioMp4Filter);
+        fileChooser.addChoosableFileFilter(audioM4aFilter);
 //      chooser.addChoosableFileFilter(movieMp4Filter);
         fileChooser.addChoosableFileFilter(movieMpegFilter);
         fileChooser.addChoosableFileFilter(movieMpgFilter);
@@ -875,6 +879,13 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     @Override
     public String getDescription(){ return NbBundle.getMessage(getClass(), "UrlCustomizerPanel.mp4_file_description.text"); }
   }
+  class AudioM4aFilter extends FileFilter
+  {
+    @Override
+    public boolean accept(File f) { return commonAccept(f,"m4a"); }
+    @Override
+    public String getDescription(){ return NbBundle.getMessage(getClass(), "UrlCustomizerPanel.m4a_file_description.text"); }
+  }
   /** https://en.wikipedia.org/wiki/Ogg */
   class MovieOgvFilter extends FileFilter
   {
@@ -1005,7 +1016,7 @@ private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     @Override
     public boolean accept(File f) { return audioAuFilter.accept(f)   || audioAiffFilter.accept(f) ||
                                            audioMidiFilter.accept(f) || audioMidFilter.accept(f)  ||
-                                           audioMp3Filter.accept(f)  || audioMp4Filter.accept(f)  ||
+                                           audioMp3Filter.accept(f)  || audioMp4Filter.accept(f)  || audioM4aFilter.accept(f)  ||
                                            audioOgaFilter.accept(f)  || audioOggFilter.accept(f)  ||
                                            audioWavFilter.accept(f)  ||
                                            movieMpegFilter.accept(f) || movieMpgFilter.accept(f)  ||

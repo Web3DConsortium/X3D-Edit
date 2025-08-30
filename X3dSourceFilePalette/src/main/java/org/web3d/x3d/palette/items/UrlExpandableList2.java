@@ -1121,13 +1121,13 @@ private int urlRank (String urlInput)
             return RELATIVE_IMAGE;
     else if  (url.endsWith(".png") || url.endsWith(".jpg") || url.endsWith(".gif") || url.endsWith(".tif") || url.endsWith(".tiff") || url.endsWith(".rgb") || url.endsWith(".rgba"))
             return LOCAL_IMAGE;
-    else if ((url.endsWith(".wav") || url.endsWith(".au") || url.endsWith(".aiff") || url.endsWith(".mp4"))
+    else if ((url.endsWith(".wav") || url.endsWith(".au") || url.endsWith(".aiff") || url.endsWith(".m4a") || url.endsWith(".mp4"))
                                    && (url.startsWith("http://") || url.startsWith("https://") || url.contains("ftp://")))
             return REMOTE_AUDIO;
-    else if ((url.endsWith(".wav") || url.endsWith(".au") || url.endsWith(".aiff") || url.endsWith(".mp4"))
+    else if ((url.endsWith(".wav") || url.endsWith(".au") || url.endsWith(".aiff") || url.endsWith(".m4a") || url.endsWith(".mp4"))
                                    && url.contains("../"))
             return RELATIVE_AUDIO;
-    else if  (url.endsWith(".wav") || url.endsWith(".au") || url.endsWith(".aiff") || url.endsWith(".mp4"))
+    else if  (url.endsWith(".wav") || url.endsWith(".au") || url.endsWith(".aiff") || url.endsWith(".m4a") || url.endsWith(".mp4"))
             return LOCAL_AUDIO;
     else if ((url.endsWith(".mpg") || url.endsWith(".mpeg") || url.endsWith(".mov") || url.endsWith(".qt") || url.endsWith(".wmv"))
                                    && (url.startsWith("http://") || url.startsWith("https://") || url.contains("ftp://")))
@@ -2277,7 +2277,8 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
       if (extension == null)
           return false;
       if    (!extension.startsWith(".")) extension = "." + extension;
-      return (extension.equalsIgnoreCase(".qt")     || extension.equalsIgnoreCase(".mp4")       );
+      return (extension.equalsIgnoreCase(".qt")     || extension.equalsIgnoreCase(".m4a")      ||
+              extension.equalsIgnoreCase(".mp4"));
   }
   protected boolean isScriptSupportedExtension (String extension)
   {

@@ -1383,7 +1383,8 @@ public class METACustomizer extends BaseCustomizer
            (content.endsWith(".x3d")  || content.endsWith(".x3dv")  || content.endsWith(".wrl")   || 
             content.endsWith(".htm")  || content.endsWith(".html")  || content.endsWith(".svg")   || content.endsWith(".tiff")  ||
             content.endsWith(".png")  || content.endsWith(".jpg")   || content.endsWith(".jpeg")  || content.endsWith(".gif")   ||
-            content.endsWith(".pdf")  || content.endsWith(".mp4")   || content.endsWith(".mpg")   || content.endsWith(".mpeg")  || content.endsWith(".txt")   ||
+            content.endsWith(".pdf")  || content.endsWith(".m4a")   || content.endsWith(".mp4")   || 
+            content.endsWith(".mpg")  || content.endsWith(".mpeg")  || content.endsWith(".txt")   ||
             content.endsWith(".au")   || content.endsWith(".midi")  || content.endsWith(".mid")   || content.endsWith(".mp3")   || content.endsWith(".wav")   ||
             content.endsWith(".js")   || content.endsWith(".xml")   || content.endsWith(".xsl")   || content.endsWith(".xslt")  || 
             content.contains(".asp")  || content.contains(".jsp")   || content.contains(".php")   || content.contains(".cgi")   || content.contains("/cgi-bin") || 
