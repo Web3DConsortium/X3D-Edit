@@ -13,7 +13,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 
 This directory shares **official release files** as part of official X3D-Edit applications release.
 
-Primary module deployment is found in [NetBeans X3D-Edit plugin](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.    
+Primary module deployment is found in [NetBeans X3D-Edit plugin portal](https://plugins.netbeans.apache.org/catalogue/?id=90) autoupdate support.    
 
 Backup module deployment is found in  [Maven Central Repository](https://central.sonatype.com/artifact/org.web3d.x3d.tools/x3dedit/versions) distribution support.
 
