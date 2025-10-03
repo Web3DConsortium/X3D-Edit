@@ -143,7 +143,8 @@ public class FIELDCustomizer extends BaseCustomizer
         valueTextArea = new javax.swing.JTextArea();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(540, 480));
+        setMinimumSize(new java.awt.Dimension(640, 320));
+        setPreferredSize(new java.awt.Dimension(720, 360));
         setLayout(new java.awt.GridBagLayout());
 
         nameLab.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -152,8 +153,7 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 45;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameLab, gridBagConstraints);
 
@@ -163,8 +163,7 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 250;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameTF, gridBagConstraints);
 
@@ -174,8 +173,7 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 49;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(typeLab, gridBagConstraints);
 
@@ -190,7 +188,7 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -202,8 +200,7 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 15;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(accessTypeLabel, gridBagConstraints);
 
@@ -217,7 +214,7 @@ public class FIELDCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -228,19 +225,19 @@ public class FIELDCustomizer extends BaseCustomizer
         appInfoLab.setToolTipText("application information:  simple tooltip description");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.ipadx = 35;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(appInfoLab, gridBagConstraints);
 
         appinfoTF.setToolTipText("application information:  simple tooltip description");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(appinfoTF, gridBagConstraints);
 
@@ -251,9 +248,11 @@ public class FIELDCustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(appinfoInitializeButton, gridBagConstraints);
 
         documentationLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -261,8 +260,9 @@ public class FIELDCustomizer extends BaseCustomizer
         documentationLabel.setToolTipText("url for field documentation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(documentationLabel, gridBagConstraints);
 
@@ -279,16 +279,15 @@ public class FIELDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(documentationTF, gridBagConstraints);
 
         openDocumentationButton.setText("open");
         openDocumentationButton.setToolTipText("open documentation url in browser");
-        openDocumentationButton.setEnabled(false);
         openDocumentationButton.setMargin(new java.awt.Insets(2, 12, 2, 12));
         openDocumentationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,9 +295,9 @@ public class FIELDCustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(openDocumentationButton, gridBagConstraints);
@@ -308,21 +307,27 @@ public class FIELDCustomizer extends BaseCustomizer
         valueLabel.setToolTipText("initial value of field, must match type");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 45;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(valueLabel, gridBagConstraints);
 
         warningLabel.setBackground(new Color(getBackground().getRed(),getBackground().getGreen(),getBackground().getBlue(),80));
         warningLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        warningLabel.setText("<html><p>No <i>value</i> attribute initialization is allowed for </p>\n<ul>   \n<li>accessType inputOnly or outputOnly</li>   \n<li>contained SFNode or MFNode content</li>   \n<li>ExternProtoDeclare field definitions</li>   \n<li>field with IS-connect interface</li> \n</ul> \n<p align='center'>(see tooltip for specific details)</p> </html>");
+        warningLabel.setText("<html><p>No <i>value</i> attribute initialization is allowed for </p>\n<ul>   \n<li>accessType inputOnly or outputOnly</li>   \n<li>contained SFNode or MFNode content</li>   \n<li>ExternProtoDeclare field definitions</li>   \n<li>field with IS-connect interface</li> \n</ul> ");
         warningLabel.setToolTipText("initialization value");
         warningLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        warningLabel.setMinimumSize(new java.awt.Dimension(240, 140));
         warningLabel.setOpaque(true);
+        warningLabel.setPreferredSize(new java.awt.Dimension(240, 140));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
         add(warningLabel, gridBagConstraints);
         warningLabel.getAccessibleContext().setAccessibleName("<html><center>No initial value for accessType inputOnly or outputOnly, or for child of ExternProtoDeclare node.");
@@ -338,26 +343,27 @@ public class FIELDCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(valueTextAreaScrollPane, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\">A <b>field</b> statement defines an interface attribute or node.</p>\n<br />\n<p align=\"center\">Hint: first add a parent <b>Script</b> node or <b>ProtoDeclare</b><b>ProtoInterface</b> statements\n<br /> before defining a new <b>field</b>. </p>\n");
+        hintLabel.setText("<html><p align=\"center\">A <b>field</b> statement defines an interface attribute or node.</p>\n<br />\n<p align=\"center\">Hint: first add a parent <b>Script</b> node or <b>ProtoDeclare</b><b>ProtoInterface</b> statements before defining a new <b>field</b>. </p>\n");
         hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(FIELDCustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setPreferredSize(new java.awt.Dimension(950, 620));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents

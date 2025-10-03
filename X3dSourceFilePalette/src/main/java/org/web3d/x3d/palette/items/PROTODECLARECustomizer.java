@@ -167,25 +167,26 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         fieldDefinitionsLabel = new javax.swing.JLabel();
         fieldListScrollPane = new javax.swing.JScrollPane();
         fieldsList = new org.web3d.x3d.palette.items.ExpandableList();
+        buttonPanel = new javax.swing.JPanel();
+        spacerLabel = new javax.swing.JLabel();
         authorAssistLabel = new javax.swing.JLabel();
         appendProtoInstanceCheckBox = new javax.swing.JCheckBox();
         appendExternProtoDeclareCheckBox = new javax.swing.JCheckBox();
         copyDefaultsAsAppinfoCheckBox = new javax.swing.JCheckBox();
         insertScriptCheckBox = new javax.swing.JCheckBox();
         insertTraceParameterCodeCheckBox = new javax.swing.JCheckBox();
-        spacerLabel = new javax.swing.JLabel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(800, 500));
+        setMinimumSize(new java.awt.Dimension(800, 550));
+        setPreferredSize(new java.awt.Dimension(800, 650));
         setLayout(new java.awt.GridBagLayout());
 
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nameLabel.setText("Prototype name");
         nameLabel.setToolTipText("Prototype names must be unique for ProtoDeclare and ExternProtoDeclare");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 28, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameLabel, gridBagConstraints);
 
         nameTF.setToolTipText("Prototype names must be unique for ProtoDeclare and ExternProtoDeclare");
@@ -193,9 +194,10 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 23);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameTF, gridBagConstraints);
 
         appinfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -205,9 +207,8 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 28, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(appinfoLabel, gridBagConstraints);
 
         appInfoScrollPane.setAutoscrolls(true);
@@ -227,9 +228,10 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 23);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(appInfoScrollPane, gridBagConstraints);
 
         documentationLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -238,9 +240,9 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 28, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(documentationLabel, gridBagConstraints);
 
         documentationTF.setToolTipText("url for prototype documentation");
@@ -258,9 +260,10 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(documentationTF, gridBagConstraints);
 
         openDocumentationButton.setText("open");
@@ -274,9 +277,9 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 22);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(openDocumentationButton, gridBagConstraints);
 
         fieldDefinitionsLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -289,6 +292,7 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 11, 0, 5);
         add(fieldDefinitionsLabel, gridBagConstraints);
 
@@ -301,11 +305,21 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipady = 80;
+        gridBagConstraints.ipady = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(fieldListScrollPane, gridBagConstraints);
+
+        buttonPanel.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        buttonPanel.add(spacerLabel, gridBagConstraints);
 
         authorAssistLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         authorAssistLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -314,11 +328,12 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         authorAssistLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 5);
-        add(authorAssistLabel, gridBagConstraints);
+        buttonPanel.add(authorAssistLabel, gridBagConstraints);
 
         appendProtoInstanceCheckBox.setText("Append new example ProtoInstance");
         appendProtoInstanceCheckBox.setToolTipText("Append new example ProtoInstance matching this ProtoDeclare");
@@ -329,12 +344,12 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 5, 3, 5);
-        add(appendProtoInstanceCheckBox, gridBagConstraints);
+        buttonPanel.add(appendProtoInstanceCheckBox, gridBagConstraints);
 
         appendExternProtoDeclareCheckBox.setText("Append matching ExternProtoDeclare");
         appendExternProtoDeclareCheckBox.setToolTipText("Append matching new ExternProtoDeclare to cut/move into another .x3d scene");
@@ -345,12 +360,12 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 5, 3, 5);
-        add(appendExternProtoDeclareCheckBox, gridBagConstraints);
+        buttonPanel.add(appendExternProtoDeclareCheckBox, gridBagConstraints);
 
         copyDefaultsAsAppinfoCheckBox.setSelected(true);
         copyDefaultsAsAppinfoCheckBox.setText("Copy default field values to provide initial appinfo descriptions");
@@ -362,12 +377,11 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 5, 3, 5);
-        add(copyDefaultsAsAppinfoCheckBox, gridBagConstraints);
+        buttonPanel.add(copyDefaultsAsAppinfoCheckBox, gridBagConstraints);
 
         insertScriptCheckBox.setText("Insert new Script node with IS/connect links matching ProtoInterface fields");
         insertScriptCheckBox.setToolTipText("Script node with matching IS/connect links is inserted within ProtoBody (a helpful design pattern)");
@@ -380,11 +394,11 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 5, 3, 5);
-        add(insertScriptCheckBox, gridBagConstraints);
+        buttonPanel.add(insertScriptCheckBox, gridBagConstraints);
 
         insertTraceParameterCodeCheckBox.setSelected(true);
         insertTraceParameterCodeCheckBox.setText("also include traceOutput parameter in Script code for debug tracing");
@@ -399,28 +413,33 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 30, 0, 5);
-        add(insertTraceParameterCodeCheckBox, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        add(spacerLabel, gridBagConstraints);
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 5, 3, 5);
+        buttonPanel.add(insertTraceParameterCodeCheckBox, gridBagConstraints);
 
-        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>ProtoDeclare</b>  is a Prototype Declaration, defining a new node made up of other node(s) and\nenabling the creation of corresponding <b>ProtoInstance</b nodes> nodes in a scene.\nAdding new nodes to a language vocabulary is a powerful Extensibility capability, the \"X\" in X3D.</p>\n<br />\n<p align=\"center\"> <b>ProtoDeclare</b> contains <b>ProtoInterface</b> and <b>ProtoBody</b>  statements. </p>");
-        hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(PROTODECLARECustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
-        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE_LEADING;
+        add(buttonPanel, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\"><b>ProtoDeclare</b>  is a Prototype Declaration, defining a new node made up of other nodes\n<br /> and enabling the creation of corresponding <b>ProtoInstance</b nodes> nodes in a scene.\n<br />\nAdding new nodes to a language vocabulary is a powerful Extensibility capability, the \"X\" in X3D.</p>\n<br />\n<p align=\"center\"> <b>ProtoDeclare</b> contains <b>ProtoInterface</b> and <b>ProtoBody</b>  statements. </p>");
+        hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(PROTODECLARECustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintLabel.setMinimumSize(null);
+        hintLabel.setPreferredSize(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -475,6 +494,7 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
     private javax.swing.JCheckBox appendProtoInstanceCheckBox;
     private javax.swing.JLabel appinfoLabel;
     private javax.swing.JLabel authorAssistLabel;
+    private javax.swing.JPanel buttonPanel;
     private javax.swing.JCheckBox copyDefaultsAsAppinfoCheckBox;
     private javax.swing.JLabel documentationLabel;
     private javax.swing.JTextField documentationTF;
