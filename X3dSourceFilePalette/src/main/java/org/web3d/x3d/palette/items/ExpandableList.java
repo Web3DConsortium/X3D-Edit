@@ -2194,8 +2194,9 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
           {
             insertRowNumber = jTable.getModel().getRowCount(); // last row
           }
-          else if (insertRowNumber < jTable.getModel().getRowCount())
-                   insertRowNumber++; // appending
+          // not needed, causes off-by-one error
+//          else if (insertRowNumber < jTable.getModel().getRowCount())
+//                   insertRowNumber++; // appending
       }
       insertRowFilter.insertRowNumber(insertRowNumber);
       return insertRowNumber;
@@ -2275,6 +2276,7 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
 //    }
 
       ((DefaultTableModel) jTable.getModel()).insertRow(insertRowNumber, tableData);
+      jTable.changeSelection(insertRowNumber, 0, false, false); // select inserted row
 
       if (doIndex) // insert value in index column
       {
