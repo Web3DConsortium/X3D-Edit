@@ -757,7 +757,7 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
           }
           if (insertTraceParameter  && traceEnabledFieldAlreadyDefined)
           {
-                  ScriptWithLinks.append(tabSetting).append(tabSetting);
+                  ScriptWithLinks.append(tabSetting).append(tabSetting).append(tabSetting);
                   ScriptWithLinks.append("<connect nodeField='traceEnabled' protoField='traceEnabled'");
                   ScriptWithLinks.append("/>\n");
           }
