@@ -346,13 +346,20 @@ public abstract class BaseCustomizer extends JPanel
     final JButton helpButton = findButton(buttonsDialogDisplayer, "Help");
     final ActionListener helpActionListener = (ActionEvent event) ->
     {
-        switch (currentX3dElement.getElementName()) {
+        String elementName = currentX3dElement.getElementName();
+        switch (elementName) {
             case     XML_ELNAME -> BaseViewAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
             case COMMENT_ELNAME -> BaseViewAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
             case DOCTYPE_ELNAME -> BaseViewAction.sendBrowserTo(X3D_TOOLTIPS + "#XML");
             // otherwise launch appropriate X3D Tooltip
-            default -> BaseViewAction.sendBrowserTo(X3D_TOOLTIPS + "#" + currentX3dElement.getElementName());
+            default -> BaseViewAction.sendBrowserTo(X3D_TOOLTIPS + "#" + elementName);
         }
+        if (elementName.startsWith("HAnim")) // also launch HAnim specification
+        {
+            final String HANIM_OBJECT_INTERFACES_WD_SPECIFICATION = "https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19774/ISO-IEC19774-1/ISO-IEC19774-1v2.1/ISO-IEC19774-1v2.1-WD/Architecture/ObjectInterfaces.html";
+            BaseViewAction.sendBrowserTo(HANIM_OBJECT_INTERFACES_WD_SPECIFICATION + "#" + elementName.substring("HAnim".length())); // skip X3D "HAnim" prefix
+        }
+        
     };
     // null pointer can happen during a unit test ?!  perhaps artifact of prior javahelp dependency...
     if (helpButton != null)
