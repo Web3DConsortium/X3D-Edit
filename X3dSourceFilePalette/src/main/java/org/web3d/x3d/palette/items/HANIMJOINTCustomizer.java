@@ -249,7 +249,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         centerModificationComboBox = new javax.swing.JComboBox<>();
         scaleSelectionComboBox = new javax.swing.JComboBox<>();
 
-        setMinimumSize(new java.awt.Dimension(600, 500));
+        setMinimumSize(new java.awt.Dimension(600, 600));
         setPreferredSize(new java.awt.Dimension(660, 680));
         setLayout(new java.awt.GridBagLayout());
 

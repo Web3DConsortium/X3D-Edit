@@ -354,6 +354,8 @@ public class PROTOINSTANCECustomizer extends BaseCustomizer implements IsCellEdi
         nodeHintPanel = new javax.swing.JPanel();
         childrenLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(640, 450));
+        setPreferredSize(new java.awt.Dimension(640, 450));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -443,7 +445,7 @@ public class PROTOINSTANCECustomizer extends BaseCustomizer implements IsCellEdi
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         childrenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        childrenLabel.setText("<html><b>ProtoInstance</b> creates and initializes a new X3D node, with node type matching the prototype declaration.");
+        childrenLabel.setText("<html><b>ProtoInstance</b> creates and initializes a new X3D node, with node type matching the prior prototype declaration.");
         childrenLabel.setToolTipText("ProtoInstance nodes can be treated like any other node of the same type");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

@@ -127,7 +127,7 @@ public class FIELDVALUECustomizer extends BaseCustomizer
     if(fieldPanels.size()>0)
       fieldNameComboBox.setSelectedIndex(selection);
     
-    protoInstanceTypeLabel.setText(protoNameType[1]);
+    protoInstanceTypeLabel.setText("referenced " + protoNameType[1] + " for this ProtoInstance");
     protoInstanceNameLabel.setText("<html><b>"+protoNameType[0]);
 
     fieldNameComboBox.setRenderer(new FieldRenderer(null));
@@ -154,7 +154,8 @@ public class FIELDVALUECustomizer extends BaseCustomizer
         protoInstanceFieldValueLabel = new javax.swing.JLabel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(660, 300));
+        setMinimumSize(new java.awt.Dimension(540, 320));
+        setPreferredSize(new java.awt.Dimension(540, 320));
         setLayout(new java.awt.GridBagLayout());
 
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -190,7 +191,7 @@ public class FIELDVALUECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.ipadx = 644;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(13, 6, 0, 0);
         add(fieldNameComboBox, gridBagConstraints);
@@ -205,8 +206,7 @@ public class FIELDVALUECustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 700;
-        gridBagConstraints.ipady = 92;
+        gridBagConstraints.ipady = 100;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -224,18 +224,19 @@ public class FIELDVALUECustomizer extends BaseCustomizer
 
         protoInstanceHeaderNameLabel.setText("name: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         add(protoInstanceHeaderNameLabel, gridBagConstraints);
 
+        protoInstanceNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         protoInstanceNameLabel.setText("null");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 488;
-        gridBagConstraints.ipady = -2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(7, 6, 0, 0);
         add(protoInstanceNameLabel, gridBagConstraints);
@@ -251,7 +252,7 @@ public class FIELDVALUECustomizer extends BaseCustomizer
         add(protoInstanceFieldValueLabel, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\">A <b>fieldValue</b> statement re-initializes the default value of a field in a parent <b>ProtoInstance</b> node.</p>\n<br />\n<p align=\"center\">Note that a <b>field</b> statement with a matching name must be already defined by the \n<br /> corresponding <b>ProtoDeclare</b> or <b>ExternProtoDeclare</b> statement. </p>\n");
+        hintLabel.setText("<html><p align=\"center\">A <b>fieldValue</b> statement re-initializes the default value of a field in a parent <b>ProtoInstance</b> node.</p>\n<br />\n<p align=\"center\">Note that a <b>field</b> statement with a matching name must be already defined earlier  \n<br /> within the corresponding <b>ProtoDeclare</b> or <b>ExternProtoDeclare</b> statement. </p>\n");
         hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(FIELDVALUECustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setPreferredSize(new java.awt.Dimension(770, 620));
@@ -260,9 +261,8 @@ public class FIELDVALUECustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
