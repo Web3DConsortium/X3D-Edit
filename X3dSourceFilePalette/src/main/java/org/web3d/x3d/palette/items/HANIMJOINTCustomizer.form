@@ -59,7 +59,7 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="new DefaultComboBoxModel&lt;String&gt;(HANIMJOINT_NAME_CHOICES)" type="code"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="select HAminJoint name"/>
+        <Property name="toolTipText" type="java.lang.String" value="select HAnimJoint name"/>
         <Property name="autoscrolls" type="boolean" value="true"/>
       </Properties>
       <Events>

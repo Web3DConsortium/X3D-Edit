@@ -61,7 +61,7 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="new DefaultComboBoxModel&lt;String&gt;(HANIMSEGMENT_NAME_CHOICES)" type="code"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="select HAminSegment name"/>
+        <Property name="toolTipText" type="java.lang.String" value="select HAnimSegment name"/>
       </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="nameComboBoxItemStateChanged"/>

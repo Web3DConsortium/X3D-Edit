@@ -224,7 +224,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         nameComboBox.setEditable(true);
         nameComboBox.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
         nameComboBox.setModel(new DefaultComboBoxModel<String>(HANIMSEGMENT_NAME_CHOICES));
-        nameComboBox.setToolTipText("select HAminSegment name");
+        nameComboBox.setToolTipText("select HAnimSegment name");
         nameComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 nameComboBoxItemStateChanged(evt);

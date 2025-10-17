@@ -171,7 +171,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
         nameComboBox.setEditable(true);
         nameComboBox.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
         nameComboBox.setModel(new DefaultComboBoxModel<String>(HANIMDISPLACER_NAME_FEATUREPOINT_CHOICES));
-        nameComboBox.setToolTipText("select HAminDisplacer name");
+        nameComboBox.setToolTipText("select HAnimDisplacer name");
         nameComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 nameComboBoxItemStateChanged(evt);

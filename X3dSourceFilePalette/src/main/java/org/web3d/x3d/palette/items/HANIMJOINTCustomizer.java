@@ -294,7 +294,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
         nameComboBox.setEditable(true);
         nameComboBox.setModel(new DefaultComboBoxModel<String>(HANIMJOINT_NAME_CHOICES));
-        nameComboBox.setToolTipText("select HAminJoint name");
+        nameComboBox.setToolTipText("select HAnimJoint name");
         nameComboBox.setAutoscrolls(true);
         nameComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
