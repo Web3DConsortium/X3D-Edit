@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -54,6 +54,7 @@ public class EXPORT extends SceneGraphStructureNodeType
 {
   private String localDEF;
   private String AS;
+  private String description; // version 4.1
   
 
   public EXPORT()
@@ -71,6 +72,7 @@ public class EXPORT extends SceneGraphStructureNodeType
   {
     localDEF         = EXPORT_ATTR_LOCALDEF_DFLT;
     AS               = EXPORT_ATTR_AS_DFLT;
+    description      = EXPORT_ATTR_DESCRIPTION_DFLT;
   }
 
   @Override
@@ -84,6 +86,9 @@ public class EXPORT extends SceneGraphStructureNodeType
     attr = root.getAttribute(EXPORT_ATTR_AS_NAME);
     if (attr != null)
       AS = attr.getValue();
+    attr = root.getAttribute(EXPORT_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
   }
   
   @Override
@@ -117,6 +122,13 @@ public class EXPORT extends SceneGraphStructureNodeType
       sb.append(AS);
       sb.append("'");
     }
+    if (EXPORT_ATTR_DESCRIPTION_REQD || !description.equals(EXPORT_ATTR_DESCRIPTION_DFLT)) {
+      sb.append(" ");
+      sb.append(EXPORT_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(description);
+      sb.append("'");
+    }
     return sb.toString();
   }
 
@@ -139,6 +151,17 @@ public class EXPORT extends SceneGraphStructureNodeType
   {
     this.AS = newAS;
   }
+  
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
+  }
+
 
   @Override
   public String getContent()

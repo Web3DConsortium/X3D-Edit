@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -77,7 +77,11 @@ public class IMPORTCustomizer extends BaseCustomizer
     else if (inlineDEFComboBox.getModel().getSize() > 0)
              inlineDEFComboBox.setSelectedIndex(0); // if not already chosen, prompt first one available
     
+    importedDEFTextField.setText(importNode.getImportedDEF());
+    
     AS_TextField.setText(importNode.getAS());
+    
+    description_TextField.setText(importNode.getDescription());
   }
   /**
    * Optional user choices for inlineDEFComboBox correspond to built-in conversions for current category.
@@ -101,16 +105,21 @@ public class IMPORTCustomizer extends BaseCustomizer
         inlinelDEFLabel = new javax.swing.JLabel();
         inlineDEFComboBox = new javax.swing.JComboBox<>();
         inilneDEF_ExplanationLabel = new javax.swing.JLabel();
-        importedlDEFLabel = new javax.swing.JLabel();
-        importedDEFComboBox = new javax.swing.JComboBox();
+        importedDEFLabel = new javax.swing.JLabel();
+        importedDEFTextField = new javax.swing.JTextField();
         importedDEF_ExplanationLabel = new javax.swing.JLabel();
         AS_Label = new javax.swing.JLabel();
         AS_TextField = new javax.swing.JTextField();
         AS_ExplanationLabel = new javax.swing.JLabel();
+        description_Label = new javax.swing.JLabel();
+        description_TextField = new javax.swing.JTextField();
+        description_ExplanationLabel = new javax.swing.JLabel();
         hint2Label = new javax.swing.JLabel();
         hint3Label = new javax.swing.JLabel();
         hint4Label = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(740, 333));
+        setPreferredSize(new java.awt.Dimension(740, 335));
         setLayout(new java.awt.GridBagLayout());
 
         hint1Label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -123,6 +132,8 @@ public class IMPORTCustomizer extends BaseCustomizer
         add(hint1Label, gridBagConstraints);
 
         outlinePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        outlinePanel.setMinimumSize(null);
+        outlinePanel.setPreferredSize(null);
         outlinePanel.setLayout(new java.awt.GridBagLayout());
 
         inlinelDEFLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -132,7 +143,7 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(13, 12, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
         outlinePanel.add(inlinelDEFLabel, gridBagConstraints);
 
         inlineDEFComboBox.setEditable(true);
@@ -150,7 +161,7 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(13, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
         outlinePanel.add(inlineDEFComboBox, gridBagConstraints);
 
         inilneDEF_ExplanationLabel.setText(" DEF name of Inline node internal to this scene");
@@ -158,43 +169,41 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 3, 3, 40);
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
         outlinePanel.add(inilneDEF_ExplanationLabel, gridBagConstraints);
 
-        importedlDEFLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        importedlDEFLabel.setText("importedDEF");
-        importedlDEFLabel.setToolTipText("user-defined name for conversion factor");
+        importedDEFLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        importedDEFLabel.setText("importedDEF");
+        importedDEFLabel.setToolTipText("user-defined name for conversion factor");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(13, 12, 13, 3);
-        outlinePanel.add(importedlDEFLabel, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
+        outlinePanel.add(importedDEFLabel, gridBagConstraints);
 
-        importedDEFComboBox.setEditable(true);
-        importedDEFComboBox.setToolTipText("enter or choose standard component name");
-        importedDEFComboBox.setMinimumSize(new java.awt.Dimension(120, 22));
-        importedDEFComboBox.setPreferredSize(new java.awt.Dimension(120, 22));
-        importedDEFComboBox.addActionListener(new java.awt.event.ActionListener() {
+        importedDEFTextField.setToolTipText("optional name change provided to external scenes");
+        importedDEFTextField.setMinimumSize(new java.awt.Dimension(120, 22));
+        importedDEFTextField.setPreferredSize(new java.awt.Dimension(120, 22));
+        importedDEFTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importedDEFComboBoxActionPerformed(evt);
+                importedDEFTextFieldActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.ipadx = 150;
         gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
-        outlinePanel.add(importedDEFComboBox, gridBagConstraints);
+        outlinePanel.add(importedDEFTextField, gridBagConstraints);
 
         importedDEF_ExplanationLabel.setText(" DEF name of imported node external to this scene (from EXPORT AS)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 12);
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
         outlinePanel.add(importedDEF_ExplanationLabel, gridBagConstraints);
 
         AS_Label.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -204,7 +213,7 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(3, 12, 13, 3);
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
         outlinePanel.add(AS_Label, gridBagConstraints);
 
         AS_TextField.setToolTipText("optional name change provided to external scenes");
@@ -219,7 +228,7 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 13, 3);
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
         outlinePanel.add(AS_TextField, gridBagConstraints);
 
         AS_ExplanationLabel.setText("DEF name alias for external node within this scene (optional)");
@@ -228,16 +237,51 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 13, 40);
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
         outlinePanel.add(AS_ExplanationLabel, gridBagConstraints);
+
+        description_Label.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        description_Label.setText("description");
+        description_Label.setToolTipText("optional name change provided to external scenes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
+        outlinePanel.add(description_Label, gridBagConstraints);
+
+        description_TextField.setToolTipText("optional name change provided to external scenes");
+        description_TextField.setMinimumSize(new java.awt.Dimension(120, 22));
+        description_TextField.setPreferredSize(new java.awt.Dimension(120, 22));
+        description_TextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                description_TextFieldActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
+        outlinePanel.add(description_TextField, gridBagConstraints);
+
+        description_ExplanationLabel.setText("description of purpose");
+        description_ExplanationLabel.setToolTipText("optional name change provided to external scenes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
+        outlinePanel.add(description_ExplanationLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(3, 13, 3, 13);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(outlinePanel, gridBagConstraints);
 
-        hint2Label.setText("A parent X3D scene loads this scene via Inline");
+        hint2Label.setText("A parent X3D scene loads this scene via Inline must also IMPORT this EXPORTED localDEF-AS node label.");
         hint2Label.setToolTipText("unit is only valid in X3D version 3.3+");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -245,7 +289,9 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(10, 6, 3, 6);
         add(hint2Label, gridBagConstraints);
 
-        hint3Label.setText("must also IMPORT this EXPORTED localDEF-AS node label.");
+        hint3Label.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        hint3Label.setForeground(new java.awt.Color(51, 102, 0));
+        hint3Label.setText("<html>X3D v4.1 adds <i>description</i> field and allows this node reference as a USE node");
         hint3Label.setToolTipText("unit is only valid in X3D version 3.3+");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -272,22 +318,29 @@ private void AS_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 // TODO if zero or negative, throw warning dialog
 }//GEN-LAST:event_AS_TextFieldActionPerformed
 
-    private void importedDEFComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importedDEFComboBoxActionPerformed
+    private void description_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_description_TextFieldActionPerformed
+        // TODO acheck for version 4.1+, otherwise throw warning
+    }//GEN-LAST:event_description_TextFieldActionPerformed
+
+    private void importedDEFTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importedDEFTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_importedDEFComboBoxActionPerformed
+    }//GEN-LAST:event_importedDEFTextFieldActionPerformed
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AS_ExplanationLabel;
     private javax.swing.JLabel AS_Label;
     private javax.swing.JTextField AS_TextField;
+    private javax.swing.JLabel description_ExplanationLabel;
+    private javax.swing.JLabel description_Label;
+    private javax.swing.JTextField description_TextField;
     private javax.swing.JLabel hint1Label;
     private javax.swing.JLabel hint2Label;
     private javax.swing.JLabel hint3Label;
     private javax.swing.JLabel hint4Label;
-    private javax.swing.JComboBox importedDEFComboBox;
+    private javax.swing.JLabel importedDEFLabel;
+    private javax.swing.JTextField importedDEFTextField;
     private javax.swing.JLabel importedDEF_ExplanationLabel;
-    private javax.swing.JLabel importedlDEFLabel;
     private javax.swing.JLabel inilneDEF_ExplanationLabel;
     private javax.swing.JComboBox<String> inlineDEFComboBox;
     private javax.swing.JLabel inlinelDEFLabel;
@@ -309,6 +362,10 @@ private void AS_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
      }
      else importNode.setInlineDEF("");
      
+     importNode.setImportedDEF(importedDEFTextField.getText().trim());
+     
      importNode.setAS(AS_TextField.getText().trim());
+     
+     importNode.setDescription(description_TextField.getText().trim());
   }  
 }

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -55,6 +55,7 @@ public class IMPORT extends SceneGraphStructureNodeType
   private String   inlineDEF;
   private String importedDEF;
   private String AS;
+  private String description; // version 4.1
   
 
   public IMPORT()
@@ -73,6 +74,7 @@ public class IMPORT extends SceneGraphStructureNodeType
       inlineDEF = IMPORT_ATTR_INLINEDEF_DFLT;
     importedDEF = IMPORT_ATTR_IMPORTEDDEF_DFLT;
              AS = IMPORT_ATTR_AS_DFLT;
+    description = IMPORT_ATTR_DESCRIPTION_DFLT;
   }
 
   @Override
@@ -89,6 +91,9 @@ public class IMPORT extends SceneGraphStructureNodeType
     attr = root.getAttribute(IMPORT_ATTR_AS_NAME);
     if (attr != null)
       AS = attr.getValue();
+    attr = root.getAttribute(IMPORT_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
   }
   
   @Override
@@ -129,6 +134,13 @@ public class IMPORT extends SceneGraphStructureNodeType
       sb.append(AS);
       sb.append("'");
     }
+    if (IMPORT_ATTR_DESCRIPTION_REQD || !description.equals(IMPORT_ATTR_DESCRIPTION_DFLT)) {
+      sb.append(" ");
+      sb.append(IMPORT_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(description);
+      sb.append("'");
+    }
     return sb.toString();
   }
 
@@ -160,6 +172,16 @@ public class IMPORT extends SceneGraphStructureNodeType
   public void setAS(String newAS)
   {
     this.AS = newAS;
+  }
+  
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String newDescription)
+  {
+    this.description = newDescription;
   }
 
   @Override
