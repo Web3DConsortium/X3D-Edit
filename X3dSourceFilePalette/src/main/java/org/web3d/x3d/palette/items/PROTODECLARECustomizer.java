@@ -825,9 +825,9 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
                                      "      Browser.println ('[' + scriptName.toString()");
               if (hasNameField)
               {
-              ScriptWithLinks.append("' ' + name.toString()");
+              ScriptWithLinks.append(" + ' ' + name.toString()");
               }
-              ScriptWithLinks.append("': ' + outputString.toString() + ']');\n").append(
+              ScriptWithLinks.append(" + ': ' + outputString.toString() + ']');\n").append(
                                      "}\n");
               ScriptWithLinks.append("function alwaysPrint (outputString)\n").append(
                                      "{\n").append(
@@ -835,9 +835,9 @@ public class PROTODECLARECustomizer extends BaseCustomizer implements TableModel
                                      "      Browser.println ('[' + scriptName.toString()");
               if (hasNameField)
               {
-              ScriptWithLinks.append("' ' + name.toString()");
+              ScriptWithLinks.append(" + ' ' + name.toString()");
               }
-              ScriptWithLinks.append("': ' + outputString.toString() + ']');\n").append(
+              ScriptWithLinks.append(" + ': ' + outputString.toString() + ']');\n").append(
                                      "}\n");
               ScriptWithLinks.append("function set_traceEnabled (eventValue)\n").append(
                                      "{\n").append(
