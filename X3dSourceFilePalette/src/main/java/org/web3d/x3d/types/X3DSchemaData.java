@@ -4438,28 +4438,28 @@ public interface X3DSchemaData
     "t12",
   };
   
-  String  HANIM_POSE_ELNAME                        = "HAnimPose";
-  String  HANIM_POSE_ATTR_DESCRIPTION_NAME         = "description";
-  boolean HANIM_POSE_ATTR_DESCRIPTION_REQD         = false;
-  String  HANIM_POSE_ATTR_DESCRIPTION_DFLT         = "";
-  String  HANIM_POSE_ATTR_NAME_NAME                = "name";
-  boolean HANIM_POSE_ATTR_NAME_REQD                = false;
-  String  HANIM_POSE_ATTR_NAME_DFLT                = "";
-  String  HANIM_POSE_ATTR_ENABLED_NAME             = "enabled";
-  boolean HANIM_POSE_ATTR_ENABLED_REQD             = false;
-  String  HANIM_POSE_ATTR_ENABLED_DFLT             = "true";
-  String  HANIM_POSE_ATTR_LOA_NAME                 = "loa";
-  boolean HANIM_POSE_ATTR_LOA_REQD                 = false;
-  String  HANIM_POSE_ATTR_LOA_DFLT                 = "-1";
-  String  HANIM_POSE_ATTR_RESETOTHERJOINTS_NAME    = "resetOtherJoints";
-  boolean HANIM_POSE_ATTR_RESETOTHERJOINTS_REQD    = false;
-  String  HANIM_POSE_ATTR_RESETOTHERJOINTS_DFLT    = "false";
-  String  HANIM_POSE_ATTR_TRANSITIONDURATION_NAME = "transitionDuration";
-  boolean HANIM_POSE_ATTR_TRANSITIONDURATION_REQD = false;
-  String  HANIM_POSE_ATTR_TRANSITIONDURATION_DFLT = "0.0";
+  String  HANIMPOSE_ELNAME                        = "HAnimPose";
+  String  HANIMPOSE_ATTR_DESCRIPTION_NAME         = "description";
+  boolean HANIMPOSE_ATTR_DESCRIPTION_REQD         = false;
+  String  HANIMPOSE_ATTR_DESCRIPTION_DFLT         = "";
+  String  HANIMPOSE_ATTR_NAME_NAME                = "name";
+  boolean HANIMPOSE_ATTR_NAME_REQD                = false;
+  String  HANIMPOSE_ATTR_NAME_DFLT                = "";
+  String  HANIMPOSE_ATTR_ENABLED_NAME             = "enabled";
+  boolean HANIMPOSE_ATTR_ENABLED_REQD             = false;
+  String  HANIMPOSE_ATTR_ENABLED_DFLT             = "true";
+  String  HANIMPOSE_ATTR_LOA_NAME                 = "loa";
+  boolean HANIMPOSE_ATTR_LOA_REQD                 = false;
+  String  HANIMPOSE_ATTR_LOA_DFLT                 = "-1";
+  String  HANIMPOSE_ATTR_RESETOTHERJOINTS_NAME    = "resetOtherJoints";
+  boolean HANIMPOSE_ATTR_RESETOTHERJOINTS_REQD    = false;
+  String  HANIMPOSE_ATTR_RESETOTHERJOINTS_DFLT    = "false";
+  String  HANIMPOSE_ATTR_TRANSITIONDURATION_NAME = "transitionDuration";
+  boolean HANIMPOSE_ATTR_TRANSITIONDURATION_REQD = false;
+  String  HANIMPOSE_ATTR_TRANSITIONDURATION_DFLT = "0.0";
   
-  String[]HANIM_POSE_CONTAINERFIELD_CHOICES    = {"children", "poses"};
-  String[]HANIM_POSE_CONTAINERFIELD_TOOLTIPS   =
+  String[]HANIMPOSE_CONTAINERFIELD_CHOICES    = {"children", "poses"};
+  String[]HANIMPOSE_CONTAINERFIELD_TOOLTIPS   =
   {
       "'children' when parent is a grouping node",
       "'poses' when parent is HAnimHumanoid",
