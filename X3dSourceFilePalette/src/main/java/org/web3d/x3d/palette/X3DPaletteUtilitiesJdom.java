@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+ * Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -240,6 +240,11 @@ public final class X3DPaletteUtilitiesJdom
 //      {
 //          System.err.println ("*** Application error, X3DPaletteUtilities.getCurrentDocumentX3dVersion() invoked before x3dEditor instantiated");
 //      }
+  }
+    
+  public static boolean isCurrentDocumentX3dVersion4_1 ()
+  {
+      return getCurrentDocumentX3dVersion().startsWith("4.1"); // TODO or greater
   }
     
   public static boolean isCurrentDocumentX3dVersion4 ()
