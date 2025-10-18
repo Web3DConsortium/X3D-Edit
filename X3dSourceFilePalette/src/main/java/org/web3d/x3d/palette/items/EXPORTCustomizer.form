@@ -174,7 +174,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="description_ExplanationLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="description of purpose"/>
+            <Property name="text" type="java.lang.String" value="explanation of purpose"/>
             <Property name="toolTipText" type="java.lang.String" value="optional name change provided to external scenes"/>
           </Properties>
           <Constraints>

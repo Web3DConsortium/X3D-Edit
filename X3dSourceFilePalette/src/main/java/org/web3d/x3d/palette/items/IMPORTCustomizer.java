@@ -81,7 +81,11 @@ public class IMPORTCustomizer extends BaseCustomizer
     
     AS_TextField.setText(importNode.getAS());
     
-    description_TextField.setText(importNode.getDescription());
+    if (!importNode.getDescription().isBlank())
+    {
+        checkX3D4_1_FieldSupportDialog("IMPORT","description"); // X3D4.1 node
+        description_TextField.setText(importNode.getDescription());
+    }
   }
   /**
    * Optional user choices for inlineDEFComboBox correspond to built-in conversions for current category.
@@ -265,7 +269,7 @@ public class IMPORTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(13, 3, 13, 3);
         outlinePanel.add(description_TextField, gridBagConstraints);
 
-        description_ExplanationLabel.setText("description of purpose");
+        description_ExplanationLabel.setText("explanation of purpose");
         description_ExplanationLabel.setToolTipText("optional name change provided to external scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -319,7 +323,7 @@ private void AS_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 }//GEN-LAST:event_AS_TextFieldActionPerformed
 
     private void description_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_description_TextFieldActionPerformed
-        // TODO acheck for version 4.1+, otherwise throw warning
+        checkX3D4_1_FieldSupportDialog("EXPORT","description"); // X3D4.1 field
     }//GEN-LAST:event_description_TextFieldActionPerformed
 
     private void importedDEFTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importedDEFTextFieldActionPerformed
