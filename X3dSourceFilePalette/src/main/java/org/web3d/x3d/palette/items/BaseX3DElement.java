@@ -2117,6 +2117,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             else if (getElementName().equals("HAnimHumanoid")) nameLabel = " name='" +  ((HANIMHUMANOID) this).getName() + "'";
             else if (getElementName().equals("HAnimDisplacer"))nameLabel = " name='" + ((HANIMDISPLACER) this).getName() + "'";
             else if (getElementName().equals("HAnimJoint"))    nameLabel = " name='" +     ((HANIMJOINT) this).getName() + "'";
+            else if (getElementName().equals("HAnimPose"))     nameLabel = " name='" +     ((HANIM_POSE) this).getName() + "'";
             else if (getElementName().equals("HAnimSegment"))  nameLabel = " name='" +   ((HANIMSEGMENT) this).getName() + "'";
             else if (getElementName().equals("HAnimSite"))     nameLabel = " name='" +      ((HANIMSITE) this).getName() + "'";
             else if (getElementName().equals("HAnimMotion"))   nameLabel = " name='" +    ((HANIMMOTION) this).getName() + "'";
@@ -2249,6 +2250,11 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                 {
                     // TODO
                     name    = ((HANIMDISPLACER) this).getName();
+                }
+                else if (getElementName().equals("HAnimPose"))
+                {
+                    // TODO
+                    name    = ((HANIM_POSE) this).getName();
                 }
                 else if (getElementName().equals("HAnimMotion"))
                 {
