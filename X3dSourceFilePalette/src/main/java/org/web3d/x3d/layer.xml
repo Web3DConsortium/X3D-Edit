@@ -1705,17 +1705,20 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="HANIMDISPLACER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMDISPLACER.xml">
                 <attr name="position" intvalue="500"/>
             </file>
-            <file name="HANIMMOTION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMMOTION.xml">
-                <attr name="position" intvalue="550"/>
-            </file>
-            <file name="ORIENTATIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ORIENTATIONINTERPOLATOR.xml">
+            <file name="HANIM_POSE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIM_POSE.xml">
                 <attr name="position" intvalue="600"/>
             </file>
-            <file name="POSITIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POSITIONINTERPOLATOR.xml">
+            <file name="HANIMMOTION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMMOTION.xml">
                 <attr name="position" intvalue="700"/>
             </file>
-            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+            <file name="ORIENTATIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ORIENTATIONINTERPOLATOR.xml">
                 <attr name="position" intvalue="800"/>
+            </file>
+            <file name="POSITIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POSITIONINTERPOLATOR.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="1000"/>
             </file>
         </folder>
         <folder name="NURBS Parametric Surfaces">
