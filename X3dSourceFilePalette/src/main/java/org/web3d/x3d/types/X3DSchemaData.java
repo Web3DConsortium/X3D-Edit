@@ -542,13 +542,16 @@ public interface X3DSchemaData
   };
 
   // EXPORT element
-  String  EXPORT_ELNAME             = "EXPORT";
-  String  EXPORT_ATTR_LOCALDEF_NAME = "localDEF";
-  boolean EXPORT_ATTR_LOCALDEF_REQD = true;
-  String  EXPORT_ATTR_LOCALDEF_DFLT = "";
-  String  EXPORT_ATTR_AS_NAME       = "AS";
-  boolean EXPORT_ATTR_AS_REQD       = false;
-  String  EXPORT_ATTR_AS_DFLT       = "";
+  String  EXPORT_ELNAME                = "EXPORT";
+  String  EXPORT_ATTR_LOCALDEF_NAME    = "localDEF";
+  boolean EXPORT_ATTR_LOCALDEF_REQD    = true;
+  String  EXPORT_ATTR_LOCALDEF_DFLT    = "";
+  String  EXPORT_ATTR_AS_NAME          = "AS";
+  boolean EXPORT_ATTR_AS_REQD          = false;
+  String  EXPORT_ATTR_AS_DFLT          = "";
+  String  EXPORT_ATTR_DESCRIPTION_NAME = "description";
+  boolean EXPORT_ATTR_DESCRIPTION_REQD = false;
+  String  EXPORT_ATTR_DESCRIPTION_DFLT = "";
 
   // IMPORT element
   String  IMPORT_ELNAME                = "IMPORT";
@@ -561,6 +564,9 @@ public interface X3DSchemaData
   String  IMPORT_ATTR_AS_NAME          = "AS";
   boolean IMPORT_ATTR_AS_REQD          = false;
   String  IMPORT_ATTR_AS_DFLT          = "";
+  String  IMPORT_ATTR_DESCRIPTION_NAME = "description";
+  boolean IMPORT_ATTR_DESCRIPTION_REQD = false;
+  String  IMPORT_ATTR_DESCRIPTION_DFLT = "";
 
   // Metadata elements
   String[]METADATA_CONTAINERFIELD_CHOICES    = {"metadata", "value"};
@@ -4431,8 +4437,35 @@ public interface X3DSchemaData
     "t11",
     "t12",
   };
+  
+  String  HANIM_POSE_ELNAME                        = "HAnimPose";
+  String  HANIM_POSE_ATTR_DESCRIPTION_NAME         = "description";
+  boolean HANIM_POSE_ATTR_DESCRIPTION_REQD         = false;
+  String  HANIM_POSE_ATTR_DESCRIPTION_DFLT         = "";
+  String  HANIM_POSE_ATTR_NAME_NAME                = "name";
+  boolean HANIM_POSE_ATTR_NAME_REQD                = false;
+  String  HANIM_POSE_ATTR_NAME_DFLT                = "";
+  String  HANIM_POSE_ATTR_ENABLED_NAME             = "enabled";
+  boolean HANIM_POSE_ATTR_ENABLED_REQD             = false;
+  String  HANIM_POSE_ATTR_ENABLED_DFLT             = "true";
+  String  HANIM_POSE_ATTR_LOA_NAME                 = "loa";
+  boolean HANIM_POSE_ATTR_LOA_REQD                 = false;
+  String  HANIM_POSE_ATTR_LOA_DFLT                 = "-1";
+  String  HANIM_POSE_ATTR_RESETOTHERJOINTS_NAME    = "resetOtherJoints";
+  boolean HANIM_POSE_ATTR_RESETOTHERJOINTS_REQD    = false;
+  String  HANIM_POSE_ATTR_RESETOTHERJOINTS_DFLT    = "false";
+  String  HANIM_POSE_ATTR_TRANSITIONDURATION_NAME = "frameDuration";
+  boolean HANIM_POSE_ATTR_TRANSITIONDURATION_REQD = false;
+  String  HANIM_POSE_ATTR_TRANSITIONDURATION_DFLT = "0.1";
+  
+  String[]HANIM_POSE_CONTAINERFIELD_CHOICES    = {"children", "poses"};
+  String[]HANIM_POSE_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'children' when parent is a grouping node",
+      "'poses' when parent is HAnimHumanoid",
+  };
 
-  String  HANIMSITE_ELNAME            = "HAnimSite";
+  String  HANIMSITE_ELNAME                = "HAnimSite";
   String  HANIMSITE_ATTR_DESCRIPTION_NAME = "description";
   boolean HANIMSITE_ATTR_DESCRIPTION_REQD = false;
   String  HANIMSITE_ATTR_DESCRIPTION_DFLT = "";
