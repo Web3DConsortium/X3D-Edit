@@ -139,7 +139,7 @@ public class HANIMPOSE extends X3DGroupingNode
       sb.append(resetOtherJoints);
       sb.append("'");
     }
-    if (HANIMPOSE_ATTR_TRANSITIONDURATION_REQD || (transitionDuration != transitionDurationDefault)) {
+    if (HANIMPOSE_ATTR_TRANSITIONDURATION_REQD || (transitionDuration.getValue() != transitionDurationDefault.getValue())) {
       sb.append(" ");
       sb.append(HANIMPOSE_ATTR_TRANSITIONDURATION_NAME);
       sb.append("='");
