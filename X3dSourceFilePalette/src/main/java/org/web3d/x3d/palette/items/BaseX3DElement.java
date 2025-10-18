@@ -90,7 +90,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   private String prependText = "";
   private String  appendText = "";
 
-  private JTextComponent target;
+  private JTextComponent targetTextComponent;
   protected ElementLocation elementLocation;
   protected String parent; // non-null if known
 
@@ -116,15 +116,15 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
   @Override
   public boolean handleTransfer(JTextComponent targetComponent)
   {
-    target = targetComponent;
+    this.targetTextComponent = targetComponent;
 
     try {
       X3DPaletteUtilitiesJdom.buildJdom(targetComponent);  // rebuild JDOM tree
-      elementLocation = X3DPaletteUtilitiesJdom.findSelectedElement(target); // find caret position
+      elementLocation = X3DPaletteUtilitiesJdom.findSelectedElement(targetTextComponent); // find caret position
     }
     catch(IOException | JDOMException | BadLocationException ex) {
       // semi-silently fail
-      System.err.println("Can't build jdom in BaseX3DElement: " + ex.getMessage());
+      System.err.println("*** Exception: can't build jdom in BaseX3DElement: " + ex.getMessage());
     }
 
     initialize();
@@ -132,12 +132,12 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     USEvector = X3DPaletteUtilitiesJdom.getUSEvector(targetComponent,getElementName());
     boolean accept = false;
 
-    Class<? extends BaseCustomizer> bcust = getCustomizer();
-    Method custFactMeth = null;
-    if(bcust == null)
-      custFactMeth = getCustomizerFactoryMethod();
+    Class<? extends BaseCustomizer> baseCustomizerClass = getCustomizer();
+    Method customizerFactoryMethod = null;
+    if (baseCustomizerClass == null)
+        customizerFactoryMethod = getCustomizerFactoryMethod();
 
-    if(bcust == null && custFactMeth == null) {
+    if(baseCustomizerClass == null && customizerFactoryMethod == null) {
       // There is no customizer, just jam in the text
       try
       {
@@ -149,20 +149,21 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         accept = false;
       }
     }
-    else {
-      BaseCustomizer cust;
-      if(bcust != null) {
+    else 
+    {
+      BaseCustomizer baseCustomizer;
+      if (baseCustomizerClass != null) {
 
         // There is a customizer dialog constructor, it's one of two types (todo, clean up slightly)
-        Constructor<? extends BaseCustomizer> cons;
+        Constructor<? extends BaseCustomizer> constructor;
         try {
           try {
-            cons = bcust.getDeclaredConstructor(this.getClass(), JTextComponent.class);
-            cust = cons.newInstance(this,targetComponent);
+            constructor = baseCustomizerClass.getDeclaredConstructor(this.getClass(), JTextComponent.class);
+            baseCustomizer = constructor.newInstance(this,targetComponent);
           }
           catch(NoSuchMethodException ex) {
-            cons = bcust.getDeclaredConstructor(this.getClass(), JTextComponent.class, X3DDataObject.class);
-            cust = cons.newInstance(this,targetComponent,X3DPaletteUtilitiesJdom.getX3dDataObject(target));
+            constructor = baseCustomizerClass.getDeclaredConstructor(this.getClass(), JTextComponent.class, X3DDataObject.class);
+            baseCustomizer = constructor.newInstance(this,targetComponent,X3DPaletteUtilitiesJdom.getX3dDataObject(targetTextComponent));
           }
         }
         catch (InvocationTargetException ite)
@@ -186,7 +187,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
       }
       else /* there is a factory method*/ {
         try {
-          cust = (BaseCustomizer) custFactMeth.invoke(null, this, targetComponent);
+          baseCustomizer = (BaseCustomizer) customizerFactoryMethod.invoke(null, this, targetComponent);
         }
         catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
         {
@@ -196,12 +197,12 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         }
       }
 
-      BaseCustomizer.DialogReturnEnumeration retrn = cust.showDialog(X3dEditUserPreferences.getShowNewlineOption());
-      if (retrn != BaseCustomizer.DialogReturnEnumeration.CANCEL) {
+      BaseCustomizer.DialogReturnEnumeration returnEnumeration = baseCustomizer.showDialog(X3dEditUserPreferences.getShowNewlineOption());
+      if (returnEnumeration != BaseCustomizer.DialogReturnEnumeration.CANCEL) {
         try {
           String lineFeedText = "";
           String post = "";
-          switch (retrn) {
+          switch (returnEnumeration) {
             case ACCEPT_PREPEND_LINEFEED:
               lineFeedText = linesep;
               break;
@@ -222,11 +223,11 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
           int start = X3DPaletteUtilitiesJdom.insert(bodyText, targetComponent, true, this); // format too
           //io.getOut().println("good insert");
           postInsert(targetComponent);
-          X3DPaletteUtilitiesJdom.getTopComponent(target).requestActive();
+          X3DPaletteUtilitiesJdom.getTopComponent(targetTextComponent).requestActive();
 		  int newCaretLocation = start+4;
-		  if (newCaretLocation > target.getText().length()-1)
-			  newCaretLocation = target.getText().length()-1; // avoid overshoot exception
-          target.setCaretPosition(newCaretLocation);
+		  if (newCaretLocation > targetTextComponent.getText().length()-1)
+			  newCaretLocation = targetTextComponent.getText().length()-1; // avoid overshoot exception
+          targetTextComponent.setCaretPosition(newCaretLocation);
         }
         catch (BadLocationException bad) {
           //io.getOut().println("Bad insert.");
@@ -2117,7 +2118,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             else if (getElementName().equals("HAnimHumanoid")) nameLabel = " name='" +  ((HANIMHUMANOID) this).getName() + "'";
             else if (getElementName().equals("HAnimDisplacer"))nameLabel = " name='" + ((HANIMDISPLACER) this).getName() + "'";
             else if (getElementName().equals("HAnimJoint"))    nameLabel = " name='" +     ((HANIMJOINT) this).getName() + "'";
-            else if (getElementName().equals("HAnimPose"))     nameLabel = " name='" +     ((HANIM_POSE) this).getName() + "'";
+            else if (getElementName().equals("HAnimPose"))     nameLabel = " name='" +     ((HANIMPOSE) this).getName() + "'";
             else if (getElementName().equals("HAnimSegment"))  nameLabel = " name='" +   ((HANIMSEGMENT) this).getName() + "'";
             else if (getElementName().equals("HAnimSite"))     nameLabel = " name='" +      ((HANIMSITE) this).getName() + "'";
             else if (getElementName().equals("HAnimMotion"))   nameLabel = " name='" +    ((HANIMMOTION) this).getName() + "'";
@@ -2254,7 +2255,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
                 else if (getElementName().equals("HAnimPose"))
                 {
                     // TODO
-                    name    = ((HANIM_POSE) this).getName();
+                    name    = ((HANIMPOSE) this).getName();
                 }
                 else if (getElementName().equals("HAnimMotion"))
                 {
