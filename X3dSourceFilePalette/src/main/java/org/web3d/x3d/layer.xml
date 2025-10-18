@@ -1705,7 +1705,7 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="HANIMDISPLACER.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMDISPLACER.xml">
                 <attr name="position" intvalue="500"/>
             </file>
-            <file name="HANIM_POSE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIM_POSE.xml">
+            <file name="HANIMPOSE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMPOSE.xml">
                 <attr name="position" intvalue="600"/>
             </file>
             <file name="HANIMMOTION.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/HANIMMOTION.xml">
