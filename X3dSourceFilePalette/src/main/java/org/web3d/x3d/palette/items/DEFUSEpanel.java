@@ -864,6 +864,8 @@ public class DEFUSEpanel extends javax.swing.JPanel
                  newDefaultDEFname = "prefix_" + newDefaultDEFname.substring("HAnimSite".length());      // extract name
         else if (newDefaultDEFname.startsWith("HAnimDisplacer"))
                  newDefaultDEFname = "prefix_" + newDefaultDEFname.substring("HAnimDisplacer".length()); // extract name
+        else if (newDefaultDEFname.startsWith("HAnimPose"))
+                 newDefaultDEFname = "prefix_" + newDefaultDEFname.substring("HAnimPose".length()); // extract name
         else if (newDefaultDEFname.startsWith("HAnimMotion"))
                  newDefaultDEFname = "prefix_" + newDefaultDEFname.substring("HAnimMotion".length());    // extract name
         
