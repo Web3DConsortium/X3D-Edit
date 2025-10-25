@@ -58,14 +58,20 @@ public class HANIMMOTION extends X3DInterpolatorNode
 {
   private String      channels, channelsDefault;
   private boolean[]   channelsEnabled, channelsEnabledDefault;
+  private String[]    channelsArray;
+  private int         channelCount;
+  private int         expectedJointsCount;
   private String      description, descriptionDefault;
   private boolean     enabled, enabledDefault;
   private SFInt32     endFrame, endFrameDefault;
-  private SFInt32     frameCount, frameCountDefault;
+  private SFInt32     frameCount, frameCountDefault; // SFInt32  [out] outputOnly, > 0
   private SFDouble    frameDuration, frameDurationDefault; // SFTime
   private SFInt32     frameIncrement, frameIncrementDefault;
   private SFInt32     frameIndex, frameIndexDefault;
   private String      joints, jointsDefault;
+  private String[]    jointsArray;
+  private int         jointsCount;
+  
   private SFInt32     loa, loaDefault;
   private boolean     loop, loopDefault;
   private String      name, nameDefault;     // X3D 4.0
@@ -113,7 +119,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
     setEndFrame(endFrameDefault       = new SFInt32  (HANIMMOTION_ATTR_ENDFRAME_DFLT,      0,    65535));
     setStartFrame(startFrameDefault   = new SFInt32  (HANIMMOTION_ATTR_STARTFRAME_DFLT,    0,    65535));
     setFrameCount(frameCountDefault   = new SFInt32  (HANIMMOTION_ATTR_FRAMECOUNT_DFLT,0,    65535));
-    setFrameIncrement(frameIncrementDefault= new SFInt32  (HANIMMOTION_ATTR_FRAMEINCREMENT_DFLT,0,    65535));
+    setFrameIncrement(frameIncrementDefault= new SFInt32  (HANIMMOTION_ATTR_FRAMEINCREMENT_DFLT,-65535,    65535));
     setFrameIndex(frameIndexDefault   = new SFInt32  (HANIMMOTION_ATTR_FRAMEINDEX_DFLT,    0,    65535));
     setLoa(loaDefault                 = new SFInt32  (HANIMMOTION_ATTR_LOA_DFLT,          -1,    4));
 
@@ -138,7 +144,22 @@ public class HANIMMOTION extends X3DInterpolatorNode
     
     attr = root.getAttribute(HANIMMOTION_ATTR_CHANNELS_NAME);
     if (attr != null)
+    {
         setChannels(attr.getValue());
+        // https://stackoverflow.com/questions/7899525/how-to-split-a-string-by-space
+        channelsArray = attr.getValue().split("\\s+");
+        channelCount = 0;
+        expectedJointsCount = 0;
+        for (int i = 0; i < channelsArray.length; i++)
+        {
+            if (channelsArray[i].matches("\\d+"))
+            {
+                channelCount += Integer.parseInt(channelsArray[i]);
+                expectedJointsCount++;
+            }
+        }
+        System.out.println("*** channelsArray.length=" + channelsArray.length + ", channelCount=" + channelCount);
+    }
   
     attr = root.getAttribute(HANIMMOTION_ATTR_CHANNELSENABLED_NAME);
     if (attr != null) {
@@ -147,7 +168,12 @@ public class HANIMMOTION extends X3DInterpolatorNode
          if (attr.getValue().contains(","))  setInsertCommas(true);
          if (attr.getValue().contains("\n") ||
              attr.getValue().contains("\r")) setInsertLineBreaks(true); // TODO not working, line breaks not being passed from JDOM
-         if (isInsertCommas())                   setInsertLineBreaks(true); // workaround default, if commas were present then most likely lineBreaks also
+         if (isInsertCommas())               setInsertLineBreaks(true); // workaround default, if commas were present then most likely lineBreaks also
+         // debug
+         if      (sa.length != channelCount)
+             System.out.println("*** error, channelsEnabled.length=" + channelsEnabled.length + " mismatch, channelCount=" + channelCount);
+         else if (channelCount > 0)
+             System.out.println("*** expected match: channelsEnabled.length=" + channelsEnabled.length + " mismatch, channelCount=" + channelCount);
     }
     
     attr = root.getAttribute(HANIMMOTION_ATTR_DESCRIPTION_NAME);
@@ -160,7 +186,16 @@ public class HANIMMOTION extends X3DInterpolatorNode
     
     attr = root.getAttribute(HANIMMOTION_ATTR_JOINTS_NAME);
     if (attr != null)
+    {
         setJoints(attr.getValue());
+        jointsArray = attr.getValue().split("\\s+");
+        jointsCount = jointsArray.length;
+        // debug
+        if  (expectedJointsCount != jointsCount)
+             System.out.println("*** expectedJointsCount=" + expectedJointsCount + " from channels array does not match jointsCount=" + jointsCount + " from joints array");
+        else System.out.println("*** expectedJointsCount=" + expectedJointsCount + " from channels array matches jointsCount=" + jointsCount + " from joints array");
+            
+    }
 
     attr = root.getAttribute(HANIMMOTION_ATTR_ENABLED_NAME);
     if(attr != null)
@@ -179,7 +214,9 @@ public class HANIMMOTION extends X3DInterpolatorNode
     
     attr = root.getAttribute(HANIMMOTION_ATTR_FRAMEINCREMENT_NAME);
     if(attr != null)
-        setFrameIncrement(new SFInt32(attr.getValue(), 0, 65535));
+    {
+        setFrameIncrement(new SFInt32(attr.getValue(), -65535, 65535));
+    }
     
     attr = root.getAttribute(HANIMMOTION_ATTR_FRAMEDURATION_NAME);
     if(attr != null)
@@ -204,22 +241,37 @@ public class HANIMMOTION extends X3DInterpolatorNode
     attr = root.getAttribute(HANIMMOTION_ATTR_VALUES_NAME);
     if (attr != null)
     {
-      String[] sa = parseX(attr.getValue());
-      int numberValues = sa.length;
-            setNumberRows(getEndFrame().getValue() - getStartFrame().getValue() + 1); // note each value is already parsed
-      if (  getNumberRows() < 1)
-      {
-          System.out.println("*** bad value for numberRows = endFrame - startFrame + 1 = " + 
-                  getEndFrame().getValue() + " - " + getStartFrame().getValue() + " + 1 = " + getNumberRows() + ", reeset to 1");
-                setNumberRows(1);
-      }
-            setNumberColumns(numberValues / getNumberRows());
-            setValues(parseToSFFloatTable(sa, getNumberColumns()));
-      
-         if (attr.getValue().contains(","))  setInsertCommas(true);
-         if (attr.getValue().contains("\n") ||
-             attr.getValue().contains("\r")) setInsertLineBreaks(true); // TODO not working, line breaks not being passed from JDOM
-         if (isInsertCommas())                     setInsertLineBreaks(true); // workaround default, if commas were present then most likely lineBreaks also
+        String[] sa = parseX(attr.getValue());
+        int numberDataValues = sa.length;
+              setNumberColumns(channelCount); // note each value must already be parsed
+        if (  getNumberColumns() < 1)
+        {
+  //          System.out.println("*** bad value for numberRows = endFrame - startFrame + 1 = " + 
+  //                  getEndFrame().getValue() + " - " + getStartFrame().getValue() + " + 1 = " + getNumberRows() + ", reeset to 1");
+            System.out.println("*** error, bad value for setNumberColumns(channelCount) = " + channelCount + ", reset to 1");
+                  setNumberColumns(1);
+        }
+        setNumberRows(numberDataValues / getNumberColumns());
+        setFrameCount(new SFInt32(getNumberRows()));
+        
+        int newEndFrame = getStartFrame().getValue() + channelCount;
+         // debug
+        if ((newEndFrame != getEndFrame().getValue()) && (getEndFrame().getValue() != 0))
+             System.out.println("*** getEndFrame()=" + getEndFrame().getValue() + " but newEndFrame=" + newEndFrame + ", using that updated value");
+        else System.out.println("*** newEndFrame=" + newEndFrame);
+        setEndFrame(new SFInt32(newEndFrame));
+        
+        setValues(parseToSFFloatTable(sa, getNumberColumns()));
+
+        if (attr.getValue().contains(","))  setInsertCommas(true);
+        if (attr.getValue().contains("\n") ||
+            attr.getValue().contains("\r")) setInsertLineBreaks(true); // TODO not working, line breaks not being passed from JDOM
+        if (isInsertCommas())               setInsertLineBreaks(true); // workaround default, if commas were present then most likely lineBreaks also
+        // debug
+        int numberTableValues = getNumberColumns() * getNumberRows();
+        boolean isMatchingSize = (numberTableValues == numberDataValues);
+        System.out.println("*** getNumberColumns()=" + getNumberColumns() + ", getNumberRows()=frameCount=" +  getNumberRows() + ", total=" + numberTableValues + " table values, " +
+                               "numberDataValues=" + numberDataValues + ", match=" + isMatchingSize);
     }
   }
  
@@ -609,16 +661,25 @@ public class HANIMMOTION extends X3DInterpolatorNode
   
   public void setValuesString(String[][] saa)
   {
-    if(saa.length == 0) {
+    if (saa.length == 0) {
       values = new SFFloat[0][0];
       return;
     }
-    
-    values= new SFFloat[numberRows][numberColumns];
-    for (int r = 0; r  <numberRows; r++) {
-      for(int c = 0; c < numberColumns; c++) {
-        values[r][c] = buildSFFloat(saa[r][c]);
-      }
+    int row    = 0;
+    int column = 0;
+    try {
+        values = new SFFloat[numberRows][numberColumns];
+        for (row = 0; row  < numberRows; row++) {
+          for (column = 0; column < numberColumns; column++) {
+               values[row][column] = buildSFFloat(saa[row][column]);
+          }
+        }
+    }
+    catch (Exception e)
+    {
+        System.out.println ("*** problem with HAnimMotion.setValuesString(), values.length=" + (numberRows * numberColumns) + 
+                            ", numberRows=" + numberRows + ", numberColumns=" + numberColumns + ", row=" + row + ", column=" + column + 
+                            ", element index=" + ( (row + 1) * (column + 1))); 
     }
   }
  
