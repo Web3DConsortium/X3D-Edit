@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -64,6 +64,20 @@ import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
  */
 public class ExpandableKeyTupleTable extends javax.swing.JPanel implements TableModelListener
 {
+
+    /**
+     * @return the doIndex
+     */
+    public boolean isDoIndex() {
+        return doIndex;
+    }
+
+    /**
+     * @param doIndex the doIndex to set
+     */
+    public void setDoIndex(boolean doIndex) {
+        this.doIndex = doIndex;
+    }
   private int tupleSize    = 3;  // overridden by constructor
   private int numberTuples = 1;  // x-dimension
   private int numberKeys   = 1;  // y-dimension
@@ -71,7 +85,7 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
   private boolean  keyColumnIncluded  = true;
   private boolean doIndex             = true; // unvarying
   private boolean doNormals           = false;
-
+  private String  initialColumnTitle  = "key";
   private boolean insertCommas, insertLineBreaks = false;
 
   private final int      ASSIGN_OPERATION = 0;
@@ -110,9 +124,9 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
     setSpecialRenderers();
 
     // https://edroidx.blogspot.com/2010/12/jcombobox-text-alignment.html
-    DefaultListCellRenderer dlcr = new DefaultListCellRenderer();
-    dlcr.setHorizontalAlignment(DefaultListCellRenderer.RIGHT);
-    operationComboBox.setRenderer(dlcr);
+    DefaultListCellRenderer defaultListCellRenderer = new DefaultListCellRenderer();
+    defaultListCellRenderer.setHorizontalAlignment(DefaultListCellRenderer.RIGHT);
+    operationComboBox.setRenderer(defaultListCellRenderer);
 
     enableDisableButtons ();
   }
@@ -153,10 +167,10 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
 
   private void setSpecialRenderers()
   {
-    TableColumnModel cmod = jTable.getColumnModel();
+    TableColumnModel tableColumnModel = jTable.getColumnModel();
   
-    TableColumn tc = cmod.getColumn(0);
-    tc.setCellRenderer(new BoldRenderer());
+    TableColumn tableColumn = tableColumnModel.getColumn(0);
+    tableColumn.setCellRenderer(new BoldRenderer());
 
     DefaultTableCellRenderer defaultRenderer = new DefaultTableCellRenderer();
     ThirdRenderer thirdRenderer = new ThirdRenderer();
@@ -164,17 +178,17 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
       thirdRenderer.setHorizontalAlignment(JLabel.RIGHT);
     boolean doGray = false;
 
-    for (int c = 1; c < (getNumberColumns() - 1); c+=tupleSize) {   // forget the key col, col 0
-      TableCellRenderer cr;
+    for (int c = 1; c < (getNumberColumns() - 1); c+=tupleSize)   // forget the key col, col 0
+    {
+      TableCellRenderer tableCellRenderer;
       if(doGray)
-        cr = thirdRenderer;
+        tableCellRenderer = thirdRenderer;
       else
-        cr = defaultRenderer;
+        tableCellRenderer = defaultRenderer;
       for(int i=0;i<tupleSize;i++)
       {
-          cmod.getColumn(c+i).setCellRenderer(cr);
+          tableColumnModel.getColumn(c+i).setCellRenderer(tableCellRenderer);
       }
-      
       doGray = !doGray;
     }
   }
@@ -195,19 +209,19 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
     StringBuilder keys = new StringBuilder();
     StringBuilder vals = new StringBuilder();
       for (String[] keysAndValue : keysAndValues) {
-          for (int c = 0; c < keysAndValues[0].length; c++) {
-              if (c == 0) {
-                  keys.append(keysAndValue[c]);
+          for (int column = 0; column < keysAndValues[0].length; column++) {
+              if (column == 0) {
+                  keys.append(keysAndValue[column]);
                   keys.append(" ");
               } else {
-                  vals.append(keysAndValue[c]);
+                  vals.append(keysAndValue[column]);
                   vals.append(" ");
               }
           }
       }
-    int ntups = (keysAndValues[0].length - 1) / tupleSize;// number of tuples here
-    int nrows = keysAndValues.length; // number of rows here
-    setData(tupleSize, ntups, nrows, keys.toString().trim(), vals.toString().trim());
+    int numberTuples = (keysAndValues[0].length - 1) / tupleSize;// number of tuples here
+    int numberRows   =  keysAndValues.length; // number of rows here
+    setData(tupleSize, numberTuples, numberRows, keys.toString().trim(), vals.toString().trim());
     enableDisableButtons ();
   }
 
@@ -224,15 +238,16 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
   @SuppressWarnings("unchecked")
   public String[][] getData()
   {
-    Vector<Vector> v = ((DefaultTableModel)jTable.getModel()).getDataVector();
-    String[][] saa = new String[v.size()][];
-    int r=0;
-    for(Vector<String> vs : v) {
-      saa[r] = new String[vs.size()];
-      int c = 0;
-      for(String s : vs)
-        saa[r][c++] = s;
-      r++;
+    Vector<Vector> dataVector = ((DefaultTableModel)jTable.getModel()).getDataVector();
+    String[][] saa = new String[dataVector.size()][]; // string array array
+    int row=0;
+    for (Vector<String> rowVector : dataVector) 
+    {
+      saa[row] = new String[rowVector.size()];
+      int col = 0;
+      for (String value : rowVector)
+        saa[row][col++] = value;
+      row++;
     }
     return saa;
   }
@@ -240,11 +255,12 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
   private void customizeColumnWidths()
   {
     TableColumnModel columnModel = jTable.getColumnModel();
-    for (int c = 0; c < columnModel.getColumnCount(); c++) {
-      TableColumn col = columnModel.getColumn(c);
-      col.setMinWidth(defaultColumnWidth);
-      col.setPreferredWidth(defaultColumnWidth);
-      col.setMaxWidth(Integer.MAX_VALUE); // used to fill table width when no horz scroller
+    for (int c = 0; c < columnModel.getColumnCount(); c++) 
+    {
+      TableColumn tableColumn = columnModel.getColumn(c);
+      tableColumn.setMinWidth      (defaultColumnWidth);
+      tableColumn.setPreferredWidth(defaultColumnWidth);
+      tableColumn.setMaxWidth(Integer.MAX_VALUE); // used to fill table width when no horz scroller
     }
   }
 
@@ -311,44 +327,46 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
     return tm;
   }
 
-  private Vector<String> getHeaders(int ncols)
+  private Vector<String> getHeaders(int numberColumns)
   {
-    Vector<String> hdr = new Vector<>();
-    hdr.add("key");
-    int coorNum = 0; // 0-based
-    for (int c = 1; c < ncols; c += tupleSize) {
-      for(int i=0;i<tupleSize;i++) {
-        if(tupleSize == 1)
-          hdr.add(""+coorNum++);
+    Vector<String> headerVector = new Vector<>();
+    headerVector.add(getInitialColumnTitle());
+    int coordinateNumber = 0; // 0-based
+    for (int columnForTuple = 1; columnForTuple < numberColumns; columnForTuple += tupleSize) 
+    {
+      for (int i=0;i<tupleSize;i++) 
+      {
+        if (tupleSize == 1)
+          headerVector.add(""+coordinateNumber++);
         else {
-          if(i==1)
-            hdr.add(""+coorNum++);
+          if (i==1)
+            headerVector.add(""+coordinateNumber++);
           else
-            hdr.add("");
+            headerVector.add("");
         }
       }
     }
-    return hdr;
+    return headerVector;
   }
 
   @Override
   public void tableChanged(TableModelEvent e)
   {
-    TableModel tm = jTable.getModel();
+    TableModel tableModel = jTable.getModel();
 
-    int c = tm.getColumnCount();
-    c--; // key
-    c /= tupleSize; // triples
-    numberColumnsLabel.setText("" + c);
+    int tableTupleColumnCount = tableModel.getColumnCount();
+    tableTupleColumnCount--; // key
+    tableTupleColumnCount /= tupleSize; // triples or whatever
+    numberColumnsLabel.setText("" + tableTupleColumnCount);
 
-    numberRowsLabel.setText("" + tm.getRowCount());
+    numberRowsLabel.setText("" + tableModel.getRowCount());
   }
 
   public void setTitle(String s)
   {
-    Border b = getBorder();
-    if (b instanceof TitledBorder) {
-      ((TitledBorder) b).setTitle(s);
+    Border border = getBorder();
+    if (border instanceof TitledBorder) {
+      ((TitledBorder) border).setTitle(s);
     }
   }
 
@@ -414,13 +432,13 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
   private void computeTableIndices ()
   {
     initialColumnIndex = 0;
-    if (doIndex) {
+    if (isDoIndex()) {
         initialColumnIndex++;
     }
     // OK to modify key column
 
     finalColumnIndex = jTable.getModel().getColumnCount() - 1;
-    finalRowIndex = jTable.getModel().getRowCount() - 1;
+    finalRowIndex    = jTable.getModel().getRowCount()    - 1;
   }
 
 
@@ -811,15 +829,15 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
 
 
       selectedColumn = tupleStartColumn(selectedColumn); // Which column starts the selected tuple?
-      DefaultTableModel mod = (DefaultTableModel) jTable.getModel();
-      Vector<Vector> datav = mod.getDataVector();
+      DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+      Vector<Vector> datav = tableModel.getDataVector();
       for (int r = 0; r < datav.size(); r++)
       {
           Vector row = datav.get(r);
           for (int c = 0; c < tupleSize; c++)
                row.remove(selectedColumn);
       }
-      mod.setDataVector(datav, getHeaders(getNumberColumns() - tupleSize));// tuples here
+      tableModel.setDataVector(datav, getHeaders(getNumberColumns() - tupleSize));// tuples here
       setSpecialRenderers();
       customizeColumnWidths();
       tableChanged(null); // update the labels
@@ -853,13 +871,13 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
              selectedColumn = 1; // only key column remains, will be adding initial column of values
         else selectedColumn = tupleStartColumn(selectedColumn) + tupleSize; // Which column starts the selected tuple?
 
-        DefaultTableModel mod = (DefaultTableModel) jTable.getModel();
-        Vector<Vector> datav = mod.getDataVector();
+        DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+        Vector<Vector> datav = tableModel.getDataVector();
         for (Vector row : datav)
-             for(int i=0;i<tupleSize;i++)
+            for (int i=0;i<tupleSize;i++)
                  row.add(selectedColumn + i, defaultTupleValues[i]); // insert default value vice zeros
 
-        mod.setDataVector(datav, getHeaders(getNumberColumns() + tupleSize));
+        tableModel.setDataVector(datav, getHeaders(getNumberColumns() + tupleSize));
         setSpecialRenderers();
         
         customizeColumnWidths();
@@ -1393,5 +1411,19 @@ public class ExpandableKeyTupleTable extends javax.swing.JPanel implements Table
      */
     public void setKeyColumnIncluded(boolean keyColumnIncluded) {
         this.keyColumnIncluded = keyColumnIncluded;
+    }
+
+    /**
+     * @return the initialColumnTitle
+     */
+    public String getInitialColumnTitle() {
+        return initialColumnTitle;
+    }
+
+    /**
+     * @param newInitialColumnTitle the initialColumnTitle to set
+     */
+    public void setInitialColumnTitle(String newInitialColumnTitle) {
+        this.initialColumnTitle = newInitialColumnTitle;
     }
 }
