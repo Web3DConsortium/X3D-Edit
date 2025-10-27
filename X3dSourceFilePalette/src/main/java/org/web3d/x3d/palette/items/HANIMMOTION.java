@@ -69,8 +69,8 @@ public class HANIMMOTION extends X3DInterpolatorNode
   private SFInt32     frameIncrement, frameIncrementDefault;
   private SFInt32     frameIndex, frameIndexDefault;
   private String      joints, jointsDefault;
-  private String[]    jointsArray;
-  private int         jointsCount;
+  private String[]    jointNamesArray;
+  private int         jointNamesCount;
   
   private SFInt32     loa, loaDefault;
   private boolean     loop, loopDefault;
@@ -188,12 +188,12 @@ public class HANIMMOTION extends X3DInterpolatorNode
     if (attr != null)
     {
         setJoints(attr.getValue());
-        jointsArray = attr.getValue().split("\\s+");
-        jointsCount = jointsArray.length;
+            setJointNamesArray(attr.getValue().split("\\s+"));
+            setJointNamesCount(getJointNamesArray().length);
         // debug
-        if  (expectedJointsCount != jointsCount)
-             System.out.println("*** expectedJointsCount=" + expectedJointsCount + " from channels array does not match jointsCount=" + jointsCount + " from joints array");
-        else System.out.println("*** expectedJointsCount=" + expectedJointsCount + " from channels array matches jointsCount=" + jointsCount + " from joints array");
+        if  (expectedJointsCount != getJointNamesCount())
+             System.out.println("*** expectedJointsCount=" + expectedJointsCount + " from channels array does not match jointsCount=" + getJointNamesCount() + " from joints array");
+        else System.out.println("*** expectedJointsCount=" + expectedJointsCount + " from channels array matches jointsCount=" + getJointNamesCount() + " from joints array");
             
     }
 
@@ -547,7 +547,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
     }
 
     /**
-     * @return the joints
+     * @return the joints, which are actually joint names
      */
     public String getJoints()
     {
@@ -555,7 +555,7 @@ public class HANIMMOTION extends X3DInterpolatorNode
     }
 
     /**
-     * @param joints the joints to set
+     * @param joints the joints to set, which are actually joint names
      */
     public void setJoints(String joints)
     {
@@ -750,5 +750,33 @@ public class HANIMMOTION extends X3DInterpolatorNode
     public void setSkeletalConfiguration(String newSkeletalConfiguration)
     {
         this.skeletalConfiguration = newSkeletalConfiguration;
+    }
+
+    /**
+     * @return the jointNamesArray
+     */
+    public String[] getJointNamesArray() {
+        return jointNamesArray;
+    }
+
+    /**
+     * @param jointNamesArray the jointNamesArray to set
+     */
+    public void setJointNamesArray(String[] jointNamesArray) {
+        this.jointNamesArray = jointNamesArray;
+    }
+
+    /**
+     * @return the jointNamesCount
+     */
+    public int getJointNamesCount() {
+        return jointNamesCount;
+    }
+
+    /**
+     * @param jointNamesCount the jointNamesCount to set
+     */
+    public void setJointNamesCount(int jointNamesCount) {
+        this.jointNamesCount = jointNamesCount;
     }
 }
