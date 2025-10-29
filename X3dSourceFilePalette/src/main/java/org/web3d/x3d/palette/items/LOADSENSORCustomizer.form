@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.3" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[630, 240]"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[630, 240]"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -11,17 +19,12 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,93,0,0,2,21"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,0,-14,0,0,2,89"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
   <SubComponents>
     <Component class="org.web3d.x3d.palette.items.DEFUSEpanel" name="dEFUSEpanel1">
-      <Properties>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[198, 77]"/>
-        </Property>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="getDEFUSEpanel();"/>
       </AuxValues>
@@ -50,7 +53,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="timeOut"/>
-        <Property name="toolTipText" type="java.lang.String" value="sends true on loading all watchList child nodes, otherwise false"/>
+        <Property name="toolTipText" type="java.lang.String" value="Time in seconds of maximum load duration prior to declaring failure."/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -60,7 +63,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="timeOutTF">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="sends true on loading all watchList child nodes, otherwise false"/>
+        <Property name="toolTipText" type="java.lang.String" value="Time in seconds of maximum load duration prior to declaring failure."/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[80, 20]"/>
         </Property>
@@ -100,7 +103,7 @@
     <Component class="javax.swing.JLabel" name="hintLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;LoadSensor&lt;/b&gt; generates events as watchList child nodes are either loaded or fail to load.&#xa;Changing watchlist child nodes restarts the LoadSensor. &lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; Output events include &lt;b&gt;isActive&lt;/b&gt;, &lt;b&gt;isLoaded&lt;/b&gt;,&lt;b&gt;loadTime&lt;/b&gt;, and &lt;b&gt;progress&lt;/b&gt;. &lt;/p&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;LoadSensor&lt;/b&gt; generates events as eligible child nodes (often USE nodes)&#xa;&lt;br /&gt; with &lt;i&gt;containerField=&apos;watchList&apos;&lt;/i&gt; are either loaded or fail to load. &lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; Changing &lt;i&gt;watchlist&lt;/i&gt; child nodes restarts the LoadSensor. &lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; Output events include &lt;b&gt;isActive&lt;/b&gt;, &lt;b&gt;isLoaded&lt;/b&gt;, &lt;b&gt;loadTime&lt;/b&gt;, and &lt;b&gt;progress&lt;/b&gt;. &lt;/p&gt;"/>
         <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="org/web3d/x3d/palette/items/Bundle.properties" key="INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>

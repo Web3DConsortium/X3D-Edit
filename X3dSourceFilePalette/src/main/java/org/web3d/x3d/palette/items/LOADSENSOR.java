@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -52,8 +52,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class LOADSENSOR extends X3DNetworkSensorNode
 {
-  private SFFloat timeOut, timeOutDefault;
-  private String watchList;
+    private SFFloat timeOut, timeOutDefault;
+//  private String watchList; // MFNode
 
   public LOADSENSOR()
   {
@@ -84,7 +84,8 @@ public class LOADSENSOR extends X3DNetworkSensorNode
     timeOut   = timeOutDefault = new SFFloat(LOADSENSOR_ATTR_TIMEOUT_DFLT,0.0f, null);
 
     setContent("\n\t\t<!--TODO add AudioClip|ImageTexture|Inline|MovieTexture|" +
-               "(X3D version 3.1 or greater)ImageCubeMapTexture|ImageTexture3D|PackagedShader|ShaderPart|ShaderProgram nodes here-->\n\t");
+                      "(X3D version 3.1 or greater)ImageCubeMapTexture|ImageTexture3D|PackagedShader|ShaderPart|ShaderProgram nodes here-->" +
+               "\n\t\t<!--TODO be sure to include containerField='watchList' in contained nodes-->\n\t");
  }
 
   @Override
@@ -104,7 +105,7 @@ public class LOADSENSOR extends X3DNetworkSensorNode
   @Override
   public String createAttributes()
   {
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder();
     if (LOADSENSOR_ATTR_ENABLED_REQD || enabled != enabledDefault) {
       sb.append(" ");
       sb.append(LOADSENSOR_ATTR_ENABLED_NAME);

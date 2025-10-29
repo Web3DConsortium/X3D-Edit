@@ -84,9 +84,9 @@ public class LOADSENSORCustomizer extends BaseCustomizer
         spacerLabel2 = new javax.swing.JLabel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(630, 240));
+        setPreferredSize(new java.awt.Dimension(630, 240));
         setLayout(new java.awt.GridBagLayout());
-
-        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -111,7 +111,7 @@ public class LOADSENSORCustomizer extends BaseCustomizer
 
         timeOutLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         timeOutLabel.setText("timeOut");
-        timeOutLabel.setToolTipText("sends true on loading all watchList child nodes, otherwise false");
+        timeOutLabel.setToolTipText("Time in seconds of maximum load duration prior to declaring failure.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
@@ -120,7 +120,7 @@ public class LOADSENSORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(timeOutLabel, gridBagConstraints);
 
-        timeOutTF.setToolTipText("sends true on loading all watchList child nodes, otherwise false");
+        timeOutTF.setToolTipText("Time in seconds of maximum load duration prior to declaring failure.");
         timeOutTF.setMaximumSize(new java.awt.Dimension(80, 20));
         timeOutTF.setMinimumSize(new java.awt.Dimension(40, 20));
         timeOutTF.setPreferredSize(new java.awt.Dimension(40, 20));
@@ -146,7 +146,7 @@ public class LOADSENSORCustomizer extends BaseCustomizer
         add(spacerLabel2, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>LoadSensor</b> generates events as watchList child nodes are either loaded or fail to load.\nChanging watchlist child nodes restarts the LoadSensor. </p>\n<br />\n<p align=\"center\"> Output events include <b>isActive</b>, <b>isLoaded</b>,<b>loadTime</b>, and <b>progress</b>. </p>");
+        hintLabel.setText("<html>\n<p align=\"center\"><b>LoadSensor</b> generates events as eligible child nodes (often USE nodes)\n<br /> with <i>containerField='watchList'</i> are either loaded or fail to load. </p>\n<br />\n<p align=\"center\"> Changing <i>watchlist</i> child nodes restarts the LoadSensor. </p>\n<br />\n<p align=\"center\"> Output events include <b>isActive</b>, <b>isLoaded</b>, <b>loadTime</b>, and <b>progress</b>. </p>");
         hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(LOADSENSORCustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
