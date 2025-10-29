@@ -71,20 +71,20 @@ public final class ExportHtmlDocumentationAction extends BaseConversionsAction
   public String transformSingleFile(X3DEditorSupport.X3dEditor ed)
   {
     ConversionsHelper.setSaveChooserDialogTitle("Export X3D Model as HTML5 pretty-print model documentation via XSLT");
-    ConversionsHelper.saveFilePack fp;
     ConversionsHelper.setOpenInEditorSetting(false);
+    ConversionsHelper.saveFilePack filePack; // settings must be set before saving
   //  if (BaseConversionsAction.xsltFilesRoot == null)
-      fp = xsltOneFile(ed, "X3dTransforms/" + X3dToXhtmlXsltStylesheet, ".html", true, false, null);
+      filePack = xsltOneFile(ed, "X3dTransforms/" + X3dToXhtmlXsltStylesheet, ".html", true, false, null);
   //  else {
   //    File target = new File(BaseConversionsAction.xsltFilesRoot, xsltFile);
   //    fp = xsltOneFile(ed, target.getAbsolutePath(), ".html", false, true, null);
   //  }
-    if (fp != null) {
-      if (fp.openInEditor)
-        ConversionsHelper.openInEditor(fp.file.getAbsolutePath());
-      if (fp.openInBrowser)
-        ConversionsHelper.openInBrowser(fp.file.getAbsolutePath());
-      return fp.file.getAbsolutePath();
+    if (filePack != null) {
+      if (filePack.openInEditor)
+        ConversionsHelper.openInEditor(filePack.file.getAbsolutePath());
+      if (filePack.openInBrowser)
+        ConversionsHelper.openInBrowser(filePack.file.getAbsolutePath());
+      return filePack.file.getAbsolutePath();
     }
     return null;
   }

@@ -110,10 +110,11 @@ public class ConversionsHelper
     }
 
     /**
-     * @param aOpenInBrowserSetting the openInBrowserSetting to set
+     * @param newOpenInBrowserSetting the openInBrowserSetting to set
      */
-    public static void setOpenInBrowserSetting(boolean aOpenInBrowserSetting) {
-        openInBrowserSetting = aOpenInBrowserSetting;
+    public static void setOpenInBrowserSetting(boolean newOpenInBrowserSetting) {
+        openInBrowserSetting = newOpenInBrowserSetting;
+        openInBrowserCheckBox.setSelected(openInEditorSetting);
     }
 
     /**
@@ -131,10 +132,11 @@ public class ConversionsHelper
        return openInEditorSetting;
     }
     /**
-     * @param aOpenInEditorSetting the openInEditorSetting to set
+     * @param newOpenInEditorSetting the openInEditorSetting to set
      */
-    public static void setOpenInEditorSetting(boolean aOpenInEditorSetting) {
-        openInEditorSetting = aOpenInEditorSetting;
+    public static void setOpenInEditorSetting(boolean newOpenInEditorSetting) {
+        openInEditorSetting = newOpenInEditorSetting;
+        openInEditorCheckBox.setSelected(openInEditorSetting);
     }
   
   public static class saveFilePack
@@ -202,13 +204,14 @@ public class ConversionsHelper
     return retData;   
   }
   
-  static public void openInEditor(String f)
+  static public void openInEditor(String filePathName)
   {
     try {
-      openInEditor(new File(f));
+        if (openInEditorCheckBox.isSelected())
+            openInEditor(new File(filePathName));
      }
     catch (Exception e) {
-      TransformListener.getInstance().message(NbBundle.getMessage(BaseConversionsAction.class,"Error_opening_") + f +
+      TransformListener.getInstance().message(NbBundle.getMessage(BaseConversionsAction.class,"Error_opening_") + filePathName +
                                               NbBundle.getMessage(BaseConversionsAction.class,"_in_editor:_") + e.getClass().getName());
     }
   }
@@ -281,7 +284,7 @@ public class ConversionsHelper
         // continue anyway
     }
     // https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java
-    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE))
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE) && openInBrowserCheckBox.isSelected())
         try {
             System.out.println("*** ConversionsHelper.openInBrowser URL    " + urlString);
             Desktop.getDesktop().browse(new URI(urlString.replaceAll("\\\\","/")));
