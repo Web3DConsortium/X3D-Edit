@@ -144,11 +144,11 @@ public class ANCHORCustomizer extends BaseCustomizer
     private void inititializeParameterTable()
     {
 //      parameterTable.setTitle("parameter array"); // title provided in left margin
-//      parameterTable.setHeaderTooltip (                     "Target parameters for web browser on launch (e.g. target=blank redirects url loading to new page)");
+//      parameterTable.setHeaderTooltip (                     "Target parameters for web browser on launch (e.g. target=_blank redirects url loading to new page)");
         
         parameterTable.setColumnTitles  (new String[]{"#",    "Target parameters for web browser"});
-        parameterTable.setColumnToolTips(new String[]{"index","Target parameters for web browser on launch (e.g. target=blank redirects url loading to new page)"});
-        parameterTable.setNewRowData(new String[]{"target=blank"});
+        parameterTable.setColumnToolTips(new String[]{"index","Target parameters for web browser on launch (e.g. target=_blank redirects url loading to new page)"});
+        parameterTable.setNewRowData(new String[]{"target=_blank"});
         parameterTable.getTable().setRowHeight(16);
         parameterTable.doIndexInFirstColumn(true);
         parameterTable.setFlippableRowData(true);
@@ -347,8 +347,8 @@ public class ANCHORCustomizer extends BaseCustomizer
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        setMinimumSize(new java.awt.Dimension(750, 400));
-        setPreferredSize(new java.awt.Dimension(750, 550));
+        setMinimumSize(new java.awt.Dimension(750, 560));
+        setPreferredSize(new java.awt.Dimension(750, 560));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -417,7 +417,7 @@ public class ANCHORCustomizer extends BaseCustomizer
 
         parameterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         parameterLabel.setText("parameter");
-        parameterLabel.setToolTipText("parameters to web browser, e.g. redirect url loading target=blank");
+        parameterLabel.setToolTipText("parameters to web browser, e.g. redirect url loading target=_blank");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -435,7 +435,9 @@ public class ANCHORCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(parameterTable, gridBagConstraints);
 
