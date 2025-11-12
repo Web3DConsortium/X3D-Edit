@@ -6,7 +6,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Distribution, 30 August 2025
+# X3D-Edit 4.0 Distribution, 12 November 2025
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
@@ -19,7 +19,7 @@ Backup module deployment is found in  [Maven Central Repository](https://central
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetBeans&nbsp;27. Tested satisfactorily, any operating system |   73.1 MB | 30 August 2025
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetBeans&nbsp;28. Tested satisfactorily, any operating system |   71.4 MB | 12 November 2025
 [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Must set jdkhome in netbeans.conf       |  260.7 MB | 25 February 2025
 
 <!---
@@ -38,7 +38,7 @@ For full details on updates, please see our video
 [Installation video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
 [<img align='right' width='400' src="https://www.web3d.org/x3d/tools/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
 
-## Source Code now on GitHub
+## Source Code available on GitHub
 
 X3D-Edit software development is now maintained at [Web3D Consortium GitHub](https://github.com/Web3DConsortium/X3D-Edit).
 
@@ -55,7 +55,7 @@ If you want to try the standalone application on another system, please note tha
 
 - Using _localadmin_ permissions, set `jdkhome` permissions in configuration file:
 - `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
-- `jdkhome="C:\Program Files\Java\openjdk\jdk-24.0.2"`
+- `jdkhome="C:\Program Files\Java\openjdk\jdk-25.0.1"`
 
 ## Troubleshooting NetBeans
 
