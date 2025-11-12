@@ -27,7 +27,7 @@
             X3D-Edit is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
         </p>
 
-        <p align="center">
+        <p style="text-align:center; word-wrap:break-word; margin:0px 20px;"> <!-- margin top-bottom, left-right -->
             <a href="#Overview">Overview</a>&nbsp;|
             <a href="#Acknowledgements">Acknowledgements</a>&nbsp;|
             <a href="#Books">Books</a>&nbsp;|
@@ -40,19 +40,20 @@
             <a href="#MailingLists">Mailing Lists</a>&nbsp;|
         <!--<a href="#New">New</a>&nbsp;| -->
             <a href="https://plugins.netbeans.apache.org/catalogue/?id=90" target="_blank">NetBeans&nbsp;Plugin&nbsp;Portal</a>&nbsp;|
-            <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html" target="_blank">X3D&nbsp;Developers&nbsp;Guide</a>&nbsp;|
-            <a href="#Source">Source</a>&nbsp;|
+            <a href="#ReleaseEngineering">Release&nbsp;Engineering</a>&nbsp;|
             <a href="https://sourceforge.net/projects/x3d/files" target="_blank">SourceForge&nbsp;Releases</a>&nbsp;|
             <a href="#Support">Support</a>&nbsp;|
             <a href="presentations/X3D-EditAuthoringTool.compressed.pdf" target="_blank">Tutorial</a>&nbsp;|
         <!--<a href="#TODO">TODO</a>&nbsp;| -->
             <a href="#Visualization">Visualization</a>&nbsp;|
-            <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html">X3D&nbsp;Developers&nbsp;Guide</a>&nbsp;|
-            <a href="https://www.web3d.org/x3d/progress" target="_blank">X3D&nbsp;Progress</a>&nbsp;|
+            <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html" target="_blank">X3D&nbsp;Developers&nbsp;Guide</a>&nbsp;|
             <a href="https://www.web3d.org/x3d/content/examples/X3dResources.html">X3D&nbsp;Resources</a>&nbsp;|
-            <!--<a href="https://savage.nps.edu/X3dValidator" target="_blank">X3D&nbsp;Validator</a>&nbsp;|&nbsp;-->
             <a href="https://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html" target="_blank">X3D&nbsp;Scene&nbsp;Authoring&nbsp;Hints</a>&nbsp;|&nbsp;
-            <a href="https://www.web3d.org/x3d/tooltips/X3dTooltips.html" target="_blank">X3D&nbsp;Tooltips</a>&nbsp;|&nbsp;<a href="https://savage.nps.edu/X3dValidator" target="_blank">X3D&nbsp;Validator</a>&nbsp;<span title="available in X3D-Edit">(currently&nbsp;offline)</span>&nbsp;|&nbsp;<a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#Xj3D" target="_blank">Xj3D</a>&nbsp;|&nbsp;<a href="#Contact">Contact</a>
+            <a href="https://www.web3d.org/x3d/progress" target="_blank">X3D&nbsp;Standards&nbsp;Progress</a>&nbsp;|
+            <a href="https://www.web3d.org/x3d/tooltips/X3dTooltips.html" target="_blank">X3D&nbsp;Tooltips</a>&nbsp;|
+            <a href="https://savage.nps.edu/X3dValidator" target="_blank">X3D&nbsp;Validator</a>&nbsp;<span title="available in X3D-Edit">(currently&nbsp;offline)</span>&nbsp;|
+            <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#Xj3D" target="_blank">Xj3D</a>&nbsp;|
+            <a href="#Contact">Contact</a>
         </p>
 
         <p style="text-align: center">
@@ -65,16 +66,16 @@
                 <em>Current versions available for <a href="#Downloads">download</a></em> 
             </p>
             <p>
-                &nbsp;&nbsp; NetBeans Plugin Portal: Version 4.0.39, <i>29 August 2025</i>
+                                SourceForge Plugin Update: version 4.0.40, <i>12 November 2025</i>
                 <br />
-                        SourceForge Plugin Update: Version 4.0.39, <i>30 August 2025</i>
+                &nbsp; NetBeans Plugin Portal: version 4.0.39, <i>30 August 2025</i>
             </p>
             <p>
                 <em>Tutorial presentation:</em>
                 <a href="presentations/X3D-EditAuthoringTool.compressed.pdf" target="_blank">X3D Assets and X3D-Edit Authoring Tool</a>
             </p>
 
-            <p>
+            <p
                 X3D-Edit 4.0 is a trusted plugin available within
                 <i>NetBeans</i> Integrated Developing Environment (IDE).
                 We release new versions quarterly in tandem with official NetBeans updates.
@@ -82,11 +83,14 @@
 
             <p>
                 We are now using
-                <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#Java" target="_blank">Java&nbsp;OpenJDK&nbsp;24.0.2</a>
+                <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#Java" target="_blank">Java&nbsp;OpenJDK&nbsp;25.0.1</a>
                 and
-                <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#NetBeans" target="_blank">Apache&nbsp;NetBeans&nbsp;27</a>
-                to build the X3D-Edit distribution.
-                You should find that it works using all recent versions of Java and NetBeans.
+                <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#NetBeans" target="_blank">Apache&nbsp;NetBeans&nbsp;28</a>
+                to build and run the X3D-Edit distribution.
+            </p>
+
+            <p>
+                You can expect to find that everything works using all recent versions of Java and NetBeans.
             </p>
             <!--
             <p>
@@ -319,9 +323,9 @@
         </p>
         <p>
             We are now using
-            <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#Java" target="_blank">Java&nbsp;OpenJDK&nbsp;24.0.2</a>
+            <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#Java" target="_blank">Java&nbsp;OpenJDK&nbsp;25.0.1</a>
             and
-            <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#NetBeans" target="_blank">Apache&nbsp;NetBeans&nbsp;27</a>.
+            <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#NetBeans" target="_blank">Apache&nbsp;NetBeans&nbsp;28</a>.
             Minimum installation prerequisites:
             Java JDK 18 or better, NetBeans 18 or better.
         </p>
@@ -335,7 +339,7 @@
             <!-- updates to the following url must be checked on plugin portal -->
             <a href="https://plugins.netbeans.apache.org/catalogue/download/587/x3dedit-4.0.37.nbm" target="_blank">X3D-Edit plugin module</a>.
             Plugin portal download statistics show 
-            <b>over 27,000 downloads</b>
+            <b>over 28,000 downloads</b>
             since May&nbsp;2023.
         </p>
         <p>
@@ -1641,6 +1645,88 @@
 
         <hr />
 
+        <h3><a name="ReleaseEngineering"></a><a name="Release">Release Engineering</a><!-- verbose since user might land here via X3D-Edit itself -->
+            <a href="#">
+                <!-- width="154" height="97" -->
+               <img src="images/x3d2-s.gif" width="50" height="32" border="0" title="to top" alt="to top" align="right"/>
+            </a>
+        </h3>
+
+        <p>
+            TODO: this section is under development.
+        </p>
+        <p>
+            Primary mode of operation for X3D-Edit is integration as a 
+            NetBeans plugin.  Intermediate X3D-Edit builds are released on
+            <a href="https://sourceforge.net/projects/x3d/files/" target="_blank">SourceForge</a>.
+        </p>
+        <p>
+            Publication on the 
+            <a href="https://plugins.netbeans.apache.org/catalogue/?id=90" target="_blank">NetBeans&nbsp;Plugin&nbsp;Portal</a>
+            typically occurs quarterly with each NetBeans release, requiring special preparations.
+        </p>
+        <p>
+            The following sections describe plugin release prerequisites and procedures for deployment.
+        </p>
+        
+        <h4>
+            a. GnuPG, also known as GPG
+        </h4>
+        <p>
+            The <a href="https://gnupg.org" target="_blank">GNU Privacy Guard (GnuPG)</a>
+            is an open implementation of the 
+            <a href="https://www.ietf.org/rfc/rfc4880.txt" target="_blank">OpenPGP standard</a>
+            for encryption and signature.  It is a required prerequisite for Sonatype publication.
+        </p>
+        <ul>
+            <li>
+                GnuPG can be installed on Windows via the
+                <a href="https://www.web3d.org/x3d/content/examples/X3dDevelopersGuide.html#Cygwin" target="_blank">X3D Developers Guide: Cygwin</a>
+                installation.
+                (We have not tested the GnuPG native Windows <i>Gpg4win</i> build.)
+            </li>
+            <li>
+                The gnupg implementation from Cygwin may get blocked by virus-security protection programs (such as Norton), 
+                if so then go to local directory <code>~/.gnupg</code>
+                and edit <code>common.conf</code> to no longer use keyboxd:
+                <code># use-keyboxd</code>.
+            <li>
+                Installation on MacOSX can occur via a variety of sources including
+                <i>Homebrew</i> 
+                or 
+                <a href="https://anaconda.org/conda-forge/gnupg" target="_blank"><i>Anaconda</i></a>.
+            </li>
+        </ul>
+        
+        <h4>
+            b. Maven Central Repository (MCR) and Sonatype publication
+        </h4>
+        <p>
+            The 
+            <a href="https://central.sonatype.com/artifact/org.web3d.x3d.tools/x3dedit" target="_blank">x3dedit project</a> (note no space)
+            is where plugin updates are published in 
+            Maven Central Repository (MCR)
+            for secure retrieval, approval, and distribution by NetBeans Plugin Repository.
+        </p>
+        <p>
+            <a href="https://central.sonatype.org/publish/requirements/gpg" target="_blank">Sonatype GPG Configuration</a> 
+            provides a great deal of important setup information.
+        </p>
+        <p>
+            TODO for testing, can we upload an intermediate version (e.g. 4.0.40a) and have NetBeans ignore it?
+        </p>
+        
+        <h4>
+            c. NetBeans plugin portal notification and approval
+        </h4>
+        <p>
+            TODO
+        </p>
+
+        <!-- =================================================== -->
+
+        <hr />
+
         <h3><a name="Support">Support and Feedback for X3D-Edit</a><!-- verbose since user might land here via X3D-Edit itself -->
             <a href="#">
                 <!-- width="154" height="97" -->
@@ -2009,7 +2095,7 @@
             <a href="https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html" target="_blank">https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html</a>
         </p>
         <p>
-            Revised <b>20 October 2025</b>
+            Revised <b>12 November 2025</b>
         </p>
         <!-- TODO update disclaimer links
         <p>(<a href="https://nps.edu/copyright-and-accessibility" target="disclaimer">official disclaimer</a>) </p> -->
