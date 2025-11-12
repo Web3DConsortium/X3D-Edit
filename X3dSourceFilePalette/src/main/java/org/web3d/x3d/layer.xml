@@ -1717,8 +1717,17 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="POSITIONINTERPOLATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POSITIONINTERPOLATOR.xml">
                 <attr name="position" intvalue="900"/>
             </file>
-            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+            <file name="EXPORT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/EXPORT.xml">
                 <attr name="position" intvalue="1000"/>
+            </file>
+            <file name="INLINE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINE.xml">
+                <attr name="position" intvalue="1100"/>
+            </file>
+            <file name="IMPORT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IMPORT.xml">
+                <attr name="position" intvalue="1200"/>
+            </file>
+            <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
+                <attr name="position" intvalue="1300"/>
             </file>
         </folder>
         <folder name="NURBS Parametric Surfaces">
