@@ -508,7 +508,11 @@
             <word>gzipped</word>
             <word>HAnim</word>
             <word>HAnimHumanoid</word>
+            <word>HAnimJoint</word>
             <word>HAnimMotion</word>
+            <word>HAnimPose</word>
+            <word>HAnimSegment</word>
+            <word>HAnimSite</word>
             <word>Heilan</word>
             <word>html</word>
             <word>htmlcolorcodes</word>
@@ -544,6 +548,7 @@
             <word>MultiTexture</word>
             <word>MultiTextureCoordinate</word>
             <word>MultiTextureTransform</word>
+            <word>namespace</word>
             <word>NetBeans</word>
             <word>NPS</word>
             <word>NuGraf</word>
