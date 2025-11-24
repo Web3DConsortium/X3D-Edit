@@ -800,7 +800,7 @@ public class X3dEditUserPreferences
   private static final String windows64MayaRawkeeX3dEditorPathDefault    = "";
   private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
-  private static final String windows64SunrizeX3dEditorPathDefault       = "npx sunrize"; // node.js
+  private static final String windows64SunrizeX3dEditorPathDefault       = "%USER_PROFILE%\\AppData\\Local\\sunrize\\Sunrize X3D Editor.exe";
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
@@ -918,7 +918,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteMayaRawkee                     = ""; // TODO two entries?
   private static final String downloadSiteRhino3D                        = "https://www.rhino3d.com/download";
   private static final String downloadSiteSeamless3d                     = "https://www.seamless3d.com";
-  private static final String downloadSiteSunrize                        = "https://nodejs.org/en/download";
+  private static final String downloadSiteSunrize                        = "https://create3000.github.io/sunrize"; // https://nodejs.org/en/download";
   private static final String downloadSiteItksnap                        = "http://www.itksnap.org"; // http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
   private static final String downloadSiteSeg3d                          = "https://www.sci.utah.edu/software/seg3d.html";
                                                                         // "https://www.sci.utah.edu/cibc-software/seg3d.html";

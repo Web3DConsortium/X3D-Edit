@@ -183,12 +183,14 @@ otherSemanticWebEditorCheckBox.setVisible(false);
     otherX3dPlayerNvdSecurityCheckButton.setEnabled(!otherX3dPlayerNameTF.getText().equals(OTHER_X3D_PLAYER_EXECUTABLE_NAME_DEFAULT));
     otherX3dEditorNvdSecurityCheckButton.setEnabled(!otherX3dEditorNameTF.getText().equals(OTHER_X3D_EDITOR_EXECUTABLE_NAME_DEFAULT));
     
-      if ((org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("brutzman") || 
-           org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("donbr")) && 
-          org.web3d.x3d.options.X3dEditUserPreferences.getAuthorEmail().isBlank())
-          org.web3d.x3d.options.X3dEditUserPreferences.setAuthorEmail("don.brutzman@gmail.com");
-      
-      resetUserOptions(); // duplicative
+    if ((org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("brutzman") || 
+         org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("donbr")) && 
+         org.web3d.x3d.options.X3dEditUserPreferences.getAuthorEmail().isBlank())
+         org.web3d.x3d.options.X3dEditUserPreferences.setAuthorEmail("don.brutzman@gmail.com");
+
+    resetUserOptions(); // duplicative
+    
+    sunrizeAutoLaunchCheck();
   }
   
   public static String panelFontName = "Segoe UI";
@@ -12020,11 +12022,11 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void sunrizeX3dEditorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorCheckBoxActionPerformed
         if (sunrizeX3dEditorCheckBox.isSelected())
         {
-          X3dEditUserPreferences.setSunrizeAutoLaunch("true");
+            X3dEditUserPreferences.setSunrizeAutoLaunch("true");
         }
         else
         {
-          X3dEditUserPreferences.setSunrizeAutoLaunch("false");
+            X3dEditUserPreferences.setSunrizeAutoLaunch("false");
         }
         sunrizeAutoLaunchCheck ();
     }//GEN-LAST:event_sunrizeX3dEditorCheckBoxActionPerformed
@@ -12047,16 +12049,17 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_sunrizeX3dEditorDefaultButtonActionPerformed
 
     private void sunrizeX3dEditorLaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorLaunchButtonActionPerformed
-        System.out.println("[X3dEditUserPreferencesPanel] Confirm node.js installed, report npm version:");
-        runShellCommand("npm -v");
-        
-        // TODO clean up
+        sunrizeAutoLaunchCheck (); // updates buttons and path if needed
         boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
-        if  (false && isWindows)
-             runShellCommand("start /b " + X3dEditUserPreferences.getSunrizeX3dEditorPath()); // avoid blocking on invocation
-        else runShellCommand(              X3dEditUserPreferences.getSunrizeX3dEditorPath()); 
-
-        sunrizeAutoLaunchCheck ();
+        if  (isWindows)
+             externalProcessLaunch(sunrizeX3dEditorPathTF.getText());  
+        //   runShellCommand("start /b " + X3dEditUserPreferences.getSunrizeX3dEditorPath()); // avoid blocking on invocation
+        else 
+        {
+            System.out.println("[X3dEditUserPreferencesPanel] Confirm node.js installed, report npm version:");
+            runShellCommand("npm -v");
+            runShellCommand(              X3dEditUserPreferences.getSunrizeX3dEditorPath());
+        } 
     }//GEN-LAST:event_sunrizeX3dEditorLaunchButtonActionPerformed
 
     private void sunrizeX3dEditorDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorDownloadButtonActionPerformed
@@ -12875,12 +12878,35 @@ for Extensible 3D (X3D) Graphics International Standard.
     batikEditorLaunchButton.setEnabled(isExecutableFile);
     showFound (isExecutableFile, batikEditorLabel, batikEditorPathTF);
   }
-  private void sunrizeAutoLaunchCheck ()
+  private void sunrizeAutoLaunchCheck()
   {
-    boolean isNodejsInstalled = true; // TODO how to check programmatically?
-    X3dEditUserPreferences.setSunrizeAutoLaunch(Boolean.toString(isNodejsInstalled));
-    sunrizeX3dEditorCheckBox.setSelected(isNodejsInstalled);
-    sunrizeX3dEditorLaunchButton.setEnabled(isNodejsInstalled); // based on node.js installed and sunrize retrievable
+    String os = System.getProperty("os.name").toLowerCase();
+    if (os.contains("win"))
+    {
+         sunrizeX3dEditorLaunchButton.setEnabled(true);
+        sunrizeX3dEditorChooserButton.setEnabled(true);
+        sunrizeX3dEditorChooserButton.setToolTipText("Sunrize is a Multi-Platform X3D Editor using X_ITE and Node.js");
+        String sunrizePath = sunrizeX3dEditorPathTF.getText();
+        if (sunrizePath.contains("%USER_PROFILE%"))
+        {
+            // https://stackoverflow.com/questions/11218943/how-do-i-add-a-userprofile-variable-normally-userprofile
+            String userprofile = System.getenv("USERPROFILE");
+            sunrizeX3dEditorPathTF.setText(sunrizePath.replace("%USER_PROFILE%",userprofile));
+        }
+    }
+    else
+    {      
+        boolean isNodejsInstalled = true; // TODO how to check programmatically?
+        X3dEditUserPreferences.setSunrizeAutoLaunch(Boolean.toString(isNodejsInstalled));
+        sunrizeX3dEditorCheckBox.setSelected(isNodejsInstalled);
+        sunrizeX3dEditorLaunchButton.setEnabled(isNodejsInstalled); // based on node.js installed and sunrize retrievable
+        showFound (isExecutableFile, sunrizeX3dEditorLabel, sunrizeX3dEditorPathTF);
+    }
+    checkExistingFile = new File(sunrizeX3dEditorPathTF.getText().trim());
+    isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+    X3dEditUserPreferences.setSunrizeAutoLaunch(Boolean.toString(isExecutableFile));
+    sunrizeX3dEditorCheckBox.setSelected(isExecutableFile);
+//  sunrizeX3dEditorLaunchButton.setEnabled(isExecutableFile);
     showFound (isExecutableFile, sunrizeX3dEditorLabel, sunrizeX3dEditorPathTF);
   }
   private void audacityAutoLaunchCheck ()
