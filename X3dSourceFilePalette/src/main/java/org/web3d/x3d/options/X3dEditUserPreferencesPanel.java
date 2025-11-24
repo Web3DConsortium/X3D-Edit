@@ -12902,6 +12902,7 @@ for Extensible 3D (X3D) Graphics International Standard.
         sunrizeX3dEditorLaunchButton.setEnabled(isNodejsInstalled); // based on node.js installed and sunrize retrievable
         showFound (isExecutableFile, sunrizeX3dEditorLabel, sunrizeX3dEditorPathTF);
     }
+    X3dEditUserPreferences.setSunrizeX3dEditorPath(sunrizeX3dEditorPathTF.getText().trim());
     checkExistingFile = new File(sunrizeX3dEditorPathTF.getText().trim());
     isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
     X3dEditUserPreferences.setSunrizeAutoLaunch(Boolean.toString(isExecutableFile));
