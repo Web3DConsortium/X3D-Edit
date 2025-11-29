@@ -56,14 +56,15 @@ import org.openide.util.actions.CallableSystemAction;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 
 /**
- * Create new Java source file for editing
+ * Create new Java source file for editing.
+ * This script template is maintained for historic purposes since Java in Script node is not supported by current X3D players.
  */
 @ActionID(id = "org.web3d.x3d.NewX3dScriptJavaAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/java-icon32x32.png",
                     displayName = "#CTL_X3DNewX3dScriptJavaAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-  @ActionReference(path = "Toolbars/X3D-Edit New File Templates", position = 350),
+//@ActionReference(path = "Toolbars/X3D-Edit New File Templates", position = 350),
   @ActionReference(path = "Menu/&X3D-Edit/&New File Templates", position = 350),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&New File Templates", position = 350),
 })
