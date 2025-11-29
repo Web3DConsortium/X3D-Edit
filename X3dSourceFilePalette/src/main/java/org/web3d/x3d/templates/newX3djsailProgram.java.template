@@ -1,84 +1,161 @@
+package X3dForAdvancedModeling.HelloWorldScenes;
+
+import org.web3d.x3d.jsail.Core.*;
+import org.web3d.x3d.jsail.fields.*;
+import org.web3d.x3d.jsail.Geometry3D.*;
+import org.web3d.x3d.jsail.Grouping.*;
+import org.web3d.x3d.jsail.Navigation.*;
+import org.web3d.x3d.jsail.Shape.*;
+import org.web3d.x3d.jsail.Text.*;
+import org.web3d.x3d.jsail.Texturing.*;
+
+// Javadoc metadata annotations follow, see below for X3DJSAIL Java source code.
 /**
- * // Author TODO:  change the following metadata
- *
- * newX3dScript.java
- *
- * @author      TODO-yourNameHere
- * Filename:    newX3dScript.java
- * Description: Editable example Java source file for use with X3D Script node
- * Identifier:  http://www.web3d.org/x3d/content/examples/newX3dScript.java
- * Created:     __ Month 201_
- * Revised:     __ Month 201_
- * Reference:   http://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Scripts
- * Reference:   http://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/scripting.html
- * Reference:   http://www.web3d.org/x3d/specifications/ISO-IEC-19777-2-X3DLanguageBindings-Java/Part2/X3D_Java.html
- * License:     ../../license.html
+ * <p> Test X3D version 4 with simple X3D model example: Hello World!. </p>
+	<p>
+		This program uses the
+		<a href="https://www.web3d.org/specifications/java/X3DJSAIL.html" target="_blank">X3D Java Scene Access Interface Library (X3DJSAIL)</a>.
+		It has been produced using 
+		<a href="https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html" target="_blank">X3D-Edit Authoring Tool</a>.
+	</p>
+	* @author Your Name Here
  */
-public class newX3dScript {  // Author TODO:  change class name
 
-    // Author TODO:  ensure that this method's name has corresponding inputOnly field name
-    // Note that inputOnly fields must appear as names of handling functions (like the following)
-    // Failure to provide a named method matching each inputOnly field means Script ignores those events at run time
-    
-    public void myInputOnlyFieldName(myInputValue, timestamp) // all timestamp parameters optional
-    {
-        // Author TODO:  authors can insert script code here; variable names must match Script field definitions
-        //               outputOnly      fields can only be on left-hand side  (LHS) of assignment statements
-        //               initializeOnly  fields can only be on right-hand side (RHS) of assignment statements
-        //               inputOutput     fields can either be on LHS or RHS of assignment statements
+public class NewX3djsailProgram
+{
+	/** Default constructor to create this object. */
+	public NewX3djsailProgram ()
+	{
+	  initialize();
+	}
 
-        myOutputOnlyFieldName = someExpression(myInputValue);  // Author TODO:  replace this assignment statement
-    }
+	/** Create and initialize the X3D model for this object. */
+	public final void initialize()
+	{
+            try { // catch-all
+  x3dModel = new X3D().setProfile(X3D.PROFILE_IMMERSIVE).setVersion(X3D.VERSION_4_0)
+  .setHead(new head()
+    .addMeta(new meta().setName(meta.NAME_TITLE      ).setContent("HelloWorldX3D4.x3d"))
+    .addMeta(new meta().setName(meta.NAME_DESCRIPTION).setContent("Test X3D version 4 with simple X3D model example: Hello World!"))
+    .addMeta(new meta().setName(meta.NAME_CREATED    ).setContent("28 November 2025"))
+    .addMeta(new meta().setName(meta.NAME_MODIFIED   ).setContent("*today's date*"))
+    .addMeta(new meta().setName(meta.NAME_CREATOR    ).setContent("Don Brutzman"))
+    .addMeta(new meta().setName(meta.NAME_IDENTIFIER ).setContent("https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d"))
+    .addMeta(new meta().setName(meta.NAME_LICENSE    ).setContent("https://www.web3d.org/x3d/content/examples/license.html"))
+    .addMeta(new meta().setName(meta.NAME_GENERATOR  ).setContent("X3D-Edit 4.0, https://www.web3d.org/x3d/tools/X3D-Edit")))
+  .setScene(new Scene()
+    .addComments(" Example scene to illustrate X3D nodes and fields (XML elements and attributes) ")
+    .addChild(new WorldInfo("WorldInfoPrimary").setInfo(new String[] {"Example scene to illustrate a simple X3D4 model"}).setTitle("Hello World X3D4!"))
+    .addChild(new WorldInfo("WorldInfoSecondary").setCssClass("TestClass").setHtmlId("TestID").setCssStyle("TestStyle").setTitle("test HTML CSS fields"))
+    .addChild(new NavigationInfo())
+    .addChild(new Group()
+      .addChild(new Viewpoint("ViewUpClose").setDescription("Hello world!").setCenterOfRotation(0.0,-1.0,0.0).setPosition(0.0,-1.0,7.0))
+      .addChild(new Transform().setRotation(0.0,1.0,0.0,3.0)
+        .addChild(new Shape()
+          .setGeometry(new Sphere())
+          .setAppearance(new Appearance()
+            .addComments(" https://htmlcolorcodes.com/colors/off-white ")
+            .setMaterial(new Material("MaterialOffWhite").setDiffuseColor(0.980392,0.976471,0.964706))
+            .setTexture(new ImageTexture("ImageCloudlessEarth").setUrl(new String[] {"earth-topo.png","earth-topo.jpg","earth-topo-small.gif","https://www.web3d.org/x3d/content/examples/Basic/earth-topo.png","https://www.web3d.org/x3d/content/examples/Basic/earth-topo.jpg","https://www.web3d.org/x3d/content/examples/Basic/earth-topo-small.gif"})))))
+      .addChild(new Transform().setTranslation(0.0,-2.0,0.0)
+        .addChild(new Shape()
+          .setGeometry(new Text("TextMessage").setString(new String[] {"Hello","X3D 4!"})
+            .setFontStyle(new FontStyle().setJustify(FontStyle.JUSTIFY_MIDDLE_MIDDLE)))
+          .setAppearance(new Appearance()
+            .setMaterial(new Material().setUSE("MaterialOffWhite")))))));
+            }
+            catch (Exception ex)
+            {       
+                System.err.println ("*** A run-time exception has occurred.");
+                System.err.println ("*** Further hints on X3DJSAIL errors and exceptions are found at");
+                System.err.println ("*** https://www.web3d.org/specifications/java/X3DJSAIL.html");
+                throw (ex);
+            }
+	}
+	// end of initialize() method
 
-    //--------------------------------------------------------------------------------------------
-    // The following predefined optional methods may also be overridden for advanced functionality
-    //--------------------------------------------------------------------------------------------
-    
-    /** When did the last frame start */
-    private long lastStartTime;
+	/** The initialized model object, created within initialize() method. */
+	private X3D x3dModel;
 
-    /**
-     * Notification that the script has completed the setup and should go
-     * about its own internal initialization.
+	/** 
+	 * Provide a 
+	 * <a href="https://dzone.com/articles/java-copy-shallow-vs-deep-in-which-you-will-swim" target="_blank">shallow copy</a>
+	 * of the X3D model.
+	 * @see <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/Core/X3D.html">X3D</a>
+	 * @return HelloWorldX3D4 model
+	 */
+	public X3D getX3dModel()
+	{	  
+		return x3dModel;
+	}
+	   
+    /** 
+     * Default main() method provided for test purposes, uses CommandLine to set global ConfigurationProperties for this object.
+     * @param args array of input parameters, provided as arguments
+     * @see <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/Core/X3D.html#handleArguments-java.lang.String:A-">X3D.handleArguments(args)</a>
+     * @see <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/Core/X3D.html#validationReport--">X3D.validationReport()</a>
+     * @see <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/CommandLine.html">CommandLine</a>
+     * @see <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/CommandLine.html#USAGE">CommandLine.USAGE</a>
+     * @see <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/ConfigurationProperties.html">ConfigurationProperties</a>
      */
-    public void initialize() 
+    public static void main(String args[])
     {
-        // example code:
-        lastStartTime = System.currentTimeMillis();
+        System.out.println("Build this X3D model, showing validation diagnostics...");
+        X3D thisExampleX3dModel = new HelloWorldX3D4().getX3dModel();
+//      System.out.println("X3D model construction complete.");
+	
+        // next handle command line arguments
+        boolean hasArguments = (args != null) && (args.length > 0);
+        boolean validate = true; // default
+        boolean argumentsLoadNewModel = false;
+        String  fileName = new String();
 
-        // TODO author code here, if any
-    }
+        if (args != null)
+        {
+                for (String arg : args)
+                {
+                        if (arg.toLowerCase().startsWith("-v") || arg.toLowerCase().contains("validate"))
+                        {
+                                validate = true; // making sure
+                        }
+                        if (arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_X3D) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_CLASSICVRML) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_X3DB) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_VRML97) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_EXI) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_GZIP) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_ZIP) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_HTML) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_XHTML))
+                        {
+                                argumentsLoadNewModel = true;
+                                fileName = arg;
+                        }
+                }
+        }
+        if      (argumentsLoadNewModel)
+                System.out.println("WARNING: \"X3dForAdvancedModeling.HelloWorldScenes.HelloWorldX3D4\" model invocation is attempting to load file \"" + fileName + "\" instead of simply validating itself... file loading ignored.");
+        else if (hasArguments) // if no arguments provided, this method produces usage warning
+                thisExampleX3dModel.handleArguments(args);
+	
+        if (validate)
+        {
+            //  System.out.println("--- TODO fix duplicated outputs ---"); // omit when duplicated outputs problem is solved/refactored
+		String validationResults = thisExampleX3dModel.validationReport();
+            //  System.out.println("-----------------------------------"); // omit when duplicated outputs problem is solved/refactored
+                System.out.print("X3dForAdvancedModeling.HelloWorldScenes.HelloWorldX3D4 self-validation test confirmation: ");
+                if (!validationResults.equals("success"))
+                    System.out.println();
+                System.out.println(validationResults.trim());
 
-    /**
-     * prepareEvents() is invoked before any ROUTE processing occurs during the current frame's event cascade.
-     * Example uses:  checking network buffers, checking asynchronous external processes.
-     */
-    public void prepareEvents() 
-    {
-        // example code:
-        float frameTime = (System.currentTimeMillis() - lastStartTime) / 1000f;
-        lastStartTime = System.currentTimeMillis();
-        float fps = 1.0f / frameTime;
-        System.out.println("Frames per second rendering rate: " + fps);
-
-        // TODO author code here, if any
-    }
-
-    /**
-     * eventsProcessed() is invoked after the Script node handles all of its input events.
-     * Use this method if multiple inputs are needed before generating a response.
-     */
-    public void eventsProcessed()
-    {
-        // TODO author code here, if any
-    }
-
-    /**
-     * shutdown() is invoked when the X3D scene is being closed, or when Script node is being unloaded/replaced.
-     * Allows graceful shutdown by releasing resources, closing network connections, providing final outputs, etc.
-     */
-    public void shutdown()
-    {
-        // TODO author code here, if any
+                // experimental: test X3DJSAIL output files
+                // HelloWorldScenes/HelloWorldX3D4_JavaExport.* file validation is checked when building X3D Example Archives
+                String filenameX3D  = "HelloWorldScenes/HelloWorldX3D4_JavaExport.x3d"; 
+                String filenameX3DV = "HelloWorldScenes/HelloWorldX3D4_JavaExport.x3dv"; 
+                String filenameJSON = "HelloWorldScenes/HelloWorldX3D4_JavaExport.json";
+                thisExampleX3dModel.toFileX3D        (filenameX3D);
+                thisExampleX3dModel.toFileClassicVRML(filenameX3DV);
+// TODO         thisExampleX3dModel.toFileJSON       (filenameJSON);
+        }
     }
 }
