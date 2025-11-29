@@ -50,11 +50,15 @@ import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 
 @ActionID(id = "org.web3d.x3d.actions.EditInSunrizeAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/x_ite_logo32x32.png", // ico
+@ActionRegistration(   iconBase = "org/web3d/x3d/resources/Sunrize_logo.png", // ico
                     displayName = "#CTL_EditInSunrizeAction", lazy=true)
 @ActionReferences( value = {
+    @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 75),
+    @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 75),
     @ActionReference(path = "Menu/&X3D-Edit/&Tool Editing of Saved X3D Model", position = 165),
     @ActionReference(path = "Editors/model/x3d+xml/Popup/&Tool Editing of Saved X3D Model", position = 165),
+    @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 132),
+    @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 132)
 })
 
 public final class EditInSunrizeAction extends ViewInBaseAction

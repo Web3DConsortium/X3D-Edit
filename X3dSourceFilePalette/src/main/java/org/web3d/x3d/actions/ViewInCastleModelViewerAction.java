@@ -29,7 +29,7 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- * ViewInView3dSceneAction.java (formerly Flux)
+ * ViewInCastleModelViewerAction.java (formerly view3dscene)
  * Created on Apr 4, 2008
  *
  * MOVES Institute
@@ -49,15 +49,15 @@ import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dEditUserPreferences;
 
-@ActionID(id = "org.web3d.x3d.actions.ViewInView3dSceneAction", category = "X3D-Edit")
-@ActionRegistration(   iconBase = "org/web3d/x3d/resources/view3dscene_header_icon.png",
-                    displayName = "#CTL_ViewInView3dSceneAction",
+@ActionID(id = "org.web3d.x3d.actions.ViewInCastleModelViewerAction", category = "X3D-Edit")
+@ActionRegistration(   iconBase = "org/web3d/x3d/palette/items/resources/CastleGameEngine_header_icon.png",
+                    displayName = "#CTL_ViewInCastleModelViewerAction",
                             lazy=true)
 @ActionReferences(value={
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 120),
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 120)
 })
-public final class ViewInView3dSceneAction extends ViewInBaseAction
+public final class ViewInCastleModelViewerAction extends ViewInBaseAction
 {
   @Override
   protected boolean getEscapeSpaces()
@@ -75,7 +75,7 @@ public final class ViewInView3dSceneAction extends ViewInBaseAction
   @Override
   protected String getStatusString()
   {
-    return NbBundle.getMessage(getClass(), "STATUSLINE_OpeningView3dScene");
+    return NbBundle.getMessage(getClass(), "STATUSLINE_OpeningCastleModelViewer");
   }
 
   @Override
@@ -87,7 +87,7 @@ public final class ViewInView3dSceneAction extends ViewInBaseAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_ViewInView3dSceneAction");
+    return NbBundle.getMessage(getClass(), "CTL_ViewInCastleModelViewerAction");
   }
 
   @Override

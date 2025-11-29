@@ -48,11 +48,11 @@ import static org.web3d.x3d.actions.conversions.X3dToXhtmlDomConversionFrame.X_I
              lazy=true) // don't do lazy=false since iconBase no longer gets registered
 
 @ActionReferences(value = {
-  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 90),
-  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 152),
-  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 90),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 90),
-  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 152),
+  @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 80),
+  @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 151),
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 80),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&Author Workflow", position = 80),
+  @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 151),
   // see Apache NetBeans > Help > Keyboard Shortcuts Card for other shortcuts
 })
 

@@ -97,7 +97,7 @@ public final class ViewInAllAutolaunchAction extends CookieAction
       ViewInInstantRealityAction.get(ViewInInstantRealityAction.class),
       ViewInOctagaAction.get(ViewInOctagaAction.class),
       ViewInSwirlX3DAction.get(ViewInSwirlX3DAction.class),
-      ViewInView3dSceneAction.get(ViewInView3dSceneAction.class),
+      ViewInCastleModelViewerAction.get(ViewInCastleModelViewerAction.class),
       ViewInVivatyPlayerAction.get(ViewInVivatyPlayerAction.class),
       ViewInXj3DExternalAction.get(ViewInXj3DExternalAction.class),
       ViewInOtherAction.get(ViewInOtherAction.class)

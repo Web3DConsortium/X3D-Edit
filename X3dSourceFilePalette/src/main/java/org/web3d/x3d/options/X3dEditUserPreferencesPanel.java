@@ -10120,23 +10120,23 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
        if (castleModelViewerCheckBox.isSelected())
             X3dEditUserPreferences.setCastleModelViewerAutoLaunch("true");
        else X3dEditUserPreferences.setCastleModelViewerAutoLaunch("false");
-       view3dsceneAutoLaunchCheck();
+       castleModelViewerAutoLaunchCheck();
     }//GEN-LAST:event_castleModelViewerCheckBoxActionPerformed
 
     private void castleModelViewerTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerTFActionPerformed
         X3dEditUserPreferences.setCastleModelViewerPath(castleModelViewerTF.getText().trim());
-        view3dsceneAutoLaunchCheck();
+        castleModelViewerAutoLaunchCheck();
     }//GEN-LAST:event_castleModelViewerTFActionPerformed
 
     private void castleModelViewerChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerChooserButtonActionPerformed
-        commonChooser(castleModelViewerTF, "Find view3dScene Executable", evt);
-       view3dsceneAutoLaunchCheck();
+        commonChooser(castleModelViewerTF, "Find castleModelViewer Executable", evt);
+        castleModelViewerAutoLaunchCheck();
     }//GEN-LAST:event_castleModelViewerChooserButtonActionPerformed
 
     private void castleModelViewerDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerDefaultButtonActionPerformed
         castleModelViewerTF.setText(X3dEditUserPreferences.getCastleModelViewerPathDefault());
         X3dEditUserPreferences.setCastleModelViewerPath(castleModelViewerTF.getText().trim());
-        view3dsceneAutoLaunchCheck();
+        castleModelViewerAutoLaunchCheck();
     }//GEN-LAST:event_castleModelViewerDefaultButtonActionPerformed
 
     private void castleModelViewerDownloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castleModelViewerDownloadButtonActionPerformed
@@ -12114,7 +12114,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void castleModelViewerTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_castleModelViewerTFFocusLost
         X3dEditUserPreferences.setCastleModelViewerPath(castleModelViewerTF.getText().trim());
-        view3dsceneAutoLaunchCheck();
+        castleModelViewerAutoLaunchCheck();
     }//GEN-LAST:event_castleModelViewerTFFocusLost
 
     private void freeWrlTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_freeWrlTFFocusLost
@@ -12806,7 +12806,7 @@ for Extensible 3D (X3D) Graphics International Standard.
     octagaLaunchButton.setEnabled(isExecutableFile);
     showFound (isExecutableFile, octagaLabel, octagaTF);
   }
-  private void view3dsceneAutoLaunchCheck ()
+  private void castleModelViewerAutoLaunchCheck ()
   {
     checkExistingFile = new File(castleModelViewerTF.getText().trim());
     isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
@@ -13705,7 +13705,7 @@ otherSemanticWebEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPrefe
             h3dAutoLaunchCheck ();
  instantRealityAutoLaunchCheck ();
          octagaAutoLaunchCheck ();
-    view3dsceneAutoLaunchCheck ();
+    castleModelViewerAutoLaunchCheck ();
            xj3dAutoLaunchCheck ();
          heilanAutoLaunchCheck ();
        swirlx3dAutoLaunchCheck ();
