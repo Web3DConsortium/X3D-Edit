@@ -64,7 +64,7 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
                     displayName = "#CTL_X3DNewX3dScriptJavaAction", 
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
-//@ActionReference(path = "Toolbars/X3D-Edit New File Templates", position = 350),
+  @ActionReference(path = "Toolbars/X3D-Edit New File Templates", position = 350),
   @ActionReference(path = "Menu/&X3D-Edit/&New File Templates", position = 350),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&New File Templates", position = 350),
 })
@@ -78,7 +78,7 @@ public final class NewX3dScriptJavaAction extends CallableSystemAction
       // Look in the "filesystem" to find the registered template (through classpath)
       // see X3D/build/javahelp/getDocs.xml for update sequence
       // this template file can't be end with .java or else it gets inadvertantly compiled (and then fails)
-      String path = "Templates/Other/newX3dScript.java";
+      String path = "Templates/Other/NewX3dScript.java";
       FileObject x3dTmplFo = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
       if (x3dTmplFo == null)
       {
@@ -89,12 +89,12 @@ public final class NewX3dScriptJavaAction extends CallableSystemAction
       
       DataObject templ = DataObject.find(x3dTmplFo);      // get a DataObject for the template
        
-      // Build the temp file in home directory
+      // Build the temp file in user's model home directory
       File homeDirectory = new File(X3dEditUserPreferences.getNewX3dModelsDirectory());
       FileObject homeFo = FileUtil.createFolder(homeDirectory);
       
       // Find a free name
-      String freename = FileUtil.findFreeFileName(homeFo, "newX3dScript", "java");
+      String freename = FileUtil.findFreeFileName(homeFo, "NewX3dScript", "java");
       DataObject newDo = templ.createFromTemplate(DataFolder.findFolder(homeFo),freename);
       
       // The above method calls into X3DDataObject.handleCreateFromTemplate(), which copies the template

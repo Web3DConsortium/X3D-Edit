@@ -77,7 +77,7 @@ public final class NewX3djsailProgramJavaAction extends CallableSystemAction
       // Look in the "filesystem" to find the registered template (through classpath)
       // see X3D/build/javahelp/getDocs.xml for update sequence
       // this template file can't be end with .java or else it gets inadvertantly compiled (and then fails)
-      String path = "Templates/Other/newX3djsailProgram.java";
+      String path = "Templates/Other/NewX3djsailProgram.java";
       FileObject x3dTmplFo = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
       if (x3dTmplFo == null)
       {
@@ -88,12 +88,12 @@ public final class NewX3djsailProgramJavaAction extends CallableSystemAction
       
       DataObject templ = DataObject.find(x3dTmplFo);      // get a DataObject for the template
        
-      // Build the temp file in home directory
+      // Build the temp file in user's model home directory
       File homeDirectory = new File(X3dEditUserPreferences.getNewX3dModelsDirectory());
       FileObject homeFo = FileUtil.createFolder(homeDirectory);
       
       // Find a free name
-      String freename = FileUtil.findFreeFileName(homeFo, "newX3dScript", "java");
+      String freename = FileUtil.findFreeFileName(homeFo, "NewX3djsailProgram", "java");
       DataObject newDo = templ.createFromTemplate(DataFolder.findFolder(homeFo),freename);
       
       // The above method calls into X3DDataObject.handleCreateFromTemplate(), which copies the template

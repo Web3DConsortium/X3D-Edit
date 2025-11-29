@@ -527,8 +527,14 @@ POSSIBILITY OF SUCH DAMAGE.
                 <attr name="templateCategory" stringvalue="simple-files"/>
             </file>
 -->
-            <file name="newX3dScript.java" url="nbresloc:/org/web3d/x3d/templates/newX3dScript.java.template">
-                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/newX3dScript.java"/>
+            <file name="NewX3dScript.java" url="nbresloc:/org/web3d/x3d/templates/NewX3dScript.java.template">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/NewX3dScript.java"/>
+                <attr name="template" boolvalue="true"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
+                <attr name="templateCategory" stringvalue="simple-files"/>
+            </file> 
+            <file name="NewX3djsailProgram.java" url="nbresloc:/org/web3d/x3d/templates/NewX3djsailProgram.java.template">
+                <attr name="displayName" bundlevalue="org.web3d.x3d.Bundle#Templates/Other/NewX3djsailProgram.java"/>
                 <attr name="template" boolvalue="true"/>
                 <attr name="templateWizardURL" urlvalue="nbresloc:/org/web3d/x3d/TemplateHelp.html"/>
                 <attr name="templateCategory" stringvalue="simple-files"/>
