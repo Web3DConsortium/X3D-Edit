@@ -1,0 +1,170 @@
+package X3dForAdvancedModeling.HelloWorldScenes;
+
+import org.web3d.x3d.jsail.Core.*;
+import org.web3d.x3d.jsail.fields.*;
+import org.web3d.x3d.jsail.Geometry3D.*;
+import org.web3d.x3d.jsail.Grouping.*;
+import org.web3d.x3d.jsail.Navigation.*;
+import org.web3d.x3d.jsail.Shape.*;
+import org.web3d.x3d.jsail.Text.*;
+import org.web3d.x3d.jsail.Texturing.*;
+
+// Javadoc metadata annotations follow, see below for X3DJSAIL Java source code.
+/**
+ * <p> Test X3D version 4 with simple X3D model example: Hello World!. </p>
+	<p>
+		This program uses the
+		<a href="https://www.web3d.org/specifications/java/X3DJSAIL.html" target="_blank">X3D Java Scene Access Interface Library (X3DJSAIL)</a>.
+		It has been produced using 
+		<a href="https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html" target="_blank">X3D-Edit Authoring Tool</a>.
+	</p>
+	* @author Your Name Here
+ */
+
+public class NewX3djsailProgram
+{
+	/** Default constructor to create this object. */
+	public NewX3djsailProgram ()
+	{
+	  initialize();
+	}
+	/** This class name changes to match. */
+    String thisClassName = this.getClass().getSimpleName();
+
+	/** Create and initialize the X3D model for this object. */
+	public final void initialize()
+	{
+        try { // catch-all start
+  x3dModel = new X3D().setProfile(X3D.PROFILE_IMMERSIVE).setVersion(X3D.VERSION_4_0)
+  .setHead(new head()
+    .addMeta(new meta().setName(meta.NAME_TITLE      ).setContent(thisClassName + ".x3d"))
+    .addMeta(new meta().setName(meta.NAME_DESCRIPTION).setContent("Create a new X3D program with Java X3DJSAIL"))
+    .addMeta(new meta().setName(meta.NAME_CREATED    ).setContent("28 November 2025"))
+    .addMeta(new meta().setName(meta.NAME_MODIFIED   ).setContent("*today's date*"))
+    .addMeta(new meta().setName(meta.NAME_CREATOR    ).setContent("*your name here*"))
+    .addMeta(new meta().setName(meta.NAME_GENERATOR  ).setContent("X3DJSAIL https://www.web3d.org/specifications/java/X3DJSAIL.html"))
+    .addMeta(new meta().setName(meta.NAME_GENERATOR  ).setContent("X3D-Edit 4.0, https://www.web3d.org/x3d/tools/X3D-Edit"))
+    .addMeta(new meta().setName(meta.NAME_LICENSE    ).setContent("https://www.web3d.org/x3d/content/examples/license.html")))
+  .setScene(new Scene()
+    .addComments(" Example scene to illustrate X3D nodes and fields (XML elements and attributes) ")
+    .addChild(new WorldInfo(thisClassName + "WorldInfo") // constructor string is DEF value
+                           .setInfo(new String[] {"Example scene to illustrate a simple X3D4 model"})
+                           .setTitle(thisClassName))
+    .addChild(new NavigationInfo())
+    .addChild(new Group()
+      .addChild(new Viewpoint("ViewUpClose").setDescription("Hello world!").setCenterOfRotation(0.0,-1.0,0.0).setPosition(0.0,-1.0,7.0))
+      .addChild(new Transform().setRotation(0.0,1.0,0.0,3.0)
+        .addChild(new Shape()
+          .setGeometry(new Sphere())
+          .setAppearance(new Appearance()
+            .addComments(" https://htmlcolorcodes.com/colors/off-white ")
+            .setMaterial(new Material("MaterialOffWhite").setDiffuseColor(0.980392,0.976471,0.964706))
+            .setTexture(new ImageTexture("ImageCloudlessEarth").setUrl(new String[] {"earth-topo.png","https://www.web3d.org/x3d/content/examples/Basic/earth-topo.png"})))))
+      .addChild(new Transform().setTranslation(0.0,-2.0,0.0)
+        .addChild(new Shape()
+          .setGeometry(new Text("TextMessage").setString(new String[] {"Hello",thisClassName})
+            .setFontStyle(new FontStyle().setJustify(FontStyle.JUSTIFY_MIDDLE_MIDDLE)))
+          .setAppearance(new Appearance()
+            .setMaterial(new Material().setUSE("MaterialOffWhite")))))));
+        } // catch-all end
+        catch (Exception ex)
+        {       
+            System.err.println ("*** A run-time exception has occurred, details follow.");
+            System.err.println ("*** Further hints on X3DJSAIL errors and exceptions are found at");
+            System.err.println ("*** https://www.web3d.org/specifications/java/X3DJSAIL.html");
+            throw (ex);
+        }
+	}
+	// end of initialize() method
+
+	/** The initialized model object, created within initialize() method. */
+	private X3D x3dModel;
+
+	/** 
+	 * Provide a 
+	 * <a href="https://dzone.com/articles/java-copy-shallow-vs-deep-in-which-you-will-swim" target="_blank">shallow copy</a>
+	 * of the X3D model.
+	 * @see 
+     * <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/Core/X3D.html">X3D</a>
+	 * @return NewX3djsailProgram model
+	 */
+	public X3D getX3dModel()
+	{	  
+		return x3dModel;
+	}
+	   
+    /** 
+     * Default main() method provided for test purposes, uses CommandLine to set global ConfigurationProperties for this object.
+     * @param args array of input parameters, provided as arguments
+     * @see 
+     * <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/Core/X3D.html#handleArguments-java.lang.String:A-">X3D.handleArguments(args)</a>
+     * @see 
+     * <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/Core/X3D.html#validationReport--">X3D.validationReport()</a>
+     * @see 
+     * <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/CommandLine.html">CommandLine</a>
+     * @see 
+     * <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/CommandLine.html#USAGE">CommandLine.USAGE</a>
+     * @see 
+     * <a href="https://www.web3d.org/specifications/java/javadoc/org/web3d/x3d/jsail/ConfigurationProperties.html">ConfigurationProperties</a>
+     */
+    public static void main(String args[])
+    {
+        System.out.println("Build this X3D model, showing validation diagnostics...");
+        X3D thisExampleX3dModel = new NewX3djsailProgram().getX3dModel();
+//      System.out.println("X3D model construction complete.");
+	
+        // next handle command line arguments
+        boolean hasArguments = (args != null) && (args.length > 0);
+        boolean validate = true; // default
+        boolean argumentsLoadNewModel = false;
+        String  fileName = new String();
+
+        if (args != null)
+        {
+                for (String arg : args)
+                {
+                        if (arg.toLowerCase().startsWith("-v") || arg.toLowerCase().contains("validate"))
+                        {
+                                validate = true; // making sure
+                        }
+                        if (arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_X3D) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_CLASSICVRML) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_X3DB) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_VRML97) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_EXI) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_GZIP) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_ZIP) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_HTML) ||
+                                arg.toLowerCase().endsWith(X3D.FILE_EXTENSION_XHTML))
+                        {
+                                argumentsLoadNewModel = true;
+                                fileName = arg;
+                        }
+                }
+        }
+        if      (argumentsLoadNewModel)
+                System.out.println("WARNING: " + this.getClass().getSimpleName() + " model invocation is attempting to load file \"" + fileName + "\" instead of simply validating itself... file loading ignored.");
+        else if (hasArguments) // if no arguments provided, this method produces usage warning
+                thisExampleX3dModel.handleArguments(args);
+	
+        if (validate)
+        {
+            //  System.out.println("--- TODO fix duplicated outputs ---"); // omit when duplicated outputs problem is solved/refactored
+		String validationResults = thisExampleX3dModel.validationReport();
+            //  System.out.println("-----------------------------------"); // omit when duplicated outputs problem is solved/refactored
+                System.out.print("X3dForAdvancedModeling.HelloWorldScenes.NewX3djsailProgram self-validation test confirmation: ");
+                if (!validationResults.equals("success"))
+                    System.out.println();
+                System.out.println(validationResults.trim());
+
+                // experimental: test X3DJSAIL output files
+                // HelloWorldScenes/NewX3djsailProgram_JavaExport.* file validation is checked when building X3D Example Archives
+                String filenameX3D  = "HelloWorldScenes/NewX3djsailProgram_JavaExport.x3d"; 
+                String filenameX3DV = "HelloWorldScenes/NewX3djsailProgram_JavaExport.x3dv"; 
+                String filenameJSON = "HelloWorldScenes/NewX3djsailProgram_JavaExport.json";
+                thisExampleX3dModel.toFileX3D        (filenameX3D);
+                thisExampleX3dModel.toFileClassicVRML(filenameX3DV);
+// TODO         thisExampleX3dModel.toFileJSON       (filenameJSON);
+        }
+    }
+}
