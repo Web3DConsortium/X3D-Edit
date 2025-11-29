@@ -143,7 +143,7 @@ public class NewX3djsailProgram
                 }
         }
         if      (argumentsLoadNewModel)
-                System.out.println("WARNING: " + thisClassName + " model invocation is attempting to load file \"" + fileName + "\" instead of simply validating itself... file loading ignored.");
+                System.out.println("WARNING: this model invocation is attempting to load file \"" + fileName + "\" instead of simply validating itself... file loading ignored.");
         else if (hasArguments) // if no arguments provided, this method produces usage warning
                 thisExampleX3dModel.handleArguments(args);
 	
