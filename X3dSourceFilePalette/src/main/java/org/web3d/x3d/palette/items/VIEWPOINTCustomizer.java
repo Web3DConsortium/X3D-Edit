@@ -130,8 +130,8 @@ public class VIEWPOINTCustomizer extends BaseCustomizer
         (new SFFloat(viewpoint.getCenterOfRotationY()).getValue() != (new SFFloat(viewpoint.getPositionY()).getValue())))
     {
           NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-                  "<html><p>Viewpoint centerOfRotation height differs from position height</p>" +
-						"<p>Match height so that examination rotation doesn't jump?</p></html>", "Viewpoint centerOfRotation check", NotifyDescriptor.YES_NO_OPTION);
+                  "<html><p>Viewpoint centerOfRotation height differs from position</p>" + "<p> height... Do you want to match height values</p>" +
+						"<p>so that examination rotation doesn't jump?</p></html>", "Viewpoint centerOfRotation check", NotifyDescriptor.YES_NO_OPTION);
           if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
           {
               centerOfRotationYTF.setText(viewpoint.getPositionY());
