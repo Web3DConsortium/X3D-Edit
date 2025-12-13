@@ -131,6 +131,34 @@ public class X3D extends SceneGraphStructureNodeType
     attr = root.getAttribute(X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_NAME);
     if (attr != null)
       xsd_noNamespaceSchemaLocation = attr.getValue();
+    ensureCorrectX3dNoNamespaceSchemaLocation();
+  }
+
+  public void ensureCorrectX3dNoNamespaceSchemaLocation()
+  {
+      switch (version) {
+          case "3.0":
+              xsd_noNamespaceSchemaLocation = X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_CHOICES[0];
+              break;
+          case "3.1":
+              xsd_noNamespaceSchemaLocation = X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_CHOICES[1];
+              break;
+          case "3.2":
+              xsd_noNamespaceSchemaLocation = X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_CHOICES[2];
+              break;
+          case "3.3":
+              xsd_noNamespaceSchemaLocation = X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_CHOICES[3];
+              break;
+          case "4.0":
+              xsd_noNamespaceSchemaLocation = X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_CHOICES[4];
+              break;
+          case "4.1":
+              xsd_noNamespaceSchemaLocation = X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_CHOICES[5];
+              break;
+          default:
+              System.err.println("*** checkX3dNoNamespaceSchemaLocation() found unknown version='" + version + "'");
+              break;
+      }
   }
 
   @Override
