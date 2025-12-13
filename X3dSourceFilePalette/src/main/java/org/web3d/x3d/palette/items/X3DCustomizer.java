@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -91,8 +91,8 @@ public class X3DCustomizer extends BaseCustomizer
         followerFigureLabel1 = new javax.swing.JLabel();
         nodeHintLabel2 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(580, 600));
-        setPreferredSize(new java.awt.Dimension(580, 600));
+        setMinimumSize(new java.awt.Dimension(590, 600));
+        setPreferredSize(new java.awt.Dimension(590, 600));
         setLayout(new java.awt.GridBagLayout());
 
         attributesPanel.setLayout(new java.awt.GridBagLayout());
@@ -286,10 +286,11 @@ public class X3DCustomizer extends BaseCustomizer
       x3d.setProfile (((String) profileComboBox.getSelectedItem()).trim());
       x3d.setVersion (((String) versionComboBox.getSelectedItem()).trim());
       int  versionIndex = versionComboBox.getSelectedIndex();
-      if ((versionIndex >= 0) && (versionIndex <= 5)) // 3.0, 3.1, 3.2, 3.3, 4.0, 4.1
+      if ((versionIndex >= 0) && (versionIndex <= 5)) // zero-based index for  3.0, 3.1, 3.2, 3.3, 4.0, 4.1
       {
           x3d.setXsd_noNamespaceSchemaLocation((X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_CHOICES[versionIndex]).trim());
       }
+      x3d.ensureCorrectX3dNoNamespaceSchemaLocation(); // must occur after version is updated
       // TODO update X3D-Edit meta tag to match version number, if needed
   }
 }

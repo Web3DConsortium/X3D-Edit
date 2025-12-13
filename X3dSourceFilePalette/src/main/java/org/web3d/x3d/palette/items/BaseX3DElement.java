@@ -464,18 +464,26 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
 //			if (xmlHead.contains("XML"))
 //				 sb.append(xmlHead);
 //			else
-            sb.append (X3DSchemaData.XML_HEADER).append("\n"); // ensure correct
+        sb.append (X3DSchemaData.XML_HEADER).append("\n"); // ensure correct
+        
         String x3dRootAttributes = createAttributes();
-        if      (x3dRootAttributes.contains("3.0"))
+        if      (x3dRootAttributes.contains("version='3.0'")) // note expecting ' as value delimiter, not "
                 sb.append (X3DSchemaData.DOCTYPE_3_0).append("\n");
-        else if (x3dRootAttributes.contains("3.1"))
+        else if (x3dRootAttributes.contains("version='3.1'"))
                 sb.append (X3DSchemaData.DOCTYPE_3_1).append("\n");
-        else if (x3dRootAttributes.contains("3.2"))
+        else if (x3dRootAttributes.contains("version='3.2'"))
                 sb.append (X3DSchemaData.DOCTYPE_3_2).append("\n");
-        else if (x3dRootAttributes.contains("3.3"))
+        else if (x3dRootAttributes.contains("version='3.3'"))
                 sb.append (X3DSchemaData.DOCTYPE_3_3).append("\n");
-        else if (x3dRootAttributes.contains("4.0"))
+        else if (x3dRootAttributes.contains("version='4.0'"))
                 sb.append (X3DSchemaData.DOCTYPE_4_0).append("\n");
+        else if (x3dRootAttributes.contains("version='4.1'"))
+                sb.append (X3DSchemaData.DOCTYPE_4_1).append("\n");
+        else
+        {
+            System.err.println ("*** Unexepected X3D version found, no DOCTYPE added");
+            System.err.println ("    " + x3dRootAttributes);
+        }
         if (!postDoctype.isEmpty())
         {
                 sb.append(postDoctype);
