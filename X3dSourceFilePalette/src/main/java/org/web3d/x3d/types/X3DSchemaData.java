@@ -46,6 +46,7 @@ public interface X3DSchemaData
   // XML header
   String  XML_HEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
   // X3D doctypes
+  String  DOCTYPE_4_1 = "<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D 4.1//EN\" \"https://www.web3d.org/specifications/x3d-4.1.dtd\">";
   String  DOCTYPE_4_0 = "<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D 4.0//EN\" \"https://www.web3d.org/specifications/x3d-4.0.dtd\">";
   String  DOCTYPE_3_3 = "<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D 3.3//EN\" \"https://www.web3d.org/specifications/x3d-3.3.dtd\">";
   String  DOCTYPE_3_2 = "<!DOCTYPE X3D PUBLIC \"ISO//Web3D//DTD X3D 3.2//EN\" \"https://www.web3d.org/specifications/x3d-3.2.dtd\">";
@@ -74,7 +75,7 @@ public interface X3DSchemaData
   String  X3D_ATTR_XMLNSXSD_DFLT    = "https://www.w3.org/2001/XMLSchema-instance";
   String  X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_NAME    = "xsd:noNamespaceSchemaLocation";
   boolean X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_REQD    = true;
-  String  X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_DFLT    = "https://www.web3d.org/specifications/x3d-3.3.xsd";
+  String  X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_DFLT    = "https://www.web3d.org/specifications/x3d-4.0.xsd";
 
   String[]X3D_ATTR_PROFILE_CHOICES  = {
       "Core", "Interchange", "Interactive", "Immersive", "CADInterchange", "MedicalInterchange", "Full",
@@ -84,7 +85,7 @@ public interface X3DSchemaData
       "", "Core", "Interchange", "Interactive", "Immersive", "CADInterchange", "MedicalInterchange", "Full",
   };
   String[]X3D_ATTR_VERSION_CHOICES  = {
-      "3.0","3.1","3.2","3.3","4.0" // 4.1 is deferred
+      "3.0","3.1","3.2","3.3","4.0","4.1" // 4.1 is under development
   };
   String[]X3D_ATTR_XSDNONAMESPACESCHEMALOCATION_CHOICES  = {
       "https://www.web3d.org/specifications/x3d-3.0.xsd",
@@ -92,6 +93,7 @@ public interface X3DSchemaData
       "https://www.web3d.org/specifications/x3d-3.2.xsd",
       "https://www.web3d.org/specifications/x3d-3.3.xsd",
       "https://www.web3d.org/specifications/x3d-4.0.xsd",
+      "https://www.web3d.org/specifications/x3d-4.1.xsd",
   };
   
   String[] X3D_ATTR_VERSION_HINTS = {
@@ -100,6 +102,7 @@ public interface X3DSchemaData
       "ISO International Standard 2008",
       "ISO International Standard 2012",
       "ISO International Standard 2023",
+      "Web3D Experimental Standard 2026",
   };
 
   // head element
