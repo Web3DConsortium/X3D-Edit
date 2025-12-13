@@ -50,7 +50,7 @@
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.0-Web3dExtensionsPublic.dtd"
                              dest="${x3dDtdsSchemas.dir}/x3d-3.0-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.0.dtd"
-                             dest="${x3dDtdsSchemas.dir}/x3d-3.0.dtd"               usetimestamp="true" verbose="true"/>
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.0.dtd"                               usetimestamp="true" verbose="true"/>
 
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.1-InputOutputFields.dtd"
                              dest="${x3dDtdsSchemas.dir}/x3d-3.1-InputOutputFields.dtd"             usetimestamp="true" verbose="true"/>
@@ -61,7 +61,7 @@
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.1-Web3dExtensionsPublic.dtd"
                              dest="${x3dDtdsSchemas.dir}/x3d-3.1-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.1.dtd"
-                             dest="${x3dDtdsSchemas.dir}/x3d-3.1.dtd"               usetimestamp="true" verbose="true"/>
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.1.dtd"                               usetimestamp="true" verbose="true"/>
 
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.2-InputOutputFields.dtd"
                              dest="${x3dDtdsSchemas.dir}/x3d-3.2-InputOutputFields.dtd"             usetimestamp="true" verbose="true"/>
@@ -72,7 +72,7 @@
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.2-Web3dExtensionsPublic.dtd"
                              dest="${x3dDtdsSchemas.dir}/x3d-3.2-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.2.dtd"
-                             dest="${x3dDtdsSchemas.dir}/x3d-3.2.dtd"               usetimestamp="true" verbose="true"/>
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.2.dtd"                               usetimestamp="true" verbose="true"/>
 
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.3-InputOutputFields.dtd"
                              dest="${x3dDtdsSchemas.dir}/x3d-3.3-InputOutputFields.dtd"             usetimestamp="true" verbose="true"/>
@@ -83,7 +83,7 @@
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.3-Web3dExtensionsPublic.dtd"
                              dest="${x3dDtdsSchemas.dir}/x3d-3.3-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/specifications/x3d-3.3.dtd"
-                             dest="${x3dDtdsSchemas.dir}/x3d-3.3.dtd"               usetimestamp="true" verbose="true"/>
+                             dest="${x3dDtdsSchemas.dir}/x3d-3.3.dtd"                               usetimestamp="true" verbose="true"/>
 
         <get src="${x3d.sourceforge.site}/specifications/x3d-4.0-InputOutputFields.dtd"
                              dest="${x3dDtdsSchemas.dir}/x3d-4.0-InputOutputFields.dtd"             usetimestamp="true" verbose="true"/>
@@ -94,7 +94,18 @@
         <get src="${x3d.sourceforge.site}/specifications/x3d-4.0-Web3dExtensionsPublic.dtd"
                              dest="${x3dDtdsSchemas.dir}/x3d-4.0-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/specifications/x3d-4.0.dtd"
-                             dest="${x3dDtdsSchemas.dir}/x3d-4.0.dtd"               usetimestamp="true" verbose="true"/>
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.0.dtd"                               usetimestamp="true" verbose="true"/>
+
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.1-InputOutputFields.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.1-InputOutputFields.dtd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.1-Web3dExtensionsPrivate.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.1-Web3dExtensionsPrivate.dtd"        usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.1-Web3dExtensionsPublic.Specification.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.1-Web3dExtensionsPublic.Specification.dtd"               usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.1-Web3dExtensionsPublic.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.1-Web3dExtensionsPublic.dtd"         usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.1.dtd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.1.dtd"                               usetimestamp="true" verbose="true"/>
     </target>
 
     <target name="get.latest.schemas" description="Download latest Schema files from version control">
@@ -109,6 +120,8 @@
                              dest="${x3dDtdsSchemas.dir}/x3d-3.3.xsd"             usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/specifications/x3d-4.0.xsd"
                              dest="${x3dDtdsSchemas.dir}/x3d-4.0.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.1.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.1.xsd"             usetimestamp="true" verbose="true"/>
 
         <get src="${x3d.sourceforge.site}/specifications/OasisXmlCatalogX3D.xml"
                              dest="${x3dDtdsSchemas.dir}/OasisXmlCatalogX3D.xml"             usetimestamp="true" verbose="true"/>
@@ -149,6 +162,13 @@
                              dest="${x3dDtdsSchemas.dir}/x3d-4.0-Web3dExtensionsPublic.Specification.xsd"             usetimestamp="true" verbose="true"/>
         <get src="${x3d.sourceforge.site}/specifications/x3d-4.0-Web3dExtensionsPublic.xsd"
                              dest="${x3dDtdsSchemas.dir}/x3d-4.0-Web3dExtensionsPublic.xsd"             usetimestamp="true" verbose="true"/>
+
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.1-Web3dExtensionsPrivate.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.1-Web3dExtensionsPrivate.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.1-Web3dExtensionsPublic.Specification.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.1-Web3dExtensionsPublic.Specification.xsd"             usetimestamp="true" verbose="true"/>
+        <get src="${x3d.sourceforge.site}/specifications/x3d-4.1-Web3dExtensionsPublic.xsd"
+                             dest="${x3dDtdsSchemas.dir}/x3d-4.1-Web3dExtensionsPublic.xsd"             usetimestamp="true" verbose="true"/>
     </target>
 
     <target name="get.latest.schematrons" description="Download latest Schematron files from version control">
