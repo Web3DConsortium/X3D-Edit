@@ -447,6 +447,7 @@ POSSIBILITY OF SUCH DAMAGE.
         <file name="x3d-3.3-Web3dExtensionsPublic.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3-Web3dExtensionsPublic.xsd"/>
         <file name="x3d-3.3.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3.dtd"/>
         <file name="x3d-3.3.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-3.3.xsd"/>
+        
         <file name="x3d-4.0-InputOutputFields.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-InputOutputFields.dtd"/>
         <file name="x3d-4.0-Web3dExtensionsPrivate.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-Web3dExtensionsPrivate.dtd"/>
         <file name="x3d-4.0-Web3dExtensionsPrivate.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-Web3dExtensionsPrivate.xsd"/>
@@ -456,6 +457,16 @@ POSSIBILITY OF SUCH DAMAGE.
         <file name="x3d-4.0-Web3dExtensionsPublic.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0-Web3dExtensionsPublic.xsd"/>
         <file name="x3d-4.0.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0.dtd"/>
         <file name="x3d-4.0.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.0.xsd"/>
+        
+        <file name="x3d-4.1-InputOutputFields.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.1-InputOutputFields.dtd"/>
+        <file name="x3d-4.1-Web3dExtensionsPrivate.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.1-Web3dExtensionsPrivate.dtd"/>
+        <file name="x3d-4.1-Web3dExtensionsPrivate.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.1-Web3dExtensionsPrivate.xsd"/>
+        <file name="x3d-4.1-Web3dExtensionsPublic.Specification.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.1-Web3dExtensionsPublic.Specification.dtd"/>
+        <file name="x3d-4.1-Web3dExtensionsPublic.Specification.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.1-Web3dExtensionsPublic.Specification.xsd"/>
+        <file name="x3d-4.1-Web3dExtensionsPublic.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.1-Web3dExtensionsPublic.dtd"/>
+        <file name="x3d-4.1-Web3dExtensionsPublic.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.1-Web3dExtensionsPublic.xsd"/>
+        <file name="x3d-4.1.dtd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.1.dtd"/>
+        <file name="x3d-4.1.xsd" url="nbresloc:/org/web3d/x3d/specifications/x3d-4.1.xsd"/>
     </folder>
 
     <folder name="X3dTransforms">
