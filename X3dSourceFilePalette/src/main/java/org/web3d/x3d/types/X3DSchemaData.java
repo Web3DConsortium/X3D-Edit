@@ -4454,18 +4454,15 @@ public interface X3DSchemaData
   String  HANIMPOSE_ATTR_LOA_NAME                 = "loa";
   boolean HANIMPOSE_ATTR_LOA_REQD                 = false;
   String  HANIMPOSE_ATTR_LOA_DFLT                 = "-1";
-  String  HANIMPOSE_ATTR_RESETOTHERJOINTS_NAME    = "resetOtherJoints";
-  boolean HANIMPOSE_ATTR_RESETOTHERJOINTS_REQD    = false;
-  String  HANIMPOSE_ATTR_RESETOTHERJOINTS_DFLT    = "false";
   String  HANIMPOSE_ATTR_TRANSITIONDURATION_NAME = "transitionDuration";
   boolean HANIMPOSE_ATTR_TRANSITIONDURATION_REQD = false;
   String  HANIMPOSE_ATTR_TRANSITIONDURATION_DFLT = "0.0";
   
-  String[]HANIMPOSE_CONTAINERFIELD_CHOICES    = {"children", "poses"};
+  String[]HANIMPOSE_CONTAINERFIELD_CHOICES    = {"children"}; //, "poses"
   String[]HANIMPOSE_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'children' when parent is a grouping node",
-      "'poses' when parent is HAnimHumanoid",
+      "'children' when parent is a grouping node or HAnimHumanoid",
+//      "'poses' when parent is HAnimHumanoid",
   };
 
   String  HANIMSITE_ELNAME                = "HAnimSite";
