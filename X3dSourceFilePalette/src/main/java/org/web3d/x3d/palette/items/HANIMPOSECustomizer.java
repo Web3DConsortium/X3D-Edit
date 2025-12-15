@@ -54,7 +54,7 @@ public class HANIMPOSECustomizer extends BaseCustomizer
   private JTextComponent target;
   private JTextField[] moiArray;
   
-  private String  localPrefix = new String();
+  private String  localPrefix = "MyNewPoseNode"; // new String();
      
     /**
      * Creates new form HANIMPOSECustomizer
@@ -82,7 +82,6 @@ public class HANIMPOSECustomizer extends BaseCustomizer
        loaComboBox.setSelectedItem(HANIMPOSE.getLoa());
     
          enabledCB.setSelected  (HANIMPOSE.isEnabled());
-resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
       
     transitionDurationTF.setText(HANIMPOSE.getTransitionDuration());
 
@@ -128,8 +127,6 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
         loaComboBox = new javax.swing.JComboBox<>();
         enabledLabel = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
-        resetOtherJointsLabel = new javax.swing.JLabel();
-        resetOtherJointsCB = new javax.swing.JCheckBox();
         transitionDurationLabel = new javax.swing.JLabel();
         transitionDurationTF = new javax.swing.JTextField();
         nameTF = new javax.swing.JTextField();
@@ -137,7 +134,7 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
         hintLabel = new javax.swing.JLabel();
         spacerLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(640, 400));
+        setMinimumSize(new java.awt.Dimension(620, 380));
         setPreferredSize(new java.awt.Dimension(640, 400));
         setLayout(new java.awt.GridBagLayout());
 
@@ -228,7 +225,7 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
         loaLabel.setToolTipText("Level of Articulation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loaLabel, gridBagConstraints);
@@ -264,7 +261,7 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -284,21 +281,6 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 1, 3, 3);
         add(enabledCB, gridBagConstraints);
-
-        resetOtherJointsLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        resetOtherJointsLabel.setText("resetOtherJoints");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(resetOtherJointsLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 1, 3, 3);
-        add(resetOtherJointsCB, gridBagConstraints);
 
         transitionDurationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         transitionDurationLabel.setText("transitionDuration");
@@ -328,11 +310,10 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
         add(nameTF, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nodeHintPanel.setPreferredSize(null);
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html> <p align=\"center\"><b>HAnimPose</b> defines specific rotations for each body segment of interest in a skeleton.   \n <br />    \nThe pose node contains a set of <b>HAnimJoint</b> nodes, each with containerField='poseJoints' \n <br />  that are not rendered and cannot USE other HAnimJoint nodes in the <bHAnimHumanoid</b>skeleton. </p>\n <br />    \n<p align=\"center\"> Input fields are <i>commencePose</i>, <i>set_fraction</i>, andb<i>set_startTime</i> to trigger pose transitions.\n<br /> \nOutput field <i>isActive</i> reports when an <b>HAnimPose</b> animation starts and finishes. </p>");
+        hintLabel.setText("<html> <p align=\"center\"><b>HAnimPose</b> defines specific rotations for each body segment of interest in a skeleton.   \n <br />    \nThe pose node contains a set of <b>HAnimJoint</b> nodes, each with containerField='children' \n <br />  that are not rendered and cannot USE other HAnimJoint nodes in the <bHAnimHumanoid</b>skeleton. </p>\n <br />    \n<p align=\"center\"> Input fields are <i>commencePose</i>, <i>resetAllJoints</i>, <i>set_fraction</i>, and <i>set_startTime</i> \n     to trigger pose transitions.\n<br /> \nOutput field <i>isActive</i> reports when an <b>HAnimPose</b> animation starts and finishes. </p>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         hintLabel.setMaximumSize(new java.awt.Dimension(2147483647, 1666666));
@@ -417,11 +398,11 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
         checkNameDefMatchRules();
     }//GEN-LAST:event_loaComboBoxItemStateChanged
 
-  @Override
-  public String getNameKey()
-  {
-    return "NAME_X3D_HANIMPOSE"; // consistent name munging for readability, in this case
-  }
+    @Override
+    public String getNameKey()
+    {
+      return "NAME_X3D_HANIMPOSE"; // consistent name munging for readability, in this case
+    }
     private void checkNameDefMatchRules()
     {
         String NAME_REQUIRED      = "name must have a legal value";
@@ -444,7 +425,7 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
             loaComboBox.setBackground(Color.WHITE);
             loaComboBox.setEnabled(false);
         }
-        else if (name.isBlank())
+        else if (name.isBlank() || name.contains(" "))
         {
             nameWarningLabel.setText(NAME_REQUIRED);
             nameWarningLabel.setForeground(darkorange);
@@ -452,35 +433,37 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
             super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
             super.getDEFUSEpanel().refreshPanel();
         }
-        else if (DEF.isBlank()) // and name value is present
-        {
-            nameWarningLabel.setText(NAME_REQUIRED);
-            nameWarningLabel.setForeground(Color.BLACK);
-            loaComboBox.setBackground(Color.WHITE);
-            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
-            super.getDEFUSEpanel().refreshPanel();
-        }
-        else if (DEF.endsWith(name)) // successful name match
-        {
-            localPrefix = DEF.substring(0,DEF.lastIndexOf(name));
-            // TODO compare to ancestor humanoid prefix if needed
-            
-            nameWarningLabel.setText(NAME_RULE_MATCH + ", prefix=" + localPrefix);
-            nameWarningLabel.setForeground(darkgreen); // too bright: Color.GREEN
-            loaComboBox.setBackground(Color.WHITE);
-            super.getDEFUSEpanel().selectX3dDEFUSEpane();
-            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
-            super.getDEFUSEpanel().refreshPanel();
-        }
-        else
-        {
-            nameWarningLabel.setText(NAME_RULE_MISMATCH + ", prefix=" + localPrefix);
-            nameWarningLabel.setForeground(darkorange);
-            loaComboBox.setBackground(Color.YELLOW);
-            super.getDEFUSEpanel().selectX3dDEFUSEpane();
-            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.YELLOW);
-            super.getDEFUSEpanel().refreshPanel();
-        }
+        else return; // no further rules for HAnimPose
+        
+//        else if (DEF.isBlank()) // and name value is present
+//        {
+//            nameWarningLabel.setText(NAME_REQUIRED);
+//            nameWarningLabel.setForeground(Color.BLACK);
+//            loaComboBox.setBackground(Color.WHITE);
+//            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
+//            super.getDEFUSEpanel().refreshPanel();
+//        }
+//        else if (DEF.endsWith(name)) // successful name match
+//        {
+//            localPrefix = DEF.substring(0,DEF.lastIndexOf(name));
+//            // TODO compare to ancestor humanoid prefix if needed
+//            
+//            nameWarningLabel.setText(NAME_RULE_MATCH + ", prefix=" + localPrefix);
+//            nameWarningLabel.setForeground(darkgreen); // too bright: Color.GREEN
+//            loaComboBox.setBackground(Color.WHITE);
+//            super.getDEFUSEpanel().selectX3dDEFUSEpane();
+//            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.WHITE);
+//            super.getDEFUSEpanel().refreshPanel();
+//        }
+//        else
+//        {
+//            nameWarningLabel.setText(NAME_RULE_MISMATCH + ", prefix=" + localPrefix);
+//            nameWarningLabel.setForeground(darkorange);
+//            loaComboBox.setBackground(Color.YELLOW);
+//            super.getDEFUSEpanel().selectX3dDEFUSEpane();
+//            super.getDEFUSEpanel().setDefColors(Color.BLACK, Color.YELLOW);
+//            super.getDEFUSEpanel().refreshPanel();
+//        }
     }
 
   @Override
@@ -492,7 +475,6 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
     HANIMPOSE.setName(nameTF.getText().trim());
     HANIMPOSE.setLoa(loaComboBox.getSelectedItem().toString().trim());
     HANIMPOSE.setEnabled(enabledCB.isSelected());
-    HANIMPOSE.setResetOtherJoints(resetOtherJointsCB.isSelected());
     HANIMPOSE.setTransitionDuration(transitionDurationTF.getText().trim());
   }
   
@@ -509,8 +491,6 @@ resetOtherJointsCB.setSelected  (HANIMPOSE.isResetOtherJoints());
     private javax.swing.JTextField nameTF;
     private javax.swing.JLabel nameWarningLabel;
     private javax.swing.JPanel nodeHintPanel;
-    private javax.swing.JCheckBox resetOtherJointsCB;
-    private javax.swing.JLabel resetOtherJointsLabel;
     private javax.swing.JLabel spacerLabel;
     private javax.swing.JLabel transitionDurationLabel;
     private javax.swing.JTextField transitionDurationTF;
