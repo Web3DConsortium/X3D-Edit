@@ -1182,7 +1182,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
             nameComboBox.setBackground(Color.WHITE);
             nameComboBox.setEnabled(false);
         }
-        else if (name.isBlank())
+        else if (name.isBlank() || name.contains(" "))
         {
             nameWarningLabel1.setText(NAME_REQUIRED);
             nameWarningLabel1.setForeground(darkorange);

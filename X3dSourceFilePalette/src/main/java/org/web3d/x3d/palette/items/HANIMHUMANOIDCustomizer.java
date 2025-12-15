@@ -1783,7 +1783,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             nameTextField.setBackground(Color.WHITE);
             nameTextField.setEnabled(false);
         }
-        else if (name.isBlank())
+        else if (name.isBlank() || name.contains(" "))
         {
             nameWarningLabel.setText(NAME_REQUIRED);
             nameWarningLabel.setForeground(darkorange);

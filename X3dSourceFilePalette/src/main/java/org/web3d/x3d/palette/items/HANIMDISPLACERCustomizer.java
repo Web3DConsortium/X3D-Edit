@@ -490,7 +490,7 @@ public class HANIMDISPLACERCustomizer extends BaseCustomizer
             nameComboBox.setBackground(Color.WHITE);
             nameComboBox.setEnabled(false);
         }
-        else if (name.isBlank())
+        else if (name.isBlank() || name.contains(" "))
         {
             nameWarningLabel.setText(NAME_REQUIRED);
             nameWarningLabel.setForeground(darkorange);
