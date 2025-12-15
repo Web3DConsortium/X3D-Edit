@@ -444,7 +444,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel = getDEFUSEpanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        humanoidFieldsTabbedPane = new javax.swing.JTabbedPane();
         fieldsPanel = new javax.swing.JPanel();
         nameWarningLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
@@ -510,6 +510,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(630, 540));
         setPreferredSize(new java.awt.Dimension(610, 520));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -518,7 +519,8 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         });
         setLayout(new java.awt.GridBagLayout());
 
-        dEFUSEpanel.setMinimumSize(new java.awt.Dimension(10, 10));
+        dEFUSEpanel.setMinimumSize(new java.awt.Dimension(600, 160));
+        dEFUSEpanel.setPreferredSize(new java.awt.Dimension(600, 160));
         dEFUSEpanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dEFUSEpanelMouseClicked(evt);
@@ -538,14 +540,14 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel, gridBagConstraints);
 
-        jTabbedPane1.setToolTipText("metadata name=value pairs");
-        jTabbedPane1.setPreferredSize(new java.awt.Dimension(399, 336));
-        jTabbedPane1.setRequestFocusEnabled(false);
+        humanoidFieldsTabbedPane.setToolTipText("metadata name=value pairs");
+        humanoidFieldsTabbedPane.setMinimumSize(new java.awt.Dimension(600, 400));
+        humanoidFieldsTabbedPane.setRequestFocusEnabled(false);
 
         fieldsPanel.setToolTipText("simple attributes");
         fieldsPanel.setMaximumSize(new java.awt.Dimension(2147483647, 311));
-        fieldsPanel.setMinimumSize(new java.awt.Dimension(394, 311));
-        fieldsPanel.setPreferredSize(new java.awt.Dimension(610, 350));
+        fieldsPanel.setMinimumSize(new java.awt.Dimension(610, 400));
+        fieldsPanel.setPreferredSize(new java.awt.Dimension(610, 400));
         fieldsPanel.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 fieldsPanelFocusGained(evt);
@@ -1272,7 +1274,7 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 6, 3);
         fieldsPanel.add(bboxSizeTFZ, gridBagConstraints);
 
-        jTabbedPane1.addTab("fields", fieldsPanel);
+        humanoidFieldsTabbedPane.addTab("fields", fieldsPanel);
 
         infoPanel.setToolTipText("Metadata information, name=value pairs");
         infoPanel.setMinimumSize(new java.awt.Dimension(300, 110));
@@ -1292,11 +1294,11 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(infoExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                .addComponent(infoExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("info values", infoPanel);
+        humanoidFieldsTabbedPane.addTab("info values", infoPanel);
 
         jointBindingPositionsPanel.setForeground(new java.awt.Color(0, 153, 153));
 
@@ -1315,11 +1317,11 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             jointBindingPositionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jointBindingPositionsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jointBindingPositionsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                .addComponent(jointBindingPositionsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("jointBindingPositions", jointBindingPositionsPanel);
+        humanoidFieldsTabbedPane.addTab("jointBindingPositions", jointBindingPositionsPanel);
 
         jointBindingRotationsPanel.setForeground(new java.awt.Color(0, 153, 153));
 
@@ -1338,11 +1340,11 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             jointBindingRotationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jointBindingRotationsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jointBindingRotationsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                .addComponent(jointBindingRotationsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("jointBindingRotations", jointBindingRotationsPanel);
+        humanoidFieldsTabbedPane.addTab("jointBindingRotations", jointBindingRotationsPanel);
 
         jointBindingScalesPanel.setForeground(new java.awt.Color(0, 153, 153));
 
@@ -1361,36 +1363,39 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         );
         jointBindingScalesPanelLayout.setVerticalGroup(
             jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 313, Short.MAX_VALUE)
+            .addGap(0, 332, Short.MAX_VALUE)
             .addGroup(jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jointBindingScalesPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jointBindingScalesExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                    .addComponent(jointBindingScalesExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
-        jTabbedPane1.addTab("jointBindingScales", jointBindingScalesPanel);
+        humanoidFieldsTabbedPane.addTab("jointBindingScales", jointBindingScalesPanel);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jTabbedPane1, gridBagConstraints);
+        add(humanoidFieldsTabbedPane, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel.setMinimumSize(new java.awt.Dimension(600, 120));
+        nodeHintPanel.setPreferredSize(new java.awt.Dimension(600, 120));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html> <p align=\"center\"><b>HAnimHumanoid </b> serves as a container for the entire humanoid,<br />\n provides a convenient way of moving the humanoid to different locations, <br />\n and stores references to the joints, segments, sites, skin and viewpoint nodes.</p>");
+        hintLabel.setText("<html> <p align=\"center\"><b>HAnimHumanoid </b> serves as a container for the entire humanoid,<br />\n provides a convenient way of moving the humanoid to different locations, and <br />\n stores references to the joints, segments, sites, skin, pose and viewpoint nodes.</p>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        hintLabel.setMinimumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(6, 3, 3, 3);
@@ -1896,9 +1901,9 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     private javax.swing.JTextField descriptionTF;
     private javax.swing.JPanel fieldsPanel;
     private javax.swing.JLabel hintLabel;
+    private javax.swing.JTabbedPane humanoidFieldsTabbedPane;
     private org.web3d.x3d.palette.items.ExpandableList infoExpandableList;
     private javax.swing.JPanel infoPanel;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private org.web3d.x3d.palette.items.ExpandableList jointBindingPositionsExpandableList;
     private javax.swing.JPanel jointBindingPositionsPanel;
     private org.web3d.x3d.palette.items.ExpandableList jointBindingRotationsExpandableList;
