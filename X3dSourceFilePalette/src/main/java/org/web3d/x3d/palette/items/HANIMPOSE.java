@@ -39,7 +39,6 @@ import org.web3d.x3d.types.X3DGroupingNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.*;
-import static org.web3d.x3d.types.X3DSchemaData4.*;
 
 /**
  * HANIMPOSE.java
@@ -53,7 +52,6 @@ public class HANIMPOSE extends X3DGroupingNode
   private String  description;
   private boolean enabled, enabledDefault;
   private SFInt32 loa, loaDefault;
-  private boolean resetOtherJoints,   resetOtherJointsDefault;
   private SFFloat transitionDuration, transitionDurationDefault;
   
   public HANIMPOSE()
@@ -73,7 +71,6 @@ public class HANIMPOSE extends X3DGroupingNode
     name               = HANIMPOSE_ATTR_NAME_DFLT;
     enabled            = enabledDefault            = Boolean.parseBoolean(HANIMPOSE_ATTR_ENABLED_DFLT);
     loa                = loaDefault                = new SFInt32(HANIMPOSE_ATTR_LOA_DFLT);
-    resetOtherJoints   = resetOtherJointsDefault   = Boolean.parseBoolean(HANIMPOSE_ATTR_RESETOTHERJOINTS_DFLT);
     transitionDuration = transitionDurationDefault = new SFFloat(HANIMPOSE_ATTR_TRANSITIONDURATION_DFLT);
 
 //    if (getContent().length() == 0)
@@ -95,9 +92,9 @@ public class HANIMPOSE extends X3DGroupingNode
     attr = root.getAttribute(HANIMPOSE_ATTR_ENABLED_NAME);
     if (attr != null)
       enabled = Boolean.parseBoolean(attr.getValue());
-    attr = root.getAttribute(HANIMPOSE_ATTR_RESETOTHERJOINTS_NAME);
+    attr = root.getAttribute(HANIMPOSE_ATTR_LOA_NAME);
     if (attr != null)
-      resetOtherJoints = Boolean.parseBoolean(attr.getValue());
+        setLoa(new SFInt32(attr.getValue(), -1, 4));
     attr = root.getAttribute(HANIMPOSE_ATTR_TRANSITIONDURATION_NAME);
     if (attr != null)
       transitionDuration = new SFFloat(attr.getValue());
@@ -125,18 +122,18 @@ public class HANIMPOSE extends X3DGroupingNode
       sb.append(isEnabled());
       sb.append("'");
     }
+    if (HANIMPOSE_ATTR_LOA_REQD || (loa != loaDefault)) {
+      sb.append(" ");
+      sb.append(HANIMPOSE_ATTR_LOA_NAME);
+      sb.append("='");
+      sb.append(getLoa());
+      sb.append("'");
+    }
     if (HANIMPOSE_ATTR_NAME_REQD || !name.equalsIgnoreCase(HANIMPOSE_ATTR_NAME_DFLT)) {
       sb.append(" ");
       sb.append(HANIMPOSE_ATTR_NAME_NAME);
       sb.append("='");
       sb.append(escapeXmlCharacters(name));
-      sb.append("'");
-    }
-    if (HANIMPOSE_ATTR_RESETOTHERJOINTS_REQD || (resetOtherJoints != resetOtherJointsDefault)) {
-      sb.append(" ");
-      sb.append(HANIMPOSE_ATTR_RESETOTHERJOINTS_NAME);
-      sb.append("='");
-      sb.append(resetOtherJoints);
       sb.append("'");
     }
     if (HANIMPOSE_ATTR_TRANSITIONDURATION_REQD || (transitionDuration.getValue() != transitionDurationDefault.getValue())) {
@@ -163,13 +160,12 @@ public class HANIMPOSE extends X3DGroupingNode
   public boolean isEnabled()                      {return enabled;}
   public String  getName()                        {return name;}
   public String  getLoa()                         {return loa.toString();}
-  public boolean isResetOtherJoints()             {return resetOtherJoints;}
   public String  getTransitionDuration()          {return transitionDuration.toString();}
       
   public void setEnabled(boolean value)           {enabled = value;}
   public void setName(String s)                   {name = s;}
   public void setLoa(String s)                    {loa = new SFInt32(s);}
-  public void setResetOtherJoints(boolean value)  {resetOtherJoints = value;}
+  public void setLoa(SFInt32 value)               {loa = value;}
   public void setTransitionDuration(String s)     {transitionDuration = new SFFloat(s);}
 
 }
