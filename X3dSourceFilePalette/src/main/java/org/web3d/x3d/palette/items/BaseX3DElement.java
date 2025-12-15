@@ -498,10 +498,13 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
     // the next step is essential
     if (isDEF() || isUSE()) // equivalent to checking if X3D node (not statement)?
     {
-        String attrs = createAttributes().trim();
-        if(attrs.length() > 0) {
-          sb.append(" "); // follows element name
-          sb.append(attrs);
+        if (!isUSE())
+        {
+            String attrs = createAttributes().trim();
+            if(attrs.length() > 0) {
+              sb.append(" "); // follows element name
+              sb.append(attrs);
+            }
         }
       
         // HTML id and CSS class style (if present)
@@ -509,31 +512,33 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         sb.append(buildCssClass());
         sb.append(buildCssStyle());
         
-        // Handle block of contained content within node
-          
-        String containedContent = getContent();
-        // watch out for null string, TODO figure out why initialization doesn't prevent this problem for fieldValue
-        if (containedContent == null)
-            containedContent = "";
-  
-        if (getElementName().equals("DOCTYPE"))
+        if (!isUSE())
         {
-          // no action
+            // Handle block of contained content within node
+            String containedContent = getContent();
+            // watch out for null string, TODO figure out why initialization doesn't prevent this problem for fieldValue
+            if (containedContent == null)
+                containedContent = "";
+
+            if (getElementName().equals("DOCTYPE"))
+            {
+              // no action
+            }
+            else if(containedContent.isBlank() && !sb.toString().trim().endsWith(">"))
+            {
+                sb.append("/>");
+            }
+            else if(!containedContent.isBlank() && !sb.toString().trim().endsWith("/>"))
+            {
+              sb.append(">");
+              sb.append(containedContent.replace(" />","/>")); // remove excess space character from singleton elements in JDOM output
+              sb.append("</");
+              sb.append(getElementName());
+              sb.append(">");
+            }
+            sb.append (getAppendText());
+            setAppendText(""); // reset
         }
-        else if(containedContent.isBlank() && !sb.toString().trim().endsWith(">"))
-	{
-	  	sb.append("/>");
-        }
-        else if(!containedContent.isBlank() && !sb.toString().trim().endsWith("/>"))
-        {
-          sb.append(">");
-          sb.append(containedContent.replace(" />","/>")); // remove excess space character from singleton elements in JDOM output
-          sb.append("</");
-          sb.append(getElementName());
-          sb.append(">");
-        }
-        sb.append (getAppendText());
-        setAppendText(""); // reset
     }
     // =============================================================================================================================
     // Trace traceEvent checks
