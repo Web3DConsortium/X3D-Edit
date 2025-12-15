@@ -243,16 +243,18 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         bboxSizeYTF = new javax.swing.JTextField();
         bboxSizeZTF = new javax.swing.JTextField();
         normalizeRotationValuesButton = new javax.swing.JButton();
-        nodeHintPanel = new javax.swing.JPanel();
-        hintLabel = new javax.swing.JLabel();
         translationModificationComboBox = new javax.swing.JComboBox<>();
         centerModificationComboBox = new javax.swing.JComboBox<>();
         scaleSelectionComboBox = new javax.swing.JComboBox<>();
+        nodeHintPanel = new javax.swing.JPanel();
+        hintLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(600, 600));
         setPreferredSize(new java.awt.Dimension(660, 680));
         setLayout(new java.awt.GridBagLayout());
 
+        dEFUSEpanel.setMinimumSize(new java.awt.Dimension(600, 120));
+        dEFUSEpanel.setPreferredSize(new java.awt.Dimension(600, 120));
         dEFUSEpanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dEFUSEpanelMouseClicked(evt);
@@ -1292,31 +1294,6 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(normalizeRotationValuesButton, gridBagConstraints);
 
-        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
-
-        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html> <p align=\"center\"><b>HAnimJoint</b> is used to represent each joint in the body. <br /> The child <b>HAnimSegment</b> node provides a visual representation of the skeleton segment.</p> <br /> <p align=\"center\">Parent must be another <b>HAnimJoint</b> or else the HAnimHumanoid node (with containerfield='skeleton' or 'joints').</p>   <p align=\"center\"><b>HAnimJoint</b> can contain HAnimSegment, HAnimSite or HAnimJoint as children nodes, plus HanimDisplacer displacers.</p>");
-        hintLabel.setToolTipText("close this panel to add children nodes");
-        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        nodeHintPanel.add(hintLabel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(nodeHintPanel, gridBagConstraints);
-
         translationModificationComboBox.setModel(new DefaultComboBoxModel<String>(TRANSFORM_ATTR_TRANSLATION_CHOICES));
         translationModificationComboBox.setToolTipText("Scale translation values to meters");
         translationModificationComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -1364,6 +1341,31 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(scaleSelectionComboBox, gridBagConstraints);
+
+        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html> <p align=\"center\"><b>HAnimJoint</b> is used to represent each joint in the body. <br /> The child <b>HAnimSegment</b> node provides a visual representation of the skeleton segment.</p> <br /> <p align=\"center\">Parent must be another <b>HAnimJoint</b> or else the HAnimHumanoid node (with containerfield='skeleton' or 'joints').</p>   <p align=\"center\"><b>HAnimJoint</b> can contain HAnimSegment, HAnimSite or HAnimJoint as children nodes, plus HanimDisplacer displacers.</p>");
+        hintLabel.setToolTipText("close this panel to add children nodes");
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        nodeHintPanel.add(hintLabel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void rotationAngleTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotationAngleTFActionPerformed
