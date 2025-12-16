@@ -354,8 +354,9 @@ public abstract class BaseCustomizer extends JPanel
             // otherwise launch appropriate X3D Tooltip
             default -> BaseViewAction.sendBrowserTo(X3D_TOOLTIPS + "#" + elementName);
         }
-        if (elementName.startsWith("HAnim")) // also launch HAnim specification for this node
+        if (elementName.startsWith("HAnim"))
         {
+            System.out.println("also launch HAnim specification for this node");
             final String HANIM_OBJECT_INTERFACES_WD_SPECIFICATION = "https://www.web3d.org/specifications/X3Dv4Draft/ISO-IEC19774/ISO-IEC19774-1/ISO-IEC19774-1v2.1/ISO-IEC19774-1v2.1-WD/Architecture/ObjectInterfaces.html";
             BaseViewAction.sendBrowserTo(HANIM_OBJECT_INTERFACES_WD_SPECIFICATION + "#" + elementName.substring("HAnim".length())); // skip X3D "HAnim" prefix
         }
