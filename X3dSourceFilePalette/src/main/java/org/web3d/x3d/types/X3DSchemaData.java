@@ -1269,6 +1269,29 @@ public interface X3DSchemaData
   String  FONTSTYLE_ATTR_TOPTOBOTTOM_NAME = "topToBottom";
   boolean FONTSTYLE_ATTR_TOPTOBOTTOM_REQD = false;
   String  FONTSTYLE_ATTR_TOPTOBOTTOM_DFLT = "true";
+  
+
+  // element FontStyle
+  String  FONTLIBRARY_ELNAME                = "FontStyle";
+  String  FONTLIBRARY_ATTR_AUTOREFRESH_NAME = "autoRefresh"; // X3D 4.0
+  boolean FONTLIBRARY_ATTR_AUTOREFRESH_REQD = false;
+  String  FONTLIBRARY_ATTR_AUTOREFRESH_DFLT = "0";
+  String  FONTLIBRARY_ATTR_AUTOREFRESHTIMELIMIT_NAME = "autoRefreshTimeLimit";
+  boolean FONTLIBRARY_ATTR_AUTOREFRESHTIMELIMIT_REQD = false;
+  String  FONTLIBRARY_ATTR_AUTOREFRESHTIMELIMIT_DFLT = "3600";
+  String  FONTLIBRARY_ATTR_DESCRIPTION_NAME = "description";
+  boolean FONTLIBRARY_ATTR_DESCRIPTION_REQD = false;
+  String  FONTLIBRARY_ATTR_DESCRIPTION_DFLT = "";
+  String  FONTLIBRARY_ATTR_FAMILY_NAME      = "family";
+  boolean FONTLIBRARY_ATTR_FAMILY_REQD      = false;
+  String  FONTLIBRARY_ATTR_FAMILY_DFLT      = "SERIF";
+  String[]FONTLIBRARY_ATTR_FAMILY_CHOICES   = {"SERIF","SANS","TYPEWRITER"};
+  String  FONTLIBRARY_ATTR_LOAD_NAME        = "load";
+  boolean FONTLIBRARY_ATTR_LOAD_REQD        = false;
+  String  FONTLIBRARY_ATTR_LOAD_DFLT        = "true";
+  String  FONTLIBRARY_ATTR_URL_NAME         = "url";
+  boolean FONTLIBRARY_ATTR_URL_REQD         = false;
+  String  FONTLIBRARY_ATTR_URL_DFLT         = "";
 
   // element Appearance
   String  APPEARANCE_ELNAME = "Appearance";
@@ -3152,9 +3175,21 @@ public interface X3DSchemaData
   String[]NORMAL_CONTAINERFIELD_CHOICES    = {"normal","skinNormal","skinBindingNormals"};
   String[]NORMAL_CONTAINERFIELD_TOOLTIPS   =
   {
-      "'normal' field forparent geometry node",
+      "'normal' field for parent geometry node",
       "'skinNormal' field for a parent HAnimHumanoid node",
       "'skinBindingNormals' field for a parent HAnimHumanoid node",
+  };
+
+  // Tangent element
+  String  TANGENT_ELNAME           = "Tangent";
+  String  TANGENT_ATTR_VECTOR_NAME ="vector";
+  boolean TANGENT_ATTR_VECTOR_REQD = false;
+  String  TANGENT_ATTR_VECTOR_DFLT = "";
+  
+  String[]TANGENT_CONTAINERFIELD_CHOICES    = {"tangent"};
+  String[]TANGENT_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'tangent' field for parent geometry node",
   };
 
   // TriangleSet element
