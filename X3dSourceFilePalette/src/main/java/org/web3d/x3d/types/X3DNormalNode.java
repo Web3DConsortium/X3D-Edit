@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -38,7 +38,7 @@ package org.web3d.x3d.types;
  * X3DNormalNode.java
  * Created on August 2, 2007, 10:05 AM
  *
- * Marker interface for Shape node
+ * Marker interface for Normal node
  * 
  * MOVES Institute
  * Naval Postgraduate School, Monterey, CA, USA
