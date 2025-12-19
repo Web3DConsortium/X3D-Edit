@@ -1035,8 +1035,11 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="TEXT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXT.xml">
                 <attr name="position" intvalue="600"/>
             </file>
-            <file name="FONTSTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FONTSTYLE.xml">
+            <file name="FONTLIBRARY.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FONTLIBRARY.xml">
                 <attr name="position" intvalue="700"/>
+            </file>
+            <file name="FONTSTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FONTSTYLE.xml">
+                <attr name="position" intvalue="800"/>
             </file>
         </folder>
         <!-- TODO make Grouping open by default instead; corresponding attr not found in DTD -->
@@ -1192,14 +1195,17 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="NORMAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NORMAL.xml">
                 <attr name="position" intvalue="1400"/>
             </file>
-            <file name="TEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE.xml">
+            <file name="TANGENT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TANGENT.xml">
                 <attr name="position" intvalue="1500"/>
             </file>
-            <file name="TEXTURECOORDINATEGENERATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATEGENERATOR.xml">
+            <file name="TEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE.xml">
                 <attr name="position" intvalue="1600"/>
             </file>
-            <file name="MULTITEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURECOORDINATE.xml">
+            <file name="TEXTURECOORDINATEGENERATOR.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATEGENERATOR.xml">
                 <attr name="position" intvalue="1700"/>
+            </file>
+            <file name="MULTITEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURECOORDINATE.xml">
+                <attr name="position" intvalue="1800"/>
             </file>
         </folder>
         <folder name="Event_Animation_and_Interpolation">
@@ -1502,6 +1508,9 @@ POSSIBILITY OF SUCH DAMAGE.
             <!-- COORDINATE includes switch for COORDINATEDOUBLE -->
             <file name="NORMAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/NORMAL.xml">
                 <attr name="position" intvalue="1400"/>
+            </file>
+            <file name="TANGENT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TANGENT.xml">
+                <attr name="position" intvalue="1450"/>
             </file>
             <file name="TEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE.xml">
                 <attr name="position" intvalue="1500"/>
