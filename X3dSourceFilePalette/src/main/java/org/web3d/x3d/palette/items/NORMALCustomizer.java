@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -43,7 +43,7 @@ import static org.web3d.x3d.types.X3DSchemaData.NORMAL_CONTAINERFIELD_CHOICES;
 import static org.web3d.x3d.types.X3DSchemaData.NORMAL_CONTAINERFIELD_TOOLTIPS;
 
 /**
- * SHAPECustomizer.java
+ * NORMALCustomizer.java
  * Created on August 15, 2007, 2:25 PM
  *
  * MOVES Institute
