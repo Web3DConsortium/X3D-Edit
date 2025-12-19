@@ -281,7 +281,7 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         autoRefreshLabel.setForeground(new java.awt.Color(0, 153, 153));
         autoRefreshLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         autoRefreshLabel.setText("autoRefresh");
-        autoRefreshLabel.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        autoRefreshLabel.setToolTipText("interval in seconds before automatic reload of current url asset is performed");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -290,7 +290,7 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(autoRefreshLabel, gridBagConstraints);
 
-        autoRefreshTF.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        autoRefreshTF.setToolTipText("interval in seconds before automatic reload of current url asset is performed");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -311,7 +311,7 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(pitchLabel, gridBagConstraints);
 
-        autoRefreshTimeLimitTF.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        autoRefreshTimeLimitTF.setToolTipText("maximum duration that automatic refresh activity can occur");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 7;
@@ -324,7 +324,7 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
         autoRefreshTimeLimitLabel.setForeground(new java.awt.Color(0, 153, 153));
         autoRefreshTimeLimitLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         autoRefreshTimeLimitLabel.setText("autoRefreshTimeLimit");
-        autoRefreshTimeLimitLabel.setToolTipText("Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed.");
+        autoRefreshTimeLimitLabel.setToolTipText("maximum duration that automatic refresh activity can occur");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
@@ -533,7 +533,6 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
   public void unloadInput() throws IllegalArgumentException
   {
     unLoadDEFUSE();
-    urlList.checkUrlValues();
 
     audioClip.setAutoRefresh(autoRefreshTF.getText().trim());
     audioClip.setAutoRefreshTimeLimit(autoRefreshTimeLimitTF.getText().trim());
@@ -547,6 +546,8 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
     audioClip.setResumeTime(resumeTimeTF.getText().trim());
     audioClip.setStartTime(startTimeTF.getText().trim());
     audioClip.setStopTime(stopTimeTF.getText().trim());
+    
+    urlList.checkUrlValues();
     audioClip.setUrls(urlList.getUrlData());
   }  
 }

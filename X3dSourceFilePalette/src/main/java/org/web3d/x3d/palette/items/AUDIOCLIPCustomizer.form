@@ -192,7 +192,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="autoRefresh"/>
-        <Property name="toolTipText" type="java.lang.String" value="Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed."/>
+        <Property name="toolTipText" type="java.lang.String" value="interval in seconds before automatic reload of current url asset is performed"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -202,7 +202,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="autoRefreshTF">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed."/>
+        <Property name="toolTipText" type="java.lang.String" value="interval in seconds before automatic reload of current url asset is performed"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -224,7 +224,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="autoRefreshTimeLimitTF">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed."/>
+        <Property name="toolTipText" type="java.lang.String" value="maximum duration that automatic refresh activity can occur"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -242,7 +242,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="autoRefreshTimeLimit"/>
-        <Property name="toolTipText" type="java.lang.String" value="Multiplier for the rate at which sampled sound is played. Changing pitch also changes playback speed."/>
+        <Property name="toolTipText" type="java.lang.String" value="maximum duration that automatic refresh activity can occur"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
