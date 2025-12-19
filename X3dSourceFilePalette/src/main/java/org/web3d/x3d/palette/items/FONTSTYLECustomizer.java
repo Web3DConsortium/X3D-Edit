@@ -53,15 +53,15 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class FONTSTYLECustomizer extends BaseCustomizer
 {
-  private final FONTSTYLE fontstyle;
+  private final FONTSTYLE fontStyle;
   private final JTextComponent target;
   private final UrlExpandableList2 urlExpandableList = new UrlExpandableList2();
   
   /** Creates new form FONTSTYLECustomizer */
-  public FONTSTYLECustomizer(FONTSTYLE fontstyle, JTextComponent target)
+  public FONTSTYLECustomizer(FONTSTYLE fontStyle, JTextComponent target)
   {
-    super(fontstyle);
-    this.fontstyle = fontstyle;
+    super(fontStyle);
+    this.fontStyle = fontStyle;
     this.target = target;
     
     HelpCtx.setHelpIDString(FONTSTYLECustomizer.this, "FONTSTYLE_ELEM_HELPID");
@@ -70,98 +70,85 @@ public class FONTSTYLECustomizer extends BaseCustomizer
 
     // TODO family is actually MFString array,
     // need to allow selection/insertion of multiple values
-   familyCombo.setSelectedItem(fontstyle.getFamily());
+   familyCombo.setSelectedItem(fontStyle.getFamily());
    
-   checkJustifyValues ();
-   
-   majorJustifyCombo.setSelectedItem(fontstyle.getMajorJustify());
-   minorJustifyCombo.setSelectedItem(fontstyle.getMinorJustify());
-        styleCB.setSelectedItem(fontstyle.getStyle());
-             languageTF.setText(fontstyle.getLanguage());
-     horizontalChkB.setSelected(fontstyle.isHorizontal());
-    leftToRightChkB.setSelected(fontstyle.isLeftToRight());
-    topToBottomChkB.setSelected(fontstyle.isTopToBottom());
-                 sizeTF.setText(fontstyle.getSize());
-              spacingTF.setText(fontstyle.getSpacing());
-              
-        topToBottomHandler(null);
   }
   
     private void checkJustifyValues()
     {
         boolean justifyWarningFound = false;
         StringBuilder sb = new StringBuilder("<html><p>Illegal justify attribute value found in <br /> &lt;Fontstyle ");
-        if (fontstyle.getDEFUSEvalue().length() > 0)
+        if (fontStyle.getDEFUSEvalue().length() > 0)
         {
-            sb.append("DEF='").append(fontstyle.getDEFUSEvalue()).append("' ");
+            sb.append("DEF='").append(fontStyle.getDEFUSEvalue()).append("' ");
         }
         sb.append("justify='\"").append(
-                fontstyle.getMajorJustify()).append("\" \"").append(
-                fontstyle.getMinorJustify()).append("\"'/&gt;</p> <p>");
+                fontStyle.getMajorJustify()).append("\" \"").append(
+                fontStyle.getMinorJustify()).append("\"'/&gt;</p> <p>");
 
-        if (fontstyle.getMajorJustify().equalsIgnoreCase("LEFT"))
+        if (fontStyle.getMajorJustify().equalsIgnoreCase("LEFT"))
         {
             justifyWarningFound = true;
             sb.append("<p>replaced major-axis <b>LEFT</b> with <b>BEGIN</b></p>");
-            fontstyle.setMajorJustify("BEGIN");
+            fontStyle.setMajorJustify("BEGIN");
         }
-        if (fontstyle.getMinorJustify().equalsIgnoreCase("LEFT"))
+        if (fontStyle.getMinorJustify().equalsIgnoreCase("LEFT"))
         {
             justifyWarningFound = true;
             sb.append("<p>replaced minor-axis <b>LEFT</b> with <b>BEGIN</b></p>");
-            fontstyle.setMinorJustify("BEGIN");
+            fontStyle.setMinorJustify("BEGIN");
         }
 
-        if (fontstyle.getMajorJustify().equalsIgnoreCase("RIGHT"))
+        if (fontStyle.getMajorJustify().equalsIgnoreCase("RIGHT"))
         {
             justifyWarningFound = true;
-            sb.append("<p>replaced major-axis <b>").append(fontstyle.getMajorJustify()).append("</b> with <b>END</b></p>");
-            fontstyle.setMajorJustify("END");
+            sb.append("<p>replaced major-axis <b>").append(fontStyle.getMajorJustify()).append("</b> with <b>END</b></p>");
+            fontStyle.setMajorJustify("END");
         }
-        if (fontstyle.getMinorJustify().equalsIgnoreCase("RIGHT"))
+        if (fontStyle.getMinorJustify().equalsIgnoreCase("RIGHT"))
         {
             justifyWarningFound = true;
-            sb.append("<p>replaced minor-axis <b>").append(fontstyle.getMinorJustify()).append("</b> with <b>END</b></p>");
-            fontstyle.setMinorJustify("END");
-        }
-
-        if (fontstyle.getMajorJustify().equalsIgnoreCase("TOP"))
-        {
-            justifyWarningFound = true;
-            sb.append("<p>replaced major-axis <b>").append(fontstyle.getMajorJustify()).append("</b> with <b>BEGIN</b></p>");
-            fontstyle.setMajorJustify("BEGIN");
-        }
-        if (fontstyle.getMinorJustify().equalsIgnoreCase("TOP"))
-        {
-            justifyWarningFound = true;
-            sb.append("<p>replaced minor-axis <b>").append(fontstyle.getMinorJustify()).append("</b> with <b>BEGIN</b></p>");
-            fontstyle.setMinorJustify("BEGIN");
+            sb.append("<p>replaced minor-axis <b>").append(fontStyle.getMinorJustify()).append("</b> with <b>END</b></p>");
+            fontStyle.setMinorJustify("END");
         }
 
-        if (fontstyle.getMajorJustify().equalsIgnoreCase("BOTTOM"))
+        if (fontStyle.getMajorJustify().equalsIgnoreCase("TOP"))
         {
             justifyWarningFound = true;
-            sb.append("<p>replaced major-axis <b>").append(fontstyle.getMajorJustify()).append("</b> with <b>END</b></p>");
-            fontstyle.setMajorJustify("END");
+            sb.append("<p>replaced major-axis <b>").append(fontStyle.getMajorJustify()).append("</b> with <b>BEGIN</b></p>");
+            fontStyle.setMajorJustify("BEGIN");
         }
-        if (fontstyle.getMinorJustify().equalsIgnoreCase("BOTTOM"))
+        if (fontStyle.getMinorJustify().equalsIgnoreCase("TOP"))
         {
             justifyWarningFound = true;
-            sb.append("<p>replaced minor-axis <b>").append(fontstyle.getMinorJustify()).append("</b> with <b>END</b></p>");
-            fontstyle.setMinorJustify("END");
+            sb.append("<p>replaced minor-axis <b>").append(fontStyle.getMinorJustify()).append("</b> with <b>BEGIN</b></p>");
+            fontStyle.setMinorJustify("BEGIN");
         }
 
-        if (fontstyle.getMajorJustify().equalsIgnoreCase("CENTER"))
+        if (fontStyle.getMajorJustify().equalsIgnoreCase("BOTTOM"))
         {
             justifyWarningFound = true;
-            sb.append("<p>replaced major-axis <b>").append(fontstyle.getMajorJustify()).append("</b> with <b>MIDDLE</b></p>");
-            fontstyle.setMajorJustify("MIDDLE");
+            sb.append("<p>replaced major-axis <b>").append(fontStyle.getMajorJustify()).append("</b> with <b>END</b></p>");
+            fontStyle.setMajorJustify("END");
         }
-        if (fontstyle.getMinorJustify().equalsIgnoreCase("CENTER"))
+        if (fontStyle.getMinorJustify().equalsIgnoreCase("BOTTOM"))
         {
             justifyWarningFound = true;
-            sb.append("<p>replaced minor-axis <b>").append(fontstyle.getMinorJustify()).append("</b> with <b>MIDDLE</b></p>");
-            fontstyle.setMinorJustify("MIDDLE");
+            sb.append("<p>replaced minor-axis <b>").append(fontStyle.getMinorJustify()).append("</b> with <b>END</b></p>");
+            fontStyle.setMinorJustify("END");
+        }
+
+        if (fontStyle.getMajorJustify().equalsIgnoreCase("CENTER"))
+        {
+            justifyWarningFound = true;
+            sb.append("<p>replaced major-axis <b>").append(fontStyle.getMajorJustify()).append("</b> with <b>MIDDLE</b></p>");
+            fontStyle.setMajorJustify("MIDDLE");
+        }
+        if (fontStyle.getMinorJustify().equalsIgnoreCase("CENTER"))
+        {
+            justifyWarningFound = true;
+            sb.append("<p>replaced minor-axis <b>").append(fontStyle.getMinorJustify()).append("</b> with <b>MIDDLE</b></p>");
+            fontStyle.setMinorJustify("MIDDLE");
         }
 
         if (justifyWarningFound)
@@ -760,17 +747,17 @@ public class FONTSTYLECustomizer extends BaseCustomizer
         familyMFString.append("\""); // final "
     }
     // trace System.out.println ("familyText=" + familyText + ", familyMFString=" + familyMFString);
-    fontstyle.setFamily(familyMFString.toString());
+    fontStyle.setFamily(familyMFString.toString());
     
-    fontstyle.setMajorJustify((String)majorJustifyCombo.getSelectedItem());
-    fontstyle.setMinorJustify((String)minorJustifyCombo.getSelectedItem());
-    fontstyle.setStyle((String)styleCB.getSelectedItem());
-    fontstyle.setLanguage(languageTF.getText().trim());
-    fontstyle.setHorizontal(horizontalChkB.isSelected());
-    fontstyle.setLeftToRight(leftToRightChkB.isSelected());
-    fontstyle.setTopToBottom(topToBottomChkB.isSelected());
-    fontstyle.setSize(sizeTF.getText().trim());
-    fontstyle.setSpacing(spacingTF.getText().trim());
+    fontStyle.setMajorJustify((String)majorJustifyCombo.getSelectedItem());
+    fontStyle.setMinorJustify((String)minorJustifyCombo.getSelectedItem());
+    fontStyle.setStyle((String)styleCB.getSelectedItem());
+    fontStyle.setLanguage(languageTF.getText().trim());
+    fontStyle.setHorizontal(horizontalChkB.isSelected());
+    fontStyle.setLeftToRight(leftToRightChkB.isSelected());
+    fontStyle.setTopToBottom(topToBottomChkB.isSelected());
+    fontStyle.setSize(sizeTF.getText().trim());
+    fontStyle.setSpacing(spacingTF.getText().trim());
   }
   
 }
