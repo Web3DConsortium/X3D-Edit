@@ -211,7 +211,8 @@ public class FONTSTYLECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(650, 495));
+        setMinimumSize(new java.awt.Dimension(650, 510));
+        setPreferredSize(new java.awt.Dimension(650, 510));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -219,6 +220,7 @@ public class FONTSTYLECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);

@@ -35,8 +35,6 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
-import org.openide.DialogDisplayer;
-import org.openide.NotifyDescriptor;
 import org.openide.util.HelpCtx;
 import org.web3d.x3d.X3DDataObject;
 import static org.web3d.x3d.types.X3DSchemaData.*;
@@ -131,7 +129,8 @@ public class FONTLIBRARYCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(650, 495));
+        setMinimumSize(new java.awt.Dimension(680, 550));
+        setPreferredSize(new java.awt.Dimension(680, 550));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -298,7 +297,7 @@ public class FONTLIBRARYCustomizer extends BaseCustomizer
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hintLabel.setText("<html><p align='center'><b>FontLibrary</b> loads a new Web Font file for <b>FontStyle</b> node use.</p>\n<p align='center'>Allowed font file formats are WOFF (required support), and optionally OpenType and TrueType.</p>");
-        hintLabel.setToolTipText("a Text node can only contain one FontStyle node");
+        hintLabel.setToolTipText("FontLibrary nodes are defined with other regular children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
