@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -58,8 +58,10 @@ public class HANIMSEGMENT extends X3DGroupingNode
   private SFFloat centerOfMassZ, centerOfMassZDefault;
   private SFFloat mass,          massDefault;
   private SFFloat[] momentsOfInertia, momentsOfInertiaDefault;
-  private String  description;
-  private String  name;  
+  private String    description;
+  private String    name;  
+  private boolean   visible,         visibleDefault;
+  private boolean   bboxDisplay, bboxDisplayDefault;
 
   public HANIMSEGMENT()
   {    
@@ -96,6 +98,9 @@ public class HANIMSEGMENT extends X3DGroupingNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(sa[0]);
     bboxSizeY = bboxSizeYDefault = new SFFloat(sa[1]);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(sa[2]);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(HANIMSEGMENT_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(HANIMSEGMENT_ATTR_BBOXDISPLAY_DFLT));
 
 //    if (getContent().length() == 0)
 //        setContent("\n\t\t<!--TODO add child HAnimDisplacer, Coordinate, content nodes here-->\n\t");
@@ -143,6 +148,13 @@ public class HANIMSEGMENT extends X3DGroupingNode
       bboxSizeY = new SFFloat(sa[1]);
       bboxSizeZ = new SFFloat(sa[2]);
     }
+    attr = root.getAttribute(HANIMSEGMENT_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(HANIMSEGMENT_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
+    
 //    if (getContent().length() == 0)
 //        setContent("\n\t\t<!--TODO add child HAnimDisplacer, Coordinate, content nodes here-->\n\t");
   }
@@ -160,6 +172,13 @@ public class HANIMSEGMENT extends X3DGroupingNode
       sb.append(bboxCenterY);
       sb.append(" ");
       sb.append(bboxCenterZ);
+      sb.append("'");
+    }
+    if (HANIMSEGMENT_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(HANIMSEGMENT_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
       sb.append("'");
     }
     if (HANIMSEGMENT_ATTR_BBOXSIZE_REQD || (!bboxSizeX.equals(bboxSizeXDefault) || !bboxSizeY.equals(bboxSizeYDefault) || !bboxSizeZ.equals(bboxSizeZDefault) )) {
@@ -212,6 +231,13 @@ public class HANIMSEGMENT extends X3DGroupingNode
       sb.append(escapeXmlCharacters(name));
       sb.append("'");
     }
+    if (HANIMSEGMENT_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(HANIMSEGMENT_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
+      sb.append("'");
+    }
     return sb.toString();
   }
 
@@ -252,5 +278,33 @@ public class HANIMSEGMENT extends X3DGroupingNode
       sa = parseX(str);
     return el.parseToSFFloatArray(sa);
   }
+
+    /**
+     * @return the visible
+     */
+    public boolean isVisible() {
+        return visible;
+    }
+
+    /**
+     * @param visible the visible to set
+     */
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    /**
+     * @return the bboxDisplay
+     */
+    public boolean isBboxDisplay() {
+        return bboxDisplay;
+    }
+
+    /**
+     * @param bboxDisplay the bboxDisplay to set
+     */
+    public void setBboxDisplay(boolean bboxDisplay) {
+        this.bboxDisplay = bboxDisplay;
+    }
 
 }

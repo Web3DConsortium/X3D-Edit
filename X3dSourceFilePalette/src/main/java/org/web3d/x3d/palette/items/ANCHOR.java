@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -58,7 +58,9 @@ public class ANCHOR extends X3DGroupingNode
 {
   private String   description;
   private String[] urls, urlsDefault;
-  private String[] parameters;
+  private String[] parameterArray;
+  private boolean  visible,         visibleDefault;
+  private boolean  bboxDisplay, bboxDisplayDefault;
 
   /** Constructor */
   public ANCHOR()
@@ -79,7 +81,10 @@ public class ANCHOR extends X3DGroupingNode
       urls = urlsDefault = parseUrlsIntoStringArray(ANCHOR_ATTR_URL_DFLT);
     else
       urls = urlsDefault = new String[0];
-    parameters   = parseMFStringIntoStringArray(ANCHOR_ATTR_PARAMETER_DFLT[0], true);
+    parameterArray   = parseMFStringIntoStringArray(ANCHOR_ATTR_PARAMETER_DFLT[0], true);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(ANCHOR_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(ANCHOR_ATTR_BBOXDISPLAY_DFLT));
 
     String[] fa = parse3(ANCHOR_ATTR_BBOXCENTER_DFLT);
     bboxCenterX = bboxCenterXDefault = new SFFloat(fa[0], null, null);
@@ -109,7 +114,13 @@ public class ANCHOR extends X3DGroupingNode
       urls = parseUrlsIntoStringArray(attr.getValue());
     attr = root.getAttribute(ANCHOR_ATTR_PARAMETER_NAME);
     if (attr != null)
-      parameters = parseMFStringIntoStringArray(attr.getValue(), true);
+      parameterArray = parseMFStringIntoStringArray(attr.getValue(), true);
+    attr = root.getAttribute(ANCHOR_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(ANCHOR_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
     attr = root.getAttribute(ANCHOR_ATTR_BBOXCENTER_NAME);
     if (attr != null) {
       String[] fa = parse3(attr.getValue());
@@ -152,6 +163,13 @@ public class ANCHOR extends X3DGroupingNode
       sb.append(bboxCenterZ);
       sb.append("'");
     }
+    if (ANCHOR_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(ANCHOR_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
+      sb.append("'");
+    }
     if (ANCHOR_ATTR_BBOXSIZE_REQD ||
            (!bboxSizeX.equals(bboxSizeXDefault) ||
             !bboxSizeY.equals(bboxSizeYDefault) ||
@@ -174,11 +192,11 @@ public class ANCHOR extends X3DGroupingNode
       sb.append(escapeXmlCharacters(description));
       sb.append("'");
     }
-    if (ANCHOR_ATTR_PARAMETER_REQD || (!Arrays.equals(parameters, ANCHOR_ATTR_PARAMETER_DFLT) && (parameters.length > 0))) {
+    if (ANCHOR_ATTR_PARAMETER_REQD || (!Arrays.equals(parameterArray, ANCHOR_ATTR_PARAMETER_DFLT) && (parameterArray.length > 0))) {
       sb.append(" ");
       sb.append(ANCHOR_ATTR_PARAMETER_NAME);
       sb.append("='");
-      sb.append(formatStringArray(parameters)); // includes XML character escaping
+      sb.append(formatStringArray(parameterArray)); // includes XML character escaping
       sb.append("'");
     }
     if (ANCHOR_ATTR_URL_REQD || (!Arrays.equals(urls, urlsDefault) && (urls.length > 0))) {
@@ -186,6 +204,13 @@ public class ANCHOR extends X3DGroupingNode
       sb.append(ANCHOR_ATTR_URL_NAME);
       sb.append("='");
       sb.append(formatStringArray(urls));
+      sb.append("'");
+    }
+    if (ANCHOR_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(ANCHOR_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
     return sb.toString();
@@ -222,21 +247,49 @@ public class ANCHOR extends X3DGroupingNode
   /** attribute accessor method */
   public String[] getParameters()
   {
-    return parameters;
+    return parameterArray;
   }
 
   /** attribute accessor method */
   public String getParameterString()
   {
-    return formatStringArray(parameters); // includes XML character escaping
+    return formatStringArray(parameterArray); // includes XML character escaping
   }
 
   public void setParameters(String[] parameters)
  {
-    this.parameters = parameters;
+    this.parameterArray = parameters;
   }
   public void setParameters(String parameterString)
  {
-    this.parameters = splitStringIntoStringArray(parameterString);
+    this.parameterArray = splitStringIntoStringArray(parameterString);
   }
+
+    /**
+     * @return the visible
+     */
+    public boolean isVisible() {
+        return visible;
+    }
+
+    /**
+     * @param visible the visible to set
+     */
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    /**
+     * @return the bboxDisplay
+     */
+    public boolean isBboxDisplay() {
+        return bboxDisplay;
+    }
+
+    /**
+     * @param bboxDisplay the bboxDisplay to set
+     */
+    public void setBboxDisplay(boolean bboxDisplay) {
+        this.bboxDisplay = bboxDisplay;
+    }
 }

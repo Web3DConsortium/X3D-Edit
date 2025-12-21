@@ -811,6 +811,12 @@ public interface X3DSchemaData
   String  ANCHOR_ATTR_BBOXSIZE_NAME    = "bboxSize";
   boolean ANCHOR_ATTR_BBOXSIZE_REQD    = false;
   String  ANCHOR_ATTR_BBOXSIZE_DFLT    = "-1 -1 -1";
+  String  ANCHOR_ATTR_VISIBLE_NAME     = "visible";
+  boolean ANCHOR_ATTR_VISIBLE_REQD     = false;
+  String  ANCHOR_ATTR_VISIBLE_DFLT     = "true";
+  String  ANCHOR_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean ANCHOR_ATTR_BBOXDISPLAY_REQD = false;
+  String  ANCHOR_ATTR_BBOXDISPLAY_DFLT = "false";
 
   // Billboard element
   String  BILLBOARD_ELNAME                   = "Billboard";
@@ -1019,6 +1025,12 @@ public interface X3DSchemaData
   String  GROUP_ATTR_BBOXSIZE_NAME         = "bboxSize";
   boolean GROUP_ATTR_BBOXSIZE_REQD         = false;
   String  GROUP_ATTR_BBOXSIZE_DFLT         = "-1 -1 -1";
+  String  GROUP_ATTR_VISIBLE_NAME          = "visible";
+  boolean GROUP_ATTR_VISIBLE_REQD          = false;
+  String  GROUP_ATTR_VISIBLE_DFLT          = "true";
+  String  GROUP_ATTR_BBOXDISPLAY_NAME      = "bboxDisplay";
+  boolean GROUP_ATTR_BBOXDISPLAY_REQD      = false;
+  String  GROUP_ATTR_BBOXDISPLAY_DFLT      = "false";
 
   // Also used by Shape, LOD
   String[]GROUP_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode", "shape", "skin"};
@@ -1068,6 +1080,12 @@ public interface X3DSchemaData
   String  TRANSFORM_ATTR_BBOXSIZE_NAME         = "bboxSize";
   boolean TRANSFORM_ATTR_BBOXSIZE_REQD         = false;
   String  TRANSFORM_ATTR_BBOXSIZE_DFLT         = "-1 -1 -1";
+  String  TRANSFORM_ATTR_VISIBLE_NAME          = "visible";
+  boolean TRANSFORM_ATTR_VISIBLE_REQD          = false;
+  String  TRANSFORM_ATTR_VISIBLE_DFLT          = "true";
+  String  TRANSFORM_ATTR_BBOXDISPLAY_NAME      = "bboxDisplay";
+  boolean TRANSFORM_ATTR_BBOXDISPLAY_REQD      = false;
+  String  TRANSFORM_ATTR_BBOXDISPLAY_DFLT      = "false";
 
   // similar versions used by Shape, LOD
   String[]TRANSFORM_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode", "shape"};
@@ -3869,6 +3887,12 @@ public interface X3DSchemaData
   String  HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_NAME         = "jointBindingScales";
   boolean HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_REQD         = false;
   String  HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_DFLT         = "";
+  String  HANIMHUMANOID_ATTR_VISIBLE_NAME                    = "visible";
+  boolean HANIMHUMANOID_ATTR_VISIBLE_REQD                    = false;
+  String  HANIMHUMANOID_ATTR_VISIBLE_DFLT                    = "true";
+  String  HANIMHUMANOID_ATTR_BBOXDISPLAY_NAME                = "bboxDisplay";
+  boolean HANIMHUMANOID_ATTR_BBOXDISPLAY_REQD                = false;
+  String  HANIMHUMANOID_ATTR_BBOXDISPLAY_DFLT                = "false";
   
   String[]HANIMHUMANOID_ATTR_LOA_CHOICES = { // also HANIMMOTION
     "-1","0","1","2","3","4"}; 
@@ -4059,6 +4083,12 @@ public interface X3DSchemaData
   String  HANIMJOINT_ATTR_BBOXSIZE_NAME    = "bboxSize";
   boolean HANIMJOINT_ATTR_BBOXSIZE_REQD    = false;
   String  HANIMJOINT_ATTR_BBOXSIZE_DFLT    = "-1 -1 -1";
+  String  HANIMJOINT_ATTR_VISIBLE_NAME     = "visible";
+  boolean HANIMJOINT_ATTR_VISIBLE_REQD     = false;
+  String  HANIMJOINT_ATTR_VISIBLE_DFLT     = "true";
+  String  HANIMJOINT_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean HANIMJOINT_ATTR_BBOXDISPLAY_REQD = false;
+  String  HANIMJOINT_ATTR_BBOXDISPLAY_DFLT = "false";
 
   String[]HANIMJOINT_CONTAINERFIELD_CHOICES    = {"children", "skeleton", "joints"};
   String[]HANIMJOINT_CONTAINERFIELD_TOOLTIPS   =
@@ -4248,6 +4278,12 @@ public interface X3DSchemaData
   String  HANIMSEGMENT_ATTR_BBOXSIZE_NAME      = "bboxSize";
   boolean HANIMSEGMENT_ATTR_BBOXSIZE_REQD      = false;
   String  HANIMSEGMENT_ATTR_BBOXSIZE_DFLT      = "-1 -1 -1";
+  String  HANIMSEGMENT_ATTR_VISIBLE_NAME       = "visible";
+  boolean HANIMSEGMENT_ATTR_VISIBLE_REQD       = false;
+  String  HANIMSEGMENT_ATTR_VISIBLE_DFLT       = "true";
+  String  HANIMSEGMENT_ATTR_BBOXDISPLAY_NAME   = "bboxDisplay";
+  boolean HANIMSEGMENT_ATTR_BBOXDISPLAY_REQD   = false;
+  String  HANIMSEGMENT_ATTR_BBOXDISPLAY_DFLT   = "false";
 
   String[]HANIMSEGMENT_CONTAINERFIELD_CHOICES    = {"children", "segments"};
   String[]HANIMSEGMENT_CONTAINERFIELD_TOOLTIPS   =
@@ -4528,6 +4564,12 @@ public interface X3DSchemaData
   String  HANIMSITE_ATTR_BBOXSIZE_NAME      = "bboxSize";
   boolean HANIMSITE_ATTR_BBOXSIZE_REQD      = false;
   String  HANIMSITE_ATTR_BBOXSIZE_DFLT      = "-1 -1 -1";
+  String  HANIMSITE_ATTR_VISIBLE_NAME       = "visible";
+  boolean HANIMSITE_ATTR_VISIBLE_REQD       = false;
+  String  HANIMSITE_ATTR_VISIBLE_DFLT       = "true";
+  String  HANIMSITE_ATTR_BBOXDISPLAY_NAME   = "bboxDisplay";
+  boolean HANIMSITE_ATTR_BBOXDISPLAY_REQD   = false;
+  String  HANIMSITE_ATTR_BBOXDISPLAY_DFLT   = "false";
 
   String[]HANIMSITE_CONTAINERFIELD_CHOICES    = {"children", "skeleton", "sites", "viewpoints"};
   String[]HANIMSITE_CONTAINERFIELD_TOOLTIPS   =
@@ -5374,6 +5416,12 @@ public interface X3DSchemaData
   String  CADASSEMBLY_ATTR_BBOXSIZE_NAME    = "bboxSize";
   boolean CADASSEMBLY_ATTR_BBOXSIZE_REQD    = false;
   String  CADASSEMBLY_ATTR_BBOXSIZE_DFLT    = "-1 -1 -1";
+  String  CADASSEMBLY_ATTR_VISIBLE_NAME     = "visible";
+  boolean CADASSEMBLY_ATTR_VISIBLE_REQD     = false;
+  String  CADASSEMBLY_ATTR_VISIBLE_DFLT     = "true";
+  String  CADASSEMBLY_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean CADASSEMBLY_ATTR_BBOXDISPLAY_REQD = false;
+  String  CADASSEMBLY_ATTR_BBOXDISPLAY_DFLT = "false";
 
   String  CADFACE_ELNAME                = "CADFace";
   String  CADFACE_ATTR_NAME_NAME        = "name";
@@ -5385,6 +5433,12 @@ public interface X3DSchemaData
   String  CADFACE_ATTR_BBOXSIZE_NAME    = "bboxSize";
   boolean CADFACE_ATTR_BBOXSIZE_REQD    = false;
   String  CADFACE_ATTR_BBOXSIZE_DFLT    = "-1 -1 -1";
+  String  CADFACE_ATTR_VISIBLE_NAME     = "visible";
+  boolean CADFACE_ATTR_VISIBLE_REQD     = false;
+  String  CADFACE_ATTR_VISIBLE_DFLT     = "true";
+  String  CADFACE_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean CADFACE_ATTR_BBOXDISPLAY_REQD = false;
+  String  CADFACE_ATTR_BBOXDISPLAY_DFLT = "false";
 
   String  CADLAYER_ELNAME                = "CADLayer";
   String  CADLAYER_ATTR_NAME_NAME        = "name";
@@ -5399,6 +5453,9 @@ public interface X3DSchemaData
   String  CADLAYER_ATTR_BBOXSIZE_NAME    = "bboxSize";
   boolean CADLAYER_ATTR_BBOXSIZE_REQD    = false;
   String  CADLAYER_ATTR_BBOXSIZE_DFLT    = "-1 -1 -1";
+  String  CADLAYER_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean CADLAYER_ATTR_BBOXDISPLAY_REQD = false;
+  String  CADLAYER_ATTR_BBOXDISPLAY_DFLT = "false";
 
   String  CADPART_ELNAME                     = "CADPart";
   String  CADPART_ATTR_NAME_NAME             = "name";
@@ -5425,6 +5482,12 @@ public interface X3DSchemaData
   String  CADPART_ATTR_BBOXSIZE_NAME         = "bboxSize";
   boolean CADPART_ATTR_BBOXSIZE_REQD         = false;
   String  CADPART_ATTR_BBOXSIZE_DFLT         = "-1 -1 -1";
+  String  CADPART_ATTR_VISIBLE_NAME          = "visible";
+  boolean CADPART_ATTR_VISIBLE_REQD          = false;
+  String  CADPART_ATTR_VISIBLE_DFLT          = "true";
+  String  CADPART_ATTR_BBOXDISPLAY_NAME      = "bboxDisplay";
+  boolean CADPART_ATTR_BBOXDISPLAY_REQD      = false;
+  String  CADPART_ATTR_BBOXDISPLAY_DFLT      = "false";
 
   // Texturing3D Component
 

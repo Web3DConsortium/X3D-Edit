@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -90,6 +90,8 @@ public class CADLAYER extends X3DGroupingNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(fa[0], null, null);
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1], null, null);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2], null, null);
+    
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(CADLAYER_ATTR_BBOXDISPLAY_DFLT));
 
     setContent("\n\t\t<!--TODO add CADAssembly and other nodes here-->\n\t");
   }
@@ -117,6 +119,9 @@ public class CADLAYER extends X3DGroupingNode
           attr.getValue().contains("\r")) insertLineBreaks = true; // TODO not working, line breaks not being passed from JDOM
       if (insertCommas)                   insertLineBreaks = true; // workaround default, if commas were present then most likely lineBreaks also
     }
+    attr = root.getAttribute(ANCHOR_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
     String[] fa;
     attr = root.getAttribute(CADLAYER_ATTR_BBOXCENTER_NAME);
     if (attr != null) {
@@ -151,6 +156,13 @@ public class CADLAYER extends X3DGroupingNode
       sb.append(bboxCenterY);
       sb.append(" ");
       sb.append(bboxCenterZ);
+      sb.append("'");
+    }
+    if (CADLAYER_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(CADLAYER_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
       sb.append("'");
     }
     if (CADLAYER_ATTR_BBOXSIZE_REQD ||

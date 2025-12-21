@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -115,6 +115,8 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     limitOrientationZaxisTF.setText     (hAnimJoint.getLimitOrientationZ());
     limitOrientationAngleTF.setText (hAnimJoint.getLimitOrientationAngle());
     
+        visibleCheckBox.setSelected(hAnimJoint.isVisible());
+    bboxDisplayCheckBox.setSelected(hAnimJoint.isBboxDisplay());
     bboxCenterXTF.setText(hAnimJoint.getBboxCenterX());
     bboxCenterYTF.setText(hAnimJoint.getBboxCenterY());
     bboxCenterZTF.setText(hAnimJoint.getBboxCenterZ());
@@ -246,15 +248,17 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         translationModificationComboBox = new javax.swing.JComboBox<>();
         centerModificationComboBox = new javax.swing.JComboBox<>();
         scaleSelectionComboBox = new javax.swing.JComboBox<>();
+        visibleLabel = new javax.swing.JLabel();
+        visibleCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayLabel = new javax.swing.JLabel();
+        bboxDisplayCheckBox = new javax.swing.JCheckBox();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(600, 600));
-        setPreferredSize(new java.awt.Dimension(660, 680));
+        setMinimumSize(new java.awt.Dimension(660, 750));
+        setPreferredSize(new java.awt.Dimension(660, 750));
         setLayout(new java.awt.GridBagLayout());
 
-        dEFUSEpanel.setMinimumSize(new java.awt.Dimension(600, 120));
-        dEFUSEpanel.setPreferredSize(new java.awt.Dimension(600, 120));
         dEFUSEpanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dEFUSEpanelMouseClicked(evt);
@@ -351,7 +355,6 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameWarningLabel, gridBagConstraints);
 
-        descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         descriptionLabel.setText("description");
         descriptionLabel.setToolTipText("Text description to be displayed for action of this node");
@@ -703,7 +706,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         translationLabel.setPreferredSize(new java.awt.Dimension(80, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.ipadx = 48;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -723,7 +726,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -744,7 +747,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -765,7 +768,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -782,7 +785,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         rotationLabel.setPreferredSize(new java.awt.Dimension(80, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.ipadx = 48;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -797,7 +800,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         rotationXaxisTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -813,7 +816,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         rotationYaxisTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -829,7 +832,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         rotationZaxisTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -850,7 +853,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -871,7 +874,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.ipadx = 80;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -887,7 +890,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         centerLabel.setPreferredSize(new java.awt.Dimension(80, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.ipadx = 48;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -907,7 +910,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -928,7 +931,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -949,7 +952,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -966,7 +969,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         scaleLabel.setPreferredSize(new java.awt.Dimension(80, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.ipadx = 48;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -986,7 +989,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1007,7 +1010,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1028,7 +1031,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1045,7 +1048,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         scaleOrientationLabel.setPreferredSize(new java.awt.Dimension(80, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.ipadx = 48;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -1060,7 +1063,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         scaleOrientationXaxisTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1076,7 +1079,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         scaleOrientationYaxisTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1092,7 +1095,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         scaleOrientationZaxisTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1113,7 +1116,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1134,7 +1137,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.ipadx = 80;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -1144,14 +1147,14 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
         boxbCenterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         boxbCenterLabel.setText("bboxCenter");
-        boxbCenterLabel.setToolTipText("position offset from origin of local coordinate system for collision bounding box");
+        boxbCenterLabel.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         boxbCenterLabel.setMaximumSize(null);
         boxbCenterLabel.setMinimumSize(new java.awt.Dimension(80, 18));
         boxbCenterLabel.setOpaque(true);
         boxbCenterLabel.setPreferredSize(new java.awt.Dimension(80, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.ipadx = 48;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -1160,13 +1163,13 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         add(boxbCenterLabel, gridBagConstraints);
 
         bboxCenterXTF.setColumns(4);
-        bboxCenterXTF.setToolTipText("position offset from origin of local coordinate system for collision bounding box");
+        bboxCenterXTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxCenterXTF.setMaximumSize(null);
         bboxCenterXTF.setMinimumSize(new java.awt.Dimension(50, 18));
         bboxCenterXTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1176,7 +1179,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         add(bboxCenterXTF, gridBagConstraints);
 
         bboxCenterYTF.setColumns(4);
-        bboxCenterYTF.setToolTipText("position offset from origin of local coordinate system for collision bounding box");
+        bboxCenterYTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxCenterYTF.setMaximumSize(null);
         bboxCenterYTF.setMinimumSize(new java.awt.Dimension(50, 18));
         bboxCenterYTF.setPreferredSize(new java.awt.Dimension(50, 18));
@@ -1187,7 +1190,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1197,13 +1200,13 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         add(bboxCenterYTF, gridBagConstraints);
 
         bboxCenterZTF.setColumns(4);
-        bboxCenterZTF.setToolTipText("position offset from origin of local coordinate system for collision bounding box");
+        bboxCenterZTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxCenterZTF.setMaximumSize(null);
         bboxCenterZTF.setMinimumSize(new java.awt.Dimension(50, 18));
         bboxCenterZTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1214,13 +1217,13 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
         bboxSizeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         bboxSizeLabel.setText("bboxSize");
-        bboxSizeLabel.setToolTipText("bounding box is automatically calculated, can also be specified as an optimization or constraint");
+        bboxSizeLabel.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxSizeLabel.setMaximumSize(null);
         bboxSizeLabel.setMinimumSize(new java.awt.Dimension(80, 18));
         bboxSizeLabel.setPreferredSize(new java.awt.Dimension(80, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.ipadx = 48;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -1229,13 +1232,13 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         add(bboxSizeLabel, gridBagConstraints);
 
         bboxSizeXTF.setColumns(4);
-        bboxSizeXTF.setToolTipText("bounding box is automatically calculated, can also be specified as an optimization or constraint");
+        bboxSizeXTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxSizeXTF.setMaximumSize(null);
         bboxSizeXTF.setMinimumSize(new java.awt.Dimension(50, 18));
         bboxSizeXTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1245,13 +1248,13 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         add(bboxSizeXTF, gridBagConstraints);
 
         bboxSizeYTF.setColumns(4);
-        bboxSizeYTF.setToolTipText("bounding box is automatically calculated, can also be specified as an optimization or constraint");
+        bboxSizeYTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxSizeYTF.setMaximumSize(null);
         bboxSizeYTF.setMinimumSize(new java.awt.Dimension(50, 18));
         bboxSizeYTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1261,13 +1264,13 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         add(bboxSizeYTF, gridBagConstraints);
 
         bboxSizeZTF.setColumns(4);
-        bboxSizeZTF.setToolTipText("bounding box is automatically calculated, can also be specified as an optimization or constraint");
+        bboxSizeZTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxSizeZTF.setMaximumSize(null);
         bboxSizeZTF.setMinimumSize(new java.awt.Dimension(50, 18));
         bboxSizeZTF.setPreferredSize(new java.awt.Dimension(50, 18));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1285,7 +1288,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1303,7 +1306,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1319,7 +1322,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1335,12 +1338,54 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(scaleSelectionComboBox, gridBagConstraints);
+
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayLabel, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayCheckBox, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
@@ -1358,7 +1403,7 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1910,6 +1955,8 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     hAnimJoint.setTranslationX(translationXTF.getText().trim());
     hAnimJoint.setTranslationY(translationYTF.getText().trim());
     hAnimJoint.setTranslationZ(translationZTF.getText().trim());
+    hAnimJoint.setVisible    (visibleCheckBox.isSelected());
+    hAnimJoint.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }  
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1918,6 +1965,8 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxCenterXTF;
     private javax.swing.JTextField bboxCenterYTF;
     private javax.swing.JTextField bboxCenterZTF;
+    private javax.swing.JCheckBox bboxDisplayCheckBox;
+    private javax.swing.JLabel bboxDisplayLabel;
     private javax.swing.JLabel bboxSizeLabel;
     private javax.swing.JTextField bboxSizeXTF;
     private javax.swing.JTextField bboxSizeYTF;
@@ -1975,6 +2024,8 @@ public class HANIMJOINTCustomizer extends BaseCustomizer
     private javax.swing.JTextField translationZTF;
     private javax.swing.JLabel ulimitLabel;
     private javax.swing.JTextField ulimitTF;
+    private javax.swing.JCheckBox visibleCheckBox;
+    private javax.swing.JLabel visibleLabel;
     private javax.swing.JLabel xLabel;
     private javax.swing.JLabel yLabel;
     private javax.swing.JLabel zLabel;

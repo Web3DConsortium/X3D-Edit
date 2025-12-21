@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -108,6 +108,9 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
       moiArray[i++].setText(s);
     
     massTF.setText(hAnimSegment.getMass());
+    
+        visibleCheckBox.setSelected(hAnimSegment.isVisible());
+    bboxDisplayCheckBox.setSelected(hAnimSegment.isBboxDisplay());
     bboxCenterTFX.setText(hAnimSegment.getBboxCenterX());
     bboxCenterTFY.setText(hAnimSegment.getBboxCenterY());
     bboxCenterTFZ.setText(hAnimSegment.getBboxCenterZ());
@@ -150,6 +153,40 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jPanel1 = new javax.swing.JPanel();
+        org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel2 = getDEFUSEpanel();
+        nameLabel1 = new javax.swing.JLabel();
+        nameComboBox1 = new javax.swing.JComboBox<>();
+        nameWarningLabel1 = new javax.swing.JLabel();
+        descriptionLabel1 = new javax.swing.JLabel();
+        descriptionTF1 = new javax.swing.JTextField();
+        centerOfMassLabel1 = new javax.swing.JLabel();
+        centerOfMassTFX1 = new javax.swing.JTextField();
+        centerOfMassTFY1 = new javax.swing.JTextField();
+        centerOfMassTFZ1 = new javax.swing.JTextField();
+        massLabel1 = new javax.swing.JLabel();
+        massTF1 = new javax.swing.JTextField();
+        momentsOfInertiaLabel1 = new javax.swing.JLabel();
+        moiTF9 = new javax.swing.JTextField();
+        moiTF10 = new javax.swing.JTextField();
+        moiTF11 = new javax.swing.JTextField();
+        moiTF12 = new javax.swing.JTextField();
+        moiTF13 = new javax.swing.JTextField();
+        moiTF14 = new javax.swing.JTextField();
+        moiTF15 = new javax.swing.JTextField();
+        moiTF16 = new javax.swing.JTextField();
+        moiTF17 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        bboxCenterTFX1 = new javax.swing.JTextField();
+        bboxCenterTFY1 = new javax.swing.JTextField();
+        bboxCenterTFZ1 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        bboxSizeTFX1 = new javax.swing.JTextField();
+        bboxSizeTFY1 = new javax.swing.JTextField();
+        bboxSizeTFZ1 = new javax.swing.JTextField();
+        nodeHintPanel1 = new javax.swing.JPanel();
+        hintLabel1 = new javax.swing.JLabel();
+        spacerLabel1 = new javax.swing.JLabel();
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
         nameLabel = new javax.swing.JLabel();
         nameComboBox = new javax.swing.JComboBox<>();
@@ -180,11 +217,354 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         bboxSizeTFX = new javax.swing.JTextField();
         bboxSizeTFY = new javax.swing.JTextField();
         bboxSizeTFZ = new javax.swing.JTextField();
+        visibleLabel = new javax.swing.JLabel();
+        visibleCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayLabel = new javax.swing.JLabel();
+        bboxDisplayCheckBox = new javax.swing.JCheckBox();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
         spacerLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(640, 500));
+        jPanel1.setPreferredSize(new java.awt.Dimension(640, 500));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        dEFUSEpanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dEFUSEpanel2MouseClicked(evt);
+            }
+        });
+        dEFUSEpanel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dEFUSEpanel2KeyReleased(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(dEFUSEpanel2, gridBagConstraints);
+
+        nameLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        nameLabel1.setText("name");
+        nameLabel1.setToolTipText("Unique name attribute must be defined so that HAnimSegment node can be identified at runtime for animation purposes");
+        nameLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                nameLabel1MouseEntered(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(nameLabel1, gridBagConstraints);
+
+        nameComboBox1.setEditable(true);
+        nameComboBox1.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        nameComboBox1.setModel(new DefaultComboBoxModel<String>(HANIMSEGMENT_NAME_CHOICES));
+        nameComboBox1.setToolTipText("select HAnimSegment name");
+        nameComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                nameComboBox1ItemStateChanged(evt);
+            }
+        });
+        nameComboBox1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nameComboBox1FocusGained(evt);
+            }
+        });
+        nameComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                nameComboBox1MouseEntered(evt);
+            }
+        });
+        nameComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameComboBox1ActionPerformed(evt);
+            }
+        });
+        nameComboBox1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nameComboBox1KeyReleased(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(nameComboBox1, gridBagConstraints);
+
+        nameWarningLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        nameWarningLabel1.setText("name must have a legal value. no name attribute is allowed for USE nodes.");
+        nameWarningLabel1.setToolTipText("HAnim has strict rules for name and DEF");
+        nameWarningLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                nameWarningLabel1MouseEntered(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(nameWarningLabel1, gridBagConstraints);
+
+        descriptionLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        descriptionLabel1.setText("description");
+        descriptionLabel1.setToolTipText("Text description to be displayed for action of this node");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(descriptionLabel1, gridBagConstraints);
+
+        descriptionTF1.setForeground(new java.awt.Color(0, 153, 153));
+        descriptionTF1.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
+        descriptionTF1.setMinimumSize(new java.awt.Dimension(50, 20));
+        descriptionTF1.setPreferredSize(new java.awt.Dimension(50, 20));
+        descriptionTF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionTF1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(descriptionTF1, gridBagConstraints);
+
+        centerOfMassLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        centerOfMassLabel1.setText("centerOfMass");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(centerOfMassLabel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(centerOfMassTFX1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(centerOfMassTFY1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(centerOfMassTFZ1, gridBagConstraints);
+
+        massLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        massLabel1.setText("mass");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(massLabel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(massTF1, gridBagConstraints);
+
+        momentsOfInertiaLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        momentsOfInertiaLabel1.setText("momentsOfInertia");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(momentsOfInertiaLabel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(moiTF9, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(moiTF10, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(moiTF11, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(moiTF12, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(moiTF13, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(moiTF14, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(moiTF15, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(moiTF16, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(moiTF17, gridBagConstraints);
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel9.setText("bboxCenter");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(jLabel9, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(bboxCenterTFX1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(bboxCenterTFY1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(bboxCenterTFZ1, gridBagConstraints);
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel10.setText("bboxSize");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(jLabel10, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(bboxSizeTFX1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(bboxSizeTFY1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.25;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(bboxSizeTFZ1, gridBagConstraints);
+
+        nodeHintPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel1.setPreferredSize(new java.awt.Dimension(625, 110));
+        nodeHintPanel1.setLayout(new java.awt.GridBagLayout());
+
+        hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel1.setText("<html> <p align=\"center\"><b>HAnimSegment</b> holds Shape geometry for each body segment, showing a visual representation of a skeleton.  \n Parent/child translation and rotation relationships are defined in ancestor/descendant <b>HAnimJoint</b> nodes. </p>   \n <br />   \n<p align=\"center\"><b>HAnimSegment</b> contains <b>Coordinate</b> (or <b>CoordinateDouble</b>) with containerField='coord', also can hold\n <br />\ngrouping nodes or <b>Shape</b> with containerField='children'  and <b>HAnimDisplacer</b> with containerField='displacers'. </p>");
+        hintLabel1.setToolTipText("close this panel to add children nodes");
+        hintLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        hintLabel1.setMaximumSize(new java.awt.Dimension(2147483647, 1666666));
+        hintLabel1.setMinimumSize(new java.awt.Dimension(28, 16));
+        hintLabel1.setPreferredSize(new java.awt.Dimension(600, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        nodeHintPanel1.add(hintLabel1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(nodeHintPanel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridheight = 7;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel1.add(spacerLabel1, gridBagConstraints);
+
+        setMinimumSize(new java.awt.Dimension(640, 550));
+        setPreferredSize(new java.awt.Dimension(640, 550));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -276,7 +656,6 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameWarningLabel, gridBagConstraints);
 
-        descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         descriptionLabel.setText("description");
         descriptionLabel.setToolTipText("Text description to be displayed for action of this node");
@@ -427,29 +806,36 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel7.setText("bboxCenter");
+        jLabel7.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel7, gridBagConstraints);
+
+        bboxCenterTFX.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterTFX, gridBagConstraints);
+
+        bboxCenterTFY.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterTFY, gridBagConstraints);
+
+        bboxCenterTFZ.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -457,33 +843,82 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel8.setText("bboxSize");
+        jLabel8.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel8, gridBagConstraints);
+
+        bboxSizeTFX.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeTFX, gridBagConstraints);
+
+        bboxSizeTFY.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeTFY, gridBagConstraints);
+
+        bboxSizeTFZ.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeTFZ, gridBagConstraints);
+
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayLabel, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayCheckBox, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setPreferredSize(new java.awt.Dimension(625, 110));
@@ -507,7 +942,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -516,7 +951,7 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridheight = 7;
+        gridBagConstraints.gridheight = 9;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -579,6 +1014,46 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
         setDefaultDEFname ();
         checkNameDefMatchRules();
     }//GEN-LAST:event_dEFUSEpanel1MouseClicked
+
+    private void dEFUSEpanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dEFUSEpanel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dEFUSEpanel2MouseClicked
+
+    private void dEFUSEpanel2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dEFUSEpanel2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dEFUSEpanel2KeyReleased
+
+    private void nameLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameLabel1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameLabel1MouseEntered
+
+    private void nameComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nameComboBox1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameComboBox1ItemStateChanged
+
+    private void nameComboBox1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameComboBox1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameComboBox1FocusGained
+
+    private void nameComboBox1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameComboBox1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameComboBox1MouseEntered
+
+    private void nameComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameComboBox1ActionPerformed
+
+    private void nameComboBox1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameComboBox1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameComboBox1KeyReleased
+
+    private void nameWarningLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameWarningLabel1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameWarningLabel1MouseEntered
+
+    private void descriptionTF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTF1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descriptionTF1ActionPerformed
 
   @Override
   public String getNameKey()
@@ -673,29 +1148,59 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
     hAnimSegment.setBboxSizeX(bboxSizeTFX.getText().trim());
     hAnimSegment.setBboxSizeY(bboxSizeTFY.getText().trim());
     hAnimSegment.setBboxSizeZ(bboxSizeTFZ.getText().trim());
+    hAnimSegment.setVisible    (visibleCheckBox.isSelected());
+    hAnimSegment.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bboxCenterTFX;
+    private javax.swing.JTextField bboxCenterTFX1;
     private javax.swing.JTextField bboxCenterTFY;
+    private javax.swing.JTextField bboxCenterTFY1;
     private javax.swing.JTextField bboxCenterTFZ;
+    private javax.swing.JTextField bboxCenterTFZ1;
+    private javax.swing.JCheckBox bboxDisplayCheckBox;
+    private javax.swing.JLabel bboxDisplayLabel;
     private javax.swing.JTextField bboxSizeTFX;
+    private javax.swing.JTextField bboxSizeTFX1;
     private javax.swing.JTextField bboxSizeTFY;
+    private javax.swing.JTextField bboxSizeTFY1;
     private javax.swing.JTextField bboxSizeTFZ;
+    private javax.swing.JTextField bboxSizeTFZ1;
     private javax.swing.JLabel centerOfMassLabel;
+    private javax.swing.JLabel centerOfMassLabel1;
     private javax.swing.JTextField centerOfMassTFX;
+    private javax.swing.JTextField centerOfMassTFX1;
     private javax.swing.JTextField centerOfMassTFY;
+    private javax.swing.JTextField centerOfMassTFY1;
     private javax.swing.JTextField centerOfMassTFZ;
+    private javax.swing.JTextField centerOfMassTFZ1;
     private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JLabel descriptionLabel1;
     private javax.swing.JTextField descriptionTF;
+    private javax.swing.JTextField descriptionTF1;
     private javax.swing.JLabel hintLabel;
+    private javax.swing.JLabel hintLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel massLabel;
+    private javax.swing.JLabel massLabel1;
     private javax.swing.JTextField massTF;
+    private javax.swing.JTextField massTF1;
     private javax.swing.JTextField moiTF0;
     private javax.swing.JTextField moiTF1;
+    private javax.swing.JTextField moiTF10;
+    private javax.swing.JTextField moiTF11;
+    private javax.swing.JTextField moiTF12;
+    private javax.swing.JTextField moiTF13;
+    private javax.swing.JTextField moiTF14;
+    private javax.swing.JTextField moiTF15;
+    private javax.swing.JTextField moiTF16;
+    private javax.swing.JTextField moiTF17;
     private javax.swing.JTextField moiTF2;
     private javax.swing.JTextField moiTF3;
     private javax.swing.JTextField moiTF4;
@@ -703,12 +1208,21 @@ public class HANIMSEGMENTCustomizer extends BaseCustomizer
     private javax.swing.JTextField moiTF6;
     private javax.swing.JTextField moiTF7;
     private javax.swing.JTextField moiTF8;
+    private javax.swing.JTextField moiTF9;
     private javax.swing.JLabel momentsOfInertiaLabel;
+    private javax.swing.JLabel momentsOfInertiaLabel1;
     private javax.swing.JComboBox<String> nameComboBox;
+    private javax.swing.JComboBox<String> nameComboBox1;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nameLabel1;
     private javax.swing.JLabel nameWarningLabel;
+    private javax.swing.JLabel nameWarningLabel1;
     private javax.swing.JPanel nodeHintPanel;
+    private javax.swing.JPanel nodeHintPanel1;
     private javax.swing.JLabel spacerLabel;
+    private javax.swing.JLabel spacerLabel1;
+    private javax.swing.JCheckBox visibleCheckBox;
+    private javax.swing.JLabel visibleLabel;
     // End of variables declaration//GEN-END:variables
 
 }

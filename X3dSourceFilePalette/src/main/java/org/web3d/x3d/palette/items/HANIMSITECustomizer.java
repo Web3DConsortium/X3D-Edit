@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -71,19 +71,19 @@ public class HANIMSITECustomizer extends BaseCustomizer
   
     /**
      * Creates new form HANIMSITECustomizer
-     * @param site data of interest
+     * @param hanimSite data of interest
      * @param target Swing component of interest
      */
-    public HANIMSITECustomizer(HANIMSITE site, JTextComponent target)
+    public HANIMSITECustomizer(HANIMSITE hanimSite, JTextComponent target)
   {
-    super(site);
-    hAnimSite = site;
+    super(hanimSite);
+    hAnimSite = hanimSite;
     this.target = target;
     
     HelpCtx.setHelpIDString(HANIMSITECustomizer.this, "HANIMSITE_ELEM_HELPID");
 
-    site.setVisualizationSelectionAvailable(true); // must precede initComponents() interface initialization
-    site.setVisualizationTooltip("Show center axes, add wireframe Box and axes to show boundingBox center and size (if defined)");
+    hanimSite.setVisualizationSelectionAvailable(true); // must precede initComponents() interface initialization
+    hanimSite.setVisualizationTooltip("Show center axes, add wireframe Box and axes to show boundingBox center and size (if defined)");
     
     initComponents();
     
@@ -103,41 +103,43 @@ public class HANIMSITECustomizer extends BaseCustomizer
          centerModificationComboBox.setBackground(this.getBackground());
              scaleSelectionComboBox.setBackground(this.getBackground());
     
-    nameComboBox.setSelectedItem(site.getName());
+    nameComboBox.setSelectedItem(hanimSite.getName());
 
-    centerXTF.setText(site.getCenterX());
-    centerYTF.setText(site.getCenterY());
-    centerZTF.setText(site.getCenterZ());
+    centerXTF.setText(hanimSite.getCenterX());
+    centerYTF.setText(hanimSite.getCenterY());
+    centerZTF.setText(hanimSite.getCenterZ());
     
-    bboxCenterTFX.setText(site.getBboxCenterX());
-    bboxCenterTFY.setText(site.getBboxCenterY());
-    bboxCenterTFZ.setText(site.getBboxCenterZ());
-    bboxSizeTFX.setText(site.getBboxSizeX());
-    bboxSizeTFY.setText(site.getBboxSizeY());
-    bboxSizeTFZ.setText(site.getBboxSizeZ());
+        visibleCheckBox.setSelected(hanimSite.isVisible());
+    bboxDisplayCheckBox.setSelected(hanimSite.isBboxDisplay());
+    bboxCenterTFX.setText(hanimSite.getBboxCenterX());
+    bboxCenterTFY.setText(hanimSite.getBboxCenterY());
+    bboxCenterTFZ.setText(hanimSite.getBboxCenterZ());
+    bboxSizeTFX.setText(hanimSite.getBboxSizeX());
+    bboxSizeTFY.setText(hanimSite.getBboxSizeY());
+    bboxSizeTFZ.setText(hanimSite.getBboxSizeZ());
     
-    rotationXaxisTF.setText(site.getRotationX());
-    rotationYaxisTF.setText(site.getRotationY());
-    rotationZaxisTF.setText(site.getRotationZ());
-    rotationAngleTF.setText(site.getRotationAngle());
-    scaleOrientationXaxisTF.setText(site.getScaleOrientationX());
-    scaleOrientationYaxisTF.setText(site.getScaleOrientationY());
-    scaleOrientationZaxisTF.setText(site.getScaleOrientationZ());
-    scaleOrientationAngleTF.setText(site.getScaleOrientationAngle());
+    rotationXaxisTF.setText(hanimSite.getRotationX());
+    rotationYaxisTF.setText(hanimSite.getRotationY());
+    rotationZaxisTF.setText(hanimSite.getRotationZ());
+    rotationAngleTF.setText(hanimSite.getRotationAngle());
+    scaleOrientationXaxisTF.setText(hanimSite.getScaleOrientationX());
+    scaleOrientationYaxisTF.setText(hanimSite.getScaleOrientationY());
+    scaleOrientationZaxisTF.setText(hanimSite.getScaleOrientationZ());
+    scaleOrientationAngleTF.setText(hanimSite.getScaleOrientationAngle());
     
-    scaleXTF.setText(site.getScaleX());
-    scaleYTF.setText(site.getScaleY());
-    scaleZTF.setText(site.getScaleZ());
-    translationXTF.setText(site.getTranslationX());
-    translationYTF.setText(site.getTranslationY());
-    translationZTF.setText(site.getTranslationZ());
+    scaleXTF.setText(hanimSite.getScaleX());
+    scaleYTF.setText(hanimSite.getScaleY());
+    scaleZTF.setText(hanimSite.getScaleZ());
+    translationXTF.setText(hanimSite.getTranslationX());
+    translationYTF.setText(hanimSite.getTranslationY());
+    translationZTF.setText(hanimSite.getTranslationZ());
     
-    translationXoriginal = site.getTranslationX();
-    translationYoriginal = site.getTranslationY();
-    translationZoriginal = site.getTranslationZ();
-         centerXoriginal = site.getCenterX();
-         centerYoriginal = site.getCenterY();
-         centerZoriginal = site.getCenterZ();
+    translationXoriginal = hanimSite.getTranslationX();
+    translationYoriginal = hanimSite.getTranslationY();
+    translationZoriginal = hanimSite.getTranslationZ();
+         centerXoriginal = hanimSite.getCenterX();
+         centerYoriginal = hanimSite.getCenterY();
+         centerZoriginal = hanimSite.getCenterZ();
 
     checkAngles (false);
     
@@ -216,6 +218,10 @@ public class HANIMSITECustomizer extends BaseCustomizer
         scaleOrientationAngleTF = new javax.swing.JTextField();
         scaleOrientationCalculatorlButton = new javax.swing.JButton();
         normalizeRotationValuesButton = new javax.swing.JButton();
+        visibleLabel = new javax.swing.JLabel();
+        visibleCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayLabel = new javax.swing.JLabel();
         bboxCenterLabel = new javax.swing.JLabel();
         bboxCenterTFX = new javax.swing.JTextField();
         bboxCenterTFY = new javax.swing.JTextField();
@@ -229,7 +235,8 @@ public class HANIMSITECustomizer extends BaseCustomizer
         spacerLabel2 = new javax.swing.JLabel();
         spacerLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(600, 500));
+        setMinimumSize(new java.awt.Dimension(600, 570));
+        setPreferredSize(new java.awt.Dimension(600, 570));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -340,7 +347,6 @@ public class HANIMSITECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameWarningLabel2, gridBagConstraints);
 
-        descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         descriptionLabel.setText("description");
         descriptionLabel.setToolTipText("Text description to be displayed for action of this node");
@@ -721,31 +727,80 @@ public class HANIMSITECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         add(normalizeRotationValuesButton, gridBagConstraints);
 
-        bboxCenterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        bboxCenterLabel.setText("bboxCenter");
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(bboxCenterLabel, gridBagConstraints);
+        add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleCheckBox, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayLabel, gridBagConstraints);
+
+        bboxCenterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        bboxCenterLabel.setText("bboxCenter");
+        bboxCenterLabel.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxCenterLabel, gridBagConstraints);
+
+        bboxCenterTFX.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterTFX, gridBagConstraints);
+
+        bboxCenterTFY.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterTFY, gridBagConstraints);
+
+        bboxCenterTFZ.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -753,29 +808,36 @@ public class HANIMSITECustomizer extends BaseCustomizer
 
         bboxSizeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         bboxSizeLabel.setText("bboxSize");
+        bboxSizeLabel.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeLabel, gridBagConstraints);
+
+        bboxSizeTFX.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeTFX, gridBagConstraints);
+
+        bboxSizeTFY.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeTFY, gridBagConstraints);
+
+        bboxSizeTFZ.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -797,7 +859,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -805,7 +867,7 @@ public class HANIMSITECustomizer extends BaseCustomizer
         add(nodeHintPanel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1262,6 +1324,8 @@ public class HANIMSITECustomizer extends BaseCustomizer
     hAnimSite.setTranslationX(translationXTF.getText().trim());
     hAnimSite.setTranslationY(translationYTF.getText().trim());
     hAnimSite.setTranslationZ(translationZTF.getText().trim());
+    hAnimSite.setVisible    (visibleCheckBox.isSelected());
+    hAnimSite.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }
   
   
@@ -1272,6 +1336,8 @@ public class HANIMSITECustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxCenterTFX;
     private javax.swing.JTextField bboxCenterTFY;
     private javax.swing.JTextField bboxCenterTFZ;
+    private javax.swing.JCheckBox bboxDisplayCheckBox;
+    private javax.swing.JLabel bboxDisplayLabel;
     private javax.swing.JLabel bboxSizeLabel;
     private javax.swing.JTextField bboxSizeTFX;
     private javax.swing.JTextField bboxSizeTFY;
@@ -1315,6 +1381,8 @@ public class HANIMSITECustomizer extends BaseCustomizer
     private javax.swing.JTextField translationXTF;
     private javax.swing.JTextField translationYTF;
     private javax.swing.JTextField translationZTF;
+    private javax.swing.JCheckBox visibleCheckBox;
+    private javax.swing.JLabel visibleLabel;
     private javax.swing.JLabel xLabel;
     private javax.swing.JLabel yLabel;
     private javax.swing.JLabel zLabel;

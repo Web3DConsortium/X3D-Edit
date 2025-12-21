@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -65,6 +65,8 @@ public class HANIMHUMANOID extends X3DTransformNode
   private SFFloat[][] jointBindingRotations;
   private SFFloat[][] jointBindingScales;
   private boolean     insertCommas, insertLineBreaks = false;
+  private boolean     visible,         visibleDefault;
+  private boolean     bboxDisplay, bboxDisplayDefault;
   
 
   public HANIMHUMANOID()
@@ -145,6 +147,9 @@ public class HANIMHUMANOID extends X3DTransformNode
     else
       sa = parseX(HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_DFLT);
     jointBindingScales = parseToSFFloatTable(sa,3); 
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(HANIMHUMANOID_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(HANIMHUMANOID_ATTR_BBOXDISPLAY_DFLT));
 
 //    if (getContent().length() == 0)
 //        setContent("\n\t\t<!--TODO add child HAnimJoint, HAnimSegment, HAnimSite, Coordinate/CoordinateDouble, Normal, and Viewpoint nodes here -->\n\t");
@@ -260,6 +265,12 @@ public class HANIMHUMANOID extends X3DTransformNode
           attr.getValue().contains("\r")) insertLineBreaks = true; // TODO not working, line breaks not being passed from JDOM
       if (insertCommas)                   insertLineBreaks = true; // workaround default, if commas were present then most likely lineBreaks also
     }
+    attr = root.getAttribute(HANIMHUMANOID_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(HANIMHUMANOID_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
   }
   @Override
   public String createAttributes()
@@ -275,6 +286,13 @@ public class HANIMHUMANOID extends X3DTransformNode
       sb.append(bboxCenterY);
       sb.append(" ");
       sb.append(bboxCenterZ);
+      sb.append("'");
+    }
+    if (HANIMHUMANOID_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(HANIMHUMANOID_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
       sb.append("'");
     }
     if (HANIMHUMANOID_ATTR_BBOXSIZE_REQD || (!bboxSizeX.equals(bboxSizeXDefault) || !bboxSizeY.equals(bboxSizeYDefault) || !bboxSizeZ.equals(bboxSizeZDefault) )) {
@@ -409,6 +427,13 @@ public class HANIMHUMANOID extends X3DTransformNode
       sb.append(HANIMHUMANOID_ATTR_JOINTBINDINGSCALES_NAME);
       sb.append("='");
       sb.append(formatFloatArray(getJointBindingScales(), insertCommas, insertLineBreaks));
+      sb.append("'");
+    }
+    if (HANIMHUMANOID_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(HANIMHUMANOID_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
 
@@ -560,5 +585,33 @@ public class HANIMHUMANOID extends X3DTransformNode
      */
     public void setInsertLineBreaks(boolean insertLineBreaks) {
         this.insertLineBreaks = insertLineBreaks;
+    }
+
+    /**
+     * @return the visible
+     */
+    public boolean isVisible() {
+        return visible;
+    }
+
+    /**
+     * @param visible the visible to set
+     */
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    /**
+     * @return the bboxDisplay
+     */
+    public boolean isBboxDisplay() {
+        return bboxDisplay;
+    }
+
+    /**
+     * @param bboxDisplay the bboxDisplay to set
+     */
+    public void setBboxDisplay(boolean bboxDisplay) {
+        this.bboxDisplay = bboxDisplay;
     }
 }

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -75,6 +75,9 @@ public class CADFACECustomizer extends BaseCustomizer
     bboxSizeXTF.setText(cadFace.getBboxSizeX());
     bboxSizeYTF.setText(cadFace.getBboxSizeY());
     bboxSizeZTF.setText(cadFace.getBboxSizeZ());
+    
+        visibleCheckBox.setSelected(cadFace.isVisible());
+    bboxDisplayCheckBox.setSelected(cadFace.isBboxDisplay());
 
     setDefaultDEFname ();
     
@@ -100,19 +103,25 @@ public class CADFACECustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
-        jLabel5 = new javax.swing.JLabel();
+        bboxCenterLabel = new javax.swing.JLabel();
         bboxCenter0TF = new javax.swing.JTextField();
         bboxCenter1TF = new javax.swing.JTextField();
         bboxCenter2TF = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        bboxSizeLabel = new javax.swing.JLabel();
         bboxSizeXTF = new javax.swing.JTextField();
         bboxSizeYTF = new javax.swing.JTextField();
         bboxSizeZTF = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
+        visibleLabel = new javax.swing.JLabel();
+        visibleCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayLabel = new javax.swing.JLabel();
+        bboxDisplayCheckBox = new javax.swing.JCheckBox();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(670, 310));
+        setPreferredSize(new java.awt.Dimension(670, 310));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -124,22 +133,22 @@ public class CADFACECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel5.setText("bboxCenter");
-        jLabel5.setToolTipText("position offset from origin of local coordinate system for collision bounding box");
-        jLabel5.setMinimumSize(new java.awt.Dimension(80, 16));
-        jLabel5.setPreferredSize(new java.awt.Dimension(80, 16));
+        bboxCenterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        bboxCenterLabel.setText("bboxCenter");
+        bboxCenterLabel.setToolTipText("position offset from origin of local coordinate system for collision bounding box");
+        bboxCenterLabel.setMinimumSize(new java.awt.Dimension(80, 16));
+        bboxCenterLabel.setPreferredSize(new java.awt.Dimension(80, 16));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel5, gridBagConstraints);
+        add(bboxCenterLabel, gridBagConstraints);
 
         bboxCenter0TF.setToolTipText("position offset from origin of local coordinate system for collision bounding box");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -150,7 +159,7 @@ public class CADFACECustomizer extends BaseCustomizer
         bboxCenter1TF.setToolTipText("position offset from origin of local coordinate system for collision bounding box");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -161,7 +170,7 @@ public class CADFACECustomizer extends BaseCustomizer
         bboxCenter2TF.setToolTipText("position offset from origin of local coordinate system for collision bounding box");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -169,18 +178,17 @@ public class CADFACECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenter2TF, gridBagConstraints);
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel6.setText("bboxSize");
-        jLabel6.setToolTipText("bounding box is automatically calculated, can also be specified as an optimization or constraint");
-        jLabel6.setMinimumSize(new java.awt.Dimension(80, 16));
-        jLabel6.setPreferredSize(new java.awt.Dimension(80, 16));
+        bboxSizeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        bboxSizeLabel.setText("bboxSize");
+        bboxSizeLabel.setToolTipText("bounding box is automatically calculated, can also be specified as an optimization or constraint");
+        bboxSizeLabel.setMinimumSize(new java.awt.Dimension(80, 16));
+        bboxSizeLabel.setPreferredSize(new java.awt.Dimension(80, 16));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel6, gridBagConstraints);
+        add(bboxSizeLabel, gridBagConstraints);
 
         bboxSizeXTF.setToolTipText("bounding box is automatically calculated, can also be specified as an optimization or constraint");
         bboxSizeXTF.addActionListener(new java.awt.event.ActionListener() {
@@ -190,8 +198,7 @@ public class CADFACECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -207,8 +214,7 @@ public class CADFACECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -224,8 +230,7 @@ public class CADFACECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 120;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -233,17 +238,17 @@ public class CADFACECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeZTF, gridBagConstraints);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel1.setText("name");
-        jLabel1.setToolTipText("name of this particular CADFace instance");
-        jLabel1.setMinimumSize(new java.awt.Dimension(80, 16));
-        jLabel1.setPreferredSize(new java.awt.Dimension(80, 16));
+        nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        nameLabel.setText("name");
+        nameLabel.setToolTipText("name of this particular CADFace instance");
+        nameLabel.setMinimumSize(new java.awt.Dimension(80, 16));
+        nameLabel.setPreferredSize(new java.awt.Dimension(80, 16));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel1, gridBagConstraints);
+        add(nameLabel, gridBagConstraints);
 
         nameTextField.setToolTipText("name of this particular CADFace instance");
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -259,6 +264,48 @@ public class CADFACECustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nameTextField, gridBagConstraints);
+
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayLabel, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayCheckBox, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
@@ -276,8 +323,8 @@ public class CADFACECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -305,16 +352,20 @@ public class CADFACECustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxCenter0TF;
     private javax.swing.JTextField bboxCenter1TF;
     private javax.swing.JTextField bboxCenter2TF;
+    private javax.swing.JLabel bboxCenterLabel;
+    private javax.swing.JCheckBox bboxDisplayCheckBox;
+    private javax.swing.JLabel bboxDisplayLabel;
+    private javax.swing.JLabel bboxSizeLabel;
     private javax.swing.JTextField bboxSizeXTF;
     private javax.swing.JTextField bboxSizeYTF;
     private javax.swing.JTextField bboxSizeZTF;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JLabel hintLabel1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JPanel nodeHintPanel;
+    private javax.swing.JCheckBox visibleCheckBox;
+    private javax.swing.JLabel visibleLabel;
     // End of variables declaration//GEN-END:variables
 
   @Override
@@ -334,5 +385,7 @@ public class CADFACECustomizer extends BaseCustomizer
     cadFace.setBboxSizeX(bboxSizeXTF.getText().trim());
     cadFace.setBboxSizeY(bboxSizeYTF.getText().trim());
     cadFace.setBboxSizeZ(bboxSizeZTF.getText().trim());
+    cadFace.setVisible    (visibleCheckBox.isSelected());
+    cadFace.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }   
 }

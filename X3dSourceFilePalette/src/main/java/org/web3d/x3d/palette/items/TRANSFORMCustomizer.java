@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -88,6 +88,8 @@ public class TRANSFORMCustomizer extends BaseCustomizer
     super.getDEFUSEpanel().setContainerField(transform.getContainerField()); // reset value to match updated JComboBox data model
     // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
+        visibleCheckBox.setSelected(transform.isVisible());
+    bboxDisplayCheckBox.setSelected(transform.isBboxDisplay());
     bboxCenterXTF.setText(transform.getBboxCenterX());
     bboxCenterYTF.setText(transform.getBboxCenterY());
     bboxCenterZTF.setText(transform.getBboxCenterZ());
@@ -175,12 +177,16 @@ public class TRANSFORMCustomizer extends BaseCustomizer
         centerModificationComboBox = new javax.swing.JComboBox<>();
         scaleSelectionComboBox = new javax.swing.JComboBox<>();
         rotationCalculatorlButton = new javax.swing.JButton();
+        scaleOrientationCalculatorlButton = new javax.swing.JButton();
+        visibleLabel = new javax.swing.JLabel();
+        visibleCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayLabel = new javax.swing.JLabel();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
-        scaleOrientationCalculatorlButton = new javax.swing.JButton();
 
-        setMinimumSize(new java.awt.Dimension(610, 450));
-        setPreferredSize(new java.awt.Dimension(625, 460));
+        setMinimumSize(new java.awt.Dimension(610, 510));
+        setPreferredSize(new java.awt.Dimension(625, 510));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -469,66 +475,66 @@ public class TRANSFORMCustomizer extends BaseCustomizer
         add(scaleOrientationAngleTF, gridBagConstraints);
 
         bboxCenterXTF.setColumns(4);
-        bboxCenterXTF.setToolTipText("hint to browser: position offset from origin of local coordinate system for collision bounding box");
+        bboxCenterXTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxCenterXTF.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterXTF, gridBagConstraints);
 
         bboxCenterYTF.setColumns(4);
-        bboxCenterYTF.setToolTipText("hint to browser: position offset from origin of local coordinate system for collision bounding box");
+        bboxCenterYTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxCenterYTF.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterYTF, gridBagConstraints);
 
         bboxCenterZTF.setColumns(4);
-        bboxCenterZTF.setToolTipText("hint to browser: position offset from origin of local coordinate system for collision bounding box");
+        bboxCenterZTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxCenterZTF.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterZTF, gridBagConstraints);
 
         bboxSizeXTF.setColumns(4);
-        bboxSizeXTF.setToolTipText("hint to browser: bounding box is automatically calculated, can also be specified as an optimization or constraint");
+        bboxSizeXTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxSizeXTF.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeXTF, gridBagConstraints);
 
         bboxSizeYTF.setColumns(4);
-        bboxSizeYTF.setToolTipText("hint to browser: bounding box is automatically calculated, can also be specified as an optimization or constraint");
+        bboxSizeYTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxSizeYTF.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeYTF, gridBagConstraints);
 
         bboxSizeZTF.setColumns(4);
-        bboxSizeZTF.setToolTipText("hint to browser: bounding box is automatically calculated, can also be specified as an optimization or constraint");
+        bboxSizeZTF.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxSizeZTF.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -559,19 +565,19 @@ public class TRANSFORMCustomizer extends BaseCustomizer
         add(scaleOrientationLab, gridBagConstraints);
 
         bboxSizeLab.setText("bboxSize");
-        bboxSizeLab.setToolTipText("hint to browser: bounding box is automatically calculated, can also be specified as an optimization or constraint");
+        bboxSizeLab.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeLab, gridBagConstraints);
 
         bboxCenterLab.setText("bboxCenter");
-        bboxCenterLab.setToolTipText("hint to browser: position offset from origin of local coordinate system for collision bounding box");
+        bboxCenterLab.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxCenterLab, gridBagConstraints);
@@ -681,29 +687,6 @@ public class TRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rotationCalculatorlButton, gridBagConstraints);
 
-        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
-
-        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align='center'><b>Transform</b> is a Grouping node that can contain most nodes. </p>  <br /><p align='center'><b>Transform</b>  translates, orients and scales child geometry within the local world coordinate system.  <br />Each transformation creates a new coordinate system relative to the parent coordinate system.</p>");
-        hintLabel.setToolTipText("close this panel to add children nodes");
-        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        nodeHintPanel.add(hintLabel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(8, 3, 3, 3);
-        add(nodeHintPanel, gridBagConstraints);
-
         scaleOrientationCalculatorlButton.setText("calculator");
         scaleOrientationCalculatorlButton.setToolTipText("launch geoSystem panel");
         scaleOrientationCalculatorlButton.setMaximumSize(new java.awt.Dimension(80, 22));
@@ -721,6 +704,71 @@ public class TRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(scaleOrientationCalculatorlButton, gridBagConstraints);
+
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleCheckBox, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayLabel, gridBagConstraints);
+
+        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align='center'><b>Transform</b> is a Grouping node that can contain most nodes. </p>  <br /><p align='center'><b>Transform</b>  translates, orients and scales child geometry within the local world coordinate system.  <br />Each transformation creates a new coordinate system relative to the parent coordinate system.</p>");
+        hintLabel.setToolTipText("close this panel to add children nodes");
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        nodeHintPanel.add(hintLabel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(8, 3, 3, 3);
+        add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void normalizeRotationValuesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_normalizeRotationValuesButtonActionPerformed
@@ -962,6 +1010,8 @@ public class TRANSFORMCustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxCenterXTF;
     private javax.swing.JTextField bboxCenterYTF;
     private javax.swing.JTextField bboxCenterZTF;
+    private javax.swing.JCheckBox bboxDisplayCheckBox;
+    private javax.swing.JLabel bboxDisplayLabel;
     private javax.swing.JLabel bboxSizeLab;
     private javax.swing.JTextField bboxSizeXTF;
     private javax.swing.JTextField bboxSizeYTF;
@@ -998,6 +1048,8 @@ public class TRANSFORMCustomizer extends BaseCustomizer
     private javax.swing.JTextField translationXTF;
     private javax.swing.JTextField translationYTF;
     private javax.swing.JTextField translationZTF;
+    private javax.swing.JCheckBox visibleCheckBox;
+    private javax.swing.JLabel visibleLabel;
     private javax.swing.JLabel xLabel;
     private javax.swing.JLabel yLabel;
     private javax.swing.JLabel zLabel;
@@ -1082,5 +1134,7 @@ public class TRANSFORMCustomizer extends BaseCustomizer
     transform.setTranslationX(translationXTF.getText().trim());
     transform.setTranslationY(translationYTF.getText().trim());
     transform.setTranslationZ(translationZTF.getText().trim());
+    transform.setVisible    (visibleCheckBox.isSelected());
+    transform.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }   
 }

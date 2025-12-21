@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -53,8 +53,10 @@ import org.web3d.x3d.types.X3DTransformNode;
  */
 public class HANIMSITE extends X3DTransformNode
 {
-  private String description;
-  private String  name;  
+  private String   description;
+  private String   name;  
+  private boolean  visible,         visibleDefault;
+  private boolean  bboxDisplay, bboxDisplayDefault;
 
   public HANIMSITE()
   {    
@@ -109,6 +111,9 @@ public class HANIMSITE extends X3DTransformNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(sa[0]);
     bboxSizeY = bboxSizeYDefault = new SFFloat(sa[1]);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(sa[2]);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(HANIMHUMANOID_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(HANIMHUMANOID_ATTR_BBOXDISPLAY_DFLT));
 
 //    if (getContent().trim().isEmpty()) // if there, don't clobber visualization
 //    {
@@ -180,6 +185,12 @@ public class HANIMSITE extends X3DTransformNode
       bboxSizeY = new SFFloat(sa[1]);
       bboxSizeZ = new SFFloat(sa[2]);
     }    
+    attr = root.getAttribute(HANIMSITE_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(HANIMSITE_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
   }
   
   @Override
@@ -196,6 +207,13 @@ public class HANIMSITE extends X3DTransformNode
       sb.append(bboxCenterY);
       sb.append(" ");
       sb.append(bboxCenterZ);
+      sb.append("'");
+    }
+    if (HANIMSITE_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(HANIMSITE_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
       sb.append("'");
     }
     if (HANIMSITE_ATTR_BBOXSIZE_REQD || (!bboxSizeX.equals(bboxSizeXDefault) || !bboxSizeY.equals(bboxSizeYDefault) || !bboxSizeZ.equals(bboxSizeZDefault) )) {
@@ -282,6 +300,13 @@ public class HANIMSITE extends X3DTransformNode
       sb.append(translationZ);
       sb.append("'");
     }
+    if (HANIMSITE_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(HANIMSITE_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
+      sb.append("'");
+    }
 
     return sb.toString();
   }
@@ -305,4 +330,32 @@ public class HANIMSITE extends X3DTransformNode
   {
     name = s;
   }
+
+    /**
+     * @return the visible
+     */
+    public boolean isVisible() {
+        return visible;
+    }
+
+    /**
+     * @param visible the visible to set
+     */
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    /**
+     * @return the bboxDisplay
+     */
+    public boolean isBboxDisplay() {
+        return bboxDisplay;
+    }
+
+    /**
+     * @param bboxDisplay the bboxDisplay to set
+     */
+    public void setBboxDisplay(boolean bboxDisplay) {
+        this.bboxDisplay = bboxDisplay;
+    }
 }

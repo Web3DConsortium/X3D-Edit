@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -37,7 +37,6 @@ package org.web3d.x3d.palette.items;
 import java.awt.Color;
 import java.awt.Dialog;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
@@ -144,6 +143,8 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     versionCombo.setSelectedItem(humanoid.getVersion());
     versionCombo.setToolTipText(HANIMHUMANOID_ATTR_VERSION_CHOICES[versionCombo.getSelectedIndex()]);
     
+        visibleCheckBox.setSelected(humanoid.isVisible());
+    bboxDisplayCheckBox.setSelected(humanoid.isBboxDisplay());
     bboxCenterTFX.setText(humanoid.getBboxCenterX());
     bboxCenterTFY.setText(humanoid.getBboxCenterY());
     bboxCenterTFZ.setText(humanoid.getBboxCenterZ());
@@ -491,6 +492,10 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         scaleOrientationAngleTF = new javax.swing.JTextField();
         scaleOrientationCalculatorlButton = new javax.swing.JButton();
         normalizeRotationValuesButton = new javax.swing.JButton();
+        visibleLabel = new javax.swing.JLabel();
+        visibleCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayLabel = new javax.swing.JLabel();
+        bboxDisplayCheckBox = new javax.swing.JCheckBox();
         bboxCenterLabel = new javax.swing.JLabel();
         bboxCenterTFX = new javax.swing.JTextField();
         bboxCenterTFY = new javax.swing.JTextField();
@@ -510,8 +515,9 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(630, 540));
-        setPreferredSize(new java.awt.Dimension(610, 520));
+        setMinimumSize(new java.awt.Dimension(630, 690));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(630, 690));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
@@ -519,8 +525,6 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         });
         setLayout(new java.awt.GridBagLayout());
 
-        dEFUSEpanel.setMinimumSize(new java.awt.Dimension(600, 160));
-        dEFUSEpanel.setPreferredSize(new java.awt.Dimension(600, 160));
         dEFUSEpanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dEFUSEpanelMouseClicked(evt);
@@ -546,8 +550,8 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
 
         fieldsPanel.setToolTipText("simple attributes");
         fieldsPanel.setMaximumSize(new java.awt.Dimension(2147483647, 311));
-        fieldsPanel.setMinimumSize(new java.awt.Dimension(610, 400));
-        fieldsPanel.setPreferredSize(new java.awt.Dimension(610, 400));
+        fieldsPanel.setMinimumSize(new java.awt.Dimension(610, 450));
+        fieldsPanel.setPreferredSize(new java.awt.Dimension(610, 450));
         fieldsPanel.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 fieldsPanelFocusGained(evt);
@@ -615,7 +619,6 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(nameTextField, gridBagConstraints);
 
-        versionLabel.setForeground(new java.awt.Color(0, 153, 153));
         versionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         versionLabel.setText("version");
         versionLabel.setToolTipText("(v4.0) Required: HAnimHumanoid version, where standardized ISO 19774 value is 2.0");
@@ -648,7 +651,6 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(versionCombo, gridBagConstraints);
 
-        loaLabel.setForeground(new java.awt.Color(0, 153, 153));
         loaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         loaLabel.setText("loa");
         loaLabel.setToolTipText("(v4.0) Level Of Articulation 0..4 for HAnim complexity and detail, -1 means noncompliant");
@@ -681,7 +683,6 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(loaComboBox, gridBagConstraints);
 
-        descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         descriptionLabel.setText("description");
         descriptionLabel.setToolTipText("(v4.0) Text description to be displayed for action of this node");
@@ -713,14 +714,13 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(descriptionTF, gridBagConstraints);
 
-        skeletalConfigurationLabel.setForeground(new java.awt.Color(0, 153, 153));
         skeletalConfigurationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         skeletalConfigurationLabel.setText("skeletalConfiguration");
         skeletalConfigurationLabel.setToolTipText("(v4.0) Models sharing common skeletalConfiguration can share animations");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(skeletalConfigurationLabel, gridBagConstraints);
@@ -739,13 +739,12 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(skeletalConfigurationTF, gridBagConstraints);
 
-        skeletalConfigurationDefaultButton.setForeground(new java.awt.Color(0, 153, 153));
         skeletalConfigurationDefaultButton.setText("default");
         skeletalConfigurationDefaultButton.setToolTipText("set default value BASIC");
         skeletalConfigurationDefaultButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1188,43 +1187,89 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         fieldsPanel.add(normalizeRotationValuesButton, gridBagConstraints);
 
-        bboxCenterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        bboxCenterLabel.setText("bboxCenter");
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(visibleCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(bboxDisplayLabel, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        fieldsPanel.add(bboxDisplayCheckBox, gridBagConstraints);
+
+        bboxCenterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        bboxCenterLabel.setText("bboxCenter");
+        bboxCenterLabel.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(bboxCenterLabel, gridBagConstraints);
 
+        bboxCenterTFX.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxCenterTFX.setMinimumSize(new java.awt.Dimension(50, 20));
         bboxCenterTFX.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(bboxCenterTFX, gridBagConstraints);
 
+        bboxCenterTFY.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxCenterTFY.setMinimumSize(new java.awt.Dimension(50, 20));
         bboxCenterTFY.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         fieldsPanel.add(bboxCenterTFY, gridBagConstraints);
 
+        bboxCenterTFZ.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxCenterTFZ.setMinimumSize(new java.awt.Dimension(50, 20));
         bboxCenterTFZ.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.weighty = 1.0;
@@ -1233,41 +1278,45 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
 
         bboxSizeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         bboxSizeLabel.setText("bboxSize");
+        bboxSizeLabel.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 6, 3);
         fieldsPanel.add(bboxSizeLabel, gridBagConstraints);
 
+        bboxSizeTFX.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxSizeTFX.setMinimumSize(new java.awt.Dimension(50, 20));
         bboxSizeTFX.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 6, 3);
         fieldsPanel.add(bboxSizeTFX, gridBagConstraints);
 
+        bboxSizeTFY.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxSizeTFY.setMinimumSize(new java.awt.Dimension(50, 20));
         bboxSizeTFY.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 6, 3);
         fieldsPanel.add(bboxSizeTFY, gridBagConstraints);
 
+        bboxSizeTFZ.setToolTipText("custom bounding box for collision detection, otherwise computed at run time");
         bboxSizeTFZ.setMinimumSize(new java.awt.Dimension(50, 20));
         bboxSizeTFZ.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
         gridBagConstraints.weighty = 1.0;
@@ -1287,14 +1336,14 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(infoExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addComponent(infoExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
                 .addContainerGap())
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(infoExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                .addComponent(infoExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1310,14 +1359,14 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             jointBindingPositionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jointBindingPositionsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jointBindingPositionsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addComponent(jointBindingPositionsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jointBindingPositionsPanelLayout.setVerticalGroup(
             jointBindingPositionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jointBindingPositionsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jointBindingPositionsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                .addComponent(jointBindingPositionsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1333,14 +1382,14 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
             jointBindingRotationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jointBindingRotationsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jointBindingRotationsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addComponent(jointBindingRotationsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jointBindingRotationsPanelLayout.setVerticalGroup(
             jointBindingRotationsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jointBindingRotationsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jointBindingRotationsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                .addComponent(jointBindingRotationsExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1354,20 +1403,20 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         jointBindingScalesPanel.setLayout(jointBindingScalesPanelLayout);
         jointBindingScalesPanelLayout.setHorizontalGroup(
             jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 610, Short.MAX_VALUE)
             .addGroup(jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jointBindingScalesPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jointBindingScalesExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                    .addComponent(jointBindingScalesExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jointBindingScalesPanelLayout.setVerticalGroup(
             jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
             .addGroup(jointBindingScalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jointBindingScalesPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jointBindingScalesExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                    .addComponent(jointBindingScalesExpandableList, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -1383,8 +1432,8 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
         add(humanoidFieldsTabbedPane, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nodeHintPanel.setMinimumSize(new java.awt.Dimension(600, 120));
-        nodeHintPanel.setPreferredSize(new java.awt.Dimension(600, 120));
+        nodeHintPanel.setMinimumSize(new java.awt.Dimension(600, 60));
+        nodeHintPanel.setPreferredSize(new java.awt.Dimension(600, 60));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1878,6 +1927,8 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     hAnimHumanoid.setInsertLineBreaks(jointBindingPositionsExpandableList.isInsertLineBreaksSet() ||
                                       jointBindingRotationsExpandableList.isInsertLineBreaksSet() ||
                                          jointBindingScalesExpandableList.isInsertLineBreaksSet());
+    hAnimHumanoid.setVisible    (visibleCheckBox.isSelected());
+    hAnimHumanoid.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1887,6 +1938,8 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxCenterTFX;
     private javax.swing.JTextField bboxCenterTFY;
     private javax.swing.JTextField bboxCenterTFZ;
+    private javax.swing.JCheckBox bboxDisplayCheckBox;
+    private javax.swing.JLabel bboxDisplayLabel;
     private javax.swing.JLabel bboxSizeLabel;
     private javax.swing.JTextField bboxSizeTFX;
     private javax.swing.JTextField bboxSizeTFY;
@@ -1944,6 +1997,8 @@ public class HANIMHUMANOIDCustomizer extends BaseCustomizer
     private javax.swing.JTextField translationZTF;
     private javax.swing.JComboBox<String> versionCombo;
     private javax.swing.JLabel versionLabel;
+    private javax.swing.JCheckBox visibleCheckBox;
+    private javax.swing.JLabel visibleLabel;
     private javax.swing.JLabel xLabel;
     private javax.swing.JLabel yLabel;
     private javax.swing.JLabel zLabel;

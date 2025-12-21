@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -58,13 +58,14 @@ public class HANIMJOINT extends X3DTransformNode
   private String     description;
   private String     name;
 
-  // TODO fix layout, accessors
-  private SFInt32[]    skinCoordIndex;                                   // MFInt32
-  private SFFloat[]  llimit, ulimit, skinCoordWeight, stiffness;         // MFFloat
-  private SFFloat limitOrientationX,     limitOrientationXDefault; // SFRotation
-  private SFFloat limitOrientationY,     limitOrientationYDefault;
-  private SFFloat limitOrientationZ,     limitOrientationZDefault;
-  private SFFloat limitOrientationAngle, limitOrientationAngleDefault;
+  private SFInt32[]  skinCoordIndex;                                  // MFInt32
+  private SFFloat[]  llimit, ulimit, skinCoordWeight, stiffness;      // MFFloat
+  private SFFloat    limitOrientationX,     limitOrientationXDefault; // SFRotation
+  private SFFloat    limitOrientationY,     limitOrientationYDefault;
+  private SFFloat    limitOrientationZ,     limitOrientationZDefault;
+  private SFFloat    limitOrientationAngle, limitOrientationAngleDefault;
+  private boolean    visible,         visibleDefault;
+  private boolean    bboxDisplay, bboxDisplayDefault;
 
   public HANIMJOINT()
   {    
@@ -156,6 +157,9 @@ public class HANIMJOINT extends X3DTransformNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(fa[0], null, null);
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1], null, null);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2], null, null);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(HANIMSITE_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(HANIMSITE_ATTR_BBOXDISPLAY_DFLT));
 
 //    if (getContent().length() == 0)
 //        setContent("\n\t\t<!--TODO add child HAnimSegment, HAnimSite, HAnimJoint nodes here-->\n\t");
@@ -261,6 +265,13 @@ public class HANIMJOINT extends X3DTransformNode
       bboxSizeY = new SFFloat(fa[1], null, null);
       bboxSizeZ = new SFFloat(fa[2], null, null);
     }
+    attr = root.getAttribute(HANIMJOINT_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(HANIMJOINT_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
+    
 //    if (getContent().length() == 0)
 //        setContent("\n\t\t<!--TODO add child HAnimSegment, HAnimSite, HAnimJoint nodes here-->\n\t");
   }
@@ -292,6 +303,13 @@ public class HANIMJOINT extends X3DTransformNode
       sb.append(bboxCenterY);
       sb.append(" ");
       sb.append(bboxCenterZ);
+      sb.append("'");
+    }
+    if (HANIMJOINT_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(HANIMJOINT_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
       sb.append("'");
     }
     if (HANIMJOINT_ATTR_BBOXSIZE_REQD ||
@@ -444,6 +462,14 @@ public class HANIMJOINT extends X3DTransformNode
       sb.append(translationZ);
       sb.append("'");
     }
+    if (HANIMJOINT_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(HANIMJOINT_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
+      sb.append("'");
+    }
+
     return sb.toString();
   }
 
@@ -575,4 +601,32 @@ public class HANIMJOINT extends X3DTransformNode
   {
     this.limitOrientationAngle = new SFFloat(limitOrientationAngle, null, null);
   }
+
+    /**
+     * @return the visible
+     */
+    public boolean isVisible() {
+        return visible;
+    }
+
+    /**
+     * @param visible the visible to set
+     */
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    /**
+     * @return the bboxDisplay
+     */
+    public boolean isBboxDisplay() {
+        return bboxDisplay;
+    }
+
+    /**
+     * @param bboxDisplay the bboxDisplay to set
+     */
+    public void setBboxDisplay(boolean bboxDisplay) {
+        this.bboxDisplay = bboxDisplay;
+    }
 }

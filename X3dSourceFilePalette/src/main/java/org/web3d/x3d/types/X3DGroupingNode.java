@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -63,6 +63,9 @@ public abstract class X3DGroupingNode extends X3DChildNode
   protected SFFloat bboxSizeX,   bboxSizeXDefault;
   protected SFFloat bboxSizeY,   bboxSizeYDefault;
   protected SFFloat bboxSizeZ,   bboxSizeZDefault;
+  
+  protected boolean  visible,         visibleDefault;
+  protected boolean  bboxDisplay, bboxDisplayDefault;
 
   public String getBboxCenterX()
   {
@@ -123,4 +126,32 @@ public abstract class X3DGroupingNode extends X3DChildNode
   {
     this.bboxSizeZ = new SFFloat(bboxSizeZ, -1.0f, null);
   }
+
+    /**
+     * @return the visible
+     */
+    public boolean isVisible() {
+        return visible;
+    }
+
+    /**
+     * @param visible the visible to set
+     */
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    /**
+     * @return the bboxDisplay
+     */
+    public boolean isBboxDisplay() {
+        return bboxDisplay;
+    }
+
+    /**
+     * @param bboxDisplay the bboxDisplay to set
+     */
+    public void setBboxDisplay(boolean bboxDisplay) {
+        this.bboxDisplay = bboxDisplay;
+    }
 }

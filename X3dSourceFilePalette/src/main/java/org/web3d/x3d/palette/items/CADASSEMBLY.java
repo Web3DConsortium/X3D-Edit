@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -80,6 +80,9 @@ public class CADASSEMBLY extends X3DGroupingNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(fa[0], null, null);
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1], null, null);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2], null, null);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(CADASSEMBLY_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(CADASSEMBLY_ATTR_BBOXDISPLAY_DFLT));
 
     setContent("\n\t\t<!--TODO add CADPart and other grouping nodes here-->\n\t");
   }
@@ -93,6 +96,12 @@ public class CADASSEMBLY extends X3DGroupingNode
     attr = root.getAttribute(CADASSEMBLY_ATTR_NAME_NAME);
     if(attr != null)
       name = attr.getValue();
+    attr = root.getAttribute(ANCHOR_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(ANCHOR_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
     String[] fa;
     attr = root.getAttribute(CADASSEMBLY_ATTR_BBOXCENTER_NAME);
     if (attr != null) {
@@ -121,7 +130,6 @@ public class CADASSEMBLY extends X3DGroupingNode
       sb.append(escapeXmlCharacters(name));
       sb.append("'");
     }
-    
     if (CADASSEMBLY_ATTR_BBOXCENTER_REQD ||
            (!bboxCenterX.equals(bboxCenterXDefault) ||
             !bboxCenterY.equals(bboxCenterYDefault) ||
@@ -136,6 +144,13 @@ public class CADASSEMBLY extends X3DGroupingNode
       sb.append(bboxCenterZ);
       sb.append("'");
     }
+    if (CADASSEMBLY_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(CADASSEMBLY_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
+      sb.append("'");
+    }
     if (CADASSEMBLY_ATTR_BBOXSIZE_REQD ||
            (!bboxSizeX.equals(bboxSizeXDefault) ||
             !bboxSizeY.equals(bboxSizeYDefault) ||
@@ -148,6 +163,13 @@ public class CADASSEMBLY extends X3DGroupingNode
       sb.append(bboxSizeY);
       sb.append(" ");
       sb.append(bboxSizeZ);
+      sb.append("'");
+    }
+    if (CADASSEMBLY_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(CADASSEMBLY_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
 

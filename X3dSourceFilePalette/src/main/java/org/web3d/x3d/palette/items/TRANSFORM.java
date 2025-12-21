@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -109,6 +109,9 @@ public class TRANSFORM extends X3DTransformNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(fa[0], null, null);
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1], null, null);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2], null, null);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(TRANSFORM_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(TRANSFORM_ATTR_BBOXDISPLAY_DFLT));
 
     setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
@@ -172,6 +175,12 @@ public class TRANSFORM extends X3DTransformNode
       bboxSizeY = new SFFloat(fa[1], null, null);
       bboxSizeZ = new SFFloat(fa[2], null, null);
     }
+    attr = root.getAttribute(TRANSFORM_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(TRANSFORM_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
   }
 
   @Override
@@ -191,6 +200,13 @@ public class TRANSFORM extends X3DTransformNode
       sb.append(bboxCenterY);
       sb.append(" ");
       sb.append(bboxCenterZ);
+      sb.append("'");
+    }
+    if (TRANSFORM_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(TRANSFORM_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
       sb.append("'");
     }
     if (TRANSFORM_ATTR_BBOXSIZE_REQD ||
@@ -282,6 +298,13 @@ public class TRANSFORM extends X3DTransformNode
       sb.append(translationY);
       sb.append(" ");
       sb.append(translationZ);
+      sb.append("'");
+    }
+    if (TRANSFORM_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(TRANSFORM_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
 

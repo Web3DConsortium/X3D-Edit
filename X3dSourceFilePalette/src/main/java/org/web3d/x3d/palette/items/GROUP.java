@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -84,6 +84,9 @@ public class GROUP extends X3DGroupingNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(fa[0], null, null);
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1], null, null);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2], null, null);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(GROUP_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(GROUP_ATTR_BBOXDISPLAY_DFLT));
 
     setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
@@ -109,6 +112,12 @@ public class GROUP extends X3DGroupingNode
       bboxSizeY = new SFFloat(fa[1], null, null);
       bboxSizeZ = new SFFloat(fa[2], null, null);
     }
+    attr = root.getAttribute(GROUP_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(GROUP_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
   }
 
   @Override
@@ -130,6 +139,13 @@ public class GROUP extends X3DGroupingNode
       sb.append(bboxCenterZ);
       sb.append("'");
     }
+    if (GROUP_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(GROUP_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
+      sb.append("'");
+    }
     if (GROUP_ATTR_BBOXSIZE_REQD ||
            (!bboxSizeX.equals(bboxSizeXDefault) ||
             !bboxSizeY.equals(bboxSizeYDefault) ||
@@ -142,6 +158,13 @@ public class GROUP extends X3DGroupingNode
       sb.append(bboxSizeY);
       sb.append(" ");
       sb.append(bboxSizeZ);
+      sb.append("'");
+    }
+    if (GROUP_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(GROUP_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
 
