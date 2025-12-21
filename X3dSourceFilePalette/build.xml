@@ -197,7 +197,8 @@
                              dest="${x3dSchematron.dir}/iso_svrl_for_xslt2.xsl"             usetimestamp="true" verbose="true"/>
     </target>
 
-    <property name="xj3d.dir" value="C:\x3d-nps-gitlab\xj3d\"/> <!-- TODO: this prop should be placed in a private.properties file -->
+    <property name="xj3d.dir" value="C:\x3d-github\Xj3D\xj3d"/> <!-- TODO: this property should be placed in a private.properties file -->
+    
     <target name="get.latest.Xj3D.jars.local" description="Download latest Xj3D jar files from local build">
         <echo message="prerequisite: Xj3D build all"/>
         <copy todir="release/modules/ext/" preservelastmodified="true" overwrite="true" force="true" verbose="true">
