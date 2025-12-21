@@ -78,7 +78,7 @@
         <Component class="javax.swing.JLabel" name="hintLabel">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;MultiTextureCoordinate&lt;/b&gt; is contained by geometry nodes such as &lt;b&gt;IndexedFaceSet&lt;/b&gt;.&lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;MultiTextureCoordinate&lt;/b&gt; has no simple fields (attibutes).&lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;MultiTextureCoordinate&lt;/b&gt; contains &lt;b&gt;TextureCoordinate&lt;/b&gt; or &lt;b&gt;TextureCoordinateGenerator&lt;/b&gt; nodes&#xa;&lt;br /&gt;&#xa;that have containerField=&apos;texCoord&apos; field names.&lt;/p&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;MultiTextureCoordinate&lt;/b&gt; is contained by geometry nodes such as &lt;b&gt;IndexedFaceSet&lt;/b&gt;.&lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;MultiTextureCoordinate&lt;/b&gt; has no simple fields (attributes).&lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&apos;center&apos;&gt;&lt;b&gt;MultiTextureCoordinate&lt;/b&gt; contains &lt;b&gt;TextureCoordinate&lt;/b&gt; or &lt;b&gt;TextureCoordinateGenerator&lt;/b&gt; nodes&#xa;&lt;br /&gt;&#xa;that have containerField=&apos;texCoord&apos; field names.&lt;/p&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value="close this panel to add child texture-coordinate nodes"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
