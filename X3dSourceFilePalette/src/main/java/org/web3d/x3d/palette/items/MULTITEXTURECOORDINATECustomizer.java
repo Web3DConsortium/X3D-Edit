@@ -80,8 +80,8 @@ public class MULTITEXTURECOORDINATECustomizer extends BaseCustomizer
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setMinimumSize(new java.awt.Dimension(630, 205));
-        setPreferredSize(new java.awt.Dimension(630, 205));
+        setMinimumSize(new java.awt.Dimension(630, 225));
+        setPreferredSize(new java.awt.Dimension(630, 225));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(new java.awt.Dimension(396, 154));
@@ -98,7 +98,7 @@ public class MULTITEXTURECOORDINATECustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align='center'><b>MultiTextureCoordinate</b> is contained by geometry nodes such as <b>IndexedFaceSet</b>.</p>\n<br />\n<p align='center'><b>MultiTextureCoordinate</b> has no simple fields (attibutes).</p>\n<br />\n<p align='center'><b>MultiTextureCoordinate</b> contains <b>TextureCoordinate</b> or <b>TextureCoordinateGenerator</b> nodes.</p>");
+        hintLabel.setText("<html><p align='center'><b>MultiTextureCoordinate</b> is contained by geometry nodes such as <b>IndexedFaceSet</b>.</p>\n<br />\n<p align='center'><b>MultiTextureCoordinate</b> has no simple fields (attibutes).</p>\n<br />\n<p align='center'><b>MultiTextureCoordinate</b> contains <b>TextureCoordinate</b> or <b>TextureCoordinateGenerator</b> nodes\n<br />\nthat have containerField='texCoord' field names.</p>");
         hintLabel.setToolTipText("close this panel to add child texture-coordinate nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
