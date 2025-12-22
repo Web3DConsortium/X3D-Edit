@@ -5,19 +5,19 @@
 
 <project name="X3dEdit Module Suite" basedir="." default="quick.run">
     <description>Builds the application module suite X3dEditModuleSuite.</description>
-    
+
     <import file="nbproject/build-impl.xml"/>
-        
+
     <property file="nbproject/project.properties"/>
-    
+
     <taskdef resource="net/sf/antcontrib/antlib.xml"/>
-    
+
     <!--
     ============
     INIT SECTION
     ============
     -->
-    
+
     <target name="platformInitialize" depends="-init,platformType,initializeWindows,initializeUnix,initializeMac"/>
     <target name="platformType">
         <condition property="isWindows" >
@@ -56,45 +56,45 @@
         <property name="unix_runarguments" value="${common.xj3d.args} ${xj3darg7}"/>
         <property name="mac_runarguments"  value="${common.xj3d.args} ${xj3darg8} ${xj3darg9} ${xj3darg10} ${xj3darg11} ${xj3darg12} ${xj3darg14}"/>
     </target>
-    
+
     <!--
     =============
     BUILD SECTION
     =============
     -->
-    
-    <target name="all" depends="clean,build,generate.nbm.signing.cert,update-keystore-info">
+
+    <target name="all" depends="clean,build,generate.nbm.signing.cert">
         <echo message="*** Release preparations: update X3D-Edit.html prior to final release"/>
         <echo message="build all complete, release results maintained in build.all.log.txt"/>
     </target>
-    
+
     <!-- override build to add a way to update branding -->
     <target name="build" depends="versions,build-brand,suite.build">
         <!-- TODO can we shift this message to become a dependency in a prerelease target? -->
         <echo message="*** Release preparations: run target 'generate.nbm.signing.cert'"/>
     </target>
     <target name="build-brand" depends="-init">
-        
+
         <tstamp>
             <!-- Good format example here: http://comp-phil.blogspot.com/2010/10/how-to-format-date-and-time-in-ant.html -->
             <format property="TODAY" pattern="EEE, MMM dd, yyyy hh:mm:ss a z"/>
             <format property="BUILD" pattern="YYYYMMdd" />
 	</tstamp>
-        
-        <propertyfile file="${basedir}/branding/core/core.jar/org/netbeans/core/startup/Bundle.properties" 
+
+        <propertyfile file="${basedir}/branding/core/core.jar/org/netbeans/core/startup/Bundle.properties"
                       comment="Updated by build script">
             <entry key="currentVersion" value="${app.title} - ${TODAY} ${TSTAMP}" />
         </propertyfile>
-        
+
         <ant dir="${project.org.web3d.x3d.palette}" inheritAll="false" target="moduleVersion"/>
-        
+
         <!-- Read API Version from module, then append to CTL_MainWindow_Title -->
         <property file="${project.org.web3d.x3d.palette}/moduleVersion.properties"/>
         <property name="MODULE_MANIFEST_VERSION" value="${module.version}"/>
         <!-- trace -->
         <echo message="MODULE_PROJECT_PROPERTIES_FILE=${project.org.web3d.x3d.palette}/moduleVersion.properties"/>
-        <echo message="       MODULE_MANIFEST_VERSION=${MODULE_MANIFEST_VERSION}"/> 
-        
+        <echo message="       MODULE_MANIFEST_VERSION=${MODULE_MANIFEST_VERSION}"/>
+
         <!-- CTL_MainWindow_Title result is also used by X3DEditAboutAction -->
         <property name="CTL_MainWindow_Title" value="${app.title}, build ${BUILD}, module ${app.version}.${MODULE_MANIFEST_VERSION}"/>
         <propertyfile file="${basedir}/branding/modules/org-netbeans-core-windows.jar/org/netbeans/core/windows/view/ui/Bundle.properties"
@@ -103,18 +103,18 @@
             <entry key="CTL_MainWindow_Title_No_Project" value="${CTL_MainWindow_Title}" />
         </propertyfile>
         <echo message="CTL_MainWindow_Title=${CTL_MainWindow_Title}"/>
-        
+
     </target>
-    
+
     <!--
     ===========
     RUN SECTION
     ===========
     -->
-    
+
     <!-- Override initializing the app before running -->
     <target name="run" depends="platformInitialize,suite.run" description="Runs X3D-Edit"/>
-    
+
     <!-- Override building the app before running -->
     <target name="quick.run" depends="platformInitialize,branding,-jdk-init"
             description="Runs X3D-Edit without building">
@@ -122,11 +122,11 @@
             <reference refid="cluster.path.id"/>
         </ant>
     </target>
-    
+
     <target name="run.xj3d.browser"
             depends="platformInitialize,-jdk-init"
             description="Run the 3D Simulation Viewer App">
-      
+
         <!-- first look on command line, otherwise use ${scene} property from build.properties -->
         <property name="args" location="${scene}"/>
 
@@ -134,11 +134,11 @@
         <echo message="main.class=${main.class}"/>
         <echo message="app.browser.args=${app.browser.args}"/>
         <echo message="run.xj3d.args=${run.xj3d.args}"/>
-        
+
         <ant antfile="${harness.dir}/run.xml" target="-prepare-as-platform">
             <reference refid="cluster.path.id"/>
         </ant>
-        
+
         <!-- Working directory is apps/browser b/c that's where the javahelp helpset is -->
         <java classname="${main.class}"
               fork="true">
@@ -155,7 +155,7 @@
                     <include name="**/*.jar"/>
                 </fileset>
             </classpath>
-            
+
             <!-- ${args} should be the full path to an X3D file -->
             <!-- commandline given/supplied arguments args=%1 etc -->
             <arg line="${app.browser.args} ${args}"/>
@@ -163,25 +163,25 @@
         </java>
 
     </target>
-    
+
     <!--
     =============
     DEBUG SECTION
     =============
     -->
-    
+
     <!-- Override -->
-    <target name="debug" 
-            depends="platformInitialize,build,-jdk-init,-jdk-presetdef-nbjpdastart,do.debug" 
+    <target name="debug"
+            depends="platformInitialize,build,-jdk-init,-jdk-presetdef-nbjpdastart,do.debug"
             description="Debug after building the entire suite first"/>
-    
-    <target name="quick.debug" 
-            depends="platformInitialize,branding,release,-hide-excluded-modules,-jdk-init,-jdk-presetdef-nbjpdastart,do.debug" 
+
+    <target name="quick.debug"
+            depends="platformInitialize,branding,release,-hide-excluded-modules,-jdk-init,-jdk-presetdef-nbjpdastart,do.debug"
             description="Debugs X3D-Edit in place without building"/>
-    
+
     <!-- Debug must be overridden here IOT avoid URLStreamHandler Error thrown.
-         Caused by vanilla ${harness.dir}/run.cml debug target not getting the 
-         proper -add-opens=java.base/java.net=ALL-UNNAMED start up directive from 
+         Caused by vanilla ${harness.dir}/run.cml debug target not getting the
+         proper -add-opens=java.base/java.net=ALL-UNNAMED start up directive from
          project.properties -->
     <target name="do.debug">
         <fail unless="netbeans.home">This target only works when run from inside the NetBeans IDE.</fail>
@@ -202,15 +202,15 @@
             <reference refid="cluster.path.id"/>
         </ant>
     </target>
-    
+
     <!--
     ============
     MISC SECTION
     ============
     -->
-    
+
     <!-- For generating a NBM self-signing certificate. Do this every 90 days
-         before building a NBM. --> 
+         before building a NBM. -->
     <!-- Based on https://netbeans.apache.org/wiki/DevFaqSignNbm.html -->
     <target name="generate.nbm.signing.cert" depends="-init">
         <!--Create/Update keystore-->
@@ -220,14 +220,14 @@
                 dname="${keystore.dname}" keyalg="RSA" verbose="true"
                 keysize="2048" validity="90" storetype="PKCS12"
                 keystore="${keystore.location}${keystore.name}"/>
-        
+
         <!-- Now show the signing certificate -->
         <antcall target="inspect.signing.cert"/>
-        
+
         <!--Update keystore info in projects-->
         <antcall target="update-keystore-info"/>
     </target>
-    
+
     <target name="inspect.signing.cert" depends="-init">
         <exec executable="keytool">
             <arg line="-list -v -keystore ${keystore.location}${keystore.name} -storepass ${keystore.password}"/>
@@ -249,20 +249,20 @@
                 <propertyfile file="@{cur}/nbproject/private/suite-private.properties">
                     <entry  key="storepass" value="${keystore.password}"/>
                 </propertyfile>
-                
+
                 <!-- First, delete the old alias. If a new savage server cert was generated,
                      then the alias will not be present and this error will show:
-                    
+
                      keytool error: java.lang.Exception: Alias <nbmsigner> does not exist
                      Result: 1
-                     
+
                      This is benign and will not occur on the next gen. of the self signed cert
                 -->
 <!--                <exec executable="keytool">
                     <arg line="-delete -alias ${keystore.alias} -storepass ${keystore.password} -keystore @{cur}/release/modules/ext/server-cert-keystore.jks"/>
                 </exec>
-                
-                 Import newly generated self-signed cert 
+
+                 Import newly generated self-signed cert
                 <exec executable="keytool">
                     <arg line="-importkeystore -v -srckeystore ${keystore.location}${keystore.name} -srcstorepass ${keystore.password} -storepass ${keystore.password} -destkeystore @{cur}/release/modules/ext/server-cert-keystore.jks"/>
                 </exec>-->
@@ -272,7 +272,7 @@
             </sequential>
         </for>
     </target>
-    
+
     <target name="view.X3D-Edit.home.local" description="view local copy of X3D-Edit. home page in web browser (Netbeans only)">
         <echo message="websites/savage.nps.edu/X3D-Edit/X3D-Edit.html" />
         <nbbrowse file="websites/savage.nps.edu/X3D-Edit/X3D-Edit.html" />
@@ -290,7 +290,7 @@
         <nbbrowse url="https://sourceforge.net/p/x3d/tickets" />
         <!-- TODO implementation-independent approach if possible, but note that other Ant approaches usually have to be customized for each OS. -->
     </target>
-    
+
     <target name="view.harness.readme" description="view the NetBeans harness README file">
         <loadfile property="message" srcFile="${harness.readme}"/>
         <echo message="${message}"/>
@@ -336,5 +336,5 @@
         <!-- TODO NetBeans version -->
         <!-- TODO NetBeans project version -->
     </target>
-    
+
 </project>
