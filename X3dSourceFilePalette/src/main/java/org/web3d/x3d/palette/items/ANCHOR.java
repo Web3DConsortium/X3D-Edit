@@ -59,8 +59,6 @@ public class ANCHOR extends X3DGroupingNode
   private String   description;
   private String[] urls, urlsDefault;
   private String[] parameterArray;
-  private boolean  visible,         visibleDefault;
-  private boolean  bboxDisplay, bboxDisplayDefault;
 
   /** Constructor */
   public ANCHOR()
@@ -257,39 +255,11 @@ public class ANCHOR extends X3DGroupingNode
   }
 
   public void setParameters(String[] parameters)
- {
+  {
     this.parameterArray = parameters;
   }
   public void setParameters(String parameterString)
- {
+  {
     this.parameterArray = splitStringIntoStringArray(parameterString);
   }
-
-    /**
-     * @return the visible
-     */
-    public boolean isVisible() {
-        return visible;
-    }
-
-    /**
-     * @param visible the visible to set
-     */
-    public void setVisible(boolean visible) {
-        this.visible = visible;
-    }
-
-    /**
-     * @return the bboxDisplay
-     */
-    public boolean isBboxDisplay() {
-        return bboxDisplay;
-    }
-
-    /**
-     * @param bboxDisplay the bboxDisplay to set
-     */
-    public void setBboxDisplay(boolean bboxDisplay) {
-        this.bboxDisplay = bboxDisplay;
-    }
 }

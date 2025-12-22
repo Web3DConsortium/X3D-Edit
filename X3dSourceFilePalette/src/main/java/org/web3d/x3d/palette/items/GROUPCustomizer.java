@@ -120,7 +120,7 @@ public class GROUPCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(610, 300));
+        setMinimumSize(new java.awt.Dimension(620, 300));
         setPreferredSize(new java.awt.Dimension(620, 300));
         setLayout(new java.awt.GridBagLayout());
 

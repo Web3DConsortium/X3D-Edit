@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -88,6 +88,9 @@ public class COLLISION extends X3DGroupingNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(fa[0],0.0f,null,true);
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1],0.0f,null,true);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2],0.0f,null,true);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(COLLISION_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(COLLISION_ATTR_BBOXDISPLAY_DFLT));
 
     setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
@@ -123,6 +126,12 @@ public class COLLISION extends X3DGroupingNode
       bboxSizeY = new SFFloat(fa[1], 0.0f, null, true);
       bboxSizeZ = new SFFloat(fa[2], 0.0f, null, true);
     }
+    attr = root.getAttribute(COLLISION_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(COLLISION_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
   }
 
   @Override
@@ -159,6 +168,13 @@ public class COLLISION extends X3DGroupingNode
       sb.append(bboxCenterZ);
       sb.append("'");
     }
+    if (COLLISION_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(COLLISION_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
+      sb.append("'");
+    }
 
     if (COLLISION_ATTR_BBOXSIZE_REQD ||
            (!bboxSizeX.equals(bboxSizeXDefault) ||
@@ -189,6 +205,13 @@ public class COLLISION extends X3DGroupingNode
       sb.append(COLLISION_ATTR_ENABLED_NAME);
       sb.append("='");
       sb.append(enabled);
+      sb.append("'");
+    }
+    if (COLLISION_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(COLLISION_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
 

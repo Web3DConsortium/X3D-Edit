@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -98,6 +98,9 @@ public class LOD extends X3DGroupingNode
 
     forceTransitions = Boolean.parseBoolean(LOD_ATTR_FORCETRANSITIONS_DFLT);
     range = parseRange(LOD_ATTR_RANGE_DFLT);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(LOD_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(LOD_ATTR_BBOXDISPLAY_DFLT));
 
     setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
   }
@@ -135,6 +138,12 @@ public class LOD extends X3DGroupingNode
     attr = root.getAttribute(LOD_ATTR_RANGE_NAME);
     if(attr != null)
       range = parseRange(attr.getValue());
+    attr = root.getAttribute(LOD_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(LOD_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
   }
 
   @Override
@@ -155,6 +164,13 @@ public class LOD extends X3DGroupingNode
       sb.append(bboxCenterY);
       sb.append(" ");
       sb.append(bboxCenterZ);
+      sb.append("'");
+    }
+    if (LOD_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(LOD_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
       sb.append("'");
     }
     if (LOD_ATTR_BBOXSIZE_REQD ||
@@ -198,9 +214,16 @@ public class LOD extends X3DGroupingNode
       sb.append("'");
     }
 
-    if (LOD_ATTR_RANGE_REQD || range.size() > 0) {
+    if (LOD_ATTR_RANGE_REQD || !range.isEmpty()) {
       sb.append(" range='");
       sb.append(formatRange());
+      sb.append("'");
+    }
+    if (LOD_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(LOD_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
     return sb.toString();

@@ -653,20 +653,20 @@ public class ANCHORCustomizer extends BaseCustomizer
   @Override
   public void unloadInput()
   {
-     unLoadDEFUSE(); 
-     urlList.checkUrlValues();
-     
-     anchor.setUrls       (urlList.getUrlData());
-     anchor.setDescription(descriptionTA.getText().trim());
-     anchor.setParameters  (buildParameterAttribute());
-     anchor.setBboxCenterX(bboxCenterXTF.getText().trim());
-     anchor.setBboxCenterY(bboxCenterYTF.getText().trim());
-     anchor.setBboxCenterZ(bboxCenterZTF.getText().trim());
-     anchor.setBboxSizeX  (bboxSizeXTF.getText().trim());
-     anchor.setBboxSizeY  (bboxSizeYTF.getText().trim());
-     anchor.setBboxSizeZ  (bboxSizeZTF.getText().trim());
-     anchor.setVisible    (visibleCheckBox.isSelected());
-     anchor.setBboxDisplay(bboxDisplayCheckBox.isSelected());
+    unLoadDEFUSE(); 
+    urlList.checkUrlValues();
+
+    anchor.setUrls       (urlList.getUrlData());
+    anchor.setDescription(descriptionTA.getText().trim());
+    anchor.setParameters  (buildParameterAttribute());
+    anchor.setBboxCenterX(bboxCenterXTF.getText().trim());
+    anchor.setBboxCenterY(bboxCenterYTF.getText().trim());
+    anchor.setBboxCenterZ(bboxCenterZTF.getText().trim());
+    anchor.setBboxSizeX  (bboxSizeXTF.getText().trim());
+    anchor.setBboxSizeY  (bboxSizeYTF.getText().trim());
+    anchor.setBboxSizeZ  (bboxSizeZTF.getText().trim());
+    anchor.setVisible    (visibleCheckBox.isSelected());
+    anchor.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }
   
 }

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -97,6 +97,9 @@ public class SWITCHCustomizer extends BaseCustomizer
     bboxSizeXTF.setText(_switch.getBboxSizeX().trim());
     bboxSizeYTF.setText(_switch.getBboxSizeY().trim());
     bboxSizeZTF.setText(_switch.getBboxSizeZ().trim());
+    
+        visibleCheckBox.setSelected(_switch.isVisible());
+    bboxDisplayCheckBox.setSelected(_switch.isBboxDisplay());
 
     checkVisualizable ();
     updateWhichChoiceWarningLabel(whichChoice);
@@ -194,9 +197,15 @@ public class SWITCHCustomizer extends BaseCustomizer
         whichChoiceLayoutPanel = new javax.swing.JPanel();
         whichChoiceComboBox = new javax.swing.JComboBox<>();
         whichChoiceWarningLabel = new javax.swing.JLabel();
+        visibleLabel = new javax.swing.JLabel();
+        visibleCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayLabel = new javax.swing.JLabel();
+        bboxDisplayCheckBox = new javax.swing.JCheckBox();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(606, 290));
+        setPreferredSize(new java.awt.Dimension(606, 290));
         setLayout(new java.awt.GridBagLayout());
 
         whichChoiceLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -214,7 +223,7 @@ public class SWITCHCustomizer extends BaseCustomizer
         bboxCenterLabel.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 23, 3, 3);
         add(bboxCenterLabel, gridBagConstraints);
@@ -223,7 +232,7 @@ public class SWITCHCustomizer extends BaseCustomizer
         bboxCenterXTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -233,7 +242,7 @@ public class SWITCHCustomizer extends BaseCustomizer
         bboxCenterYTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -243,7 +252,7 @@ public class SWITCHCustomizer extends BaseCustomizer
         bboxCenterZTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 23);
@@ -254,7 +263,7 @@ public class SWITCHCustomizer extends BaseCustomizer
         bboxSizeLabel.setToolTipText("automatically calculated, can be specified as an optimization or constraint");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 23, 3, 3);
         add(bboxSizeLabel, gridBagConstraints);
@@ -268,7 +277,7 @@ public class SWITCHCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -283,7 +292,7 @@ public class SWITCHCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -298,7 +307,7 @@ public class SWITCHCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 23);
@@ -345,6 +354,48 @@ public class SWITCHCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(whichChoiceLayoutPanel, gridBagConstraints);
 
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayLabel, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayCheckBox, gridBagConstraints);
+
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -361,8 +412,8 @@ public class SWITCHCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -391,6 +442,8 @@ public class SWITCHCustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxCenterXTF;
     private javax.swing.JTextField bboxCenterYTF;
     private javax.swing.JTextField bboxCenterZTF;
+    private javax.swing.JCheckBox bboxDisplayCheckBox;
+    private javax.swing.JLabel bboxDisplayLabel;
     private javax.swing.JLabel bboxSizeLabel;
     private javax.swing.JTextField bboxSizeXTF;
     private javax.swing.JTextField bboxSizeYTF;
@@ -398,6 +451,8 @@ public class SWITCHCustomizer extends BaseCustomizer
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JLabel hintLabel;
     private javax.swing.JPanel nodeHintPanel;
+    private javax.swing.JCheckBox visibleCheckBox;
+    private javax.swing.JLabel visibleLabel;
     private javax.swing.JComboBox<String> whichChoiceComboBox;
     private javax.swing.JLabel whichChoiceLabel;
     private javax.swing.JPanel whichChoiceLayoutPanel;
@@ -437,6 +492,8 @@ public class SWITCHCustomizer extends BaseCustomizer
     _switch.setBboxSizeX(bboxSizeXTF.getText().trim());
     _switch.setBboxSizeY(bboxSizeYTF.getText().trim());
     _switch.setBboxSizeZ(bboxSizeZTF.getText().trim());
+    _switch.setVisible    (visibleCheckBox.isSelected());
+    _switch.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   } 
 
 }

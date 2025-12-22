@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -87,6 +87,9 @@ public class COLLISIONCustomizer extends BaseCustomizer
     bboxSizeXTF.setText(collision.getBboxSizeX());
     bboxSizeYTF.setText(collision.getBboxSizeY());    
     bboxSizeZTF.setText(collision.getBboxSizeZ());
+    
+        visibleCheckBox.setSelected(collision.isVisible());
+    bboxDisplayCheckBox.setSelected(collision.isBboxDisplay());
 
     checkVisualizable ();
   }
@@ -118,13 +121,16 @@ public class COLLISIONCustomizer extends BaseCustomizer
         bboxSizeZTF = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
+        visibleLabel = new javax.swing.JLabel();
+        visibleCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayLabel = new javax.swing.JLabel();
+        bboxDisplayCheckBox = new javax.swing.JCheckBox();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(610, 360));
+        setMinimumSize(new java.awt.Dimension(650, 430));
+        setPreferredSize(new java.awt.Dimension(650, 430));
         setLayout(new java.awt.GridBagLayout());
-
-        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -136,8 +142,6 @@ public class COLLISIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
-        descriptionLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        descriptionLabel.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel.setText("description");
         descriptionLabel.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -170,7 +174,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         jLabel4.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
         add(jLabel4, gridBagConstraints);
@@ -178,7 +182,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         bboxCenterXTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -188,7 +192,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         bboxCenterYTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -198,7 +202,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         bboxCenterZTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -210,7 +214,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         jLabel5.setToolTipText("automatically calculated, can be specified as an optimization or constraint");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
         add(jLabel5, gridBagConstraints);
@@ -223,7 +227,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -238,7 +242,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -253,7 +257,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -282,7 +286,50 @@ public class COLLISIONCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledCB, gridBagConstraints);
 
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayLabel, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayCheckBox, gridBagConstraints);
+
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel.setPreferredSize(new java.awt.Dimension(650, 430));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -298,7 +345,7 @@ public class COLLISIONCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -329,6 +376,8 @@ public class COLLISIONCustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxCenterXTF;
     private javax.swing.JTextField bboxCenterYTF;
     private javax.swing.JTextField bboxCenterZTF;
+    private javax.swing.JCheckBox bboxDisplayCheckBox;
+    private javax.swing.JLabel bboxDisplayLabel;
     private javax.swing.JTextField bboxSizeXTF;
     private javax.swing.JTextField bboxSizeYTF;
     private javax.swing.JTextField bboxSizeZTF;
@@ -340,6 +389,8 @@ public class COLLISIONCustomizer extends BaseCustomizer
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel nodeHintPanel;
+    private javax.swing.JCheckBox visibleCheckBox;
+    private javax.swing.JLabel visibleLabel;
     // End of variables declaration//GEN-END:variables
  
   @Override
@@ -365,6 +416,8 @@ public class COLLISIONCustomizer extends BaseCustomizer
     collision.setBboxSizeX  (bboxSizeXTF.getText().trim());
     collision.setBboxSizeY  (bboxSizeYTF.getText().trim());
     collision.setBboxSizeZ  (bboxSizeZTF.getText().trim());
+    collision.setVisible    (visibleCheckBox.isSelected());
+    collision.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }
   
 }

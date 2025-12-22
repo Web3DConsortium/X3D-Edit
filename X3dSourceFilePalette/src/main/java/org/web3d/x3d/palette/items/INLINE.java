@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -58,7 +58,10 @@ public class INLINE extends X3DGroupingNode
   private String[] urls, urlsDefault;
   private boolean  insertCommas, insertLineBreaks = false;
   private String   expectedProfile = "";
-  private String  description, descriptionDefault; // X3D4.0
+  
+  private String   description, descriptionDefault; // X3D4.0
+  protected boolean  visible,         visibleDefault;
+  protected boolean  bboxDisplay, bboxDisplayDefault;
 
   public INLINE()
   {
@@ -97,6 +100,9 @@ public class INLINE extends X3DGroupingNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(fa[0], null, null);
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1], null, null);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2], null, null);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(INLINE_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(INLINE_ATTR_BBOXDISPLAY_DFLT));
   }
 
   @Override
@@ -139,6 +145,13 @@ public class INLINE extends X3DGroupingNode
       bboxSizeY = new SFFloat(fa[1], null, null);
       bboxSizeZ = new SFFloat(fa[2], null, null);
     }
+    attr = root.getAttribute(INLINE_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(INLINE_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
+    
     String containedContent = this.getContent();
     if      (containedContent.contains("<MetadataString name='profile' value='\"Immersive\"'"))
          setExpectedProfile("Immersive");
@@ -171,6 +184,13 @@ public class INLINE extends X3DGroupingNode
       sb.append(bboxCenterY);
       sb.append(" ");
       sb.append(bboxCenterZ);
+      sb.append("'");
+    }
+    if (INLINE_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(INLINE_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
       sb.append("'");
     }
     if (INLINE_ATTR_BBOXSIZE_REQD ||
@@ -207,6 +227,13 @@ public class INLINE extends X3DGroupingNode
       sb.append(INLINE_ATTR_URL_NAME);
       sb.append("='");
       sb.append(formatStringArray(urls, insertCommas, insertLineBreaks));
+      sb.append("'");
+    }
+    if (INLINE_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(INLINE_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
 
@@ -286,5 +313,33 @@ public class INLINE extends X3DGroupingNode
     public void setDescription(String newDescription)
     {
         this.description = newDescription;
+    }
+
+    /**
+     * @return the visible
+     */
+    public boolean isVisible() {
+        return visible;
+    }
+
+    /**
+     * @param visible the visible to set
+     */
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    /**
+     * @return the bboxDisplay
+     */
+    public boolean isBboxDisplay() {
+        return bboxDisplay;
+    }
+
+    /**
+     * @param bboxDisplay the bboxDisplay to set
+     */
+    public void setBboxDisplay(boolean bboxDisplay) {
+        this.bboxDisplay = bboxDisplay;
     }
 }

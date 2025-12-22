@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -88,6 +88,9 @@ public class BILLBOARDCustomizer extends BaseCustomizer
     bboxSizeXTF.setText(billboard.getBboxSizeX());
     bboxSizeYTF.setText(billboard.getBboxSizeY());    
     bboxSizeZTF.setText(billboard.getBboxSizeZ());
+    
+        visibleCheckBox.setSelected(billboard.isVisible());
+    bboxDisplayCheckBox.setSelected(billboard.isBboxDisplay());
 
     checkVisualizable ();
   }
@@ -120,12 +123,16 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         axisOfRotationYTF = new javax.swing.JTextField();
         axisOfRotationZTF = new javax.swing.JTextField();
         normalizeAxisOfRotationValuesButton = new javax.swing.JButton();
+        visibleLabel = new javax.swing.JLabel();
+        visibleCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayLabel = new javax.swing.JLabel();
+        bboxDisplayCheckBox = new javax.swing.JCheckBox();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(730, 360));
+        setPreferredSize(new java.awt.Dimension(730, 360));
         setLayout(new java.awt.GridBagLayout());
-
-        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -142,7 +149,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         jLabel4.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
         add(jLabel4, gridBagConstraints);
@@ -150,7 +157,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         bboxCenterXTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -159,7 +166,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         bboxCenterYTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -168,7 +175,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         bboxCenterZTF.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -179,7 +186,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         jLabel5.setToolTipText("automatically calculated, can be specified as an optimization or constraint");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
         add(jLabel5, gridBagConstraints);
@@ -192,7 +199,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -206,7 +213,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -220,7 +227,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -276,6 +283,48 @@ public class BILLBOARDCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 10);
         add(normalizeAxisOfRotationValuesButton, gridBagConstraints);
 
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(visibleCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayLabel, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxDisplayCheckBox, gridBagConstraints);
+
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -292,7 +341,7 @@ public class BILLBOARDCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -346,6 +395,8 @@ private void normalizeAxisOfRotationValuesButtonActionPerformed(java.awt.event.A
     private javax.swing.JTextField bboxCenterXTF;
     private javax.swing.JTextField bboxCenterYTF;
     private javax.swing.JTextField bboxCenterZTF;
+    private javax.swing.JCheckBox bboxDisplayCheckBox;
+    private javax.swing.JLabel bboxDisplayLabel;
     private javax.swing.JTextField bboxSizeXTF;
     private javax.swing.JTextField bboxSizeYTF;
     private javax.swing.JTextField bboxSizeZTF;
@@ -355,6 +406,8 @@ private void normalizeAxisOfRotationValuesButtonActionPerformed(java.awt.event.A
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JButton normalizeAxisOfRotationValuesButton;
+    private javax.swing.JCheckBox visibleCheckBox;
+    private javax.swing.JLabel visibleLabel;
     // End of variables declaration//GEN-END:variables
  
   @Override
@@ -377,6 +430,8 @@ private void normalizeAxisOfRotationValuesButtonActionPerformed(java.awt.event.A
     billboard.setBboxSizeX  (bboxSizeXTF.getText().trim());
     billboard.setBboxSizeY  (bboxSizeYTF.getText().trim());
     billboard.setBboxSizeZ  (bboxSizeZTF.getText().trim());
+    billboard.setVisible    (visibleCheckBox.isSelected());
+    billboard.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }
   
 }

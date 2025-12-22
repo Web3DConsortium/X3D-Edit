@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -88,6 +88,9 @@ public class BILLBOARD extends X3DGroupingNode
     axisRotationX = axisRotationXDefault = new SFFloat(fa[0],null,null);
     axisRotationY = axisRotationYDefault = new SFFloat(fa[1],null,null);
     axisRotationZ = axisRotationZDefault = new SFFloat(fa[2],null,null);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(BILLBOARD_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(BILLBOARD_ATTR_BBOXDISPLAY_DFLT));
 
     setContent("\n\t\t<!-- TODO add children nodes and statements here -->\n\t");
 }
@@ -119,6 +122,12 @@ public class BILLBOARD extends X3DGroupingNode
       axisRotationY = new SFFloat(fa[1], null, null);
       axisRotationZ = new SFFloat(fa[2], null, null);
     }
+    attr = root.getAttribute(BILLBOARD_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(BILLBOARD_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
   }
 
   @Override
@@ -161,6 +170,13 @@ public class BILLBOARD extends X3DGroupingNode
       sb.append(bboxCenterZ);
       sb.append("'");
     }
+    if (BILLBOARD_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(BILLBOARD_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
+      sb.append("'");
+    }
 
     if(BILLBOARD_ATTR_BBOXSIZE_REQD ||
        (!bboxSizeX.equals(bboxSizeXDefault) ||
@@ -174,6 +190,13 @@ public class BILLBOARD extends X3DGroupingNode
       sb.append(bboxSizeY);
       sb.append(" ");
       sb.append(bboxSizeZ);
+      sb.append("'");
+    }
+    if (BILLBOARD_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(BILLBOARD_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
     return sb.toString();

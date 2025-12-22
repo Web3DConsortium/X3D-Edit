@@ -663,6 +663,12 @@ public interface X3DSchemaData
   String  SWITCH_ATTR_BBOXSIZE_NAME    = "bboxSize";
   boolean SWITCH_ATTR_BBOXSIZE_REQD    = false;
   String  SWITCH_ATTR_BBOXSIZE_DFLT    = "-1 -1 -1";
+  String  SWITCH_ATTR_VISIBLE_NAME     = "visible";
+  boolean SWITCH_ATTR_VISIBLE_REQD     = false;
+  String  SWITCH_ATTR_VISIBLE_DFLT     = "true";
+  String  SWITCH_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean SWITCH_ATTR_BBOXDISPLAY_REQD = false;
+  String  SWITCH_ATTR_BBOXDISPLAY_DFLT = "false";
 
   // Text element
   String  TEXT_ELNAME               = "Text";
@@ -829,6 +835,12 @@ public interface X3DSchemaData
   String  BILLBOARD_ATTR_BBOXSIZE_NAME       = "bboxSize";
   boolean BILLBOARD_ATTR_BBOXSIZE_REQD       = false;
   String  BILLBOARD_ATTR_BBOXSIZE_DFLT       = "-1 -1 -1";
+  String  BILLBOARD_ATTR_VISIBLE_NAME     = "visible";
+  boolean BILLBOARD_ATTR_VISIBLE_REQD     = false;
+  String  BILLBOARD_ATTR_VISIBLE_DFLT     = "true";
+  String  BILLBOARD_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean BILLBOARD_ATTR_BBOXDISPLAY_REQD = false;
+  String  BILLBOARD_ATTR_BBOXDISPLAY_DFLT = "false";
 
   // ClipPlane element
   String  CLIPPLANE_ELNAME                = "ClipPlane";
@@ -856,6 +868,12 @@ public interface X3DSchemaData
   String  COLLISION_ATTR_BBOXSIZE_NAME    = "bboxSize";
   boolean COLLISION_ATTR_BBOXSIZE_REQD    = false;
   String  COLLISION_ATTR_BBOXSIZE_DFLT    = "-1 -1 -1";
+  String  COLLISION_ATTR_VISIBLE_NAME     = "visible";
+  boolean COLLISION_ATTR_VISIBLE_REQD     = false;
+  String  COLLISION_ATTR_VISIBLE_DFLT     = "true";
+  String  COLLISION_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean COLLISION_ATTR_BBOXDISPLAY_REQD = false;
+  String  COLLISION_ATTR_BBOXDISPLAY_DFLT = "false";
 
   // PointLight element
   String  POINTLIGHT_ELNAME                     = "PointLight";
@@ -1115,6 +1133,12 @@ public interface X3DSchemaData
   String  INLINE_ATTR_DESCRIPTION_NAME = "description"; // X3D4.0
   boolean INLINE_ATTR_DESCRIPTION_REQD = false;
   String  INLINE_ATTR_DESCRIPTION_DFLT = "";
+  String  INLINE_ATTR_VISIBLE_NAME     = "visible";
+  boolean INLINE_ATTR_VISIBLE_REQD     = false;
+  String  INLINE_ATTR_VISIBLE_DFLT     = "true";
+  String  INLINE_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean INLINE_ATTR_BBOXDISPLAY_REQD = false;
+  String  INLINE_ATTR_BBOXDISPLAY_DFLT = "false";
 
   // element LOD
   String  LOD_ELNAME                     = "LOD";
@@ -1133,6 +1157,12 @@ public interface X3DSchemaData
   String  LOD_ATTR_BBOXSIZE_NAME         = "bboxSize";
   boolean LOD_ATTR_BBOXSIZE_REQD         = false;
   String  LOD_ATTR_BBOXSIZE_DFLT         = "-1 -1 -1";
+  String  LOD_ATTR_VISIBLE_NAME     = "visible";
+  boolean LOD_ATTR_VISIBLE_REQD     = false;
+  String  LOD_ATTR_VISIBLE_DFLT     = "true";
+  String  LOD_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean LOD_ATTR_BBOXDISPLAY_REQD = false;
+  String  LOD_ATTR_BBOXDISPLAY_DFLT = "false";
 
   String[]LOD_ATTR_CONTAINERFIELD_CHOICES    = {"children", "proxy", "shape"};
   String[]LOD_ATTR_CONTAINERFIELD_TOOLTIPS   =
