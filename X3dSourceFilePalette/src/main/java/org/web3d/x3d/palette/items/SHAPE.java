@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -100,6 +100,9 @@ public class SHAPE extends X3DShapeNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(sa[0], -1.0f, null, true);
     bboxSizeY = bboxSizeYDefault = new SFFloat(sa[1], -1.0f, null, true);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(sa[2], -1.0f, null, true);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(SHAPE_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(SHAPE_ATTR_BBOXDISPLAY_DFLT));
 
 //  setContent("\n\t\t<!--TODO add Appearance and a single geometry node here-->\n\t");
 //  setContent("\n\t\t<!--TODO add a single geometry node here-->\n\t\t<Appearance>\n\t\t\t<Material/>\n\t\t\t<!--TODO add ImageTexture, MovieTexture, PixelTexture, TextureTransform, FillProperties, and/or LineProperties nodes here-->\n\t\t</Appearance>\n\t");
@@ -126,6 +129,12 @@ public class SHAPE extends X3DShapeNode
       bboxSizeY = new SFFloat(sa[1], -1.0f, null, true);
       bboxSizeZ = new SFFloat(sa[2], -1.0f, null, true);
     }
+    attr = root.getAttribute(SHAPE_ATTR_VISIBLE_NAME);
+    if (attr != null)
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(SHAPE_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
   }
 
   @Override
@@ -160,6 +169,13 @@ public class SHAPE extends X3DShapeNode
       sb.append(bboxCenterZ.toString());
       sb.append("'");
     }
+    if (SHAPE_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(SHAPE_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
+      sb.append("'");
+    }
     if (SHAPE_ATTR_BBOXSIZE_REQD ||
            (!bboxSizeX.equals(bboxSizeXDefault) |
             !bboxSizeY.equals(bboxSizeYDefault) |
@@ -173,6 +189,13 @@ public class SHAPE extends X3DShapeNode
       sb.append(bboxSizeY.toString());
       sb.append(" ");
       sb.append(bboxSizeZ.toString());
+      sb.append("'");
+    }
+    if (SHAPE_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(SHAPE_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
 //    System.out.println ("Shape createAttributes() trace");

@@ -1180,6 +1180,12 @@ public interface X3DSchemaData
   String  SHAPE_ATTR_BBOXSIZE_NAME   = "bboxSize";
   boolean SHAPE_ATTR_BBOXSIZE_REQD   = false;
   String  SHAPE_ATTR_BBOXSIZE_DFLT   = "-1 -1 -1";
+  String  SHAPE_ATTR_VISIBLE_NAME                    = "visible";
+  boolean SHAPE_ATTR_VISIBLE_REQD                    = false;
+  String  SHAPE_ATTR_VISIBLE_DFLT                    = "true";
+  String  SHAPE_ATTR_BBOXDISPLAY_NAME                = "bboxDisplay";
+  boolean SHAPE_ATTR_BBOXDISPLAY_REQD                = false;
+  String  SHAPE_ATTR_BBOXDISPLAY_DFLT                = "false";
 
   String[]SHAPE_ATTR_CONTAINERFIELD_CHOICES    = {"children", "proxy", "rootNode", "shape", "skin"};
   String[]SHAPE_ATTR_CONTAINERFIELD_TOOLTIPS   =
