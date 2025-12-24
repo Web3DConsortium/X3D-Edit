@@ -66,6 +66,7 @@ import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
+import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 import org.openide.util.Utilities;
 import org.openide.windows.IOProvider;
@@ -1496,8 +1497,29 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
     private void qaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qaButtonActionPerformed
         // similarly implemented in UrlExpandableList2 and METACustomizer, keep these code blocks consistent
-        String url = urlJList.getSelectedValue();
+        String url = urlJList.getSelectedValue().trim();
         validateUrlContentViaOnlineServer (url);
+        if (url.startsWith("http"))
+        {
+//            try {
+//                java.net.URI uriObject = new java.net.URI(url);
+//                String protocol;
+//                if  (url.startsWith("https"))
+//                     protocol = "https://";
+//                else protocol = "http://";
+//                String hostName = uriObject.getHost();
+//                String urlRedbot = "https://www.redbot.org/?uri=" + protocol + hostName;
+//                String urlRedbot = "https://www.redbot.org/?uri=" + url; // full url OK
+//                launchInBrowser(urlRedbot);
+//            } 
+//            catch (URISyntaxException ex) {
+//                Exceptions.printStackTrace(ex);
+//            }
+            String redbotUrl = "https://www.redbot.org/?uri=" + url; // full url is OK
+            launchInBrowser(redbotUrl);
+            System.out.println("*** Server headers Quality Assurance (QA) check: " + redbotUrl);
+        }
+        
     }//GEN-LAST:event_qaButtonActionPerformed
 
     private void alignRightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alignRightButtonActionPerformed

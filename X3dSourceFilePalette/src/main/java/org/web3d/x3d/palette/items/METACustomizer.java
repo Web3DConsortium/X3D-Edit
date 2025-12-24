@@ -52,6 +52,7 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
 import org.web3d.x3d.tools.usage.DateTimeGroupStamp;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.actions.BaseViewAction.X3D4_ARCHITECTURE_STANDARD_IS;
+import static org.web3d.x3d.palette.items.UrlExpandableList2.launchInBrowser;
 
 /**
  * METACustomizer.java
@@ -409,6 +410,8 @@ public class METACustomizer extends BaseCustomizer
         directionLabel = new javax.swing.JLabel();
         prependHttpsButton = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(660, 560));
+        setPreferredSize(new java.awt.Dimension(660, 600));
         setLayout(new java.awt.GridBagLayout());
 
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -931,8 +934,8 @@ public class METACustomizer extends BaseCustomizer
         openContentButton.setEnabled(contentTA.getText().length() > 0);
         loadContentButton.setEnabled(isContentUrl && !isContentCompressed);
      externalEditorButton.setEnabled(isContentUrl && !isContentCompressed);        
-                 qaButton.setEnabled(isContentUrl && !isContentCompressed && 
-                                     urlExpandableList.hasQaTest(content));
+                 qaButton.setEnabled((isContentUrl && !isContentCompressed && urlExpandableList.hasQaTest(content)) ||
+                                      content.startsWith("http"));
              domainButton.setEnabled(isContentUrl && 
                                      urlExpandableList.isOnlineUrl(content));    
                pingButton.setEnabled(isContentUrl && 
@@ -1279,6 +1282,7 @@ public class METACustomizer extends BaseCustomizer
     private void qaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qaButtonActionPerformed
         // similarly implemented in UrlExpandableList2 and METACustomizer, keep these code blocks consistent
         String url = contentTA.getText().trim();
+        String originalUrl = url;
         
         // also skip preceding meta text as appropriate (for example, descriptions preceding urls for name=generator meta tags)
         if      (url.contains("http://"))
@@ -1291,6 +1295,12 @@ public class METACustomizer extends BaseCustomizer
                  url = url.substring(url.indexOf("sftp://"));
         
         urlExpandableList.validateUrlContentViaOnlineServer (url);
+        if (originalUrl.startsWith("http"))
+        {
+            String redbotUrl = "https://www.redbot.org/?uri=" + originalUrl; // full url is OK
+            launchInBrowser(redbotUrl);
+            System.out.println("*** Server headers Quality Assurance (QA) check: " + redbotUrl);
+        }
     }//GEN-LAST:event_qaButtonActionPerformed
 
     private void domainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_domainButtonActionPerformed
