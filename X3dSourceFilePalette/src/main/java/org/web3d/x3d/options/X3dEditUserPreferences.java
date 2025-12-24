@@ -754,7 +754,7 @@ public class X3dEditUserPreferences
   private static final String winxpImageJEditorPathDefault               = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\imdisplay.exe";
   private static final String winxpVlcPlayerPathDefault                  = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
-  private static final String winxpProtegePlayerPathDefault              = "C:\\Program Files\\Protege-5.6.4\\Protege.exe";
+  private static final String winxpProtegePlayerPathDefault              = "C:\\Program Files\\Protege\\Protege-5.6.7\\Protege.exe";
   private static final String winxpPorteclePlayerPathDefault             = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
   private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
@@ -786,7 +786,7 @@ public class X3dEditUserPreferences
   private static final String windows64ImageJEditorPathDefault           = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\imdisplay.exe";
   private static final String windows64VlcPlayerPathDefault              = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
-  private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege-5.6.4\\Protege.exe";
+  private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege\\Protege-5.6.7\\Protege.exe";
   private static final String windows64PorteclePlayerPathDefault         = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
   private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
