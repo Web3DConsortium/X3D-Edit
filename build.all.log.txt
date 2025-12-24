@@ -1,5 +1,6 @@
 platform.download:
-ant -f C:\\x3d-github\\X3D-Edit all
+ant -f C:\\x3d-github\\X3D-Edit -Djdk.xml.entityExpansionLimit=120000 -Djdk.xml.maxGeneralEntitySizeLimit=50000000 -Djdk.xml.totalEntitySizeLimit=50000000 clean build
+Deleting directory C:\x3d-github\X3D-Edit\build\testuserdir
 testuserdir-delete:
 suite-jnlp.clean:
 clean:
@@ -29,19 +30,19 @@ ant xmlvalidate this build file, build.xml
 1 file(s) have been successfully validated.
 =============
 java -version
-openjdk version "23.0.2" 2025-01-21
-OpenJDK Runtime Environment (build 23.0.2+7-58)
-OpenJDK 64-Bit Server VM (build 23.0.2+7-58, mixed mode, sharing)
+openjdk version "25.0.1" 2025-10-21
+OpenJDK Runtime Environment (build 25.0.1+8-27)
+OpenJDK 64-Bit Server VM (build 25.0.1+8-27, mixed mode, sharing)
 which java
-/cygdrive/c/Program Files/Java/openjdk/jdk-23.0.2/bin/java
+/cygdrive/c/Program Files/Java/OpenJDK/jdk-25.0.1/bin/java
 =============
 System environment variables:
   ANT_HOME=${env.ANT_HOME}
  JAVA_HOME=${env.JAVA_HOME}
 PYTHONPATH=${env.PYTHONPATH}
 javac source version     $java.source=${java.source}
-Java/JVM version    $ant.java.version=23
-Java/JVM detail version $java.version=23.0.2
+Java/JVM version    $ant.java.version=25
+Java/JVM detail version $java.version=25.0.1
 Ant version              $ant.version=Apache Ant(TM) version 1.10.15 compiled on August 25 2024
 =============
 build-brand:
@@ -54,54 +55,54 @@ X3D-Edit Module.files-init:
 X3D-Edit Module.nbm-license-init:
 X3D-Edit Module.build-init:
 Created dir: C:\x3d-github\X3D-Edit\build\public-package-jars
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\extide
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\ide
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\java
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\nb
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\platform
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\webcommon
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\extide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\ide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\java
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\nb
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\platform
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\webcommon
 Scanning for modules in suite C:\x3d-github\X3D-Edit
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-apache-tools-ant-module.jar from [C:\Program Files\NetBeans-25\netbeans\extide\modules\org-apache-tools-ant-module.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-api-xml.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-api-xml.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-api-xml-ui.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-api-xml-ui.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-libs-xerces.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-libs-xerces.jar, C:\Program Files\NetBeans-25\netbeans\ide\modules\ext\xerces-2.8.0.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-autoupdate-services.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-netbeans-modules-autoupdate-services.jar, C:\Program Files\NetBeans-25\netbeans\platform\modules\ext\updater.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-document.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-modules-editor-document.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-indent.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-modules-editor-indent.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-lib.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-modules-editor-lib.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-mimelookup.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-netbeans-modules-editor-mimelookup.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-options-api.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-netbeans-modules-options-api.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-settings.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-netbeans-modules-settings.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-catalog.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-modules-xml-catalog.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-catalog-ui.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-modules-xml-catalog-ui.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-core.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-modules-xml-core.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-lexer.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-modules-xml-lexer.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-retriever.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-modules-xml-retriever.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-schema-model.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-modules-xml-schema-model.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-xdm.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-modules-xml-xdm.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-spi-palette.jar from [C:\Program Files\NetBeans-25\netbeans\ide\modules\org-netbeans-spi-palette.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-actions.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-openide-actions.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-awt.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-openide-awt.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-dialogs.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-openide-dialogs.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-execution.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-openide-execution.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-filesystems.jar from [C:\Program Files\NetBeans-25\netbeans\platform\core\org-openide-filesystems.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-io.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-openide-io.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-loaders.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-openide-loaders.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-modules.jar from [C:\Program Files\NetBeans-25\netbeans\platform\lib\org-openide-modules.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-nodes.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-openide-nodes.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-text.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-openide-text.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util.jar from [C:\Program Files\NetBeans-25\netbeans\platform\lib\org-openide-util.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util-lookup.jar from [C:\Program Files\NetBeans-25\netbeans\platform\lib\org-openide-util-lookup.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util-ui.jar from [C:\Program Files\NetBeans-25\netbeans\platform\lib\org-openide-util-ui.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-windows.jar from [C:\Program Files\NetBeans-25\netbeans\platform\modules\org-openide-windows.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-apache-tools-ant-module.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\extide\modules\org-apache-tools-ant-module.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-api-xml.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-api-xml.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-api-xml-ui.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-api-xml-ui.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-libs-xerces.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-libs-xerces.jar, C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\ext\xerces-2.8.0.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-autoupdate-services.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-netbeans-modules-autoupdate-services.jar, C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\ext\updater.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-document.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-editor-document.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-indent.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-editor-indent.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-lib.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-editor-lib.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-mimelookup.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-netbeans-modules-editor-mimelookup.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-options-api.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-netbeans-modules-options-api.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-settings.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-netbeans-modules-settings.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-catalog.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-catalog.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-catalog-ui.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-catalog-ui.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-core.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-core.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-lexer.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-lexer.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-retriever.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-retriever.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-schema-model.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-schema-model.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-xdm.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-xdm.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-spi-palette.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-spi-palette.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-actions.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-actions.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-awt.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-awt.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-dialogs.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-dialogs.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-execution.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-execution.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-filesystems.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\core\org-openide-filesystems.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-io.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-io.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-loaders.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-loaders.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-modules.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\lib\org-openide-modules.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-nodes.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-nodes.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-text.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-text.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\lib\org-openide-util.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util-lookup.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\lib\org-openide-util-lookup.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util-ui.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\lib\org-openide-util-ui.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-windows.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-windows.jar]
 X3D-Edit Module.init:
 X3D-Edit Module.projectized-common.-javadoc-init:
 X3D-Edit Module.moduleVersion:
-mf.OpenIDE-Module-Implementation-Version=37
+mf.OpenIDE-Module-Implementation-Version=40
 MODULE_PROJECT_PROPERTIES_FILE=X3dSourceFilePalette/moduleVersion.properties
-       MODULE_MANIFEST_VERSION=37
+       MODULE_MANIFEST_VERSION=40
 Updating property file: C:\x3d-github\X3D-Edit\branding\modules\org-netbeans-core-windows.jar\org\netbeans\core\windows\view\ui\Bundle.properties
-CTL_MainWindow_Title=X3D-Edit 4.0 Authoring Tool, build 20250225, module 4.0.37
+CTL_MainWindow_Title=X3D-Edit 4.0 Authoring Tool, build 20251223, module 4.0.40
 branding:
 Created dir: C:\x3d-github\X3D-Edit\build\cluster
 Building jar: C:\x3d-github\X3D-Edit\build\cluster\core\locale\core_x3deditmodulesuite.jar
@@ -117,12 +118,12 @@ X3D-Edit Module.basic-init:
 X3D-Edit Module.files-init:
 X3D-Edit Module.nbm-license-init:
 X3D-Edit Module.build-init:
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\extide
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\ide
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\java
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\nb
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\platform
-Scanning for modules in C:\Program Files\NetBeans-25\netbeans\webcommon
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\extide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\ide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\java
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\nb
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\platform
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\webcommon
 Scanning for modules in suite C:\x3d-github\X3D-Edit
 X3D-Edit Module.init:
 X3D-Edit Module.up-to-date:
@@ -135,134 +136,159 @@ last modified = Thu Aug 23 22:22:16 PDT 2007
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-InputOutputFields.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-InputOutputFields.dtd
 .
-last modified = Sat Oct 31 12:51:27 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensions.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensions.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPrivate.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPrivate.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsAmendment1.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsAmendment1.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.Specification.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.Specification.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0.dtd
 .......
-last modified = Thu Jul 04 08:41:34 PDT 2024
+last modified = Tue Dec 16 23:35:25 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-InputOutputFields.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-InputOutputFields.dtd
 .
-last modified = Sat Oct 31 12:51:27 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPrivate.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPrivate.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.Specification.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.Specification.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1.dtd
 .......
-last modified = Thu Jul 04 08:41:34 PDT 2024
+last modified = Tue Dec 16 23:35:25 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-InputOutputFields.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-InputOutputFields.dtd
 .
-last modified = Sat Oct 31 12:51:27 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPrivate.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPrivate.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.Specification.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.Specification.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2.dtd
 .........
-last modified = Thu Jul 04 08:41:34 PDT 2024
+last modified = Tue Dec 16 23:35:25 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-InputOutputFields.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-InputOutputFields.dtd
 .
-last modified = Sat Oct 31 12:51:27 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPrivate.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPrivate.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.Specification.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.Specification.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.dtd
 .
-last modified = Sat Oct 31 12:44:59 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3.dtd
 .........
-last modified = Thu Jul 04 08:41:34 PDT 2024
+last modified = Tue Dec 16 23:35:25 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-InputOutputFields.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-InputOutputFields.dtd
 .
-last modified = Sat Oct 31 13:10:17 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPrivate.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPrivate.dtd
 .
-last modified = Sat Oct 31 13:10:17 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.Specification.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.Specification.dtd
 .
-last modified = Sat Oct 31 13:10:17 PDT 2015
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.dtd
 .
-last modified = Sat Nov 27 10:38:19 PST 2021
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0.dtd
 ............
-last modified = Tue Dec 31 13:17:00 PST 2024
+last modified = Sun Dec 21 13:19:34 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-InputOutputFields.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-InputOutputFields.dtd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPrivate.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPublic.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1.dtd
+............
+last modified = Sun Dec 21 13:19:34 PST 2025
 X3D-Edit Module.get.latest.schemas:
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0.xsd
 ....................................
-last modified = Sun Nov 05 16:55:58 PST 2023
+last modified = Tue Aug 05 16:33:01 PDT 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1.xsd
 .........................................
-last modified = Fri Feb 14 18:36:24 PST 2025
+last modified = Tue Aug 05 16:33:01 PDT 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2.xsd
 ...................................................
-last modified = Fri Feb 14 18:36:24 PST 2025
+last modified = Tue Aug 05 16:33:01 PDT 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3.xsd
 ....................................................
 ..
-last modified = Fri Feb 14 18:36:24 PST 2025
+last modified = Tue Aug 05 16:33:01 PDT 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0.xsd
 ....................................................
-..............................
-last modified = Fri Feb 14 18:36:24 PST 2025
+...............................
+last modified = Tue Dec 23 16:03:52 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1.xsd
+....................................................
+...............................
+last modified = Tue Dec 23 16:03:52 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/OasisXmlCatalogX3D.xml
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\OasisXmlCatalogX3D.xml
 .
@@ -270,76 +296,88 @@ last modified = Fri Apr 26 02:15:46 PDT 2024
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsAmendment1.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsAmendment1.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPrivate.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPrivate.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.Specification.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.Specification.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPrivate.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPrivate.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.Specification.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.Specification.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPrivate.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPrivate.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.Specification.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.Specification.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPrivate.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPrivate.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.Specification.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.Specification.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPrivate.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPrivate.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.Specification.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.Specification.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.xsd
 .
-last modified = Sun Jun 28 10:28:32 PDT 2020
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPrivate.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPrivate.xsd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sat Dec 13 09:32:24 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPublic.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPublic.xsd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
 X3D-Edit Module.get.latest.schematrons:
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/build.xml
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\build.xml
-.
-last modified = Thu Jan 02 08:03:04 PST 2025
+..
+last modified = Fri Aug 22 07:44:13 PDT 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/buildSchematronDevelopment.xml
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\buildSchematronDevelopment.xml
-...
-last modified = Sat Aug 17 03:31:22 PDT 2024
+....
+last modified = Fri Aug 22 07:44:13 PDT 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/SvrlReportText.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\SvrlReportText.xslt
 .
@@ -455,11 +493,12 @@ To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\sche
 ....................................................
 ....................................................
 ....................................................
-..................
-last modified = Thu Jan 02 08:03:04 PST 2025
+....................................................
+...
+last modified = Sun Dec 14 20:29:33 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/X3dSchematronValidityChecks.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\X3dSchematronValidityChecks.xslt
-local file date : Thu Jan 02 08:03:04 PST 2025
+local file date : Sun Dec 14 20:29:33 PST 2025
 Not modified - so not downloaded
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_abstract_expand.xsl
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\iso_abstract_expand.xsl
@@ -494,15 +533,15 @@ Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToV
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToVrml97.xslt
 ....................................................
 ...
-last modified = Mon Jan 06 13:33:11 PST 2025
+last modified = Fri Dec 05 16:24:26 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dExtrusionToSvgViaXslt2.0.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dExtrusionToSvgViaXslt2.0.xslt
 ..
 last modified = Sun Jul 21 05:28:28 PDT 2019
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dTidy.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dTidy.xslt
-...............................................
-last modified = Wed Jan 01 19:25:59 PST 2025
+................................................
+last modified = Thu Dec 11 14:43:46 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToHtml.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToHtml.xslt
 .........
@@ -529,28 +568,28 @@ To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\styl
 last modified = Sun Nov 06 11:05:48 PST 2022
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToXhtml.xslt
-...........................................
-last modified = Fri Feb 07 06:17:16 PST 2025
+.............................................
+last modified = Fri Dec 05 15:41:04 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToX3domX_ITE.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToX3domX_ITE.xslt
 ............
-last modified = Wed Jan 08 16:48:19 PST 2025
+last modified = Fri Dec 05 16:05:50 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToJava.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToJava.xslt
 .........................
-last modified = Mon Jan 06 13:33:48 PST 2025
+last modified = Fri Dec 05 15:40:48 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToJson.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToJson.xslt
 ......................
-last modified = Sat Dec 07 19:20:38 PST 2024
+last modified = Fri Dec 05 15:40:48 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToPython.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToPython.xslt
 ................
-last modified = Mon Dec 09 12:04:27 PST 2024
+last modified = Fri Dec 05 15:40:48 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToTurtle.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToTurtle.xslt
 ..............
-last modified = Tue Jan 07 13:29:44 PST 2025
+last modified = Fri Dec 05 15:40:48 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dUnwrap.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dUnwrap.xslt
 ....
@@ -561,24 +600,26 @@ To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\styl
 last modified = Fri Apr 26 18:43:39 PDT 2024
 X3D-Edit Module.get.latest:
 Created dir: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
-Compiling 891 source files to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
+Compiling 942 source files to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
 Ignoring source, target and bootclasspath as release has been set
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\InputOutputReporter.java:68: warning: [removal] WeakSet in org.openide.util has been deprecated and marked for removal
+        Collections.synchronizedSet(new WeakSet<Hyperlink>()); // Set<Hyperlink>
 C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\security\ManageKeyStorePanel.java:335: warning: [deprecation] X509V1CertificateGenerator in org.bouncycastle.x509 has been deprecated
     X509V1CertificateGenerator certGen = new X509V1CertificateGenerator();
 C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\security\ManageKeyStorePanel.java:335: warning: [deprecation] X509V1CertificateGenerator in org.bouncycastle.x509 has been deprecated
     X509V1CertificateGenerator certGen = new X509V1CertificateGenerator();
-2 warnings
+3 warnings
 Creating empty C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes\org\web3d\x3d\palette\package-info.class
-Copying 1037 files to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
+Copying 1069 files to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
 X3D-Edit Module.compile:
 X3D-Edit Module.jar-prep:
-Computed OpenIDE-Module-Specification-Version: 4.0.37
+Computed OpenIDE-Module-Specification-Version: 4.0.40
 Building jar: C:\x3d-github\X3D-Edit\build\cluster\modules\org-web3d-x3d-palette.jar
 X3D-Edit Module.jar:
 X3D-Edit Module.netbeans-extra:
 X3D-Edit Module.javahelp:
 X3D-Edit Module.module-auto-deps:
-Copying 36 files to C:\x3d-github\X3D-Edit\build\cluster
+Copying 35 files to C:\x3d-github\X3D-Edit\build\cluster
 X3D-Edit Module.release:
 X3D-Edit Module.module-xml-regular:
 X3D-Edit Module.module-xml-autoload:
@@ -591,59 +632,639 @@ Generating Auto Update information for org.web3d.x3d.palette
 X3D-Edit Module.netbeans:
 build:
 *** Release preparations: run target 'generate.nbm.signing.cert'
-generate.nbm.signing.cert:
-Deleting: C:\x3d-github\X3D-Edit\nbproject\private\movesJarSigningKeystore
-Generating Key for nbmsigner
-Generating 2,048 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 90 days
-	for: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
-[Storing nbproject/private/movesJarSigningKeystore]
+BUILD SUCCESSFUL (total time: 49 seconds)
 platform.download:
-inspect.signing.cert:
-Keystore type: PKCS12
-Keystore provider: SUN
-
-Your keystore contains 1 entry
-
-Alias name: nbmsigner
-Creation date: Feb 25, 2025
-Entry type: PrivateKeyEntry
-Certificate chain length: 1
-Certificate[1]:
-Owner: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
-Issuer: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
-Serial number: eb575775b5ef8b32
-Valid from: Tue Feb 25 02:25:14 PST 2025 until: Mon May 26 03:25:14 PDT 2025
-Certificate fingerprints:
-	 SHA1: 6E:1E:AB:AB:22:16:69:26:CD:68:62:F9:E1:78:FD:62:69:E9:77:62
-	 SHA256: E4:E0:B0:9C:B4:25:7F:69:2F:36:4C:27:0C:9D:B2:4D:D6:34:83:C1:F9:63:D4:D2:93:FD:2A:45:C5:A6:63:99
-Signature algorithm name: SHA384withRSA
-Subject Public Key Algorithm: 2048-bit RSA key
-Version: 3
-
-Extensions: 
-
-#1: ObjectId: 2.5.29.14 Criticality=false
-SubjectKeyIdentifier [
-KeyIdentifier [
-0000: D0 4F E4 EA 50 A3 B5 C3   68 36 7E C0 8F 1E C6 13  .O..P...h6......
-0010: 40 B4 9F 7D                                        @...
-]
-]
-
-
-
-*******************************************
-*******************************************
-
-
-platform.download:
-update-keystore-info:
-Updating property file: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\nbproject\project.properties
-Updating property file: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\nbproject\private\suite-private.properties
-update-keystore-info:
-Updating property file: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\nbproject\project.properties
-Updating property file: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\nbproject\private\suite-private.properties
-all:
-*** Release preparations: update X3D-Edit.html prior to final release
-build all complete, release results maintained in build.all.log.txt
-BUILD SUCCESSFUL (total time: 1 minute 4 seconds)
+ant -f C:\\x3d-github\\X3D-Edit -Djdk.xml.entityExpansionLimit=120000 -Djdk.xml.maxGeneralEntitySizeLimit=50000000 -Djdk.xml.totalEntitySizeLimit=50000000 clean build
+Deleting directory C:\x3d-github\X3D-Edit\build\testuserdir
+testuserdir-delete:
+suite-jnlp.clean:
+clean:
+X3D-Edit Module.taskdefs:
+X3D-Edit Module.common-init:
+X3D-Edit Module.projectized-common.basic-init:
+X3D-Edit Module.basic-init:
+X3D-Edit Module.files-init:
+X3D-Edit Module.testuserdir-delete:
+X3D-Edit Module.projectized-common.clean:
+Deleting directory C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications
+Deleting directory C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron
+Deleting directory C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets
+Created dir: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications
+Created dir: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron
+Created dir: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets
+X3D-Edit Module.clean:
+versions:
+=============
+NetBeans can use internal (bundled) or external version of Ant
+ant -version
+Apache Ant(TM) version 1.10.15 compiled on August 25 2024
+NetBeans ant directory is set under Tools > Options > Java
+which ant
+/cygdrive/c/apache-ant-1.10.15/bin/ant
+ant xmlvalidate this build file, build.xml
+1 file(s) have been successfully validated.
+=============
+java -version
+openjdk version "25.0.1" 2025-10-21
+OpenJDK Runtime Environment (build 25.0.1+8-27)
+OpenJDK 64-Bit Server VM (build 25.0.1+8-27, mixed mode, sharing)
+which java
+/cygdrive/c/Program Files/Java/OpenJDK/jdk-25.0.1/bin/java
+=============
+System environment variables:
+  ANT_HOME=${env.ANT_HOME}
+ JAVA_HOME=${env.JAVA_HOME}
+PYTHONPATH=${env.PYTHONPATH}
+javac source version     $java.source=${java.source}
+Java/JVM version    $ant.java.version=25
+Java/JVM detail version $java.version=25.0.1
+Ant version              $ant.version=Apache Ant(TM) version 1.10.15 compiled on August 25 2024
+=============
+build-brand:
+Updating property file: C:\x3d-github\X3D-Edit\branding\core\core.jar\org\netbeans\core\startup\Bundle.properties
+X3D-Edit Module.taskdefs:
+X3D-Edit Module.common-init:
+X3D-Edit Module.projectized-common.basic-init:
+X3D-Edit Module.basic-init:
+X3D-Edit Module.files-init:
+X3D-Edit Module.nbm-license-init:
+X3D-Edit Module.build-init:
+Created dir: C:\x3d-github\X3D-Edit\build\public-package-jars
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\extide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\ide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\java
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\nb
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\platform
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\webcommon
+Scanning for modules in suite C:\x3d-github\X3D-Edit
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-apache-tools-ant-module.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\extide\modules\org-apache-tools-ant-module.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-api-xml.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-api-xml.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-api-xml-ui.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-api-xml-ui.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-libs-xerces.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-libs-xerces.jar, C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\ext\xerces-2.8.0.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-autoupdate-services.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-netbeans-modules-autoupdate-services.jar, C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\ext\updater.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-document.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-editor-document.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-indent.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-editor-indent.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-lib.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-editor-lib.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-mimelookup.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-netbeans-modules-editor-mimelookup.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-options-api.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-netbeans-modules-options-api.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-settings.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-netbeans-modules-settings.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-catalog.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-catalog.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-catalog-ui.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-catalog-ui.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-core.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-core.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-lexer.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-lexer.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-retriever.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-retriever.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-schema-model.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-schema-model.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-xdm.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-modules-xml-xdm.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-spi-palette.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\ide\modules\org-netbeans-spi-palette.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-actions.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-actions.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-awt.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-awt.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-dialogs.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-dialogs.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-execution.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-execution.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-filesystems.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\core\org-openide-filesystems.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-io.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-io.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-loaders.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-loaders.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-modules.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\lib\org-openide-modules.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-nodes.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-nodes.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-text.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-text.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\lib\org-openide-util.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util-lookup.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\lib\org-openide-util-lookup.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util-ui.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\lib\org-openide-util-ui.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-windows.jar from [C:\Program Files\NetBeans\NetBeans-28\netbeans\platform\modules\org-openide-windows.jar]
+X3D-Edit Module.init:
+X3D-Edit Module.projectized-common.-javadoc-init:
+X3D-Edit Module.moduleVersion:
+mf.OpenIDE-Module-Implementation-Version=40
+MODULE_PROJECT_PROPERTIES_FILE=X3dSourceFilePalette/moduleVersion.properties
+       MODULE_MANIFEST_VERSION=40
+Updating property file: C:\x3d-github\X3D-Edit\branding\modules\org-netbeans-core-windows.jar\org\netbeans\core\windows\view\ui\Bundle.properties
+CTL_MainWindow_Title=X3D-Edit 4.0 Authoring Tool, build 20251223, module 4.0.40
+branding:
+Created dir: C:\x3d-github\X3D-Edit\build\cluster
+Building jar: C:\x3d-github\X3D-Edit\build\cluster\core\locale\core_x3deditmodulesuite.jar
+Building jar: C:\x3d-github\X3D-Edit\build\cluster\modules\locale\org-netbeans-core-windows_x3deditmodulesuite.jar
+files-init:
+release:
+Created dir: C:\x3d-github\X3D-Edit\build\cluster\config\Modules
+suite.build:
+X3D-Edit Module.taskdefs:
+X3D-Edit Module.common-init:
+X3D-Edit Module.projectized-common.basic-init:
+X3D-Edit Module.basic-init:
+X3D-Edit Module.files-init:
+X3D-Edit Module.nbm-license-init:
+X3D-Edit Module.build-init:
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\extide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\ide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\java
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\nb
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\platform
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-28\netbeans\webcommon
+Scanning for modules in suite C:\x3d-github\X3D-Edit
+X3D-Edit Module.init:
+X3D-Edit Module.up-to-date:
+X3D-Edit Module.projectized-common.-pre-compile:
+X3D-Edit Module.get.latest.DTDs:
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/catalog.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\catalog.dtd
+.
+last modified = Thu Aug 23 22:22:16 PDT 2007
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-InputOutputFields.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-InputOutputFields.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensions.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensions.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPrivate.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsAmendment1.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsAmendment1.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0.dtd
+.......
+last modified = Tue Dec 16 23:35:25 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-InputOutputFields.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-InputOutputFields.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPrivate.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1.dtd
+.......
+last modified = Tue Dec 16 23:35:25 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-InputOutputFields.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-InputOutputFields.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPrivate.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2.dtd
+.........
+last modified = Tue Dec 16 23:35:25 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-InputOutputFields.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-InputOutputFields.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPrivate.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3.dtd
+.........
+last modified = Tue Dec 16 23:35:25 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-InputOutputFields.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-InputOutputFields.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPrivate.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0.dtd
+............
+last modified = Sun Dec 21 13:19:34 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-InputOutputFields.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-InputOutputFields.dtd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPrivate.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPrivate.dtd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPublic.Specification.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPublic.Specification.dtd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPublic.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPublic.dtd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1.dtd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1.dtd
+............
+last modified = Sun Dec 21 13:19:34 PST 2025
+X3D-Edit Module.get.latest.schemas:
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0.xsd
+....................................
+last modified = Tue Aug 05 16:33:01 PDT 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1.xsd
+.........................................
+last modified = Tue Aug 05 16:33:01 PDT 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2.xsd
+...................................................
+last modified = Tue Aug 05 16:33:01 PDT 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3.xsd
+....................................................
+..
+last modified = Tue Aug 05 16:33:01 PDT 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0.xsd
+....................................................
+...............................
+last modified = Tue Dec 23 16:03:52 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1.xsd
+....................................................
+...............................
+last modified = Tue Dec 23 16:03:52 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/OasisXmlCatalogX3D.xml
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\OasisXmlCatalogX3D.xml
+.
+last modified = Fri Apr 26 02:15:46 PDT 2024
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsAmendment1.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsAmendment1.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPrivate.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPrivate.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0-Web3dExtensionsPublic.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0-Web3dExtensionsPublic.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPrivate.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPrivate.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.1-Web3dExtensionsPublic.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.1-Web3dExtensionsPublic.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPrivate.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPrivate.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.2-Web3dExtensionsPublic.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.2-Web3dExtensionsPublic.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPrivate.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPrivate.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.3-Web3dExtensionsPublic.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.3-Web3dExtensionsPublic.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPrivate.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPrivate.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0-Web3dExtensionsPublic.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0-Web3dExtensionsPublic.xsd
+.
+last modified = Sat Dec 13 09:18:22 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPrivate.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPrivate.xsd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPublic.Specification.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPublic.Specification.xsd
+.
+last modified = Sat Dec 13 09:32:24 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-Web3dExtensionsPublic.xsd
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-Web3dExtensionsPublic.xsd
+.
+last modified = Sat Dec 13 09:16:13 PST 2025
+X3D-Edit Module.get.latest.schematrons:
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/build.xml
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\build.xml
+..
+last modified = Fri Aug 22 07:44:13 PDT 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/buildSchematronDevelopment.xml
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\buildSchematronDevelopment.xml
+....
+last modified = Fri Aug 22 07:44:13 PDT 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/SvrlReportText.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\SvrlReportText.xslt
+.
+last modified = Sun Oct 22 12:35:45 PDT 2017
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/X3dSchematronValidityChecks.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\X3dSchematronValidityChecks.xslt
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+....................................................
+...
+last modified = Sun Dec 14 20:29:33 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/X3dSchematronValidityChecks.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\X3dSchematronValidityChecks.xslt
+local file date : Sun Dec 14 20:29:33 PST 2025
+Not modified - so not downloaded
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_abstract_expand.xsl
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\iso_abstract_expand.xsl
+.
+last modified = Sun Oct 22 12:35:45 PDT 2017
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_dsdl_include.xsl
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\iso_dsdl_include.xsl
+....
+last modified = Sun Oct 22 12:35:45 PDT 2017
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_schematron_skeleton_for_saxon.xsl
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\iso_schematron_skeleton_for_saxon.xsl
+......
+last modified = Sun Oct 22 12:35:45 PDT 2017
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_schematron_skeleton_for_xslt1.xsl
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\iso_schematron_skeleton_for_xslt1.xsl
+.....
+last modified = Sun Oct 22 12:35:45 PDT 2017
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_svrl.xsl
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\iso_svrl.xsl
+..
+last modified = Tue Feb 17 09:59:42 PST 2009
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/iso_svrl_for_xslt2.xsl
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\iso_svrl_for_xslt2.xsl
+..
+last modified = Sun Oct 22 12:35:45 PDT 2017
+X3D-Edit Module.get.latest.stylesheets:
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToX3dvClassicVrmlEncoding.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToX3dvClassicVrmlEncoding.xslt
+.
+last modified = Sat May 11 18:34:29 PDT 2024
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToVrml97.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToVrml97.xslt
+....................................................
+...
+last modified = Fri Dec 05 16:24:26 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dExtrusionToSvgViaXslt2.0.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dExtrusionToSvgViaXslt2.0.xslt
+..
+last modified = Sun Jul 21 05:28:28 PDT 2019
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dTidy.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dTidy.xslt
+................................................
+last modified = Thu Dec 11 14:43:46 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToHtml.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToHtml.xslt
+.........
+last modified = Sun Feb 18 11:07:14 PST 2024
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml-1.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToXhtml-1.xslt
+.
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml-2.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToXhtml-2.xslt
+.
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml-3.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToXhtml-3.xslt
+.
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml-4.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToXhtml-4.xslt
+.
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml-5.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToXhtml-5.xslt
+..
+last modified = Sun Nov 06 11:05:48 PST 2022
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToXhtml.xslt
+.............................................
+last modified = Fri Dec 05 15:41:04 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToX3domX_ITE.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToX3domX_ITE.xslt
+............
+last modified = Fri Dec 05 16:05:50 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToJava.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToJava.xslt
+.........................
+last modified = Fri Dec 05 15:40:48 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToJson.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToJson.xslt
+......................
+last modified = Fri Dec 05 15:40:48 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToPython.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToPython.xslt
+................
+last modified = Fri Dec 05 15:40:48 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToTurtle.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToTurtle.xslt
+..............
+last modified = Fri Dec 05 15:40:48 PST 2025
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dUnwrap.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dUnwrap.xslt
+....
+last modified = Fri Apr 26 18:43:39 PDT 2024
+Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dWrap.xslt
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dWrap.xslt
+....
+last modified = Fri Apr 26 18:43:39 PDT 2024
+X3D-Edit Module.get.latest:
+Created dir: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
+Compiling 942 source files to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
+Ignoring source, target and bootclasspath as release has been set
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\InputOutputReporter.java:68: warning: [removal] WeakSet in org.openide.util has been deprecated and marked for removal
+        Collections.synchronizedSet(new WeakSet<Hyperlink>()); // Set<Hyperlink>
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\security\ManageKeyStorePanel.java:335: warning: [deprecation] X509V1CertificateGenerator in org.bouncycastle.x509 has been deprecated
+    X509V1CertificateGenerator certGen = new X509V1CertificateGenerator();
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\security\ManageKeyStorePanel.java:335: warning: [deprecation] X509V1CertificateGenerator in org.bouncycastle.x509 has been deprecated
+    X509V1CertificateGenerator certGen = new X509V1CertificateGenerator();
+3 warnings
+Creating empty C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes\org\web3d\x3d\palette\package-info.class
+Copying 1069 files to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
+X3D-Edit Module.compile:
+X3D-Edit Module.jar-prep:
+Computed OpenIDE-Module-Specification-Version: 4.0.40
+Building jar: C:\x3d-github\X3D-Edit\build\cluster\modules\org-web3d-x3d-palette.jar
+X3D-Edit Module.jar:
+X3D-Edit Module.netbeans-extra:
+X3D-Edit Module.javahelp:
+X3D-Edit Module.module-auto-deps:
+Copying 35 files to C:\x3d-github\X3D-Edit\build\cluster
+X3D-Edit Module.release:
+X3D-Edit Module.module-xml-regular:
+X3D-Edit Module.module-xml-autoload:
+X3D-Edit Module.module-xml-eager:
+X3D-Edit Module.chmod-executables:
+X3D-Edit Module.verify-class-linkage:
+1 file(s) have been successfully validated.
+X3D-Edit Module.projectized-common.netbeans:
+Generating Auto Update information for org.web3d.x3d.palette
+X3D-Edit Module.netbeans:
+build:
+*** Release preparations: run target 'generate.nbm.signing.cert'
+BUILD SUCCESSFUL (total time: 49 seconds)
