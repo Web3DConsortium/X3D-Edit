@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -89,6 +89,9 @@ public class GEOLOCATION extends X3DGroupingNode
     bboxSizeX = bboxSizeXDefault = new SFFloat(fa[0], 0.0f, null, true);
     bboxSizeY = bboxSizeYDefault = new SFFloat(fa[1], 0.0f, null, true);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(fa[2], 0.0f, null, true);
+    
+        setVisible(visibleDefault     = Boolean.parseBoolean(GEOLOCATION_ATTR_VISIBLE_DFLT));
+    setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(GEOLOCATION_ATTR_BBOXDISPLAY_DFLT));
 
     setContent(linesep+"<!-- Wrap this node around other scene content and optionally insert an extended-precision GeoOrigin node -->"+linesep);
   }
@@ -120,12 +123,18 @@ public class GEOLOCATION extends X3DGroupingNode
       bboxSizeY = new SFFloat(fa[1], 0.0f, null, true);
       bboxSizeZ = new SFFloat(fa[2], 0.0f, null, true);
     }
+    attr = root.getAttribute(GEOLOCATION_ATTR_VISIBLE_NAME);
+    if (attr != null)       
+        setVisible(Boolean.parseBoolean(attr.getValue()));
+    attr = root.getAttribute(GEOLOCATION_ATTR_BBOXDISPLAY_NAME);
+    if (attr != null)
+        setBboxDisplay(Boolean.parseBoolean(attr.getValue()));
   }
 
   @Override
   public String createAttributes()
   {
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder();
 
     if (GEOLOCATION_ATTR_BBOXCENTER_REQD ||
             (!bboxCenterX.equals(bboxCenterXDefault) ||
@@ -140,6 +149,13 @@ public class GEOLOCATION extends X3DGroupingNode
       sb.append(bboxCenterY);
       sb.append(" ");
       sb.append(bboxCenterZ);
+      sb.append("'");
+    }
+    if (GEOLOCATION_ATTR_BBOXDISPLAY_REQD || (bboxDisplay != bboxDisplayDefault)) {
+      sb.append(" ");
+      sb.append(GEOLOCATION_ATTR_BBOXDISPLAY_NAME);
+      sb.append("='");
+      sb.append(bboxDisplay);
       sb.append("'");
     }
     if (GEOLOCATION_ATTR_BBOXSIZE_REQD ||
@@ -183,6 +199,13 @@ public class GEOLOCATION extends X3DGroupingNode
       sb.append(geoCoords[1]);
       sb.append(" ");
       sb.append(geoCoords[2]);
+      sb.append("'");
+    }
+    if (GEOLOCATION_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
+      sb.append(" ");
+      sb.append(GEOLOCATION_ATTR_VISIBLE_NAME);
+      sb.append("='");
+      sb.append(visible);
       sb.append("'");
     }
 

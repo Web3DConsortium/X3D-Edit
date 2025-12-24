@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -69,7 +69,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
 {
-  private final ESPDUTRANSFORM espduTrans;
+  private final ESPDUTRANSFORM espduTransform;
   private final JTextComponent target;
 
   private final int ARTICULATEDPARAMETER_DESIGNATOR_COL     = 1;
@@ -81,7 +81,7 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
   public ESPDUTRANSFORMCustomizer(ESPDUTRANSFORM espduTransform, JTextComponent target)
   {
     super(espduTransform);
-    this.espduTrans = espduTransform;
+    this.espduTransform = espduTransform;
     this.target = target;
     
     HelpCtx.setHelpIDString(ESPDUTRANSFORMCustomizer.this, "ESPDUTRANSFORM_ELEM_HELPID");
@@ -115,6 +115,9 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
     checkAngles (false);
 
     setDefaultDEFname ();
+    
+    bboxDisplayCheckBox.setSelected(espduTransform.isBboxDisplay());
+        visibleCheckBox.setSelected(espduTransform.isVisible());
   }
   private void setDefaultDEFname ()
   {
@@ -123,8 +126,8 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
 
   private void initializeComponents ()
   {
-    addressTF.setText(espduTrans.getAddress()); //String
-    appIdTF.setText(espduTrans.getAppID());     //SFInt
+    addressTF.setText(espduTransform.getAddress()); //String
+    appIdTF.setText(espduTransform.getAppID());     //SFInt
 
 //    articParmCountTF.setText           (espduTrans.getArticulationParameterCount());//SFInt
 //	articParmDesArrayTF.setText        (espduTrans.formatStringArray(espduTrans.getArticulationParameterDesignatorArray()));//SFInt[]
@@ -133,14 +136,14 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
 //	articParmTypeField.setText         (espduTrans.formatStringArray(espduTrans.getArticulationParameterTypeArray()));//SFInt[]
 //	articParmArrayTF.setText           (espduTrans.formatStringArray(espduTrans.getArticulationParameterArray()));//SFFloat[]
 
-    int numberArticulatedParameters = new SFInt32(espduTrans.getArticulationParameterCount()).getValue();
+    int numberArticulatedParameters = new SFInt32(espduTransform.getArticulationParameterCount()).getValue();
     DefaultTableModel mydtm = (DefaultTableModel)articParamTable.getModel();
     mydtm.setRowCount(0); // clear
-    String[] desig = espduTrans.getArticulationParameterDesignatorArray();
-    String[] chg   = espduTrans.getArticulationParameterChangeIndicatorArray();
-    String[] id    = espduTrans.getArticulationParameterIdPartAttachedToArray();
-    String[] typ   = espduTrans.getArticulationParameterTypeArray();
-    String[] par   = espduTrans.getArticulationParameterArray();
+    String[] desig = espduTransform.getArticulationParameterDesignatorArray();
+    String[] chg   = espduTransform.getArticulationParameterChangeIndicatorArray();
+    String[] id    = espduTransform.getArticulationParameterIdPartAttachedToArray();
+    String[] typ   = espduTransform.getArticulationParameterTypeArray();
+    String[] par   = espduTransform.getArticulationParameterArray();
 
     for(int i = 1; i<=numberArticulatedParameters; i++) {
       // start w/ 1
@@ -155,25 +158,25 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
       mydtm.addRow(oa);
     }
 
-    portTF.setText(espduTrans.getPort());
-    siteIdTF.setText(espduTrans.getSiteID());
-    centerXTF.setText(espduTrans.getCenterX());  //SFFloat
-    centerYTF.setText(espduTrans.getCenterY());  //SFFloat
-    centerZTF.setText(espduTrans.getCenterZ());  //SFFloat
-    collisionTypeCombo.setSelectedItem(Integer.parseInt(espduTrans.getCollisionType()));  //SFInt
-    deadReckoningTF.setText(espduTrans.getDeadReckoning());  //SFInt
-    detLoc0TF.setText(espduTrans.getDetonationLocationX());  //SFFloat
-    detLoc1TF.setText(espduTrans.getDetonationLocationY());  //SFFloat
-    detLoc2TF.setText(espduTrans.getDetonationLocationZ());  //SFFloat
-    detRelLoc0TF.setText(espduTrans.getDetonationRelativeLocationX());  //SFFloat
-    detRelLoc1TF.setText(espduTrans.getDetonationRelativeLocationY());  //SFFloat
-    detRelLoc2TF.setText(espduTrans.getDetonationRelativeLocationZ());  //SFFloat
-    detonationResultCombo.setSelectedItem(Integer.parseInt(espduTrans.getDetonationResult()));  //SFInt
-    enabledCB.setSelected(Boolean.parseBoolean(espduTrans.isEnabled()));   //remember selected not enabled !!!
+    portTF.setText(espduTransform.getPort());
+    siteIdTF.setText(espduTransform.getSiteID());
+    centerXTF.setText(espduTransform.getCenterX());  //SFFloat
+    centerYTF.setText(espduTransform.getCenterY());  //SFFloat
+    centerZTF.setText(espduTransform.getCenterZ());  //SFFloat
+    collisionTypeCombo.setSelectedItem(Integer.parseInt(espduTransform.getCollisionType()));  //SFInt
+    deadReckoningTF.setText(espduTransform.getDeadReckoning());  //SFInt
+    detLoc0TF.setText(espduTransform.getDetonationLocationX());  //SFFloat
+    detLoc1TF.setText(espduTransform.getDetonationLocationY());  //SFFloat
+    detLoc2TF.setText(espduTransform.getDetonationLocationZ());  //SFFloat
+    detRelLoc0TF.setText(espduTransform.getDetonationRelativeLocationX());  //SFFloat
+    detRelLoc1TF.setText(espduTransform.getDetonationRelativeLocationY());  //SFFloat
+    detRelLoc2TF.setText(espduTransform.getDetonationRelativeLocationZ());  //SFFloat
+    detonationResultCombo.setSelectedItem(Integer.parseInt(espduTransform.getDetonationResult()));  //SFInt
+    enabledCB.setSelected(Boolean.parseBoolean(espduTransform.isEnabled()));   //remember selected not enabled !!!
 
-    entCategoryTF.setText(espduTrans.getEntityCategory());  //SFInt
+    entCategoryTF.setText(espduTransform.getEntityCategory());  //SFInt
 
-    String countryNum = espduTrans.getEntityCountry();
+    String countryNum = espduTransform.getEntityCountry();
     Country ct;
     int countryInt=0;
     try {
@@ -188,7 +191,7 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
       entCountryCombo.setSelectedItem("" + countryInt);  // no enumeration match but good int
     }
 
-    String entityDomainNum = espduTrans.getEntityDomain();
+    String entityDomainNum = espduTransform.getEntityDomain();
     PlatformDomain ed;
     int entDomInt=0;
     try {
@@ -203,10 +206,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
       entDomainCombo.setSelectedItem("" + entDomInt);  // no enumeration match but good int
     }
 
-    entExtraTF.setText(espduTrans.getEntityExtra());  //SFInt
-    entityIDTF.setText(espduTrans.getEntityID());  //SFInt
+    entExtraTF.setText(espduTransform.getEntityExtra());  //SFInt
+    entityIDTF.setText(espduTransform.getEntityID());  //SFInt
 
-    String entKindNum = espduTrans.getEntityKind();
+    String entKindNum = espduTransform.getEntityKind();
     EntityKind ek;
     int entKindInt = 0;
     try {
@@ -221,20 +224,20 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
       entKindCombo.setSelectedItem("" + entKindInt);  // no enumeration match but good int
     }
 
-    entSpecificTF.setText(espduTrans.getEntitySpecific());
-    entSubCategoryTF.setText(espduTrans.getEntitySubCategory());
+    entSpecificTF.setText(espduTransform.getEntitySpecific());
+    entSubCategoryTF.setText(espduTransform.getEntitySubCategory());
 
-    evAppIDTF.setText(espduTrans.getEventApplicationID());//SFInt
-    evEntIDTF.setText(espduTrans.getEventEntityID());//SFInt
-    evNumTF.setText(espduTrans.getEventNumber());//SFInt
-    evSiteIDTF.setText(espduTrans.getEventSiteID()); //SFInt
-    fired1TF.setText(espduTrans.isFired1()); // boolean
-    fired2TF.setText(espduTrans.isFired2()); // boolean
-    fireMissionIdxTF.setText(espduTrans.getFireMissionIndex());
-    firingRangeTF.setText(espduTrans.getFiringRange());
-    firingRateTF.setText(espduTrans.getFiringRate());
+    evAppIDTF.setText(espduTransform.getEventApplicationID());//SFInt
+    evEntIDTF.setText(espduTransform.getEventEntityID());//SFInt
+    evNumTF.setText(espduTransform.getEventNumber());//SFInt
+    evSiteIDTF.setText(espduTransform.getEventSiteID()); //SFInt
+    fired1TF.setText(espduTransform.isFired1()); // boolean
+    fired2TF.setText(espduTransform.isFired2()); // boolean
+    fireMissionIdxTF.setText(espduTransform.getFireMissionIndex());
+    firingRangeTF.setText(espduTransform.getFiringRange());
+    firingRateTF.setText(espduTransform.getFiringRate());
 
-    String forceIDNum = espduTrans.getForceID();
+    String forceIDNum = espduTransform.getForceID();
     ForceID fid;
     int fidInt = 0;
     try {
@@ -249,59 +252,59 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
       forceIDCombo.setSelectedItem("" + fidInt); // no enumeration match but good int
     }
 
-    fuseTF.setText(espduTrans.getFuse()); // SFInt
+    fuseTF.setText(espduTransform.getFuse()); // SFInt
 
-    linVel0TF.setText(espduTrans.getLinearVelocityX()); //SFFloat
-    linVel1TF.setText(espduTrans.getLinearVelocityY()); //SFFloat
-    linVel2TF.setText(espduTrans.getLinearVelocityZ()); //SFFloat
-    linAccel0TF.setText(espduTrans.getLinearAccelerationX()); //SFFloat
-    linAccel1TF.setText(espduTrans.getLinearAccelerationY()); //SFFloat
-    linAccel2TF.setText(espduTrans.getLinearAccelerationZ()); //SFFloat
-    markingTF.setText(espduTrans.getMarking()); //String
+    linVel0TF.setText(espduTransform.getLinearVelocityX()); //SFFloat
+    linVel1TF.setText(espduTransform.getLinearVelocityY()); //SFFloat
+    linVel2TF.setText(espduTransform.getLinearVelocityZ()); //SFFloat
+    linAccel0TF.setText(espduTransform.getLinearAccelerationX()); //SFFloat
+    linAccel1TF.setText(espduTransform.getLinearAccelerationY()); //SFFloat
+    linAccel2TF.setText(espduTransform.getLinearAccelerationZ()); //SFFloat
+    markingTF.setText(espduTransform.getMarking()); //String
 
-    mcastRelayHostTF.setText(espduTrans.getMulticastRelayHost()); //String
-    mcastRelayPort.setText(espduTrans.getMulticastRelayPort()); // SFInt
+    mcastRelayHostTF.setText(espduTransform.getMulticastRelayHost()); //String
+    mcastRelayPort.setText(espduTransform.getMulticastRelayPort()); // SFInt
 
-    munAppIDTF.setText(espduTrans.getMunitionApplicationID()); //SFInt
-    munEndPoint0TF.setText(espduTrans.getMunitionEndPointX()); //SFFloat
-    munEndPoint1TF.setText(espduTrans.getMunitionEndPointY()); //SFFloat
-    munEndPoint2TF.setText(espduTrans.getMunitionEndPointZ()); //SFFloat
-    munEntityIDTF.setText(espduTrans.getMunitionEntityID()); //SFInt
-    munitionQuantityTF.setText(espduTrans.getMunitionQuantity()); //SFInt
-    munSiteIDTF.setText(espduTrans.getMunitionSiteID()); // SFInt
-    munStartPoint0TF.setText(espduTrans.getMunitionStartPointX()); // SFFloat
-    munStartPoint1TF.setText(espduTrans.getMunitionStartPointY()); // SFFloat
-    munStartPoint2TF.setText(espduTrans.getMunitionStartPointZ()); // SFFloat
-    networkModeComboBox.setSelectedItem(espduTrans.getNetworkMode()); // String
-    portTF.setText(espduTrans.getPort()); //SFInt
-    readIntervalTF.setText(espduTrans.getReadInterval()); //SFFloat
+    munAppIDTF.setText(espduTransform.getMunitionApplicationID()); //SFInt
+    munEndPoint0TF.setText(espduTransform.getMunitionEndPointX()); //SFFloat
+    munEndPoint1TF.setText(espduTransform.getMunitionEndPointY()); //SFFloat
+    munEndPoint2TF.setText(espduTransform.getMunitionEndPointZ()); //SFFloat
+    munEntityIDTF.setText(espduTransform.getMunitionEntityID()); //SFInt
+    munitionQuantityTF.setText(espduTransform.getMunitionQuantity()); //SFInt
+    munSiteIDTF.setText(espduTransform.getMunitionSiteID()); // SFInt
+    munStartPoint0TF.setText(espduTransform.getMunitionStartPointX()); // SFFloat
+    munStartPoint1TF.setText(espduTransform.getMunitionStartPointY()); // SFFloat
+    munStartPoint2TF.setText(espduTransform.getMunitionStartPointZ()); // SFFloat
+    networkModeComboBox.setSelectedItem(espduTransform.getNetworkMode()); // String
+    portTF.setText(espduTransform.getPort()); //SFInt
+    readIntervalTF.setText(espduTransform.getReadInterval()); //SFFloat
 
-    rotation0TF.setText(espduTrans.getRotationX());// SFFloat
-    rotation1TF.setText(espduTrans.getRotationY());// SFFloat
-    rotation2TF.setText(espduTrans.getRotationZ());// SFFloat
-    rotation3TF.setText(espduTrans.getRotationAngle());// SFFloat
-    scale0Tf.setText(espduTrans.getScaleX()); // SFFloat
-    scale1TF.setText(espduTrans.getScaleY()); // SFFloat
-    scale2TF.setText(espduTrans.getScaleZ()); // SFFloat
-    scaleOrientation0TF.setText(espduTrans.getScaleOrientationX()); // SFFloat
-    scaleOrientation1TF.setText(espduTrans.getScaleOrientationY()); // SFFloat
-    scaleOrientation2TF.setText(espduTrans.getScaleOrientationZ()); // SFFloat
-    scaleOrientation3TF.setText(espduTrans.getScaleOrientationAngle()); // SFFloat
+    rotation0TF.setText(espduTransform.getRotationX());// SFFloat
+    rotation1TF.setText(espduTransform.getRotationY());// SFFloat
+    rotation2TF.setText(espduTransform.getRotationZ());// SFFloat
+    rotation3TF.setText(espduTransform.getRotationAngle());// SFFloat
+    scale0Tf.setText(espduTransform.getScaleX()); // SFFloat
+    scale1TF.setText(espduTransform.getScaleY()); // SFFloat
+    scale2TF.setText(espduTransform.getScaleZ()); // SFFloat
+    scaleOrientation0TF.setText(espduTransform.getScaleOrientationX()); // SFFloat
+    scaleOrientation1TF.setText(espduTransform.getScaleOrientationY()); // SFFloat
+    scaleOrientation2TF.setText(espduTransform.getScaleOrientationZ()); // SFFloat
+    scaleOrientation3TF.setText(espduTransform.getScaleOrientationAngle()); // SFFloat
 
-    siteIdTF.setText(espduTrans.getSiteID()); //SFInt
-    translation0TF.setText(espduTrans.getTranslationX()); //SFFloat
-    translation1TF.setText(espduTrans.getTranslationY()); //SFFloat
-    translation2TF.setText(espduTrans.getTranslationZ()); //SFFloat
+    siteIdTF.setText(espduTransform.getSiteID()); //SFInt
+    translation0TF.setText(espduTransform.getTranslationX()); //SFFloat
+    translation1TF.setText(espduTransform.getTranslationY()); //SFFloat
+    translation2TF.setText(espduTransform.getTranslationZ()); //SFFloat
 
-    warheadComboBox.setSelectedItem(espduTrans.getWarhead()); // SFInt
-    writeIntervalTF.setText(espduTrans.getWriteInterval()); //SFFloat
+    warheadComboBox.setSelectedItem(espduTransform.getWarhead()); // SFInt
+    writeIntervalTF.setText(espduTransform.getWriteInterval()); //SFFloat
 
-    bboxCenterXTF.setText(espduTrans.getBboxCenterX()); // SFFloat
-    bboxCenterYTF.setText(espduTrans.getBboxCenterY()); // SFFloat
-    bboxCenterZTF.setText(espduTrans.getBboxCenterZ()); // SFFloat
-    bboxSizeXTF.setText(espduTrans.getBboxSizeX()); // SFFloat
-    bboxSizeYTF.setText(espduTrans.getBboxSizeY()); // SFFloat
-    bboxSizeZTF.setText(espduTrans.getBboxSizeZ()); // SFFloprivatetpHdrExpCB.setSelected(Boolean.parseBoolean(espduTrans.isRtpHeaderExpected()));
+    bboxCenterXTF.setText(espduTransform.getBboxCenterX()); // SFFloat
+    bboxCenterYTF.setText(espduTransform.getBboxCenterY()); // SFFloat
+    bboxCenterZTF.setText(espduTransform.getBboxCenterZ()); // SFFloat
+    bboxSizeXTF.setText(espduTransform.getBboxSizeX()); // SFFloat
+    bboxSizeYTF.setText(espduTransform.getBboxSizeY()); // SFFloat
+    bboxSizeZTF.setText(espduTransform.getBboxSizeZ()); // SFFloprivatetpHdrExpCB.setSelected(Boolean.parseBoolean(espduTrans.isRtpHeaderExpected()));
   }
   
   private Boolean enableVal = null;
@@ -405,6 +408,11 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         bboxSizeZTF = new javax.swing.JTextField();
         normalizeRotationValuesButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        visibleLabel = new javax.swing.JLabel();
+        visibleCheckBox = new javax.swing.JCheckBox();
+        bboxDisplayLabel = new javax.swing.JLabel();
+        bboxDisplayCheckBox = new javax.swing.JCheckBox();
+        spacerLabel = new javax.swing.JLabel();
         entityEventPane = new javax.swing.JPanel();
         forceIDLabel = new javax.swing.JLabel();
         forceIDCombo = new javax.swing.JComboBox<>();
@@ -509,8 +517,8 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         setLayout(new java.awt.GridBagLayout());
 
         espduTabbedPanel.setToolTipText("Information required for representation of the entity’s visual appearance and position of its articulated parts");
-        espduTabbedPanel.setMinimumSize(new java.awt.Dimension(550, 600));
-        espduTabbedPanel.setPreferredSize(new java.awt.Dimension(550, 400));
+        espduTabbedPanel.setMinimumSize(new java.awt.Dimension(700, 600));
+        espduTabbedPanel.setPreferredSize(new java.awt.Dimension(700, 600));
 
         IdNetworkPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 0, 0));
         IdNetworkPane.setLayout(new java.awt.GridBagLayout());
@@ -880,8 +888,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(jLabel33, gridBagConstraints);
 
@@ -890,8 +900,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(centerXTF, gridBagConstraints);
 
@@ -900,8 +912,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(centerYTF, gridBagConstraints);
 
@@ -910,8 +924,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(centerZTF, gridBagConstraints);
 
@@ -924,8 +940,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(jLabel34, gridBagConstraints);
 
@@ -934,8 +952,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(rotation0TF, gridBagConstraints);
 
@@ -944,8 +964,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(rotation1TF, gridBagConstraints);
 
@@ -954,8 +976,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(rotation2TF, gridBagConstraints);
 
@@ -969,8 +993,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(rotation3TF, gridBagConstraints);
 
@@ -983,8 +1009,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(jLabel35, gridBagConstraints);
 
@@ -993,8 +1021,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(scale0Tf, gridBagConstraints);
 
@@ -1003,8 +1033,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(scale1TF, gridBagConstraints);
 
@@ -1013,8 +1045,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(scale2TF, gridBagConstraints);
 
@@ -1027,8 +1061,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(jLabel36, gridBagConstraints);
 
@@ -1037,8 +1073,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(scaleOrientation0TF, gridBagConstraints);
 
@@ -1047,8 +1085,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(scaleOrientation1TF, gridBagConstraints);
 
@@ -1057,8 +1097,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(scaleOrientation2TF, gridBagConstraints);
 
@@ -1072,8 +1114,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(scaleOrientation3TF, gridBagConstraints);
 
@@ -1086,8 +1130,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(translationLab, gridBagConstraints);
 
@@ -1096,8 +1142,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(translation0TF, gridBagConstraints);
 
@@ -1106,8 +1154,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(translation1TF, gridBagConstraints);
 
@@ -1116,8 +1166,10 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(translation2TF, gridBagConstraints);
 
@@ -1129,9 +1181,11 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         jLabel50.setPreferredSize(new java.awt.Dimension(6, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(jLabel50, gridBagConstraints);
 
@@ -1139,9 +1193,11 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         bboxCenterXTF.setMaximumSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(bboxCenterXTF, gridBagConstraints);
 
@@ -1149,9 +1205,11 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         bboxCenterYTF.setMaximumSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(bboxCenterYTF, gridBagConstraints);
 
@@ -1159,9 +1217,11 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         bboxCenterZTF.setMaximumSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(bboxCenterZTF, gridBagConstraints);
 
@@ -1173,9 +1233,11 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         jLabel51.setPreferredSize(new java.awt.Dimension(6, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(jLabel51, gridBagConstraints);
 
@@ -1183,9 +1245,11 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         bboxSizeXTF.setMaximumSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(bboxSizeXTF, gridBagConstraints);
 
@@ -1193,9 +1257,11 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         bboxSizeYTF.setMaximumSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(bboxSizeYTF, gridBagConstraints);
 
@@ -1203,9 +1269,11 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         bboxSizeZTF.setMaximumSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(bboxSizeZTF, gridBagConstraints);
 
@@ -1218,16 +1286,84 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 3);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         transformPane.add(normalizeRotationValuesButton, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         transformPane.add(jLabel2, gridBagConstraints);
+
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        transformPane.add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        transformPane.add(visibleCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        transformPane.add(bboxDisplayLabel, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        transformPane.add(bboxDisplayCheckBox, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipady = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        transformPane.add(spacerLabel, gridBagConstraints);
 
         espduTabbedPanel.addTab("Transform", transformPane);
 
@@ -1630,7 +1766,7 @@ public class ESPDUTRANSFORMCustomizer extends BaseCustomizer
             articulatedParametersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, articulatedParametersPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(articulatedParametersButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -2591,6 +2727,8 @@ private void scaleOrientation3TFActionPerformed(java.awt.event.ActionEvent evt)/
     javax.swing.JTextField bboxCenterXTF;
     javax.swing.JTextField bboxCenterYTF;
     javax.swing.JTextField bboxCenterZTF;
+    private javax.swing.JCheckBox bboxDisplayCheckBox;
+    private javax.swing.JLabel bboxDisplayLabel;
     javax.swing.JTextField bboxSizeXTF;
     javax.swing.JTextField bboxSizeYTF;
     javax.swing.JTextField bboxSizeZTF;
@@ -2732,6 +2870,7 @@ private void scaleOrientation3TFActionPerformed(java.awt.event.ActionEvent evt)/
     javax.swing.JTextField scaleOrientation3TF;
     private javax.swing.JLabel siteIDLabel;
     javax.swing.JTextField siteIdTF;
+    private javax.swing.JLabel spacerLabel;
     private javax.swing.JLabel specificLabel;
     private javax.swing.JLabel subCategoryLabel;
     private javax.swing.JPanel transformPane;
@@ -2740,6 +2879,8 @@ private void scaleOrientation3TFActionPerformed(java.awt.event.ActionEvent evt)/
     javax.swing.JTextField translation2TF;
     private javax.swing.JLabel translationLab;
     private javax.swing.JButton upButt;
+    private javax.swing.JCheckBox visibleCheckBox;
+    private javax.swing.JLabel visibleLabel;
     javax.swing.JComboBox<String> warheadComboBox;
     private javax.swing.JLabel warheadLabel52;
     private javax.swing.JLabel writeIntervalLabel;
@@ -2802,11 +2943,11 @@ private void scaleOrientation3TFActionPerformed(java.awt.event.ActionEvent evt)/
     checkAngles (false);
     unLoadDEFUSE();
 
-    espduTrans.setAddress(addressTF.getText().trim());
-    espduTrans.setAppID(appIdTF.getText().trim());
+    espduTransform.setAddress(addressTF.getText().trim());
+    espduTransform.setAppID(appIdTF.getText().trim());
 
     int nrows = articParamTable.getModel().getRowCount();
-    espduTrans.setArticulationParameterCount(""+nrows);
+    espduTransform.setArticulationParameterCount(""+nrows);
 
     String[] desig = new String[nrows];
     String[] chang = new String[nrows];
@@ -2820,126 +2961,129 @@ private void scaleOrientation3TFActionPerformed(java.awt.event.ActionEvent evt)/
       typ[i]   = (String) articParamTable.getValueAt(i, 4);
       parm[i]  = (String) articParamTable.getValueAt(i, 5);
     }
-    espduTrans.setArticulationParameterDesignatorArray(desig);
-    espduTrans.setArticulationParameterChangeIndicatorArray(chang);
-    espduTrans.setArticulationParameterIdPartAttachedToArray(idpar);
-    espduTrans.setArticulationParameterTypeArray(typ);
-    espduTrans.setArticulationParameterArray(parm);
+    espduTransform.setArticulationParameterDesignatorArray(desig);
+    espduTransform.setArticulationParameterChangeIndicatorArray(chang);
+    espduTransform.setArticulationParameterIdPartAttachedToArray(idpar);
+    espduTransform.setArticulationParameterTypeArray(typ);
+    espduTransform.setArticulationParameterArray(parm);
 
-    espduTrans.setCenterX(centerXTF.getText().trim());
-    espduTrans.setCenterY(centerYTF.getText().trim());
-    espduTrans.setCenterZ(centerZTF.getText().trim());
-    espduTrans.setCollisionType(String.valueOf(collisionTypeCombo.getSelectedIndex()));
-    espduTrans.setDeadReckoning(deadReckoningTF.getText().trim());
-    espduTrans.setDetonationLocationX(detLoc0TF.getText().trim());
-    espduTrans.setDetonationLocationY(detLoc1TF.getText().trim());
-    espduTrans.setDetonationLocationZ(detLoc2TF.getText().trim());
-    espduTrans.setDetonationRelativeLocationX(detRelLoc0TF.getText().trim());
-    espduTrans.setDetonationRelativeLocationY(detRelLoc1TF.getText().trim());
-    espduTrans.setDetonationRelativeLocationZ(detRelLoc2TF.getText().trim());
-    espduTrans.setDetonationResult(detonationResultCombo.getSelectedItem().toString());
-    espduTrans.setEnabled(""+enabledCB.isSelected());
+    espduTransform.setCenterX(centerXTF.getText().trim());
+    espduTransform.setCenterY(centerYTF.getText().trim());
+    espduTransform.setCenterZ(centerZTF.getText().trim());
+    espduTransform.setCollisionType(String.valueOf(collisionTypeCombo.getSelectedIndex()));
+    espduTransform.setDeadReckoning(deadReckoningTF.getText().trim());
+    espduTransform.setDetonationLocationX(detLoc0TF.getText().trim());
+    espduTransform.setDetonationLocationY(detLoc1TF.getText().trim());
+    espduTransform.setDetonationLocationZ(detLoc2TF.getText().trim());
+    espduTransform.setDetonationRelativeLocationX(detRelLoc0TF.getText().trim());
+    espduTransform.setDetonationRelativeLocationY(detRelLoc1TF.getText().trim());
+    espduTransform.setDetonationRelativeLocationZ(detRelLoc2TF.getText().trim());
+    espduTransform.setDetonationResult(detonationResultCombo.getSelectedItem().toString());
+    espduTransform.setEnabled(""+enabledCB.isSelected());
 
-    espduTrans.setEntityCategory(entCategoryTF.getText().trim());
+    espduTransform.setEntityCategory(entCategoryTF.getText().trim());
 
     Object o = entCountryCombo.getSelectedItem();
     if(o instanceof Country)
-      espduTrans.setEntityCountry(""+((Country)o).getValue());
+      espduTransform.setEntityCountry(""+((Country)o).getValue());
     else
-      espduTrans.setEntityCountry(o.toString());
+      espduTransform.setEntityCountry(o.toString());
 
     o = entDomainCombo.getSelectedItem();
     if(o instanceof PlatformDomain)
-      espduTrans.setEntityDomain(""+((PlatformDomain)o).getValue());
+      espduTransform.setEntityDomain(""+((PlatformDomain)o).getValue());
     else
-      espduTrans.setEntityDomain(o.toString());
+      espduTransform.setEntityDomain(o.toString());
 
-    espduTrans.setEntityExtra(entExtraTF.getText().trim());
-    espduTrans.setEntityID(entityIDTF.getText().trim());
+    espduTransform.setEntityExtra(entExtraTF.getText().trim());
+    espduTransform.setEntityID(entityIDTF.getText().trim());
 
     o = entKindCombo.getSelectedItem();
     if(o instanceof EntityKind)
-      espduTrans.setEntityKind(""+((EntityKind)o).getValue());
+      espduTransform.setEntityKind(""+((EntityKind)o).getValue());
     else
-      espduTrans.setEntityKind(o.toString());
+      espduTransform.setEntityKind(o.toString());
 
-    espduTrans.setEntitySpecific(entSpecificTF.getText().trim());
-    espduTrans.setEntitySubCategory(entSubCategoryTF.getText().trim());
+    espduTransform.setEntitySpecific(entSpecificTF.getText().trim());
+    espduTransform.setEntitySubCategory(entSubCategoryTF.getText().trim());
 
-    espduTrans.setEventApplicationID(evAppIDTF.getText().trim());
-    espduTrans.setEventEntityID(evEntIDTF.getText().trim());
-    espduTrans.setEventNumber(evNumTF.getText().trim());
-    espduTrans.setEventSiteID(evSiteIDTF.getText().trim());
+    espduTransform.setEventApplicationID(evAppIDTF.getText().trim());
+    espduTransform.setEventEntityID(evEntIDTF.getText().trim());
+    espduTransform.setEventNumber(evNumTF.getText().trim());
+    espduTransform.setEventSiteID(evSiteIDTF.getText().trim());
 
-    espduTrans.setFired1(fired1TF.getText().trim());
-    espduTrans.setFired2(fired2TF.getText().trim());
-    espduTrans.setFireMissionIndex(fireMissionIdxTF.getText().trim());
-    espduTrans.setFiringRange(firingRangeTF.getText().trim());
-    espduTrans.setFiringRate(firingRateTF.getText().trim());
+    espduTransform.setFired1(fired1TF.getText().trim());
+    espduTransform.setFired2(fired2TF.getText().trim());
+    espduTransform.setFireMissionIndex(fireMissionIdxTF.getText().trim());
+    espduTransform.setFiringRange(firingRangeTF.getText().trim());
+    espduTransform.setFiringRate(firingRateTF.getText().trim());
 
     o = forceIDCombo.getSelectedItem();
     if(o instanceof ForceID)
-      espduTrans.setForceID(""+((ForceID)o).getValue());
+      espduTransform.setForceID(""+((ForceID)o).getValue());
     else
-      espduTrans.setForceID(o.toString());
+      espduTransform.setForceID(o.toString());
 
-    espduTrans.setFuse(fuseTF.getText().trim());
+    espduTransform.setFuse(fuseTF.getText().trim());
 
-    espduTrans.setLinearVelocityX(linVel0TF.getText().trim());
-    espduTrans.setLinearVelocityY(linVel1TF.getText().trim());
-    espduTrans.setLinearVelocityZ(linVel2TF.getText().trim());
-    espduTrans.setLinearAccelerationX(linAccel0TF.getText().trim());
-    espduTrans.setLinearAccelerationY(linAccel1TF.getText().trim());
-    espduTrans.setLinearAccelerationZ(linAccel2TF.getText().trim());
-    espduTrans.setMarking(markingTF.getText().trim());
+    espduTransform.setLinearVelocityX(linVel0TF.getText().trim());
+    espduTransform.setLinearVelocityY(linVel1TF.getText().trim());
+    espduTransform.setLinearVelocityZ(linVel2TF.getText().trim());
+    espduTransform.setLinearAccelerationX(linAccel0TF.getText().trim());
+    espduTransform.setLinearAccelerationY(linAccel1TF.getText().trim());
+    espduTransform.setLinearAccelerationZ(linAccel2TF.getText().trim());
+    espduTransform.setMarking(markingTF.getText().trim());
 
-    espduTrans.setMulticastRelayHost(mcastRelayHostTF.getText().trim());
-    espduTrans.setMulticastRelayPort(mcastRelayPort.getText().trim());
+    espduTransform.setMulticastRelayHost(mcastRelayHostTF.getText().trim());
+    espduTransform.setMulticastRelayPort(mcastRelayPort.getText().trim());
 
-    espduTrans.setMunitionApplicationID(munAppIDTF.getText().trim());
-    espduTrans.setMunitionEndPointX(munEndPoint0TF.getText().trim());
-    espduTrans.setMunitionEndPointY(munEndPoint1TF.getText().trim());
-    espduTrans.setMunitionEndPointZ(munEndPoint2TF.getText().trim());
-    espduTrans.setMunitionEntityID(munEntityIDTF.getText().trim());
-    espduTrans.setMunitionQuantity(munitionQuantityTF.getText().trim());
-    espduTrans.setMunitionSiteID(munSiteIDTF.getText().trim());
-    espduTrans.setMunitionStartPointX(munStartPoint0TF.getText().trim());
-    espduTrans.setMunitionStartPointY(munStartPoint1TF.getText().trim());
-    espduTrans.setMunitionStartPointZ(munStartPoint2TF.getText().trim());
-    espduTrans.setNetworkMode((String)networkModeComboBox.getSelectedItem());
+    espduTransform.setMunitionApplicationID(munAppIDTF.getText().trim());
+    espduTransform.setMunitionEndPointX(munEndPoint0TF.getText().trim());
+    espduTransform.setMunitionEndPointY(munEndPoint1TF.getText().trim());
+    espduTransform.setMunitionEndPointZ(munEndPoint2TF.getText().trim());
+    espduTransform.setMunitionEntityID(munEntityIDTF.getText().trim());
+    espduTransform.setMunitionQuantity(munitionQuantityTF.getText().trim());
+    espduTransform.setMunitionSiteID(munSiteIDTF.getText().trim());
+    espduTransform.setMunitionStartPointX(munStartPoint0TF.getText().trim());
+    espduTransform.setMunitionStartPointY(munStartPoint1TF.getText().trim());
+    espduTransform.setMunitionStartPointZ(munStartPoint2TF.getText().trim());
+    espduTransform.setNetworkMode((String)networkModeComboBox.getSelectedItem());
 
-    espduTrans.setPort(portTF.getText().trim());
-    espduTrans.setReadInterval(readIntervalTF.getText().trim());
+    espduTransform.setPort(portTF.getText().trim());
+    espduTransform.setReadInterval(readIntervalTF.getText().trim());
 
-    espduTrans.setRotationX(rotation0TF.getText().trim());
-    espduTrans.setRotationY(rotation1TF.getText().trim());
-    espduTrans.setRotationZ(rotation2TF.getText().trim());
-    espduTrans.setRotationAngle(rotation3TF.getText().trim());
-    espduTrans.setScaleX(scale0Tf.getText().trim());
-    espduTrans.setScaleY(scale1TF.getText().trim());
-    espduTrans.setScaleZ(scale2TF.getText().trim());
-    espduTrans.setScaleOrientationX(scaleOrientation0TF.getText().trim());
-    espduTrans.setScaleOrientationY(scaleOrientation1TF.getText().trim());
-    espduTrans.setScaleOrientationZ(scaleOrientation2TF.getText().trim());
-    espduTrans.setScaleOrientationAngle(scaleOrientation3TF.getText().trim());
+    espduTransform.setRotationX(rotation0TF.getText().trim());
+    espduTransform.setRotationY(rotation1TF.getText().trim());
+    espduTransform.setRotationZ(rotation2TF.getText().trim());
+    espduTransform.setRotationAngle(rotation3TF.getText().trim());
+    espduTransform.setScaleX(scale0Tf.getText().trim());
+    espduTransform.setScaleY(scale1TF.getText().trim());
+    espduTransform.setScaleZ(scale2TF.getText().trim());
+    espduTransform.setScaleOrientationX(scaleOrientation0TF.getText().trim());
+    espduTransform.setScaleOrientationY(scaleOrientation1TF.getText().trim());
+    espduTransform.setScaleOrientationZ(scaleOrientation2TF.getText().trim());
+    espduTransform.setScaleOrientationAngle(scaleOrientation3TF.getText().trim());
 
-    espduTrans.setSiteID(siteIdTF.getText().trim());
+    espduTransform.setSiteID(siteIdTF.getText().trim());
 
-    espduTrans.setTranslationX(translation0TF.getText().trim());
-    espduTrans.setTranslationY(translation1TF.getText().trim());
-    espduTrans.setTranslationZ(translation2TF.getText().trim());
+    espduTransform.setTranslationX(translation0TF.getText().trim());
+    espduTransform.setTranslationY(translation1TF.getText().trim());
+    espduTransform.setTranslationZ(translation2TF.getText().trim());
 
-    espduTrans.setWarhead(warheadComboBox.getSelectedItem().toString().trim());
-    espduTrans.setWriteInterval(writeIntervalTF.getText().trim());
+    espduTransform.setWarhead(warheadComboBox.getSelectedItem().toString().trim());
+    espduTransform.setWriteInterval(writeIntervalTF.getText().trim());
 
-    espduTrans.setBboxCenterX(bboxCenterXTF.getText().trim());
-    espduTrans.setBboxCenterY(bboxCenterYTF.getText().trim());
-    espduTrans.setBboxCenterZ(bboxCenterZTF.getText().trim());
-    espduTrans.setBboxSizeX(bboxSizeXTF.getText().trim());
-    espduTrans.setBboxSizeY(bboxSizeYTF.getText().trim());
-    espduTrans.setBboxSizeZ(bboxSizeZTF.getText().trim());
+    espduTransform.setBboxCenterX(bboxCenterXTF.getText().trim());
+    espduTransform.setBboxCenterY(bboxCenterYTF.getText().trim());
+    espduTransform.setBboxCenterZ(bboxCenterZTF.getText().trim());
+    espduTransform.setBboxSizeX(bboxSizeXTF.getText().trim());
+    espduTransform.setBboxSizeY(bboxSizeYTF.getText().trim());
+    espduTransform.setBboxSizeZ(bboxSizeZTF.getText().trim());
 
-    espduTrans.setRtpHeaderExpected(""+rtpHdrExpCB.isSelected());
+    espduTransform.setRtpHeaderExpected(""+rtpHdrExpCB.isSelected());
+    
+    espduTransform.setVisible    (visibleCheckBox.isSelected());
+    espduTransform.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }
   
 class JTableColOneReadOnly extends JTable

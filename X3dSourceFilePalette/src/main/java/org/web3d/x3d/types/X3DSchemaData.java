@@ -3720,6 +3720,12 @@ public interface X3DSchemaData
   String  GEOLOCATION_ATTR_BBOXSIZE_NAME = "bboxSize";
   boolean GEOLOCATION_ATTR_BBOXSIZE_REQD = false;
   String  GEOLOCATION_ATTR_BBOXSIZE_DFLT = "-1 -1 -1";
+  String  GEOLOCATION_ATTR_VISIBLE_NAME     = "visible";
+  boolean GEOLOCATION_ATTR_VISIBLE_REQD     = false;
+  String  GEOLOCATION_ATTR_VISIBLE_DFLT     = "true";
+  String  GEOLOCATION_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean GEOLOCATION_ATTR_BBOXDISPLAY_REQD = false;
+  String  GEOLOCATION_ATTR_BBOXDISPLAY_DFLT = "false";
 
   String  GEOLOD_ELNAME              = "GeoLOD";
   String  GEOLOD_ATTR_GEOSYSTEM_NAME = "geoSystem";
@@ -3839,7 +3845,13 @@ public interface X3DSchemaData
   String  GEOTRANSFORM_ATTR_BBOXSIZE_NAME = "bboxSize";
   boolean GEOTRANSFORM_ATTR_BBOXSIZE_REQD = false;
   String  GEOTRANSFORM_ATTR_BBOXSIZE_DFLT = "-1 -1 -1";
-
+  String  GEOTRANSFORM_ATTR_VISIBLE_NAME     = "visible";
+  boolean GEOTRANSFORM_ATTR_VISIBLE_REQD     = false;
+  String  GEOTRANSFORM_ATTR_VISIBLE_DFLT     = "true";
+  String  GEOTRANSFORM_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean GEOTRANSFORM_ATTR_BBOXDISPLAY_REQD = false;
+  String  GEOTRANSFORM_ATTR_BBOXDISPLAY_DFLT = "false";
+  
   String  GEOVIEWPOINT_ELNAME                = "GeoViewpoint";
   String  GEOVIEWPOINT_ATTR_GEOSYSTEM_NAME   = "geoSystem";
   boolean GEOVIEWPOINT_ATTR_GEOSYSTEM_REQD   = false;
@@ -5240,6 +5252,12 @@ public interface X3DSchemaData
   String  ESPDUTRANSFORM_ATTR_RTPHEADEREXPECTED_NAME          = "rtpHeaderExpected";
   boolean ESPDUTRANSFORM_ATTR_RTPHEADEREXPECTED_REQD          = false;
   String  ESPDUTRANSFORM_ATTR_RTPHEADEREXPECTED_DFLT          = "false";
+  String  ESPDUTRANSFORM_ATTR_VISIBLE_NAME     = "visible";
+  boolean ESPDUTRANSFORM_ATTR_VISIBLE_REQD     = false;
+  String  ESPDUTRANSFORM_ATTR_VISIBLE_DFLT     = "true";
+  String  ESPDUTRANSFORM_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
+  boolean ESPDUTRANSFORM_ATTR_BBOXDISPLAY_REQD = false;
+  String  ESPDUTRANSFORM_ATTR_BBOXDISPLAY_DFLT = "false";
 
   String[] ESPDUTRANSFORM_ATTR_NETWORKNODE_CHOICES = {
       "standAlone",
