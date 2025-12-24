@@ -774,7 +774,7 @@ public class X3dEditUserPreferences
   private static final String winxpSlicer3dEditorPathDefault             = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
   private static final String winxpBatikEditorPathDefault                = "C:\\languages\\java\\batik-1.17\\batik-squiggle-1.17.jar";
   private static final String winxpInkscapeEditorPathDefault             = "C:\\Program Files\\Inkscape\\Inkscape";
-  private static final String winxpSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
+  private static final String winxpSvgeditEditorPathDefault              = "https://svgedit.netlify.app"; // online editor
   private static final String winxpWhiteDuneX3dEditorPathDefault         = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
   private static final String winxpWingsX3dEditorPathDefault             = "C:\\Program Files\\wings3d_2.4.1\\Wings3D.exe";
   private static final String winxpUltraEditX3dEditorPathDefault         = "C:\\Program Files\\IDM Computer Solutions\\UltraEdit\\uedit32.exe";
@@ -806,7 +806,7 @@ public class X3dEditUserPreferences
   private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
   private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.19\\batik-squiggle-1.19.jar";
   private static final String windows64InkscapeEditorPathDefault         = "C:\\Program Files\\Inkscape\\bin\\inkscape.exe";
-  private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app/editor/index.html"; // online editor
+  private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app"; // online editor
   private static final String windows64WhiteDuneX3dEditorPathDefault     = "C:\\installs\\WhiteDune\\white_dune-1.956.exe";
   private static final String windows64WingsX3dEditorPathDefault         = "C:\\Program Files\\wings3d_2.4.1\\Wings3D.exe";
   private static final String windows64UltraEditX3dEditorPathDefault     = "C:\\Program Files\\IDM Computer Solutions\\UltraEdit\\uedit64.exe";
@@ -838,7 +838,7 @@ public class X3dEditUserPreferences
   private static final String macosxSlicer3dEditorPathDefault            = "Slicer3d";       // TODO insert correct value
   private static final String macosxBatikEditorPathDefault               = "batik-squiggle"; // TODO insert correct value
   private static final String macosxInkscapeEditorPathDefault            = "Inkscape";       // TODO insert correct value
-  private static final String macosxSvgeditEditorPathDefault             = "https://svgedit.netlify.app/editor/index.html"; // online editor
+  private static final String macosxSvgeditEditorPathDefault             = "https://svgedit.netlify.app"; // online editor
   private static final String macosxWhiteDuneX3dEditorPathDefault        = "WhiteDune";      // TODO insert correct value
   private static final String macosxWingsX3dEditorPathDefault            = "Wings3d";        // TODO insert correct value
   private static final String macosxUltraEditX3dEditorPathDefault        = "UltraEdit";      // TODO insert correct value
@@ -869,7 +869,7 @@ public class X3dEditUserPreferences
   private static final String otherSlicer3dEditorPathDefault             = "Slicer3d";       // TODO insert correct value
   private static final String otherBatikEditorPathDefault                = "batik-squiggle"; // TODO insert correct value
   private static final String otherInkscapeEditorPathDefault             = "Inkscape";       // TODO insert correct value
-  private static final String otherSvgeditEditorPathDefault              = "https://svgedit.netlify.app/editor/index.html"; // online editor
+  private static final String otherSvgeditEditorPathDefault              = "https://svgedit.netlify.app"; // online editor
   private static final String otherWhiteDuneX3dEditorPathDefault         = "WhiteDune";      // TODO insert correct value
   private static final String otherWingsX3dEditorPathDefault             = "Wings3d";        // TODO insert correct value
   private static final String otherUltraEditX3dEditorPathDefault         = "UltraEdit";      // TODO insert correct value
