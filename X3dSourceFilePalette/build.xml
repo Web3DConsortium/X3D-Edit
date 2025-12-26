@@ -198,7 +198,7 @@
     </target>
 
     <property name="xj3d.dir" value="C:\x3d-github\Xj3D\xj3d"/> <!-- TODO: this property should be placed in a private.properties file -->
-    
+
     <target name="get.latest.Xj3D.jars.local" description="Download latest Xj3D jar files from local build">
         <echo message="prerequisite: Xj3D build all"/>
         <copy todir="release/modules/ext/" preservelastmodified="true" overwrite="true" force="true" verbose="true">
@@ -268,7 +268,7 @@
 
     <!-- override -->
     <target name="-pre-compile" depends="projectized-common.-pre-compile">
-        <antcall target="get.latest"/>
+        <antcall target="get.latest"  inheritRefs="true"/>
     </target>
 
     <!-- We don't need to deploy this file -->
@@ -480,7 +480,7 @@
         <resolver:deploy artifactsref="release">
             <remoteRepo refid="central"/>
         </resolver:deploy>
-        <antcall target="do.stage.post"/>
+        <antcall target="do.stage.post" inheritRefs="true"/>
         <echo message="Ready now to close, then release artifacts from: https://central.sonatype.com/publishing/deployments"/>
         <nbbrowse url="https://central.sonatype.com/publishing/deployments"/>
         <!-- https://central.sonatype.org/publish/publish-portal-upload/ -->
@@ -490,6 +490,8 @@
     <!-- OSSRH staging API: https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/#getting-started-for-maven-api-like-plugins
                             https://ossrh-staging-api.central.sonatype.com/swagger-ui/#/default/manual_upload_repository -->
     <target name="do.stage.post">
+        <!-- Can use ${pom.property} syntax with this -->
+        <resolver:pom file="mvn/pom.xml" id="pom"/>
         <post to="${central-repository-url}/manual/upload/defaultRepository/org.web3d.x3d.tools?publishing_type=automatic&amp;deployment_name=${pom.artifactId}-${pom.version}"/>
     </target>
 
