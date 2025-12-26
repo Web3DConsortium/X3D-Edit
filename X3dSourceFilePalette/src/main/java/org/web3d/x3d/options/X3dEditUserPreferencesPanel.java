@@ -12727,7 +12727,7 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 This directory contains new models created using X3D-Edit authoring tool
 for Extensible 3D (X3D) Graphics International Standard.
 
-* https://savage.nps.edu/X3D-Edit
+* https://www.web3d.org/x3d/tools/X3D-Edit
 * https://web3d.org/x3d
 """);
         readmeWriter.close();
