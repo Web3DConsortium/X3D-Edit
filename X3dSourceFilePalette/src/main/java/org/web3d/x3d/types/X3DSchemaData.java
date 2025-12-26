@@ -328,7 +328,7 @@ public interface X3DSchemaData
   {
     "generator: select an authoring tool...",                                          // 0
     "generator ===== 3D Graphics Creation Tools =====",                                // 1
-    "generator X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit",                         // 2
+    "generator X3D-Edit 4.0, https://www.web3d.org/x3d/tools/X3D-Edit",                // 2
     "generator Autodesk Tinkercad, https://www.tinkercad.com",                         // 3
     "generator AUV Workbench, https://savage.nps.edu/AuvWorkbench",                    // 4
     "generator Blender, https://www.blender.org",                                      // 5
