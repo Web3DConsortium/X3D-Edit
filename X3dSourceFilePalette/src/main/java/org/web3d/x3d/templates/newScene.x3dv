@@ -31,7 +31,7 @@ META "accessRights" "*enter permission statements or url here*"
 META "warning" "*insert any known warnings, bugs or errors here*"
 META "identifier" "*enter online Uniform Resource Identifier (URI) or Uniform Resource Locator (URL) address for this file here*"
  ### Warning:  File name doesn't match for <meta name='identifier' content='*enter online Uniform Resource Identifier (URI) or Uniform Resource Locator (URL) address for this file here*'/> and <meta name='title' content='*enter FileNameWithNoAbbreviations.x3d here*'/>
-META "generator" "X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit"
+META "generator" "X3D-Edit 4.0, https://www.web3d.org/x3d/tools/X3D-Edit"
 META "license" "../license.html"
 # Additional authoring resources for meta tags: http://www.dublincore.org/documents/dcmi-terms http://www.dublincore.org/documents/dces https://www.w3.org/TR/html5/document-metadata.html#the-meta-element http://www.w3.org/TR/html4/struct/global.html#h-7.4.4 http://vancouver-webpages.com/META http://vancouver-webpages.com/META/about-mk-metas2.html
 # Additional authoring resources for language codes: https://tools.ietf.org/html/bcp47 http://www.loc.gov/standards/iso639-2/langhome.html http://www.iana.org/numbers.html#index_L

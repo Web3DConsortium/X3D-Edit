@@ -5,7 +5,7 @@
     <meta content='HelloWorldX3D4.x3d' name='title'/>
     <meta content='Test X3D version 4 with simple X3D model example: Hello World!' name='description'/>
     <meta content='10 June 2021' name='created'/>
-    <meta content='24 February 2025' name='modified'/>
+    <meta content='26 December 2025' name='modified'/>
     <meta content='Don Brutzman' name='creator'/>
     <meta content='HelloWorld.tall.png' name='Image'/>
     <meta content='https://en.wikipedia.org/wiki/Hello_world' name='reference'/>
@@ -20,7 +20,7 @@
     <meta content='https://www.web3d.org/specifications/X3Dv4/ISO-IEC19775-1v4-IS/Part01/htmlGuidelines.html' name='reference'/>
     <meta content='https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorldX3D4.x3d' name='identifier'/>
     <meta content='https://www.web3d.org/x3d/content/examples/license.html' name='license'/>
-    <meta content='X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='X3D-Edit 4.0, https://www.web3d.org/x3d/tools/X3D-Edit' name='generator'/>
     <meta content='HelloWorld.wrl' name='reference'/>
     <meta content='HelloWorldX3D4.x3dv' name='reference'/>
     <meta content='HelloWorldX3D4.x3db' name='reference'/>

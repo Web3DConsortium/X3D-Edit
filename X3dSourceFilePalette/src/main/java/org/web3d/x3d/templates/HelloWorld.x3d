@@ -6,7 +6,7 @@
     <meta content='HelloWorld.x3d' name='title'/>
     <meta content='Simple X3D model example: Hello World!' name='description'/>
     <meta content='30 October 2000' name='created'/>
-    <meta content='2 August 2023' name='modified'/>
+    <meta content='26 December 2025' name='modified'/>
     <meta content='Don Brutzman' name='creator'/>
     <meta content='HelloWorld.tall.png' name='Image'/>
     <meta content='https://en.wikipedia.org/wiki/Hello_world' name='reference'/>
@@ -20,7 +20,7 @@
     <meta content='https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/HelloWorldScenes/HelloWorld.x3d' name='reference'/>
     <meta content='https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter01TechnicalOverview/HelloWorld.x3d' name='identifier'/>
     <meta content='https://www.web3d.org/x3d/content/examples/license.html' name='license'/>
-    <meta content='X3D-Edit 4.0, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='X3D-Edit 4.0, https://www.web3d.org/x3d/tools/X3D-Edit' name='generator'/>
     <meta content='HelloWorld.wrl' name='reference'/>
     <meta content='HelloWorld.x3dv' name='reference'/>
     <meta content='HelloWorld.x3db' name='reference'/>
