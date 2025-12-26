@@ -935,7 +935,7 @@ public class METACustomizer extends BaseCustomizer
         loadContentButton.setEnabled(isContentUrl && !isContentCompressed);
      externalEditorButton.setEnabled(isContentUrl && !isContentCompressed);        
                  qaButton.setEnabled((isContentUrl && !isContentCompressed && urlExpandableList.hasQaTest(content)) ||
-                                      content.startsWith("http"));
+                                      content.contains("http://") || content.contains("https://"));
              domainButton.setEnabled(isContentUrl && 
                                      urlExpandableList.isOnlineUrl(content));    
                pingButton.setEnabled(isContentUrl && 
@@ -1282,7 +1282,6 @@ public class METACustomizer extends BaseCustomizer
     private void qaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qaButtonActionPerformed
         // similarly implemented in UrlExpandableList2 and METACustomizer, keep these code blocks consistent
         String url = contentTA.getText().trim();
-        String originalUrl = url;
         
         // also skip preceding meta text as appropriate (for example, descriptions preceding urls for name=generator meta tags)
         if      (url.contains("http://"))
@@ -1295,9 +1294,10 @@ public class METACustomizer extends BaseCustomizer
                  url = url.substring(url.indexOf("sftp://"));
         
         urlExpandableList.validateUrlContentViaOnlineServer (url);
-        if (originalUrl.startsWith("http"))
+        String excerptedUrl = url; // ensure prefix prose is skipped
+        if (excerptedUrl.startsWith("http"))
         {
-            String redbotUrl = "https://www.redbot.org/?uri=" + originalUrl; // full url is OK
+            String redbotUrl = "https://www.redbot.org/?uri=" + excerptedUrl; // full url is OK
             launchInBrowser(redbotUrl);
             System.out.println("*** Server headers Quality Assurance (QA) check: " + redbotUrl);
         }
