@@ -32,10 +32,10 @@ NetBeans Plugin Portal [deployment statistics](https://plugins.netbeans.apache.o
 
 ## How To Do It
 
-The easiest way to use X3D-Edit is to install [NetBeans](https://netbeans.apache.org/), then select _NetBeans > Tools > Plugins_, and then select the X3D-Edit plugin.
+The easiest way to use X3D-Edit is to install [NetBeans](https://netbeans.apache.org), then select _NetBeans > Tools > Plugins_, and then select the X3D-Edit plugin.
 
-For full details on updates, please see our video
-[Installation video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
+For full details on updates, please see our 
+[X3D-Edit Installation Video (22:56)](https://www.youtube.com/watch?v=ThToh2YLZeY)
 [<img align='right' width='400' src="https://www.web3d.org/x3d/tools/X3D-Edit/images/X3D-EditHowToInstallVideoWelcome800x398.png"/>](https://www.youtube.com/watch?v=ThToh2YLZeY)
 
 ## Source Code available on GitHub
