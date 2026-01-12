@@ -1795,12 +1795,18 @@ public interface X3DSchemaData
   String  TEXTURETRANSFORM_ATTR_SCALE_NAME       = "scale";
   boolean TEXTURETRANSFORM_ATTR_SCALE_REQD       = false;
   String  TEXTURETRANSFORM_ATTR_SCALE_DFLT       = "1 1";
+  String  TEXTURETRANSFORM_ATTR_MAPPING_NAME     = "mapping";
+  boolean TEXTURETRANSFORM_ATTR_MAPPING_REQD     = false;
+  String  TEXTURETRANSFORM_ATTR_MAPPING_DFLT     = "";
 
   // Element TextureCoordinate
-  String  TEXTURECOORDINATE_ELNAME          = "TextureCoordinate";
-  String  TEXTURECOORDINATE_ATTR_POINT_NAME = "point";
-  boolean TEXTURECOORDINATE_ATTR_POINT_REQD = false;
-  String  TEXTURECOORDINATE_ATTR_POINT_DFLT = "0 0, 1 0, 1 1, 0 1"; // override X3D spec to provide commonly used defaults for building interface
+  String  TEXTURECOORDINATE_ELNAME            = "TextureCoordinate";
+  String  TEXTURECOORDINATE_ATTR_POINT_NAME   = "point";
+  boolean TEXTURECOORDINATE_ATTR_POINT_REQD   = false;
+  String  TEXTURECOORDINATE_ATTR_POINT_DFLT   = "0 0, 1 0, 1 1, 0 1"; // override X3D spec to provide commonly used defaults for building interface
+  String  TEXTURECOORDINATE_ATTR_MAPPING_NAME = "mapping";
+  boolean TEXTURECOORDINATE_ATTR_MAPPING_REQD = false;
+  String  TEXTURECOORDINATE_ATTR_MAPPING_DFLT = "";
   
   // Also used by CoordinateDouble
   String[]TEXTURECOORDINATE_CONTAINERFIELD_CHOICES    = {"texCoord", "texCoordRamp"};
@@ -1831,6 +1837,9 @@ public interface X3DSchemaData
     "SPHERE-REFLECT",
     "SPHERE-REFLECT-LOCAL"
   };
+  String  TEXTURECOORDINATEGENERATOR_ATTR_MAPPING_NAME = "mapping";
+  boolean TEXTURECOORDINATEGENERATOR_ATTR_MAPPING_REQD = false;
+  String  TEXTURECOORDINATEGENERATOR_ATTR_MAPPING_DFLT = "";
 
   // Element Color
   String  COLOR_ELNAME          = "Color";
@@ -5613,22 +5622,31 @@ public interface X3DSchemaData
   String  PIXELTEXTURE3D_ATTR_REPEATR_DFLT  = "false";
 
   // Element TextureCoordinate3D
-  String  TEXTURECOORDINATE3D_ELNAME          = "TextureCoordinate3D";
-  String  TEXTURECOORDINATE3D_ATTR_POINT_NAME = "point";
-  boolean TEXTURECOORDINATE3D_ATTR_POINT_REQD = false;
-  String  TEXTURECOORDINATE3D_ATTR_POINT_DFLT = "0 0 0"; // override X3D spec to provide commonly used defaults for building interface
+  String  TEXTURECOORDINATE3D_ELNAME            = "TextureCoordinate3D";
+  String  TEXTURECOORDINATE3D_ATTR_POINT_NAME   = "point";
+  boolean TEXTURECOORDINATE3D_ATTR_POINT_REQD   = false;
+  String  TEXTURECOORDINATE3D_ATTR_POINT_DFLT   = "0 0 0"; // override X3D spec to provide commonly used defaults for building interface
+  String  TEXTURECOORDINATE3D_ATTR_MAPPING_NAME = "mapping";
+  boolean TEXTURECOORDINATE3D_ATTR_MAPPING_REQD = false;
+  String  TEXTURECOORDINATE3D_ATTR_MAPPING_DFLT = "";
 
   // Element TextureCoordinate4D
-  String  TEXTURECOORDINATE4D_ELNAME          = "TextureCoordinate4D";
-  String  TEXTURECOORDINATE4D_ATTR_POINT_NAME = "point";
-  boolean TEXTURECOORDINATE4D_ATTR_POINT_REQD = false;
-  String  TEXTURECOORDINATE4D_ATTR_POINT_DFLT = "0 0 0 0"; // override X3D spec to provide commonly used defaults for building interface
+  String  TEXTURECOORDINATE4D_ELNAME            = "TextureCoordinate4D";
+  String  TEXTURECOORDINATE4D_ATTR_POINT_NAME   = "point";
+  boolean TEXTURECOORDINATE4D_ATTR_POINT_REQD   = false;
+  String  TEXTURECOORDINATE4D_ATTR_POINT_DFLT   = "0 0 0 0"; // override X3D spec to provide commonly used defaults for building interface
+  String  TEXTURECOORDINATE4D_ATTR_MAPPING_NAME = "mapping";
+  boolean TEXTURECOORDINATE4D_ATTR_MAPPING_REQD = false;
+  String  TEXTURECOORDINATE4D_ATTR_MAPPING_DFLT = "";
 
   // TextureTransformMatrix3D
-  String  TEXTURETRANSFORMMATRIX3D_ELNAME          = "TextureTransformMatrix3D";
-  String  TEXTURETRANSFORMMATRIX3D_ATTR_MATRIX_NAME = "matrix";
-  boolean TEXTURETRANSFORMMATRIX3D_ATTR_MATRIX_REQD = false;
-  String  TEXTURETRANSFORMMATRIX3D_ATTR_MATRIX_DFLT = "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1";
+  String  TEXTURETRANSFORMMATRIX3D_ELNAME               = "TextureTransformMatrix3D";
+  String  TEXTURETRANSFORMMATRIX3D_ATTR_MATRIX_NAME     = "matrix";
+  boolean TEXTURETRANSFORMMATRIX3D_ATTR_MATRIX_REQD     = false;
+  String  TEXTURETRANSFORMMATRIX3D_ATTR_MATRIX_DFLT     = "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1";
+  String  TEXTURETRANSFORMMATRIX3D_ATTR_MAPPING_NAME    = "mapping";
+  boolean TEXTURETRANSFORMMATRIX3D_ATTR_MAPPING_REQD    = false;
+  String  TEXTURETRANSFORMMATRIX3D_ATTR_MAPPING_DFLT    = "";
 
   // element TextureTransform3D
   String  TEXTURETRANSFORM3D_ELNAME                     = "TextureTransform3D";
@@ -5644,6 +5662,9 @@ public interface X3DSchemaData
   String  TEXTURETRANSFORM3D_ATTR_SCALE_NAME            = "scale";
   boolean TEXTURETRANSFORM3D_ATTR_SCALE_REQD            = false;
   String  TEXTURETRANSFORM3D_ATTR_SCALE_DFLT            = "1 1 1";
+  String  TEXTURETRANSFORM3D_ATTR_MAPPING_NAME          = "mapping";
+  boolean TEXTURETRANSFORM3D_ATTR_MAPPING_REQD          = false;
+  String  TEXTURETRANSFORM3D_ATTR_MAPPING_DFLT          = "";
 
   // RigidBodyPhysics Component
 
