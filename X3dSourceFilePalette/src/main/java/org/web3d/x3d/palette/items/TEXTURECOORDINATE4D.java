@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -52,6 +52,8 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
  */
 public class TEXTURECOORDINATE4D extends X3DTextureCoordinateNode
 {
+  private String   mapping, mappingDefault;
+  
   private SFFloat[][] point, pointDefault;
 
   public TEXTURECOORDINATE4D()
@@ -68,6 +70,8 @@ public class TEXTURECOORDINATE4D extends X3DTextureCoordinateNode
   @Override
   public void initialize()
   {
+    mapping = mappingDefault = TEXTURECOORDINATE4D_ATTR_MAPPING_DFLT;
+    
     String[] sa = parseX(TEXTURECOORDINATE4D_ATTR_POINT_DFLT);
         
     point = pointDefault = new SFFloat[sa.length/4][4];
@@ -87,6 +91,10 @@ public class TEXTURECOORDINATE4D extends X3DTextureCoordinateNode
   {
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
+    
+    attr = root.getAttribute(TEXTURECOORDINATE4D_ATTR_MAPPING_NAME);
+    if (attr != null)
+        mapping = attr.getValue();
     
     attr = root.getAttribute(TEXTURECOORDINATE4D_ATTR_POINT_NAME);
     if (attr != null) {
@@ -108,6 +116,13 @@ public class TEXTURECOORDINATE4D extends X3DTextureCoordinateNode
   {
     StringBuilder sb = new StringBuilder();
 
+    if (TEXTURECOORDINATE4D_ATTR_MAPPING_REQD || !mapping.equals(mappingDefault)) {
+      sb.append(" ");
+      sb.append(TEXTURECOORDINATE4D_ATTR_MAPPING_NAME);
+      sb.append("='");
+      sb.append(getMapping());
+      sb.append("'");
+    }
     if (TEXTURECOORDINATE4D_ATTR_POINT_REQD || !Arrays.equals(point, pointDefault)) {
       sb.append(" ");
       sb.append(TEXTURECOORDINATE4D_ATTR_POINT_NAME);
@@ -137,5 +152,19 @@ public class TEXTURECOORDINATE4D extends X3DTextureCoordinateNode
   {
     return !(point != null && point.length>0);
   }
+
+    /**
+     * @return the mapping
+     */
+    public String getMapping() {
+        return mapping;
+    }
+
+    /**
+     * @param mapping the mapping to set
+     */
+    public void setMapping(String mapping) {
+        this.mapping = mapping;
+    }
 
 }

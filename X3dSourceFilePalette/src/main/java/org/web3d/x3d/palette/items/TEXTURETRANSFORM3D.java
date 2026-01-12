@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -54,6 +54,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
  */
 public class TEXTURETRANSFORM3D extends X3DTextureTransform2DNode
 {
+  private String   mapping, mappingDefault;
   SFFloat centerX,centerXDefault;
   SFFloat centerY,centerYDefault;
   SFFloat centerZ,centerZDefault;
@@ -82,6 +83,8 @@ public class TEXTURETRANSFORM3D extends X3DTextureTransform2DNode
   @SuppressWarnings("NestedAssignment")
   public void initialize()
   {
+    mapping = mappingDefault = TEXTURETRANSFORM3D_ATTR_MAPPING_DFLT; 
+  
     String[] fa = parse3(TEXTURETRANSFORM3D_ATTR_CENTER_DFLT);
     centerX = centerXDefault = new SFFloat(fa[0],null,null);
     centerY = centerYDefault = new SFFloat(fa[1],null,null);
@@ -110,6 +113,10 @@ public class TEXTURETRANSFORM3D extends X3DTextureTransform2DNode
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
     String[] fa;
+    
+    attr = root.getAttribute(TEXTURETRANSFORM3D_ATTR_MAPPING_NAME);
+    if (attr != null)
+      mapping = attr.getValue();
     
     attr = root.getAttribute(TEXTURETRANSFORM3D_ATTR_CENTER_NAME);
     if (attr != null) {
@@ -165,6 +172,13 @@ public class TEXTURETRANSFORM3D extends X3DTextureTransform2DNode
       sb.append(centerY);
       sb.append(" ");
       sb.append(centerZ);
+      sb.append("'");
+    }
+    if (TEXTURETRANSFORM3D_ATTR_MAPPING_REQD || !mapping.equals(mappingDefault)) {
+      sb.append(" ");
+      sb.append(TEXTURETRANSFORM3D_ATTR_MAPPING_NAME);
+      sb.append("='");
+      sb.append(mapping);
       sb.append("'");
     }
     if (TEXTURETRANSFORM3D_ATTR_ROTATION_REQD || 
@@ -344,4 +358,18 @@ public class TEXTURETRANSFORM3D extends X3DTextureTransform2DNode
   {
     scaleZ = new SFFloat(s,null,null);
   }
+
+    /**
+     * @return the mapping
+     */
+    public String getMapping() {
+        return mapping;
+    }
+
+    /**
+     * @param newMapping the mapping to set
+     */
+    public void setMapping(String newMapping) {
+        this.mapping = newMapping;
+    }
 }

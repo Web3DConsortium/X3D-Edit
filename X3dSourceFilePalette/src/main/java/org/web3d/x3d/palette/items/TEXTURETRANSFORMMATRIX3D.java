@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
@@ -52,6 +52,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
  */
 public class TEXTURETRANSFORMMATRIX3D extends X3DTextureCoordinateNode
 {
+  private String   mapping, mappingDefault;
   private SFFloat[][] matrix, matrixDefault;
   private boolean     insertCommas, insertLineBreaks = false;
 
@@ -68,6 +69,8 @@ public class TEXTURETRANSFORMMATRIX3D extends X3DTextureCoordinateNode
   @Override
   public void initialize()
   {
+    mapping = mappingDefault = TEXTURETRANSFORMMATRIX3D_ATTR_MAPPING_DFLT; 
+  
     String[] sa = parseX(TEXTURETRANSFORMMATRIX3D_ATTR_MATRIX_DFLT);
         
     matrix        = new SFFloat[4][4];
@@ -87,6 +90,10 @@ public class TEXTURETRANSFORMMATRIX3D extends X3DTextureCoordinateNode
   {
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
+    
+    attr = root.getAttribute(TEXTURETRANSFORMMATRIX3D_ATTR_MAPPING_NAME);
+    if (attr != null)
+      mapping = attr.getValue();
     
     attr = root.getAttribute(TEXTURETRANSFORMMATRIX3D_ATTR_MATRIX_NAME);
     if (attr != null) {
@@ -117,6 +124,13 @@ public class TEXTURETRANSFORMMATRIX3D extends X3DTextureCoordinateNode
   {
     StringBuilder sb = new StringBuilder();
 
+    if (TEXTURETRANSFORMMATRIX3D_ATTR_MAPPING_REQD || !mapping.equals(mappingDefault)) {
+      sb.append(" ");
+      sb.append(TEXTURETRANSFORMMATRIX3D_ATTR_MAPPING_NAME);
+      sb.append("='");
+      sb.append(mapping);
+      sb.append("'");
+    }
     if (TEXTURETRANSFORMMATRIX3D_ATTR_MATRIX_REQD || !Arrays.equals(makeStringArray(matrix),makeStringArray(matrixDefault)))
     {
       sb.append(" ");
@@ -213,4 +227,17 @@ public class TEXTURETRANSFORMMATRIX3D extends X3DTextureCoordinateNode
         this.insertLineBreaks = insertLineBreaks;
     }
 
+    /**
+     * @return the mapping
+     */
+    public String getMapping() {
+        return mapping;
+    }
+
+    /**
+     * @param newMapping the mapping to set
+     */
+    public void setMapping(String newMapping) {
+        this.mapping = newMapping;
+    }
 }

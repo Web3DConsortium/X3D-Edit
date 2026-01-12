@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -68,6 +68,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
     
     initComponents();
     
+    mappingTF.setText(textureTransform.getMapping());
     center0TF.setText(textureTransform.getCenter0());
     center1TF.setText(textureTransform.getCenter1());
     rotationTF.setText(textureTransform.getRotation());
@@ -89,6 +90,9 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
+        mappingLabel = new javax.swing.JLabel();
+        mappingTF = new javax.swing.JTextField();
+        mappingSpacerLabel = new javax.swing.JLabel();
         sLabel = new javax.swing.JLabel();
         tLabel = new javax.swing.JLabel();
         centerLabel = new javax.swing.JLabel();
@@ -117,6 +121,8 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(710, 360));
+        setPreferredSize(new java.awt.Dimension(710, 360));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -130,13 +136,43 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        mappingLabel.setText("mapping");
+        mappingLabel.setToolTipText("label identifying which texture coordinates and mappings are used together");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(mappingLabel, gridBagConstraints);
+
+        mappingTF.setToolTipText("label identifying which texture coordinates and mappings are used together");
+        mappingTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mappingTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(mappingTF, gridBagConstraints);
+
+        mappingSpacerLabel.setText("  ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(mappingSpacerLabel, gridBagConstraints);
+
         sLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         sLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sLabel.setText("s");
         sLabel.setToolTipText("s is horizontal coordinate, range [0..1]");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(sLabel, gridBagConstraints);
@@ -147,7 +183,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         tLabel.setToolTipText("t is vertical coordinate, range [0..1]");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(tLabel, gridBagConstraints);
@@ -156,7 +192,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         centerLabel.setToolTipText("center point in 2D (s,t) texture coordinates for rotation and ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(centerLabel, gridBagConstraints);
@@ -167,7 +203,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         center0TF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -180,7 +216,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         center1TF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -197,7 +233,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(centerNegateButton, gridBagConstraints);
 
@@ -210,7 +246,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(centerCenteredButton, gridBagConstraints);
@@ -219,7 +255,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         translationLab.setToolTipText("Lateral/vertical shift in 2D (s,t) texture coordinates (opposite effect appears on geometry)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(translationLab, gridBagConstraints);
@@ -230,7 +266,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         translation0TF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -243,7 +279,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         translation1TF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -260,7 +296,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(translationNegateButton, gridBagConstraints);
@@ -274,7 +310,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(translationInvertSButton, gridBagConstraints);
@@ -288,7 +324,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(translationInvertTButton, gridBagConstraints);
@@ -297,7 +333,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         scaleLabel.setToolTipText("Non-uniform planar scaling of texture about center (opposite effect appears on geometry)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(scaleLabel, gridBagConstraints);
@@ -308,7 +344,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         scale0TF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -321,7 +357,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         scale1TF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -338,7 +374,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(scaleNegateButton, gridBagConstraints);
 
@@ -351,7 +387,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(scaleInvertButton, gridBagConstraints);
@@ -360,7 +396,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         rotationLabel.setToolTipText("single rotation angle of texture about center (opposite effect appears on geometry)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rotationLabel, gridBagConstraints);
@@ -376,7 +412,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 80;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -391,7 +427,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         rotationTF.setPreferredSize(new java.awt.Dimension(60, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 80;
         gridBagConstraints.weightx = 1.0;
@@ -408,7 +444,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rotationNegateButton, gridBagConstraints);
 
@@ -421,19 +457,19 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rotation90degreesButton, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridheight = 5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 40);
         add(spacerLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridheight = 5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 40);
         add(spacerLabel1, gridBagConstraints);
@@ -452,7 +488,7 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
@@ -709,6 +745,10 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
             translation1TF.setText(Double.toString(-1.0 - value1));
         }
     }//GEN-LAST:event_translationInvertTButtonActionPerformed
+
+    private void mappingTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mappingTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mappingTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField center0TF;
@@ -717,6 +757,9 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
     private javax.swing.JLabel centerLabel;
     private javax.swing.JButton centerNegateButton;
     private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JLabel mappingLabel;
+    private javax.swing.JLabel mappingSpacerLabel;
+    private javax.swing.JTextField mappingTF;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JButton normalizeRotationValuesButton;
     private javax.swing.JButton rotation90degreesButton;
@@ -776,6 +819,8 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
   {
     checkAngles (false);
     unLoadDEFUSE();
+    
+    textureTransform.setMapping(mappingTF.getText().trim());
     
     if (center0TF.getText().equals("-0") || center0TF.getText().equals("-0.") || center0TF.getText().equals("-0.0") ||
         center0TF.getText().equals("+0") || center0TF.getText().equals("+0.") || center0TF.getText().equals("+0.0"))

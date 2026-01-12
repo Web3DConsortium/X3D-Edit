@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -53,6 +53,8 @@ import org.web3d.x3d.types.X3DTextureTransform2DNode;
  */
 public class TEXTURETRANSFORM extends X3DTextureTransform2DNode
 {
+  private String   mapping, mappingDefault;
+  
   SFFloat center0,center0Default;
   SFFloat center1,center1Default;
   SFFloat rotation,rotationDefault;
@@ -75,6 +77,8 @@ public class TEXTURETRANSFORM extends X3DTextureTransform2DNode
   @SuppressWarnings("NestedAssignment")
   public void initialize()
   {
+    mapping = mappingDefault = TEXTURETRANSFORM_ATTR_MAPPING_DFLT;
+  
     String[] fa = parse2(TEXTURETRANSFORM_ATTR_CENTER_DFLT);
     center0 = center0Default = new SFFloat(fa[0],null,null);
     center1 = center1Default = new SFFloat(fa[1],null,null);
@@ -96,6 +100,10 @@ public class TEXTURETRANSFORM extends X3DTextureTransform2DNode
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
     String[] fa;
+    
+    attr = root.getAttribute(TEXTURETRANSFORM_ATTR_MAPPING_NAME);
+    if (attr != null)
+        mapping = attr.getValue();
     
     attr = root.getAttribute(TEXTURETRANSFORM_ATTR_CENTER_NAME);
     if (attr != null) {
@@ -140,6 +148,13 @@ public class TEXTURETRANSFORM extends X3DTextureTransform2DNode
       sb.append(center0);
       sb.append(" ");
       sb.append(center1);
+      sb.append("'");
+    }
+    if (TEXTURETRANSFORM_ATTR_MAPPING_REQD || !mapping.equals(mappingDefault)) {
+      sb.append(" ");
+      sb.append(TEXTURETRANSFORM_ATTR_MAPPING_NAME);
+      sb.append("='");
+      sb.append(getMapping());
       sb.append("'");
     }
     if (TEXTURETRANSFORM_ATTR_ROTATION_REQD || !rotation.equals(rotationDefault)) {
@@ -245,4 +260,18 @@ public class TEXTURETRANSFORM extends X3DTextureTransform2DNode
   {
     scale1 = new SFFloat(s,null,null);
   }
+
+    /**
+     * @return the mapping
+     */
+    public String getMapping() {
+        return mapping;
+    }
+
+    /**
+     * @param mapping the mapping to set
+     */
+    public void setMapping(String mapping) {
+        this.mapping = mapping;
+    }
 }

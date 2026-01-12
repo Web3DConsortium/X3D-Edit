@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -52,6 +52,8 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class TEXTURECOORDINATEGENERATOR extends X3DTextureCoordinateNode
 {
+  private String   mapping, mappingDefault;
+  
   private String mode;
   private String parameter;
   
@@ -68,6 +70,8 @@ public class TEXTURECOORDINATEGENERATOR extends X3DTextureCoordinateNode
   @Override
   public void initialize()
   {
+    mapping = mappingDefault = TEXTURECOORDINATEGENERATOR_ATTR_MAPPING_DFLT;
+    
     mode      = TEXTURECOORDINATEGENERATOR_ATTR_MODE_DFLT;
     parameter = TEXTURECOORDINATEGENERATOR_ATTR_PARAMETER_DFLT;
   }
@@ -77,6 +81,10 @@ public class TEXTURECOORDINATEGENERATOR extends X3DTextureCoordinateNode
   {
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
+    
+    attr = root.getAttribute(TEXTURECOORDINATEGENERATOR_ATTR_MAPPING_NAME);
+    if (attr != null)
+        mapping = attr.getValue();
     
     attr = root.getAttribute(TEXTURECOORDINATEGENERATOR_ATTR_MODE_NAME);
     if (attr != null)
@@ -97,6 +105,13 @@ public class TEXTURECOORDINATEGENERATOR extends X3DTextureCoordinateNode
   {
     StringBuilder sb = new StringBuilder();
 
+    if (TEXTURECOORDINATEGENERATOR_ATTR_MAPPING_REQD || !mapping.equals(mappingDefault)) {
+      sb.append(" ");
+      sb.append(TEXTURECOORDINATEGENERATOR_ATTR_MAPPING_NAME);
+      sb.append("='");
+      sb.append(getMapping());
+      sb.append("'");
+    }
     if (TEXTURECOORDINATEGENERATOR_ATTR_MODE_REQD || !mode.equals(TEXTURECOORDINATEGENERATOR_ATTR_MODE_DFLT)) {
       sb.append(" ");
       sb.append(TEXTURECOORDINATEGENERATOR_ATTR_MODE_NAME);
@@ -133,4 +148,18 @@ public class TEXTURECOORDINATEGENERATOR extends X3DTextureCoordinateNode
   {
     this.parameter = validateEvenNumbers(parameter);
   }
+
+    /**
+     * @return the mapping
+     */
+    public String getMapping() {
+        return mapping;
+    }
+
+    /**
+     * @param mapping the mapping to set
+     */
+    public void setMapping(String mapping) {
+        this.mapping = mapping;
+    }
 }

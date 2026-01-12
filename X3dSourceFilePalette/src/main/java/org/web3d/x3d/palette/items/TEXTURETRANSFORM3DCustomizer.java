@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -68,6 +68,8 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
     
     initComponents();
     
+    mappingTF.setText(textureTransform3D.getMapping());
+    
     centerXTF.setText(textureTransform3D.getCenterX());
     centerYTF.setText(textureTransform3D.getCenterX());
     centerZTF.setText(textureTransform3D.getCenterZ());
@@ -95,6 +97,9 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
+        mappingLabel = new javax.swing.JLabel();
+        mappingTF = new javax.swing.JTextField();
+        mappingSpacerLabel = new javax.swing.JLabel();
         sLabel = new javax.swing.JLabel();
         tLabel = new javax.swing.JLabel();
         rLabel = new javax.swing.JLabel();
@@ -127,6 +132,9 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(630, 380));
+        setPreferredSize(new java.awt.Dimension(630, 380));
+        setRequestFocusEnabled(false);
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -140,13 +148,43 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        mappingLabel.setText("mapping");
+        mappingLabel.setToolTipText("label identifying which texture coordinates and mappings are used together");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(mappingLabel, gridBagConstraints);
+
+        mappingTF.setToolTipText("label identifying which texture coordinates and mappings are used together");
+        mappingTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mappingTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(mappingTF, gridBagConstraints);
+
+        mappingSpacerLabel.setText("  ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(mappingSpacerLabel, gridBagConstraints);
+
         sLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         sLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sLabel.setText("s");
         sLabel.setToolTipText("s is horizontal coordinate, range [0..1]");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(sLabel, gridBagConstraints);
@@ -157,7 +195,7 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
         tLabel.setToolTipText("t is vertical coordinate, range [0..1]");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(tLabel, gridBagConstraints);
@@ -168,7 +206,7 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
         rLabel.setToolTipText("t is vertical coordinate, range [0..1]");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rLabel, gridBagConstraints);
@@ -529,6 +567,10 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
             }
         }
     }//GEN-LAST:event_rotationCalculatorlButtonActionPerformed
+
+    private void mappingTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mappingTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mappingTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adjustmentsLabel;
@@ -538,6 +580,9 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
     private javax.swing.JTextField centerYTF;
     private javax.swing.JTextField centerZTF;
     private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JLabel mappingLabel;
+    private javax.swing.JLabel mappingSpacerLabel;
+    private javax.swing.JTextField mappingTF;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JButton normalizeRotationValuesButton;
     private javax.swing.JLabel rLabel;
@@ -600,6 +645,8 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
   {
     checkAngles (false);
     unLoadDEFUSE();
+    
+    textureTransform3D.setMapping(mappingTF.getText().trim());
     
     textureTransform3D.setCenterX(centerXTF.getText().trim());
     textureTransform3D.setCenterY(centerYTF.getText().trim());

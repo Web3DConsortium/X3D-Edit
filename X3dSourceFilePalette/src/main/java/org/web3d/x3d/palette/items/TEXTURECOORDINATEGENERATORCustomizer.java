@@ -65,6 +65,8 @@ public class TEXTURECOORDINATEGENERATORCustomizer extends BaseCustomizer
     
     initComponents();
     
+    mappingTF.setText(textureCoordinateGenerator.getMapping());
+    
     super.getDEFUSEpanel().setContainerFieldChoices(TEXTURECOORDINATE_CONTAINERFIELD_CHOICES, TEXTURECOORDINATE_CONTAINERFIELD_TOOLTIPS);
     modeCombo.setSelectedItem(textureCoordinateGenerator.getMode());
     parameterTextField.setText(textureCoordinateGenerator.getParameter());
@@ -80,13 +82,18 @@ public class TEXTURECOORDINATEGENERATORCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
+        mappingLabel = new javax.swing.JLabel();
+        mappingTF = new javax.swing.JTextField();
+        mappingSpacerLabel = new javax.swing.JLabel();
         modeLabel = new javax.swing.JLabel();
-        modeCombo = new javax.swing.JComboBox<String>();
+        modeCombo = new javax.swing.JComboBox<>();
         parameterLabel = new javax.swing.JLabel();
         parameterTextField = new javax.swing.JTextField();
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(656, 256));
+        setPreferredSize(new java.awt.Dimension(656, 256));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -97,12 +104,44 @@ public class TEXTURECOORDINATEGENERATORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        mappingLabel.setText("mapping");
+        mappingLabel.setToolTipText("label identifying which texture coordinates and mappings are used together");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(mappingLabel, gridBagConstraints);
+
+        mappingTF.setToolTipText("label identifying which texture coordinates and mappings are used together");
+        mappingTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mappingTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(mappingTF, gridBagConstraints);
+
+        mappingSpacerLabel.setText("  ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(mappingSpacerLabel, gridBagConstraints);
+
         modeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         modeLabel.setText("mode");
         modeLabel.setToolTipText("mode value defines algorithm used to compute texture coordinates");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
         add(modeLabel, gridBagConstraints);
@@ -111,7 +150,7 @@ public class TEXTURECOORDINATEGENERATORCustomizer extends BaseCustomizer
         modeCombo.setToolTipText("mode value defines algorithm used to compute texture coordinates");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -122,7 +161,7 @@ public class TEXTURECOORDINATEGENERATORCustomizer extends BaseCustomizer
         parameterLabel.setToolTipText("floating-point parameter values for modes NOISE, SPHERE-REFLECT and SPHERE-REFLECT-LOCAL");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
         add(parameterLabel, gridBagConstraints);
@@ -130,11 +169,11 @@ public class TEXTURECOORDINATEGENERATORCustomizer extends BaseCustomizer
         parameterTextField.setToolTipText("floating-point parameter values for modes NOISE, SPHERE-REFLECT and SPHERE-REFLECT-LOCAL");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(parameterTextField, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -153,16 +192,23 @@ public class TEXTURECOORDINATEGENERATORCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mappingTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mappingTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mappingTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JLabel mappingLabel;
+    private javax.swing.JLabel mappingSpacerLabel;
+    private javax.swing.JTextField mappingTF;
     private javax.swing.JComboBox<String> modeCombo;
     private javax.swing.JLabel modeLabel;
     private javax.swing.JPanel nodeHintPanel;
@@ -180,6 +226,8 @@ public class TEXTURECOORDINATEGENERATORCustomizer extends BaseCustomizer
   public void unloadInput() throws IllegalArgumentException
   {
     unLoadDEFUSE();
+    
+    textureCoordinateGenerator.setMapping(mappingTF.getText().trim());
     
     textureCoordinateGenerator.setMode((String)modeCombo.getSelectedItem());
     textureCoordinateGenerator.setParameter(parameterTextField.getText().trim());

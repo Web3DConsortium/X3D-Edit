@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -39,9 +39,12 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
@@ -75,6 +78,8 @@ public class TEXTURETRANSFORMMATRIX3DCustomizer extends BaseCustomizer
     
     initComponents();
     
+    mappingTF.setText(textureTransformMatrix3D.getMapping());
+    
     expandableListMatrix.setTitle("matrix: 4x4 transformation array");
     expandableListMatrix.setHeaderTooltip("TextureTransformMatrix3D matrix values");
     expandableListMatrix.setColumnTitles  (new String[]{"#","0","1","2","3"});
@@ -101,7 +106,11 @@ public class TEXTURETRANSFORMMATRIX3DCustomizer extends BaseCustomizer
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         GridBagConstraints gridBagConstraints;
+
         DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
+        mappingLabel = new JLabel();
+        mappingTF = new JTextField();
+        mappingSpacerLabel = new JLabel();
         expandableListMatrix = new ExpandableList();
         nodeHintPanel = new JPanel();
         descriptionLabel = new JLabel();
@@ -110,16 +119,48 @@ public class TEXTURETRANSFORMMATRIX3DCustomizer extends BaseCustomizer
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
+
+        mappingLabel.setText("mapping");
+        mappingLabel.setToolTipText("label identifying which texture coordinates and mappings are used together");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new Insets(3, 8, 3, 3);
+        add(mappingLabel, gridBagConstraints);
+
+        mappingTF.setToolTipText("label identifying which texture coordinates and mappings are used together");
+        mappingTF.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                mappingTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 60;
+        gridBagConstraints.anchor = GridBagConstraints.WEST;
+        gridBagConstraints.insets = new Insets(3, 3, 3, 3);
+        add(mappingTF, gridBagConstraints);
+
+        mappingSpacerLabel.setText("  ");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new Insets(3, 3, 3, 3);
+        add(mappingSpacerLabel, gridBagConstraints);
 
         expandableListMatrix.setMinimumSize(new Dimension(463, 200));
         expandableListMatrix.setPreferredSize(new Dimension(473, 200));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 160;
         gridBagConstraints.weightx = 1.0;
@@ -143,16 +184,24 @@ public class TEXTURETRANSFORMMATRIX3DCustomizer extends BaseCustomizer
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mappingTFActionPerformed(ActionEvent evt) {//GEN-FIRST:event_mappingTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mappingTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JLabel descriptionLabel;
     private ExpandableList expandableListMatrix;
+    private JLabel mappingLabel;
+    private JLabel mappingSpacerLabel;
+    private JTextField mappingTF;
     private JPanel nodeHintPanel;
     // End of variables declaration//GEN-END:variables
 
@@ -166,6 +215,8 @@ public class TEXTURETRANSFORMMATRIX3DCustomizer extends BaseCustomizer
   public void unloadInput() throws IllegalArgumentException
   {
     unLoadDEFUSE();
+    
+    textureTransformMatrix3D.setMapping(mappingTF.getText().trim());
     
     String[][] data = expandableListMatrix.getData();
     textureTransformMatrix3D.setMatrix(expandableListMatrix.getData());

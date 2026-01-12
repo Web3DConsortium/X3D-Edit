@@ -50,6 +50,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.text.JTextComponent;
@@ -99,6 +100,8 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
     
     initComponents();
     
+    mappingTF.setText(textureCoordinate.getMapping());
+    
     super.getDEFUSEpanel().setContainerFieldChoices(TEXTURECOORDINATE_CONTAINERFIELD_CHOICES, TEXTURECOORDINATE_CONTAINERFIELD_TOOLTIPS);
     //pointTA.setText(textureCoordinate.getPoint());
     expandableListPoints.setTitle("point array");
@@ -129,10 +132,13 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         GridBagConstraints gridBagConstraints;
+
         DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
+        mappingLabel = new JLabel();
+        mappingTF = new JTextField();
+        replotButton = new JButton();
         expandableListPoints = new ExpandableList();
         jFreeChartPanel = new JPanel();
-        replotButton = new JButton();
         nodeHintPanel = new JPanel();
         descriptionLabel = new JLabel();
 
@@ -141,9 +147,45 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
+
+        mappingLabel.setText("mapping");
+        mappingLabel.setToolTipText("label identifying which texture coordinates and mappings are used together");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new Insets(3, 8, 3, 3);
+        add(mappingLabel, gridBagConstraints);
+
+        mappingTF.setToolTipText("label identifying which texture coordinates and mappings are used together");
+        mappingTF.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                mappingTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 60;
+        gridBagConstraints.anchor = GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new Insets(3, 3, 3, 3);
+        add(mappingTF, gridBagConstraints);
+
+        replotButton.setText("Replot");
+        replotButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                replotButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = GridBagConstraints.SOUTHEAST;
+        gridBagConstraints.insets = new Insets(3, 3, 3, 3);
+        add(replotButton, gridBagConstraints);
 
         expandableListPoints.setMinimumSize(new Dimension(463, 200));
         expandableListPoints.setPreferredSize(new Dimension(473, 200));
@@ -154,7 +196,8 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 200;
         gridBagConstraints.weightx = 1.0;
@@ -167,27 +210,13 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
         jFreeChartPanel.setPreferredSize(new Dimension(300, 300));
         jFreeChartPanel.setLayout(new BorderLayout());
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.34;
         gridBagConstraints.weighty = 0.5;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
         add(jFreeChartPanel, gridBagConstraints);
-
-        replotButton.setText("Replot");
-        replotButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                replotButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = GridBagConstraints.SOUTHEAST;
-        gridBagConstraints.insets = new Insets(3, 3, 3, 3);
-        add(replotButton, gridBagConstraints);
 
         nodeHintPanel.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
         nodeHintPanel.setLayout(new GridBagLayout());
@@ -205,7 +234,7 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
@@ -224,11 +253,17 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
     {//GEN-HEADEREND:event_replotButtonActionPerformed
         updateJFreeChartPointPlot ();
     }//GEN-LAST:event_replotButtonActionPerformed
+
+    private void mappingTFActionPerformed(ActionEvent evt) {//GEN-FIRST:event_mappingTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mappingTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JLabel descriptionLabel;
     private ExpandableList expandableListPoints;
     private JPanel jFreeChartPanel;
+    private JLabel mappingLabel;
+    private JTextField mappingTF;
     private JPanel nodeHintPanel;
     private JButton replotButton;
     // End of variables declaration//GEN-END:variables
@@ -323,6 +358,8 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
   public void unloadInput() throws IllegalArgumentException
   {
     unLoadDEFUSE();
+    
+    textureCoordinate.setMapping(mappingTF.getText().trim());
     
     textureCoordinate.setPoint(expandableListPoints.getData());
   }  
