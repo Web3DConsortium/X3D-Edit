@@ -41,7 +41,7 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 
 /**
- * ENVIRONMENTLIGHT.java * 
+ * ENVIRONMENTLIGHT.java
  * 
  * @author Don Brutzman
  * @version $Id$
@@ -52,6 +52,7 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
   private SFFloat color0,color0Default;
   private SFFloat color1,color1Default;
   private SFFloat color2,color2Default;
+  // TODO diffuseCoefficients
   private boolean global;
   private SFFloat intensity,intensityDefault;
   private boolean on;
