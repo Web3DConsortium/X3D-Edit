@@ -3,10 +3,10 @@
 <Form version="1.3" maxVersion="1.3" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[590, 460]"/>
+      <Dimension value="[590, 600]"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[590, 460]"/>
+      <Dimension value="[590, 600]"/>
     </Property>
   </Properties>
   <AuxValues>

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -103,8 +103,8 @@ public class TANGENTCustomizer extends BaseCustomizer
         normalizeAxisValuesButton = new javax.swing.JButton();
         hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(590, 460));
-        setPreferredSize(new java.awt.Dimension(590, 460));
+        setMinimumSize(new java.awt.Dimension(590, 600));
+        setPreferredSize(new java.awt.Dimension(590, 600));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
