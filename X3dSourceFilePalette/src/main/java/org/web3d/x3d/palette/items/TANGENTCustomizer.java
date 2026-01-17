@@ -106,6 +106,9 @@ public class TANGENTCustomizer extends BaseCustomizer
         setMinimumSize(new java.awt.Dimension(590, 600));
         setPreferredSize(new java.awt.Dimension(590, 600));
         setLayout(new java.awt.GridBagLayout());
+
+        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(600, 110));
+        dEFUSEpanel1.setPreferredSize(new java.awt.Dimension(600, 110));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
