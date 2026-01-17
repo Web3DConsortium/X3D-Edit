@@ -42,13 +42,8 @@ import org.openide.util.HelpCtx;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 /**
  * ENVIRONMENTLIGHTCustomizer.java
- * Created on July 11, 2007, 5:13 PM
- *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey
+ * 
+ * @author Don Brutzman
  * @version $Id$
  */
 public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
@@ -67,7 +62,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
     
     initComponents();
     
-    ambientIntensTF.setText(envLight.getAmbientIntensity());
+    ambientIntensityTF.setText(envLight.getAmbientIntensity());
     color0TF.setText(envLight.getColor0());
     color1TF.setText(envLight.getColor1());
     color2TF.setText(envLight.getColor2());
@@ -82,22 +77,25 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
     
     onCB.setSelected(envLight.isOn());
     rotationTF.setText(envLight.getRotation());
-    checkRadius ();
+    checkRotation ();
+    shadowsCB.setSelected(envLight.isShadows());
+    shadowIntensityTF.setText(envLight.getShadowIntensity());
   }
 
-  private void checkRadius ()
+  private void checkRotation ()
   {
-      if ((new SFFloat (rotationTF.getText())).getValue() < 0.0)
-      {
-          String message;
-          message = "<html><center>Negative value provided for <b>radius</b> value, which is illegal.<br/><br/>Convert to default value <b>100</b> meters?";
-          NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-                  message, "radius must be zero or greater", NotifyDescriptor.YES_NO_OPTION);
-          if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
-          {
-              rotationTF.setText("100");
-          }
-      }
+//      TODO
+//      if ((new SFFloat (rotationTF.getText())).getValue() < 0.0)
+//      {
+//          String message;
+//          message = "<html><center>Negative value provided for <b>radius</b> value, which is illegal.<br/><br/>Convert to default value <b>100</b> meters?";
+//          NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
+//                  message, "radius must be zero or greater", NotifyDescriptor.YES_NO_OPTION);
+//          if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
+//          {
+//              rotationTF.setText("100");
+//          }
+//      }
   }
   
   /** This method is called from within the constructor to
@@ -111,11 +109,12 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
 
         dEFUSEpanel1 = getDEFUSEpanel();
         ambientIntensityLabel = new javax.swing.JLabel();
-        ambientIntensTF = new javax.swing.JTextField();
+        ambientIntensityTF = new javax.swing.JTextField();
         colorLabel = new javax.swing.JLabel();
         color0TF = new org.web3d.x3d.palette.BetterJTextField();
         color1TF = new org.web3d.x3d.palette.BetterJTextField();
         color2TF = new org.web3d.x3d.palette.BetterJTextField();
+        diffuseCoefficientsLabel = new javax.swing.JLabel();
         intensityLabel = new javax.swing.JLabel();
         intensityTF = new javax.swing.JTextField();
         originLabel = new javax.swing.JLabel();
@@ -157,23 +156,23 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(ambientIntensityLabel, gridBagConstraints);
 
-        ambientIntensTF.setToolTipText("[0,1] brightness of ambient (nondirectional background) light");
-        ambientIntensTF.setMinimumSize(new java.awt.Dimension(60, 22));
-        ambientIntensTF.setPreferredSize(new java.awt.Dimension(60, 22));
+        ambientIntensityTF.setToolTipText("[0,1] brightness of ambient (nondirectional background) light");
+        ambientIntensityTF.setMinimumSize(new java.awt.Dimension(60, 22));
+        ambientIntensityTF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(ambientIntensTF, gridBagConstraints);
+        add(ambientIntensityTF, gridBagConstraints);
 
         colorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         colorLabel.setText("color");
         colorLabel.setToolTipText("color of light, applied to colors of objects");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -184,7 +183,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         color0TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -195,7 +194,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         color1TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -206,11 +205,22 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         color2TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(color2TF, gridBagConstraints);
+
+        diffuseCoefficientsLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        diffuseCoefficientsLabel.setText("diffuseCoefficients");
+        diffuseCoefficientsLabel.setToolTipText("[0,1] brightness of direct light");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(diffuseCoefficientsLabel, gridBagConstraints);
 
         intensityLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         intensityLabel.setText("intensity");
@@ -346,7 +356,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -460,19 +470,20 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
   }//GEN-LAST:event_colorChooser1ActionPerformed
 
   private void rotationTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotationTFActionPerformed
-      checkRadius ();
+      checkRotation ();
   }//GEN-LAST:event_rotationTFActionPerformed
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ambientIntensTF;
     private javax.swing.JLabel ambientIntensityLabel;
+    private javax.swing.JTextField ambientIntensityTF;
     private org.web3d.x3d.palette.BetterJTextField color0TF;
     private org.web3d.x3d.palette.BetterJTextField color1TF;
     private org.web3d.x3d.palette.BetterJTextField color2TF;
     private net.java.dev.colorchooser.ColorChooser colorChooser1;
     private javax.swing.JLabel colorLabel;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
+    private javax.swing.JLabel diffuseCoefficientsLabel;
     private javax.swing.JCheckBox globalCB;
     private javax.swing.JLabel globalLabel;
     private javax.swing.JLabel hintLabel;
@@ -504,10 +515,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
      
-    environmentLight.setAmbientIntensity(ambientIntensTF.getText().trim());
-    environmentLight.setAttenuationX(attenuation0TF.getText().trim());
-    environmentLight.setAttenuationY(attenuation1TF.getText().trim());
-    environmentLight.setAttenuationZ(attenuation2TF.getText().trim());
+    environmentLight.setAmbientIntensity(ambientIntensityTF.getText().trim());
     
     environmentLight.setColor0(color0TF.getText().trim());
     environmentLight.setColor1(color1TF.getText().trim());
@@ -516,13 +524,16 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
     environmentLight.setGlobal(globalCB.isSelected());
     
     environmentLight.setIntensity(intensityTF.getText().trim());
-    environmentLight.setLocationX(origin0TF.getText().trim());
-    environmentLight.setLocationY(origin1TF.getText().trim());
-    environmentLight.setLocationZ(origin2TF.getText().trim());
-    
     environmentLight.setOn(onCB.isSelected());
-    checkRadius ();
+    environmentLight.setOriginX(origin0TF.getText().trim());
+    environmentLight.setOriginY(origin1TF.getText().trim());
+    environmentLight.setOriginZ(origin2TF.getText().trim());
+    
+    checkRotation ();
     environmentLight.setRotation(rotationTF.getText().trim());
+    
+    environmentLight.setShadows(shadowsCB.isSelected());
+    environmentLight.setShadowIntensity(shadowIntensityTF.getText().trim());
   }
   
 }
