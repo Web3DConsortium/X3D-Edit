@@ -901,6 +901,42 @@ public interface X3DSchemaData
   String  POINTLIGHT_ATTR_RADIUS_NAME           = "radius";
   boolean POINTLIGHT_ATTR_RADIUS_REQD           = false;
   String  POINTLIGHT_ATTR_RADIUS_DFLT           = "100";
+  String  POINTLIGHT_ATTR_SHADOWINTENSITY_NAME  = "shadowIntensity";
+  boolean POINTLIGHT_ATTR_SHADOWINTENSITY_REQD  = false;
+  String  POINTLIGHT_ATTR_SHADOWINTENSITY_DFLT  = "1";
+  String  POINTLIGHT_ATTR_SHADOWS_NAME          = "shadows";
+  boolean POINTLIGHT_ATTR_SHADOWS_REQD          = false;
+  String  POINTLIGHT_ATTR_SHADOWS_DFLT          = "false";
+
+  // EnvironmentLight element
+  String  ENVIRONMENTLIGHT_ELNAME                     = "PointLight";
+  String  ENVIRONMENTLIGHT_ATTR_AMBIENTINTENSITY_NAME = "ambientIntensity";
+  boolean ENVIRONMENTLIGHT_ATTR_AMBIENTINTENSITY_REQD = false;
+  String  ENVIRONMENTLIGHT_ATTR_AMBIENTINTENSITY_DFLT = "0";
+  String  ENVIRONMENTLIGHT_ATTR_COLOR_NAME            = "color";
+  boolean ENVIRONMENTLIGHT_ATTR_COLOR_REQD            = false;
+  String  ENVIRONMENTLIGHT_ATTR_COLOR_DFLT            = "1 1 1";
+  String  ENVIRONMENTLIGHT_ATTR_GLOBAL_NAME           = "global";
+  boolean ENVIRONMENTLIGHT_ATTR_GLOBAL_REQD           = false;
+  String  ENVIRONMENTLIGHT_ATTR_GLOBAL_DFLT           = "true";
+  String  ENVIRONMENTLIGHT_ATTR_INTENSITY_NAME        = "intensity";
+  boolean ENVIRONMENTLIGHT_ATTR_INTENSITY_REQD        = false;
+  String  ENVIRONMENTLIGHT_ATTR_INTENSITY_DFLT        = "1";
+  String  ENVIRONMENTLIGHT_ATTR_ORIGIN_NAME           = "origin";
+  boolean ENVIRONMENTLIGHT_ATTR_ORIGIN_REQD           = false;
+  String  ENVIRONMENTLIGHT_ATTR_ORIGIN_DFLT           = "0 0 0";
+  String  ENVIRONMENTLIGHT_ATTR_ON_NAME               = "on";
+  boolean ENVIRONMENTLIGHT_ATTR_ON_REQD               = false;
+  String  ENVIRONMENTLIGHT_ATTR_ON_DFLT               = "true";
+  String  ENVIRONMENTLIGHT_ATTR_ROTATION_NAME         = "rotation";
+  boolean ENVIRONMENTLIGHT_ATTR_ROTATION_REQD         = false;
+  String  ENVIRONMENTLIGHT_ATTR_ROTATION_DFLT         = "0";
+  String  ENVIRONMENTLIGHT_ATTR_SHADOWINTENSITY_NAME  = "shadowIntensity";
+  boolean ENVIRONMENTLIGHT_ATTR_SHADOWINTENSITY_REQD  = false;
+  String  ENVIRONMENTLIGHT_ATTR_SHADOWINTENSITY_DFLT  = "1";
+  String  ENVIRONMENTLIGHT_ATTR_SHADOWS_NAME          = "shadows";
+  boolean ENVIRONMENTLIGHT_ATTR_SHADOWS_REQD          = false;
+  String  ENVIRONMENTLIGHT_ATTR_SHADOWS_DFLT          = "false";
 
     // DirectionalLight element
   String  DIRECTIONALLIGHT_ELNAME                     = "DirectionalLight";
@@ -922,6 +958,12 @@ public interface X3DSchemaData
   String  DIRECTIONALLIGHT_ATTR_ON_NAME               = "on";
   boolean DIRECTIONALLIGHT_ATTR_ON_REQD               = false;
   String  DIRECTIONALLIGHT_ATTR_ON_DFLT               = "true";
+  String  DIRECTIONALLIGHT_ATTR_SHADOWINTENSITY_NAME  = "shadowIntensity";
+  boolean DIRECTIONALLIGHT_ATTR_SHADOWINTENSITY_REQD  = false;
+  String  DIRECTIONALLIGHT_ATTR_SHADOWINTENSITY_DFLT  = "1";
+  String  DIRECTIONALLIGHT_ATTR_SHADOWS_NAME          = "shadows";
+  boolean DIRECTIONALLIGHT_ATTR_SHADOWS_REQD          = false;
+  String  DIRECTIONALLIGHT_ATTR_SHADOWS_DFLT          = "false";
 
   // SpotLight element
   // note reversal of beamWidth and cutOffAngle defaults, spec bug submitted
@@ -961,6 +1003,12 @@ public interface X3DSchemaData
   String  SPOTLIGHT_ATTR_RADIUS_NAME           = "radius";
   boolean SPOTLIGHT_ATTR_RADIUS_REQD           = false;
   String  SPOTLIGHT_ATTR_RADIUS_DFLT           = "100";
+  String  SPOTLIGHT_ATTR_SHADOWINTENSITY_NAME  = "shadowIntensity";
+  boolean SPOTLIGHT_ATTR_SHADOWINTENSITY_REQD  = false;
+  String  SPOTLIGHT_ATTR_SHADOWINTENSITY_DFLT  = "1";
+  String  SPOTLIGHT_ATTR_SHADOWS_NAME          = "shadows";
+  boolean SPOTLIGHT_ATTR_SHADOWS_REQD          = false;
+  String  SPOTLIGHT_ATTR_SHADOWS_DFLT          = "false";
 
   // Background element
   String  BACKGROUND_ELNAME                = "Background";
