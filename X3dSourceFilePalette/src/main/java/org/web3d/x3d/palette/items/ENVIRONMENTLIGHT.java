@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -52,14 +52,20 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
   private SFFloat color0,color0Default;
   private SFFloat color1,color1Default;
   private SFFloat color2,color2Default;
-  // TODO diffuseCoefficients
+  // TODO 3x9 MFFloat 
+  private String diffuseCoefficients, diffuseCoefficientsDefault;
   private boolean global;
   private SFFloat intensity,intensityDefault;
   private boolean on;
   private SFFloat originX,originXDefault;
   private SFFloat originY,originYDefault;
   private SFFloat originZ,originZDefault;
-  private SFFloat rotation, rotationDefault;
+  
+  // Together make one SFRotation
+  public SFFloat rotationX, rotationXDefault;
+  public SFFloat rotationY, rotationYDefault;
+  public SFFloat rotationZ, rotationZDefault;
+  public SFFloat rotationAngle, rotationAngleDefault;
   private boolean shadows;
   private SFFloat shadowIntensity,shadowIntensityDefault;
   
@@ -89,6 +95,8 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
     color1 = color1Default = new SFFloat(fa[1],0.0f,1.0f);
     color2 = color2Default = new SFFloat(fa[2],0.0f,1.0f);
     
+    diffuseCoefficients = diffuseCoefficientsDefault = ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_DFLT;
+    
     intensity = intensityDefault = new SFFloat(ENVIRONMENTLIGHT_ATTR_INTENSITY_DFLT, 0.0f, 1.0f);
     
     fa = parse3(ENVIRONMENTLIGHT_ATTR_ORIGIN_DFLT);
@@ -98,7 +106,12 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
 
     global = Boolean.parseBoolean(ENVIRONMENTLIGHT_ATTR_GLOBAL_DFLT);
     on = Boolean.parseBoolean(ENVIRONMENTLIGHT_ATTR_ON_DFLT);
-    rotation = rotationDefault = new SFFloat(ENVIRONMENTLIGHT_ATTR_ROTATION_DFLT, 0.0f, null);
+    
+    fa = parse4(ENVIRONMENTLIGHT_ATTR_ROTATION_DFLT);
+    rotationX = rotationXDefault = new SFFloat(fa[0], null, null);
+    rotationY = rotationYDefault = new SFFloat(fa[1], null, null);
+    rotationZ = rotationZDefault = new SFFloat(fa[2], null, null);
+    rotationAngle = rotationAngleDefault = new SFFloat(fa[3], null, null);
     
     shadows = Boolean.parseBoolean(ENVIRONMENTLIGHT_ATTR_SHADOWS_DFLT);
     shadowIntensity = shadowIntensityDefault = new SFFloat(ENVIRONMENTLIGHT_ATTR_SHADOWINTENSITY_DFLT, 0.0f, 1.0f);
@@ -121,6 +134,9 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
       color1 = new SFFloat(fa[1], 0.0f, 1.0f);
       color2 = new SFFloat(fa[2], 0.0f, 1.0f);
     }
+    attr = root.getAttribute(ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_NAME);
+    if (attr != null)
+        setDiffuseCoefficients(attr.getValue().replaceAll("\\s+", " ").trim());
     attr = root.getAttribute(ENVIRONMENTLIGHT_ATTR_GLOBAL_NAME);
     if (attr != null)
       global = Boolean.parseBoolean(attr.getValue());
@@ -138,8 +154,13 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
     if (attr != null)
       on = Boolean.parseBoolean(attr.getValue());
     attr = root.getAttribute(ENVIRONMENTLIGHT_ATTR_ROTATION_NAME);
-    if (attr != null)
-      rotation = new SFFloat(attr.getValue(), null, null);
+    if (attr != null) {
+      fa = parse4(attr.getValue());
+      rotationX     = new SFFloat(fa[0], null, null);
+      rotationY     = new SFFloat(fa[1], null, null);
+      rotationZ     = new SFFloat(fa[2], null, null);
+      rotationAngle = new SFFloat(fa[3], null, null);
+    }
     
     attr = root.getAttribute(ENVIRONMENTLIGHT_ATTR_SHADOWS_NAME);
     if (attr != null)
@@ -174,6 +195,13 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
       sb.append(color2);
       sb.append("'");       
     }     
+    if(ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_REQD || !diffuseCoefficients.equals(ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_DFLT) ) {
+      sb.append(" ");
+      sb.append(ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_NAME);
+      sb.append("='");
+      sb.append(getDiffuseCoefficients().replaceAll("\\s+", " ").trim());
+      sb.append("'");       
+    }    
     if(ENVIRONMENTLIGHT_ATTR_GLOBAL_REQD || global != Boolean.parseBoolean(ENVIRONMENTLIGHT_ATTR_GLOBAL_DFLT) ) {
       sb.append(" ");
       sb.append(ENVIRONMENTLIGHT_ATTR_GLOBAL_NAME);
@@ -209,12 +237,22 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
       sb.append(originZ);
       sb.append("'");       
     }
-    if(ENVIRONMENTLIGHT_ATTR_ROTATION_REQD || !rotation.equals(rotationDefault) ) {
+    if (ENVIRONMENTLIGHT_ATTR_ROTATION_REQD ||
+                   (!rotationX.equals(rotationXDefault) ||
+                    !rotationY.equals(rotationYDefault) ||
+                    !rotationZ.equals(rotationZDefault) ||
+                    !rotationAngle.equals(rotationAngleDefault))) {
       sb.append(" ");
       sb.append(ENVIRONMENTLIGHT_ATTR_ROTATION_NAME);
       sb.append("='");
-      sb.append(rotation);
-      sb.append("'");       
+      sb.append(rotationX);
+      sb.append(" ");
+      sb.append(rotationY);
+      sb.append(" ");
+      sb.append(rotationZ);
+      sb.append(" ");
+      sb.append(rotationAngle);
+      sb.append("'");
     }
     if(ENVIRONMENTLIGHT_ATTR_SHADOWS_REQD || shadows != Boolean.parseBoolean(ENVIRONMENTLIGHT_ATTR_SHADOWS_DFLT) ) {
       sb.append(" ");
@@ -271,16 +309,6 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
   public void setOn(boolean on)
   {
     this.on = on;
-  }
-
-  public String getRotation()
-  {
-    return rotation.toString();
-  }
-
-  public void setRotation(String radius)
-  {
-    this.rotation = new SFFloat(radius,0.0f,null);
   }
 
   public String getColor0()
@@ -343,6 +371,46 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
     this.originZ = new SFFloat(originZ,null,null);
   }
 
+  public String getRotationX()
+  {
+    return rotationX.toString();
+  }
+
+  public void setRotationX(String rotationX)
+  {
+    this.rotationX = new SFFloat(rotationX, null, null);
+  }
+
+  public String getRotationY()
+  {
+    return rotationY.toString();
+  }
+
+  public void setRotationY(String rotationY)
+  {
+    this.rotationY = new SFFloat(rotationY, null, null);
+  }
+
+  public String getRotationZ()
+  {
+    return rotationZ.toString();
+  }
+
+  public void setRotationZ(String rotationZ)
+  {
+    this.rotationZ = new SFFloat(rotationZ, null, null);
+  }
+
+  public String getRotationAngle()
+  {
+    return radiansFormat.format(rotationAngle.getValue());
+  }
+
+  public void setRotationAngle(String rotationAngle)
+  {
+    this.rotationAngle = new SFFloat(rotationAngle, null, null);
+  }
+
   public boolean isShadows()
   {
     return shadows;
@@ -362,4 +430,18 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
   {
     this.shadowIntensity = new SFFloat(shadowIntensity,0.0f,1.0f);
   }
+
+    /**
+     * @return the diffuseCoefficients
+     */
+    public String getDiffuseCoefficients() {
+        return diffuseCoefficients;
+    }
+
+    /**
+     * @param diffuseCoefficients the diffuseCoefficients to set
+     */
+    public void setDiffuseCoefficients(String diffuseCoefficients) {
+        this.diffuseCoefficients = diffuseCoefficients;
+    }
 }
