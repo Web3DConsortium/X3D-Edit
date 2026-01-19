@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -74,6 +74,8 @@ public class SPOTLIGHT extends X3DLightNode
   private SFFloat directionX,directionXDefault;
   private SFFloat directionY,directionYDefault;
   private SFFloat directionZ,directionZDefault;
+  private boolean shadows;
+  private SFFloat shadowIntensity,shadowIntensityDefault;
     
   public SPOTLIGHT()
   {
@@ -114,13 +116,16 @@ public class SPOTLIGHT extends X3DLightNode
     ambientIntensity = ambientIntensityDefault = new SFFloat(SPOTLIGHT_ATTR_AMBIENTINTENSITY_DFLT, 0.0f, 1.0f);
     intensity        = intensityDefault        = new SFFloat(SPOTLIGHT_ATTR_INTENSITY_DFLT       , 0.0f, 1.0f);
     radius           = radiusDefault           = new SFFloat(SPOTLIGHT_ATTR_RADIUS_DFLT          , 0.0f, null);
-    cutOffAngle      = cutOffAngleDefault      = new SFFloat(SPOTLIGHT_ATTR_CUTOFFANGLE_DFLT     , 0.0f,Float.parseFloat(SPOTLIGHT_ATTR_CUTOFFANGLE_MAX));
-    beamWidth        = beamWidthDefault        = new SFFloat(SPOTLIGHT_ATTR_BEAMWIDTH_DFLT       , 0.0f,Float.parseFloat(SPOTLIGHT_ATTR_BEAMWIDTH_MAX));
+    cutOffAngle      = cutOffAngleDefault      = new SFFloat(SPOTLIGHT_ATTR_CUTOFFANGLE_DFLT     , 0.0f,Float.valueOf(SPOTLIGHT_ATTR_CUTOFFANGLE_MAX));
+    beamWidth        = beamWidthDefault        = new SFFloat(SPOTLIGHT_ATTR_BEAMWIDTH_DFLT       , 0.0f,Float.valueOf(SPOTLIGHT_ATTR_BEAMWIDTH_MAX));
+    
+    shadows = Boolean.parseBoolean(SPOTLIGHT_ATTR_SHADOWS_DFLT);
+    shadowIntensity = shadowIntensityDefault = new SFFloat(SPOTLIGHT_ATTR_SHADOWINTENSITY_DFLT, 0.0f, 1.0f);
   }
 
   @Override
   public void initializeFromJdom(org.jdom.Element root, JTextComponent comp)
-  {
+  { 
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
     String[] fa;
@@ -174,6 +179,13 @@ public class SPOTLIGHT extends X3DLightNode
     attr = root.getAttribute(SPOTLIGHT_ATTR_BEAMWIDTH_NAME);
     if (attr != null)
       beamWidth = new SFFloat(attr.getValue(), 0.0f, cutOffAngleDefault.getValue());
+    
+    attr = root.getAttribute(SPOTLIGHT_ATTR_SHADOWS_NAME);
+    if (attr != null)
+      shadows = Boolean.parseBoolean(attr.getValue());
+    attr = root.getAttribute(SPOTLIGHT_ATTR_SHADOWINTENSITY_NAME);
+    if (attr != null)
+      shadowIntensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
   }
   
   @Override
@@ -295,6 +307,20 @@ public class SPOTLIGHT extends X3DLightNode
       sb.append(radius);
       sb.append("'");
     }
+    if(SPOTLIGHT_ATTR_SHADOWS_REQD || shadows != Boolean.parseBoolean(SPOTLIGHT_ATTR_SHADOWS_DFLT) ) {
+      sb.append(" ");
+      sb.append(SPOTLIGHT_ATTR_SHADOWS_NAME);
+      sb.append("='");
+      sb.append(shadows);
+      sb.append("'");       
+    }
+    if(SPOTLIGHT_ATTR_SHADOWINTENSITY_REQD || !shadowIntensity.equals(shadowIntensityDefault)) {
+      sb.append(" ");
+      sb.append(SPOTLIGHT_ATTR_SHADOWINTENSITY_NAME);
+      sb.append("='");
+      sb.append(shadowIntensity);
+      sb.append("'");
+    }     
     return sb.toString();
   }
    
@@ -486,5 +512,25 @@ public class SPOTLIGHT extends X3DLightNode
   public void setDirectionZ(String directionZ)
   {
     this.directionZ = new SFFloat(directionZ,null,null);    
+  }
+
+  public boolean isShadows()
+  {
+    return shadows;
+  }
+
+  public void setShadows(boolean shadows)
+  {
+    this.shadows = shadows;
+  }
+   
+  public String getShadowIntensity()
+  {
+    return shadowIntensity.toString();
+  }
+
+  public void setShadowIntensity(String shadowIntensity)
+  {
+    this.shadowIntensity = new SFFloat(shadowIntensity,0.0f,1.0f);
   }
 }

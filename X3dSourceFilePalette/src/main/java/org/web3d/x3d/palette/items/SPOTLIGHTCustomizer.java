@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -102,8 +102,10 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
     onCB.setSelected(spotLight.isOn());
     radiusTF.setText(spotLight.getRadius());
     checkRadius ();
-
     checkAngles (false);
+
+    shadowsCB.setSelected(spotLight.isShadows());
+    shadowIntensityTF.setText(spotLight.getShadowIntensity());
   }
   
   /** This method is called from within the constructor to
@@ -149,6 +151,10 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         cutOffAngleTF = new javax.swing.JTextField();
         beamWidthTF = new javax.swing.JTextField();
         hintLabel = new javax.swing.JLabel();
+        shadowsLabel = new javax.swing.JLabel();
+        shadowsCB = new javax.swing.JCheckBox();
+        shadowIntensityLabel = new javax.swing.JLabel();
+        shadowIntensityTF = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(640, 510));
         setLayout(new java.awt.GridBagLayout());
@@ -168,7 +174,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         ambientIntensityLabel.setToolTipText("[0,1] brightness of ambient (nondirectional background) light");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -180,7 +186,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         ambientIntensTF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -191,7 +197,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         attenuationLabel.setToolTipText("constant, linear-distance and squared-distance dropoff factors");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -203,7 +209,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         attenuation0TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -215,7 +221,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         attenuation1TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -227,7 +233,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         attenuation2TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -238,7 +244,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         beamWidthLabel.setToolTipText("inner angle from center line (in radians) where light source has uniform full intensity");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -249,7 +255,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         colorLabel.setToolTipText("color of light, applied to colors of objects");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -261,7 +267,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         color0TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -273,7 +279,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         color1TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -285,7 +291,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         color2TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -313,7 +319,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(colorChooser1, gridBagConstraints);
@@ -323,7 +329,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         cutOffAngleLabel.setToolTipText("outer angle from center line (in radians) where light source intensity becomes zero");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -334,7 +340,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         directionLabel.setToolTipText("direction vector of light axis relative to local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -346,7 +352,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         directionXTF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -358,7 +364,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         directionYTF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -370,7 +376,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         directionZTF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -381,7 +387,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         intensityLabel.setToolTipText("[0,1] brightness of direct light");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -393,7 +399,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         intensityTF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -404,7 +410,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         locationLabel.setToolTipText("position of light relative to local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -416,7 +422,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         location0TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -428,7 +434,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         location1TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -440,7 +446,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         location2TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -451,7 +457,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         globalLabel.setToolTipText("global lights illuminate all objects, scoped lights only affect local transformation hierarchy");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -463,7 +469,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         globalCB.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -497,7 +503,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         radiusLabel.setToolTipText("maximum effective distance of light relative to local light position");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -514,7 +520,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -529,7 +535,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -546,7 +552,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(cutOffAngleTF, gridBagConstraints);
@@ -562,7 +568,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(beamWidthTF, gridBagConstraints);
@@ -573,7 +579,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
@@ -581,6 +587,51 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(hintLabel, gridBagConstraints);
+
+        shadowsLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        shadowsLabel.setText("shadows");
+        shadowsLabel.setToolTipText("whether shadows result from this light");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(shadowsLabel, gridBagConstraints);
+
+        shadowsCB.setToolTipText("whether shadows result from this light");
+        shadowsCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        shadowsCB.setMinimumSize(new java.awt.Dimension(60, 22));
+        shadowsCB.setPreferredSize(new java.awt.Dimension(60, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(shadowsCB, gridBagConstraints);
+
+        shadowIntensityLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        shadowIntensityLabel.setText("shadowIntensity");
+        shadowIntensityLabel.setToolTipText("[0,1] darkness of shadows from this light (0 is no shadow, 1 is full-intensity shadow)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(shadowIntensityLabel, gridBagConstraints);
+
+        shadowIntensityTF.setToolTipText("[0,1] darkness of shadows from this light (0 is no shadow, 1 is full-intensity shadow)");
+        shadowIntensityTF.setMinimumSize(new java.awt.Dimension(60, 22));
+        shadowIntensityTF.setPreferredSize(new java.awt.Dimension(60, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(shadowIntensityTF, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
   private void colorChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorChooser1ActionPerformed
@@ -704,6 +755,10 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
     private javax.swing.JLabel onLabel;
     private javax.swing.JLabel radiusLabel;
     private javax.swing.JTextField radiusTF;
+    private javax.swing.JLabel shadowIntensityLabel;
+    private javax.swing.JTextField shadowIntensityTF;
+    private javax.swing.JCheckBox shadowsCB;
+    private javax.swing.JLabel shadowsLabel;
     // End of variables declaration//GEN-END:variables
 
 
@@ -821,6 +876,9 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
     spotLight.setOn(onCB.isSelected());
     checkRadius ();
     spotLight.setRadius(radiusTF.getText().trim());
+    
+    spotLight.setShadows(shadowsCB.isSelected());
+    spotLight.setShadowIntensity(shadowIntensityTF.getText().trim());
   }
   
 }

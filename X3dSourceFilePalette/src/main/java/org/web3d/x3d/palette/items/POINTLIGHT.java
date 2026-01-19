@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -68,6 +68,8 @@ public class POINTLIGHT extends X3DLightNode
   private SFFloat locationZ,locationZDefault;
   private boolean on;
   private SFFloat radius, radiusDefault;
+  private boolean shadows;
+  private SFFloat shadowIntensity,shadowIntensityDefault;
 
   private boolean appendOutlineGeometry = false;
   
@@ -112,6 +114,9 @@ public class POINTLIGHT extends X3DLightNode
     on = Boolean.parseBoolean(POINTLIGHT_ATTR_ON_DFLT);
     radius = radiusDefault = new SFFloat(POINTLIGHT_ATTR_RADIUS_DFLT, 0.0f, null);
     global = Boolean.parseBoolean(POINTLIGHT_ATTR_GLOBAL_DFLT);
+    
+    shadows = Boolean.parseBoolean(POINTLIGHT_ATTR_SHADOWS_DFLT);
+    shadowIntensity = shadowIntensityDefault = new SFFloat(POINTLIGHT_ATTR_SHADOWINTENSITY_DFLT, 0.0f, 1.0f);
   }
 
   @Override
@@ -157,6 +162,13 @@ public class POINTLIGHT extends X3DLightNode
     attr = root.getAttribute(POINTLIGHT_ATTR_GLOBAL_NAME);
     if (attr != null)
       global = Boolean.parseBoolean(attr.getValue());
+    
+    attr = root.getAttribute(POINTLIGHT_ATTR_SHADOWS_NAME);
+    if (attr != null)
+      shadows = Boolean.parseBoolean(attr.getValue());
+    attr = root.getAttribute(POINTLIGHT_ATTR_SHADOWINTENSITY_NAME);
+    if (attr != null)
+      shadowIntensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
   }
   
   @Override
@@ -239,6 +251,20 @@ public class POINTLIGHT extends X3DLightNode
       sb.append("='");
       sb.append(radius);
       sb.append("'");       
+    }     
+    if(POINTLIGHT_ATTR_SHADOWS_REQD || shadows != Boolean.parseBoolean(POINTLIGHT_ATTR_SHADOWS_DFLT) ) {
+      sb.append(" ");
+      sb.append(POINTLIGHT_ATTR_SHADOWS_NAME);
+      sb.append("='");
+      sb.append(shadows);
+      sb.append("'");       
+    }
+    if(POINTLIGHT_ATTR_SHADOWINTENSITY_REQD || !shadowIntensity.equals(shadowIntensityDefault)) {
+      sb.append(" ");
+      sb.append(POINTLIGHT_ATTR_SHADOWINTENSITY_NAME);
+      sb.append("='");
+      sb.append(shadowIntensity);
+      sb.append("'");
     }     
     return sb.toString();    
   }
@@ -381,6 +407,26 @@ public class POINTLIGHT extends X3DLightNode
   public void setLocationZ(String locationZ)
   {
     this.locationZ = new SFFloat(locationZ,null,null);
+  }
+
+  public boolean isShadows()
+  {
+    return shadows;
+  }
+
+  public void setShadows(boolean shadows)
+  {
+    this.shadows = shadows;
+  }
+   
+  public String getShadowIntensity()
+  {
+    return shadowIntensity.toString();
+  }
+
+  public void setShadowIntensity(String shadowIntensity)
+  {
+    this.shadowIntensity = new SFFloat(shadowIntensity,0.0f,1.0f);
   }
 
     /**

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -57,12 +57,14 @@ public class DIRECTIONALLIGHT extends X3DLightNode
   private SFFloat color0,color0Default;
   private SFFloat color1,color1Default;
   private SFFloat color2,color2Default;
-  private boolean global;
-  private SFFloat intensity, intensityDefault;
   private SFFloat directionX,directionXDefault;
   private SFFloat directionY,directionYDefault;
   private SFFloat directionZ,directionZDefault;
+  private boolean global;
+  private SFFloat intensity, intensityDefault;
   private boolean on;  
+  private boolean shadows;
+  private SFFloat shadowIntensity,shadowIntensityDefault;
   
   public DIRECTIONALLIGHT()
   {
@@ -97,6 +99,9 @@ public class DIRECTIONALLIGHT extends X3DLightNode
 
     on = Boolean.parseBoolean(DIRECTIONALLIGHT_ATTR_ON_DFLT);
     global = Boolean.parseBoolean(DIRECTIONALLIGHT_ATTR_GLOBAL_DFLT);
+    
+    shadows = Boolean.parseBoolean(DIRECTIONALLIGHT_ATTR_SHADOWS_DFLT);
+    shadowIntensity = shadowIntensityDefault = new SFFloat(DIRECTIONALLIGHT_ATTR_SHADOWINTENSITY_DFLT, 0.0f, 1.0f);
   }
 
   @Override
@@ -132,6 +137,13 @@ public class DIRECTIONALLIGHT extends X3DLightNode
     attr = root.getAttribute(DIRECTIONALLIGHT_ATTR_GLOBAL_NAME);
     if (attr != null)
       global = Boolean.parseBoolean(attr.getValue());
+    
+    attr = root.getAttribute(DIRECTIONALLIGHT_ATTR_SHADOWS_NAME);
+    if (attr != null)
+      shadows = Boolean.parseBoolean(attr.getValue());
+    attr = root.getAttribute(DIRECTIONALLIGHT_ATTR_SHADOWINTENSITY_NAME);
+    if (attr != null)
+      shadowIntensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
   }
   
   @Override
@@ -196,6 +208,20 @@ public class DIRECTIONALLIGHT extends X3DLightNode
       sb.append(on);
       sb.append("'");
     }
+    if(DIRECTIONALLIGHT_ATTR_SHADOWS_REQD || shadows != Boolean.parseBoolean(DIRECTIONALLIGHT_ATTR_SHADOWS_DFLT) ) {
+      sb.append(" ");
+      sb.append(DIRECTIONALLIGHT_ATTR_SHADOWS_NAME);
+      sb.append("='");
+      sb.append(shadows);
+      sb.append("'");       
+    }
+    if(DIRECTIONALLIGHT_ATTR_SHADOWINTENSITY_REQD || !shadowIntensity.equals(shadowIntensityDefault)) {
+      sb.append(" ");
+      sb.append(DIRECTIONALLIGHT_ATTR_SHADOWINTENSITY_NAME);
+      sb.append("='");
+      sb.append(shadowIntensity);
+      sb.append("'");
+    }     
     return sb.toString();
   }
     
@@ -293,6 +319,26 @@ public class DIRECTIONALLIGHT extends X3DLightNode
 
   public void setOn(boolean on) {
     this.on = on;
+  }
+
+  public boolean isShadows()
+  {
+    return shadows;
+  }
+
+  public void setShadows(boolean shadows)
+  {
+    this.shadows = shadows;
+  }
+   
+  public String getShadowIntensity()
+  {
+    return shadowIntensity.toString();
+  }
+
+  public void setShadowIntensity(String shadowIntensity)
+  {
+    this.shadowIntensity = new SFFloat(shadowIntensity,0.0f,1.0f);
   }
 
 }
