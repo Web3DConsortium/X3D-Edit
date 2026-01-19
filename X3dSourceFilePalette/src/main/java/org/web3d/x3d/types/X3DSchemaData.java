@@ -909,13 +909,16 @@ public interface X3DSchemaData
   String  POINTLIGHT_ATTR_SHADOWS_DFLT          = "false";
 
   // EnvironmentLight element
-  String  ENVIRONMENTLIGHT_ELNAME                     = "PointLight";
+  String  ENVIRONMENTLIGHT_ELNAME                     = "EnvironmentLight";
   String  ENVIRONMENTLIGHT_ATTR_AMBIENTINTENSITY_NAME = "ambientIntensity";
   boolean ENVIRONMENTLIGHT_ATTR_AMBIENTINTENSITY_REQD = false;
   String  ENVIRONMENTLIGHT_ATTR_AMBIENTINTENSITY_DFLT = "0";
   String  ENVIRONMENTLIGHT_ATTR_COLOR_NAME            = "color";
   boolean ENVIRONMENTLIGHT_ATTR_COLOR_REQD            = false;
   String  ENVIRONMENTLIGHT_ATTR_COLOR_DFLT            = "1 1 1";
+  String  ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_NAME = "diffuseCoefficients";
+  boolean ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_REQD = false;
+  String  ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_DFLT = "";
   String  ENVIRONMENTLIGHT_ATTR_GLOBAL_NAME           = "global";
   boolean ENVIRONMENTLIGHT_ATTR_GLOBAL_REQD           = false;
   String  ENVIRONMENTLIGHT_ATTR_GLOBAL_DFLT           = "true";
@@ -930,7 +933,7 @@ public interface X3DSchemaData
   String  ENVIRONMENTLIGHT_ATTR_ON_DFLT               = "true";
   String  ENVIRONMENTLIGHT_ATTR_ROTATION_NAME         = "rotation";
   boolean ENVIRONMENTLIGHT_ATTR_ROTATION_REQD         = false;
-  String  ENVIRONMENTLIGHT_ATTR_ROTATION_DFLT         = "0";
+  String  ENVIRONMENTLIGHT_ATTR_ROTATION_DFLT         = "0 0 1 0";
   String  ENVIRONMENTLIGHT_ATTR_SHADOWINTENSITY_NAME  = "shadowIntensity";
   boolean ENVIRONMENTLIGHT_ATTR_SHADOWINTENSITY_REQD  = false;
   String  ENVIRONMENTLIGHT_ATTR_SHADOWINTENSITY_DFLT  = "1";
