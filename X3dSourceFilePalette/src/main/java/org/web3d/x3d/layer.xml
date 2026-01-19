@@ -1347,6 +1347,9 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="DIRECTIONALLIGHT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/DIRECTIONALLIGHT.xml">
                 <attr name="position" intvalue="300"/>
             </file>
+            <file name="ENVIRONMENTLIGHT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ENVIRONMENTLIGHT.xml">
+                <attr name="position" intvalue="350"/>
+            </file>
             <file name="POINTLIGHT.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/POINTLIGHT.xml">
                 <attr name="position" intvalue="400"/>
             </file>
