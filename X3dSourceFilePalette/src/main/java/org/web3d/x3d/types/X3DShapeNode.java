@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -49,4 +49,20 @@ package org.web3d.x3d.types;
  */
 public abstract class X3DShapeNode extends X3DGroupingNode // actually BoundedObject
 {
+    private   boolean castShadow;
+    protected boolean castShadowDefault;
+
+    /**
+     * @return the castShadow
+     */
+    public boolean isCastShadow() {
+        return castShadow;
+    }
+
+    /**
+     * @param castShadow the castShadow to set
+     */
+    public void setCastShadow(boolean castShadow) {
+        this.castShadow = castShadow;
+    }
 }
