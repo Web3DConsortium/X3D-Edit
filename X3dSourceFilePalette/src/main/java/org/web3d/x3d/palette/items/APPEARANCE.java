@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -34,7 +34,12 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
+import static javax.management.Query.attr;
+import javax.swing.text.JTextComponent;
+import static org.openide.util.NbPreferences.root;
 import org.web3d.x3d.types.X3DAppearanceNode;
+import org.web3d.x3d.types.X3DPrimitiveTypes;
+import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
@@ -51,14 +56,55 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class APPEARANCE extends X3DAppearanceNode
 {
-  public APPEARANCE()
+    private SFFloat alphaCutoff, alphaCutoffDefault;
+    private String  alphaMode;
+    
+    public APPEARANCE()
+    {
+    }
+
+    @Override
+    public void initialize()
+    {
+        setAlphaCutoff(alphaCutoffDefault = new SFFloat(APPEARANCE_ATTR_ALPHACUTOFF_DFLT, 0.0f, 1.0f));
+        setAlphaMode(APPEARANCE_ATTR_ALPHAMODE_DFLT);
+    }
+
+  @Override
+  public void initializeFromJdom(org.jdom.Element root, JTextComponent comp)
   {
+    super.initializeFromJdom(root, comp);
+    org.jdom.Attribute attr;
+
+    attr = root.getAttribute(APPEARANCE_ATTR_ALPHACUTOFF_NAME);
+    if (attr != null)
+        setAlphaCutoff(new X3DPrimitiveTypes.SFFloat(attr.getValue(), 0.0f, 1.0f));
+    attr = root.getAttribute(APPEARANCE_ATTR_ALPHAMODE_NAME);
+    if(attr != null)
+        setAlphaMode(attr.getValue());
   }
 
   @Override
-  public void initialize()
+  public String createAttributes()
   {
-      // no default content, handled by APPEARANCECustomizer
+    StringBuilder sb = new StringBuilder();
+    
+    if (APPEARANCE_ATTR_ALPHACUTOFF_REQD || !alphaCutoff.equals(alphaCutoffDefault)) {
+      sb.append(" ");
+      sb.append(APPEARANCE_ATTR_ALPHACUTOFF_NAME);
+      sb.append("='");
+      sb.append(getAlphaCutoff());
+      sb.append("'");
+    }
+    if (APPEARANCE_ATTR_ALPHAMODE_REQD || !alphaMode.replace("\"", "").equals(APPEARANCE_ATTR_ALPHAMODE_DFLT)) {
+      sb.append(" ");
+      sb.append(APPEARANCE_ATTR_ALPHAMODE_NAME);
+      sb.append("='");
+      sb.append(getAlphaMode()); // conversion to MFString handled by customizer
+      sb.append("'");
+    }
+    
+    return sb.toString();
   }
 
   @Override
@@ -72,4 +118,32 @@ public class APPEARANCE extends X3DAppearanceNode
   {
     return APPEARANCE_ELNAME;
   }
+
+    /**
+     * @return the alphaCutoff
+     */
+    public SFFloat getAlphaCutoff() {
+        return alphaCutoff;
+    }
+
+    /**
+     * @param alphaCutoff the alphaCutoff to set
+     */
+    public void setAlphaCutoff(SFFloat alphaCutoff) {
+        this.alphaCutoff = alphaCutoff;
+    }
+
+    /**
+     * @return the alphaMode
+     */
+    public String getAlphaMode() {
+        return alphaMode;
+    }
+
+    /**
+     * @param alphaMode the alphaMode to set
+     */
+    public void setAlphaMode(String alphaMode) {
+        this.alphaMode = alphaMode;
+    }
 }

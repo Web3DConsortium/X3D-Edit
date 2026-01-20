@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -33,8 +33,11 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 
 package org.web3d.x3d.palette.items;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
+import org.web3d.x3d.types.X3DPrimitiveTypes;
+import static org.web3d.x3d.types.X3DSchemaData.APPEARANCE_ATTR_ALPHAMODE_CHOICES;
 /**
  * APPEARANCECustomizer.java
  * Created on August 2, 2007, 2:46 PM
@@ -50,6 +53,20 @@ public class APPEARANCECustomizer extends BaseCustomizer
 {
   private final APPEARANCE appearance;
   private final JTextComponent target;
+  
+  private boolean hasMaterial              = false;
+  private boolean hasTwoSidedMaterial      = false;
+  private boolean hasImageTexture          = false;
+  private boolean hasPixelTexture          = false;
+  private boolean hasMovieTexture          = false;
+  private boolean hasMultiTexture          = false;
+  private boolean hasTextureTransform      = false;
+  private boolean hasMultiTextureTransform = false;
+  
+  private boolean hasAcousticProperties    = false;
+  private boolean hasFillProperties        = false;
+  private boolean hasLineProperties        = false;
+  private boolean hasPointProperties       = false;
 
   java.awt.event.ActionEvent event = new java.awt.event.ActionEvent(APPEARANCECustomizer.this,0,"initialize");
   
@@ -63,6 +80,9 @@ public class APPEARANCECustomizer extends BaseCustomizer
     
     initComponents();
     
+    alphaCutoffTF.setText(appearance.getAlphaCutoff().toString());
+    alphaModeCombo.setSelectedItem(appearance.getAlphaMode());
+    
     if (appearance.getContent().trim().isEmpty())
     {
           newContentRadioButton.setSelected(true);
@@ -75,6 +95,106 @@ public class APPEARANCECustomizer extends BaseCustomizer
 
         priorContentRadioButtonActionPerformed (event);
     }
+    initializeContentSelections();
+  }
+  public final void initializeContentSelections()
+  {
+    hasMaterial              = false;
+    hasTwoSidedMaterial      = false;
+    hasImageTexture          = false;
+    hasPixelTexture          = false;
+    hasMovieTexture          = false;
+    hasMultiTexture          = false;
+    hasTextureTransform      = false;
+    hasMultiTextureTransform = false;
+   
+    hasAcousticProperties    = false;
+    hasFillProperties        = false;
+    hasLineProperties        = false;
+    hasPointProperties       = false;
+    
+    String content = appearance.getContent().trim();
+    
+    if (content.contains("<Material "))
+        hasMaterial              = true;
+    materialRadioButton.setSelected(hasMaterial);
+    if (content.contains("<TwoSidedMaterial "))
+        hasTwoSidedMaterial              = true;
+    twoSidedMaterialRadioButton.setSelected(hasTwoSidedMaterial);
+    
+    // special logic for material button group, lock buttons if any are selected
+    if (hasMaterial || hasTwoSidedMaterial)
+    {
+            materialRadioButton.setEnabled(false);
+    twoSidedMaterialRadioButton.setEnabled(false);
+    }
+    else // no selections during initialization, remain open for additions
+    {
+            materialRadioButton.setEnabled(true);
+    twoSidedMaterialRadioButton.setEnabled(true);
+    }
+    
+    if (content.contains("<ImageTexture "))
+        hasImageTexture              = true;
+    imageTextureRadioButton.setSelected(hasImageTexture);
+
+    if (content.contains("<MovieTexture "))
+        hasMovieTexture              = true;
+    movieTextureRadioButton.setSelected(hasMovieTexture);
+    
+    if (content.contains("<PixelTexture "))
+        hasPixelTexture              = true;
+    pixelTextureRadioButton.setSelected(hasPixelTexture);
+
+    // special logic for texture button group, lock buttons if any are selected
+    if (hasImageTexture || hasMovieTexture || hasPixelTexture)
+    {
+        imageTextureRadioButton.setEnabled(false);
+        movieTextureRadioButton.setEnabled(false);
+        pixelTextureRadioButton.setEnabled(false);
+    }
+    else
+    {
+        imageTextureRadioButton.setEnabled(true);
+        movieTextureRadioButton.setEnabled(true);
+        pixelTextureRadioButton.setEnabled(true);
+    }
+    // remaining selections are checkboxes and not radio buttons, no further gymnastics needed when locking selections   
+
+    if (content.contains("<MultiTexture "))
+        hasMultiTexture              = true;
+    multiTextureCheckBox.setSelected(hasMultiTexture);
+    multiTextureCheckBox.setEnabled(!hasMultiTexture);
+
+    if (content.contains("<TextureTransform "))
+        hasTextureTransform              = true;
+    textureTransformCheckBox.setSelected(hasTextureTransform);
+    textureTransformCheckBox.setEnabled(!hasTextureTransform);
+
+    if (content.contains("<MultiTextureTransform "))
+        hasMultiTextureTransform              = true;
+    multiTextureTransformCheckBox.setSelected(hasMultiTextureTransform);
+    multiTextureTransformCheckBox.setEnabled(!hasMultiTextureTransform);
+
+    if (content.contains("<AcousticProperties "))
+        hasAcousticProperties    = true;
+    acousticPropertiesCheckBox.setSelected(hasAcousticProperties);
+    acousticPropertiesCheckBox.setEnabled(!hasAcousticProperties);
+        
+    if (content.contains("<FillProperties "))
+        hasFillProperties        = true;
+    fillPropertiesCheckBox.setSelected(hasFillProperties);
+    fillPropertiesCheckBox.setEnabled(!hasFillProperties);
+
+    if (content.contains("<LineProperties "))
+        hasLineProperties        = true;
+    linePropertiesCheckBox.setSelected(hasLineProperties);
+    linePropertiesCheckBox.setEnabled(!hasLineProperties);
+    
+    if (content.contains("<PointProperties "))
+        hasLineProperties        = true;
+    pointPropertiesCheckBox.setSelected(hasLineProperties);
+    pointPropertiesCheckBox.setEnabled(!hasLineProperties);
   }
   
   /** This method is called from within the constructor to
@@ -92,6 +212,10 @@ public class APPEARANCECustomizer extends BaseCustomizer
         materialButtonGroup = new javax.swing.ButtonGroup();
         textureButtonGroup = new javax.swing.ButtonGroup();
         dEFUSEpanel1 = getDEFUSEpanel();
+        alphaCutoffLabel = new javax.swing.JLabel();
+        alphaCutoffTF = new javax.swing.JTextField();
+        alphaModeLabel = new javax.swing.JLabel();
+        alphaModeCombo = new javax.swing.JComboBox<>();
         contentSelectionPanel = new javax.swing.JPanel();
         contentSelectionLabel = new javax.swing.JLabel();
         newContentRadioButton = new javax.swing.JRadioButton();
@@ -110,14 +234,17 @@ public class APPEARANCECustomizer extends BaseCustomizer
         multiTextureCheckBox = new javax.swing.JCheckBox();
         textureTransformCheckBox = new javax.swing.JCheckBox();
         multiTextureTransformCheckBox = new javax.swing.JCheckBox();
+        acousticPropertiesCheckBox = new javax.swing.JCheckBox();
+        pointPropertiesCheckBox = new javax.swing.JCheckBox();
         appearanceHintLabel = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setMinimumSize(new java.awt.Dimension(600, 450));
-        setPreferredSize(new java.awt.Dimension(610, 460));
+        setMinimumSize(new java.awt.Dimension(600, 540));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(610, 550));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
@@ -126,11 +253,53 @@ public class APPEARANCECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
+
+        alphaCutoffLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        alphaCutoffLabel.setText("alphaCutoff");
+        alphaCutoffLabel.setToolTipText("interval in seconds before automatic reload of current url asset is performed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
+        add(alphaCutoffLabel, gridBagConstraints);
+
+        alphaCutoffTF.setToolTipText("interval in seconds before automatic reload of current url asset is performed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(alphaCutoffTF, gridBagConstraints);
+
+        alphaModeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        alphaModeLabel.setText("alphaMode");
+        alphaModeLabel.setToolTipText("select family or enter quoted font names, browsers use first supported family (e.g. \"Arial\" \"SANS\")");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(alphaModeLabel, gridBagConstraints);
+
+        alphaModeCombo.setEditable(true);
+        alphaModeCombo.setModel(new DefaultComboBoxModel<String>(APPEARANCE_ATTR_ALPHAMODE_CHOICES));
+        alphaModeCombo.setToolTipText("select family or enter quoted font names, browsers use first supported family (e.g. \"Arial\" \"SANS\")");
+        alphaModeCombo.setMinimumSize(new java.awt.Dimension(100, 20));
+        alphaModeCombo.setPreferredSize(new java.awt.Dimension(100, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(alphaModeCombo, gridBagConstraints);
 
         contentSelectionPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         contentSelectionPanel.setLayout(new java.awt.GridBagLayout());
@@ -202,11 +371,13 @@ public class APPEARANCECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-        gridBagConstraints.insets = new java.awt.Insets(8, 6, 3, 6);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(contentSelectionPanel, gridBagConstraints);
 
+        selectionPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         selectionPanel.setEnabled(false);
         selectionPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -214,6 +385,7 @@ public class APPEARANCECustomizer extends BaseCustomizer
         materialRadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         materialRadioButton.setSelected(true);
         materialRadioButton.setText("Material");
+        materialRadioButton.setToolTipText("material or backMaterial");
         materialRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 materialRadioButtonActionPerformed(evt);
@@ -367,21 +539,53 @@ public class APPEARANCECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         selectionPanel.add(multiTextureTransformCheckBox, gridBagConstraints);
 
+        acousticPropertiesCheckBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        acousticPropertiesCheckBox.setText("AcousticProperties");
+        acousticPropertiesCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acousticPropertiesCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(6, 2, 2, 2);
+        selectionPanel.add(acousticPropertiesCheckBox, gridBagConstraints);
+
+        pointPropertiesCheckBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        pointPropertiesCheckBox.setText("PointProperties");
+        pointPropertiesCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pointPropertiesCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(6, 2, 2, 2);
+        selectionPanel.add(pointPropertiesCheckBox, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(selectionPanel, gridBagConstraints);
 
         appearanceHintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        appearanceHintLabel.setText("<html><p align=\"center\"><b>Appearance</b> can contain multiple nodes whose rendering  properties are applied \n<br />\nto the adjacent geometry node found inside the shared parent <b>Shape</b> node.</p> \n<br />\n<p align=\"center\">Hint:  reuse of <b>Appearance</b> via DEF/USE  provides a similar look + feel for related shapes in a scene. </p>\n<br />\n<p align=\"left\"><b>Appearance</b> can also contain the following nodes:  </p>\n<ul>\n  <li> <b>AcousticProperties</b> </li>\n  <li> <b>ComposedShader</b>, <b>PackagedShader</b>, <b>ProgramShader</b> </li>\n  <li> <b>ComposedTexture3D</b>, <b>ImageTexture3D</b>, <b>PixelTexture3D</b></li>\n  <li> <b>ComposedCubeMapTexture</b>, <b>GeneratedCubeMapTexture</b>, <b>ImageCubeMapTexture</b> </li>\n  <li> <b>TextureMatrixTransform</b>, <b>TextureTransform3D</b> </li>\n</ul>");
+        appearanceHintLabel.setText("<html><p align=\"center\"><b>Appearance</b> can contain multiple nodes whose rendering  properties are applied \n<br />\nto the adjacent geometry node found inside the shared parent <b>Shape</b> node.</p> \n<br />\n<p align=\"center\">Hint:  reuse of <b>Appearance</b> via DEF/USE  provides a similar look + feel for related shapes in a scene. </p>\n<br />\n<p align=\"left\"><b>Appearance</b> can also contain the following nodes:  </p>\n<ul>\n  <li> <b>AcousticProperties</b>, <b>FillProperties</b>,<b>LineProperties</b>, <b>PointProperties</b>  </li>\n  <li> <b>ComposedShader</b>, <b>PackagedShader</b>, <b>ProgramShader</b> </li>\n  <li> <b>ComposedTexture3D</b>, <b>ImageTexture3D</b>, <b>PixelTexture3D</b></li>\n  <li> <b>ComposedCubeMapTexture</b>, <b>GeneratedCubeMapTexture</b>, <b>ImageCubeMapTexture</b> </li>\n  <li> <b>TextureMatrixTransform</b>, <b>TextureTransform3D</b> </li>\n</ul>");
         appearanceHintLabel.setToolTipText("Appearance specifies the visual properties of geometry");
         appearanceHintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(appearanceHintLabel, gridBagConstraints);
@@ -474,8 +678,10 @@ public class APPEARANCECustomizer extends BaseCustomizer
         
                 materialRadioButton.setEnabled(true);
         twoSidedMaterialRadioButton.setEnabled(true);
+         acousticPropertiesCheckBox.setEnabled(true);
              fillPropertiesCheckBox.setEnabled(true);
              linePropertiesCheckBox.setEnabled(true);
+            pointPropertiesCheckBox.setEnabled(true);
             imageTextureRadioButton.setEnabled(true);
             movieTextureRadioButton.setEnabled(true);
             pixelTextureRadioButton.setEnabled(true);
@@ -485,20 +691,35 @@ public class APPEARANCECustomizer extends BaseCustomizer
     }//GEN-LAST:event_newContentRadioButtonActionPerformed
 
     private void clearAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllButtonActionPerformed
-             newContentRadioButton.setSelected(false);
-              noContentRadioButton.setSelected(true);
-                    selectionPanel.setEnabled(true);
+              newContentRadioButton.setSelected(false);
+               noContentRadioButton.setSelected(true);
+                     selectionPanel.setEnabled(true); 
                      
-                materialRadioButton.setEnabled(false);
-        twoSidedMaterialRadioButton.setEnabled(false);
-             fillPropertiesCheckBox.setEnabled(false);
-             linePropertiesCheckBox.setEnabled(false);
-            imageTextureRadioButton.setEnabled(false);
-            movieTextureRadioButton.setEnabled(false);
-            pixelTextureRadioButton.setEnabled(false);
-           textureTransformCheckBox.setEnabled(false);
-               multiTextureCheckBox.setEnabled(false);
-      multiTextureTransformCheckBox.setEnabled(false);
+              appearance.setContent(""); // TODO warn
+                materialRadioButton.setSelected(false);
+        twoSidedMaterialRadioButton.setSelected(false);
+         acousticPropertiesCheckBox.setSelected(false);
+             fillPropertiesCheckBox.setSelected(false);
+             linePropertiesCheckBox.setSelected(false);
+            pointPropertiesCheckBox.setSelected(false);
+            imageTextureRadioButton.setSelected(false);
+            movieTextureRadioButton.setSelected(false);
+            pixelTextureRadioButton.setSelected(false);
+           textureTransformCheckBox.setSelected(false);
+               multiTextureCheckBox.setSelected(false);
+      multiTextureTransformCheckBox.setSelected(false);
+                materialRadioButton.setEnabled(true);
+        twoSidedMaterialRadioButton.setEnabled(true);
+         acousticPropertiesCheckBox.setEnabled(true);
+             fillPropertiesCheckBox.setEnabled(true);
+             linePropertiesCheckBox.setEnabled(true);
+            pointPropertiesCheckBox.setEnabled(true);
+            imageTextureRadioButton.setEnabled(true);
+            movieTextureRadioButton.setEnabled(true);
+            pixelTextureRadioButton.setEnabled(true);
+           textureTransformCheckBox.setEnabled(true);
+               multiTextureCheckBox.setEnabled(true);
+      multiTextureTransformCheckBox.setEnabled(true);
            
              materialButtonGroup.clearSelection();
               textureButtonGroup.clearSelection();
@@ -543,9 +764,22 @@ public class APPEARANCECustomizer extends BaseCustomizer
     private void linePropertiesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linePropertiesCheckBoxActionPerformed
         newContentRadioButton.setSelected(true);
     }//GEN-LAST:event_linePropertiesCheckBoxActionPerformed
+
+    private void acousticPropertiesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acousticPropertiesCheckBoxActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_acousticPropertiesCheckBoxActionPerformed
+
+    private void pointPropertiesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pointPropertiesCheckBoxActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_pointPropertiesCheckBoxActionPerformed
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox acousticPropertiesCheckBox;
+    private javax.swing.JLabel alphaCutoffLabel;
+    private javax.swing.JTextField alphaCutoffTF;
+    private javax.swing.JComboBox<String> alphaModeCombo;
+    private javax.swing.JLabel alphaModeLabel;
     private javax.swing.JLabel appearanceHintLabel;
     private javax.swing.ButtonGroup childContentButtonGroup;
     private javax.swing.JButton clearAllButton;
@@ -566,6 +800,7 @@ public class APPEARANCECustomizer extends BaseCustomizer
     private javax.swing.JRadioButton newContentRadioButton;
     private javax.swing.JRadioButton noContentRadioButton;
     private javax.swing.JRadioButton pixelTextureRadioButton;
+    private javax.swing.JCheckBox pointPropertiesCheckBox;
     private javax.swing.JRadioButton priorContentRadioButton;
     private javax.swing.JPanel selectionPanel;
     private javax.swing.ButtonGroup textureButtonGroup;
@@ -591,35 +826,40 @@ public class APPEARANCECustomizer extends BaseCustomizer
     // adjust content to match selection
     StringBuilder newContent = new StringBuilder();
       
-    String         MATERIAL_CONTENT           = "\t\t\t<Material/>\n";
-    String TWOSIDEDMATERIAL_CONTENT           = "\t\t\t<TwoSidedMaterial/>\n";
-    String   FILLPROPERTIES_CONTENT           = "\t\t\t<FillProperties/>\n";
-    String   LINEPROPERTIES_CONTENT           = "\t\t\t<LineProperties/>\n";
-    String     IMAGETEXTURE_CONTENT           = "\t\t\t<ImageTexture/>\n";
-    String     MOVIETEXTURE_CONTENT           = "\t\t\t<MovieTexture/>\n";
-    String     PIXELTEXTURE_CONTENT           = "\t\t\t<PixelTexture/>\n";
-    String TEXTURETRANSFORM_CONTENT           = "\t\t\t<TextureTransform/>\n";
-    String MULTITEXTURE_CONTENT               = "\t\t\t<MultiTexture/>\n";
-    String MULTITEXTURETRANSFORM_CONTENT      = "\t\t\t<MultiTextureTransform/>\n";
+    String           MATERIAL_CONTENT    = "\t\t\t<Material/>\n";
+    String   TWOSIDEDMATERIAL_CONTENT    = "\t\t\t<TwoSidedMaterial/>\n";
+    String ACOUSTICPROPERTIES_CONTENT    = "\t\t\t<AcousticProperties/>\n";
+    String     FILLPROPERTIES_CONTENT    = "\t\t\t<FillProperties/>\n";
+    String     LINEPROPERTIES_CONTENT    = "\t\t\t<LineProperties/>\n";
+    String    POINTPROPERTIES_CONTENT    = "\t\t\t<AcousticProperties/>\n";
+    String       IMAGETEXTURE_CONTENT    = "\t\t\t<ImageTexture/>\n";
+    String       MOVIETEXTURE_CONTENT    = "\t\t\t<MovieTexture/>\n";
+    String       PIXELTEXTURE_CONTENT    = "\t\t\t<PixelTexture/>\n";
+    String   TEXTURETRANSFORM_CONTENT    = "\t\t\t<TextureTransform/>\n";
+    String MULTITEXTURE_CONTENT          = "\t\t\t<MultiTexture/>\n";
+    String MULTITEXTURETRANSFORM_CONTENT = "\t\t\t<MultiTextureTransform/>\n";
     
-    if      (        materialRadioButton.isSelected()) newContent.append(MATERIAL_CONTENT);
-    else if (twoSidedMaterialRadioButton.isSelected()) newContent.append(TWOSIDEDMATERIAL_CONTENT);
+    if      (!hasMaterial              &&         materialRadioButton.isSelected()) newContent.append(MATERIAL_CONTENT);
+    else if (!hasTwoSidedMaterial      && twoSidedMaterialRadioButton.isSelected()) newContent.append(TWOSIDEDMATERIAL_CONTENT);
     
-    if      (     fillPropertiesCheckBox.isSelected()) newContent.append(FILLPROPERTIES_CONTENT);
-    if      (     linePropertiesCheckBox.isSelected()) newContent.append(LINEPROPERTIES_CONTENT);
+    if      (!hasAcousticProperties    && acousticPropertiesCheckBox.isSelected()) newContent.append(ACOUSTICPROPERTIES_CONTENT);
+    if      (!hasFillProperties        &&     fillPropertiesCheckBox.isSelected()) newContent.append(FILLPROPERTIES_CONTENT);
+    if      (!hasLineProperties        &&     linePropertiesCheckBox.isSelected()) newContent.append(LINEPROPERTIES_CONTENT);
+    if      (!hasPointProperties       &&    pointPropertiesCheckBox.isSelected()) newContent.append(POINTPROPERTIES_CONTENT);
     
-    if      (    imageTextureRadioButton.isSelected()) newContent.append(IMAGETEXTURE_CONTENT);
-    else if (    movieTextureRadioButton.isSelected()) newContent.append(MOVIETEXTURE_CONTENT);
-    else if (    pixelTextureRadioButton.isSelected()) newContent.append(PIXELTEXTURE_CONTENT);
+    if      (!hasImageTexture          &&    imageTextureRadioButton.isSelected()) newContent.append(IMAGETEXTURE_CONTENT);
+    else if (!hasMovieTexture          &&    movieTextureRadioButton.isSelected()) newContent.append(MOVIETEXTURE_CONTENT);
+    else if (!hasPixelTexture          &&    pixelTextureRadioButton.isSelected()) newContent.append(PIXELTEXTURE_CONTENT);
     
-    if      (   textureTransformCheckBox.isSelected()) newContent.append(TEXTURETRANSFORM_CONTENT);
-    if      (       multiTextureCheckBox.isSelected()) newContent.append(MULTITEXTURE_CONTENT);
-    if    (multiTextureTransformCheckBox.isSelected()) newContent.append(MULTITEXTURETRANSFORM_CONTENT);
+    if      (!hasTextureTransform      &&      textureTransformCheckBox.isSelected()) newContent.append(TEXTURETRANSFORM_CONTENT);
+    if      (!hasMultiTexture          &&          multiTextureCheckBox.isSelected()) newContent.append(MULTITEXTURE_CONTENT);
+    if      (!hasMultiTextureTransform && multiTextureTransformCheckBox.isSelected()) newContent.append(MULTITEXTURETRANSFORM_CONTENT);
     
-    if (     materialRadioButton.isSelected() &&  !fillPropertiesCheckBox.isSelected()  &&  !linePropertiesCheckBox.isSelected() && 
+    if (    !materialRadioButton.isSelected() && !twoSidedMaterialRadioButton.isSelected() && 
+     !acousticPropertiesCheckBox.isSelected() && !linePropertiesCheckBox.isSelected()   && !fillPropertiesCheckBox.isSelected()  && !pointPropertiesCheckBox.isSelected() &&
         !imageTextureRadioButton.isSelected() && !movieTextureRadioButton.isSelected()  && !pixelTextureRadioButton.isSelected() && 
            !multiTextureCheckBox.isSelected() && !textureTransformCheckBox.isSelected() && !multiTextureTransformCheckBox.isSelected())
-        newContent.append("\t\t\t<!--TODO add optional ImageTexture, MovieTexture, PixelTexture, TextureTransform, MultiTexture, MultiTextureTransform, FillProperties, and/or LineProperties nodes here-->\n\t\t");
+        newContent.append("\t\t\t<!--TODO add optional Material, TwoSidedMaterial, ImageTexture, MovieTexture, PixelTexture, TextureTransform, MultiTexture, MultiTextureTransform, AcousticProperties, FillProperties, LineProperties, and/or PointProperties nodes here-->\n\t\t");
     
     appearance.setContent(newContent.toString());
   }
@@ -634,6 +874,8 @@ public class APPEARANCECustomizer extends BaseCustomizer
   public void unloadInput() throws IllegalArgumentException
   {
     setContent ();
+    appearance.setAlphaCutoff(new X3DPrimitiveTypes.SFFloat(alphaCutoffTF.getText(), 0.0f, 1.0f));
+    appearance.setAlphaMode(alphaModeCombo.getSelectedItem().toString());
     
     unLoadDEFUSE();
   }  
