@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -34,6 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package org.web3d.x3d.palette.items;
 
+import javax.swing.SwingUtilities;
 import javax.swing.text.JTextComponent;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -87,12 +88,8 @@ public class SHAPECustomizer extends BaseCustomizer
     shape.setVisualizationTooltip("Add wireframe Box and axes to show boundingBox center and size (if defined)");
 
     initComponents();
-
-    // can be the shape field of CADPart or proxy field of Collision
-    super.getDEFUSEpanel().setContainerFieldChoices(SHAPE_ATTR_CONTAINERFIELD_CHOICES, SHAPE_ATTR_CONTAINERFIELD_TOOLTIPS);
-    super.getDEFUSEpanel().setContainerField(shape.getContainerField()); // reset value to match updated JComboBox data model
-    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
+     castShadowCheckBox.setSelected(shape.isCastShadow());
         visibleCheckBox.setSelected(shape.isVisible());
     bboxDisplayCheckBox.setSelected(shape.isBboxDisplay());
 
@@ -177,8 +174,24 @@ public class SHAPECustomizer extends BaseCustomizer
         rectangle2dRadioButton.setSelected(true);
     else if (content.contains("<TriangleSet2D "))
         triangleSet2dRadioButton.setSelected(true);
+    else if (content.contains("<IndexedQuadSet "))
+        indexedQuadSetRadioButton.setSelected(true);
+    else if (content.contains("<QuadSet "))
+        quadSetRadioButton.setSelected(true);
 
+    // can be the shape field of CADPart or proxy field of Collision
     // TODO check parent, if CADFace then warn regarding containerField='shape'
+    
+    // ensure properly initialized, not affected by other button machinations in this class
+    SwingUtilities.invokeLater(new Runnable() {
+      public void run() {
+        dEFUSEpanel.setContainerFieldChoices(SHAPE_ATTR_CONTAINERFIELD_CHOICES, SHAPE_ATTR_CONTAINERFIELD_TOOLTIPS);
+        if (shape.isDEF())
+            dEFUSEpanel.setDEF(shape.getDEFUSEvalue());
+        else if (shape.isUSE())
+            dEFUSEpanel.setUSE(shape.getDEFUSEvalue());
+      }
+    });
  }
     private void checkVisualizable ()
     {
@@ -259,29 +272,33 @@ public class SHAPECustomizer extends BaseCustomizer
         rectangle2dRadioButton = new javax.swing.JRadioButton();
         roundedRectangle2dRadioButton = new javax.swing.JRadioButton();
         triangleSet2dRadioButton = new javax.swing.JRadioButton();
-        eventHintPanel = new javax.swing.JPanel();
-        hintLabel = new javax.swing.JLabel();
+        indexedQuadSetRadioButton = new javax.swing.JRadioButton();
+        quadSetRadioButton = new javax.swing.JRadioButton();
         bboxPanel = new javax.swing.JPanel();
-        bboxCenterYTF = new javax.swing.JTextField();
         visibleLabel = new javax.swing.JLabel();
         visibleCheckBox = new javax.swing.JCheckBox();
+        castShadowLabel = new javax.swing.JLabel();
+        castShadowCheckBox = new javax.swing.JCheckBox();
         bboxDisplayLabel = new javax.swing.JLabel();
         bboxDisplayCheckBox = new javax.swing.JCheckBox();
         bboxCenterLabel = new javax.swing.JLabel();
         bboxCenterXTF = new javax.swing.JTextField();
+        bboxCenterYTF = new javax.swing.JTextField();
         bboxCenterZTF = new javax.swing.JTextField();
         bboxSizeLabel = new javax.swing.JLabel();
         bboxSizeXTF = new javax.swing.JTextField();
         bboxSizeYTF = new javax.swing.JTextField();
         bboxSizeZTF = new javax.swing.JTextField();
+        eventHintPanel = new javax.swing.JPanel();
+        hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(790, 500));
-        setPreferredSize(new java.awt.Dimension(802, 580));
+        setMinimumSize(new java.awt.Dimension(820, 620));
+        setPreferredSize(new java.awt.Dimension(820, 620));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
@@ -346,9 +363,9 @@ public class SHAPECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 13, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 13, 3, 6);
         add(contentSelectionPanel, gridBagConstraints);
 
         geometryPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -535,7 +552,7 @@ public class SHAPECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         geometryPanel.add(lineSetRadioButton, gridBagConstraints);
@@ -550,7 +567,7 @@ public class SHAPECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         geometryPanel.add(pointSetRadioButton, gridBagConstraints);
@@ -1072,14 +1089,215 @@ public class SHAPECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         geometryPanel.add(triangleSet2dRadioButton, gridBagConstraints);
 
+        geometryButtonGroup.add(indexedQuadSetRadioButton);
+        indexedQuadSetRadioButton.setText("IndexedQuadSet");
+        indexedQuadSetRadioButton.setToolTipText("Set of 3D points");
+        indexedQuadSetRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indexedQuadSetRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        geometryPanel.add(indexedQuadSetRadioButton, gridBagConstraints);
+
+        geometryButtonGroup.add(quadSetRadioButton);
+        quadSetRadioButton.setText("QuadSet");
+        quadSetRadioButton.setToolTipText("Set of 3D points");
+        quadSetRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quadSetRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        geometryPanel.add(quadSetRadioButton, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
         add(geometryPanel, gridBagConstraints);
+
+        bboxPanel.setLayout(new java.awt.GridBagLayout());
+
+        visibleLabel.setText("visible");
+        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(visibleLabel, gridBagConstraints);
+
+        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(visibleCheckBox, gridBagConstraints);
+
+        castShadowLabel.setText("castShadow");
+        castShadowLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(castShadowLabel, gridBagConstraints);
+
+        castShadowCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
+        castShadowCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        castShadowCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        castShadowCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        castShadowCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        castShadowCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                castShadowCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(castShadowCheckBox, gridBagConstraints);
+
+        bboxDisplayLabel.setText("bboxDisplay");
+        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(bboxDisplayLabel, gridBagConstraints);
+
+        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
+        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
+        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(bboxDisplayCheckBox, gridBagConstraints);
+
+        bboxCenterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        bboxCenterLabel.setText("bboxCenter");
+        bboxCenterLabel.setMaximumSize(null);
+        bboxCenterLabel.setMinimumSize(new java.awt.Dimension(75, 16));
+        bboxCenterLabel.setPreferredSize(new java.awt.Dimension(75, 16));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 14, 3, 3);
+        bboxPanel.add(bboxCenterLabel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(bboxCenterXTF, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(bboxCenterYTF, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(bboxCenterZTF, gridBagConstraints);
+
+        bboxSizeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        bboxSizeLabel.setText("bboxSize");
+        bboxSizeLabel.setMaximumSize(new java.awt.Dimension(75, 16));
+        bboxSizeLabel.setMinimumSize(new java.awt.Dimension(75, 16));
+        bboxSizeLabel.setPreferredSize(new java.awt.Dimension(75, 16));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 14, 3, 3);
+        bboxPanel.add(bboxSizeLabel, gridBagConstraints);
+
+        bboxSizeXTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bboxSizeXTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(bboxSizeXTF, gridBagConstraints);
+
+        bboxSizeYTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bboxSizeYTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(bboxSizeYTF, gridBagConstraints);
+
+        bboxSizeZTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bboxSizeZTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        bboxPanel.add(bboxSizeZTF, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(bboxPanel, gridBagConstraints);
 
         eventHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         eventHintPanel.setMinimumSize(new java.awt.Dimension(50, 48));
@@ -1109,151 +1327,6 @@ public class SHAPECustomizer extends BaseCustomizer
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
         add(eventHintPanel, gridBagConstraints);
-
-        bboxPanel.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        bboxPanel.add(bboxCenterYTF, gridBagConstraints);
-
-        visibleLabel.setText("visible");
-        visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        bboxPanel.add(visibleLabel, gridBagConstraints);
-
-        visibleCheckBox.setToolTipText("Whether or not renderable content within this node is visually displayed");
-        visibleCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        visibleCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        visibleCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
-        visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        bboxPanel.add(visibleCheckBox, gridBagConstraints);
-
-        bboxDisplayLabel.setText("bboxDisplay");
-        bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        bboxPanel.add(bboxDisplayLabel, gridBagConstraints);
-
-        bboxDisplayCheckBox.setToolTipText("Whether to display bounding box for associated geometry");
-        bboxDisplayCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        bboxDisplayCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        bboxDisplayCheckBox.setMinimumSize(new java.awt.Dimension(50, 20));
-        bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        bboxPanel.add(bboxDisplayCheckBox, gridBagConstraints);
-
-        bboxCenterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        bboxCenterLabel.setText("bboxCenter");
-        bboxCenterLabel.setMaximumSize(null);
-        bboxCenterLabel.setMinimumSize(new java.awt.Dimension(75, 16));
-        bboxCenterLabel.setPreferredSize(new java.awt.Dimension(75, 16));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 30;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 14, 3, 3);
-        bboxPanel.add(bboxCenterLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        bboxPanel.add(bboxCenterXTF, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        bboxPanel.add(bboxCenterZTF, gridBagConstraints);
-
-        bboxSizeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        bboxSizeLabel.setText("bboxSize");
-        bboxSizeLabel.setMaximumSize(new java.awt.Dimension(75, 16));
-        bboxSizeLabel.setMinimumSize(new java.awt.Dimension(75, 16));
-        bboxSizeLabel.setPreferredSize(new java.awt.Dimension(75, 16));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 30;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 14, 3, 3);
-        bboxPanel.add(bboxSizeLabel, gridBagConstraints);
-
-        bboxSizeXTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bboxSizeXTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        bboxPanel.add(bboxSizeXTF, gridBagConstraints);
-
-        bboxSizeYTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bboxSizeYTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        bboxPanel.add(bboxSizeYTF, gridBagConstraints);
-
-        bboxSizeZTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bboxSizeZTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        bboxPanel.add(bboxSizeZTF, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(bboxPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bboxSizeXTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bboxSizeXTFActionPerformed
@@ -1290,6 +1363,7 @@ public class SHAPECustomizer extends BaseCustomizer
                    radiusLabelRenameWidth(false);
      if (primitivesRadioButton.isSelected())
            polygonsRadioButton.setSelected(true);
+        dEFUSEpanel.setDEF           ("ConicalPolygonShape");
         dEFUSEpanel.setDefaultDEFname("ConicalPolygonShape");
         computeBoundingBox ();
     }//GEN-LAST:event_conicalPolygonRadioButtonActionPerformed
@@ -1317,6 +1391,7 @@ public class SHAPECustomizer extends BaseCustomizer
                    radiusLabelRenameWidth(false);
      if (primitivesRadioButton.isSelected())
            polygonsRadioButton.setSelected(true);
+        dEFUSEpanel.setDEF           ("CylindricalPolygonShape");
         dEFUSEpanel.setDefaultDEFname("CylindricalPolygonShape");
         computeBoundingBox ();
     }//GEN-LAST:event_cylindricalPolygonRadioButtonActionPerformed
@@ -1342,6 +1417,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(true);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(true);
+        dEFUSEpanel.setDEF           ("BoxShape");
         dEFUSEpanel.setDefaultDEFname("BoxShape");
         computeBoundingBox ();
     }//GEN-LAST:event_boxRadioButtonActionPerformed
@@ -1363,6 +1439,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("ConeShape");
         dEFUSEpanel.setDefaultDEFname("ConeShape");
         computeBoundingBox ();
     }//GEN-LAST:event_coneRadioButtonActionPerformed
@@ -1384,6 +1461,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("CylinderShape");
         dEFUSEpanel.setDefaultDEFname("CylinderShape");
         computeBoundingBox ();
     }//GEN-LAST:event_cylinderRadioButtonActionPerformed
@@ -1405,6 +1483,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("SphereShape");
         dEFUSEpanel.setDefaultDEFname("SphereShape");
         computeBoundingBox ();
     }//GEN-LAST:event_sphereRadioButtonActionPerformed
@@ -1427,6 +1506,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("TextShape");
         dEFUSEpanel.setDefaultDEFname("TextShape");
         computeBoundingBox ();
     }//GEN-LAST:event_textRadioButtonActionPerformed
@@ -1448,6 +1528,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("ElevationGridShape");
         dEFUSEpanel.setDefaultDEFname("ElevationGridShape");
         computeBoundingBox ();
     }//GEN-LAST:event_elevationGridRadioButtonActionPerformed
@@ -1468,6 +1549,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("ExtrusionShape");
         dEFUSEpanel.setDefaultDEFname("ExtrusionShape");
         computeBoundingBox ();
     }//GEN-LAST:event_extrusionRadioButtonActionPerformed
@@ -1489,6 +1571,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("IndexedFaceSetShape");
         dEFUSEpanel.setDefaultDEFname("IndexedFaceSetShape");
         computeBoundingBox ();
     }//GEN-LAST:event_indexedFaceSetRadioButtonActionPerformed
@@ -1510,6 +1593,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("IndexedLineSetShape");
         dEFUSEpanel.setDefaultDEFname("IndexedLineSetShape");
         computeBoundingBox ();
     }//GEN-LAST:event_indexedLineSetRadioButtonActionPerformed
@@ -1531,6 +1615,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("LineSetShape");
         dEFUSEpanel.setDefaultDEFname("LineSetShape");
         computeBoundingBox ();
     }//GEN-LAST:event_lineSetRadioButtonActionPerformed
@@ -1552,6 +1637,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("PointSetShape");
         dEFUSEpanel.setDefaultDEFname("PointSetShape");
         computeBoundingBox ();
     }//GEN-LAST:event_pointSetRadioButtonActionPerformed
@@ -1574,6 +1660,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(true);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("IcosahedronShape");
         dEFUSEpanel.setDefaultDEFname("IcosahedronShape");
         computeBoundingBox ();
     }//GEN-LAST:event_icosahedronRadioButtonActionPerformed
@@ -1583,18 +1670,21 @@ public class SHAPECustomizer extends BaseCustomizer
         {
             sphereRadioButton.setSelected (true);
             sphereRadioButtonActionPerformed(event);
+            dEFUSEpanel.setDEF           ("SphereShape");
             dEFUSEpanel.setDefaultDEFname("SphereShape");
         }
         if (conicalPolygonRadioButton.isSelected())
         {
             coneRadioButton.setSelected (true);
             coneRadioButtonActionPerformed(event);
+            dEFUSEpanel.setDEF           ("ConeShape");
             dEFUSEpanel.setDefaultDEFname("ConeShape");
         }
         if (cylindricalPolygonRadioButton.isSelected())
         {
             cylinderRadioButton.setSelected (true);
             cylinderRadioButtonActionPerformed(event);
+            dEFUSEpanel.setDEF           ("CylinderShape");
             dEFUSEpanel.setDefaultDEFname("CylinderShape");
         }
         computeBoundingBox ();
@@ -1616,6 +1706,7 @@ public class SHAPECustomizer extends BaseCustomizer
             cylindricalPolygonRadioButton.setSelected (true);
             cylindricalPolygonRadioButtonActionPerformed(event);
         }
+        dEFUSEpanel.setDEF           ("PolygonsShape");
         dEFUSEpanel.setDefaultDEFname("PolygonsShape");
         computeBoundingBox ();
     }//GEN-LAST:event_polygonsRadioButtonActionPerformed
@@ -1636,6 +1727,7 @@ public class SHAPECustomizer extends BaseCustomizer
             cylindricalPolygonRadioButton.setSelected (true);
             cylindricalPolygonRadioButtonActionPerformed(event);
         }
+        dEFUSEpanel.setDEF           ("LinesShape");
         dEFUSEpanel.setDefaultDEFname("LinesShape");
         computeBoundingBox ();
     }//GEN-LAST:event_linesRadioButtonActionPerformed
@@ -1656,6 +1748,7 @@ public class SHAPECustomizer extends BaseCustomizer
             cylindricalPolygonRadioButton.setSelected (true);
             cylindricalPolygonRadioButtonActionPerformed(event);
         }
+        dEFUSEpanel.setDEF           ("PointsShape");
         dEFUSEpanel.setDefaultDEFname("PointsShape");
         computeBoundingBox ();
     }//GEN-LAST:event_pointsRadioButtonActionPerformed
@@ -1678,6 +1771,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("DodecahedronShape");
         dEFUSEpanel.setDefaultDEFname("DodecahedronShape");
         computeBoundingBox ();
     }//GEN-LAST:event_dodecahedronRadioButtonActionPerformed
@@ -1703,6 +1797,7 @@ public class SHAPECustomizer extends BaseCustomizer
      saveLevelIndex = levelComboBox.getSelectedIndex();
                  levelComboBox.setSelectedItem(10);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("CapsuleShape");
         dEFUSEpanel.setDefaultDEFname("CapsuleShape");
         computeBoundingBox ();
     }//GEN-LAST:event_capsuleRadioButtonActionPerformed
@@ -1725,6 +1820,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("HemisphereShape");
         dEFUSEpanel.setDefaultDEFname("HemisphereShape");
         computeBoundingBox ();
     }//GEN-LAST:event_hemisphereRadioButtonActionPerformed
@@ -1792,6 +1888,16 @@ public class SHAPECustomizer extends BaseCustomizer
             indexedFaceSetRadioButton.setSelected(true);
             indexedFaceSetRadioButtonActionPerformed(evt);
         }
+        else if (shape.getContent().contains("<IndexedQuadSet"))
+        {
+            indexedQuadSetRadioButton.setSelected(true);
+            indexedQuadSetRadioButtonActionPerformed(evt);
+        }
+        else if (shape.getContent().contains("<QuadSet"))
+        {
+            quadSetRadioButton.setSelected(true);
+            quadSetRadioButtonActionPerformed(evt);
+        }
         else if (shape.getContent().contains("Capsule"))
         {
             capsuleRadioButton.setSelected(true);
@@ -1827,10 +1933,15 @@ public class SHAPECustomizer extends BaseCustomizer
             tetrahedronRadioButton.setSelected(true);
             tetrahedronRadioButtonActionPerformed(evt);
         }
-        else if (shape.getContent().contains("Capsule"))
+        else if (shape.getContent().contains("RoundedRectangle2D"))
         {
-            capsuleRadioButton.setSelected(true);
-            capsuleRadioButtonActionPerformed(evt);
+            roundedRectangle2dRadioButton.setSelected(true);
+            roundedRectangle2dRadioButtonActionPerformed(evt);
+        }
+        else if (shape.getContent().contains("Rounded"))
+        {
+            roundedRectangleRadioButton.setSelected(true);
+            roundedRectangleRadioButtonActionPerformed(evt);
         }
 
         if      (shape.getContent().contains("level 0"))
@@ -1868,6 +1979,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("TetrahedronShape");
         dEFUSEpanel.setDefaultDEFname("TetrahedronShape");
         computeBoundingBox ();
     }//GEN-LAST:event_tetrahedronRadioButtonActionPerformed
@@ -1892,6 +2004,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("Arc2dShape");
         dEFUSEpanel.setDefaultDEFname("Arc2dShape");
         computeBoundingBox ();
     }//GEN-LAST:event_arc2dRadioButtonActionPerformed
@@ -1916,6 +2029,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("ArcClose2dShape");
         dEFUSEpanel.setDefaultDEFname("ArcClose2dShape");
         computeBoundingBox ();
     }//GEN-LAST:event_arcClose2dRadioButtonActionPerformed
@@ -1940,6 +2054,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("Circle2dShape");
         dEFUSEpanel.setDefaultDEFname("Circle2dShape");
         computeBoundingBox ();
     }//GEN-LAST:event_circle2dRadioButtonActionPerformed
@@ -1964,6 +2079,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("Disk2dShape");
         dEFUSEpanel.setDefaultDEFname("Disk2dShape");
         computeBoundingBox ();
         
@@ -1994,6 +2110,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("Polyline2dShape");
         dEFUSEpanel.setDefaultDEFname("Polyline2dShape");
         computeBoundingBox ();
     }//GEN-LAST:event_polyline2dRadioButtonActionPerformed
@@ -2017,6 +2134,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("Polypoint2dShape");
         dEFUSEpanel.setDefaultDEFname("Polypoint2dShape");
         computeBoundingBox ();
     }//GEN-LAST:event_polypoint2dRadioButtonActionPerformed
@@ -2040,6 +2158,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("Rectangle2dShape");
         dEFUSEpanel.setDefaultDEFname("Rectangle2dShape");
         computeBoundingBox ();
     }//GEN-LAST:event_rectangle2dRadioButtonActionPerformed
@@ -2063,6 +2182,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("TriangleSet2dShape");
         dEFUSEpanel.setDefaultDEFname("TriangleSet2dShape");
         computeBoundingBox ();
     }//GEN-LAST:event_triangleSet2dRadioButtonActionPerformed
@@ -2074,6 +2194,7 @@ public class SHAPECustomizer extends BaseCustomizer
     private void capsuleRadioButtonPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_capsuleRadioButtonPropertyChange
         if (!capsuleRadioButton.isSelected())
              levelComboBox.setSelectedIndex(saveLevelIndex);
+        dEFUSEpanel.setDEF           ("CapsuleShape");
         dEFUSEpanel.setDefaultDEFname("CapsuleShape");
         computeBoundingBox ();
     }//GEN-LAST:event_capsuleRadioButtonPropertyChange
@@ -2099,7 +2220,8 @@ public class SHAPECustomizer extends BaseCustomizer
                    radiusLabelRenameWidth(false);
         if (depthTextField.getText().equals("1"))
             depthTextField.setText("0.2"); // better default
-        dEFUSEpanel.setDefaultDEFname("RoundedRectangleShape");
+        dEFUSEpanel.setDEF           ("RounddeRectangleShape");
+        dEFUSEpanel.setDefaultDEFname("RounddeRectangleShape");
         computeBoundingBox ();
     }//GEN-LAST:event_roundedRectangleRadioButtonActionPerformed
 
@@ -2124,6 +2246,7 @@ public class SHAPECustomizer extends BaseCustomizer
                    radiusLabelRenameWidth(true);
         if (depthTextField.getText().equals("1"))
             depthTextField.setText("0.2"); // better default
+        dEFUSEpanel.setDEF           ("RoundedRectangle2dShape");
         dEFUSEpanel.setDefaultDEFname("RoundedRectangle2dShape");
         computeBoundingBox ();
     }//GEN-LAST:event_roundedRectangle2dRadioButtonActionPerformed
@@ -2146,6 +2269,7 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("SelectedTextShape");
         dEFUSEpanel.setDefaultDEFname("SelectedTextShape");
         computeBoundingBox ();
     }//GEN-LAST:event_textPlusTransparentBoxRadioButtonActionPerformed
@@ -2168,9 +2292,58 @@ public class SHAPECustomizer extends BaseCustomizer
                     depthLabel.setEnabled(false);
                     levelLabel.setEnabled(false);
                    radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("AxisLinesShape");
         dEFUSEpanel.setDefaultDEFname("AxisLinesShape");
         computeBoundingBox ();
     }//GEN-LAST:event_axisLinesRgbRadioButtonActionPerformed
+
+    private void castShadowCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castShadowCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_castShadowCheckBoxActionPerformed
+
+    private void indexedQuadSetRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexedQuadSetRadioButtonActionPerformed
+         newContentRadioButton.setSelected(true);
+         setGeometryTypeButtonGroupEnabled(true);
+         primitivesRadioButton.setSelected(true);
+         primitivesRadioButton.setEnabled(true);
+       numberOfPointsTextField.setEnabled(false);
+               heightTextField.setEnabled(false);
+               radiusTextField.setEnabled(false);
+                depthTextField.setEnabled(false);
+                 levelComboBox.setEnabled(false);
+                 levelComboBox.setEditable(false); // grey background
+           numberOfPointsLabel.setEnabled(false);
+                   heightLabel.setEnabled(false);
+                   radiusLabel.setEnabled(false);
+                    depthLabel.setEnabled(false);
+                    levelLabel.setEnabled(false);
+                   radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("IndexedQuadSetShape");
+        dEFUSEpanel.setDefaultDEFname("IndexedQuadSetShape");
+        computeBoundingBox ();
+    }//GEN-LAST:event_indexedQuadSetRadioButtonActionPerformed
+
+    private void quadSetRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quadSetRadioButtonActionPerformed
+         newContentRadioButton.setSelected(true);
+         setGeometryTypeButtonGroupEnabled(true);
+         primitivesRadioButton.setSelected(true);
+         primitivesRadioButton.setEnabled(true);
+       numberOfPointsTextField.setEnabled(false);
+               heightTextField.setEnabled(false);
+               radiusTextField.setEnabled(false);
+                depthTextField.setEnabled(false);
+                 levelComboBox.setEnabled(false);
+                 levelComboBox.setEditable(false); // grey background
+           numberOfPointsLabel.setEnabled(false);
+                   heightLabel.setEnabled(false);
+                   radiusLabel.setEnabled(false);
+                    depthLabel.setEnabled(false);
+                    levelLabel.setEnabled(false);
+                   radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("QuadSetShape");
+        dEFUSEpanel.setDefaultDEFname("QuadSetShape");
+        computeBoundingBox ();
+    }//GEN-LAST:event_quadSetRadioButtonActionPerformed
     /** radiusLabel also serves as width label */
     private void radiusLabelRenameWidth (boolean reset)
     {        
@@ -2231,6 +2404,8 @@ public class SHAPECustomizer extends BaseCustomizer
     private javax.swing.JTextField bboxSizeZTF;
     private javax.swing.JRadioButton boxRadioButton;
     private javax.swing.JRadioButton capsuleRadioButton;
+    private javax.swing.JCheckBox castShadowCheckBox;
+    private javax.swing.JLabel castShadowLabel;
     private javax.swing.ButtonGroup childContentButtonGroup;
     private javax.swing.JRadioButton circle2dRadioButton;
     private javax.swing.JRadioButton coneRadioButton;
@@ -2260,6 +2435,7 @@ public class SHAPECustomizer extends BaseCustomizer
     private javax.swing.JRadioButton icosahedronRadioButton;
     private javax.swing.JRadioButton indexedFaceSetRadioButton;
     private javax.swing.JRadioButton indexedLineSetRadioButton;
+    private javax.swing.JRadioButton indexedQuadSetRadioButton;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JComboBox levelComboBox;
     private javax.swing.JLabel levelLabel;
@@ -2277,6 +2453,7 @@ public class SHAPECustomizer extends BaseCustomizer
     private javax.swing.JRadioButton primitivesRadioButton;
     private javax.swing.JRadioButton priorContentRadioButton;
     private javax.swing.JLabel propertiesLabel;
+    private javax.swing.JRadioButton quadSetRadioButton;
     private javax.swing.JLabel radiusLabel;
     private javax.swing.JTextField radiusTextField;
     private javax.swing.JRadioButton rectangle2dRadioButton;
@@ -2302,19 +2479,20 @@ public class SHAPECustomizer extends BaseCustomizer
   }
 
   /**
-   * Check radio buttons and set content accordingly.
+   * Check radio buttons and set content (contained text) accordingly.
    * Use default (or preferred) values of interest for embedded nodes to provide a quickstart to new authors.
    */
   private void setContent ()
   {  
+      String PROPERTIES_COMMENT = "<!-- TODO authors can add optional ImageTexture, MovieTexture, PixelTexture, TextureTransform, AcousticProperties, FillProperties, LineProperties and/or PointProperties nodes here -->";
       // TODO consider Appearance/Material/Color interface also
       String APPEARANCE_CONTENT_EMISSIVE_LINES  = "\n    <Appearance>\n      <!-- Line color is defined by emissiveColor -->\n      <Material emissiveColor='1 1 1'/>\n      <!-- TODO authors can add optional LineProperties node here -->\n    </Appearance>\n  ";
-      String APPEARANCE_CONTENT_EMISSIVE_POINTS = "\n    <Appearance>\n      <!-- Point color is defined by emissiveColor -->\n      <Material emissiveColor='1 1 1'/>\n    </Appearance>\n  ";
-      String APPEARANCE_CONTENT_MATERIAL        = "\n    <Appearance>\n      <Material diffuseColor='0.9 0.9 0.9'/>\n      <!-- TODO authors can add optional ImageTexture, MovieTexture, PixelTexture, TextureTransform, FillProperties, and/or LineProperties nodes here -->\n    </Appearance>\n  ";
-      String APPEARANCE_CONTENT_MATERIAL_COLOR  = "\n    <Appearance>\n      <Material/>\n      <!-- TODO authors can add optional ImageTexture, MovieTexture, PixelTexture, TextureTransform, FillProperties, and/or LineProperties nodes here -->\n    </Appearance>\n  ";
+      String APPEARANCE_CONTENT_EMISSIVE_POINTS = "\n    <Appearance>\n      <!-- Point color is defined by emissiveColor -->\n      <Material emissiveColor='1 1 1'/>\n      <!-- TODO authors can add optional PointProperties node here -->\n    </Appearance>\n  ";
+      String APPEARANCE_CONTENT_MATERIAL        = "\n    <Appearance>\n      <Material diffuseColor='0.9 0.9 0.9'/>\n      " + PROPERTIES_COMMENT + "\n    </Appearance>\n  ";
+      String APPEARANCE_CONTENT_MATERIAL_COLOR  = "\n    <Appearance>\n      <Material/>\n      " + PROPERTIES_COMMENT + "\n    </Appearance>\n  ";
       String APPEARANCE_CONTENT_TEXT            =   "    <Appearance>\n      <Material diffuseColor='0.9 0.9 0.9'/>\n    </Appearance>\n  ";
       String APPEARANCE_CONTENT_TEXT2           =   "      <Appearance>\n        <Material diffuseColor='0.9 0.9 0.9'/>\n      </Appearance>\n  ";
-      String APPEARANCE_CONTENT_OPTIONAL        = "\n    <!-- Optional alternative: Appearance/Material etc. instead of Color node -->\n    <Appearance>\n      <Material/>\n      <!-- TODO authors can add optional ImageTexture, MovieTexture, PixelTexture, TextureTransform, FillProperties, and/or LineProperties nodes here -->\n    </Appearance>\n  ";
+      String APPEARANCE_CONTENT_OPTIONAL        = "\n    <!-- Optional alternative: Appearance/Material etc. instead of Color node -->\n    <Appearance>\n      <Material/>\n      " + PROPERTIES_COMMENT + ">\n    </Appearance>\n  ";
       
       if (noContentRadioButton.isSelected())
       {
@@ -2428,6 +2606,16 @@ public class SHAPECustomizer extends BaseCustomizer
       {
           newContent.append  ("\n    <LineSet vertexCount='5'>\n      <Coordinate point='1 1 0 1 -1 0 -1 -1 0 -1 1 0 1 1 0'/>\n    </LineSet>");
           newContent.append(APPEARANCE_CONTENT_EMISSIVE_LINES);
+      }
+      else if (indexedQuadSetRadioButton.isSelected())
+      {
+          newContent.append  ("\n    <IndexedQuadSet index='0 1 2 3'>\n      <Coordinate point='1 1 0 1 -1 0 -1 -1 0 -1 1 0'/>\n    </IndexedQuadSet>");
+          newContent.append(APPEARANCE_CONTENT_MATERIAL_COLOR);
+      }
+      else if (quadSetRadioButton.isSelected())
+      {
+          newContent.append  ("\n    <QuadSet>\n      <Coordinate point='1 1 0 1 -1 0 -1 -1 0 -1 1 0 1 1 0'/>\n    </QuadSet>");
+          newContent.append(APPEARANCE_CONTENT_MATERIAL_COLOR);
       }
       else if (pointSetRadioButton.isSelected())
       {
@@ -2886,7 +3074,8 @@ public class SHAPECustomizer extends BaseCustomizer
     shape.setBboxSizeY(bboxSizeYTF.getText().trim());
     shape.setBboxSizeZ(bboxSizeZTF.getText().trim());
     
-    shape.setVisible    (visibleCheckBox.isSelected());
+    shape.setCastShadow ( castShadowCheckBox.isSelected());
+    shape.setVisible    (    visibleCheckBox.isSelected());
     shape.setBboxDisplay(bboxDisplayCheckBox.isSelected());
   }
 
