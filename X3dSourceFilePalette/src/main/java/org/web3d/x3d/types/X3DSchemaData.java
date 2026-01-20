@@ -1400,6 +1400,13 @@ public interface X3DSchemaData
 
   // element Appearance
   String  APPEARANCE_ELNAME = "Appearance";
+  String  APPEARANCE_ATTR_ALPHACUTOFF_NAME     = "alphaCutoff";
+  boolean APPEARANCE_ATTR_ALPHACUTOFF_REQD     = false;
+  String  APPEARANCE_ATTR_ALPHACUTOFF_DFLT     = "0.5";
+  String  APPEARANCE_ATTR_ALPHAMODE_NAME       = "alphaMode";
+  boolean APPEARANCE_ATTR_ALPHAMODE_REQD       = false;
+  String  APPEARANCE_ATTR_ALPHAMODE_DFLT       = "AUTO";
+  String[]APPEARANCE_ATTR_ALPHAMODE_CHOICES    = {"AUTO","OPAQUE","MASK","BLEND"};
 
   // element FillProperties
   String  FILLPROPERTIES_ELNAME               = "FillProperties";
