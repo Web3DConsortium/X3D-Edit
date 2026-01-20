@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -101,6 +101,7 @@ public class SHAPE extends X3DShapeNode
     bboxSizeY = bboxSizeYDefault = new SFFloat(sa[1], -1.0f, null, true);
     bboxSizeZ = bboxSizeZDefault = new SFFloat(sa[2], -1.0f, null, true);
     
+     setCastShadow(castShadowDefault  = Boolean.parseBoolean(SHAPE_ATTR_VISIBLE_DFLT));
         setVisible(visibleDefault     = Boolean.parseBoolean(SHAPE_ATTR_VISIBLE_DFLT));
     setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(SHAPE_ATTR_BBOXDISPLAY_DFLT));
 
@@ -129,6 +130,9 @@ public class SHAPE extends X3DShapeNode
       bboxSizeY = new SFFloat(sa[1], -1.0f, null, true);
       bboxSizeZ = new SFFloat(sa[2], -1.0f, null, true);
     }
+    attr = root.getAttribute(SHAPE_ATTR_CASTSHADOW_NAME);
+    if (attr != null)
+        setCastShadow(Boolean.parseBoolean(attr.getValue()));
     attr = root.getAttribute(SHAPE_ATTR_VISIBLE_NAME);
     if (attr != null)
         setVisible(Boolean.parseBoolean(attr.getValue()));
@@ -189,6 +193,13 @@ public class SHAPE extends X3DShapeNode
       sb.append(bboxSizeY.toString());
       sb.append(" ");
       sb.append(bboxSizeZ.toString());
+      sb.append("'");
+    }
+    if (SHAPE_ATTR_CASTSHADOW_REQD || (isCastShadow() != castShadowDefault)) {
+      sb.append(" ");
+      sb.append(SHAPE_ATTR_CASTSHADOW_NAME);
+      sb.append("='");
+      sb.append(isCastShadow());
       sb.append("'");
     }
     if (SHAPE_ATTR_VISIBLE_REQD || (visible != visibleDefault)) {
