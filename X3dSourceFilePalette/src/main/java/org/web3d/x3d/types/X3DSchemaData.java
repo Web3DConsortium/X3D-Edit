@@ -1231,6 +1231,9 @@ public interface X3DSchemaData
   String  SHAPE_ATTR_BBOXSIZE_NAME   = "bboxSize";
   boolean SHAPE_ATTR_BBOXSIZE_REQD   = false;
   String  SHAPE_ATTR_BBOXSIZE_DFLT   = "-1 -1 -1";
+  String  SHAPE_ATTR_CASTSHADOW_NAME                 = "castShadow";
+  boolean SHAPE_ATTR_CASTSHADOW_REQD                 = false;
+  String  SHAPE_ATTR_CASTSHADOW_DFLT                 = "true";
   String  SHAPE_ATTR_VISIBLE_NAME                    = "visible";
   boolean SHAPE_ATTR_VISIBLE_REQD                    = false;
   String  SHAPE_ATTR_VISIBLE_DFLT                    = "true";
@@ -3378,6 +3381,13 @@ public interface X3DSchemaData
   String  QUADSET_ATTR_SOLID_NAME           = "solid";
   boolean QUADSET_ATTR_SOLID_REQD           = false;
   String  QUADSET_ATTR_SOLID_DFLT           = "true";
+  
+  String[]QUADSET_CONTAINERFIELD_CHOICES    = {"geometry","skin"};
+  String[]QUADSET_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'geometry' field for typical use within a Shape node",
+      "'skin' field for a parent HAnimHumanoid node",
+  };
 
   // IndexedTriangleSet element
   String  INDEXEDTRIANGLESET_ELNAME                    = "IndexedTriangleSet";
