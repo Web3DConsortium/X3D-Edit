@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -36,9 +36,11 @@ package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
+import static org.web3d.x3d.types.X3DSchemaData.QUADSET_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.QUADSET_CONTAINERFIELD_TOOLTIPS;
 
 /**
- * TIMESENSORCustomizer.java
+ * QUADSETCustomizer.java
  * Created on Sep 13, 2007,10:07 AM
  *
  * MOVES Institute
@@ -50,24 +52,27 @@ import org.openide.util.HelpCtx;
  */
 public class QUADSETCustomizer extends BaseCustomizer
 { 
-  private QUADSET qSet;
+  private QUADSET quadSet;
   private JTextComponent target;
   
-  /** Creates new form TIMESENSORCustomizer */
-  public QUADSETCustomizer(QUADSET tri, JTextComponent target)
+  /** Creates new form QUADSETCustomizer */
+  public QUADSETCustomizer(QUADSET inputQuadSet, JTextComponent target)
   {
-    super(tri);
-    this.qSet = tri;
+    super(inputQuadSet);
+    this.quadSet = inputQuadSet;
     this.target = target;
                              
     HelpCtx.setHelpIDString(this, "QUADSET_ELEM_HELPID");   
     
     initComponents();
+    super.getDEFUSEpanel().setContainerFieldChoices(QUADSET_CONTAINERFIELD_CHOICES, QUADSET_CONTAINERFIELD_TOOLTIPS);
+    super.getDEFUSEpanel().setContainerField(inputQuadSet.getContainerField()); // reset value to match updated JComboBox data model
+    // DEFUSEpanel initialization must NOT be repeated or else array of choices will be overwritten
     
-    ccwCB.setSelected(tri.isCcw());
-    colorPerVertexCB.setSelected(tri.isColorPerVertex());
-    normalPerVertexCB.setSelected(tri.isNormalPerVertex());
-    solidCB.setSelected(tri.isSolid());
+                ccwCB.setSelected(inputQuadSet.isCcw());
+     colorPerVertexCB.setSelected(inputQuadSet.isColorPerVertex());
+    normalPerVertexCB.setSelected(inputQuadSet.isNormalPerVertex());
+              solidCB.setSelected(inputQuadSet.isSolid());
   }
   
   /** This method is called from within the constructor to
@@ -79,8 +84,8 @@ public class QUADSETCustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        dEFUSEpanel1 = getDEFUSEpanel();
-        jPanel2 = new javax.swing.JPanel();
+        dEFUSEpanel = getDEFUSEpanel();
+        buttonPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ccwCB = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
@@ -92,6 +97,8 @@ public class QUADSETCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(610, 230));
+        setPreferredSize(new java.awt.Dimension(610, 230));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -99,10 +106,10 @@ public class QUADSETCustomizer extends BaseCustomizer
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(dEFUSEpanel1, gridBagConstraints);
+        add(dEFUSEpanel, gridBagConstraints);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jPanel2.setLayout(new java.awt.GridBagLayout());
+        buttonPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        buttonPanel.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("ccw");
@@ -113,7 +120,7 @@ public class QUADSETCustomizer extends BaseCustomizer
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(jLabel1, gridBagConstraints);
+        buttonPanel.add(jLabel1, gridBagConstraints);
 
         ccwCB.setToolTipText("ccw = counterclockwise: ordering of vertex coordinates orientation");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -121,65 +128,71 @@ public class QUADSETCustomizer extends BaseCustomizer
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel2.add(ccwCB, gridBagConstraints);
+        buttonPanel.add(ccwCB, gridBagConstraints);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel2.setText("colorPerVertex");
         jLabel2.setToolTipText("whether Color node is applied per vertex (true) or per polygon (false)");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(jLabel2, gridBagConstraints);
+        buttonPanel.add(jLabel2, gridBagConstraints);
 
         colorPerVertexCB.setToolTipText("whether Color node is applied per vertex (true) or per polygon (false)");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel2.add(colorPerVertexCB, gridBagConstraints);
+        buttonPanel.add(colorPerVertexCB, gridBagConstraints);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel3.setText("normalPerVertex");
         jLabel3.setToolTipText("whether Normal vectors are applied per vertex (true) or per polygon (false)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 5;
-        gridBagConstraints.ipady = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(jLabel3, gridBagConstraints);
-
-        normalPerVertexCB.setToolTipText("whether Normal vectors are applied per vertex (true) or per polygon (false)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 5;
-        gridBagConstraints.ipady = 5;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel2.add(normalPerVertexCB, gridBagConstraints);
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel4.setText("solid");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(jLabel4, gridBagConstraints);
+        buttonPanel.add(jLabel3, gridBagConstraints);
+
+        normalPerVertexCB.setToolTipText("whether Normal vectors are applied per vertex (true) or per polygon (false)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
-        jPanel2.add(solidCB, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        buttonPanel.add(normalPerVertexCB, gridBagConstraints);
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel4.setText("solid");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        buttonPanel.add(jLabel4, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        buttonPanel.add(solidCB, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jPanel2, gridBagConstraints);
+        add(buttonPanel, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
@@ -206,33 +219,35 @@ public class QUADSETCustomizer extends BaseCustomizer
     }// </editor-fold>//GEN-END:initComponents
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel buttonPanel;
     private javax.swing.JCheckBox ccwCB;
     private javax.swing.JCheckBox colorPerVertexCB;
-    private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
+    private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel;
     private javax.swing.JLabel hintLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JCheckBox normalPerVertexCB;
     private javax.swing.JCheckBox solidCB;
     // End of variables declaration//GEN-END:variables
   
   
+  @Override
   public String getNameKey()
   {
     return "NAME_X3D_QUADSET";
   }
 
+  @Override
   public void unloadInput() throws IllegalArgumentException
   {
     unLoadDEFUSE();
     
-    qSet.setCcw(ccwCB.isSelected());
-    qSet.setColorPerVertex(colorPerVertexCB.isSelected());
-    qSet.setNormalPerVertex(normalPerVertexCB.isSelected());
-    qSet.setSolid(solidCB.isSelected());
+    quadSet.setCcw(ccwCB.isSelected());
+    quadSet.setColorPerVertex(colorPerVertexCB.isSelected());
+    quadSet.setNormalPerVertex(normalPerVertexCB.isSelected());
+    quadSet.setSolid(solidCB.isSelected());
   }
 }

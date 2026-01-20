@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -67,6 +67,7 @@ public class QUADSET extends X3DComposedGeometryNode
     return QUADSET_ELNAME;
   }
 
+  @Override
   public void initialize()
   {
     ccw =             Boolean.parseBoolean(QUADSET_ATTR_CCW_DFLT);
@@ -105,7 +106,7 @@ public class QUADSET extends X3DComposedGeometryNode
   @Override
   public String createAttributes()
   {
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder();
     if (QUADSET_ATTR_CCW_REQD || ccw != Boolean.parseBoolean(QUADSET_ATTR_CCW_DFLT)) {
       sb.append(" ");
       sb.append(QUADSET_ATTR_CCW_NAME);

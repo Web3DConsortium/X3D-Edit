@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -40,7 +40,7 @@ import static org.web3d.x3d.types.X3DSchemaData.INDEXEDQUADSET_CONTAINERFIELD_CH
 import static org.web3d.x3d.types.X3DSchemaData.INDEXEDQUADSET_CONTAINERFIELD_TOOLTIPS;
 
 /**
- * TIMESENSORCustomizer.java
+ * INDEXEDQUADSETCustomizer.java
  * Created on Sep 13, 2007,10:07 AM
  *
  * MOVES Institute
@@ -90,22 +90,23 @@ public class INDEXEDQUADSETCustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        dEFUSEpanel1 = getDEFUSEpanel();
-        jLabel5 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        dEFUSEpanel = getDEFUSEpanel();
+        indexLabel = new javax.swing.JLabel();
+        indexScrollPane = new javax.swing.JScrollPane();
         indexTA = new javax.swing.JTextArea();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        buttonPanel = new javax.swing.JPanel();
+        ccwLabel = new javax.swing.JLabel();
         ccwCB = new javax.swing.JCheckBox();
-        jLabel2 = new javax.swing.JLabel();
+        colorPerVertexLabel = new javax.swing.JLabel();
         colorPerVertexCB = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
+        normalPerVertexLabel = new javax.swing.JLabel();
         normalPerVertexCB = new javax.swing.JCheckBox();
-        jLabel4 = new javax.swing.JLabel();
+        solidLabel = new javax.swing.JLabel();
         solidCB = new javax.swing.JCheckBox();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(606, 270));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -113,19 +114,19 @@ public class INDEXEDQUADSETCustomizer extends BaseCustomizer
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(dEFUSEpanel1, gridBagConstraints);
+        add(dEFUSEpanel, gridBagConstraints);
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel5.setText("index");
+        indexLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        indexLabel.setText("index");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 14, 3, 3);
-        add(jLabel5, gridBagConstraints);
+        add(indexLabel, gridBagConstraints);
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane2.setMinimumSize(new java.awt.Dimension(80, 40));
+        indexScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        indexScrollPane.setMinimumSize(new java.awt.Dimension(80, 40));
 
         indexTA.setColumns(20);
         indexTA.setLineWrap(true);
@@ -134,7 +135,7 @@ public class INDEXEDQUADSETCustomizer extends BaseCustomizer
         indexTA.setWrapStyleWord(true);
         indexTA.setBorder(null);
         indexTA.setMinimumSize(new java.awt.Dimension(100, 20));
-        jScrollPane2.setViewportView(indexTA);
+        indexScrollPane.setViewportView(indexTA);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -143,76 +144,77 @@ public class INDEXEDQUADSETCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jScrollPane2, gridBagConstraints);
+        add(indexScrollPane, gridBagConstraints);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jPanel2.setLayout(new java.awt.GridBagLayout());
+        buttonPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        buttonPanel.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText("ccw");
-        jLabel1.setToolTipText("ccw = counterclockwise: ordering of vertex coordinates orientation");
+        ccwLabel.setText("ccw");
+        ccwLabel.setToolTipText("ccw = counterclockwise: ordering of vertex coordinates orientation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(jLabel1, gridBagConstraints);
+        buttonPanel.add(ccwLabel, gridBagConstraints);
 
         ccwCB.setToolTipText("ccw = counterclockwise: ordering of vertex coordinates orientation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 10);
-        jPanel2.add(ccwCB, gridBagConstraints);
+        buttonPanel.add(ccwCB, gridBagConstraints);
 
-        jLabel2.setText("colorPerVertex");
-        jLabel2.setToolTipText("whether Color node is applied per vertex (true) or per polygon (false)");
+        colorPerVertexLabel.setText("colorPerVertex");
+        colorPerVertexLabel.setToolTipText("whether Color node is applied per vertex (true) or per polygon (false)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(jLabel2, gridBagConstraints);
+        buttonPanel.add(colorPerVertexLabel, gridBagConstraints);
 
         colorPerVertexCB.setToolTipText("whether Color node is applied per vertex (true) or per polygon (false)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel2.add(colorPerVertexCB, gridBagConstraints);
+        buttonPanel.add(colorPerVertexCB, gridBagConstraints);
 
-        jLabel3.setText("normalPerVertex");
-        jLabel3.setToolTipText("whether Normal vectors are applied per vertex (true) or per polygon (false)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(jLabel3, gridBagConstraints);
-
-        normalPerVertexCB.setToolTipText("whether Normal vectors are applied per vertex (true) or per polygon (false)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 10);
-        jPanel2.add(normalPerVertexCB, gridBagConstraints);
-
-        jLabel4.setText("solid");
-        jLabel4.setToolTipText("Setting solid true means draw only one side of polygons (backface culling on), setting solid false means draw both sides of polygons (backface culling off)");
+        normalPerVertexLabel.setText("normalPerVertex");
+        normalPerVertexLabel.setToolTipText("whether Normal vectors are applied per vertex (true) or per polygon (false)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(jLabel4, gridBagConstraints);
+        buttonPanel.add(normalPerVertexLabel, gridBagConstraints);
 
-        solidCB.setToolTipText("Setting solid true means draw only one side of polygons (backface culling on), setting solid false means draw both sides of polygons (backface culling off)");
+        normalPerVertexCB.setToolTipText("whether Normal vectors are applied per vertex (true) or per polygon (false)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 10);
+        buttonPanel.add(normalPerVertexCB, gridBagConstraints);
+
+        solidLabel.setText("solid");
+        solidLabel.setToolTipText("Setting solid true means draw only one side of polygons (backface culling on), setting solid false means draw both sides of polygons (backface culling off)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        buttonPanel.add(solidLabel, gridBagConstraints);
+
+        solidCB.setToolTipText("Setting solid true means draw only one side of polygons (backface culling on), setting solid false means draw both sides of polygons (backface culling off)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel2.add(solidCB, gridBagConstraints);
+        buttonPanel.add(solidCB, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jPanel2, gridBagConstraints);
+        add(buttonPanel, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
@@ -239,21 +241,21 @@ public class INDEXEDQUADSETCustomizer extends BaseCustomizer
     }// </editor-fold>//GEN-END:initComponents
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel buttonPanel;
     private javax.swing.JCheckBox ccwCB;
+    private javax.swing.JLabel ccwLabel;
     private javax.swing.JCheckBox colorPerVertexCB;
-    private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
+    private javax.swing.JLabel colorPerVertexLabel;
+    private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel;
     private javax.swing.JLabel hintLabel;
+    private javax.swing.JLabel indexLabel;
+    private javax.swing.JScrollPane indexScrollPane;
     private javax.swing.JTextArea indexTA;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JCheckBox normalPerVertexCB;
+    private javax.swing.JLabel normalPerVertexLabel;
     private javax.swing.JCheckBox solidCB;
+    private javax.swing.JLabel solidLabel;
     // End of variables declaration//GEN-END:variables
   
   
