@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -151,23 +151,23 @@ public class MATERIAL extends X3DMaterialNode
     attr = root.getAttribute(MATERIAL_ATTR_DIFFUSECOLOR_NAME);
     if (attr != null) {
       fa = parse3(attr.getValue());
-      diffuseColor0 = new SFFloat(fa[0], 0.0f, 255.0f);
-      diffuseColor1 = new SFFloat(fa[1], 0.0f, 255.0f);
-      diffuseColor2 = new SFFloat(fa[2], 0.0f, 255.0f);
+      diffuseColor0 = new SFFloat(fa[0], 0.0f, 1.0f);
+      diffuseColor1 = new SFFloat(fa[1], 0.0f, 1.0f);
+      diffuseColor2 = new SFFloat(fa[2], 0.0f, 1.0f);
     }
     attr = root.getAttribute(MATERIAL_ATTR_EMISSIVECOLOR_NAME);
     if (attr != null) {
       fa = parse3(attr.getValue());
-      emissiveColor0 = new SFFloat(fa[0], 0.0f, 255.0f);
-      emissiveColor1 = new SFFloat(fa[1], 0.0f, 255.0f);
-      emissiveColor2 = new SFFloat(fa[2], 0.0f, 255.0f);
+      emissiveColor0 = new SFFloat(fa[0], 0.0f, 1.0f);
+      emissiveColor1 = new SFFloat(fa[1], 0.0f, 1.0f);
+      emissiveColor2 = new SFFloat(fa[2], 0.0f, 1.0f);
     }
     attr = root.getAttribute(MATERIAL_ATTR_SPECULARCOLOR_NAME);
     if (attr != null) {
       fa = parse3(attr.getValue());
-      specularColor0 = new SFFloat(fa[0], 0.0f, 255.0f);
-      specularColor1 = new SFFloat(fa[1], 0.0f, 255.0f);
-      specularColor2 = new SFFloat(fa[2], 0.0f, 255.0f);
+      specularColor0 = new SFFloat(fa[0], 0.0f, 1.0f);
+      specularColor1 = new SFFloat(fa[1], 0.0f, 1.0f);
+      specularColor2 = new SFFloat(fa[2], 0.0f, 1.0f);
     }
   }
   @Override
