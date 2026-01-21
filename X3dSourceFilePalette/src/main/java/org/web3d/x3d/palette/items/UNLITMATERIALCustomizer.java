@@ -203,6 +203,11 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
         emissiveColorRedTF.setToolTipText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "MATERIALCustomizer.emissiveColorRed.toolTipText")); // NOI18N
         emissiveColorRedTF.setMinimumSize(new java.awt.Dimension(6, 15));
         emissiveColorRedTF.setName("emissiveColorRed"); // NOI18N
+        emissiveColorRedTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emissiveColorRedTFActionPerformed(evt);
+            }
+        });
         emissiveColorRedTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 globalPropertyChangeListener(evt);
@@ -614,7 +619,7 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
         checkColorTextField ((JFormattedTextField)src);
     }
 
-    unlitMaterial.setContent(""); // clear for any change
+//    unlitMaterial.setContent(""); // clear for any change
 
     if (  src == emissiveColorRedTF ||
           src == emissiveColorGreenTF ||
@@ -637,8 +642,7 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
 
     @SuppressWarnings("unused") // evt
     private void normalScaleTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalScaleTFActionPerformed
-        float value = Float.parseFloat(nullTo0(normalScaleTF));
-        transparencySlider.setValue((int)(value * 100.0));
+        // TODO add your handling code here:
     }//GEN-LAST:event_normalScaleTFActionPerformed
 
     @SuppressWarnings("unused") // evt
@@ -654,6 +658,10 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
     private void normalTextureMappingTFglobalPropertyChangeListener(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_normalTextureMappingTFglobalPropertyChangeListener
         // TODO add your handling code here:
     }//GEN-LAST:event_normalTextureMappingTFglobalPropertyChangeListener
+
+    private void emissiveColorRedTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emissiveColorRedTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emissiveColorRedTFActionPerformed
 
   private void updateEmissiveColorHexTextField()
   {
