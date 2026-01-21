@@ -126,25 +126,6 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
               unlitMaterial.setEmissiveColor2( blue.toString());
           }
       }
-
-      if ((red > 1.0f) || (green > 1.0f) || (blue > 1.0f)) // values > 255 already filtered during MATERIAL SFFloat loading
-      {
-          message = "<html><p>Large values found for emissiveColor='" + red + " " + green + " " + blue + "'</p><p>Convert from HTML to X3D?";
-          NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-                  message, "X3D RGB values are [0..1]", NotifyDescriptor.YES_NO_OPTION);
-          if (DialogDisplayer.getDefault().notify(descriptor) == NotifyDescriptor.YES_OPTION)
-          {
-              if (red > 1.0f)
-                  red   /= 255.0f;
-              if (green > 1.0f)
-                  green /= 255.0f;
-              if (blue  > 1.0f)
-                  blue  /= 255.0f;
-              unlitMaterial.setEmissiveColor0(  red.toString());
-              unlitMaterial.setEmissiveColor1(green.toString());
-              unlitMaterial.setEmissiveColor2( blue.toString());
-          }
-      }
   }
 
   @Override
