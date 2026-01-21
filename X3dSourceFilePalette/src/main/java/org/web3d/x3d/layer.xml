@@ -1120,38 +1120,44 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="MATERIAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MATERIAL.xml">
                 <attr name="position" intvalue="200"/>
             </file>
-            <file name="TWOSIDEDMATERIAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TWOSIDEDMATERIAL.xml">
-                <attr name="position" intvalue="250"/>
-            </file>
-            <file name="FILLPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FILLPROPERTIES.xml">
+            <file name="PHYSICALMATERIAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PHYSICALMATERIAL.xml">
                 <attr name="position" intvalue="300"/>
             </file>
-            <file name="LINEPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LINEPROPERTIES.xml">
+            <file name="UNLITMATERIAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/UNLITMATERIAL.xml">
                 <attr name="position" intvalue="400"/>
             </file>
-            <file name="IMAGETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IMAGETEXTURE.xml">
+            <file name="TWOSIDEDMATERIAL.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TWOSIDEDMATERIAL.xml">
                 <attr name="position" intvalue="500"/>
             </file>
-            <file name="MOVIETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MOVIETEXTURE.xml">
+            <file name="FILLPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FILLPROPERTIES.xml">
                 <attr name="position" intvalue="600"/>
             </file>
-            <file name="PIXELTEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PIXELTEXTURE.xml">
+            <file name="LINEPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/LINEPROPERTIES.xml">
                 <attr name="position" intvalue="700"/>
             </file>
-            <file name="MULTITEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURE.xml">
+            <file name="IMAGETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IMAGETEXTURE.xml">
                 <attr name="position" intvalue="800"/>
             </file>
-            <file name="TEXTUREPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTUREPROPERTIES.xml">
+            <file name="MOVIETEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MOVIETEXTURE.xml">
                 <attr name="position" intvalue="900"/>
             </file>
-            <file name="TEXTURETRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORM.xml">
+            <file name="PIXELTEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PIXELTEXTURE.xml">
                 <attr name="position" intvalue="1000"/>
             </file>
-            <file name="MULTITEXTURETRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURETRANSFORM.xml">
+            <file name="MULTITEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURE.xml">
                 <attr name="position" intvalue="1100"/>
             </file>
-            <file name="ACOUSTICPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ACOUSTICPROPERTIES.xml">
+            <file name="TEXTUREPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTUREPROPERTIES.xml">
                 <attr name="position" intvalue="1200"/>
+            </file>
+            <file name="TEXTURETRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORM.xml">
+                <attr name="position" intvalue="1300"/>
+            </file>
+            <file name="MULTITEXTURETRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURETRANSFORM.xml">
+                <attr name="position" intvalue="1400"/>
+            </file>
+            <file name="ACOUSTICPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ACOUSTICPROPERTIES.xml">
+                <attr name="position" intvalue="1500"/>
             </file>
         </folder>
         <folder name="Geometry_Points_Lines_and_Polygons">
