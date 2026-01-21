@@ -1706,7 +1706,47 @@ public interface X3DSchemaData
   boolean TWOSIDEDMATERIAL_ATTR_BACK_SPECULARCOLOR_REQD     = false;
   String  TWOSIDEDMATERIAL_ATTR_BACK_SPECULARCOLOR_DFLT     = "0 0 0";
   
-  // Element Material
+
+  // Element PhysicalMaterial
+  String  PHYSICALMATERIAL_ELNAME                                    = "PhysicalMaterial";
+  String  PHYSICALMATERIAL_ATTR_BASECOLOR_NAME                       = "baseColor";
+  boolean PHYSICALMATERIAL_ATTR_BASECOLOR_REQD                       = false;
+  String  PHYSICALMATERIAL_ATTR_BASECOLOR_DFLT                       = "0.8 0.8 0.8";
+  String  PHYSICALMATERIAL_ATTR_BASETEXTUREMAPPING_NAME              = "baseTextureMapping";
+  boolean PHYSICALMATERIAL_ATTR_BASETEXTUREMAPPING_REQD              = false;
+  String  PHYSICALMATERIAL_ATTR_BASETEXTUREMAPPING_DFLT              = "";
+  String  PHYSICALMATERIAL_ATTR_EMISSIVECOLOR_NAME                   = "emissiveColor";
+  boolean PHYSICALMATERIAL_ATTR_EMISSIVECOLOR_REQD                   = false;
+  String  PHYSICALMATERIAL_ATTR_EMISSIVECOLOR_DFLT                   = "0 0 0";
+  String  PHYSICALMATERIAL_ATTR_EMISSIVETEXTUREMAPPING_NAME          = "emissiveTextureMapping";
+  boolean PHYSICALMATERIAL_ATTR_EMISSIVETEXTUREMAPPING_REQD          = false;
+  String  PHYSICALMATERIAL_ATTR_EMISSIVETEXTUREMAPPING_DFLT          = "";
+  String  PHYSICALMATERIAL_ATTR_METALLIC_NAME                        = "metallic";
+  boolean PHYSICALMATERIAL_ATTR_METALLIC_REQD                        = false;
+  String  PHYSICALMATERIAL_ATTR_METALLIC_DFLT                        = "1";
+  String  PHYSICALMATERIAL_ATTR_METALLICROUGHNESSTEXTUREMAPPING_NAME = "metallicRoughnessTextureMapping";
+  boolean PHYSICALMATERIAL_ATTR_METALLICROUGHNESSTEXTUREMAPPING_REQD = false;
+  String  PHYSICALMATERIAL_ATTR_METALLICROUGHNESSTEXTUREMAPPING_DFLT = "";
+  String  PHYSICALMATERIAL_ATTR_NORMALSCALE_NAME                     = "normalScale";
+  boolean PHYSICALMATERIAL_ATTR_NORMALSCALE_REQD                     = false;
+  String  PHYSICALMATERIAL_ATTR_NORMALSCALE_DFLT                     = "1";
+  String  PHYSICALMATERIAL_ATTR_NORMALTEXTUREMAPPING_NAME            = "normalTextureMapping";
+  boolean PHYSICALMATERIAL_ATTR_NORMALTEXTUREMAPPING_REQD            = false;
+  String  PHYSICALMATERIAL_ATTR_NORMALTEXTUREMAPPING_DFLT            = "";
+  String  PHYSICALMATERIAL_ATTR_OCCLUSIONSTRENGTH_NAME               = "occlusionStrength";
+  boolean PHYSICALMATERIAL_ATTR_OCCLUSIONSTRENGTH_REQD               = false;
+  String  PHYSICALMATERIAL_ATTR_OCCLUSIONSTRENGTH_DFLT               = "1";
+  String  PHYSICALMATERIAL_ATTR_OCCLUSIONTEXTUREMAPPING_NAME         = "occlusionTextureMapping";
+  boolean PHYSICALMATERIAL_ATTR_OCCLUSIONTEXTUREMAPPING_REQD         = false;
+  String  PHYSICALMATERIAL_ATTR_OCCLUSIONTEXTUREMAPPING_DFLT         = "";
+  String  PHYSICALMATERIAL_ATTR_ROUGHNESS_NAME                       = "roughness";
+  boolean PHYSICALMATERIAL_ATTR_ROUGHNESS_REQD                       = false;
+  String  PHYSICALMATERIAL_ATTR_ROUGHNESS_DFLT                       = "1";
+  String  PHYSICALMATERIAL_ATTR_TRANSPARENCY_NAME                    = "transparency";
+  boolean PHYSICALMATERIAL_ATTR_TRANSPARENCY_REQD                    = false;
+  String  PHYSICALMATERIAL_ATTR_TRANSPARENCY_DFLT                    = "0.0";
+  
+  // Element UnlitMaterial
   String  UNLITMATERIAL_ELNAME                           = "UnlitMaterial";
   String  UNLITMATERIAL_ATTR_EMISSIVECOLOR_NAME          = "emissiveColor";
   boolean UNLITMATERIAL_ATTR_EMISSIVECOLOR_REQD          = false;
