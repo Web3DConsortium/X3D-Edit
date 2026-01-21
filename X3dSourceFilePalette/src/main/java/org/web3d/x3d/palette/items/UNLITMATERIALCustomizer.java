@@ -147,15 +147,6 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
       }
   }
 
-  /** Initialize panel display to match current values */
-  private void initializePanelContent()
-  {
-    String content = unlitMaterial.getContent();  // save around the following
-    
-    emissiveTFArray     = new JFormattedTextField[]{emissiveColorRedTF,emissiveColorGreenTF,emissiveColorBlueTF};
-
-  }
-
   @Override
   public String getNameKey()
   {
