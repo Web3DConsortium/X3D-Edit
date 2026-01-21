@@ -121,8 +121,8 @@ public class TEXTURETRANSFORMCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(710, 360));
-        setPreferredSize(new java.awt.Dimension(710, 360));
+        setMinimumSize(new java.awt.Dimension(710, 370));
+        setPreferredSize(new java.awt.Dimension(710, 370));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
