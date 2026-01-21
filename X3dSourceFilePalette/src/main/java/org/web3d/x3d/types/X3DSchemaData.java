@@ -1705,8 +1705,26 @@ public interface X3DSchemaData
   String  TWOSIDEDMATERIAL_ATTR_BACK_SPECULARCOLOR_NAME     = "backSpecularColor";
   boolean TWOSIDEDMATERIAL_ATTR_BACK_SPECULARCOLOR_REQD     = false;
   String  TWOSIDEDMATERIAL_ATTR_BACK_SPECULARCOLOR_DFLT     = "0 0 0";
+  
+  // Element Material
+  String  UNLITMATERIAL_ELNAME                           = "UnlitMaterial";
+  String  UNLITMATERIAL_ATTR_EMISSIVECOLOR_NAME          = "emissiveColor";
+  boolean UNLITMATERIAL_ATTR_EMISSIVECOLOR_REQD          = false;
+  String  UNLITMATERIAL_ATTR_EMISSIVECOLOR_DFLT          = "0 0 0";
+  String  UNLITMATERIAL_ATTR_TRANSPARENCY_NAME           = "transparency";
+  boolean UNLITMATERIAL_ATTR_TRANSPARENCY_REQD           = false;
+  String  UNLITMATERIAL_ATTR_TRANSPARENCY_DFLT           = "0.0";
+  String  UNLITMATERIAL_ATTR_NORMALSCALE_NAME            = "normalScale";
+  boolean UNLITMATERIAL_ATTR_NORMALSCALE_REQD            = false;
+  String  UNLITMATERIAL_ATTR_NORMALSCALE_DFLT            = "1";
+  String  UNLITMATERIAL_ATTR_EMISSIVETEXTUREMAPPING_NAME = "emissiveTextureMapping";
+  boolean UNLITMATERIAL_ATTR_EMISSIVETEXTUREMAPPING_REQD = false;
+  String  UNLITMATERIAL_ATTR_EMISSIVETEXTUREMAPPING_DFLT = "";
+  String  UNLITMATERIAL_ATTR_NORMALTEXTUREMAPPING_NAME   = "normalTextureMapping";
+  boolean UNLITMATERIAL_ATTR_NORMALTEXTUREMAPPING_REQD   = false;
+  String  UNLITMATERIAL_ATTR_NORMALTEXTUREMAPPING_DFLT   = "";
+  
   // Element LineProperties
-
   String  LINEPROPERTIES_ELNAME                = "LineProperties";
   String  LINEPROPERTIES_ATTR_APPLIED_NAME     = "applied";
   boolean LINEPROPERTIES_ATTR_APPLIED_REQD     = false;
