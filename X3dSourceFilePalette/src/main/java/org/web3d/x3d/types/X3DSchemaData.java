@@ -1711,7 +1711,7 @@ public interface X3DSchemaData
   String  PHYSICALMATERIAL_ELNAME                                    = "PhysicalMaterial";
   String  PHYSICALMATERIAL_ATTR_BASECOLOR_NAME                       = "baseColor";
   boolean PHYSICALMATERIAL_ATTR_BASECOLOR_REQD                       = false;
-  String  PHYSICALMATERIAL_ATTR_BASECOLOR_DFLT                       = "0.8 0.8 0.8";
+  String  PHYSICALMATERIAL_ATTR_BASECOLOR_DFLT                       = "1 1 1";
   String  PHYSICALMATERIAL_ATTR_BASETEXTUREMAPPING_NAME              = "baseTextureMapping";
   boolean PHYSICALMATERIAL_ATTR_BASETEXTUREMAPPING_REQD              = false;
   String  PHYSICALMATERIAL_ATTR_BASETEXTUREMAPPING_DFLT              = "";
