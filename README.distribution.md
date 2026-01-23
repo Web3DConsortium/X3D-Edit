@@ -6,7 +6,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Distribution, 22 January 2026
+# X3D-Edit 4.0 Distribution, 22 January 2026, interim release
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
