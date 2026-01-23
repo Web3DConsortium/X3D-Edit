@@ -172,9 +172,9 @@ public class UNITCustomizer extends BaseCustomizer
         hintLabel2 = new javax.swing.JLabel();
         hintLabel1 = new javax.swing.JLabel();
         categoryLabel = new javax.swing.JLabel();
-        categoryComboBox = new javax.swing.JComboBox<String>();
+        categoryComboBox = new javax.swing.JComboBox<>();
         nameLabel = new javax.swing.JLabel();
-        nameComboBox = new javax.swing.JComboBox<String>();
+        nameComboBox = new javax.swing.JComboBox<>();
         conversionFactorLabel = new javax.swing.JLabel();
         conversionFactorTextField = new javax.swing.JTextField();
         nodeDescriptionHintPanel = new javax.swing.JPanel();
@@ -185,6 +185,8 @@ public class UNITCustomizer extends BaseCustomizer
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        setMinimumSize(new java.awt.Dimension(490, 230));
+        setPreferredSize(new java.awt.Dimension(490, 230));
         setLayout(new java.awt.GridBagLayout());
 
         nodeParentHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

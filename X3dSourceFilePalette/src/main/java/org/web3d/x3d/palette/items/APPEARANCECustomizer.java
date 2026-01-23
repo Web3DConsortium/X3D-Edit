@@ -242,9 +242,9 @@ public class APPEARANCECustomizer extends BaseCustomizer
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setMinimumSize(new java.awt.Dimension(600, 530));
+        setMinimumSize(new java.awt.Dimension(620, 540));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(610, 530));
+        setPreferredSize(new java.awt.Dimension(620, 540));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
