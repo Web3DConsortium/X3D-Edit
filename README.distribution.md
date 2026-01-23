@@ -6,7 +6,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Authoring Tool for Extensible 3D (X3D) Graphics
+# X3D-Edit Authoring Tool for Extensible 3D (X3D) Graphics
 
 [X3D-Edit](https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html) is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
 
