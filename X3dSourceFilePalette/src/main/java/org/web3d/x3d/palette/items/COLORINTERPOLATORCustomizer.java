@@ -99,6 +99,8 @@ public class COLORINTERPOLATORCustomizer extends BaseCustomizer
         eventLabel1 = new javax.swing.JLabel();
         eventLabel2 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(620, 400));
+        setPreferredSize(new java.awt.Dimension(620, 400));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

@@ -121,6 +121,8 @@ public class SPHERESENSORCustomizer extends BaseCustomizer
         eventHintPanel = new JPanel();
         eventsLabel = new JLabel();
 
+        setMinimumSize(new Dimension(620, 320));
+        setPreferredSize(new Dimension(620, 320));
         setLayout(new GridBagLayout());
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -271,7 +273,7 @@ public class SPHERESENSORCustomizer extends BaseCustomizer
         eventHintPanel.setLayout(new GridBagLayout());
 
         eventsLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        eventsLabel.setText("<html>Output events include <b>isActive</b>, <b>isOver</b>, <b>rotation_changed</b>, <b>translation_changed</b>");
+        eventsLabel.setText("<html><p align='center'><b>SphereSensor</b> converts pointer motion (for example, a mouse or wand) into rotation values.\n<br />\nOutput events include <b>isActive</b>, <b>isOver</b>, <b>rotation_changed</b>, <b>translation_changed</b>.</p>");
         eventsLabel.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;

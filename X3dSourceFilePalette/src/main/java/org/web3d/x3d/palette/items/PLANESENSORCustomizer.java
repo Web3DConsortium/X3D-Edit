@@ -129,6 +129,8 @@ public class PLANESENSORCustomizer extends BaseCustomizer
         axisRotationCalculatorlButton = new javax.swing.JButton();
         normalizeRotationValuesButton = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(630, 419));
+        setPreferredSize(new java.awt.Dimension(630, 419));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -318,7 +320,7 @@ public class PLANESENSORCustomizer extends BaseCustomizer
         eventHintPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel.setText("<html>Output events include <b>isActive</b>, <b>isOver</b>, <b>trackPoint_changed</b>, <b>translation_changed</b>");
+        eventsLabel.setText("<html>\n<p align='center'><b>PlaneSensor</b> converts pointing device motion into 2D translation parallel to local Z=0 plane.\n<br />\nOutput events include <b>isActive</b>, <b>isOver</b>, <b>trackPoint_changed</b>, <b>translation_changed</b></p>");
         eventsLabel.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

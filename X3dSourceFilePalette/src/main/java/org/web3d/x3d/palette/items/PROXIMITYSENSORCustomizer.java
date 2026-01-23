@@ -105,6 +105,8 @@ public class PROXIMITYSENSORCustomizer extends BaseCustomizer
         eventHintPanel = new javax.swing.JPanel();
         eventsLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(660, 260));
+        setPreferredSize(new java.awt.Dimension(660, 260));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));

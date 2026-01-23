@@ -104,23 +104,28 @@ public class COLORRGBACustomizer extends BaseCustomizer
         expandableList1 = new ExpandableList();
         hintLabel = new JLabel();
 
-        setMinimumSize(new Dimension(640, 260));
-        setPreferredSize(new Dimension(700, 640));
+        setMinimumSize(new Dimension(750, 580));
+        setPreferredSize(new Dimension(750, 580));
         setLayout(new GridBagLayout());
+
+        dEFUSEpanel1.setMinimumSize(new Dimension(600, 120));
+        dEFUSEpanel1.setPreferredSize(new Dimension(600, 120));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.anchor = GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
+
+        expandableList1.setMinimumSize(new Dimension(720, 400));
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.anchor = GridBagConstraints.NORTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
         add(expandableList1, gridBagConstraints);
 
@@ -132,7 +137,7 @@ public class COLORRGBACustomizer extends BaseCustomizer
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.ipady = 4;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
         add(hintLabel, gridBagConstraints);

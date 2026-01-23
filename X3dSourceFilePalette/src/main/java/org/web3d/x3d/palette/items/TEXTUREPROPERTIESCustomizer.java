@@ -146,26 +146,28 @@ public class TEXTUREPROPERTIESCustomizer extends BaseCustomizer
         borderColor1TF = new javax.swing.JTextField();
         borderColor2TF = new javax.swing.JTextField();
         borderColorChooser = new net.java.dev.colorchooser.ColorChooser();
-        borderWidthCBox = new javax.swing.JComboBox<String>();
+        borderWidthCBox = new javax.swing.JComboBox<>();
         borderColor3TF = new javax.swing.JTextField();
         anisotropicDegreeTF = new javax.swing.JTextField();
         boundaryModeSLabel = new javax.swing.JLabel();
-        boundaryModeSCBox = new javax.swing.JComboBox<String>();
+        boundaryModeSCBox = new javax.swing.JComboBox<>();
         boundaryModeTLabel = new javax.swing.JLabel();
-        boundaryModeTCBox = new javax.swing.JComboBox<String>();
+        boundaryModeTCBox = new javax.swing.JComboBox<>();
         boundaryModeRLabel = new javax.swing.JLabel();
-        boundaryModeRCBox = new javax.swing.JComboBox<String>();
+        boundaryModeRCBox = new javax.swing.JComboBox<>();
         texturePriorityLabel = new javax.swing.JLabel();
         texturePriorityTF = new javax.swing.JTextField();
         magnificationFilterLabel = new javax.swing.JLabel();
-        magnificationFilterCBox = new javax.swing.JComboBox<String>();
+        magnificationFilterCBox = new javax.swing.JComboBox<>();
         minificationFilterLabel1 = new javax.swing.JLabel();
-        minificationFilterCBox = new javax.swing.JComboBox<String>();
+        minificationFilterCBox = new javax.swing.JComboBox<>();
         textureCompressionLabel = new javax.swing.JLabel();
-        textureCompressionCBox = new javax.swing.JComboBox<String>();
+        textureCompressionCBox = new javax.swing.JComboBox<>();
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(640, 470));
+        setPreferredSize(new java.awt.Dimension(640, 470));
         setLayout(new java.awt.GridBagLayout());
 
         generateMipMapsLabel.setText("generateMipMaps");
@@ -227,8 +229,11 @@ public class TEXTUREPROPERTIESCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 

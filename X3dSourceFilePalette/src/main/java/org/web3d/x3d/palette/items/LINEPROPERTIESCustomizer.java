@@ -96,10 +96,12 @@ public class LINEPROPERTIESCustomizer extends BaseCustomizer
         jLabel3 = new JLabel();
         lineWidScFactTF = new JTextField();
         DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
-        linetypeComboBox = new JComboBox<String>();
+        linetypeComboBox = new JComboBox<>();
         nodeHintPanel = new JPanel();
         descriptionLabel = new JLabel();
 
+        setMinimumSize(new Dimension(620, 250));
+        setPreferredSize(new Dimension(620, 250));
         setLayout(new GridBagLayout());
 
         jLabel1.setHorizontalAlignment(SwingConstants.TRAILING);

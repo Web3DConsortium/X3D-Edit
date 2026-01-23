@@ -120,28 +120,33 @@ public class POLYLINE2DCustomizer extends BaseCustomizer
         add(expandableList1, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nodeHintPanel.setMinimumSize(new java.awt.Dimension(50, 25));
+        nodeHintPanel.setMinimumSize(new java.awt.Dimension(650, 120));
+        nodeHintPanel.setPreferredSize(new java.awt.Dimension(650, 120));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hintLabel.setText("<html><p align=\"center\"><b>Polyline2D</b> defines a connected set of  line segments in X-Y plane.<br/>Hint: point color is controlled by accompanying <b>Appearance</b>/<b>Material</b> emissiveColor.</p>");
         hintLabel.setToolTipText("a parent Shape node can only contain one geometry node");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        hintLabel.setMinimumSize(new java.awt.Dimension(600, 60));
+        hintLabel.setPreferredSize(new java.awt.Dimension(600, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(6, 3, 3, 3);
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         nodeHintPanel.add(hintLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
     

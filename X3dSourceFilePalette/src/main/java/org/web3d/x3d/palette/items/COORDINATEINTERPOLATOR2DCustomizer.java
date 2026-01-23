@@ -107,6 +107,8 @@ public class COORDINATEINTERPOLATOR2DCustomizer extends BaseCustomizer
         eventLabel1 = new javax.swing.JLabel();
         eventLabel2 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(740, 540));
+        setPreferredSize(new java.awt.Dimension(740, 540));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));

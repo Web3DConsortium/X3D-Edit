@@ -169,7 +169,7 @@ public class TEXTURECOORDINATECustomizer extends BaseCustomizer
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 60;
+        gridBagConstraints.ipadx = 100;
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
         add(mappingTF, gridBagConstraints);

@@ -84,7 +84,8 @@ public class KEYSENSORCustomizer extends BaseCustomizer
         descriptionLabel1 = new javax.swing.JLabel();
         eventsLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(664, 205));
+        setMinimumSize(new java.awt.Dimension(680, 240));
+        setPreferredSize(new java.awt.Dimension(680, 240));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -135,10 +136,9 @@ public class KEYSENSORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionTF, gridBagConstraints);
 
-        descriptionLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        descriptionLabel1.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel1.setText("description");
         descriptionLabel1.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
+        descriptionLabel1.setPreferredSize(new java.awt.Dimension(680, 240));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -147,7 +147,7 @@ public class KEYSENSORCustomizer extends BaseCustomizer
         add(descriptionLabel1, gridBagConstraints);
 
         eventsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel.setText("<html>\n<p align=\"center\">Output events include <b>isActive</b>, <b>keyPress</b>, <b>keyRelease</b>, <b>actionKeyPress</b>, <b>actionKeyRelease</b>, <b>altKey</b>, <b>controlKey</b>, <b>shiftKey</b> </p>\n<p align='center'>Hint: <i>description</i> field requires X3D version='4.0' </p>");
+        eventsLabel.setText("<html>\n<p align='center'><b>KeySensor</b> generates events as the user presses keys on the keyboard.</p>\n<p align=\"center\">Output events include <b>isActive</b>, <b>keyPress</b>, <b>keyRelease</b>, <b>actionKeyPress</b>, <b>actionKeyRelease</b>, <b>altKey</b>, <b>controlKey</b>, <b>shiftKey</b> </p>");
         eventsLabel.setToolTipText("Create a ROUTE to connect output events");
         eventsLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         eventsLabel.setPreferredSize(new java.awt.Dimension(665, 210));

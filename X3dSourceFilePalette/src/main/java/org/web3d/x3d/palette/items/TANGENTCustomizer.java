@@ -103,8 +103,8 @@ public class TANGENTCustomizer extends BaseCustomizer
         normalizeAxisValuesButton = new javax.swing.JButton();
         hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(590, 600));
-        setPreferredSize(new java.awt.Dimension(590, 600));
+        setMinimumSize(new java.awt.Dimension(680, 550));
+        setPreferredSize(new java.awt.Dimension(680, 550));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(600, 120));
@@ -145,12 +145,12 @@ public class TANGENTCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
         add(normalizeAxisValuesButton, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align='center'><b>Tangent</b> node contains orthogonal vector values for a surface, applied either per-vertex or per-face to a mesh.  This is an advanced technique for surface shading. </p>\n<br />\n<p align='center'><i>x y z w</i> values define tangent directions on the surface. \n  <i>w</i> values are handedness of the tangent base, either +1 or -1.\n  All vertexes of the same triangle must have the same w value for their tangent vectors.</p>\n<br />\n<p align='center'>Hint: authors using normalTexture are encouraged to not rely on a particular algorithm used by the X3D browser to automatically calculate the tangent vectors, and instead provide explicit Tangent values to achieve the same rendering results as the 3D software used for creating the original normal maps.</p>");
+        hintLabel.setText("<html><p align='center'><b>Tangent</b> node contains orthogonal vector values for a surface, \n<br /> applied either per-vertex or per-face to a mesh, as an advanced technique for surface shading. </p>\n<br />\n<p align='center'><i>x y z w</i> values define tangent directions on a surface. \n  <i>w</i> values are handedness of tangent base, either +1 or -1.\n<br />\n  All vertices of the same triangle must have the same w value for their tangent vectors.</p>\n<br />\n<p align='center'>Hint: authors using normalTexture are encouraged to not rely on a particular algorithm used by the\n<br />\n X3D browser to automatically calculate the tangent vectors, and instead provide explicit <b>Tangent</b> values\n<br />\n to achieve the same rendering results as the 3D software used for creating the original normal maps.</p>");
         hintLabel.setToolTipText("Tangent vector values support advanced surface shading");
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

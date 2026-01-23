@@ -94,8 +94,9 @@ public class ARC2DCustomizer extends BaseCustomizer {
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setMaximumSize(null);
+        setMinimumSize(new java.awt.Dimension(650, 250));
         setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(650, 250));
         setLayout(new java.awt.GridBagLayout());
 
         startAngleTF.setMinimumSize(new java.awt.Dimension(50, 20));

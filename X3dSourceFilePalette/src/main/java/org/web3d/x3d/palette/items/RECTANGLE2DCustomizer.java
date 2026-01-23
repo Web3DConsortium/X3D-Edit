@@ -88,6 +88,8 @@ public class RECTANGLE2DCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(620, 250));
+        setPreferredSize(new java.awt.Dimension(620, 250));
         setLayout(new java.awt.GridBagLayout());
 
         xTF.setColumns(10);

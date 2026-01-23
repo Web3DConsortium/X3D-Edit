@@ -91,7 +91,8 @@ public class STRINGSENSORCustomizer extends BaseCustomizer
         eventsLabel = new javax.swing.JLabel();
         deletionLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(620, 230));
+        setMinimumSize(new java.awt.Dimension(640, 240));
+        setPreferredSize(new java.awt.Dimension(640, 240));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -146,8 +147,6 @@ public class STRINGSENSORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionTF, gridBagConstraints);
 
-        descriptionLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        descriptionLabel1.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel1.setText("description");
         descriptionLabel1.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -161,7 +160,7 @@ public class STRINGSENSORCustomizer extends BaseCustomizer
         eventHintPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel.setText("<html>\n<p align='center'>Output events include <b>isActive</b>, <b>finalText</b>, <b>enteredText</b></p>\n<p align='center'>Hint: <i>description</i> field requires X3D version='4.0' </p>");
+        eventsLabel.setText("<html>\n<p align='center'><b>StringSensor</b> StringSensor generates events as the user enters strings on the keyboard.\n<br />\nOutput events include <b>isActive</b>, <b>finalText</b>, <b>enteredText</b></p>");
         eventsLabel.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

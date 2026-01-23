@@ -104,6 +104,8 @@ public class ARCCLOSE2DCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(606, 290));
+        setPreferredSize(new java.awt.Dimension(606, 290));
         setLayout(new java.awt.GridBagLayout());
 
         startAngleTF.setMinimumSize(new java.awt.Dimension(50, 20));

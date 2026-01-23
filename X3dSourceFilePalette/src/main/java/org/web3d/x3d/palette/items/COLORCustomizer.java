@@ -99,18 +99,23 @@ public class COLORCustomizer extends BaseCustomizer
         expandableListColors = new org.web3d.x3d.palette.items.ExpandableList();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(700, 640));
+        setMinimumSize(new java.awt.Dimension(750, 550));
+        setPreferredSize(new java.awt.Dimension(750, 550));
         setLayout(new java.awt.GridBagLayout());
 
-        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
+        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(600, 120));
+        dEFUSEpanel1.setPreferredSize(new java.awt.Dimension(600, 120));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        expandableListColors.setMinimumSize(new java.awt.Dimension(720, 400));
         expandableListColors.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 expandableListColorsPropertyChange(evt);

@@ -219,15 +219,17 @@ public class INDEXEDLINESETCustomizer extends BaseCustomizer
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
         polylineArrayCountLabel.setText("(polyline count)");
         polylineArrayCountLabel.setVerticalAlignment(SwingConstants.TOP);
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
@@ -238,7 +240,7 @@ public class INDEXEDLINESETCustomizer extends BaseCustomizer
         coordArrayCountLabel.setText("(coordinate count)");
         coordArrayCountLabel.setVerticalAlignment(SwingConstants.TOP);
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
@@ -254,7 +256,7 @@ public class INDEXEDLINESETCustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
@@ -263,7 +265,7 @@ public class INDEXEDLINESETCustomizer extends BaseCustomizer
         colorArrayCountLabel.setText("(color count)");
         colorArrayCountLabel.setVerticalAlignment(SwingConstants.TOP);
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = GridBagConstraints.EAST;
@@ -273,7 +275,7 @@ public class INDEXEDLINESETCustomizer extends BaseCustomizer
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new Insets(3, 0, 3, 0);
         add(jSeparator1, gridBagConstraints);
@@ -299,8 +301,9 @@ public class INDEXEDLINESETCustomizer extends BaseCustomizer
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipady = 30;
         gridBagConstraints.weighty = 1.0;
         add(expandableListTabbedPane, gridBagConstraints);
 
@@ -321,7 +324,7 @@ public class INDEXEDLINESETCustomizer extends BaseCustomizer
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new Insets(3, 3, 3, 3);
@@ -335,8 +338,9 @@ public class INDEXEDLINESETCustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new Insets(3, 3, 10, 3);
         add(colorIndexAppendButton, gridBagConstraints);

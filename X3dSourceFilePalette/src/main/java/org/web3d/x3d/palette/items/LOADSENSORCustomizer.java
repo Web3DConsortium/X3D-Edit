@@ -84,8 +84,8 @@ public class LOADSENSORCustomizer extends BaseCustomizer
         spacerLabel2 = new javax.swing.JLabel();
         hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(630, 240));
-        setPreferredSize(new java.awt.Dimension(630, 240));
+        setMinimumSize(new java.awt.Dimension(630, 250));
+        setPreferredSize(new java.awt.Dimension(630, 250));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

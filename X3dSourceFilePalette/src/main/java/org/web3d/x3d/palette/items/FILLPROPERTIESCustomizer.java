@@ -101,11 +101,13 @@ public class FILLPROPERTIESCustomizer extends BaseCustomizer
         color2TF = new javax.swing.JTextField();
         colorChooser1 = new net.java.dev.colorchooser.ColorChooser();
         hatchedStyleLabel = new javax.swing.JLabel();
-        hatchStyleCBox = new javax.swing.JComboBox<String>();
+        hatchStyleCBox = new javax.swing.JComboBox<>();
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
         setToolTipText("FillProperties indicates whether appearance is filled or hatched");
+        setMinimumSize(new java.awt.Dimension(640, 280));
+        setPreferredSize(new java.awt.Dimension(640, 280));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));

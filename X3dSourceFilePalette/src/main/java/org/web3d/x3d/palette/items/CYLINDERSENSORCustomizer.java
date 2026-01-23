@@ -127,6 +127,8 @@ public class CYLINDERSENSORCustomizer extends BaseCustomizer
         rotationAngleTF = new javax.swing.JTextField();
         axisRotationCalculatorlButton = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(720, 430));
+        setPreferredSize(new java.awt.Dimension(720, 430));
         setLayout(new java.awt.GridBagLayout());
 
         enabledLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -340,7 +342,7 @@ public class CYLINDERSENSORCustomizer extends BaseCustomizer
         eventHintPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel.setText("<html>Output events include <b>isActive</b>, <b>isOver</b>, <b>rotation_changed</b>, <b>trackPoint_changed</b>");
+        eventsLabel.setText("<html><p align='center'><b>CylinderSensor</b> converts pointer motion (for example, a mouse or wand) into rotation values.\n<br />\nOutput events include <b>isActive</b>, <b>isOver</b>, <b>rotation_changed</b>, <b>trackPoint_changed</b>.</p>");
         eventsLabel.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

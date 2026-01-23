@@ -160,7 +160,8 @@ public class COORDINATECustomizer extends BaseCustomizer
         setPreferredSize(new java.awt.Dimension(700, 640));
         setLayout(new java.awt.GridBagLayout());
 
-        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
+        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(600, 120));
+        dEFUSEpanel1.setPreferredSize(new java.awt.Dimension(600, 120));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -169,7 +170,7 @@ public class COORDINATECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
-        expandableListPoints.setPreferredSize(new java.awt.Dimension(632, 250));
+        expandableListPoints.setMinimumSize(new java.awt.Dimension(720, 400));
         expandableListPoints.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 expandableListPointsPropertyChange(evt);
