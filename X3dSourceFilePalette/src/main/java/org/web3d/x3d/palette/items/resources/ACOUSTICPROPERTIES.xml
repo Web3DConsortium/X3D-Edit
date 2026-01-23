@@ -15,8 +15,8 @@
 <editor_palette_item version="1.0">
   <class name="org.web3d.x3d.palette.items.ACOUSTICPROPERTIES" />
   
-  <icon16 urlvalue="org/web3d/x3d/palette/items/resources/AUDIOCLIP16.png" />
-  <icon32 urlvalue="org/web3d/x3d/palette/items/resources/AUDIOCLIP32.png" />
+  <icon16 urlvalue="org/web3d/x3d/palette/items/resources/SOUND16.png" />
+  <icon32 urlvalue="org/web3d/x3d/palette/items/resources/SOUND32.png" />
   <description localizing-bundle="org.web3d.x3d.palette.items.resources.Bundle"
                 display-name-key="NAME_x3d-ACOUSTICPROPERTIES"
                      tooltip-key="HINT_x3d-ACOUSTICPROPERTIES" />

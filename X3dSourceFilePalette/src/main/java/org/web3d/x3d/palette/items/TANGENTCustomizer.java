@@ -107,17 +107,19 @@ public class TANGENTCustomizer extends BaseCustomizer
         setPreferredSize(new java.awt.Dimension(590, 600));
         setLayout(new java.awt.GridBagLayout());
 
-        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(600, 110));
-        dEFUSEpanel1.setPreferredSize(new java.awt.Dimension(600, 110));
+        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(600, 120));
+        dEFUSEpanel1.setPreferredSize(new java.awt.Dimension(600, 120));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
         expandableList1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP));
+        expandableList1.setMinimumSize(new java.awt.Dimension(600, 110));
+        expandableList1.setPreferredSize(new java.awt.Dimension(600, 400));
         expandableList1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 expandableList1PropertyChange(evt);
@@ -127,12 +129,13 @@ public class TANGENTCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(expandableList1, gridBagConstraints);
 
-        normalizeAxisValuesButton.setText("Set unit length for normal values");
+        normalizeAxisValuesButton.setText("Set unit length for tangent values");
         normalizeAxisValuesButton.setToolTipText("Set unit-magnitude vector values for normals (unit length, ranges 0..1) with illegal all-zero vectors changed to 0 1 0");
         normalizeAxisValuesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,8 +157,9 @@ public class TANGENTCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipady = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(hintLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents

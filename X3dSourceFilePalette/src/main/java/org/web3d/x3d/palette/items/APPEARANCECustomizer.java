@@ -242,14 +242,14 @@ public class APPEARANCECustomizer extends BaseCustomizer
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setMinimumSize(new java.awt.Dimension(600, 540));
+        setMinimumSize(new java.awt.Dimension(600, 530));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(610, 550));
+        setPreferredSize(new java.awt.Dimension(610, 530));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
-        dEFUSEpanel1.setMinimumSize(null);
-        dEFUSEpanel1.setPreferredSize(null);
+        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(600, 120));
+        dEFUSEpanel1.setPreferredSize(new java.awt.Dimension(600, 120));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -373,7 +373,7 @@ public class APPEARANCECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(contentSelectionPanel, gridBagConstraints);
 
@@ -579,9 +579,11 @@ public class APPEARANCECustomizer extends BaseCustomizer
         add(selectionPanel, gridBagConstraints);
 
         appearanceHintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        appearanceHintLabel.setText("<html><p align=\"center\"><b>Appearance</b> can contain multiple nodes whose rendering  properties are applied \n<br />\nto the adjacent geometry node found inside the shared parent <b>Shape</b> node.</p> \n<br />\n<p align=\"center\">Hint:  reuse of <b>Appearance</b> via DEF/USE  provides a similar look + feel for related shapes in a scene. </p>\n<br />\n<p align=\"left\"><b>Appearance</b> can also contain the following nodes:  </p>\n<ul>\n  <li> <b>AcousticProperties</b>, <b>FillProperties</b>,<b>LineProperties</b>, <b>PointProperties</b>  </li>\n  <li> <b>ComposedShader</b>, <b>PackagedShader</b>, <b>ProgramShader</b> </li>\n  <li> <b>ComposedTexture3D</b>, <b>ImageTexture3D</b>, <b>PixelTexture3D</b></li>\n  <li> <b>ComposedCubeMapTexture</b>, <b>GeneratedCubeMapTexture</b>, <b>ImageCubeMapTexture</b> </li>\n  <li> <b>TextureMatrixTransform</b>, <b>TextureTransform3D</b> </li>\n</ul>");
+        appearanceHintLabel.setText("<html><p align=\"center\"><b>Appearance</b> can contain multiple nodes whose rendering  properties are applied \n<br />\nto the adjacent geometry node found inside the shared parent <b>Shape</b> node.</p> \n<ul>\n  <li> <b>AcousticProperties</b>, <b>FillProperties</b>,<b>LineProperties</b>, <b>PointProperties</b>  </li>\n  <li> <b>ComposedShader</b>, <b>PackagedShader</b>, <b>ProgramShader</b> </li>\n  <li> <b>ComposedTexture3D</b>, <b>ImageTexture3D</b>, <b>PixelTexture3D</b></li>\n  <li> <b>ComposedCubeMapTexture</b>, <b>GeneratedCubeMapTexture</b>, <b>ImageCubeMapTexture</b> </li>\n  <li> <b>TextureMatrixTransform</b>, <b>TextureTransform3D</b> </li>\n</ul>\n<p align=\"center\">Hint:  reuse of <b>Appearance</b> via DEF/USE  provides a similar look + feel for related shapes in a scene. </p>");
         appearanceHintLabel.setToolTipText("Appearance specifies the visual properties of geometry");
         appearanceHintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        appearanceHintLabel.setMinimumSize(new java.awt.Dimension(600, 150));
+        appearanceHintLabel.setPreferredSize(new java.awt.Dimension(600, 150));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
