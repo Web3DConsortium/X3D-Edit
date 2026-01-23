@@ -13,6 +13,7 @@
             <word>draggable</word>
             <word>encodings</word>
             <word>http</word>
+            <word>JDK</word>
             <word>localhost</word>
             <word>MultiTexture</word>
             <word>NetBeans</word>
@@ -23,8 +24,8 @@
             <word>SourceForge</word>
             <word>TODO</word>
             <word>Tooltips</word>
-            <word>Validator</word>
             <word>url</word>
+            <word>Validator</word>
             <word>VRML</word>
         </spellchecker-wordlist>
     </configuration>
