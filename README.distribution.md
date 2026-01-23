@@ -6,7 +6,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 * [SourceForge Markdown Syntax Guide](https://sourceforge.net/nf/markdown_syntax)
 -->
 
-# X3D-Edit 4.0 Distribution, 25 December 2025
+# X3D-Edit 4.0 Distribution, 22 January 2026
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
@@ -19,7 +19,7 @@ Backup module deployment is found in  [Maven Central Repository](https://central
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetBeans&nbsp;28. Tested satisfactorily, any operating system |   76.0 MB | 25 December 2025
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetBeans&nbsp;28. Tested satisfactorily, any operating system |   137.1 MB | 22 January 2026
 [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Must set jdkhome in netbeans.conf       |  260.7 MB | 25 February 2025
 
 <!---
@@ -55,7 +55,7 @@ If you want to try the standalone application on another system, please note tha
 
 - Using _localadmin_ permissions, set `jdkhome` permissions in configuration file:
 - `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
-- `jdkhome="C:\Program Files\Java\openjdk\jdk-25.0.1"`
+- `jdkhome="C:\Program Files\Java\openjdk\jdk-25.0.2"`
 
 ## Troubleshooting NetBeans
 
