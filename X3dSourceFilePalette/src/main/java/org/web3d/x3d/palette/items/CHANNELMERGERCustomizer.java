@@ -99,8 +99,8 @@ public class CHANNELMERGERCustomizer extends BaseCustomizer
 
         jTextField2.setText("jTextField2");
 
-        setMinimumSize(new java.awt.Dimension(600, 280));
-        setPreferredSize(new java.awt.Dimension(620, 290));
+        setMinimumSize(new java.awt.Dimension(640, 290));
+        setPreferredSize(new java.awt.Dimension(640, 290));
         setRequestFocusEnabled(false);
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -250,6 +250,7 @@ public class CHANNELMERGERCustomizer extends BaseCustomizer
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         eventsLabel1.setText("<html><p align=\"center\"> <b>ChannelMerger</b> node unites different input channels into a single output channel. </p> <br /> \n<p align=\"center\">ChannelMerger <b>child nodes</b> provide input signals, and the <b>parent node</b> receives the output signal from this node. </p>");
         eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
+        eventsLabel1.setMinimumSize(new java.awt.Dimension(640, 290));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

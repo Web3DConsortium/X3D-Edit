@@ -93,12 +93,14 @@ public class FOGCustomizer extends BaseCustomizer
         color2TF = new javax.swing.JTextField();
         colorChooser = new net.java.dev.colorchooser.ColorChooser();
         jLabel1 = new javax.swing.JLabel();
-        fogTypeCombo = new javax.swing.JComboBox<String>();
+        fogTypeCombo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         visibilityTF = new javax.swing.JTextField();
         eventHintPanel = new javax.swing.JPanel();
         eventsLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(640, 260));
+        setPreferredSize(new java.awt.Dimension(640, 260));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));

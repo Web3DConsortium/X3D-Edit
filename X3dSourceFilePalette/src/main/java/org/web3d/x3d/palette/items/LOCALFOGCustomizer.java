@@ -95,13 +95,15 @@ public class LOCALFOGCustomizer extends BaseCustomizer
         color2TF = new javax.swing.JTextField();
         colorChooser = new net.java.dev.colorchooser.ColorChooser();
         jLabel1 = new javax.swing.JLabel();
-        fogTypeCombo = new javax.swing.JComboBox<String>();
+        fogTypeCombo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         visibilityTF = new javax.swing.JTextField();
         enabledCB = new javax.swing.JCheckBox();
         eventHintPanel = new javax.swing.JPanel();
         eventsLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(610, 290));
+        setPreferredSize(new java.awt.Dimension(610, 290));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -124,36 +126,36 @@ public class LOCALFOGCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel7, gridBagConstraints);
 
-        color0TF.setColumns(5);
         color0TF.setEditable(false);
+        color0TF.setColumns(5);
         color0TF.setToolTipText("fog color, needs to match color of background geometry");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(color0TF, gridBagConstraints);
 
-        color1TF.setColumns(5);
         color1TF.setEditable(false);
+        color1TF.setColumns(5);
         color1TF.setToolTipText("fog color, needs to match color of background geometry");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(color1TF, gridBagConstraints);
 
-        color2TF.setColumns(5);
         color2TF.setEditable(false);
+        color2TF.setColumns(5);
         color2TF.setToolTipText("fog color, needs to match color of background geometry");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(color2TF, gridBagConstraints);
 
@@ -210,8 +212,8 @@ public class LOCALFOGCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel2, gridBagConstraints);
 
-        visibilityTF.setColumns(5);
         visibilityTF.setEditable(false);
+        visibilityTF.setColumns(5);
         visibilityTF.setToolTipText("Distance in meters where objects are totally obscured by the fog (visibilityRange 0 disables Fog)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

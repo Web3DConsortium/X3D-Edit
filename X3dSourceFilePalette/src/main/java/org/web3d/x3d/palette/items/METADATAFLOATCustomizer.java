@@ -131,7 +131,8 @@ public class METADATAFLOATCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(616, 411));
+        setMinimumSize(new java.awt.Dimension(620, 420));
+        setPreferredSize(new java.awt.Dimension(620, 420));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));

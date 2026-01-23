@@ -130,7 +130,8 @@ public class METADATAINTEGERCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(616, 411));
+        setMinimumSize(new java.awt.Dimension(630, 440));
+        setPreferredSize(new java.awt.Dimension(630, 440));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));

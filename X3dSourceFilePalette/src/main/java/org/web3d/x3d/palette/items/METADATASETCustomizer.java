@@ -101,7 +101,8 @@ public class METADATASETCustomizer extends BaseCustomizer
         hintLabel = new javax.swing.JLabel();
 
         setToolTipText("metadata attribute name");
-        setPreferredSize(new java.awt.Dimension(616, 255));
+        setMinimumSize(new java.awt.Dimension(620, 260));
+        setPreferredSize(new java.awt.Dimension(620, 260));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));

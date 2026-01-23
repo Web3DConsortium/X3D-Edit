@@ -130,7 +130,8 @@ public class METADATABOOLEANCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(611, 411));
+        setMinimumSize(new java.awt.Dimension(204, 420));
+        setPreferredSize(new java.awt.Dimension(611, 420));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
