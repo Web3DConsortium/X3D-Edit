@@ -1004,15 +1004,6 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="WORLDINFO.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/WORLDINFO.xml">
                 <attr name="position" intvalue="1400"/>
             </file>
-            <file name="SMAL_ObjectMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_ObjectMetadataTemplate.xml">
-                <attr name="position" intvalue="1700"/>
-            </file>
-            <file name="SMAL_TerrainMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_TerrainMetadataTemplate.xml">
-                <attr name="position" intvalue="1800"/>
-            </file>
-            <file name="SMAL_VehicleMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_VehicleMetadataTemplate.xml">
-                <attr name="position" intvalue="1900"/>
-            </file>
         </folder>
         <folder name="Geometry_Primitives">
             <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Geometry_Primitives"/>
@@ -2032,6 +2023,15 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
             <file name="ROUTE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ROUTE.xml">
                 <attr name="position" intvalue="1600"/>
+            </file>
+            <file name="SMAL_ObjectMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_ObjectMetadataTemplate.xml">
+                <attr name="position" intvalue="1700"/>
+            </file>
+            <file name="SMAL_TerrainMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_TerrainMetadataTemplate.xml">
+                <attr name="position" intvalue="1800"/>
+            </file>
+            <file name="SMAL_VehicleMetadataTemplate.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/SMAL_VehicleMetadataTemplate.xml">
+                <attr name="position" intvalue="1900"/>
             </file>
         </folder>
         <folder name="X3D_for_Web_Authors_Examples_Archive">
