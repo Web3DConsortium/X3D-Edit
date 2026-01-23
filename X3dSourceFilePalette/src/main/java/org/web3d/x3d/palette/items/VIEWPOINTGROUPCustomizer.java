@@ -104,7 +104,8 @@ public class VIEWPOINTGROUPCustomizer extends BaseCustomizer
         size2TF = new javax.swing.JTextField();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(622, 350));
+        setMinimumSize(new java.awt.Dimension(620, 370));
+        setPreferredSize(new java.awt.Dimension(620, 370));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);

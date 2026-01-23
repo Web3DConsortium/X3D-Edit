@@ -80,8 +80,8 @@ public class MULTITEXTURECOORDINATECustomizer extends BaseCustomizer
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setMinimumSize(new java.awt.Dimension(640, 240));
-        setPreferredSize(new java.awt.Dimension(640, 240));
+        setMinimumSize(new java.awt.Dimension(640, 250));
+        setPreferredSize(new java.awt.Dimension(640, 250));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(new java.awt.Dimension(396, 154));

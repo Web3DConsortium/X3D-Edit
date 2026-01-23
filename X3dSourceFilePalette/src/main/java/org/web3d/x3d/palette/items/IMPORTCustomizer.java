@@ -136,8 +136,6 @@ public class IMPORTCustomizer extends BaseCustomizer
         add(hint1Label, gridBagConstraints);
 
         outlinePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        outlinePanel.setMinimumSize(null);
-        outlinePanel.setPreferredSize(null);
         outlinePanel.setLayout(new java.awt.GridBagLayout());
 
         inlinelDEFLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -295,19 +293,23 @@ public class IMPORTCustomizer extends BaseCustomizer
 
         hint3Label.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         hint3Label.setForeground(new java.awt.Color(51, 102, 0));
+        hint3Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hint3Label.setText("<html>X3D v4.1 adds <i>description</i> field and allows this node reference as a USE node");
         hint3Label.setToolTipText("unit is only valid in X3D version 3.3+");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 10, 6);
         add(hint3Label, gridBagConstraints);
 
+        hint4Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hint4Label.setText("Hint: use a new IMPORT statement for each new IMPORT node.");
         hint4Label.setToolTipText("unit is only valid in X3D version 3.3+");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 6, 10, 6);
         add(hint4Label, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents

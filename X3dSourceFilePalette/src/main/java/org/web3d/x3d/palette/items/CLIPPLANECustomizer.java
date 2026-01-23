@@ -106,6 +106,8 @@ public class CLIPPLANECustomizer extends BaseCustomizer
         negatePlaneVectorButton = new javax.swing.JButton();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(700, 260));
+        setPreferredSize(new java.awt.Dimension(700, 260));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
