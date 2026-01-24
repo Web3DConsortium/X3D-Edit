@@ -6763,7 +6763,7 @@ public interface X3DSchemaData
   boolean  SEGMENTEDVOLUMEDATA_ATTR_BBOXSIZE_REQD       = false;
   String   SEGMENTEDVOLUMEDATA_ATTR_BBOXSIZE_DFLT       = "-1 -1 -1";
 
-  /** AllX3dElementNames.txt */
+  /** AllX3dElementNames.4.1.txt */
   String[] ALL_X3D_NODE_NAMES = {
 "AcousticProperties",
 "Analyser",
@@ -6843,6 +6843,7 @@ public interface X3DSchemaData
 "FloatVertexAttribute",
 "Fog",
 "FogCoordinate",
+"FontLibrary",
 "FontStyle",
 "ForcePhysicsModel",
 "Gain",
@@ -6863,6 +6864,7 @@ public interface X3DSchemaData
 "HAnimHumanoid",
 "HAnimJoint",
 "HAnimMotion",
+"HAnimPose",
 "HAnimSegment",
 "HAnimSite",
 "ImageCubeMapTexture",
@@ -6988,6 +6990,7 @@ public interface X3DSchemaData
 "StringSensor",
 "SurfaceEmitter",
 "Switch",
+"Tangent",
 "TexCoordChaser2D",
 "TexCoordDamper2D",
 "Text",
