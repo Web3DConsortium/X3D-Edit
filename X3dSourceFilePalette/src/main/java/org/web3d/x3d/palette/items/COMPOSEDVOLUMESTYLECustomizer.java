@@ -88,6 +88,8 @@ public class COMPOSEDVOLUMESTYLECustomizer extends BaseCustomizer
         orderedLabel = new javax.swing.JLabel();
         orderedCB = new javax.swing.JCheckBox();
 
+        setMinimumSize(new java.awt.Dimension(630, 200));
+        setPreferredSize(new java.awt.Dimension(630, 200));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -121,7 +123,7 @@ public class COMPOSEDVOLUMESTYLECustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel1.setText("<html><p align='center'><b>BoundaryEnhancementVolumeStyle</b> contains a<br/>X3DComposableVolumeRenderStyleNode node to define renderStyle.</p>");
+        hintLabel1.setText("<html><p align='center'><b>ComposedVolumeStyle</b> allows compositing multiple rendering style nodes into single rendering pass.</p>");
         hintLabel1.setToolTipText("multiple style nodes can be applied to volume data");
         hintLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
