@@ -99,8 +99,8 @@ public class CHANNELSPLITTERCustomizer extends BaseCustomizer
 
         jTextField2.setText("jTextField2");
 
-        setMinimumSize(new java.awt.Dimension(600, 310));
-        setPreferredSize(new java.awt.Dimension(620, 320));
+        setMinimumSize(new java.awt.Dimension(670, 320));
+        setPreferredSize(new java.awt.Dimension(670, 320));
         setRequestFocusEnabled(false);
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -248,7 +248,7 @@ public class CHANNELSPLITTERCustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>ChannelSplitter</b> nodeseparates the different channels of a single audio source into a set of monophonic output channels. </p> <br /> \n<p align=\"center\">ChannelSplitter <b>child nodes</b> provide input signals, and the <b>parent node</b> receives the output signal from this node. </p>");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>ChannelSplitter</b> node separates different channels of a single audio source into a set of monophonic output channels. </p> <br /> \n<p align=\"center\">ChannelSplitter <b>child nodes</b> provide input signals, and the <b>parent node</b> receives the output signal from this node. </p>");
         eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

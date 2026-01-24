@@ -254,7 +254,7 @@ public class STREAMAUDIODESTINATIONCustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>StreamAudioDestination</b> is audio destination representing a MediaStream with single MediaStreamTrack whose kind is \"audio\". </p> <br /> \n<p align=\"center\">The <b>mediaDeviceID</b> field is a unique identifier for the active device. </p> <br /> \n<p align=\"center\">The <b>streamIdentifier</b> field is defined by W3C Media Capture and Streams. </p> <br /> \n<p align=\"center\">StreamAudioDestination<b> child nodes</b> provide input signals, and the <b>parent node</b> receives the unmodified output signal from this node. </p>");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>StreamAudioDestination</b> is audio destination representing a MediaStream with single MediaStreamTrack whose kind is \"audio\". </p> <br /> \n<p align=\"center\">The <b>mediaDeviceID</b> field is a unique identifier for the active device. </p> <br /> \n<p align=\"center\">The <b>streamIdentifier</b> field is defined by W3C Media Capture and Streams. </p> <br /> \n<p align=\"center\">StreamAudioDestination<b> child nodes</b> provide input signals, and <b>parent node</b> receives  unmodified output signal from this node. </p>");
         eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
