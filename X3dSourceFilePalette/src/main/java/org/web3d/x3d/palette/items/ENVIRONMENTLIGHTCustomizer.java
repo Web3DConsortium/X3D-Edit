@@ -138,6 +138,9 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         dEFUSEpanel1 = getDEFUSEpanel();
         ambientIntensityLabel = new javax.swing.JLabel();
         ambientIntensityTF = new javax.swing.JTextField();
+        rLabel = new javax.swing.JLabel();
+        gLabel = new javax.swing.JLabel();
+        bLabel = new javax.swing.JLabel();
         colorLabel = new javax.swing.JLabel();
         color0TF = new org.web3d.x3d.palette.BetterJTextField();
         color1TF = new org.web3d.x3d.palette.BetterJTextField();
@@ -168,8 +171,8 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         diffuseCoefficientsScrollPane = new javax.swing.JScrollPane();
         diffuseCoefficientsTextArea = new javax.swing.JTextArea();
 
-        setMinimumSize(new java.awt.Dimension(700, 550));
-        setPreferredSize(new java.awt.Dimension(700, 550));
+        setMinimumSize(new java.awt.Dimension(700, 560));
+        setPreferredSize(new java.awt.Dimension(700, 560));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 6;
@@ -201,12 +204,33 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(ambientIntensityTF, gridBagConstraints);
 
+        rLabel.setText("r");
+        rLabel.setToolTipText("red component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        add(rLabel, gridBagConstraints);
+
+        gLabel.setText("g");
+        gLabel.setToolTipText("green component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        add(gLabel, gridBagConstraints);
+
+        bLabel.setText("b");
+        bLabel.setToolTipText("blue component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        add(bLabel, gridBagConstraints);
+
         colorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         colorLabel.setText("color");
         colorLabel.setToolTipText("color of light, applied to colors of objects");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -217,7 +241,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         color0TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -228,7 +252,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         color1TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -239,7 +263,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         color2TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -250,7 +274,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         intensityLabel.setToolTipText("[0,1] brightness of direct light");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -261,7 +285,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         intensityTF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -272,7 +296,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         originLabel.setToolTipText("position of light relative to local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -283,7 +307,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         origin0TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -294,7 +318,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         origin1TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -305,7 +329,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         origin2TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -379,7 +403,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -390,7 +414,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         rotationLabel.setToolTipText("maximum effective distance of light relative to local light position");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -401,7 +425,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         rotationXaxisTF.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.weightx = 0.25;
@@ -413,7 +437,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         rotationYaxisTF.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.weightx = 1.0;
@@ -425,7 +449,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         rotationZaxisTF.setMaximumSize(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.weightx = 1.0;
@@ -442,7 +466,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 100;
         gridBagConstraints.weightx = 1.0;
@@ -461,7 +485,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.5;
@@ -474,7 +498,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
@@ -533,7 +557,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         diffuseCoefficientsLabel.setToolTipText("[0,1] brightness of direct light");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
@@ -547,7 +571,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipady = 60;
@@ -596,6 +620,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ambientIntensityLabel;
     private javax.swing.JTextField ambientIntensityTF;
+    private javax.swing.JLabel bLabel;
     private org.web3d.x3d.palette.BetterJTextField color0TF;
     private org.web3d.x3d.palette.BetterJTextField color1TF;
     private org.web3d.x3d.palette.BetterJTextField color2TF;
@@ -605,6 +630,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
     private javax.swing.JLabel diffuseCoefficientsLabel;
     private javax.swing.JScrollPane diffuseCoefficientsScrollPane;
     private javax.swing.JTextArea diffuseCoefficientsTextArea;
+    private javax.swing.JLabel gLabel;
     private javax.swing.JCheckBox globalCB;
     private javax.swing.JLabel globalLabel;
     private javax.swing.JLabel hintLabel;
@@ -616,6 +642,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
     private javax.swing.JTextField origin1TF;
     private javax.swing.JTextField origin2TF;
     private javax.swing.JLabel originLabel;
+    private javax.swing.JLabel rLabel;
     private javax.swing.JTextField rotationAngleTF;
     private javax.swing.JButton rotationCalculatorlButton;
     private javax.swing.JLabel rotationLabel;
