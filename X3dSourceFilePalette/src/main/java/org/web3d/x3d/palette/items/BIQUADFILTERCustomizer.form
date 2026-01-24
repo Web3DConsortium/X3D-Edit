@@ -37,7 +37,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="4" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="23" weightX="1.0" weightY="1.0"/>
+          <GridBagConstraints gridX="0" gridY="0" gridWidth="5" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="23" weightX="1.0" weightY="1.0"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -73,7 +73,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="detune"/>
-        <Property name="toolTipText" type="java.lang.String" value="detune value, in cents, for the frequency"/>
+        <Property name="toolTipText" type="java.lang.String" value="detune value, in cents, for frequency modulation"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -83,7 +83,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="detuneTF">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="detune value, in cents, for the frequency"/>
+        <Property name="toolTipText" type="java.lang.String" value="detune value, in cents, for frequency modulation"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="detuneTFActionPerformed"/>
@@ -101,7 +101,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="frequency"/>
-        <Property name="toolTipText" type="java.lang.String" value="operating figure in Hertz Hz"/>
+        <Property name="toolTipText" type="java.lang.String" value="operating frequency in Hertz Hz"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -111,7 +111,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="frequencyTF">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="operating figure in Hertz Hz"/>
+        <Property name="toolTipText" type="java.lang.String" value="operating frequency in Hertz Hz"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="frequencyTFActionPerformed"/>
@@ -442,7 +442,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="0" gridY="12" gridWidth="4" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="0" insetsRight="3" anchor="25" weightX="1.0" weightY="1.0"/>
+          <GridBagConstraints gridX="0" gridY="12" gridWidth="5" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="0" insetsRight="3" anchor="25" weightX="1.0" weightY="1.0"/>
         </Constraint>
       </Constraints>
 
@@ -451,7 +451,7 @@
         <Component class="javax.swing.JLabel" name="eventsLabel1">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt; &lt;b&gt;BiquadFilter&lt;/b&gt; node represents different kinds of filters, tone control devices, and graphic equalizers. &lt;/p&gt; &lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt;Fields include &lt;b&gt;detune&lt;/b&gt; value in cents for the frequency, &lt;b&gt;frequency &lt;/b&gt; for operating frequency in Hz, &#xa;  &lt;b&gt;qualityFactor&lt;/b&gt; for the filter, and &lt;b&gt;type&lt;/b&gt; which varies the effects of these fields - see help documentation for details. &lt;/p&gt; &lt;br /&gt; &#xa;&lt;p align=&quot;center&quot;&gt;BiquadFilter &lt;b&gt;child nodes&lt;/b&gt; provide input signals, and the &lt;b&gt;parent node&lt;/b&gt; receives the output signal from this node. &lt;/p&gt; &lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; The &lt;b&gt;tailTime&lt;/b&gt; event  defines duration of time that output signal continues after input signal becomes silent. &lt;/p&gt; &lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; Timing control for the node is provided by &lt;b&gt;startTime&lt;/b&gt;, &lt;b&gt;stopTime&lt;/b&gt;, &lt;b&gt;pauseTime&lt;/b&gt;, &lt;b&gt;resumeTime&lt;/b&gt; fields.&lt;/p&gt; &lt;br /&gt; &#xa;&lt;p align=&quot;center&quot;&gt; Additional output events are &lt;b&gt;isActive&lt;/b&gt;, &lt;b&gt;isPaused&lt;/b&gt;, &lt;b&gt;channelCount&lt;/b&gt;, and &lt;b&gt;elapsedTime&lt;/b&gt;.&lt;/p&gt; "/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt; &lt;b&gt;BiquadFilter&lt;/b&gt; node represents different kinds of filters, tone control devices, and graphic equalizers. &lt;/p&gt; &lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt;Fields include &lt;b&gt;detune&lt;/b&gt; value in cents for the frequency, &lt;b&gt;frequency &lt;/b&gt; for operating frequency in Hz,&#xa; &lt;br /&gt; &#xa; &lt;b&gt;qualityFactor&lt;/b&gt; for the filter, and &lt;b&gt;type&lt;/b&gt; which varies the effects of these fields. &lt;/p&gt; &lt;br /&gt; &#xa;&lt;p align=&quot;center&quot;&gt;BiquadFilter &lt;b&gt;child nodes&lt;/b&gt; provide input signals, and the &lt;b&gt;parent node&lt;/b&gt; receives the output signal. &lt;/p&gt; &lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; The &lt;b&gt;tailTime&lt;/b&gt; event  defines duration of time that output signal continues after input signal becomes silent. &lt;/p&gt; &lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; Timing control for the node is provided by &lt;b&gt;startTime&lt;/b&gt;, &lt;b&gt;stopTime&lt;/b&gt;, &lt;b&gt;pauseTime&lt;/b&gt;, &lt;b&gt;resumeTime&lt;/b&gt; fields.&lt;/p&gt; &lt;br /&gt; &#xa;&lt;p align=&quot;center&quot;&gt; Additional output events are &lt;b&gt;isActive&lt;/b&gt;, &lt;b&gt;isPaused&lt;/b&gt;, &lt;b&gt;channelCount&lt;/b&gt;, and &lt;b&gt;elapsedTime&lt;/b&gt;.&lt;/p&gt; "/>
             <Property name="toolTipText" type="java.lang.String" value="Optionally can create ROUTEs to connect input and output events"/>
           </Properties>
           <Constraints>
@@ -462,5 +462,12 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="spacerLabel">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="4" gridY="2" gridWidth="1" gridHeight="1" fill="1" ipadX="40" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
   </SubComponents>
 </Form>

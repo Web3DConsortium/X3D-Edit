@@ -128,6 +128,7 @@ public class BIQUADFILTERCustomizer extends BaseCustomizer
         resumeTimeTF = new javax.swing.JTextField();
         eventHelpPanel = new javax.swing.JPanel();
         eventsLabel1 = new javax.swing.JLabel();
+        spacerLabel = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
 
@@ -135,7 +136,9 @@ public class BIQUADFILTERCustomizer extends BaseCustomizer
         setPreferredSize(new java.awt.Dimension(630, 560));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
@@ -165,7 +168,7 @@ public class BIQUADFILTERCustomizer extends BaseCustomizer
         detuneLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         detuneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         detuneLabel.setText("detune");
-        detuneLabel.setToolTipText("detune value, in cents, for the frequency");
+        detuneLabel.setToolTipText("detune value, in cents, for frequency modulation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -174,7 +177,7 @@ public class BIQUADFILTERCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(detuneLabel, gridBagConstraints);
 
-        detuneTF.setToolTipText("detune value, in cents, for the frequency");
+        detuneTF.setToolTipText("detune value, in cents, for frequency modulation");
         detuneTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detuneTFActionPerformed(evt);
@@ -192,7 +195,7 @@ public class BIQUADFILTERCustomizer extends BaseCustomizer
         frequencyLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         frequencyLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         frequencyLabel.setText("frequency");
-        frequencyLabel.setToolTipText("operating figure in Hertz Hz");
+        frequencyLabel.setToolTipText("operating frequency in Hertz Hz");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -201,7 +204,7 @@ public class BIQUADFILTERCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(frequencyLabel, gridBagConstraints);
 
-        frequencyTF.setToolTipText("operating figure in Hertz Hz");
+        frequencyTF.setToolTipText("operating frequency in Hertz Hz");
         frequencyTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 frequencyTFActionPerformed(evt);
@@ -494,7 +497,7 @@ public class BIQUADFILTERCustomizer extends BaseCustomizer
         eventHelpPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel1.setText("<html><p align=\"center\"> <b>BiquadFilter</b> node represents different kinds of filters, tone control devices, and graphic equalizers. </p> <br />\n<p align=\"center\">Fields include <b>detune</b> value in cents for the frequency, <b>frequency </b> for operating frequency in Hz, \n  <b>qualityFactor</b> for the filter, and <b>type</b> which varies the effects of these fields - see help documentation for details. </p> <br /> \n<p align=\"center\">BiquadFilter <b>child nodes</b> provide input signals, and the <b>parent node</b> receives the output signal from this node. </p> <br />\n<p align=\"center\"> The <b>tailTime</b> event  defines duration of time that output signal continues after input signal becomes silent. </p> <br />\n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>, <b>isPaused</b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
+        eventsLabel1.setText("<html><p align=\"center\"> <b>BiquadFilter</b> node represents different kinds of filters, tone control devices, and graphic equalizers. </p> <br />\n<p align=\"center\">Fields include <b>detune</b> value in cents for the frequency, <b>frequency </b> for operating frequency in Hz,\n <br /> \n <b>qualityFactor</b> for the filter, and <b>type</b> which varies the effects of these fields. </p> <br /> \n<p align=\"center\">BiquadFilter <b>child nodes</b> provide input signals, and the <b>parent node</b> receives the output signal. </p> <br />\n<p align=\"center\"> The <b>tailTime</b> event  defines duration of time that output signal continues after input signal becomes silent. </p> <br />\n<p align=\"center\"> Timing control for the node is provided by <b>startTime</b>, <b>stopTime</b>, <b>pauseTime</b>, <b>resumeTime</b> fields.</p> <br /> \n<p align=\"center\"> Additional output events are <b>isActive</b>, <b>isPaused</b>, <b>channelCount</b>, and <b>elapsedTime</b>.</p> ");
         eventsLabel1.setToolTipText("Optionally can create ROUTEs to connect input and output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -509,13 +512,19 @@ public class BIQUADFILTERCustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
         add(eventHelpPanel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 40;
+        add(spacerLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
@@ -579,6 +588,7 @@ public class BIQUADFILTERCustomizer extends BaseCustomizer
     private javax.swing.JTextField qualityFactorTF;
     private javax.swing.JLabel resumeTimeLabel;
     private javax.swing.JTextField resumeTimeTF;
+    private javax.swing.JLabel spacerLabel;
     private javax.swing.JLabel startTimeLabel;
     private javax.swing.JTextField startTimeTF;
     private javax.swing.JLabel stopTimeLabel;
