@@ -87,10 +87,13 @@ public class PROGRAMSHADERCustomizer extends BaseCustomizer
 
         dEFUSEpanel1 = getDEFUSEpanel();
         languageLabel = new javax.swing.JLabel();
-        languageComboBox = new javax.swing.JComboBox<String>();
+        languageComboBox = new javax.swing.JComboBox<>();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(610, 220));
+        setPreferredSize(new java.awt.Dimension(610, 220));
+        setRequestFocusEnabled(false);
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

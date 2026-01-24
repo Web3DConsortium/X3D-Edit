@@ -189,7 +189,7 @@ public class SHADERPROGRAMCustomizer extends BaseCustomizer implements TableMode
         appendFieldSetMethodsButton = new javax.swing.JButton();
         urlLabel = new javax.swing.JLabel();
         typeLabel = new javax.swing.JLabel();
-        typeComboBox = new javax.swing.JComboBox<String>();
+        typeComboBox = new javax.swing.JComboBox<>();
         hintPanel = new javax.swing.JPanel();
         contentModelLabel = new javax.swing.JLabel();
 
@@ -203,14 +203,12 @@ public class SHADERPROGRAMCustomizer extends BaseCustomizer implements TableMode
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
         add(dEFUSEpanel1, gridBagConstraints);
 
-        tablesScriptSplitter.setBorder(null);
         tablesScriptSplitter.setDividerLocation(320);
         tablesScriptSplitter.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         tablesScriptSplitter.setResizeWeight(0.5);
         tablesScriptSplitter.setLastDividerLocation(320);
         tablesScriptSplitter.setPreferredSize(new java.awt.Dimension(763, 500));
 
-        urlFieldsSplitter.setBorder(null);
         urlFieldsSplitter.setDividerLocation(160);
         urlFieldsSplitter.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         urlFieldsSplitter.setResizeWeight(0.5);
@@ -288,7 +286,7 @@ public class SHADERPROGRAMCustomizer extends BaseCustomizer implements TableMode
             .addGroup(ecmascriptSourcePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ecmascriptSourcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scriptScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+                    .addComponent(scriptScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(ecmascriptSourcePanelLayout.createSequentialGroup()
                         .addGroup(ecmascriptSourcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(scriptHeader1Lab)
@@ -315,7 +313,7 @@ public class SHADERPROGRAMCustomizer extends BaseCustomizer implements TableMode
                             .addComponent(includeECMACB, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(appendFieldSetMethodsButton))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scriptScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                .addComponent(scriptScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scriptTrailer1Lab))
         );
@@ -346,7 +344,7 @@ public class SHADERPROGRAMCustomizer extends BaseCustomizer implements TableMode
         typeLabel.setText("type");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -360,7 +358,7 @@ public class SHADERPROGRAMCustomizer extends BaseCustomizer implements TableMode
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -380,10 +378,10 @@ public class SHADERPROGRAMCustomizer extends BaseCustomizer implements TableMode
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(12, 12, 12, 12);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(hintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

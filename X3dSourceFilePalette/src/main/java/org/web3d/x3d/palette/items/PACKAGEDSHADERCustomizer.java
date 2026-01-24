@@ -175,8 +175,9 @@ public class PACKAGEDSHADERCustomizer extends BaseCustomizer implements TableMod
 
         dEFUSEpanel1 = getDEFUSEpanel();
         languageLabel = new javax.swing.JLabel();
-        languageComboBox = new javax.swing.JComboBox<String>();
-        contentModelLabel = new javax.swing.JLabel();
+        languageComboBox = new javax.swing.JComboBox<>();
+        hintPanel = new javax.swing.JPanel();
+        contentModelLabel1 = new javax.swing.JLabel();
         urlLabel = new javax.swing.JLabel();
         tablesScriptSplitter = new javax.swing.JSplitPane();
         urlFieldsSplitter = new javax.swing.JSplitPane();
@@ -198,7 +199,7 @@ public class PACKAGEDSHADERCustomizer extends BaseCustomizer implements TableMod
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 404;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
@@ -207,7 +208,7 @@ public class PACKAGEDSHADERCustomizer extends BaseCustomizer implements TableMod
         languageLabel.setText("language");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 5);
@@ -222,21 +223,33 @@ public class PACKAGEDSHADERCustomizer extends BaseCustomizer implements TableMod
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 55;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         add(languageComboBox, gridBagConstraints);
 
-        contentModelLabel.setText("PackagedShader describes a single shader program");
-        contentModelLabel.setToolTipText("PackagedShader describes a single program having one or more shaders and effects");
+        hintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintPanel.setLayout(new java.awt.GridBagLayout());
+
+        contentModelLabel1.setText("<html><b>PackagedShader</b> describes a single shader program.");
+        contentModelLabel1.setToolTipText("ShaderPart defines the source for a single object to be used by a ComposedShader node");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        add(contentModelLabel, gridBagConstraints);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        hintPanel.add(contentModelLabel1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintPanel, gridBagConstraints);
 
         urlLabel.setText("<html><b>url array");
         urlLabel.setToolTipText("ordered list of alternate url addresses for script, if not embedded");
@@ -248,14 +261,12 @@ public class PACKAGEDSHADERCustomizer extends BaseCustomizer implements TableMod
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         add(urlLabel, gridBagConstraints);
 
-        tablesScriptSplitter.setBorder(null);
         tablesScriptSplitter.setDividerLocation(320);
         tablesScriptSplitter.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         tablesScriptSplitter.setResizeWeight(0.5);
         tablesScriptSplitter.setLastDividerLocation(320);
         tablesScriptSplitter.setPreferredSize(new java.awt.Dimension(763, 500));
 
-        urlFieldsSplitter.setBorder(null);
         urlFieldsSplitter.setDividerLocation(160);
         urlFieldsSplitter.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         urlFieldsSplitter.setResizeWeight(0.5);
@@ -333,7 +344,7 @@ public class PACKAGEDSHADERCustomizer extends BaseCustomizer implements TableMod
             .addGroup(ecmascriptSourcePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ecmascriptSourcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scriptScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE)
+                    .addComponent(scriptScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
                     .addGroup(ecmascriptSourcePanelLayout.createSequentialGroup()
                         .addGroup(ecmascriptSourcePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(scriptHeader1Lab)
@@ -360,7 +371,7 @@ public class PACKAGEDSHADERCustomizer extends BaseCustomizer implements TableMod
                             .addComponent(includeECMACB, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(appendFieldSetMethodsButton))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scriptScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                .addComponent(scriptScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scriptTrailer1Lab))
         );
@@ -370,7 +381,7 @@ public class PACKAGEDSHADERCustomizer extends BaseCustomizer implements TableMod
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 102;
         gridBagConstraints.ipady = 415;
@@ -457,11 +468,12 @@ public class PACKAGEDSHADERCustomizer extends BaseCustomizer implements TableMod
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea ECMA_Ta;
     private javax.swing.JButton appendFieldSetMethodsButton;
-    private javax.swing.JLabel contentModelLabel;
+    private javax.swing.JLabel contentModelLabel1;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JPanel ecmascriptSourcePanel;
     private org.web3d.x3d.palette.items.ExpandableList fieldsList;
     private javax.swing.JScrollPane fieldsScrollPane;
+    private javax.swing.JPanel hintPanel;
     private javax.swing.JCheckBox includeECMACB;
     private javax.swing.JComboBox<String> languageComboBox;
     private javax.swing.JLabel languageLabel;
