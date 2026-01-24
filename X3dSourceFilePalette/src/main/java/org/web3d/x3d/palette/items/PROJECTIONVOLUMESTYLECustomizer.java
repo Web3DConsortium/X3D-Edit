@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -70,8 +70,9 @@ public class PROJECTIONVOLUMESTYLECustomizer extends BaseCustomizer
     initComponents();
     
           enabledCB.setSelected(projectionVolumeStyle.isEnabled());
-   intensityThresholdTF.setText(projectionVolumeStyle.getIntensityThreshold()); 
+   intensityThresholdTextArea.setText(projectionVolumeStyle.getIntensityThreshold()); 
    typeComboBox.setSelectedItem(projectionVolumeStyle.getType());
+   typeComboBox.setToolTipText( PROJECTIONVOLUMESTYLE_ATTR_TYPE_TOOLTIPS[typeComboBox.getSelectedIndex()]);
   }
  
   /** This method is called from within the constructor to
@@ -87,19 +88,24 @@ public class PROJECTIONVOLUMESTYLECustomizer extends BaseCustomizer
         enabledLabel = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
         gradientThresholdLabel = new javax.swing.JLabel();
-        intensityThresholdTF = new javax.swing.JTextField();
         typeLabel = new javax.swing.JLabel();
-        typeComboBox = new javax.swing.JComboBox<String>();
+        typeComboBox = new javax.swing.JComboBox<>();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
+        intensityThresholdScrollPane = new javax.swing.JScrollPane();
+        intensityThresholdTextArea = new javax.swing.JTextArea();
 
+        setMinimumSize(new java.awt.Dimension(630, 310));
+        setPreferredSize(new java.awt.Dimension(630, 310));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -110,7 +116,7 @@ public class PROJECTIONVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 120, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledLabel, gridBagConstraints);
 
         enabledCB.setToolTipText("Enables/disables node operation");
@@ -124,32 +130,17 @@ public class PROJECTIONVOLUMESTYLECustomizer extends BaseCustomizer
 
         gradientThresholdLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         gradientThresholdLabel.setText("intensityThreshold");
-        gradientThresholdLabel.setToolTipText("minimum angle (in radians) away from view direction vector for surface normal before any enhancement is applied");
+        gradientThresholdLabel.setToolTipText("list threshold valuse used when type=MAX or type=MIN");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 120, 3, 3);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 20, 3, 3);
         add(gradientThresholdLabel, gridBagConstraints);
-
-        intensityThresholdTF.setToolTipText("minimum angle (in radians) away from view direction vector for surface normal before any enhancement is applied");
-        intensityThresholdTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                intensityThresholdTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(intensityThresholdTF, gridBagConstraints);
 
         typeLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         typeLabel.setText("type");
-        typeLabel.setToolTipText("color used to highlight edges");
+        typeLabel.setToolTipText("choice of intensity projection algorithm type");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -161,17 +152,16 @@ public class PROJECTIONVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 120);
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(typeComboBox, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel1.setText("<html><p align='center'><b>ProjectionVolumeStyle</b>  uses voxel data to directly generate output color. <br/> \nIt does not contain any child other than an optional metadata node.</p>");
+        hintLabel1.setText("<html><p align='center'><b>ProjectionVolumeStyle</b>  uses the voxel data itself to directly generate output color. <br/> \nIt does not contain any child other than an optional metadata node.</p>");
         hintLabel1.setToolTipText("multiple style nodes can be applied to volume data");
         hintLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -184,17 +174,25 @@ public class PROJECTIONVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 2.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
-    }// </editor-fold>//GEN-END:initComponents
 
-    private void intensityThresholdTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intensityThresholdTFActionPerformed
-        
-    }//GEN-LAST:event_intensityThresholdTFActionPerformed
+        intensityThresholdTextArea.setColumns(20);
+        intensityThresholdTextArea.setRows(5);
+        intensityThresholdTextArea.setToolTipText("list threshold valuse used when type=MAX or type=MIN");
+        intensityThresholdScrollPane.setViewportView(intensityThresholdTextArea);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 12);
+        add(intensityThresholdScrollPane, gridBagConstraints);
+    }// </editor-fold>//GEN-END:initComponents
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
@@ -202,7 +200,8 @@ public class PROJECTIONVOLUMESTYLECustomizer extends BaseCustomizer
     private javax.swing.JLabel enabledLabel;
     private javax.swing.JLabel gradientThresholdLabel;
     private javax.swing.JLabel hintLabel1;
-    private javax.swing.JTextField intensityThresholdTF;
+    private javax.swing.JScrollPane intensityThresholdScrollPane;
+    private javax.swing.JTextArea intensityThresholdTextArea;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JComboBox<String> typeComboBox;
     private javax.swing.JLabel typeLabel;
@@ -220,7 +219,7 @@ public class PROJECTIONVOLUMESTYLECustomizer extends BaseCustomizer
     unLoadDEFUSE();
     
     projectionVolumeStyle.setEnabled(enabledCB.isSelected());
-    projectionVolumeStyle.setIntensityhreshold(intensityThresholdTF.getText().trim());
+    projectionVolumeStyle.setIntensityhreshold(intensityThresholdTextArea.getText().trim());
     projectionVolumeStyle.setType(typeComboBox.getSelectedItem().toString().trim());
   }   
 }
