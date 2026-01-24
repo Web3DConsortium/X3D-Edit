@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -40,11 +40,7 @@ import javax.swing.JComboBox;
 import javax.swing.ListModel;
 import org.web3d.x3d.types.X3DSchemaData;
 import static org.web3d.x3d.types.X3DSchemaData.COMMENT_ELNAME;
-import static org.web3d.x3d.types.X3DSchemaData.COMPONENT_ELNAME;
-import static org.web3d.x3d.types.X3DSchemaData.CONNECT_ELNAME;
 import static org.web3d.x3d.types.X3DSchemaData.DOCTYPE_ELNAME;
-import static org.web3d.x3d.types.X3DSchemaData.META_ELNAME;
-import static org.web3d.x3d.types.X3DSchemaData.ROUTE_ELNAME;
 
 //import java.util.Comparator;
 //import javax.swing.DefaultComboBoxModel;
