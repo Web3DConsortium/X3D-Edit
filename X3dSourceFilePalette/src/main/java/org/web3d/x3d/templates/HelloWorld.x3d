@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
-<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 4.0//EN" "https://www.web3d.org/specifications/x3d-4.0.dtd">
+<X3D profile='Immersive' version='4.0' xmlns:xsd='https://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-4.0.xsd'>
   <head>
     <!-- Alternate encodings: VRML97, X3D ClassicVRML Encoding, X3D Compressed Binary Encoding (CBE), X3DOM, JSON -->
     <meta content='HelloWorld.x3d' name='title'/>
     <meta content='Simple X3D model example: Hello World!' name='description'/>
     <meta content='30 October 2000' name='created'/>
-    <meta content='26 December 2025' name='modified'/>
+    <meta content='24 January 2026' name='modified'/>
     <meta content='Don Brutzman' name='creator'/>
     <meta content='HelloWorld.tall.png' name='Image'/>
     <meta content='https://en.wikipedia.org/wiki/Hello_world' name='reference'/>
