@@ -6663,6 +6663,11 @@ public interface X3DSchemaData
   String[] PROJECTIONVOLUMESTYLE_ATTR_TYPE_CHOICES = {
       "MAX", "AVERAGE", "MIN"
   };
+  String[] PROJECTIONVOLUMESTYLE_ATTR_TYPE_TOOLTIPS = {
+       "Maximum Intensity Projection (MIP) algorithm",
+       "Minimum Intensity Projection algorithm",
+       "Average Intensity Projection algorithm"
+  };
 
   // ShadedVolumeStyle
   String   SHADEDVOLUMESTYLE_ELNAME = "ShadedVolumeStyle";
