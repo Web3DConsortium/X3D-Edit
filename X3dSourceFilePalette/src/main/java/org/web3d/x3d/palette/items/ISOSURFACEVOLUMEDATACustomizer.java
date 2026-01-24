@@ -140,6 +140,8 @@ public class ISOSURFACEVOLUMEDATACustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(726, 750));
+        setPreferredSize(new java.awt.Dimension(726, 750));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -369,7 +371,7 @@ public class ISOSURFACEVOLUMEDATACustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel1.setText("<html><p align='center'><b>SegmentedVolumeData</b> contains one or more<i>X3DVolumeRenderStyleNode</i> nodes,<br /> an <i>X3DTexture3DNode</i> nodes to contain voxels, <br /> and an <i>X3DTexture3DNode</i> nodes to contain segmentIdentifiers.</p>");
+        hintLabel1.setText("<html><p align='center'><b>IsoSurfaceVolumeData </b> displays one or more surfaces extracted from a voxel dataset. \n <br />\nIt contains one or more <i>X3DVolumeRenderStyleNode</i> nodes for <i>renderStyle</i>,\n<br />\nan <i>X3DTexture3DNode</i> nodes to contain <i>voxels</i>,  and an <i>X3DTexture3DNode</i> nodes to contain <i>gradients</i>.</p>");
         hintLabel1.setToolTipText("close this panel to add children nodes");
         hintLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -434,7 +436,7 @@ public class ISOSURFACEVOLUMEDATACustomizer extends BaseCustomizer
   @Override
   public String getNameKey()
   {
-    return "NAME_X3D_SEGMENTEDVOLUMEDATA";
+    return "NAME_X3D_ISOSURFACEVOLUMEDATA";
   }
 
   @Override
