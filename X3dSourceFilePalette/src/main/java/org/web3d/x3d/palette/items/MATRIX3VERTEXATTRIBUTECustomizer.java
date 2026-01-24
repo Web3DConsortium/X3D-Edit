@@ -86,28 +86,21 @@ public class MATRIX3VERTEXATTRIBUTECustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1 = getDEFUSEpanel();
-        contentModelLabel = new javax.swing.JLabel();
         nameTF = new javax.swing.JTextField();
         nameLabel = new javax.swing.JLabel();
         expandableList = new org.web3d.x3d.palette.items.ExpandableList();
+        hintPanel = new javax.swing.JPanel();
+        contentModelLabel1 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         add(dEFUSEpanel1, gridBagConstraints);
-
-        contentModelLabel.setText("Matrix3VertexAttribute is used for shader field initialization");
-        contentModelLabel.setToolTipText("PackagedShader describes a single program having one or more shaders and effects");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        add(contentModelLabel, gridBagConstraints);
 
         nameTF.setColumns(20);
         nameTF.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +113,7 @@ public class MATRIX3VERTEXATTRIBUTECustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(nameTF, gridBagConstraints);
 
         nameLabel.setText("name");
@@ -134,11 +127,30 @@ public class MATRIX3VERTEXATTRIBUTECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         add(expandableList, gridBagConstraints);
+
+        hintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintPanel.setLayout(new java.awt.GridBagLayout());
+
+        contentModelLabel1.setText("<html><b>Matrix3VertexAttribte</b> is used for shader field initialization");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        hintPanel.add(contentModelLabel1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameTFActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_nameTFActionPerformed
@@ -147,8 +159,9 @@ public class MATRIX3VERTEXATTRIBUTECustomizer extends BaseCustomizer
 }//GEN-LAST:event_nameTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel contentModelLabel;
+    private javax.swing.JLabel contentModelLabel1;
     private org.web3d.x3d.palette.items.ExpandableList expandableList;
+    private javax.swing.JPanel hintPanel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTF;
     // End of variables declaration//GEN-END:variables
