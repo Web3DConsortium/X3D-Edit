@@ -92,10 +92,12 @@ public class SHADEDVOLUMESTYLECustomizer extends BaseCustomizer
         shadowsLabel = new javax.swing.JLabel();
         shadowsCB = new javax.swing.JCheckBox();
         phaseFunctionLabel = new javax.swing.JLabel();
-        phaseFunctionComboBox = new javax.swing.JComboBox<String>();
+        phaseFunctionComboBox = new javax.swing.JComboBox<>();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(610, 250));
+        setPreferredSize(new java.awt.Dimension(610, 250));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -183,10 +185,9 @@ public class SHADEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 120);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(phaseFunctionComboBox, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
