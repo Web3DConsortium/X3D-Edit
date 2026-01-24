@@ -133,6 +133,8 @@ public class SEGMENTEDVOLUMEDATACustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(750, 900));
+        setPreferredSize(new java.awt.Dimension(750, 900));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -284,6 +286,9 @@ public class SEGMENTEDVOLUMEDATACustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 60);
         add(bboxSizeZTF, gridBagConstraints);
+
+        expandableListSegmentEnabled.setMinimumSize(new java.awt.Dimension(600, 200));
+        expandableListSegmentEnabled.setPreferredSize(new java.awt.Dimension(600, 200));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
