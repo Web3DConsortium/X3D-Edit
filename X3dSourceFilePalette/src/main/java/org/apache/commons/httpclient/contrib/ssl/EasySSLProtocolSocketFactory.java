@@ -44,8 +44,8 @@ import org.apache.commons.httpclient.ConnectTimeoutException;
 import org.apache.commons.httpclient.HttpClientError;
 import org.apache.commons.httpclient.params.HttpConnectionParams;
 import org.apache.commons.httpclient.protocol.SecureProtocolSocketFactory;
-import org.apache.commons.logging.Log; 
-import org.apache.commons.logging.LogFactory;
+//import org.apache.commons.logging.Log; 
+//import org.apache.commons.logging.LogFactory;
 
 import javax.net.SocketFactory;
 import javax.net.ssl.SSLContext;
@@ -99,7 +99,7 @@ import javax.net.ssl.TrustManager;
 public class EasySSLProtocolSocketFactory implements SecureProtocolSocketFactory {
 
     /** Log object for this class. */
-    private static final Log LOG = LogFactory.getLog(EasySSLProtocolSocketFactory.class);
+//    private static final Log LOG = LogFactory.getLog(EasySSLProtocolSocketFactory.class);
 
     private SSLContext sslcontext = null;
 
@@ -119,7 +119,8 @@ public class EasySSLProtocolSocketFactory implements SecureProtocolSocketFactory
               null);
             return context;
         } catch (KeyManagementException | KeyStoreException | NoSuchAlgorithmException e) {
-            LOG.error(e.getMessage(), e);
+//            LOG.error(e.getMessage(), e);
+            System.err.println(e.getMessage());
             throw new HttpClientError(e.toString());
         }
     }
