@@ -1892,9 +1892,34 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
         </folder>
         <!-- TODO Texture Projection -->
-        <folder name="Texturing3D_Volume_Rendering">
-            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Texturing3D_Volume_Rendering"/>
+        <folder name="Texturing3D">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Texturing3D"/>
             <attr name="position" intvalue="23000"/>
+            <file name="COMPOSEDTEXTURE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COMPOSEDTEXTURE3D.xml">
+                <attr name="position" intvalue="2100"/>
+            </file>
+            <file name="IMAGETEXTURE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IMAGETEXTURE3D.xml">
+                <attr name="position" intvalue="2200"/>
+            </file>
+            <file name="PIXELTEXTURE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PIXELTEXTURE3D.xml">
+                <attr name="position" intvalue="2300"/>
+            </file>
+            <file name="TEXTURECOORDINATE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE3D.xml">
+                <attr name="position" intvalue="2400"/>
+            </file>
+            <file name="TEXTURECOORDINATE4D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE4D.xml">
+                <attr name="position" intvalue="2500"/>
+            </file>
+            <file name="TEXTURETRANSFORM3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORM3D.xml">
+                <attr name="position" intvalue="2600"/>
+            </file>
+            <file name="TEXTURETRANSFORMMATRIX3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORMMATRIX3D.xml">
+                <attr name="position" intvalue="2700"/>
+            </file>
+        </folder>
+        <folder name="Volume_Rendering">
+            <attr name="displayName" bundlevalue="org.web3d.x3d.palette.Bundle#X3DPalette/Volume_Rendering"/>
+            <attr name="position" intvalue="24000"/>
             <file name="VOLUMEDATA.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/VOLUMEDATA.xml">
                 <attr name="position" intvalue="100"/>
             </file>
@@ -1933,27 +1958,6 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
             <file name="TONEMAPPEDVOLUMESTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TONEMAPPEDVOLUMESTYLE.xml">
                 <attr name="position" intvalue="1200"/>
-            </file>
-            <file name="COMPOSEDTEXTURE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/COMPOSEDTEXTURE3D.xml">
-                <attr name="position" intvalue="2100"/>
-            </file>
-            <file name="IMAGETEXTURE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/IMAGETEXTURE3D.xml">
-                <attr name="position" intvalue="2200"/>
-            </file>
-            <file name="PIXELTEXTURE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PIXELTEXTURE3D.xml">
-                <attr name="position" intvalue="2300"/>
-            </file>
-            <file name="TEXTURECOORDINATE3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE3D.xml">
-                <attr name="position" intvalue="2400"/>
-            </file>
-            <file name="TEXTURECOORDINATE4D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURECOORDINATE4D.xml">
-                <attr name="position" intvalue="2500"/>
-            </file>
-            <file name="TEXTURETRANSFORM3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORM3D.xml">
-                <attr name="position" intvalue="2600"/>
-            </file>
-            <file name="TEXTURETRANSFORMMATRIX3D.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORMMATRIX3D.xml">
-                <attr name="position" intvalue="2700"/>
             </file>
         </folder>
         <!-- Inlines and Prototypes.  TODO:  how to implement subdirectories in palette? -->
