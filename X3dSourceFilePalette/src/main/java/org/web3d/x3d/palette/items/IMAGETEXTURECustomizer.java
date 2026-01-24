@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -278,8 +278,6 @@ public class IMAGETEXTURECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
 
-        descriptionLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        descriptionLabel1.setForeground(new java.awt.Color(0, 153, 153));
         descriptionLabel1.setText("description");
         descriptionLabel1.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
         gridBagConstraints = new java.awt.GridBagConstraints();
