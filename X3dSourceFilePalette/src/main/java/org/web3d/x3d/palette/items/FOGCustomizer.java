@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -87,7 +87,10 @@ public class FOGCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
-        jLabel7 = new javax.swing.JLabel();
+        rLabel = new javax.swing.JLabel();
+        gLabel = new javax.swing.JLabel();
+        bLabel = new javax.swing.JLabel();
+        colorLabel = new javax.swing.JLabel();
         color0TF = new javax.swing.JTextField();
         color1TF = new javax.swing.JTextField();
         color2TF = new javax.swing.JTextField();
@@ -99,8 +102,8 @@ public class FOGCustomizer extends BaseCustomizer
         eventHintPanel = new javax.swing.JPanel();
         eventsLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(640, 260));
-        setPreferredSize(new java.awt.Dimension(640, 260));
+        setMinimumSize(new java.awt.Dimension(640, 280));
+        setPreferredSize(new java.awt.Dimension(640, 280));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -112,45 +115,66 @@ public class FOGCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel7.setText("color");
-        jLabel7.setToolTipText("fog color, needs to match color of background geometry");
-        jLabel7.setPreferredSize(null);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(jLabel7, gridBagConstraints);
-
-        color0TF.setColumns(5);
-        color0TF.setEditable(false);
-        color0TF.setToolTipText("fog color, needs to match color of background geometry");
+        rLabel.setText("r");
+        rLabel.setToolTipText("red component [0..1]");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
+        add(rLabel, gridBagConstraints);
+
+        gLabel.setText("g");
+        gLabel.setToolTipText("green component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        add(gLabel, gridBagConstraints);
+
+        bLabel.setText("b");
+        bLabel.setToolTipText("blue component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        add(bLabel, gridBagConstraints);
+
+        colorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        colorLabel.setText("color");
+        colorLabel.setToolTipText("fog color, needs to match color of background geometry");
+        colorLabel.setPreferredSize(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(colorLabel, gridBagConstraints);
+
+        color0TF.setEditable(false);
+        color0TF.setColumns(5);
+        color0TF.setToolTipText("fog color, needs to match color of background geometry");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(color0TF, gridBagConstraints);
 
-        color1TF.setColumns(5);
         color1TF.setEditable(false);
+        color1TF.setColumns(5);
         color1TF.setToolTipText("fog color, needs to match color of background geometry");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(color1TF, gridBagConstraints);
 
-        color2TF.setColumns(5);
         color2TF.setEditable(false);
+        color2TF.setColumns(5);
         color2TF.setToolTipText("fog color, needs to match color of background geometry");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -176,7 +200,7 @@ public class FOGCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(colorChooser, gridBagConstraints);
@@ -186,7 +210,7 @@ public class FOGCustomizer extends BaseCustomizer
         jLabel1.setToolTipText("algorithm for rate of increasing Fog, either LINEAR or EXPONENTIAL");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel1, gridBagConstraints);
@@ -195,7 +219,7 @@ public class FOGCustomizer extends BaseCustomizer
         fogTypeCombo.setToolTipText("algorithm for rate of increasing Fog, either LINEAR or EXPONENTIAL");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -206,17 +230,17 @@ public class FOGCustomizer extends BaseCustomizer
         jLabel2.setToolTipText("Distance in meters where objects are totally obscured by the fog (visibilityRange 0 disables Fog)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel2, gridBagConstraints);
 
-        visibilityTF.setColumns(5);
         visibilityTF.setEditable(false);
+        visibilityTF.setColumns(5);
         visibilityTF.setToolTipText("Distance in meters where objects are totally obscured by the fog (visibilityRange 0 disables Fog)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -238,7 +262,7 @@ public class FOGCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
@@ -255,17 +279,20 @@ public class FOGCustomizer extends BaseCustomizer
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bLabel;
     private javax.swing.JTextField color0TF;
     private javax.swing.JTextField color1TF;
     private javax.swing.JTextField color2TF;
     private net.java.dev.colorchooser.ColorChooser colorChooser;
+    private javax.swing.JLabel colorLabel;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JPanel eventHintPanel;
     private javax.swing.JLabel eventsLabel;
     private javax.swing.JComboBox<String> fogTypeCombo;
+    private javax.swing.JLabel gLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel rLabel;
     private javax.swing.JTextField visibilityTF;
     // End of variables declaration//GEN-END:variables
 
