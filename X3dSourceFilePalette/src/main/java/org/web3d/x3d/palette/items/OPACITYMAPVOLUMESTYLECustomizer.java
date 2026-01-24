@@ -85,6 +85,8 @@ public class OPACITYMAPVOLUMESTYLECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(630, 190));
+        setPreferredSize(new java.awt.Dimension(630, 190));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -118,7 +120,7 @@ public class OPACITYMAPVOLUMESTYLECustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel1.setText("<html><p align='center'><b>OpacityMapVolumeStyle</b> contains a<br/>X3DTexture3DNode node to define transferFunction.</p>");
+        hintLabel1.setText("<html><p align='center'>\n<b>OpacityMapVolumeStyle</b> contains a <i>transferFunction</i> defined by\n<br />\n a child X3DTexture2DNode or a child X3DTexture3DNode node</i>.</p>");
         hintLabel1.setToolTipText("close this panel to add children nodes");
         hintLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -130,7 +132,7 @@ public class OPACITYMAPVOLUMESTYLECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
