@@ -132,8 +132,8 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(630, 380));
-        setPreferredSize(new java.awt.Dimension(630, 380));
+        setMinimumSize(new java.awt.Dimension(630, 390));
+        setPreferredSize(new java.awt.Dimension(630, 390));
         setRequestFocusEnabled(false);
         setLayout(new java.awt.GridBagLayout());
 
@@ -612,7 +612,7 @@ public class TEXTURETRANSFORM3DCustomizer extends BaseCustomizer
   @Override
   public String getNameKey()
   {
-    return "NAME_X3D_TEXTURETRANSFORM";
+    return "NAME_X3D_TEXTURETRANSFORM3D";
   }
 
     private void checkAngles(boolean precedesNormalization)
