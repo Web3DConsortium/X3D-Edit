@@ -94,6 +94,8 @@ public class COMPOSEDTEXTURE3DCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(620, 210));
+        setPreferredSize(new java.awt.Dimension(620, 210));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -129,7 +131,7 @@ public class COMPOSEDTEXTURE3DCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 13, 3, 3);
         add(repeatTCB, gridBagConstraints);
 
         repeatRCB.setText("repeatR");
@@ -140,7 +142,7 @@ public class COMPOSEDTEXTURE3DCustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 13, 3, 3);
         add(repeatRCB, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
