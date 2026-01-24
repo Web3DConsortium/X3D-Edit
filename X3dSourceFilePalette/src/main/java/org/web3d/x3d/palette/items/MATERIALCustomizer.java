@@ -384,6 +384,9 @@ public class MATERIALCustomizer extends BaseCustomizer
         rightTopPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         materialFieldsPanel = new javax.swing.JPanel();
+        rLabel = new javax.swing.JLabel();
+        gLabel = new javax.swing.JLabel();
+        bLabel = new javax.swing.JLabel();
         diffuseColorLabel = new javax.swing.JLabel();
         diffuseColorRedTF = new javax.swing.JFormattedTextField();
         diffuseColorGreenTF = new javax.swing.JFormattedTextField();
@@ -1044,11 +1047,33 @@ public class MATERIALCustomizer extends BaseCustomizer
         materialFieldsPanel.setPreferredSize(new java.awt.Dimension(250, 206));
         materialFieldsPanel.setLayout(new java.awt.GridBagLayout());
 
+        rLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.rLabel.text")); // NOI18N
+        rLabel.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.rLabel.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        materialFieldsPanel.add(rLabel, gridBagConstraints);
+
+        gLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.gLabel.text")); // NOI18N
+        gLabel.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.gLabel.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        materialFieldsPanel.add(gLabel, gridBagConstraints);
+
+        bLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.bLabel.text")); // NOI18N
+        bLabel.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.bLabel.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        materialFieldsPanel.add(bLabel, gridBagConstraints);
+
         diffuseColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         diffuseColorLabel.setText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "NewJPanel.diffLab.text")); // NOI18N
         diffuseColorLabel.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.diffuseColorLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(diffuseColorLabel, gridBagConstraints);
@@ -1065,6 +1090,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1081,6 +1107,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1098,6 +1125,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1128,7 +1156,7 @@ public class MATERIALCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(diffuseColorChooser, gridBagConstraints);
@@ -1140,6 +1168,8 @@ public class MATERIALCustomizer extends BaseCustomizer
         diffuseColorHexTextField.setPreferredSize(new java.awt.Dimension(60, 22));
         diffuseColorHexTextField.setRequestFocusEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(diffuseColorHexTextField, gridBagConstraints);
@@ -1149,7 +1179,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         emissiveColorLabel.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.emissiveColorLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(emissiveColorLabel, gridBagConstraints);
@@ -1166,7 +1196,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1184,7 +1214,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1202,7 +1232,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1233,7 +1263,7 @@ public class MATERIALCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(emissiveColorChooser, gridBagConstraints);
@@ -1246,7 +1276,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         emissiveColorHexTextField.setRequestFocusEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(emissiveColorHexTextField, gridBagConstraints);
@@ -1256,7 +1286,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         specularColorLabel.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.specularColorLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(specularColorLabel, gridBagConstraints);
@@ -1273,7 +1303,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1291,7 +1321,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1309,7 +1339,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1340,7 +1370,7 @@ public class MATERIALCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(specularColorChooser, gridBagConstraints);
@@ -1353,7 +1383,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         specularColorHexTextField.setRequestFocusEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(specularColorHexTextField, gridBagConstraints);
@@ -1363,7 +1393,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         transparencyLabel.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.transparencyLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(transparencyLabel, gridBagConstraints);
@@ -1384,7 +1414,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1400,7 +1430,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.67;
@@ -1412,7 +1442,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         shininessLabel.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.shininessLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(shininessLabel, gridBagConstraints);
@@ -1433,7 +1463,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1449,7 +1479,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.67;
@@ -1461,7 +1491,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         ambientIntensityLabel.setToolTipText(org.openide.util.NbBundle.getMessage(MATERIALCustomizer.class, "MATERIALCustomizer.ambientIntensityLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         materialFieldsPanel.add(ambientIntensityLabel, gridBagConstraints);
@@ -1482,7 +1512,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1498,7 +1528,7 @@ public class MATERIALCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.67;
@@ -2679,6 +2709,7 @@ private void directionalLightIntensityTFActionPerformed(java.awt.event.ActionEve
     private javax.swing.JSlider ambientIntensitySlider;
     private javax.swing.JFormattedTextField ambientIntensityTF;
     private javax.swing.JCheckBox axesCB;
+    private javax.swing.JLabel bLabel;
     private javax.swing.JLabel backgroundLabel;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpan;
     private javax.swing.JFormattedTextField diffuseColorBlueTF;
@@ -2716,6 +2747,7 @@ private void directionalLightIntensityTFActionPerformed(java.awt.event.ActionEve
     private javax.swing.JTextField emissiveColorHexTextField;
     private javax.swing.JLabel emissiveColorLabel;
     private javax.swing.JFormattedTextField emissiveColorRedTF;
+    private javax.swing.JLabel gLabel;
     private javax.swing.JPanel geometrySelectionPanel;
     private javax.swing.JComboBox<String> geometryTypeCombo;
     private javax.swing.JPanel jPanel2;
@@ -2730,6 +2762,7 @@ private void directionalLightIntensityTFActionPerformed(java.awt.event.ActionEve
     private javax.swing.JPanel materialFieldsPanel;
     private javax.swing.JLabel materialHintLabel;
     private javax.swing.JPanel panelsContainer;
+    private javax.swing.JLabel rLabel;
     private javax.swing.JSplitPane rightSplitPane;
     private javax.swing.JPanel rightTopPanel;
     private javax.swing.JLabel shininessLabel;

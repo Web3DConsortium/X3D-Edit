@@ -99,6 +99,10 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         enabledCB = new javax.swing.JCheckBox();
         gradientThresholdLabel = new javax.swing.JLabel();
         gradientThresholdTF = new javax.swing.JTextField();
+        rLabel = new javax.swing.JLabel();
+        gLabel = new javax.swing.JLabel();
+        bLabel = new javax.swing.JLabel();
+        aLabel = new javax.swing.JLabel();
         edgeColorLabel = new javax.swing.JLabel();
         edgeColorRedTF = new javax.swing.JFormattedTextField();
         edgeColorGreenTF = new javax.swing.JFormattedTextField();
@@ -109,6 +113,8 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(630, 260));
+        setPreferredSize(new java.awt.Dimension(630, 260));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -163,19 +169,47 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(gradientThresholdTF, gridBagConstraints);
 
+        rLabel.setText("r");
+        rLabel.setToolTipText("red component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        add(rLabel, gridBagConstraints);
+
+        gLabel.setText("g");
+        gLabel.setToolTipText("green component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        add(gLabel, gridBagConstraints);
+
+        bLabel.setText("b");
+        bLabel.setToolTipText("blue component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        add(bLabel, gridBagConstraints);
+
+        aLabel.setText("alpha");
+        aLabel.setToolTipText("alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
+        add(aLabel, gridBagConstraints);
+
         edgeColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         edgeColorLabel.setText("edgeColor");
         edgeColorLabel.setToolTipText("color used to highlight edges");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(edgeColorLabel, gridBagConstraints);
 
         edgeColorRedTF.setColumns(3);
         edgeColorRedTF.setText(org.openide.util.NbBundle.getMessage(EDGEENHANCEMENTVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorRedTF.text")); // NOI18N
-        edgeColorRedTF.setToolTipText(org.openide.util.NbBundle.getMessage(EDGEENHANCEMENTVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorRedTF.toolTipText")); // NOI18N
+        edgeColorRedTF.setToolTipText("red component [0..1]");
         edgeColorRedTF.setMinimumSize(new java.awt.Dimension(6, 15));
         edgeColorRedTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +223,7 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -198,7 +232,7 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
 
         edgeColorGreenTF.setColumns(3);
         edgeColorGreenTF.setText(org.openide.util.NbBundle.getMessage(EDGEENHANCEMENTVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorGreenTF.text")); // NOI18N
-        edgeColorGreenTF.setToolTipText(org.openide.util.NbBundle.getMessage(EDGEENHANCEMENTVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorGreenTF.toolTipText")); // NOI18N
+        edgeColorGreenTF.setToolTipText("green component [0..1]");
         edgeColorGreenTF.setMinimumSize(new java.awt.Dimension(6, 15));
         edgeColorGreenTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,7 +246,7 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -221,7 +255,7 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
 
         edgeColorBlueTF.setColumns(3);
         edgeColorBlueTF.setText(org.openide.util.NbBundle.getMessage(EDGEENHANCEMENTVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorBlueTF.text")); // NOI18N
-        edgeColorBlueTF.setToolTipText(org.openide.util.NbBundle.getMessage(EDGEENHANCEMENTVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorBlueTF.toolTipText")); // NOI18N
+        edgeColorBlueTF.setToolTipText("blue component [0..1]");
         edgeColorBlueTF.setMinimumSize(new java.awt.Dimension(6, 15));
         edgeColorBlueTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,7 +269,7 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -262,14 +296,14 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(edgeColorChooser, gridBagConstraints);
 
         edgeColorAlphaTF.setColumns(3);
         edgeColorAlphaTF.setText(org.openide.util.NbBundle.getMessage(EDGEENHANCEMENTVOLUMESTYLECustomizer.class, "NewJPanel.transparencyTF.text")); // NOI18N
-        edgeColorAlphaTF.setToolTipText("alpha opaqueness value [0..1]");
+        edgeColorAlphaTF.setToolTipText("adjust alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
         edgeColorAlphaTF.setMinimumSize(new java.awt.Dimension(6, 15));
         edgeColorAlphaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,14 +317,14 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(edgeColorAlphaTF, gridBagConstraints);
 
-        edgeColorAlphaSlider.setToolTipText(org.openide.util.NbBundle.getMessage(EDGEENHANCEMENTVOLUMESTYLECustomizer.class, "MATERIALCustomizer.transparencySlider.toolTipText")); // NOI18N
+        edgeColorAlphaSlider.setToolTipText("alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
         edgeColorAlphaSlider.setMaximumSize(new java.awt.Dimension(100, 25));
         edgeColorAlphaSlider.setPreferredSize(new java.awt.Dimension(100, 25));
         edgeColorAlphaSlider.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -300,7 +334,7 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.67;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -406,6 +440,8 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel aLabel;
+    private javax.swing.JLabel bLabel;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JSlider edgeColorAlphaSlider;
     private javax.swing.JFormattedTextField edgeColorAlphaTF;
@@ -416,10 +452,12 @@ public class EDGEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
     private javax.swing.JFormattedTextField edgeColorRedTF;
     private javax.swing.JCheckBox enabledCB;
     private javax.swing.JLabel enabledLabel;
+    private javax.swing.JLabel gLabel;
     private javax.swing.JLabel gradientThresholdLabel;
     private javax.swing.JTextField gradientThresholdTF;
     private javax.swing.JLabel hintLabel1;
     private javax.swing.JPanel nodeHintPanel;
+    private javax.swing.JLabel rLabel;
     // End of variables declaration//GEN-END:variables
 
   @Override

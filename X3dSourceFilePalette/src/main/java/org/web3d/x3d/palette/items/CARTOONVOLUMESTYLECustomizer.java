@@ -111,6 +111,10 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         enabledCB = new javax.swing.JCheckBox();
         colorStepsLabel = new javax.swing.JLabel();
         colorStepsTF = new javax.swing.JTextField();
+        rLabel = new javax.swing.JLabel();
+        gLabel = new javax.swing.JLabel();
+        bLabel = new javax.swing.JLabel();
+        aLabel = new javax.swing.JLabel();
         orthogonalColorLabel = new javax.swing.JLabel();
         orthogonalColorRedTF = new javax.swing.JFormattedTextField();
         orthogonalColorGreenTF = new javax.swing.JFormattedTextField();
@@ -129,6 +133,8 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         hintLabel1 = new javax.swing.JLabel();
 
         setToolTipText("");
+        setMinimumSize(new java.awt.Dimension(620, 300));
+        setPreferredSize(new java.awt.Dimension(620, 300));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -183,19 +189,47 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(colorStepsTF, gridBagConstraints);
 
+        rLabel.setText("r");
+        rLabel.setToolTipText("red component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        add(rLabel, gridBagConstraints);
+
+        gLabel.setText("g");
+        gLabel.setToolTipText("green component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        add(gLabel, gridBagConstraints);
+
+        bLabel.setText("b");
+        bLabel.setToolTipText("blue component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        add(bLabel, gridBagConstraints);
+
+        aLabel.setText("alpha");
+        aLabel.setToolTipText("alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
+        add(aLabel, gridBagConstraints);
+
         orthogonalColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         orthogonalColorLabel.setText("orthogonalColor");
         orthogonalColorLabel.setToolTipText("orthogonalColor is used for surface normals that are orthogonal (perpendicular) to viewer's current location");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(orthogonalColorLabel, gridBagConstraints);
 
         orthogonalColorRedTF.setColumns(3);
         orthogonalColorRedTF.setText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorRedTF.text")); // NOI18N
-        orthogonalColorRedTF.setToolTipText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorRedTF.toolTipText")); // NOI18N
+        orthogonalColorRedTF.setToolTipText("red component [0..1]");
         orthogonalColorRedTF.setMinimumSize(new java.awt.Dimension(6, 15));
         orthogonalColorRedTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +243,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -218,7 +252,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
 
         orthogonalColorGreenTF.setColumns(3);
         orthogonalColorGreenTF.setText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorGreenTF.text")); // NOI18N
-        orthogonalColorGreenTF.setToolTipText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorGreenTF.toolTipText")); // NOI18N
+        orthogonalColorGreenTF.setToolTipText("green component [0..1]");
         orthogonalColorGreenTF.setMinimumSize(new java.awt.Dimension(6, 15));
         orthogonalColorGreenTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,7 +266,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -241,7 +275,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
 
         orthogonalColorBlueTF.setColumns(3);
         orthogonalColorBlueTF.setText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorBlueTF.text")); // NOI18N
-        orthogonalColorBlueTF.setToolTipText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorBlueTF.toolTipText")); // NOI18N
+        orthogonalColorBlueTF.setToolTipText("blue component [0..1]");
         orthogonalColorBlueTF.setMinimumSize(new java.awt.Dimension(6, 15));
         orthogonalColorBlueTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,7 +289,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -282,14 +316,14 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(orthogonalColorChooser, gridBagConstraints);
 
         orthogonalColorAlphaTF.setColumns(3);
         orthogonalColorAlphaTF.setText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "NewJPanel.transparencyTF.text")); // NOI18N
-        orthogonalColorAlphaTF.setToolTipText("alpha opaqueness value [0..1]");
+        orthogonalColorAlphaTF.setToolTipText("adjust alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
         orthogonalColorAlphaTF.setMinimumSize(new java.awt.Dimension(6, 15));
         orthogonalColorAlphaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,14 +337,14 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(orthogonalColorAlphaTF, gridBagConstraints);
 
-        orthogonalColorAlphaSlider.setToolTipText("alpha opaqueness value [0..1]");
+        orthogonalColorAlphaSlider.setToolTipText("alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
         orthogonalColorAlphaSlider.setMaximumSize(new java.awt.Dimension(100, 25));
         orthogonalColorAlphaSlider.setPreferredSize(new java.awt.Dimension(100, 25));
         orthogonalColorAlphaSlider.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -320,7 +354,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.67;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -331,14 +365,14 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         parallelColorLabel.setToolTipText("parallelColor is used for surface normals that are orthogonal to viewer's current location.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(parallelColorLabel, gridBagConstraints);
 
         parallelColorRedTF.setColumns(3);
         parallelColorRedTF.setText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorRedTF.text")); // NOI18N
-        parallelColorRedTF.setToolTipText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorRedTF.toolTipText")); // NOI18N
+        parallelColorRedTF.setToolTipText("red component [0..1]");
         parallelColorRedTF.setMinimumSize(new java.awt.Dimension(6, 15));
         parallelColorRedTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,7 +386,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -361,7 +395,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
 
         parallelColorGreenTF.setColumns(3);
         parallelColorGreenTF.setText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorGreenTF.text")); // NOI18N
-        parallelColorGreenTF.setToolTipText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorGreenTF.toolTipText")); // NOI18N
+        parallelColorGreenTF.setToolTipText("green component [0..1]");
         parallelColorGreenTF.setMinimumSize(new java.awt.Dimension(6, 15));
         parallelColorGreenTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,7 +409,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -384,7 +418,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
 
         parallelColorBlueTF.setColumns(3);
         parallelColorBlueTF.setText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorBlueTF.text")); // NOI18N
-        parallelColorBlueTF.setToolTipText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorBlueTF.toolTipText")); // NOI18N
+        parallelColorBlueTF.setToolTipText("blue component [0..1]");
         parallelColorBlueTF.setMinimumSize(new java.awt.Dimension(6, 15));
         parallelColorBlueTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,7 +432,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
@@ -425,14 +459,14 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(parallelColorChooser, gridBagConstraints);
 
         parallelColorAlphaTF.setColumns(3);
         parallelColorAlphaTF.setText(org.openide.util.NbBundle.getMessage(CARTOONVOLUMESTYLECustomizer.class, "NewJPanel.transparencyTF.text")); // NOI18N
-        parallelColorAlphaTF.setToolTipText("alpha opaqueness value [0..1]");
+        parallelColorAlphaTF.setToolTipText("adjust alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
         parallelColorAlphaTF.setMinimumSize(new java.awt.Dimension(6, 15));
         parallelColorAlphaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -446,14 +480,14 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(parallelColorAlphaTF, gridBagConstraints);
 
-        parallelColorAlphaSlider.setToolTipText("alpha opaqueness value [0..1]");
+        parallelColorAlphaSlider.setToolTipText("alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
         parallelColorAlphaSlider.setMaximumSize(new java.awt.Dimension(100, 25));
         parallelColorAlphaSlider.setPreferredSize(new java.awt.Dimension(100, 25));
         parallelColorAlphaSlider.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -463,7 +497,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.67;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -485,7 +519,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -645,11 +679,14 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel aLabel;
+    private javax.swing.JLabel bLabel;
     private javax.swing.JLabel colorStepsLabel;
     private javax.swing.JTextField colorStepsTF;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JCheckBox enabledCB;
     private javax.swing.JLabel enabledLabel;
+    private javax.swing.JLabel gLabel;
     private javax.swing.JLabel hintLabel1;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JSlider orthogonalColorAlphaSlider;
@@ -666,6 +703,7 @@ public class CARTOONVOLUMESTYLECustomizer extends BaseCustomizer
     private javax.swing.JFormattedTextField parallelColorGreenTF;
     private javax.swing.JLabel parallelColorLabel;
     private javax.swing.JFormattedTextField parallelColorRedTF;
+    private javax.swing.JLabel rLabel;
     // End of variables declaration//GEN-END:variables
 
   @Override

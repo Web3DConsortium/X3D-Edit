@@ -170,9 +170,10 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
         {
           // TODO better diagnostic needed when NPE occurs due to comboBox error
           InputOutput io = IOProvider.getDefault().getIO("Messages", false); // Name matches existing tab
-          String msg = ite.getLocalizedMessage();
+          String msg = ite.getMessage();
           io.getOut().println(msg!=null?msg:"Unspecified initialization error, possibly regarding node positioning: " +
                   ite.toString() + "\n" + Arrays.toString(ite.getStackTrace()));
+          System.err.println("Unspecified initialization error, possibly regarding node positioning: " + ite.toString() + "\n" + Arrays.toString(ite.getStackTrace()));
           return true;
         }
         catch (SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException ex)

@@ -106,6 +106,10 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
         dEFUSEpanel1 = getDEFUSEpanel();
         enabledLabel = new javax.swing.JLabel();
         enabledCB = new javax.swing.JCheckBox();
+        rLabel = new javax.swing.JLabel();
+        gLabel = new javax.swing.JLabel();
+        bLabel = new javax.swing.JLabel();
+        aLabel = new javax.swing.JLabel();
         coolColorLabel = new javax.swing.JLabel();
         coolColorRedTF = new javax.swing.JFormattedTextField();
         coolColorGreenTF = new javax.swing.JFormattedTextField();
@@ -123,6 +127,8 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(620, 260));
+        setPreferredSize(new java.awt.Dimension(620, 260));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -152,6 +158,34 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(enabledCB, gridBagConstraints);
 
+        rLabel.setText("r");
+        rLabel.setToolTipText("red component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        add(rLabel, gridBagConstraints);
+
+        gLabel.setText("g");
+        gLabel.setToolTipText("green component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        add(gLabel, gridBagConstraints);
+
+        bLabel.setText("b");
+        bLabel.setToolTipText("blue component [0..1]");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        add(bLabel, gridBagConstraints);
+
+        aLabel.setText("alpha");
+        aLabel.setToolTipText("alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        add(aLabel, gridBagConstraints);
+
         coolColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         coolColorLabel.setText("coolColor");
         coolColorLabel.setToolTipText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorLabel.toolTipText")); // NOI18N
@@ -164,7 +198,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
 
         coolColorRedTF.setColumns(3);
         coolColorRedTF.setText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorRedTF.text")); // NOI18N
-        coolColorRedTF.setToolTipText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorRedTF.toolTipText")); // NOI18N
+        coolColorRedTF.setToolTipText("red component [0..1]");
         coolColorRedTF.setMinimumSize(new java.awt.Dimension(6, 15));
         coolColorRedTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +221,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
 
         coolColorGreenTF.setColumns(3);
         coolColorGreenTF.setText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorGreenTF.text")); // NOI18N
-        coolColorGreenTF.setToolTipText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorGreenTF.toolTipText")); // NOI18N
+        coolColorGreenTF.setToolTipText("green component [0..1]");
         coolColorGreenTF.setMinimumSize(new java.awt.Dimension(6, 15));
         coolColorGreenTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -205,7 +239,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
 
         coolColorBlueTF.setColumns(3);
         coolColorBlueTF.setText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorBlueTF.text")); // NOI18N
-        coolColorBlueTF.setToolTipText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorBlueTF.toolTipText")); // NOI18N
+        coolColorBlueTF.setToolTipText("blue component [0..1]");
         coolColorBlueTF.setMinimumSize(new java.awt.Dimension(6, 15));
         coolColorBlueTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,7 +287,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
 
         coolColorAlphaTF.setColumns(3);
         coolColorAlphaTF.setText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "NewJPanel.transparencyTF.text")); // NOI18N
-        coolColorAlphaTF.setToolTipText("alpha opaqueness value [0..1]");
+        coolColorAlphaTF.setToolTipText("adjust alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
         coolColorAlphaTF.setMinimumSize(new java.awt.Dimension(6, 15));
         coolColorAlphaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,7 +308,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(coolColorAlphaTF, gridBagConstraints);
 
-        coolColorAlphaSlider.setToolTipText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "MATERIALCustomizer.transparencySlider.toolTipText")); // NOI18N
+        coolColorAlphaSlider.setToolTipText("alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
         coolColorAlphaSlider.setMaximumSize(new java.awt.Dimension(100, 25));
         coolColorAlphaSlider.setPreferredSize(new java.awt.Dimension(100, 25));
         coolColorAlphaSlider.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -302,7 +336,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
 
         warmColorRedTF.setColumns(3);
         warmColorRedTF.setText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorRedTF.text")); // NOI18N
-        warmColorRedTF.setToolTipText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorRedTF.toolTipText")); // NOI18N
+        warmColorRedTF.setToolTipText("red component [0..1]");
         warmColorRedTF.setMinimumSize(new java.awt.Dimension(6, 15));
         warmColorRedTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,7 +359,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
 
         warmColorGreenTF.setColumns(3);
         warmColorGreenTF.setText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorGreenTF.text")); // NOI18N
-        warmColorGreenTF.setToolTipText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorGreenTF.toolTipText")); // NOI18N
+        warmColorGreenTF.setToolTipText("green component [0..1]");
         warmColorGreenTF.setMinimumSize(new java.awt.Dimension(6, 15));
         warmColorGreenTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,7 +382,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
 
         warmColorBlueTF.setColumns(3);
         warmColorBlueTF.setText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "NewJPanel.diffuseColorBlueTF.text")); // NOI18N
-        warmColorBlueTF.setToolTipText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "MATERIALCustomizer.diffuseColorBlueTF.toolTipText")); // NOI18N
+        warmColorBlueTF.setToolTipText("blue component [0..1]");
         warmColorBlueTF.setMinimumSize(new java.awt.Dimension(6, 15));
         warmColorBlueTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,7 +430,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
 
         warmColorAlphaTF.setColumns(3);
         warmColorAlphaTF.setText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "NewJPanel.transparencyTF.text")); // NOI18N
-        warmColorAlphaTF.setToolTipText("alpha opaqueness value [0..1]");
+        warmColorAlphaTF.setToolTipText("adjust alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
         warmColorAlphaTF.setMinimumSize(new java.awt.Dimension(6, 15));
         warmColorAlphaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,7 +451,7 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(warmColorAlphaTF, gridBagConstraints);
 
-        warmColorAlphaSlider.setToolTipText(org.openide.util.NbBundle.getMessage(TONEMAPPEDVOLUMESTYLECustomizer.class, "MATERIALCustomizer.transparencySlider.toolTipText")); // NOI18N
+        warmColorAlphaSlider.setToolTipText("alpha opacity (1-transparency): how \"opaque\" an object is, 0.0 is completely transparent, 1.0 is completely opaque");
         warmColorAlphaSlider.setMaximumSize(new java.awt.Dimension(100, 25));
         warmColorAlphaSlider.setPreferredSize(new java.awt.Dimension(100, 25));
         warmColorAlphaSlider.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -595,6 +629,8 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel aLabel;
+    private javax.swing.JLabel bLabel;
     private javax.swing.JSlider coolColorAlphaSlider;
     private javax.swing.JFormattedTextField coolColorAlphaTF;
     private javax.swing.JFormattedTextField coolColorBlueTF;
@@ -605,8 +641,10 @@ public class TONEMAPPEDVOLUMESTYLECustomizer extends BaseCustomizer
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JCheckBox enabledCB;
     private javax.swing.JLabel enabledLabel;
+    private javax.swing.JLabel gLabel;
     private javax.swing.JLabel hintLabel1;
     private javax.swing.JPanel nodeHintPanel;
+    private javax.swing.JLabel rLabel;
     private javax.swing.JSlider warmColorAlphaSlider;
     private javax.swing.JFormattedTextField warmColorAlphaTF;
     private javax.swing.JFormattedTextField warmColorBlueTF;

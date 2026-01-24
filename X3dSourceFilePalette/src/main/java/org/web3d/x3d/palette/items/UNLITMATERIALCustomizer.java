@@ -150,6 +150,9 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
 
         dEFUSEpanel = getDEFUSEpanel();
         unlitMaterialFieldsPanel = new javax.swing.JPanel();
+        rLabel = new javax.swing.JLabel();
+        gLabel = new javax.swing.JLabel();
+        bLabel = new javax.swing.JLabel();
         emissiveColorLabel = new javax.swing.JLabel();
         emissiveColorRedTF = new javax.swing.JFormattedTextField();
         emissiveColorGreenTF = new javax.swing.JFormattedTextField();
@@ -187,6 +190,27 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
         unlitMaterialFieldsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         unlitMaterialFieldsPanel.setPreferredSize(new java.awt.Dimension(250, 206));
         unlitMaterialFieldsPanel.setLayout(new java.awt.GridBagLayout());
+
+        rLabel.setText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "UNLITMATERIALCustomizer.rLabel.text")); // NOI18N
+        rLabel.setToolTipText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "UNLITMATERIALCustomizer.rLabel.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        unlitMaterialFieldsPanel.add(rLabel, gridBagConstraints);
+
+        gLabel.setText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "UNLITMATERIALCustomizer.gLabel.text")); // NOI18N
+        gLabel.setToolTipText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "UNLITMATERIALCustomizer.gLabel.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        unlitMaterialFieldsPanel.add(gLabel, gridBagConstraints);
+
+        bLabel.setText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "UNLITMATERIALCustomizer.bLabel.text")); // NOI18N
+        bLabel.setToolTipText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "UNLITMATERIALCustomizer.bLabel.toolTipText")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        unlitMaterialFieldsPanel.add(bLabel, gridBagConstraints);
 
         emissiveColorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         emissiveColorLabel.setText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "NewJPanel.emisLab.text")); // NOI18N
@@ -408,7 +432,7 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
 
         transparencyTF.setColumns(3);
         transparencyTF.setText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "NewJPanel.transparencyTF.text")); // NOI18N
-        transparencyTF.setToolTipText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "UNLITMATERIALCustomizer.transparencyTF.toolTipText")); // NOI18N
+        transparencyTF.setToolTipText(org.openide.util.NbBundle.getMessage(UNLITMATERIALCustomizer.class, "UNLITMATERIALCustomizer.transparencySlider.toolTipText")); // NOI18N
         transparencyTF.setMinimumSize(new java.awt.Dimension(6, 15));
         transparencyTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -711,6 +735,7 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bLabel;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel;
     private javax.swing.JFormattedTextField emissiveColorBlueTF;
     private net.java.dev.colorchooser.ColorChooser emissiveColorChooser;
@@ -720,10 +745,12 @@ public class UNLITMATERIALCustomizer extends BaseCustomizer
     private javax.swing.JFormattedTextField emissiveColorRedTF;
     private javax.swing.JLabel emissiveTextureMappingLabel;
     private javax.swing.JFormattedTextField emissiveTextureMappingTF;
+    private javax.swing.JLabel gLabel;
     private javax.swing.JLabel normalScaleLabel;
     private javax.swing.JFormattedTextField normalScaleTF;
     private javax.swing.JLabel normalTextureMappingLabel;
     private javax.swing.JFormattedTextField normalTextureMappingTF;
+    private javax.swing.JLabel rLabel;
     private javax.swing.JLabel transparencyLabel;
     private javax.swing.JSlider transparencySlider;
     private javax.swing.JFormattedTextField transparencyTF;
