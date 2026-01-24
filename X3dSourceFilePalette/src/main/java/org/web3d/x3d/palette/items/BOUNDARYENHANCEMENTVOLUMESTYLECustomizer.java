@@ -94,6 +94,8 @@ public class BOUNDARYENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(650, 260));
+        setPreferredSize(new java.awt.Dimension(650, 260));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -197,7 +199,7 @@ public class BOUNDARYENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel1.setText("<html><p align='center'><b>BoundaryEnhancementVolumeStyle</b> contains a texture node defining the transferFunction.</p>");
+        hintLabel1.setText("<html><p align='center'><b>BoundaryEnhancementVolumeStyle</b> contains a texture node defining the <i>transferFunction</i> values.</p>");
         hintLabel1.setToolTipText("close this panel to add children nodes");
         hintLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();

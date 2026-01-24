@@ -102,9 +102,9 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
         weightConstant2Label = new javax.swing.JLabel();
         weightConstant2TF = new javax.swing.JTextField();
         weightFunction1Label = new javax.swing.JLabel();
-        weightFunction1ComboBox = new javax.swing.JComboBox<String>();
+        weightFunction1ComboBox = new javax.swing.JComboBox<>();
         weightFunction2Label = new javax.swing.JLabel();
-        weightFunction2ComboBox = new javax.swing.JComboBox<String>();
+        weightFunction2ComboBox = new javax.swing.JComboBox<>();
         bboxCenterLabel = new javax.swing.JLabel();
         bboxSeparator = new javax.swing.JSeparator();
         bboxCenterXTF = new javax.swing.JTextField();
@@ -116,8 +116,11 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
         bboxSizeZTF = new javax.swing.JTextField();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
+        spacerLabel = new javax.swing.JLabel();
 
         setToolTipText("");
+        setMinimumSize(new java.awt.Dimension(660, 350));
+        setPreferredSize(new java.awt.Dimension(660, 350));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -125,6 +128,7 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
@@ -162,7 +166,6 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 60;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -183,7 +186,6 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 60;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -208,10 +210,10 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 60);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(weightFunction1ComboBox, gridBagConstraints);
 
         weightFunction2Label.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -233,10 +235,10 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 60);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(weightFunction2ComboBox, gridBagConstraints);
 
         bboxCenterLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -251,7 +253,7 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(bboxSeparator, gridBagConstraints);
@@ -348,6 +350,12 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(spacerLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void weightFunction1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightFunction1ComboBoxActionPerformed
@@ -374,6 +382,7 @@ public class BLENDEDVOLUMESTYLECustomizer extends BaseCustomizer
     private javax.swing.JLabel enabledLabel;
     private javax.swing.JLabel hintLabel1;
     private javax.swing.JPanel nodeHintPanel;
+    private javax.swing.JLabel spacerLabel;
     private javax.swing.JLabel weightConstant1Label;
     private javax.swing.JTextField weightConstant1TF;
     private javax.swing.JLabel weightConstant2Label;
