@@ -94,6 +94,8 @@ public class SILHOUETTEENHANCEMENTVOLUMESTYLECustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(640, 260));
+        setPreferredSize(new java.awt.Dimension(640, 260));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
