@@ -226,7 +226,7 @@ public class BUFFERAUDIOSOURCE extends X3DSoundSourceNode // includes X3DUrlObje
       sb.append(autoRefreshTimeLimit);
       sb.append("'");
     }
-    if ((BUFFERAUDIOSOURCE_ATTR_BUFFER_REQD || !arraysIdenticalOrNull(buffer,bufferDefault)) && buffer.length > 0) {
+    if ((BUFFERAUDIOSOURCE_ATTR_BUFFER_REQD || (!arraysIdenticalOrNull(buffer,bufferDefault)) && buffer.length > 0)) {
       sb.append(" ");
       sb.append(BUFFERAUDIOSOURCE_ATTR_BUFFER_NAME);
       sb.append("='");
