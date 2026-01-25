@@ -49,6 +49,7 @@ import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
  */
 public class TEXTUREPROJECTOR extends X3DLightNode
 {
+
   private SFFloat ambientIntensity, ambientIntensityDefault;
   private SFFloat color0,color0Default;
   private SFFloat color1,color1Default;
@@ -58,15 +59,25 @@ public class TEXTUREPROJECTOR extends X3DLightNode
   private SFFloat directionY,directionYDefault;
   private SFFloat directionZ,directionZDefault;
   private boolean global;
-  private SFFloat intensity, intensityDefault;
+  private SFFloat fieldOfView,  fieldOfViewDefault;
+  private SFFloat intensity,    intensityDefault;
+  private SFFloat nearDistance, nearDistanceDefault;
+  private SFFloat farDistance,  farDistanceDefault;
+  private SFFloat locationX,locationXDefault;
+  private SFFloat locationY,locationYDefault;
+  private SFFloat locationZ,locationZDefault;
   private boolean on;  
   private boolean shadows;
   private SFFloat shadowIntensity,shadowIntensityDefault;
+  private SFFloat upVectorX,upVectorXDefault;
+  private SFFloat upVectorY,upVectorYDefault;
+  private SFFloat upVectorZ,upVectorZDefault;
   
   public TEXTUREPROJECTOR()
   {
   }
 
+  @Override
   public String getElementName()
   {
     return TEXTUREPROJECTOR_ELNAME;
@@ -78,6 +89,7 @@ public class TEXTUREPROJECTOR extends X3DLightNode
     return TEXTUREPROJECTORCustomizer.class;
   }
   
+  @Override
   public void initialize()
   {
     ambientIntensity = ambientIntensityDefault = new SFFloat(TEXTUREPROJECTOR_ATTR_AMBIENTINTENSITY_DFLT, 0.0f, 1.0f);
@@ -87,9 +99,12 @@ public class TEXTUREPROJECTOR extends X3DLightNode
     color1 = color1Default = new SFFloat(fa[1],0.0f,1.0f);
     color2 = color2Default = new SFFloat(fa[2],0.0f,1.0f);
     
-        setDescription(TEXTUREPROJECTOR_ATTR_DESCRIPTION_DFLT);
+    description  = TEXTUREPROJECTOR_ATTR_DESCRIPTION_DFLT;
     
-    intensity = intensityDefault = new SFFloat(TEXTUREPROJECTOR_ATTR_INTENSITY_DFLT, 0.0f, 1.0f);
+    fieldOfView  = fieldOfViewDefault = new SFFloat(TEXTUREPROJECTOR_ATTR_FIELDOFVIEW_DFLT,   0.0f, 0.7854f);
+    farDistance  = farDistanceDefault = new SFFloat(TEXTUREPROJECTOR_ATTR_FARDISTANCE_DFLT,  -1.0f, 1.0f);
+    intensity    = intensityDefault   = new SFFloat(TEXTUREPROJECTOR_ATTR_INTENSITY_DFLT,     0.0f, null);
+    nearDistance = farDistanceDefault = new SFFloat(TEXTUREPROJECTOR_ATTR_NEARDISTANCE_DFLT, -1.0f, 1.0f);
     
     fa = parse3(TEXTUREPROJECTOR_ATTR_DIRECTION_DFLT);
     directionX = directionXDefault = new SFFloat(fa[0],null,null);
@@ -99,8 +114,18 @@ public class TEXTUREPROJECTOR extends X3DLightNode
     on = Boolean.parseBoolean(TEXTUREPROJECTOR_ATTR_ON_DFLT);
     global = Boolean.parseBoolean(TEXTUREPROJECTOR_ATTR_GLOBAL_DFLT);
     
+    fa = parse3(TEXTUREPROJECTOR_ATTR_LOCATION_DFLT);
+    locationX = locationXDefault = new SFFloat(fa[0],null,null);
+    locationY = locationYDefault = new SFFloat(fa[1],null,null);
+    locationZ = locationZDefault = new SFFloat(fa[2],null,null);
+    
     shadows = Boolean.parseBoolean(TEXTUREPROJECTOR_ATTR_SHADOWS_DFLT);
     shadowIntensity = shadowIntensityDefault = new SFFloat(TEXTUREPROJECTOR_ATTR_SHADOWINTENSITY_DFLT, 0.0f, 1.0f);
+    
+    fa = parse3(TEXTUREPROJECTOR_ATTR_UPVECTOR_DFLT);
+    upVectorX = upVectorXDefault = new SFFloat(fa[0],null,null);
+    upVectorY = upVectorYDefault = new SFFloat(fa[1],null,null);
+    upVectorZ = upVectorZDefault = new SFFloat(fa[2],null,null);
   }
 
   @Override
@@ -123,9 +148,6 @@ public class TEXTUREPROJECTOR extends X3DLightNode
     attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_DESCRIPTION_NAME);
     if (attr != null)
         setDescription(attr.getValue());
-    attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_INTENSITY_NAME);
-    if (attr != null)
-      intensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
     attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_DIRECTION_NAME);
     if (attr != null) {
       fa = parse3(attr.getValue());
@@ -133,12 +155,32 @@ public class TEXTUREPROJECTOR extends X3DLightNode
       directionY = new SFFloat(fa[1], null, null);
       directionZ = new SFFloat(fa[2], null, null);
     }
-    attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_ON_NAME);
+    attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_FARDISTANCE_NAME);
     if (attr != null)
-      on = Boolean.parseBoolean(attr.getValue());
+      farDistance = new SFFloat(attr.getValue(), -1.0f, null);
+    attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_FIELDOFVIEW_NAME);
+    if (attr != null)
+      fieldOfView = new SFFloat(attr.getValue(), 0.0f, 0.7854f);
     attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_GLOBAL_NAME);
     if (attr != null)
       global = Boolean.parseBoolean(attr.getValue());
+    attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_INTENSITY_NAME);
+    if (attr != null)
+      intensity = new SFFloat(attr.getValue(), 0.0f, null);
+    
+    attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_LOCATION_NAME);
+    if (attr != null) {
+      fa = parse3(attr.getValue());
+      locationX = new SFFloat(fa[0], null, null);
+      locationY = new SFFloat(fa[1], null, null);
+      locationZ = new SFFloat(fa[2], null, null);
+    }
+    attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_NEARDISTANCE_NAME);
+    if (attr != null)
+      nearDistance = new SFFloat(attr.getValue(), -1.0f, null);
+    attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_ON_NAME);
+    if (attr != null)
+      on = Boolean.parseBoolean(attr.getValue());
     
     attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_SHADOWS_NAME);
     if (attr != null)
@@ -146,6 +188,14 @@ public class TEXTUREPROJECTOR extends X3DLightNode
     attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_SHADOWINTENSITY_NAME);
     if (attr != null)
       shadowIntensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
+    
+    attr = root.getAttribute(TEXTUREPROJECTOR_ATTR_UPVECTOR_NAME);
+    if (attr != null) {
+      fa = parse3(attr.getValue());
+      upVectorX = new SFFloat(fa[0], null, null);
+      upVectorY = new SFFloat(fa[1], null, null);
+      upVectorZ = new SFFloat(fa[2], null, null);
+    }
   }
   
   @Override
@@ -181,6 +231,35 @@ public class TEXTUREPROJECTOR extends X3DLightNode
       sb.append(escapeXmlCharacters(getDescription()));
       sb.append("'");
     }
+    if (TEXTUREPROJECTOR_ATTR_DIRECTION_REQD ||
+           (!directionX.equals(directionXDefault) ||
+            !directionY.equals(directionYDefault) ||
+            !directionZ.equals(directionZDefault)))
+    {
+      sb.append(" ");
+      sb.append(TEXTUREPROJECTOR_ATTR_DIRECTION_NAME);
+      sb.append("='");
+      sb.append(directionX);
+      sb.append(" ");
+      sb.append(directionY);
+      sb.append(" ");
+      sb.append(directionZ);
+      sb.append("'");
+    }
+    if (TEXTUREPROJECTOR_ATTR_FARDISTANCE_REQD || !farDistance.equals(farDistanceDefault)) {
+      sb.append(" ");
+      sb.append(TEXTUREPROJECTOR_ATTR_FARDISTANCE_NAME);
+      sb.append("='");
+      sb.append(farDistance);
+      sb.append("'");
+    }
+    if (TEXTUREPROJECTOR_ATTR_FIELDOFVIEW_REQD || !fieldOfView.equals(fieldOfViewDefault)) {
+      sb.append(" ");
+      sb.append(TEXTUREPROJECTOR_ATTR_FIELDOFVIEW_NAME);
+      sb.append("='");
+      sb.append(fieldOfView);
+      sb.append("'");
+    }
     if (TEXTUREPROJECTOR_ATTR_GLOBAL_REQD || global != Boolean.parseBoolean(TEXTUREPROJECTOR_ATTR_GLOBAL_DFLT)) {
       sb.append(" ");
       sb.append(TEXTUREPROJECTOR_ATTR_GLOBAL_NAME);
@@ -195,19 +274,25 @@ public class TEXTUREPROJECTOR extends X3DLightNode
       sb.append(intensity);
       sb.append("'");
     }
-    if (TEXTUREPROJECTOR_ATTR_DIRECTION_REQD ||
-           (!directionX.equals(directionXDefault) ||
-            !directionY.equals(directionYDefault) ||
-            !directionZ.equals(directionZDefault)))
-    {
+    if(TEXTUREPROJECTOR_ATTR_LOCATION_REQD || 
+           (!locationX.equals(locationXDefault) ||
+            !locationY.equals(locationYDefault) ||
+            !locationZ.equals(locationZDefault)) ) {
       sb.append(" ");
-      sb.append(TEXTUREPROJECTOR_ATTR_DIRECTION_NAME);
+      sb.append(TEXTUREPROJECTOR_ATTR_LOCATION_NAME);
       sb.append("='");
-      sb.append(directionX);
+      sb.append(getLocationX());
       sb.append(" ");
-      sb.append(directionY);
+      sb.append(getLocationY());
       sb.append(" ");
-      sb.append(directionZ);
+      sb.append(getLocationZ());
+      sb.append("'");       
+    }
+    if (TEXTUREPROJECTOR_ATTR_NEARDISTANCE_REQD || !farDistance.equals(nearDistanceDefault)) {
+      sb.append(" ");
+      sb.append(TEXTUREPROJECTOR_ATTR_NEARDISTANCE_NAME);
+      sb.append("='");
+      sb.append(nearDistance);
       sb.append("'");
     }
     if (TEXTUREPROJECTOR_ATTR_ON_REQD || on != Boolean.parseBoolean(TEXTUREPROJECTOR_ATTR_ON_DFLT)) {
@@ -230,6 +315,20 @@ public class TEXTUREPROJECTOR extends X3DLightNode
       sb.append("='");
       sb.append(shadowIntensity);
       sb.append("'");
+    }     
+    if(TEXTUREPROJECTOR_ATTR_UPVECTOR_REQD || 
+           (!upVectorX.equals(upVectorXDefault) ||
+            !upVectorY.equals(upVectorYDefault) ||
+            !upVectorZ.equals(upVectorZDefault)) ) {
+      sb.append(" ");
+      sb.append(TEXTUREPROJECTOR_ATTR_UPVECTOR_NAME);
+      sb.append("='");
+      sb.append(getUpVectorX());
+      sb.append(" ");
+      sb.append(getUpVectorY());
+      sb.append(" ");
+      sb.append(getUpVectorZ());
+      sb.append("'");       
     }     
     return sb.toString();
   }
@@ -289,7 +388,7 @@ public class TEXTUREPROJECTOR extends X3DLightNode
   
   public void setIntensity(String intensity)
   {
-    this.intensity = new SFFloat(intensity,0.0f,1.0f);
+    this.intensity = new SFFloat(intensity,0.0f,null);
   }
  
   public String getDirectionX() 
@@ -362,6 +461,132 @@ public class TEXTUREPROJECTOR extends X3DLightNode
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @return the locationX
+     */
+    public SFFloat getLocationX() {
+        return locationX;
+    }
+
+    /**
+     * @param locationX the locationX to set
+     */
+    public void setLocationX(SFFloat locationX) {
+        this.locationX = locationX;
+    }
+
+    /**
+     * @return the locationY
+     */
+    public SFFloat getLocationY() {
+        return locationY;
+    }
+
+    /**
+     * @param locationY the locationY to set
+     */
+    public void setLocationY(SFFloat locationY) {
+        this.locationY = locationY;
+    }
+
+    /**
+     * @return the locationZ
+     */
+    public SFFloat getLocationZ() {
+        return locationZ;
+    }
+
+    /**
+     * @param locationZ the locationZ to set
+     */
+    public void setLocationZ(SFFloat locationZ) {
+        this.locationZ = locationZ;
+    }
+    
+    /**
+     * @return the upVectorX
+     */
+    public SFFloat getUpVectorX() {
+        return upVectorX;
+    }
+
+    /**
+     * @param upVectorX the upVectorX to set
+     */
+    public void setUpVectorX(SFFloat upVectorX) {
+        this.upVectorX = upVectorX;
+    }
+
+    /**
+     * @return the upVectorY
+     */
+    public SFFloat getUpVectorY() {
+        return upVectorY;
+    }
+
+    /**
+     * @param upVectorY the upVectorY to set
+     */
+    public void setUpVectorY(SFFloat upVectorY) {
+        this.upVectorY = upVectorY;
+    }
+
+    /**
+     * @return the upVectorZ
+     */
+    public SFFloat getUpVectorZ() {
+        return upVectorZ;
+    }
+
+    /**
+     * @param upVectorZ the upVectorZ to set
+     */
+    public void setUpVectorZ(SFFloat upVectorZ) {
+        this.upVectorZ = upVectorZ;
+    }
+
+    /**
+     * @return the fieldOfView
+     */
+    public SFFloat getFieldOfView() {
+        return fieldOfView;
+    }
+
+    /**
+     * @param fieldOfView the fieldOfView to set
+     */
+    public void setFieldOfView(SFFloat fieldOfView) {
+        this.fieldOfView = fieldOfView;
+    }
+
+    /**
+     * @return the farDistance
+     */
+    public SFFloat getFarDistance() {
+        return farDistance;
+    }
+
+    /**
+     * @param farDistance the farDistance to set
+     */
+    public void setFarDistance(SFFloat farDistance) {
+        this.farDistance = farDistance;
+    }
+
+    /**
+     * @return the nearDistance
+     */
+    public SFFloat getNearDistance() {
+        return nearDistance;
+    }
+
+    /**
+     * @param nearDistance the nearDistance to set
+     */
+    public void setNearDistance(SFFloat nearDistance) {
+        this.nearDistance = nearDistance;
     }
 
 }

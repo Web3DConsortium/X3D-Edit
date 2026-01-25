@@ -70,20 +70,31 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
     color2TF.setText(textureProjector.getColor2());
 
     bindColorChooserToBetterJTextFields(color0TF,color1TF,color2TF,colorChooser);
-
-    globalCB.setSelected(textureProjector.isGlobal());
-    intensityTF.setText(textureProjector.getIntensity());
     
     descriptionTextField.setText(textureProjector.getDescription());
     directionXTF.setText(textureProjector.getDirectionX());
     directionYTF.setText(textureProjector.getDirectionY());
     directionZTF.setText(textureProjector.getDirectionZ());
-    if (directionXTF.getText().equals("0") && directionYTF.getText().equals("0") && directionZTF.getText().equals("0")) normalizeButton.doClick();
+    if (directionXTF.getText().equals("0") && directionYTF.getText().equals("0") && directionZTF.getText().equals("0")) directionNormalizeButton.doClick();
+
+    farDistanceTF.setText(textureProjector.getFarDistance().toString());
+    fieldOfViewTF.setText(textureProjector.getFieldOfView().toString());
+    globalCB.setSelected(textureProjector.isGlobal());
+    intensityTF.setText(textureProjector.getIntensity());
     
+    locationXTF.setText(textureProjector.getLocationX().toString());
+    locationYTF.setText(textureProjector.getLocationY().toString());
+    locationZTF.setText(textureProjector.getLocationZ().toString());
+    
+    nearDistanceTF.setText(textureProjector.getNearDistance().toString());
     onCB.setSelected(textureProjector.isOn());
     
     shadowsCB.setSelected(textureProjector.isShadows());
     shadowIntensityTF.setText(textureProjector.getShadowIntensity());
+    
+    upVectorXTF.setText(textureProjector.getUpVectorX().toString());
+    upVectorYTF.setText(textureProjector.getUpVectorY().toString());
+    upVectorZTF.setText(textureProjector.getUpVectorZ().toString());
   }
 
   /** This method is called from within the constructor to
@@ -112,28 +123,38 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         directionYTF = new javax.swing.JTextField();
         directionZTF = new javax.swing.JTextField();
         directionXTF = new javax.swing.JTextField();
+        directionNormalizeButton = new javax.swing.JButton();
         intensityLabel = new javax.swing.JLabel();
         intensityTF = new javax.swing.JTextField();
         onLabel = new javax.swing.JLabel();
         onCB = new javax.swing.JCheckBox();
         globalLabel = new javax.swing.JLabel();
         globalCB = new javax.swing.JCheckBox();
-        normalizeButton = new javax.swing.JButton();
         shadowsLabel = new javax.swing.JLabel();
         shadowsCB = new javax.swing.JCheckBox();
         shadowIntensityLabel = new javax.swing.JLabel();
         shadowIntensityTF = new javax.swing.JTextField();
-        hintPanel = new javax.swing.JPanel();
-        eventsLabel = new javax.swing.JLabel();
+        locationLabel = new javax.swing.JLabel();
+        locationXTF = new javax.swing.JTextField();
+        locationYTF = new javax.swing.JTextField();
+        locationZTF = new javax.swing.JTextField();
         nearDistanceLabel = new javax.swing.JLabel();
         nearDistanceTF = new javax.swing.JTextField();
         farDistanceLabel = new javax.swing.JLabel();
         farDistanceTF = new javax.swing.JTextField();
         fieldOfViewLabel = new javax.swing.JLabel();
         fieldOfViewTF = new javax.swing.JTextField();
+        upVectorLabel = new javax.swing.JLabel();
+        upVectorXTF = new javax.swing.JTextField();
+        upVectorYTF = new javax.swing.JTextField();
+        upVectorZTF = new javax.swing.JTextField();
+        upVectorNormalizeButton = new javax.swing.JButton();
+        hintPanel = new javax.swing.JPanel();
+        eventsLabel = new javax.swing.JLabel();
+        spacerLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(650, 480));
-        setPreferredSize(new java.awt.Dimension(650, 480));
+        setMinimumSize(new java.awt.Dimension(650, 530));
+        setPreferredSize(new java.awt.Dimension(650, 530));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -283,7 +304,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         directionLabel.setToolTipText("direction vector of light axis relative to local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(directionLabel, gridBagConstraints);
@@ -294,7 +315,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         directionYTF.setPreferredSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -306,7 +327,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         directionZTF.setPreferredSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -318,15 +339,29 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         directionXTF.setPreferredSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(directionXTF, gridBagConstraints);
 
+        directionNormalizeButton.setText("normalize");
+        directionNormalizeButton.setToolTipText("fix zero-magnitude direction vector to default, adjust vector magnitude to one");
+        directionNormalizeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                directionNormalizeButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(directionNormalizeButton, gridBagConstraints);
+
         intensityLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         intensityLabel.setText("intensity");
-        intensityLabel.setToolTipText("[0,1] brightness of direct light");
+        intensityLabel.setToolTipText("brightness of direct emission from light");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
@@ -334,7 +369,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(intensityLabel, gridBagConstraints);
 
-        intensityTF.setToolTipText("[0,1] brightness of direct light");
+        intensityTF.setToolTipText("brightness of direct emission from light");
         intensityTF.setMaximumSize(null);
         intensityTF.setMinimumSize(new java.awt.Dimension(40, 20));
         intensityTF.setPreferredSize(new java.awt.Dimension(40, 20));
@@ -397,19 +432,6 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(globalCB, gridBagConstraints);
 
-        normalizeButton.setText("normalize");
-        normalizeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                normalizeButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(normalizeButton, gridBagConstraints);
-
         shadowsLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         shadowsLabel.setText("shadows");
         shadowsLabel.setToolTipText("whether shadows result from this light");
@@ -455,31 +477,55 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(shadowIntensityTF, gridBagConstraints);
 
-        hintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        hintPanel.setLayout(new java.awt.GridBagLayout());
-
-        eventsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel.setText("<html> <p align=\"center\"><b>TextureProjector</b>s a perspective-based light that projects a texture into the scene, \n<br />\napplying the projected texture to any geometry that intersects the perspective projection volume.</p>\n<br />\n<p align='center'><i>aspectRatio</i> is an output event when the contained <b>ImageTexture</b> is loaded.</p>");
-        eventsLabel.setToolTipText("Create a ROUTE to connect output events");
+        locationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        locationLabel.setText("location");
+        locationLabel.setToolTipText("location of light relative to local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        hintPanel.add(eventsLabel, gridBagConstraints);
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(locationLabel, gridBagConstraints);
 
+        locationXTF.setToolTipText("location of light relative to local coordinate system");
+        locationXTF.setMaximumSize(null);
+        locationXTF.setMinimumSize(new java.awt.Dimension(40, 20));
+        locationXTF.setPreferredSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
-        add(hintPanel, gridBagConstraints);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(locationXTF, gridBagConstraints);
+
+        locationYTF.setToolTipText("location of light relative to local coordinate system");
+        locationYTF.setMaximumSize(null);
+        locationYTF.setMinimumSize(new java.awt.Dimension(40, 20));
+        locationYTF.setPreferredSize(new java.awt.Dimension(40, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(locationYTF, gridBagConstraints);
+
+        locationZTF.setToolTipText("location of light relative to local coordinate system");
+        locationZTF.setMaximumSize(null);
+        locationZTF.setMinimumSize(new java.awt.Dimension(40, 20));
+        locationZTF.setPreferredSize(new java.awt.Dimension(40, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(locationZTF, gridBagConstraints);
 
         nearDistanceLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         nearDistanceLabel.setText("nearDistance");
-        nearDistanceLabel.setToolTipText("[0,1] brightness of direct light");
+        nearDistanceLabel.setToolTipText("minimum distance necessary for texture display, -1 if unconstrained");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
@@ -487,7 +533,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nearDistanceLabel, gridBagConstraints);
 
-        nearDistanceTF.setToolTipText("[0,1] brightness of direct light");
+        nearDistanceTF.setToolTipText("minimum distance necessary for texture display, -1 if unconstrained");
         nearDistanceTF.setMaximumSize(null);
         nearDistanceTF.setMinimumSize(new java.awt.Dimension(40, 20));
         nearDistanceTF.setPreferredSize(new java.awt.Dimension(40, 20));
@@ -506,7 +552,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
 
         farDistanceLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         farDistanceLabel.setText("farDistance");
-        farDistanceLabel.setToolTipText("[0,1] brightness of direct light");
+        farDistanceLabel.setToolTipText("maximum distance necessary for texture display, -1 if unconstrained");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 12;
@@ -514,7 +560,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(farDistanceLabel, gridBagConstraints);
 
-        farDistanceTF.setToolTipText("[0,1] brightness of direct light");
+        farDistanceTF.setToolTipText("maximum distance necessary for texture display, -1 if unconstrained");
         farDistanceTF.setMaximumSize(null);
         farDistanceTF.setMinimumSize(new java.awt.Dimension(40, 20));
         farDistanceTF.setPreferredSize(new java.awt.Dimension(40, 20));
@@ -533,7 +579,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
 
         fieldOfViewLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         fieldOfViewLabel.setText("fieldOfView");
-        fieldOfViewLabel.setToolTipText("[0,1] brightness of direct light");
+        fieldOfViewLabel.setToolTipText("peferred minimum viewing angle for this projection in radians, minimum pi/4");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
@@ -541,7 +587,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(fieldOfViewLabel, gridBagConstraints);
 
-        fieldOfViewTF.setToolTipText("[0,1] brightness of direct light");
+        fieldOfViewTF.setToolTipText("peferred minimum viewing angle for this projection in radians, minimum pi/4");
         fieldOfViewTF.setMaximumSize(null);
         fieldOfViewTF.setMinimumSize(new java.awt.Dimension(40, 20));
         fieldOfViewTF.setPreferredSize(new java.awt.Dimension(40, 20));
@@ -557,6 +603,96 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(fieldOfViewTF, gridBagConstraints);
+
+        upVectorLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        upVectorLabel.setText("upVector");
+        upVectorLabel.setToolTipText("upVector describes camera orientation by defining which direction is up");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(upVectorLabel, gridBagConstraints);
+
+        upVectorXTF.setToolTipText("upVector describes camera orientation by defining which direction is up");
+        upVectorXTF.setMaximumSize(null);
+        upVectorXTF.setMinimumSize(new java.awt.Dimension(40, 20));
+        upVectorXTF.setPreferredSize(new java.awt.Dimension(40, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(upVectorXTF, gridBagConstraints);
+
+        upVectorYTF.setToolTipText("upVector describes camera orientation by defining which direction is up");
+        upVectorYTF.setMaximumSize(null);
+        upVectorYTF.setMinimumSize(new java.awt.Dimension(40, 20));
+        upVectorYTF.setPreferredSize(new java.awt.Dimension(40, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(upVectorYTF, gridBagConstraints);
+
+        upVectorZTF.setToolTipText("upVector describes camera orientation by defining which direction is up");
+        upVectorZTF.setMaximumSize(null);
+        upVectorZTF.setMinimumSize(new java.awt.Dimension(40, 20));
+        upVectorZTF.setPreferredSize(new java.awt.Dimension(40, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(upVectorZTF, gridBagConstraints);
+
+        upVectorNormalizeButton.setText("normalize");
+        upVectorNormalizeButton.setToolTipText("fix zero-magnitude upVector to default, adjust vector magnitude to one");
+        upVectorNormalizeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upVectorNormalizeButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(upVectorNormalizeButton, gridBagConstraints);
+
+        hintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        hintPanel.setLayout(new java.awt.GridBagLayout());
+
+        eventsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eventsLabel.setText("<html> <p align=\"center\"><b>TextureProjector</b> is a perspective-based light that projects a texture into the scene, \n<br />\napplying the projected texture to any geometry that intersects the perspective projection volume.</p>\n<br />\n<p align='center'><i>aspectRatio</i> is an output event when the contained <b>ImageTexture</b> is loaded.</p>");
+        eventsLabel.setToolTipText("Create a ROUTE to connect output events");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        hintPanel.add(eventsLabel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
+        add(hintPanel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.3;
+        add(spacerLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
                                         
 
@@ -565,7 +701,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
       // TODO add your handling code here:
   }//GEN-LAST:event_intensityTFActionPerformed
 
-  private void normalizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalizeButtonActionPerformed
+  private void directionNormalizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_directionNormalizeButtonActionPerformed
         double normalizationFactor, x, y, z;
 
         x     = new SFDouble(directionXTF.getText()).getValue();
@@ -580,7 +716,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
             DialogDisplayer.getDefault().notify(descriptor);
             directionXTF.setText("0");
             directionYTF.setText("0");
-            directionZTF.setText("-1");
+            directionZTF.setText("1");
         }
         else
         {
@@ -588,7 +724,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
             directionYTF.setText(fiveDigitFormat.format(y / normalizationFactor));
             directionZTF.setText(fiveDigitFormat.format(z / normalizationFactor));
         }
-  }//GEN-LAST:event_normalizeButtonActionPerformed
+  }//GEN-LAST:event_directionNormalizeButtonActionPerformed
 
     private void nearDistanceTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nearDistanceTFActionPerformed
         // TODO add your handling code here:
@@ -608,6 +744,31 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
     color1TF.setText(formatDecimal((float)c.getGreen()/255));
     color2TF.setText(formatDecimal((float)c.getBlue()/255));
     }//GEN-LAST:event_colorChooserActionPerformed
+
+    private void upVectorNormalizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upVectorNormalizeButtonActionPerformed
+        double normalizationFactor, x, y, z;
+
+        x     = new SFDouble(upVectorXTF.getText()).getValue();
+        y     = new SFDouble(upVectorYTF.getText()).getValue();
+        z     = new SFDouble(upVectorZTF.getText()).getValue();
+
+        normalizationFactor = Math.sqrt(x * x + y * y + z * z);
+        if (normalizationFactor == 0.0)
+        {
+            NotifyDescriptor descriptor = new NotifyDescriptor.Message(
+                    "<html>Found zero-magnitude axis for <b>direction</b> vector, reset to 0 0 -1</html>", NotifyDescriptor.WARNING_MESSAGE);
+            DialogDisplayer.getDefault().notify(descriptor);
+            upVectorXTF.setText("0");
+            upVectorYTF.setText("1");
+            upVectorZTF.setText("0");
+        }
+        else
+        {
+            upVectorXTF.setText(fiveDigitFormat.format(x / normalizationFactor));
+            upVectorYTF.setText(fiveDigitFormat.format(y / normalizationFactor));
+            upVectorZTF.setText(fiveDigitFormat.format(z / normalizationFactor));
+        }
+    }//GEN-LAST:event_upVectorNormalizeButtonActionPerformed
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -623,6 +784,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JTextField descriptionTextField;
     private javax.swing.JLabel directionLabel;
+    private javax.swing.JButton directionNormalizeButton;
     private javax.swing.JTextField directionXTF;
     private javax.swing.JTextField directionYTF;
     private javax.swing.JTextField directionZTF;
@@ -637,9 +799,12 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
     private javax.swing.JPanel hintPanel;
     private javax.swing.JLabel intensityLabel;
     private javax.swing.JTextField intensityTF;
+    private javax.swing.JLabel locationLabel;
+    private javax.swing.JTextField locationXTF;
+    private javax.swing.JTextField locationYTF;
+    private javax.swing.JTextField locationZTF;
     private javax.swing.JLabel nearDistanceLabel;
     private javax.swing.JTextField nearDistanceTF;
-    private javax.swing.JButton normalizeButton;
     private javax.swing.JCheckBox onCB;
     private javax.swing.JLabel onLabel;
     private javax.swing.JLabel rLabel;
@@ -647,6 +812,12 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
     private javax.swing.JTextField shadowIntensityTF;
     private javax.swing.JCheckBox shadowsCB;
     private javax.swing.JLabel shadowsLabel;
+    private javax.swing.JLabel spacerLabel;
+    private javax.swing.JLabel upVectorLabel;
+    private javax.swing.JButton upVectorNormalizeButton;
+    private javax.swing.JTextField upVectorXTF;
+    private javax.swing.JTextField upVectorYTF;
+    private javax.swing.JTextField upVectorZTF;
     // End of variables declaration//GEN-END:variables
 
    @Override
@@ -668,17 +839,27 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
     textureProjector.setGlobal(globalCB.isSelected());
     
     textureProjector.setDescription(descriptionTextField.getText().trim());
-    textureProjector.setIntensity(intensityTF.getText().trim());
+    textureProjector.setFieldOfView (new SFFloat(fieldOfViewTF.getText(),   0.0f, 0.7854f));
+    textureProjector.setFarDistance (new SFFloat(farDistanceTF.getText(), -1.0f, null));
+    textureProjector.setNearDistance(new SFFloat(farDistanceTF.getText(), -1.0f, null));
     textureProjector.setIntensity(intensityTF.getText().trim());
 
-    if (directionXTF.getText().equals("0") && directionYTF.getText().equals("0") && directionZTF.getText().equals("0")) normalizeButton.doClick();
+    if (directionXTF.getText().equals("0") && directionYTF.getText().equals("0") && directionZTF.getText().equals("0")) directionNormalizeButton.doClick();
     textureProjector.setDirectionX(directionXTF.getText().trim());
     textureProjector.setDirectionY(directionYTF.getText().trim());
     textureProjector.setDirectionZ(directionZTF.getText().trim());
+    
+    textureProjector.setLocationX(new SFFloat(locationXTF.getText(), null, null));
+    textureProjector.setLocationY(new SFFloat(locationYTF.getText(), null, null));
+    textureProjector.setLocationZ(new SFFloat(locationZTF.getText(), null, null));
     
     textureProjector.setOn(onCB.isSelected());
     
     textureProjector.setShadows(shadowsCB.isSelected());
     textureProjector.setShadowIntensity(shadowIntensityTF.getText().trim());
+    
+    textureProjector.setUpVectorX(new SFFloat(upVectorXTF.getText(), null, null));
+    textureProjector.setUpVectorY(new SFFloat(upVectorYTF.getText(), null, null));
+    textureProjector.setUpVectorZ(new SFFloat(upVectorZTF.getText(), null, null));
    }
 }
