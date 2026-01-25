@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -398,8 +398,9 @@ public class X3dEditUserPreferences
   public static String INSTANTREALITY_EXECUTABLE_PATH_KEY     = "INSTANTREALITY_EXECUTABLE_PATH";
   public static String POLYTRANSNUGRAF_EDITOR_PATH_KEY        = "POLYTRANSNUGRAF_EDITOR_PATH";
   public static String OCTAGA_EXECUTABLE_PATH_KEY             = "OCTAGA_EXECUTABLE_PATH";
+  public static String SUNRIZE_EXECUTABLE_PATH_KEY            = "SUNRIZE_EXECUTABLE_PATH";
   public static String SWIRLX3DPLAYER_EXECUTABLE_PATH_KEY     = "SWIRLX3DPLAYER_EXECUTABLE_PATH";
-  public static String CASTLEMODELVIEWER_EXECUTABLE_PATH_KEY        = "CASTLEMODELVIEWER_EXECUTABLE_PATH";
+  public static String CASTLEMODELVIEWER_EXECUTABLE_PATH_KEY  = "CASTLEMODELVIEWER_EXECUTABLE_PATH";
   public static String VIVATYPLAYER_EXECUTABLE_PATH_KEY       = "VIVATYPLAYER_EXECUTABLE_PATH";
   public static String XJ3D_EXECUTABLE_PATH_KEY               = "XJ3D_EXECUTABLE_PATH";
   public static String OTHER_X3D_PLAYER_EXECUTABLE_NAME_KEY   = "OTHER_X3D_PLAYER_EXECUTABLE_NAME";
@@ -418,7 +419,7 @@ public class X3dEditUserPreferences
   public static String INSTANTREALITY_EXECUTABLE_AUTOLAUNCH_KEY     = "INSTANTREALITY_AUTOLAUNCH";
   public static String OCTAGA_EXECUTABLE_AUTOLAUNCH_KEY             = "OCTAGA_AUTOLAUNCH";
   public static String SWIRLX3DPLAYER_EXECUTABLE_AUTOLAUNCH_KEY     = "SWIRLX3DPLAYER_AUTOLAUNCH";
-  public static String CASTLEMODELVIEWER_EXECUTABLE_AUTOLAUNCH_KEY        = "CASTLEMODELVIEWER_AUTOLAUNCH";
+  public static String CASTLEMODELVIEWER_EXECUTABLE_AUTOLAUNCH_KEY  = "CASTLEMODELVIEWER_AUTOLAUNCH";
   public static String VIVATYPLAYER_EXECUTABLE_AUTOLAUNCH_KEY       = "VIVATYPLAYER_AUTOLAUNCH";
   public static String XJ3D_EXECUTABLE_AUTOLAUNCH_KEY               = "XJ3D_AUTOLAUNCH";
   public static String OTHER_X3D_PLAYER_EXECUTABLE_AUTOLAUNCH_KEY   = "OTHER_X3D_PLAYER_AUTOLAUNCH";
@@ -540,6 +541,7 @@ public class X3dEditUserPreferences
   public static String HEILAN_EXECUTABLE_PATH_DEFAULT;
   public static String INSTANTREALITY_EXECUTABLE_PATH_DEFAULT;
   public static String OCTAGA_EXECUTABLE_PATH_DEFAULT;
+  public static String SUNRIZE_EXECUTABLE_PATH_DEFAULT;
   public static String SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT;
   public static String CASTLEMODELVIEWER_EXECUTABLE_PATH_DEFAULT;
   public static String VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT;
@@ -625,6 +627,7 @@ public class X3dEditUserPreferences
   private static final String winxpInstantRealityPathDefault       = "C:\\Program Files\\Instant Reality\\bin\\InstantPlayer.exe";
   private static final String winxpPolyTransNuGrafPathDefault      = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
   private static final String winxpOctagaPathDefault               = "C:\\Program Files\\Octaga Visual Solutions\\Octaga Player 5.0 (64 bit)\\OctagaPlayer.exe";
+  private static final String winxpSunrizePathDefault              = "C:\\Users\\YourUserName\\AppData\\Local\\sunrize\\Sunrize X3D Editor.exe";
   private static final String winxpSwirlX3DPlayerPathDefault       = "C:\\Program Files\\Pinecoast\\SwirlViewer\\SwView.exe";
   private static final String winxpCastleModelViewerPathDefault    = "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
   private static final String winxpVivatyPlayerPathDefault         = "C:\\Program Files\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
@@ -651,6 +654,7 @@ public class X3dEditUserPreferences
   private static final String windows64InstantRealityPathDefault   = "C:\\Program Files\\Instant Reality\\bin\\InstantPlayer.exe";
   private static final String windows64PolyTransNuGrafPathDefault  = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
   private static final String windows64OctagaPathDefault           = "C:\\Program Files\\Octaga Visual Solutions\\Octaga Player 5.0 (64 bit)\\OctagaPlayer.exe";
+  private static final String windows64SunrizePathDefault          = "C:\\Users\\YourUserName\\AppData\\Local\\sunrize\\Sunrize X3D Editor.exe";
   private static final String windows64SwirlX3DPlayerPathDefault   = "C:\\Program Files (x86)\\Pinecoast\\SwirlViewer\\SwView.exe";
   private static final String windows64CastleModelViewerPathDefault= "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
   private static final String windows64VivatyPlayerPathDefault     = "C:\\Program Files (x86)\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
@@ -675,6 +679,7 @@ public class X3dEditUserPreferences
   private static final String macosxInstantRealityPathDefault      = "/Applications/Instant Player.app";
   private static final String macosxPolyTransNuGrafPathDefault     = "/Applications/NuGraf.app";
   private static final String macosxOctagaPathDefault              = "/Applications/Octaga Player.app";
+  private static final String macosxSunrizePathDefault             = "/Applications/Sunrize.app";
   private static final String macosxSwirlX3DPlayerPathDefault      = ""; // No Mac version as of 17 July 2008
   private static final String macosxCastleModelViewerPathDefault         = "";
   private static final String macosxVivatyPlayerPathDefault        = ""; // No Mac version as of 17 July 2008
@@ -699,6 +704,7 @@ public class X3dEditUserPreferences
   private static final String otherInstantRealityPathDefault       = "InstantPlayer";
   private static final String otherPolyTransNuGrafPathDefault      = "NuGraf";
   private static final String otherOctagaPathDefault               = "OctagaPlayer";
+  private static final String otherSunrizePathDefault              = "Sunrize";
   private static final String otherSwirlX3DPlayerPathDefault       = "SwirlX3DPlayer";
   private static final String otherCastleModelViewerPathDefault    = "CastleModelViewer";
   private static final String otherVivatyPlayerPathDefault         = "VivatyPlayer";
@@ -1157,7 +1163,7 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT      = toks(windows64BsContentStudioX3dE
       INSTANTREALITY_EXECUTABLE_PATH_DEFAULT = toks(winxpInstantRealityPathDefault);
       OCTAGA_EXECUTABLE_PATH_DEFAULT         = toks(winxpOctagaPathDefault);
       SWIRLX3DPLAYER_EXECUTABLE_PATH_DEFAULT = toks(winxpSwirlX3DPlayerPathDefault);
-      CASTLEMODELVIEWER_EXECUTABLE_PATH_DEFAULT    = toks(winxpCastleModelViewerPathDefault);
+      CASTLEMODELVIEWER_EXECUTABLE_PATH_DEFAULT = toks(winxpCastleModelViewerPathDefault);
       VIVATYPLAYER_EXECUTABLE_PATH_DEFAULT   = toks(winxpVivatyPlayerPathDefault);
       XJ3D_EXECUTABLE_PATH_DEFAULT           = toks(winxpXj3DPathDefault);
   OTHER_X3D_PLAYER_EXECUTABLE_PATH_DEFAULT   = toks(winxpOtherX3dPlayerPathDefault);
