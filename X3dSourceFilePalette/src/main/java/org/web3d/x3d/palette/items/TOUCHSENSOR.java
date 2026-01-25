@@ -96,7 +96,7 @@ public class TOUCHSENSOR extends X3DTouchSensorNode
   @Override
   public String createAttributes()
   {
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder();
 
     if (TOUCHSENSOR_ATTR_DESCRIPTION_REQD || !description.equals(TOUCHSENSOR_ATTR_DESCRIPTION_DFLT)) {
       sb.append(" ");
