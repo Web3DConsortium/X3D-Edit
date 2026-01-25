@@ -97,7 +97,7 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
     
     diffuseCoefficients = diffuseCoefficientsDefault = ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_DFLT;
     
-    intensity = intensityDefault = new SFFloat(ENVIRONMENTLIGHT_ATTR_INTENSITY_DFLT, 0.0f, 1.0f);
+    intensity = intensityDefault = new SFFloat(ENVIRONMENTLIGHT_ATTR_INTENSITY_DFLT, 0.0f, null);
     
     fa = parse3(ENVIRONMENTLIGHT_ATTR_ORIGIN_DFLT);
     originX = originXDefault = new SFFloat(fa[0],null,null);
@@ -142,7 +142,7 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
       global = Boolean.parseBoolean(attr.getValue());
     attr = root.getAttribute(ENVIRONMENTLIGHT_ATTR_INTENSITY_NAME);
     if (attr != null)
-      intensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
+      intensity = new SFFloat(attr.getValue(), 0.0f, null);
     attr = root.getAttribute(ENVIRONMENTLIGHT_ATTR_ORIGIN_NAME);
     if (attr != null) {
       fa = parse3(attr.getValue());
@@ -195,7 +195,7 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
       sb.append(color2);
       sb.append("'");       
     }     
-    if(ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_REQD || !diffuseCoefficients.equals(ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_DFLT) ) {
+    if(ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_REQD || !diffuseCoefficients.equals(diffuseCoefficients) ) {
       sb.append(" ");
       sb.append(ENVIRONMENTLIGHT_ATTR_DIFFUSECOEFFICIENTS_NAME);
       sb.append("='");
@@ -298,7 +298,7 @@ public class ENVIRONMENTLIGHT extends X3DLightNode
 
   public void setIntensity(String intensity)
   {
-    this.intensity = new SFFloat(intensity,0.0f,1.0f);
+    this.intensity = new SFFloat(intensity,0.0f,null);
   }
 
   public boolean isOn()
