@@ -193,7 +193,7 @@ public class X3DDataObject extends MultiDataObject implements CookieSet.Factory 
       // Make a FileObject for the template file
       String path = "Templates/Other/newScene.x3d";
       if (newName.contains("HelloWorld"))
-          path = "Templates/Other/HelloWorldX3D4.x3d";
+          path = "Templates/Other/HelloWorld.x3d";
       FileObject x3dTemplateFileObject = FileUtil.getConfigRoot().getFileSystem().findResource(path);
       if (x3dTemplateFileObject == null) 
       {
