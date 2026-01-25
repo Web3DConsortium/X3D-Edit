@@ -75,7 +75,7 @@ public final class NewHelloWorldExampleAction extends CallableSystemAction
   {
     try {
       // Look in the "filesystem" to find the registered template (through classpath)
-      String path = "Templates/Other/HelloWorldX3D4.x3d";
+      String path = "Templates/Other/HelloWorld.x3d";
       FileObject x3dTemplateFileObject = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
       if (x3dTemplateFileObject == null)
       {
