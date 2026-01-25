@@ -90,7 +90,7 @@ public class DIRECTIONALLIGHT extends X3DLightNode
     color1 = color1Default = new SFFloat(fa[1],0.0f,1.0f);
     color2 = color2Default = new SFFloat(fa[2],0.0f,1.0f);
     
-    intensity = intensityDefault = new SFFloat(DIRECTIONALLIGHT_ATTR_INTENSITY_DFLT, 0.0f, 1.0f);
+    intensity = intensityDefault = new SFFloat(DIRECTIONALLIGHT_ATTR_INTENSITY_DFLT, 0.0f, null);
     
     fa = parse3(DIRECTIONALLIGHT_ATTR_DIRECTION_DFLT);
     directionX = directionXDefault = new SFFloat(fa[0],null,null);
@@ -123,7 +123,7 @@ public class DIRECTIONALLIGHT extends X3DLightNode
     }
     attr = root.getAttribute(DIRECTIONALLIGHT_ATTR_INTENSITY_NAME);
     if (attr != null)
-      intensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
+      intensity = new SFFloat(attr.getValue(), 0.0f, null);
     attr = root.getAttribute(DIRECTIONALLIGHT_ATTR_DIRECTION_NAME);
     if (attr != null) {
       fa = parse3(attr.getValue());
@@ -149,7 +149,7 @@ public class DIRECTIONALLIGHT extends X3DLightNode
   @Override
   public String createAttributes()
   {
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder();
     if (DIRECTIONALLIGHT_ATTR_AMBIENTINTENSITY_REQD || !ambientIntensity.equals(ambientIntensityDefault)) {
       sb.append(" ");
       sb.append(DIRECTIONALLIGHT_ATTR_AMBIENTINTENSITY_NAME);
@@ -172,20 +172,6 @@ public class DIRECTIONALLIGHT extends X3DLightNode
       sb.append(color2);
       sb.append("'");
     }
-    if (DIRECTIONALLIGHT_ATTR_GLOBAL_REQD || global != Boolean.parseBoolean(DIRECTIONALLIGHT_ATTR_GLOBAL_DFLT)) {
-      sb.append(" ");
-      sb.append(DIRECTIONALLIGHT_ATTR_GLOBAL_NAME);
-      sb.append("='");
-      sb.append(global);
-      sb.append("'");
-    }
-    if (DIRECTIONALLIGHT_ATTR_INTENSITY_REQD || !intensity.equals(intensityDefault)) {
-      sb.append(" ");
-      sb.append(DIRECTIONALLIGHT_ATTR_INTENSITY_NAME);
-      sb.append("='");
-      sb.append(intensity);
-      sb.append("'");
-    }
     if (DIRECTIONALLIGHT_ATTR_DIRECTION_REQD ||
            (!directionX.equals(directionXDefault) ||
             !directionY.equals(directionYDefault) ||
@@ -199,6 +185,20 @@ public class DIRECTIONALLIGHT extends X3DLightNode
       sb.append(directionY);
       sb.append(" ");
       sb.append(directionZ);
+      sb.append("'");
+    }
+    if (DIRECTIONALLIGHT_ATTR_GLOBAL_REQD || global != Boolean.parseBoolean(DIRECTIONALLIGHT_ATTR_GLOBAL_DFLT)) {
+      sb.append(" ");
+      sb.append(DIRECTIONALLIGHT_ATTR_GLOBAL_NAME);
+      sb.append("='");
+      sb.append(global);
+      sb.append("'");
+    }
+    if (DIRECTIONALLIGHT_ATTR_INTENSITY_REQD || !intensity.equals(intensityDefault)) {
+      sb.append(" ");
+      sb.append(DIRECTIONALLIGHT_ATTR_INTENSITY_NAME);
+      sb.append("='");
+      sb.append(intensity);
       sb.append("'");
     }
     if (DIRECTIONALLIGHT_ATTR_ON_REQD || on != Boolean.parseBoolean(DIRECTIONALLIGHT_ATTR_ON_DFLT)) {
@@ -280,7 +280,7 @@ public class DIRECTIONALLIGHT extends X3DLightNode
   
   public void setIntensity(String intensity)
   {
-    this.intensity = new SFFloat(intensity,0.0f,1.0f);
+    this.intensity = new SFFloat(intensity,0.0f,null);
   }
  
   public String getDirectionX() 
