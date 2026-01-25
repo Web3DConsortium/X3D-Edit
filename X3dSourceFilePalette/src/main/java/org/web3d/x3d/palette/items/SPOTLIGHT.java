@@ -114,7 +114,7 @@ public class SPOTLIGHT extends X3DLightNode
     global = Boolean.parseBoolean(SPOTLIGHT_ATTR_GLOBAL_DFLT);
     
     ambientIntensity = ambientIntensityDefault = new SFFloat(SPOTLIGHT_ATTR_AMBIENTINTENSITY_DFLT, 0.0f, 1.0f);
-    intensity        = intensityDefault        = new SFFloat(SPOTLIGHT_ATTR_INTENSITY_DFLT       , 0.0f, 1.0f);
+    intensity        = intensityDefault        = new SFFloat(SPOTLIGHT_ATTR_INTENSITY_DFLT       , 0.0f, null);
     radius           = radiusDefault           = new SFFloat(SPOTLIGHT_ATTR_RADIUS_DFLT          , 0.0f, null);
     cutOffAngle      = cutOffAngleDefault      = new SFFloat(SPOTLIGHT_ATTR_CUTOFFANGLE_DFLT     , 0.0f,Float.valueOf(SPOTLIGHT_ATTR_CUTOFFANGLE_MAX));
     beamWidth        = beamWidthDefault        = new SFFloat(SPOTLIGHT_ATTR_BEAMWIDTH_DFLT       , 0.0f,Float.valueOf(SPOTLIGHT_ATTR_BEAMWIDTH_MAX));
@@ -169,7 +169,7 @@ public class SPOTLIGHT extends X3DLightNode
       ambientIntensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
     attr = root.getAttribute(SPOTLIGHT_ATTR_INTENSITY_NAME);
     if (attr != null)
-      intensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
+      intensity = new SFFloat(attr.getValue(), 0.0f, null);
     attr = root.getAttribute(SPOTLIGHT_ATTR_RADIUS_NAME);
     if (attr != null)
       radius = new SFFloat(attr.getValue(), 0.0f, null);
@@ -197,7 +197,7 @@ public class SPOTLIGHT extends X3DLightNode
   @Override
   public String createAttributes()
   {
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder();
     if (SPOTLIGHT_ATTR_AMBIENTINTENSITY_REQD || !ambientIntensity.equals(ambientIntensityDefault)) {
       sb.append(" ");
       sb.append(SPOTLIGHT_ATTR_AMBIENTINTENSITY_NAME);
@@ -351,7 +351,7 @@ public class SPOTLIGHT extends X3DLightNode
   
   public void setIntensity(String intensity)
   {
-    this.intensity = new SFFloat(intensity,0.0f,1.0f);
+    this.intensity = new SFFloat(intensity,0.0f,null);
   }
     
   public boolean isOn()
