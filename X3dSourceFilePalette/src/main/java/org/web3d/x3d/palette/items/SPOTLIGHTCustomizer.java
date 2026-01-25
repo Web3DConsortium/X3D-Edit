@@ -71,7 +71,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
     
     initComponents();
     
-    ambientIntensTF.setText(spotLight.getAmbientIntensity());
+    ambientIntensityTF.setText(spotLight.getAmbientIntensity());
     
     attenuation0TF.setText(spotLight.getAttenuationX());
     attenuation1TF.setText(spotLight.getAttenuationY());
@@ -119,7 +119,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
 
         dEFUSEpanel1 = getDEFUSEpanel();
         ambientIntensityLabel = new javax.swing.JLabel();
-        ambientIntensTF = new javax.swing.JTextField();
+        ambientIntensityTF = new javax.swing.JTextField();
         attenuationLabel = new javax.swing.JLabel();
         attenuation0TF = new javax.swing.JTextField();
         attenuation1TF = new javax.swing.JTextField();
@@ -184,17 +184,17 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(ambientIntensityLabel, gridBagConstraints);
 
-        ambientIntensTF.setToolTipText("[0,1] brightness of ambient (nondirectional background) light");
-        ambientIntensTF.setMaximumSize(null);
-        ambientIntensTF.setMinimumSize(new java.awt.Dimension(60, 22));
-        ambientIntensTF.setPreferredSize(new java.awt.Dimension(60, 22));
+        ambientIntensityTF.setToolTipText("[0,1] brightness of ambient (nondirectional background) light");
+        ambientIntensityTF.setMaximumSize(null);
+        ambientIntensityTF.setMinimumSize(new java.awt.Dimension(60, 22));
+        ambientIntensityTF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3333;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(ambientIntensTF, gridBagConstraints);
+        add(ambientIntensityTF, gridBagConstraints);
 
         attenuationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         attenuationLabel.setText("attenuation");
@@ -746,8 +746,8 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ambientIntensTF;
     private javax.swing.JLabel ambientIntensityLabel;
+    private javax.swing.JTextField ambientIntensityTF;
     private javax.swing.JTextField attenuation0TF;
     private javax.swing.JTextField attenuation1TF;
     private javax.swing.JTextField attenuation2TF;
@@ -877,7 +877,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
     checkAngles(false);
     unLoadDEFUSE();
      
-    spotLight.setAmbientIntensity(ambientIntensTF.getText().trim());
+    spotLight.setAmbientIntensity(ambientIntensityTF.getText().trim());
     spotLight.setAttenuationX(attenuation0TF.getText().trim());
     spotLight.setAttenuationY(attenuation1TF.getText().trim());
     spotLight.setAttenuationZ(attenuation2TF.getText().trim());

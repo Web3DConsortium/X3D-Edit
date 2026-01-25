@@ -46,7 +46,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="ambientIntensTF">
+    <Component class="javax.swing.JTextField" name="ambientIntensityTF">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="[0,1] brightness of ambient (nondirectional background) light"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
