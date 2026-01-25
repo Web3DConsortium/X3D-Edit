@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -76,7 +76,7 @@ public class TOUCHSENSORCustomizer extends BaseCustomizer
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        dEFUSEpanel1 = getDEFUSEpanel();
+        dEFUSEpanel = getDEFUSEpanel();
         descriptionLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionTA = new javax.swing.JTextArea();
@@ -91,7 +91,7 @@ public class TOUCHSENSORCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(dEFUSEpanel1, gridBagConstraints);
+        add(dEFUSEpanel, gridBagConstraints);
 
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         descriptionLabel.setText("description");
@@ -169,7 +169,7 @@ public class TOUCHSENSORCustomizer extends BaseCustomizer
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
+    private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JTextArea descriptionTA;
     private javax.swing.JCheckBox enabledCB;

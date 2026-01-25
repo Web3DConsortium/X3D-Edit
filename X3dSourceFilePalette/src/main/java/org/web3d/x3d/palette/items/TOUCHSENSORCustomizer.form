@@ -16,7 +16,7 @@
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
   <SubComponents>
-    <Component class="org.web3d.x3d.palette.items.DEFUSEpanel" name="dEFUSEpanel1">
+    <Component class="org.web3d.x3d.palette.items.DEFUSEpanel" name="dEFUSEpanel">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="getDEFUSEpanel();"/>
       </AuxValues>
