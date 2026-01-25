@@ -74,7 +74,7 @@ public class DIRECTIONALLIGHTCustomizer extends BaseCustomizer
     color1TF.setText(directionalLight.getColor1());
     color2TF.setText(directionalLight.getColor2());
 
-    bindColorChooserToBetterJTextFields(color0TF,color1TF,color2TF,colorChooser1);
+    bindColorChooserToBetterJTextFields(color0TF,color1TF,color2TF,colorChooser);
 
     globalCB.setSelected(directionalLight.isGlobal());
     intensityTF.setText(directionalLight.getIntensity());
@@ -100,35 +100,36 @@ public class DIRECTIONALLIGHTCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel = getDEFUSEpanel();
-        ambientLab = new javax.swing.JLabel();
+        onLabel = new javax.swing.JLabel();
+        onCB = new javax.swing.JCheckBox();
+        globalLabel = new javax.swing.JLabel();
+        globalCB = new javax.swing.JCheckBox();
+        ambientIntensityLabel = new javax.swing.JLabel();
         ambientIntensityTF = new javax.swing.JTextField();
         rLabel = new javax.swing.JLabel();
         gLabel = new javax.swing.JLabel();
         bLabel = new javax.swing.JLabel();
         colorLabel = new javax.swing.JLabel();
-        directionLab = new javax.swing.JLabel();
-        directionXTF = new javax.swing.JTextField();
-        intensityLab = new javax.swing.JLabel();
-        intensityTF = new javax.swing.JTextField();
-        onLab = new javax.swing.JLabel();
-        onCB = new javax.swing.JCheckBox();
-        globalLab = new javax.swing.JLabel();
-        colorChooser1 = new net.java.dev.colorchooser.ColorChooser();
-        directionYTF = new javax.swing.JTextField();
-        directionZTF = new javax.swing.JTextField();
-        globalCB = new javax.swing.JCheckBox();
         color0TF = new org.web3d.x3d.palette.BetterJTextField();
         color1TF = new org.web3d.x3d.palette.BetterJTextField();
         color2TF = new org.web3d.x3d.palette.BetterJTextField();
+        colorChooser = new net.java.dev.colorchooser.ColorChooser();
+        directionLabel = new javax.swing.JLabel();
+        directionXTF = new javax.swing.JTextField();
+        directionYTF = new javax.swing.JTextField();
+        directionZTF = new javax.swing.JTextField();
         normalizeButton = new javax.swing.JButton();
-        hintLabel = new javax.swing.JLabel();
+        intensityLabel = new javax.swing.JLabel();
+        intensityTF = new javax.swing.JTextField();
         shadowsLabel = new javax.swing.JLabel();
         shadowsCB = new javax.swing.JCheckBox();
         shadowIntensityLabel = new javax.swing.JLabel();
         shadowIntensityTF = new javax.swing.JTextField();
+        hintLabel = new javax.swing.JLabel();
+        spacerLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(630, 440));
-        setPreferredSize(new java.awt.Dimension(630, 440));
+        setMinimumSize(new java.awt.Dimension(630, 460));
+        setPreferredSize(new java.awt.Dimension(630, 460));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -143,15 +144,61 @@ public class DIRECTIONALLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel, gridBagConstraints);
 
-        ambientLab.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        ambientLab.setText("ambientIntensity");
-        ambientLab.setToolTipText("[0,1] brightness of ambient (nondirectional background) light");
+        onLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        onLabel.setText("on");
+        onLabel.setToolTipText("enables/disables this light source");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(onLabel, gridBagConstraints);
+
+        onCB.setToolTipText("enables/disables this light source");
+        onCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        onCB.setMaximumSize(null);
+        onCB.setMinimumSize(new java.awt.Dimension(40, 20));
+        onCB.setPreferredSize(new java.awt.Dimension(40, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(onCB, gridBagConstraints);
+
+        globalLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        globalLabel.setText("global");
+        globalLabel.setToolTipText("global lights illuminate all objects, scoped lights only affect local transformation hierarchy");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(globalLabel, gridBagConstraints);
+
+        globalCB.setToolTipText("global lights illuminate all objects, scoped lights only affect local transformation hierarchy");
+        globalCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        globalCB.setMaximumSize(null);
+        globalCB.setMinimumSize(new java.awt.Dimension(40, 20));
+        globalCB.setPreferredSize(new java.awt.Dimension(40, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(globalCB, gridBagConstraints);
+
+        ambientIntensityLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        ambientIntensityLabel.setText("ambientIntensity");
+        ambientIntensityLabel.setToolTipText("[0,1] brightness of ambient (nondirectional background) light");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(ambientLab, gridBagConstraints);
+        add(ambientIntensityLabel, gridBagConstraints);
 
         ambientIntensityTF.setToolTipText("[0,1] brightness of ambient (nondirectional background) light");
         ambientIntensityTF.setMaximumSize(null);
@@ -196,149 +243,6 @@ public class DIRECTIONALLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(colorLabel, gridBagConstraints);
 
-        directionLab.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        directionLab.setText("direction");
-        directionLab.setToolTipText("direction vector of light axis relative to local coordinate system");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(directionLab, gridBagConstraints);
-
-        directionXTF.setToolTipText("x direction vector of light axis relative to local coordinate system");
-        directionXTF.setMaximumSize(null);
-        directionXTF.setMinimumSize(new java.awt.Dimension(40, 22));
-        directionXTF.setPreferredSize(new java.awt.Dimension(40, 22));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(directionXTF, gridBagConstraints);
-
-        intensityLab.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        intensityLab.setText("intensity");
-        intensityLab.setToolTipText("[0,1] brightness of direct light");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(intensityLab, gridBagConstraints);
-
-        intensityTF.setToolTipText("[0,1] brightness of direct light");
-        intensityTF.setMaximumSize(null);
-        intensityTF.setMinimumSize(new java.awt.Dimension(40, 22));
-        intensityTF.setPreferredSize(new java.awt.Dimension(40, 22));
-        intensityTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                intensityTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(intensityTF, gridBagConstraints);
-
-        onLab.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        onLab.setText("on");
-        onLab.setToolTipText("enables/disables this light source");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(onLab, gridBagConstraints);
-
-        onCB.setToolTipText("enables/disables this light source");
-        onCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        onCB.setMaximumSize(null);
-        onCB.setMinimumSize(new java.awt.Dimension(40, 20));
-        onCB.setPreferredSize(new java.awt.Dimension(40, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(onCB, gridBagConstraints);
-
-        globalLab.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        globalLab.setText("global");
-        globalLab.setToolTipText("global lights illuminate all objects, scoped lights only affect local transformation hierarchy");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(globalLab, gridBagConstraints);
-
-        colorChooser1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                colorChooser1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout colorChooser1Layout = new javax.swing.GroupLayout(colorChooser1);
-        colorChooser1.setLayout(colorChooser1Layout);
-        colorChooser1Layout.setHorizontalGroup(
-            colorChooser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
-        );
-        colorChooser1Layout.setVerticalGroup(
-            colorChooser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(colorChooser1, gridBagConstraints);
-
-        directionYTF.setToolTipText("y direction vector of light axis relative to local coordinate system");
-        directionYTF.setMaximumSize(null);
-        directionYTF.setMinimumSize(new java.awt.Dimension(40, 22));
-        directionYTF.setPreferredSize(new java.awt.Dimension(40, 22));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(directionYTF, gridBagConstraints);
-
-        directionZTF.setToolTipText("z direction vector of light axis relative to local coordinate system");
-        directionZTF.setMaximumSize(null);
-        directionZTF.setMinimumSize(new java.awt.Dimension(40, 22));
-        directionZTF.setPreferredSize(new java.awt.Dimension(40, 22));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(directionZTF, gridBagConstraints);
-
-        globalCB.setToolTipText("global lights illuminate all objects, scoped lights only affect local transformation hierarchy");
-        globalCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        globalCB.setMaximumSize(null);
-        globalCB.setMinimumSize(new java.awt.Dimension(40, 20));
-        globalCB.setPreferredSize(new java.awt.Dimension(40, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.3333;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(globalCB, gridBagConstraints);
-
         color0TF.setToolTipText("color of light, applied to colors of objects");
         color0TF.setMaximumSize(null);
         color0TF.setMinimumSize(new java.awt.Dimension(40, 22));
@@ -375,6 +279,76 @@ public class DIRECTIONALLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(color2TF, gridBagConstraints);
 
+        colorChooser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                colorChooserActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout colorChooserLayout = new javax.swing.GroupLayout(colorChooser);
+        colorChooser.setLayout(colorChooserLayout);
+        colorChooserLayout.setHorizontalGroup(
+            colorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 22, Short.MAX_VALUE)
+        );
+        colorChooserLayout.setVerticalGroup(
+            colorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 22, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(colorChooser, gridBagConstraints);
+
+        directionLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        directionLabel.setText("direction");
+        directionLabel.setToolTipText("direction vector of light axis relative to local coordinate system");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(directionLabel, gridBagConstraints);
+
+        directionXTF.setToolTipText("x direction vector of light axis relative to local coordinate system");
+        directionXTF.setMaximumSize(null);
+        directionXTF.setMinimumSize(new java.awt.Dimension(40, 22));
+        directionXTF.setPreferredSize(new java.awt.Dimension(40, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(directionXTF, gridBagConstraints);
+
+        directionYTF.setToolTipText("y direction vector of light axis relative to local coordinate system");
+        directionYTF.setMaximumSize(null);
+        directionYTF.setMinimumSize(new java.awt.Dimension(40, 22));
+        directionYTF.setPreferredSize(new java.awt.Dimension(40, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(directionYTF, gridBagConstraints);
+
+        directionZTF.setToolTipText("z direction vector of light axis relative to local coordinate system");
+        directionZTF.setMaximumSize(null);
+        directionZTF.setMinimumSize(new java.awt.Dimension(40, 22));
+        directionZTF.setPreferredSize(new java.awt.Dimension(40, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(directionZTF, gridBagConstraints);
+
         normalizeButton.setText("normalize");
         normalizeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,20 +362,32 @@ public class DIRECTIONALLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(6, 3, 3, 3);
         add(normalizeButton, gridBagConstraints);
 
-        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>DirectionalLight</b> defines parallel light rays that illuminate geometric shapes. \nLighting illuminates all geometry except lines and points. By default, light scope only illuminates peer geometry and children nodes within the scene graph hierarchy. </p>\n<br />\n<p align=\"center\"> <b>DirectionalLight</b> nodes do not attenuate with distance. No source location is needed since rays are parallel from an infinitely distant source.\n Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.</p>");
-        hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(DIRECTIONALLIGHTCustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
-        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        intensityLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        intensityLabel.setText("intensity");
+        intensityLabel.setToolTipText("[0,1] brightness of direct light");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(hintLabel, gridBagConstraints);
+        add(intensityLabel, gridBagConstraints);
+
+        intensityTF.setToolTipText("[0,1] brightness of direct light");
+        intensityTF.setMaximumSize(null);
+        intensityTF.setMinimumSize(new java.awt.Dimension(40, 22));
+        intensityTF.setPreferredSize(new java.awt.Dimension(40, 22));
+        intensityTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                intensityTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3333;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(intensityTF, gridBagConstraints);
 
         shadowsLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         shadowsLabel.setText("shadows");
@@ -447,14 +433,37 @@ public class DIRECTIONALLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(shadowIntensityTF, gridBagConstraints);
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align=\"center\"><b>DirectionalLight</b> defines parallel light rays that illuminate geometric shapes. \n<br />\nLighting illuminates all geometry except lines and points. By default,\n<br />\n light scope only illuminates peer geometry and children nodes within the scene graph hierarchy. </p>\n<br />\n<p align=\"center\"> <b>DirectionalLight</b> nodes do not attenuate with distance.\n<br />\n No source location is needed since rays are parallel from an infinitely distant source.\n</p>\n<br />\n<p align='center'>\n Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.</p>");
+        hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(DIRECTIONALLIGHTCustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
+        hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(hintLabel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.3;
+        add(spacerLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-  private void colorChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorChooser1ActionPerformed
-    Color c = colorChooser1.getColor();
+  private void colorChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorChooserActionPerformed
+    Color c = colorChooser.getColor();
     color0TF.setText(formatDecimal((float)c.getRed()/255));
     color1TF.setText(formatDecimal((float)c.getGreen()/255));
     color2TF.setText(formatDecimal((float)c.getBlue()/255));
-  }//GEN-LAST:event_colorChooser1ActionPerformed
+  }//GEN-LAST:event_colorChooserActionPerformed
 
   private void intensityTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_intensityTFActionPerformed
   {//GEN-HEADEREND:event_intensityTFActionPerformed
@@ -488,32 +497,33 @@ public class DIRECTIONALLIGHTCustomizer extends BaseCustomizer
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ambientIntensityLabel;
     private javax.swing.JTextField ambientIntensityTF;
-    private javax.swing.JLabel ambientLab;
     private javax.swing.JLabel bLabel;
     private org.web3d.x3d.palette.BetterJTextField color0TF;
     private org.web3d.x3d.palette.BetterJTextField color1TF;
     private org.web3d.x3d.palette.BetterJTextField color2TF;
-    private net.java.dev.colorchooser.ColorChooser colorChooser1;
+    private net.java.dev.colorchooser.ColorChooser colorChooser;
     private javax.swing.JLabel colorLabel;
-    private javax.swing.JLabel directionLab;
+    private javax.swing.JLabel directionLabel;
     private javax.swing.JTextField directionXTF;
     private javax.swing.JTextField directionYTF;
     private javax.swing.JTextField directionZTF;
     private javax.swing.JLabel gLabel;
     private javax.swing.JCheckBox globalCB;
-    private javax.swing.JLabel globalLab;
+    private javax.swing.JLabel globalLabel;
     private javax.swing.JLabel hintLabel;
-    private javax.swing.JLabel intensityLab;
+    private javax.swing.JLabel intensityLabel;
     private javax.swing.JTextField intensityTF;
     private javax.swing.JButton normalizeButton;
     private javax.swing.JCheckBox onCB;
-    private javax.swing.JLabel onLab;
+    private javax.swing.JLabel onLabel;
     private javax.swing.JLabel rLabel;
     private javax.swing.JLabel shadowIntensityLabel;
     private javax.swing.JTextField shadowIntensityTF;
     private javax.swing.JCheckBox shadowsCB;
     private javax.swing.JLabel shadowsLabel;
+    private javax.swing.JLabel spacerLabel;
     // End of variables declaration//GEN-END:variables
 
    @Override
