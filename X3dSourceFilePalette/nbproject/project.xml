@@ -19,15 +19,7 @@
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>
-                        <specification-version>3.1.0</specification-version>
-                    </run-dependency>
-                </dependency>
-                <dependency>
-                    <code-name-base>org.apache.commons.logging</code-name-base>
-                    <build-prerequisite/>
-                    <compile-dependency/>
-                    <run-dependency>
-                        <specification-version>1.2</specification-version>
+                        <specification-version>1.0</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -568,11 +560,13 @@
             <word>Portecle</word>
             <word>prepend</word>
             <word>PyPI</word>
+            <word>QuadSet</word>
             <word>Quickstart</word>
             <word>README</word>
             <word>Redistributions</word>
             <word>runtime</word>
             <word>SavageDefense</word>
+            <word>ScalarInterpolator</word>
             <word>Schematron</word>
             <word>SIGGRAPH</word>
             <word>SISO</word>
@@ -581,14 +575,18 @@
             <word>spatialization</word>
             <word>spatializes</word>
             <word>SpatialSound</word>
+            <word>SphereSensor</word>
             <word>stackoverflow</word>
             <word>startFrame</word>
+            <word>StaticGroup</word>
             <word>StreamAudioDestination</word>
             <word>StreamAudioSource</word>
             <word>strictfp</word>
+            <word>StringSensor</word>
             <word>stylesheet</word>
             <word>Sunrize</word>
             <word>svg</word>
+            <word>TextureBackground</word>
             <word>TextureCoordinate</word>
             <word>TextureCoordinateGenerator</word>
             <word>TextureProjector</word>
