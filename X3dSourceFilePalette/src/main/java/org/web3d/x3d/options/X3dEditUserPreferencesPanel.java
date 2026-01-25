@@ -42,8 +42,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
@@ -74,6 +72,7 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_SECURITY;
 import static org.web3d.x3d.actions.BaseViewAction.X3D_RESOURCES_SECURITY_VULNERABILITIES;
 import org.web3d.x3d.actions.CommandExecutionScripts;
 import org.web3d.x3d.actions.LaunchIssueReportSourceForgeTicketAction;
+import org.web3d.x3d.actions.ViewInAllAutolaunchAction;
 import org.web3d.x3d.actions.ViewX3dSecurityExamplesOnlineAction;
 import org.web3d.x3d.actions.security.ManageKeyStoreAction;
 import static org.web3d.x3d.options.X3dEditUserPreferences.EXAMPLES_ROOT_DIRECTORY_DEFAULT;
@@ -409,6 +408,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         sunrizeX3dEditorLaunchButton = new javax.swing.JButton();
         sunrizeX3dEditorDownloadButton = new javax.swing.JButton();
         sunrizeNvdSecurityCheckButton = new javax.swing.JButton();
+        autolaunchButton = new javax.swing.JButton();
         x3dModelingToolsPanel = new javax.swing.JPanel();
         externalX3dEditorLabel = new javax.swing.JLabel();
         verticalSpacerLabel9 = new javax.swing.JLabel();
@@ -2675,14 +2675,18 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 3, 10, 3);
         x3dPlayerPathsPanel.add(secondsLabel, gridBagConstraints);
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel1, "   ");
-        x3dPlayerPathsPanel.add(verticalSpacerLabel1, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        x3dPlayerPathsPanel.add(verticalSpacerLabel1, gridBagConstraints);
 
         externalX3dEditorLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         externalX3dEditorLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -3042,6 +3046,19 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(sunrizeNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(autolaunchButton, "autolaunch");
+        autolaunchButton.setToolTipText("test players autolaunch");
+        autolaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                autolaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        x3dPlayerPathsPanel.add(autolaunchButton, gridBagConstraints);
 
         x3dOptionsTabbedPane.addTab(org.openide.util.NbBundle.getMessage(X3dEditUserPreferencesPanel.class, "Paths_Tab_Title"), null, x3dPlayerPathsPanel, "Set directories for launching external browsers"); // NOI18N
 
@@ -12673,6 +12690,18 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     else secondsLabel.setText("seconds");
     }//GEN-LAST:event_launchIntervalTFPropertyChange
 
+    private void autolaunchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autolaunchButtonActionPerformed
+        ViewInAllAutolaunchAction viewInAllAutolaunchAction = new ViewInAllAutolaunchAction();
+        SwingUtilities.invokeLater(() -> {
+          viewInAllAutolaunchAction.performAction();
+        });
+        // close this Preferences Panel via action class
+        // https://stackoverflow.com/questions/29357055/close-window-jpanel-in-java
+        JComponent parentComponent = (JComponent) evt.getSource();
+        Window     parentWindow    = SwingUtilities.getWindowAncestor(parentComponent);
+        parentWindow.dispose();
+    }//GEN-LAST:event_autolaunchButtonActionPerformed
+
     public void sleep (long msecDuration)
     {
         try
@@ -13978,6 +14007,7 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JTextField authorNameTextField;
     private javax.swing.JPanel authorSettingsPanel;
     private javax.swing.JCheckBox autoValidationCheckBox;
+    private javax.swing.JButton autolaunchButton;
     private javax.swing.JLabel axesOriginLabel;
     private javax.swing.JCheckBox batikEditorCheckBox;
     private javax.swing.JButton batikEditorChooserButton;
