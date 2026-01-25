@@ -401,6 +401,147 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         vivatyNvdSecurityCheckButton = new javax.swing.JButton();
         xj3dNvdSecurityCheckButton = new javax.swing.JButton();
         otherX3dPlayerNvdSecurityCheckButton = new javax.swing.JButton();
+        sunrizeX3dEditorLabel = new javax.swing.JLabel();
+        sunrizeX3dEditorCheckBox = new javax.swing.JCheckBox();
+        sunrizeX3dEditorPathTF = new javax.swing.JTextField();
+        sunrizeX3dEditorChooserButton = new javax.swing.JButton();
+        sunrizeX3dEditorDefaultButton = new javax.swing.JButton();
+        sunrizeX3dEditorLaunchButton = new javax.swing.JButton();
+        sunrizeX3dEditorDownloadButton = new javax.swing.JButton();
+        sunrizeNvdSecurityCheckButton = new javax.swing.JButton();
+        x3dModelingToolsPanel = new javax.swing.JPanel();
+        externalX3dEditorLabel = new javax.swing.JLabel();
+        verticalSpacerLabel9 = new javax.swing.JLabel();
+        altovaXMLSpyLabel = new javax.swing.JLabel();
+        altovaXMLSpyCheckBox = new javax.swing.JCheckBox();
+        altovaXMLSpyTF = new javax.swing.JTextField();
+        altovaXMLSpyChooserButton = new javax.swing.JButton();
+        altovaXMLSpyDefaultButton = new javax.swing.JButton();
+        altovaXMLSpyLaunchButton = new javax.swing.JButton();
+        altovaXMLSpyDownloadButton = new javax.swing.JButton();
+        altovaXMLSpyHelpButton = new javax.swing.JButton();
+        blenderX3dEditorLabel = new javax.swing.JLabel();
+        blenderX3dEditorCheckBox = new javax.swing.JCheckBox();
+        blenderX3dEditorPathTF = new javax.swing.JTextField();
+        blenderX3dEditorChooserButton = new javax.swing.JButton();
+        blenderX3dEditorDefaultButton = new javax.swing.JButton();
+        blenderX3dEditorLaunchButton = new javax.swing.JButton();
+        blenderX3dEditorDownloadButton = new javax.swing.JButton();
+        blenderX3dEditorHelpButton = new javax.swing.JButton();
+        bsContentStudioX3dEditorLabel = new javax.swing.JLabel();
+        bsContentStudioX3dEditorCheckBox = new javax.swing.JCheckBox();
+        bsContentStudioX3dEditorPathTF = new javax.swing.JTextField();
+        bsContentStudioX3dEditorChooserButton = new javax.swing.JButton();
+        bsContentStudioX3dEditorDefaultButton = new javax.swing.JButton();
+        bsContentStudioX3dEditorLaunchButton = new javax.swing.JButton();
+        bsContentStudioX3dEditorDownloadButton = new javax.swing.JButton();
+        bsContentStudioX3dEditorHelpButton = new javax.swing.JButton();
+        bvhackerEditorLabel = new javax.swing.JLabel();
+        bvhackerEditorCheckBox = new javax.swing.JCheckBox();
+        bvhackerEditorPathTF = new javax.swing.JTextField();
+        bvhackerEditorChooserButton = new javax.swing.JButton();
+        bvhackerEditorDefaultButton = new javax.swing.JButton();
+        bvhackerEditorLaunchButton = new javax.swing.JButton();
+        bvhackerEditorDownloadButton = new javax.swing.JButton();
+        bvhackerEditorHelpButton = new javax.swing.JButton();
+        curaX3dEditorLabel = new javax.swing.JLabel();
+        curaX3dEditorCheckBox = new javax.swing.JCheckBox();
+        curaX3dEditorPathTF = new javax.swing.JTextField();
+        curaX3dEditorChooserButton = new javax.swing.JButton();
+        curaX3dEditorDefaultButton = new javax.swing.JButton();
+        curaX3dEditorLaunchButton = new javax.swing.JButton();
+        curaX3dEditorDownloadButton = new javax.swing.JButton();
+        curaX3dEditorHelpButton = new javax.swing.JButton();
+        meshLabX3dEditorLabel = new javax.swing.JLabel();
+        meshLabX3dEditorCheckBox = new javax.swing.JCheckBox();
+        meshLabX3dEditorPathTF = new javax.swing.JTextField();
+        meshLabX3dEditorChooserButton = new javax.swing.JButton();
+        meshLabX3dEditorDefaultButton = new javax.swing.JButton();
+        meshLabX3dEditorLaunchButton = new javax.swing.JButton();
+        meshLabX3dEditorDownloadButton = new javax.swing.JButton();
+        meshLabX3dEditorHelpButton = new javax.swing.JButton();
+        paraviewX3dEditorLabel = new javax.swing.JLabel();
+        paraviewX3dEditorCheckBox = new javax.swing.JCheckBox();
+        paraviewX3dEditorPathTF = new javax.swing.JTextField();
+        paraviewX3dEditorChooserButton = new javax.swing.JButton();
+        paraviewX3dEditorDefaultButton = new javax.swing.JButton();
+        paraviewX3dEditorLaunchButton = new javax.swing.JButton();
+        paraviewX3dEditorDownloadButton = new javax.swing.JButton();
+        paraviewX3dEditorHelpButton = new javax.swing.JButton();
+        polyTransNuGrafEditorLabel = new javax.swing.JLabel();
+        polyTransNuGrafEditorCheckBox = new javax.swing.JCheckBox();
+        polyTransNuGrafEditorPathTF = new javax.swing.JTextField();
+        polyTransNuGrafEditorChooserButton = new javax.swing.JButton();
+        polyTransNuGrafEditorDefaultButton = new javax.swing.JButton();
+        polyTransNuGrafEditorLaunchButton = new javax.swing.JButton();
+        polyTransNuGrafEditorDownloadButton = new javax.swing.JButton();
+        polyTransNuGrafEditorHelpButton = new javax.swing.JButton();
+        seamless3dX3dEditorLabel = new javax.swing.JLabel();
+        seamless3dX3dEditorCheckBox = new javax.swing.JCheckBox();
+        seamless3dX3dEditorPathTF = new javax.swing.JTextField();
+        seamless3dX3dEditorChooserButton = new javax.swing.JButton();
+        seamless3dX3dEditorDefaultButton = new javax.swing.JButton();
+        seamless3dX3dEditorLaunchButton = new javax.swing.JButton();
+        seamless3dX3dEditorDownloadButton = new javax.swing.JButton();
+        seamless3dX3dEditorHelpButton = new javax.swing.JButton();
+        ultraEditX3dEditorLabel = new javax.swing.JLabel();
+        ultraEditX3dEditorCheckBox = new javax.swing.JCheckBox();
+        ultraEditX3dEditorPathTF = new javax.swing.JTextField();
+        ultraEditX3dEditorChooserButton = new javax.swing.JButton();
+        ultraEditX3dEditorDefaultButton = new javax.swing.JButton();
+        ultraEditX3dEditorLaunchButton = new javax.swing.JButton();
+        ultraEditX3dEditorDownloadButton = new javax.swing.JButton();
+        ultraEditHelpButton = new javax.swing.JButton();
+        whiteDuneX3dEditorLabel = new javax.swing.JLabel();
+        whiteDuneX3dEditorCheckBox = new javax.swing.JCheckBox();
+        whiteDuneX3dEditorPathTF = new javax.swing.JTextField();
+        whiteDuneX3dEditorChooserButton = new javax.swing.JButton();
+        whiteDuneX3dEditorDefaultButton = new javax.swing.JButton();
+        whiteDuneX3dEditorLaunchButton = new javax.swing.JButton();
+        whiteDuneX3dEditorDownloadButton = new javax.swing.JButton();
+        whiteDuneX3dEditorHelpButton = new javax.swing.JButton();
+        wings3dX3dEditorLabel = new javax.swing.JLabel();
+        wings3dX3dEditorCheckBox = new javax.swing.JCheckBox();
+        wings3dX3dEditorPathTF = new javax.swing.JTextField();
+        wings3dX3dEditorChooserButton = new javax.swing.JButton();
+        wings3dX3dEditorDefaultButton = new javax.swing.JButton();
+        wings3dX3dEditorLaunchButton = new javax.swing.JButton();
+        wings3dX3dEditorDownloadButton = new javax.swing.JButton();
+        wings3dX3dEditorHelpButton = new javax.swing.JButton();
+        otherEditorNameLabel = new javax.swing.JLabel();
+        otherEditorPathLabel = new javax.swing.JLabel();
+        otherX3dEditorNameTF = new javax.swing.JTextField();
+        otherX3dEditorCheckBox = new javax.swing.JCheckBox();
+        otherX3dEditorPathTF = new javax.swing.JTextField();
+        otherX3dEditorChooserButton = new javax.swing.JButton();
+        otherX3dEditorClearButton = new javax.swing.JButton();
+        otherX3dEditorLaunchButton = new javax.swing.JButton();
+        otherX3dEditorDownloadButton = new javax.swing.JButton();
+        leftMarginSpacerLabel1 = new javax.swing.JLabel();
+        verticalSpacerLabel12 = new javax.swing.JLabel();
+        reportModelingToolsButton = new javax.swing.JButton();
+        altovaNvdSecurityCheckButton = new javax.swing.JButton();
+        blenderNvdSecurityCheckButton = new javax.swing.JButton();
+        bsContentStudioNvdSecurityCheckButton = new javax.swing.JButton();
+        bvhackerNvdSecurityCheckButton = new javax.swing.JButton();
+        meshlabNvdSecurityCheckButton = new javax.swing.JButton();
+        okinoNugrafNvdSecurityCheckButton = new javax.swing.JButton();
+        paraviewNvdSecurityCheckButton = new javax.swing.JButton();
+        seamless3dNvdSecurityCheckButton = new javax.swing.JButton();
+        ultimakerCuraNvdSecurityCheckButton = new javax.swing.JButton();
+        ultraeditNvdSecurityCheckButton = new javax.swing.JButton();
+        whiteduneNvdSecurityCheckButton = new javax.swing.JButton();
+        wings3dNvdSecurityCheckButton = new javax.swing.JButton();
+        otherX3dEditorNvdSecurityCheckButton = new javax.swing.JButton();
+        rhino3DX3dEditorLabel = new javax.swing.JLabel();
+        rhino3DX3dEditorCheckBox = new javax.swing.JCheckBox();
+        rhino3DX3dEditorPathTF = new javax.swing.JTextField();
+        rhino3DX3dEditorChooserButton = new javax.swing.JButton();
+        rhino3DX3dEditorDefaultButton = new javax.swing.JButton();
+        rhino3DX3dEditorLaunchButton = new javax.swing.JButton();
+        rhino3DX3dEditorDownloadButton = new javax.swing.JButton();
+        rhino3DX3dEditorHelpButton = new javax.swing.JButton();
+        rhino3DNvdSecurityCheckButton = new javax.swing.JButton();
         imageVolumeToolsPanel = new javax.swing.JPanel();
         imageToolsLabel = new javax.swing.JLabel();
         gimpEditorLabel = new javax.swing.JLabel();
@@ -705,148 +846,6 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         svgeditEditorNvdSecurityCheckButton = new javax.swing.JButton();
         wiresharkNvdSecurityCheckButton = new javax.swing.JButton();
         protegePlayerNvdSecurityCheckButton = new javax.swing.JButton();
-        x3dModelingToolsPanel = new javax.swing.JPanel();
-        externalX3dEditorLabel = new javax.swing.JLabel();
-        verticalSpacerLabel9 = new javax.swing.JLabel();
-        altovaXMLSpyLabel = new javax.swing.JLabel();
-        altovaXMLSpyCheckBox = new javax.swing.JCheckBox();
-        altovaXMLSpyTF = new javax.swing.JTextField();
-        altovaXMLSpyChooserButton = new javax.swing.JButton();
-        altovaXMLSpyDefaultButton = new javax.swing.JButton();
-        altovaXMLSpyLaunchButton = new javax.swing.JButton();
-        altovaXMLSpyDownloadButton = new javax.swing.JButton();
-        altovaXMLSpyHelpButton = new javax.swing.JButton();
-        blenderX3dEditorLabel = new javax.swing.JLabel();
-        blenderX3dEditorCheckBox = new javax.swing.JCheckBox();
-        blenderX3dEditorPathTF = new javax.swing.JTextField();
-        blenderX3dEditorChooserButton = new javax.swing.JButton();
-        blenderX3dEditorDefaultButton = new javax.swing.JButton();
-        blenderX3dEditorLaunchButton = new javax.swing.JButton();
-        blenderX3dEditorDownloadButton = new javax.swing.JButton();
-        blenderX3dEditorHelpButton = new javax.swing.JButton();
-        bsContentStudioX3dEditorLabel = new javax.swing.JLabel();
-        bsContentStudioX3dEditorCheckBox = new javax.swing.JCheckBox();
-        bsContentStudioX3dEditorPathTF = new javax.swing.JTextField();
-        bsContentStudioX3dEditorChooserButton = new javax.swing.JButton();
-        bsContentStudioX3dEditorDefaultButton = new javax.swing.JButton();
-        bsContentStudioX3dEditorLaunchButton = new javax.swing.JButton();
-        bsContentStudioX3dEditorDownloadButton = new javax.swing.JButton();
-        bsContentStudioX3dEditorHelpButton = new javax.swing.JButton();
-        bvhackerEditorLabel = new javax.swing.JLabel();
-        bvhackerEditorCheckBox = new javax.swing.JCheckBox();
-        bvhackerEditorPathTF = new javax.swing.JTextField();
-        bvhackerEditorChooserButton = new javax.swing.JButton();
-        bvhackerEditorDefaultButton = new javax.swing.JButton();
-        bvhackerEditorLaunchButton = new javax.swing.JButton();
-        bvhackerEditorDownloadButton = new javax.swing.JButton();
-        bvhackerEditorHelpButton = new javax.swing.JButton();
-        curaX3dEditorLabel = new javax.swing.JLabel();
-        curaX3dEditorCheckBox = new javax.swing.JCheckBox();
-        curaX3dEditorPathTF = new javax.swing.JTextField();
-        curaX3dEditorChooserButton = new javax.swing.JButton();
-        curaX3dEditorDefaultButton = new javax.swing.JButton();
-        curaX3dEditorLaunchButton = new javax.swing.JButton();
-        curaX3dEditorDownloadButton = new javax.swing.JButton();
-        curaX3dEditorHelpButton = new javax.swing.JButton();
-        meshLabX3dEditorLabel = new javax.swing.JLabel();
-        meshLabX3dEditorCheckBox = new javax.swing.JCheckBox();
-        meshLabX3dEditorPathTF = new javax.swing.JTextField();
-        meshLabX3dEditorChooserButton = new javax.swing.JButton();
-        meshLabX3dEditorDefaultButton = new javax.swing.JButton();
-        meshLabX3dEditorLaunchButton = new javax.swing.JButton();
-        meshLabX3dEditorDownloadButton = new javax.swing.JButton();
-        meshLabX3dEditorHelpButton = new javax.swing.JButton();
-        paraviewX3dEditorLabel = new javax.swing.JLabel();
-        paraviewX3dEditorCheckBox = new javax.swing.JCheckBox();
-        paraviewX3dEditorPathTF = new javax.swing.JTextField();
-        paraviewX3dEditorChooserButton = new javax.swing.JButton();
-        paraviewX3dEditorDefaultButton = new javax.swing.JButton();
-        paraviewX3dEditorLaunchButton = new javax.swing.JButton();
-        paraviewX3dEditorDownloadButton = new javax.swing.JButton();
-        paraviewX3dEditorHelpButton = new javax.swing.JButton();
-        polyTransNuGrafEditorLabel = new javax.swing.JLabel();
-        polyTransNuGrafEditorCheckBox = new javax.swing.JCheckBox();
-        polyTransNuGrafEditorPathTF = new javax.swing.JTextField();
-        polyTransNuGrafEditorChooserButton = new javax.swing.JButton();
-        polyTransNuGrafEditorDefaultButton = new javax.swing.JButton();
-        polyTransNuGrafEditorLaunchButton = new javax.swing.JButton();
-        polyTransNuGrafEditorDownloadButton = new javax.swing.JButton();
-        polyTransNuGrafEditorHelpButton = new javax.swing.JButton();
-        sunrizeX3dEditorLabel = new javax.swing.JLabel();
-        sunrizeX3dEditorCheckBox = new javax.swing.JCheckBox();
-        sunrizeX3dEditorPathTF = new javax.swing.JTextField();
-        sunrizeX3dEditorChooserButton = new javax.swing.JButton();
-        sunrizeX3dEditorDefaultButton = new javax.swing.JButton();
-        sunrizeX3dEditorLaunchButton = new javax.swing.JButton();
-        sunrizeX3dEditorDownloadButton = new javax.swing.JButton();
-        sunrizeX3dEditorHelpButton = new javax.swing.JButton();
-        seamless3dX3dEditorLabel = new javax.swing.JLabel();
-        seamless3dX3dEditorCheckBox = new javax.swing.JCheckBox();
-        seamless3dX3dEditorPathTF = new javax.swing.JTextField();
-        seamless3dX3dEditorChooserButton = new javax.swing.JButton();
-        seamless3dX3dEditorDefaultButton = new javax.swing.JButton();
-        seamless3dX3dEditorLaunchButton = new javax.swing.JButton();
-        seamless3dX3dEditorDownloadButton = new javax.swing.JButton();
-        seamless3dX3dEditorHelpButton = new javax.swing.JButton();
-        ultraEditX3dEditorLabel = new javax.swing.JLabel();
-        ultraEditX3dEditorCheckBox = new javax.swing.JCheckBox();
-        ultraEditX3dEditorPathTF = new javax.swing.JTextField();
-        ultraEditX3dEditorChooserButton = new javax.swing.JButton();
-        ultraEditX3dEditorDefaultButton = new javax.swing.JButton();
-        ultraEditX3dEditorLaunchButton = new javax.swing.JButton();
-        ultraEditX3dEditorDownloadButton = new javax.swing.JButton();
-        ultraEditHelpButton = new javax.swing.JButton();
-        whiteDuneX3dEditorLabel = new javax.swing.JLabel();
-        whiteDuneX3dEditorCheckBox = new javax.swing.JCheckBox();
-        whiteDuneX3dEditorPathTF = new javax.swing.JTextField();
-        whiteDuneX3dEditorChooserButton = new javax.swing.JButton();
-        whiteDuneX3dEditorDefaultButton = new javax.swing.JButton();
-        whiteDuneX3dEditorLaunchButton = new javax.swing.JButton();
-        whiteDuneX3dEditorDownloadButton = new javax.swing.JButton();
-        whiteDuneX3dEditorHelpButton = new javax.swing.JButton();
-        wings3dX3dEditorLabel = new javax.swing.JLabel();
-        wings3dX3dEditorCheckBox = new javax.swing.JCheckBox();
-        wings3dX3dEditorPathTF = new javax.swing.JTextField();
-        wings3dX3dEditorChooserButton = new javax.swing.JButton();
-        wings3dX3dEditorDefaultButton = new javax.swing.JButton();
-        wings3dX3dEditorLaunchButton = new javax.swing.JButton();
-        wings3dX3dEditorDownloadButton = new javax.swing.JButton();
-        wings3dX3dEditorHelpButton = new javax.swing.JButton();
-        otherEditorNameLabel = new javax.swing.JLabel();
-        otherEditorPathLabel = new javax.swing.JLabel();
-        otherX3dEditorNameTF = new javax.swing.JTextField();
-        otherX3dEditorCheckBox = new javax.swing.JCheckBox();
-        otherX3dEditorPathTF = new javax.swing.JTextField();
-        otherX3dEditorChooserButton = new javax.swing.JButton();
-        otherX3dEditorClearButton = new javax.swing.JButton();
-        otherX3dEditorLaunchButton = new javax.swing.JButton();
-        otherX3dEditorDownloadButton = new javax.swing.JButton();
-        leftMarginSpacerLabel1 = new javax.swing.JLabel();
-        verticalSpacerLabel12 = new javax.swing.JLabel();
-        reportModelingToolsButton = new javax.swing.JButton();
-        altovaNvdSecurityCheckButton = new javax.swing.JButton();
-        blenderNvdSecurityCheckButton = new javax.swing.JButton();
-        bsContentStudioNvdSecurityCheckButton = new javax.swing.JButton();
-        bvhackerNvdSecurityCheckButton = new javax.swing.JButton();
-        meshlabNvdSecurityCheckButton = new javax.swing.JButton();
-        okinoNugrafNvdSecurityCheckButton = new javax.swing.JButton();
-        paraviewNvdSecurityCheckButton = new javax.swing.JButton();
-        seamless3dNvdSecurityCheckButton = new javax.swing.JButton();
-        sunrizeNvdSecurityCheckButton = new javax.swing.JButton();
-        ultimakerCuraNvdSecurityCheckButton = new javax.swing.JButton();
-        ultraeditNvdSecurityCheckButton = new javax.swing.JButton();
-        whiteduneNvdSecurityCheckButton = new javax.swing.JButton();
-        wings3dNvdSecurityCheckButton = new javax.swing.JButton();
-        otherX3dEditorNvdSecurityCheckButton = new javax.swing.JButton();
-        rhino3DX3dEditorLabel = new javax.swing.JLabel();
-        rhino3DX3dEditorCheckBox = new javax.swing.JCheckBox();
-        rhino3DX3dEditorPathTF = new javax.swing.JTextField();
-        rhino3DX3dEditorChooserButton = new javax.swing.JButton();
-        rhino3DX3dEditorDefaultButton = new javax.swing.JButton();
-        rhino3DX3dEditorLaunchButton = new javax.swing.JButton();
-        rhino3DX3dEditorDownloadButton = new javax.swing.JButton();
-        rhino3DX3dEditorHelpButton = new javax.swing.JButton();
-        rhino3DNvdSecurityCheckButton = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(850, 680));
         setPreferredSize(new java.awt.Dimension(850, 660));
@@ -1245,7 +1244,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         contactLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1259,7 +1258,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         contactGeoLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1285,7 +1284,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         heilanLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1324,7 +1323,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         swirlx3dLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1350,7 +1349,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         vivatyLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 31;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1363,7 +1362,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         xj3dLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1376,7 +1375,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         otherPlayerLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1389,7 +1388,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         otherPlayerNameLabel.setPreferredSize(new java.awt.Dimension(120, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(otherPlayerNameLabel, gridBagConstraints);
@@ -1403,7 +1402,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1419,7 +1418,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1449,7 +1448,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(heilanCheckBox, gridBagConstraints);
@@ -1508,7 +1507,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 31;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(vivatyCheckBox, gridBagConstraints);
@@ -1522,7 +1521,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(swirlx3dCheckBox, gridBagConstraints);
@@ -1537,7 +1536,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(xj3dCheckBox, gridBagConstraints);
@@ -1551,7 +1550,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
         x3dPlayerPathsPanel.add(otherX3dPlayerCheckBox, gridBagConstraints);
@@ -1571,7 +1570,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
@@ -1590,7 +1589,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
@@ -1636,7 +1635,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
@@ -1704,7 +1703,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -1750,7 +1749,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 31;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -1773,7 +1772,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -1796,7 +1795,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -1819,7 +1818,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 400;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -1836,7 +1835,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1852,7 +1851,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1882,7 +1881,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1927,7 +1926,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1957,7 +1956,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 31;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(vivatyChooserButton, gridBagConstraints);
@@ -1971,7 +1970,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -1986,7 +1985,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2002,7 +2001,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2019,7 +2018,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2051,7 +2050,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2099,7 +2098,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2131,7 +2130,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 31;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2147,7 +2146,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2163,7 +2162,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2178,7 +2177,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2194,7 +2193,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2224,7 +2223,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2269,7 +2268,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2299,7 +2298,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 31;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(vivatyDownloadButton, gridBagConstraints);
@@ -2313,7 +2312,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2328,7 +2327,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2344,7 +2343,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(contactLaunchButton, gridBagConstraints);
 
@@ -2359,7 +2358,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2391,7 +2390,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2439,7 +2438,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2471,7 +2470,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 31;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2487,7 +2486,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2503,7 +2502,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2625,7 +2624,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel10, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 41;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
@@ -2655,6 +2654,11 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         launchIntervalTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 launchIntervalTFActionPerformed(evt);
+            }
+        });
+        launchIntervalTF.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                launchIntervalTFPropertyChange(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2695,8 +2699,8 @@ otherSemanticWebEditorCheckBox.setVisible(false);
 
         org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel8, "   ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridx = 15;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -2710,7 +2714,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         defunctX3dEditorLabel.setToolTipText("External tools for modifying X3D scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -2726,7 +2730,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridy = 33;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
@@ -2742,7 +2746,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 24;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2758,7 +2762,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2803,7 +2807,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 27;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2848,7 +2852,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 23;
+        gridBagConstraints.gridy = 29;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2878,7 +2882,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 31;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2893,7 +2897,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -2908,13 +2912,2165 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 21;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         x3dPlayerPathsPanel.add(otherX3dPlayerNvdSecurityCheckButton, gridBagConstraints);
 
+        sunrizeX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorLabel, "Sunrize");
+        sunrizeX3dEditorLabel.setToolTipText("Sunrize X3D Editor is launched using node.js");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dPlayerPathsPanel.add(sunrizeX3dEditorLabel, gridBagConstraints);
+
+        sunrizeX3dEditorCheckBox.setSelected(true);
+        sunrizeX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        sunrizeX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sunrizeX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sunrizeX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dPlayerPathsPanel.add(sunrizeX3dEditorCheckBox, gridBagConstraints);
+
+        sunrizeX3dEditorPathTF.setToolTipText("Sunrize X3D Editor is launched using node.js");
+        sunrizeX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sunrizeX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        sunrizeX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sunrizeX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dPlayerPathsPanel.add(sunrizeX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorChooserButton, "...");
+        sunrizeX3dEditorChooserButton.setToolTipText("Sunrize X3D Editor is launched using node.js");
+        sunrizeX3dEditorChooserButton.setEnabled(false);
+        sunrizeX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sunrizeX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dPlayerPathsPanel.add(sunrizeX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorDefaultButton, "default");
+        sunrizeX3dEditorDefaultButton.setToolTipText("Reset default invocation for local launch");
+        sunrizeX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sunrizeX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dPlayerPathsPanel.add(sunrizeX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorLaunchButton, "launch");
+        sunrizeX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        sunrizeX3dEditorLaunchButton.setActionCommand("contactTF");
+        sunrizeX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sunrizeX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dPlayerPathsPanel.add(sunrizeX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorDownloadButton, "get");
+        sunrizeX3dEditorDownloadButton.setToolTipText("Sunrize requires local installation of node.js javascript engine");
+        sunrizeX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        sunrizeX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sunrizeX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dPlayerPathsPanel.add(sunrizeX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(sunrizeNvdSecurityCheckButton, "!");
+        sunrizeNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        sunrizeNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sunrizeNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dPlayerPathsPanel.add(sunrizeNvdSecurityCheckButton, gridBagConstraints);
+
         x3dOptionsTabbedPane.addTab(org.openide.util.NbBundle.getMessage(X3dEditUserPreferencesPanel.class, "Paths_Tab_Title"), null, x3dPlayerPathsPanel, "Set directories for launching external browsers"); // NOI18N
+
+        x3dModelingToolsPanel.setMinimumSize(new java.awt.Dimension(825, 600));
+        x3dModelingToolsPanel.setPreferredSize(new java.awt.Dimension(825, 640));
+        x3dModelingToolsPanel.setLayout(new java.awt.GridBagLayout());
+
+        externalX3dEditorLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        externalX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        org.openide.awt.Mnemonics.setLocalizedText(externalX3dEditorLabel, "X3D-Capable Modeling Tools");
+        externalX3dEditorLabel.setToolTipText("External tools for modifying X3D scenes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 6, 3, 3);
+        x3dModelingToolsPanel.add(externalX3dEditorLabel, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel9, "   ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
+        x3dModelingToolsPanel.add(verticalSpacerLabel9, gridBagConstraints);
+
+        altovaXMLSpyLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyLabel, "Altova XMLSpy");
+        altovaXMLSpyLabel.setToolTipText("Altova XMLSpy editor");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        x3dModelingToolsPanel.add(altovaXMLSpyLabel, gridBagConstraints);
+
+        altovaXMLSpyCheckBox.setSelected(true);
+        altovaXMLSpyCheckBox.setToolTipText("Include when autolaunching tools");
+        altovaXMLSpyCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        altovaXMLSpyCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyCheckBox, gridBagConstraints);
+
+        altovaXMLSpyTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                altovaXMLSpyTFFocusLost(evt);
+            }
+        });
+        altovaXMLSpyTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyChooserButton, "...");
+        altovaXMLSpyChooserButton.setToolTipText("Browse to select file location for local launch");
+        altovaXMLSpyChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyDefaultButton, "default");
+        altovaXMLSpyDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyLaunchButton, "launch");
+        altovaXMLSpyLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyDownloadButton, "get");
+        altovaXMLSpyDownloadButton.setToolTipText("Download tool from website");
+        altovaXMLSpyDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        altovaXMLSpyDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyHelpButton, "help");
+        altovaXMLSpyHelpButton.setToolTipText("Display tool help page");
+        altovaXMLSpyHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        altovaXMLSpyHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaXMLSpyHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaXMLSpyHelpButton, gridBagConstraints);
+
+        blenderX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorLabel, "Blender");
+        blenderX3dEditorLabel.setToolTipText("Blender 3D Graphics Tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(blenderX3dEditorLabel, gridBagConstraints);
+
+        blenderX3dEditorCheckBox.setSelected(true);
+        blenderX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        blenderX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        blenderX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blenderX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(blenderX3dEditorCheckBox, gridBagConstraints);
+
+        blenderX3dEditorPathTF.setToolTipText("File location for local application");
+        blenderX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                blenderX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        blenderX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blenderX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(blenderX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorChooserButton, "...");
+        blenderX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        blenderX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blenderX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(blenderX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorDefaultButton, "default");
+        blenderX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        blenderX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blenderX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(blenderX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorLaunchButton, "launch");
+        blenderX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        blenderX3dEditorLaunchButton.setActionCommand("contactTF");
+        blenderX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blenderX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(blenderX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorDownloadButton, "get");
+        blenderX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        blenderX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        blenderX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blenderX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(blenderX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorHelpButton, "help");
+        blenderX3dEditorHelpButton.setToolTipText("Display tool help page");
+        blenderX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        blenderX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blenderX3dEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(blenderX3dEditorHelpButton, gridBagConstraints);
+
+        bsContentStudioX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorLabel, "BS Content Studio");
+        bsContentStudioX3dEditorLabel.setToolTipText("Blender 3D Graphics Tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bsContentStudioX3dEditorLabel, gridBagConstraints);
+
+        bsContentStudioX3dEditorCheckBox.setSelected(true);
+        bsContentStudioX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        bsContentStudioX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bsContentStudioX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsContentStudioX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bsContentStudioX3dEditorCheckBox, gridBagConstraints);
+
+        bsContentStudioX3dEditorPathTF.setToolTipText("File location for local application");
+        bsContentStudioX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                bsContentStudioX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        bsContentStudioX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsContentStudioX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bsContentStudioX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorChooserButton, "...");
+        bsContentStudioX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        bsContentStudioX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsContentStudioX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bsContentStudioX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorDefaultButton, "default");
+        bsContentStudioX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        bsContentStudioX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsContentStudioX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bsContentStudioX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorLaunchButton, "launch");
+        bsContentStudioX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        bsContentStudioX3dEditorLaunchButton.setActionCommand("contactTF");
+        bsContentStudioX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsContentStudioX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bsContentStudioX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorDownloadButton, "get");
+        bsContentStudioX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        bsContentStudioX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        bsContentStudioX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsContentStudioX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bsContentStudioX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorHelpButton, "help");
+        bsContentStudioX3dEditorHelpButton.setToolTipText("Display tool help page");
+        bsContentStudioX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        bsContentStudioX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsContentStudioX3dEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bsContentStudioX3dEditorHelpButton, gridBagConstraints);
+
+        bvhackerEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorLabel, "bvhacker");
+        bvhackerEditorLabel.setToolTipText("free bvh file editing tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorLabel, gridBagConstraints);
+
+        bvhackerEditorCheckBox.setSelected(true);
+        bvhackerEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        bvhackerEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bvhackerEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorCheckBox, gridBagConstraints);
+
+        bvhackerEditorPathTF.setToolTipText("File location for local application");
+        bvhackerEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                bvhackerEditorPathTFFocusLost(evt);
+            }
+        });
+        bvhackerEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorChooserButton, "...");
+        bvhackerEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        bvhackerEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorDefaultButton, "default");
+        bvhackerEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        bvhackerEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorLaunchButton, "launch");
+        bvhackerEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        bvhackerEditorLaunchButton.setActionCommand("contactTF");
+        bvhackerEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorDownloadButton, "get");
+        bvhackerEditorDownloadButton.setToolTipText("Download tool from website");
+        bvhackerEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        bvhackerEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorHelpButton, "help");
+        bvhackerEditorHelpButton.setToolTipText("Display tool help page");
+        bvhackerEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        bvhackerEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerEditorHelpButton, gridBagConstraints);
+
+        curaX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorLabel, "Ultimaker Cura");
+        curaX3dEditorLabel.setToolTipText("Ultimaker Cura printing tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(curaX3dEditorLabel, gridBagConstraints);
+
+        curaX3dEditorCheckBox.setSelected(true);
+        curaX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        curaX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        curaX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                curaX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(curaX3dEditorCheckBox, gridBagConstraints);
+
+        curaX3dEditorPathTF.setToolTipText("File location for local application");
+        curaX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                curaX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        curaX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                curaX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(curaX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorChooserButton, "...");
+        curaX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        curaX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                curaX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(curaX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorDefaultButton, "default");
+        curaX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        curaX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                curaX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(curaX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorLaunchButton, "launch");
+        curaX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        curaX3dEditorLaunchButton.setActionCommand("contactTF");
+        curaX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                curaX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(curaX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorDownloadButton, "get");
+        curaX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        curaX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        curaX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                curaX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(curaX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorHelpButton, "help");
+        curaX3dEditorHelpButton.setToolTipText("Display tool help page");
+        curaX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        curaX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                curaX3dEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(curaX3dEditorHelpButton, gridBagConstraints);
+
+        meshLabX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorLabel, "MeshLab");
+        meshLabX3dEditorLabel.setToolTipText("MeshLab 3D graphics authoring tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(meshLabX3dEditorLabel, gridBagConstraints);
+
+        meshLabX3dEditorCheckBox.setSelected(true);
+        meshLabX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        meshLabX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        meshLabX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meshLabX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(meshLabX3dEditorCheckBox, gridBagConstraints);
+
+        meshLabX3dEditorPathTF.setToolTipText("File location for local application");
+        meshLabX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                meshLabX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        meshLabX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meshLabX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(meshLabX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorChooserButton, "...");
+        meshLabX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        meshLabX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meshLabX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(meshLabX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorDefaultButton, "default");
+        meshLabX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        meshLabX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meshLabX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(meshLabX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorLaunchButton, "launch");
+        meshLabX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        meshLabX3dEditorLaunchButton.setActionCommand("contactTF");
+        meshLabX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meshLabX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(meshLabX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorDownloadButton, "get");
+        meshLabX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        meshLabX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        meshLabX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meshLabX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(meshLabX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorHelpButton, "help");
+        meshLabX3dEditorHelpButton.setToolTipText("Display tool help page");
+        meshLabX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        meshLabX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meshLabX3dEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(meshLabX3dEditorHelpButton, gridBagConstraints);
+
+        paraviewX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorLabel, "Paraview");
+        paraviewX3dEditorLabel.setToolTipText("Paraview 3D graphics authoring tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(paraviewX3dEditorLabel, gridBagConstraints);
+
+        paraviewX3dEditorCheckBox.setSelected(true);
+        paraviewX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        paraviewX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        paraviewX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraviewX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(paraviewX3dEditorCheckBox, gridBagConstraints);
+
+        paraviewX3dEditorPathTF.setToolTipText("File location for local application");
+        paraviewX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                paraviewX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        paraviewX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraviewX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(paraviewX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorChooserButton, "...");
+        paraviewX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        paraviewX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraviewX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(paraviewX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorDefaultButton, "default");
+        paraviewX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        paraviewX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraviewX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(paraviewX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorLaunchButton, "launch");
+        paraviewX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        paraviewX3dEditorLaunchButton.setActionCommand("contactTF");
+        paraviewX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraviewX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(paraviewX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorDownloadButton, "get");
+        paraviewX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        paraviewX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        paraviewX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraviewX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(paraviewX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorHelpButton, "help");
+        paraviewX3dEditorHelpButton.setToolTipText("Display tool help page");
+        paraviewX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        paraviewX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraviewX3dEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(paraviewX3dEditorHelpButton, gridBagConstraints);
+
+        polyTransNuGrafEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorLabel, "Okino NuGraf");
+        polyTransNuGrafEditorLabel.setToolTipText("Okino PolyTrans NuGraf 3D authoring tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(polyTransNuGrafEditorLabel, gridBagConstraints);
+
+        polyTransNuGrafEditorCheckBox.setSelected(true);
+        polyTransNuGrafEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        polyTransNuGrafEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        polyTransNuGrafEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                polyTransNuGrafEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(polyTransNuGrafEditorCheckBox, gridBagConstraints);
+
+        polyTransNuGrafEditorPathTF.setToolTipText("File location for local application");
+        polyTransNuGrafEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                polyTransNuGrafEditorPathTFFocusLost(evt);
+            }
+        });
+        polyTransNuGrafEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                polyTransNuGrafEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(polyTransNuGrafEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorChooserButton, "...");
+        polyTransNuGrafEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        polyTransNuGrafEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                polyTransNuGrafEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(polyTransNuGrafEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorDefaultButton, "default");
+        polyTransNuGrafEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        polyTransNuGrafEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                polyTransNuGrafEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(polyTransNuGrafEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorLaunchButton, "launch");
+        polyTransNuGrafEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        polyTransNuGrafEditorLaunchButton.setActionCommand("contactTF");
+        polyTransNuGrafEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                polyTransNuGrafEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(polyTransNuGrafEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorDownloadButton, "get");
+        polyTransNuGrafEditorDownloadButton.setToolTipText("Download tool from website");
+        polyTransNuGrafEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        polyTransNuGrafEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                polyTransNuGrafEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(polyTransNuGrafEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorHelpButton, "help");
+        polyTransNuGrafEditorHelpButton.setToolTipText("Display tool help page");
+        polyTransNuGrafEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        polyTransNuGrafEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                polyTransNuGrafEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(polyTransNuGrafEditorHelpButton, gridBagConstraints);
+
+        seamless3dX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorLabel, "Seamless3d");
+        seamless3dX3dEditorLabel.setToolTipText("Seamless3d graphics authoring tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(seamless3dX3dEditorLabel, gridBagConstraints);
+
+        seamless3dX3dEditorCheckBox.setSelected(true);
+        seamless3dX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        seamless3dX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        seamless3dX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seamless3dX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(seamless3dX3dEditorCheckBox, gridBagConstraints);
+
+        seamless3dX3dEditorPathTF.setToolTipText("File location for local application");
+        seamless3dX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                seamless3dX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        seamless3dX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seamless3dX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(seamless3dX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorChooserButton, "...");
+        seamless3dX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        seamless3dX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seamless3dX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(seamless3dX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorDefaultButton, "default");
+        seamless3dX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        seamless3dX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seamless3dX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(seamless3dX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorLaunchButton, "launch");
+        seamless3dX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        seamless3dX3dEditorLaunchButton.setActionCommand("contactTF");
+        seamless3dX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seamless3dX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(seamless3dX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorDownloadButton, "get");
+        seamless3dX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        seamless3dX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        seamless3dX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seamless3dX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(seamless3dX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorHelpButton, "help");
+        seamless3dX3dEditorHelpButton.setToolTipText("Display tool help page");
+        seamless3dX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        seamless3dX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seamless3dX3dEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(seamless3dX3dEditorHelpButton, gridBagConstraints);
+
+        ultraEditX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorLabel, "UltraEdit");
+        ultraEditX3dEditorLabel.setToolTipText("UltraEdit Text Editor");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultraEditX3dEditorLabel, gridBagConstraints);
+
+        ultraEditX3dEditorCheckBox.setSelected(true);
+        ultraEditX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        ultraEditX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ultraEditX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraEditX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultraEditX3dEditorCheckBox, gridBagConstraints);
+
+        ultraEditX3dEditorPathTF.setToolTipText("File location for local application");
+        ultraEditX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ultraEditX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        ultraEditX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraEditX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultraEditX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorChooserButton, "...");
+        ultraEditX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        ultraEditX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraEditX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultraEditX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorDefaultButton, "default");
+        ultraEditX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        ultraEditX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraEditX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultraEditX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorLaunchButton, "launch");
+        ultraEditX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        ultraEditX3dEditorLaunchButton.setActionCommand("contactTF");
+        ultraEditX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraEditX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultraEditX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorDownloadButton, "get");
+        ultraEditX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        ultraEditX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        ultraEditX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraEditX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultraEditX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(ultraEditHelpButton, "help");
+        ultraEditHelpButton.setToolTipText("Display tool help page");
+        ultraEditHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        ultraEditHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraEditHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultraEditHelpButton, gridBagConstraints);
+
+        whiteDuneX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorLabel, "White Dune");
+        whiteDuneX3dEditorLabel.setToolTipText("White Dune graphics authoring tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(whiteDuneX3dEditorLabel, gridBagConstraints);
+
+        whiteDuneX3dEditorCheckBox.setSelected(true);
+        whiteDuneX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        whiteDuneX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        whiteDuneX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                whiteDuneX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(whiteDuneX3dEditorCheckBox, gridBagConstraints);
+
+        whiteDuneX3dEditorPathTF.setToolTipText("File location for local application");
+        whiteDuneX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                whiteDuneX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        whiteDuneX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                whiteDuneX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(whiteDuneX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorChooserButton, "...");
+        whiteDuneX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        whiteDuneX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                whiteDuneX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(whiteDuneX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorDefaultButton, "default");
+        whiteDuneX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        whiteDuneX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                whiteDuneX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(whiteDuneX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorLaunchButton, "launch");
+        whiteDuneX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        whiteDuneX3dEditorLaunchButton.setActionCommand("contactTF");
+        whiteDuneX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                whiteDuneX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(whiteDuneX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorDownloadButton, "get");
+        whiteDuneX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        whiteDuneX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        whiteDuneX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                whiteDuneX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(whiteDuneX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorHelpButton, "help");
+        whiteDuneX3dEditorHelpButton.setToolTipText("Display tool help page");
+        whiteDuneX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        whiteDuneX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                whiteDuneX3dEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(whiteDuneX3dEditorHelpButton, gridBagConstraints);
+
+        wings3dX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorLabel, "Wings3D");
+        wings3dX3dEditorLabel.setToolTipText("Wings 3D graphics authoring tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(wings3dX3dEditorLabel, gridBagConstraints);
+
+        wings3dX3dEditorCheckBox.setSelected(true);
+        wings3dX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        wings3dX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        wings3dX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wings3dX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(wings3dX3dEditorCheckBox, gridBagConstraints);
+
+        wings3dX3dEditorPathTF.setToolTipText("File location for local application");
+        wings3dX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                wings3dX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        wings3dX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wings3dX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(wings3dX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorChooserButton, "...");
+        wings3dX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        wings3dX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wings3dX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(wings3dX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorDefaultButton, "default");
+        wings3dX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        wings3dX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wings3dX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(wings3dX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorLaunchButton, "launch");
+        wings3dX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        wings3dX3dEditorLaunchButton.setActionCommand("contactTF");
+        wings3dX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wings3dX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(wings3dX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorDownloadButton, "get");
+        wings3dX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        wings3dX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        wings3dX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wings3dX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(wings3dX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorHelpButton, "help");
+        wings3dX3dEditorHelpButton.setToolTipText("Display tool help page");
+        wings3dX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        wings3dX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wings3dX3dEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(wings3dX3dEditorHelpButton, gridBagConstraints);
+
+        otherEditorNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(otherEditorNameLabel, "Other tool name:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 32;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherEditorNameLabel, gridBagConstraints);
+
+        otherEditorPathLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(otherEditorPathLabel, "Other tool path:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 33;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherEditorPathLabel, gridBagConstraints);
+
+        otherX3dEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        otherX3dEditorNameTF.setToolTipText("Enter name of alternate tool");
+        otherX3dEditorNameTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otherX3dEditorNameTFFocusLost(evt);
+            }
+        });
+        otherX3dEditorNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherX3dEditorNameTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 32;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherX3dEditorNameTF, gridBagConstraints);
+
+        otherX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        otherX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otherX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherX3dEditorCheckBox, gridBagConstraints);
+
+        otherX3dEditorPathTF.setToolTipText("Enter file location for local application");
+        otherX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                otherX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        otherX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorChooserButton, "...");
+        otherX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
+        otherX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorClearButton, "clear");
+        otherX3dEditorClearButton.setToolTipText("Reset default file location for local application");
+        otherX3dEditorClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherX3dEditorClearButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherX3dEditorClearButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorLaunchButton, "launch");
+        otherX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        otherX3dEditorLaunchButton.setActionCommand("contactTF");
+        otherX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 33;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorDownloadButton, "find");
+        otherX3dEditorDownloadButton.setToolTipText("Find other X3D Resources for scene editors");
+        otherX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        otherX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 33;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(leftMarginSpacerLabel1, "   ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.gridheight = 23;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weighty = 0.1;
+        x3dModelingToolsPanel.add(leftMarginSpacerLabel1, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel12, "   ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 35;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(verticalSpacerLabel12, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(reportModelingToolsButton, "Feedback");
+        reportModelingToolsButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
+        reportModelingToolsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportModelingToolsButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 37;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(reportModelingToolsButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(altovaNvdSecurityCheckButton, "!");
+        altovaNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        altovaNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altovaNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(altovaNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(blenderNvdSecurityCheckButton, "!");
+        blenderNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        blenderNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blenderNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(blenderNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioNvdSecurityCheckButton, "!");
+        bsContentStudioNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        bsContentStudioNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsContentStudioNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bsContentStudioNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(bvhackerNvdSecurityCheckButton, "!");
+        bvhackerNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        bvhackerNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bvhackerNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(bvhackerNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(meshlabNvdSecurityCheckButton, "!");
+        meshlabNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        meshlabNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meshlabNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(meshlabNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(okinoNugrafNvdSecurityCheckButton, "!");
+        okinoNugrafNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        okinoNugrafNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okinoNugrafNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(okinoNugrafNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(paraviewNvdSecurityCheckButton, "!");
+        paraviewNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        paraviewNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraviewNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(paraviewNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(seamless3dNvdSecurityCheckButton, "!");
+        seamless3dNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        seamless3dNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seamless3dNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(seamless3dNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(ultimakerCuraNvdSecurityCheckButton, "!");
+        ultimakerCuraNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        ultimakerCuraNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultimakerCuraNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultimakerCuraNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(ultraeditNvdSecurityCheckButton, "!");
+        ultraeditNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        ultraeditNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultraeditNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 24;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(ultraeditNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(whiteduneNvdSecurityCheckButton, "!");
+        whiteduneNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        whiteduneNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                whiteduneNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(whiteduneNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(wings3dNvdSecurityCheckButton, "!");
+        wings3dNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        wings3dNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wings3dNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 28;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(wings3dNvdSecurityCheckButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorNvdSecurityCheckButton, "!");
+        otherX3dEditorNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        otherX3dEditorNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherX3dEditorNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 33;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(otherX3dEditorNvdSecurityCheckButton, gridBagConstraints);
+
+        rhino3DX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorLabel, "Rhino3D");
+        rhino3DX3dEditorLabel.setToolTipText("Paraview 3D graphics authoring tool");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorLabel, gridBagConstraints);
+
+        rhino3DX3dEditorCheckBox.setSelected(true);
+        rhino3DX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
+        rhino3DX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rhino3DX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorCheckBox, gridBagConstraints);
+
+        rhino3DX3dEditorPathTF.setToolTipText("File location for local application");
+        rhino3DX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                rhino3DX3dEditorPathTFFocusLost(evt);
+            }
+        });
+        rhino3DX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorPathTFActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorPathTF, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorChooserButton, "...");
+        rhino3DX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
+        rhino3DX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorChooserButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorChooserButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorDefaultButton, "default");
+        rhino3DX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
+        rhino3DX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorDefaultButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorDefaultButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorLaunchButton, "launch");
+        rhino3DX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
+        rhino3DX3dEditorLaunchButton.setActionCommand("contactTF");
+        rhino3DX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorLaunchButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorLaunchButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorDownloadButton, "get");
+        rhino3DX3dEditorDownloadButton.setToolTipText("Download tool from website");
+        rhino3DX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        rhino3DX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorDownloadButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorDownloadButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorHelpButton, "help");
+        rhino3DX3dEditorHelpButton.setToolTipText("Display tool help page");
+        rhino3DX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
+        rhino3DX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DX3dEditorHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DX3dEditorHelpButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(rhino3DNvdSecurityCheckButton, "!");
+        rhino3DNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
+        rhino3DNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rhino3DNvdSecurityCheckButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        x3dModelingToolsPanel.add(rhino3DNvdSecurityCheckButton, gridBagConstraints);
+
+        x3dOptionsTabbedPane.addTab("X3D Modeling Tools", x3dModelingToolsPanel);
 
         imageVolumeToolsPanel.setMinimumSize(new java.awt.Dimension(825, 600));
         imageVolumeToolsPanel.setPreferredSize(new java.awt.Dimension(825, 600));
@@ -7493,2174 +9649,6 @@ otherSemanticWebEditorCheckBox.setVisible(false);
 
         x3dOptionsTabbedPane.addTab("Multimedia, Web, and Networking Tools", webMultimediaToolsPanel);
 
-        x3dModelingToolsPanel.setMinimumSize(new java.awt.Dimension(825, 600));
-        x3dModelingToolsPanel.setPreferredSize(new java.awt.Dimension(825, 640));
-        x3dModelingToolsPanel.setLayout(new java.awt.GridBagLayout());
-
-        externalX3dEditorLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        externalX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        org.openide.awt.Mnemonics.setLocalizedText(externalX3dEditorLabel, "X3D-Capable Modeling Tools");
-        externalX3dEditorLabel.setToolTipText("External tools for modifying X3D scenes");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 6, 3, 3);
-        x3dModelingToolsPanel.add(externalX3dEditorLabel, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel9, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 3, 3, 3);
-        x3dModelingToolsPanel.add(verticalSpacerLabel9, gridBagConstraints);
-
-        altovaXMLSpyLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyLabel, "Altova XMLSpy");
-        altovaXMLSpyLabel.setToolTipText("Altova XMLSpy editor");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        x3dModelingToolsPanel.add(altovaXMLSpyLabel, gridBagConstraints);
-
-        altovaXMLSpyCheckBox.setSelected(true);
-        altovaXMLSpyCheckBox.setToolTipText("Include when autolaunching tools");
-        altovaXMLSpyCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        altovaXMLSpyCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                altovaXMLSpyCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(altovaXMLSpyCheckBox, gridBagConstraints);
-
-        altovaXMLSpyTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                altovaXMLSpyTFFocusLost(evt);
-            }
-        });
-        altovaXMLSpyTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                altovaXMLSpyTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(altovaXMLSpyTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyChooserButton, "...");
-        altovaXMLSpyChooserButton.setToolTipText("Browse to select file location for local launch");
-        altovaXMLSpyChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                altovaXMLSpyChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(altovaXMLSpyChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyDefaultButton, "default");
-        altovaXMLSpyDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                altovaXMLSpyDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(altovaXMLSpyDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyLaunchButton, "launch");
-        altovaXMLSpyLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                altovaXMLSpyLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(altovaXMLSpyLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyDownloadButton, "get");
-        altovaXMLSpyDownloadButton.setToolTipText("Download tool from website");
-        altovaXMLSpyDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        altovaXMLSpyDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                altovaXMLSpyDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(altovaXMLSpyDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(altovaXMLSpyHelpButton, "help");
-        altovaXMLSpyHelpButton.setToolTipText("Display tool help page");
-        altovaXMLSpyHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        altovaXMLSpyHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                altovaXMLSpyHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(altovaXMLSpyHelpButton, gridBagConstraints);
-
-        blenderX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorLabel, "Blender");
-        blenderX3dEditorLabel.setToolTipText("Blender 3D Graphics Tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(blenderX3dEditorLabel, gridBagConstraints);
-
-        blenderX3dEditorCheckBox.setSelected(true);
-        blenderX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        blenderX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        blenderX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blenderX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(blenderX3dEditorCheckBox, gridBagConstraints);
-
-        blenderX3dEditorPathTF.setToolTipText("File location for local application");
-        blenderX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                blenderX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        blenderX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blenderX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(blenderX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorChooserButton, "...");
-        blenderX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        blenderX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blenderX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(blenderX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorDefaultButton, "default");
-        blenderX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        blenderX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blenderX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(blenderX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorLaunchButton, "launch");
-        blenderX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        blenderX3dEditorLaunchButton.setActionCommand("contactTF");
-        blenderX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blenderX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(blenderX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorDownloadButton, "get");
-        blenderX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        blenderX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        blenderX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blenderX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(blenderX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(blenderX3dEditorHelpButton, "help");
-        blenderX3dEditorHelpButton.setToolTipText("Display tool help page");
-        blenderX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        blenderX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blenderX3dEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(blenderX3dEditorHelpButton, gridBagConstraints);
-
-        bsContentStudioX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorLabel, "BS Content Studio");
-        bsContentStudioX3dEditorLabel.setToolTipText("Blender 3D Graphics Tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bsContentStudioX3dEditorLabel, gridBagConstraints);
-
-        bsContentStudioX3dEditorCheckBox.setSelected(true);
-        bsContentStudioX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        bsContentStudioX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bsContentStudioX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bsContentStudioX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bsContentStudioX3dEditorCheckBox, gridBagConstraints);
-
-        bsContentStudioX3dEditorPathTF.setToolTipText("File location for local application");
-        bsContentStudioX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                bsContentStudioX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        bsContentStudioX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bsContentStudioX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bsContentStudioX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorChooserButton, "...");
-        bsContentStudioX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        bsContentStudioX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bsContentStudioX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bsContentStudioX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorDefaultButton, "default");
-        bsContentStudioX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        bsContentStudioX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bsContentStudioX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bsContentStudioX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorLaunchButton, "launch");
-        bsContentStudioX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        bsContentStudioX3dEditorLaunchButton.setActionCommand("contactTF");
-        bsContentStudioX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bsContentStudioX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bsContentStudioX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorDownloadButton, "get");
-        bsContentStudioX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        bsContentStudioX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        bsContentStudioX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bsContentStudioX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bsContentStudioX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioX3dEditorHelpButton, "help");
-        bsContentStudioX3dEditorHelpButton.setToolTipText("Display tool help page");
-        bsContentStudioX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        bsContentStudioX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bsContentStudioX3dEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bsContentStudioX3dEditorHelpButton, gridBagConstraints);
-
-        bvhackerEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorLabel, "bvhacker");
-        bvhackerEditorLabel.setToolTipText("free bvh file editing tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bvhackerEditorLabel, gridBagConstraints);
-
-        bvhackerEditorCheckBox.setSelected(true);
-        bvhackerEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        bvhackerEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bvhackerEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bvhackerEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bvhackerEditorCheckBox, gridBagConstraints);
-
-        bvhackerEditorPathTF.setToolTipText("File location for local application");
-        bvhackerEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                bvhackerEditorPathTFFocusLost(evt);
-            }
-        });
-        bvhackerEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bvhackerEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bvhackerEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorChooserButton, "...");
-        bvhackerEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        bvhackerEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bvhackerEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bvhackerEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorDefaultButton, "default");
-        bvhackerEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        bvhackerEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bvhackerEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bvhackerEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorLaunchButton, "launch");
-        bvhackerEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        bvhackerEditorLaunchButton.setActionCommand("contactTF");
-        bvhackerEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bvhackerEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bvhackerEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorDownloadButton, "get");
-        bvhackerEditorDownloadButton.setToolTipText("Download tool from website");
-        bvhackerEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        bvhackerEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bvhackerEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bvhackerEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bvhackerEditorHelpButton, "help");
-        bvhackerEditorHelpButton.setToolTipText("Display tool help page");
-        bvhackerEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        bvhackerEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bvhackerEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bvhackerEditorHelpButton, gridBagConstraints);
-
-        curaX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorLabel, "Ultimaker Cura");
-        curaX3dEditorLabel.setToolTipText("Ultimaker Cura printing tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(curaX3dEditorLabel, gridBagConstraints);
-
-        curaX3dEditorCheckBox.setSelected(true);
-        curaX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        curaX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        curaX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                curaX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(curaX3dEditorCheckBox, gridBagConstraints);
-
-        curaX3dEditorPathTF.setToolTipText("File location for local application");
-        curaX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                curaX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        curaX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                curaX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(curaX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorChooserButton, "...");
-        curaX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        curaX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                curaX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(curaX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorDefaultButton, "default");
-        curaX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        curaX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                curaX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(curaX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorLaunchButton, "launch");
-        curaX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        curaX3dEditorLaunchButton.setActionCommand("contactTF");
-        curaX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                curaX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(curaX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorDownloadButton, "get");
-        curaX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        curaX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        curaX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                curaX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(curaX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(curaX3dEditorHelpButton, "help");
-        curaX3dEditorHelpButton.setToolTipText("Display tool help page");
-        curaX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        curaX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                curaX3dEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(curaX3dEditorHelpButton, gridBagConstraints);
-
-        meshLabX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorLabel, "MeshLab");
-        meshLabX3dEditorLabel.setToolTipText("MeshLab 3D graphics authoring tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(meshLabX3dEditorLabel, gridBagConstraints);
-
-        meshLabX3dEditorCheckBox.setSelected(true);
-        meshLabX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        meshLabX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        meshLabX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                meshLabX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(meshLabX3dEditorCheckBox, gridBagConstraints);
-
-        meshLabX3dEditorPathTF.setToolTipText("File location for local application");
-        meshLabX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                meshLabX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        meshLabX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                meshLabX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(meshLabX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorChooserButton, "...");
-        meshLabX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        meshLabX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                meshLabX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(meshLabX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorDefaultButton, "default");
-        meshLabX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        meshLabX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                meshLabX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(meshLabX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorLaunchButton, "launch");
-        meshLabX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        meshLabX3dEditorLaunchButton.setActionCommand("contactTF");
-        meshLabX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                meshLabX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(meshLabX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorDownloadButton, "get");
-        meshLabX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        meshLabX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        meshLabX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                meshLabX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(meshLabX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(meshLabX3dEditorHelpButton, "help");
-        meshLabX3dEditorHelpButton.setToolTipText("Display tool help page");
-        meshLabX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        meshLabX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                meshLabX3dEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(meshLabX3dEditorHelpButton, gridBagConstraints);
-
-        paraviewX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorLabel, "Paraview");
-        paraviewX3dEditorLabel.setToolTipText("Paraview 3D graphics authoring tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(paraviewX3dEditorLabel, gridBagConstraints);
-
-        paraviewX3dEditorCheckBox.setSelected(true);
-        paraviewX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        paraviewX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        paraviewX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paraviewX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(paraviewX3dEditorCheckBox, gridBagConstraints);
-
-        paraviewX3dEditorPathTF.setToolTipText("File location for local application");
-        paraviewX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                paraviewX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        paraviewX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paraviewX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(paraviewX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorChooserButton, "...");
-        paraviewX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        paraviewX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paraviewX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(paraviewX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorDefaultButton, "default");
-        paraviewX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        paraviewX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paraviewX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(paraviewX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorLaunchButton, "launch");
-        paraviewX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        paraviewX3dEditorLaunchButton.setActionCommand("contactTF");
-        paraviewX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paraviewX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(paraviewX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorDownloadButton, "get");
-        paraviewX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        paraviewX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        paraviewX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paraviewX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(paraviewX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(paraviewX3dEditorHelpButton, "help");
-        paraviewX3dEditorHelpButton.setToolTipText("Display tool help page");
-        paraviewX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        paraviewX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paraviewX3dEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(paraviewX3dEditorHelpButton, gridBagConstraints);
-
-        polyTransNuGrafEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorLabel, "Okino NuGraf");
-        polyTransNuGrafEditorLabel.setToolTipText("Okino PolyTrans NuGraf 3D authoring tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(polyTransNuGrafEditorLabel, gridBagConstraints);
-
-        polyTransNuGrafEditorCheckBox.setSelected(true);
-        polyTransNuGrafEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        polyTransNuGrafEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        polyTransNuGrafEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                polyTransNuGrafEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(polyTransNuGrafEditorCheckBox, gridBagConstraints);
-
-        polyTransNuGrafEditorPathTF.setToolTipText("File location for local application");
-        polyTransNuGrafEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                polyTransNuGrafEditorPathTFFocusLost(evt);
-            }
-        });
-        polyTransNuGrafEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                polyTransNuGrafEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(polyTransNuGrafEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorChooserButton, "...");
-        polyTransNuGrafEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        polyTransNuGrafEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                polyTransNuGrafEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(polyTransNuGrafEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorDefaultButton, "default");
-        polyTransNuGrafEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        polyTransNuGrafEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                polyTransNuGrafEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(polyTransNuGrafEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorLaunchButton, "launch");
-        polyTransNuGrafEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        polyTransNuGrafEditorLaunchButton.setActionCommand("contactTF");
-        polyTransNuGrafEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                polyTransNuGrafEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(polyTransNuGrafEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorDownloadButton, "get");
-        polyTransNuGrafEditorDownloadButton.setToolTipText("Download tool from website");
-        polyTransNuGrafEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        polyTransNuGrafEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                polyTransNuGrafEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(polyTransNuGrafEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(polyTransNuGrafEditorHelpButton, "help");
-        polyTransNuGrafEditorHelpButton.setToolTipText("Display tool help page");
-        polyTransNuGrafEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        polyTransNuGrafEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                polyTransNuGrafEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(polyTransNuGrafEditorHelpButton, gridBagConstraints);
-
-        sunrizeX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorLabel, "Sunrize");
-        sunrizeX3dEditorLabel.setToolTipText("Sunrize X3D Editor is launched using node.js");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(sunrizeX3dEditorLabel, gridBagConstraints);
-
-        sunrizeX3dEditorCheckBox.setSelected(true);
-        sunrizeX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        sunrizeX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        sunrizeX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sunrizeX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(sunrizeX3dEditorCheckBox, gridBagConstraints);
-
-        sunrizeX3dEditorPathTF.setToolTipText("Sunrize X3D Editor is launched using node.js");
-        sunrizeX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                sunrizeX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        sunrizeX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sunrizeX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(sunrizeX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorChooserButton, "...");
-        sunrizeX3dEditorChooserButton.setToolTipText("Sunrize X3D Editor is launched using node.js");
-        sunrizeX3dEditorChooserButton.setEnabled(false);
-        sunrizeX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sunrizeX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(sunrizeX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorDefaultButton, "default");
-        sunrizeX3dEditorDefaultButton.setToolTipText("Reset default invocation for local launch");
-        sunrizeX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sunrizeX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(sunrizeX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorLaunchButton, "launch");
-        sunrizeX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        sunrizeX3dEditorLaunchButton.setActionCommand("contactTF");
-        sunrizeX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sunrizeX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(sunrizeX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorDownloadButton, "get");
-        sunrizeX3dEditorDownloadButton.setToolTipText("Sunrize requires local installation of node.js javascript engine");
-        sunrizeX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        sunrizeX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sunrizeX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(sunrizeX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(sunrizeX3dEditorHelpButton, "help");
-        sunrizeX3dEditorHelpButton.setToolTipText("Display tool help page");
-        sunrizeX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        sunrizeX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sunrizeX3dEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(sunrizeX3dEditorHelpButton, gridBagConstraints);
-
-        seamless3dX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorLabel, "Seamless3d");
-        seamless3dX3dEditorLabel.setToolTipText("Seamless3d graphics authoring tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(seamless3dX3dEditorLabel, gridBagConstraints);
-
-        seamless3dX3dEditorCheckBox.setSelected(true);
-        seamless3dX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        seamless3dX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        seamless3dX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seamless3dX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(seamless3dX3dEditorCheckBox, gridBagConstraints);
-
-        seamless3dX3dEditorPathTF.setToolTipText("File location for local application");
-        seamless3dX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                seamless3dX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        seamless3dX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seamless3dX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(seamless3dX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorChooserButton, "...");
-        seamless3dX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        seamless3dX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seamless3dX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(seamless3dX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorDefaultButton, "default");
-        seamless3dX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        seamless3dX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seamless3dX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(seamless3dX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorLaunchButton, "launch");
-        seamless3dX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        seamless3dX3dEditorLaunchButton.setActionCommand("contactTF");
-        seamless3dX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seamless3dX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(seamless3dX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorDownloadButton, "get");
-        seamless3dX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        seamless3dX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        seamless3dX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seamless3dX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(seamless3dX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(seamless3dX3dEditorHelpButton, "help");
-        seamless3dX3dEditorHelpButton.setToolTipText("Display tool help page");
-        seamless3dX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        seamless3dX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seamless3dX3dEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(seamless3dX3dEditorHelpButton, gridBagConstraints);
-
-        ultraEditX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorLabel, "UltraEdit");
-        ultraEditX3dEditorLabel.setToolTipText("UltraEdit Text Editor");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(ultraEditX3dEditorLabel, gridBagConstraints);
-
-        ultraEditX3dEditorCheckBox.setSelected(true);
-        ultraEditX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        ultraEditX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ultraEditX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultraEditX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(ultraEditX3dEditorCheckBox, gridBagConstraints);
-
-        ultraEditX3dEditorPathTF.setToolTipText("File location for local application");
-        ultraEditX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ultraEditX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        ultraEditX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultraEditX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(ultraEditX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorChooserButton, "...");
-        ultraEditX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        ultraEditX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultraEditX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(ultraEditX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorDefaultButton, "default");
-        ultraEditX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        ultraEditX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultraEditX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(ultraEditX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorLaunchButton, "launch");
-        ultraEditX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        ultraEditX3dEditorLaunchButton.setActionCommand("contactTF");
-        ultraEditX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultraEditX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(ultraEditX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(ultraEditX3dEditorDownloadButton, "get");
-        ultraEditX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        ultraEditX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        ultraEditX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultraEditX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(ultraEditX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(ultraEditHelpButton, "help");
-        ultraEditHelpButton.setToolTipText("Display tool help page");
-        ultraEditHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        ultraEditHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultraEditHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(ultraEditHelpButton, gridBagConstraints);
-
-        whiteDuneX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorLabel, "White Dune");
-        whiteDuneX3dEditorLabel.setToolTipText("White Dune graphics authoring tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(whiteDuneX3dEditorLabel, gridBagConstraints);
-
-        whiteDuneX3dEditorCheckBox.setSelected(true);
-        whiteDuneX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        whiteDuneX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        whiteDuneX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                whiteDuneX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(whiteDuneX3dEditorCheckBox, gridBagConstraints);
-
-        whiteDuneX3dEditorPathTF.setToolTipText("File location for local application");
-        whiteDuneX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                whiteDuneX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        whiteDuneX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                whiteDuneX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(whiteDuneX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorChooserButton, "...");
-        whiteDuneX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        whiteDuneX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                whiteDuneX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(whiteDuneX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorDefaultButton, "default");
-        whiteDuneX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        whiteDuneX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                whiteDuneX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(whiteDuneX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorLaunchButton, "launch");
-        whiteDuneX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        whiteDuneX3dEditorLaunchButton.setActionCommand("contactTF");
-        whiteDuneX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                whiteDuneX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(whiteDuneX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorDownloadButton, "get");
-        whiteDuneX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        whiteDuneX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        whiteDuneX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                whiteDuneX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(whiteDuneX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(whiteDuneX3dEditorHelpButton, "help");
-        whiteDuneX3dEditorHelpButton.setToolTipText("Display tool help page");
-        whiteDuneX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        whiteDuneX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                whiteDuneX3dEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(whiteDuneX3dEditorHelpButton, gridBagConstraints);
-
-        wings3dX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorLabel, "Wings3D");
-        wings3dX3dEditorLabel.setToolTipText("Wings 3D graphics authoring tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(wings3dX3dEditorLabel, gridBagConstraints);
-
-        wings3dX3dEditorCheckBox.setSelected(true);
-        wings3dX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        wings3dX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        wings3dX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wings3dX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(wings3dX3dEditorCheckBox, gridBagConstraints);
-
-        wings3dX3dEditorPathTF.setToolTipText("File location for local application");
-        wings3dX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                wings3dX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        wings3dX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wings3dX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(wings3dX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorChooserButton, "...");
-        wings3dX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        wings3dX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wings3dX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(wings3dX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorDefaultButton, "default");
-        wings3dX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        wings3dX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wings3dX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(wings3dX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorLaunchButton, "launch");
-        wings3dX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        wings3dX3dEditorLaunchButton.setActionCommand("contactTF");
-        wings3dX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wings3dX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(wings3dX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorDownloadButton, "get");
-        wings3dX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        wings3dX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        wings3dX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wings3dX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(wings3dX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(wings3dX3dEditorHelpButton, "help");
-        wings3dX3dEditorHelpButton.setToolTipText("Display tool help page");
-        wings3dX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        wings3dX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wings3dX3dEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(wings3dX3dEditorHelpButton, gridBagConstraints);
-
-        otherEditorNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(otherEditorNameLabel, "Other tool name:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 32;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(otherEditorNameLabel, gridBagConstraints);
-
-        otherEditorPathLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(otherEditorPathLabel, "Other tool path:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 33;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(otherEditorPathLabel, gridBagConstraints);
-
-        otherX3dEditorNameTF.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        otherX3dEditorNameTF.setToolTipText("Enter name of alternate tool");
-        otherX3dEditorNameTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                otherX3dEditorNameTFFocusLost(evt);
-            }
-        });
-        otherX3dEditorNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherX3dEditorNameTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 32;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(otherX3dEditorNameTF, gridBagConstraints);
-
-        otherX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        otherX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        otherX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 33;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(otherX3dEditorCheckBox, gridBagConstraints);
-
-        otherX3dEditorPathTF.setToolTipText("Enter file location for local application");
-        otherX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                otherX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        otherX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 33;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(otherX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorChooserButton, "...");
-        otherX3dEditorChooserButton.setToolTipText("Browse to select file location for local keystore");
-        otherX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 33;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(otherX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorClearButton, "clear");
-        otherX3dEditorClearButton.setToolTipText("Reset default file location for local application");
-        otherX3dEditorClearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherX3dEditorClearButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 33;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(otherX3dEditorClearButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorLaunchButton, "launch");
-        otherX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        otherX3dEditorLaunchButton.setActionCommand("contactTF");
-        otherX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 33;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(otherX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorDownloadButton, "find");
-        otherX3dEditorDownloadButton.setToolTipText("Find other X3D Resources for scene editors");
-        otherX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        otherX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 33;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(otherX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(leftMarginSpacerLabel1, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.gridheight = 23;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weighty = 0.1;
-        x3dModelingToolsPanel.add(leftMarginSpacerLabel1, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(verticalSpacerLabel12, "   ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 35;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(verticalSpacerLabel12, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(reportModelingToolsButton, "Feedback");
-        reportModelingToolsButton.setToolTipText(BaseCustomizer.MAILTO_TOOLTIP);
-        reportModelingToolsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reportModelingToolsButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 37;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(reportModelingToolsButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(altovaNvdSecurityCheckButton, "!");
-        altovaNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        altovaNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                altovaNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(altovaNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(blenderNvdSecurityCheckButton, "!");
-        blenderNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        blenderNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blenderNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(blenderNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bsContentStudioNvdSecurityCheckButton, "!");
-        bsContentStudioNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        bsContentStudioNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bsContentStudioNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bsContentStudioNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(bvhackerNvdSecurityCheckButton, "!");
-        bvhackerNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        bvhackerNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bvhackerNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(bvhackerNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(meshlabNvdSecurityCheckButton, "!");
-        meshlabNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        meshlabNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                meshlabNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(meshlabNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(okinoNugrafNvdSecurityCheckButton, "!");
-        okinoNugrafNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        okinoNugrafNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                okinoNugrafNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(okinoNugrafNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(paraviewNvdSecurityCheckButton, "!");
-        paraviewNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        paraviewNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paraviewNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(paraviewNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(seamless3dNvdSecurityCheckButton, "!");
-        seamless3dNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        seamless3dNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seamless3dNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(seamless3dNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(sunrizeNvdSecurityCheckButton, "!");
-        sunrizeNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        sunrizeNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sunrizeNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(sunrizeNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(ultimakerCuraNvdSecurityCheckButton, "!");
-        ultimakerCuraNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        ultimakerCuraNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultimakerCuraNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(ultimakerCuraNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(ultraeditNvdSecurityCheckButton, "!");
-        ultraeditNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        ultraeditNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultraeditNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 24;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(ultraeditNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(whiteduneNvdSecurityCheckButton, "!");
-        whiteduneNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        whiteduneNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                whiteduneNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 26;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(whiteduneNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(wings3dNvdSecurityCheckButton, "!");
-        wings3dNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        wings3dNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wings3dNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(wings3dNvdSecurityCheckButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(otherX3dEditorNvdSecurityCheckButton, "!");
-        otherX3dEditorNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        otherX3dEditorNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otherX3dEditorNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 33;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(otherX3dEditorNvdSecurityCheckButton, gridBagConstraints);
-
-        rhino3DX3dEditorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorLabel, "Rhino3D");
-        rhino3DX3dEditorLabel.setToolTipText("Paraview 3D graphics authoring tool");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(rhino3DX3dEditorLabel, gridBagConstraints);
-
-        rhino3DX3dEditorCheckBox.setSelected(true);
-        rhino3DX3dEditorCheckBox.setToolTipText("Include when autolaunching tools");
-        rhino3DX3dEditorCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rhino3DX3dEditorCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rhino3DX3dEditorCheckBoxActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(rhino3DX3dEditorCheckBox, gridBagConstraints);
-
-        rhino3DX3dEditorPathTF.setToolTipText("File location for local application");
-        rhino3DX3dEditorPathTF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                rhino3DX3dEditorPathTFFocusLost(evt);
-            }
-        });
-        rhino3DX3dEditorPathTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rhino3DX3dEditorPathTFActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 400;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(rhino3DX3dEditorPathTF, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorChooserButton, "...");
-        rhino3DX3dEditorChooserButton.setToolTipText("Browse to select file location for local launch");
-        rhino3DX3dEditorChooserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rhino3DX3dEditorChooserButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(rhino3DX3dEditorChooserButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorDefaultButton, "default");
-        rhino3DX3dEditorDefaultButton.setToolTipText("Reset default file location for local application");
-        rhino3DX3dEditorDefaultButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rhino3DX3dEditorDefaultButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(rhino3DX3dEditorDefaultButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorLaunchButton, "launch");
-        rhino3DX3dEditorLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        rhino3DX3dEditorLaunchButton.setActionCommand("contactTF");
-        rhino3DX3dEditorLaunchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rhino3DX3dEditorLaunchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(rhino3DX3dEditorLaunchButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorDownloadButton, "get");
-        rhino3DX3dEditorDownloadButton.setToolTipText("Download tool from website");
-        rhino3DX3dEditorDownloadButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        rhino3DX3dEditorDownloadButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rhino3DX3dEditorDownloadButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(rhino3DX3dEditorDownloadButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(rhino3DX3dEditorHelpButton, "help");
-        rhino3DX3dEditorHelpButton.setToolTipText("Display tool help page");
-        rhino3DX3dEditorHelpButton.setMargin(new java.awt.Insets(2, 3, 2, 3));
-        rhino3DX3dEditorHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rhino3DX3dEditorHelpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(rhino3DX3dEditorHelpButton, gridBagConstraints);
-
-        org.openide.awt.Mnemonics.setLocalizedText(rhino3DNvdSecurityCheckButton, "!");
-        rhino3DNvdSecurityCheckButton.setToolTipText("NIST National Vulnerabilities Database NVD check");
-        rhino3DNvdSecurityCheckButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rhino3DNvdSecurityCheckButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        x3dModelingToolsPanel.add(rhino3DNvdSecurityCheckButton, gridBagConstraints);
-
-        x3dOptionsTabbedPane.addTab("X3D Modeling Tools", x3dModelingToolsPanel);
-
         add(x3dOptionsTabbedPane, new java.awt.GridBagConstraints());
     }// </editor-fold>//GEN-END:initComponents
     private void freeWrlChooserButtonActionPerformed (java.awt.event.ActionEvent evt)//GEN-FIRST:event_freeWrlChooserButtonActionPerformed
@@ -9859,7 +9847,9 @@ private void launchIntervalTFActionPerformed(java.awt.event.ActionEvent evt)//GE
         X3dEditUserPreferences.resetLaunchInterval();
         System.err.println (new StringBuilder().append("newLaunchInterval=").append(newLaunchInterval).append("is illegal, resetting to default value ").append(X3dEditUserPreferences.getLaunchIntervalDefault()).toString());
     }
-    // TODO set value?
+    if  (evt.getActionCommand().contentEquals("1"))
+         secondsLabel.setText("second");
+    else secondsLabel.setText("seconds");
 }//GEN-LAST:event_launchIntervalTFActionPerformed
 
 private void contactCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_contactCheckBoxActionPerformed
@@ -12066,10 +12056,6 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         browserLaunch(X3dEditUserPreferences.getDownloadSiteSunrize());
     }//GEN-LAST:event_sunrizeX3dEditorDownloadButtonActionPerformed
 
-    private void sunrizeX3dEditorHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunrizeX3dEditorHelpButtonActionPerformed
-        browserLaunch(X3dEditUserPreferences.helpSiteSunrize);
-    }//GEN-LAST:event_sunrizeX3dEditorHelpButtonActionPerformed
-
     private void batikEditorPathTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batikEditorPathTFActionPerformed
         X3dEditUserPreferences.setBatikEditorPath(batikEditorPathTF.getText().trim());
         batikAutoLaunchCheck ();
@@ -12672,6 +12658,20 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
         browserLaunch(X3dEditUserPreferences.NIST_NVD_SECURITY_CHECK_URL + 
                       X3dEditUserPreferences.NIST_NVD_SEARCH_PREFIX      + rhino3DX3dEditorLabel.getText());
     }//GEN-LAST:event_rhino3DNvdSecurityCheckButtonActionPerformed
+
+    private void launchIntervalTFPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_launchIntervalTFPropertyChange
+// duplication
+    // ensure legal value
+    float newLaunchInterval = Float.parseFloat(launchIntervalTF.getText());
+    if (newLaunchInterval < 0.0f)
+    {
+        X3dEditUserPreferences.resetLaunchInterval();
+        System.err.println (new StringBuilder().append("newLaunchInterval=").append(newLaunchInterval).append("is illegal, resetting to default value ").append(X3dEditUserPreferences.getLaunchIntervalDefault()).toString());
+    }
+    if  (launchIntervalTF.getText().contentEquals("1"))
+         secondsLabel.setText("second");
+    else secondsLabel.setText("seconds");
+    }//GEN-LAST:event_launchIntervalTFPropertyChange
 
     public void sleep (long msecDuration)
     {
@@ -13633,6 +13633,10 @@ slicer3dVolumeEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPrefere
 otherSemanticWebEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOtherSemanticWebEditorAutoLaunch()));
         
        launchIntervalTF.setText(X3dEditUserPreferences.getLaunchInterval());
+        if  (X3dEditUserPreferences.getLaunchInterval().equals("1"))
+             secondsLabel.setText("second");
+        else secondsLabel.setText("seconds");
+    
        keystoreDirectoryTF.setText(X3dEditUserPreferences.getKeystoreDirectory());
 
           showNewLineOptionCheckBox.setSelected(X3dEditUserPreferences.getShowNewlineOption());
@@ -14389,7 +14393,6 @@ otherSemanticWebEditorAutoLaunchCheck();
     private javax.swing.JButton sunrizeX3dEditorChooserButton;
     private javax.swing.JButton sunrizeX3dEditorDefaultButton;
     private javax.swing.JButton sunrizeX3dEditorDownloadButton;
-    private javax.swing.JButton sunrizeX3dEditorHelpButton;
     private javax.swing.JLabel sunrizeX3dEditorLabel;
     private javax.swing.JButton sunrizeX3dEditorLaunchButton;
     private javax.swing.JTextField sunrizeX3dEditorPathTF;
