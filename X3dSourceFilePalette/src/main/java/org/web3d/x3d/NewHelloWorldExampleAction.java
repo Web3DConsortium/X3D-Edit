@@ -79,34 +79,62 @@ public final class NewHelloWorldExampleAction extends CallableSystemAction
       FileObject x3dTemplateFileObject = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
       if (x3dTemplateFileObject == null)
       {
-          System.out.println("*** Error, template file " + path + " not found");
+          System.out.println("*** Error, NewHelloWorldExampleAction: template file " + path + " not found");
           return;
       }
       x3dTemplateFileObject.setAttribute("template", Boolean.TRUE);
       
-      DataObject templ = DataObject.find(x3dTemplateFileObject);      // get a DataObject for the template
+      DataObject x3dTemplateDataObject = DataObject.find(x3dTemplateFileObject);      // get a DataObject for the template
        
       // Build the temp file in home directory
-      File homeDirectory = new File(X3dEditUserPreferences.getNewX3dModelsDirectory());
+      File       homeDirectory  = new File(X3dEditUserPreferences.getNewX3dModelsDirectory());
       FileObject homeFileObject = FileUtil.createFolder(homeDirectory);
       
-      // Find a free name, may append number for uniqueness
-      String freename = FileUtil.findFreeFileName(homeFileObject, "newHelloWorldExample", "x3d");
-      DataObject newDataObject = templ.createFromTemplate(DataFolder.findFolder(homeFileObject),freename);
+      // Find a free model file name, may append number for uniqueness
+      String     freeModelFileName   = FileUtil.findFreeFileName(homeFileObject, "newHelloWorldExample", "x3d");
+      DataObject freeModelDataObject = x3dTemplateDataObject.createFromTemplate(DataFolder.findFolder(homeFileObject),freeModelFileName);
+      // The above method calls into X3DDataObject.handleCreateFromTemplate(), which copies the template into the new file.
       
-      // The above method calls into X3DDataObject.handleCreateFromTemplate(), which copies the template
-      // into the new file.
-      
-      // TODO copy image file(s) so that CORS restrictions are met
-      
-      // Finally, execute the OpenAction
-      OpenCookie openCookie = newDataObject.getLookup().lookup(OpenCookie.class);
-      if (openCookie != null) {
-          openCookie.open();
-          return;
-      }
+    // TODO also copy image file(s) so that CORS restrictions are met
+
+    // provide copy of earth-topo.png since web3d.org certificate is flawed
+    String     earthTopoFilePath           = "Templates/Other/earth-topo.png";
+    String     earthTopoFileName           = "earth-topo.png";
+    FileObject earthTopoTemplateFileObject = FileUtil.getConfigRoot().getFileSystem().findResource(earthTopoFilePath);
+    if (earthTopoTemplateFileObject == null)
+    {
+        System.out.println("*** Error, NewHelloWorldExampleAction: template file " + earthTopoFilePath + " not found");
+    }
+    else
+    {
+        earthTopoTemplateFileObject.setAttribute("template", Boolean.TRUE);
+
+        DataObject earthTopoTemplateDataObject = DataObject.find(earthTopoTemplateFileObject);      // get a DataObject for the template
+
+        DataObject earthTopoImageDataObject = earthTopoTemplateDataObject.createFromTemplate(DataFolder.findFolder(homeFileObject),earthTopoFileName);
+        // The above method calls into X3DDataObject.handleCreateFromTemplate(), which copies the template into the new file.
+
+        // double check
+        File checkCreatedImageFile = new File(earthTopoFilePath);
+        if (!checkCreatedImageFile.exists())
+        {
+            System.err.println("*** file creation error: earth-topo.png not found in " + earthTopoFilePath);
+        }
+        OpenCookie openCookie2 = earthTopoImageDataObject.getLookup().lookup(OpenCookie.class);
+        if (openCookie2 != null) 
+        {
+            openCookie2.open();
+        }
+    }
+    // Finally, execute the file OpenAction in NetBeans
+    OpenCookie openCookie1 =      freeModelDataObject.getLookup().lookup(OpenCookie.class);
+    if (openCookie1 != null)
+    {
+        openCookie1.open();
+        return;
+    }
       // Old way
-      Node nod = newDataObject.getNodeDelegate();
+      Node nod = freeModelDataObject.getNodeDelegate();
       Action[] acts = nod.getActions(false);
       for(Action a : acts) {
         if(a instanceof OpenAction) {
