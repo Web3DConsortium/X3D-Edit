@@ -104,7 +104,7 @@ public class POINTLIGHT extends X3DLightNode
     color1 = color1Default = new SFFloat(fa[1],0.0f,1.0f);
     color2 = color2Default = new SFFloat(fa[2],0.0f,1.0f);
     
-    intensity = intensityDefault = new SFFloat(POINTLIGHT_ATTR_INTENSITY_DFLT, 0.0f, 1.0f);
+    intensity = intensityDefault = new SFFloat(POINTLIGHT_ATTR_INTENSITY_DFLT, 0.0f, null);
     
     fa = parse3(POINTLIGHT_ATTR_LOCATION_DFLT);
     locationX = locationXDefault = new SFFloat(fa[0],null,null);
@@ -145,7 +145,7 @@ public class POINTLIGHT extends X3DLightNode
     }
     attr = root.getAttribute(POINTLIGHT_ATTR_INTENSITY_NAME);
     if (attr != null)
-      intensity = new SFFloat(attr.getValue(), 0.0f, 1.0f);
+      intensity = new SFFloat(attr.getValue(), 0.0f, null);
     attr = root.getAttribute(POINTLIGHT_ATTR_LOCATION_NAME);
     if (attr != null) {
       fa = parse3(attr.getValue());
@@ -174,7 +174,7 @@ public class POINTLIGHT extends X3DLightNode
   @Override
   public String createAttributes()
   {
-    StringBuffer sb = new StringBuffer();      
+    StringBuilder sb = new StringBuilder();      
     if(POINTLIGHT_ATTR_AMBIENTINTENSITY_REQD || !ambientIntensity.equals(ambientIntensityDefault)) {
       sb.append(" ");
       sb.append(POINTLIGHT_ATTR_AMBIENTINTENSITY_NAME);
@@ -296,7 +296,7 @@ public class POINTLIGHT extends X3DLightNode
 
   public void setIntensity(String intensity)
   {
-    this.intensity = new SFFloat(intensity,0.0f,1.0f);
+    this.intensity = new SFFloat(intensity,0.0f,null);
   }
 
   public boolean isOn()
