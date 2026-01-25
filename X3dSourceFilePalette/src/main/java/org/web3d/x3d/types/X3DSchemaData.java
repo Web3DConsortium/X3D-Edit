@@ -1177,6 +1177,11 @@ public interface X3DSchemaData
   boolean LOCALFOG_ATTR_ENABLED_REQD    = false;
   String  LOCALFOG_ATTR_ENABLED_DFLT    = "true";
 
+  String  FOGCOORDINATE_ELNAME             = "FogCoordinate";
+  String  FOGCOORDINATE_ATTR_DEPTH_NAME    = "depth";
+  boolean FOGCOORDINATE_ATTR_DEPTH_REQD    = false;
+  String  FOGCOORDINATE_ATTR_DEPTH_DFLT    = "";
+
   // element Group
   String  GROUP_ELNAME                     = "Group";
   // element StaticGroup
