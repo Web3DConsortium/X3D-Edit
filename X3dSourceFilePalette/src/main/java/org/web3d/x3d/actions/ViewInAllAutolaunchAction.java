@@ -96,6 +96,7 @@ public final class ViewInAllAutolaunchAction extends CookieAction
       //    ViewInHeilanAction.get        (ViewInHeilanAction.class), // inactive support
       ViewInInstantRealityAction.get(ViewInInstantRealityAction.class),
       ViewInOctagaAction.get(ViewInOctagaAction.class),
+      EditInSunrizeAction.get(EditInSunrizeAction.class),
       ViewInSwirlX3DAction.get(ViewInSwirlX3DAction.class),
       ViewInCastleModelViewerAction.get(ViewInCastleModelViewerAction.class),
       ViewInVivatyPlayerAction.get(ViewInVivatyPlayerAction.class),
