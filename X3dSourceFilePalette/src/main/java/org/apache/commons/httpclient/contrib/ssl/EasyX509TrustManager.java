@@ -35,7 +35,7 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-//import org.apache.commons.logging.Log; 
+//import org.apache.commons.logging.Log;        // no longer supported in NetBeans 29
 //import org.apache.commons.logging.LogFactory;
 
 /**
