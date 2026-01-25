@@ -668,7 +668,7 @@ public class TEXTUREPROJECTORCustomizer extends BaseCustomizer
         hintPanel.setLayout(new java.awt.GridBagLayout());
 
         eventsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eventsLabel.setText("<html> <p align=\"center\"><b>TextureProjector</b> is a perspective-based light that projects a texture into the scene, \n<br />\napplying the projected texture to any geometry that intersects the perspective projection volume.</p>\n<br />\n<p align='center'><i>aspectRatio</i> is an output event when the contained <b>ImageTexture</b> is loaded.</p>");
+        eventsLabel.setText("<html> <p align=\"center\"><b>TextureProjector</b> is a perspective-based light that projects a texture into the scene, \n<br />\napplying the projected texture onto any geometry that intersects the perspective projection volume.</p>\n<br />\n<p align='center'><i>aspectRatio</i> is an output event when the contained <b>ImageTexture</b> is loaded.</p>");
         eventsLabel.setToolTipText("Create a ROUTE to connect output events");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

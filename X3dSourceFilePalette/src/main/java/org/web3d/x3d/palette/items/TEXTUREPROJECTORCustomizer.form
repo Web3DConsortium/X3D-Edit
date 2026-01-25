@@ -736,7 +736,7 @@
         <Component class="javax.swing.JLabel" name="eventsLabel">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;p align=&quot;center&quot;&gt;&lt;b&gt;TextureProjector&lt;/b&gt; is a perspective-based light that projects a texture into the scene, &#xa;&lt;br /&gt;&#xa;applying the projected texture to any geometry that intersects the perspective projection volume.&lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&apos;center&apos;&gt;&lt;i&gt;aspectRatio&lt;/i&gt; is an output event when the contained &lt;b&gt;ImageTexture&lt;/b&gt; is loaded.&lt;/p&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;p align=&quot;center&quot;&gt;&lt;b&gt;TextureProjector&lt;/b&gt; is a perspective-based light that projects a texture into the scene, &#xa;&lt;br /&gt;&#xa;applying the projected texture onto any geometry that intersects the perspective projection volume.&lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&apos;center&apos;&gt;&lt;i&gt;aspectRatio&lt;/i&gt; is an output event when the contained &lt;b&gt;ImageTexture&lt;/b&gt; is loaded.&lt;/p&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value="Create a ROUTE to connect output events"/>
           </Properties>
           <Constraints>
