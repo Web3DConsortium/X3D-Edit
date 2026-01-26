@@ -774,7 +774,7 @@ public class X3dEditUserPreferences
   private static final String winxpMayaRawkeeX3dEditorPathDefault        = "";
   private static final String winxpRhino3DX3dEditorPathDefault           = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
-  private static final String winxpSunrizeX3dEditorPathDefault           = "npx sunrize"; // node.js
+  private static final String winxpSunrizeX3dEditorPathDefault           = "sunrize.exe"; // node.js
   private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String winxpSeg3dEditorPathDefault                = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String winxpSlicer3dEditorPathDefault             = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
