@@ -11,7 +11,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 [X3D-Edit](https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html) is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
 
 
-## X3D-Edit 4.0 Distribution, 22 January 2026, interim release
+## X3D-Edit 4.0 Distribution, 25 January 2026, interim release
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
