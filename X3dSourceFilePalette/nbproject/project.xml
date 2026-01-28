@@ -366,12 +366,12 @@
                 <binary-origin>release/modules/ext/xalan.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/saxon-he-12.5.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/saxon-he-12.5.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/log4j-core-2.19.0.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/log4j-core-2.19.0.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/commons-httpclient-3.1.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/commons-httpclient-3.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/htmlentities.jar</runtime-relative-path>
@@ -440,6 +440,10 @@
             <class-path-extension>
                 <runtime-relative-path>ext/dom4j-1.6.1.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/dom4j-1.6.1.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/saxon-he-12.5.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/saxon-he-12.5.jar</binary-origin>
             </class-path-extension>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
