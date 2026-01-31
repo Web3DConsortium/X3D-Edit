@@ -53,7 +53,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JList" name="jList1">
+                <Component class="javax.swing.JList" name="pduList">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="new DefaultListModel()" type="code"/>
@@ -63,7 +63,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="jList1ValueChanged"/>
+                    <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="pduListValueChanged"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -367,117 +367,136 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="recordButt">
+            <Component class="javax.swing.JButton" name="recordButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/org/web3d/x3d/dis/playerrecorder/resources/vcr/RecordNormal.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordButt.text" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordButton.text" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordButt.toolTipText" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordButton.toolTipText" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recordButtActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recordButtonActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="recordPauseButt">
+            <Component class="javax.swing.JButton" name="recordPauseButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/org/web3d/x3d/dis/playerrecorder/resources/vcr/PauseRed24.gif"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordPauseButt.text" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordPauseButton.text" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordPauseButt.toolTipText" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordPauseButton.toolTipText" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordPauseButt.actionCommand" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordPauseButton.actionCommand" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recordPauseButtActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recordPauseButtonActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="recordStopButt">
+            <Component class="javax.swing.JButton" name="recordStopButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/org/web3d/x3d/dis/playerrecorder/resources/vcr/StopRed24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordStopButt.text" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordStopButton.text" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordStopButt.toolTipText" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordStopButton.toolTipText" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordStopButt.actionCommand" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.recordStopButton.actionCommand" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recordStopButtActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recordStopButtonActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="saveButt">
+            <Component class="javax.swing.JButton" name="saveButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/org/web3d/x3d/dis/playerrecorder/resources/vcr/Save24.gif"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.saveButt.text" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.saveButton.text" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.saveButt.toolTipText" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.saveButton.toolTipText" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="loadButt">
+            <Component class="javax.swing.JButton" name="loadButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/org/web3d/x3d/dis/playerrecorder/resources/vcr/Open24.gif"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.loadButt.text" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.loadButton.text" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.loadButt.toolTipText" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.loadButton.toolTipText" replaceFormat="NbBundle.getMessage(getClass(), &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadButtActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadButtonActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="clearButton">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/org/web3d/x3d/dis/playerrecorder/resources/vcr/Delete24.gif"/>
+                </Property>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.clearButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                </Property>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

@@ -48,8 +48,8 @@ import javax.swing.AbstractButton;
  */
 public class DISPlayerRecorderStateMachine
 {
-  private DISPlayerRecorderPanel pan;
-  private AbstractButton[] allButts;
+  private DISPlayerRecorderPanel panel;
+  private AbstractButton[] allButtons;
   private String mutedRed = "#BC0000";
   private String mutedGrn = "#009C00";
 
@@ -103,14 +103,14 @@ public class DISPlayerRecorderStateMachine
   
   public DISPlayerRecorderStateMachine(DISPlayerRecorderPanel pan)
   {
-    this.pan = pan;
-    allButts = new AbstractButton[]{pan.loadButt,
+    this.panel = pan;
+    allButtons = new AbstractButton[]{pan.loadButton, pan.clearButton,
                              pan.beginningButt,  pan.fastReverseButt, pan.reverseStepButt, pan.reversePlayButt,
                              pan.pauseButt,
                              pan.playButt,       pan.stepButt,        pan.ffButt,          pan.endButt,
                              pan.loopToggleButt,
-                             pan.recordButt,     pan.recordStopButt,  pan.recordPauseButt,
-                             pan.saveButt,};
+                             pan.recordButton,     pan.recordStopButton,  pan.recordPauseButton,
+                             pan.saveButton,};
 
     currentState = new StoppedState();
   }
@@ -136,30 +136,31 @@ public class DISPlayerRecorderStateMachine
    *States: stopped, recording, recordingpaused, paused, playing, playing fast, reversePlay
    */
   
-  class StoppedState implements PlayerState
+  final class StoppedState implements PlayerState
   {
     StoppedState()
     {
-      setAllButts(pan.isDirty());  //will turn everything on if there is data loaded
-      pan.playbackStateTF.setText("idle");
-      pan.pauseButt.setVisible(false);
-      pan.playButt.setVisible(true);
-      pan.reversePlayButt.setVisible(true);
-      pan.showPlayHilightedState(false);
+      setAllButts(panel.hasPDUs());  //will turn everything on if there is data loaded
+      panel.playbackStateTF.setText("idle");
+      panel.pauseButt.setVisible(false);
+      panel.playButt.setVisible(true);
+      panel.reversePlayButt.setVisible(true);
+      panel.showPlayHilightedState(false);
 
-      pan.recordButt.setEnabled(true);
-      pan.recordPauseButt.setEnabled(false);
-      pan.recordStopButt.setEnabled(false);
-      pan.showRecordHilightedState(false);
+      panel.recordButton.setEnabled(true);
+      panel.recordPauseButton.setEnabled(false);
+      panel.recordStopButton.setEnabled(false);
+      panel.showRecordHilightedState(false);
       
-      pan.loadButt.setEnabled(true);
+      panel.loadButton.setEnabled(true);
+      panel.clearButton.setEnabled(panel.hasPDUs());
       action();
     }
 
     @Override
     public void action()
     {
-      pan.doStop();
+      panel.doStop();
     }
 
     @Override
@@ -167,12 +168,12 @@ public class DISPlayerRecorderStateMachine
     {
       switch(ev) {
         case BeginHit:
-          pan.doBeginning();
+          panel.doBeginning();
           return this;       // no state change
         case FastReverseHit:
           return new PlayingFastReverseState();
         case ReverseStepHit:
-          pan.doReverseSingleStep();
+          panel.doReverseSingleStep();
           return this;       // no state change
 
         case ReversePlayHit:
@@ -182,12 +183,12 @@ public class DISPlayerRecorderStateMachine
           return new PlayingState();
 
         case StepHit:
-          pan.doSingleStep();
+          panel.doSingleStep();
           return this;       // no state change
         case FastForwardHit:
           return new PlayingFastState();
         case EndHit:
-          pan.doEnd();
+          panel.doEnd();
           return this;       // no state change
 
         case RecordHit:
@@ -203,25 +204,25 @@ public class DISPlayerRecorderStateMachine
     }
   }
   
-  class RecordingState implements PlayerState
+  final class RecordingState implements PlayerState
   {
     boolean continuing;
     RecordingState(boolean continuing)
     {
       this.continuing = continuing;
       disableAllButts();
-      pan.playbackStateTF.setText("<html><font color="+mutedRed+">recording");  //dark red
-      pan.showRecordHilightedState(true);
+      panel.playbackStateTF.setText("<html><font color="+mutedRed+">recording");  //dark red
+      panel.showRecordHilightedState(true);
 
-      pan.recordPauseButt.setEnabled(true);
-      pan.recordStopButt.setEnabled(true);
+      panel.recordPauseButton.setEnabled(true);
+      panel.recordStopButton.setEnabled(true);
       action();
     }
 
     @Override
     public void action()
     {
-      pan.doRecord(continuing);
+      panel.doRecord(continuing);
     }
     
     @Override
@@ -247,22 +248,22 @@ public class DISPlayerRecorderStateMachine
     }
   }
 
-  class RecordingPausedState implements PlayerState
+  final class RecordingPausedState implements PlayerState
   {
     RecordingPausedState()
     {
       disableAllButts();
-      pan.playbackStateTF.setText("<html><font color="+mutedRed+">paused");
+      panel.playbackStateTF.setText("<html><font color="+mutedRed+">paused");
 
-      pan.recordStopButt.setEnabled(true);
-      pan.recordButt.setEnabled(true);
+      panel.recordStopButton.setEnabled(true);
+      panel.recordButton.setEnabled(true);
       action();
     }
 
     @Override
     public void action()
     {
-      pan.doPauseRecording();
+      panel.doPauseRecording();
     }
     
     @Override
@@ -286,25 +287,25 @@ public class DISPlayerRecorderStateMachine
     }
   }
   
-  class PlayingState implements PlayerState
+  final class PlayingState implements PlayerState
   {
     PlayingState()
     {
       disableAllButts();
-      pan.playbackStateTF.setText("<html><font color=#3B963B>playback"); //Color(75, 166, 75) muted green
-      pan.loopToggleButt.setEnabled(true);
-      pan.playButt.setVisible(false);
+      panel.playbackStateTF.setText("<html><font color=#3B963B>playback"); //Color(75, 166, 75) muted green
+      panel.loopToggleButt.setEnabled(true);
+      panel.playButt.setVisible(false);
       //pan.reversePlayButt.setVisible(false);
-      pan.pauseButt.setVisible(true);
-      pan.pauseButt.setEnabled(true);
-      pan.showPlayHilightedState(true);
+      panel.pauseButt.setVisible(true);
+      panel.pauseButt.setEnabled(true);
+      panel.showPlayHilightedState(true);
       action();
     }
 
     @Override
     public void action()
     {
-      pan.doPlay();
+      panel.doPlay();
     }
     
     @Override
@@ -329,18 +330,18 @@ public class DISPlayerRecorderStateMachine
     }
   }
 
-  class PlayingFastReverseState extends PlayingFastState
+  final class PlayingFastReverseState extends PlayingFastState
   {
     PlayingFastReverseState()
     {
       super();
-      pan.playbackStateTF.setText("<html><font color="+mutedGrn+">rev fast play");
+      panel.playbackStateTF.setText("<html><font color="+mutedGrn+">rev fast play");
     }
 
     @Override
     public void action()
     {
-      pan.doReversePlayFast();
+      panel.doReversePlayFast();
     }
   }
   class PlayingFastState implements PlayerState
@@ -348,13 +349,13 @@ public class DISPlayerRecorderStateMachine
     PlayingFastState()
     {
       disableAllButts();
-      pan.playbackStateTF.setText("<html><font color="+mutedGrn+">fast play");
+      panel.playbackStateTF.setText("<html><font color="+mutedGrn+">fast play");
 
-      pan.loopToggleButt.setEnabled(true);
-      pan.playButt.setVisible(false);
-      pan.pauseButt.setVisible(true);
-      pan.pauseButt.setEnabled(true);
-      pan.showPlayHilightedState(true);
+      panel.loopToggleButt.setEnabled(true);
+      panel.playButt.setVisible(false);
+      panel.pauseButt.setVisible(true);
+      panel.pauseButt.setEnabled(true);
+      panel.showPlayHilightedState(true);
       
       action();
     }
@@ -362,7 +363,7 @@ public class DISPlayerRecorderStateMachine
     @Override
     public void action()
     {
-      pan.doPlayFast();
+      panel.doPlayFast();
     }
 
     @Override
@@ -387,25 +388,25 @@ public class DISPlayerRecorderStateMachine
     }
   }
   
-  class PlayingReverseState implements PlayerState
+  final class PlayingReverseState implements PlayerState
   {
     PlayingReverseState()
     {
       disableAllButts();
-      pan.playbackStateTF.setText("<html><font color="+mutedGrn+">reverse play");
+      panel.playbackStateTF.setText("<html><font color="+mutedGrn+">reverse play");
       //pan.playButt.setVisible(false);
-      pan.loopToggleButt.setEnabled(true);
-      pan.reversePlayButt.setVisible(false);
-      pan.pauseButt.setVisible(true);
-      pan.pauseButt.setEnabled(true);
-      pan.showPlayHilightedState(true);
+      panel.loopToggleButt.setEnabled(true);
+      panel.reversePlayButt.setVisible(false);
+      panel.pauseButt.setVisible(true);
+      panel.pauseButt.setEnabled(true);
+      panel.showPlayHilightedState(true);
       action();
     }
 
     @Override
     public void action()
     {
-      pan.doReversePlay();
+      panel.doReversePlay();
     }
    
     @Override
@@ -435,8 +436,8 @@ public class DISPlayerRecorderStateMachine
   private void disableAllButts()
   {
     setAllButts(false);
-    pan.showPlayHilightedState(false);
-    pan.showRecordHilightedState(false);
+    panel.showPlayHilightedState(false);
+    panel.showRecordHilightedState(false);
   }
   private void enableAllButts()
   {
@@ -444,7 +445,7 @@ public class DISPlayerRecorderStateMachine
   }
   private void setAllButts(boolean wh)
   {
-    for(AbstractButton butt : allButts)
+    for(AbstractButton butt : allButtons)
       butt.setEnabled(wh);
   }
 }
