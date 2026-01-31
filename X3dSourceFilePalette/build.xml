@@ -212,8 +212,12 @@
     </target>
     <!-- TODO target name="get.latest.Xj3D.jars.sourceforge" -->
 
-    <!-- TODO is this needed or is latest Xj3D jar used? -->
-    <target name="get.latest.opendis7.full.jar" description="Download latest opendis7.full.jar file from Savage distribution">
+    <target name="get.latest.opendis7.full.jar.local" description="Download latest opendis7.full.jar file from opendis distribution">
+        <copy file="C:\x3d-github\opendis7-java\dist\opendis7-full.jar"
+             todir="release/modules/ext/"  verbose="true"/>
+    </target>
+    
+    <target name="get.latest.opendis7.full.jar.savage" description="Download published opendis7.full.jar file from Savage distribution">
     <!--<get src="https://savage.nps.edu/opendis7-java/opendis7-full.jar" -->
         <get src="https://gitlab.nps.edu/Savage/NetworkedGraphicsMV3500/-/raw/master/lib/opendis7-full.jar?ref_type=heads"
             dest="release/modules/ext/opendis7-full.jar"             usetimestamp="true" verbose="true"/>
