@@ -232,16 +232,16 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="formattedPduButton">
+            <Component class="javax.swing.JRadioButton" name="formattedPduModeButton">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="formattedRawBG"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.formattedPduButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.formattedPduModeButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.formattedPduButton.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+                  <ResourceString bundle="org/web3d/x3d/dis/playerrecorder/Bundle.properties" key="DISPlayerRecorderPanel.formattedPduModeButton.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
                 </Property>
               </Properties>
               <Events>

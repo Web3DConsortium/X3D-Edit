@@ -138,18 +138,18 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
   
   File[] captureFileSet;
   File captureFile;
-  RandomAccessFile randFile;
+  RandomAccessFile randomAccessFile;
 
   private void setCaptureFileSet(File[] fa)
   {
     captureFileSet = fa;
     captureFile = fa[0];
     try {
-      randFile = new RandomAccessFile(fa[0], "r");
+      randomAccessFile = new RandomAccessFile(fa[0], "r");
     }
     catch (FileNotFoundException ex) {
       System.err.println("Can't make ra file from " + fa[0].getAbsolutePath() + " : " + ex.getLocalizedMessage());
-      randFile = null;
+      randomAccessFile = null;
     }
   }
   private File[] getCaptureFileSet()
@@ -227,7 +227,8 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
       if (c != null && c.getClass().equals(displayPanelClass))
         displayPanel = c;
       if (displayPanel == null) {
-        displayPanel = displayPanelClass.getDeclaredConstructor(displayPanelClass).newInstance();
+//      displayPanel = displayPanelClass.getDeclaredConstructor(displayPanelClass).newInstance(); // TODO not working
+        displayPanel = displayPanelClass.newInstance();
         displayPanelScroller.setViewportView((Component) displayPanel);
         displayContainer.validate();
       }
@@ -843,7 +844,7 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         displayModeChoicePanel = new javax.swing.JPanel();
         displayModeLabel = new javax.swing.JLabel();
         textModeButton = new javax.swing.JRadioButton();
-        formattedPduButton = new javax.swing.JRadioButton();
+        formattedPduModeButton = new javax.swing.JRadioButton();
         rawHexBytesButton = new javax.swing.JRadioButton();
         toolbarPanel = new javax.swing.JPanel();
         operationStatusjToolBar = new javax.swing.JToolBar();
@@ -971,10 +972,10 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         displayModeChoicePanel.add(textModeButton, gridBagConstraints);
 
-        formattedRawBG.add(formattedPduButton);
-        formattedPduButton.setText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.formattedPduButton.text")); // NOI18N
-        formattedPduButton.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.formattedPduButton.toolTipText")); // NOI18N
-        formattedPduButton.addActionListener(new java.awt.event.ActionListener() {
+        formattedRawBG.add(formattedPduModeButton);
+        formattedPduModeButton.setText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.formattedPduModeButton.text")); // NOI18N
+        formattedPduModeButton.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.formattedPduModeButton.toolTipText")); // NOI18N
+        formattedPduModeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 formattedRawHandler(evt);
             }
@@ -983,7 +984,7 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        displayModeChoicePanel.add(formattedPduButton, gridBagConstraints);
+        displayModeChoicePanel.add(formattedPduModeButton, gridBagConstraints);
 
         formattedRawBG.add(rawHexBytesButton);
         rawHexBytesButton.setText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.rawHexBytesButton.text")); // NOI18N
@@ -1291,7 +1292,7 @@ private void pduListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GE
 
   if (evt != null && evt.getValueIsAdjusting())
     return;
-
+  
   byte[] ba = (byte[]) pduList.getSelectedValue();
   if (ba == null)
     return;
@@ -1303,8 +1304,8 @@ private void pduListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GE
   // go there and read the data, just getting the largest hunk
   int numRead;
   try {
-    randFile.seek(filePtr);
-    numRead = randFile.read(packet);
+    randomAccessFile.seek(filePtr);
+    numRead = randomAccessFile.read(packet);
   }
   catch (IOException ex) {
     System.err.println("Bad pdu build: " + ex.getLocalizedMessage());
@@ -1314,12 +1315,13 @@ private void pduListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GE
   byteBuffer.put(ba, IDXFILE_RECORDSIZE_IDX, IDXFILE_RECORDSIZE_SIZE);
   int sz = byteBuffer.getInt(0);
 
-  if(formattedPduButton.isSelected() || textModeButton.isSelected()) {
+  // formattedPduModeButton shows panel diplay
+  if(formattedPduModeButton.isSelected() || textModeButton.isSelected()) {
     Pdu pdu = pduFact.createPdu(packet);
     if(pdu != null) {
       Class<?> displayClass = displayMap.get(pdu.getClass());
       if(displayClass != null) {
-        if(formattedPduButton.isSelected())
+        if(formattedPduModeButton.isSelected())
           displayPdu(pdu,displayMap.get(pdu.getClass()));
         else if(textModeButton.isSelected())
           displayXml(pdu);
@@ -1430,7 +1432,7 @@ private void loopToggleButtActionPerformed(java.awt.event.ActionEvent evt)//GEN-
     private javax.swing.JToolBar endToolbar;
     public javax.swing.JButton fastReverseButt;
     public javax.swing.JButton ffButt;
-    private javax.swing.JRadioButton formattedPduButton;
+    private javax.swing.JRadioButton formattedPduModeButton;
     private javax.swing.ButtonGroup formattedRawBG;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
