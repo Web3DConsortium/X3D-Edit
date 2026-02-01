@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -198,6 +198,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         enabledCheckBox = new javax.swing.JCheckBox();
         zeroPositionButton = new javax.swing.JButton();
         zeroRotationButton = new javax.swing.JButton();
+        unitScaleButton = new javax.swing.JButton();
         joystickCheckBox = new javax.swing.JCheckBox();
         translationPanel = new javax.swing.JPanel();
         xSlider = new javax.swing.JSlider();
@@ -291,6 +292,19 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 10);
         resetPanel.add(zeroRotationButton, gridBagConstraints);
 
+        org.openide.awt.Mnemonics.setLocalizedText(unitScaleButton, org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.unitScaleButton.text")); // NOI18N
+        unitScaleButton.setActionCommand(org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.unitScaleButton.actionCommand")); // NOI18N
+        unitScaleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unitScaleButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 10);
+        resetPanel.add(unitScaleButton, gridBagConstraints);
+
         org.openide.awt.Mnemonics.setLocalizedText(joystickCheckBox, org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.joystickCheckBox.text")); // NOI18N
         joystickCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.joystickCheckBox.toolTipText")); // NOI18N
         joystickCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -299,7 +313,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         resetPanel.add(joystickCheckBox, gridBagConstraints);
@@ -310,7 +324,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel1.add(resetPanel, gridBagConstraints);
 
-        translationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, NbBundle.getMessage(getClass(), "DisEspduSenderControlPanel.translationPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, scaleLabel.getFont(), scaleLabel.getForeground())); // NOI18N
+        translationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, NbBundle.getMessage(getClass(), "DisEspduSenderControlPanel.translationPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), scaleLabel.getForeground())); // NOI18N
         translationPanel.setLayout(new java.awt.GridBagLayout());
 
         xSlider.setMajorTickSpacing(translationSliderMajorTickSpacing);
@@ -380,11 +394,13 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 5);
         translationPanel.add(scaleLabel, gridBagConstraints);
 
-        xScaleTF.setText(X3dEditUserPreferences.getDIStranslationScaleX(DEFAULT_TRANSLATION_SCALE));
+        xScaleTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        xScaleTF.setText(org.web3d.x3d.options.X3dEditUserPreferences.getDIStranslationScaleX(DEFAULT_TRANSLATION_SCALE));
         xScaleTF.setToolTipText("scale-factor multiplier"); // NOI18N
         xScaleTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         xScaleTF.setMinimumSize(new java.awt.Dimension(32, 20));
@@ -403,11 +419,13 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
         translationPanel.add(xScaleTF, gridBagConstraints);
 
-        yScaleTF.setText(X3dEditUserPreferences.getDIStranslationScaleY(DEFAULT_TRANSLATION_SCALE));
+        yScaleTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        yScaleTF.setText(org.web3d.x3d.options.X3dEditUserPreferences.getDIStranslationScaleY(DEFAULT_TRANSLATION_SCALE));
         yScaleTF.setToolTipText(org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.yScaleTF.toolTipText")); // NOI18N
         yScaleTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         yScaleTF.setMinimumSize(new java.awt.Dimension(32, 20));
@@ -426,11 +444,13 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
         translationPanel.add(yScaleTF, gridBagConstraints);
 
-        zScaleTF.setText(X3dEditUserPreferences.getDIStranslationScaleZ(DEFAULT_TRANSLATION_SCALE));
+        zScaleTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        zScaleTF.setText(org.web3d.x3d.options.X3dEditUserPreferences.getDIStranslationScaleZ(DEFAULT_TRANSLATION_SCALE));
         zScaleTF.setToolTipText(org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.zScaleTF.toolTipText")); // NOI18N
         zScaleTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         zScaleTF.setMinimumSize(new java.awt.Dimension(32, 20));
@@ -449,20 +469,21 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
         translationPanel.add(zScaleTF, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         translationPanel.add(jSeparator4, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
@@ -566,7 +587,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.weightx = 1.0;
         jPanel1.add(translationPanel, gridBagConstraints);
 
-        rotationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, NbBundle.getMessage(getClass(), "DisEspduSenderControlPanel.rotationPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, scaleLabel.getFont(), scaleLabel.getForeground())); // NOI18N
+        rotationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, NbBundle.getMessage(getClass(), "DisEspduSenderControlPanel.rotationPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), scaleLabel.getForeground())); // NOI18N
         rotationPanel.setLayout(new java.awt.GridBagLayout());
 
         yawLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -724,7 +745,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
         rotationPanel.add(rollRadiansTextField, gridBagConstraints);
 
@@ -742,7 +763,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
         rotationPanel.add(pitchRadiansTextField, gridBagConstraints);
 
@@ -760,7 +781,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
         rotationPanel.add(yawRadiansTextField, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -794,6 +815,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 5);
         rotationPanel.add(radiansLabel, gridBagConstraints);
@@ -806,7 +828,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.weightx = 1.0;
         jPanel1.add(rotationPanel, gridBagConstraints);
 
-        DisSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, NbBundle.getMessage(getClass(), "DisEspduSenderControlPanel.DisSettingsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, scaleLabel.getFont(), scaleLabel.getForeground())); // NOI18N
+        DisSettingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, NbBundle.getMessage(getClass(), "DisEspduSenderControlPanel.DisSettingsPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), scaleLabel.getForeground())); // NOI18N
         DisSettingsPanel.setToolTipText(org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.DisSettingsPanel.toolTipText")); // NOI18N
         DisSettingsPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -847,7 +869,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         DisSettingsPanel.add(addressLabel, gridBagConstraints);
 
-        addressTF.setText(X3dEditUserPreferences.getDISaddress(DEFAULT_DIS_ADDRESS));
+        addressTF.setText(org.web3d.x3d.options.X3dEditUserPreferences.getDISaddress(DEFAULT_DIS_ADDRESS));
         addressTF.setToolTipText("multicast address 224.0.0.0 through 239.255.255.255 for this simulation"); // NOI18N
         addressTF.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -873,7 +895,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         DisSettingsPanel.add(portLabel, gridBagConstraints);
 
-        portTF.setText(X3dEditUserPreferences.getDISport(DEFAULT_PORT));
+        portTF.setText(org.web3d.x3d.options.X3dEditUserPreferences.getDISport(DEFAULT_PORT));
         portTF.setToolTipText("multicast port number between 1 and 65535 for this simulation"); // NOI18N
         portTF.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -899,7 +921,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         DisSettingsPanel.add(siteIDLabel, gridBagConstraints);
 
-        siteIDTF.setText(X3dEditUserPreferences.getDISsiteID(DEFAULT_SITEID));
+        siteIDTF.setText(org.web3d.x3d.options.X3dEditUserPreferences.getDISsiteID(DEFAULT_SITEID));
         siteIDTF.setToolTipText("simulation/exercise siteID of participating LAN or organization");
         siteIDTF.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -925,7 +947,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         DisSettingsPanel.add(appIDLabel, gridBagConstraints);
 
-        appIDTF.setText(X3dEditUserPreferences.getDISappID(DEFAULT_APPID));
+        appIDTF.setText(org.web3d.x3d.options.X3dEditUserPreferences.getDISappID(DEFAULT_APPID));
         appIDTF.setToolTipText("simulation/exercise applicationID is unique for a given simulation"); // NOI18N
         appIDTF.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -951,7 +973,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         DisSettingsPanel.add(entityIDLabel, gridBagConstraints);
 
-        entityIDTF.setText(X3dEditUserPreferences.getDISentityID(DEFAULT_ENTITYID));
+        entityIDTF.setText(org.web3d.x3d.options.X3dEditUserPreferences.getDISentityID(DEFAULT_ENTITYID));
         entityIDTF.setToolTipText("simulation/exercise entityID is unique value for given entity within that application"); // NOI18N
         entityIDTF.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1016,8 +1038,10 @@ private void pitchSliderChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:ev
 {//GEN-HEADEREND:event_pitchSliderChanged
   if (isJoystickActive()) return; // do nothing
   double pitchChanged = (double) (pitchSlider.getValue()) * Math.PI / 180.0;
-  pitchRadiansTextField.setText(radiansFormat.format(pitchChanged));
-  pitchDegreesTextField.setText(degreesFormat.format(pitchSlider.getValue()));
+  pitchRadiansTextField.setText       (radiansFormat.format(pitchChanged));
+  pitchRadiansTextField.setToolTipText(radiansFormat.format(pitchChanged));
+  pitchDegreesTextField.setText       (degreesFormat.format(pitchSlider.getValue()));
+  pitchDegreesTextField.setToolTipText(degreesFormat.format(pitchSlider.getValue()));
   sendOrientationUpdate ();
 }//GEN-LAST:event_pitchSliderChanged
 
@@ -1025,8 +1049,10 @@ private void yawSliderChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:even
 {//GEN-HEADEREND:event_yawSliderChanged
   if (isJoystickActive()) return; // do nothing
   double yawChanged = (double) (yawSlider.getValue()) * Math.PI / 180.0;
-  yawRadiansTextField.setText(radiansFormat.format(yawChanged));
-  yawDegreesTextField.setText(degreesFormat.format(yawSlider.getValue()));
+  yawRadiansTextField.setText       (radiansFormat.format(yawChanged));
+  yawRadiansTextField.setToolTipText(radiansFormat.format(yawChanged));
+  yawDegreesTextField.setText       (degreesFormat.format(yawSlider.getValue()));
+  yawDegreesTextField.setToolTipText(degreesFormat.format(yawSlider.getValue()));
   sendOrientationUpdate ();
 }//GEN-LAST:event_yawSliderChanged
 
@@ -1076,45 +1102,56 @@ private void markingTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 private void yawRadiansTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_yawRadiansTextFieldActionPerformed
 {//GEN-HEADEREND:event_yawRadiansTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
+    yawRadiansTextField.setToolTipText(yawRadiansTextField.getText());
     double yawValueDegrees = normalizeDegrees((new SFDouble(yawRadiansTextField.getText())).getValue() * 180.0 / Math.PI);
     yawSlider.setValue((int) yawValueDegrees);
-    yawDegreesTextField.setText(degreesFormat.format(yawValueDegrees));
+    yawDegreesTextField.setText       (degreesFormat.format(yawValueDegrees));
+    yawDegreesTextField.setToolTipText(degreesFormat.format(yawValueDegrees));
     sendOrientationUpdate ();
 }//GEN-LAST:event_yawRadiansTextFieldActionPerformed
 
 private void yawDegreesTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_yawDegreesTextFieldActionPerformed
 {//GEN-HEADEREND:event_yawDegreesTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
+    yawDegreesTextField.setToolTipText(yawDegreesTextField.getText());
     double yawValueDegrees = normalizeDegrees((new SFDouble(yawDegreesTextField.getText())).getValue());
     yawSlider.setValue((int) (yawValueDegrees));
-    yawRadiansTextField.setText(radiansFormat.format(yawValueDegrees * Math.PI / 180.0));
+    yawRadiansTextField.setText       (radiansFormat.format(yawValueDegrees * Math.PI / 180.0));
+    yawRadiansTextField.setToolTipText(radiansFormat.format(yawValueDegrees * Math.PI / 180.0));
     sendOrientationUpdate ();
 }//GEN-LAST:event_yawDegreesTextFieldActionPerformed
 
 private void rollRadiansTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_rollRadiansTextFieldActionPerformed
 {//GEN-HEADEREND:event_rollRadiansTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
+    rollRadiansTextField.setToolTipText(rollRadiansTextField.getText());
     double rollValueDegrees = normalizeDegrees180((new SFDouble(rollRadiansTextField.getText())).getValue() * 180.0 / Math.PI);
     rollSlider.setValue((int) rollValueDegrees);
-    rollDegreesTextField.setText(degreesFormat.format(rollValueDegrees));
+    rollDegreesTextField.setText       (degreesFormat.format(rollValueDegrees));
+    rollDegreesTextField.setToolTipText(degreesFormat.format(rollValueDegrees));
     sendOrientationUpdate ();
 }//GEN-LAST:event_rollRadiansTextFieldActionPerformed
 
 private void pitchRadiansTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_pitchRadiansTextFieldActionPerformed
 {//GEN-HEADEREND:event_pitchRadiansTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
+    pitchRadiansTextField.setToolTipText(pitchRadiansTextField.getText());
     double pitchValueDegrees = normalizeDegrees180((new SFDouble(pitchRadiansTextField.getText())).getValue() * 180.0 / Math.PI);
     pitchSlider.setValue((int) pitchValueDegrees);
-    pitchDegreesTextField.setText(degreesFormat.format(pitchValueDegrees));
+    pitchDegreesTextField.setText       (degreesFormat.format(pitchValueDegrees));
+    pitchDegreesTextField.setToolTipText(degreesFormat.format(pitchValueDegrees));
+    pitchRadiansTextField.setToolTipText(radiansFormat.format(pitchRadiansTextField.getText()));
     sendOrientationUpdate ();
 }//GEN-LAST:event_pitchRadiansTextFieldActionPerformed
 
 private void pitchDegreesTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_pitchDegreesTextFieldActionPerformed
 {//GEN-HEADEREND:event_pitchDegreesTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
+    pitchDegreesTextField.setToolTipText(pitchDegreesTextField.getText());
     double pitchValueDegrees = normalizeDegrees180((new SFDouble(pitchDegreesTextField.getText())).getValue());
     pitchSlider.setValue((int) (pitchValueDegrees));
-    pitchRadiansTextField.setText(radiansFormat.format(pitchValueDegrees * Math.PI / 180.0));
+    pitchRadiansTextField.setText       (radiansFormat.format(pitchValueDegrees * Math.PI / 180.0));
+    pitchRadiansTextField.setToolTipText(radiansFormat.format(pitchValueDegrees * Math.PI / 180.0));
     sendOrientationUpdate ();
 }//GEN-LAST:event_pitchDegreesTextFieldActionPerformed
 
@@ -1155,9 +1192,11 @@ private void zScaleTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:
 private void rollDegreesTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_rollDegreesTextFieldActionPerformed
 {//GEN-HEADEREND:event_rollDegreesTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
+    rollDegreesTextField.setToolTipText(rollDegreesTextField.getText());
     double rollValueDegrees = normalizeDegrees180((new SFDouble(rollDegreesTextField.getText())).getValue());
     rollSlider.setValue((int) (rollValueDegrees));
-    rollRadiansTextField.setText(radiansFormat.format(rollValueDegrees * Math.PI / 180.0));
+    rollRadiansTextField.setText        (radiansFormat.format(rollValueDegrees * Math.PI / 180.0));
+    rollRadiansTextField.setToolTipText(radiansFormat.format(rollValueDegrees * Math.PI / 180.0));
     sendOrientationUpdate ();
 }//GEN-LAST:event_rollDegreesTextFieldActionPerformed
 
@@ -1174,8 +1213,10 @@ private void rollSliderChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:eve
   if (isJoystickActive()) return; // do nothing
 
   double rollChanged = (rollSlider.getValue()) * Math.PI / 180.0;
-  rollRadiansTextField.setText(radiansFormat.format(rollChanged));
-  rollDegreesTextField.setText(degreesFormat.format(rollSlider.getValue()));
+  rollRadiansTextField.setText       (radiansFormat.format(rollChanged));
+  rollRadiansTextField.setToolTipText(radiansFormat.format(rollChanged));
+  rollDegreesTextField.setText       (degreesFormat.format(rollSlider.getValue()));
+  rollDegreesTextField.setToolTipText(degreesFormat.format(rollSlider.getValue()));
   sendOrientationUpdate ();
 }//GEN-LAST:event_rollSliderChanged
 
@@ -1217,6 +1258,12 @@ private void joystickCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//
     else joystickCheckBox.setToolTipText("Ignore joystick, use values on sliders");
 
 }//GEN-LAST:event_joystickCheckBoxActionPerformed
+
+    private void unitScaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitScaleButtonActionPerformed
+        xScaleTF.setText("1");
+        yScaleTF.setText("1");
+        zScaleTF.setText("1");
+    }//GEN-LAST:event_unitScaleButtonActionPerformed
 
   private void savePrefs()
   {
@@ -1371,6 +1418,7 @@ private void joystickCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//
     private javax.swing.JLabel siteIDLabel;
     private javax.swing.JTextField siteIDTF;
     private javax.swing.JPanel translationPanel;
+    private javax.swing.JButton unitScaleButton;
     private javax.swing.JLabel verticalSpaceLabel;
     private javax.swing.JLabel xLabel;
     private javax.swing.JTextField xScaleTF;
