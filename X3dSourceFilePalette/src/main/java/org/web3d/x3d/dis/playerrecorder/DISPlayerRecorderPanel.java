@@ -66,6 +66,8 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileFilter;
+import org.openide.DialogDisplayer;
+import org.openide.NotifyDescriptor;
 import org.openide.util.NbBundle;
 import static org.web3d.x3d.dis.playerrecorder.DISGrabber.*;
 import org.web3d.x3d.dis.playerrecorder.DISGrabber.DISReceivedListener;
@@ -409,48 +411,57 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
   }
   private JFileChooser _fileChooser;
 
-  private JFileChooser getChooser()   
+  private JFileChooser getPduFileChooser()   
   {
     if (_fileChooser == null) {
       _fileChooser = new JFileChooser();
       _fileChooser.setMultiSelectionEnabled(false);
       _fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
       _fileChooser.addChoosableFileFilter(new disBinFilter());
+      _fileChooser.setFileFilter(new disBinFilter());
     }
     return _fileChooser;   
   }
   
-  /* return false if cancelled*/
-  private boolean doSave()
+  /** return false if user cancels */
+  private boolean savePduListToFile(boolean deletePduListWhenDone)
   {
     // https://stackoverflow.com/questions/14407804/how-to-change-the-default-text-of-buttons-in-joptionpane-showinputdialog
-	UIManager.put("OptionPane.yesButtonText","Save");
-	UIManager.put("OptionPane.noButtonText", "Clear");
-//    UIManager.put("OptionPane.yesButtonText", "Yes");
+	UIManager.put("OptionPane.yesButtonText",    "Save");
+	UIManager.put("OptionPane.noButtonText",     "Delete All");
+	UIManager.put("OptionPane.cancelButtonText", "Continue");
+//  UIManager.put("OptionPane.yesButtonText", "Yes");
 //	UIManager.put("OptionPane.noButtonText",  "No");
-	int ret = JOptionPane.showConfirmDialog(this, "Save already-loaded data?", "Confirm...", JOptionPane.YES_NO_CANCEL_OPTION);
+	int returnValue = JOptionPane.showConfirmDialog(this, "Save PDU list before deleting all PDUs?", "Confirm...", JOptionPane.YES_NO_CANCEL_OPTION);
 	
-	if (ret == JOptionPane.CANCEL_OPTION)
-      return false;
-	if (ret == JOptionPane.NO_OPTION) // Clear
+	if (returnValue == JOptionPane.CANCEL_OPTION)
+        return false;
+	if (returnValue == JOptionPane.NO_OPTION) // Clear
     {
-        clearPduBuffers();
+        if (deletePduListWhenDone)
+            clearPduBuffers();
         return false;
     }
-    if (ret == JOptionPane.YES_OPTION) {
-      JFileChooser chooser = getChooser();
-      chooser.setSelectedFile(findFreeFile(chooser.getCurrentDirectory(), new File("dispackets" + DEFAULT_BINARY_FILE_ENDING)));
+    if (returnValue == JOptionPane.YES_OPTION) 
+    {
+        JFileChooser chooser = getPduFileChooser();
+        chooser.setSelectedFile(findFreeFile(chooser.getCurrentDirectory(), new File("dispackets" + DEFAULT_BINARY_FILE_ENDING)));
 
-      ret = chooser.showSaveDialog(this);
-      if (ret == JFileChooser.CANCEL_OPTION)
-        return false;
-      try {
-        return saveFiles(chooser.getSelectedFile());
-      }
-      catch (Exception ex) {
-        JOptionPane.showMessageDialog(this, "Error saving files: " + ex.getLocalizedMessage());
-        return false;
-      }
+        returnValue = chooser.showSaveDialog(this);
+        if (returnValue == JFileChooser.CANCEL_OPTION)
+            return false;
+        try 
+        {
+            boolean saveSuccess = saveFiles(chooser.getSelectedFile());
+          
+            if (deletePduListWhenDone && saveSuccess) // do not delete if save attempt was unsuccessful
+                clearPduBuffers();
+            return saveSuccess;
+        }
+        catch (Exception ex) {
+          JOptionPane.showMessageDialog(this, "Error saving files: " + ex.getLocalizedMessage());
+          return false;
+        }
     }
     return true;
   }
@@ -524,17 +535,25 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
     idxOutStr.close();
   }
 
-  public void doLoad()
+  public void loadPduFile()
   {
-    if (hasPDUs()) {
-      if (!doSave())
-        return;
+    if (hasPDUs()) 
+    {
+        String message = "<html><p aligh='center'>You might want to save PDUs first</p>"; // <p aligh='center'> before loading a new file</p>
+        NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Message(message);
+        DialogDisplayer.getDefault().notify(notifyDescriptor);
+        
+        savePduListToFile(true); // delete pdu list when done
+            
+        message = "<html><p aligh='center'>Now ready to load a new PDU file</p>";
+        notifyDescriptor = new NotifyDescriptor.Message(message);
+        DialogDisplayer.getDefault().notify(notifyDescriptor);
     }
-    JFileChooser chooser = getChooser();
-    int ret = chooser.showOpenDialog(this);
+    JFileChooser pduFileChooser = getPduFileChooser();
+    int ret = pduFileChooser.showOpenDialog(this);
     if (ret == JFileChooser.CANCEL_OPTION)
       return;
-    File f = chooser.getSelectedFile();
+    File f = pduFileChooser.getSelectedFile();
     File idxF = new File(f.getParentFile(), f.getName() + DEFAULT_BINARY_INDEX_FILE_ENDING);
 
     if (!idxF.exists() /*|| (Math.abs(f.lastModified()-idxF.lastModified())>1000l)*/ ) {  // match w/in a second?
@@ -551,7 +570,7 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
     loadItUp(f, idxF);
     
     stateMachine.eventOccurs(PlayerEvent.RecordStopHit);  // resets the buttons
-    beginningButt.doClick();  // move to first
+    beginningButton.doClick();  // move to first
   }
   
   @SuppressWarnings("unchecked")
@@ -659,12 +678,13 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
   {
     if (continuing)
       grabber.resume();
-    else {
-      if (hasPDUs()) {
-        if (!doSave())
-          return;
-        clearPduBuffers();
-      }
+    else 
+    {
+//      if (hasPDUs())
+//      {
+//          // offer to save
+//        savePduListToFile(false); // do not delete pdu list when done
+//      }
       grabber = new DISGrabber();
       grabber.setMulticastGroup(getNetAddress());
       grabber.setPort(getNetPort());
@@ -813,6 +833,24 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
       pduList.ensureIndexIsVisible(sz-1);
     }
   }
+  
+  public boolean hasPduListSelection()
+  {
+    if (!hasPDUs())
+        return false;
+
+    DefaultListModel pduListModel = (DefaultListModel) pduList.getModel();
+    int pduListSize = pduListModel.getSize();
+
+    for (int index = pduListSize - 1; index >=0; index--)
+    {
+        if (pduList.isSelectedIndex(index))
+        {
+            return true;
+        }
+    }
+    return false;
+  }
 
 
 
@@ -860,19 +898,19 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         clearButton = new javax.swing.JButton();
         vcrPanel = new javax.swing.JPanel();
         beginToolbar = new javax.swing.JToolBar();
-        beginningButt = new javax.swing.JButton();
-        fastReverseButt = new javax.swing.JButton();
-        reverseStepButt = new javax.swing.JButton();
+        beginningButton = new javax.swing.JButton();
+        fastReverseButton = new javax.swing.JButton();
+        reverseStepButton = new javax.swing.JButton();
         playToolBar = new javax.swing.JToolBar();
-        reversePlayButt = new javax.swing.JButton();
-        pauseButt = new javax.swing.JButton();
-        playButt = new javax.swing.JButton();
+        reversePlayButton = new javax.swing.JButton();
+        pauseButton = new javax.swing.JButton();
+        playButton = new javax.swing.JButton();
         endToolbar = new javax.swing.JToolBar();
-        stepButt = new javax.swing.JButton();
-        ffButt = new javax.swing.JButton();
-        endButt = new javax.swing.JButton();
+        stepButton = new javax.swing.JButton();
+        ffButton = new javax.swing.JButton();
+        endButton = new javax.swing.JButton();
         loopToolBar = new javax.swing.JToolBar();
-        loopToggleButt = new javax.swing.JToggleButton();
+        loopToggleButton = new javax.swing.JToggleButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -880,8 +918,19 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
 
         jSplitPane1.setDividerLocation(250);
 
+        listScroller.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                listScrollerPropertyChange(evt);
+            }
+        });
+
         pduList.setModel(new DefaultListModel());
         pduList.setCellRenderer(new ByteArrayListRenderer());
+        pduList.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                pduListPropertyChange(evt);
+            }
+        });
         pduList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 pduListValueChanged(evt);
@@ -1015,8 +1064,8 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         operationStatusjToolBar.setRollover(true);
 
         operationStatusPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        operationStatusPanel.setMinimumSize(new java.awt.Dimension(80, 50));
-        operationStatusPanel.setPreferredSize(new java.awt.Dimension(80, 50));
+        operationStatusPanel.setMinimumSize(new java.awt.Dimension(90, 50));
+        operationStatusPanel.setPreferredSize(new java.awt.Dimension(90, 50));
         operationStatusPanel.setLayout(new java.awt.GridBagLayout());
 
         operationModeLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -1029,13 +1078,15 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         operationStatusPanel.add(operationModeLabel, gridBagConstraints);
 
         playbackStateTF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        playbackStateTF.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.playbackStateTF.text")); // NOI18N
+        playbackStateTF.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.text")); // NOI18N
         playbackStateTF.setBorder(javax.swing.BorderFactory.createLineBorder(javax.swing.UIManager.getDefaults().getColor("Button.disabledText")));
+        playbackStateTF.setMaximumSize(new java.awt.Dimension(85, 22));
+        playbackStateTF.setMinimumSize(new java.awt.Dimension(85, 22));
+        playbackStateTF.setName(""); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 20;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         operationStatusPanel.add(playbackStateTF, gridBagConstraints);
 
         operationStatusjToolBar.add(operationStatusPanel);
@@ -1115,6 +1166,7 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
 
         clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Delete24.gif"))); // NOI18N
         clearButton.setText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.clearButton.text")); // NOI18N
+        clearButton.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.clearButton.toolTipText")); // NOI18N
         clearButton.setFocusable(false);
         clearButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         clearButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -1135,153 +1187,153 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
 
         beginToolbar.setRollover(true);
 
-        beginningButt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Beginning24.png"))); // NOI18N
-        beginningButt.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.beginningButt.text")); // NOI18N
-        beginningButt.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.beginningButt.toolTipText")); // NOI18N
-        beginningButt.setFocusable(false);
-        beginningButt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        beginningButt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        beginningButt.addActionListener(new java.awt.event.ActionListener() {
+        beginningButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Beginning24.png"))); // NOI18N
+        beginningButton.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.beginningButton.text")); // NOI18N
+        beginningButton.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.beginningButton.toolTipText")); // NOI18N
+        beginningButton.setFocusable(false);
+        beginningButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        beginningButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        beginningButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                beginningButtActionPerformed(evt);
+                beginningButtonActionPerformed(evt);
             }
         });
-        beginToolbar.add(beginningButt);
+        beginToolbar.add(beginningButton);
 
-        fastReverseButt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Rewind24.gif"))); // NOI18N
-        fastReverseButt.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.fastReverseButt.text")); // NOI18N
-        fastReverseButt.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.fastReverseButt.toolTipText")); // NOI18N
-        fastReverseButt.setFocusable(false);
-        fastReverseButt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        fastReverseButt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        fastReverseButt.addActionListener(new java.awt.event.ActionListener() {
+        fastReverseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Rewind24.gif"))); // NOI18N
+        fastReverseButton.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.fastReverseButton.text")); // NOI18N
+        fastReverseButton.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.fastReverseButton.toolTipText")); // NOI18N
+        fastReverseButton.setFocusable(false);
+        fastReverseButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        fastReverseButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        fastReverseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fastReverseButtActionPerformed(evt);
+                fastReverseButtonActionPerformed(evt);
             }
         });
-        beginToolbar.add(fastReverseButt);
+        beginToolbar.add(fastReverseButton);
 
-        reverseStepButt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/StepBack24.gif"))); // NOI18N
-        reverseStepButt.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.reverseStepButt.text")); // NOI18N
-        reverseStepButt.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.reverseStepButt.toolTipText")); // NOI18N
-        reverseStepButt.setFocusable(false);
-        reverseStepButt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        reverseStepButt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        reverseStepButt.addActionListener(new java.awt.event.ActionListener() {
+        reverseStepButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/StepBack24.gif"))); // NOI18N
+        reverseStepButton.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.reverseStepButton.text")); // NOI18N
+        reverseStepButton.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.reverseStepButton.toolTipText")); // NOI18N
+        reverseStepButton.setFocusable(false);
+        reverseStepButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        reverseStepButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        reverseStepButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reverseStepButtActionPerformed(evt);
+                reverseStepButtonActionPerformed(evt);
             }
         });
-        beginToolbar.add(reverseStepButt);
+        beginToolbar.add(reverseStepButton);
 
         vcrPanel.add(beginToolbar);
 
         playToolBar.setRollover(true);
 
-        reversePlayButt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/ReversePlay24.png"))); // NOI18N
-        reversePlayButt.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.reversePlayButt.text")); // NOI18N
-        reversePlayButt.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.reversePlayButt.toolTipText")); // NOI18N
-        reversePlayButt.setFocusable(false);
-        reversePlayButt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        reversePlayButt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        reversePlayButt.addActionListener(new java.awt.event.ActionListener() {
+        reversePlayButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/ReversePlay24.png"))); // NOI18N
+        reversePlayButton.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.reversePlayButton.text")); // NOI18N
+        reversePlayButton.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.reversePlayButton.toolTipText")); // NOI18N
+        reversePlayButton.setFocusable(false);
+        reversePlayButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        reversePlayButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        reversePlayButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reversePlayButtActionPerformed(evt);
+                reversePlayButtonActionPerformed(evt);
             }
         });
-        playToolBar.add(reversePlayButt);
+        playToolBar.add(reversePlayButton);
 
-        pauseButt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Pause24.gif"))); // NOI18N
-        pauseButt.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.pauseButt.text")); // NOI18N
-        pauseButt.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.pauseButt.toolTipText")); // NOI18N
-        pauseButt.setFocusable(false);
-        pauseButt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        pauseButt.setMaximumSize(new java.awt.Dimension(43, 51));
-        pauseButt.setMinimumSize(new java.awt.Dimension(43, 51));
-        pauseButt.setPreferredSize(new java.awt.Dimension(43, 51));
-        pauseButt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        pauseButt.addActionListener(new java.awt.event.ActionListener() {
+        pauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Pause24.gif"))); // NOI18N
+        pauseButton.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.pauseButton.text")); // NOI18N
+        pauseButton.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.pauseButton.toolTipText")); // NOI18N
+        pauseButton.setFocusable(false);
+        pauseButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pauseButton.setMaximumSize(new java.awt.Dimension(43, 51));
+        pauseButton.setMinimumSize(new java.awt.Dimension(43, 51));
+        pauseButton.setPreferredSize(new java.awt.Dimension(43, 51));
+        pauseButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pauseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pauseButtActionPerformed(evt);
+                pauseButtonActionPerformed(evt);
             }
         });
-        playToolBar.add(pauseButt);
+        playToolBar.add(pauseButton);
 
-        playButt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Play24.gif"))); // NOI18N
-        playButt.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.playButt.text")); // NOI18N
-        playButt.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.playButt.toolTipText")); // NOI18N
-        playButt.setFocusable(false);
-        playButt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        playButt.setMaximumSize(new java.awt.Dimension(43, 51));
-        playButt.setMinimumSize(new java.awt.Dimension(43, 51));
-        playButt.setPreferredSize(new java.awt.Dimension(43, 51));
-        playButt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        playButt.addActionListener(new java.awt.event.ActionListener() {
+        playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Play24.gif"))); // NOI18N
+        playButton.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.playButton.text")); // NOI18N
+        playButton.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.playButton.toolTipText")); // NOI18N
+        playButton.setFocusable(false);
+        playButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        playButton.setMaximumSize(new java.awt.Dimension(43, 51));
+        playButton.setMinimumSize(new java.awt.Dimension(43, 51));
+        playButton.setPreferredSize(new java.awt.Dimension(43, 51));
+        playButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        playButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playButtActionPerformed(evt);
+                playButtonActionPerformed(evt);
             }
         });
-        playToolBar.add(playButt);
+        playToolBar.add(playButton);
 
         vcrPanel.add(playToolBar);
 
         endToolbar.setRollover(true);
 
-        stepButt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/StepForward24.gif"))); // NOI18N
-        stepButt.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.stepButt.text")); // NOI18N
-        stepButt.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.stepButt.toolTipText")); // NOI18N
-        stepButt.setFocusable(false);
-        stepButt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        stepButt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        stepButt.addActionListener(new java.awt.event.ActionListener() {
+        stepButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/StepForward24.gif"))); // NOI18N
+        stepButton.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.stepButton.text")); // NOI18N
+        stepButton.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.stepButton.toolTipText")); // NOI18N
+        stepButton.setFocusable(false);
+        stepButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        stepButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        stepButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stepButtActionPerformed(evt);
+                stepButtonActionPerformed(evt);
             }
         });
-        endToolbar.add(stepButt);
+        endToolbar.add(stepButton);
 
-        ffButt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/FastForward24.gif"))); // NOI18N
-        ffButt.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.ffButt.text")); // NOI18N
-        ffButt.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.ffButt.toolTipText")); // NOI18N
-        ffButt.setFocusable(false);
-        ffButt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ffButt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        ffButt.addActionListener(new java.awt.event.ActionListener() {
+        ffButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/FastForward24.gif"))); // NOI18N
+        ffButton.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.ffButton.text")); // NOI18N
+        ffButton.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.ffButton.toolTipText")); // NOI18N
+        ffButton.setFocusable(false);
+        ffButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ffButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        ffButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ffButtActionPerformed(evt);
+                ffButtonActionPerformed(evt);
             }
         });
-        endToolbar.add(ffButt);
+        endToolbar.add(ffButton);
 
-        endButt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/ResetEnd.png"))); // NOI18N
-        endButt.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.endButt.text")); // NOI18N
-        endButt.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.endButt.toolTipText")); // NOI18N
-        endButt.setFocusable(false);
-        endButt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        endButt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        endButt.addActionListener(new java.awt.event.ActionListener() {
+        endButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/ResetEnd.png"))); // NOI18N
+        endButton.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.endButton.text")); // NOI18N
+        endButton.setToolTipText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.endButton.toolTipText")); // NOI18N
+        endButton.setFocusable(false);
+        endButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        endButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        endButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                endButtActionPerformed(evt);
+                endButtonActionPerformed(evt);
             }
         });
-        endToolbar.add(endButt);
+        endToolbar.add(endButton);
 
         vcrPanel.add(endToolbar);
 
         loopToolBar.setRollover(true);
 
-        loopToggleButt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Refresh24.png"))); // NOI18N
-        loopToggleButt.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.loopToggleButt.text")); // NOI18N
-        loopToggleButt.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.loopToggleButt.toolTipText")); // NOI18N
-        loopToggleButt.setFocusable(false);
-        loopToggleButt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        loopToggleButt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        loopToggleButt.addActionListener(new java.awt.event.ActionListener() {
+        loopToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/dis/playerrecorder/resources/vcr/Refresh24.png"))); // NOI18N
+        loopToggleButton.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.loopToggleButton.text")); // NOI18N
+        loopToggleButton.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.loopToggleButton.toolTipText")); // NOI18N
+        loopToggleButton.setFocusable(false);
+        loopToggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        loopToggleButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        loopToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loopToggleButtActionPerformed(evt);
+                loopToggleButtonActionPerformed(evt);
             }
         });
-        loopToolBar.add(loopToggleButt);
+        loopToolBar.add(loopToggleButton);
 
         vcrPanel.add(loopToolBar);
 
@@ -1340,44 +1392,44 @@ private void pduListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GE
 }//GEN-LAST:event_pduListValueChanged
 
 private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
-  doLoad();
+  loadPduFile();
 }//GEN-LAST:event_loadButtonActionPerformed
 
 private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-  doSave();
+  savePduListToFile(false);
 }//GEN-LAST:event_saveButtonActionPerformed
 
-private void beginningButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beginningButtActionPerformed
+private void beginningButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beginningButtonActionPerformed
   stateMachine.eventOccurs(PlayerEvent.BeginHit);
-}//GEN-LAST:event_beginningButtActionPerformed
+}//GEN-LAST:event_beginningButtonActionPerformed
 
-private void fastReverseButtActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_fastReverseButtActionPerformed
-{//GEN-HEADEREND:event_fastReverseButtActionPerformed
+private void fastReverseButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_fastReverseButtonActionPerformed
+{//GEN-HEADEREND:event_fastReverseButtonActionPerformed
   stateMachine.eventOccurs(PlayerEvent.ReversePlayHit);
-}//GEN-LAST:event_fastReverseButtActionPerformed
+}//GEN-LAST:event_fastReverseButtonActionPerformed
 
 private void recordButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_recordButtonActionPerformed
 {//GEN-HEADEREND:event_recordButtonActionPerformed
   stateMachine.eventOccurs(PlayerEvent.RecordHit);
 }//GEN-LAST:event_recordButtonActionPerformed
 
-private void pauseButtActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_pauseButtActionPerformed
-{//GEN-HEADEREND:event_pauseButtActionPerformed
+private void pauseButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_pauseButtonActionPerformed
+{//GEN-HEADEREND:event_pauseButtonActionPerformed
   stateMachine.eventOccurs(PlayerEvent.PauseHit);
-}//GEN-LAST:event_pauseButtActionPerformed
+}//GEN-LAST:event_pauseButtonActionPerformed
 
-private void playButtActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_playButtActionPerformed
-{//GEN-HEADEREND:event_playButtActionPerformed
+private void playButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_playButtonActionPerformed
+{//GEN-HEADEREND:event_playButtonActionPerformed
   stateMachine.eventOccurs(PlayerEvent.PlayHit);
-}//GEN-LAST:event_playButtActionPerformed
+}//GEN-LAST:event_playButtonActionPerformed
 
-private void ffButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ffButtActionPerformed
+private void ffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ffButtonActionPerformed
   stateMachine.eventOccurs(PlayerEvent.FastForwardHit);
-}//GEN-LAST:event_ffButtActionPerformed
+}//GEN-LAST:event_ffButtonActionPerformed
 
-private void endButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endButtActionPerformed
+private void endButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endButtonActionPerformed
   stateMachine.eventOccurs(PlayerEvent.EndHit);
-}//GEN-LAST:event_endButtActionPerformed
+}//GEN-LAST:event_endButtonActionPerformed
 
 private void formattedRawHandler(java.awt.event.ActionEvent evt)//GEN-FIRST:event_formattedRawHandler
 {//GEN-HEADEREND:event_formattedRawHandler
@@ -1386,7 +1438,7 @@ private void formattedRawHandler(java.awt.event.ActionEvent evt)//GEN-FIRST:even
 
 private void recordStopButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_recordStopButtonActionPerformed
 {//GEN-HEADEREND:event_recordStopButtonActionPerformed
-  stateMachine.eventOccurs(PlayerEvent.RecordStopHit);
+    stateMachine.eventOccurs(PlayerEvent.RecordStopHit);
 }//GEN-LAST:event_recordStopButtonActionPerformed
 
 private void recordPauseButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_recordPauseButtonActionPerformed
@@ -1394,50 +1446,111 @@ private void recordPauseButtonActionPerformed(java.awt.event.ActionEvent evt)//G
   stateMachine.eventOccurs(PlayerEvent.RecordPauseHit);
 }//GEN-LAST:event_recordPauseButtonActionPerformed
 
-private void reverseStepButtActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_reverseStepButtActionPerformed
-{//GEN-HEADEREND:event_reverseStepButtActionPerformed
+private void reverseStepButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_reverseStepButtonActionPerformed
+{//GEN-HEADEREND:event_reverseStepButtonActionPerformed
   stateMachine.eventOccurs(PlayerEvent.ReverseStepHit);
-}//GEN-LAST:event_reverseStepButtActionPerformed
+}//GEN-LAST:event_reverseStepButtonActionPerformed
 
-private void reversePlayButtActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_reversePlayButtActionPerformed
-{//GEN-HEADEREND:event_reversePlayButtActionPerformed
+private void reversePlayButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_reversePlayButtonActionPerformed
+{//GEN-HEADEREND:event_reversePlayButtonActionPerformed
   stateMachine.eventOccurs(PlayerEvent.ReversePlayHit);
-}//GEN-LAST:event_reversePlayButtActionPerformed
+}//GEN-LAST:event_reversePlayButtonActionPerformed
 
-private void stepButtActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stepButtActionPerformed
-{//GEN-HEADEREND:event_stepButtActionPerformed
+private void stepButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stepButtonActionPerformed
+{//GEN-HEADEREND:event_stepButtonActionPerformed
   stateMachine.eventOccurs(PlayerEvent.StepHit);
-}//GEN-LAST:event_stepButtActionPerformed
+}//GEN-LAST:event_stepButtonActionPerformed
 
 private boolean isLoop()
 {
-  return loopToggleButt.isSelected();
+  return loopToggleButton.isSelected();
 }
 
-private void loopToggleButtActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_loopToggleButtActionPerformed
-{//GEN-HEADEREND:event_loopToggleButtActionPerformed
+private void loopToggleButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_loopToggleButtonActionPerformed
+{//GEN-HEADEREND:event_loopToggleButtonActionPerformed
   if(player != null && player.isRunning())
     player.setLoop(isLoop());
-}//GEN-LAST:event_loopToggleButtActionPerformed
+}//GEN-LAST:event_loopToggleButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-        doSave();
-        clearButton.setEnabled(hasPDUs());
+        if (!hasPDUs())
+        {
+            clearButton.setEnabled(false);
+            return; // this is safety check, state machine should keep button disabled if pduList is empty
+        }
+        
+        boolean foundSelection = false;
+        int selectionCount = 0;
+        DefaultListModel pduListModel = (DefaultListModel) pduList.getModel();
+        int pduListSize = pduListModel.getSize();
+        
+        for (int index = pduListSize - 1; index >=0; index--)
+        {
+            if (pduList.isSelectedIndex(index))
+            {
+                foundSelection = true;
+                selectionCount++;
+            }
+        }        
+        if (foundSelection)
+        {
+            String lastWord = "entries";
+            if (selectionCount == 1)
+                   lastWord = "entry";
+            UIManager.put("OptionPane.yesButtonText","Delete Selection");
+            UIManager.put("OptionPane.noButtonText", "Continue");
+            int ret = JOptionPane.showConfirmDialog(this, "Delete " + selectionCount + " selected PDU " + lastWord + "?", 
+                      "Confirm...", JOptionPane.YES_NO_OPTION);
+
+            if (ret == JOptionPane.YES_OPTION) // Delete selected PDUs
+            {
+                for (int index = pduListSize - 1; index >=0; index--)
+                {
+                    if (pduList.isSelectedIndex(index))
+                    {
+                        foundSelection = true;
+                        selectionCount++;
+                        pduListModel.remove(index);
+                    }
+                }
+                clearButton.setEnabled(hasPDUs()); // disable button, if list is now empty
+                return;
+            }
+            if (pduListSize == 1)
+                return; // user said no, they did not want to delete this single entry
+            
+            // it is currently hard to deselect all entries, and so continue by asking whether to save full list before eleting.
+            savePduListToFile(true); // delete list when done
+            clearButton.setEnabled(hasPDUs()); // disable button
+        }
+        else // no selection, offer to save and clear all
+        {
+            savePduListToFile(true); // delete list when done
+            clearButton.setEnabled(hasPDUs()); // disable button
+        }
     }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void listScrollerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_listScrollerPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listScrollerPropertyChange
+
+    private void pduListPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pduListPropertyChange
+
+    }//GEN-LAST:event_pduListPropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressTF;
     private javax.swing.JToolBar beginToolbar;
-    public javax.swing.JButton beginningButt;
+    public javax.swing.JButton beginningButton;
     public javax.swing.JButton clearButton;
     private javax.swing.JPanel displayContainer;
     private javax.swing.JPanel displayModeChoicePanel;
     private javax.swing.JLabel displayModeLabel;
     private javax.swing.JScrollPane displayPanelScroller;
-    public javax.swing.JButton endButt;
+    public javax.swing.JButton endButton;
     private javax.swing.JToolBar endToolbar;
-    public javax.swing.JButton fastReverseButt;
-    public javax.swing.JButton ffButt;
+    public javax.swing.JButton fastReverseButton;
+    public javax.swing.JButton ffButton;
     private javax.swing.JRadioButton formattedPduModeButton;
     private javax.swing.ButtonGroup formattedRawBG;
     private javax.swing.JLabel jLabel1;
@@ -1445,15 +1558,15 @@ private void loopToggleButtActionPerformed(java.awt.event.ActionEvent evt)//GEN-
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JScrollPane listScroller;
     public javax.swing.JButton loadButton;
-    public javax.swing.JToggleButton loopToggleButt;
+    public javax.swing.JToggleButton loopToggleButton;
     private javax.swing.JToolBar loopToolBar;
     private javax.swing.JPanel netParamPanel;
     private javax.swing.JLabel operationModeLabel;
     private javax.swing.JPanel operationStatusPanel;
     private javax.swing.JToolBar operationStatusjToolBar;
-    public javax.swing.JButton pauseButt;
+    public javax.swing.JButton pauseButton;
     private javax.swing.JList pduList;
-    public javax.swing.JButton playButt;
+    public javax.swing.JButton playButton;
     private javax.swing.JToolBar playToolBar;
     public javax.swing.JLabel playbackStateTF;
     private javax.swing.JTextField portTF;
@@ -1462,11 +1575,11 @@ private void loopToggleButtActionPerformed(java.awt.event.ActionEvent evt)//GEN-
     public javax.swing.JButton recordPauseButton;
     public javax.swing.JButton recordStopButton;
     private javax.swing.JToolBar recordToolbar;
-    public javax.swing.JButton reversePlayButt;
-    public javax.swing.JButton reverseStepButt;
+    public javax.swing.JButton reversePlayButton;
+    public javax.swing.JButton reverseStepButton;
     public javax.swing.JButton saveButton;
     private javax.swing.JPanel selectionPanel;
-    public javax.swing.JButton stepButt;
+    public javax.swing.JButton stepButton;
     private javax.swing.JRadioButton textModeButton;
     private javax.swing.JPanel toolbarPanel;
     private javax.swing.JPanel vcrPanel;

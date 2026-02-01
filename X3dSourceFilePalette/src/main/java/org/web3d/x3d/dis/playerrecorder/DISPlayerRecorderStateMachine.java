@@ -33,6 +33,7 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.web3d.x3d.dis.playerrecorder;
 
+import java.awt.Color;
 import javax.swing.AbstractButton;
 
 /**
@@ -50,8 +51,12 @@ public class DISPlayerRecorderStateMachine
 {
   private DISPlayerRecorderPanel panel;
   private AbstractButton[] allButtons;
-  private String mutedRed = "#BC0000";
-  private String mutedGrn = "#009C00";
+  private String mutedRed   = "#BC0000";
+  private String mutedGreen = "#009C00";
+  // https://stackoverflow.com/questions/48778112/processing-hex-string-to-color
+  private Color  mutedRedColor   = Color.decode(mutedRed);
+  private Color  mutedGreenColor = Color.decode(mutedGreen);
+  private Color       blackColor = Color.decode("#000000");
 
   public static enum PlayerEvent {
     BeginHit,
@@ -105,10 +110,10 @@ public class DISPlayerRecorderStateMachine
   {
     this.panel = pan;
     allButtons = new AbstractButton[]{pan.loadButton, pan.clearButton,
-                             pan.beginningButt,  pan.fastReverseButt, pan.reverseStepButt, pan.reversePlayButt,
-                             pan.pauseButt,
-                             pan.playButt,       pan.stepButt,        pan.ffButt,          pan.endButt,
-                             pan.loopToggleButt,
+                             pan.beginningButton,  pan.fastReverseButton, pan.reverseStepButton, pan.reversePlayButton,
+                             pan.pauseButton,
+                             pan.playButton,       pan.stepButton,        pan.ffButton,          pan.endButton,
+                             pan.loopToggleButton,
                              pan.recordButton,     pan.recordStopButton,  pan.recordPauseButton,
                              pan.saveButton,};
 
@@ -140,13 +145,14 @@ public class DISPlayerRecorderStateMachine
   {
     StoppedState()
     {
-      setAllButts(panel.hasPDUs());  //will turn everything on if there is data loaded
+      setAllButtons(panel.hasPDUs());  //will turn everything on if there is data loaded
       panel.playbackStateTF.setText("idle");
       panel.playbackStateTF.setToolTipText("idle");
+      panel.playbackStateTF.setBorder(javax.swing.BorderFactory.createLineBorder(blackColor));
       
-      panel.pauseButt.setVisible(false);
-      panel.playButt.setVisible(true);
-      panel.reversePlayButt.setVisible(true);
+      panel.pauseButton.setVisible(false);
+      panel.playButton.setVisible(true);
+      panel.reversePlayButton.setVisible(true);
       panel.showPlayHilightedState(false);
 
       panel.recordButton.setEnabled(true);
@@ -212,9 +218,10 @@ public class DISPlayerRecorderStateMachine
     RecordingState(boolean continuing)
     {
       this.continuing = continuing;
-      disableAllButts();
+      disableAllButtons();
       panel.playbackStateTF.setText("<html><font color="+mutedRed+">recording");  //dark red
       panel.playbackStateTF.setToolTipText("recording in progress");
+      panel.playbackStateTF.setBorder(javax.swing.BorderFactory.createLineBorder(mutedRedColor));
       panel.showRecordHilightedState(true);
 
       panel.recordPauseButton.setEnabled(true);
@@ -255,9 +262,10 @@ public class DISPlayerRecorderStateMachine
   {
     RecordingPausedState()
     {
-      disableAllButts();
+      disableAllButtons();
       panel.playbackStateTF.setText("<html><font color="+mutedRed+">paused");
       panel.playbackStateTF.setToolTipText("paused");
+      panel.playbackStateTF.setBorder(javax.swing.BorderFactory.createLineBorder(mutedRedColor));
 
       panel.recordStopButton.setEnabled(true);
       panel.recordButton.setEnabled(true);
@@ -295,14 +303,16 @@ public class DISPlayerRecorderStateMachine
   {
     PlayingState()
     {
-      disableAllButts();
-      panel.playbackStateTF.setText("<html><font color=#3B963B>playback"); //Color(75, 166, 75) muted green
+      disableAllButtons();
+      panel.playbackStateTF.setText("<html><font color="+mutedGreen+">playback"); //Color(75, 166, 75) muted green
       panel.playbackStateTF.setToolTipText("PDU playback in progress");
-      panel.loopToggleButt.setEnabled(true);
-      panel.playButt.setVisible(false);
+      panel.playbackStateTF.setBorder(javax.swing.BorderFactory.createLineBorder(mutedGreenColor));
+      
+      panel.loopToggleButton.setEnabled(true);
+      panel.playButton.setVisible(false);
       //pan.reversePlayButt.setVisible(false);
-      panel.pauseButt.setVisible(true);
-      panel.pauseButt.setEnabled(true);
+      panel.pauseButton.setVisible(true);
+      panel.pauseButton.setEnabled(true);
       panel.showPlayHilightedState(true);
       action();
     }
@@ -340,8 +350,9 @@ public class DISPlayerRecorderStateMachine
     PlayingFastReverseState()
     {
       super();
-      panel.playbackStateTF.setText("<html><font color="+mutedGrn+">rev fast play");
+      panel.playbackStateTF.setText("<html><font color="+mutedGreen+">rev fast play");
       panel.playbackStateTF.setToolTipText("reverse fast PDU playback");
+      panel.playbackStateTF.setBorder(javax.swing.BorderFactory.createLineBorder(mutedGreenColor));
     }
 
     @Override
@@ -354,14 +365,15 @@ public class DISPlayerRecorderStateMachine
   {
     PlayingFastState()
     {
-      disableAllButts();
-      panel.playbackStateTF.setText("<html><font color="+mutedGrn+">fast play");
+      disableAllButtons();
+      panel.playbackStateTF.setText("<html><font color="+mutedGreen+">fast play");
       panel.playbackStateTF.setToolTipText("fast PDU playback");
+      panel.playbackStateTF.setBorder(javax.swing.BorderFactory.createLineBorder(mutedGreenColor));
 
-      panel.loopToggleButt.setEnabled(true);
-      panel.playButt.setVisible(false);
-      panel.pauseButt.setVisible(true);
-      panel.pauseButt.setEnabled(true);
+      panel.loopToggleButton.setEnabled(true);
+      panel.playButton.setVisible(false);
+      panel.pauseButton.setVisible(true);
+      panel.pauseButton.setEnabled(true);
       panel.showPlayHilightedState(true);
       
       action();
@@ -397,16 +409,17 @@ public class DISPlayerRecorderStateMachine
   
   final class PlayingReverseState implements PlayerState
   {
-    PlayingReverseState()
+    PlayingReverseState() // TODO no state logic provided for fast reverse
     {
-      disableAllButts();
-      panel.playbackStateTF.setText("<html><font color="+mutedGrn+">reverse play");
+      disableAllButtons();
+      panel.playbackStateTF.setText("<html><font color="+mutedGreen+">reverse play");
       panel.playbackStateTF.setToolTipText("reverse PDU playback");
-      //pan.playButt.setVisible(false);
-      panel.loopToggleButt.setEnabled(true);
-      panel.reversePlayButt.setVisible(false);
-      panel.pauseButt.setVisible(true);
-      panel.pauseButt.setEnabled(true);
+      panel.playbackStateTF.setBorder(javax.swing.BorderFactory.createLineBorder(mutedGreenColor));
+      
+      panel.loopToggleButton.setEnabled(true);
+      panel.reversePlayButton.setVisible(false);
+      panel.pauseButton.setVisible(true);
+      panel.pauseButton.setEnabled(true);
       panel.showPlayHilightedState(true);
       action();
     }
@@ -441,19 +454,19 @@ public class DISPlayerRecorderStateMachine
     }
   }
   
-  private void disableAllButts()
+  private void disableAllButtons()
   {
-    setAllButts(false);
+    setAllButtons(false);
     panel.showPlayHilightedState(false);
     panel.showRecordHilightedState(false);
   }
-  private void enableAllButts()
+  private void enableAllButtons()
   {
-    setAllButts(true);
+    setAllButtons(true);
   }
-  private void setAllButts(boolean wh)
+  private void setAllButtons(boolean whetherEnabled)
   {
     for(AbstractButton butt : allButtons)
-      butt.setEnabled(wh);
+      butt.setEnabled(whetherEnabled);
   }
 }
