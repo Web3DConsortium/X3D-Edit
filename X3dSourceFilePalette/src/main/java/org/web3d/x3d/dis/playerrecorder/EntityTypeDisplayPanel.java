@@ -90,6 +90,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.142;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(kindLabel, gridBagConstraints);
 
         domainLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -98,6 +99,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(domainLabel, gridBagConstraints);
 
         countryLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -106,6 +108,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(countryLabel, gridBagConstraints);
 
         categoryLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -114,6 +117,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(categoryLabel, gridBagConstraints);
 
         subcategoryLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -122,6 +126,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(subcategoryLabel, gridBagConstraints);
 
         specificLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -130,6 +135,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(specificLabel, gridBagConstraints);
 
         extraLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -138,6 +144,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(extraLabel, gridBagConstraints);
 
         kindTF.setEditable(false);
@@ -154,6 +161,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.142;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(kindTF, gridBagConstraints);
 
         domainTF.setEditable(false);
@@ -165,6 +173,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(domainTF, gridBagConstraints);
 
         countryTF.setEditable(false);
@@ -176,6 +185,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(countryTF, gridBagConstraints);
 
         categoryTF.setEditable(false);
@@ -187,6 +197,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(categoryTF, gridBagConstraints);
 
         subcategoryTF.setEditable(false);
@@ -198,6 +209,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(subcategoryTF, gridBagConstraints);
 
         specificTF.setEditable(false);
@@ -209,6 +221,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(specificTF, gridBagConstraints);
 
         extraTF.setEditable(false);
@@ -220,6 +233,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.143;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(extraTF, gridBagConstraints);
 
         jLabel1.setText(NbBundle.getMessage(getClass(), "EntityTypeDisplayPanel.jLabel1.text")); // NOI18N
@@ -230,6 +244,7 @@ public class EntityTypeDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

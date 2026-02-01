@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -142,6 +142,8 @@ public class DISPlayerRecorderStateMachine
     {
       setAllButts(panel.hasPDUs());  //will turn everything on if there is data loaded
       panel.playbackStateTF.setText("idle");
+      panel.playbackStateTF.setToolTipText("idle");
+      
       panel.pauseButt.setVisible(false);
       panel.playButt.setVisible(true);
       panel.reversePlayButt.setVisible(true);
@@ -212,6 +214,7 @@ public class DISPlayerRecorderStateMachine
       this.continuing = continuing;
       disableAllButts();
       panel.playbackStateTF.setText("<html><font color="+mutedRed+">recording");  //dark red
+      panel.playbackStateTF.setToolTipText("recording in progress");
       panel.showRecordHilightedState(true);
 
       panel.recordPauseButton.setEnabled(true);
@@ -254,6 +257,7 @@ public class DISPlayerRecorderStateMachine
     {
       disableAllButts();
       panel.playbackStateTF.setText("<html><font color="+mutedRed+">paused");
+      panel.playbackStateTF.setToolTipText("paused");
 
       panel.recordStopButton.setEnabled(true);
       panel.recordButton.setEnabled(true);
@@ -293,6 +297,7 @@ public class DISPlayerRecorderStateMachine
     {
       disableAllButts();
       panel.playbackStateTF.setText("<html><font color=#3B963B>playback"); //Color(75, 166, 75) muted green
+      panel.playbackStateTF.setToolTipText("PDU playback in progress");
       panel.loopToggleButt.setEnabled(true);
       panel.playButt.setVisible(false);
       //pan.reversePlayButt.setVisible(false);
@@ -336,6 +341,7 @@ public class DISPlayerRecorderStateMachine
     {
       super();
       panel.playbackStateTF.setText("<html><font color="+mutedGrn+">rev fast play");
+      panel.playbackStateTF.setToolTipText("reverse fast PDU playback");
     }
 
     @Override
@@ -350,6 +356,7 @@ public class DISPlayerRecorderStateMachine
     {
       disableAllButts();
       panel.playbackStateTF.setText("<html><font color="+mutedGrn+">fast play");
+      panel.playbackStateTF.setToolTipText("fast PDU playback");
 
       panel.loopToggleButt.setEnabled(true);
       panel.playButt.setVisible(false);
@@ -394,6 +401,7 @@ public class DISPlayerRecorderStateMachine
     {
       disableAllButts();
       panel.playbackStateTF.setText("<html><font color="+mutedGrn+">reverse play");
+      panel.playbackStateTF.setToolTipText("reverse PDU playback");
       //pan.playButt.setVisible(false);
       panel.loopToggleButt.setEnabled(true);
       panel.reversePlayButt.setVisible(false);

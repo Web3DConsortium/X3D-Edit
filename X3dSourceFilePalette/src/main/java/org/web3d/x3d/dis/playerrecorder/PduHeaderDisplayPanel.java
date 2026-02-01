@@ -84,11 +84,11 @@ public class PduHeaderDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(timeStampLabel, gridBagConstraints);
 
-        timeStampTF.setColumns(3);
         timeStampTF.setEditable(false);
+        timeStampTF.setColumns(3);
         timeStampTF.setForeground(new java.awt.Color(0, 102, 102));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -107,8 +107,8 @@ public class PduHeaderDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(exerciseIdLabel, gridBagConstraints);
 
-        exerciseIDTF.setColumns(3);
         exerciseIDTF.setEditable(false);
+        exerciseIDTF.setColumns(3);
         exerciseIDTF.setForeground(new java.awt.Color(0, 102, 102));
         exerciseIDTF.setMinimumSize(new java.awt.Dimension(40, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -128,8 +128,8 @@ public class PduHeaderDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(pduLengthLabel, gridBagConstraints);
 
-        pduLengthTF.setColumns(3);
         pduLengthTF.setEditable(false);
+        pduLengthTF.setColumns(3);
         pduLengthTF.setForeground(new java.awt.Color(0, 102, 102));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -145,11 +145,11 @@ public class PduHeaderDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(pduTypeLabel, gridBagConstraints);
 
-        pduTypeTF.setColumns(3);
         pduTypeTF.setEditable(false);
+        pduTypeTF.setColumns(3);
         pduTypeTF.setForeground(new java.awt.Color(0, 102, 102));
         pduTypeTF.setMinimumSize(new java.awt.Dimension(40, 22));
         pduTypeTF.addActionListener(new java.awt.event.ActionListener() {
@@ -174,8 +174,8 @@ public class PduHeaderDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(protocolVersionLabel, gridBagConstraints);
 
-        protocolVersionTF.setColumns(3);
         protocolVersionTF.setEditable(false);
+        protocolVersionTF.setColumns(3);
         protocolVersionTF.setForeground(new java.awt.Color(0, 102, 102));
         protocolVersionTF.setMinimumSize(new java.awt.Dimension(40, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -195,8 +195,8 @@ public class PduHeaderDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(protocolFamilyLabel, gridBagConstraints);
 
-        protocolFamilyTF.setColumns(3);
         protocolFamilyTF.setEditable(false);
+        protocolFamilyTF.setColumns(3);
         protocolFamilyTF.setForeground(new java.awt.Color(0, 102, 102));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -216,8 +216,8 @@ public class PduHeaderDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(paddingLabel, gridBagConstraints);
 
-        paddingTF.setColumns(3);
         paddingTF.setEditable(false);
+        paddingTF.setColumns(3);
         paddingTF.setForeground(new java.awt.Color(0, 102, 102));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;

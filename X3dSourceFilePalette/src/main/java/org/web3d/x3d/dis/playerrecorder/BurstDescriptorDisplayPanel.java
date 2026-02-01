@@ -53,19 +53,20 @@ public class BurstDescriptorDisplayPanel extends javax.swing.JPanel
 
         setLayout(new java.awt.GridBagLayout());
 
-        munitionRecordPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Munition Record"));
+        munitionRecordPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, org.openide.util.NbBundle.getMessage(BurstDescriptorDisplayPanel.class, "BurstDescriptorDisplayPanel.munitionRecordPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(munitionRecordPanel, gridBagConstraints);
 
         jLabel1.setText(NbBundle.getMessage(getClass(), "BurstDescriptorDisplayPanel.jLabel1.text_1")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel1, gridBagConstraints);
 
         warheadTF.setEditable(false);
@@ -73,13 +74,13 @@ public class BurstDescriptorDisplayPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(warheadTF, gridBagConstraints);
 
         jLabel2.setText(NbBundle.getMessage(getClass(), "BurstDescriptorDisplayPanel.jLabel2.text_1")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 2, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel2, gridBagConstraints);
 
         fuseTF.setEditable(false);
@@ -87,13 +88,13 @@ public class BurstDescriptorDisplayPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(fuseTF, gridBagConstraints);
 
         jLabel4.setText(NbBundle.getMessage(getClass(), "BurstDescriptorDisplayPanel.jLabel4.text_1")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 2, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel4, gridBagConstraints);
 
         quantityTF.setEditable(false);
@@ -101,13 +102,13 @@ public class BurstDescriptorDisplayPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(quantityTF, gridBagConstraints);
 
         jLabel6.setText(NbBundle.getMessage(getClass(), "BurstDescriptorDisplayPanel.jLabel6.text_1")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 2, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel6, gridBagConstraints);
 
         rateTF.setEditable(false);
@@ -115,7 +116,7 @@ public class BurstDescriptorDisplayPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.25;
-        gridBagConstraints.insets = new java.awt.Insets(3, 0, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(rateTF, gridBagConstraints);
 
         jLabel3.setText(NbBundle.getMessage(getClass(), "BurstDescriptorDisplayPanel.jLabel3.text")); // NOI18N
@@ -126,6 +127,7 @@ public class BurstDescriptorDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel3, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables

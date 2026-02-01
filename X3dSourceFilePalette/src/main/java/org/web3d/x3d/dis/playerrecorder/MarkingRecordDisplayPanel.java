@@ -68,11 +68,11 @@ public class MarkingRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(2, 8, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(charSetLabel, gridBagConstraints);
 
-        characterSetTF.setColumns(4);
         characterSetTF.setEditable(false);
+        characterSetTF.setColumns(4);
         characterSetTF.setForeground(new java.awt.Color(0, 102, 102));
         characterSetTF.setText(NbBundle.getMessage(getClass(), "MarkingRecordDisplayPanel.characterSetTF.text")); // NOI18N
         characterSetTF.setMinimumSize(new java.awt.Dimension(4, 20));
@@ -81,7 +81,7 @@ public class MarkingRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(characterSetTF, gridBagConstraints);
 
         markingStringLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -92,7 +92,7 @@ public class MarkingRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(2, 8, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(markingStringLabel, gridBagConstraints);
 
         markingHexTF.setEditable(false);
@@ -111,7 +111,7 @@ public class MarkingRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(markingHexTF, gridBagConstraints);
 
         markingHexLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -122,7 +122,7 @@ public class MarkingRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(2, 8, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(markingHexLabel, gridBagConstraints);
 
         markingStringTF.setEditable(false);
@@ -138,7 +138,7 @@ public class MarkingRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(markingStringTF, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

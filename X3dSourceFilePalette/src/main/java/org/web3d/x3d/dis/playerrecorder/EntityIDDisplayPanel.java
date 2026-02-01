@@ -54,11 +54,11 @@ public class EntityIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(siteIDLabel, gridBagConstraints);
 
-        siteIDTF.setColumns(3);
         siteIDTF.setEditable(false);
+        siteIDTF.setColumns(3);
         siteIDTF.setForeground(new java.awt.Color(0, 102, 102));
         siteIDTF.setText(NbBundle.getMessage(getClass(), "EntityIDDisplayPanel.siteIDTF.text")); // NOI18N
         siteIDTF.setToolTipText(org.openide.util.NbBundle.getMessage(EntityIDDisplayPanel.class, "EntityIDDisplayPanel.siteIDTF.toolTipText")); // NOI18N
@@ -73,7 +73,7 @@ public class EntityIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(siteIDTF, gridBagConstraints);
 
         applicationIDLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -81,11 +81,11 @@ public class EntityIDDisplayPanel extends javax.swing.JPanel
         applicationIDLabel.setToolTipText(org.openide.util.NbBundle.getMessage(EntityIDDisplayPanel.class, "EntityIDDisplayPanel.applicationIDLabel.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(applicationIDLabel, gridBagConstraints);
 
-        applicationIDTF.setColumns(3);
         applicationIDTF.setEditable(false);
+        applicationIDTF.setColumns(3);
         applicationIDTF.setForeground(new java.awt.Color(0, 102, 102));
         applicationIDTF.setText(NbBundle.getMessage(getClass(), "EntityIDDisplayPanel.applicationIDTF.text")); // NOI18N
         applicationIDTF.setToolTipText(NbBundle.getMessage(getClass(), "EntityIDDisplayPanel.applicationIDTF.tooTipText")); // NOI18N
@@ -95,7 +95,7 @@ public class EntityIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(applicationIDTF, gridBagConstraints);
 
         entityIDLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -108,8 +108,8 @@ public class EntityIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(entityIDLabel, gridBagConstraints);
 
-        entityIDTF.setColumns(3);
         entityIDTF.setEditable(false);
+        entityIDTF.setColumns(3);
         entityIDTF.setForeground(new java.awt.Color(0, 102, 102));
         entityIDTF.setText(NbBundle.getMessage(getClass(), "EntityIDDisplayPanel.entityIDTF.text")); // NOI18N
         entityIDTF.setToolTipText(org.openide.util.NbBundle.getMessage(EntityIDDisplayPanel.class, "EntityIDDisplayPanel.entityIDTF.toolTipText")); // NOI18N
@@ -124,7 +124,7 @@ public class EntityIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(entityIDTF, gridBagConstraints);
 
         jLabel1.setText(NbBundle.getMessage(getClass(), "EntityIDDisplayPanel.jLabel1.text")); // NOI18N
@@ -135,6 +135,7 @@ public class EntityIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

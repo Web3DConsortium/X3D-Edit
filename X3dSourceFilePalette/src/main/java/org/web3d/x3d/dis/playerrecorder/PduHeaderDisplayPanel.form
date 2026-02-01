@@ -25,14 +25,14 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="6" insetsBottom="3" insetsRight="3" anchor="10" weightX="0.0" weightY="0.0"/>
+          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="10" weightX="0.0" weightY="0.0"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="timeStampTF">
       <Properties>
-        <Property name="columns" type="int" value="3"/>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="columns" type="int" value="3"/>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
@@ -61,8 +61,8 @@
     </Component>
     <Component class="javax.swing.JTextField" name="exerciseIDTF">
       <Properties>
-        <Property name="columns" type="int" value="3"/>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="columns" type="int" value="3"/>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
@@ -94,8 +94,8 @@
     </Component>
     <Component class="javax.swing.JTextField" name="pduLengthTF">
       <Properties>
-        <Property name="columns" type="int" value="3"/>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="columns" type="int" value="3"/>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
@@ -118,14 +118,14 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="6" insetsBottom="3" insetsRight="3" anchor="10" weightX="0.0" weightY="0.0"/>
+          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="3" insetsLeft="3" insetsBottom="3" insetsRight="3" anchor="10" weightX="0.0" weightY="0.0"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="pduTypeTF">
       <Properties>
-        <Property name="columns" type="int" value="3"/>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="columns" type="int" value="3"/>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
@@ -160,8 +160,8 @@
     </Component>
     <Component class="javax.swing.JTextField" name="protocolVersionTF">
       <Properties>
-        <Property name="columns" type="int" value="3"/>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="columns" type="int" value="3"/>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
@@ -193,8 +193,8 @@
     </Component>
     <Component class="javax.swing.JTextField" name="protocolFamilyTF">
       <Properties>
-        <Property name="columns" type="int" value="3"/>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="columns" type="int" value="3"/>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
@@ -226,8 +226,8 @@
     </Component>
     <Component class="javax.swing.JTextField" name="paddingTF">
       <Properties>
-        <Property name="columns" type="int" value="3"/>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="columns" type="int" value="3"/>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>

@@ -50,6 +50,7 @@ public class Vector3DoubleDisplayPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(xTF, gridBagConstraints);
 
         yTF.setEditable(false);
@@ -58,6 +59,7 @@ public class Vector3DoubleDisplayPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(yTF, gridBagConstraints);
 
         zTF.setEditable(false);
@@ -66,6 +68,7 @@ public class Vector3DoubleDisplayPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(zTF, gridBagConstraints);
 
         jLabel1.setText(NbBundle.getMessage(getClass(), "Vector3DoubleDisplayPanel.jLabel1.text")); // NOI18N
@@ -76,6 +79,7 @@ public class Vector3DoubleDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables

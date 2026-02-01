@@ -63,7 +63,7 @@ public class OrientationRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(psiLabel, gridBagConstraints);
 
         thetaLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -73,7 +73,7 @@ public class OrientationRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(thetaLabel, gridBagConstraints);
 
         phiLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -83,11 +83,11 @@ public class OrientationRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(phiLabel, gridBagConstraints);
 
-        psiTF.setColumns(3);
         psiTF.setEditable(false);
+        psiTF.setColumns(3);
         psiTF.setForeground(new java.awt.Color(0, 102, 102));
         psiTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         psiTF.setText(NbBundle.getMessage(getClass(), "OrientationRecordDisplayPanel.psiTF.text")); // NOI18N
@@ -102,11 +102,11 @@ public class OrientationRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.166;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(psiTF, gridBagConstraints);
 
-        thetaTF.setColumns(3);
         thetaTF.setEditable(false);
+        thetaTF.setColumns(3);
         thetaTF.setForeground(new java.awt.Color(0, 102, 102));
         thetaTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         thetaTF.setText(NbBundle.getMessage(getClass(), "OrientationRecordDisplayPanel.thetaTF.text")); // NOI18N
@@ -116,11 +116,11 @@ public class OrientationRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.166;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(thetaTF, gridBagConstraints);
 
-        phiTF.setColumns(3);
         phiTF.setEditable(false);
+        phiTF.setColumns(3);
         phiTF.setForeground(new java.awt.Color(0, 102, 102));
         phiTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         phiTF.setText(NbBundle.getMessage(getClass(), "OrientationRecordDisplayPanel.phiTF.text")); // NOI18N
@@ -135,11 +135,11 @@ public class OrientationRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.166;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(phiTF, gridBagConstraints);
 
-        phiDegreesTF.setColumns(3);
         phiDegreesTF.setEditable(false);
+        phiDegreesTF.setColumns(3);
         phiDegreesTF.setForeground(new java.awt.Color(0, 102, 102));
         phiDegreesTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         phiDegreesTF.setText(org.openide.util.NbBundle.getMessage(OrientationRecordDisplayPanel.class, "OrientationRecordDisplayPanel.phiDegreesTF.text")); // NOI18N
@@ -150,11 +150,11 @@ public class OrientationRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.166;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(phiDegreesTF, gridBagConstraints);
 
-        thetaDegreesTF.setColumns(3);
         thetaDegreesTF.setEditable(false);
+        thetaDegreesTF.setColumns(3);
         thetaDegreesTF.setForeground(new java.awt.Color(0, 102, 102));
         thetaDegreesTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         thetaDegreesTF.setText(org.openide.util.NbBundle.getMessage(OrientationRecordDisplayPanel.class, "OrientationRecordDisplayPanel.thetaDegreesTF.text")); // NOI18N
@@ -164,11 +164,11 @@ public class OrientationRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.166;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(thetaDegreesTF, gridBagConstraints);
 
-        psiDegreesTF.setColumns(3);
         psiDegreesTF.setEditable(false);
+        psiDegreesTF.setColumns(3);
         psiDegreesTF.setForeground(new java.awt.Color(0, 102, 102));
         psiDegreesTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         psiDegreesTF.setText(org.openide.util.NbBundle.getMessage(OrientationRecordDisplayPanel.class, "OrientationRecordDisplayPanel.psiDegreesTF.text")); // NOI18N
@@ -179,7 +179,7 @@ public class OrientationRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.166;
-        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(psiDegreesTF, gridBagConstraints);
 
         jLabel1.setText(NbBundle.getMessage(getClass(), "OrientationRecordDisplayPanel.jLabel1.text")); // NOI18N
@@ -189,6 +189,7 @@ public class OrientationRecordDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

@@ -29,10 +29,10 @@ public class ByteArrayDisplayPanel extends javax.swing.JPanel
       sb.append(byteToHex(ba[i]));
     //sb.append(' ');  // included in ca
     }
-    final int scrollBarValue = jScrollPane1.getVerticalScrollBar().getValue();
-    jTextArea1.setText(sb.toString().trim());
+    final int scrollBarValue = byteArrayScrollPane.getVerticalScrollBar().getValue();
+    byteArrayTextArea.setText(sb.toString().trim());
     SwingUtilities.invokeLater(() -> {
-        jScrollPane1.getVerticalScrollBar().setValue(scrollBarValue);
+        byteArrayScrollPane.getVerticalScrollBar().setValue(scrollBarValue);
     });
   }
   private static char hChars[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -59,24 +59,23 @@ public class ByteArrayDisplayPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        byteArrayScrollPane = new javax.swing.JScrollPane();
+        byteArrayTextArea = new javax.swing.JTextArea();
 
         setLayout(new java.awt.BorderLayout());
+        add(byteArrayScrollPane, java.awt.BorderLayout.CENTER);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setEditable(false);
-        jTextArea1.setFont(new java.awt.Font("Courier", 0, 12)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(0, 102, 102));
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        byteArrayTextArea.setEditable(false);
+        byteArrayTextArea.setColumns(20);
+        byteArrayTextArea.setFont(new java.awt.Font("Courier", 0, 12)); // NOI18N
+        byteArrayTextArea.setForeground(new java.awt.Color(0, 102, 102));
+        byteArrayTextArea.setLineWrap(true);
+        byteArrayTextArea.setRows(5);
+        byteArrayTextArea.setWrapStyleWord(true);
+        add(byteArrayTextArea, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane byteArrayScrollPane;
+    private javax.swing.JTextArea byteArrayTextArea;
     // End of variables declaration//GEN-END:variables
 }

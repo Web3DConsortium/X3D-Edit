@@ -350,20 +350,21 @@ public class ArticulationParametersDisplayPanel extends javax.swing.JPanel
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
+        numberLabel = new javax.swing.JLabel();
         numberTF = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText(NbBundle.getMessage(getClass(), "ArticulationParametersDisplayPanel.jLabel1.text")); // NOI18N
+        numberLabel.setText(NbBundle.getMessage(getClass(), "ArticulationParametersDisplayPanel.numberLabel.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
-        add(jLabel1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(numberLabel, gridBagConstraints);
 
         numberTF.setEditable(false);
         numberTF.setForeground(new java.awt.Color(0, 102, 102));
@@ -378,10 +379,10 @@ public class ArticulationParametersDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 0.05;
-        gridBagConstraints.insets = new java.awt.Insets(0, 4, 0, 2);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(numberTF, gridBagConstraints);
 
-        jTable1.setFont(new java.awt.Font("Courier New", 0, 11));
+        jTable1.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null}
@@ -403,15 +404,17 @@ public class ArticulationParametersDisplayPanel extends javax.swing.JPanel
         jTable1.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jTable1.getColumnModel().getColumn(0).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title0")); // NOI18N
-        jTable1.getColumnModel().getColumn(1).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title1")); // NOI18N
-        jTable1.getColumnModel().getColumn(2).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title2")); // NOI18N
-        jTable1.getColumnModel().getColumn(3).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title3")); // NOI18N
-        jTable1.getColumnModel().getColumn(4).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title4")); // NOI18N
-        jTable1.getColumnModel().getColumn(5).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title5")); // NOI18N
-        jTable1.getColumnModel().getColumn(6).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title6")); // NOI18N
-        jTable1.getColumnModel().getColumn(7).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title7")); // NOI18N
-        jTable1.getColumnModel().getColumn(8).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title8")); // NOI18N
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title0")); // NOI18N
+            jTable1.getColumnModel().getColumn(1).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title1")); // NOI18N
+            jTable1.getColumnModel().getColumn(2).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title2")); // NOI18N
+            jTable1.getColumnModel().getColumn(3).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title3")); // NOI18N
+            jTable1.getColumnModel().getColumn(4).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title4")); // NOI18N
+            jTable1.getColumnModel().getColumn(5).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title5")); // NOI18N
+            jTable1.getColumnModel().getColumn(6).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title6")); // NOI18N
+            jTable1.getColumnModel().getColumn(7).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title7")); // NOI18N
+            jTable1.getColumnModel().getColumn(8).setHeaderValue(org.openide.util.NbBundle.getMessage(ArticulationParametersDisplayPanel.class, "ArticulationParametersDisplayPanel.jTable1.columnModel.title8")); // NOI18N
+        }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -420,13 +423,14 @@ public class ArticulationParametersDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jScrollPane1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel numberLabel;
     private javax.swing.JTextField numberTF;
     // End of variables declaration//GEN-END:variables
 }

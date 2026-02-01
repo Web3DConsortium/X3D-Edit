@@ -48,7 +48,7 @@ public class ClockTimeDisplayPanel extends javax.swing.JPanel
         jLabel1.setText(NbBundle.getMessage(getClass(), "ClockTimeDisplayPanel.jLabel1.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel1, gridBagConstraints);
 
         hoursTF.setEditable(false);
@@ -58,7 +58,7 @@ public class ClockTimeDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(hoursTF, gridBagConstraints);
 
         jLabel2.setText(NbBundle.getMessage(getClass(), "ClockTimeDisplayPanel.jLabel2.text")); // NOI18N
@@ -67,6 +67,7 @@ public class ClockTimeDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel2, gridBagConstraints);
 
         timePastTF.setEditable(false);
@@ -76,6 +77,7 @@ public class ClockTimeDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(timePastTF, gridBagConstraints);
 
         jLabel3.setText(NbBundle.getMessage(getClass(), "ClockTimeDisplayPanel.jLabel3.text")); // NOI18N
@@ -86,6 +88,7 @@ public class ClockTimeDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel3, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables

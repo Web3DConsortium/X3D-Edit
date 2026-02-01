@@ -51,7 +51,7 @@ public class EventIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(siteIDLab, gridBagConstraints);
 
         siteIDTF.setEditable(false);
@@ -61,6 +61,7 @@ public class EventIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(siteIDTF, gridBagConstraints);
 
         eventidLab.setText(NbBundle.getMessage(getClass(), "EventIDDisplayPanel.eventidLab.text")); // NOI18N
@@ -68,7 +69,7 @@ public class EventIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(eventidLab, gridBagConstraints);
 
         appIDTF.setEditable(false);
@@ -78,6 +79,7 @@ public class EventIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(appIDTF, gridBagConstraints);
 
         appIDLab.setText(NbBundle.getMessage(getClass(), "EventIDDisplayPanel.appIDLab.text")); // NOI18N
@@ -85,7 +87,7 @@ public class EventIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(appIDLab, gridBagConstraints);
 
         evtIDTF.setEditable(false);
@@ -95,6 +97,7 @@ public class EventIDDisplayPanel extends javax.swing.JPanel
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.33;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(evtIDTF, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables

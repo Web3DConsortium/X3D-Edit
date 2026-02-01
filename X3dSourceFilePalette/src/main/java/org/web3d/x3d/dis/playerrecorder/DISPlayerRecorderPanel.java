@@ -1015,12 +1015,18 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         operationStatusjToolBar.setRollover(true);
 
         operationStatusPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        operationStatusPanel.setMinimumSize(new java.awt.Dimension(80, 50));
+        operationStatusPanel.setPreferredSize(new java.awt.Dimension(80, 50));
         operationStatusPanel.setLayout(new java.awt.GridBagLayout());
 
         operationModeLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        operationModeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         operationModeLabel.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.operationModeLabel.text")); // NOI18N
         operationModeLabel.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.operationModeLabel.toolTipText")); // NOI18N
-        operationStatusPanel.add(operationModeLabel, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        operationStatusPanel.add(operationModeLabel, gridBagConstraints);
 
         playbackStateTF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         playbackStateTF.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.playbackStateTF.text")); // NOI18N
@@ -1028,8 +1034,8 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 6);
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         operationStatusPanel.add(playbackStateTF, gridBagConstraints);
 
         operationStatusjToolBar.add(operationStatusPanel);

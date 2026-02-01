@@ -101,7 +101,7 @@ public class DeadReckoningParameterDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(topPan, gridBagConstraints);
 
         bottomPan.setLayout(new java.awt.GridBagLayout());
@@ -147,6 +147,7 @@ public class DeadReckoningParameterDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bottomPan, gridBagConstraints);
 
         jLabel5.setText(NbBundle.getMessage(getClass(), "DeadReckoningParameterDisplayPanel.jLabel5.text")); // NOI18N
@@ -156,6 +157,7 @@ public class DeadReckoningParameterDisplayPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(jLabel5, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
