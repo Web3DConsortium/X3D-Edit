@@ -69,7 +69,7 @@ public class DisPduSenderTestAction extends AbstractAction
     String port    = X3dEditUserPreferences.getDISport("3000");
     
     System.out.println("========================================================================================");
-    System.out.println("DIS PDU Alphabetical Sender Test");
+    System.out.println("DIS PDU Alphabetical PDU Sender Test");
     System.out.println();
     edu.nps.moves.dis7.examples.AlphabeticalPduSender.main(new String[]{address, port}); // output goes to console
     System.out.println("========================================================================================");
