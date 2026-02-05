@@ -68,7 +68,7 @@ public class InputOutputReporter implements CookieObserver {
         Collections.synchronizedSet(new WeakSet<Hyperlink>()); // Set<Hyperlink>
     
     /** 
-     * Creates new InputOutputReporter regirecting ProcessorListener
+     * Creates new InputOutputReporter redirecting ProcessorListener
      * to InputOutput. To finish per call initialization setNode()
      * must be called.
      */
