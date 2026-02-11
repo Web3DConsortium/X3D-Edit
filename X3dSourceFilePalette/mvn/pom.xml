@@ -7,7 +7,7 @@
     <description>X3D-Edit supports creation, authoring, validation and viewing of X3D graphics model files</description>
     <url>https://github.com/Web3DConsortium/X3D-Edit/</url>
     <inceptionYear>1999</inceptionYear>
-    <version>4.0.40</version>
+    <version>4.0.40.1</version>
     <!-- maven requires "nbm" even though netbeans-mediated maven schema quacks -->
     <packaging>nbm</packaging>
     <organization>
