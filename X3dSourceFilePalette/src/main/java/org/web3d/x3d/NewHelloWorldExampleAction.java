@@ -1,10 +1,10 @@
 /*
 Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
- 
+
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
- 
+
  * Redistributions of source code must retain the above copyright
       notice, this list of conditions and the following disclaimer.
  * Redistributions in binary form must reproduce the above copyright
@@ -17,7 +17,7 @@ are met:
       nor the names of its contributors may be used to endorse or
       promote products derived from this software without specific
       prior written permission.
- 
+
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
 LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -79,22 +79,22 @@ public final class NewHelloWorldExampleAction extends CallableSystemAction
       FileObject x3dTemplateFileObject = FileUtil.getConfigRoot().getFileSystem().findResource(path); //Repository.getDefault().getDefaultFileSystem().findResource(path);
       if (x3dTemplateFileObject == null)
       {
-          System.out.println("*** Error, NewHelloWorldExampleAction: template file " + path + " not found");
+          System.err.println("*** Error, NewHelloWorldExampleAction: template file " + path + " not found");
           return;
       }
       x3dTemplateFileObject.setAttribute("template", Boolean.TRUE);
-      
+
       DataObject x3dTemplateDataObject = DataObject.find(x3dTemplateFileObject);      // get a DataObject for the template
-       
+
       // Build the temp file in home directory
       File       homeDirectory  = new File(X3dEditUserPreferences.getNewX3dModelsDirectory());
       FileObject homeFileObject = FileUtil.createFolder(homeDirectory);
-      
+
       // Find a free model file name, may append number for uniqueness
       String     freeModelFileName   = FileUtil.findFreeFileName(homeFileObject, "newHelloWorldExample", "x3d");
       DataObject freeModelDataObject = x3dTemplateDataObject.createFromTemplate(DataFolder.findFolder(homeFileObject),freeModelFileName);
       // The above method calls into X3DDataObject.handleCreateFromTemplate(), which copies the template into the new file.
-      
+
     // TODO also copy image file(s) so that CORS restrictions are met
 
     // provide copy of earth-topo.png since web3d.org certificate is flawed
@@ -121,7 +121,7 @@ public final class NewHelloWorldExampleAction extends CallableSystemAction
             System.err.println("*** file creation error: earth-topo.png not found in " + earthTopoFilePath);
         }
         OpenCookie openCookie2 = earthTopoImageDataObject.getLookup().lookup(OpenCookie.class);
-        if (openCookie2 != null) 
+        if (openCookie2 != null)
         {
             openCookie2.open();
         }
@@ -147,29 +147,29 @@ public final class NewHelloWorldExampleAction extends CallableSystemAction
       Exceptions.printStackTrace(ex);
     }
   }
-  
+
   @Override
   public String getName()
   {
     return NbBundle.getMessage(NewHelloWorldExampleAction.class, "CTL_X3DNewHelloWorldExampleAction");
   }
-  
+
   @Override
   protected String iconResource()
   {
     return "org/web3d/x3d/resources/X3D.png";
   }
-  
+
   @Override
   public HelpCtx getHelpCtx()
   {
     return HelpCtx.DEFAULT_HELP;
   }
-  
+
   @Override
   protected boolean asynchronous()
   {
     return false;
   }
-  
+
 }
