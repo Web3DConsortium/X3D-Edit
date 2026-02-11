@@ -216,7 +216,7 @@
         <copy file="C:\x3d-github\opendis7-java\dist\opendis7-full.jar"
              todir="release/modules/ext/"  verbose="true"/>
     </target>
-    
+
     <target name="get.latest.opendis7.full.jar.savage" description="Download published opendis7.full.jar file from Savage distribution">
     <!--<get src="https://savage.nps.edu/opendis7-java/opendis7-full.jar" -->
         <get src="https://gitlab.nps.edu/Savage/NetworkedGraphicsMV3500/-/raw/master/lib/opendis7-full.jar?ref_type=heads"
@@ -466,6 +466,8 @@
 
     <!--
          *** Make sure to comply with src/doc/ReadMe for Version preparation first ***
+         *** Takes about 5 minutes for Maven Central to go from the "publishing"
+             state to the "published state" once the artifacts are uploaded        ***
     -->
     <!-- Example for deploying .asc files from here: https://github.com/vigna/dsiutils/blob/master/build.xml -->
     <target name="maven.central.stage.release" depends="prepare.repositories,package,sign"
@@ -485,7 +487,7 @@
             <remoteRepo refid="central"/>
         </resolver:deploy>
         <antcall target="do.stage.post" inheritRefs="true"/>
-        <echo message="Ready now to close, then release artifacts from: https://central.sonatype.com/publishing/deployments"/>
+        <echo message="Publishing is now automatic (within 5 minutes) with the 'publishing_type' set accordingly: https://central.sonatype.com/publishing/deployments"/>
         <nbbrowse url="https://central.sonatype.com/publishing/deployments"/>
         <!-- https://central.sonatype.org/publish/publish-portal-upload/ -->
         <echo message="maven.central.stage.release complete..."/>
