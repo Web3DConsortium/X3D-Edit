@@ -745,8 +745,9 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 20;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 1, 5, 1);
         rotationPanel.add(rollRadiansTextField, gridBagConstraints);
 
         pitchRadiansTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -763,8 +764,9 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 20;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 1, 5, 1);
         rotationPanel.add(pitchRadiansTextField, gridBagConstraints);
 
         yawRadiansTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -781,8 +783,9 @@ final public class DisEspduSenderControlPanel extends TopComponent
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 20;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 1, 5, 1);
         rotationPanel.add(yawRadiansTextField, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -802,6 +805,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
 
         degreesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         org.openide.awt.Mnemonics.setLocalizedText(degreesLabel, org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.degreesLabel.text")); // NOI18N
+        degreesLabel.setToolTipText(org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.degreesLabel.toolTipText")); // NOI18N
         degreesLabel.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -811,6 +815,7 @@ final public class DisEspduSenderControlPanel extends TopComponent
 
         radiansLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         org.openide.awt.Mnemonics.setLocalizedText(radiansLabel, org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.radiansLabel.text")); // NOI18N
+        radiansLabel.setToolTipText(org.openide.util.NbBundle.getMessage(DisEspduSenderControlPanel.class, "DisEspduSenderControlPanel.radiansLabel.toolTipText")); // NOI18N
         radiansLabel.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -1039,9 +1044,9 @@ private void pitchSliderChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:ev
   if (isJoystickActive()) return; // do nothing
   double pitchChanged = (double) (pitchSlider.getValue()) * Math.PI / 180.0;
   pitchRadiansTextField.setText       (radiansFormat.format(pitchChanged));
-  pitchRadiansTextField.setToolTipText(radiansFormat.format(pitchChanged));
+  pitchRadiansTextField.setToolTipText(radiansFormat.format(pitchChanged) + " radians");
   pitchDegreesTextField.setText       (degreesFormat.format(pitchSlider.getValue()));
-  pitchDegreesTextField.setToolTipText(degreesFormat.format(pitchSlider.getValue()));
+  pitchDegreesTextField.setToolTipText(degreesFormat.format(pitchSlider.getValue()) + " degrees");
   sendOrientationUpdate ();
 }//GEN-LAST:event_pitchSliderChanged
 
@@ -1050,9 +1055,9 @@ private void yawSliderChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:even
   if (isJoystickActive()) return; // do nothing
   double yawChanged = (double) (yawSlider.getValue()) * Math.PI / 180.0;
   yawRadiansTextField.setText       (radiansFormat.format(yawChanged));
-  yawRadiansTextField.setToolTipText(radiansFormat.format(yawChanged));
+  yawRadiansTextField.setToolTipText(radiansFormat.format(yawChanged) + " radians");
   yawDegreesTextField.setText       (degreesFormat.format(yawSlider.getValue()));
-  yawDegreesTextField.setToolTipText(degreesFormat.format(yawSlider.getValue()));
+  yawDegreesTextField.setToolTipText(degreesFormat.format(yawSlider.getValue()) + " degrees");
   sendOrientationUpdate ();
 }//GEN-LAST:event_yawSliderChanged
 
@@ -1102,56 +1107,55 @@ private void markingTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 private void yawRadiansTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_yawRadiansTextFieldActionPerformed
 {//GEN-HEADEREND:event_yawRadiansTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
-    yawRadiansTextField.setToolTipText(yawRadiansTextField.getText());
+    yawRadiansTextField.setToolTipText(yawRadiansTextField.getText() + " radians");
     double yawValueDegrees = normalizeDegrees((new SFDouble(yawRadiansTextField.getText())).getValue() * 180.0 / Math.PI);
     yawSlider.setValue((int) yawValueDegrees);
     yawDegreesTextField.setText       (degreesFormat.format(yawValueDegrees));
-    yawDegreesTextField.setToolTipText(degreesFormat.format(yawValueDegrees));
+    yawDegreesTextField.setToolTipText(degreesFormat.format(yawValueDegrees) + " degrees");
     sendOrientationUpdate ();
 }//GEN-LAST:event_yawRadiansTextFieldActionPerformed
 
 private void yawDegreesTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_yawDegreesTextFieldActionPerformed
 {//GEN-HEADEREND:event_yawDegreesTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
-    yawDegreesTextField.setToolTipText(yawDegreesTextField.getText());
+    yawDegreesTextField.setToolTipText(yawDegreesTextField.getText() + " degrees");
     double yawValueDegrees = normalizeDegrees((new SFDouble(yawDegreesTextField.getText())).getValue());
     yawSlider.setValue((int) (yawValueDegrees));
     yawRadiansTextField.setText       (radiansFormat.format(yawValueDegrees * Math.PI / 180.0));
-    yawRadiansTextField.setToolTipText(radiansFormat.format(yawValueDegrees * Math.PI / 180.0));
+    yawRadiansTextField.setToolTipText(radiansFormat.format(yawValueDegrees * Math.PI / 180.0) + " radians");
     sendOrientationUpdate ();
 }//GEN-LAST:event_yawDegreesTextFieldActionPerformed
 
 private void rollRadiansTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_rollRadiansTextFieldActionPerformed
 {//GEN-HEADEREND:event_rollRadiansTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
-    rollRadiansTextField.setToolTipText(rollRadiansTextField.getText());
+    rollRadiansTextField.setToolTipText(rollRadiansTextField.getText() + " radians");
     double rollValueDegrees = normalizeDegrees180((new SFDouble(rollRadiansTextField.getText())).getValue() * 180.0 / Math.PI);
     rollSlider.setValue((int) rollValueDegrees);
     rollDegreesTextField.setText       (degreesFormat.format(rollValueDegrees));
-    rollDegreesTextField.setToolTipText(degreesFormat.format(rollValueDegrees));
+    rollDegreesTextField.setToolTipText(degreesFormat.format(rollValueDegrees) + " degrees");
     sendOrientationUpdate ();
 }//GEN-LAST:event_rollRadiansTextFieldActionPerformed
 
 private void pitchRadiansTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_pitchRadiansTextFieldActionPerformed
 {//GEN-HEADEREND:event_pitchRadiansTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
-    pitchRadiansTextField.setToolTipText(pitchRadiansTextField.getText());
+    pitchRadiansTextField.setToolTipText(pitchRadiansTextField.getText() + " radians");
     double pitchValueDegrees = normalizeDegrees180((new SFDouble(pitchRadiansTextField.getText())).getValue() * 180.0 / Math.PI);
     pitchSlider.setValue((int) pitchValueDegrees);
     pitchDegreesTextField.setText       (degreesFormat.format(pitchValueDegrees));
-    pitchDegreesTextField.setToolTipText(degreesFormat.format(pitchValueDegrees));
-    pitchRadiansTextField.setToolTipText(radiansFormat.format(pitchRadiansTextField.getText()));
+    pitchDegreesTextField.setToolTipText(degreesFormat.format(pitchValueDegrees) + " degrees");
     sendOrientationUpdate ();
 }//GEN-LAST:event_pitchRadiansTextFieldActionPerformed
 
 private void pitchDegreesTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_pitchDegreesTextFieldActionPerformed
 {//GEN-HEADEREND:event_pitchDegreesTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
-    pitchDegreesTextField.setToolTipText(pitchDegreesTextField.getText());
+    pitchDegreesTextField.setToolTipText(pitchDegreesTextField.getText() + " degrees");
     double pitchValueDegrees = normalizeDegrees180((new SFDouble(pitchDegreesTextField.getText())).getValue());
     pitchSlider.setValue((int) (pitchValueDegrees));
     pitchRadiansTextField.setText       (radiansFormat.format(pitchValueDegrees * Math.PI / 180.0));
-    pitchRadiansTextField.setToolTipText(radiansFormat.format(pitchValueDegrees * Math.PI / 180.0));
+    pitchRadiansTextField.setToolTipText(radiansFormat.format(pitchValueDegrees * Math.PI / 180.0) + " radians");
     sendOrientationUpdate ();
 }//GEN-LAST:event_pitchDegreesTextFieldActionPerformed
 
@@ -1192,11 +1196,11 @@ private void zScaleTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:
 private void rollDegreesTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_rollDegreesTextFieldActionPerformed
 {//GEN-HEADEREND:event_rollDegreesTextFieldActionPerformed
     if (isJoystickActive()) return; // do nothing
-    rollDegreesTextField.setToolTipText(rollDegreesTextField.getText());
+    rollDegreesTextField.setToolTipText(rollDegreesTextField.getText() + " degrees");
     double rollValueDegrees = normalizeDegrees180((new SFDouble(rollDegreesTextField.getText())).getValue());
     rollSlider.setValue((int) (rollValueDegrees));
     rollRadiansTextField.setText        (radiansFormat.format(rollValueDegrees * Math.PI / 180.0));
-    rollRadiansTextField.setToolTipText(radiansFormat.format(rollValueDegrees * Math.PI / 180.0));
+    rollRadiansTextField.setToolTipText(radiansFormat.format(rollValueDegrees * Math.PI / 180.0) + " radians");
     sendOrientationUpdate ();
 }//GEN-LAST:event_rollDegreesTextFieldActionPerformed
 
@@ -1214,9 +1218,9 @@ private void rollSliderChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:eve
 
   double rollChanged = (rollSlider.getValue()) * Math.PI / 180.0;
   rollRadiansTextField.setText       (radiansFormat.format(rollChanged));
-  rollRadiansTextField.setToolTipText(radiansFormat.format(rollChanged));
+  rollRadiansTextField.setToolTipText(radiansFormat.format(rollChanged) + " radians");
   rollDegreesTextField.setText       (degreesFormat.format(rollSlider.getValue()));
-  rollDegreesTextField.setToolTipText(degreesFormat.format(rollSlider.getValue()));
+  rollDegreesTextField.setToolTipText(degreesFormat.format(rollSlider.getValue()) + " degrees");
   sendOrientationUpdate ();
 }//GEN-LAST:event_rollSliderChanged
 
