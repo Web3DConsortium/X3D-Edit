@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+* Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 *  
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions
@@ -55,7 +55,7 @@ import static org.web3d.x3d.actions.BaseViewAction.X3D_TIDY_URL;
 @ActionID(id = "org.web3d.x3d.actions.conversions.X3dTidyConversionAction", category = "X3D-Edit")
 
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/BroomWikipedia_32x32.png",
-                    displayName = "#CTL_X3dTidyXsltAction",
+                    displayName = "#CTL_X3dTidyConversionAction",
                     lazy=true) // don't do lazy=false since iconBase no longer gets registered
 @ActionReferences(value = {
   @ActionReference(path = "Menu/&X3D-Edit/&Author Workflow", position = 50),
@@ -75,40 +75,43 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
 
     private boolean x3dTidyContinue = true;
 
-    private final String conversionRequiredDefault            = "true";
-    private final String titleDefault                         = "";     // default title value for file name is empty
-    private final String modifyX3dVersionDefault              = "false";// keep under author control
-    private final String revisedX3dVersionDefault             = "4.0";
-    private final String fixDateFormatsDefault                = "true";
-    private final String fixMFStringQuotesDefault             = "true";
-    private final String fixGeoSystemMetadataDefault          = "true";
-    private final String fixHAnimHumanoidMetadataDefault      = "true"; // TODO
-    private final String fixMetaNamesMatchDublinCoreDefault   = "true";
-    private final String replaceBlackEmissiveColorDefault     = "true";
-    private final String omitNegativeScaleValuesDefault       = "true";
+    private final String conversionRequiredDefault               = "true";
+    private final String titleDefault                            = "";     // default title value for file name is empty
+    private final String modifyX3dVersionDefault                 = "false";// keep under author control
+    private final String revisedX3dVersionDefault                = "4.0";
+    private final String fixDateFormatsDefault                   = "true";
+    private final String fixMFStringQuotesDefault                = "true";
+    private final String fixGeoSystemMetadataDefault             = "true";
+    private final String fixHAnimHumanoidMetadataDefault         = "true"; // TODO
+    private final String fixMetaNamesMatchDublinCoreDefault      = "true";
+    private final String replaceBlackEmissiveColorDefault        = "true";
+    private final String omitNegativeScaleValuesDefault          = "true";
 
-    private final String fixUrlAdditionHttpAddressesDefault   = "true"; // expand local url array to include online addresses
+    private final String fixUrlAdditionHttpAddressesDefault      = "true"; // expand local url array to include online addresses
 
-    private final String appendWrlAfterX3dAddressesDefault    = "true"; // note that url quotes are always added if needed
-    private final String prependX3dBeforeWrlAddressesDefault  = "true";
-    private final String defaultUrlAddressDefault             = "";     // <!-- default value is empty -->
+    private final String appendWrlAfterX3dAddressesDefault       = "true"; // note that url quotes are always added if needed
+    private final String prependX3dBeforeWrlAddressesDefault     = "true";
+    private final String defaultUrlAddressDefault                = "";     // <!-- default value is empty -->
   //    <!-- $baseUrlAvailable false means that stylesheet is being used by servlet, or else styled results won't be in original directory: -->
-  //  private final String baseUrlAvailable                   = "true";
-    private final String changeJavascriptEcmascriptDefault    = "true";
-    private final String insertMissingEcmascriptDefault       = "true";
-    private final String insertMissingMetaLicenseDefault      = "true";
-    private final String licenseLinkDefault                   = "https://www.web3d.org/x3d/content/examples/license.html";
+  //  private final String baseUrlAvailable                      = "true";
+    private final String changeJavascriptEcmascriptDefault       = "true";
+    private final String insertMissingEcmascriptDefault          = "true";
+    private final String insertMissingMetaLicenseDefault         = "true";
+    private final String licenseLinkDefault                      = "https://www.web3d.org/x3d/content/examples/license.html";
+    
+    private final String numberSignificantDigitsEnabledDefault   = "false"; // avoid modifying source unless user decides
+    private final String numberSignificantDigitsPrecisionDefault = "6";
 
-    private final String HAnimGeometryRemoveDefault           = "false";
-    private final String HAnimSkeletonIllustrateDefault       = "false";
-    private final String HAnimSiteIllustrateDefault           = "false";
-    private final String HAnimViewpointIllustrateDefault      = "false";
-    private final String HAnimAddBoneSegmentsDefault          = "false";
+    private final String HAnimGeometryRemoveDefault              = "false";
+    private final String HAnimSkeletonIllustrateDefault          = "false";
+    private final String HAnimSiteIllustrateDefault              = "false";
+    private final String HAnimViewpointIllustrateDefault         = "false";
+    private final String HAnimAddBoneSegmentsDefault             = "false";
 
-    private final String jointColorDefault                    = "1 0.5 0";
-    private final String segmentColorDefault                  = "1 1 0";
-    private final String siteColorDefault                     = "1 0 0";
-    private final String siteViewpointColorDefault            = "0 0 1";
+    private final String jointColorDefault                       = "1 0.5 0";
+    private final String segmentColorDefault                     = "1 1 0";
+    private final String siteColorDefault                        = "1 0 0";
+    private final String siteViewpointColorDefault               = "0 0 1";
 
     private String conversionRequired;
     private String title;
@@ -131,6 +134,9 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
     private String insertMissingEcmascript;
     private String insertMissingMetaLicense;
     private String licenseLink;
+    
+    private String numberSignificantDigitsEnabled;
+    private String numberSignificantDigitsPrecision;
 
     private String HAnimGeometryRemove;
     private String HAnimSkeletonIllustrate;
@@ -210,6 +216,9 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
         setInsertMissingEcmascript(insertMissingEcmascriptDefault);
         setInsertMissingMetaLicense(insertMissingMetaLicenseDefault);
         setLicenseLink(licenseLinkDefault);
+        
+        setNumberSignificantDigitsEnabled(numberSignificantDigitsEnabledDefault);
+        setNumberSignificantDigitsPrecision       (numberSignificantDigitsPrecisionDefault);
 
         HAnimGeometryRemove           = HAnimGeometryRemoveDefault;
         HAnimSkeletonIllustrate       = HAnimSkeletonIllustrateDefault;
@@ -305,6 +314,8 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
         x3dTidyParametersHashMap.put("insertMissingEcmascript", getInsertMissingEcmascript());
         x3dTidyParametersHashMap.put("insertMissingMetaLicense", getInsertMissingMetaLicense());
         x3dTidyParametersHashMap.put("licenseLink", getLicenseLink());
+        x3dTidyParametersHashMap.put("numberSignificantDigitsPrecisionEnabled", getNumberSignificantDigitsEnabled());
+        x3dTidyParametersHashMap.put("numberSignificantDigitsPrecision",        getNumberSignificantDigitsPrecision());
         x3dTidyParametersHashMap.put("HAnimGeometryRemove", HAnimGeometryRemove);
         x3dTidyParametersHashMap.put("HAnimSkeletonIllustrate", HAnimSkeletonIllustrate);
         x3dTidyParametersHashMap.put("HAnimSiteIllustrate", HAnimSiteIllustrate);
@@ -319,7 +330,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_X3dTidyXsltAction");
+    return NbBundle.getMessage(getClass(), "CTL_X3dTidyConversionAction");
   }
 
   /**
@@ -354,7 +365,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
   public JMenuItem getMenuPresenter()
   {
     JMenuItem mi = super.getMenuPresenter();
-    mi.setToolTipText(NbBundle.getMessage(getClass(), "CTL_X3dTidyXsltAction_tt"));
+    mi.setToolTipText(NbBundle.getMessage(getClass(), "CTL_X3dTidyConversionAction_tt"));
     return mi;
   }
 
@@ -747,5 +758,33 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
      */
     public void setX3dTidyContinue(boolean x3dTidyContinue) {
         this.x3dTidyContinue = x3dTidyContinue;
+    }
+
+    /**
+     * @return the numberSignificantDigitsEnabled
+     */
+    public String getNumberSignificantDigitsEnabled() {
+        return numberSignificantDigitsEnabled;
+    }
+
+    /**
+     * @param numberSignificantDigitsPrecisionEnabled the numberSignificantDigitsEnabled to set
+     */
+    public void setNumberSignificantDigitsEnabled(String numberSignificantDigitsPrecisionEnabled) {
+        this.numberSignificantDigitsEnabled = numberSignificantDigitsPrecisionEnabled;
+    }
+
+    /**
+     * @return the numberSignificantDigitsPrecision
+     */
+    public String getNumberSignificantDigitsPrecision() {
+        return numberSignificantDigitsPrecision;
+    }
+
+    /**
+     * @param numberSignificantDigitsPrecision the numberSignificantDigitsPrecision to set
+     */
+    public void setNumberSignificantDigitsPrecision(String numberSignificantDigitsPrecision) {
+        this.numberSignificantDigitsPrecision = numberSignificantDigitsPrecision;
     }
 }

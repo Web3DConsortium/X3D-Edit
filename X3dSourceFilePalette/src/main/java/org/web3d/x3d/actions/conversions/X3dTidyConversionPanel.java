@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2023 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,6 +35,8 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.actions.conversions;
 
 import java.awt.Color;
+import org.web3d.x3d.actions.BaseViewAction;
+import static org.web3d.x3d.actions.BaseViewAction.X3D_REGEX;
 
 /**
  *
@@ -83,6 +85,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         insertMissingEcmascriptCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getInsertMissingEcmascript()));
         insertMissingMetaLicenseCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getInsertMissingEcmascript()));
         licenseLinkTextField.setText(x3dTidyConversionAction.getLicenseLink());
+        
+        numberSignificantDigitsPrecisionCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getNumberSignificantDigitsEnabled()));
+        numberSignificantDigitsPrecisionComboBox.setSelectedItem(x3dTidyConversionAction.getNumberSignificantDigitsPrecision());
           
         HAnimGeometryRemoveCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getHAnimGeometryRemove()));
         HAnimSkeletonIllustrateCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getHAnimSkeletonIllustrate()));
@@ -160,6 +165,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         horizontalSeparator1 = new javax.swing.JSeparator();
         changeJavascriptEcmascriptCheckBox = new javax.swing.JCheckBox();
         insertMissingEcmascriptCheckBox = new javax.swing.JCheckBox();
+        numberSignificantDigitsPrecisionCheckBox = new javax.swing.JCheckBox();
+        numberSignificantDigitsPrecisionComboBox = new javax.swing.JComboBox();
+        numberSignificantDigitsPrecisionHelpButton = new javax.swing.JButton();
         addressesPanel = new javax.swing.JPanel();
         fixUrlAdditionHttpAddressesCheckBox = new javax.swing.JCheckBox();
         appendWrlAfterX3dAddressesCheckBox = new javax.swing.JCheckBox();
@@ -194,6 +202,8 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         viewpointColorChooser = new net.java.dev.colorchooser.ColorChooser();
         viewpointColorHexTextField = new javax.swing.JTextField();
 
+        setMinimumSize(new java.awt.Dimension(610, 620));
+        setPreferredSize(new java.awt.Dimension(610, 620));
         setLayout(new java.awt.GridBagLayout());
 
         conversionPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.conversionPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
@@ -228,6 +238,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -235,14 +246,18 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
 
         revisedX3dVersionComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.0", "3.1", "3.2", "3.3", "4.0" }));
         revisedX3dVersionComboBox.setSelectedIndex(4);
+        revisedX3dVersionComboBox.setMaximumSize(new java.awt.Dimension(60, 22));
+        revisedX3dVersionComboBox.setMinimumSize(new java.awt.Dimension(60, 22));
+        revisedX3dVersionComboBox.setPreferredSize(new java.awt.Dimension(60, 22));
         revisedX3dVersionComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 revisedX3dVersionComboBoxActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
         conversionPanel.add(revisedX3dVersionComboBox, gridBagConstraints);
@@ -360,6 +375,52 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         conversionPanel.add(insertMissingEcmascriptCheckBox, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(numberSignificantDigitsPrecisionCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.numberSignificantDigitsPrecisionCheckBox.text")); // NOI18N
+        numberSignificantDigitsPrecisionCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.numberSignificantDigitsPrecisionCheckBox.toolTipText")); // NOI18N
+        numberSignificantDigitsPrecisionCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberSignificantDigitsPrecisionCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        conversionPanel.add(numberSignificantDigitsPrecisionCheckBox, gridBagConstraints);
+
+        numberSignificantDigitsPrecisionComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        numberSignificantDigitsPrecisionComboBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.numberSignificantDigitsPrecisionComboBox.toolTipText")); // NOI18N
+        numberSignificantDigitsPrecisionComboBox.setMaximumSize(new java.awt.Dimension(60, 22));
+        numberSignificantDigitsPrecisionComboBox.setMinimumSize(new java.awt.Dimension(60, 22));
+        numberSignificantDigitsPrecisionComboBox.setPreferredSize(new java.awt.Dimension(60, 22));
+        numberSignificantDigitsPrecisionComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberSignificantDigitsPrecisionComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        conversionPanel.add(numberSignificantDigitsPrecisionComboBox, gridBagConstraints);
+
+        numberSignificantDigitsPrecisionHelpButton.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(numberSignificantDigitsPrecisionHelpButton, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.numberSignificantDigitsPrecisionHelpButton.text")); // NOI18N
+        numberSignificantDigitsPrecisionHelpButton.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.numberSignificantDigitsPrecisionHelpButton.toolTipText")); // NOI18N
+        numberSignificantDigitsPrecisionHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberSignificantDigitsPrecisionHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        conversionPanel.add(numberSignificantDigitsPrecisionHelpButton, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -629,6 +690,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         hanimPanel.add(jointColorTextField, gridBagConstraints);
 
+        jointColorChooser.setMaximumSize(new java.awt.Dimension(22, 22));
+        jointColorChooser.setMinimumSize(new java.awt.Dimension(22, 22));
+        jointColorChooser.setPreferredSize(new java.awt.Dimension(22, 22));
         jointColorChooser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jointColorChooserActionPerformed(evt);
@@ -639,11 +703,11 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         jointColorChooser.setLayout(jointColorChooserLayout);
         jointColorChooserLayout.setHorizontalGroup(
             jointColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
         jointColorChooserLayout.setVerticalGroup(
             jointColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -696,6 +760,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         hanimPanel.add(segmentColorTextField, gridBagConstraints);
 
+        segmentColorChooser.setMaximumSize(new java.awt.Dimension(22, 22));
+        segmentColorChooser.setMinimumSize(new java.awt.Dimension(22, 22));
+        segmentColorChooser.setPreferredSize(new java.awt.Dimension(22, 22));
         segmentColorChooser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 segmentColorChooserActionPerformed(evt);
@@ -706,11 +773,11 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         segmentColorChooser.setLayout(segmentColorChooserLayout);
         segmentColorChooserLayout.setHorizontalGroup(
             segmentColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
         segmentColorChooserLayout.setVerticalGroup(
             segmentColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -763,6 +830,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         hanimPanel.add(siteColorTextField, gridBagConstraints);
 
+        siteColorChooser.setMaximumSize(new java.awt.Dimension(22, 22));
+        siteColorChooser.setMinimumSize(new java.awt.Dimension(22, 22));
+        siteColorChooser.setPreferredSize(new java.awt.Dimension(22, 22));
         siteColorChooser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 siteColorChooserActionPerformed(evt);
@@ -773,11 +843,11 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         siteColorChooser.setLayout(siteColorChooserLayout);
         siteColorChooserLayout.setHorizontalGroup(
             siteColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
         siteColorChooserLayout.setVerticalGroup(
             siteColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -830,6 +900,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         hanimPanel.add(viewpointColorTextField, gridBagConstraints);
 
+        viewpointColorChooser.setMaximumSize(new java.awt.Dimension(22, 22));
+        viewpointColorChooser.setMinimumSize(new java.awt.Dimension(22, 22));
+        viewpointColorChooser.setPreferredSize(new java.awt.Dimension(22, 22));
         viewpointColorChooser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewpointColorChooserActionPerformed(evt);
@@ -840,11 +913,11 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         viewpointColorChooser.setLayout(viewpointColorChooserLayout);
         viewpointColorChooserLayout.setHorizontalGroup(
             viewpointColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
         viewpointColorChooserLayout.setVerticalGroup(
             viewpointColorChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 22, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1089,6 +1162,18 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         x3dTidyConversionAction.setOmitNegativeScaleValues(Boolean.toString(omitNegativeScaleValuesCheckBox.isSelected()));
     }//GEN-LAST:event_omitNegativeScaleValuesCheckBoxActionPerformed
 
+    private void numberSignificantDigitsPrecisionCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberSignificantDigitsPrecisionCheckBoxActionPerformed
+        x3dTidyConversionAction.setNumberSignificantDigitsEnabled(Boolean.toString(numberSignificantDigitsPrecisionCheckBox.isSelected()));
+    }//GEN-LAST:event_numberSignificantDigitsPrecisionCheckBoxActionPerformed
+
+    private void numberSignificantDigitsPrecisionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberSignificantDigitsPrecisionComboBoxActionPerformed
+        x3dTidyConversionAction.setNumberSignificantDigitsPrecision(numberSignificantDigitsPrecisionComboBox.getSelectedItem().toString());
+    }//GEN-LAST:event_numberSignificantDigitsPrecisionComboBoxActionPerformed
+
+    private void numberSignificantDigitsPrecisionHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberSignificantDigitsPrecisionHelpButtonActionPerformed
+        BaseViewAction.sendBrowserTo(X3D_REGEX + "#SignificantDigitsPrecision");
+    }//GEN-LAST:event_numberSignificantDigitsPrecisionHelpButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox HAnimAddBoneSegmentsCheckBox;
     private javax.swing.JCheckBox HAnimGeometryRemoveCheckBox;
@@ -1119,6 +1204,9 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jointColorTextField;
     private javax.swing.JTextField licenseLinkTextField;
     private javax.swing.JCheckBox modifyX3dVersionCheckBox;
+    private javax.swing.JCheckBox numberSignificantDigitsPrecisionCheckBox;
+    private javax.swing.JComboBox numberSignificantDigitsPrecisionComboBox;
+    private javax.swing.JButton numberSignificantDigitsPrecisionHelpButton;
     private javax.swing.JCheckBox omitNegativeScaleValuesCheckBox;
     private javax.swing.JCheckBox prependX3dBeforeWrlAddressesCheckBox;
     private javax.swing.JCheckBox replaceBlackEmissiveColorCheckBox;

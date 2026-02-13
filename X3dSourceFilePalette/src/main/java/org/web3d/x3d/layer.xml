@@ -1135,20 +1135,23 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="PIXELTEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PIXELTEXTURE.xml">
                 <attr name="position" intvalue="1000"/>
             </file>
-            <file name="MULTITEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURE.xml">
+            <file name="TEXTUREPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTUREPROPERTIES.xml">
                 <attr name="position" intvalue="1100"/>
             </file>
-            <file name="TEXTUREPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTUREPROPERTIES.xml">
+            <file name="TEXTURETRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORM.xml">
                 <attr name="position" intvalue="1200"/>
             </file>
-            <file name="TEXTURETRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTURETRANSFORM.xml">
+            <file name="MULTITEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURE.xml">
                 <attr name="position" intvalue="1300"/>
             </file>
-            <file name="MULTITEXTURETRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURETRANSFORM.xml">
+            <file name="MULTITEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURECOORDINATE.xml">
                 <attr name="position" intvalue="1400"/>
             </file>
-            <file name="ACOUSTICPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ACOUSTICPROPERTIES.xml">
+            <file name="MULTITEXTURETRANSFORM.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURETRANSFORM.xml">
                 <attr name="position" intvalue="1500"/>
+            </file>
+            <file name="ACOUSTICPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/ACOUSTICPROPERTIES.xml">
+                <attr name="position" intvalue="1600"/>
             </file>
         </folder>
         <folder name="Geometry_Points_Lines_and_Polygons">

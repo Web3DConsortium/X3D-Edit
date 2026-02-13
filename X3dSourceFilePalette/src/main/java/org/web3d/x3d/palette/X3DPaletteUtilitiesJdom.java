@@ -292,7 +292,7 @@ public final class X3DPaletteUtilitiesJdom
 
       ValidateListener lis = new ValidateListener(thisTarget,thisDoDialog,x3dEditor);
 
-      xsup.validateXML(lis);
+      xsup.validateXML(lis); // TODO catch exception?
       lis.receive(null); // signal done
     }
 

@@ -112,7 +112,24 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
 
       x3dElement = null; // reset
 
-      String newString = doDialog(jdoc, documentEditorPane, selectedLocation);
+        String newString;
+        try {
+            newString = doDialog(jdoc, documentEditorPane, selectedLocation);
+        } catch (Exception e) {
+            String badNodeName = selectedString.replace("<", "").replace("/", "").replace(">", "");
+            if (badNodeName.contains(" ")) {
+                badNodeName = badNodeName.substring(0, badNodeName.indexOf(" "));
+            }
+            String message = "illegal node: '" + badNodeName + "' not recognized";
+
+            NotifyDescriptor nd = new NotifyDescriptor.Message(message);
+            nd.setTitle("Illegal node name: '" + badNodeName + "'");
+            DialogDisplayer.getDefault().notify(nd);
+            System.err.println("*** EditElementAction exception, " + message + "; from selection '" + selectedString + "'");
+            Exceptions.printStackTrace(e);
+            return; // cancelled
+        }
+      
       boolean handlerInsertionMade = false;
 
       if (newString != null) // node editing dialog returned a result, so insert it and replace prior text
