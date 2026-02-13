@@ -12002,9 +12002,9 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     private void inkscapeEditorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inkscapeEditorChooserButtonActionPerformed
         commonChooser(inkscapeEditorPathTF, "Find Inkscape authoring tool", evt);
         inkscapeEditorAutoLaunchCheck();
-            commonChooser(inkscapeEditorPathTF, "Inkscape SVG authoring tool", evt);
-    X3dEditUserPreferences.setInkscapeEditorPath(inkscapeEditorPathTF.getText().trim());
-    inkscapeEditorAutoLaunchCheck ();
+        commonChooser(inkscapeEditorPathTF, "Inkscape SVG authoring tool", evt);
+        X3dEditUserPreferences.setInkscapeEditorPath(inkscapeEditorPathTF.getText().trim());
+        inkscapeEditorAutoLaunchCheck ();
     }//GEN-LAST:event_inkscapeEditorChooserButtonActionPerformed
 
     private void inkscapeEditorDefaultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inkscapeEditorDefaultButtonActionPerformed
@@ -12375,7 +12375,9 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
     }//GEN-LAST:event_wiresharkPathTFActionPerformed
 
     private void wiresharkChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkChooserButtonActionPerformed
-        wiresharkPathTF.setText(X3dEditUserPreferences.getWiresharkPathDefault());
+        commonChooser(wiresharkPathTF, "Find Wireshark network monitoring tool", evt);
+        wiresharkAutoLaunchCheck();
+        commonChooser(wiresharkPathTF, "Wireshark network monitoring tool", evt);
         X3dEditUserPreferences.setWiresharkPath(wiresharkPathTF.getText().trim());
         wiresharkAutoLaunchCheck ();
     }//GEN-LAST:event_wiresharkChooserButtonActionPerformed
