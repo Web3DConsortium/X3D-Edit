@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -12399,6 +12399,8 @@ private void contactTFActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST
 
     private void wiresharkHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkHelpButtonActionPerformed
         browserLaunch(X3dEditUserPreferences.helpSiteWireshark);
+        browserLaunch(X3dEditUserPreferences.helpMV3500CourseWireshark);
+        browserLaunch(X3dEditUserPreferences.helpMV3500CourseWiresharkREADME);
     }//GEN-LAST:event_wiresharkHelpButtonActionPerformed
 
     private void xj3dNvdSecurityCheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xj3dNvdSecurityCheckButtonActionPerformed
@@ -13342,21 +13344,21 @@ for Extensible 3D (X3D) Graphics International Standard.
      * @param applicationPath local executable of interest
      * @see https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ProcessBuilder.html
      */
-    public static void externalProcessLaunch(String applicationPath) {
+    public static void externalProcessLaunch(String... applicationPath) {
         ProcessBuilder processBuilder;
         try
         {
-            applicationPath = applicationPath.trim();
-            if (applicationPath.endsWith(".lnk"))
+            applicationPath[0] = applicationPath[0].trim();
+            if (applicationPath[0].endsWith(".lnk"))
             {
                  // https://stackoverflow.com/questions/4749660/execute-file-lnk-in-java
-                 processBuilder = new ProcessBuilder("cmd", "/c", applicationPath);
+                 processBuilder = new ProcessBuilder("cmd", "/c", applicationPath[0]);
             }
             else processBuilder = new ProcessBuilder(applicationPath);
             // check if application apparently needs to start in its own directory
-            if (applicationPath.toLowerCase().contains("portecle"))
+            if (applicationPath[0].toLowerCase().contains("portecle"))
             {
-                File applicationDirectory = (new File(applicationPath)).getParentFile();
+                File applicationDirectory = (new File(applicationPath[0])).getParentFile();
                 if (applicationDirectory.isDirectory())
                     processBuilder.directory(applicationDirectory); // set initial directory
             }

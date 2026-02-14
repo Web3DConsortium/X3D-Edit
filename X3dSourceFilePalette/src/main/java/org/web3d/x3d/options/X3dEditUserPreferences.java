@@ -477,18 +477,18 @@ public class X3dEditUserPreferences
   public static String OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_NAME_KEY ="OTHER_SEMANTICWEB_EDITOR_EXECUTABLE_NAME";
   
   /* External viewers options */
-  public static String           AMAYA_EDITOR_PATH_KEY          =          "AMAYA_EDITOR_PATH";
-  public static String        AUDACITY_EDITOR_PATH_KEY          =       "AUDACITY_EDITOR_PATH";
-  public static String       MUSESCORE_EDITOR_PATH_KEY          =      "MUSESCORE_EDITOR_PATH";
-  public static String            GIMP_EDITOR_PATH_KEY          =           "GIMP_EDITOR_PATH";
-  public static String          IMAGEJ_EDITOR_PATH_KEY          =         "IMAGEJ_EDITOR_PATH";
-  public static String     IMAGEMAGICK_EDITOR_PATH_KEY          =    "IMAGEMAGICK_EDITOR_PATH";
-  public static String            FIJI_EDITOR_PATH_KEY          =           "FIJI_EDITOR_PATH";
-  public static String             VLC_PLAYER_PATH_KEY          =            "VLC_PLAYER_PATH";
-  public static String         PROTEGE_PLAYER_PATH_KEY          =        "PROTEGE_PLAYER_PATH";
-  public static String        PORTECLE_PLAYER_PATH_KEY          =       "PORTECLE_PLAYER_PATH";
+  public static String            AMAYA_EDITOR_PATH_KEY         =            "AMAYA_EDITOR_PATH";
+  public static String         AUDACITY_EDITOR_PATH_KEY         =         "AUDACITY_EDITOR_PATH";
+  public static String        MUSESCORE_EDITOR_PATH_KEY         =        "MUSESCORE_EDITOR_PATH";
+  public static String             GIMP_EDITOR_PATH_KEY         =             "GIMP_EDITOR_PATH";
+  public static String           IMAGEJ_EDITOR_PATH_KEY         =           "IMAGEJ_EDITOR_PATH";
+  public static String      IMAGEMAGICK_EDITOR_PATH_KEY         =      "IMAGEMAGICK_EDITOR_PATH";
+  public static String             FIJI_EDITOR_PATH_KEY         =             "FIJI_EDITOR_PATH";
+  public static String              VLC_PLAYER_PATH_KEY         =              "VLC_PLAYER_PATH";
+  public static String          PROTEGE_PLAYER_PATH_KEY         =          "PROTEGE_PLAYER_PATH";
+  public static String         PORTECLE_PLAYER_PATH_KEY         =         "PORTECLE_PLAYER_PATH";
   public static String KEYSTOREEXPLORER_PLAYER_PATH_KEY         = "KEYSTOREEXPLORER_PLAYER_PATH";
-  public static String               WIRESHARK_PATH_KEY          =              "WIRESHARK_PATH";
+  public static String               WIRESHARK_PATH_KEY         =               "WIRESHARK_PATH";
   
   public static String ALTOVA_XMLSPY_X3D_EDITOR_PATH_KEY        = "ALTOVA_XMLSPY_X3D_EDITOR_PATH";
   public static String     BLENDER_X3D_EDITOR_PATH_KEY          =    "BLENDER_X3D_EDITOR_PATH";
@@ -951,7 +951,9 @@ public class X3dEditUserPreferences
   protected static final String helpSiteProtege                          = "https://protege.stanford.edu/support.php#documentationSupport";
   protected static final String helpSitePortecle                         = "https://portecle.sourceforge.net/howtos.html";
   protected static final String helpSiteKeystoreExplorer                 = "https://keystore-explorer.org/doc/5.5/overview.html";
-  protected static final String helpSiteWireshark                        = "https://www.wireshark.org/faq.html";
+  public    static final String helpSiteWireshark                        = "https://www.wireshark.org/faq.html";
+  public    static final String helpMV3500CourseWireshark                = "https://gitlab.nps.edu/Savage/NetworkedGraphicsMV3500/-/blob/master/documentation/Wireshark";
+  public    static final String helpMV3500CourseWiresharkREADME          = "https://gitlab.nps.edu/Savage/NetworkedGraphicsMV3500/-/blob/master/documentation/Wireshark/README.md";
   
   protected static final String helpSiteAltovaXMLSpy                     = "https://www.altova.com/library";
   protected static final String helpSiteBlender                          = "https://www.blender.org/support";
@@ -1897,21 +1899,22 @@ BSCONTENTSTUDIO_X3D_EDITOR_PATH_DEFAULT         = toks(otherBsContentStudioX3dEd
   public static String DIS_SCALEY_KEY   = "DIS_SCALEY";
   public static String DIS_SCALEZ_KEY   = "DIS_SCALEZ";
   
-  public static String getDISaddress(String dflt)  {return commonStringGet(DIS_ADDRESS_KEY, dflt);}
-  public static String getDISport(String dflt)     {return commonStringGet(DIS_PORT_KEY,    dflt);}
-  public static String getDISappID(String dflt)    {return commonStringGet(DIS_APPID_KEY,   dflt);}
-  public static String getDISentityID(String dflt) {return commonStringGet(DIS_ENTITYID_KEY,dflt);}
-  public static String getDISsiteID(String dflt)   {return commonStringGet(DIS_SITEID_KEY,  dflt);}
-  public static String getDIStranslationScaleX(String dflt)   {return commonStringGet(DIS_SCALEX_KEY, dflt);}
-  public static String getDIStranslationScaleY(String dflt)   {return commonStringGet(DIS_SCALEY_KEY, dflt);}
-  public static String getDIStranslationScaleZ(String dflt)   {return commonStringGet(DIS_SCALEZ_KEY, dflt);}
+  // defaultValue is returned if no saved preference value is found for the key
+  public static String getDISaddress(String defaultValue)           {return commonStringGet(DIS_ADDRESS_KEY, defaultValue);}
+  public static String getDISport(String defaultValue)              {return commonStringGet(DIS_PORT_KEY,    defaultValue);}
+  public static String getDISappID(String defaultValue)             {return commonStringGet(DIS_APPID_KEY,   defaultValue);}
+  public static String getDISentityID(String defaultValue)          {return commonStringGet(DIS_ENTITYID_KEY,defaultValue);}
+  public static String getDISsiteID(String defaultValue)            {return commonStringGet(DIS_SITEID_KEY,  defaultValue);}
+  public static String getDIStranslationScaleX(String defaultValue) {return commonStringGet(DIS_SCALEX_KEY, defaultValue);}
+  public static String getDIStranslationScaleY(String defaultValue) {return commonStringGet(DIS_SCALEY_KEY, defaultValue);}
+  public static String getDIStranslationScaleZ(String defaultValue) {return commonStringGet(DIS_SCALEZ_KEY, defaultValue);}
   
-  public static void setDISaddress(String val)  {commonStringSet(DIS_ADDRESS_KEY, val);}
-  public static void setDISport(String val)     {commonStringSet(DIS_PORT_KEY,    val);}
-  public static void setDISappID(String val)    {commonStringSet(DIS_APPID_KEY,   val);}
-  public static void setDISentityID(String val) {commonStringSet(DIS_ENTITYID_KEY,val);}
-  public static void setDISsiteID(String val)   {commonStringSet(DIS_SITEID_KEY,  val);}
-  public static void setDIStranslationScaleX(String val) {commonStringSet(DIS_SCALEX_KEY, val);}
-  public static void setDIStranslationScaleY(String val) {commonStringSet(DIS_SCALEY_KEY, val);}
-  public static void setDIStranslationScaleZ(String val) {commonStringSet(DIS_SCALEZ_KEY, val);}
+  public static void setDISaddress(String newValue)           {commonStringSet(DIS_ADDRESS_KEY, newValue);}
+  public static void setDISport(String newValue)              {commonStringSet(DIS_PORT_KEY,    newValue);}
+  public static void setDISappID(String newValue)             {commonStringSet(DIS_APPID_KEY,   newValue);}
+  public static void setDISentityID(String newValue)          {commonStringSet(DIS_ENTITYID_KEY,newValue);}
+  public static void setDISsiteID(String newValue)            {commonStringSet(DIS_SITEID_KEY,  newValue);}
+  public static void setDIStranslationScaleX(String newValue) {commonStringSet(DIS_SCALEX_KEY, newValue);}
+  public static void setDIStranslationScaleY(String newValue) {commonStringSet(DIS_SCALEY_KEY, newValue);}
+  public static void setDIStranslationScaleZ(String newValue) {commonStringSet(DIS_SCALEZ_KEY, newValue);}
 }
