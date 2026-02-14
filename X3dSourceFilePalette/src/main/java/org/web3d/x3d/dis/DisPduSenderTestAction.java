@@ -65,11 +65,11 @@ public class DisPduSenderTestAction extends AbstractAction
   @Override
   public void actionPerformed(ActionEvent evt)
   {
-    String address = X3dEditUserPreferences.getDISaddress("239.1.2.3");
+    String address = X3dEditUserPreferences.getDISaddress("239.1.2.3"); // these values are defaults if no preferences are found
     String port    = X3dEditUserPreferences.getDISport("3000");
     
     System.out.println("========================================================================================");
-    System.out.println("DIS PDU Alphabetical PDU Sender Test");
+    System.out.println("DIS Alphabetical PDU Sender Test (expecting 72 PDUs total)");
     System.out.println();
     edu.nps.moves.dis7.examples.AlphabeticalPduSender.main(new String[]{address, port}); // output goes to console
     System.out.println("========================================================================================");
