@@ -533,6 +533,7 @@
             <word>MicrophoneSource</word>
             <word>mocap</word>
             <word>MovieTexture</word>
+            <word>multicast</word>
             <word>MultiTexture</word>
             <word>MultiTextureCoordinate</word>
             <word>MultiTextureTransform</word>
@@ -548,6 +549,8 @@
             <word>oversample</word>
             <word>panner</word>
             <word>Paraview</word>
+            <word>PDU</word>
+            <word>PDUs</word>
             <word>PeriodicWave</word>
             <word>PhysicalMaterial</word>
             <word>PixelTexture</word>
