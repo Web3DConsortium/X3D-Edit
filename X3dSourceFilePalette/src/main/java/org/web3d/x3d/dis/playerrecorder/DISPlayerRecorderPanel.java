@@ -75,6 +75,8 @@ import org.web3d.x3d.dis.playerrecorder.DISPlayer.DISSenderStoppedListener;
 import org.web3d.x3d.dis.playerrecorder.DISPlayer.DISSentListener;
 import org.web3d.x3d.dis.playerrecorder.DISPlayerRecorderStateMachine.PlayerEvent;
 import org.web3d.x3d.options.X3dEditUserPreferences;
+import static org.web3d.x3d.options.X3dEditUserPreferencesPanel.browserLaunch;
+import static org.web3d.x3d.options.X3dEditUserPreferencesPanel.externalProcessLaunch;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 
 /**
@@ -228,9 +230,12 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
       Component c = displayPanelScroller.getViewport().getView();
       if (c != null && c.getClass().equals(displayPanelClass))
         displayPanel = c;
-      if (displayPanel == null) {
+      if (displayPanel == null) 
+      {
+        // choose the correct PDU display class
 //      displayPanel = displayPanelClass.getDeclaredConstructor(displayPanelClass).newInstance(); // TODO not working
-        displayPanel = displayPanelClass.newInstance();
+        // https://stackoverflow.com/questions/46393863/what-to-use-instead-of-class-newinstance
+        displayPanel = displayPanelClass.getDeclaredConstructor().newInstance(); // fix deprecation
         displayPanelScroller.setViewportView((Component) displayPanel);
         displayContainer.validate();
       }
@@ -874,11 +879,14 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         pduList = new javax.swing.JList();
         displayContainer = new javax.swing.JPanel();
         displayPanelScroller = new javax.swing.JScrollPane();
-        netParamPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        networkParametersPanel = new javax.swing.JPanel();
+        addressLabel = new javax.swing.JLabel();
         addressTF = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        portLabel = new javax.swing.JLabel();
         portTF = new javax.swing.JTextField();
+        alphabeticPduSendTestButton = new javax.swing.JButton();
+        wiresharkButton = new javax.swing.JButton();
+        wiresharkHelpButton = new javax.swing.JButton();
         displayModeChoicePanel = new javax.swing.JPanel();
         displayModeLabel = new javax.swing.JLabel();
         textModeButton = new javax.swing.JRadioButton();
@@ -954,48 +962,116 @@ public class DISPlayerRecorderPanel extends javax.swing.JPanel
         gridBagConstraints.weighty = 1.0;
         selectionPanel.add(jSplitPane1, gridBagConstraints);
 
-        netParamPanel.setLayout(new java.awt.GridBagLayout());
+        networkParametersPanel.setMinimumSize(new java.awt.Dimension(350, 26));
+        networkParametersPanel.setPreferredSize(new java.awt.Dimension(350, 26));
+        networkParametersPanel.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.jLabel1.text")); // NOI18N
-        jLabel1.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.jLabel1.toolTipText")); // NOI18N
+        addressLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        addressLabel.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.addressLabel.text")); // NOI18N
+        addressLabel.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.addressLabel.toolTipText")); // NOI18N
+        addressLabel.setAlignmentY(0.0F);
+        addressLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        addressLabel.setMaximumSize(new java.awt.Dimension(100, 16));
+        addressLabel.setMinimumSize(new java.awt.Dimension(45, 16));
+        addressLabel.setPreferredSize(new java.awt.Dimension(45, 16));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        netParamPanel.add(jLabel1, gridBagConstraints);
+        networkParametersPanel.add(addressLabel, gridBagConstraints);
 
         addressTF.setText(org.web3d.x3d.options.X3dEditUserPreferences.getDISaddress(org.web3d.x3d.dis.DisEspduSenderControlPanel.DEFAULT_DIS_ADDRESS));
         addressTF.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.addressTF.toolTipText")); // NOI18N
-        addressTF.setMinimumSize(new java.awt.Dimension(114, 22));
-        addressTF.setPreferredSize(new java.awt.Dimension(114, 22));
+        addressTF.setMinimumSize(new java.awt.Dimension(90, 22));
+        addressTF.setPreferredSize(new java.awt.Dimension(90, 22));
+        addressTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressTFActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        netParamPanel.add(addressTF, gridBagConstraints);
+        networkParametersPanel.add(addressTF, gridBagConstraints);
 
-        jLabel2.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.jLabel2.text")); // NOI18N
-        jLabel2.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.portTF.toolTipText")); // NOI18N
+        portLabel.setText(NbBundle.getMessage(getClass(), "DISPlayerRecorderPanel.portLabel.text")); // NOI18N
+        portLabel.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.portTF.toolTipText")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        netParamPanel.add(jLabel2, gridBagConstraints);
+        networkParametersPanel.add(portLabel, gridBagConstraints);
 
         portTF.setText(org.web3d.x3d.options.X3dEditUserPreferences.getDISport(""+org.web3d.x3d.dis.DisEspduSenderControlPanel.DEFAULT_PORT));
         portTF.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.portTF.toolTipText")); // NOI18N
         portTF.setMinimumSize(new java.awt.Dimension(46, 22));
         portTF.setPreferredSize(new java.awt.Dimension(46, 22));
+        portTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                portTFActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        netParamPanel.add(portTF, gridBagConstraints);
+        networkParametersPanel.add(portTF, gridBagConstraints);
+
+        alphabeticPduSendTestButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/OpenDisSurferDude.16x16.png"))); // NOI18N
+        alphabeticPduSendTestButton.setText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.alphabeticPduSendTestButton.text")); // NOI18N
+        alphabeticPduSendTestButton.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.alphabeticPduSendTestButton.toolTipText")); // NOI18N
+        alphabeticPduSendTestButton.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        alphabeticPduSendTestButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alphabeticPduSendTestButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        networkParametersPanel.add(alphabeticPduSendTestButton, gridBagConstraints);
+
+        wiresharkButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/web3d/x3d/resources/Wireshark_favicon_16x16.png"))); // NOI18N
+        wiresharkButton.setText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.wiresharkButton.text")); // NOI18N
+        wiresharkButton.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.wiresharkButton.toolTipText")); // NOI18N
+        wiresharkButton.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        wiresharkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wiresharkButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        networkParametersPanel.add(wiresharkButton, gridBagConstraints);
+
+        wiresharkHelpButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        wiresharkHelpButton.setText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.wiresharkHelpButton.text")); // NOI18N
+        wiresharkHelpButton.setToolTipText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.wiresharkHelpButton.toolTipText")); // NOI18N
+        wiresharkHelpButton.setMargin(new java.awt.Insets(1, 1, 1, 3));
+        wiresharkHelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wiresharkHelpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        networkParametersPanel.add(wiresharkHelpButton, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        selectionPanel.add(netParamPanel, gridBagConstraints);
+        selectionPanel.add(networkParametersPanel, gridBagConstraints);
 
         displayModeChoicePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        displayModeChoicePanel.setMinimumSize(new java.awt.Dimension(420, 31));
-        displayModeChoicePanel.setPreferredSize(new java.awt.Dimension(420, 31));
+        displayModeChoicePanel.setMinimumSize(new java.awt.Dimension(400, 31));
+        displayModeChoicePanel.setPreferredSize(new java.awt.Dimension(400, 31));
         displayModeChoicePanel.setLayout(new java.awt.GridBagLayout());
 
         displayModeLabel.setText(org.openide.util.NbBundle.getMessage(DISPlayerRecorderPanel.class, "DISPlayerRecorderPanel.displayModeLabel.text")); // NOI18N
@@ -1538,8 +1614,72 @@ private void loopToggleButtonActionPerformed(java.awt.event.ActionEvent evt)//GE
 
     }//GEN-LAST:event_pduListPropertyChange
 
+    public String getWiresharkFilter()
+    {
+        // https://www.wireshark.org/docs/wsug_html_chunked/ChCustCommandLine.html
+        String wiresharkFilter = "udp && dis";                                    // simplest
+//      String wiresharkFilter = "(tcp.port == " + portTF.getText() + " || udp.port == " + portTF.getText() + ") && dis"; // MV3500 default
+//      String wiresharkFilter = "ip.addr " + addressTF.getText() + " && port " + portTF.getText() + " && dis";
+        return wiresharkFilter;
+    }
+    public String getWiresharkCommandLineInvocation() // TODO fix
+    {
+        // https://www.wireshark.org/docs/wsug_html_chunked/ChCustCommandLine.html
+        String wiresharkCommandLineInvocation = " -f \"ip.addr " + addressTF.getText() + "\"  && port " + portTF.getText() + " && dis "; // 
+        return wiresharkCommandLineInvocation;
+    }
+    
+    private void wiresharkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkButtonActionPerformed
+//        String[] invocationArray = {X3dEditUserPreferences.getWiresharkPath(), getWiresharkCommandLineInvocation()};
+
+        File    checkExistingFile = new File(X3dEditUserPreferences.getWiresharkPath());
+        boolean isExecutableFile = checkExistingFile.exists() && checkExistingFile.isFile() && checkExistingFile.canExecute();
+        if (!isExecutableFile)
+        {
+            JOptionPane.showMessageDialog(this, "Check X3D-Edit User Preferences for Wireshark", 
+                        "Wireshark installation not found", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        externalProcessLaunch(X3dEditUserPreferences.getWiresharkPath());
+        JOptionPane.showMessageDialog(this, "<html><p align='center'>Simple filter: " + getWiresharkFilter() + "</p>", 
+                                    "Need Wireshark filter to see DIS PDUs", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_wiresharkButtonActionPerformed
+
+    private void addressTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTFActionPerformed
+        getWiresharkCommandLineInvocation(); // update tooltip
+        X3dEditUserPreferences.setDISaddress(addressTF.getText()); // save new value
+    }//GEN-LAST:event_addressTFActionPerformed
+
+    private void portTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portTFActionPerformed
+        // reset default
+        X3dEditUserPreferences.setDISport(portTF.getText()); // save new value
+    }//GEN-LAST:event_portTFActionPerformed
+
+    private void alphabeticPduSendTestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alphabeticPduSendTestButtonActionPerformed
+        // see DisPduSenderTestAction
+        System.out.println("========================================================================================");
+        System.out.println("DIS Alphabetical PDU Sender Test (expecting 72 PDUs total)");
+        System.out.println();
+        edu.nps.moves.dis7.examples.AlphabeticalPduSender.main(new String[]{addressTF.getText(), portTF.getText()}); // output goes to console
+        System.out.println("========================================================================================");
+        if (!playbackStateTF.getText().contains("recording"))
+        {
+            JOptionPane.showMessageDialog(this, 
+                        "Select Record mode to see DIS PDUs", "PDUs sent to network, but not visible here", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_alphabeticPduSendTestButtonActionPerformed
+
+    private void wiresharkHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wiresharkHelpButtonActionPerformed
+        browserLaunch(X3dEditUserPreferences.helpSiteWireshark);
+        browserLaunch(X3dEditUserPreferences.helpMV3500CourseWireshark);
+        browserLaunch(X3dEditUserPreferences.helpMV3500CourseWiresharkREADME);
+    }//GEN-LAST:event_wiresharkHelpButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField addressTF;
+    private javax.swing.JButton alphabeticPduSendTestButton;
     private javax.swing.JToolBar beginToolbar;
     public javax.swing.JButton beginningButton;
     public javax.swing.JButton clearButton;
@@ -1553,14 +1693,12 @@ private void loopToggleButtonActionPerformed(java.awt.event.ActionEvent evt)//GE
     public javax.swing.JButton ffButton;
     private javax.swing.JRadioButton formattedPduModeButton;
     private javax.swing.ButtonGroup formattedRawBG;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JScrollPane listScroller;
     public javax.swing.JButton loadButton;
     public javax.swing.JToggleButton loopToggleButton;
     private javax.swing.JToolBar loopToolBar;
-    private javax.swing.JPanel netParamPanel;
+    private javax.swing.JPanel networkParametersPanel;
     private javax.swing.JLabel operationModeLabel;
     private javax.swing.JPanel operationStatusPanel;
     private javax.swing.JToolBar operationStatusjToolBar;
@@ -1569,6 +1707,7 @@ private void loopToggleButtonActionPerformed(java.awt.event.ActionEvent evt)//GE
     public javax.swing.JButton playButton;
     private javax.swing.JToolBar playToolBar;
     public javax.swing.JLabel playbackStateTF;
+    private javax.swing.JLabel portLabel;
     private javax.swing.JTextField portTF;
     private javax.swing.JRadioButton rawHexBytesButton;
     public javax.swing.JButton recordButton;
@@ -1583,6 +1722,8 @@ private void loopToggleButtonActionPerformed(java.awt.event.ActionEvent evt)//GE
     private javax.swing.JRadioButton textModeButton;
     private javax.swing.JPanel toolbarPanel;
     private javax.swing.JPanel vcrPanel;
+    private javax.swing.JButton wiresharkButton;
+    private javax.swing.JButton wiresharkHelpButton;
     // End of variables declaration//GEN-END:variables
 
   /*
