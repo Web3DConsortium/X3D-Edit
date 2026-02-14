@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2024 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -40,14 +40,12 @@ import org.openide.awt.ActionRegistration;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
 import org.web3d.x3d.options.X3dEditUserPreferences;
+import static org.web3d.x3d.options.X3dEditUserPreferencesPanel.externalProcessLaunch;
 
 /**
- * Action which launches WIreshark network monitoring tool.
- * 
- * Curious problem TODO:  a file needs to be selected or else a strange exception appears on IDE log:
- * "WARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.javaWARNING [org.netbeans.modules.versioning.util.Utils]: associateEncoding() no file object available for C:\Users\brutzman\AppData\Local\Temp\vcs-1703744662210\vcs-1703746344505\LaunchWiresharkAction.java"
+ * Action which launches Wireshark network monitoring tool.
  */
-@ActionID(id = "org.web3d.x3d.actions.WiresharkAction", category = "X3D-Edit")
+@ActionID(id = "org.web3d.x3d.actions.LaunchWiresharkAction", category = "X3D-Edit")
 @ActionRegistration(   iconBase = "org/web3d/x3d/resources/Wireshark_favicon.png",
                     displayName = "#CTL_LaunchWiresharkAction", 
                             lazy=true)
@@ -58,6 +56,11 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
 
 public class LaunchWiresharkAction extends ViewInBaseAction
 {
+  @Override
+  public void performAction()
+  {
+    externalProcessLaunch(X3dEditUserPreferences.getWiresharkPath());
+  }
   @Override
   protected boolean getEscapeSpaces()
   {
@@ -85,7 +88,7 @@ public class LaunchWiresharkAction extends ViewInBaseAction
   @Override
   public String getName()
   {
-    return NbBundle.getMessage(getClass(), "CTL_LaunchWiresharkAction");
+    return NbBundle.getMessage(LaunchWiresharkAction.class, "CTL_LaunchWiresharkAction");
   }
 
   @Override
