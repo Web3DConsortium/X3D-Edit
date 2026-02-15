@@ -254,7 +254,7 @@ import org.xml.sax.SAXParseException;
         }
         if (x3dEditorTopComponentArrayList.isEmpty())
         {
-            String message = "Must first open an .x3d model prior to performing conversion.  No action taken.";
+            String message = "First open .x3d model prior to conversion...";
             System.err.println ("*** " + this.getClass().getName() + ": " + message);
             NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
             DialogDisplayer.getDefault().notify(msg);

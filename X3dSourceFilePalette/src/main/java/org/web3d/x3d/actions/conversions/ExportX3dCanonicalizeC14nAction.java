@@ -73,7 +73,7 @@ public final class ExportX3dCanonicalizeC14nAction extends BaseConversionsAction
     
     if (fileObject == null)
     {
-        String message = "Must first open an .x3d model prior to performing conversion.  No action taken.";
+        String message = "First open .x3d model prior to conversion...";
         System.err.println ("*** " + this.getClass().getName() + ": " + message);
         NotifyDescriptor.Message msg = new NotifyDescriptor.Message(message);
         DialogDisplayer.getDefault().notify(msg);
