@@ -100,7 +100,8 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
     private final String licenseLinkDefault                      = "https://www.web3d.org/x3d/content/examples/license.html";
     
     private final String numberSignificantDigitsEnabledDefault   = "false"; // avoid modifying source unless user decides
-    private final String numberSignificantDigitsPrecisionDefault = "6";
+    private final String numberSignificantDigitsPrecisionDefault = "4";     // 0.0001 meters  equals one-tenth of a millimeter.
+                                                                            // 0.0001 radians equals 0.0057 degrees.
 
     private final String HAnimGeometryRemoveDefault              = "false";
     private final String HAnimSkeletonIllustrateDefault          = "false";
@@ -169,12 +170,12 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
             x3dTidyConversionPanel = new X3dTidyConversionPanel (this);
     
             // pattern from Xj3dCadFilterOptionsPanel to launch and exit the panel
-            transformButton = new JButton(NbBundle.getMessage(getClass(),"MSG_TidyModel"));
-                resetButton = new JButton(NbBundle.getMessage(getClass(),"MSG_Reset"));
-               cancelButton = new JButton(NbBundle.getMessage(getClass(),"MSG_CONTINUE"));
+            transformButton = new JButton(NbBundle.getMessage(getClass(), "MSG_TidyModel"));
+                resetButton = new JButton(NbBundle.getMessage(getClass(), "MSG_Reset"));
+               cancelButton = new JButton(NbBundle.getMessage(getClass(), "MSG_CANCEL"));
             transformButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_TidyModel"));
-               resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
-              cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Cancel"));
+                resetButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Reset"));
+               cancelButton.setToolTipText(NbBundle.getMessage(getClass(),"TIP_Cancel"));
             HelpCtx.setHelpIDString(x3dTidyConversionPanel, X3D_TIDY_URL);
 
             descriptor = new DialogDescriptor(
