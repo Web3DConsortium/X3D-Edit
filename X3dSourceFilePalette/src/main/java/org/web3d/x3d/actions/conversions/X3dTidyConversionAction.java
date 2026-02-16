@@ -99,7 +99,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
     private final String insertMissingMetaLicenseDefault         = "true";
     private final String licenseLinkDefault                      = "https://www.web3d.org/x3d/content/examples/license.html";
     
-    private final String numberSignificantDigitsEnabledDefault   = "false"; // avoid modifying source unless user decides
+    private final String numberSignificantDigitsEnabledDefault   = "true";  // on by default
     private final String numberSignificantDigitsPrecisionDefault = "4";     // 0.0001 meters  equals one-tenth of a millimeter.
                                                                             // 0.0001 radians equals 0.0057 degrees.
 
