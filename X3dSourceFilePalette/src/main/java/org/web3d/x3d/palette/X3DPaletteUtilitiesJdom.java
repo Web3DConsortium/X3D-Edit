@@ -123,7 +123,7 @@ public final class X3DPaletteUtilitiesJdom
     if (doc == null)
       return 0;
     if (doc instanceof BaseDocument) {
-//      BaseDocument baseDoc = (BaseDocument) doc;
+//      BaseDocument baseDoc = (BaseDocument) jdomDocument;
      // baseDoc.atomicLock();
     }
 
@@ -139,13 +139,13 @@ public final class X3DPaletteUtilitiesJdom
       target.setSelectionEnd  (start + cursorOffsetWhenDone + 5); //current);
     }
 
-    //if (doc instanceof BaseDocument)
-    //  ((BaseDocument) doc).atomicUnlock();
+    //if (jdomDocument instanceof BaseDocument)
+    //  ((BaseDocument) jdomDocument).atomicUnlock();
 /*
-    if (reformat && doc instanceof BaseDocument) {
-      BaseDocument bdoc = (BaseDocument) doc;
+    if (reformat && jdomDocument instanceof BaseDocument) {
+      BaseDocument bdoc = (BaseDocument) jdomDocument;
       //New 6.5 code
-      final Indent indent = Indent.get(doc);
+      final Indent indent = Indent.get(jdomDocument);
       indent.lock();
       try {
         bdoc.runAtomic(new Runnable()
@@ -288,12 +288,12 @@ public final class X3DPaletteUtilitiesJdom
       x3dEditorSupport =  x3dEditor.getX3dEditorSupport();
       x3dDataObject    = (X3DDataObject)x3dEditorSupport.getDataObject();
 
-      ValidateXMLSupport xsup = x3dDataObject.getLookup().lookup(ValidateXMLSupport.class); //new ValidateXMLSupport(is); //MyXMLValidateSupport(is); //ValidateXMLSupport(is);
+      ValidateXMLSupport validateXMLSupport = x3dDataObject.getLookup().lookup(ValidateXMLSupport.class); //new ValidateXMLSupport(is); //MyXMLValidateSupport(is); //ValidateXMLSupport(is);
 
-      ValidateListener lis = new ValidateListener(thisTarget,thisDoDialog,x3dEditor);
+      ValidateListener validateListener = new ValidateListener(thisTarget,thisDoDialog,x3dEditor);
 
-      xsup.validateXML(lis); // TODO catch exception?
-      lis.receive(null); // signal done
+      validateXMLSupport.validateXML(validateListener); // TODO catch exception?
+      validateListener.receive(null); // signal done
     }
 
   }
@@ -468,7 +468,7 @@ public final class X3DPaletteUtilitiesJdom
    */
   public static org.jdom.Document buildJdomFromString(String sourceText) throws IOException, SAXException, JDOMException
   {
-    return _buildJdom(sourceText).doc;
+    return _buildJdom(sourceText).jdomDocument;
   }
 
   /**
@@ -489,9 +489,9 @@ public final class X3DPaletteUtilitiesJdom
     }
     jDOMresults res = _buildJdom(target.getText());
     X3DEditorSupport.X3dEditor myEd = (X3DEditorSupport.X3dEditor) getTopComponent(target);
-    myEd.setJdomDoc(res.doc);
+    myEd.setJdomDoc(res.jdomDocument);
     myEd.setJdomSaxLocations(res.saxLocations);
-    return res.doc;
+    return res.jdomDocument;
   }
 
   public static X3DDataObject getX3dDataObject(JTextComponent target)
@@ -840,7 +840,7 @@ public final class X3DPaletteUtilitiesJdom
   {
     public Vector<ElementLocation> saxLocations = new Vector<>();
 
-    private Locator loc;
+    private Locator locator;
     private final Stack<ElementLocation> stack = new Stack<>();
 
     public mySaxHandler()
@@ -849,12 +849,12 @@ public final class X3DPaletteUtilitiesJdom
 
     /**
      * Totally screwy.  Got to use the one we GET, not set.  Must use what is returned here.
-     * @param locator
+     * @param newLocator
      */
     @Override
-    public void setDocumentLocator(Locator locator)
+    public void setDocumentLocator(Locator newLocator)
     {
-      loc = locator;
+      locator = newLocator;
     }
 
     @Override
@@ -863,12 +863,12 @@ public final class X3DPaletteUtilitiesJdom
       //System.out.println("startElement uri:"+uri+" localName:"+localName+" qName:"+qName);
       super.startElement(uri, localName, qName, attributes);
 
-      ElementLocation myE = new ElementLocation(localName,loc.getLineNumber(),loc.getColumnNumber(), getCurrentElement());
+      ElementLocation myElementLocation = new ElementLocation(localName,locator.getLineNumber(),locator.getColumnNumber(), getCurrentElement());
       if (!stack.empty())
-        myE.parent = stack.peek();
-      stack.push(myE);
+        myElementLocation.parent = stack.peek();
+      stack.push(myElementLocation);
 
-      saxLocations.add(myE);
+      saxLocations.add(myElementLocation);
       //System.out.println(getCurrentElement() + "at " + loc.getLineNumber() + " " + loc.getColumnNumber());
     }
 
@@ -877,20 +877,20 @@ public final class X3DPaletteUtilitiesJdom
     {
       super.endElement(uri,localName,qName);
       //System.out.println("endElement uri:"+uri+" localName:"+localName+" qName:"+qName);
-      ElementLocation myE = stack.pop();
-      myE.endColumn = loc.getColumnNumber();
-      myE.endLine = loc.getLineNumber();
+      ElementLocation myElementLocation = stack.pop();
+      myElementLocation.endColumn = locator.getColumnNumber();
+      myElementLocation.endLine   = locator.getLineNumber();
     }
   }
 
   public static class jDOMresults
   {
-    public org.jdom.Document doc;
+    public org.jdom.Document jdomDocument;
     public Vector<ElementLocation> saxLocations;
 
-    public jDOMresults(org.jdom.Document doc, Vector<ElementLocation>saxLocations)
+    public jDOMresults(org.jdom.Document newJdomDocument, Vector<ElementLocation>saxLocations)
     {
-      this.doc = doc;
+      this.jdomDocument = newJdomDocument;
       this.saxLocations = saxLocations;
     }
   }
@@ -914,12 +914,12 @@ public final class X3DPaletteUtilitiesJdom
     public int docOffsetEnd = -1;
     public org.jdom.Element element;
 
-    public ElementLocation(String name, int startLine, int startCol, org.jdom.Element element)
+    public ElementLocation(String name, int startLine, int startCol, org.jdom.Element jdomElement)
     {
       this.name = name;
       this.startColumn = startCol;
       this.startLine = startLine;
-      this.element = element;
+      this.element = jdomElement;
     }
     public ElementLocation parent;
   }
