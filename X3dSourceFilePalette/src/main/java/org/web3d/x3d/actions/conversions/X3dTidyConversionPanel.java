@@ -244,7 +244,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         conversionPanel.add(modifyX3dVersionCheckBox, gridBagConstraints);
 
-        revisedX3dVersionComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.0", "3.1", "3.2", "3.3", "4.0" }));
+        revisedX3dVersionComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.0", "3.1", "3.2", "3.3", "4.0", "4.1" }));
         revisedX3dVersionComboBox.setSelectedIndex(4);
         revisedX3dVersionComboBox.setMaximumSize(new java.awt.Dimension(60, 22));
         revisedX3dVersionComboBox.setMinimumSize(new java.awt.Dimension(60, 22));
