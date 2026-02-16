@@ -148,8 +148,10 @@ public class EXICompressAction extends BaseConversionsAction
       return "x3d-3.3.xsd";
     else if(version.equalsIgnoreCase("4.0"))
       return "x3d-4.0.xsd";
+    else if(version.equalsIgnoreCase("4.1"))
+      return "x3d-4.1.xsd";
     // default
-    else return "x3d-3.3.xsd"; // presumably unreachable; default recommended
+    else return "x3d-4.0.xsd"; // presumably unreachable; default recommended
   }
 
   @Override
