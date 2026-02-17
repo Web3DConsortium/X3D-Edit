@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2007-2023 held by the author(s).  All rights reserved.
+Copyright (c) 2007-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -181,6 +181,8 @@ public class ExpandableList extends javax.swing.JPanel implements ListSelectionL
   
   private DefaultTableModel                  jTableModel;
   private DefaultRendererShowingRowSelection myDefaultRendererShowingRowSelection= new DefaultRendererShowingRowSelection();
+  
+  private int minIndexColumnWidth = 120;
 
   
   private IsCellEditableIf cellEditableChecker = new IsCellEditableIf()
@@ -225,7 +227,8 @@ numberTuplesBetweenLineBreaksComboBox.setSelectedItem(String.valueOf(numberTuple
     jTable.addFocusListener(new MyFocusListener());
     
     TableColumnModel columnModel = jTable.getColumnModel();
-    if (doIndex) columnModel.getColumn(0).setPreferredWidth(30); // index column
+    if (doIndex) 
+        columnModel.getColumn(0).setPreferredWidth(minIndexColumnWidth); // index column
     
     // https://www.techrepublic.com/article/how-to-justify-data-in-a-jtable-cell/5032692
     DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
@@ -585,9 +588,9 @@ numberTuplesBetweenLineBreaksComboBox.setSelectedItem(String.valueOf(numberTuple
     if (doIndex)
     {
         TableColumnModel columnModel = jTable.getColumnModel();
-        columnModel.getColumn(0).setMinWidth      (getIndexColumnPixelWidth()); // index column
-        columnModel.getColumn(0).setMaxWidth  (2 * getIndexColumnPixelWidth()); // index column
-        columnModel.getColumn(0).setPreferredWidth(getIndexColumnPixelWidth()); // index column
+        columnModel.getColumn(0).setMinWidth      (minIndexColumnWidth); // index column
+        columnModel.getColumn(0).setMaxWidth  (2 * minIndexColumnWidth); // index column
+        columnModel.getColumn(0).setPreferredWidth(minIndexColumnWidth); // index column
         boldColumns.add(0);
     }
     // else TODO reversal
@@ -1303,9 +1306,9 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
         if (doIndex) // reset
         {
             TableColumnModel columnModel = jTable.getColumnModel();
-            columnModel.getColumn(0).setMinWidth(getIndexColumnPixelWidth()); // index column
-            columnModel.getColumn(0).setMaxWidth(2 *   getIndexColumnPixelWidth()); // index column
-            columnModel.getColumn(0).setPreferredWidth(getIndexColumnPixelWidth()); // index column
+            columnModel.getColumn(0).setMinWidth      (minIndexColumnWidth); // index column
+            columnModel.getColumn(0).setMaxWidth(2 *   minIndexColumnWidth); // index column
+            columnModel.getColumn(0).setPreferredWidth(minIndexColumnWidth); // index column
             boldColumns.add(0);
             this.validate();
         }
@@ -1362,17 +1365,17 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
     if(columnTitles != null)
       setColumnTitles(columnTitles);
     
-    JLabel dummy = new JLabel("OOO");
-    int width3Cols = dummy.getPreferredSize().width;
+    JLabel sixColumnLabel = new JLabel("OOOOOO");
+    int width6Columns = sixColumnLabel.getPreferredSize().width;
 
     TableColumnModel tcm = jTable.getColumnModel();
     if (doIndex) {
       TableCellRenderer tcr = idxRenderer;
       TableColumn tc = tcm.getColumn(0);
       tc.setCellRenderer(tcr);
-      tc.setPreferredWidth(width3Cols);
-      tc.setMaxWidth(width3Cols);
-      tc.setMinWidth(width3Cols);
+      tc.setPreferredWidth(width6Columns);
+      tc.setMaxWidth(width6Columns);
+      tc.setMinWidth(width6Columns);
     }
     if (doColorChooser) {
       TableColumn tc = tcm.getColumn(numJTableColumns - 1); // last one is chooser
@@ -1381,9 +1384,9 @@ uniformKeyIntervalsButton.setEnabled(twoOrMoreRows);
     }
     else if (doTextEditButton) {
       TableColumn tc = tcm.getColumn(numJTableColumns - 1); // last one is chooser
-      tc.setPreferredWidth(width3Cols);
-      tc.setMaxWidth(width3Cols);
-      tc.setMinWidth(width3Cols);
+      tc.setPreferredWidth(width6Columns);
+      tc.setMaxWidth(width6Columns);
+      tc.setMinWidth(width6Columns);
 
       tc.setCellEditor(new TextPanEditor());
     }
