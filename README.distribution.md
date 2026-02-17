@@ -11,7 +11,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 [X3D-Edit](https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html) is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
 
 
-## X3D-Edit 4.0 Distribution, 25 January 2026, interim release
+## X3D-Edit 4.0 Distribution, 16 February 2026, interim release
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
@@ -24,7 +24,7 @@ Backup module deployment is found in  [Maven Central Repository](https://central
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetBeans&nbsp;28. Tested satisfactorily, any operating system |   76.4 MB | 15 February 2026
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetBeans&nbsp;28. Tested satisfactorily, any operating system |   76.4 MB | 16 February 2026
 [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Must set jdkhome in netbeans.conf       |  260.7 MB | 25 February 2025
 
 <!---
