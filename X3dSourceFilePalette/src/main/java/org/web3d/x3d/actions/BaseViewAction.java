@@ -150,6 +150,7 @@ abstract public class BaseViewAction extends CallableSystemAction
   public final static String VRML97_STANDARD_AMENDMENT_1            ="https://www.web3d.org/documents/specifications/14772-1/V2.1/index.html";
 
   public final static String CASTLE_GAME_ENGINE_CONVERTER           ="https://castle-engine.io/convert.php";
+  public final static String X_ITE_CONVERTER                        ="https://create3000.github.io/x_ite/laboratory/x3d-file-converter";
   public final static String X3D_JAVA_LANGUAGE_BINDING_X3DJSAIL     ="https://www.web3d.org/specifications/java/X3DJSAIL.html";
   public final static String X3D_X3DJSAIL_JAVADOC                   ="https://www.web3d.org/specifications/java/javadoc";
   public final static String X3D_JSON_CONVERTER                     ="https://www.web3d.org/x3d/stylesheets/X3dToJson.html";
