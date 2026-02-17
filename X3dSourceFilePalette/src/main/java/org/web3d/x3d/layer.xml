@@ -215,12 +215,13 @@ POSSIBILITY OF SUCH DAMAGE.
                     <folder name="&amp;Import X3D Model from File">
                         <attr name="position" intvalue="140"/>
                         <!-- annotations used in Action source files to get inserted here -->
-                        <!-- Castle Game Engine Convert to X3D LaunchCastleGameEngineCoverterAction position  25 -->
-                        <!-- Import .bvh  BioVision Hierarchy  BvhToX3dConversionAction         position  50 -->
-                        <!-- Import .dae  Collada digital ...  ImportColladaAction              position 100 -->
-                        <!-- Import .wrl  VRML97 model         ImportVrml97Action               position 150 -->
-                        <!-- Import .x3dv BioVision Hierarchy  ImportClassicVrmlAction          position 200 -->
-                        <!-- Import .x3db BioVision Hierarchy  ImportX3dbAction                 position 300 -->
+                        <!-- Castle Game Engine Convert to X3D LaunchCastleGameEngineConverterAction position  25 -->
+                        <!--              X_ITE Convert to X3D LaunchX_ITEConverterAction            position  30 -->
+                        <!-- Import .bvh  BioVision Hierarchy  BvhToX3dConversionAction              position  50 -->
+                        <!-- Import .dae  Collada digital ...  ImportColladaAction                   position 100 -->
+                        <!-- Import .wrl  VRML97 model         ImportVrml97Action                    position 150 -->
+                        <!-- Import .x3dv BioVision Hierarchy  ImportClassicVrmlAction               position 200 -->
+                        <!-- Import .x3db BioVision Hierarchy  ImportX3dbAction                      position 300 -->
                     </folder>
                     <!--
                     <file name="x3dMenuSeparatorBeforeNewDocument.instance">
