@@ -102,6 +102,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
     private final String numberSignificantDigitsEnabledDefault   = "true";  // on by default
     private final String numberSignificantDigitsPrecisionDefault = "4";     // 0.0001 meters  equals one-tenth of a millimeter.
                                                                             // 0.0001 radians equals 0.0057 degrees.
+    private      boolean appendTrailingZeros                     = false;
 
     private final String HAnimGeometryRemoveDefault              = "false";
     private final String HAnimSkeletonIllustrateDefault          = "false";
@@ -218,8 +219,9 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
         setInsertMissingMetaLicense(insertMissingMetaLicenseDefault);
         setLicenseLink(licenseLinkDefault);
         
-        setNumberSignificantDigitsEnabled(numberSignificantDigitsEnabledDefault);
-        setNumberSignificantDigitsPrecision       (numberSignificantDigitsPrecisionDefault);
+        setNumberSignificantDigitsEnabled   (numberSignificantDigitsEnabledDefault);
+        setNumberSignificantDigitsPrecision (numberSignificantDigitsPrecisionDefault);
+        setAppendTrailingZeros              (false);
 
         HAnimGeometryRemove           = HAnimGeometryRemoveDefault;
         HAnimSkeletonIllustrate       = HAnimSkeletonIllustrateDefault;
@@ -317,6 +319,7 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
         x3dTidyParametersHashMap.put("licenseLink", getLicenseLink());
         x3dTidyParametersHashMap.put("numberSignificantDigitsPrecisionEnabled", getNumberSignificantDigitsEnabled());
         x3dTidyParametersHashMap.put("numberSignificantDigitsPrecision",        getNumberSignificantDigitsPrecision());
+        x3dTidyParametersHashMap.put("appendTrailingZeros",                     Boolean.toString(isAppendTrailingZeros()));
         x3dTidyParametersHashMap.put("HAnimGeometryRemove", HAnimGeometryRemove);
         x3dTidyParametersHashMap.put("HAnimSkeletonIllustrate", HAnimSkeletonIllustrate);
         x3dTidyParametersHashMap.put("HAnimSiteIllustrate", HAnimSiteIllustrate);
@@ -787,5 +790,19 @@ public final class X3dTidyConversionAction extends BaseConversionsAction
      */
     public void setNumberSignificantDigitsPrecision(String numberSignificantDigitsPrecision) {
         this.numberSignificantDigitsPrecision = numberSignificantDigitsPrecision;
+    }
+
+    /**
+     * @return the appendTrailingZeros
+     */
+    public boolean isAppendTrailingZeros() {
+        return appendTrailingZeros;
+    }
+
+    /**
+     * @param appendTrailingZeros the appendTrailingZeros to set
+     */
+    public void setAppendTrailingZeros(boolean appendTrailingZeros) {
+        this.appendTrailingZeros = appendTrailingZeros;
     }
 }

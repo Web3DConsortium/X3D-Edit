@@ -88,6 +88,8 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         
         numberSignificantDigitsPrecisionCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getNumberSignificantDigitsEnabled()));
         numberSignificantDigitsPrecisionComboBox.setSelectedItem(x3dTidyConversionAction.getNumberSignificantDigitsPrecision());
+        appendTrailingZerosCheckBox.setSelected(x3dTidyConversionAction.isAppendTrailingZeros());
+        appendTrailingZerosCheckBox.setEnabled(numberSignificantDigitsPrecisionCheckBox.isSelected());
           
         HAnimGeometryRemoveCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getHAnimGeometryRemove()));
         HAnimSkeletonIllustrateCheckBox.setSelected(Boolean.parseBoolean(x3dTidyConversionAction.getHAnimSkeletonIllustrate()));
@@ -168,6 +170,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         numberSignificantDigitsPrecisionCheckBox = new javax.swing.JCheckBox();
         numberSignificantDigitsPrecisionComboBox = new javax.swing.JComboBox();
         numberSignificantDigitsPrecisionHelpButton = new javax.swing.JButton();
+        appendTrailingZerosCheckBox = new javax.swing.JCheckBox();
         addressesPanel = new javax.swing.JPanel();
         fixUrlAdditionHttpAddressesCheckBox = new javax.swing.JCheckBox();
         appendWrlAfterX3dAddressesCheckBox = new javax.swing.JCheckBox();
@@ -202,11 +205,13 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         viewpointColorChooser = new net.java.dev.colorchooser.ColorChooser();
         viewpointColorHexTextField = new javax.swing.JTextField();
 
-        setMinimumSize(new java.awt.Dimension(610, 620));
-        setPreferredSize(new java.awt.Dimension(610, 620));
+        setMinimumSize(new java.awt.Dimension(610, 640));
+        setPreferredSize(new java.awt.Dimension(610, 640));
         setLayout(new java.awt.GridBagLayout());
 
         conversionPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.conversionPanel.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        conversionPanel.setMinimumSize(new java.awt.Dimension(511, 210));
+        conversionPanel.setPreferredSize(new java.awt.Dimension(511, 210));
         conversionPanel.setLayout(new java.awt.GridBagLayout());
 
         org.openide.awt.Mnemonics.setLocalizedText(conversionRequiredCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.conversionRequiredCheckBox.text")); // NOI18N
@@ -341,7 +346,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.gridheight = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         conversionPanel.add(horizontalSeparator1, gridBagConstraints);
@@ -421,6 +426,21 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         conversionPanel.add(numberSignificantDigitsPrecisionHelpButton, gridBagConstraints);
+
+        org.openide.awt.Mnemonics.setLocalizedText(appendTrailingZerosCheckBox, org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.appendTrailingZerosCheckBox.text")); // NOI18N
+        appendTrailingZerosCheckBox.setToolTipText(org.openide.util.NbBundle.getMessage(X3dTidyConversionPanel.class, "X3dTidyConversionPanel.appendTrailingZerosCheckBox.toolTipText")); // NOI18N
+        appendTrailingZerosCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                appendTrailingZerosCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 3, 3);
+        conversionPanel.add(appendTrailingZerosCheckBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1164,6 +1184,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
 
     private void numberSignificantDigitsPrecisionCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberSignificantDigitsPrecisionCheckBoxActionPerformed
         x3dTidyConversionAction.setNumberSignificantDigitsEnabled(Boolean.toString(numberSignificantDigitsPrecisionCheckBox.isSelected()));
+        appendTrailingZerosCheckBox.setEnabled(numberSignificantDigitsPrecisionCheckBox.isSelected());
     }//GEN-LAST:event_numberSignificantDigitsPrecisionCheckBoxActionPerformed
 
     private void numberSignificantDigitsPrecisionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberSignificantDigitsPrecisionComboBoxActionPerformed
@@ -1174,6 +1195,10 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
         BaseViewAction.sendBrowserTo(X3D_REGEX + "#SignificantDigitsPrecision");
     }//GEN-LAST:event_numberSignificantDigitsPrecisionHelpButtonActionPerformed
 
+    private void appendTrailingZerosCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appendTrailingZerosCheckBoxActionPerformed
+        x3dTidyConversionAction.setAppendTrailingZeros(appendTrailingZerosCheckBox.isSelected());
+    }//GEN-LAST:event_appendTrailingZerosCheckBoxActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox HAnimAddBoneSegmentsCheckBox;
     private javax.swing.JCheckBox HAnimGeometryRemoveCheckBox;
@@ -1182,6 +1207,7 @@ public class X3dTidyConversionPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox HAnimSkeletonIllustrateCheckBox;
     private javax.swing.JCheckBox HAnimViewpointIllustrateCheckBox;
     private javax.swing.JPanel addressesPanel;
+    private javax.swing.JCheckBox appendTrailingZerosCheckBox;
     private javax.swing.JCheckBox appendWrlAfterX3dAddressesCheckBox;
     private javax.swing.JCheckBox changeJavascriptEcmascriptCheckBox;
     private javax.swing.JPanel conversionPanel;
