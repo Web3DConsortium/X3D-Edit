@@ -1033,6 +1033,9 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="FONTSTYLE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/FONTSTYLE.xml">
                 <attr name="position" intvalue="800"/>
             </file>
+            <file name="INLINEGEOMETRY.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINEGEOMETRY.xml">
+                <attr name="position" intvalue="900"/>
+            </file>
         </folder>
         <!-- TODO make Grouping open by default instead; corresponding attr not found in DTD -->
         <folder name="Grouping">
@@ -1207,6 +1210,9 @@ POSSIBILITY OF SUCH DAMAGE.
             </file>
             <file name="MULTITEXTURECOORDINATE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/MULTITEXTURECOORDINATE.xml">
                 <attr name="position" intvalue="1800"/>
+            </file>
+            <file name="INLINEGEOMETRY.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/INLINEGEOMETRY.xml">
+                <attr name="position" intvalue="1900"/>
             </file>
         </folder>
         <folder name="Event_Animation_and_Interpolation">
