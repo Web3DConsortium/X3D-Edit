@@ -179,7 +179,7 @@ public class INLINECustomizer extends BaseCustomizer
         bboxSizeZTF = new javax.swing.JTextField();
         loadLabel = new javax.swing.JLabel();
         loadCB = new javax.swing.JCheckBox();
-        urlLab = new javax.swing.JLabel();
+        urlLabel = new javax.swing.JLabel();
         urlList = new org.web3d.x3d.palette.items.UrlExpandableList2();
         appendLabel = new javax.swing.JLabel();
         insertCommasCheckBox = new javax.swing.JCheckBox();
@@ -364,15 +364,15 @@ public class INLINECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loadCB, gridBagConstraints);
 
-        urlLab.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        urlLab.setText("url");
-        urlLab.setToolTipText("Address of X3D world to load into current scene");
+        urlLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        urlLabel.setText("url");
+        urlLabel.setToolTipText("Address of X3D world to load into current scene");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(urlLab, gridBagConstraints);
+        add(urlLabel, gridBagConstraints);
 
         urlList.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         urlList.setMinimumSize(new java.awt.Dimension(50, 50));
@@ -580,7 +580,7 @@ public class INLINECustomizer extends BaseCustomizer
     private javax.swing.JCheckBox loadCB;
     private javax.swing.JLabel loadLabel;
     private javax.swing.JPanel nodeHintPanel;
-    private javax.swing.JLabel urlLab;
+    private javax.swing.JLabel urlLabel;
     private org.web3d.x3d.palette.items.UrlExpandableList2 urlList;
     private javax.swing.JCheckBox visibleCheckBox;
     private javax.swing.JLabel visibleLabel;
