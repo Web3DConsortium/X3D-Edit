@@ -1220,6 +1220,13 @@ public interface X3DSchemaData
       "'watchList' child of a parent LoadSensor node (X3D version 3 only)"
   };
 
+  String[]INLINEGEOMETRY_CONTAINERFIELD_CHOICES    = {"geometry", "watchList"};
+  String[]INLINEGEOMETRY_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'geometry' for typical use as geometry node",
+      "'children' child of a parent LoadSensor node"
+  };
+
   // element Transform
   String  TRANSFORM_ELNAME                     = "Transform";
   String  TRANSFORM_ATTR_TRANSLATION_NAME      = "translation";
@@ -1267,19 +1274,19 @@ public interface X3DSchemaData
   };
 
   // element Inline
-  String  INLINE_ELNAME               = "Inline";
-  String  INLINE_ATTR_LOAD_NAME       = "load";
-  boolean INLINE_ATTR_LOAD_REQD       = false;
-  String  INLINE_ATTR_LOAD_DFLT       = "true";
-  String  INLINE_ATTR_URL_NAME        = "url";
-  boolean INLINE_ATTR_URL_REQD        = false;
-  String  INLINE_ATTR_URL_DFLT        = "";
-  String  INLINE_ATTR_BBOXCENTER_NAME = "bboxCenter";
-  boolean INLINE_ATTR_BBOXCENTER_REQD = false;
-  String  INLINE_ATTR_BBOXCENTER_DFLT = "0 0 0";
-  String  INLINE_ATTR_BBOXSIZE_NAME   = "bboxSize";
-  boolean INLINE_ATTR_BBOXSIZE_REQD   = false;
-  String  INLINE_ATTR_BBOXSIZE_DFLT   = "-1 -1 -1";
+  String  INLINE_ELNAME                = "Inline";
+  String  INLINE_ATTR_LOAD_NAME        = "load";
+  boolean INLINE_ATTR_LOAD_REQD        = false;
+  String  INLINE_ATTR_LOAD_DFLT        = "true";
+  String  INLINE_ATTR_URL_NAME         = "url";
+  boolean INLINE_ATTR_URL_REQD         = false;
+  String  INLINE_ATTR_URL_DFLT         = "";
+  String  INLINE_ATTR_BBOXCENTER_NAME  = "bboxCenter";
+  boolean INLINE_ATTR_BBOXCENTER_REQD  = false;
+  String  INLINE_ATTR_BBOXCENTER_DFLT  = "0 0 0";
+  String  INLINE_ATTR_BBOXSIZE_NAME    = "bboxSize";
+  boolean INLINE_ATTR_BBOXSIZE_REQD    = false;
+  String  INLINE_ATTR_BBOXSIZE_DFLT    = "-1 -1 -1";
   String  INLINE_ATTR_DESCRIPTION_NAME = "description"; // X3D4.0
   boolean INLINE_ATTR_DESCRIPTION_REQD = false;
   String  INLINE_ATTR_DESCRIPTION_DFLT = "";
@@ -1289,6 +1296,18 @@ public interface X3DSchemaData
   String  INLINE_ATTR_BBOXDISPLAY_NAME = "bboxDisplay";
   boolean INLINE_ATTR_BBOXDISPLAY_REQD = false;
   String  INLINE_ATTR_BBOXDISPLAY_DFLT = "false";
+
+  // element InlineGeometry
+  String  INLINEGEOMETRY_ELNAME                = "InlineGeometry";
+  String  INLINEGEOMETRY_ATTR_LOAD_NAME        = "load";
+  boolean INLINEGEOMETRY_ATTR_LOAD_REQD        = false;
+  String  INLINEGEOMETRY_ATTR_LOAD_DFLT        = "true";
+  String  INLINEGEOMETRY_ATTR_URL_NAME         = "url";
+  boolean INLINEGEOMETRY_ATTR_URL_REQD         = false;
+  String  INLINEGEOMETRY_ATTR_URL_DFLT         = "";
+  String  INLINEGEOMETRY_ATTR_DESCRIPTION_NAME = "description";
+  boolean INLINEGEOMETRY_ATTR_DESCRIPTION_REQD = false;
+  String  INLINEGEOMETRY_ATTR_DESCRIPTION_DFLT = "";
 
   // element LOD
   String  LOD_ELNAME                     = "LOD";
