@@ -89,6 +89,7 @@ public class FIELDdefaults
     {GEOELEVATIONGRID_ELNAME,   null,          "height"},      //set_height
     {FILLPROPERTIES_ELNAME,     null,          "hatched"},     //set_hatched
     {INLINE_ELNAME,            "url",          "load"},        //set_url
+    {INLINEGEOMETRY_ELNAME,    "url",          "load"},        //set_url
     {LOD_ELNAME,               "level",         null},         //level_changed
     {SWITCH_ELNAME,            "whichChoice",  "whichChoice"},
     {TEXT_ELNAME,              "string",       "string"},      // string_changed, set_string
