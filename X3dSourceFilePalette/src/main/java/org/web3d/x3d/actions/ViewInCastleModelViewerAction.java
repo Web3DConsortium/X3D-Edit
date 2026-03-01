@@ -54,6 +54,7 @@ import org.web3d.x3d.options.X3dEditUserPreferences;
                     displayName = "#CTL_ViewInCastleModelViewerAction",
                             lazy=true)
 @ActionReferences(value={
+  @ActionReference(path = "Toolbars/X3D-Edit Author Workflow", position = 72),
   @ActionReference(path = "Editors/model/x3d+xml/Popup/&View Saved X3D Model", position = 120),
   @ActionReference(path = "Menu/&X3D-Edit/&View Saved X3D Model", position = 120)
 })
