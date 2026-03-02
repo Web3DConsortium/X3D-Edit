@@ -2246,6 +2246,14 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
               extension.equalsIgnoreCase(".wrz")    || extension.equalsIgnoreCase(".wrl.gz")  ||
               extension.equalsIgnoreCase(".gltf")   || extension.equalsIgnoreCase(".glb")     );
   }
+  protected boolean isStlPlyX3dSupportedExtension (String extension)
+  {
+      if (extension == null)
+          return false;
+      if    (!extension.startsWith(".")) extension = "." + extension;
+      return (extension.equalsIgnoreCase(".stl")    || extension.equalsIgnoreCase(".ply")    ||
+              isX3dSupportedExtension(extension)     );
+  }
   protected boolean isImageSupportedExtension (String extension)
   {
       if (extension == null)
@@ -2392,13 +2400,15 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
           {
               supportedFileExtensionFound = false;
           }
-          else if ((urlCustomizerPanel.getFormatChoice().equals("X3D")    && isX3dSupportedExtension    (fileExtension)) ||
+          else if ((urlCustomizerPanel.getFormatChoice().equals("X3D")         && isX3dSupportedExtension       (fileExtension)) ||
 
-                   (urlCustomizerPanel.getFormatChoice().equals("Image")  && isImageSupportedExtension  (fileExtension)) ||
+                   (urlCustomizerPanel.getFormatChoice().equals("STL PLY X3D") && isStlPlyX3dSupportedExtension (fileExtension)) ||
 
-                   (urlCustomizerPanel.getFormatChoice().equals("Movie")  && isMovieSupportedExtension  (fileExtension)) ||
+                   (urlCustomizerPanel.getFormatChoice().equals("Image")       && isImageSupportedExtension     (fileExtension)) ||
+
+                   (urlCustomizerPanel.getFormatChoice().equals("Movie")       && isMovieSupportedExtension     (fileExtension)) ||
  
-                   (urlCustomizerPanel.getFormatChoice().equals("Sound")  && isSoundSupportedExtension  (fileExtension)) || 
+                   (urlCustomizerPanel.getFormatChoice().equals("Sound")       && isSoundSupportedExtension     (fileExtension)) || 
 
                    (urlCustomizerPanel.getFormatChoice().equals("Script") && isScriptSupportedExtension (fileExtension)) ||
 
@@ -2659,6 +2669,12 @@ private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
   public void setFileChooserAll()
   {
     urlCustomizerPanel.setFormatChoice ("All");
+  }
+  public void setFileChooserStlPlyX3d()
+  {
+    urlCustomizerPanel.setFormatChoice ("STL PLY X3D");
+    additionalUrlsButton.setText("Add urls"); // plural, override property
+    additionalUrlsButton.setToolTipText(additionalUrlsButton.getToolTipText().replace("value","values"));
   }
   public void setFileChooserX3d() // default in UrlCustomizerPanel
   {

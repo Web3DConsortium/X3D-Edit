@@ -41,14 +41,9 @@ import org.web3d.x3d.X3DDataObject;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
- * INLINECustomizer.java
- * Created on SEP 26, 2007 11:40 AM
+ * INLINEGEOMETRCustomizer.java
  *
- * MOVES Institute
- * Naval Postgraduate School, Monterey, CA, USA
- * www.nps.edu
- *
- * @author Mike Bailey, Don Brutzman
+ * @author Don Brutzman
  * @version $Id$
  */
 public class INLINEGEOMETRYCustomizer extends BaseCustomizer
@@ -72,7 +67,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
     
     HelpCtx.setHelpIDString(INLINEGEOMETRYCustomizer.this, "INLINEGEOMETRY_ELEM_HELPID");
 
-    inlineGeometry.setVisualizationSelectionAvailable(true); // must precede initComponents() interface initialization
+    inlineGeometry.setVisualizationSelectionAvailable(false); // must precede initComponents() interface initialization
     inlineGeometry.setVisualizationTooltip("Add wireframe Box and axes to show boundingBox center and size (if defined)");
     
     initComponents();
@@ -89,7 +84,8 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
     urlList.setMasterDocumentLocation(x3DDataObject.getPrimaryFile());
     urlList.setUrlData(inlineGeometry.getUrls());
     urlList.setTarget(target); // enable urlList to reach back into jdom tree to getHeaderIdentifierPath()
-    urlList.setFileChooserX3d();
+    urlList.setFileChooserStlPlyX3d();
+    
     urlList.checkUrlValues();
     // TODO check X3D version 4.0+ for gltf/glb file extensions urls, Netowrking component level 4 as well
     
@@ -110,8 +106,8 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
          expectedProfileComboBox.setSelectedItem("Interchange");
     else if (expectedProfile.equals("Interactive"))
          expectedProfileComboBox.setSelectedItem("Interactive");
-    else if (expectedProfile.equals("CADInteractive"))
-         expectedProfileComboBox.setSelectedItem("Interactive");
+    else if (expectedProfile.equals("CADInterchange"))
+         expectedProfileComboBox.setSelectedItem("CADInterchange");
     else if (expectedProfile.equals("Full"))
          expectedProfileComboBox.setSelectedItem("Full");
     else if (expectedProfile.equals("Core"))
@@ -296,7 +292,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 6, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(expectedProfileLabel, gridBagConstraints);
 
         expectedProfileComboBox.setEditable(true);
@@ -311,7 +307,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(expectedProfileComboBox, gridBagConstraints);
 
-        expectedProfileNoteLabel.setText("(inserts MetadataString child for expected profile of Inline model)");
+        expectedProfileNoteLabel.setText("(inserts MetadataString child for expected profile of InlineGeometry model)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
@@ -324,8 +320,8 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        descriptionLabel.setText("<html>\n\n<p align='center'><b>Inline</b> can load content from an STL file, a PLY file, or <br />\n      another X3D scene via the url list of local and online file addresses, sorted by availability. </p> \n<p align='center'> Append #DEFname when loading geometry from an X3D or VRML file. </p>\n<p align='center'>Hint: multiple links usually provide alternate addresses or encodings for the same content.</p> \n<p align='center'>Hint: Schematron warnings regarding X3D profile are silenced by inserting a MetadataString node.</p> ");
-        descriptionLabel.setToolTipText("Inline can load geometry from STL files, PLY files, or other X3D scenes");
+        descriptionLabel.setText("<html>\n\n<p align='center'><b>InlineGeometry</b> can load content from an STL file, a PLY file, or <br />\n      another X3D scene via the url list of local and online file addresses, sorted by availability. </p> \n<p align='center'> Append #DEFname when loading geometry from an X3D or VRML file (otherwise use first Shape found). </p>\n<p align='center'>Hint: multiple links usually provide alternate addresses or encodings for the same content.</p> \n<p align='center'>Hint: Schematron warnings regarding X3D profile are silenced by inserting a MetadataString node.</p> ");
+        descriptionLabel.setToolTipText("InlineGeometry can load geometry from STL files, PLY files, or other X3D scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -369,7 +365,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
     }//GEN-LAST:event_urlListPropertyChange
 
     private void descriptionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionTFActionPerformed
-        checkX3D4FieldSupportDialog("Inline","description"); // X3D4.0 field
+        // X3D4.1 node
     }//GEN-LAST:event_descriptionTFActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -394,7 +390,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
   @Override
   public String getNameKey()
   {
-    return "NAME_X3D_INLINE";
+    return "NAME_X3D_INLINEGEOMETRY";
   }
 
   @Override
@@ -402,11 +398,10 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     urlList.checkUrlValues();
-    // TODO check X3D version 4.0+ for gltf/glb file extensions urls, Netowrking component level 4 as well
+    // TODO check X3D version 4.0+ for X3D/VRML file extensions urls, Networking component level 4 as well
     
     if (!descriptionTF.getText().isBlank())
     {
-        checkX3D4FieldSupportDialog("Inline","description"); // X3D4.0 field
         inlineGeometry.setDescription(descriptionTF.getText().trim());
     }
     

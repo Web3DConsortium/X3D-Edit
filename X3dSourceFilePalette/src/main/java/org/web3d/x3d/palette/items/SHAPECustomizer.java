@@ -178,7 +178,8 @@ public class SHAPECustomizer extends BaseCustomizer
         indexedQuadSetRadioButton.setSelected(true);
     else if (content.contains("<QuadSet "))
         quadSetRadioButton.setSelected(true);
-
+    else if (content.contains("<InlineGeometry "))
+        inlineGeometryRadioButton.setSelected(true);
     // can be the shape field of CADPart or proxy field of Collision
     // TODO check parent, if CADFace then warn regarding containerField='shape'
     
@@ -226,6 +227,7 @@ public class SHAPECustomizer extends BaseCustomizer
         textRadioButton = new javax.swing.JRadioButton();
         textPlusTransparentBoxRadioButton = new javax.swing.JRadioButton();
         axisLinesRgbRadioButton = new javax.swing.JRadioButton();
+        inlineGeometryRadioButton = new javax.swing.JRadioButton();
         verticalSeparator1 = new javax.swing.JSeparator();
         elevationGridRadioButton = new javax.swing.JRadioButton();
         extrusionRadioButton = new javax.swing.JRadioButton();
@@ -292,8 +294,8 @@ public class SHAPECustomizer extends BaseCustomizer
         eventHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(820, 620));
-        setPreferredSize(new java.awt.Dimension(820, 620));
+        setMinimumSize(new java.awt.Dimension(840, 610));
+        setPreferredSize(new java.awt.Dimension(840, 610));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -306,12 +308,12 @@ public class SHAPECustomizer extends BaseCustomizer
         add(dEFUSEpanel, gridBagConstraints);
 
         contentSelectionPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        contentSelectionPanel.setPreferredSize(new java.awt.Dimension(100, 100));
         contentSelectionPanel.setLayout(new java.awt.GridBagLayout());
 
         contentSelectionLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         contentSelectionLabel.setText("child content");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.ipadx = 30;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         contentSelectionPanel.add(contentSelectionLabel, gridBagConstraints);
@@ -452,7 +454,8 @@ public class SHAPECustomizer extends BaseCustomizer
         geometryPanel.add(textRadioButton, gridBagConstraints);
 
         geometryButtonGroup.add(textPlusTransparentBoxRadioButton);
-        textPlusTransparentBoxRadioButton.setText("<html><p>Selectable <br /> Text </p>");
+        textPlusTransparentBoxRadioButton.setText("SelectableText");
+        textPlusTransparentBoxRadioButton.setToolTipText("special prototype adding transparent background");
         textPlusTransparentBoxRadioButton.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         textPlusTransparentBoxRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -462,11 +465,12 @@ public class SHAPECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         geometryPanel.add(textPlusTransparentBoxRadioButton, gridBagConstraints);
 
         geometryButtonGroup.add(axisLinesRgbRadioButton);
         axisLinesRgbRadioButton.setText("Axis Lines");
-        axisLinesRgbRadioButton.setToolTipText("RGB lines showing XYZ axes");
+        axisLinesRgbRadioButton.setToolTipText("add RGB lines showing XYZ axes in local coordinate system");
         axisLinesRgbRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 axisLinesRgbRadioButtonActionPerformed(evt);
@@ -475,7 +479,22 @@ public class SHAPECustomizer extends BaseCustomizer
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         geometryPanel.add(axisLinesRgbRadioButton, gridBagConstraints);
+
+        geometryButtonGroup.add(inlineGeometryRadioButton);
+        inlineGeometryRadioButton.setText("InlineGeometry");
+        inlineGeometryRadioButton.setToolTipText("load STL, PLY or X3D geometry from an external file");
+        inlineGeometryRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inlineGeometryRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        geometryPanel.add(inlineGeometryRadioButton, gridBagConstraints);
 
         verticalSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1304,7 +1323,7 @@ public class SHAPECustomizer extends BaseCustomizer
         eventHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>Shape</b> contains a single geometry node and a single <b>Appearance</b> node.<br/>Animation hint: replacement child nodes can be <b>ROUTE</b>d to <i>new_geometry</i> and <i>new_appearance</i>.</p>");
+        hintLabel.setText("<html><p align=\"center\"><b>Shape</b> contains a single geometry node and a single <b>Appearance</b> node.\n<br/>\nAnimation hint: replacement child nodes can be <b>ROUTE</b>d to <i>new_geometry</i> and <i>new_appearance</i>.</p>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         hintLabel.setMaximumSize(new java.awt.Dimension(2147483647, 64));
@@ -1312,12 +1331,11 @@ public class SHAPECustomizer extends BaseCustomizer
         hintLabel.setPreferredSize(new java.awt.Dimension(515, 64));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(6, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         eventHintPanel.add(hintLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1893,6 +1911,11 @@ public class SHAPECustomizer extends BaseCustomizer
             indexedQuadSetRadioButton.setSelected(true);
             indexedQuadSetRadioButtonActionPerformed(evt);
         }
+        else if (shape.getContent().contains("<InlineGeometry"))
+        {
+            inlineGeometryRadioButton.setSelected(true);
+            inlineGeometryRadioButtonActionPerformed(evt);
+        }
         else if (shape.getContent().contains("<QuadSet"))
         {
             quadSetRadioButton.setSelected(true);
@@ -2344,6 +2367,29 @@ public class SHAPECustomizer extends BaseCustomizer
         dEFUSEpanel.setDefaultDEFname("QuadSetShape");
         computeBoundingBox ();
     }//GEN-LAST:event_quadSetRadioButtonActionPerformed
+
+    private void inlineGeometryRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inlineGeometryRadioButtonActionPerformed
+                                                       
+         newContentRadioButton.setSelected(true);
+         setGeometryTypeButtonGroupEnabled(true);
+         primitivesRadioButton.setSelected(true);
+         primitivesRadioButton.setEnabled(true);
+       numberOfPointsTextField.setEnabled(false);
+               heightTextField.setEnabled(false);
+               radiusTextField.setEnabled(false);
+                depthTextField.setEnabled(false);
+                 levelComboBox.setEnabled(false);
+                 levelComboBox.setEditable(false); // grey background
+           numberOfPointsLabel.setEnabled(false);
+                   heightLabel.setEnabled(false);
+                   radiusLabel.setEnabled(false);
+                    depthLabel.setEnabled(false);
+                    levelLabel.setEnabled(false);
+                   radiusLabelRenameWidth(false);
+        dEFUSEpanel.setDEF           ("InlineGeometry");
+        dEFUSEpanel.setDefaultDEFname("InlineGeometry");
+        computeBoundingBox ();
+    }//GEN-LAST:event_inlineGeometryRadioButtonActionPerformed
     /** radiusLabel also serves as width label */
     private void radiusLabelRenameWidth (boolean reset)
     {        
@@ -2436,6 +2482,7 @@ public class SHAPECustomizer extends BaseCustomizer
     private javax.swing.JRadioButton indexedFaceSetRadioButton;
     private javax.swing.JRadioButton indexedLineSetRadioButton;
     private javax.swing.JRadioButton indexedQuadSetRadioButton;
+    private javax.swing.JRadioButton inlineGeometryRadioButton;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JComboBox levelComboBox;
     private javax.swing.JLabel levelLabel;
@@ -2606,6 +2653,11 @@ public class SHAPECustomizer extends BaseCustomizer
       {
           newContent.append  ("\n    <LineSet vertexCount='5'>\n      <Coordinate point='1 1 0 1 -1 0 -1 -1 0 -1 1 0 1 1 0'/>\n    </LineSet>");
           newContent.append(APPEARANCE_CONTENT_EMISSIVE_LINES);
+      }
+      else if (inlineGeometryRadioButton.isSelected())
+      {
+          newContent.append  ("\n    <InlineGeometry url='\"TODO.stl\"'/>");
+          newContent.append(APPEARANCE_CONTENT_MATERIAL_COLOR);
       }
       else if (indexedQuadSetRadioButton.isSelected())
       {
