@@ -123,8 +123,8 @@ public class INLINECustomizer extends BaseCustomizer
          expectedProfileComboBox.setSelectedItem("Interchange");
     else if (expectedProfile.equals("Interactive"))
          expectedProfileComboBox.setSelectedItem("Interactive");
-    else if (expectedProfile.equals("CADInteractive"))
-         expectedProfileComboBox.setSelectedItem("Interactive");
+    else if (expectedProfile.equals("CADInterchange"))
+         expectedProfileComboBox.setSelectedItem("CADInterchange");
     else if (expectedProfile.equals("Full"))
          expectedProfileComboBox.setSelectedItem("Full");
     else if (expectedProfile.equals("Core"))
@@ -597,7 +597,7 @@ public class INLINECustomizer extends BaseCustomizer
   {
     unLoadDEFUSE();
     urlList.checkUrlValues();
-    // TODO check X3D version 4.0+ for gltf/glb file extensions urls, Netowrking component level 4 as well
+    // TODO check X3D version 4.0+ for X3D/VRML and gltf/glb file extensions urls, Networking component level 4 as well
     
     if (!descriptionTF.getText().isBlank())
     {
