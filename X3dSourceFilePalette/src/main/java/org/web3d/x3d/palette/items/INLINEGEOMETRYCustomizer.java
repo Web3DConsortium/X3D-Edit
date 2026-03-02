@@ -320,8 +320,8 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        descriptionLabel.setText("<html>\n\n<p align='center'><b>InlineGeometry</b> can load content from an STL file, a PLY file, or <br />\n      another X3D scene via the url list of local and online file addresses, sorted by availability. </p> \n<p align='center'> Append #DEFname when loading geometry from an X3D or VRML file (otherwise use first Shape found). </p>\n<p align='center'>Hint: multiple links usually provide alternate addresses or encodings for the same content.</p> \n<p align='center'>Hint: Schematron warnings regarding X3D profile are silenced by inserting a MetadataString node.</p> ");
-        descriptionLabel.setToolTipText("InlineGeometry can load geometry from STL files, PLY files, or other X3D scenes");
+        descriptionLabel.setText("<html>  <p align='center'><b>InlineGeometry</b> has a parent <b>Shape</b> node and can load content from an STL file, a PLY file, <br />       \nor another X3D scene via the url list of local and online file addresses, sorted by availability. </p>\n<p align='center'> Append #DEFname when loading geometry from an X3D or VRML file (otherwise use first Shape found). </p>\n <p align='center'>Hint: multiple links usually provide alternate addresses or encodings for the same content.</p>  \n<p align='center'>Hint: Schematron warnings regarding X3D profile are silenced by inserting a MetadataString node.</p> ");
+        descriptionLabel.setToolTipText("InlineGeometry has a parent Shape node and can load geometry from STL files, PLY files, or other X3D scenes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
