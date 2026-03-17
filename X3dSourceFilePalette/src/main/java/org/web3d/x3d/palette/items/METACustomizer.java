@@ -319,7 +319,7 @@ public class METACustomizer extends BaseCustomizer
     if (metaName.equals("specificationUrl") && contentLowerCase.isEmpty())
     {
         NotifyDescriptor d = new NotifyDescriptor.Confirmation(
-           "<html><p align='center'>Also add meta content to match X3D 4.0 Architecture specification url?</p>\n" +
+           "<html><p align='center'>Also add meta content to match X3D 4.0 Architecture specification url?</p> " +
                    "<br /> <p>Precise adjustment to match relevant section will help further.</p>",
            "Confirm", NotifyDescriptor.YES_NO_OPTION);
         if (DialogDisplayer.getDefault().notify(d) == NotifyDescriptor.YES_OPTION)
@@ -339,7 +339,7 @@ public class METACustomizer extends BaseCustomizer
     else if (metaName.equals("specificationSection") && contentLowerCase.isEmpty())
     {              
         NotifyDescriptor descriptor = new NotifyDescriptor.Confirmation(
-           "<html><p align='center'>Also add meta content to begin with title of X3D 4.0 Architecture specification?</p>\n" + 
+           "<html><p align='center'>Also add meta content to begin with title of X3D 4.0 Architecture specification?</p>" + 
                    "<br /> <p>Precise adjustment to match relevant section will help further.</p>",
               NotifyDescriptor.YES_NO_OPTION);
         if (DialogDisplayer.getDefault().notify(descriptor)== NotifyDescriptor.YES_OPTION)
