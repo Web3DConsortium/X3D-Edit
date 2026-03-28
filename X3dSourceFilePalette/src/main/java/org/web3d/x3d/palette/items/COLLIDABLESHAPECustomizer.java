@@ -126,7 +126,10 @@ public class COLLIDABLESHAPECustomizer extends BaseCustomizer
         bboxSizeXTF = new javax.swing.JTextField();
         bboxSizeYTF = new javax.swing.JTextField();
         bboxSizeZTF = new javax.swing.JTextField();
+        nodeHintPanel = new javax.swing.JPanel();
+        hintLabel = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(620, 290));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 5;
@@ -365,6 +368,30 @@ public class COLLIDABLESHAPECustomizer extends BaseCustomizer
         gridBagConstraints.weightx = 0.33;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxSizeZTF, gridBagConstraints);
+
+        nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nodeHintPanel.setLayout(new java.awt.GridBagLayout());
+
+        hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hintLabel.setText("<html><p align='center'><b>CollidableShape</b> can hold single Shape field that has containerField='shape' </p>");
+        hintLabel.setToolTipText("close this panel to add children nodes");
+        hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        nodeHintPanel.add(hintLabel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(8, 3, 3, 3);
+        add(nodeHintPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bboxSizeXTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bboxSizeXTFActionPerformed
@@ -392,6 +419,8 @@ public class COLLIDABLESHAPECustomizer extends BaseCustomizer
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JCheckBox enabledCB;
     private javax.swing.JLabel enabledLabel;
+    private javax.swing.JLabel hintLabel;
+    private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JLabel rotLab;
     private javax.swing.JTextField rotation0TF;
     private javax.swing.JTextField rotation1TF;
