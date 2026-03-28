@@ -138,10 +138,11 @@ public class COLLISIONCOLLECTIONCustomizer extends BaseCustomizer
         softnessConstantForceMixTF = new javax.swing.JTextField();
         softnessErrorCorrectionTF = new javax.swing.JTextField();
         AppliedParametersScrollPane = new javax.swing.JScrollPane();
-        appliedParametersList = new javax.swing.JList<String>();
+        appliedParametersList = new javax.swing.JList<>();
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(660, 450));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 3;
