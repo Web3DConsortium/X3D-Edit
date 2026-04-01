@@ -1330,7 +1330,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
         x3dPlayerPathsPanel.add(swirlx3dLabel, gridBagConstraints);
 
         castleModelViewerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        org.openide.awt.Mnemonics.setLocalizedText(castleModelViewerLabel, "castle-model-viewer");
+        org.openide.awt.Mnemonics.setLocalizedText(castleModelViewerLabel, "Castle Model Viewer");
         castleModelViewerLabel.setToolTipText("Castle Model Viewer (formerly view3dscene)");
         castleModelViewerLabel.setMinimumSize(new java.awt.Dimension(120, 20));
         castleModelViewerLabel.setPreferredSize(new java.awt.Dimension(120, 20));
@@ -2446,7 +2446,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
 
         org.openide.awt.Mnemonics.setLocalizedText(castleModelViewerLaunchButton, "launch");
         castleModelViewerLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        castleModelViewerLaunchButton.setActionCommand("vivatyTF");
+        castleModelViewerLaunchButton.setActionCommand("castleModelViewerTF");
         castleModelViewerLaunchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 commonLauncher(evt);
@@ -2592,7 +2592,7 @@ otherSemanticWebEditorCheckBox.setVisible(false);
 
         org.openide.awt.Mnemonics.setLocalizedText(h3dLaunchButton, "launch");
         h3dLaunchButton.setToolTipText(NbBundle.getMessage(getClass(), "Launch_Buttons_Tooltip")); // NOI18N
-        h3dLaunchButton.setActionCommand("heilanTF");
+        h3dLaunchButton.setActionCommand("h3dTF");
         h3dLaunchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 commonLauncher(evt);
@@ -13562,7 +13562,7 @@ for Extensible 3D (X3D) Graphics International Standard.
           instantRealityTF.setText(X3dEditUserPreferences.getInstantRealityPath());
                   octagaTF.setText(X3dEditUserPreferences.getOctagaPath());
                 swirlx3dTF.setText(X3dEditUserPreferences.getSwirlX3DPath());
-             castleModelViewerTF.setText(X3dEditUserPreferences.getCastleModelViewerPath());
+       castleModelViewerTF.setText(X3dEditUserPreferences.getCastleModelViewerPath());
                   vivatyTF.setText(X3dEditUserPreferences.getVivatyPath());
                     xj3dTF.setText(X3dEditUserPreferences.getXj3DPath());
       otherX3dPlayerNameTF.setText(X3dEditUserPreferences.getOtherX3dPlayerName());
@@ -13622,7 +13622,7 @@ polyTransNuGrafEditorPathTF.setText(X3dEditUserPreferences.getPolyTransNuGrafEdi
                heilanCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isHeilanAutoLaunch()));
        instantRealityCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isInstantRealityAutoLaunch()));
                octagaCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isOctagaAutoLaunch()));
-          castleModelViewerCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isCastleModelViewerAutoLaunch()));
+    castleModelViewerCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isCastleModelViewerAutoLaunch()));
                  xj3dCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isXj3dAutoLaunch()));
              swirlx3dCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isSwirlX3DAutoLaunch()));
                vivatyCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPreferences.isVivatyAutoLaunch()));
@@ -13732,57 +13732,57 @@ otherSemanticWebEditorCheckBox.setSelected(Boolean.parseBoolean(X3dEditUserPrefe
   }
   private void autoLaunchChecks ()
   {
-    newX3dModelsDirectoryCheck ();
-  authorExamplesDirectoryCheck ();
-        keystoreDirectoryCheck ();
-         keystoreFilePathCheck ();
-        contactAutoLaunchCheck ();
-     contactGeoAutoLaunchCheck ();
-        freeWrlAutoLaunchCheck ();
-            h3dAutoLaunchCheck ();
- instantRealityAutoLaunchCheck ();
-         octagaAutoLaunchCheck ();
-    castleModelViewerAutoLaunchCheck ();
-           xj3dAutoLaunchCheck ();
-         heilanAutoLaunchCheck ();
-       swirlx3dAutoLaunchCheck ();
-         vivatyAutoLaunchCheck ();
-      
-       audacityAutoLaunchCheck ();
-          amayaAutoLaunchCheck ();
-          batikAutoLaunchCheck ();
-       bvhackerAutoLaunchCheck ();
- inkscapeEditorAutoLaunchCheck ();
-        rhino3DAutoLaunchCheck ();
-  svgeditEditorAutoLaunchCheck ();
-        protegeAutoLaunchCheck ();
-      wiresharkAutoLaunchCheck ();
+      newX3dModelsDirectoryCheck ();
+    authorExamplesDirectoryCheck ();
+          keystoreDirectoryCheck ();
+           keystoreFilePathCheck ();
+          contactAutoLaunchCheck ();
+       contactGeoAutoLaunchCheck ();
+          freeWrlAutoLaunchCheck ();
+              h3dAutoLaunchCheck ();
+   instantRealityAutoLaunchCheck ();
+           octagaAutoLaunchCheck ();
+castleModelViewerAutoLaunchCheck ();
+             xj3dAutoLaunchCheck ();
+           heilanAutoLaunchCheck ();
+         swirlx3dAutoLaunchCheck ();
+           vivatyAutoLaunchCheck ();
         
-           gimpAutoLaunchCheck ();
-           fijiAutoLaunchCheck ();
-         imageJAutoLaunchCheck ();
-    imageMagickAutoLaunchCheck ();
-  itksnapVolumeAutoLaunchCheck ();
-    seg3dVolumeAutoLaunchCheck ();
- slicer3dVolumeAutoLaunchCheck ();
-
-// not exposed
-keystoreExplorerAutoLaunchCheck();
-       portecleAutoLaunchCheck ();
-        
-   altovaXMLSpyAutoLaunchCheck ();
-        blenderAutoLaunchCheck ();
-bsContentStudioAutoLaunchCheck ();
-       bvhackerAutoLaunchCheck ();
-        meshLabAutoLaunchCheck ();
-polyTransNuGrafAutoLaunchCheck (); // okino
-       paraviewAutoLaunchCheck ();
-     seamless3dAutoLaunchCheck ();
-        sunrizeAutoLaunchCheck ();
-      ultraEditAutoLaunchCheck ();
-           curaAutoLaunchCheck (); // ultimaker
-      whiteDuneAutoLaunchCheck ();
-        wings3dAutoLaunchCheck ();
+         audacityAutoLaunchCheck ();
+            amayaAutoLaunchCheck ();
+            batikAutoLaunchCheck ();
+         bvhackerAutoLaunchCheck ();
+   inkscapeEditorAutoLaunchCheck ();
+          rhino3DAutoLaunchCheck ();
+    svgeditEditorAutoLaunchCheck ();
+          protegeAutoLaunchCheck ();
+        wiresharkAutoLaunchCheck ();
+          
+             gimpAutoLaunchCheck ();
+             fijiAutoLaunchCheck ();
+           imageJAutoLaunchCheck ();
+      imageMagickAutoLaunchCheck ();
+    itksnapVolumeAutoLaunchCheck ();
+      seg3dVolumeAutoLaunchCheck ();
+   slicer3dVolumeAutoLaunchCheck ();
+  
+  // not exposed
+  keystoreExplorerAutoLaunchCheck();
+         portecleAutoLaunchCheck ();
+          
+     altovaXMLSpyAutoLaunchCheck ();
+          blenderAutoLaunchCheck ();
+  bsContentStudioAutoLaunchCheck ();
+         bvhackerAutoLaunchCheck ();
+          meshLabAutoLaunchCheck ();
+  polyTransNuGrafAutoLaunchCheck (); // okino
+         paraviewAutoLaunchCheck ();
+       seamless3dAutoLaunchCheck ();
+          sunrizeAutoLaunchCheck ();
+        ultraEditAutoLaunchCheck ();
+             curaAutoLaunchCheck (); // ultimaker
+        whiteDuneAutoLaunchCheck ();
+          wings3dAutoLaunchCheck ();
 
       otherAudioEditorAutoLaunchCheck();
       otherHtml5EditorAutoLaunchCheck ();
@@ -13890,15 +13890,15 @@ otherSemanticWebEditorAutoLaunchCheck();
       X3dEditUserPreferences.setOtherSemanticWebEditorName(path);
 
     // autoLaunch
-    X3dEditUserPreferences.setContactAutoLaunch       (String.valueOf(contactCheckBox.isSelected()));
-    X3dEditUserPreferences.setFreeWrlAutoLaunch       (String.valueOf(freeWrlCheckBox.isSelected()));
-    X3dEditUserPreferences.setInstantRealityAutoLaunch(String.valueOf(instantRealityCheckBox.isSelected()));
-    X3dEditUserPreferences.setOctagaAutoLaunch        (String.valueOf(octagaCheckBox.isSelected()));
-    X3dEditUserPreferences.setSwirlx3dAutoLaunch      (String.valueOf(swirlx3dCheckBox.isSelected()));
-    X3dEditUserPreferences.setCastleModelViewerAutoLaunch   (String.valueOf(castleModelViewerCheckBox.isSelected()));
-    X3dEditUserPreferences.setVivatyAutoLaunch  (String.valueOf(vivatyCheckBox.isSelected()));
-    X3dEditUserPreferences.setOtherX3dPlayerAutoLaunch(String.valueOf(otherX3dPlayerCheckBox.isSelected()));
-    X3dEditUserPreferences.setOtherX3dEditorAutoLaunch(String.valueOf(otherX3dEditorCheckBox.isSelected()));
+    X3dEditUserPreferences.setContactAutoLaunch           (String.valueOf(contactCheckBox.isSelected()));
+    X3dEditUserPreferences.setFreeWrlAutoLaunch           (String.valueOf(freeWrlCheckBox.isSelected()));
+    X3dEditUserPreferences.setInstantRealityAutoLaunch    (String.valueOf(instantRealityCheckBox.isSelected()));
+    X3dEditUserPreferences.setOctagaAutoLaunch            (String.valueOf(octagaCheckBox.isSelected()));
+    X3dEditUserPreferences.setSwirlx3dAutoLaunch          (String.valueOf(swirlx3dCheckBox.isSelected()));
+    X3dEditUserPreferences.setCastleModelViewerAutoLaunch (String.valueOf(castleModelViewerCheckBox.isSelected()));
+    X3dEditUserPreferences.setVivatyAutoLaunch            (String.valueOf(vivatyCheckBox.isSelected()));
+    X3dEditUserPreferences.setOtherX3dPlayerAutoLaunch    (String.valueOf(otherX3dPlayerCheckBox.isSelected()));
+    X3dEditUserPreferences.setOtherX3dEditorAutoLaunch    (String.valueOf(otherX3dEditorCheckBox.isSelected()));
 
     String value = launchIntervalTF.getText().trim();
     if(path.equals(X3dEditUserPreferences.getLaunchIntervalDefault()))
