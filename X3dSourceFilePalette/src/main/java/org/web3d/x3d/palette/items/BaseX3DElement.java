@@ -611,7 +611,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "  ]]>\n").append(
             "</Script>\n").append(
             "<ROUTE fromField='").append(fromField).append("' fromNode='").append(fromNode).append("' toField='traceValue' toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if (getElementName().equals("TimeSensor"))
@@ -710,7 +710,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='loop'             fromNode='").append(getDEFUSEvalue()).append("' toField='loop'          toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='isActive'         fromNode='").append(getDEFUSEvalue()).append("' toField='isActive'      toNode='").append(scriptName).append("'/>\n").append(
 //          "<ROUTE fromField='isPaused'         fromNode='").append(hasDEF).append("' toField='isPaused'      toNode='").append(scriptName).append("'/>\n").append(
-             "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+             "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("TouchSensor"))
@@ -790,7 +790,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='hitNormal_changed'   fromNode='").append(getDEFUSEvalue()).append("' toField='hitNormal_changed'   toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='hitPoint_changed'    fromNode='").append(getDEFUSEvalue()).append("' toField='hitPoint_changed'    toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='hitTexCoord_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='hitTexCoord_changed' toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("CylinderSensor"))
@@ -888,7 +888,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='minAngle'            fromNode='").append(getDEFUSEvalue()).append("' toField='minAngle'            toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='offset'              fromNode='").append(getDEFUSEvalue()).append("' toField='offset'              toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='trackPoint_changed'  fromNode='").append(getDEFUSEvalue()).append("' toField='trackPoint_changed'  toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("PlaneSensor"))
@@ -984,7 +984,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='minPosition'         fromNode='").append(getDEFUSEvalue()).append("' toField='minPosition'         toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='offset'              fromNode='").append(getDEFUSEvalue()).append("' toField='offset'              toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='trackPoint_changed'  fromNode='").append(getDEFUSEvalue()).append("' toField='trackPoint_changed'  toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("SphereSensor"))
@@ -1057,7 +1057,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='rotation_changed'    fromNode='").append(getDEFUSEvalue()).append("' toField='rotation_changed'    toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='offset'              fromNode='").append(getDEFUSEvalue()).append("' toField='offset'              toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='trackPoint_changed'  fromNode='").append(getDEFUSEvalue()).append("' toField='trackPoint_changed'  toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("ScalarInterpolator"))
@@ -1095,7 +1095,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='value_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='value_changed' toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='key'           fromNode='").append(getDEFUSEvalue()).append("' toField='key'           toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='keyValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='keyValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("PositionInterpolator2D"))
@@ -1133,7 +1133,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='value_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='value_changed' toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='key'           fromNode='").append(getDEFUSEvalue()).append("' toField='key'           toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='keyValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='keyValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("PositionInterpolator"))
@@ -1171,7 +1171,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='value_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='value_changed' toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='key'           fromNode='").append(getDEFUSEvalue()).append("' toField='key'           toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='keyValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='keyValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("NormalInterpolator"))
@@ -1209,7 +1209,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='value_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='value_changed' toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='key'           fromNode='").append(getDEFUSEvalue()).append("' toField='key'           toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='keyValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='keyValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("ColorInterpolator"))
@@ -1247,7 +1247,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='value_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='value_changed' toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='key'           fromNode='").append(getDEFUSEvalue()).append("' toField='key'           toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='keyValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='keyValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("OrientationInterpolator"))
@@ -1285,7 +1285,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='value_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='value_changed' toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='key'           fromNode='").append(getDEFUSEvalue()).append("' toField='key'           toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='keyValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='keyValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("CoordinateInterpolator"))
@@ -1323,7 +1323,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='value_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='value_changed' toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='key'           fromNode='").append(getDEFUSEvalue()).append("' toField='key'           toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='keyValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='keyValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("CoordinateInterpolator2D"))
@@ -1361,7 +1361,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='value_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='value_changed' toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='key'           fromNode='").append(getDEFUSEvalue()).append("' toField='key'           toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='keyValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='keyValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("BooleanSequencer"))
@@ -1399,7 +1399,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='value_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='value_changed' toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='key'           fromNode='").append(getDEFUSEvalue()).append("' toField='key'           toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='keyValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='keyValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("IntegerSequencer"))
@@ -1437,7 +1437,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='value_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='value_changed' toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='key'           fromNode='").append(getDEFUSEvalue()).append("' toField='key'           toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='keyValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='keyValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("BooleanFilter"))
@@ -1470,7 +1470,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='inputTrue'      fromNode='").append(getDEFUSEvalue()).append("' toField='inputTrue'      toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='inputFalse'     fromNode='").append(getDEFUSEvalue()).append("' toField='inputFalse'     toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='inputNegate'    fromNode='").append(getDEFUSEvalue()).append("' toField='inputNegate'    toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("BooleanToggle"))
@@ -1493,7 +1493,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "  ]]>\n").append(
             "</Script>\n").append(
             "<ROUTE fromField='toggle'      fromNode='").append(getDEFUSEvalue()).append("' toField='toggle'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("BooleanTrigger"))
@@ -1516,7 +1516,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "  ]]>\n").append(
             "</Script>\n").append(
             "<ROUTE fromField='triggerTrue'      fromNode='").append(getDEFUSEvalue()).append("' toField='triggerTrue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("IntegerTrigger"))
@@ -1544,7 +1544,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "</Script>\n").append(
             "<ROUTE fromField='integerKey'        fromNode='").append(getDEFUSEvalue()).append("' toField='integerKey'        toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='triggerValue'      fromNode='").append(getDEFUSEvalue()).append("' toField='triggerValue'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("TimeTrigger"))
@@ -1579,7 +1579,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "  ]]>\n").append(
             "</Script>\n").append(
             "<ROUTE fromField='triggerTime'      fromNode='").append(getDEFUSEvalue()).append("' toField='triggerTime'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("KeySensor"))
@@ -1647,7 +1647,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='altKey'              fromNode='").append(getDEFUSEvalue()).append("' toField='altKey'            toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='controlKey'          fromNode='").append(getDEFUSEvalue()).append("' toField='controlKey'        toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='shiftKey'            fromNode='").append(getDEFUSEvalue()).append("' toField='shiftKey'          toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("StringSensor"))
@@ -1690,7 +1690,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='deletionAllowed'     fromNode='").append(getDEFUSEvalue()).append("' toField='deletionAllowed'   toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='enteredText'         fromNode='").append(getDEFUSEvalue()).append("' toField='enteredText'       toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='finalText'           fromNode='").append(getDEFUSEvalue()).append("' toField='finalText'         toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("Collision"))
@@ -1735,7 +1735,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='enabled'          fromNode='").append(getDEFUSEvalue()).append("' toField='enabled'          toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='isActive'         fromNode='").append(getDEFUSEvalue()).append("' toField='isActive'         toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='collideTime'      fromNode='").append(getDEFUSEvalue()).append("' toField='collideTime'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("LOD"))
@@ -1758,7 +1758,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "  ]]>\n").append(
             "</Script>\n").append(
             "<ROUTE fromField='level_changed'      fromNode='").append(getDEFUSEvalue()).append("' toField='level_changed'      toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("NavigationInfo"))
@@ -1838,7 +1838,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='transitionType'     fromNode='").append(getDEFUSEvalue()).append("' toField='transitionType'     toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='type'               fromNode='").append(getDEFUSEvalue()).append("' toField='type'               toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='visibilityLimit'    fromNode='").append(getDEFUSEvalue()).append("' toField='visibilityLimit'    toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("Viewpoint"))
@@ -1913,7 +1913,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='orientation'        fromNode='").append(getDEFUSEvalue()).append("' toField='orientation'        toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='jump'               fromNode='").append(getDEFUSEvalue()).append("' toField='jump'               toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='retainUserOffsets'  fromNode='").append(getDEFUSEvalue()).append("' toField='retainUserOffsets'  toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("OrthoViewpoint"))
@@ -1988,7 +1988,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='orientation'        fromNode='").append(getDEFUSEvalue()).append("' toField='orientation'        toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='jump'               fromNode='").append(getDEFUSEvalue()).append("' toField='jump'               toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='retainUserOffsets'  fromNode='").append(getDEFUSEvalue()).append("' toField='retainUserOffsets'  toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
         else if(getElementName().equals("ViewpointGroup"))
@@ -2031,7 +2031,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "<ROUTE fromField='displayed'          fromNode='").append(getDEFUSEvalue()).append("' toField='displayed'          toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='retainUserOffsets'  fromNode='").append(getDEFUSEvalue()).append("' toField='retainUserOffsets'  toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='size'               fromNode='").append(getDEFUSEvalue()).append("' toField='size'               toNode='").append(scriptName).append("'/>\n").append(
-            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->").append("</Group>\n"
+            "<!-- ======= ").append(getElementName()).append(" Trace block complete ===================================================== -->\n").append("</Group>\n"
             );
         }
     }
