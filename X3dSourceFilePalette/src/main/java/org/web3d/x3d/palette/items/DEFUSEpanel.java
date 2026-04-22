@@ -246,21 +246,34 @@ public class DEFUSEpanel extends javax.swing.JPanel
                      "Problem with DEF name", NotifyDescriptor.YES_NO_OPTION);
             if (DialogDisplayer.getDefault().notify(notifyDescriptor) == NotifyDescriptor.YES_OPTION)
             {
-                  setDEF(getDEF().replace(" ",""));
-            defTF.setText(getDEF());
+                    setDEF(getDEF().replace(" ",""));
+                    defTF.setText(getDEF());
             }
         }
-        if (getDEF().contains("."))
+        if (getDEF().endsWith(".x3d"))
         {
-            message = "Warning, DEF='" + getDEF() + "' contains . (period character) which can thwart VRML97 .wrl and ClassicVRML .x3dv ROUTE statements.";
+            message = "Warning, DEF='" + getDEF() + "' ends with .x3d and the . (period character) <br /> can thwart VRML97 .wrl and ClassicVRML .x3dv ROUTE statements.";
             System.err.println ("*** " + message);
             NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
-                    "<html><p>" + message + "</p><br /><p>" + "Replace . period with _ underscore character?" + "</p></html>", 
+                    "<html><p align='center'>" + message + "</p><br /><p align='center'>" + "Remove trailing .x3d?" + "</p></html>", 
                      "Problem with DEF name", NotifyDescriptor.YES_NO_OPTION);
             if (DialogDisplayer.getDefault().notify(notifyDescriptor) == NotifyDescriptor.YES_OPTION)
             {
-                  setDEF(getDEF().replace(".","_"));
-            defTF.setText(getDEF());
+                    setDEF(getDEF().substring(0, getDEF().lastIndexOf(".x3d")));
+                    defTF.setText(getDEF());
+            }
+        }
+        else if (getDEF().contains("."))
+        {
+            message = "Warning, DEF='" + getDEF() + "' contains . (period character) <br /> which can thwart VRML97 .wrl and ClassicVRML .x3dv ROUTE statements.";
+            System.err.println ("*** " + message);
+            NotifyDescriptor notifyDescriptor = new NotifyDescriptor.Confirmation(
+                    "<html><p align='center'>" + message + "</p><br /><p align='center'>" + "Replace . period with _ underscore character?" + "</p></html>", 
+                     "Problem with DEF name", NotifyDescriptor.YES_NO_OPTION);
+            if (DialogDisplayer.getDefault().notify(notifyDescriptor) == NotifyDescriptor.YES_OPTION)
+            {
+                     setDEF(getDEF().replace(".","_"));
+                    defTF.setText(getDEF());
             }
         }
     }
