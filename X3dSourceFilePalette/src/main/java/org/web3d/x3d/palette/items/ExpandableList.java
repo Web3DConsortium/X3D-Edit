@@ -3489,11 +3489,11 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
          // check if value is still in degrees and hasn't been normalized yet
          if ((Math.abs(angle) > 2.0 * Math.PI) && !largeRadianAnglesConfirmed) 
          {
-             tooltip = (radiansFormat.format(angle) + " degrees = " + radiansFormat.format(angle / 180.0 * Math.PI) + " radians (needs normalization)");
+             tooltip = (radiansFormat.format(angle) + " degrees = " + degreesFormat.format(angle / 180.0 * Math.PI) + " radians (needs normalization)");
          }
          else // value in radians
          {
-             tooltip = (radiansFormat.format(angle) + " radians = " + radiansFormat.format(angle * 180.0 / Math.PI) + " degrees");
+             tooltip = (radiansFormat.format(angle) + " radians = " + degreesFormat.format(angle * 180.0 / Math.PI) + " degrees");
          }
 
          return tooltip;
