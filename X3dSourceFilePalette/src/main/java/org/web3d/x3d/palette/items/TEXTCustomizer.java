@@ -139,6 +139,9 @@ public class TEXTCustomizer extends BaseCustomizer
         hintLabel = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
+
+        dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(600, 120));
+        dEFUSEpanel1.setPreferredSize(new java.awt.Dimension(600, 120));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -213,42 +216,45 @@ public class TEXTCustomizer extends BaseCustomizer
         add(maxExtentTF, gridBagConstraints);
 
         translationButton.setText("Google translate");
+        translationButton.setToolTipText("author assist");
         translationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 translationButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
         add(translationButton, gridBagConstraints);
 
         wiktionaryButton.setText("Wiktionary");
+        wiktionaryButton.setToolTipText("author assist");
         wiktionaryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wiktionaryButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
         add(wiktionaryButton, gridBagConstraints);
 
         wikipediaButton.setText("Wikipedia");
+        wikipediaButton.setToolTipText("author assist");
         wikipediaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wikipediaButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
         add(wikipediaButton, gridBagConstraints);
 
         stringTable.setToolTipText("Single or multiple string values to render as flat text in X3D scene");
