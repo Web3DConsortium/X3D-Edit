@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -1275,6 +1275,12 @@ public interface X3DSchemaData
 
   // element Inline
   String  INLINE_ELNAME                = "Inline";
+  String  INLINE_ATTR_AUTOREFRESH_NAME = "autoRefresh"; // X3D 4.0
+  boolean INLINE_ATTR_AUTOREFRESH_REQD = false;
+  String  INLINE_ATTR_AUTOREFRESH_DFLT = "0";
+  String  INLINE_ATTR_AUTOREFRESHTIMELIMIT_NAME = "autoRefreshTimeLimit";
+  boolean INLINE_ATTR_AUTOREFRESHTIMELIMIT_REQD = false;
+  String  INLINE_ATTR_AUTOREFRESHTIMELIMIT_DFLT = "3600";
   String  INLINE_ATTR_LOAD_NAME        = "load";
   boolean INLINE_ATTR_LOAD_REQD        = false;
   String  INLINE_ATTR_LOAD_DFLT        = "true";
@@ -1299,9 +1305,21 @@ public interface X3DSchemaData
 
   // element InlineGeometry
   String  INLINEGEOMETRY_ELNAME                = "InlineGeometry";
+  String  INLINEGEOMETRY_ATTR_AUTOREFRESH_NAME = "autoRefresh"; // X3D 4.0
+  boolean INLINEGEOMETRY_ATTR_AUTOREFRESH_REQD = false;
+  String  INLINEGEOMETRY_ATTR_AUTOREFRESH_DFLT = "0";
+  String  INLINEGEOMETRY_ATTR_AUTOREFRESHTIMELIMIT_NAME = "autoRefreshTimeLimit";
+  boolean INLINEGEOMETRY_ATTR_AUTOREFRESHTIMELIMIT_REQD = false;
+  String  INLINEGEOMETRY_ATTR_AUTOREFRESHTIMELIMIT_DFLT = "3600";
   String  INLINEGEOMETRY_ATTR_LOAD_NAME        = "load";
   boolean INLINEGEOMETRY_ATTR_LOAD_REQD        = false;
   String  INLINEGEOMETRY_ATTR_LOAD_DFLT        = "true";
+  String  INLINEGEOMETRY_ATTR_SMOOTH_NAME      = "smooth";
+  boolean INLINEGEOMETRY_ATTR_SMOOTH_REQD      = false;
+  String  INLINEGEOMETRY_ATTR_SMOOTH_DFLT      = "true";
+  String  INLINEGEOMETRY_ATTR_SOLID_NAME       = "solid";
+  boolean INLINEGEOMETRY_ATTR_SOLID_REQD       = false;
+  String  INLINEGEOMETRY_ATTR_SOLID_DFLT       = "false";
   String  INLINEGEOMETRY_ATTR_URL_NAME         = "url";
   boolean INLINEGEOMETRY_ATTR_URL_REQD         = false;
   String  INLINEGEOMETRY_ATTR_URL_DFLT         = "";
