@@ -204,8 +204,8 @@ public class SWITCHCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(606, 290));
-        setPreferredSize(new java.awt.Dimension(606, 290));
+        setMinimumSize(new java.awt.Dimension(606, 300));
+        setPreferredSize(new java.awt.Dimension(606, 300));
         setLayout(new java.awt.GridBagLayout());
 
         whichChoiceLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
