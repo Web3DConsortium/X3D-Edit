@@ -37,6 +37,7 @@ package org.web3d.x3d.palette.items;
 import java.util.Arrays;
 import javax.swing.text.JTextComponent;
 import org.web3d.x3d.types.X3DGroupingNode;
+import org.web3d.x3d.types.X3DPrimitiveTypes;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 
 /**
@@ -47,7 +48,11 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class INLINEGEOMETRY extends X3DGroupingNode
 {
-  private boolean  load, loadDefault;
+  private X3DPrimitiveTypes.SFDouble autoRefresh, autoRefreshDefault; // SFTime
+  private X3DPrimitiveTypes.SFDouble autoRefreshTimeLimit, autoRefreshTimeLimitDefault; // SFTime
+  private boolean  load,   loadDefault;
+  private boolean  smooth, smoothDefault;
+  private boolean  solid,  solidDefault;
   private String[] urls, urlsDefault;
   private boolean  insertCommas, insertLineBreaks = false;
   private String   expectedProfile = "";
@@ -73,9 +78,15 @@ public class INLINEGEOMETRY extends X3DGroupingNode
   @Override
   public void initialize()
   {
+    autoRefresh          = autoRefreshDefault                   = new X3DPrimitiveTypes.SFDouble(INLINEGEOMETRY_ATTR_AUTOREFRESH_DFLT,0.0,null);
+    autoRefreshTimeLimit = autoRefreshTimeLimitDefault          = new X3DPrimitiveTypes.SFDouble(INLINEGEOMETRY_ATTR_AUTOREFRESHTIMELIMIT_DFLT,0.0,null);
+    
     description = descriptionDefault = INLINEGEOMETRY_ATTR_DESCRIPTION_DFLT; // X3D4.0
     
-    load = loadDefault = Boolean.parseBoolean(INLINEGEOMETRY_ATTR_LOAD_DFLT);
+    load   = loadDefault   = Boolean.parseBoolean(INLINEGEOMETRY_ATTR_LOAD_DFLT);
+    smooth = smoothDefault = Boolean.parseBoolean(INLINEGEOMETRY_ATTR_SMOOTH_DFLT);
+    solid  = solidDefault  = Boolean.parseBoolean(INLINEGEOMETRY_ATTR_SOLID_DFLT);
+    
     if(INLINEGEOMETRY_ATTR_URL_DFLT.length()>0)
       urls = urlsDefault = parseUrlsIntoStringArray(INLINEGEOMETRY_ATTR_URL_DFLT);
     else
@@ -88,6 +99,13 @@ public class INLINEGEOMETRY extends X3DGroupingNode
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
     
+    attr = root.getAttribute(INLINEGEOMETRY_ATTR_AUTOREFRESH_NAME);
+    if (attr != null)
+      autoRefresh = new X3DPrimitiveTypes.SFDouble(attr.getValue(), 0.0, null);
+    attr = root.getAttribute(INLINEGEOMETRY_ATTR_AUTOREFRESHTIMELIMIT_NAME);
+    if (attr != null)
+      autoRefreshTimeLimit = new X3DPrimitiveTypes.SFDouble(attr.getValue(), 0.0, null);
+    
     attr = root.getAttribute(INLINEGEOMETRY_ATTR_DESCRIPTION_NAME);
     if (attr != null)
       description = attr.getValue();
@@ -95,6 +113,14 @@ public class INLINEGEOMETRY extends X3DGroupingNode
     attr = root.getAttribute(INLINEGEOMETRY_ATTR_LOAD_NAME);
     if(attr != null)
       load = Boolean.parseBoolean(attr.getValue());
+
+    attr = root.getAttribute(INLINEGEOMETRY_ATTR_SMOOTH_NAME);
+    if(attr != null)
+      smooth = Boolean.parseBoolean(attr.getValue());
+
+    attr = root.getAttribute(INLINEGEOMETRY_ATTR_SOLID_NAME);
+    if(attr != null)
+      solid = Boolean.parseBoolean(attr.getValue());
     
     attr = root.getAttribute(INLINEGEOMETRY_ATTR_URL_NAME);
     if(attr != null)
@@ -127,6 +153,22 @@ public class INLINEGEOMETRY extends X3DGroupingNode
   public String createAttributes()
   {
     StringBuilder sb = new StringBuilder();
+
+    if (INLINEGEOMETRY_ATTR_AUTOREFRESH_REQD || !autoRefresh.equals(autoRefreshDefault)) {
+      sb.append(" ");
+      sb.append(INLINEGEOMETRY_ATTR_AUTOREFRESH_NAME);
+      sb.append("='");
+      sb.append(autoRefresh);
+      sb.append("'");
+    }
+    if (INLINEGEOMETRY_ATTR_AUTOREFRESHTIMELIMIT_REQD || !autoRefreshTimeLimit.equals(autoRefreshTimeLimitDefault)) {
+      sb.append(" ");
+      sb.append(INLINEGEOMETRY_ATTR_AUTOREFRESHTIMELIMIT_NAME);
+      sb.append("='");
+      sb.append(autoRefreshTimeLimit);
+      sb.append("'");
+    }
+    
     if (INLINEGEOMETRY_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
       sb.append(" ");
       sb.append(INLINEGEOMETRY_ATTR_DESCRIPTION_NAME);
@@ -140,7 +182,21 @@ public class INLINEGEOMETRY extends X3DGroupingNode
       sb.append("='");
       sb.append(load);
       sb.append("'");
-    }    
+    }
+    if (INLINEGEOMETRY_ATTR_SMOOTH_REQD || smooth != smoothDefault) {
+      sb.append(" ");
+      sb.append(INLINEGEOMETRY_ATTR_SMOOTH_NAME);
+      sb.append("='");
+      sb.append(smooth);
+      sb.append("'");
+    }
+    if (INLINEGEOMETRY_ATTR_SOLID_REQD || solid != solidDefault) {
+      sb.append(" ");
+      sb.append(INLINEGEOMETRY_ATTR_SOLID_NAME);
+      sb.append("='");
+      sb.append(solid);
+      sb.append("'");
+    }
     if (INLINEGEOMETRY_ATTR_URL_REQD || (!Arrays.equals(urls, urlsDefault) && (urls.length > 0))) {
       sb.append(" ");
       sb.append(INLINEGEOMETRY_ATTR_URL_NAME);
@@ -160,6 +216,26 @@ public class INLINEGEOMETRY extends X3DGroupingNode
   public void setLoad(boolean load)
   {
     this.load = load;
+  }
+
+  public boolean isSmooth()
+  {
+    return smooth;
+  }
+
+  public void setSmooth(boolean smooth)
+  {
+    this.smooth = smooth;
+  }
+
+  public boolean isSolid()
+  {
+    return solid;
+  }
+
+  public void setSolid(boolean solid)
+  {
+    this.solid = solid;
   }
 
   public String[] getUrls()
@@ -215,6 +291,32 @@ public class INLINEGEOMETRY extends X3DGroupingNode
      */
     public void setExpectedProfile(String expectedProfile) {
         this.expectedProfile = expectedProfile;
+    }
+
+    /**
+     * @param newAutoRefresh the autoRefresh to set
+     */
+    public void setAutoRefresh(String newAutoRefresh) {
+        autoRefresh = new X3DPrimitiveTypes.SFDouble(newAutoRefresh, 0.0, null);
+    }
+    /**
+     * @return the autoRefresh
+     */
+    public String getAutoRefresh() {
+        return autoRefresh.toString();
+    }
+
+    /**
+     * @param newAutoRefreshTimeLimit the autoRefreshTimeLimit to set
+     */
+    public void setAutoRefreshTimeLimit(String newAutoRefreshTimeLimit) {
+        autoRefreshTimeLimit = new X3DPrimitiveTypes.SFDouble(newAutoRefreshTimeLimit, 0.0, null);
+    }
+    /**
+     * @return the autoRefreshTimeLimit
+     */
+    public String getAutoRefreshTimeLimit() {
+        return autoRefreshTimeLimit.toString();
     }
 
     public String getDescription()

@@ -70,7 +70,10 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
     inlineGeometry.setVisualizationSelectionAvailable(false); // must precede initComponents() interface initialization
     inlineGeometry.setVisualizationTooltip("Add wireframe Box and axes to show boundingBox center and size (if defined)");
     
-    initComponents();
+    initComponents(); // must precede all panel manipulations
+    
+    autoRefreshTF.setText(inlineGeometry.getAutoRefresh());
+    autoRefreshTimeLimitTF.setText(inlineGeometry.getAutoRefreshTimeLimit());
     
     // can be the proxy field of a Collision node
     super.getDEFUSEpanel().setContainerFieldChoices(INLINEGEOMETRY_CONTAINERFIELD_CHOICES, INLINEGEOMETRY_CONTAINERFIELD_TOOLTIPS);
@@ -89,7 +92,9 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
     urlList.checkUrlValues();
     // TODO check X3D version 4.0+ for gltf/glb file extensions urls, Netowrking component level 4 as well
     
-    loadCB.setSelected(inlineGeometry.isLoad());
+      loadCB.setSelected(inlineGeometry.isLoad());
+    smoothCB.setSelected(inlineGeometry.isSmooth());
+     solidCB.setSelected(inlineGeometry.isSolid());
         insertCommasCheckBox.setSelected(inlineGeometry.isInsertCommas());
     insertLineBreaksCheckBox.setSelected(inlineGeometry.isInsertLineBreaks());
 
@@ -98,21 +103,6 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
     originalContent = inlineGeometry.getContent();
     if (originalContent.trim().isEmpty())
         originalContent = "";
-    
-    String expectedProfile = inlineGeometry.getExpectedProfile(); // utilize previous hint comment
-    if      (expectedProfile.equals("Immersive"))
-         expectedProfileComboBox.setSelectedItem("Immersive");
-    else if (expectedProfile.equals("Interchange"))
-         expectedProfileComboBox.setSelectedItem("Interchange");
-    else if (expectedProfile.equals("Interactive"))
-         expectedProfileComboBox.setSelectedItem("Interactive");
-    else if (expectedProfile.equals("CADInterchange"))
-         expectedProfileComboBox.setSelectedItem("CADInterchange");
-    else if (expectedProfile.equals("Full"))
-         expectedProfileComboBox.setSelectedItem("Full");
-    else if (expectedProfile.equals("Core"))
-         expectedProfileComboBox.setSelectedItem("Core");
-    else expectedProfileComboBox.setSelectedIndex(0); // empty choice
   }
   private void setDefaultDEFname ()
   {
@@ -145,24 +135,29 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
+        autoRefreshLabel = new javax.swing.JLabel();
+        autoRefreshTF = new javax.swing.JTextField();
+        autoRefreshTimeLimitLabel = new javax.swing.JLabel();
+        autoRefreshTimeLimitTF = new javax.swing.JTextField();
         descriptionLabel1 = new javax.swing.JLabel();
         descriptionTF = new javax.swing.JTextField();
         loadLabel = new javax.swing.JLabel();
         loadCB = new javax.swing.JCheckBox();
+        smoothLabel = new javax.swing.JLabel();
+        smoothCB = new javax.swing.JCheckBox();
+        solidLabel = new javax.swing.JLabel();
+        solidCB = new javax.swing.JCheckBox();
         urlLabel = new javax.swing.JLabel();
         urlList = new org.web3d.x3d.palette.items.UrlExpandableList2();
         appendLabel = new javax.swing.JLabel();
         insertCommasCheckBox = new javax.swing.JCheckBox();
         insertLineBreaksCheckBox = new javax.swing.JCheckBox();
-        expectedProfileLabel = new javax.swing.JLabel();
-        expectedProfileComboBox = new javax.swing.JComboBox<>();
-        expectedProfileNoteLabel = new javax.swing.JLabel();
         nodeHintPanel = new javax.swing.JPanel();
         descriptionLabel = new javax.swing.JLabel();
         spacerLabel = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(700, 540));
-        setPreferredSize(new java.awt.Dimension(700, 540));
+        setMinimumSize(new java.awt.Dimension(680, 560));
+        setPreferredSize(new java.awt.Dimension(680, 560));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -175,11 +170,51 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        autoRefreshLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        autoRefreshLabel.setText("autoRefresh");
+        autoRefreshLabel.setToolTipText("interval in seconds before automatic reload of current url asset is performed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshLabel, gridBagConstraints);
+
+        autoRefreshTF.setToolTipText("interval in seconds before automatic reload of current url asset is performed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 117;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshTF, gridBagConstraints);
+
+        autoRefreshTimeLimitLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        autoRefreshTimeLimitLabel.setText("autoRefreshTimeLimit");
+        autoRefreshTimeLimitLabel.setToolTipText("maximum duration that automatic refresh activity can occur");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 45;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshTimeLimitLabel, gridBagConstraints);
+
+        autoRefreshTimeLimitTF.setToolTipText("maximum duration that automatic refresh activity can occur");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 117;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshTimeLimitTF, gridBagConstraints);
+
         descriptionLabel1.setText("description");
         descriptionLabel1.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionLabel1, gridBagConstraints);
@@ -195,7 +230,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -208,7 +243,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         loadLabel.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained asset");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loadLabel, gridBagConstraints);
@@ -217,17 +252,54 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         loadCB.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained asset");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loadCB, gridBagConstraints);
+
+        smoothLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        smoothLabel.setText("smooth");
+        smoothLabel.setToolTipText("hint to provide smooth or sharp rendering of edges");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(smoothLabel, gridBagConstraints);
+
+        smoothCB.setSelected(true);
+        smoothCB.setToolTipText("hint to provide smooth or sharp rendering of edges");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(smoothCB, gridBagConstraints);
+
+        solidLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        solidLabel.setText("solid");
+        solidLabel.setToolTipText("solid=false means two-sided rendering, true means single-side rendering");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(solidLabel, gridBagConstraints);
+
+        solidCB.setToolTipText("solid=false means two-sided rendering, true means single-side rendering");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(solidCB, gridBagConstraints);
 
         urlLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         urlLabel.setText("url");
         urlLabel.setToolTipText("Address of X3D world to load into current scene");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(urlLabel, gridBagConstraints);
@@ -246,7 +318,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -259,7 +331,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         appendLabel.setText("append:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(appendLabel, gridBagConstraints);
 
@@ -267,7 +339,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         insertCommasCheckBox.setText("commas,");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(insertCommasCheckBox, gridBagConstraints);
 
@@ -280,41 +352,10 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 6);
         add(insertLineBreaksCheckBox, gridBagConstraints);
-
-        expectedProfileLabel.setText("expected profile");
-        expectedProfileLabel.setToolTipText("Expected Inline model profile ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(expectedProfileLabel, gridBagConstraints);
-
-        expectedProfileComboBox.setEditable(true);
-        expectedProfileComboBox.setModel(new DefaultComboBoxModel<>(X3D_ATTR_PROFILE_OPTIONS));
-        expectedProfileComboBox.setToolTipText("Expected Inline scene profile ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(expectedProfileComboBox, gridBagConstraints);
-
-        expectedProfileNoteLabel.setText("(inserts MetadataString child for expected profile of InlineGeometry model)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(expectedProfileNoteLabel, gridBagConstraints);
 
         nodeHintPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
@@ -332,7 +373,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
@@ -342,7 +383,7 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         add(nodeHintPanel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridheight = 5;
         gridBagConstraints.ipadx = 4;
         gridBagConstraints.weightx = 0.2;
@@ -370,18 +411,23 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel appendLabel;
+    private javax.swing.JLabel autoRefreshLabel;
+    private javax.swing.JTextField autoRefreshTF;
+    private javax.swing.JLabel autoRefreshTimeLimitLabel;
+    private javax.swing.JTextField autoRefreshTimeLimitTF;
     private org.web3d.x3d.palette.items.DEFUSEpanel dEFUSEpanel1;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JLabel descriptionLabel1;
     private javax.swing.JTextField descriptionTF;
-    private javax.swing.JComboBox<String> expectedProfileComboBox;
-    private javax.swing.JLabel expectedProfileLabel;
-    private javax.swing.JLabel expectedProfileNoteLabel;
     private javax.swing.JCheckBox insertCommasCheckBox;
     private javax.swing.JCheckBox insertLineBreaksCheckBox;
     private javax.swing.JCheckBox loadCB;
     private javax.swing.JLabel loadLabel;
     private javax.swing.JPanel nodeHintPanel;
+    private javax.swing.JCheckBox smoothCB;
+    private javax.swing.JLabel smoothLabel;
+    private javax.swing.JCheckBox solidCB;
+    private javax.swing.JLabel solidLabel;
     private javax.swing.JLabel spacerLabel;
     private javax.swing.JLabel urlLabel;
     private org.web3d.x3d.palette.items.UrlExpandableList2 urlList;
@@ -405,24 +451,14 @@ public class INLINEGEOMETRYCustomizer extends BaseCustomizer
         inlineGeometry.setDescription(descriptionTF.getText().trim());
     }
     
-    inlineGeometry.setLoad(loadCB.isSelected());
+    inlineGeometry.setAutoRefresh(autoRefreshTF.getText().trim());
+    inlineGeometry.setAutoRefreshTimeLimit(autoRefreshTimeLimitTF.getText().trim());
+    inlineGeometry.setLoad  (loadCB.isSelected());
+    inlineGeometry.setSmooth(smoothCB.isSelected());
+    inlineGeometry.setSolid (solidCB.isSelected());
     inlineGeometry.setUrls(urlList.getUrlData());
 
     inlineGeometry.setInsertCommas    (   insertCommasCheckBox.isSelected());
     inlineGeometry.setInsertLineBreaks(insertLineBreaksCheckBox.isSelected());
-    if (expectedProfileComboBox.getSelectedIndex() > 0)
-    {
-        inlineGeometry.setExpectedProfile((String)expectedProfileComboBox.getSelectedItem());
-        String hintComment =   "\n        " + INLINEGEOMETRY_PROFILE_METADATA_PREFIX + inlineGeometry.getExpectedProfile() + "\"'/>";
-
-        if (originalContent.trim().startsWith(INLINEGEOMETRY_PROFILE_METADATA_PREFIX)) // omit previous hint comment
-        {
-            originalContent = originalContent.substring(  originalContent.indexOf("/>") + 2); // following content
-        }
-        if (originalContent.trim().length() > 0)
-             hintComment += originalContent;
-        else hintComment += "\n";
-        inlineGeometry.setContent(hintComment);
-    }
   }   
 }

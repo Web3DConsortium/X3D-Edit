@@ -37,6 +37,7 @@ package org.web3d.x3d.palette.items;
 import java.util.Arrays;
 import javax.swing.text.JTextComponent;
 import org.web3d.x3d.types.X3DGroupingNode;
+import org.web3d.x3d.types.X3DPrimitiveTypes;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import static org.web3d.x3d.types.X3DSchemaData.*;
 import static org.web3d.x3d.types.X3DSchemaData4.*;
@@ -54,6 +55,8 @@ import static org.web3d.x3d.types.X3DSchemaData4.*;
  */
 public class INLINE extends X3DGroupingNode
 {
+  private X3DPrimitiveTypes.SFDouble autoRefresh, autoRefreshDefault; // SFTime
+  private X3DPrimitiveTypes.SFDouble autoRefreshTimeLimit, autoRefreshTimeLimitDefault; // SFTime
   private boolean  load, loadDefault;
   private String[] urls, urlsDefault;
   private boolean  insertCommas, insertLineBreaks = false;
@@ -80,6 +83,9 @@ public class INLINE extends X3DGroupingNode
   @Override
   public void initialize()
   {
+    autoRefresh          = autoRefreshDefault                   = new X3DPrimitiveTypes.SFDouble(INLINE_ATTR_AUTOREFRESH_DFLT,0.0,null);
+    autoRefreshTimeLimit = autoRefreshTimeLimitDefault          = new X3DPrimitiveTypes.SFDouble(INLINE_ATTR_AUTOREFRESHTIMELIMIT_DFLT,0.0,null);
+    
     description = descriptionDefault = INLINE_ATTR_DESCRIPTION_DFLT; // X3D4.0
     
     load = loadDefault = Boolean.parseBoolean(INLINE_ATTR_LOAD_DFLT);
@@ -108,6 +114,13 @@ public class INLINE extends X3DGroupingNode
   {
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
+    
+    attr = root.getAttribute(INLINE_ATTR_AUTOREFRESH_NAME);
+    if (attr != null)
+      autoRefresh = new X3DPrimitiveTypes.SFDouble(attr.getValue(), 0.0, null);
+    attr = root.getAttribute(INLINE_ATTR_AUTOREFRESHTIMELIMIT_NAME);
+    if (attr != null)
+      autoRefreshTimeLimit = new X3DPrimitiveTypes.SFDouble(attr.getValue(), 0.0, null);
     
     attr = root.getAttribute(INLINE_ATTR_DESCRIPTION_NAME);
     if (attr != null)
@@ -170,6 +183,22 @@ public class INLINE extends X3DGroupingNode
   public String createAttributes()
   {
     StringBuilder sb = new StringBuilder();
+    
+    if (INLINE_ATTR_AUTOREFRESH_REQD || !autoRefresh.equals(autoRefreshDefault)) {
+      sb.append(" ");
+      sb.append(INLINE_ATTR_AUTOREFRESH_NAME);
+      sb.append("='");
+      sb.append(autoRefresh);
+      sb.append("'");
+    }
+    if (INLINE_ATTR_AUTOREFRESHTIMELIMIT_REQD || !autoRefreshTimeLimit.equals(autoRefreshTimeLimitDefault)) {
+      sb.append(" ");
+      sb.append(INLINE_ATTR_AUTOREFRESHTIMELIMIT_NAME);
+      sb.append("='");
+      sb.append(autoRefreshTimeLimit);
+      sb.append("'");
+    }
+      
     if (INLINE_ATTR_BBOXCENTER_REQD ||
            (!bboxCenterX.equals(bboxCenterXDefault) ||
             !bboxCenterY.equals(bboxCenterYDefault) ||
@@ -237,6 +266,32 @@ public class INLINE extends X3DGroupingNode
 
     return sb.toString();
   }
+
+    /**
+     * @param newAutoRefresh the autoRefresh to set
+     */
+    public void setAutoRefresh(String newAutoRefresh) {
+        autoRefresh = new X3DPrimitiveTypes.SFDouble(newAutoRefresh, 0.0, null);
+    }
+    /**
+     * @return the autoRefresh
+     */
+    public String getAutoRefresh() {
+        return autoRefresh.toString();
+    }
+
+    /**
+     * @param newAutoRefreshTimeLimit the autoRefreshTimeLimit to set
+     */
+    public void setAutoRefreshTimeLimit(String newAutoRefreshTimeLimit) {
+        autoRefreshTimeLimit = new X3DPrimitiveTypes.SFDouble(newAutoRefreshTimeLimit, 0.0, null);
+    }
+    /**
+     * @return the autoRefreshTimeLimit
+     */
+    public String getAutoRefreshTimeLimit() {
+        return autoRefreshTimeLimit.toString();
+    }
 
   public boolean isLoad()
   {

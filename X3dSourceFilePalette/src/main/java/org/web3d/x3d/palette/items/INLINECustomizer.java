@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -75,7 +75,10 @@ public class INLINECustomizer extends BaseCustomizer
     inline.setVisualizationSelectionAvailable(true); // must precede initComponents() interface initialization
     inline.setVisualizationTooltip("Add wireframe Box and axes to show boundingBox center and size (if defined)");
     
-    initComponents();
+    initComponents(); // must precede all panel manipulations
+    
+    autoRefreshTF.setText(inline.getAutoRefresh());
+    autoRefreshTimeLimitTF.setText(inline.getAutoRefreshTimeLimit());
     
     // can be the proxy field of a Collision node
     super.getDEFUSEpanel().setContainerFieldChoices(INLINE_CONTAINERFIELD_CHOICES, INLINE_CONTAINERFIELD_TOOLTIPS);
@@ -167,6 +170,10 @@ public class INLINECustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
+        autoRefreshLabel = new javax.swing.JLabel();
+        autoRefreshTF = new javax.swing.JTextField();
+        autoRefreshTimeLimitLabel = new javax.swing.JLabel();
+        autoRefreshTimeLimitTF = new javax.swing.JTextField();
         descriptionLabel1 = new javax.swing.JLabel();
         descriptionTF = new javax.swing.JTextField();
         bboxCenterLabel = new javax.swing.JLabel();
@@ -208,12 +215,53 @@ public class INLINECustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        autoRefreshLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        autoRefreshLabel.setText("autoRefresh");
+        autoRefreshLabel.setToolTipText("interval in seconds before automatic reload of current url asset is performed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshLabel, gridBagConstraints);
+
+        autoRefreshTF.setToolTipText("interval in seconds before automatic reload of current url asset is performed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 117;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshTF, gridBagConstraints);
+
+        autoRefreshTimeLimitLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        autoRefreshTimeLimitLabel.setText("autoRefreshTimeLimit");
+        autoRefreshTimeLimitLabel.setToolTipText("maximum duration that automatic refresh activity can occur");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 45;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshTimeLimitLabel, gridBagConstraints);
+
+        autoRefreshTimeLimitTF.setToolTipText("maximum duration that automatic refresh activity can occur");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 117;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(autoRefreshTimeLimitTF, gridBagConstraints);
+
         descriptionLabel1.setText("description");
         descriptionLabel1.setToolTipText("(X3D4) Author-provided prose that describes intended purpose of the node");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 43, 3, 3);
         add(descriptionLabel1, gridBagConstraints);
 
@@ -228,7 +276,7 @@ public class INLINECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -241,7 +289,7 @@ public class INLINECustomizer extends BaseCustomizer
         bboxCenterLabel.setToolTipText("position offset from origin of local coordinate system");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -251,7 +299,7 @@ public class INLINECustomizer extends BaseCustomizer
         bboxCenterXTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
@@ -263,7 +311,7 @@ public class INLINECustomizer extends BaseCustomizer
         bboxCenterYTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
@@ -275,7 +323,7 @@ public class INLINECustomizer extends BaseCustomizer
         bboxCenterZTF.setMaximumSize(new java.awt.Dimension(6, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
@@ -288,7 +336,7 @@ public class INLINECustomizer extends BaseCustomizer
         bboxSizeLabel.setToolTipText("automatically calculated, can be specified as an optimization or constraint");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -303,7 +351,7 @@ public class INLINECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
@@ -320,7 +368,7 @@ public class INLINECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
@@ -337,7 +385,7 @@ public class INLINECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
@@ -350,7 +398,7 @@ public class INLINECustomizer extends BaseCustomizer
         loadLabel.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained asset");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loadLabel, gridBagConstraints);
@@ -359,7 +407,7 @@ public class INLINECustomizer extends BaseCustomizer
         loadCB.setToolTipText("load=true means load immediately, load=false means defer loading or unload contained asset");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(loadCB, gridBagConstraints);
@@ -369,7 +417,7 @@ public class INLINECustomizer extends BaseCustomizer
         urlLabel.setToolTipText("Address of X3D world to load into current scene");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(urlLabel, gridBagConstraints);
@@ -388,7 +436,7 @@ public class INLINECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -400,16 +448,16 @@ public class INLINECustomizer extends BaseCustomizer
         appendLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         appendLabel.setText("append:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(appendLabel, gridBagConstraints);
 
         insertCommasCheckBox.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         insertCommasCheckBox.setText("commas,");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         add(insertCommasCheckBox, gridBagConstraints);
 
@@ -421,8 +469,8 @@ public class INLINECustomizer extends BaseCustomizer
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 6);
         add(insertLineBreaksCheckBox, gridBagConstraints);
@@ -431,7 +479,7 @@ public class INLINECustomizer extends BaseCustomizer
         visibleLabel.setToolTipText("Whether or not renderable content within this node is visually displayed");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(visibleLabel, gridBagConstraints);
@@ -443,7 +491,7 @@ public class INLINECustomizer extends BaseCustomizer
         visibleCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(visibleCheckBox, gridBagConstraints);
@@ -452,7 +500,7 @@ public class INLINECustomizer extends BaseCustomizer
         bboxDisplayLabel.setToolTipText("Whether to display bounding box for associated geometry");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxDisplayLabel, gridBagConstraints);
@@ -464,7 +512,7 @@ public class INLINECustomizer extends BaseCustomizer
         bboxDisplayCheckBox.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(bboxDisplayCheckBox, gridBagConstraints);
@@ -473,7 +521,7 @@ public class INLINECustomizer extends BaseCustomizer
         expectedProfileLabel.setToolTipText("Expected Inline model profile ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -484,7 +532,7 @@ public class INLINECustomizer extends BaseCustomizer
         expectedProfileComboBox.setToolTipText("Expected Inline scene profile ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.weightx = 1.0;
@@ -494,7 +542,7 @@ public class INLINECustomizer extends BaseCustomizer
         expectedProfileNoteLabel.setText("(inserts MetadataString child for expected profile of Inline model)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -516,7 +564,7 @@ public class INLINECustomizer extends BaseCustomizer
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
@@ -558,6 +606,10 @@ public class INLINECustomizer extends BaseCustomizer
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel appendLabel;
+    private javax.swing.JLabel autoRefreshLabel;
+    private javax.swing.JTextField autoRefreshTF;
+    private javax.swing.JLabel autoRefreshTimeLimitLabel;
+    private javax.swing.JTextField autoRefreshTimeLimitTF;
     private javax.swing.JLabel bboxCenterLabel;
     private javax.swing.JTextField bboxCenterXTF;
     private javax.swing.JTextField bboxCenterYTF;
@@ -617,6 +669,8 @@ public class INLINECustomizer extends BaseCustomizer
     inline.setVisible    (visibleCheckBox.isSelected());
     inline.setBboxDisplay(bboxDisplayCheckBox.isSelected());
 
+    inline.setAutoRefresh(autoRefreshTF.getText().trim());
+    inline.setAutoRefreshTimeLimit(autoRefreshTimeLimitTF.getText().trim());
     inline.setInsertCommas    (   insertCommasCheckBox.isSelected());
     inline.setInsertLineBreaks(insertLineBreaksCheckBox.isSelected());
     if (expectedProfileComboBox.getSelectedIndex() > 0)
