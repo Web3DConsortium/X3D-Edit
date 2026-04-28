@@ -99,6 +99,7 @@ public class TANGENTCustomizer extends BaseCustomizer
         java.awt.GridBagConstraints gridBagConstraints;
 
         dEFUSEpanel1 = getDEFUSEpanel();
+        vectorLabel = new javax.swing.JLabel();
         expandableList1 = new org.web3d.x3d.palette.items.ExpandableList();
         normalizeAxisValuesButton = new javax.swing.JButton();
         hintLabel = new javax.swing.JLabel();
@@ -117,6 +118,15 @@ public class TANGENTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel1, gridBagConstraints);
 
+        vectorLabel.setText("vector");
+        vectorLabel.setToolTipText("vector array values");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        add(vectorLabel, gridBagConstraints);
+
         expandableList1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.LEADING, javax.swing.border.TitledBorder.TOP));
         expandableList1.setMinimumSize(new java.awt.Dimension(600, 110));
         expandableList1.setPreferredSize(new java.awt.Dimension(600, 400));
@@ -127,7 +137,7 @@ public class TANGENTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.weightx = 1.0;
@@ -144,7 +154,7 @@ public class TANGENTCustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 6);
         add(normalizeAxisValuesButton, gridBagConstraints);
@@ -156,7 +166,7 @@ public class TANGENTCustomizer extends BaseCustomizer
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipady = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_END;
@@ -208,6 +218,7 @@ public class TANGENTCustomizer extends BaseCustomizer
     private org.web3d.x3d.palette.items.ExpandableList expandableList1;
     private javax.swing.JLabel hintLabel;
     private javax.swing.JButton normalizeAxisValuesButton;
+    private javax.swing.JLabel vectorLabel;
     // End of variables declaration//GEN-END:variables
 
   @Override
