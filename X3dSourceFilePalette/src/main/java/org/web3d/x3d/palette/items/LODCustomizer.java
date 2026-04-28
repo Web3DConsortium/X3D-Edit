@@ -129,8 +129,8 @@ public class LODCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel1 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(606, 350));
-        setPreferredSize(new java.awt.Dimension(606, 350));
+        setMinimumSize(new java.awt.Dimension(606, 365));
+        setPreferredSize(new java.awt.Dimension(606, 365));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
