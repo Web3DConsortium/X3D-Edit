@@ -620,7 +620,7 @@
     <Component class="javax.swing.JLabel" name="hintLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;SpotLight&lt;/b&gt; is a light source that illuminates geometry within a conical beam. &#xa;&lt;br /&gt;&#xa;Lighting illuminates all geometry except lines and points. By default,&#xa;&lt;br /&gt;&#xa;light scope only illuminates peer geometry and children nodes within the scene graph hierarchy. &lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt;  Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.&lt;/p&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;SpotLight&lt;/b&gt; is a light source that illuminates geometry within a conical beam. &#xa;&lt;br /&gt;&#xa; X3D lights illuminate all geometry except lines and points. By default,&#xa;&lt;br /&gt;&#xa;light scope only illuminates peer geometry and children nodes within the scene graph hierarchy. &lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt;  Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.&lt;/p&gt;"/>
         <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="org/web3d/x3d/palette/items/Bundle.properties" key="INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>

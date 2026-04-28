@@ -474,7 +474,7 @@ public class POINTLIGHTCustomizer extends BaseCustomizer
         add(spacerLabel, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>PointLight</b>  is a single light source that illuminates outwards in all directions. \nLighting illuminates all geometry except lines and points. By default, light scope only illuminates peer geometry and children nodes within the scene graph hierarchy. </p>\n<br />\n<p align=\"center\">  Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.</p>");
+        hintLabel.setText("<html><p align=\"center\"><b>PointLight</b>  is a single light source that illuminates outwards in all directions. \n X3D lights illuminate all geometry except lines and points. By default, light scope only illuminates peer geometry and children nodes within the scene graph hierarchy. </p>\n<br />\n<p align=\"center\">  Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.</p>");
         hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(POINTLIGHTCustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();

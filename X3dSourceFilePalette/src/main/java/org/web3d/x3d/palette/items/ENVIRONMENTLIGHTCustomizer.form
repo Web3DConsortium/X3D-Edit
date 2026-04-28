@@ -187,7 +187,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="origin"/>
-        <Property name="toolTipText" type="java.lang.String" value="position of light relative to local coordinate system"/>
+        <Property name="toolTipText" type="java.lang.String" value="relative position for observing the surrounding scene to create an environment texture"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -197,7 +197,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="origin0TF">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="position of light relative to local coordinate system"/>
+        <Property name="toolTipText" type="java.lang.String" value="relative position for observing the surrounding scene to create an environment texture"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[60, 22]"/>
         </Property>
@@ -213,7 +213,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="origin1TF">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="position of light relative to local coordinate system"/>
+        <Property name="toolTipText" type="java.lang.String" value="relative position for observing the surrounding scene to create an environment texture"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[60, 22]"/>
         </Property>
@@ -229,7 +229,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="origin2TF">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="position of light relative to local coordinate system"/>
+        <Property name="toolTipText" type="java.lang.String" value="relative position for observing the surrounding scene to create an environment texture"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[60, 22]"/>
         </Property>
@@ -436,7 +436,7 @@
     <Component class="javax.swing.JLabel" name="hintLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;EnvironmentLight&lt;/b&gt; supports Image Based Lighting (IBL) techniques by specifying &lt;br /&gt;&#xa;light-source intensity around a given location (i.e., the environment) as a cube map. &lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt;&#xa;Contained &lt;i&gt;ambientIntensity&lt;i&gt; and &lt;i&gt;specularTexture&lt;i&gt; nodes &lt;br /&gt;&#xa;(ComposedCubeMapTexture, GeneratedCubeMapTexture, ImageCubeMapTexture) define radiance maps. &lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; Lighting illuminates all geometry except lines and points.   &lt;br /&gt;&#xa;Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.&lt;/p&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align=&quot;center&quot;&gt;&lt;b&gt;EnvironmentLight&lt;/b&gt; supports Image Based Lighting (IBL) techniques by specifying&#xa;   &lt;br /&gt;&#xa;   light-source intensity around a given location (meaning the surrounding environment) as a cube map. &lt;/p&gt;&#xa;&lt;br /&gt;&#xa;&lt;p align=&quot;center&quot;&gt; &lt;b&gt;EnvironmentLight&lt;/b&gt; contains &lt;i&gt;diffuseTexture&lt;/i&gt; and &lt;i&gt;specularTexture&lt;/i&gt; nodes &lt;br /&gt; (ComposedCubeMapTexture, GeneratedCubeMapTexture, ImageCubeMapTexture) that define radiance maps. &lt;/p&gt; &#xa;&lt;br /&gt; &#xa;&lt;p align=&quot;center&quot;&gt; X3D lights illuminate all geometry except lines and points.   &#xa;   &lt;br /&gt; &#xa;   Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.&lt;/p&gt;"/>
         <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="org/web3d/x3d/palette/items/Bundle.properties" key="INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
@@ -515,7 +515,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="diffuseCoefficients"/>
-        <Property name="toolTipText" type="java.lang.String" value="[0,1] brightness of direct light"/>
+        <Property name="toolTipText" type="java.lang.String" value="3 x 9 array of float values providing spherical harmonic coefficients for low-frequency characteristics of the environment map"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -539,6 +539,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
+            <Property name="toolTipText" type="java.lang.String" value="3 x 9 array of float values providing spherical harmonic coefficients for low-frequency characteristics of the environment map"/>
           </Properties>
         </Component>
       </SubComponents>

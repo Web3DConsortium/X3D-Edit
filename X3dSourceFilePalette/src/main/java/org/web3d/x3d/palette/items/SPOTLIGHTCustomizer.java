@@ -599,7 +599,7 @@ public class SPOTLIGHTCustomizer extends BaseCustomizer
         add(beamWidthTF, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>SpotLight</b> is a light source that illuminates geometry within a conical beam. \n<br />\nLighting illuminates all geometry except lines and points. By default,\n<br />\nlight scope only illuminates peer geometry and children nodes within the scene graph hierarchy. </p>\n<br />\n<p align=\"center\">  Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.</p>");
+        hintLabel.setText("<html><p align=\"center\"><b>SpotLight</b> is a light source that illuminates geometry within a conical beam. \n<br />\n X3D lights illuminate all geometry except lines and points. By default,\n<br />\nlight scope only illuminates peer geometry and children nodes within the scene graph hierarchy. </p>\n<br />\n<p align=\"center\">  Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.</p>");
         hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(SPOTLIGHTCustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();

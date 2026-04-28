@@ -293,7 +293,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
 
         originLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         originLabel.setText("origin");
-        originLabel.setToolTipText("position of light relative to local coordinate system");
+        originLabel.setToolTipText("relative position for observing the surrounding scene to create an environment texture");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -302,7 +302,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(originLabel, gridBagConstraints);
 
-        origin0TF.setToolTipText("position of light relative to local coordinate system");
+        origin0TF.setToolTipText("relative position for observing the surrounding scene to create an environment texture");
         origin0TF.setMinimumSize(new java.awt.Dimension(60, 22));
         origin0TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -313,7 +313,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(origin0TF, gridBagConstraints);
 
-        origin1TF.setToolTipText("position of light relative to local coordinate system");
+        origin1TF.setToolTipText("relative position for observing the surrounding scene to create an environment texture");
         origin1TF.setMinimumSize(new java.awt.Dimension(60, 22));
         origin1TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -324,7 +324,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(origin1TF, gridBagConstraints);
 
-        origin2TF.setToolTipText("position of light relative to local coordinate system");
+        origin2TF.setToolTipText("relative position for observing the surrounding scene to create an environment texture");
         origin2TF.setMinimumSize(new java.awt.Dimension(60, 22));
         origin2TF.setPreferredSize(new java.awt.Dimension(60, 22));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -493,7 +493,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
         add(rotationCalculatorlButton, gridBagConstraints);
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align=\"center\"><b>EnvironmentLight</b> supports Image Based Lighting (IBL) techniques by specifying <br />\nlight-source intensity around a given location (i.e., the environment) as a cube map. </p>\n<br />\n<p align=\"center\">\nContained <i>ambientIntensity<i> and <i>specularTexture<i> nodes <br />\n(ComposedCubeMapTexture, GeneratedCubeMapTexture, ImageCubeMapTexture) define radiance maps. </p>\n<br />\n<p align=\"center\"> Lighting illuminates all geometry except lines and points.   <br />\nLights have no visible shape themselves and lighting effects continue through any intermediate geometry.</p>");
+        hintLabel.setText("<html><p align=\"center\"><b>EnvironmentLight</b> supports Image Based Lighting (IBL) techniques by specifying\n   <br />\n   light-source intensity around a given location (meaning the surrounding environment) as a cube map. </p>\n<br />\n<p align=\"center\"> <b>EnvironmentLight</b> contains <i>diffuseTexture</i> and <i>specularTexture</i> nodes <br /> (ComposedCubeMapTexture, GeneratedCubeMapTexture, ImageCubeMapTexture) that define radiance maps. </p> \n<br /> \n<p align=\"center\"> X3D lights illuminate all geometry except lines and points.   \n   <br /> \n   Lights have no visible shape themselves and lighting effects continue through any intermediate geometry.</p>");
         hintLabel.setToolTipText(org.openide.util.NbBundle.getMessage(ENVIRONMENTLIGHTCustomizer.class, "INTEGERSEQUENCERCustomizer.eventLabel3.toolTipText")); // NOI18N
         hintLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -554,7 +554,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
 
         diffuseCoefficientsLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         diffuseCoefficientsLabel.setText("diffuseCoefficients");
-        diffuseCoefficientsLabel.setToolTipText("[0,1] brightness of direct light");
+        diffuseCoefficientsLabel.setToolTipText("3 x 9 array of float values providing spherical harmonic coefficients for low-frequency characteristics of the environment map");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
@@ -567,6 +567,7 @@ public class ENVIRONMENTLIGHTCustomizer extends BaseCustomizer
 
         diffuseCoefficientsTextArea.setColumns(20);
         diffuseCoefficientsTextArea.setRows(5);
+        diffuseCoefficientsTextArea.setToolTipText("3 x 9 array of float values providing spherical harmonic coefficients for low-frequency characteristics of the environment map");
         diffuseCoefficientsScrollPane.setViewportView(diffuseCoefficientsTextArea);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
