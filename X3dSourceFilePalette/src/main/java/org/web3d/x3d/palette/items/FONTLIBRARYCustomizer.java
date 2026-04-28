@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
  
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -378,7 +378,6 @@ public class FONTLIBRARYCustomizer extends BaseCustomizer
     // trace System.out.println ("familyText=" + familyText + ", familyMFString=" + familyMFString);
     fontLibrary.setFamily(familyMFString.toString());
     
-
     fontLibrary.setAutoRefresh(autoRefreshTF.getText().trim());
     fontLibrary.setAutoRefreshTimeLimit(autoRefreshTimeLimitTF.getText().trim());
     fontLibrary.setDescription(descriptionTA.getText().trim());
