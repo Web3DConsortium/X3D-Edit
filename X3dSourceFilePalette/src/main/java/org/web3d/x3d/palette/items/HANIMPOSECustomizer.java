@@ -284,12 +284,15 @@ public class HANIMPOSECustomizer extends BaseCustomizer
 
         transitionDurationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         transitionDurationLabel.setText("transitionDuration");
+        transitionDurationLabel.setToolTipText("Duration in seconds for animating a pose transition");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(transitionDurationLabel, gridBagConstraints);
+
+        transitionDurationTF.setToolTipText("Duration in seconds for animating a pose transition");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
