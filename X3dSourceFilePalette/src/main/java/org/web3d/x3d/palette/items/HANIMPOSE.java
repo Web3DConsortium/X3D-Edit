@@ -35,7 +35,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 import javax.swing.text.JTextComponent;
 import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
-import org.web3d.x3d.types.X3DGroupingNode;
+import org.web3d.x3d.types.X3DChildNode;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFFloat;
 import org.web3d.x3d.types.X3DPrimitiveTypes.SFInt32;
 import static org.web3d.x3d.types.X3DSchemaData.*;
@@ -46,7 +46,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  * @author Don Brutzman
  * @version $Id$
  */
-public class HANIMPOSE extends X3DGroupingNode
+public class HANIMPOSE extends X3DChildNode
 {
   private String  name;  
   private String  description;
