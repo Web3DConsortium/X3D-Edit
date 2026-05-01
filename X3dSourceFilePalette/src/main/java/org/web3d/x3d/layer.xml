@@ -1139,6 +1139,9 @@ POSSIBILITY OF SUCH DAMAGE.
             <file name="PIXELTEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/PIXELTEXTURE.xml">
                 <attr name="position" intvalue="1000"/>
             </file>
+            <file name="RENDEREDTEXTURE.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/RENDEREDTEXTURE.xml">
+                <attr name="position" intvalue="1050"/>
+            </file>
             <file name="TEXTUREPROPERTIES.xml" url="nbresloc:/org/web3d/x3d/palette/items/resources/TEXTUREPROPERTIES.xml">
                 <attr name="position" intvalue="1100"/>
             </file>
