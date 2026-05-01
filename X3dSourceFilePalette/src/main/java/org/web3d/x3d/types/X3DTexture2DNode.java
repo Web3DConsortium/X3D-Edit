@@ -36,7 +36,7 @@ package org.web3d.x3d.types;
 
 /**
  * X3DTexture2DNode.java
- * "Marker" interface for ImageTexture, PixelTexture
+ * "Marker" interface for ImageTexture, PixelTexture, RenderedTexture
  * Created on August 2, 2007, 10:16 AM
  *
  * MOVES Institute
