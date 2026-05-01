@@ -331,7 +331,8 @@ public class TEXTUREBACKGROUNDCustomizer extends BaseCustomizer
         nodeHintPanel = new javax.swing.JPanel();
         hintLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(960, 800));
+        setMinimumSize(new java.awt.Dimension(650, 350));
+        setPreferredSize(new java.awt.Dimension(650, 350));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMinimumSize(new java.awt.Dimension(198, 77));
@@ -388,7 +389,7 @@ public class TEXTUREBACKGROUNDCustomizer extends BaseCustomizer
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         hintLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hintLabel.setText("<html><p align='center'><b>TextureBackground</b> contains sky+ground colors+angles, plus<br> <b>ImageTexture</b>, <b>PixelTexture</b> or <b>MovieTexture</b> nodes with corresponding <i>containerField</i> values<br>for each side of the world background box</p>");
+        hintLabel.setText("<html><p align='center'><b>TextureBackground</b> contains sky+ground colors+angles, plus<br> <b>ImageTexture</b>, <b>PixelTexture</b>, <b>RenderedTexture</b> or <b>MovieTexture</b> nodes with corresponding <i>containerField</i> values<br>for each side of the world background box</p>");
         hintLabel.setToolTipText("close this panel to add children nodes");
         hintLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
