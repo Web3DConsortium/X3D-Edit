@@ -2531,7 +2531,7 @@ public class SHAPECustomizer extends BaseCustomizer
    */
   private void setContent ()
   {  
-      String PROPERTIES_COMMENT = "<!-- TODO authors can add optional ImageTexture, MovieTexture, PixelTexture, TextureTransform, AcousticProperties, FillProperties, LineProperties and/or PointProperties nodes here -->";
+      String PROPERTIES_COMMENT = "<!-- TODO authors can add optional ImageTexture, MovieTexture, PixelTexture, RenderedTexture, TextureTransform, AcousticProperties, FillProperties, LineProperties and/or PointProperties nodes here -->";
       // TODO consider Appearance/Material/Color interface also
       String APPEARANCE_CONTENT_EMISSIVE_LINES  = "\n    <Appearance>\n      <!-- Line color is defined by emissiveColor -->\n      <Material emissiveColor='1 1 1'/>\n      <!-- TODO authors can add optional LineProperties node here -->\n    </Appearance>\n  ";
       String APPEARANCE_CONTENT_EMISSIVE_POINTS = "\n    <Appearance>\n      <!-- Point color is defined by emissiveColor -->\n      <Material emissiveColor='1 1 1'/>\n      <!-- TODO authors can add optional PointProperties node here -->\n    </Appearance>\n  ";

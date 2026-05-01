@@ -106,7 +106,7 @@ public class SHAPE extends X3DShapeNode
     setBboxDisplay(bboxDisplayDefault = Boolean.parseBoolean(SHAPE_ATTR_BBOXDISPLAY_DFLT));
 
 //  setContent("\n\t\t<!--TODO add Appearance and a single geometry node here-->\n\t");
-//  setContent("\n\t\t<!--TODO add a single geometry node here-->\n\t\t<Appearance>\n\t\t\t<Material/>\n\t\t\t<!--TODO add ImageTexture, MovieTexture, PixelTexture, TextureTransform, FillProperties, and/or LineProperties nodes here-->\n\t\t</Appearance>\n\t");
+//  setContent("\n\t\t<!--TODO add a single geometry node here-->\n\t\t<Appearance>\n\t\t\t<Material/>\n\t\t\t<!--TODO add ImageTexture, MovieTexture, PixelTexture, RenderedTexture, TextureTransform, FillProperties, and/or LineProperties nodes here-->\n\t\t</Appearance>\n\t");
   }
 
   /**
