@@ -85,7 +85,13 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
 
   protected org.jdom.Document getSelectedElementAsJdom(String elementString) throws Exception
   {
-    return X3DPaletteUtilitiesJdom.buildJdomFromString(elementString);
+    org.jdom.Document newJdomDocument = X3DPaletteUtilitiesJdom.buildJdomFromString(elementString);
+    if (newJdomDocument.toString().contains("No DOCTYPE"))
+    {
+        System.err.println("*** spelling error or X3D version mismatch, jdom reports: " + newJdomDocument.toString());
+        // TODO popup panel
+    }
+    return newJdomDocument;
   }
 
   @Override
