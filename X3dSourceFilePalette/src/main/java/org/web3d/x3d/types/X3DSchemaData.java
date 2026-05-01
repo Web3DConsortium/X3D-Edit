@@ -1969,6 +1969,77 @@ public interface X3DSchemaData
     "top of parent ComposedCubeMapTexture",
     "bottom of parent ComposedCubeMapTexture"};
 
+  // Element RenderedTexture
+  String  RENDEREDTEXTURE_ELNAME            = "RenderedTexture";
+  String  RENDEREDTEXTURE_ATTR_DEPTHMAP_NAME = "depthmMap";
+  boolean RENDEREDTEXTURE_ATTR_DEPTHMAP_REQD = false;
+  String  RENDEREDTEXTURE_ATTR_DEPTHMAP_DFLT = "false";
+  
+  String  RENDEREDTEXTURE_ATTR_DESCRIPTION_NAME = "description";
+  boolean RENDEREDTEXTURE_ATTR_DESCRIPTION_REQD = false;
+  String  RENDEREDTEXTURE_ATTR_DESCRIPTION_DFLT = "";
+  
+  String  RENDEREDTEXTURE_ATTR_DIMENSIONS_NAME        = "enabled";
+  boolean RENDEREDTEXTURE_ATTR_DIMENSIONS_REQD        = false;
+  String  RENDEREDTEXTURE_ATTR_DIMENSIONS_WIDTH_DFLT  = "128";
+  String  RENDEREDTEXTURE_ATTR_DIMENSIONS_HEIGHT_DFLT = "128";
+  String  RENDEREDTEXTURE_ATTR_DIMENSIONS_DEPTH_DFLT  = "4";
+  
+  String  RENDEREDTEXTURE_ATTR_ENABLED_NAME  = "enabled";
+  boolean RENDEREDTEXTURE_ATTR_ENABLED_REQD  = false;
+  String  RENDEREDTEXTURE_ATTR_ENABLED_DFLT  = "true";
+  
+  String  RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_NAME = "maximumNumberFrames";
+  boolean RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_REQD = false;
+  String  RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_DFLT = "1000";
+  
+  String  RENDEREDTEXTURE_ATTR_REPEATS_NAME = "repeatS";
+  boolean RENDEREDTEXTURE_ATTR_REPEATS_REQD = false;
+  String  RENDEREDTEXTURE_ATTR_REPEATS_DFLT = "true";
+
+  String  RENDEREDTEXTURE_ATTR_REPEATT_NAME = "repeatT";
+  boolean RENDEREDTEXTURE_ATTR_REPEATT_REQD = false;
+  String  RENDEREDTEXTURE_ATTR_REPEATT_DFLT = "true";
+  
+  String  RENDEREDTEXTURE_ATTR_REPLACEIMAGE_NAME = "replaceImage";
+  boolean RENDEREDTEXTURE_ATTR_REPLACEIMAGE_REQD = false;
+  String  RENDEREDTEXTURE_ATTR_REPLACEIMAGE_DFLT = "true";
+
+  String  RENDEREDTEXTURE_ATTR_URL_NAME     = "url";
+  boolean RENDEREDTEXTURE_ATTR_URL_REQD     = false;
+  String  RENDEREDTEXTURE_ATTR_URL_DFLT     = "";
+  
+  String  RENDEREDTEXTURE_ATTR_UPDATE_NAME     = "update";
+  boolean RENDEREDTEXTURE_ATTR_UPDATE_REQD     = false;
+  String[]RENDEREDTEXTURE_ATTR_UPDATE_CHOICES  = {"NONE","NEXT_FRAME_ONLY","ALWAYS"};
+  String  RENDEREDTEXTURE_ATTR_UPDATE_DFLT     =  "NONE";
+  
+  String  RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_NAME     = "updateInterval";
+  boolean RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_REQD     = false;
+  String  RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_DFLT     = "0.1";
+  
+  String[]RENDEREDTEXTURE_ATTR_CONTAINERFIELD_CHOICES = {
+    "texture","watchList", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","children","left","right","back","front","top","bottom","ambientTexture", "baseTexture", "diffuseTexture", "emissiveTexture", "metallicRoughnessTexture", "normalTexture", "occlusionTexture", "shininessTexture", "specularTexture"};
+  String  RENDEREDTEXTURE_ATTR_CONTAINERFIELD_TOOLTIP =
+    "texture of parent Shape or ComposedTexture3D, otherTexture of parent TextureBackground";
+  String[]RENDEREDTEXTURE_ATTR_CONTAINERFIELD_TOOLTIPS = {
+    "texture of parent Shape or ComposedTexture3D",
+    "leftTexture of parent TextureBackground",
+    "rightTexture of parent TextureBackground",
+    "backTexture of parent TextureBackground",
+    "frontTexture of parent TextureBackground",
+    "topTexture of parent TextureBackground",
+    "bottomTexture of parent TextureBackground",
+    "child of a parent LoadSensor node (X3D version 3 only)",
+    "child of a parent LoadSensor node (X3D version 4)",
+    "left of parent ComposedCubeMapTexture",
+    "right of parent ComposedCubeMapTexture",
+    "back of parent ComposedCubeMapTexture",
+    "front of parent ComposedCubeMapTexture",
+    "top of parent ComposedCubeMapTexture",
+    "bottom of parent ComposedCubeMapTexture"};
+
+
   // Element MovieTexture
   String  MOVIETEXTURE_ELNAME               = "MovieTexture";
   String  MOVIETEXTURE_ATTR_DESCRIPTION_NAME= "description";
