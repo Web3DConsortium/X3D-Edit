@@ -648,6 +648,7 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
     renderedTexture.setHeight(heightTF.getText().trim());
     renderedTexture.setNumberOfComponents ( depthComboBox.getSelectedItem().toString());
     
+    renderedTexture.setMaximumNumberFrames(maximumNumberFramesTF.getText().trim());
     renderedTexture.setUpdate        (updateComboBox.getSelectedItem().toString());
     renderedTexture.setUpdateInterval(updateIntervalTF.getText().trim());
     
