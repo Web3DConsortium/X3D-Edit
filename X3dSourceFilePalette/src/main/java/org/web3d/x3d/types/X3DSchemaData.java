@@ -1979,7 +1979,7 @@ public interface X3DSchemaData
   boolean RENDEREDTEXTURE_ATTR_DESCRIPTION_REQD = false;
   String  RENDEREDTEXTURE_ATTR_DESCRIPTION_DFLT = "";
   
-  String  RENDEREDTEXTURE_ATTR_DIMENSIONS_NAME        = "enabled";
+  String  RENDEREDTEXTURE_ATTR_DIMENSIONS_NAME        = "dimensions";
   boolean RENDEREDTEXTURE_ATTR_DIMENSIONS_REQD        = false;
   String  RENDEREDTEXTURE_ATTR_DIMENSIONS_WIDTH_DFLT  = "128";
   String  RENDEREDTEXTURE_ATTR_DIMENSIONS_HEIGHT_DFLT = "128";
@@ -2038,7 +2038,6 @@ public interface X3DSchemaData
     "front of parent ComposedCubeMapTexture",
     "top of parent ComposedCubeMapTexture",
     "bottom of parent ComposedCubeMapTexture"};
-
 
   // Element MovieTexture
   String  MOVIETEXTURE_ELNAME               = "MovieTexture";
