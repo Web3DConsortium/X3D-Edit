@@ -5,8 +5,8 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
 are met:
  
- * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.
+ * Redistributions of source code must retain the above copyright 
+     notice, this list of conditions and the following disclaimer.
  * Redistributions in binary form must reproduce the above copyright
       notice, this list of conditions and the following disclaimer
       in the documentation and/or other materials provided with the
@@ -56,8 +56,11 @@ public class APPEARANCECustomizer extends BaseCustomizer
   
   private boolean hasMaterial              = false;
   private boolean hasTwoSidedMaterial      = false;
+  private boolean hasPhysicalMaterial      = false;
+  private boolean hasUnlitMaterial         = false;
   private boolean hasImageTexture          = false;
   private boolean hasPixelTexture          = false;
+  private boolean hasRenderedTexture       = false;
   private boolean hasMovieTexture          = false;
   private boolean hasMultiTexture          = false;
   private boolean hasTextureTransform      = false;
@@ -101,8 +104,11 @@ public class APPEARANCECustomizer extends BaseCustomizer
   {
     hasMaterial              = false;
     hasTwoSidedMaterial      = false;
+    hasPhysicalMaterial      = false;
+    hasUnlitMaterial      = false;
     hasImageTexture          = false;
     hasPixelTexture          = false;
+    hasRenderedTexture       = false;
     hasMovieTexture          = false;
     hasMultiTexture          = false;
     hasTextureTransform      = false;
@@ -121,17 +127,27 @@ public class APPEARANCECustomizer extends BaseCustomizer
     if (content.contains("<TwoSidedMaterial "))
         hasTwoSidedMaterial              = true;
     twoSidedMaterialRadioButton.setSelected(hasTwoSidedMaterial);
+    if (content.contains("<PhysicalMaterial "))
+        hasPhysicalMaterial              = true;
+    physicalMaterialRadioButton.setSelected(hasPhysicalMaterial);
+    if (content.contains("<UnlitMaterial "))
+        hasUnlitMaterial              = true;
+    unlitMaterialRadioButton.setSelected(hasUnlitMaterial);
     
     // special logic for material button group, lock buttons if any are selected
-    if (hasMaterial || hasTwoSidedMaterial)
+    if (hasMaterial || hasTwoSidedMaterial || hasPhysicalMaterial || hasUnlitMaterial)
     {
             materialRadioButton.setEnabled(false);
     twoSidedMaterialRadioButton.setEnabled(false);
+    physicalMaterialRadioButton.setEnabled(false);
+       unlitMaterialRadioButton.setEnabled(false);
     }
     else // no selections during initialization, remain open for additions
     {
             materialRadioButton.setEnabled(true);
     twoSidedMaterialRadioButton.setEnabled(true);
+    physicalMaterialRadioButton.setEnabled(true);
+       unlitMaterialRadioButton.setEnabled(true);
     }
     
     if (content.contains("<ImageTexture "))
@@ -145,19 +161,25 @@ public class APPEARANCECustomizer extends BaseCustomizer
     if (content.contains("<PixelTexture "))
         hasPixelTexture              = true;
     pixelTextureRadioButton.setSelected(hasPixelTexture);
+    
+    if (content.contains("<RenderedTexture "))
+        hasRenderedTexture              = true;
+    renderedTextureRadioButton.setSelected(hasRenderedTexture);
 
-    // special logic for texture button group, lock buttons if any are selected
-    if (hasImageTexture || hasMovieTexture || hasPixelTexture)
+    // special logic for texture button group: lock buttons if any are selected
+    if (hasImageTexture || hasMovieTexture || hasPixelTexture || hasRenderedTexture)
     {
         imageTextureRadioButton.setEnabled(false);
         movieTextureRadioButton.setEnabled(false);
         pixelTextureRadioButton.setEnabled(false);
+     renderedTextureRadioButton.setEnabled(false);
     }
     else
     {
         imageTextureRadioButton.setEnabled(true);
         movieTextureRadioButton.setEnabled(true);
         pixelTextureRadioButton.setEnabled(true);
+     renderedTextureRadioButton.setEnabled(true);
     }
     // remaining selections are checkboxes and not radio buttons, no further gymnastics needed when locking selections   
 
@@ -225,12 +247,15 @@ public class APPEARANCECustomizer extends BaseCustomizer
         selectionPanel = new javax.swing.JPanel();
         materialRadioButton = new javax.swing.JRadioButton();
         twoSidedMaterialRadioButton = new javax.swing.JRadioButton();
+        physicalMaterialRadioButton = new javax.swing.JRadioButton();
+        unlitMaterialRadioButton = new javax.swing.JRadioButton();
         linePropertiesCheckBox = new javax.swing.JCheckBox();
         fillPropertiesCheckBox = new javax.swing.JCheckBox();
         jSeparator2 = new javax.swing.JSeparator();
         imageTextureRadioButton = new javax.swing.JRadioButton();
         movieTextureRadioButton = new javax.swing.JRadioButton();
         pixelTextureRadioButton = new javax.swing.JRadioButton();
+        renderedTextureRadioButton = new javax.swing.JRadioButton();
         multiTextureCheckBox = new javax.swing.JCheckBox();
         textureTransformCheckBox = new javax.swing.JCheckBox();
         multiTextureTransformCheckBox = new javax.swing.JCheckBox();
@@ -242,9 +267,9 @@ public class APPEARANCECustomizer extends BaseCustomizer
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setMinimumSize(new java.awt.Dimension(620, 540));
+        setMinimumSize(new java.awt.Dimension(620, 550));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(620, 540));
+        setPreferredSize(new java.awt.Dimension(620, 550));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel1.setMaximumSize(null);
@@ -393,7 +418,7 @@ public class APPEARANCECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(6, 36, 2, 2);
@@ -409,11 +434,43 @@ public class APPEARANCECustomizer extends BaseCustomizer
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(2, 36, 2, 2);
         selectionPanel.add(twoSidedMaterialRadioButton, gridBagConstraints);
+
+        materialButtonGroup.add(physicalMaterialRadioButton);
+        physicalMaterialRadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        physicalMaterialRadioButton.setText("PhysicalMaterial");
+        physicalMaterialRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                physicalMaterialRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(2, 36, 2, 2);
+        selectionPanel.add(physicalMaterialRadioButton, gridBagConstraints);
+
+        materialButtonGroup.add(unlitMaterialRadioButton);
+        unlitMaterialRadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        unlitMaterialRadioButton.setText("UnlitMaterial");
+        unlitMaterialRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unlitMaterialRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(2, 36, 2, 2);
+        selectionPanel.add(unlitMaterialRadioButton, gridBagConstraints);
 
         linePropertiesCheckBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         linePropertiesCheckBox.setText("LineProperties");
@@ -496,6 +553,21 @@ public class APPEARANCECustomizer extends BaseCustomizer
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(2, 36, 2, 2);
         selectionPanel.add(pixelTextureRadioButton, gridBagConstraints);
+
+        textureButtonGroup.add(renderedTextureRadioButton);
+        renderedTextureRadioButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        renderedTextureRadioButton.setText("RenderedTexture");
+        renderedTextureRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                renderedTextureRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(2, 36, 2, 2);
+        selectionPanel.add(renderedTextureRadioButton, gridBagConstraints);
 
         multiTextureCheckBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         multiTextureCheckBox.setText("MultiTexture");
@@ -598,11 +670,14 @@ public class APPEARANCECustomizer extends BaseCustomizer
         
                 materialRadioButton.setEnabled(false);
         twoSidedMaterialRadioButton.setEnabled(false);
+        physicalMaterialRadioButton.setEnabled(false);
+           unlitMaterialRadioButton.setEnabled(false);
              fillPropertiesCheckBox.setEnabled(false);
              linePropertiesCheckBox.setEnabled(false);
             imageTextureRadioButton.setEnabled(false);
             movieTextureRadioButton.setEnabled(false);
             pixelTextureRadioButton.setEnabled(false);
+         renderedTextureRadioButton.setEnabled(false);
            textureTransformCheckBox.setEnabled(false);
                multiTextureCheckBox.setEnabled(false);
       multiTextureTransformCheckBox.setEnabled(false);
@@ -617,11 +692,14 @@ public class APPEARANCECustomizer extends BaseCustomizer
         
                 materialRadioButton.setEnabled(false);
         twoSidedMaterialRadioButton.setEnabled(false);
+        physicalMaterialRadioButton.setEnabled(false);
+           unlitMaterialRadioButton.setEnabled(false);
              fillPropertiesCheckBox.setEnabled(false);
              linePropertiesCheckBox.setEnabled(false);
             imageTextureRadioButton.setEnabled(false);
             movieTextureRadioButton.setEnabled(false);
             pixelTextureRadioButton.setEnabled(false);
+         renderedTextureRadioButton.setEnabled(false);
            textureTransformCheckBox.setEnabled(false);
                multiTextureCheckBox.setEnabled(false);
       multiTextureTransformCheckBox.setEnabled(false);
@@ -638,6 +716,14 @@ public class APPEARANCECustomizer extends BaseCustomizer
         if (appearance.getContent().contains("<TwoSidedMaterial"))
         {
             twoSidedMaterialRadioButton.setSelected(true);
+        }
+        if (appearance.getContent().contains("<PhysicalSidedMaterial"))
+        {
+            physicalMaterialRadioButton.setSelected(true);
+        }
+        if (appearance.getContent().contains("<UnlitMaterial"))
+        {
+            unlitMaterialRadioButton.setSelected(true);
         }
         if (appearance.getContent().contains("<FillProperties"))
         {
@@ -658,6 +744,10 @@ public class APPEARANCECustomizer extends BaseCustomizer
         if (appearance.getContent().contains("<PixelTexture"))
         {
             pixelTextureRadioButton.setSelected(true);
+        }
+        if (appearance.getContent().contains("<RenderedTexture"))
+        {
+            renderedTextureRadioButton.setSelected(true);
         }
         if (appearance.getContent().contains("<TextureTransform"))
         {
@@ -680,6 +770,8 @@ public class APPEARANCECustomizer extends BaseCustomizer
         
                 materialRadioButton.setEnabled(true);
         twoSidedMaterialRadioButton.setEnabled(true);
+        physicalMaterialRadioButton.setEnabled(true);
+           unlitMaterialRadioButton.setEnabled(true);
          acousticPropertiesCheckBox.setEnabled(true);
              fillPropertiesCheckBox.setEnabled(true);
              linePropertiesCheckBox.setEnabled(true);
@@ -687,6 +779,7 @@ public class APPEARANCECustomizer extends BaseCustomizer
             imageTextureRadioButton.setEnabled(true);
             movieTextureRadioButton.setEnabled(true);
             pixelTextureRadioButton.setEnabled(true);
+         renderedTextureRadioButton.setEnabled(true);
            textureTransformCheckBox.setEnabled(true);
                multiTextureCheckBox.setEnabled(true);
       multiTextureTransformCheckBox.setEnabled(true);
@@ -700,6 +793,8 @@ public class APPEARANCECustomizer extends BaseCustomizer
               appearance.setContent(""); // TODO warn
                 materialRadioButton.setSelected(false);
         twoSidedMaterialRadioButton.setSelected(false);
+        physicalMaterialRadioButton.setSelected(false);
+           unlitMaterialRadioButton.setSelected(false);
          acousticPropertiesCheckBox.setSelected(false);
              fillPropertiesCheckBox.setSelected(false);
              linePropertiesCheckBox.setSelected(false);
@@ -707,11 +802,14 @@ public class APPEARANCECustomizer extends BaseCustomizer
             imageTextureRadioButton.setSelected(false);
             movieTextureRadioButton.setSelected(false);
             pixelTextureRadioButton.setSelected(false);
+         renderedTextureRadioButton.setSelected(false);
            textureTransformCheckBox.setSelected(false);
                multiTextureCheckBox.setSelected(false);
       multiTextureTransformCheckBox.setSelected(false);
                 materialRadioButton.setEnabled(true);
         twoSidedMaterialRadioButton.setEnabled(true);
+        physicalMaterialRadioButton.setEnabled(true);
+           unlitMaterialRadioButton.setEnabled(true);
          acousticPropertiesCheckBox.setEnabled(true);
              fillPropertiesCheckBox.setEnabled(true);
              linePropertiesCheckBox.setEnabled(true);
@@ -719,6 +817,7 @@ public class APPEARANCECustomizer extends BaseCustomizer
             imageTextureRadioButton.setEnabled(true);
             movieTextureRadioButton.setEnabled(true);
             pixelTextureRadioButton.setEnabled(true);
+         renderedTextureRadioButton.setEnabled(true);
            textureTransformCheckBox.setEnabled(true);
                multiTextureCheckBox.setEnabled(true);
       multiTextureTransformCheckBox.setEnabled(true);
@@ -774,7 +873,18 @@ public class APPEARANCECustomizer extends BaseCustomizer
     private void pointPropertiesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pointPropertiesCheckBoxActionPerformed
         newContentRadioButton.setSelected(true);
     }//GEN-LAST:event_pointPropertiesCheckBoxActionPerformed
-  
+
+    private void renderedTextureRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_renderedTextureRadioButtonActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_renderedTextureRadioButtonActionPerformed
+
+    private void physicalMaterialRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_physicalMaterialRadioButtonActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_physicalMaterialRadioButtonActionPerformed
+
+    private void unlitMaterialRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unlitMaterialRadioButtonActionPerformed
+        newContentRadioButton.setSelected(true);
+    }//GEN-LAST:event_unlitMaterialRadioButtonActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox acousticPropertiesCheckBox;
@@ -801,13 +911,16 @@ public class APPEARANCECustomizer extends BaseCustomizer
     private javax.swing.JCheckBox multiTextureTransformCheckBox;
     private javax.swing.JRadioButton newContentRadioButton;
     private javax.swing.JRadioButton noContentRadioButton;
+    private javax.swing.JRadioButton physicalMaterialRadioButton;
     private javax.swing.JRadioButton pixelTextureRadioButton;
     private javax.swing.JCheckBox pointPropertiesCheckBox;
     private javax.swing.JRadioButton priorContentRadioButton;
+    private javax.swing.JRadioButton renderedTextureRadioButton;
     private javax.swing.JPanel selectionPanel;
     private javax.swing.ButtonGroup textureButtonGroup;
     private javax.swing.JCheckBox textureTransformCheckBox;
     private javax.swing.JRadioButton twoSidedMaterialRadioButton;
+    private javax.swing.JRadioButton unlitMaterialRadioButton;
     // End of variables declaration//GEN-END:variables
 
     
@@ -830,6 +943,8 @@ public class APPEARANCECustomizer extends BaseCustomizer
       
     String           MATERIAL_CONTENT    = "\t\t\t<Material/>\n";
     String   TWOSIDEDMATERIAL_CONTENT    = "\t\t\t<TwoSidedMaterial/>\n";
+    String   PHYSICALMATERIAL_CONTENT    = "\t\t\t<PhysicalMaterial/>\n";
+    String      UNLITMATERIAL_CONTENT    = "\t\t\t<UnlitMaterial/>\n";
     String ACOUSTICPROPERTIES_CONTENT    = "\t\t\t<AcousticProperties/>\n";
     String     FILLPROPERTIES_CONTENT    = "\t\t\t<FillProperties/>\n";
     String     LINEPROPERTIES_CONTENT    = "\t\t\t<LineProperties/>\n";
@@ -837,12 +952,15 @@ public class APPEARANCECustomizer extends BaseCustomizer
     String       IMAGETEXTURE_CONTENT    = "\t\t\t<ImageTexture/>\n";
     String       MOVIETEXTURE_CONTENT    = "\t\t\t<MovieTexture/>\n";
     String       PIXELTEXTURE_CONTENT    = "\t\t\t<PixelTexture/>\n";
+    String    RENDEREDTEXTURE_CONTENT    = "\t\t\t<RenderedTexture/>\n";
     String   TEXTURETRANSFORM_CONTENT    = "\t\t\t<TextureTransform/>\n";
     String MULTITEXTURE_CONTENT          = "\t\t\t<MultiTexture/>\n";
     String MULTITEXTURETRANSFORM_CONTENT = "\t\t\t<MultiTextureTransform/>\n";
     
     if      (!hasMaterial              &&         materialRadioButton.isSelected()) newContent.append(MATERIAL_CONTENT);
     else if (!hasTwoSidedMaterial      && twoSidedMaterialRadioButton.isSelected()) newContent.append(TWOSIDEDMATERIAL_CONTENT);
+    else if (!hasPhysicalMaterial      && physicalMaterialRadioButton.isSelected()) newContent.append(PHYSICALMATERIAL_CONTENT);
+    else if (!hasUnlitMaterial         &&    unlitMaterialRadioButton.isSelected()) newContent.append(UNLITMATERIAL_CONTENT);
     
     if      (!hasAcousticProperties    && acousticPropertiesCheckBox.isSelected()) newContent.append(ACOUSTICPROPERTIES_CONTENT);
     if      (!hasFillProperties        &&     fillPropertiesCheckBox.isSelected()) newContent.append(FILLPROPERTIES_CONTENT);
@@ -852,16 +970,17 @@ public class APPEARANCECustomizer extends BaseCustomizer
     if      (!hasImageTexture          &&    imageTextureRadioButton.isSelected()) newContent.append(IMAGETEXTURE_CONTENT);
     else if (!hasMovieTexture          &&    movieTextureRadioButton.isSelected()) newContent.append(MOVIETEXTURE_CONTENT);
     else if (!hasPixelTexture          &&    pixelTextureRadioButton.isSelected()) newContent.append(PIXELTEXTURE_CONTENT);
+    else if (!hasRenderedTexture       && renderedTextureRadioButton.isSelected()) newContent.append(RENDEREDTEXTURE_CONTENT);
     
     if      (!hasTextureTransform      &&      textureTransformCheckBox.isSelected()) newContent.append(TEXTURETRANSFORM_CONTENT);
     if      (!hasMultiTexture          &&          multiTextureCheckBox.isSelected()) newContent.append(MULTITEXTURE_CONTENT);
     if      (!hasMultiTextureTransform && multiTextureTransformCheckBox.isSelected()) newContent.append(MULTITEXTURETRANSFORM_CONTENT);
     
-    if (    !materialRadioButton.isSelected() && !twoSidedMaterialRadioButton.isSelected() && 
+    if (    !materialRadioButton.isSelected() && !twoSidedMaterialRadioButton.isSelected() && !physicalMaterialRadioButton.isSelected() && !unlitMaterialRadioButton.isSelected() && 
      !acousticPropertiesCheckBox.isSelected() && !linePropertiesCheckBox.isSelected()   && !fillPropertiesCheckBox.isSelected()  && !pointPropertiesCheckBox.isSelected() &&
-        !imageTextureRadioButton.isSelected() && !movieTextureRadioButton.isSelected()  && !pixelTextureRadioButton.isSelected() && 
+        !imageTextureRadioButton.isSelected() && !movieTextureRadioButton.isSelected()  && !pixelTextureRadioButton.isSelected() && !renderedTextureRadioButton.isSelected() && 
            !multiTextureCheckBox.isSelected() && !textureTransformCheckBox.isSelected() && !multiTextureTransformCheckBox.isSelected())
-        newContent.append("\t\t\t<!--TODO add optional Material, TwoSidedMaterial, ImageTexture, MovieTexture, PixelTexture, TextureTransform, MultiTexture, MultiTextureTransform, AcousticProperties, FillProperties, LineProperties, and/or PointProperties nodes here-->\n\t\t");
+        newContent.append("\t\t\t<!--TODO add optional Material, TwoSidedMaterial, PhysicalMaterial, UnlitMaterial, ImageTexture, MovieTexture, PixelTexture, RenderedTexture, TextureTransform, MultiTexture, MultiTextureTransform, AcousticProperties, FillProperties, LineProperties, and/or PointProperties nodes here-->\n\t\t");
     
     appearance.setContent(newContent.toString());
   }
