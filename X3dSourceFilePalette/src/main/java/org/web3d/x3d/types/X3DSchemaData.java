@@ -1971,7 +1971,7 @@ public interface X3DSchemaData
 
   // Element RenderedTexture
   String  RENDEREDTEXTURE_ELNAME            = "RenderedTexture";
-  String  RENDEREDTEXTURE_ATTR_DEPTHMAP_NAME = "depthmMap";
+  String  RENDEREDTEXTURE_ATTR_DEPTHMAP_NAME = "depthMap";
   boolean RENDEREDTEXTURE_ATTR_DEPTHMAP_REQD = false;
   String  RENDEREDTEXTURE_ATTR_DEPTHMAP_DFLT = "false";
   
