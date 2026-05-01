@@ -53,7 +53,7 @@ import org.web3d.x3d.types.X3DTimeDependentNode;
 public class TIMESENSOR extends X3DTimeDependentNode // and X3DSensorNode
 {
   private boolean  loop; // Mantis 1509, move from X3DTimeDependentNode
-  private SFDouble cycleInterval, cycleIntervalDefault;
+  private SFDouble cycleInterval, cycleIntervalDefault; // actually SFTime
 
   public TIMESENSOR() 
   {
