@@ -270,6 +270,31 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
     }
     return sb.toString().trim();
   }
+  public String getWidth()
+  {
+    return dimensions[0].toString();
+  }
+  public void setWidth(String newValue)
+  {
+    dimensions[0] = new SFInt32(newValue, 0, null);
+  }
+  public String getHeight()
+  {
+    return dimensions[1].toString();
+  }
+  public void setHeight(String newValue)
+  {
+    dimensions[1] = new SFInt32(newValue, 0, null);
+  }
+  public String getNumberOfComponents()
+  {
+    return dimensions[2].toString();
+  }
+  public void setNumberOfComponents(String newValue)
+  {
+    dimensions[2] = new SFInt32(newValue, 0, null);
+  }
+  
   public String getUpdate()
   {
     return update;
@@ -319,6 +344,19 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
      */
     public void setDepthMap(boolean depthMap) {
         this.depthMap = depthMap;
+    }
+    /**
+     * @return the enabled value
+     */
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    /**
+     * @param enabled the enabled value to set
+     */
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
     
     /**
