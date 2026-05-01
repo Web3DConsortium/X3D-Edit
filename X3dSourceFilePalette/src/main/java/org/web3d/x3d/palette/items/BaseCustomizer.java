@@ -680,6 +680,10 @@ public abstract class BaseCustomizer extends JPanel
     defUSEpanel.setUseContainerField(getBaseX3DElement().isUseContainerField());
   }
 
+  /**
+   * save DEF USE containerField htmlID cssClass cssStyle
+   * @throws IllegalArgumentException 
+   */
   protected void unLoadDEFUSE() throws IllegalArgumentException
   {
     getBaseX3DElement().setDEF(defUSEpanel.getDefRB().isSelected());
