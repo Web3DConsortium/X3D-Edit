@@ -138,7 +138,6 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
     if (attr != null)  
       updateInterval = new SFDouble(attr.getValue(), 0.0, null);
     
-    attr.getValue();
     attr = root.getAttribute(RENDEREDTEXTURE_ATTR_URL_NAME);
     if (attr != null)  
     {
@@ -162,19 +161,19 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
   {
     StringBuilder sb = new StringBuilder();
     
-    if (RENDEREDTEXTURE_ATTR_DEPTHMAP_REQD || depthMap != Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_DEPTHMAP_DFLT)) {
-      sb.append(" ");
-      sb.append(RENDEREDTEXTURE_ATTR_DEPTHMAP_NAME);
-      sb.append("='");
-      sb.append(depthMap);
-      sb.append("'");
-    }
     if (RENDEREDTEXTURE_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
       sb.append(" ");
       sb.append(RENDEREDTEXTURE_ATTR_DESCRIPTION_NAME);
       sb.append("='");
       sb.append(description);
       sb.append("'");  
+    }
+    if (RENDEREDTEXTURE_ATTR_DEPTHMAP_REQD || depthMap != Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_DEPTHMAP_DFLT)) {
+      sb.append(" ");
+      sb.append(RENDEREDTEXTURE_ATTR_DEPTHMAP_NAME);
+      sb.append("='");
+      sb.append(depthMap);
+      sb.append("'");
     }
     if (RENDEREDTEXTURE_ATTR_DIMENSIONS_REQD || !dimensions.equals(dimensionsDefault)) {
       sb.append(" ");
