@@ -49,17 +49,19 @@ import org.web3d.x3d.types.X3DTexture2DNode;
  */
 public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3DNetworkSensorNode
 {
+  private SFInt32   colorDepth,  colorDepthDefault;
   private boolean   depthMap,    depthMapDefault;
   private String    description, descriptionDefault;
-  private SFInt32[] dimensions,  dimensionsDefault;
   private boolean   enabled,     enabledDefault;
+  private SFInt32   height,      heightDefault;
   
-  private SFInt32   maximumNumberFrames, maximumNumberFramesDefault;
-  private boolean   replaceImage, replaceImageDefault;
-  private String    update, updateDefault;
+  private SFInt32   maxNumberFrames, maxNumberFramesDefault;
+  private boolean   replaceImage,   replaceImageDefault;
+  private boolean   singleFrame,    singleFrameDefault;
   private SFDouble  updateInterval, updateIntervalDefault; // actually SFTime
   
-  private String[]  urls, urlsDefault;
+  private String[]  urls,       urlsDefault;
+  private SFInt32   width,      widthDefault;
   private boolean   insertCommas, insertLineBreaks = false;
   
   public RENDEREDTEXTURE()
@@ -75,25 +77,22 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
   @Override
   public void initialize()
   {
-    depthMap     = depthMapDefault  = Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_DEPTHMAP_DFLT);
-    enabled      = enabledDefault   = Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_ENABLED_DFLT);
+    colorDepth   = colorDepthDefault   = new SFInt32(RENDEREDTEXTURE_ATTR_COLORDEPTH_DFLT,1,4);
+    depthMap     = depthMapDefault     = Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_DEPTHMAP_DFLT);
+    enabled      = enabledDefault      = Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_ENABLED_DFLT);
+    height       = heightDefault       = new SFInt32(RENDEREDTEXTURE_ATTR_HEIGHT_DFLT,0,null);
+    width        = widthDefault        = new SFInt32(RENDEREDTEXTURE_ATTR_WIDTH_DFLT,0,null);
     repeatS      = Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_REPEATS_DFLT);
     repeatT      = Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_REPEATT_DFLT);
     replaceImage = replaceImageDefault = Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_REPLACEIMAGE_DFLT);
+    singleFrame  = singleFrameDefault  = Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_SINGLEFRAME_DFLT);
     
-    description  = descriptionDefault = RENDEREDTEXTURE_ATTR_DESCRIPTION_DFLT; // X3D4.0
-    dimensions        = new SFInt32[]{buildSFInt32(RENDEREDTEXTURE_ATTR_DIMENSIONS_WIDTH_DFLT),
-                                      buildSFInt32(RENDEREDTEXTURE_ATTR_DIMENSIONS_HEIGHT_DFLT),
-                                      buildSFInt32(RENDEREDTEXTURE_ATTR_DIMENSIONS_DEPTH_DFLT)}; // actually MFInt32
-    dimensionsDefault = new SFInt32[]{buildSFInt32(RENDEREDTEXTURE_ATTR_DIMENSIONS_WIDTH_DFLT),
-                                      buildSFInt32(RENDEREDTEXTURE_ATTR_DIMENSIONS_HEIGHT_DFLT),
-                                      buildSFInt32(RENDEREDTEXTURE_ATTR_DIMENSIONS_DEPTH_DFLT)}; // actually MFInt32
+    description  = descriptionDefault = RENDEREDTEXTURE_ATTR_DESCRIPTION_DFLT; 
     
-    maximumNumberFrames        = new SFInt32(RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_DFLT);
-    maximumNumberFramesDefault = new SFInt32(RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_DFLT);
-    update = updateDefault = RENDEREDTEXTURE_ATTR_UPDATE_DFLT;
-    updateInterval        = new SFDouble(RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_DFLT,0.0,null);
-    updateIntervalDefault = new SFDouble(RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_DFLT,0.0,null);
+    maxNumberFrames        = new SFInt32(RENDEREDTEXTURE_ATTR_MAXNUMBERFRAMES_DFLT,0,null);
+    maxNumberFramesDefault = new SFInt32(RENDEREDTEXTURE_ATTR_MAXNUMBERFRAMES_DFLT,0,null);
+    updateInterval         = new SFDouble(RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_DFLT,0.0,null);
+    updateIntervalDefault  = new SFDouble(RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_DFLT,0.0,null);
     
     if(RENDEREDTEXTURE_ATTR_URL_DFLT.length() > 0)
       urls = urlsDefault = parseUrlsIntoStringArray(RENDEREDTEXTURE_ATTR_URL_DFLT);
@@ -110,15 +109,21 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
     if (attr != null)
       description = attr.getValue();
 
+    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_COLORDEPTH_NAME);
+    if (attr != null)
+      colorDepth = new SFInt32(attr.getValue());
     attr = root.getAttribute(RENDEREDTEXTURE_ATTR_DEPTHMAP_NAME);
     if (attr != null)
       depthMap = Boolean.parseBoolean(attr.getValue());
     attr = root.getAttribute(RENDEREDTEXTURE_ATTR_ENABLED_NAME);
     if (attr != null)
       enabled = Boolean.parseBoolean(attr.getValue());
-    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_REPEATS_NAME);
+    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_HEIGHT_NAME);
     if (attr != null)
-      repeatS = Boolean.parseBoolean(attr.getValue());
+      height = new SFInt32(attr.getValue(),0,null);
+    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_MAXNUMBERFRAMES_NAME);
+    if (attr != null)
+      maxNumberFrames = new SFInt32(attr.getValue(),0,null);
     attr = root.getAttribute(RENDEREDTEXTURE_ATTR_REPEATS_NAME);
     if (attr != null)
       repeatS = Boolean.parseBoolean(attr.getValue());
@@ -128,16 +133,16 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
     attr = root.getAttribute(RENDEREDTEXTURE_ATTR_REPLACEIMAGE_NAME);
     if (attr != null)  
       replaceImage = Boolean.parseBoolean(attr.getValue());
+    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_SINGLEFRAME_NAME);
+    if (attr != null)  
+      singleFrame = Boolean.parseBoolean(attr.getValue());
     
-    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_DIMENSIONS_NAME);
-    if (attr != null)
-      buildDimensions(attr.getValue());
-    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_NAME);
+//    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_DIMENSIONS_NAME);
+//    if (attr != null)
+//      buildDimensions(attr.getValue());
+    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_MAXNUMBERFRAMES_NAME);
     if (attr != null)  
-      maximumNumberFrames = new SFInt32(attr.getValue(), 0, null);
-    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_UPDATE_NAME);
-    if (attr != null)  
-      update = attr.getValue();
+      maxNumberFrames = new SFInt32(attr.getValue(), 0, null);
     attr = root.getAttribute(RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_NAME);
     if (attr != null)  
       updateInterval = new SFDouble(attr.getValue(), 0.0, null);
@@ -152,6 +157,9 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
              attr.getValue().contains("\r")) insertLineBreaks = true; // TODO not working, line breaks not being passed from JDOM
          if (insertCommas)                   insertLineBreaks = true; // workaround default, if commas were present then most likely lineBreaks also
     }
+    attr = root.getAttribute(RENDEREDTEXTURE_ATTR_WIDTH_NAME);
+    if (attr != null)
+      width = new SFInt32(attr.getValue(),0,null);
   }
   
   @Override
@@ -165,12 +173,12 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
   {
     StringBuilder sb = new StringBuilder();
     
-    if (RENDEREDTEXTURE_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
+    if (RENDEREDTEXTURE_ATTR_COLORDEPTH_REQD || (colorDepth != colorDepthDefault)) {
       sb.append(" ");
-      sb.append(RENDEREDTEXTURE_ATTR_DESCRIPTION_NAME);
+      sb.append(RENDEREDTEXTURE_ATTR_COLORDEPTH_NAME);
       sb.append("='");
-      sb.append(description);
-      sb.append("'");  
+      sb.append(colorDepth);
+      sb.append("'");
     }
     if (RENDEREDTEXTURE_ATTR_DEPTHMAP_REQD || depthMap != Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_DEPTHMAP_DFLT)) {
       sb.append(" ");
@@ -179,14 +187,11 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
       sb.append(depthMap);
       sb.append("'");
     }
-    if (RENDEREDTEXTURE_ATTR_DIMENSIONS_REQD || 
-            (!dimensions[0].equals(dimensionsDefault[0])) ||
-            (!dimensions[1].equals(dimensionsDefault[1])) ||
-            (!dimensions[2].equals(dimensionsDefault[2]))) {
+    if (RENDEREDTEXTURE_ATTR_DESCRIPTION_REQD || !description.equals(descriptionDefault)) {
       sb.append(" ");
-      sb.append(RENDEREDTEXTURE_ATTR_DIMENSIONS_NAME);
+      sb.append(RENDEREDTEXTURE_ATTR_DESCRIPTION_NAME);
       sb.append("='");
-      sb.append(dimensionsToString());
+      sb.append(description);
       sb.append("'");  
     }
     if (RENDEREDTEXTURE_ATTR_ENABLED_REQD || enabled != Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_ENABLED_DFLT)) {
@@ -196,11 +201,18 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
       sb.append(enabled);
       sb.append("'");
     }
-    if (RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_REQD || (maximumNumberFrames != maximumNumberFramesDefault)) {
+    if (RENDEREDTEXTURE_ATTR_HEIGHT_REQD || (height != heightDefault)) {
       sb.append(" ");
-      sb.append(RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_NAME);
+      sb.append(RENDEREDTEXTURE_ATTR_HEIGHT_NAME);
       sb.append("='");
-      sb.append(getMaximumNumberFrames());
+      sb.append(height);
+      sb.append("'");
+    }
+    if (RENDEREDTEXTURE_ATTR_MAXNUMBERFRAMES_REQD || (maxNumberFrames != maxNumberFramesDefault)) {
+      sb.append(" ");
+      sb.append(RENDEREDTEXTURE_ATTR_MAXNUMBERFRAMES_NAME);
+      sb.append("='");
+      sb.append(getMaxNumberFrames());
       sb.append("'");
     }
     if (RENDEREDTEXTURE_ATTR_REPEATS_REQD || repeatS != Boolean.parseBoolean(RENDEREDTEXTURE_ATTR_REPEATS_DFLT)) {
@@ -224,11 +236,11 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
       sb.append(replaceImage);
       sb.append("'");
     }
-    if (RENDEREDTEXTURE_ATTR_UPDATE_REQD || !update.equals(updateDefault)) {
+    if (RENDEREDTEXTURE_ATTR_SINGLEFRAME_REQD || (singleFrame != singleFrameDefault)) {
       sb.append(" ");
-      sb.append(RENDEREDTEXTURE_ATTR_UPDATE_NAME);
+      sb.append(RENDEREDTEXTURE_ATTR_SINGLEFRAME_NAME);
       sb.append("='");
-      sb.append(update);
+      sb.append(singleFrame);
       sb.append("'");
     }
     if (RENDEREDTEXTURE_ATTR_URL_REQD || (!Arrays.equals(urls, urlsDefault) && (urls.length > 0))) {
@@ -238,91 +250,87 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
       sb.append(formatStringArray(urls, insertCommas, insertLineBreaks));
       sb.append("'");    
     }
+    if (RENDEREDTEXTURE_ATTR_WIDTH_REQD || (width != widthDefault)) {
+      sb.append(" ");
+      sb.append(RENDEREDTEXTURE_ATTR_WIDTH_NAME);
+      sb.append("='");
+      sb.append(width);
+      sb.append("'");
+    }
 
     return sb.toString();
   }
 
-  private void buildDimensions(String s)
-  {
-    String[] sa = s.replace(',', ' ').trim().split("\\s");
-    if (sa.length != 3)
-    {
-        sa    = new String[3];
-        sa[0] = RENDEREDTEXTURE_ATTR_DIMENSIONS_HEIGHT_DFLT;
-        sa[1] = RENDEREDTEXTURE_ATTR_DIMENSIONS_WIDTH_DFLT;
-        sa[2] = RENDEREDTEXTURE_ATTR_DIMENSIONS_DEPTH_DFLT;
-        if (sa.length != 0)
-        {
-            System.err.println("** incorrect value found for RenderedTexture dimensions='" + s + "' must be empty or have length of 3, using default dimensions='" +
-                    RENDEREDTEXTURE_ATTR_DIMENSIONS_HEIGHT_DFLT + " " + 
-                    RENDEREDTEXTURE_ATTR_DIMENSIONS_WIDTH_DFLT  + " " + 
-                    RENDEREDTEXTURE_ATTR_DIMENSIONS_DEPTH_DFLT  + "'");
-        }
-    }
-    dimensions = new SFInt32[3];
-    for (int i = 0; i < sa.length; i++)
-    {
-      dimensions[i] = new SFInt32(sa[i], 0, null);
-    }
-  }
- 
-  private String dimensionsToString()
-  {
-    StringBuilder sb = new StringBuilder();
-    for(SFInt32 sf : dimensions)
-    {
-      sb.append(sf.toString());
-      sb.append(" ");
-    }
-    return sb.toString().trim();
-  }
+//  private void buildDimensions(String s)
+//  {
+//    String[] sa = s.replace(',', ' ').trim().split("\\s");
+//    if (sa.length != 3)
+//    {
+//        sa    = new String[3];
+//        sa[0] = RENDEREDTEXTURE_ATTR_DIMENSIONS_HEIGHT_DFLT;
+//        sa[1] = RENDEREDTEXTURE_ATTR_DIMENSIONS_WIDTH_DFLT;
+//        sa[2] = RENDEREDTEXTURE_ATTR_DIMENSIONS_DEPTH_DFLT;
+//        if (sa.length != 0)
+//        {
+//            System.err.println("** incorrect value found for RenderedTexture dimensions='" + s + "' must be empty or have length of 3, using default dimensions='" +
+//                    RENDEREDTEXTURE_ATTR_DIMENSIONS_HEIGHT_DFLT + " " + 
+//                    RENDEREDTEXTURE_ATTR_DIMENSIONS_WIDTH_DFLT  + " " + 
+//                    RENDEREDTEXTURE_ATTR_DIMENSIONS_DEPTH_DFLT  + "'");
+//        }
+//    }
+//    dimensions = new SFInt32[3];
+//    for (int i = 0; i < sa.length; i++)
+//    {
+//      dimensions[i] = new SFInt32(sa[i], 0, null);
+//    }
+//  }
+// 
+//  private String dimensionsToString()
+//  {
+//    StringBuilder sb = new StringBuilder();
+//    for(SFInt32 sf : dimensions)
+//    {
+//      sb.append(sf.toString());
+//      sb.append(" ");
+//    }
+//    return sb.toString().trim();
+//  }
   public String getWidth()
   {
-    return dimensions[0].toString();
+    return width.toString();
   }
   public void setWidth(String newValue)
   {
-    dimensions[0] = new SFInt32(newValue, 0, null);
+    width = new SFInt32(newValue, 0, null);
   }
   public String getHeight()
   {
-    return dimensions[1].toString();
+    return height.toString();
   }
   public void setHeight(String newValue)
   {
-    dimensions[1] = new SFInt32(newValue, 0, null);
+    height = new SFInt32(newValue, 0, null);
   }
-  public String getNumberOfComponents()
+  public String getColorDepth()
   {
-    return dimensions[2].toString();
+    return colorDepth.toString();
   }
-  public void setNumberOfComponents(String newValue)
+  public void setColorDepth(String newValue)
   {
-    dimensions[2] = new SFInt32(newValue, 0, null);
+    colorDepth = new SFInt32(newValue, 0, null);
   }
-  
-  public String getUpdate()
-  {
-    return update;
-  }
-
-  public void setUpdate(String update)
-  {
-    this.update = update;
-  }
-
     /**
-     * @return the fftSize
+     * @return the maxNumberFrames
      */
-    public String getMaximumNumberFrames() {
-        return maximumNumberFrames.toString();
+    public String getMaxNumberFrames() {
+        return maxNumberFrames.toString();
     }
 
     /**
-     * @param newMaximumNumberFrames the maximumNumberFrames to set
+     * @param newMaxNumberFrames the maxNumberFrames to set
      */
-    public void setMaximumNumberFrames(String newMaximumNumberFrames) {
-        maximumNumberFrames = new SFInt32(newMaximumNumberFrames, null, null);
+    public void setMaxNumberFrames(String newMaxNumberFrames) {
+        maxNumberFrames = new SFInt32(newMaxNumberFrames, null, null);
     }
   
   public String[] getUrls()
@@ -377,6 +385,20 @@ public class RENDEREDTEXTURE extends X3DTexture2DNode // X3DUrlOutputObject, X3D
      */
     public void setReplaceImage(boolean replaceImage) {
         this.replaceImage = replaceImage;
+    }
+    
+    /**
+     * @return the singleFrame value
+     */
+    public boolean isSingleFrame() {
+        return singleFrame;
+    }
+
+    /**
+     * @param singleFrame the singleFrame value to set
+     */
+    public void setSingleFrame(boolean singleFrame) {
+        this.singleFrame = singleFrame;
     }
     
     public String getUpdateInterval()

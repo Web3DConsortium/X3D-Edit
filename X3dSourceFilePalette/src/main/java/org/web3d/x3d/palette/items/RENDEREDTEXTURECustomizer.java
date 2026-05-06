@@ -71,15 +71,15 @@ public class RENDEREDTEXTURECustomizer extends BaseCustomizer
          enabledCB.setSelected(renderedTexture.isEnabled());
         depthMapCB.setSelected(renderedTexture.isDepthMap());
     replaceImageCB.setSelected(renderedTexture.isReplaceImage());
+     singleFrameCB.setSelected(renderedTexture.isSingleFrame());
     
     // dimensions array
           widthTF.setText(renderedTexture.getWidth());
          heightTF.setText(renderedTexture.getHeight());
-    depthComboBox.setSelectedItem(renderedTexture.getNumberOfComponents());
+    colorDepthComboBox.setSelectedItem(renderedTexture.getColorDepth());
         
-maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
+maxNumberFramesTF.setText(renderedTexture.getMaxNumberFrames());
      updateIntervalTF.setText(renderedTexture.getUpdateInterval());
-       updateComboBox.setSelectedItem(renderedTexture.getUpdate());
 
     repeatSCB.setSelected(renderedTexture.isRepeatS());
     repeatTCB.setSelected(renderedTexture.isRepeatT());
@@ -147,29 +147,28 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         descriptionLabel = new javax.swing.JLabel();
         descriptionLabel1 = new javax.swing.JLabel();
         descriptionTF = new javax.swing.JTextField();
-        dimensionsLabel = new javax.swing.JLabel();
         widthLabel = new javax.swing.JLabel();
         widthTF = new javax.swing.JTextField();
         heightLabel = new javax.swing.JLabel();
         heightTF = new javax.swing.JTextField();
-        depthLabel = new javax.swing.JLabel();
-        depthComboBox = new javax.swing.JComboBox<>();
+        colorDepthLabel = new javax.swing.JLabel();
+        colorDepthComboBox = new javax.swing.JComboBox<>();
         updateIntervalLabel = new javax.swing.JLabel();
         updateIntervalTF = new javax.swing.JTextField();
-        updateLabel = new javax.swing.JLabel();
-        updateComboBox = new javax.swing.JComboBox<>();
-        maximumNumberFramesLabel = new javax.swing.JLabel();
-        maximumNumberFramesTF = new javax.swing.JTextField();
+        singleFrameLabel = new javax.swing.JLabel();
+        maxNumberFramesLabel = new javax.swing.JLabel();
+        maxNumberFramesTF = new javax.swing.JTextField();
+        singleFrameCB = new javax.swing.JCheckBox();
 
-        setMinimumSize(new java.awt.Dimension(800, 640));
-        setPreferredSize(new java.awt.Dimension(800, 640));
+        setMinimumSize(new java.awt.Dimension(800, 620));
+        setPreferredSize(new java.awt.Dimension(800, 620));
         setLayout(new java.awt.GridBagLayout());
 
         dEFUSEpanel.setMinimumSize(new java.awt.Dimension(198, 77));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(dEFUSEpanel, gridBagConstraints);
@@ -242,8 +241,8 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         repeatSLabel.setText("repeatS");
         repeatSLabel.setToolTipText("Horizontally repeat texture along S axis using child TextureTransform");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(repeatSLabel, gridBagConstraints);
@@ -257,8 +256,8 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -267,8 +266,8 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         repeatTLabel.setText("repeatT");
         repeatTLabel.setToolTipText("Horizontally repeat texture along T axis using child TextureTransform");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(repeatTLabel, gridBagConstraints);
@@ -282,8 +281,8 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -326,7 +325,7 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         appendPanel.add(insertLineBreaksCheckBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
@@ -363,7 +362,7 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 60;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -376,7 +375,7 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         nodeHintPanel.setLayout(new java.awt.GridBagLayout());
 
         descriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        descriptionLabel.setText("<html>\n<p align='center'><b>RenderedTexture</b> is a texture node that renders the view from a local viewpoint or separate scene into an offscreen buffer,\nproducing an image or depth map that can be rendered from model geometry in real time. \nThe output renderings can optionally be saved via the url field as a local file or a stream source. RenderedTexture</b> enables \neffects such as dynamic reflections, live video screens, or portal views by continuously updating the texture based on the rendered content.</p>\n<br />\n<p align='center'>Like other texture nodes ,<b>RenderedTexture</b> is contained by <b>Appearance</b> to map an image onto peer geometry,\nand  can contain a <b>TextureProperties</b> node.</p>\n<br />\n<p align='center'>\nThe <i>isActive</i> output field sends a TRUE event when data output becomes active, and a FALSE event when data output is stopped.</p>");
+        descriptionLabel.setText("<html>\n<p align='center'><b>RenderedTexture</b> is a texture node that renders the view from a local viewpoint or separate scene into an offscreen buffer,\nproducing an image or depth map that can be rendered from model geometry in real time. \nThe output renderings can optionally be saved via the url field as a local file or a stream source. RenderedTexture</b> enables \neffects such as dynamic reflections, live video screens, or portal views by continuously updating the texture based on the rendered content.</p>\n<br />\n<p align='center'>Like other texture nodes, <b>RenderedTexture</b> is contained by <b>Appearance</b> to map an image onto peer geometry,\n<br />\nand  can contain a <b>TextureProperties</b> node.</p>\n<br />\n<p align='center'>\nThe <i>isActive</i> output field sends a TRUE event when data output becomes active, and a FALSE event when data output is stopped.</p>");
         descriptionLabel.setToolTipText("TextureProperties, TextureTransform and TextureCoordinate can further adjust texture application");
         descriptionLabel.setMinimumSize(new java.awt.Dimension(780, 160));
         descriptionLabel.setPreferredSize(new java.awt.Dimension(780, 160));
@@ -390,7 +389,7 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(nodeHintPanel, gridBagConstraints);
@@ -416,27 +415,18 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(descriptionTF, gridBagConstraints);
 
-        dimensionsLabel.setText("dimensions");
-        dimensionsLabel.setToolTipText("attribute for width, height, and number of color components");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 36);
-        add(dimensionsLabel, gridBagConstraints);
-
         widthLabel.setText("width");
         widthLabel.setToolTipText("width in pixels for the rendered texture");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(widthLabel, gridBagConstraints);
@@ -449,7 +439,7 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
@@ -459,7 +449,7 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         heightLabel.setToolTipText("height in pixels for the rendered texture");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(heightLabel, gridBagConstraints);
@@ -467,37 +457,37 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         heightTF.setToolTipText("height in pixels for the rendered texture");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(heightTF, gridBagConstraints);
 
-        depthLabel.setText("depth");
-        depthLabel.setToolTipText("number of color components in each pixel value are 1 (intensity), 2 (intensity alpha), 3 (RGB red green blue), 4 (RGBA red green blue alpha-opacity)");
+        colorDepthLabel.setText("colorDepth");
+        colorDepthLabel.setToolTipText("number of color components in each pixel value are 1 (intensity), 2 (intensity alpha), 3 (RGB red green blue), 4 (RGBA red green blue alpha-opacity)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(depthLabel, gridBagConstraints);
+        add(colorDepthLabel, gridBagConstraints);
 
-        depthComboBox.setMaximumRowCount(4);
-        depthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
-        depthComboBox.setToolTipText("number of color components in each pixel value are 1 (intensity), 2 (intensity alpha), 3 (RGB red green blue), 4 (RGBA red green blue alpha-opacity)");
+        colorDepthComboBox.setMaximumRowCount(4);
+        colorDepthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        colorDepthComboBox.setToolTipText("number of color components in each pixel value are 1 (intensity), 2 (intensity alpha), 3 (RGB red green blue), 4 (RGBA red green blue alpha-opacity)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(depthComboBox, gridBagConstraints);
+        add(colorDepthComboBox, gridBagConstraints);
 
         updateIntervalLabel.setText("updateInterval");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(updateIntervalLabel, gridBagConstraints);
@@ -505,48 +495,54 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
         updateIntervalTF.setToolTipText("height in pixels for the rendered texture");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         add(updateIntervalTF, gridBagConstraints);
 
-        updateLabel.setText("update");
-        updateLabel.setToolTipText("number of color components in each pixel value are 1 (intensity), 2 (intensity alpha), 3 (RGB red green blue), 4 (RGBA red green blue alpha-opacity)");
+        singleFrameLabel.setText("singleFrame");
+        singleFrameLabel.setToolTipText("number of color components in each pixel value are 1 (intensity), 2 (intensity alpha), 3 (RGB red green blue), 4 (RGBA red green blue alpha-opacity)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(updateLabel, gridBagConstraints);
+        add(singleFrameLabel, gridBagConstraints);
 
-        updateComboBox.setMaximumRowCount(3);
-        updateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NONE", "NEXT_FRAME_ONLY", "ALWAYS" }));
-        updateComboBox.setToolTipText("number of color components in each pixel value are 1 (intensity), 2 (intensity alpha), 3 (RGB red green blue), 4 (RGBA red green blue alpha-opacity)");
+        maxNumberFramesLabel.setText("maxNumberFrames");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
+        add(maxNumberFramesLabel, gridBagConstraints);
+
+        maxNumberFramesTF.setToolTipText("height in pixels for the rendered texture");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(updateComboBox, gridBagConstraints);
+        add(maxNumberFramesTF, gridBagConstraints);
 
-        maximumNumberFramesLabel.setText("maximumNumberFrames");
+        singleFrameCB.setToolTipText("Horizontally repeat texture along T axis using child TextureTransform");
+        singleFrameCB.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        singleFrameCB.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        singleFrameCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                singleFrameCBActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(3, 10, 3, 3);
-        add(maximumNumberFramesLabel, gridBagConstraints);
-
-        maximumNumberFramesTF.setToolTipText("height in pixels for the rendered texture");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        add(maximumNumberFramesTF, gridBagConstraints);
+        add(singleFrameCB, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void insertLineBreaksCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertLineBreaksCheckBoxActionPerformed
@@ -588,26 +584,29 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
     private void repeatTCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repeatTCBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_repeatTCBActionPerformed
+
+    private void singleFrameCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleFrameCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_singleFrameCBActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel appendLabel;
     private javax.swing.JPanel appendPanel;
-    private javax.swing.JComboBox<String> depthComboBox;
-    private javax.swing.JLabel depthLabel;
+    private javax.swing.JComboBox<String> colorDepthComboBox;
+    private javax.swing.JLabel colorDepthLabel;
     private javax.swing.JCheckBox depthMapCB;
     private javax.swing.JLabel depthMapLabel;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JLabel descriptionLabel1;
     private javax.swing.JTextField descriptionTF;
-    private javax.swing.JLabel dimensionsLabel;
     private javax.swing.JCheckBox enabledCB;
     private javax.swing.JLabel enabledLabel;
     private javax.swing.JLabel heightLabel;
     private javax.swing.JTextField heightTF;
     private javax.swing.JCheckBox insertCommasCheckBox;
     private javax.swing.JCheckBox insertLineBreaksCheckBox;
-    private javax.swing.JLabel maximumNumberFramesLabel;
-    private javax.swing.JTextField maximumNumberFramesTF;
+    private javax.swing.JLabel maxNumberFramesLabel;
+    private javax.swing.JTextField maxNumberFramesTF;
     private javax.swing.JPanel nodeHintPanel;
     private javax.swing.JCheckBox repeatSCB;
     private javax.swing.JLabel repeatSLabel;
@@ -615,10 +614,10 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
     private javax.swing.JLabel repeatTLabel;
     private javax.swing.JCheckBox replaceImageCB;
     private javax.swing.JLabel replaceImageLabel;
-    private javax.swing.JComboBox<String> updateComboBox;
+    private javax.swing.JCheckBox singleFrameCB;
+    private javax.swing.JLabel singleFrameLabel;
     private javax.swing.JLabel updateIntervalLabel;
     private javax.swing.JTextField updateIntervalTF;
-    private javax.swing.JLabel updateLabel;
     private javax.swing.JLabel urlLabel;
     private org.web3d.x3d.palette.items.UrlExpandableList2 urlList;
     private javax.swing.JLabel widthLabel;
@@ -637,26 +636,25 @@ maximumNumberFramesTF.setText(renderedTexture.getMaximumNumberFrames());
     unLoadDEFUSE();
     urlList.checkUrlValues();
     
-    renderedTexture.setEnabled     (enabledCB.isSelected());
-    renderedTexture.setDepthMap    (depthMapCB.isSelected());
-    renderedTexture.setReplaceImage(enabledCB.isSelected());
-    
     renderedTexture.setDescription(descriptionTF.getText().trim());
     
-    // dimensions array
-    renderedTexture.setWidth ( widthTF.getText().trim());
-    renderedTexture.setHeight(heightTF.getText().trim());
-    renderedTexture.setNumberOfComponents ( depthComboBox.getSelectedItem().toString());
+    renderedTexture.setColorDepth (colorDepthComboBox.getSelectedItem().toString());
+    renderedTexture.setEnabled     (     enabledCB.isSelected());
+    renderedTexture.setDepthMap    (    depthMapCB.isSelected());
     
-    renderedTexture.setMaximumNumberFrames(maximumNumberFramesTF.getText().trim());
-    renderedTexture.setUpdate        (updateComboBox.getSelectedItem().toString());
+    renderedTexture.setHeight(heightTF.getText().trim());
+    
+    renderedTexture.setMaxNumberFrames(maxNumberFramesTF.getText().trim());
     renderedTexture.setUpdateInterval(updateIntervalTF.getText().trim());
     
     renderedTexture.setRepeatS(repeatSCB.isSelected());
     renderedTexture.setRepeatT(repeatTCB.isSelected());
+    renderedTexture.setReplaceImage(replaceImageCB.isSelected());
+    renderedTexture.setSingleFrame ( singleFrameCB.isSelected());
 
     renderedTexture.setUrls   (urlList.getUrlData());
     renderedTexture.setInsertCommas    (   insertCommasCheckBox.isSelected());
     renderedTexture.setInsertLineBreaks(insertLineBreaksCheckBox.isSelected());
+    renderedTexture.setWidth ( widthTF.getText().trim());
   }  
 }

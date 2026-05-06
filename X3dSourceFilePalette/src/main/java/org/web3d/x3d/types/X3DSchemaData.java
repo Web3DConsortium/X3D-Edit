@@ -1971,6 +1971,11 @@ public interface X3DSchemaData
 
   // Element RenderedTexture
   String  RENDEREDTEXTURE_ELNAME            = "RenderedTexture";
+  
+  String  RENDEREDTEXTURE_ATTR_COLORDEPTH_NAME = "colorDepth";
+  boolean RENDEREDTEXTURE_ATTR_COLORDEPTH_REQD = false;
+  String  RENDEREDTEXTURE_ATTR_COLORDEPTH_DFLT = "4";
+  
   String  RENDEREDTEXTURE_ATTR_DEPTHMAP_NAME = "depthMap";
   boolean RENDEREDTEXTURE_ATTR_DEPTHMAP_REQD = false;
   String  RENDEREDTEXTURE_ATTR_DEPTHMAP_DFLT = "false";
@@ -1979,19 +1984,17 @@ public interface X3DSchemaData
   boolean RENDEREDTEXTURE_ATTR_DESCRIPTION_REQD = false;
   String  RENDEREDTEXTURE_ATTR_DESCRIPTION_DFLT = "";
   
-  String  RENDEREDTEXTURE_ATTR_DIMENSIONS_NAME        = "dimensions";
-  boolean RENDEREDTEXTURE_ATTR_DIMENSIONS_REQD        = false;
-  String  RENDEREDTEXTURE_ATTR_DIMENSIONS_WIDTH_DFLT  = "128";
-  String  RENDEREDTEXTURE_ATTR_DIMENSIONS_HEIGHT_DFLT = "128";
-  String  RENDEREDTEXTURE_ATTR_DIMENSIONS_DEPTH_DFLT  = "4";
-  
   String  RENDEREDTEXTURE_ATTR_ENABLED_NAME  = "enabled";
   boolean RENDEREDTEXTURE_ATTR_ENABLED_REQD  = false;
   String  RENDEREDTEXTURE_ATTR_ENABLED_DFLT  = "true";
   
-  String  RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_NAME = "maximumNumberFrames";
-  boolean RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_REQD = false;
-  String  RENDEREDTEXTURE_ATTR_MAXIMUMNUMBERFRAMES_DFLT = "1000";
+  String  RENDEREDTEXTURE_ATTR_HEIGHT_NAME = "height";
+  boolean RENDEREDTEXTURE_ATTR_HEIGHT_REQD = false;
+  String  RENDEREDTEXTURE_ATTR_HEIGHT_DFLT = "128";
+  
+  String  RENDEREDTEXTURE_ATTR_MAXNUMBERFRAMES_NAME = "maximumNumberFrames";
+  boolean RENDEREDTEXTURE_ATTR_MAXNUMBERFRAMES_REQD = false;
+  String  RENDEREDTEXTURE_ATTR_MAXNUMBERFRAMES_DFLT = "1000";
   
   String  RENDEREDTEXTURE_ATTR_REPEATS_NAME = "repeatS";
   boolean RENDEREDTEXTURE_ATTR_REPEATS_REQD = false;
@@ -2004,19 +2007,22 @@ public interface X3DSchemaData
   String  RENDEREDTEXTURE_ATTR_REPLACEIMAGE_NAME = "replaceImage";
   boolean RENDEREDTEXTURE_ATTR_REPLACEIMAGE_REQD = false;
   String  RENDEREDTEXTURE_ATTR_REPLACEIMAGE_DFLT = "true";
+  
+  String  RENDEREDTEXTURE_ATTR_SINGLEFRAME_NAME  = "singleFrame";
+  boolean RENDEREDTEXTURE_ATTR_SINGLEFRAME_REQD  = false;
+  String  RENDEREDTEXTURE_ATTR_SINGLEFRAME_DFLT  = "true";
 
   String  RENDEREDTEXTURE_ATTR_URL_NAME     = "url";
   boolean RENDEREDTEXTURE_ATTR_URL_REQD     = false;
   String  RENDEREDTEXTURE_ATTR_URL_DFLT     = "";
   
-  String  RENDEREDTEXTURE_ATTR_UPDATE_NAME     = "update";
-  boolean RENDEREDTEXTURE_ATTR_UPDATE_REQD     = false;
-  String[]RENDEREDTEXTURE_ATTR_UPDATE_CHOICES  = {"NONE","NEXT_FRAME_ONLY","ALWAYS"};
-  String  RENDEREDTEXTURE_ATTR_UPDATE_DFLT     =  "NONE";
-  
   String  RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_NAME     = "updateInterval";
   boolean RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_REQD     = false;
   String  RENDEREDTEXTURE_ATTR_UPDATEINTERVAL_DFLT     = "0.1";
+  
+  String  RENDEREDTEXTURE_ATTR_WIDTH_NAME = "width";
+  boolean RENDEREDTEXTURE_ATTR_WIDTH_REQD = false;
+  String  RENDEREDTEXTURE_ATTR_WIDTH_DFLT = "128";
   
   String[]RENDEREDTEXTURE_ATTR_CONTAINERFIELD_CHOICES = {
     "texture","watchList", "leftTexture","rightTexture","backTexture","frontTexture","topTexture","bottomTexture","children","left","right","back","front","top","bottom","ambientTexture", "baseTexture", "diffuseTexture", "emissiveTexture", "metallicRoughnessTexture", "normalTexture", "occlusionTexture", "shininessTexture", "specularTexture"};
