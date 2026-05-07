@@ -88,8 +88,8 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
     org.jdom.Document newJdomDocument = X3DPaletteUtilitiesJdom.buildJdomFromString(elementString);
     if (newJdomDocument.toString().contains("No DOCTYPE"))
     {
-        System.err.println("*** spelling error or X3D version mismatch, jdom reports: " + newJdomDocument.toString());
-        // TODO popup panel
+        // false positive, no doctype provided with element-only text
+        // System.err.println("*** spelling error or X3D version mismatch, jdom reports: " + newJdomDocument.toString());
     }
     return newJdomDocument;
   }
