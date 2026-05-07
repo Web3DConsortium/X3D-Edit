@@ -3207,7 +3207,7 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
 			System.out.println ("No data in table.");
 			return; // no action
 		}
-		statisticsText.append("Statistics for ").append(titledBorder.getTitle()).append("\n");
+		statisticsText.append(      "Statistics for ").append(titledBorder.getTitle()).append("\n");
 		statisticsHTML.append("<p><b>Statistics for ").append(titledBorder.getTitle()).append("</b></p>\n");
 		statisticsHTML.append("<table>\n");
 		int numberRows    = saa.length;    // data rows,    not table rows
@@ -3261,16 +3261,16 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
 		}
 		statisticsText.append("\n");
 		statisticsHTML.append("</tr>\n");
-		
-		statisticsText.append("min ");
+
+		statisticsText.append("max");
 		statisticsHTML.append("<tr>\n");
 		for (int col=0; col < numberColumns; col++)
 		{
-			if (minValue[col] >= 0)
+			if (maxValue[col] >= 0)
 				 sign = "+";
 			else sign = "";
-			statisticsText.append("\t").append(sign).append(formatPrecision3.format(minValue[col]));
-			statisticsHTML.append("<td>").append(sign).append(formatPrecision3.format(minValue[col])).append("</td>");
+			statisticsText.append("\t"  ).append(sign).append(formatPrecision3.format(maxValue[col]));
+			statisticsHTML.append("<td>").append(sign).append(formatPrecision3.format(maxValue[col])).append("</td>");
 		}
 		statisticsText.append("\n");
 		statisticsHTML.append("</tr>\n");
@@ -3300,25 +3300,25 @@ private void flipRowOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
 		}
 		statisticsText.append("\n");
 		statisticsHTML.append("</tr>\n");
-
-		statisticsText.append("max");
+		
+		statisticsText.append("min ");
 		statisticsHTML.append("<tr>\n");
 		for (int col=0; col < numberColumns; col++)
 		{
-			if (maxValue[col] >= 0)
+			if (minValue[col] >= 0)
 				 sign = "+";
 			else sign = "";
-			statisticsText.append("\t").append(sign).append(formatPrecision3.format(maxValue[col]));
-			statisticsHTML.append("<td>").append(sign).append(formatPrecision3.format(maxValue[col])).append("</td>");
+			statisticsText.append("\t").append(sign).append(formatPrecision3.format(minValue[col]));
+			statisticsHTML.append("<td>").append(sign).append(formatPrecision3.format(minValue[col])).append("</td>");
 		}
 		statisticsText.append("\n");
 		statisticsHTML.append("</tr>\n");
 			
 		statisticsHTML.append("</table>\n</html>\n");
 		
-		System.out.println ("=================================\n");
-		System.out.println (statisticsText);
-		System.out.println ("=================================\n");
+		System.err.println ("=================================\n");
+		System.err.println (statisticsText);
+		System.err.println ("=================================\n");
 		NotifyDescriptor descriptor = new NotifyDescriptor.Message(
 				 statisticsText.toString(), NotifyDescriptor.INFORMATION_MESSAGE); // TODO problem with HTML table rendering :(
 		DialogDisplayer.getDefault().notify(descriptor);
