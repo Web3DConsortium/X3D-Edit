@@ -60,7 +60,7 @@ RightHand,RHand,RightHand,rwrist,rightHand,r_radiocarpal,RHand,RHand,RightHand,H
 RightThumbMetacarpal,RThumb,-,rthumb,rightThumbMetacarpal,r_carpometacarpal_1,-,RThumb,RThumb,opt,RightThumbProximal,RightThumbMetacarpal,mHandThumb1Right,-,r_thumb0
 RightThumbProximal,RThumbMid,-,-,rightThumbProximal,r_metacarpophalangeal_1,-,RThumbMid,RThumbMid,opt,RightThumbIntermediate,RightThumbProximal,mHandThumb2Right,-,r_thumb1
 RightThumbDistal,RThumTip,-,-,rightThumbDistal,r_carpal_interphalangeal_1,-,RThumbTip,RThumbTip,opt,RightThumbDistal,RightThumbDistal,mHandThumb3Right,-,r_thumb2
-RightThumbTip,RThumEnd,-,-,-,Site r_carpal_distal_phalanx_1,-,RThumbEnd,RThumbEnd,opt,-,-,-,-,r_thumb_null
+RightThumbTip,RThumEnd,-,-,-,site r_carpal_distal_phalanx_1,-,RThumbEnd,RThumbEnd,opt,-,-,-,-,r_thumb_null
 RightIndexMetacarpal,-,-,-,-,r_carpometacarpal_2,-,-,-,-,-,-,-,-,-
 RightIndexProximal,RIndex,-,rindex,rightIndexProximal,r_metacarpophalangeal_2,-,RIndex,RIndex,opt,RightIndexProximal,RightIndexProximal,mHandIndex1Right,-,r_index1
 RightIndexIntermediate,RIndexMid,-,-,rightIndexIntermediate,r_carpal_proximal_interphalangeal_2,-,RIndexMid,RIndexMid,opt,RightIndexIntermediate,RightIndexIntermediate,mHandIndex2Right,-,r_index2
