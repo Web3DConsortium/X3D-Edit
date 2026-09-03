@@ -511,10 +511,18 @@
             <word>INCITS</word>
             <word>IndexedFaceSet</word>
             <word>IndexedLineSet</word>
+            <word>IndexedQuadSet</word>
+            <word>IndexedTriangleFanSet</word>
+            <word>IndexedTriangleSet</word>
+            <word>IndexedTriangleStripSet</word>
+            <word>InlineGeometry</word>
+            <word>IntegerSequencer</word>
+            <word>IntegerTrigger</word>
             <word>javadoc</word>
             <word>jdom</word>
             <word>JSON</word>
             <word>jwebserver</word>
+            <word>KeySensor</word>
             <word>keystore</word>
             <word>Khronos</word>
             <word>LineProperties</word>
@@ -564,6 +572,7 @@
             <word>Quickstart</word>
             <word>README</word>
             <word>Redistributions</word>
+            <word>RenderedTexture</word>
             <word>runtime</word>
             <word>SavageDefense</word>
             <word>ScalarInterpolator</word>
