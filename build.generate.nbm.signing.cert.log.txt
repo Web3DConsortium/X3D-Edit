@@ -1,0 +1,52 @@
+platform.download:
+ant -f C:\\x3d-github\\X3D-Edit -Djdk.xml.entityExpansionLimit=120000 -Djdk.xml.maxGeneralEntitySizeLimit=50000000 -Djdk.xml.totalEntitySizeLimit=50000000 generate.nbm.signing.cert
+generate.nbm.signing.cert:
+Deleting: C:\x3d-github\X3D-Edit\nbproject\private\movesJarSigningKeystore
+Generating Key for nbmsigner
+Generating 2048-bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 90 days
+	for: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
+[Storing nbproject/private/movesJarSigningKeystore]
+platform.download:
+inspect.signing.cert:
+Keystore type: PKCS12
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+Alias name: nbmsigner
+Creation date: Sep 3, 2026
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
+Issuer: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
+Serial number: 5e5eb127fbd94829
+Valid from: Thu Sep 03 10:03:02 PDT 2026 until: Wed Dec 02 09:03:02 PST 2026
+Certificate fingerprints:
+	 SHA1: 28:60:57:AD:C3:24:F2:E8:05:E0:AA:83:12:64:62:D4:39:7C:15:52
+	 SHA256: DE:84:79:26:15:10:2F:53:95:5A:72:06:17:23:2E:F4:C3:6F:27:70:81:CD:FB:9B:17:D5:DA:C4:F8:30:58:FB
+Signature algorithm name: SHA384withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 3
+
+Extensions: 
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 8A 17 C5 DA 08 EF E3 8E   84 B4 FC E1 5E 92 53 C4  ............^.S.
+0010: 7A E8 7D BE                                        z...
+]
+]
+
+
+
+*******************************************
+*******************************************
+
+
+platform.download:
+update-keystore-info:
+Updating property file: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\nbproject\project.properties
+Updating property file: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\nbproject\private\suite-private.properties
+BUILD SUCCESSFUL (total time: 0 seconds)
