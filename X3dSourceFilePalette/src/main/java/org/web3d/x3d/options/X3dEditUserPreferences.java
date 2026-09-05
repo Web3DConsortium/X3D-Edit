@@ -765,12 +765,12 @@ public class X3dEditUserPreferences
   private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2026\\XMLSpy.exe";
-  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 5.1\\blender.exe";
+  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String winxpBvhackerEditorPathDefault             = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
-  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.10.2\\Ultimaker-Cura.exe";
+  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.13.0\\Ultimaker-Cura.exe";
   private static final String winxpMeshLabX3dEditorPathDefault           = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView-6.1.0\\bin\\paraview.exe";
+  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 6.2.0\\bin\\paraview.exe";
   private static final String winxpMayaRawkeeX3dEditorPathDefault        = "";
   private static final String winxpRhino3DX3dEditorPathDefault           = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
@@ -797,12 +797,12 @@ public class X3dEditUserPreferences
   private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2026\\XMLSpy.exe";
-  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 5.1\\blender.exe";
+  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String windows64BvhackerEditorPathDefault         = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
-  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.10.2\\Ultimaker-Cura.exe";
+  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.13.0\\Ultimaker-Cura.exe";
   private static final String windows64MeshLabX3dEditorPathDefault       = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView-6.1.0\\bin\\paraview.exe";
+  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 6.2.0\\bin\\paraview.exe";
   private static final String windows64MayaRawkeeX3dEditorPathDefault    = "";
   private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
