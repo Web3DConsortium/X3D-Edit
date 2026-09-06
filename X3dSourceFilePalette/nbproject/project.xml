@@ -390,16 +390,16 @@
                 <binary-origin>release/modules/ext/slf4j-simple-1.7.30.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/xmlresolver-5.2.2-data.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/xmlresolver-5.2.2-data.jar</binary-origin>
+                <runtime-relative-path>ext/xmlresolver-5.3.3-data.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xmlresolver-5.3.3-data.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/xj3d.browser_2.3.0-nps.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/xj3d.browser_2.3.0-nps.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/xmlresolver-5.2.2.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/xmlresolver-5.2.2.jar</binary-origin>
+                <runtime-relative-path>ext/xmlresolver-5.3.3.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/xmlresolver-5.3.3.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
                 <runtime-relative-path>ext/Vrml97ToX3dNist.jar</runtime-relative-path>
@@ -434,8 +434,8 @@
                 <binary-origin>release/modules/ext/dom4j-1.6.1.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/saxon-he-12.5.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/saxon-he-12.5.jar</binary-origin>
+                <runtime-relative-path>ext/saxon-he-12.9.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/saxon-he-12.9.jar</binary-origin>
             </class-path-extension>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
