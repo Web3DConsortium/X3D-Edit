@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2025 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -35,6 +35,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.web3d.x3d.palette.items;
 
 import javax.swing.text.JTextComponent;
+import static org.web3d.x3d.palette.X3DPaletteUtilities.escapeXmlCharacters;
 import org.web3d.x3d.types.X3DNetworkSensorNode;
 import static org.web3d.x3d.types.X3DPrimitiveTypes.*;
 import static org.web3d.x3d.types.X3DSchemaData.*;
@@ -52,6 +53,7 @@ import static org.web3d.x3d.types.X3DSchemaData.*;
  */
 public class LOADSENSOR extends X3DNetworkSensorNode
 {
+    private String   description;
     private SFFloat timeOut, timeOutDefault;
 //  private String watchList; // MFNode
 
@@ -80,12 +82,12 @@ public class LOADSENSOR extends X3DNetworkSensorNode
   @Override
   public void initialize()
   {
-    enabled   = enabledDefault = Boolean.parseBoolean(LOADSENSOR_ATTR_ENABLED_DFLT);
-    timeOut   = timeOutDefault = new SFFloat(LOADSENSOR_ATTR_TIMEOUT_DFLT,0.0f, null);
+    description = LOADSENSOR_ATTR_DESCRIPTION_DFLT;
+    enabled     = enabledDefault = Boolean.parseBoolean(LOADSENSOR_ATTR_ENABLED_DFLT);
+    timeOut     = timeOutDefault = new SFFloat(LOADSENSOR_ATTR_TIMEOUT_DFLT,0.0f, null);
 
     setContent("\n\t\t<!--TODO add AudioClip|ImageTexture|Inline|MovieTexture|" +
-                      "(X3D version 3.1 or greater)ImageCubeMapTexture|ImageTexture3D|PackagedShader|ShaderPart|ShaderProgram nodes here-->" +
-               "\n\t\t<!--TODO be sure to include containerField='watchList' in contained nodes-->\n\t");
+                      "(X3D version 3.1 or greater)ImageCubeMapTexture|ImageTexture3D|PackagedShader|ShaderPart|ShaderProgram nodes here-->>\n\t");
  }
 
   @Override
@@ -93,6 +95,10 @@ public class LOADSENSOR extends X3DNetworkSensorNode
   {
     super.initializeFromJdom(root, comp);
     org.jdom.Attribute attr;
+
+    attr = root.getAttribute(LOADSENSOR_ATTR_DESCRIPTION_NAME);
+    if (attr != null)
+      description = attr.getValue();
 
     attr = root.getAttribute(LOADSENSOR_ATTR_ENABLED_NAME);
     if (attr != null)
@@ -106,6 +112,14 @@ public class LOADSENSOR extends X3DNetworkSensorNode
   public String createAttributes()
   {
     StringBuilder sb = new StringBuilder();
+    
+    if (LOADSENSOR_ATTR_DESCRIPTION_REQD || !description.equals(LOADSENSOR_ATTR_DESCRIPTION_DFLT)) {
+      sb.append(" ");
+      sb.append(LOADSENSOR_ATTR_DESCRIPTION_NAME);
+      sb.append("='");
+      sb.append(escapeXmlCharacters(description));
+      sb.append("'");
+    }
     if (LOADSENSOR_ATTR_ENABLED_REQD || enabled != enabledDefault) {
       sb.append(" ");
       sb.append(LOADSENSOR_ATTR_ENABLED_NAME);
@@ -122,6 +136,18 @@ public class LOADSENSOR extends X3DNetworkSensorNode
     }
     return sb.toString();
   }
+  /** attribute accessor method */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /** attribute accessor method */
+  public void setDescription(String description)
+  {
+    this.description = description;
+  }
+
 
   public String getTimeOut()
   {
