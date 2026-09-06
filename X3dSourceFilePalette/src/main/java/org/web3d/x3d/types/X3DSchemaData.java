@@ -2680,40 +2680,16 @@ public interface X3DSchemaData
   String  INTEGERTRIGGER_ATTR_INTEGERKEY_DFLT = "-1";
 
   // Element LoadSensor
-  String  LOADSENSOR_ELNAME              = "LoadSensor";
-  String  LOADSENSOR_ATTR_ENABLED_NAME   = "enabled";
-  boolean LOADSENSOR_ATTR_ENABLED_REQD   = false;
-  String  LOADSENSOR_ATTR_ENABLED_DFLT   = "true";
-  String  LOADSENSOR_ATTR_TIMEOUT_NAME   = "timeOut";
-  boolean LOADSENSOR_ATTR_TIMEOUT_REQD   = false;
-  String  LOADSENSOR_ATTR_TIMEOUT_DFLT   = "0";
-
-  /* wrong...this is a X3DSoundSourceNode type */
-
-  String  LOADSENSOR_ATTR_DESCRIPTION_NAME  = "description";
-  boolean LOADSENSOR_ATTR_DESCRIPTION_REQD  = false;
-  String  LOADSENSOR_ATTR_DESCRIPTION_DFLT  = "";
-  String  LOADSENSOR_ATTR_LOOP_NAME         = "loop";
-  boolean LOADSENSOR_ATTR_LOOP_REQD         = false;
-  String  LOADSENSOR_ATTR_LOOP_DFLT         = "false";
-  String  LOADSENSOR_ATTR_PITCH_NAME        = "pitch";
-  boolean LOADSENSOR_ATTR_PITCH_REQD        = false;
-  String  LOADSENSOR_ATTR_PITCH_DFLT        = "1.0";
-  String  LOADSENSOR_ATTR_PAUSETIME_NAME    = "pauseTime";
-  boolean LOADSENSOR_ATTR_PAUSETIME_REQD    = false;
-  String  LOADSENSOR_ATTR_PAUSETIME_DFLT    = "0";
-  String  LOADSENSOR_ATTR_RESUMETIME_NAME   = "resumeTime";
-  boolean LOADSENSOR_ATTR_RESUMETIME_REQD   = false;
-  String  LOADSENSOR_ATTR_RESUMETIME_DFLT   = "0";
-  String  LOADSENSOR_ATTR_STARTTIME_NAME    = "startTime";
-  boolean LOADSENSOR_ATTR_STARTTIME_REQD    = false;
-  String  LOADSENSOR_ATTR_STARTTIME_DFLT    = "0";
-  String  LOADSENSOR_ATTR_STOPTIME_NAME     = "stopTime";
-  boolean LOADSENSOR_ATTR_STOPTIME_REQD     = false;
-  String  LOADSENSOR_ATTR_STOPTIME_DFLT     = "0";
-  String  LOADSENSOR_ATTR_URL_NAME          = "url";
-  boolean LOADSENSOR_ATTR_URL_REQD          = false;
-  String  LOADSENSOR_ATTR_URL_DFLT          = "";
+  String  LOADSENSOR_ELNAME                = "LoadSensor";
+  String  LOADSENSOR_ATTR_DESCRIPTION_NAME = "description";
+  boolean LOADSENSOR_ATTR_DESCRIPTION_REQD = false;
+  String  LOADSENSOR_ATTR_DESCRIPTION_DFLT = "";
+  String  LOADSENSOR_ATTR_ENABLED_NAME     = "enabled";
+  boolean LOADSENSOR_ATTR_ENABLED_REQD     = false;
+  String  LOADSENSOR_ATTR_ENABLED_DFLT     = "true";
+  String  LOADSENSOR_ATTR_TIMEOUT_NAME     = "timeOut";
+  boolean LOADSENSOR_ATTR_TIMEOUT_REQD     = false;
+  String  LOADSENSOR_ATTR_TIMEOUT_DFLT     = "0";
 
   // ProximitySensor element
   String  PROXIMITYSENSOR_ELNAME            = "ProximitySensor";
