@@ -627,7 +627,8 @@ public class X3dEditUserPreferences
   private static final String winxpInstantRealityPathDefault       = "C:\\Program Files\\Instant Reality\\bin\\InstantPlayer.exe";
   private static final String winxpPolyTransNuGrafPathDefault      = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
   private static final String winxpOctagaPathDefault               = "C:\\Program Files\\Octaga Visual Solutions\\Octaga Player 5.0 (64 bit)\\OctagaPlayer.exe";
-  private static final String winxpSunrizePathDefault              = "C:\\Users\\YourUserName\\AppData\\Local\\sunrize\\Sunrize X3D Editor.exe";
+  private static final String winxpSunrizePathDefault              = "C:\\Users\\YourUserName\\AppData\\Local\\sunrize\\sunrize.exe";
+  
   private static final String winxpSwirlX3DPlayerPathDefault       = "C:\\Program Files\\Pinecoast\\SwirlViewer\\SwView.exe";
   private static final String winxpCastleModelViewerPathDefault    = "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
   private static final String winxpVivatyPlayerPathDefault         = "C:\\Program Files\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
@@ -654,7 +655,7 @@ public class X3dEditUserPreferences
   private static final String windows64InstantRealityPathDefault   = "C:\\Program Files\\Instant Reality\\bin\\InstantPlayer.exe";
   private static final String windows64PolyTransNuGrafPathDefault  = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
   private static final String windows64OctagaPathDefault           = "C:\\Program Files\\Octaga Visual Solutions\\Octaga Player 5.0 (64 bit)\\OctagaPlayer.exe";
-  private static final String windows64SunrizePathDefault          = "C:\\Users\\YourUserName\\AppData\\Local\\sunrize\\Sunrize X3D Editor.exe";
+  private static final String windows64SunrizePathDefault          = "C:\\Users\\YourUserName\\AppData\\Local\\sunrize\\sunrize.exe";
   private static final String windows64SwirlX3DPlayerPathDefault   = "C:\\Program Files (x86)\\Pinecoast\\SwirlViewer\\SwView.exe";
   private static final String windows64CastleModelViewerPathDefault= "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
   private static final String windows64VivatyPlayerPathDefault     = "C:\\Program Files (x86)\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
@@ -806,7 +807,7 @@ public class X3dEditUserPreferences
   private static final String windows64MayaRawkeeX3dEditorPathDefault    = "";
   private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
-  private static final String windows64SunrizeX3dEditorPathDefault       = "%USER_PROFILE%\\AppData\\Local\\sunrize\\Sunrize X3D Editor.exe";
+  private static final String windows64SunrizeX3dEditorPathDefault       = "%USER_PROFILE%\\AppData\\Local\\sunrize\\sunrize.exe";
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
