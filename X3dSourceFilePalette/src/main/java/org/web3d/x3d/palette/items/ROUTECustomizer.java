@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2022 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -111,11 +111,15 @@ public class ROUTECustomizer extends BaseCustomizer
     // At this point, the combos have been loaded with valid fields.
     // Now try setting the field we came in with
 
-    idx = getFieldIndex(route.getFromField(),fromFieldCB);
-    fromFieldCB.setSelectedIndex(idx);  // hits the action listener, -1 for no selection is OK
+    idx = getFieldIndex(route.getFromField(),fromFieldCB); // -1 means not found
+    if  (idx > -1)
+         fromFieldCB.setSelectedIndex(idx);  // hits the action listener, -1 for no selection is OK
+    else fromFieldCB.setSelectedItem(route.getFromField()); // keep original value
 
-    idx = getFieldIndex(route.getToField(),toFieldCB);
-    toFieldCB.setSelectedIndex(idx);    // hits the action listener, -1 for no selection is OK
+    idx = getFieldIndex(route.getToField(),toFieldCB); // -1 means not found
+    if  (idx > -1)
+         toFieldCB.setSelectedIndex(idx);    // hits the action listener, -1 for no selection is OK
+    else toFieldCB.setSelectedItem(route.getToField()); // keep original value
       
     this.addAncestorListener(new AncestorListener()
     {
@@ -142,30 +146,53 @@ public class ROUTECustomizer extends BaseCustomizer
     Vector vx = new Vector(v.size() > 0 ? v.size() : 1);
 
    int index = -1;
-   for (Element el : v) {
+   for (Element el : v) 
+   {
       index ++;
       if (el.getName().equalsIgnoreCase(ROUTE_ELNAME)) //"ROUTE"
-        continue;
-      Attribute attr = el.getAttribute("DEF");
-      if (attr == null)
-        continue;
-      vx.add(new xNode(el));
-
-      // check, warn if duplicate DEF names exist
-      for (int i=0; i < index; i++)
       {
-        Attribute priorDEF = v.get(i).getAttribute("DEF");
-        if ((priorDEF != null) && (priorDEF.toString().equals(attr.toString())))
+          continue; // no DEF is present on a ROUTE statement
+      }
+      Attribute attr = el.getAttribute("DEF");
+      if ((attr == null) && !el.getName().equalsIgnoreCase(IMPORT_ELNAME)) // "IMPORT" does not have DEF
+        continue;
+      
+      if (el.getName().equalsIgnoreCase(IMPORT_ELNAME)) // "IMPORT" does not have DEF
+      {
+          // can use attribute importedDEF if no AS value provided, otherwise not a potential ROUTE node
+          if      ((el.getAttribute("AS") != null) && !el.getAttribute("AS").getValue().isBlank())
+                    el.setAttribute("DEF", el.getAttribute("AS").getValue());
+          else if ((el.getAttribute("importedDEF") != null) && !el.getAttribute("importedDEF").getValue().isBlank())
+                    el.setAttribute("DEF", el.getAttribute("importedDEF").getValue());
+          else continue;
+      }
+      else if (attr == null) // no DEF found, cannot be referenced by ROUTE
+           continue;
+      vx.add(new xNode(el));
+      
+      // check, warn if duplicate DEF names exist
+      Attribute currentDEFattribute = el.getAttribute("DEF");
+      String    currentDEF = new String();
+      if  (currentDEFattribute != null)
+           currentDEF = currentDEFattribute.getValue();
+      if (!currentDEF.isBlank())
+      {
+        for (int i=0; i < index; i++)
         {
-            String nodeMessage;
-            if (v.get(i).getName().equals(el.getName()))
-                 nodeMessage = " for two " + el.getName() + " nodes";
-            else nodeMessage = " for a " + v.get(i).getName() + " node and a " + el.getName() + " node";
-            NotifyDescriptor descriptor = new NotifyDescriptor.Message(
-                    "<html><p align='center'>Found duplicated DEF name " + attr.toString() +
-                    "</p><br /><p align='center'> " + nodeMessage +
-                    "</p><br /><p align='center'>Please find duplicate DEF names in your scene, then rename or remove them!</p></html>", NotifyDescriptor.WARNING_MESSAGE);
-            DialogDisplayer.getDefault().notify(descriptor);
+          Attribute priorDEF = v.get(i).getAttribute("DEF");
+          if ((priorDEF != null) && (priorDEF.getValue().equals(currentDEF)))
+          {
+              String nodeMessage;
+              if (v.get(i).getName().equals(el.getName()))
+                   nodeMessage = " for two " + el.getName() + " nodes";
+              else nodeMessage = " for a " + v.get(i).getName() + " node and a " + el.getName() + " node";
+              NotifyDescriptor descriptor = new NotifyDescriptor.Message(
+                      "<html><p align='center'>Found duplicated DEF='" + attr.toString() + "' " +
+                      "</p><br /><p align='center'> " + nodeMessage +
+                      "</p><br /><p align='center'>Please find duplicate DEF names in your scene, then rename or remove them!</p></html>", NotifyDescriptor.WARNING_MESSAGE);
+              DialogDisplayer.getDefault().notify(descriptor);
+              System.err.println("Found duplicated DEF='" + attr.toString() + "'" + nodeMessage);
+          }
         }
       }
     }
@@ -495,9 +522,14 @@ public class ROUTECustomizer extends BaseCustomizer
     xNode xn = (xNode)obj;
     String nodeType = xn.e.getName();
     if(nodeType.equals(lastFromNodeType))
-      return; // Don't reload field combo; throws away existing field selection
+      return; // Don't reload field combo, which throws away existing field selection
     lastFromNodeType = nodeType;
 
+    if (nodeType.equalsIgnoreCase("IMPORT"))
+    {
+        fromFieldWarningLabel.setText("inspect IMPORT Inline model to confirm candidate fields and types for this external node");
+        return; // Don't reload field combo, which throws away existing field selection
+    }
     fromFieldCB.setModel(loadFieldsFromSelectedNode(nodeType,false,fromNodeCB.getSelectedItem()));
     if(fromFieldCB.getModel().getSize() <= 0)
     {
@@ -522,9 +554,14 @@ public class ROUTECustomizer extends BaseCustomizer
     xNode xn = (xNode)obj;
     String nodeType = xn.e.getName();
     if(nodeType.equals(lastToNodeType))
-      return; // Don't reload field combo; throws away existing field selection
+      return; // Don't reload field combo, which throws away existing field selection
     lastToNodeType = nodeType;
 
+    if (nodeType.equalsIgnoreCase("IMPORT"))
+    {
+        toFieldWarningLabel.setText("inspect IMPORT Inline model to confirm candidate fields and types for this external node");
+        return; // Don't reload field combo, which throws away existing field selection
+    }
     toFieldCB.setModel(loadFieldsFromSelectedNode(nodeType,true,toNodeCB.getSelectedItem()));
     if(toFieldCB.getModel().getSize() <= 0)
     {
@@ -954,18 +991,28 @@ public class ROUTECustomizer extends BaseCustomizer
   private ComboBoxModel<String> loadFieldsFromSelectedNode(String nodeName, boolean inputsVsOutputs, Object nodeObj)
   {
     Vector<JComponent> vec = new Vector<>();
-    if(nodeName.length() <=0){
-     // vec.add(new JLabel(""));
-      return (ComboBoxModel<String>)new DefaultComboBoxModel(vec); // this is an "unchecked conversion"
+    if (nodeName.length() <=0)
+    {
+        // vec.add(new JLabel(""));
+        return (ComboBoxModel<String>)new DefaultComboBoxModel(vec); // this is an "unchecked conversion"
+    }
+    else if (nodeName.equalsIgnoreCase(IMPORT_ELNAME))
+    {
+        // TODO external inspection of Inline model's IMPORT node to determine node type
+        return (ComboBoxModel<String>)new DefaultComboBoxModel(vec); // this is an "unchecked conversion"
     }
 
     Vector<String> vs = new Vector<>();
     X3DFieldDefinition[] fields;
     if(nodeName.equalsIgnoreCase(SCRIPT_ELNAME) || // "Script"
        nodeName.equalsIgnoreCase(PROTOINSTANCE_ELNAME)) //"ProtoInstance"
-      fields = getSpecialCaseFields(nodeName,nodeObj);
+    {
+        fields = getSpecialCaseFields(nodeName,nodeObj);
+    }
     else
-      fields = ROUTE.getNodeFields(nodeName);
+    {
+        fields = ROUTE.getNodeFields(nodeName);
+    }
 
     for(X3DFieldDefinition fld : fields) {
       int acc = fld.getAccessType();
