@@ -51,7 +51,7 @@ LeftRingTip,LRingEnd,-,-,-,site l_carpal_distal_phalanx_4,-,LRingEnd,LRingEnd,op
 LeftPinkyMetacarpal,-,-,-,-,l_carpometacarpal_5,-,-,-,-,-,-,-,-,l_pinky0
 LeftPinkyProximal,LPinky,-,lpinky,leftLittleProximal,l_metacarpophalangeal_5,-,LPinky,LPinky,opt,LeftLittleProximal,LeftLittleProximal,mHandPinky1Left,-,l_pinky1
 LeftPinkyIntermediate,LPinkyMid,-,-,leftLittleIntermediate,l_carpal_proximal_interphalangeal_5,-,LPinkyMid,LPinkyMid,opt,LeftLittleIntermediate,LeftLittleIntermediate,mHandPinky2Left,-,l_pinky2
-LeftPinkyDistal,LPinkyTip,-,-,leftLittleDistal,l_carpal_distal_interphalangeal_2,-,LPinkyTip,LPinkyTip,opt,LeftLittleDistal,LeftLittleDistal,mHandPinky3Left,-,l_pinky3
+LeftPinkyDistal,LPinkyTip,-,-,leftLittleDistal,l_carpal_distal_interphalangeal_5,-,LPinkyTip,LPinkyTip,opt,LeftLittleDistal,LeftLittleDistal,mHandPinky3Left,-,l_pinky3
 LeftPinkyTip,LPinkyEnd,-,-,-,site l_carpal_distal_phalanx_5,-,LPinkyEnd,LPinkyEnd,opt,-,-,-,-,l_pinky_null
 RightShoulder,RShldr,RightShoulder,rclavicle,rightShoulder,r_acromioclavicular,RShldr,RShldr,RightShoulder,Clavicle_R,RightShoulder,RightShoulder,mCollarRight/R_CLAVICLE,RightUpperArm,r_clavicle
 RightUpperArm,RArm,RightArm,rhumerus,rightUpperArm,r_shoulder,RArm,RArm,RightArm,UpperArm_R,RightUpperArm,RightUpperArm,mShoulderRight/R_UPPER_ARM,-,r_uparm
@@ -60,7 +60,7 @@ RightHand,RHand,RightHand,rwrist,rightHand,r_radiocarpal,RHand,RHand,RightHand,H
 RightThumbMetacarpal,RThumb,-,rthumb,rightThumbMetacarpal,r_carpometacarpal_1,-,RThumb,RThumb,opt,RightThumbProximal,RightThumbMetacarpal,mHandThumb1Right,-,r_thumb0
 RightThumbProximal,RThumbMid,-,-,rightThumbProximal,r_metacarpophalangeal_1,-,RThumbMid,RThumbMid,opt,RightThumbIntermediate,RightThumbProximal,mHandThumb2Right,-,r_thumb1
 RightThumbDistal,RThumTip,-,-,rightThumbDistal,r_carpal_interphalangeal_1,-,RThumbTip,RThumbTip,opt,RightThumbDistal,RightThumbDistal,mHandThumb3Right,-,r_thumb2
-RightThumbTip,RThumEnd,-,-,-,Site r_carpal_distal_phalanx_1,-,RThumbEnd,RThumbEnd,opt,-,-,-,-,r_thumb_null
+RightThumbTip,RThumEnd,-,-,-,site r_carpal_distal_phalanx_1,-,RThumbEnd,RThumbEnd,opt,-,-,-,-,r_thumb_null
 RightIndexMetacarpal,-,-,-,-,r_carpometacarpal_2,-,-,-,-,-,-,-,-,-
 RightIndexProximal,RIndex,-,rindex,rightIndexProximal,r_metacarpophalangeal_2,-,RIndex,RIndex,opt,RightIndexProximal,RightIndexProximal,mHandIndex1Right,-,r_index1
 RightIndexIntermediate,RIndexMid,-,-,rightIndexIntermediate,r_carpal_proximal_interphalangeal_2,-,RIndexMid,RIndexMid,opt,RightIndexIntermediate,RightIndexIntermediate,mHandIndex2Right,-,r_index2
@@ -75,7 +75,7 @@ RightRingMetacarpal,-,-,-,-,r_carpometacarpal_4,-,-,-,-,-,-,-,-,-
 RightRingProximal,RRing,-,rring,rightRingProximal,r_metacarpophalangeal_4,-,RRing,RRing,opt,RightRingProximal,RightRingProximal,mHandRing1Right,-,r_ring1
 RightRingIntermediate,RRingMid,-,-,rightRingIntermediate,r_carpal_proximal_interphalangeal_4,-,RRingMid,RRingMid,opt,RightRingIntermediate,RightRingIntermediate,mHandRing2Right,-,r_ring2
 RightRingDistal,RRingTip,-,-,rightRingDistal,r_carpal_distal_interphalangeal_4,-,RRingTip,RRingTip,opt,RightRingDistal,RightRingDistal,mHandRing3Right,-,r_ring3
-RightRingTip,RRingEnd,-,-,-,site l_carpal_distal_phalanx_4,-,RRingEnd,RRingEnd,opt,-,-,-,-,r_ring_null
+RightRingTip,RRingEnd,-,-,-,site r_carpal_distal_phalanx_4,-,RRingEnd,RRingEnd,opt,-,-,-,-,r_ring_null
 RightPinkyMetacarpal,-,-,-,-,r_carpometacarpal_5,-,-,-,-,-,-,-,-,r_pinky0
 RightPinkyProximal,RPinky,-,rpinky,rightLittleProximal,r_metacarpophalangeal_5,-,RPinky,RPinky,opt,RightLittleProximal,RightLittleProximal,mHandPinky1Right,-,r_pinky1
 RightPinkyIntermediate,RPinkyMid,-,-,rightLittleIntermediate,r_carpal_proximal_interphalangeal_5,-,RPinkyMid,RPinkyMid,opt,RightLittleIntermediate,RightLittleIntermediate,mHandPinky2Right,-,r_pinky2

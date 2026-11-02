@@ -8,7 +8,7 @@ Got X3D-Edit? 	&#128512;
 
 - [Apache NetBeans Plugin Portal: X3D-Edit](https://plugins.netbeans.apache.org/catalogue/?id=90) is our primary distribution.
 
-- [SourceForge X3D-Edit Distribution](https://sourceforge.net/projects/x3d/files) is a backup site for plugins and pre-releases.
+- [SourceForge X3D-Edit Distribution](https://sourceforge.net/projects/x3d/files) is site for interim plugin releases.
 
 This README file is the developers' documentation page for creation of X3D-Edit 4.0 suite.
 

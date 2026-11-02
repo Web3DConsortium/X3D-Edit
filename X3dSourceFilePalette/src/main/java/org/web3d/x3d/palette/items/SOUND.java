@@ -1,5 +1,5 @@
 /*
-Copyright (c) 1995-2021 held by the author(s).  All rights reserved.
+Copyright (c) 1995-2026 held by the author(s).  All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions
@@ -189,7 +189,7 @@ public class SOUND extends X3DSoundNode
       sb.append("'");
     }
 
-    if (SOUND_ATTR_ENABLED_REQD || enabled != Boolean.parseBoolean(TIMESENSOR_ATTR_ENABLED_DFLT)) {
+    if (SOUND_ATTR_ENABLED_REQD || enabled != Boolean.parseBoolean(SOUND_ATTR_ENABLED_DFLT)) {
       sb.append(" ");
       sb.append(SOUND_ATTR_ENABLED_NAME);
       sb.append("='");

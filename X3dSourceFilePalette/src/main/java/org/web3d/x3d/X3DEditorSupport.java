@@ -293,7 +293,9 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
                 catch (Exception ex)
                 {
                     // TODO: exception handling
-                    ex.printStackTrace(System.err);
+                    // ex.printStackTrace(System.err); // WARNING [org.openide.windows.WindowManager]: [Winsys] TopComponent org.web3d.x3d.X3DEditorSupport$X3dEditor throws runtime exception from its componentShowing() method.
+                    System.err.println(ex.getMessage());
+                    System.err.println(ex.getStackTrace());
                 }
             }
         }
@@ -338,23 +340,30 @@ public final class X3DEditorSupport extends DataEditorSupport implements OpenCoo
         }
 
         @Override
-        protected void componentShowing() {
-            
-            super.componentShowing();
+        protected void componentShowing() 
+        {
+            try
+            {
+                super.componentShowing();
 
-            // Need to temporarily disable the
-            // org.eclipse.osgi.framework.internal.protocol.ContentHandlerFactory
-            // as it interferes with content loading of images for Xj3D
-            uninstallContentHandlerFactory();
+                // Need to temporarily disable the
+                // org.eclipse.osgi.framework.internal.protocol.ContentHandlerFactory
+                // as it interferes with content loading of images for Xj3D
+                uninstallContentHandlerFactory();
 
-            X3DDataObject xObj = (X3DDataObject) getX3dEditorSupport().getDataObject();
+                X3DDataObject xObj = (X3DDataObject) getX3dEditorSupport().getDataObject();
 
-            Xj3dTopComponent topC = Xj3dTopComponent.findInstance();
-            Xj3dViewerPanel pnl = topC.getXj3DViewerPanel();
+                Xj3dTopComponent topC = Xj3dTopComponent.findInstance();
+                Xj3dViewerPanel pnl = topC.getXj3DViewerPanel();
 
-            // Don't keep re-opening the same scene
-            if (pnl.getCurrentX3DDataObject() != xObj) {
-                pnl.openXj3dScene(xObj);
+                // Don't keep re-opening the same scene
+                if (pnl.getCurrentX3DDataObject() != xObj) {
+                    pnl.openXj3dScene(xObj);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace(System.err);
             }
         }
 

@@ -185,7 +185,10 @@ otherSemanticWebEditorCheckBox.setVisible(false);
     if ((org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("brutzman") || 
          org.web3d.x3d.options.X3dEditUserPreferences.getAuthorName().equals("donbr")) && 
          org.web3d.x3d.options.X3dEditUserPreferences.getAuthorEmail().isBlank())
+    {
+         org.web3d.x3d.options.X3dEditUserPreferences.setAuthorName ("brutzman");
          org.web3d.x3d.options.X3dEditUserPreferences.setAuthorEmail("don.brutzman@gmail.com");
+    }
 
     resetUserOptions(); // duplicative
     

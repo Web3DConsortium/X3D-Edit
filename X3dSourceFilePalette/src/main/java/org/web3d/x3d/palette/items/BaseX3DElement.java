@@ -569,6 +569,8 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             String fromField = route.getFromField();
             String   toField = route.getToField();
             String eventType = route.getEventType(); // determined and set by ROUTECustomizer panel
+            if ((eventType == null) || eventType.isBlank())
+                 eventType = "TODO";
             // scriptName is unique as long as nodes with identical (and superfluous) DEF names aren't traced
             // avoid dot (. period character) in DEF name of trace script since . is used in VRML97/ClassicVRML encoding to define ROUTE connections
             String scriptName = "Trace_ROUTE_" + fromNode + "_" + fromField + "_TO_" + toNode + "_" + toField;

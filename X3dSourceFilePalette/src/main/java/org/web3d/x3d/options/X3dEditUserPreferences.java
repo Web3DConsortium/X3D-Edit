@@ -627,7 +627,8 @@ public class X3dEditUserPreferences
   private static final String winxpInstantRealityPathDefault       = "C:\\Program Files\\Instant Reality\\bin\\InstantPlayer.exe";
   private static final String winxpPolyTransNuGrafPathDefault      = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
   private static final String winxpOctagaPathDefault               = "C:\\Program Files\\Octaga Visual Solutions\\Octaga Player 5.0 (64 bit)\\OctagaPlayer.exe";
-  private static final String winxpSunrizePathDefault              = "C:\\Users\\YourUserName\\AppData\\Local\\sunrize\\Sunrize X3D Editor.exe";
+  private static final String winxpSunrizePathDefault              = "C:\\Users\\YourUserName\\AppData\\Local\\sunrize\\sunrize.exe";
+  
   private static final String winxpSwirlX3DPlayerPathDefault       = "C:\\Program Files\\Pinecoast\\SwirlViewer\\SwView.exe";
   private static final String winxpCastleModelViewerPathDefault    = "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
   private static final String winxpVivatyPlayerPathDefault         = "C:\\Program Files\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
@@ -654,7 +655,7 @@ public class X3dEditUserPreferences
   private static final String windows64InstantRealityPathDefault   = "C:\\Program Files\\Instant Reality\\bin\\InstantPlayer.exe";
   private static final String windows64PolyTransNuGrafPathDefault  = "C:\\Program Files\\NuGraf64\\NuGraf64.exe";
   private static final String windows64OctagaPathDefault           = "C:\\Program Files\\Octaga Visual Solutions\\Octaga Player 5.0 (64 bit)\\OctagaPlayer.exe";
-  private static final String windows64SunrizePathDefault          = "C:\\Users\\YourUserName\\AppData\\Local\\sunrize\\Sunrize X3D Editor.exe";
+  private static final String windows64SunrizePathDefault          = "C:\\Users\\YourUserName\\AppData\\Local\\sunrize\\sunrize.exe";
   private static final String windows64SwirlX3DPlayerPathDefault   = "C:\\Program Files (x86)\\Pinecoast\\SwirlViewer\\SwView.exe";
   private static final String windows64CastleModelViewerPathDefault= "C:\\Program Files\\castle-model-viewer\\castle-model-viewer.exe";
   private static final String windows64VivatyPlayerPathDefault     = "C:\\Program Files (x86)\\Vivaty\\VivatyPlayer\\VivatyPlayer.exe";
@@ -765,12 +766,12 @@ public class X3dEditUserPreferences
   private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2026\\XMLSpy.exe";
-  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 5.0\\blender.exe";
+  private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe";
   private static final String winxpBsContentStudioX3dEditorPathDefault   = "C:\\Program Files\\\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String winxpBvhackerEditorPathDefault             = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
-  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.10.2\\Ultimaker-Cura.exe";
+  private static final String winxpCuraX3dEditorPathDefault              = "C:\\Program Files\\Ultimaker Cura 5.13.0\\Ultimaker-Cura.exe";
   private static final String winxpMeshLabX3dEditorPathDefault           = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView-6.0.0-Windows-Python3.12-msvc2017-AMD64\\bin\\paraview.exe";
+  private static final String winxpParaviewX3dEditorPathDefault          = "C:\\Program Files\\ParaView 6.2.0\\bin\\paraview.exe";
   private static final String winxpMayaRawkeeX3dEditorPathDefault        = "";
   private static final String winxpRhino3DX3dEditorPathDefault           = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
@@ -797,16 +798,16 @@ public class X3dEditUserPreferences
   private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
   
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2026\\XMLSpy.exe";
-  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 5.0\\blender.exe";
+  private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe";
   private static final String windows64BsContentStudioX3dEditorPathDefault="C:\\Program Files (x86)\\Bitmanagement Software\\BS Content Studio\\x64\\BSComposer.exe";
   private static final String windows64BvhackerEditorPathDefault         = "C:\\Program Files (x86)\\davedub\\bvhacker\\bvhacker.exe";
-  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.10.2\\Ultimaker-Cura.exe";
+  private static final String windows64CuraX3dEditorPathDefault          = "C:\\Program Files\\Ultimaker Cura 5.13.0\\Ultimaker-Cura.exe";
   private static final String windows64MeshLabX3dEditorPathDefault       = "C:\\Program Files\\VCG\\MeshLab\\meshlab.exe";
-  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView-6.0.0-Windows-Python3.12-msvc2017-AMD64\\bin\\paraview.exe";
+  private static final String windows64ParaviewX3dEditorPathDefault      = "C:\\Program Files\\ParaView 6.2.0\\bin\\paraview.exe";
   private static final String windows64MayaRawkeeX3dEditorPathDefault    = "";
   private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
-  private static final String windows64SunrizeX3dEditorPathDefault       = "%USER_PROFILE%\\AppData\\Local\\sunrize\\Sunrize X3D Editor.exe";
+  private static final String windows64SunrizeX3dEditorPathDefault       = "%USER_PROFILE%\\AppData\\Local\\sunrize\\sunrize.exe";
   private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
   private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
@@ -920,7 +921,7 @@ public class X3dEditUserPreferences
   private static final String downloadSiteCura                           = "https://ultimaker.com/software/ultimaker-cura";
   private static final String downloadSiteMeshLab                        = "https://github.com/cnr-isti-vclab/meshlab/releases";
 //private static final String downloadSiteMeshLab                        = "https://www.meshlab.net";
-  private static final String downloadSiteParaview                       = "https://www.kitware.com/platforms/#paraview";
+  private static final String downloadSiteParaview                       = "https://www.paraview.org/download";
   private static final String downloadSiteMayaRawkee                     = ""; // TODO two entries?
   private static final String downloadSiteRhino3D                        = "https://www.rhino3d.com/download";
   private static final String downloadSiteSeamless3d                     = "https://www.seamless3d.com";

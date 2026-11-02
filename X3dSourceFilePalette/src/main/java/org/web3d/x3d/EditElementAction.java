@@ -126,10 +126,11 @@ public class EditElementAction extends BaseX3DEditAction //CookieAction
             if (badNodeName.contains(" ")) {
                 badNodeName = badNodeName.substring(0, badNodeName.indexOf(" "));
             }
-            String message = "illegal node: '" + badNodeName + "' not recognized";
+            String message = "X3D-Edit panel error: '" + badNodeName + "'";
 
             NotifyDescriptor nd = new NotifyDescriptor.Message(message);
-            nd.setTitle("Illegal node name: '" + badNodeName + "'");
+            nd.setTitle("X3D-Edit panel error: '" + badNodeName + "', see debug log");
+            System.err.println("*** X3D-Edit panel error:" + badNodeName + ", see debug log, please report this problem");
             DialogDisplayer.getDefault().notify(nd);
             System.err.println("*** EditElementAction exception, " + message + "; from selection '" + selectedString + "'");
             Exceptions.printStackTrace(e);
