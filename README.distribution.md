@@ -11,7 +11,7 @@ https://sourceforge.net/p/x3d/admin/files/badges/
 [X3D-Edit](https://www.web3d.org/x3d/tools/X3D-Edit/X3D-Edit.html) is a free, open-source Extensible 3D (X3D) Graphics authoring tool for simple high-quality authoring, editing, import/export, validation and viewing of X3D scenes.
 
 
-## X3D-Edit 4.0 Distribution, 5 May 2026, interim release
+## X3D-Edit 4.0 Distribution, 5 November 2026, 4.0.43 interim release
 
 <!-- posted at https://sourceforge.net/projects/x3d/files -->
 
@@ -24,7 +24,7 @@ Backup module deployment is found in  [Maven Central Repository](https://central
 
 X3D-Edit Install File                                                                                                                        | Description                                       | Status                                                         | File size | Date        
 -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | --------- | -----------  
-[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Build using NetBeans&nbsp;30. Tested satisfactorily, any operating system |   76.5 MB | 5 May 2026
+[org-web3d-x3d-palette.nbm](https://sourceforge.net/projects/x3d/files/org-web3d-x3d-palette.nbm)           | [NetBeans](https://netbeans.org) plugin module    | Built using NetBeans&nbsp;31. Tested satisfactorily, any operating system |  160.2 MB | 5 November 2026
 [x3deditmodulesuite.zip](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite.zip/download)        | Complete zip archive for [Java JDK](https://openjdk.java.net) execution | Must set jdkhome in netbeans.conf       |  260.7 MB | 25 February 2025
 
 <!---
@@ -32,8 +32,8 @@ X3D-Edit Install File                                                           
 [x3deditmodulesuite-macosx.tgz](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-macosx.tgz)   | Mac installer                                     | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  205.7 MB | 7 July 2024, pending
 [x3deditmodulesuite-linux.sh](https://sourceforge.net/projects/x3d/files/x3deditmodulesuite-linux.sh)       | Linux installer                                   | Tested unsatisfactorily, TODO&nbsp;future troubleshooting      |  205.8 MB | 7 July 2024, pending
 -->
-SourceForge [update-version statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting (over 3,000), as are
-NetBeans Plugin Portal [deployment statistics](https://plugins.netbeans.apache.org/catalogue/?id=90) (over 29,000).
+SourceForge [update-version statistics](https://sourceforge.net/projects/x3d/files/stats/timeline) are interesting (over 3,400), as are
+NetBeans Plugin Portal [deployment statistics](https://plugins.netbeans.apache.org/catalogue/?id=90) (over 32,000).
 
 ## How To Do It
 
@@ -60,13 +60,13 @@ If you want to try the standalone application on another system, please note tha
 
 - Using _localadmin_ permissions, set `jdkhome` permissions in configuration file:
 - `C:\\Program Files\\x3deditmodulesuite\\etc\\x3deditmodulesuite.conf`
-- `jdkhome="C:\Program Files\Java\openjdk\jdk-26"`
+- `jdkhome="C:\Program Files\Java\openjdk\jdk-27"`
 
 ## Troubleshooting NetBeans
 
 If things don't work "out of the box" for you, please let us know.
 
-[Changelog](https://sourceforge.net/p/x3d/code/HEAD/log/?path=/www.web3d.org/x3d/tools/X3dEdit4.0/X3dEditModuleSuite/README.prerelease.md) provides progress details.
+[Commits log](https://github.com/Web3DConsortium/X3D-Edit/commits/master/) provides progress details.
 Test reports and feedback welcome.  Please send email to
 [Don Brutzman, don.brutzman@gmail.com](mailto:don.brutzman at gmail.com%20(Don%20Brutzman)?subject=X3D-Edit%204.0%20SourceForge%20release%20feedback).
 
