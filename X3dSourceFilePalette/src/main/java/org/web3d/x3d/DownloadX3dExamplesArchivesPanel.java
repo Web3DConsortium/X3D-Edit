@@ -1560,7 +1560,7 @@ public class DownloadX3dExamplesArchivesPanel extends javax.swing.JPanel
       executorTask = null;
     }
     // downloading all done
-     startDownloadButton.setText("Start downloading"); // restore label
+     startDownloadButton.setText("Download start"); // restore label
      startDownloadButton.setEnabled(true);
     cancelDownloadButton.setEnabled(false);
     clearAllArchiveCheckBoxes();
