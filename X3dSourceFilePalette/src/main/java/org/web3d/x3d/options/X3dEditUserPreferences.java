@@ -756,14 +756,14 @@ public class X3dEditUserPreferences
   
   private static final String winxpAudacityEditorPathDefault             = "C:\\Program Files\\Audacity\\Audacity.exe";
   private static final String winxpMuseScoreEditorPathDefault            = "C:\\Program Files\\MuseScore 3\\bin\\MuseScore3.exe";
-  private static final String winxpGimpEditorPathDefault                 = "C:\\Program Files\\GIMP 3\\bin\\gimp-3.exe";
-  private static final String winxpFijiEditorPathDefault                 = "C:\\Program Files\\Fiji.app\\ImageJ-win32.exe";
+  private static final String winxpGimpEditorPathDefault                 = "C:\\Program Files\\GIMP 3\\bin\\gimp.exe";
+  private static final String winxpFijiEditorPathDefault                 = "C:\\Program Files\\Fiji\\fiji-windows-x32.exe";
   private static final String winxpImageJEditorPathDefault               = "C:\\Program Files\\ImageJ\\ImageJ.exe";
   private static final String winxpImageMagickEditorPathDefault          = "C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\imdisplay.exe";
   private static final String winxpVlcPlayerPathDefault                  = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
-  private static final String winxpProtegePlayerPathDefault              = "C:\\Program Files\\Protege\\Protege-5.6.7\\Protege.exe";
+  private static final String winxpProtegePlayerPathDefault              = "C:\\Program Files\\Protege\\Protege-5.6.9\\Protege.exe";
   private static final String winxpPorteclePlayerPathDefault             = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
-  private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
+  private static final String winxpKeystoreExplorerPlayerPathDefault     = "C:\\Program Files\\Keystore Explorer\\kse.exe";
   
   private static final String winxpAltovaXMLSpyX3dEditorPathDefault      = "C:\\Program Files\\Altova\\XMLSpy2026\\XMLSpy.exe";
   private static final String winxpBlenderX3dEditorPathDefault           = "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe";
@@ -776,9 +776,9 @@ public class X3dEditUserPreferences
   private static final String winxpRhino3DX3dEditorPathDefault           = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String winxpSeamlessX3dEditorPathDefault          = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String winxpSunrizeX3dEditorPathDefault           = "sunrize.exe"; // node.js
-  private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
+  private static final String winxpItksnapEditorPathDefault              = "C:\\Program Files\\ITK-SNAP 4.6\\bin\\ITK-SNAP.exe";
   private static final String winxpSeg3dEditorPathDefault                = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
-  private static final String winxpSlicer3dEditorPathDefault             = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
+  private static final String winxpSlicer3dEditorPathDefault             = "C:\\Program Files\\slicer.org\\3D Slicer 5.12.4\\Slicer.exe";
   private static final String winxpBatikEditorPathDefault                = "C:\\languages\\java\\batik-1.17\\batik-squiggle-1.17.jar";
   private static final String winxpInkscapeEditorPathDefault             = "C:\\Program Files\\Inkscape\\Inkscape";
   private static final String winxpSvgeditEditorPathDefault              = "https://svgedit.netlify.app"; // online editor
@@ -788,14 +788,14 @@ public class X3dEditUserPreferences
 
   private static final String windows64AudacityEditorPathDefault         = "C:\\Program Files\\Audacity\\Audacity.exe";
   private static final String windows64MuseScoreEditorPathDefault        = "C:\\Program Files\\MuseScore 4\\bin\\MuseScore4.exe";
-  private static final String windows64GimpEditorPathDefault             = "C:\\Program Files\\GIMP 3\\bin\\gimp-3.exe";
-  private static final String windows64FijiEditorPathDefault             = "C:\\Program Files\\Fiji.app\\ImageJ-win64.exe";
+  private static final String windows64GimpEditorPathDefault             = "C:\\Program Files\\GIMP 3\\bin\\gimp.exe";
+  private static final String windows64FijiEditorPathDefault             = "C:\\Program Files\\Fiji\\fiji-windows-x64.exe";
   private static final String windows64ImageJEditorPathDefault           = "C:\\Program Files\\ImageJ\\ImageJ.exe";
-  private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\imdisplay.exe";
+  private static final String windows64ImageMagickEditorPathDefault      = "C:\\Program Files\\ImageMagick-7.1.2-Q16-HDRI\\magick.exe";
   private static final String windows64VlcPlayerPathDefault              = "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe";
-  private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege\\Protege-5.6.7\\Protege.exe";
+  private static final String windows64ProtegePlayerPathDefault          = "C:\\Program Files\\Protege\\Protege-5.6.9\\Protege.exe";
   private static final String windows64PorteclePlayerPathDefault         = "C:\\Program Files (x86)\\Portecle\\Portecle.exe";
-  private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files (x86)\\Keystore Explorer\\kse.exe";
+  private static final String windows64KeystoreExplorerPlayerPathDefault = "C:\\Program Files\\Keystore Explorer\\kse.exe";
   
   private static final String windows64AltovaXMLSpyX3dEditorPathDefault  = "C:\\Program Files\\Altova\\XMLSpy2026\\XMLSpy.exe";
   private static final String windows64BlenderX3dEditorPathDefault       = "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe";
@@ -808,9 +808,9 @@ public class X3dEditUserPreferences
   private static final String windows64Rhino3DX3dEditorPathDefault       = "C:\\Program Files\\Rhino 8\\System\\Rhino.exe";
   private static final String windows64SeamlessX3dEditorPathDefault      = "C:\\Program Files\\Seamless3d\\seamless3d.exe";
   private static final String windows64SunrizeX3dEditorPathDefault       = "%USER_PROFILE%\\AppData\\Local\\sunrize\\sunrize.exe";
-  private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.0\\bin\\ITK-SNAP.exe";
+  private static final String windows64ItksnapEditorPathDefault          = "C:\\Program Files\\ITK-SNAP 4.6\\bin\\ITK-SNAP.exe";
   private static final String windows64Seg3dEditorPathDefault            = "C:\\Program Files\\Seg3D2_2.5\\bin\\Seg3D2.exe";
-  private static final String windows64Slicer3dEditorPathDefault         = "C:\\ProgramData\\slicer.org\\Slicer 5.6.2\\Slicer.exe";
+  private static final String windows64Slicer3dEditorPathDefault         = "C:\\Program Files\\slicer.org\\3D Slicer 5.12.4\\Slicer.exe";
   private static final String windows64BatikEditorPathDefault            = "C:\\languages\\java\\batik-1.19\\batik-squiggle-1.19.jar";
   private static final String windows64InkscapeEditorPathDefault         = "C:\\Program Files\\Inkscape\\bin\\inkscape.exe";
   private static final String windows64SvgeditEditorPathDefault          = "https://svgedit.netlify.app"; // online editor
@@ -820,7 +820,7 @@ public class X3dEditUserPreferences
   
   private static final String macosxAudacityEditorPathDefault            = "audacity";       // TODO insert correct value
   private static final String macosxMuseScoreEditorPathDefault           = "musescore";      // TODO insert correct value
-  private static final String macosxGimpImageEditorPathDefault           = "gimp-3";         // TODO insert correct value
+  private static final String macosxGimpImageEditorPathDefault           = "gimp";           // TODO insert correct value
   private static final String macosxFijiEditorPathDefault                = "Fiji";           // TODO insert correct value
   private static final String macosxImageJEditorPathDefault              = "ij.jar";         // TODO insert correct value
   private static final String macosxImageMagickEditorPathDefault         = "imageconverter"; // TODO insert correct value
@@ -852,7 +852,7 @@ public class X3dEditUserPreferences
   
   private static final String otherAudacityEditorPathDefault             = "audacity";       // TODO insert correct value
   private static final String otherMuseScoreEditorPathDefault            = "musescore";      // TODO insert correct value
-  private static final String otherGimpEditorPathDefault                 = "gimp-3";         // TODO insert correct value
+  private static final String otherGimpEditorPathDefault                 = "gimp";           // TODO insert correct value
   private static final String otherFijiEditorPathDefault                 = "ImageJ-linux64"; // or ImageJ-linux32
   private static final String otherImageJEditorPathDefault               = "ij.jar";         // TODO insert correct value
   private static final String otherImageMagickEditorPathDefault          = "imageconverter"; // TODO insert correct value
@@ -927,7 +927,8 @@ public class X3dEditUserPreferences
   private static final String downloadSiteSeamless3d                     = "https://www.seamless3d.com";
   private static final String downloadSiteSunrize                        = "https://create3000.github.io/sunrize"; // https://nodejs.org/en/download";
   private static final String downloadSiteItksnap                        = "http://www.itksnap.org"; // http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.Downloads";
-  private static final String downloadSiteSeg3d                          = "https://www.sci.utah.edu/software/seg3d.html";
+  private static final String downloadSiteSeg3d                          = "https://github.com/SCIInstitute/Seg3D/releases";
+                                                                        // "https://sci.utah.edu/seg3d-2-3-0"; // "https://www.sci.utah.edu/software/seg3d.html";
                                                                         // "https://www.sci.utah.edu/cibc-software/seg3d.html";
   private static final String downloadSiteSlicer3d                       = "https://www.slicer.org";
   private static final String downloadSiteBatik                          = "https://xmlgraphics.apache.org/batik";
