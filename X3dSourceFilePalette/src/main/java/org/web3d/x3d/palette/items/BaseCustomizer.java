@@ -104,7 +104,7 @@ public abstract class BaseCustomizer extends JPanel
   private static boolean wantTrailingLineFeed = false;
   private final  boolean hasDEFUSEpanel;
 
-  private final JCheckBox   appendTraceEventsCB = new JCheckBox("Trace", false);
+  private final JCheckBox   appendTraceEventsCB = new JCheckBox("Trace with Script", false);
   private final JCheckBox appendVisualizationCB = new JCheckBox("Visualize", false);
 
   // initialize the expected internalization (I18N) localization (L10N) of decimal separator (decimal point)
