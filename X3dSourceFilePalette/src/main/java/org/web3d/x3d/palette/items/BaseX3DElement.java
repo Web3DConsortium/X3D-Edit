@@ -707,7 +707,7 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "    }\n").append(
             "  ]]>\n").append(
             "</Script>\n").append(
-            "<!-- Authors can remove ROUTEs for fields that do not need to be traced, but unused fields do not report anyway -->\n").append(
+            "<!-- Authors can remove or comment ROUTEs for fields that do not need to be traced, but unused fields do not report anyway -->\n").append(
             "<!-- TODO BSContact TimeSensor errors: support missing for pauseTime, resumeTime, elapsedTime, isPaused  :(  -->\n").append(
             "<ROUTE fromField='fraction_changed' fromNode='").append(getDEFUSEvalue()).append("' toField='fraction'      toNode='").append(scriptName).append("'/>\n").append(
             "<ROUTE fromField='cycleInterval'    fromNode='").append(getDEFUSEvalue()).append("' toField='cycleInterval' toNode='").append(scriptName).append("'/>\n").append(
