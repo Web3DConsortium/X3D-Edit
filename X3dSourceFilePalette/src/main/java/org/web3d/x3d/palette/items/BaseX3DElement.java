@@ -682,6 +682,16 @@ public abstract class BaseX3DElement implements ActiveEditorDrop
             "    function isPaused (eventValue) {\n").append(
             "      Browser.print ('").append(scriptName).append(" type=SFBool isPaused=' + eventValue + '\\n');\n").append(
             "    }\n").append(
+            // experimental in X3D v4.1 draft
+            "    function cycleComplete (eventValue) {\n").append(
+            "      Browser.print ('").append(scriptName).append(" type=SFBool cycleComplete=' + eventValue + '\\n');\n").append(
+            "    }\n").append(
+            "    function cycleCompleteTime (eventValue) {\n").append(
+            "      Browser.print ('").append(scriptName).append(" type=SFTime cycleCompleteTime=' + eventValue + '\\n');\n").append(
+            "    }\n").append(
+            "    function cycleCount (eventValue) {\n").append(
+            "      Browser.print ('").append(scriptName).append(" type=SFInt32 cycleCount=' + eventValue + '\\n');\n").append(
+            "    }\n").append(
             "    function timeOfDay (someTime) {\n").append(
             "      hh = Math.floor (someTime /(60*60)) % 24;\n").append(
             "      mm = Math.floor (someTime / 60)     % 60;\n").append(
