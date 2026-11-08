@@ -3524,6 +3524,14 @@ public interface X3DSchemaData
   boolean AUDIOCLIP_ATTR_LOAD_REQD        = false;
   String  AUDIOCLIP_ATTR_LOAD_DFLT        = "false";
   
+  String[]AUDIOCLIP_CONTAINERFIELD_CHOICES    = {"source","children","watchlist"};
+  String[]AUDIOCLIP_CONTAINERFIELD_TOOLTIPS   =
+  {
+      "'source' field for parent Sound node",
+      "'children' field for a parent LoadSensor node",
+      "'watchlist' field for a parent LoadSensor node, X3D 4.0",
+  };
+  
   // Polyline2d element
   String  POLYLINE2D_ELNAME                 = "Polyline2D";
   String  POLYLINE2D_ATTR_LINESEGMENTS_NAME = "lineSegments";

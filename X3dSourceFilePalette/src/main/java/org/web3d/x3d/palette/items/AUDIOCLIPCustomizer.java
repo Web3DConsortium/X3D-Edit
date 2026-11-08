@@ -37,6 +37,8 @@ package org.web3d.x3d.palette.items;
 import javax.swing.text.JTextComponent;
 import org.openide.util.HelpCtx;
 import org.web3d.x3d.X3DDataObject;
+import static org.web3d.x3d.types.X3DSchemaData.AUDIOCLIP_CONTAINERFIELD_CHOICES;
+import static org.web3d.x3d.types.X3DSchemaData.AUDIOCLIP_CONTAINERFIELD_TOOLTIPS;
 
 /**
  * AUDIOCLIPCustomizer.java
@@ -65,6 +67,7 @@ public class AUDIOCLIPCustomizer extends BaseCustomizer
     
     initComponents();
     
+    super.getDEFUSEpanel().setContainerFieldChoices(AUDIOCLIP_CONTAINERFIELD_CHOICES, AUDIOCLIP_CONTAINERFIELD_TOOLTIPS);
     autoRefreshTF.setText(audioClip.getAutoRefresh());
     autoRefreshTimeLimitTF.setText(audioClip.getAutoRefreshTimeLimit());
     gainTF.setText(audioClip.getGain());
