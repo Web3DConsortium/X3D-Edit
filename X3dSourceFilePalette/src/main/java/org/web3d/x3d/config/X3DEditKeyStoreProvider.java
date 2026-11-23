@@ -65,11 +65,15 @@ public class X3DEditKeyStoreProvider implements KeyStoreProvider {
         String certPath = System.getProperty("javax.net.ssl.trustStore");
         String certPw   = System.getProperty("javax.net.ssl.trustStorePassword");
         
-        InputStream str;
+        InputStream inputStream;
         try {
-            str = new FileInputStream(certPath);
-            keystore.load(str, certPw.toCharArray());
-        } catch (IOException | NoSuchAlgorithmException | CertificateException ex) {
+            inputStream = new FileInputStream(certPath);
+            keystore.load(inputStream, certPw.toCharArray());
+        } 
+        catch (IOException | NoSuchAlgorithmException | CertificateException ex) 
+        {
+            System.err.println("*** X3DEditKeyStoreProvider unable to find certPath=" + certPath);
+            System.err.println("exception " + ex.getMessage());
             Exceptions.printStackTrace(ex);
         }
         

@@ -95,7 +95,10 @@ public final class ManageKeyStoreAction extends CallableSystemAction
     try {
       ManageKeyStorePanel manageKeyStorePanel = BouncyCastleHelper.buildManageKeyPanel(keystorePassword);
       if(manageKeyStorePanel == null || manageKeyStorePanel.getKeystore() == null) // check for proper initialization
-        return;
+      {
+            System.err.println("*** X3D-Edit manageKeyStorePanel problem with BouncyCastleHelper");
+          return;
+      }
       // Want only close button and help button
       JButton closeButton = new JButton(NbBundle.getMessage(getClass(), "MSG_Close")); //"Close");
       dialogDescriptor = new DialogDescriptor(

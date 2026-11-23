@@ -220,6 +220,10 @@ public class ManageKeyStorePanel extends javax.swing.JPanel
     keyStoreFile = new File(initialKeystorePath);
     if (keyStoreFile.exists())
         keyStoreInputStream = new FileInputStream(keyStoreFile);
+    else
+    {
+        System.err.println("*** X3D-Edit keyStoreFile not found: " + initialKeystorePath);
+    }
   }
   
   private void initializeKeyTable() throws Exception

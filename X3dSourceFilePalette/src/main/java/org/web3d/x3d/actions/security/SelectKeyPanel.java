@@ -245,6 +245,10 @@ public class SelectKeyPanel extends javax.swing.JPanel
     keystoreFile = new File(keystorePath);
     if (keystoreFile.exists())
         keystoreFileInputStream = new FileInputStream(keystoreFile);
+    else
+    {
+        System.err.println("*** X3D-Edit keystoreFile not found: " + keystorePath);
+    }
   }
 
   private int defaultAliasColWidth = 135; //90;
