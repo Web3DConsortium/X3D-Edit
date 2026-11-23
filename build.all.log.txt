@@ -1,5 +1,6 @@
 platform.download:
 ant -f C:\\x3d-github\\X3D-Edit -Djdk.xml.entityExpansionLimit=120000 -Djdk.xml.maxGeneralEntitySizeLimit=50000000 -Djdk.xml.totalEntitySizeLimit=50000000 all
+Deleting directory C:\x3d-github\X3D-Edit\build\testuserdir
 testuserdir-delete:
 suite-jnlp.clean:
 clean:
@@ -21,27 +22,27 @@ versions:
 =============
 NetBeans can use internal (bundled) or external version of Ant
 ant -version
-Apache Ant(TM) version 1.10.17 compiled on April 6 2026
+Apache Ant(TM) version 1.10.18 compiled on September 3 2026
 NetBeans ant directory is set under Tools > Options > Java
 which ant
-/cygdrive/c/apache-ant-1.10.17/bin/ant
+/cygdrive/c/apache-ant-1.10.18/bin/ant
 ant xmlvalidate this build file, build.xml
 1 file(s) have been successfully validated.
 =============
 java -version
-openjdk version "26" 2026-03-17
-OpenJDK Runtime Environment (build 26+35-2893)
-OpenJDK 64-Bit Server VM (build 26+35-2893, mixed mode, sharing)
+openjdk version "27.0.1.1" 2026-11-17
+OpenJDK Runtime Environment (build 27.0.1.1+4-22)
+OpenJDK 64-Bit Server VM (build 27.0.1.1+4-22, mixed mode, sharing)
 which java
-/cygdrive/c/Program Files/Java/OpenJDK/jdk-26/bin/java
+/cygdrive/c/Program Files/Java/OpenJDK/jdk-27.0.1.1/bin/java
 =============
 System environment variables:
   ANT_HOME=${env.ANT_HOME}
  JAVA_HOME=${env.JAVA_HOME}
 PYTHONPATH=${env.PYTHONPATH}
 javac source version     $java.source=${java.source}
-Java/JVM version    $ant.java.version=26
-Java/JVM detail version $java.version=26
+Java/JVM version    $ant.java.version=27
+Java/JVM detail version $java.version=27.0.1.1
 Ant version              $ant.version=Apache Ant(TM) version 1.10.15 compiled on August 25 2024
 =============
 build-brand:
@@ -54,46 +55,46 @@ X3D-Edit Module.files-init:
 X3D-Edit Module.nbm-license-init:
 X3D-Edit Module.build-init:
 Created dir: C:\x3d-github\X3D-Edit\build\public-package-jars
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\extide
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\ide
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\java
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\nb
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\platform
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\webcommon
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\extide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\ide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\java
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\nb
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\platform
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\webcommon
 Scanning for modules in suite C:\x3d-github\X3D-Edit
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-apache-tools-ant-module.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\extide\modules\org-apache-tools-ant-module.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-api-xml.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-api-xml.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-api-xml-ui.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-api-xml-ui.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-libs-xerces.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-libs-xerces.jar, C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\ext\xerces-2.8.0.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-autoupdate-services.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-netbeans-modules-autoupdate-services.jar, C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\ext\updater.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-document.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-modules-editor-document.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-indent.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-modules-editor-indent.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-lib.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-modules-editor-lib.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-mimelookup.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-netbeans-modules-editor-mimelookup.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-options-api.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-netbeans-modules-options-api.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-settings.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-netbeans-modules-settings.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-catalog.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-modules-xml-catalog.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-catalog-ui.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-modules-xml-catalog-ui.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-core.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-modules-xml-core.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-lexer.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-modules-xml-lexer.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-retriever.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-modules-xml-retriever.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-schema-model.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-modules-xml-schema-model.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-xdm.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-modules-xml-xdm.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-spi-palette.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\ide\modules\org-netbeans-spi-palette.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-actions.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-openide-actions.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-awt.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-openide-awt.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-dialogs.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-openide-dialogs.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-execution.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-openide-execution.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-filesystems.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\core\org-openide-filesystems.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-io.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-openide-io.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-loaders.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-openide-loaders.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-modules.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\lib\org-openide-modules.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-nodes.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-openide-nodes.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-text.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-openide-text.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\lib\org-openide-util.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util-lookup.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\lib\org-openide-util-lookup.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util-ui.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\lib\org-openide-util-ui.jar]
-Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-windows.jar from [C:\Program Files\NetBeans\NetBeans-31\netbeans\platform\modules\org-openide-windows.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-apache-tools-ant-module.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\extide\modules\org-apache-tools-ant-module.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-api-xml.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-api-xml.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-api-xml-ui.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-api-xml-ui.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-libs-xerces.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-libs-xerces.jar, C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\ext\xerces-2.8.0.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-autoupdate-services.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-netbeans-modules-autoupdate-services.jar, C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\ext\updater.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-document.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-modules-editor-document.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-indent.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-modules-editor-indent.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-lib.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-modules-editor-lib.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-editor-mimelookup.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-netbeans-modules-editor-mimelookup.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-options-api.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-netbeans-modules-options-api.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-settings.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-netbeans-modules-settings.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-catalog.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-modules-xml-catalog.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-catalog-ui.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-modules-xml-catalog-ui.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-core.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-modules-xml-core.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-lexer.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-modules-xml-lexer.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-retriever.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-modules-xml-retriever.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-schema-model.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-modules-xml-schema-model.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-modules-xml-xdm.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-modules-xml-xdm.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-netbeans-spi-palette.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\ide\modules\org-netbeans-spi-palette.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-actions.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-openide-actions.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-awt.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-openide-awt.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-dialogs.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-openide-dialogs.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-execution.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-openide-execution.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-filesystems.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\core\org-openide-filesystems.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-io.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-openide-io.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-loaders.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-openide-loaders.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-modules.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\lib\org-openide-modules.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-nodes.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-openide-nodes.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-text.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-openide-text.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\lib\org-openide-util.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util-lookup.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\lib\org-openide-util-lookup.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-util-ui.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\lib\org-openide-util-ui.jar]
+Distilling C:\x3d-github\X3D-Edit\build\public-package-jars\org-openide-windows.jar from [C:\Program Files\NetBeans\NetBeans-32\netbeans\platform\modules\org-openide-windows.jar]
 X3D-Edit Module.init:
 X3D-Edit Module.projectized-common.-javadoc-init:
 X3D-Edit Module.moduleVersion:
@@ -101,7 +102,7 @@ mf.OpenIDE-Module-Implementation-Version=43
 MODULE_PROJECT_PROPERTIES_FILE=X3dSourceFilePalette/moduleVersion.properties
        MODULE_MANIFEST_VERSION=43
 Updating property file: C:\x3d-github\X3D-Edit\branding\modules\org-netbeans-core-windows.jar\org\netbeans\core\windows\view\ui\Bundle.properties
-CTL_MainWindow_Title=X3D-Edit 4.0 Authoring Tool, build 20260903, module 4.0.43
+CTL_MainWindow_Title=X3D-Edit 4.0 Authoring Tool, build 20261122, module 4.0.43
 branding:
 Created dir: C:\x3d-github\X3D-Edit\build\cluster
 Building jar: C:\x3d-github\X3D-Edit\build\cluster\core\locale\core_x3deditmodulesuite.jar
@@ -117,12 +118,12 @@ X3D-Edit Module.basic-init:
 X3D-Edit Module.files-init:
 X3D-Edit Module.nbm-license-init:
 X3D-Edit Module.build-init:
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\extide
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\ide
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\java
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\nb
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\platform
-Scanning for modules in C:\Program Files\NetBeans\NetBeans-31\netbeans\webcommon
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\extide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\ide
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\java
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\nb
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\platform
+Scanning for modules in C:\Program Files\NetBeans\NetBeans-32\netbeans\webcommon
 Scanning for modules in suite C:\x3d-github\X3D-Edit
 X3D-Edit Module.init:
 X3D-Edit Module.up-to-date:
@@ -239,7 +240,7 @@ last modified = Sat Dec 13 09:18:22 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0.dtd
 ............
-last modified = Mon Aug 03 21:08:23 PDT 2026
+last modified = Wed Oct 28 21:14:49 PDT 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1-InputOutputFields.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1-InputOutputFields.dtd
 .
@@ -259,7 +260,7 @@ last modified = Sat Dec 13 09:16:13 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1.dtd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1.dtd
 ............
-last modified = Mon Aug 03 21:08:23 PDT 2026
+last modified = Wed Oct 28 21:14:49 PDT 2026
 X3D-Edit Module.get.latest.schemas:
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-3.0.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-3.0.xsd
@@ -282,12 +283,12 @@ Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.0
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.0.xsd
 ....................................................
 ..............................
-last modified = Thu Aug 13 07:59:52 PDT 2026
+last modified = Sun Nov 08 08:47:30 PST 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/x3d-4.1.xsd
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\x3d-4.1.xsd
 ....................................................
-................................
-last modified = Thu Aug 13 07:59:52 PDT 2026
+.........................
+last modified = Sun Nov 08 08:49:14 PST 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/specifications/OasisXmlCatalogX3D.xml
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\specifications\OasisXmlCatalogX3D.xml
 .
@@ -376,7 +377,7 @@ last modified = Fri Aug 22 07:44:13 PDT 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/buildSchematronDevelopment.xml
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\buildSchematronDevelopment.xml
 ....
-last modified = Sat Jan 10 18:44:33 PST 2026
+last modified = Thu Sep 03 19:16:30 PDT 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/tools/schematron/SvrlReportText.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\schematron\SvrlReportText.xslt
 .
@@ -528,12 +529,12 @@ X3D-Edit Module.get.latest.stylesheets:
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToX3dvClassicVrmlEncoding.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToX3dvClassicVrmlEncoding.xslt
 .
-last modified = Fri May 15 13:28:01 PDT 2026
+last modified = Tue Oct 27 15:37:57 PDT 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToVrml97.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToVrml97.xslt
 ....................................................
 ....
-last modified = Mon Aug 10 08:39:34 PDT 2026
+last modified = Tue Oct 27 15:37:57 PDT 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dExtrusionToSvgViaXslt2.0.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dExtrusionToSvgViaXslt2.0.xslt
 ..
@@ -541,7 +542,7 @@ last modified = Sun Jul 21 05:28:28 PDT 2019
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dTidy.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dTidy.xslt
 ..................................................
-last modified = Thu Aug 27 23:38:36 PDT 2026
+last modified = Tue Oct 27 15:37:57 PDT 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToHtml.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToHtml.xslt
 .........
@@ -568,8 +569,8 @@ To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\styl
 last modified = Sat Dec 27 16:00:50 PST 2025
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToXhtml.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToXhtml.xslt
-.............................................
-last modified = Sat Aug 29 08:13:42 PDT 2026
+...............................................
+last modified = Sat Nov 07 14:05:19 PST 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToX3domX_ITE.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToX3domX_ITE.xslt
 ............
@@ -577,19 +578,19 @@ last modified = Tue Jun 30 00:42:38 PDT 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToJava.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToJava.xslt
 .........................
-last modified = Tue Jun 30 00:42:38 PDT 2026
+last modified = Wed Oct 28 20:23:03 PDT 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToJson.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToJson.xslt
 ......................
-last modified = Tue Jun 30 00:42:38 PDT 2026
+last modified = Wed Oct 28 20:23:03 PDT 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToPython.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToPython.xslt
 ....................
-last modified = Thu Aug 13 10:42:19 PDT 2026
+last modified = Wed Oct 28 20:23:03 PDT 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dToTurtle.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dToTurtle.xslt
 ...............
-last modified = Sun Aug 30 13:16:44 PDT 2026
+last modified = Wed Oct 28 20:23:03 PDT 2026
 Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dUnwrap.xslt
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dUnwrap.xslt
 ....
@@ -598,23 +599,65 @@ Getting: https://svn.code.sf.net/p/x3d/code/www.web3d.org/x3d/stylesheets/X3dWra
 To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\stylesheets\X3dWrap.xslt
 ....
 last modified = Fri Apr 26 18:43:39 PDT 2024
+X3D-Edit Module.get.latest.X3DJSAIL.jar:
+Getting: https://www.web3d.org/specifications/java/jars/X3DJSAIL.4.0.full.jar
+To: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\release\modules\ext\X3DJSAIL.4.0.full.jar
+local file date : Sat Oct 31 14:07:02 PDT 2026
+Not modified - so not downloaded
+X3D-Edit Module.get.latest.Xj3D.jars.local:
+prerequisite: Xj3D build all
+Copying 6 files to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\release\modules\ext
+Copying C:\x3d-github\Xj3D\xj3d\jars\aviatrix3d-all_3.1.1-nps.jar to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\release\modules\ext\aviatrix3d-all_3.1.1-nps.jar
+Copying C:\x3d-github\Xj3D\xj3d\jars\jogamp-fat.jar to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\release\modules\ext\jogamp-fat.jar
+Copying C:\x3d-github\Xj3D\xj3d\jars\xj3d-2.3-3rdparty-nps.jar to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\release\modules\ext\xj3d-2.3-3rdparty-nps.jar
+Copying C:\x3d-github\Xj3D\xj3d\jars\xj3d-2.3-nps.jar to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\release\modules\ext\xj3d-2.3-nps.jar
+Copying C:\x3d-github\Xj3D\xj3d\jars\xj3d.browser_2.3.0-nps.jar to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\release\modules\ext\xj3d.browser_2.3.0-nps.jar
+Copying C:\x3d-github\Xj3D\xj3d\jars\xj3d.cadfilter_2.3.0-nps.jar to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\release\modules\ext\xj3d.cadfilter_2.3.0-nps.jar
 X3D-Edit Module.get.latest:
 Created dir: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
 Compiling 959 source files to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
 Ignoring source, target and bootclasspath as release has been set
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\types\X3DPrimitiveTypes.java:70: warning: [deprecation] Locale(String,String) in Locale has been deprecated
+    Locale usLocale = new Locale ("en","US"); // avoid settings of current locale
 C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\InputOutputReporter.java:68: warning: [removal] WeakSet in org.openide.util has been deprecated and marked for removal
         Collections.synchronizedSet(new WeakSet<Hyperlink>()); // Set<Hyperlink>
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\InputOutputReporter.java:161: warning: [deprecation] URL(String) in URL has been deprecated
+            URL url = new URL (systemId);
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\conversions\ConversionsHelper.java:253: warning: [deprecation] URL(String) in URL has been deprecated
+             openInBrowser(new URL(resultFileAddress));
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\conversions\ConversionsHelper.java:254: warning: [deprecation] URL(String) in URL has been deprecated
+        else openInBrowser(new URL("file://"+resultFileAddress));
 C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\DownloadX3dExamplesArchivesPanel.java:1489: warning: [deprecation] copy(InputStream,OutputStream) in FileUtil has been deprecated
       FileUtil.copy(buildFile.getInputStream(), os);
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\options\X3dEditUserPreferencesPanel.java:12700: warning: [deprecation] performAction() in NodeAction has been deprecated
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\UrlExpandableList2.java:544: warning: [deprecation] URL(String) in URL has been deprecated
+              url = new URL(inputUrl.trim()); // only fully elaborated constructor can break down into parts
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\UrlExpandableList2.java:1952: warning: [deprecation] URL(String) in URL has been deprecated
+      URL u = new URL(s);
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\UrlExpandableList2.java:1959: warning: [deprecation] URL(String,String,String) in URL has been deprecated
+        URL u2 = new URL("file", "", s);
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\UrlExpandableList2.java:1972: warning: [deprecation] URL(URL,String) in URL has been deprecated
+          URL finalUrl = new URL(parentUrl, s);
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\UrlCustomizerPanel.java:99: warning: [deprecation] URL(String) in URL has been deprecated
+      URL url = new URL(txt);
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\UrlStatus.java:102: warning: [deprecation] URL(String) in URL has been deprecated
+        url = new URL(packet.url);
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\xj3d\converter\Xj3DConv.java:393: warning: [deprecation] URL(String) in URL has been deprecated
+                URL url = new URL(filename);
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\options\X3dEditUserPreferencesPanel.java:13716: warning: [deprecation] performAction() in NodeAction has been deprecated
           viewInAllAutolaunchAction.performAction();
 C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\LaunchWiresharkAction.java:60: warning: [deprecation] performAction() in NodeAction has been deprecated
   public void performAction()
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\security\ManageKeyStorePanel.java:335: warning: [deprecation] X509V1CertificateGenerator in org.bouncycastle.x509 has been deprecated
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\hanim\bvh\BvhSkeletonParameters.java:116: warning: [deprecation] Locale(String,String) in Locale has been deprecated
+    Locale usLocale = new Locale ("en","US"); // avoid settings of current locale
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\security\ManageKeyStorePanel.java:339: warning: [deprecation] X509V1CertificateGenerator in org.bouncycastle.x509 has been deprecated
     X509V1CertificateGenerator certGen = new X509V1CertificateGenerator();
-C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\security\ManageKeyStorePanel.java:335: warning: [deprecation] X509V1CertificateGenerator in org.bouncycastle.x509 has been deprecated
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\actions\security\ManageKeyStorePanel.java:339: warning: [deprecation] X509V1CertificateGenerator in org.bouncycastle.x509 has been deprecated
     X509V1CertificateGenerator certGen = new X509V1CertificateGenerator();
-6 warnings
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\FIELDCustomizer.java:394: warning: [deprecation] URL(String) in URL has been deprecated
+        if (documentationTF.getText().trim().isEmpty()) {             return;         }         URL url = null;         try {             url = new URL(documentationTF.getText());             URLDisplayer.getDefault().showURL(url);         } catch (Exception e) {             System.out.println("Failed attempt to launch " + url.toString());         }     }//GEN-LAST:event_openDocumentationButtonActionPerformed
+C:\x3d-github\X3D-Edit\X3dSourceFilePalette\src\main\java\org\web3d\x3d\palette\items\PROTODECLARECustomizer.java:478: warning: [deprecation] URL(String) in URL has been deprecated
+        if (documentationTF.getText().trim().isEmpty()) {             return;         }         URL url = null;         try {             url = new URL(documentationTF.getText());             URLDisplayer.getDefault().showURL(url);         } catch (Exception e) {             System.out.println("Failed attempt to launch " + url.toString());         }     }//GEN-LAST:event_openDocumentationButtonActionPerformed
+20 warnings
 Creating empty C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes\org\web3d\x3d\palette\package-info.class
 Copying 1082 files to C:\x3d-github\X3D-Edit\X3dSourceFilePalette\build\classes
 X3D-Edit Module.compile:
@@ -625,7 +668,7 @@ X3D-Edit Module.jar:
 X3D-Edit Module.netbeans-extra:
 X3D-Edit Module.javahelp:
 X3D-Edit Module.module-auto-deps:
-Copying 35 files to C:\x3d-github\X3D-Edit\build\cluster
+Copying 38 files to C:\x3d-github\X3D-Edit\build\cluster
 X3D-Edit Module.release:
 X3D-Edit Module.module-xml-regular:
 X3D-Edit Module.module-xml-autoload:
@@ -652,17 +695,17 @@ Keystore provider: SUN
 Your keystore contains 1 entry
 
 Alias name: nbmsigner
-Creation date: Sep 3, 2026
+Creation date: Nov 22, 2026
 Entry type: PrivateKeyEntry
 Certificate chain length: 1
 Certificate[1]:
 Owner: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
 Issuer: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
-Serial number: d5b2476a4496ebf5
-Valid from: Thu Sep 03 11:10:02 PDT 2026 until: Wed Dec 02 10:10:02 PST 2026
+Serial number: 7f5c9d55c0fd8315
+Valid from: Sun Nov 22 19:54:04 PST 2026 until: Sat Feb 20 19:54:04 PST 2027
 Certificate fingerprints:
-	 SHA1: E7:BE:02:D6:E5:B4:94:A8:FB:7A:28:85:27:9B:7F:0E:71:F7:CE:CB
-	 SHA256: 21:12:4D:2F:C9:AF:89:08:06:52:BA:C8:3F:C1:3F:81:90:B1:F6:BE:8A:8A:C2:DE:D9:92:1D:7F:52:CD:32:23
+	 SHA1: 66:1E:51:5C:7B:6C:15:03:18:7C:F3:83:F4:D4:3E:6A:09:FD:8D:ED
+	 SHA256: 93:6C:45:D5:40:A3:0B:A9:49:E5:08:31:3A:23:8E:5E:BC:41:6D:A3:EB:55:1A:8C:CB:75:7B:23:33:D3:2C:17
 Signature algorithm name: SHA384withRSA
 Subject Public Key Algorithm: 2048-bit RSA key
 Version: 3
@@ -672,8 +715,8 @@ Extensions:
 #1: ObjectId: 2.5.29.14 Criticality=false
 SubjectKeyIdentifier [
 KeyIdentifier [
-0000: 76 EC 81 A8 CF C2 DC 7F   85 5F E6 A3 D0 EC A8 B7  v........_......
-0010: F4 C4 89 5C                                        ...\
+0000: 1F 13 15 AA 56 63 0B 61   23 37 6F B4 F9 CF 22 12  ....Vc.a#7o...".
+0010: EC 36 AE AB                                        .6..
 ]
 ]
 
@@ -690,4 +733,4 @@ Updating property file: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\nbproject\pr
 all:
 *** Release preparations: update X3D-Edit.html prior to final release
 build all complete, release results maintained in build.all.log.txt
-BUILD SUCCESSFUL (total time: 30 seconds)
+BUILD SUCCESSFUL (total time: 39 seconds)
