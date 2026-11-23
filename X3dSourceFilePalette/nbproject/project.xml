@@ -454,6 +454,10 @@
             <word>boolean</word>
             <word>BufferAudioSource</word>
             <word>bvh</word>
+            <word>CADAssembly</word>
+            <word>CADFace</word>
+            <word>CADLayer</word>
+            <word>CADPart</word>
             <word>Canonicalization</word>
             <word>ChannelMerger</word>
             <word>ChannelSelector</word>
@@ -476,12 +480,15 @@
             <word>deserialization</word>
             <word>deserialized</word>
             <word>detune</word>
+            <word>DISEntityManager</word>
+            <word>DISEntityTypeMapping</word>
             <word>DOCTYPE</word>
             <word>DTD</word>
             <word>DynamicsCompressor</word>
             <word>ElevationGrid</word>
             <word>endFrame</word>
             <word>EnvironmentLight</word>
+            <word>EspduTransform</word>
             <word>EXI</word>
             <word>FillProperties</word>
             <word>frameCount</word>
@@ -495,6 +502,7 @@
             <word>gzip</word>
             <word>gzipped</word>
             <word>HAnim</word>
+            <word>HAnimDisplacer</word>
             <word>HAnimHumanoid</word>
             <word>HAnimJoint</word>
             <word>HAnimMotion</word>
@@ -550,6 +558,16 @@
             <word>NetBeans</word>
             <word>NPS</word>
             <word>NuGraf</word>
+            <word>NurbsCurve</word>
+            <word>NurbsOrientationInterpolator</word>
+            <word>NurbsPatchSurface</word>
+            <word>NurbsPositionInterpolator</word>
+            <word>NurbsSet</word>
+            <word>NurbsSurfaceInterpolator</word>
+            <word>NurbsSweptSurface</word>
+            <word>NurbsSwungSurface</word>
+            <word>NurbsTextureCoordinate</word>
+            <word>NurbsTrimmedSurface</word>
             <word>Octaga</word>
             <word>Okino</word>
             <word>opendis</word>
@@ -571,6 +589,7 @@
             <word>QuadSet</word>
             <word>Quickstart</word>
             <word>README</word>
+            <word>ReceiverPdu</word>
             <word>Redistributions</word>
             <word>RenderedTexture</word>
             <word>runtime</word>
@@ -578,6 +597,7 @@
             <word>ScalarInterpolator</word>
             <word>Schematron</word>
             <word>SIGGRAPH</word>
+            <word>SignalPdu</word>
             <word>SISO</word>
             <word>skeletalConfiguration</word>
             <word>SourceForge</word>
@@ -605,6 +625,7 @@
             <word>TODO</word>
             <word>tooltip</word>
             <word>Tooltips</word>
+            <word>TransmitterPdu</word>
             <word>ttl</word>
             <word>TwoSidedMaterial</word>
             <word>UltraEdit</word>
