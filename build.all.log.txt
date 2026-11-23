@@ -1,6 +1,5 @@
 platform.download:
 ant -f C:\\x3d-github\\X3D-Edit -Djdk.xml.entityExpansionLimit=120000 -Djdk.xml.maxGeneralEntitySizeLimit=50000000 -Djdk.xml.totalEntitySizeLimit=50000000 all
-Deleting directory C:\x3d-github\X3D-Edit\build\testuserdir
 testuserdir-delete:
 suite-jnlp.clean:
 clean:
@@ -701,11 +700,11 @@ Certificate chain length: 1
 Certificate[1]:
 Owner: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
 Issuer: CN=savage.nps.edu, OU=MOVES Institute, O=Naval Postgraduate School (NPS), L=Monterey, ST=CA, C=US
-Serial number: 7f5c9d55c0fd8315
-Valid from: Sun Nov 22 19:54:04 PST 2026 until: Sat Feb 20 19:54:04 PST 2027
+Serial number: eb256ed8941838f4
+Valid from: Sun Nov 22 20:18:36 PST 2026 until: Sat Feb 20 20:18:36 PST 2027
 Certificate fingerprints:
-	 SHA1: 66:1E:51:5C:7B:6C:15:03:18:7C:F3:83:F4:D4:3E:6A:09:FD:8D:ED
-	 SHA256: 93:6C:45:D5:40:A3:0B:A9:49:E5:08:31:3A:23:8E:5E:BC:41:6D:A3:EB:55:1A:8C:CB:75:7B:23:33:D3:2C:17
+	 SHA1: 40:67:49:09:D4:E3:FB:3D:32:4A:E9:5E:FF:AC:5F:C4:53:6F:92:4B
+	 SHA256: E1:5B:3A:D6:D4:98:25:27:BD:24:E9:11:1B:EC:A4:28:01:81:CC:43:4E:D1:FF:2C:62:B1:23:97:97:D4:EE:B9
 Signature algorithm name: SHA384withRSA
 Subject Public Key Algorithm: 2048-bit RSA key
 Version: 3
@@ -715,8 +714,8 @@ Extensions:
 #1: ObjectId: 2.5.29.14 Criticality=false
 SubjectKeyIdentifier [
 KeyIdentifier [
-0000: 1F 13 15 AA 56 63 0B 61   23 37 6F B4 F9 CF 22 12  ....Vc.a#7o...".
-0010: EC 36 AE AB                                        .6..
+0000: EB F0 37 53 D9 CA 72 A9   5B 74 FC EF 44 55 F9 10  ..7S..r.[t..DU..
+0010: CE DE 01 BA                                        ....
 ]
 ]
 
@@ -733,4 +732,4 @@ Updating property file: C:\x3d-github\X3D-Edit\X3dSourceFilePalette\nbproject\pr
 all:
 *** Release preparations: update X3D-Edit.html prior to final release
 build all complete, release results maintained in build.all.log.txt
-BUILD SUCCESSFUL (total time: 39 seconds)
+BUILD SUCCESSFUL (total time: 27 seconds)
