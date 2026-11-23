@@ -605,7 +605,7 @@
             <Component class="javax.swing.JLabel" name="xj3dLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="11"/>
-                <Property name="text" type="java.lang.String" value="Xj3D"/>
+                <Property name="text" type="java.lang.String" value="Xj3D (external version)"/>
                 <Property name="toolTipText" type="java.lang.String" value="Xj3D player (external application)"/>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[120, 20]"/>
